@@ -124,50 +124,70 @@ function spSeek(id, i) { // 點文稿句子：跳到該句播放
     spUI();
   } else spToggle(id, t);
 }
-function spUI() { const el = document.getElementById('sp-ctl'); if (el) el.innerHTML = spHtml(el.dataset.id); }
+function spMini() { // 手機底部浮動播放列：捲到測驗區時仍可暫停／倒轉
+  const el = document.getElementById('mini'); if (!el) return;
+  if (Sp.st === 'idle' || !Sp.id) { el.innerHTML = ''; return; }
+  const b = 'rounded-lg px-4 py-2.5 text-sm font-medium cursor-pointer bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
+  el.innerHTML = `<div class="mx-3 mb-3 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur p-2 flex items-center gap-2" style="margin-bottom:max(0.75rem,env(safe-area-inset-bottom))">
+    <span class="flex-1 min-w-0 truncate px-2 text-xs text-slate-500">${Sp.id.toUpperCase()} · ${Sp.mode === 'audio' ? '音檔' : '語音合成'}</span>
+    <button onclick="spBack()" class="${b}">⏪ 5秒</button>
+    <button onclick="spToggle(Sp.id)" class="${b}">${Sp.st === 'playing' ? '⏸' : '▶'}</button>
+    <button onclick="spStop()" class="${b}">⏹</button></div>`;
+}
+function spUI() { const el = document.getElementById('sp-ctl'); if (el) el.innerHTML = spHtml(el.dataset.id); spMini(); }
 document.addEventListener('visibilitychange', () => { if (document.hidden) spStop(); });
 window.addEventListener('pagehide', () => { try { speechSynthesis.cancel(); } catch(e) {} });
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const card = 'rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900';
-const btn = 'rounded-lg px-4 py-2 text-sm font-medium transition cursor-pointer';
+const btn = 'rounded-lg px-4 py-2.5 md:py-2 text-sm font-medium transition cursor-pointer';
 
 function rec(x) {
   return S.ans[idOf(x)] || (S.ans[idOf(x)] = { sel: [null, null, null, null], done: false, score: 0 });
 }
 
 function renderSide() {
-  let h = `<div class="flex items-center justify-between mb-4">
+  // 手機：頂部精簡列（目前 W/D + 展開選單 + 生詞本 + 深淺色）；桌機：完整側欄
+  const nw = cur.nw ?? cur.w, open = !!cur.navOpen, n = Object.keys(S.saved).length;
+  const label = cur.view === 'book' ? '★ 生詞本／錯題本' : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
+  const line = 'border border-slate-300 dark:border-slate-700';
+  let h = `<div class="md:hidden flex items-center gap-2">
+    <button onclick="toggleNav()" class="${btn} flex-1 min-w-0 flex items-center justify-between gap-2 bg-slate-100 dark:bg-slate-800 text-left"><span class="truncate">${label}</span><span class="shrink-0 text-slate-500">${open ? '▴' : '▾'}</span></button>
+    <button onclick="openBook()" class="${btn} ${line} shrink-0" aria-label="生詞本／錯題本">★ ${n}</button>
+    <button onclick="toggleDark()" class="${btn} ${line} shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>
+  </div>
+  <div class="hidden md:flex items-center justify-between mb-4">
     <h1 class="text-lg font-bold">TOEIC Daily</h1>
-    <button onclick="toggleDark()" class="${btn} border border-slate-300 dark:border-slate-700">${S.dark ? '☀ 淺色' : '☾ 深色'}</button>
+    <button onclick="toggleDark()" class="${btn} ${line}">${S.dark ? '☀ 淺色' : '☾ 深色'}</button>
   </div>
-  <div class="grid grid-cols-4 gap-1 mb-4">
-    ${[1, 2, 3, 4].map(w => `<button onclick="go(${w},1)" class="${btn} ${cur.w == w ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">W${w}</button>`).join('')}
+  <div class="${open ? '' : 'hidden'} md:block mt-3 md:mt-0">
+  <div class="grid grid-cols-4 gap-1 mb-3 md:mb-4">
+    ${[1, 2, 3, 4].map(w => `<button onclick="setNavWeek(${w})" class="${btn} ${nw == w ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">W${w}</button>`).join('')}
   </div>
-  <p class="text-xs text-slate-500 mb-2 font-medium">Week ${cur.w} · 7 大主題輪動</p>
+  <p class="text-xs text-slate-500 mb-2 font-medium">Week ${nw} · 7 大主題輪動</p>
   <nav class="space-y-1">`;
 
   THEMES.forEach((t, i) => {
-    const d = i + 1, x = find(cur.w, d), a = x && S.ans[idOf(x)];
-    const isSpecial = d === 5;
-    const st = !x 
-      ? '<span class="text-xs text-slate-400">即將推出</span>' 
-      : a && a.done 
-        ? `<span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">✓ ${Math.round(a.score / 4 * 100)}%</span>` 
-        : '<span class="text-xs text-slate-400">未完成</span>';
-        
-    h += `<button ${x ? `onclick="go(${cur.w},${d})"` : 'disabled'} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between ${cur.view == 'day' && cur.d == d ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : 'opacity-40 cursor-not-allowed'}">
-      <span class="text-sm ${isSpecial ? 'font-bold text-indigo-600 dark:text-indigo-400' : ''}">D${d} ${t}</span>${st}
+    const d = i + 1, x = find(nw, d), a = x && S.ans[idOf(x)];
+    const st = !x
+      ? '<span class="text-xs text-slate-400 shrink-0">即將推出</span>'
+      : a && a.done
+        ? `<span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">✓ ${Math.round(a.score / 4 * 100)}%</span>`
+        : '<span class="text-xs text-slate-400 shrink-0">未完成</span>';
+    const on = cur.view == 'day' && cur.w == nw && cur.d == d;
+    h += `<button ${x ? `onclick="go(${nw},${d})"` : 'disabled'} class="w-full text-left rounded-lg px-3 py-3 md:py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : 'opacity-40 cursor-not-allowed'}">
+      <span class="text-sm ${d === 5 ? 'font-bold text-indigo-600 dark:text-indigo-400' : ''}">D${d} ${t}</span>${st}
     </button>`;
   });
 
-  const n = Object.keys(S.saved).length;
   h += `</nav>
-  <button onclick="cur.view='book';render()" class="${btn} w-full mt-6 border border-slate-300 dark:border-slate-700 ${cur.view == 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">
-    ★ 生詞本／錯題本（${n}）
-  </button>`;
+  <button onclick="openBook()" class="${btn} w-full mt-6 hidden md:block ${line} ${cur.view == 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>
+  </div>`;
   side.innerHTML = h;
 }
+function toggleNav() { cur.navOpen = !cur.navOpen; renderSide(); }
+function setNavWeek(w) { cur.nw = w; renderSide(); }
+function openBook() { cur.view = 'book'; cur.navOpen = false; render(); window.scrollTo({ top: 0 }); }
 
 function renderDay() {
   const x = find(cur.w, cur.d);
@@ -188,15 +208,15 @@ function renderDay() {
 
   let h = `<header class="mb-6">
     <div class="flex items-center gap-2">
-      <h2 class="text-2xl font-bold">Day ${x.day} ${THEMES[x.day-1]}</h2>
+      <h2 class="text-xl md:text-2xl font-bold">Day ${x.day} ${THEMES[x.day-1]}</h2>
       ${x.day === 5 ? '<span class="px-2 py-0.5 text-xs bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 rounded font-semibold">設計師精選</span>' : ''}
     </div>
     <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${x.week} · ${x.tag}</span>
   </header>
 
   <!-- 短文/聽力卡片 -->
-  <section class="${card} p-6 mb-6">
-    <div class="flex items-center justify-between mb-4">
+  <section class="${card} p-4 md:p-6 mb-5 md:mb-6">
+    <div class="flex items-center justify-between mb-4 gap-2 flex-wrap">
       <div class="flex items-center gap-2">
         <span class="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">${x.type}</span>
         ${isListening ? '<span class="text-xs text-indigo-600 dark:text-indigo-400">建議先聽聲音作答</span>' : ''}
@@ -259,7 +279,7 @@ function renderDay() {
   h += `<div class="space-y-4">`;
   x.questions.forEach((q, qi) => {
     const k = `q:${id}:${qi}`, s = r.sel[qi], ok = s === q.ans;
-    h += `<div class="${card} p-5">
+    h += `<div class="${card} p-4 md:p-5">
       <div class="flex justify-between items-center mb-2">
         <span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">Q${qi+1} · ${q.kind=='context'?'情境理解':'Part 5 單選'}</span>
       </div>
@@ -274,7 +294,7 @@ function renderDay() {
         else if (oi === s) c = 'border-rose-500 bg-rose-50 dark:bg-rose-950/50 text-rose-800 dark:text-rose-200';
         else c = 'border-slate-200 dark:border-slate-800 opacity-50';
       }
-      h += `<button ${done ? 'disabled' : `onclick="pick(${qi},${oi})"`} class="w-full text-left rounded-lg border px-4 py-2.5 text-sm flex items-center justify-between ${c}">
+      h += `<button ${done ? 'disabled' : `onclick="pick(${qi},${oi})"`} class="w-full text-left rounded-lg border px-4 py-3 md:py-2.5 text-sm flex items-center justify-between ${c}">
         <span>${L[oi]}. ${o}</span>
         ${done && oi === q.ans ? '<span class="text-emerald-600 font-bold">✓ 正解</span>' : ''}
         ${done && oi === s && !ok ? '<span class="text-rose-600 font-bold">✗ 你的答案</span>' : ''}
@@ -356,7 +376,7 @@ function renderBook() {
   });
 
   main.innerHTML = `
-    <h2 class="text-2xl font-bold mb-4">生詞本與錯題本</h2>
+    <h2 class="text-xl md:text-2xl font-bold mb-4">生詞本與錯題本</h2>
     <div class="grid md:grid-cols-2 gap-6">
       <div>
         <h3 class="font-bold text-base mb-3 flex items-center gap-2">
