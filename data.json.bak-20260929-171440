@@ -1,0 +1,312 @@
+[
+  {
+    "week": 1,
+    "day": 1,
+    "tag": "會議時間異動通知",
+    "type": "Reading",
+    "passage": "To: All Staff\nSubject: Revised Meeting Schedule\n\nStarting Monday, the weekly marketing meeting will move from 9:00 A.M. to 10:30 A.M. so that team members in the Singapore office can join by video conference. Please confirm your attendance by replying to this e-mail no later than Friday. Employees who cannot attend must submit their updates to Ms. Chen in advance. Please note that Conference Room B will be unavailable due to renovations, so the meeting will be held in Room A.",
+    "zh": "收件人：全體員工\n主旨：會議時程調整\n\n自週一起，每週行銷會議將由上午 9:00 改為 10:30，讓新加坡辦公室的同事可以透過視訊會議參加。請最晚於週五前回覆此郵件確認出席。無法出席的員工須事先將進度報告提交給陳女士。請注意，B 會議室因整修將無法使用，因此會議將改在 A 室舉行。",
+    "vocab": [
+      {
+        "word": "confirm",
+        "ipa": "/kənˈfɜːrm/",
+        "pos": "v.",
+        "col": "confirm attendance / a reservation",
+        "zh": "確認"
+      },
+      {
+        "word": "submit",
+        "ipa": "/səbˈmɪt/",
+        "pos": "v.",
+        "col": "submit a report / an application",
+        "zh": "提交"
+      },
+      {
+        "word": "renovation",
+        "ipa": "/ˌrenəˈveɪʃn/",
+        "pos": "n.",
+        "col": "under renovation / renovation work",
+        "zh": "整修、翻新"
+      }
+    ],
+    "questions": [
+      {
+        "kind": "context",
+        "q": "Why is the meeting time being changed?",
+        "opts": [
+          "To avoid a room conflict",
+          "To allow Singapore staff to join",
+          "To shorten the meeting",
+          "To welcome new employees"
+        ],
+        "ans": 1,
+        "why": [
+          "文中換房間是因為整修，非時間衝突。",
+          "正解：方便新加坡團隊視訊加入。",
+          "未提到縮短會議。",
+          "未提及新進員工。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "What are employees who cannot attend asked to do?",
+        "opts": [
+          "Send their updates to Ms. Chen",
+          "Contact the Singapore office",
+          "Reserve Room B",
+          "Reply by Monday"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：提前將進度報告寄給 Ms. Chen。",
+          "新加坡辦公室非收件對象。",
+          "B 會議室維修不可用。",
+          "截止日為週五而非週一。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "Employees must ______ their travel expense reports by the end of the month.",
+        "opts": [
+          "submit",
+          "submitting",
+          "submission",
+          "submitted"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：助動詞 must 後接原形動詞。",
+          "must 後不接動名詞。",
+          "submission 為名詞。",
+          "此處缺動詞原形。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The meeting was moved to Room A ______ Room B is under renovation.",
+        "opts": [
+          "because",
+          "despite",
+          "during",
+          "whereas"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：連接詞 because 引導原因子句。",
+          "despite 為介系詞，後接名詞。",
+          "during 為介系詞，表期間。",
+          "whereas 表對比，語意不符。"
+        ]
+      }
+    ]
+  },
+  {
+    "week": 1,
+    "day": 2,
+    "tag": "班機延誤廣播",
+    "type": "Listening",
+    "passage": "Attention, passengers on Flight KA208 to Tokyo. Due to heavy fog, departure has been postponed by approximately two hours. The new boarding time is 4:45 P.M. at Gate 12. Passengers with connecting flights should visit the transfer desk near Gate 10, where staff will rebook your itinerary free of charge. Meal vouchers are available at the information counter. We apologize for the inconvenience.",
+    "zh": "KA208 飛往東京班機的旅客請注意。由於濃霧，起飛時間延後約兩小時。新的登機時間為下午 4:45，登機門為 12 號。有轉機的旅客請至 10 號登機門附近的轉機櫃檯，工作人員將免費為您重新安排行程。餐券可於服務台領取。對於造成的不便，我們深表歉意。",
+    "vocab": [
+      {
+        "word": "postpone",
+        "ipa": "/poʊstˈpoʊn/",
+        "pos": "v.",
+        "col": "postpone a meeting / departure",
+        "zh": "延期、推遲"
+      },
+      {
+        "word": "itinerary",
+        "ipa": "/aɪˈtɪnəreri/",
+        "pos": "n.",
+        "col": "travel itinerary / flight itinerary",
+        "zh": "行程表、航程"
+      },
+      {
+        "word": "voucher",
+        "ipa": "/ˈvaʊtʃər/",
+        "pos": "n.",
+        "col": "meal voucher / discount voucher",
+        "zh": "兌換券、餐券"
+      }
+    ],
+    "questions": [
+      {
+        "kind": "context",
+        "q": "What caused the delay?",
+        "opts": [
+          "A crew shortage",
+          "Heavy fog",
+          "A gate change",
+          "A mechanical problem"
+        ],
+        "ans": 1,
+        "why": [
+          "未提及機組員不足。",
+          "正解：Due to heavy fog（濃霧）。",
+          "登機門更換是結果非原因。",
+          "未提及機械故障。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "Where should passengers with connecting flights go?",
+        "opts": [
+          "Gate 12",
+          "The information counter",
+          "The transfer desk near Gate 10",
+          "The boarding area"
+        ],
+        "ans": 2,
+        "why": [
+          "Gate 12 是新登機門。",
+          "服務台是領餐券處。",
+          "正解：10 號門附近的轉機櫃檯。",
+          "未要求前往登機區。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The flight was ______ due to bad weather.",
+        "opts": [
+          "postponed",
+          "postponing",
+          "postpone",
+          "postponement"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：was 後接過去分詞表示被動。",
+          "進行式不符語意。",
+          "was 後不可接原形。",
+          "名詞不可做被動補語。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "Please keep your receipt ______ you need to request a refund.",
+        "opts": [
+          "in case",
+          "in spite of",
+          "so that",
+          "whereas"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：in case + 子句表示「以防萬一」。",
+          "in spite of 為介系詞。",
+          "so that 表目的。",
+          "whereas 表對稱對比。"
+        ]
+      }
+    ]
+  },
+  {
+    "week": 1,
+    "day": 5,
+    "tag": "工業設計：原型機評審會議",
+    "type": "Reading",
+    "passage": "From: Marcus Vance, Lead Industrial Designer\nTo: Product Development Team\nSubject: Feedback on Series 5 Prototype\n\nFollowing yesterday's ergonomics testing session, the design team has decided to modify the curvature of the handheld grip. Several test users reported discomfort during prolonged use. Consequently, we will replace the rigid polycarbonate shell with an over-molded matte finish to enhance tactile grip.\n\nPlease review the updated CAD models uploaded to the server by 3:00 P.M. tomorrow so we can finalize specifications before tooling begins next week.",
+    "zh": "寄件人：首席工業設計師 Marcus Vance\n收件人：產品開發團隊\n主旨：Series 5 原型機評審回饋\n\n在昨日的人因工程測試會議後，設計團隊決定修改握把曲率。多位測試用戶反映長時間握持會產生不適。因此，我們將把原本堅硬的聚碳酸酯（PC）外殼改為包膠霧面材質，以提升握持觸感。\n\n請於明日下午 3:00 前檢視上傳至伺服器的更新版 CAD 模型，以便我們在下週開模（Tooling）前敲定最終規格。",
+    "vocab": [
+      {
+        "word": "ergonomics",
+        "ipa": "/ˌɜːrɡəˈnɑːmɪks/",
+        "pos": "n.",
+        "col": "ergonomic design / testing",
+        "zh": "人因工程學"
+      },
+      {
+        "word": "prototype",
+        "ipa": "/ˈproʊtətaɪp/",
+        "pos": "n.",
+        "col": "working prototype / build a prototype",
+        "zh": "原型機、樣機"
+      },
+      {
+        "word": "specification",
+        "ipa": "/ˌspesɪfɪˈkeɪʃn/",
+        "pos": "n.",
+        "col": "meet specifications / product specs",
+        "zh": "規格、詳細說明"
+      },
+      {
+        "word": "tooling",
+        "ipa": "/ˈtuːlɪŋ/",
+        "pos": "n.",
+        "col": "tooling process / tooling cost",
+        "zh": "開模、工裝製造"
+      }
+    ],
+    "questions": [
+      {
+        "kind": "context",
+        "q": "Why is the design team modifying the handheld grip?",
+        "opts": [
+          "To reduce manufacturing costs",
+          "Because test users found it uncomfortable",
+          "To make it compatible with new accessories",
+          "To introduce a wider color range"
+        ],
+        "ans": 1,
+        "why": [
+          "信中未提及降低成本。",
+          "正解：多位受試者反映長時間握持會不舒服。",
+          "未提及配件相容性。",
+          "未提及擴展顏色選項。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "What must the team do by tomorrow afternoon?",
+        "opts": [
+          "Begin the tooling process",
+          "Upload user survey results",
+          "Review the revised CAD models",
+          "Ship the prototype to Singapore"
+        ],
+        "ans": 2,
+        "why": [
+          "開模預計是下週開始。",
+          "測試已經完成。",
+          "正解：明日下午 3 點前檢視更新後的 CAD 模型。",
+          "未提及寄送樣機。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The engineering team must review all safety ______ before mass production begins.",
+        "opts": [
+          "specifications",
+          "specifically",
+          "specify",
+          "specifying"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：safety specifications 為複合名詞「安全規範/規格」。",
+          "specifically 為副詞。",
+          "specify 為動詞。",
+          "specifying 為動名詞/分詞。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The new mouse is designed to be more ______, reducing wrist fatigue.",
+        "opts": [
+          "ergonomic",
+          "ergonomics",
+          "ergonomically",
+          "ergonomize"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：形容詞作 be 動詞後的補語（人體工學的）。",
+          "ergonomics 為名詞。",
+          "副詞不能作形容詞補語。",
+          "動詞語法不符。"
+        ]
+      }
+    ]
+  }
+]

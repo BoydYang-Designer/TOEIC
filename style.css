@@ -1,0 +1,7 @@
+body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+button:focus-visible{outline:2px solid #4f46e5;outline-offset:2px}
+.tsent{cursor:pointer;border-radius:.25rem;transition:background .2s,box-shadow .2s}
+.tsent:hover{background:rgba(79,70,229,.08)}
+.tsent.active{background:rgba(79,70,229,.18);box-shadow:0 0 0 3px rgba(79,70,229,.18)}
+.dark .tsent:hover{background:rgba(129,140,248,.15)}
+.dark .tsent.active{background:rgba(129,140,248,.3);box-shadow:0 0 0 3px rgba(129,140,248,.3)}
