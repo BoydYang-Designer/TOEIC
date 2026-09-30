@@ -13,18 +13,77 @@
       "after": "使用者會自行把該物件貼進 items 陣列，圖片存為 images/p1s{S}q{N}.jpg，音檔（可省略，網頁會改用語音合成）存為 audio/p1s{S}q{N}.mp3。檔名一律以 id 命名，不因難度或主題改名；難度與主題只記在 JSON 欄位裡。"
     },
     "domains": {
-      "d1": { "name": "辦公室", "scenes": ["office"], "desc": "辦公桌、會議室、影印機、文件、電腦、簡報" },
-      "d2": { "name": "餐廳飲食", "scenes": ["restaurant"], "desc": "餐廳、咖啡廳、備餐、用餐、上菜、餐桌擺設" },
-      "d3": { "name": "商店購物", "scenes": ["store"], "desc": "商店、超市、貨架、收銀台、試穿、陳列商品" },
-      "d4": { "name": "街道與交通", "scenes": ["street", "station"], "desc": "街道、人行道、路口、車輛、車站、月台、機場" },
-      "d5": { "name": "工地與倉庫", "scenes": ["workplace"], "desc": "工廠、工地、倉庫、搬運、施工、機具、安全裝備" },
-      "d6": { "name": "旅館與居家", "scenes": ["hotel", "home"], "desc": "旅館櫃檯、客房、大廳、住家客廳、廚房、庭院" },
-      "d7": { "name": "戶外與公園", "scenes": ["outdoor"], "desc": "公園、廣場、碼頭、戶外活動、園藝、野餐" }
+      "d1": {
+        "name": "辦公室",
+        "scenes": [
+          "office"
+        ],
+        "desc": "辦公桌、會議室、影印機、文件、電腦、簡報"
+      },
+      "d2": {
+        "name": "餐廳飲食",
+        "scenes": [
+          "restaurant"
+        ],
+        "desc": "餐廳、咖啡廳、備餐、用餐、上菜、餐桌擺設"
+      },
+      "d3": {
+        "name": "商店購物",
+        "scenes": [
+          "store"
+        ],
+        "desc": "商店、超市、貨架、收銀台、試穿、陳列商品"
+      },
+      "d4": {
+        "name": "街道與交通",
+        "scenes": [
+          "street",
+          "station"
+        ],
+        "desc": "街道、人行道、路口、車輛、車站、月台、機場"
+      },
+      "d5": {
+        "name": "工地與倉庫",
+        "scenes": [
+          "workplace"
+        ],
+        "desc": "工廠、工地、倉庫、搬運、施工、機具、安全裝備"
+      },
+      "d6": {
+        "name": "旅館與居家",
+        "scenes": [
+          "hotel",
+          "home"
+        ],
+        "desc": "旅館櫃檯、客房、大廳、住家客廳、廚房、庭院"
+      },
+      "d7": {
+        "name": "戶外與公園",
+        "scenes": [
+          "outdoor"
+        ],
+        "desc": "公園、廣場、碼頭、戶外活動、園藝、野餐"
+      }
     },
     "tiers": {
-      "easy": { "name": "初級", "score": "≤550", "cefr": "A2+", "guide": "多為單人動作題；一句一個動作；基本現在進行式；常見物品字彙；四句差異明顯。" },
-      "medium": { "name": "中級", "score": "600–650", "cefr": "B1 / B1+", "guide": "多人動作或簡單物品狀態；含常見位置介系詞；干擾項有音近字或動作相近。" },
-      "hard": { "name": "高級", "score": "≥700", "cefr": "B2 / B2+", "guide": "無人物的被動與位置描述（are being displayed、has been placed）；或多人細節；干擾項為近義動作、過度推論或位置細節差異。" }
+      "easy": {
+        "name": "初級",
+        "score": "≤550",
+        "cefr": "A2+",
+        "guide": "多為單人動作題；一句一個動作；基本現在進行式；常見物品字彙；四句差異明顯。"
+      },
+      "medium": {
+        "name": "中級",
+        "score": "600–650",
+        "cefr": "B1 / B1+",
+        "guide": "多人動作或簡單物品狀態；含常見位置介系詞；干擾項有音近字或動作相近。"
+      },
+      "hard": {
+        "name": "高級",
+        "score": "≥700",
+        "cefr": "B2 / B2+",
+        "guide": "無人物的被動與位置描述（are being displayed、has been placed）；或多人細節；干擾項為近義動作、過度推論或位置細節差異。"
+      }
     },
     "entry_schema": {
       "id": "字串，格式 p1s{S}q{N}，例如 p1s1q3",
@@ -249,6 +308,428 @@
           "pos": "v.",
           "col": "answer the phone / answer a question",
           "zh": "接聽、回答"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "p1s1q2",
+      "set": 1,
+      "no": 2,
+      "photo_type": "single",
+      "scene": "restaurant",
+      "focus": "action",
+      "domain": "d2",
+      "tag": "男子在餐廳裡端著托盤",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "單人動作題，一句一個動作，字彙為常見餐飲用語，四句差異明顯。"
+      },
+      "image": "images/p1s1q2.jpg",
+      "audio": "audio/p1s1q2.mp3",
+      "image_prompt": "A realistic photograph of a man in a dark apron walking through a bright, tidy restaurant while carrying a round tray with two plates of food, a few empty tables with glasses in the background, warm natural window light, 4:3 landscape, hands clearly visible holding the tray, no text, logos or readable menus.",
+      "visible_facts": [
+        "One man wearing an apron is in a restaurant.",
+        "He is carrying a tray with two plates of food.",
+        "Empty tables with glasses are in the background."
+      ],
+      "statements": [
+        "The man is reading a menu.",
+        "The man is washing a dish.",
+        "The man is carrying a tray.",
+        "The man is standing outside the restaurant."
+      ],
+      "zh": [
+        "這名男子正在看菜單。",
+        "這名男子正在洗盤子。",
+        "這名男子正端著托盤。",
+        "這名男子正站在餐廳外面。"
+      ],
+      "ans": 2,
+      "why": [
+        "畫面中沒有菜單，他也不是在看東西。",
+        "他手上拿的是裝食物的托盤，不是在洗盤子。",
+        "正解：男子雙手端著放有兩盤食物的托盤，與畫面相符。",
+        "他在餐廳室內，不是在餐廳外面。"
+      ],
+      "traps": [
+        "not-in-photo",
+        "wrong-action",
+        "correct",
+        "wrong-place-or-number"
+      ],
+      "vocab": [
+        {
+          "word": "tray",
+          "ipa": "/treɪ/",
+          "pos": "n.",
+          "col": "serving tray / carry a tray",
+          "zh": "托盤"
+        },
+        {
+          "word": "carry",
+          "ipa": "/ˈkæri/",
+          "pos": "v.",
+          "col": "carry a bag / carry a tray",
+          "zh": "攜帶、端、搬運"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "p1s1q3",
+      "set": 1,
+      "no": 3,
+      "photo_type": "multi",
+      "scene": "store",
+      "focus": "action",
+      "domain": "d3",
+      "tag": "兩名女子在服飾店看衣服",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "雙人動作題，句型為基本現在進行式；干擾項含 clothes／closing 音近字。"
+      },
+      "image": "images/p1s1q3.jpg",
+      "audio": "audio/p1s1q3.mp3",
+      "image_prompt": "A realistic photograph of two women standing side by side in a bright clothing store, both looking at shirts hanging on a clothing rack, one woman holding up a shirt, 4:3 landscape, no cash register, no shopping cart, no text, logos or price tags visible.",
+      "visible_facts": [
+        "Two women are standing in a clothing store.",
+        "Both are looking at clothes on a rack.",
+        "One woman is holding up a shirt.",
+        "There is no cash register or shopping cart."
+      ],
+      "statements": [
+        "The women are paying at the counter.",
+        "The women are looking at some clothes.",
+        "The women are closing the store.",
+        "The women are pushing a shopping cart."
+      ],
+      "zh": [
+        "這兩名女子正在櫃檯結帳。",
+        "這兩名女子正在看一些衣服。",
+        "這兩名女子正在關店。",
+        "這兩名女子正推著購物車。"
+      ],
+      "ans": 1,
+      "why": [
+        "畫面中沒有櫃檯，也沒有人在付錢。",
+        "正解：兩名女子面對衣架看衣服，與畫面相符。",
+        "closing 與 clothes 音近，但畫面中沒有人在關店。",
+        "畫面中沒有購物車。"
+      ],
+      "traps": [
+        "wrong-action",
+        "correct",
+        "sound-alike",
+        "not-in-photo"
+      ],
+      "vocab": [
+        {
+          "word": "clothes",
+          "ipa": "/kloʊðz/",
+          "pos": "n.",
+          "col": "buy clothes / try on clothes",
+          "zh": "衣服"
+        },
+        {
+          "word": "counter",
+          "ipa": "/ˈkaʊntər/",
+          "pos": "n.",
+          "col": "checkout counter / at the counter",
+          "zh": "櫃檯"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "p1s1q4",
+      "set": 1,
+      "no": 4,
+      "photo_type": "multi",
+      "scene": "street",
+      "focus": "action",
+      "domain": "d4",
+      "tag": "行人走過路口的斑馬線",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "多人動作題，動作單一明確；干擾項含 walking／working 音近字。"
+      },
+      "image": "images/p1s1q4.jpg",
+      "audio": "audio/p1s1q4.mp3",
+      "image_prompt": "A realistic photograph of two people walking across a zebra crosswalk on a quiet city street in daylight, a few buildings and trees in the background, no bicycles and no buses, natural light, 4:3 landscape, simple clear arm and leg positions, no text, signs or logos.",
+      "visible_facts": [
+        "Two people are walking across a crosswalk.",
+        "They are on a city street in daylight.",
+        "Buildings and trees are in the background.",
+        "There are no bicycles or buses."
+      ],
+      "statements": [
+        "Some people are riding bicycles along the road.",
+        "Some people are waiting for a bus.",
+        "Some people are working on the road.",
+        "Some people are crossing the street."
+      ],
+      "zh": [
+        "有些人正沿著馬路騎腳踏車。",
+        "有些人正在等公車。",
+        "有些人正在馬路上工作。",
+        "有些人正在過馬路。"
+      ],
+      "ans": 3,
+      "why": [
+        "畫面中沒有腳踏車，大家是用走的。",
+        "畫面中沒有公車或公車站，等公車是過度推論。",
+        "working 與 walking 音近，但畫面中沒有人在施工或工作。",
+        "正解：人們正走過斑馬線穿越街道，與畫面相符。"
+      ],
+      "traps": [
+        "wrong-action",
+        "over-inference",
+        "sound-alike",
+        "correct"
+      ],
+      "vocab": [
+        {
+          "word": "cross",
+          "ipa": "/krɔːs/",
+          "pos": "v.",
+          "col": "cross the street / cross a bridge",
+          "zh": "穿越、越過"
+        },
+        {
+          "word": "bicycle",
+          "ipa": "/ˈbaɪsɪkəl/",
+          "pos": "n.",
+          "col": "ride a bicycle / bicycle lane",
+          "zh": "腳踏車"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "p1s1q5",
+      "set": 1,
+      "no": 5,
+      "photo_type": "none",
+      "scene": "workplace",
+      "focus": "location",
+      "domain": "d5",
+      "tag": "倉庫貨架上堆放著紙箱",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "無人物題，但只用簡單被動與位置描述，四句差異明顯。"
+      },
+      "image": "images/p1s1q5.jpg",
+      "audio": "audio/p1s1q5.mp3",
+      "image_prompt": "A realistic photograph of a clean warehouse aisle with tall metal shelves, plain cardboard boxes stacked neatly on the shelves, an empty aisle with no people, no trucks and no forklifts, bright even lighting, 4:3 landscape, no text, labels or logos on the boxes.",
+      "visible_facts": [
+        "Tall metal shelves line a warehouse aisle.",
+        "Cardboard boxes are stacked on the shelves.",
+        "No people are visible.",
+        "There are no trucks or forklifts."
+      ],
+      "statements": [
+        "The boxes are stacked on the shelves.",
+        "The boxes are being loaded onto a truck.",
+        "The boxes are hanging from the ceiling.",
+        "The workers are moving the boxes."
+      ],
+      "zh": [
+        "紙箱被堆放在貨架上。",
+        "紙箱正被裝上卡車。",
+        "紙箱被吊在天花板上。",
+        "工人們正在搬運紙箱。"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：紙箱整齊堆放在貨架上，與畫面相符。",
+        "畫面中沒有卡車，也沒有裝載的動作。",
+        "紙箱在貨架上，不是吊在天花板上。",
+        "畫面中沒有任何人，沒有工人在搬東西。"
+      ],
+      "traps": [
+        "correct",
+        "not-in-photo",
+        "wrong-place-or-number",
+        "not-in-photo"
+      ],
+      "vocab": [
+        {
+          "word": "stack",
+          "ipa": "/stæk/",
+          "pos": "v.",
+          "col": "stack boxes / a stack of papers",
+          "zh": "堆疊"
+        },
+        {
+          "word": "load",
+          "ipa": "/loʊd/",
+          "pos": "v.",
+          "col": "load a truck / load boxes",
+          "zh": "裝載"
+        },
+        {
+          "word": "ceiling",
+          "ipa": "/ˈsiːlɪŋ/",
+          "pos": "n.",
+          "col": "ceiling light / high ceiling",
+          "zh": "天花板"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "p1s1q6",
+      "set": 1,
+      "no": 6,
+      "photo_type": "none",
+      "scene": "hotel",
+      "focus": "location",
+      "domain": "d6",
+      "tag": "客房內床邊的檯燈",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "無人物題，只考簡單位置介系詞 beside，其餘干擾項明顯不符。"
+      },
+      "image": "images/p1s1q6.jpg",
+      "audio": "audio/p1s1q6.mp3",
+      "image_prompt": "A realistic photograph of a tidy hotel room with a made bed with white pillows, a small table lamp on a nightstand beside the bed, plain walls with no windows, no suitcase and no people, soft warm lighting, 4:3 landscape, no text or logos.",
+      "visible_facts": [
+        "A made bed with white pillows is in a hotel room.",
+        "A lamp is on a nightstand beside the bed.",
+        "No people are visible.",
+        "There is no suitcase in the room."
+      ],
+      "statements": [
+        "The lamp is on the floor.",
+        "There is a suitcase on the bed.",
+        "A lamp is beside the bed.",
+        "A guest is sleeping in the bed."
+      ],
+      "zh": [
+        "檯燈放在地板上。",
+        "床上有一個行李箱。",
+        "床邊有一盞檯燈。",
+        "一位房客正睡在床上。"
+      ],
+      "ans": 2,
+      "why": [
+        "檯燈在床頭櫃上，不在地板上。",
+        "床上沒有行李箱。",
+        "正解：檯燈放在床邊的床頭櫃上，與畫面相符。",
+        "床上沒有人，也沒有人在睡覺。"
+      ],
+      "traps": [
+        "wrong-place-or-number",
+        "not-in-photo",
+        "correct",
+        "not-in-photo"
+      ],
+      "vocab": [
+        {
+          "word": "lamp",
+          "ipa": "/læmp/",
+          "pos": "n.",
+          "col": "table lamp / desk lamp",
+          "zh": "檯燈"
+        },
+        {
+          "word": "suitcase",
+          "ipa": "/ˈsuːtkeɪs/",
+          "pos": "n.",
+          "col": "pack a suitcase / carry a suitcase",
+          "zh": "行李箱"
+        },
+        {
+          "word": "sleep",
+          "ipa": "/sliːp/",
+          "pos": "v.",
+          "col": "sleep in a bed / sleep well",
+          "zh": "睡覺"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "p1s2q1",
+      "set": 2,
+      "no": 1,
+      "photo_type": "single",
+      "scene": "outdoor",
+      "focus": "action",
+      "domain": "d7",
+      "tag": "女子在花園裡澆花",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "單人動作題，一句一個動作，字彙為日常園藝用語，四句差異明顯。"
+      },
+      "image": "images/p1s2q1.jpg",
+      "audio": "audio/p1s2q1.mp3",
+      "image_prompt": "A realistic photograph of a woman standing in a sunny garden, watering colorful flowers with a metal watering can, green grass around her, no dog and no bench, natural daylight, 4:3 landscape, hands and watering can clearly visible, no text or logos.",
+      "visible_facts": [
+        "One woman is standing in a garden.",
+        "She is watering flowers with a watering can.",
+        "Green grass is around her.",
+        "There is no dog or bench."
+      ],
+      "statements": [
+        "The woman is cutting the grass.",
+        "The woman is watering some flowers.",
+        "The woman is walking her dog.",
+        "The woman is sitting on a bench."
+      ],
+      "zh": [
+        "這名女子正在割草。",
+        "這名女子正在幫一些花澆水。",
+        "這名女子正在遛狗。",
+        "這名女子正坐在長椅上。"
+      ],
+      "ans": 1,
+      "why": [
+        "畫面中沒有割草機或割草的動作。",
+        "正解：女子拿著澆花器替花澆水，與畫面相符。",
+        "畫面中沒有狗。",
+        "畫面中沒有長椅，她是站著的。"
+      ],
+      "traps": [
+        "wrong-action",
+        "correct",
+        "not-in-photo",
+        "wrong-action"
+      ],
+      "vocab": [
+        {
+          "word": "water",
+          "ipa": "/ˈwɔːtər/",
+          "pos": "v.",
+          "col": "water the plants / water the flowers",
+          "zh": "澆水"
+        },
+        {
+          "word": "flower",
+          "ipa": "/ˈflaʊər/",
+          "pos": "n.",
+          "col": "a bunch of flowers / flower garden",
+          "zh": "花"
+        },
+        {
+          "word": "grass",
+          "ipa": "/græs/",
+          "pos": "n.",
+          "col": "cut the grass / on the grass",
+          "zh": "草、草地"
         }
       ],
       "issues": []
