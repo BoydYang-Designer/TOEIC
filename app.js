@@ -199,7 +199,7 @@ function renderSide() {
         : '<span class="text-xs text-slate-400 shrink-0">未完成</span>';
     const on = cur.view == 'day' && cur.w == nw && cur.d == d;
     h += `<button ${x ? `onclick="go(${nw},${d})"` : 'disabled'} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : 'opacity-40 cursor-not-allowed'}">
-      <span class="text-sm ${d === 5 ? 'font-bold text-indigo-600 dark:text-indigo-400' : ''}">D${d} ${t}</span>
+      <span class="text-sm ">D${d} ${t}</span>
       <span class="flex items-center gap-2 shrink-0">${x && x.level ? `<span class="text-[11px] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}${st}</span>
     </button>`;
   });
@@ -315,14 +315,14 @@ function renderDay() {
       <div>
         <div class="flex items-start justify-between">
           <div>
-            <span class="text-base font-bold">${v.word}</span>
-            <span class="text-xs text-slate-500 italic ml-1">${v.pos}</span>
-            <p class="text-xs text-slate-400">${v.ipa}</p>
+            <span class="text-base font-bold">${esc(v.word)}</span>
+            <span class="text-xs text-slate-500 italic ml-1">${esc(v.pos)}</span>
+            <p class="text-xs text-slate-400">${esc(v.ipa)}</p>
           </div>
-          <button onclick="speak('${v.word}')" class="text-slate-400 hover:text-indigo-600 text-lg">🔊</button>
+          <button onclick="speak(this.dataset.w)" data-w="${esc(v.word)}" class="text-slate-400 hover:text-indigo-600 text-lg">🔊</button>
         </div>
-        <p class="mt-2 text-sm font-semibold text-slate-700 dark:text-slate-300">${v.zh}</p>
-        <p class="text-xs mt-1 text-slate-500 dark:text-slate-400">搭配詞：${v.col}</p>
+        <p class="mt-2 text-sm font-semibold text-slate-700 dark:text-slate-300">${esc(v.zh)}</p>
+        <p class="text-xs mt-1 text-slate-500 dark:text-slate-400">搭配詞：${esc(v.col)}</p>
       </div>
       <button onclick="toggleSave('${k}')" class="${btn} mt-3 text-xs w-full border border-slate-200 dark:border-slate-800 ${S.saved[k] ? 'bg-amber-50 border-amber-300 text-amber-700 dark:bg-amber-950 dark:text-amber-300' : 'hover:bg-slate-50 dark:hover:bg-slate-800'}">
         ${S.saved[k] ? '★ 已加入生詞本' : '☆ 收藏單字'}
@@ -364,7 +364,7 @@ function renderDay() {
       <div class="flex justify-between items-center mb-2">
         <span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">Q${qi+1} · ${q.kind=='context'?'情境理解':'Part 5 單選'}</span>
       </div>
-      <p class="font-medium text-slate-800 dark:text-slate-200 mb-4">${q.q}</p>
+      <p class="font-medium text-slate-800 dark:text-slate-200 mb-4">${esc(q.q)}</p>
       <div class="space-y-2">`;
       
     q.opts.forEach((o, oi) => {
@@ -376,7 +376,7 @@ function renderDay() {
         else c = 'border-slate-200 dark:border-slate-800 opacity-50';
       }
       h += `<button ${done ? 'disabled' : `onclick="pick(${qi},${oi})"`} class="w-full text-left rounded-lg border px-4 py-3 md:py-2.5 text-sm flex items-center justify-between ${c}">
-        <span>${L[oi]}. ${o}</span>
+        <span>${L[oi]}. ${esc(o)}</span>
         ${done && oi === q.ans ? '<span class="text-emerald-600 font-bold">✓ 正解</span>' : ''}
         ${done && oi === s && !ok ? '<span class="text-rose-600 font-bold">✗ 你的答案</span>' : ''}
       </button>`;
@@ -389,7 +389,7 @@ function renderDay() {
           ${ok ? '🎉 答對了！' : '❌ 答錯了，正確答案是 (' + L[q.ans] + ')'}
         </p>
         <div class="space-y-1 text-xs text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-lg">
-          ${q.why.map((w, wi) => `<p class="${wi === q.ans ? 'font-semibold text-slate-800 dark:text-slate-200' : ''}"><b>${L[wi]}:</b>${w}</p>`).join('')}
+          ${q.why.map((w, wi) => `<p class="${wi === q.ans ? 'font-semibold text-slate-800 dark:text-slate-200' : ''}"><b>${L[wi]}:</b>${esc(w)}</p>`).join('')}
         </div>
         <button onclick="toggleSave('${k}')" class="${btn} mt-3 text-xs border border-slate-200 dark:border-slate-800 ${S.saved[k] ? 'bg-amber-50 border-amber-300 text-amber-700 dark:bg-amber-950 dark:text-amber-300' : ''}">
           ${S.saved[k] ? '★ 已收錄至錯題本' : '☆ 收藏至錯題本'}
@@ -433,12 +433,12 @@ function renderBook() {
       v += `<div class="${card} p-4 flex justify-between items-start">
         <div>
           <div class="flex items-center gap-2">
-            <b class="text-base">${w.word}</b>
-            <span class="text-xs text-slate-400">${w.pos} ${w.ipa}</span>
-            <button onclick="speak('${w.word}')" class="text-sm">🔊</button>
+            <b class="text-base">${esc(w.word)}</b>
+            <span class="text-xs text-slate-400">${esc(w.pos)} ${esc(w.ipa)}</span>
+            <button onclick="speak(this.dataset.w)" data-w="${esc(w.word)}" class="text-sm">🔊</button>
           </div>
-          <p class="text-sm font-medium mt-1">${w.zh}</p>
-          <p class="text-xs text-slate-500 mt-1">搭配詞：${w.col}</p>
+          <p class="text-sm font-medium mt-1">${esc(w.zh)}</p>
+          <p class="text-xs text-slate-500 mt-1">搭配詞：${esc(w.col)}</p>
         </div>
         ${rm}
       </div>`;
@@ -449,9 +449,9 @@ function renderBook() {
           <span class="text-xs text-indigo-500 font-medium">Week ${x.week} Day ${x.day} · ${THEMES[x.day-1]}</span>
           ${rm}
         </div>
-        <p class="font-medium text-sm my-1">${z.q}</p>
-        <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">正解 (${L[z.ans]}): ${z.opts[z.ans]}</p>
-        <p class="text-xs text-slate-500 mt-1">${z.why[z.ans]}</p>
+        <p class="font-medium text-sm my-1">${esc(z.q)}</p>
+        <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">正解 (${L[z.ans]}): ${esc(z.opts[z.ans])}</p>
+        <p class="text-xs text-slate-500 mt-1">${esc(z.why[z.ans])}</p>
       </div>`;
     }
   });

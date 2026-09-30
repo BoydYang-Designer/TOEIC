@@ -1,0 +1,257 @@
+{
+  "_spec": {
+    "purpose": "TOEIC Part 1（照片描述）題庫。使用者會把這份 JSON 交給 AI，分兩階段產生題目：先「出圖」再「寫文本」。請依本 _spec 產生資料。網頁分「練習」與「測驗」兩種模式，測驗會依 難度（level.tier）與 主題（domain：d1–d7）抽題，所以每一題都必須填對這兩個欄位。",
+    "how_to_use": {
+      "stage1_trigger": "使用者輸入「出圖 p1s{S}q{N}」（例如 出圖 p1s1q3）→ 只輸出「一個」JSON 物件，含 id、set、no、photo_type、scene、focus、domain、target_tier、visible_facts、image_prompt。使用者可在後面指定主題與難度，例如「出圖 p1s2q4 d4 hard」；未指定時，AI 依 set_design 與 coverage 自行挑選最缺的組合。",
+      "stage1_note": "visible_facts 是「圖片裡應該清楚看得到的事實」，用來當出圖依據與日後核對。使用者拿 image_prompt 去出圖。domain 必須與 scene 相符（見 domains 對照表）；target_tier 是預定的難度（easy／medium／hard），正式難度在 stage2 依實際文本決定。",
+      "stage2_trigger": "使用者上傳圖片並輸入「寫文本 p1s{S}q{N}」→ 輸出完整 entry_schema 的 JSON 物件。",
+      "stage2_rule": "文本一律依「上傳圖片實際看到的內容」撰寫，不依 image_prompt 想像。若圖片與 visible_facts 不符，改以圖片為準並更新 visible_facts；圖片有瑕疵（手指或肢體怪異、人數不清、出現文字或商標、物件難以辨識）須寫入 issues。若實際圖片的場景與 stage1 不同，須同步修正 scene 與 domain。stage2 不輸出 target_tier，改輸出 level.tier（依 level.score 判定，見 rules.tier）。",
+      "output": "只輸出「一個」JSON 物件，放在單一 json 程式碼區塊內。不要輸出整份檔案、不要修改既有 items、不要加任何說明文字。",
+      "set_design": "每組（set）6 題，與正式多益一致；預設配置：單人 2、多人 2、無人物 2，順序可打散。難度預設每組 easy 2、medium 2、hard 2。同一組內同一個 domain 最多 2 題。使用者另有指定時以使用者為準。",
+      "coverage": "題庫整體要讓「難度 × 主題」均衡：目標是 3 個難度 × d1–d7 每格至少 2 題，測驗才抽得到題。出圖前先看 items 內各格的題數，優先補題數最少的格子。",
+      "avoid_duplicates": "同一組內 scene 與 focus 的組合不得重複；tag、vocab 不得與 items 內既有資料重複；同一個 domain + level.tier 內，畫面與句型不要雷同。",
+      "after": "使用者會自行把該物件貼進 items 陣列，圖片存為 images/p1s{S}q{N}.jpg，音檔（可省略，網頁會改用語音合成）存為 audio/p1s{S}q{N}.mp3。檔名一律以 id 命名，不因難度或主題改名；難度與主題只記在 JSON 欄位裡。"
+    },
+    "domains": {
+      "d1": { "name": "辦公室", "scenes": ["office"], "desc": "辦公桌、會議室、影印機、文件、電腦、簡報" },
+      "d2": { "name": "餐廳飲食", "scenes": ["restaurant"], "desc": "餐廳、咖啡廳、備餐、用餐、上菜、餐桌擺設" },
+      "d3": { "name": "商店購物", "scenes": ["store"], "desc": "商店、超市、貨架、收銀台、試穿、陳列商品" },
+      "d4": { "name": "街道與交通", "scenes": ["street", "station"], "desc": "街道、人行道、路口、車輛、車站、月台、機場" },
+      "d5": { "name": "工地與倉庫", "scenes": ["workplace"], "desc": "工廠、工地、倉庫、搬運、施工、機具、安全裝備" },
+      "d6": { "name": "旅館與居家", "scenes": ["hotel", "home"], "desc": "旅館櫃檯、客房、大廳、住家客廳、廚房、庭院" },
+      "d7": { "name": "戶外與公園", "scenes": ["outdoor"], "desc": "公園、廣場、碼頭、戶外活動、園藝、野餐" }
+    },
+    "tiers": {
+      "easy": { "name": "初級", "score": "≤550", "cefr": "A2+", "guide": "多為單人動作題；一句一個動作；基本現在進行式；常見物品字彙；四句差異明顯。" },
+      "medium": { "name": "中級", "score": "600–650", "cefr": "B1 / B1+", "guide": "多人動作或簡單物品狀態；含常見位置介系詞；干擾項有音近字或動作相近。" },
+      "hard": { "name": "高級", "score": "≥700", "cefr": "B2 / B2+", "guide": "無人物的被動與位置描述（are being displayed、has been placed）；或多人細節；干擾項為近義動作、過度推論或位置細節差異。" }
+    },
+    "entry_schema": {
+      "id": "字串，格式 p1s{S}q{N}，例如 p1s1q3",
+      "set": "整數，組別",
+      "no": "整數 1–6，組內題號",
+      "photo_type": "'single'（單人）、'multi'（多人，2 人以上）或 'none'（無人物：物品、場景）",
+      "scene": "'office'、'restaurant'、'store'、'street'、'station'、'workplace'（工廠／工地／倉庫）、'hotel'、'outdoor'、'home' 擇一",
+      "focus": "'action'（動作）、'state'（物品狀態）、'location'（位置關係）、'mixed' 擇一",
+      "domain": "'d1'–'d7' 擇一，依 scene 對照 _spec.domains（office→d1、restaurant→d2、store→d3、street／station→d4、workplace→d5、hotel／home→d6、outdoor→d7），不可自行指定其他值",
+      "tag": "繁體中文標題，簡短描述畫面，例如「女子在辦公桌前打字」",
+      "level": {
+        "score": "預估多益分數，50 的倍數",
+        "cefr": "見 rules.difficulty",
+        "tier": "'easy'、'medium'、'hard' 擇一，必須與 score 一致（見 rules.tier）；網頁測驗的難度篩選就是用這個欄位",
+        "why": "繁體中文 1 句，說明難度依據"
+      },
+      "image": "images/{id}.jpg",
+      "audio": "audio/{id}.mp3",
+      "image_prompt": "英文出圖提示詞，需符合 rules.image_prompt",
+      "visible_facts": [
+        "英文短句，列出圖中清楚可見的 3–6 項事實（人數、動作、物件、位置）"
+      ],
+      "statements": [
+        "四句英文敘述 A–D，順序即選項順序"
+      ],
+      "zh": [
+        "四句敘述的繁體中文翻譯，順序與 statements 一致"
+      ],
+      "ans": "正解索引 0–3",
+      "why": [
+        "對應每個選項的解析，共 4 句，繁體中文；正解那句以「正解：」開頭，其餘說明錯在哪裡"
+      ],
+      "traps": [
+        "對應每個選項的類型，共 4 個：'correct'、'sound-alike'、'not-in-photo'、'wrong-action'、'wrong-place-or-number'、'over-inference'"
+      ],
+      "vocab": [
+        {
+          "word": "英文單字或片語",
+          "ipa": "/美式音標/",
+          "pos": "v. / n. / adj. / adv. / phr.",
+          "col": "兩個搭配詞，以 ' / ' 分隔",
+          "zh": "繁體中文釋義"
+        }
+      ],
+      "issues": [
+        "圖片瑕疵清單；沒有問題輸出 []（stage1 不需要此欄位）"
+      ]
+    },
+    "rules": {
+      "statements": {
+        "length": "每句 6–14 個字，口語自然、可直接朗讀，不使用括號、斜線或特殊符號。",
+        "correct": "正解只描述照片中清楚可見的事實，不推測職業、心情、原因或目的（不寫 waiting for、going to、because 之類無法從畫面確認的內容）。",
+        "single_or_multi": "有人的照片以現在進行式描述動作（is/are + V-ing）；主詞用 He／She／The man／The woman／Some people／They 等，並確保與畫面人數與性別一致。",
+        "none": "無人物照片以被動或狀態描述（are being displayed、has been placed、is/are + p.p.）與位置介系詞（on、beside、along、in front of、next to、across from、against）。",
+        "exactly_one_correct": "四句中只能有一句符合圖片；干擾項不可同時也說得通。",
+        "traps": "干擾項盡量使用不同類型：sound-alike（音近或字形近，如 walking/working、sitting/setting、board/bored）、not-in-photo（提到圖中沒有的物品或人）、wrong-action（動作錯誤）、wrong-place-or-number（位置或人數錯誤）、over-inference（過度推論）。",
+        "vocabulary": "以多益高頻字彙為主，避免冷僻俚語。"
+      },
+      "answer_distribution": "組內各題正解位置（0–3）需分散，避免集中在同一個字母。",
+      "difficulty": {
+        "score": "多數題約 500–750；單人動作較易，無人物的被動與位置描述較難。",
+        "cefr": "≤550 A2+、600 B1、650 B1+、700–750 B2、≥800 B2+"
+      },
+      "tier": {
+        "mapping": "level.score ≤550 → 'easy'；600 或 650 → 'medium'；≥700 → 'hard'。score、cefr、tier 三者必須一致。",
+        "check": "難度以「實際寫出的四句話」判斷，不是以出圖時的 target_tier 為準；若寫完發現與 target_tier 不同，以實際為準並在 level.why 說明依據。"
+      },
+      "domain": {
+        "mapping": "domain 由 scene 決定：office→d1；restaurant→d2；store→d3；street、station→d4；workplace→d5；hotel、home→d6；outdoor→d7。",
+        "check": "圖片實際場景與 scene 不符時，先改 scene，再依對照表改 domain。"
+      },
+      "vocab": {
+        "count": "2–4 個",
+        "requirements": "必須實際出現在 statements 中（以原形或僅加 -s/-es/-d/-ed/-ing 的形式出現）；不得與既有 items 的單字重複。"
+      },
+      "image_prompt": "英文；寫實攝影風格（realistic photograph）、自然光、橫式 4:3、主體單純清楚；圖中不得有文字、標誌、商標、可讀的螢幕；人物不超過 4 位且手部動作簡單、清楚可見；不出現名人與品牌；場景為多益常見的辦公室、餐廳、商店、街道、車站、工地、倉庫、旅館、公園等，並符合該題 domain 的場景範圍。",
+      "language": "介面文字（tag、zh、level.why、vocab.zh、why）一律繁體中文（台灣用語）；statements、image_prompt、visible_facts 為英文。",
+      "json_hygiene": "輸出必須是合法 JSON：雙引號、不含註解、不含結尾逗號；字串中的換行用 \\n。",
+      "self_check": [
+        "輸出前逐項自我檢查，通過後才輸出：",
+        "1. 四句中只有一句符合圖片，且正解只描述可見事實。",
+        "2. statements、zh、why、traps 皆剛好 4 項，順序一致。",
+        "3. 干擾項的類型盡量不重複，且每個 why 說明錯在哪裡。",
+        "4. vocab 每個單字都出現在 statements 中，且不與既有資料重複。",
+        "5. domain 與 scene 符合對照表；level.tier 與 level.score 一致。",
+        "6. 整體為合法 JSON，只輸出單一物件、放在單一 json 程式碼區塊內，區塊外不加任何文字。"
+      ]
+    },
+    "app_modes": {
+      "practice": "練習：可依組別（Set）練習，或依 難度、主題（d1–d7）、類型（單人／多人／無人物）、重點篩選後跨組隨機練習；作答後立即顯示解析，可重複播放音檔。",
+      "test": "測驗：先選難度（初／中／高／全部），再選主題（d1–d7／全部），從符合的題目隨機抽 6 題；音檔只播放一次，作答中不顯示對錯，完成後一次檢討。符合條件的題目不足 6 題時，全部出題。"
+    },
+    "example": {
+      "id": "p1s1q1",
+      "set": 1,
+      "no": 1,
+      "photo_type": "single",
+      "scene": "office",
+      "focus": "action",
+      "domain": "d1",
+      "tag": "女子在辦公桌前使用電腦",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "單人動作題，使用基本現在進行式與常見辦公用品字彙。"
+      },
+      "image": "images/p1s1q1.jpg",
+      "audio": "audio/p1s1q1.mp3",
+      "image_prompt": "A realistic photograph of a woman sitting at a desk in a bright office, typing on a laptop, a coffee cup and a notebook on the desk, natural window light, 4:3 landscape, no text or logos visible.",
+      "visible_facts": [
+        "One woman is seated at a desk.",
+        "She is typing on a laptop.",
+        "A coffee cup is on the desk.",
+        "A notebook is beside the laptop."
+      ],
+      "statements": [
+        "The woman is typing on a laptop.",
+        "The woman is answering the phone.",
+        "The woman is watering a plant.",
+        "The woman is writing on a whiteboard."
+      ],
+      "zh": [
+        "這名女子正在筆電上打字。",
+        "這名女子正在接電話。",
+        "這名女子正在澆花。",
+        "這名女子正在白板上寫字。"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：女子坐在桌前使用筆電打字，與畫面相符。",
+        "畫面中沒有人在接電話。",
+        "畫面中沒有植物，也沒有澆水的動作。",
+        "畫面中沒有白板，她也不是在書寫。"
+      ],
+      "traps": [
+        "correct",
+        "wrong-action",
+        "not-in-photo",
+        "not-in-photo"
+      ],
+      "vocab": [
+        {
+          "word": "laptop",
+          "ipa": "/ˈlæptɑːp/",
+          "pos": "n.",
+          "col": "open a laptop / laptop computer",
+          "zh": "筆記型電腦"
+        },
+        {
+          "word": "answer",
+          "ipa": "/ˈænsər/",
+          "pos": "v.",
+          "col": "answer the phone / answer a question",
+          "zh": "接聽、回答"
+        }
+      ],
+      "issues": []
+    }
+  },
+  "items": [
+    {
+      "id": "p1s1q1",
+      "set": 1,
+      "no": 1,
+      "photo_type": "single",
+      "scene": "office",
+      "focus": "action",
+      "domain": "d1",
+      "tag": "女子在辦公桌前使用電腦",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "單人動作題，使用基本現在進行式與常見辦公用品字彙。"
+      },
+      "image": "images/p1s1q1.jpg",
+      "audio": "audio/p1s1q1.mp3",
+      "image_prompt": "A realistic photograph of a woman sitting at a desk in a bright office, typing on a laptop, a coffee cup and a notebook on the desk, natural window light, 4:3 landscape, no text or logos visible.",
+      "visible_facts": [
+        "One woman is seated at a desk.",
+        "She is typing on a laptop.",
+        "A coffee cup is on the desk.",
+        "A notebook is beside the laptop."
+      ],
+      "statements": [
+        "The woman is typing on a laptop.",
+        "The woman is answering the phone.",
+        "The woman is watering a plant.",
+        "The woman is writing on a whiteboard."
+      ],
+      "zh": [
+        "這名女子正在筆電上打字。",
+        "這名女子正在接電話。",
+        "這名女子正在澆花。",
+        "這名女子正在白板上寫字。"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：女子坐在桌前使用筆電打字，與畫面相符。",
+        "畫面中沒有人在接電話。",
+        "畫面中沒有植物，也沒有澆水的動作。",
+        "畫面中沒有白板，她也不是在書寫。"
+      ],
+      "traps": [
+        "correct",
+        "wrong-action",
+        "not-in-photo",
+        "not-in-photo"
+      ],
+      "vocab": [
+        {
+          "word": "laptop",
+          "ipa": "/ˈlæptɑːp/",
+          "pos": "n.",
+          "col": "open a laptop / laptop computer",
+          "zh": "筆記型電腦"
+        },
+        {
+          "word": "answer",
+          "ipa": "/ˈænsər/",
+          "pos": "v.",
+          "col": "answer the phone / answer a question",
+          "zh": "接聽、回答"
+        }
+      ],
+      "issues": []
+    }
+  ]
+}
