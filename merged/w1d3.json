@@ -1,0 +1,139 @@
+{
+  "week": 1,
+  "day": 3,
+  "tag": "員工健檢福利通知",
+  "type": "Reading",
+  "level": {
+    "score": 650,
+    "range": "600-700",
+    "cefr": "B1+",
+    "why": "內容以公司員工福利與健康檢查公告為情境，包含 eligibility、coverage、schedule、register 等多益常見職場字彙；句型以通知與規定說明為主，難度略高於一般辦公室公告。"
+  },
+  "passage": "To: All Employees\nSubject: Annual Health Screening Program\n\nOur annual health screening program will take place from October 12 to October 23 at the company's medical center. All full-time employees who have completed at least six months of service are eligible to participate. The company will cover the full cost of the standard examination, including a blood test, vision test, and basic health consultation.\n\nEmployees who wish to participate must register through the Human Resources portal by October 5. Please select an available appointment when registering. If you need to change your appointment, contact the HR department at least two business days in advance. Employees are encouraged to bring their employee ID cards and arrive ten minutes before their scheduled time.",
+  "zh": "收件人：全體員工\n主旨：年度健康檢查計畫\n\n本公司的年度健康檢查計畫將於 10 月 12 日至 10 月 23 日在公司醫療中心進行。所有任職滿六個月的全職員工皆符合參加資格。公司將負擔標準健檢的全部費用，包括血液檢查、視力檢查以及基本健康諮詢。\n\n希望參加的員工必須在 10 月 5 日前透過人力資源入口網站登記。登記時請選擇可用的預約時段。如果需要更改預約，請至少提前兩個工作天聯絡人資部門。建議員工攜帶員工識別證，並於預定時間前十分鐘抵達。",
+  "vocab": [
+    {
+      "word": "eligible",
+      "ipa": "/ˈelɪdʒəbəl/",
+      "pos": "adj.",
+      "col": "be eligible for / eligible employees",
+      "zh": "符合資格的"
+    },
+    {
+      "word": "screening",
+      "ipa": "/ˈskriːnɪŋ/",
+      "pos": "n.",
+      "col": "health screening / medical screening",
+      "zh": "篩檢、健康檢查"
+    },
+    {
+      "word": "coverage",
+      "ipa": "/ˈkʌvərɪdʒ/",
+      "pos": "n.",
+      "col": "insurance coverage / full coverage",
+      "zh": "保障範圍、給付"
+    },
+    {
+      "word": "register",
+      "ipa": "/ˈredʒɪstər/",
+      "pos": "v.",
+      "col": "register online / register for a program",
+      "zh": "登記、註冊"
+    },
+    {
+      "word": "appointment",
+      "ipa": "/əˈpɔɪntmənt/",
+      "pos": "n.",
+      "col": "make an appointment / scheduled appointment",
+      "zh": "預約、約定"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "Who is eligible to participate in the health screening program?",
+      "opts": [
+        "All temporary employees",
+        "Employees with at least six months of service",
+        "Employees who work at the medical center",
+        "Only members of the HR department"
+      ],
+      "ans": 1,
+      "why": [
+        "文章沒有說所有臨時員工都符合資格。",
+        "正解：任職至少六個月的全職員工可以參加。",
+        "醫療中心工作人員不是本文設定的資格條件。",
+        "人資部門員工並非唯一符合資格的人員。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What will the company pay for?",
+      "opts": [
+        "The full cost of the standard examination",
+        "Transportation to the medical center",
+        "Employees' prescription medication",
+        "Additional examinations at outside clinics"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：公司將負擔標準健檢的全部費用。",
+        "文章沒有提到公司提供前往醫療中心的交通費。",
+        "處方藥費不在公告列出的項目中。",
+        "文章只說明標準健檢，未提及外部診所的額外檢查。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "By when must employees register?",
+      "opts": [
+        "September 30",
+        "October 5",
+        "October 12",
+        "October 23"
+      ],
+      "ans": 1,
+      "why": [
+        "文章沒有將 9 月 30 日列為登記截止日。",
+        "正解：員工必須在 10 月 5 日前完成登記。",
+        "10 月 12 日是健康檢查開始日期。",
+        "10 月 23 日是健康檢查期間的最後一天。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Employees who are ______ for the program may register through the HR portal.",
+      "opts": [
+        "eligible",
+        "eligibility",
+        "eligibly",
+        "eligibles"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：be eligible for 表示「符合資格」，此處需要形容詞。",
+        "eligibility 是名詞，不能直接放在 are 後修飾主詞。",
+        "eligibly 是副詞，此處不符合文法。",
+        "eligibles 不是此句需要的標準英文詞形。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Please contact the HR department ______ two business days in advance if you need to change your appointment.",
+      "opts": [
+        "at least",
+        "despite",
+        "during",
+        "unless"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：at least 表示「至少」，符合提前兩個工作天的時間要求。",
+        "despite 表示「儘管」，語意不符合時間要求。",
+        "during 表示「在……期間」，不能表達至少提前兩天。",
+        "unless 表示「除非」，不符合此句語意。"
+      ]
+    }
+  ],
+  "timing": []
+}

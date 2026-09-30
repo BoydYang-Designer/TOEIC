@@ -1,0 +1,724 @@
+{
+ "_spec": {
+  "purpose": "TOEIC Daily Coach 題庫。使用者會把這份 JSON 交給 AI，並說「生成 w{週}d{天}」（例如 w1d3）。請依本 _spec 產生該篇資料。",
+  "how_to_use": {
+   "trigger": "使用者輸入 w{W}d{D}（例如 w1d3）→ 產生 week=W、day=D 的一筆資料。",
+   "output": "只輸出「一個」符合 entry_schema 的 JSON 物件，放在單一 json 程式碼區塊內。不要輸出整份 data.json、不要修改既有 items、不要加任何說明文字。",
+   "override": "若使用者另外指定題材、type（Reading/Listening）或難度，以使用者指定為準；未指定時依 themes 與 rules 自行決定。",
+   "avoid_duplicates": "tag、情境與 vocab 單字不得與 items 內既有資料重複。",
+   "after": "使用者會自行把該物件貼進 items 陣列，並將 mp3 命名為 audio/w{W}d{D}.mp3。"
+  },
+  "themes": {
+   "D1": "辦公室與商務溝通（電子郵件、備忘錄、公告、通知、電話留言、設備與設施問題）",
+   "D2": "差旅、交通與餐飲（班機、訂房、行程、訂位、宴請、交通異動）",
+   "D3": "求職、人資與職涯（徵才廣告、履歷與面試、升遷、薪資福利、培訓、員工健檢與保險）",
+   "D4": "採購、製造與供應鏈（訂貨、運送、發票、庫存、材料與品質檢驗）",
+   "D5": "行銷、銷售與客服（廣告、促銷、客訴、退換貨、展覽與活動）",
+   "D6": "財務、合約與商業管理（合約條款、預算、銀行、帳單、報告與稽核）",
+   "D7": "會議、簡報與提案（會議議程、專案提案、成果報告、簡報開場與結尾；須附 presentation_phrases）"
+  },
+  "entry_schema": {
+   "week": "整數，來自使用者輸入",
+   "day": "整數 1–7，來自使用者輸入；決定主題（見 themes）",
+   "tag": "繁體中文標題，簡短描述情境，例如「班機延誤廣播」。D7 格式為「簡報／提案：主題」，例如「簡報／提案：新專案提案簡報」",
+   "type": "'Reading' 或 'Listening'",
+   "level": {
+    "score": "預估多益分數，50 的倍數",
+    "range": "'低-高'，即 score ±50，例如 '600-700'",
+    "cefr": "見 rules.difficulty",
+    "why": "繁體中文 1–2 句，說明難度依據（句型、單字、情境）"
+   },
+   "passage": "英文正文。段落用 \\n\\n 分隔。",
+   "zh": "passage 的繁體中文（台灣用語）翻譯，段落結構與 passage 一致。",
+   "vocab": [
+    {
+     "word": "英文單字或片語",
+     "ipa": "/美式音標/",
+     "pos": "v. / n. / adj. / adv. / phr.",
+     "col": "兩個搭配詞，以 ' / ' 分隔",
+     "zh": "繁體中文釋義"
+    }
+   ],
+   "questions": [
+    {
+     "kind": "'context' 或 'part5'",
+     "q": "題目",
+     "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "ans": "正解索引 0–3",
+     "why": [
+      "對應每個選項的解析，共 4 句，繁體中文"
+     ]
+    }
+   ],
+   "presentation_phrases": "僅 D7 需要：[{phrase, meaning, usage}]，6–8 句簡報常用句型（開場、說明重點、轉換、下一步、結尾）。",
+   "timing": "一律輸出 []。時間軸由音檔另行對時產生，AI 不得自行編造。"
+  },
+  "rules": {
+   "type_and_style": {
+    "Reading": "書面文體：電子郵件、公告、廣告、備忘錄、文章、簡訊串、表單、發票等。可含 To/Subject 等格式。",
+    "Listening": "口說文體：廣播、語音留言、電話訊息、簡短對話（標明說話者）、演講、導覽。使用口語且可直接朗讀，不放 To/Subject 等書面標頭。"
+   },
+   "passage_length": "Reading 約 80–200 字；Listening 約 60–150 字（音檔約 25–60 秒）；D7 簡報可到 250–300 字。",
+   "difficulty": {
+    "score": "W1 約 600–750，之後每週約 +50，可由使用者調整；D7 比同週其他天高約 50–100。",
+    "cefr": "≤550 A2+、600 B1、650 B1+、700–750 B2、800 B2+、≥850 C1"
+   },
+   "vocab": {
+    "count": "3–6 個；長篇或 D7 可取上限。",
+    "requirements": "必須實際出現在 passage 中（App 會自動標示，變化形如 -ed/-ing/-s 可被比對）；優先選多益高頻商務字彙；不得與既有 items 的單字重複。"
+   },
+   "questions": {
+    "count": "4–10 題，依內容量決定：passage < 120 字 → 4 題；120–250 字 → 5–6 題；> 250 字或細節很多 → 6–10 題。",
+    "mix": "context（依 passage 的理解題）與 part5（句子填空，與該主題相關的文法／詞性／介系詞／字彙）大約各半；先排所有 context，再排所有 part5。",
+    "context": "考主旨、細節、推論、對方要求做什麼、時間地點等；題目與選項為英文。",
+    "part5": "單一空格用 '______' 表示，不需要看 passage 即可作答；考點涵蓋詞性變化、動詞形態、介系詞、連接詞、字彙辨析，並貼近當天主題。",
+    "options": "固定 4 個選項；干擾項要合理（如文中出現過但不是答案的資訊）。",
+    "ans_distribution": "正解位置（0–3）需分散，避免全部集中在同一個位置。",
+    "why": "陣列長度必須為 4，順序與 opts 一致；正解那句以「正解：」開頭，其餘說明為何不對。"
+   },
+   "language": "介面文字（tag、zh、level.why、vocab.zh、why、meaning、usage）一律繁體中文（台灣用語）；passage、題目、選項為英文。",
+   "json_hygiene": "輸出必須是合法 JSON：雙引號、不含註解、不含結尾逗號；字串中的換行用 \\n。"
+  }
+ },
+ "items": [
+  {
+   "week": 1,
+   "day": 1,
+   "tag": "會議時間異動通知",
+   "type": "Reading",
+   "level": {
+    "score": 600,
+    "range": "550-650",
+    "cefr": "B1",
+    "why": "句型簡單直接（so that、no later than），單字為基礎商務詞彙（confirm、submit），屬中階入門難度。"
+   },
+   "passage": "To: All Staff\nSubject: Revised Meeting Schedule\n\nStarting Monday, the weekly marketing meeting will move from 9:00 A.M. to 10:30 A.M. so that team members in the Singapore office can join by video conference. Please confirm your attendance by replying to this e-mail no later than Friday. Employees who cannot attend must submit their updates to Ms. Chen in advance. Please note that Conference Room B will be unavailable due to renovations, so the meeting will be held in Room A.",
+   "zh": "收件人：全體員工\n主旨：會議時程調整\n\n自週一起，每週行銷會議將由上午 9:00 改為 10:30，讓新加坡辦公室的同事可以透過視訊會議參加。請最晚於週五前回覆此郵件確認出席。無法出席的員工須事先將進度報告提交給陳女士。請注意，B 會議室因整修將無法使用，因此會議將改在 A 室舉行。",
+   "vocab": [
+    {
+     "word": "confirm",
+     "ipa": "/kənˈfɜːrm/",
+     "pos": "v.",
+     "col": "confirm attendance / a reservation",
+     "zh": "確認"
+    },
+    {
+     "word": "submit",
+     "ipa": "/səbˈmɪt/",
+     "pos": "v.",
+     "col": "submit a report / an application",
+     "zh": "提交"
+    },
+    {
+     "word": "renovation",
+     "ipa": "/ˌrenəˈveɪʃn/",
+     "pos": "n.",
+     "col": "under renovation / renovation work",
+     "zh": "整修、翻新"
+    }
+   ],
+   "questions": [
+    {
+     "kind": "context",
+     "q": "Why is the meeting time being changed?",
+     "opts": [
+      "To avoid a room conflict",
+      "To allow Singapore staff to join",
+      "To shorten the meeting",
+      "To welcome new employees"
+     ],
+     "ans": 1,
+     "why": [
+      "文中換房間是因為整修，非時間衝突。",
+      "正解：方便新加坡團隊視訊加入。",
+      "未提到縮短會議。",
+      "未提及新進員工。"
+     ]
+    },
+    {
+     "kind": "context",
+     "q": "What are employees who cannot attend asked to do?",
+     "opts": [
+      "Send their updates to Ms. Chen",
+      "Contact the Singapore office",
+      "Reserve Room B",
+      "Reply by Monday"
+     ],
+     "ans": 0,
+     "why": [
+      "正解：提前將進度報告寄給 Ms. Chen。",
+      "新加坡辦公室非收件對象。",
+      "B 會議室維修不可用。",
+      "截止日為週五而非週一。"
+     ]
+    },
+    {
+     "kind": "part5",
+     "q": "Employees must ______ their travel expense reports by the end of the month.",
+     "opts": [
+      "submit",
+      "submitting",
+      "submission",
+      "submitted"
+     ],
+     "ans": 0,
+     "why": [
+      "正解：助動詞 must 後接原形動詞。",
+      "must 後不接動名詞。",
+      "submission 為名詞。",
+      "此處缺動詞原形。"
+     ]
+    },
+    {
+     "kind": "part5",
+     "q": "The meeting was moved to Room A ______ Room B is under renovation.",
+     "opts": [
+      "because",
+      "despite",
+      "during",
+      "whereas"
+     ],
+     "ans": 0,
+     "why": [
+      "正解：連接詞 because 引導原因子句。",
+      "despite 為介系詞，後接名詞。",
+      "during 為介系詞，表期間。",
+      "whereas 表對比，語意不符。"
+     ]
+    }
+   ],
+   "timing": [
+    {
+     "start": 0.0,
+     "end": 0.74,
+     "from": 0,
+     "to": 13
+    },
+    {
+     "start": 1.28,
+     "end": 3.12,
+     "from": 14,
+     "to": 47
+    },
+    {
+     "start": 3.72,
+     "end": 13.56,
+     "from": 49,
+     "to": 208
+    },
+    {
+     "start": 14.38,
+     "end": 18.56,
+     "from": 209,
+     "to": 288
+    },
+    {
+     "start": 19.26,
+     "end": 23.16,
+     "from": 289,
+     "to": 366
+    },
+    {
+     "start": 23.94,
+     "end": 30.04,
+     "from": 367,
+     "to": 480
+    }
+   ]
+  },
+  {
+   "week": 1,
+   "day": 2,
+   "tag": "班機延誤廣播",
+   "type": "Listening",
+   "level": {
+    "score": 650,
+    "range": "600-700",
+    "cefr": "B1+",
+    "why": "機場廣播常見情境，含 connecting flights、rebook、free of charge 等實用片語，且為聽力，難度略高於 Day 1。"
+   },
+   "passage": "Attention, passengers on Flight KA208 to Tokyo. Due to heavy fog, departure has been postponed by approximately two hours. The new boarding time is 4:45 P.M. at Gate 12. Passengers with connecting flights should visit the transfer desk near Gate 10, where staff will rebook your itinerary free of charge. Meal vouchers are available at the information counter. We apologize for the inconvenience.",
+   "zh": "KA208 飛往東京班機的旅客請注意。由於濃霧，起飛時間延後約兩小時。新的登機時間為下午 4:45，登機門為 12 號。有轉機的旅客請至 10 號登機門附近的轉機櫃檯，工作人員將免費為您重新安排行程。餐券可於服務台領取。對於造成的不便，我們深表歉意。",
+   "vocab": [
+    {
+     "word": "postpone",
+     "ipa": "/poʊstˈpoʊn/",
+     "pos": "v.",
+     "col": "postpone a meeting / departure",
+     "zh": "延期、推遲"
+    },
+    {
+     "word": "itinerary",
+     "ipa": "/aɪˈtɪnəreri/",
+     "pos": "n.",
+     "col": "travel itinerary / flight itinerary",
+     "zh": "行程表、航程"
+    },
+    {
+     "word": "voucher",
+     "ipa": "/ˈvaʊtʃər/",
+     "pos": "n.",
+     "col": "meal voucher / discount voucher",
+     "zh": "兌換券、餐券"
+    }
+   ],
+   "questions": [
+    {
+     "kind": "context",
+     "q": "What caused the delay?",
+     "opts": [
+      "A crew shortage",
+      "Heavy fog",
+      "A gate change",
+      "A mechanical problem"
+     ],
+     "ans": 1,
+     "why": [
+      "未提及機組員不足。",
+      "正解：Due to heavy fog（濃霧）。",
+      "登機門更換是結果非原因。",
+      "未提及機械故障。"
+     ]
+    },
+    {
+     "kind": "context",
+     "q": "Where should passengers with connecting flights go?",
+     "opts": [
+      "Gate 12",
+      "The information counter",
+      "The transfer desk near Gate 10",
+      "The boarding area"
+     ],
+     "ans": 2,
+     "why": [
+      "Gate 12 是新登機門。",
+      "服務台是領餐券處。",
+      "正解：10 號門附近的轉機櫃檯。",
+      "未要求前往登機區。"
+     ]
+    },
+    {
+     "kind": "part5",
+     "q": "The flight was ______ due to bad weather.",
+     "opts": [
+      "postponed",
+      "postponing",
+      "postpone",
+      "postponement"
+     ],
+     "ans": 0,
+     "why": [
+      "正解：was 後接過去分詞表示被動。",
+      "進行式不符語意。",
+      "was 後不可接原形。",
+      "名詞不可做被動補語。"
+     ]
+    },
+    {
+     "kind": "part5",
+     "q": "Please keep your receipt ______ you need to request a refund.",
+     "opts": [
+      "in case",
+      "in spite of",
+      "so that",
+      "whereas"
+     ],
+     "ans": 0,
+     "why": [
+      "正解：in case + 子句表示「以防萬一」。",
+      "in spite of 為介系詞。",
+      "so that 表目的。",
+      "whereas 表對稱對比。"
+     ]
+    }
+   ],
+   "timing": [
+    {
+     "start": 0.0,
+     "end": 3.08,
+     "from": 0,
+     "to": 47
+    },
+    {
+     "start": 3.68,
+     "end": 7.7,
+     "from": 48,
+     "to": 122
+    },
+    {
+     "start": 8.48,
+     "end": 11.36,
+     "from": 123,
+     "to": 169
+    },
+    {
+     "start": 12.04,
+     "end": 19.86,
+     "from": 170,
+     "to": 304
+    },
+    {
+     "start": 20.88,
+     "end": 23.3,
+     "from": 305,
+     "to": 360
+    },
+    {
+     "start": 23.96,
+     "end": 25.44,
+     "from": 361,
+     "to": 396
+    }
+   ]
+  },
+  {
+   "week": 1,
+   "day": 3,
+   "tag": "員工健檢福利通知",
+   "type": "Reading",
+   "level": {
+    "score": 650,
+    "range": "600-700",
+    "cefr": "B1+",
+    "why": "內容以公司員工福利與健康檢查公告為情境，包含 eligibility、coverage、schedule、register 等多益常見職場字彙；句型以通知與規定說明為主，難度略高於一般辦公室公告。"
+   },
+   "passage": "To: All Employees\nSubject: Annual Health Screening Program\n\nOur annual health screening program will take place from October 12 to October 23 at the company's medical center. All full-time employees who have completed at least six months of service are eligible to participate. The company will cover the full cost of the standard examination, including a blood test, vision test, and basic health consultation.\n\nEmployees who wish to participate must register through the Human Resources portal by October 5. Please select an available appointment when registering. If you need to change your appointment, contact the HR department at least two business days in advance. Employees are encouraged to bring their employee ID cards and arrive ten minutes before their scheduled time.",
+   "zh": "收件人：全體員工\n主旨：年度健康檢查計畫\n\n本公司的年度健康檢查計畫將於 10 月 12 日至 10 月 23 日在公司醫療中心進行。所有任職滿六個月的全職員工皆符合參加資格。公司將負擔標準健檢的全部費用，包括血液檢查、視力檢查以及基本健康諮詢。\n\n希望參加的員工必須在 10 月 5 日前透過人力資源入口網站登記。登記時請選擇可用的預約時段。如果需要更改預約，請至少提前兩個工作天聯絡人資部門。建議員工攜帶員工識別證，並於預定時間前十分鐘抵達。",
+   "vocab": [
+    {
+     "word": "eligible",
+     "ipa": "/ˈelɪdʒəbəl/",
+     "pos": "adj.",
+     "col": "be eligible for / eligible employees",
+     "zh": "符合資格的"
+    },
+    {
+     "word": "screening",
+     "ipa": "/ˈskriːnɪŋ/",
+     "pos": "n.",
+     "col": "health screening / medical screening",
+     "zh": "篩檢、健康檢查"
+    },
+    {
+     "word": "coverage",
+     "ipa": "/ˈkʌvərɪdʒ/",
+     "pos": "n.",
+     "col": "insurance coverage / full coverage",
+     "zh": "保障範圍、給付"
+    },
+    {
+     "word": "register",
+     "ipa": "/ˈredʒɪstər/",
+     "pos": "v.",
+     "col": "register online / register for a program",
+     "zh": "登記、註冊"
+    },
+    {
+     "word": "appointment",
+     "ipa": "/əˈpɔɪntmənt/",
+     "pos": "n.",
+     "col": "make an appointment / scheduled appointment",
+     "zh": "預約、約定"
+    }
+   ],
+   "questions": [
+    {
+     "kind": "context",
+     "q": "Who is eligible to participate in the health screening program?",
+     "opts": [
+      "All temporary employees",
+      "Employees with at least six months of service",
+      "Employees who work at the medical center",
+      "Only members of the HR department"
+     ],
+     "ans": 1,
+     "why": [
+      "文章沒有說所有臨時員工都符合資格。",
+      "正解：任職至少六個月的全職員工可以參加。",
+      "醫療中心工作人員不是本文設定的資格條件。",
+      "人資部門員工並非唯一符合資格的人員。"
+     ]
+    },
+    {
+     "kind": "context",
+     "q": "What will the company pay for?",
+     "opts": [
+      "The full cost of the standard examination",
+      "Transportation to the medical center",
+      "Employees' prescription medication",
+      "Additional examinations at outside clinics"
+     ],
+     "ans": 0,
+     "why": [
+      "正解：公司將負擔標準健檢的全部費用。",
+      "文章沒有提到公司提供前往醫療中心的交通費。",
+      "處方藥費不在公告列出的項目中。",
+      "文章只說明標準健檢，未提及外部診所的額外檢查。"
+     ]
+    },
+    {
+     "kind": "context",
+     "q": "By when must employees register?",
+     "opts": [
+      "September 30",
+      "October 5",
+      "October 12",
+      "October 23"
+     ],
+     "ans": 1,
+     "why": [
+      "文章沒有將 9 月 30 日列為登記截止日。",
+      "正解：員工必須在 10 月 5 日前完成登記。",
+      "10 月 12 日是健康檢查開始日期。",
+      "10 月 23 日是健康檢查期間的最後一天。"
+     ]
+    },
+    {
+     "kind": "part5",
+     "q": "Employees who are ______ for the program may register through the HR portal.",
+     "opts": [
+      "eligible",
+      "eligibility",
+      "eligibly",
+      "eligibles"
+     ],
+     "ans": 0,
+     "why": [
+      "正解：be eligible for 表示「符合資格」，此處需要形容詞。",
+      "eligibility 是名詞，不能直接放在 are 後修飾主詞。",
+      "eligibly 是副詞，此處不符合文法。",
+      "eligibles 不是此句需要的標準英文詞形。"
+     ]
+    },
+    {
+     "kind": "part5",
+     "q": "Please contact the HR department ______ two business days in advance if you need to change your appointment.",
+     "opts": [
+      "at least",
+      "despite",
+      "during",
+      "unless"
+     ],
+     "ans": 0,
+     "why": [
+      "正解：at least 表示「至少」，符合提前兩個工作天的時間要求。",
+      "despite 表示「儘管」，語意不符合時間要求。",
+      "during 表示「在……期間」，不能表達至少提前兩天。",
+      "unless 表示「除非」，不符合此句語意。"
+     ]
+    }
+   ],
+   "timing": []
+  },
+  {
+   "week": 1,
+   "day": 7,
+   "tag": "簡報／提案：新專案提案簡報",
+   "type": "Reading",
+   "level": {
+    "score": 700,
+    "range": "650-750",
+    "cefr": "B2",
+    "why": "以一般商務提案簡報為情境，句型包含 Let me begin by、One of the key benefits is、Our next step is to 等 TOEIC 常見簡報用語；字彙涵蓋 proposal、estimate、allocate、approval 等預算與專案審核相關詞彙。"
+   },
+   "passage": "Good morning, everyone, and thank you for making time for this meeting. I'd like to introduce our proposal for the new customer portal project.\n\nLet me begin by explaining the problem. Currently, customers must call our support team to check an order status or request an invoice. As a result, our staff spend nearly half of each day answering routine questions, and customers often wait more than ten minutes to reach someone.\n\nOur proposal is to launch an online portal where customers can track shipments, download invoices, and submit service requests at any time. One of the key benefits is a significant reduction in call volume. In addition, the portal will give managers real-time reports on response times.\n\nWe estimate that the project will take six months and require a budget of $120,000. Most of this amount will cover software development, and we will allocate the rest to staff training. We expect the investment to pay for itself within two years.\n\nOur next step is to obtain approval from the finance department. If the proposal is approved this month, we can begin the design phase in November.\n\nThat concludes today's presentation. Thank you for your time and attention. I'm happy to answer any questions.",
+   "zh": "各位早安，感謝大家撥空參加這場會議。我想向各位介紹我們的新客戶入口網站專案提案。\n\n首先，讓我說明目前的問題。現在客戶必須打電話給客服團隊，才能查詢訂單狀態或索取發票。因此，我們的員工每天將近一半的時間都在回答例行問題，而客戶常常要等超過十分鐘才能聯絡到人。\n\n我們的提案是推出一個線上入口網站，讓客戶隨時都能追蹤貨件、下載發票及提交服務需求。其中一項主要效益是來電量大幅減少。此外，這個入口網站也會提供主管有關回應時間的即時報表。\n\n我們預估這個專案需要六個月，預算為 12 萬美元。大部分金額將用於軟體開發，其餘則分配給員工訓練。我們預期這筆投資可在兩年內回本。\n\n我們的下一步是取得財務部門的核准。若提案在本月獲得通過，我們就可以在十一月開始進行設計階段。\n\n以上就是今天的簡報內容。感謝各位撥空與關注。我很樂意回答任何問題。",
+   "vocab": [
+    {
+     "word": "proposal",
+     "ipa": "/prəˈpoʊzl/",
+     "pos": "n.",
+     "col": "submit a proposal / approve a proposal",
+     "zh": "提案、企劃書"
+    },
+    {
+     "word": "reduction",
+     "ipa": "/rɪˈdʌkʃn/",
+     "pos": "n.",
+     "col": "a significant reduction / cost reduction",
+     "zh": "減少、降低"
+    },
+    {
+     "word": "estimate",
+     "ipa": "/ˈestɪmeɪt/",
+     "pos": "v.",
+     "col": "estimate the cost / estimate the time",
+     "zh": "估計、預估"
+    },
+    {
+     "word": "allocate",
+     "ipa": "/ˈæləkeɪt/",
+     "pos": "v.",
+     "col": "allocate funds / allocate resources",
+     "zh": "分配、撥給"
+    },
+    {
+     "word": "obtain",
+     "ipa": "/əbˈteɪn/",
+     "pos": "v.",
+     "col": "obtain approval / obtain permission",
+     "zh": "取得、獲得"
+    },
+    {
+     "word": "approval",
+     "ipa": "/əˈpruːvl/",
+     "pos": "n.",
+     "col": "final approval / require approval",
+     "zh": "核准、批准"
+    }
+   ],
+   "questions": [
+    {
+     "kind": "context",
+     "q": "What is the main purpose of the presentation?",
+     "opts": [
+      "To announce a new company policy",
+      "To propose a customer portal project",
+      "To report last quarter's sales results",
+      "To introduce a new support manager"
+     ],
+     "ans": 1,
+     "why": [
+      "文章沒有宣布任何公司政策。",
+      "正解：講者開場即表示要介紹新客戶入口網站專案的提案。",
+      "文章沒有報告銷售成果。",
+      "文章沒有介紹新的客服主管。"
+     ]
+    },
+    {
+     "kind": "context",
+     "q": "According to the speaker, what is a current problem?",
+     "opts": [
+      "The software is too expensive.",
+      "Customers cannot download invoices at all.",
+      "Staff spend much of their time answering routine questions.",
+      "Managers do not want to attend meetings."
+     ],
+     "ans": 2,
+     "why": [
+      "費用是提案的一部分，並非目前的問題。",
+      "客戶可以索取發票，只是必須打電話，並非完全無法取得。",
+      "正解：員工每天將近一半的時間都在回答例行問題。",
+      "文章沒有提到主管不願開會。"
+     ]
+    },
+    {
+     "kind": "context",
+     "q": "What will the team do next?",
+     "opts": [
+      "Get approval from the finance department",
+      "Start the design phase immediately",
+      "Hire additional support staff",
+      "Ask customers to complete a survey"
+     ],
+     "ans": 0,
+     "why": [
+      "正解：下一步是取得財務部門的核准。",
+      "設計階段要等提案通過後、十一月才開始。",
+      "文章沒有提到增聘客服人員。",
+      "文章沒有提到客戶問卷。"
+     ]
+    },
+    {
+     "kind": "part5",
+     "q": "The marketing team is hoping to secure ______ for the new advertising campaign.",
+     "opts": [
+      "approve",
+      "approved",
+      "approving",
+      "approval"
+     ],
+     "ans": 3,
+     "why": [
+      "approve 為動詞，此處需要名詞作 secure 的受詞。",
+      "approved 為過去式或形容詞，不適合當受詞。",
+      "approving 為動名詞或現在分詞，語意與結構不合。",
+      "正解：approval 為名詞，secure approval 表示「取得核准」。"
+     ]
+    },
+    {
+     "kind": "part5",
+     "q": "We ______ that the new system will reduce the number of customer calls by 30 percent.",
+     "opts": [
+      "expecting",
+      "expect",
+      "to expect",
+      "expectation"
+     ],
+     "ans": 1,
+     "why": [
+      "expecting 缺少助動詞，不能單獨作述語動詞。",
+      "正解：主詞 We 後接現在式動詞 expect，再接 that 子句。",
+      "to expect 為不定詞，不能直接作述語動詞。",
+      "expectation 為名詞，無法接 that 子句作動詞。"
+     ]
+    },
+    {
+     "kind": "part5",
+     "q": "The project will begin in November ______ the proposal is approved this month.",
+     "opts": [
+      "although",
+      "unless",
+      "if",
+      "despite"
+     ],
+     "ans": 2,
+     "why": [
+      "although 表示讓步，語意不符。",
+      "unless 表示「除非」，與句意相反。",
+      "正解：if 引導條件子句，表示「若提案本月通過」。",
+      "despite 後面須接名詞或動名詞，不能接完整子句。"
+     ]
+    }
+   ],
+   "presentation_phrases": [
+    {
+     "phrase": "I'd like to introduce...",
+     "meaning": "我想向各位介紹……",
+     "usage": "正式簡報／產品發表的開場句"
+    },
+    {
+     "phrase": "Let me begin by explaining...",
+     "meaning": "首先讓我說明……",
+     "usage": "開始介紹產品概念或背景"
+    },
+    {
+     "phrase": "One of the key features is...",
+     "meaning": "其中一項主要特色是……",
+     "usage": "介紹產品功能與設計特色"
+    },
+    {
+     "phrase": "In addition,...",
+     "meaning": "此外……",
+     "usage": "補充另一項產品特色或資訊"
+    },
+    {
+     "phrase": "As a result,...",
+     "meaning": "因此／結果……",
+     "usage": "說明設計帶來的結果或使用者效益"
+    },
+    {
+     "phrase": "Our next step is to...",
+     "meaning": "我們下一步將……",
+     "usage": "介紹產品開發、測試或上市計畫"
+    },
+    {
+     "phrase": "That concludes today's presentation.",
+     "meaning": "以上就是今天的發表內容。",
+     "usage": "正式簡報結尾"
+    },
+    {
+     "phrase": "Thank you for your time and attention.",
+     "meaning": "感謝各位撥空與聆聽。",
+     "usage": "正式產品發表或商務簡報收尾"
+    }
+   ],
+   "timing": []
+  }
+ ]
+}

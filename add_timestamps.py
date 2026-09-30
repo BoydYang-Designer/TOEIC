@@ -119,7 +119,11 @@ def main():
         day = simpledialog.askinteger("天數", "請輸入 Day（1-7）：")
     with open(jpath, encoding="utf-8-sig") as f:
         data = json.load(f)
-    entry = next((x for x in data if x.get("week") == week and x.get("day") == day), None)
+    # data.json 可以是陣列，或含 _spec / items 的物件（目前格式）
+    items = data if isinstance(data, list) else (data.get("items") if isinstance(data, dict) else None)
+    if not isinstance(items, list):
+        return messagebox.showerror("格式錯誤", "data.json 需為陣列，或含 items 陣列的物件。")
+    entry = next((x for x in items if isinstance(x, dict) and x.get("week") == week and x.get("day") == day), None)
     if entry is None:
         return messagebox.showerror("找不到資料", f"data.json 裡沒有 Week {week} Day {day}。")
     print(f"目標：Week {week} Day {day}｜{entry.get('tag', '')}")

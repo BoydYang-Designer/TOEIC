@@ -1,15 +1,15 @@
 /* 7 大主題輪動常數 */
 const THEMES = [
-  '商務書信、辦公室與設施',
-  '差旅、交通、住宿與餐飲',
-  '人力資源、職場福利與健康',
-  '採購、供應鏈、製造與品管',
-  '行銷、客服與活動展覽',
-  '合約、財務與預算',
-  '工業設計與新品發表'
+  '辦公室與商務溝通',
+  '差旅、交通與餐飲',
+  '求職、人資與職涯',
+  '採購、製造與供應鏈',
+  '行銷、銷售與客服',
+  '財務、合約與商業管理',
+  '會議、簡報與提案'
 ];
 
-/* 題庫資料（範例含 Day 1、Day 2、以及專屬 Day 7） */
+/* 題庫資料 */
 
 
 /* 題庫資料由 data.json 載入（生成規則見 data.json 的 _spec，題目在 items） */
@@ -268,7 +268,6 @@ function renderDay() {
   let h = `<header class="mb-6">
     <div class="flex items-center gap-2">
       <h2 class="text-xl md:text-2xl font-bold">Day ${x.day} ${THEMES[x.day-1]}</h2>
-      ${x.day === 7 ? '<span class="px-2 py-0.5 text-xs bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 rounded font-semibold">設計師精選</span>' : ''}
     </div>
     <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${x.week} · ${x.tag}</span>
     ${lvBadge(x) ? ` ${lvBadge(x).replace('inline-block', 'inline-block mt-2')}` : ''}
@@ -332,7 +331,7 @@ function renderDay() {
   });
   if (vOpen) h += `</div>`;
 
-  // 簡報常用句型（僅資料含 presentation_phrases 時顯示，例如 D7）
+  // 簡報常用句型（僅資料含 presentation_phrases 時顯示，通常為 D7 會議、簡報與提案）
   const pp = Array.isArray(x.presentation_phrases) ? x.presentation_phrases : [];
   if (pp.length) {
     const pOpen = !!cur.phrasesOpen;

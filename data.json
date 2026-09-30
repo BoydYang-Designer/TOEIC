@@ -9,18 +9,18 @@
       "after": "使用者會自行把該物件貼進 items 陣列，並將 mp3 命名為 audio/w{W}d{D}.mp3。"
     },
     "themes": {
-      "D1": "商務書信、辦公室與設施（電子郵件、備忘錄、公告、設備故障、租賃與營繕）",
-      "D2": "差旅、交通、住宿與餐飲（班機、訂房、行程、訂位、宴請）",
-      "D3": "人力資源、職場福利與健康（徵才、升遷、薪資福利、培訓、醫療保險、健檢）",
-      "D4": "採購、供應鏈、製造與品管（訂貨、運送、發票、材料打樣、品質檢驗）",
-      "D5": "行銷、客服與活動展覽（廣告、客訴、退換貨、展覽、文化活動）",
-      "D6": "合約、財務與預算（合約條款、授權、專案預算、銀行、帳單）",
-      "D7": "工業設計與新品發表（設計師精選：新品簡報、產品設計、材質色彩與表面處理、原型、量產；須附 presentation_phrases）"
+      "D1": "辦公室與商務溝通（電子郵件、備忘錄、公告、通知、電話留言、設備與設施問題）",
+      "D2": "差旅、交通與餐飲（班機、訂房、行程、訂位、宴請、交通異動）",
+      "D3": "求職、人資與職涯（徵才廣告、履歷與面試、升遷、薪資福利、培訓、員工健檢與保險）",
+      "D4": "採購、製造與供應鏈（訂貨、運送、發票、庫存、材料與品質檢驗）",
+      "D5": "行銷、銷售與客服（廣告、促銷、客訴、退換貨、展覽與活動）",
+      "D6": "財務、合約與商業管理（合約條款、預算、銀行、帳單、報告與稽核）",
+      "D7": "會議、簡報與提案（會議議程、專案提案、成果報告、簡報開場與結尾；須附 presentation_phrases）"
     },
     "entry_schema": {
       "week": "整數，來自使用者輸入",
       "day": "整數 1–7，來自使用者輸入；決定主題（見 themes）",
-      "tag": "繁體中文標題，簡短描述情境，例如「班機延誤廣播」。D7 格式為「工業設計：主題」",
+      "tag": "繁體中文標題，簡短描述情境，例如「班機延誤廣播」。D7 格式為「簡報／提案：主題」，例如「簡報／提案：新專案提案簡報」",
       "type": "'Reading' 或 'Listening'",
       "level": {
         "score": "預估多益分數，50 的倍數",
@@ -55,7 +55,7 @@
           ]
         }
       ],
-      "presentation_phrases": "僅 D7 需要：[{phrase, meaning, usage}]，6–8 句簡報常用句型",
+      "presentation_phrases": "僅 D7 需要：[{phrase, meaning, usage}]，6–8 句簡報常用句型（開場、說明重點、轉換、下一步、結尾）。",
       "timing": "一律輸出 []。時間軸由音檔另行對時產生，AI 不得自行編造。"
     },
     "rules": {
@@ -193,42 +193,12 @@
         }
       ],
       "timing": [
-        {
-          "start": 0.0,
-          "end": 0.74,
-          "from": 0,
-          "to": 13
-        },
-        {
-          "start": 1.28,
-          "end": 3.12,
-          "from": 14,
-          "to": 47
-        },
-        {
-          "start": 3.72,
-          "end": 13.56,
-          "from": 49,
-          "to": 208
-        },
-        {
-          "start": 14.38,
-          "end": 18.56,
-          "from": 209,
-          "to": 288
-        },
-        {
-          "start": 19.26,
-          "end": 23.16,
-          "from": 289,
-          "to": 366
-        },
-        {
-          "start": 23.94,
-          "end": 30.04,
-          "from": 367,
-          "to": 480
-        }
+        {"start": 0.0, "end": 0.74, "from": 0, "to": 13},
+        {"start": 1.28, "end": 3.12, "from": 14, "to": 47},
+        {"start": 3.72, "end": 13.56, "from": 49, "to": 208},
+        {"start": 14.38, "end": 18.56, "from": 209, "to": 288},
+        {"start": 19.26, "end": 23.16, "from": 289, "to": 366},
+        {"start": 23.94, "end": 30.04, "from": 367, "to": 480}
       ]
     },
     {
@@ -338,99 +308,208 @@
         }
       ],
       "timing": [
-        {
-          "start": 0.0,
-          "end": 3.08,
-          "from": 0,
-          "to": 47
-        },
-        {
-          "start": 3.68,
-          "end": 7.7,
-          "from": 48,
-          "to": 122
-        },
-        {
-          "start": 8.48,
-          "end": 11.36,
-          "from": 123,
-          "to": 169
-        },
-        {
-          "start": 12.04,
-          "end": 19.86,
-          "from": 170,
-          "to": 304
-        },
-        {
-          "start": 20.88,
-          "end": 23.3,
-          "from": 305,
-          "to": 360
-        },
-        {
-          "start": 23.96,
-          "end": 25.44,
-          "from": 361,
-          "to": 396
-        }
+        {"start": 0.0, "end": 3.08, "from": 0, "to": 47},
+        {"start": 3.68, "end": 7.7, "from": 48, "to": 122},
+        {"start": 8.48, "end": 11.36, "from": 123, "to": 169},
+        {"start": 12.04, "end": 19.86, "from": 170, "to": 304},
+        {"start": 20.88, "end": 23.3, "from": 305, "to": 360},
+        {"start": 23.96, "end": 25.44, "from": 361, "to": 396}
       ]
     },
     {
       "week": 1,
-      "day": 7,
-      "tag": "工業設計：Stroller Concept 新品發表",
+      "day": 3,
+      "tag": "員工健檢福利通知",
       "type": "Reading",
       "level": {
-        "score": 750,
-        "range": "700-800",
-        "cefr": "B2",
-        "why": "以正式新品概念發表為情境，整合 TOEIC 常見的簡報與產品發表句型，例如 Let me introduce、I'd like to highlight、One of the key features is、The product is designed to、In addition、As a result、Thank you for your attention 等；同時加入 concept、innovative、feature、flexibility、maneuverability、safety、development、launch 等商務與產品設計詞彙，讓學習者同時練習發表語言與工業設計情境。"
+        "score": 650,
+        "range": "600-700",
+        "cefr": "B1+",
+        "why": "內容以公司員工福利與健康檢查公告為情境，包含 eligibility、coverage、schedule、register 等多益常見職場字彙；句型以通知與規定說明為主，難度略高於一般辦公室公告。"
       },
-      "passage": "Good afternoon, everyone, and thank you for joining us today. I'd like to introduce our latest stroller concept, the FlexiGo. This concept was developed to address the everyday challenges that modern families face when traveling with young children.\n\nLet me begin by explaining the idea behind the product. The FlexiGo is designed to provide greater flexibility, comfort, and maneuverability in a variety of urban environments. Instead of focusing only on a traditional stroller configuration, our design team explored how the product could adapt to different situations throughout the day.\n\nOne of the key features is the adjustable handlebar, which allows parents to maintain a comfortable position while pushing the stroller. In addition, all four wheels can swivel 360 degrees. This feature makes it easier to maneuver through crowded sidewalks, narrow spaces, and busy public areas. The lightweight aluminum frame also helps reduce the effort required during everyday use.\n\nAnother important aspect of the concept is its long-term usability. The seat can be adjusted as the child grows, while the compact folding mechanism makes the stroller easier to store and transport. We also paid particular attention to safety and material selection. The product is designed with durable materials and has been evaluated according to our internal safety and performance requirements.\n\nAs a result, the FlexiGo is not simply a stroller for transportation. It is a mobility product designed to support parents through changing daily routines. Our next step is to refine the prototype, conduct additional user testing, and prepare the product for future development and production.\n\nThat concludes today's presentation. Thank you for your time and attention. We look forward to sharing the next stage of the FlexiGo project with you.",
-      "zh": "各位午安，感謝大家今天參與我們的發表會。我想向各位介紹我們最新的嬰兒推車概念產品 FlexiGo。這項概念是為了解決現代家庭帶著幼兒移動時所面臨的日常挑戰而開發的。\n\n首先，讓我說明這項產品背後的概念。FlexiGo 的設計目標是在各種都市環境中提供更高的靈活性、舒適性與操控性。我們的設計團隊並不只著重於傳統的推車配置，而是進一步探索產品如何因應一天當中的不同使用情境。\n\n其中一項主要特色是可調式把手，讓家長在推行推車時可以維持舒適的操作位置。此外，四個輪子皆可 360 度旋轉。這項功能讓使用者更容易在擁擠的人行道、狹窄空間以及繁忙的公共區域中操控推車。輕量化鋁製車架也有助於降低日常使用時所需的操作力道。\n\n另一個重要的概念是長期使用性。座椅可以隨著孩子成長進行調整，而緊湊的折疊機構則讓推車更容易收納與攜帶。我們也特別重視安全性與材料選擇。產品採用耐用材料設計，並依照我們內部的安全與性能要求進行評估。\n\n因此，FlexiGo 不只是一台用於移動的嬰兒推車，而是一項能夠陪伴家長因應不同日常生活需求的移動產品。下一步，我們將進一步優化原型機、進行更多使用者測試，並為未來的產品開發與量產做準備。\n\n以上就是今天的發表內容。感謝各位撥空聆聽，也謝謝各位的關注。我們期待在下一階段與各位分享 FlexiGo 專案的最新進展。",
+      "passage": "To: All Employees\nSubject: Annual Health Screening Program\n\nOur annual health screening program will take place from October 12 to October 23 at the company's medical center. All full-time employees who have completed at least six months of service are eligible to participate. The company will cover the full cost of the standard examination, including a blood test, vision test, and basic health consultation.\n\nEmployees who wish to participate must register through the Human Resources portal by October 5. Please select an available appointment when registering. If you need to change your appointment, contact the HR department at least two business days in advance. Employees are encouraged to bring their employee ID cards and arrive ten minutes before their scheduled time.",
+      "zh": "收件人：全體員工\n主旨：年度健康檢查計畫\n\n本公司的年度健康檢查計畫將於 10 月 12 日至 10 月 23 日在公司醫療中心進行。所有任職滿六個月的全職員工皆符合參加資格。公司將負擔標準健檢的全部費用，包括血液檢查、視力檢查以及基本健康諮詢。\n\n希望參加的員工必須在 10 月 5 日前透過人力資源入口網站登記。登記時請選擇可用的預約時段。如果需要更改預約，請至少提前兩個工作天聯絡人資部門。建議員工攜帶員工識別證，並於預定時間前十分鐘抵達。",
       "vocab": [
         {
-          "word": "concept",
-          "ipa": "/ˈkɑːnsept/",
-          "pos": "n.",
-          "col": "product concept / design concept",
-          "zh": "概念、產品概念"
-        },
-        {
-          "word": "innovative",
-          "ipa": "/ˈɪnəveɪtɪv/",
+          "word": "eligible",
+          "ipa": "/ˈelɪdʒəbəl/",
           "pos": "adj.",
-          "col": "innovative design / innovative solution",
-          "zh": "創新的"
+          "col": "be eligible for / eligible employees",
+          "zh": "符合資格的"
         },
         {
-          "word": "maneuverability",
-          "ipa": "/məˌnuːvərəˈbɪləti/",
+          "word": "screening",
+          "ipa": "/ˈskriːnɪŋ/",
           "pos": "n.",
-          "col": "improve maneuverability / excellent maneuverability",
-          "zh": "操控性、機動性"
+          "col": "health screening / medical screening",
+          "zh": "篩檢、健康檢查"
         },
         {
-          "word": "flexibility",
-          "ipa": "/ˌfleksəˈbɪləti/",
+          "word": "coverage",
+          "ipa": "/ˈkʌvərɪdʒ/",
           "pos": "n.",
-          "col": "provide flexibility / greater flexibility",
-          "zh": "靈活性、彈性"
+          "col": "insurance coverage / full coverage",
+          "zh": "保障範圍、給付"
         },
         {
-          "word": "prototype",
-          "ipa": "/ˈproʊtətaɪp/",
-          "pos": "n.",
-          "col": "refine a prototype / test a prototype",
-          "zh": "原型機、樣機"
-        },
-        {
-          "word": "evaluate",
-          "ipa": "/ɪˈvæljueɪt/",
+          "word": "register",
+          "ipa": "/ˈredʒɪstər/",
           "pos": "v.",
-          "col": "evaluate performance / evaluate a product",
-          "zh": "評估"
+          "col": "register online / register for a program",
+          "zh": "登記、註冊"
+        },
+        {
+          "word": "appointment",
+          "ipa": "/əˈpɔɪntmənt/",
+          "pos": "n.",
+          "col": "make an appointment / scheduled appointment",
+          "zh": "預約、約定"
+        }
+      ],
+      "questions": [
+        {
+          "kind": "context",
+          "q": "Who is eligible to participate in the health screening program?",
+          "opts": [
+            "All temporary employees",
+            "Employees with at least six months of service",
+            "Employees who work at the medical center",
+            "Only members of the HR department"
+          ],
+          "ans": 1,
+          "why": [
+            "文章沒有說所有臨時員工都符合資格。",
+            "正解：任職至少六個月的全職員工可以參加。",
+            "醫療中心工作人員不是本文設定的資格條件。",
+            "人資部門員工並非唯一符合資格的人員。"
+          ]
+        },
+        {
+          "kind": "context",
+          "q": "What will the company pay for?",
+          "opts": [
+            "The full cost of the standard examination",
+            "Transportation to the medical center",
+            "Employees' prescription medication",
+            "Additional examinations at outside clinics"
+          ],
+          "ans": 0,
+          "why": [
+            "正解：公司將負擔標準健檢的全部費用。",
+            "文章沒有提到公司提供前往醫療中心的交通費。",
+            "處方藥費不在公告列出的項目中。",
+            "文章只說明標準健檢，未提及外部診所的額外檢查。"
+          ]
+        },
+        {
+          "kind": "context",
+          "q": "By when must employees register?",
+          "opts": [
+            "September 30",
+            "October 5",
+            "October 12",
+            "October 23"
+          ],
+          "ans": 1,
+          "why": [
+            "文章沒有將 9 月 30 日列為登記截止日。",
+            "正解：員工必須在 10 月 5 日前完成登記。",
+            "10 月 12 日是健康檢查開始日期。",
+            "10 月 23 日是健康檢查期間的最後一天。"
+          ]
+        },
+        {
+          "kind": "part5",
+          "q": "Employees who are ______ for the program may register through the HR portal.",
+          "opts": [
+            "eligible",
+            "eligibility",
+            "eligibly",
+            "eligibles"
+          ],
+          "ans": 0,
+          "why": [
+            "正解：be eligible for 表示「符合資格」，此處需要形容詞。",
+            "eligibility 是名詞，不能直接放在 are 後修飾主詞。",
+            "eligibly 是副詞，此處不符合文法。",
+            "eligibles 不是此句需要的標準英文詞形。"
+          ]
+        },
+        {
+          "kind": "part5",
+          "q": "Please contact the HR department ______ two business days in advance if you need to change your appointment.",
+          "opts": [
+            "at least",
+            "despite",
+            "during",
+            "unless"
+          ],
+          "ans": 0,
+          "why": [
+            "正解：at least 表示「至少」，符合提前兩個工作天的時間要求。",
+            "despite 表示「儘管」，語意不符合時間要求。",
+            "during 表示「在……期間」，不能表達至少提前兩天。",
+            "unless 表示「除非」，不符合此句語意。"
+          ]
+        }
+      ],
+      "timing": []
+    },
+    {
+      "week": 1,
+      "day": 7,
+      "tag": "簡報／提案：新專案提案簡報",
+      "type": "Reading",
+      "level": {
+        "score": 700,
+        "range": "650-750",
+        "cefr": "B2",
+        "why": "以一般商務提案簡報為情境，句型包含 Let me begin by、One of the key benefits is、Our next step is to 等 TOEIC 常見簡報用語；字彙涵蓋 proposal、estimate、allocate、approval 等預算與專案審核相關詞彙。"
+      },
+      "passage": "Good morning, everyone, and thank you for making time for this meeting. I'd like to introduce our proposal for the new customer portal project.\n\nLet me begin by explaining the problem. Currently, customers must call our support team to check an order status or request an invoice. As a result, our staff spend nearly half of each day answering routine questions, and customers often wait more than ten minutes to reach someone.\n\nOur proposal is to launch an online portal where customers can track shipments, download invoices, and submit service requests at any time. One of the key benefits is a significant reduction in call volume. In addition, the portal will give managers real-time reports on response times.\n\nWe estimate that the project will take six months and require a budget of $120,000. Most of this amount will cover software development, and we will allocate the rest to staff training. We expect the investment to pay for itself within two years.\n\nOur next step is to obtain approval from the finance department. If the proposal is approved this month, we can begin the design phase in November.\n\nThat concludes today's presentation. Thank you for your time and attention. I'm happy to answer any questions.",
+      "zh": "各位早安，感謝大家撥空參加這場會議。我想向各位介紹我們的新客戶入口網站專案提案。\n\n首先，讓我說明目前的問題。現在客戶必須打電話給客服團隊，才能查詢訂單狀態或索取發票。因此，我們的員工每天將近一半的時間都在回答例行問題，而客戶常常要等超過十分鐘才能聯絡到人。\n\n我們的提案是推出一個線上入口網站，讓客戶隨時都能追蹤貨件、下載發票及提交服務需求。其中一項主要效益是來電量大幅減少。此外，這個入口網站也會提供主管有關回應時間的即時報表。\n\n我們預估這個專案需要六個月，預算為 12 萬美元。大部分金額將用於軟體開發，其餘則分配給員工訓練。我們預期這筆投資可在兩年內回本。\n\n我們的下一步是取得財務部門的核准。若提案在本月獲得通過，我們就可以在十一月開始進行設計階段。\n\n以上就是今天的簡報內容。感謝各位撥空與關注。我很樂意回答任何問題。",
+      "vocab": [
+        {
+          "word": "proposal",
+          "ipa": "/prəˈpoʊzl/",
+          "pos": "n.",
+          "col": "submit a proposal / approve a proposal",
+          "zh": "提案、企劃書"
+        },
+        {
+          "word": "reduction",
+          "ipa": "/rɪˈdʌkʃn/",
+          "pos": "n.",
+          "col": "a significant reduction / cost reduction",
+          "zh": "減少、降低"
+        },
+        {
+          "word": "estimate",
+          "ipa": "/ˈestɪmeɪt/",
+          "pos": "v.",
+          "col": "estimate the cost / estimate the time",
+          "zh": "估計、預估"
+        },
+        {
+          "word": "allocate",
+          "ipa": "/ˈæləkeɪt/",
+          "pos": "v.",
+          "col": "allocate funds / allocate resources",
+          "zh": "分配、撥給"
+        },
+        {
+          "word": "obtain",
+          "ipa": "/əbˈteɪn/",
+          "pos": "v.",
+          "col": "obtain approval / obtain permission",
+          "zh": "取得、獲得"
+        },
+        {
+          "word": "approval",
+          "ipa": "/əˈpruːvl/",
+          "pos": "n.",
+          "col": "final approval / require approval",
+          "zh": "核准、批准"
         }
       ],
       "questions": [
@@ -438,102 +517,102 @@
           "kind": "context",
           "q": "What is the main purpose of the presentation?",
           "opts": [
-            "To announce a change in company policy",
-            "To introduce a new stroller concept",
-            "To report the results of a sales campaign",
-            "To explain a manufacturing delay"
+            "To announce a new company policy",
+            "To propose a customer portal project",
+            "To report last quarter's sales results",
+            "To introduce a new support manager"
           ],
           "ans": 1,
           "why": [
-            "文章並未討論公司政策。",
-            "正解：演講的主要目的為介紹 FlexiGo 這項新的嬰兒推車概念。",
-            "文章沒有提到銷售活動成果。",
-            "文章沒有說明製造延誤。"
+            "文章沒有宣布任何公司政策。",
+            "正解：講者開場即表示要介紹新客戶入口網站專案的提案。",
+            "文章沒有報告銷售成果。",
+            "文章沒有介紹新的客服主管。"
           ]
         },
         {
           "kind": "context",
-          "q": "What is one benefit of the 360-degree swivel wheels?",
+          "q": "According to the speaker, what is a current problem?",
           "opts": [
-            "They increase the storage capacity.",
-            "They make the stroller easier to maneuver.",
-            "They reduce the production cost.",
-            "They allow the stroller to be used without a seat."
-          ],
-          "ans": 1,
-          "why": [
-            "收納空間不是輪子旋轉功能帶來的。",
-            "正解：360 度旋轉讓推車更容易在狹窄及擁擠空間中操控。",
-            "文章沒有提到此功能能降低生產成本。",
-            "文章沒有提到可以因此移除座椅。"
-          ]
-        },
-        {
-          "kind": "context",
-          "q": "What is the team's next step?",
-          "opts": [
-            "To immediately begin mass production",
-            "To discontinue the current concept",
-            "To refine the prototype and conduct additional testing",
-            "To open a new retail store"
+            "The software is too expensive.",
+            "Customers cannot download invoices at all.",
+            "Staff spend much of their time answering routine questions.",
+            "Managers do not want to attend meetings."
           ],
           "ans": 2,
           "why": [
-            "文章表示下一步仍會進行原型機優化與測試，尚未立即量產。",
-            "沒有提到要停止此概念。",
-            "正解：優化原型機並進行更多使用者測試。",
-            "文章沒有提及開設新零售店。"
+            "費用是提案的一部分，並非目前的問題。",
+            "客戶可以索取發票，只是必須打電話，並非完全無法取得。",
+            "正解：員工每天將近一半的時間都在回答例行問題。",
+            "文章沒有提到主管不願開會。"
           ]
         },
         {
-          "kind": "part5",
-          "q": "I'd like to ______ our latest stroller concept before discussing its key features.",
+          "kind": "context",
+          "q": "What will the team do next?",
           "opts": [
-            "introduce",
-            "introduction",
-            "introduced",
-            "introducing"
+            "Get approval from the finance department",
+            "Start the design phase immediately",
+            "Hire additional support staff",
+            "Ask customers to complete a survey"
           ],
           "ans": 0,
           "why": [
-            "正解：would like to + 原形動詞，to introduce 表示「介紹」。",
-            "introduction 為名詞，不能接在 to 後形成此結構。",
-            "introduced 為過去式或過去分詞。",
-            "introducing 為動名詞或現在分詞。"
+            "正解：下一步是取得財務部門的核准。",
+            "設計階段要等提案通過後、十一月才開始。",
+            "文章沒有提到增聘客服人員。",
+            "文章沒有提到客戶問卷。"
           ]
         },
         {
           "kind": "part5",
-          "q": "One of the key features ______ the adjustable handlebar.",
+          "q": "The marketing team is hoping to secure ______ for the new advertising campaign.",
           "opts": [
-            "are",
-            "is",
-            "have",
-            "include"
+            "approve",
+            "approved",
+            "approving",
+            "approval"
+          ],
+          "ans": 3,
+          "why": [
+            "approve 為動詞，此處需要名詞作 secure 的受詞。",
+            "approved 為過去式或形容詞，不適合當受詞。",
+            "approving 為動名詞或現在分詞，語意與結構不合。",
+            "正解：approval 為名詞，secure approval 表示「取得核准」。"
+          ]
+        },
+        {
+          "kind": "part5",
+          "q": "We ______ that the new system will reduce the number of customer calls by 30 percent.",
+          "opts": [
+            "expecting",
+            "expect",
+            "to expect",
+            "expectation"
           ],
           "ans": 1,
           "why": [
-            "one of + 複數名詞作主詞時，核心主詞為 one，因此動詞使用單數 is。",
-            "are 為複數動詞，與 one 不一致。",
-            "have 不符合此句的主詞與句型。",
-            "include 為複數動詞，不符合 one 的單數主詞。"
+            "expecting 缺少助動詞，不能單獨作述語動詞。",
+            "正解：主詞 We 後接現在式動詞 expect，再接 that 子句。",
+            "to expect 為不定詞，不能直接作述語動詞。",
+            "expectation 為名詞，無法接 that 子句作動詞。"
           ]
         },
         {
           "kind": "part5",
-          "q": "The design is intended to provide greater flexibility ______ improving everyday maneuverability.",
+          "q": "The project will begin in November ______ the proposal is approved this month.",
           "opts": [
-            "while",
-            "because",
+            "although",
             "unless",
+            "if",
             "despite"
           ],
-          "ans": 0,
+          "ans": 2,
           "why": [
-            "正解：while 可連接兩個同時進行的動作或概念，此處表示「同時提升日常操控性」。",
-            "because 表示原因，語意不符。",
-            "unless 表示除非，語意不符。",
-            "despite 後通常接名詞或動名詞片語，此處句型不適合。"
+            "although 表示讓步，語意不符。",
+            "unless 表示「除非」，與句意相反。",
+            "正解：if 引導條件子句，表示「若提案本月通過」。",
+            "despite 後面須接名詞或動名詞，不能接完整子句。"
           ]
         }
       ],
@@ -580,126 +659,19 @@
         }
       ],
       "timing": [
-        {
-          "start": 0.0,
-          "end": 3.22,
-          "from": 0,
-          "to": 61
-        },
-        {
-          "start": 3.86,
-          "end": 7.16,
-          "from": 62,
-          "to": 125
-        },
-        {
-          "start": 7.58,
-          "end": 14.88,
-          "from": 126,
-          "to": 249
-        },
-        {
-          "start": 15.38,
-          "end": 18.3,
-          "from": 251,
-          "to": 306
-        },
-        {
-          "start": 18.9,
-          "end": 25.7,
-          "from": 307,
-          "to": 427
-        },
-        {
-          "start": 25.7,
-          "end": 35.24,
-          "from": 428,
-          "to": 590
-        },
-        {
-          "start": 35.84,
-          "end": 43.6,
-          "from": 592,
-          "to": 728
-        },
-        {
-          "start": 44.16,
-          "end": 47.38,
-          "from": 729,
-          "to": 781
-        },
-        {
-          "start": 47.96,
-          "end": 53.82,
-          "from": 782,
-          "to": 887
-        },
-        {
-          "start": 54.64,
-          "end": 59.42,
-          "from": 888,
-          "to": 977
-        },
-        {
-          "start": 60.12,
-          "end": 63.4,
-          "from": 979,
-          "to": 1046
-        },
-        {
-          "start": 64.2,
-          "end": 71.42,
-          "from": 1047,
-          "to": 1177
-        },
-        {
-          "start": 72.08,
-          "end": 75.52,
-          "from": 1178,
-          "to": 1245
-        },
-        {
-          "start": 76.26,
-          "end": 83.48,
-          "from": 1246,
-          "to": 1378
-        },
-        {
-          "start": 84.22,
-          "end": 87.72,
-          "from": 1380,
-          "to": 1449
-        },
-        {
-          "start": 88.56,
-          "end": 92.84,
-          "from": 1450,
-          "to": 1535
-        },
-        {
-          "start": 93.8,
-          "end": 100.7,
-          "from": 1536,
-          "to": 1673
-        },
-        {
-          "start": 101.54,
-          "end": 103.08,
-          "from": 1675,
-          "to": 1711
-        },
-        {
-          "start": 103.92,
-          "end": 105.7,
-          "from": 1712,
-          "to": 1750
-        },
-        {
-          "start": 105.7,
-          "end": 110.36,
-          "from": 1751,
-          "to": 1825
-        }
+        {"start": 0.0, "end": 3.98, "from": 0, "to": 71},
+        {"start": 4.56, "end": 8.24, "from": 72, "to": 143},
+        {"start": 8.82, "end": 10.7, "from": 145, "to": 184},
+        {"start": 11.3, "end": 16.36, "from": 185, "to": 280},
+        {"start": 17.08, "end": 25.2, "from": 281, "to": 427},
+        {"start": 25.82, "end": 33.84, "from": 429, "to": 568},
+        {"start": 34.36, "end": 37.8, "from": 569, "to": 635},
+        {"start": 38.46, "end": 42.62, "from": 636, "to": 715},
+        {"start": 43.24, "end": 47.0, "from": 717, "to": 800},
+        {"start": 49.2, "end": 54.52, "from": 801, "to": 902},
+        {"start": 55.32, "end": 58.24, "from": 903, "to": 963},
+        {"start": 58.94, "end": 62.08, "from": 965, "to": 1029},
+        {"start": 62.86, "end": 67.1, "from": 1030, "to": 1112}
       ]
     }
   ]
