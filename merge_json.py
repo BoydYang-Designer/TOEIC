@@ -57,8 +57,9 @@ def get_entries(data):
     if isinstance(data, list):
         return data, None
     if isinstance(data, dict):
-        if isinstance(data.get('items'), list):
-            return data['items'], None
+        for k in ('items', 'week_entries', 'entries'):
+            if isinstance(data.get(k), list):
+                return data[k], None
         if 'week' in data and 'day' in data:
             return [data], None
     return None, '不是題庫資料（需為單筆題目、題目陣列，或含 items 的物件）'
