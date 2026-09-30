@@ -1,19 +1,20 @@
 /* 7 大主題輪動常數 */
 const THEMES = [
-  '商務書信與內部通訊',
-  '人力資源與團隊溝通',
-  '差旅、交通與商務行程',
-  '採購、供應鏈與材料打樣',
-  '工業設計與新品發表',
-  '行銷公關與使用者體驗',
-  '合約授權、專案預算與財務'
+  '商務書信、辦公室與設施',
+  '差旅、交通、住宿與餐飲',
+  '人力資源、職場福利與健康',
+  '採購、供應鏈、製造與品管',
+  '行銷、客服與活動展覽',
+  '合約、財務與預算',
+  '工業設計與新品發表'
 ];
 
-/* 題庫資料（範例含 Day 1、Day 2、以及專屬 Day 5） */
+/* 題庫資料（範例含 Day 1、Day 2、以及專屬 Day 7） */
 
 
-/* 題庫資料由 data.json 載入（DATA 格式見 data.json） */
+/* 題庫資料由 data.json 載入（生成規則見 data.json 的 _spec，題目在 items） */
 let DATA = [];
+const itemsOf = j => Array.isArray(j) ? j : (j && j.items) || []; // data.json 可為陣列，或 { _spec, items }
 
 /* 狀態管理 */
 const KEY = 'toeicCoachV2';
@@ -153,7 +154,7 @@ const card = 'rounded-xl border border-slate-200 dark:border-slate-800 bg-white 
 const btn = 'rounded-lg px-4 py-2.5 md:py-2 text-sm font-medium transition cursor-pointer';
 
 function rec(x) {
-  return S.ans[idOf(x)] || (S.ans[idOf(x)] = { sel: [null, null, null, null], done: false, score: 0 });
+  return S.ans[idOf(x)] || (S.ans[idOf(x)] = { sel: Array((x.questions || []).length).fill(null), done: false, score: 0 });
 }
 
 const isMobile = () => !!(window.matchMedia && !window.matchMedia('(min-width: 768px)').matches);
@@ -194,7 +195,7 @@ function renderSide() {
     const st = !x
       ? '<span class="text-xs text-slate-400 shrink-0">即將推出</span>'
       : a && a.done
-        ? `<span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">✓ ${Math.round(a.score / 4 * 100)}%</span>`
+        ? `<span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">✓ ${Math.round(a.score / x.questions.length * 100)}%</span>`
         : '<span class="text-xs text-slate-400 shrink-0">未完成</span>';
     const on = cur.view == 'day' && cur.w == nw && cur.d == d;
     h += `<button ${x ? `onclick="go(${nw},${d})"` : 'disabled'} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : 'opacity-40 cursor-not-allowed'}">
@@ -230,7 +231,7 @@ function renderHome() {
       if (!x) { h += `<td class="p-1 ${bd}"><div class="h-12 rounded-lg flex items-center justify-center text-slate-300 dark:text-slate-700">—</div></td>`; return; }
       const cls = done ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
         : 'bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
-      h += `<td class="p-1 ${bd}"><button onclick="go(${w},${d})" class="w-full h-12 rounded-lg text-sm font-semibold cursor-pointer ${cls}">${done ? `✓<span class="block text-[10px] font-normal leading-3">${Math.round(a.score / 4 * 100)}%</span>` : started ? '<span class="text-xs">進行中</span>' : '<span class="text-xs">開始</span>'}</button></td>`;
+      h += `<td class="p-1 ${bd}"><button onclick="go(${w},${d})" class="w-full h-12 rounded-lg text-sm font-semibold cursor-pointer ${cls}">${done ? `✓<span class="block text-[10px] font-normal leading-3">${Math.round(a.score / x.questions.length * 100)}%</span>` : started ? '<span class="text-xs">進行中</span>' : '<span class="text-xs">開始</span>'}</button></td>`;
     });
     h += '</tr>';
   });
@@ -267,7 +268,7 @@ function renderDay() {
   let h = `<header class="mb-6">
     <div class="flex items-center gap-2">
       <h2 class="text-xl md:text-2xl font-bold">Day ${x.day} ${THEMES[x.day-1]}</h2>
-      ${x.day === 5 ? '<span class="px-2 py-0.5 text-xs bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 rounded font-semibold">設計師精選</span>' : ''}
+      ${x.day === 7 ? '<span class="px-2 py-0.5 text-xs bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 rounded font-semibold">設計師精選</span>' : ''}
     </div>
     <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${x.week} · ${x.tag}</span>
     ${lvBadge(x) ? ` ${lvBadge(x).replace('inline-block', 'inline-block mt-2')}` : ''}
@@ -331,10 +332,31 @@ function renderDay() {
   });
   if (vOpen) h += `</div>`;
 
+  // 簡報常用句型（僅資料含 presentation_phrases 時顯示，例如 D7）
+  const pp = Array.isArray(x.presentation_phrases) ? x.presentation_phrases : [];
+  if (pp.length) {
+    const pOpen = !!cur.phrasesOpen;
+    h += `<div class="flex items-center justify-between ${pOpen ? 'mb-3' : 'mb-8'} gap-2"><button onclick="toggleSec('phrases')" class="font-bold text-lg cursor-pointer">${pOpen ? '▾' : '▸'} 簡報常用句型（${pp.length}）</button></div>`;
+    if (pOpen) {
+      h += `<div class="grid sm:grid-cols-2 gap-3 mb-8">`;
+      pp.forEach((p, i) => {
+        h += `<div class="${card} p-4">
+          <div class="flex items-start justify-between gap-2">
+            <p class="font-bold text-sm">${esc(p.phrase)}</p>
+            <button onclick="speakPhrase(${i})" class="text-slate-400 hover:text-indigo-600 text-lg shrink-0" aria-label="播放發音">🔊</button>
+          </div>
+          <p class="mt-1 text-sm font-semibold text-slate-700 dark:text-slate-300">${esc(p.meaning)}</p>
+          <p class="text-xs mt-1 text-slate-500 dark:text-slate-400">${esc(p.usage)}</p>
+        </div>`;
+      });
+      h += `</div>`;
+    }
+  }
+
   // 隨堂測驗
   const answered = r.sel.filter(v => v !== null).length;
-  h += `<div class="flex items-center justify-between ${qOpen ? 'mb-3' : 'mb-4'} gap-2"><button onclick="toggleSec('quiz')" class="font-bold text-lg cursor-pointer">${qOpen ? '▾' : '▸'} 隨堂測驗（4 題）</button>
-    <span class="text-sm text-slate-500">${done ? `得分 ${r.score} / 4` : `已作答 ${answered}/4`}</span></div>`;
+  h += `<div class="flex items-center justify-between ${qOpen ? 'mb-3' : 'mb-4'} gap-2"><button onclick="toggleSec('quiz')" class="font-bold text-lg cursor-pointer">${qOpen ? '▾' : '▸'} 隨堂測驗（${x.questions.length} 題）</button>
+    <span class="text-sm text-slate-500">${done ? `得分 ${r.score} / ${x.questions.length}` : `已作答 ${answered}/${x.questions.length}`}</span></div>`;
   if (qOpen) {
   h += `<div class="space-y-4">`;
   x.questions.forEach((q, qi) => {
@@ -383,12 +405,12 @@ function renderDay() {
   h += `<div class="mt-8 flex items-center gap-4">`;
   if (!done) {
     const answeredCount = r.sel.filter(v => v !== null).length;
-    h += `<button onclick="submit()" ${answeredCount < 4 ? 'disabled' : ''} class="${btn} bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed">
-      提交答案 (${answeredCount}/4)
+    h += `<button onclick="submit()" ${answeredCount < x.questions.length ? 'disabled' : ''} class="${btn} bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed">
+      提交答案 (${answeredCount}/${x.questions.length})
     </button>`;
   } else {
     h += `<div class="${card} px-5 py-2.5 font-bold text-sm">
-      本日得分：<span class="${r.score >= 3 ? 'text-emerald-600' : 'text-amber-600'}">${r.score} / 4</span>（${Math.round(r.score / 4 * 100)}%）
+      本日得分：<span class="${r.score / x.questions.length >= 0.75 ? 'text-emerald-600' : 'text-amber-600'}">${r.score} / ${x.questions.length}</span>（${Math.round(r.score / x.questions.length * 100)}%）
     </div>
     <button onclick="retry()" class="${btn} border border-slate-300 dark:border-slate-700">重做本日</button>`;
   }
@@ -463,7 +485,11 @@ function toggleText(k) { // k = 'en' | 'zh'
   const x = find(cur.w, cur.d), d = defOpen(x, S.ans[idOf(x)]), key = k + 'Open';
   cur[key] = !(cur[key] !== undefined ? cur[key] : d[k]); render();
 }
-function toggleSec(k) { cur[k + 'Open'] = !cur[k + 'Open']; render(); } // k = 'vocab' | 'quiz'
+function speakPhrase(i) { // 句型發音（省略號不念）
+  const x = find(cur.w, cur.d), p = x && x.presentation_phrases && x.presentation_phrases[i];
+  if (p) speak(p.phrase.replace(/\.{2,}|…/g, ' '));
+}
+function toggleSec(k) { cur[k + 'Open'] = !cur[k + 'Open']; render(); } // k = 'vocab' | 'phrases' | 'quiz'
 function toggleHl() { cur.hl = !cur.hl; if (cur.hl) cur.enOpen = true; render(); }
 function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切成可點擊、可高亮的句子
   let re = null;
@@ -532,7 +558,7 @@ function submit() {
 
 function retry() {
   const x = find(cur.w, cur.d), r = rec(x);
-  r.sel = [null, null, null, null];
+  r.sel = Array(x.questions.length).fill(null);
   r.done = false;
   cur.showTranscript = false;
   save();
@@ -556,7 +582,7 @@ const side = document.getElementById('side'), main = document.getElementById('ma
 
 /* 啟動：讀取 data.json 後渲染；雙擊開啟（file://）時改用手動選取檔案 */
 function loadFromText(t) {
-  try { DATA = JSON.parse(t); if (isMobile()) cur.view = 'home'; render(); }
+  try { DATA = itemsOf(JSON.parse(t)); if (isMobile()) cur.view = 'home'; render(); }
   catch (e) { alert('data.json 格式有誤：' + e.message); }
 }
 function pickJson(input) {
@@ -567,7 +593,7 @@ async function boot() {
   try {
     const res = await fetch('data.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    DATA = await res.json();
+    DATA = itemsOf(await res.json());
     if (isMobile()) cur.view = 'home';
     render();
   } catch (e) {
