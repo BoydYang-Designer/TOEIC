@@ -146,27 +146,38 @@ function rec(x) {
   return S.ans[idOf(x)] || (S.ans[idOf(x)] = { sel: [null, null, null, null], done: false, score: 0 });
 }
 
+function weekDone(w) { return THEMES.filter((t, i) => { const x = find(w, i + 1); return x && S.ans[idOf(x)] && S.ans[idOf(x)].done; }).length; }
+function selW(w) { go(w, cur.d || 1); }   // 手機：W 與 D 各自獨立，切換其中一個保留另一個
+function selD(d) { go(cur.w, d); }
+
 function renderSide() {
-  // 手機：頂部精簡列（目前 W/D + 展開選單 + 生詞本 + 深淺色）；桌機：完整側欄
-  const nw = cur.nw ?? cur.w, open = !!cur.navOpen, n = Object.keys(S.saved).length;
-  const label = cur.view === 'book' ? '★ 生詞本／錯題本' : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
+  const n = Object.keys(S.saved).length, nw = cur.nw ?? cur.w, book = cur.view === 'book';
   const line = 'border border-slate-300 dark:border-slate-700';
-  let h = `<div class="md:hidden flex items-center gap-2">
-    <button onclick="toggleNav()" class="${btn} flex-1 min-w-0 flex items-center justify-between gap-2 bg-slate-100 dark:bg-slate-800 text-left"><span class="truncate">${label}</span><span class="shrink-0 text-slate-500">${open ? '▴' : '▾'}</span></button>
-    <button onclick="openBook()" class="${btn} ${line} shrink-0" aria-label="生詞本／錯題本">★ ${n}</button>
-    <button onclick="toggleDark()" class="${btn} ${line} shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>
-  </div>
-  <div class="hidden md:flex items-center justify-between mb-4">
+  // ===== 手機：頂部標題列 + D1–D7 橫排分頁；W1–W4 直排在左側（wrail）=====
+  let h = `<div class="md:hidden">
+    <div class="flex items-center justify-between mb-2">
+      <h1 class="text-base font-bold">TOEIC Daily</h1>
+      <div class="flex gap-2">
+        <button onclick="openBook()" class="${btn} ${line} !py-1.5 ${book ? 'bg-indigo-50 dark:bg-indigo-950' : ''}" aria-label="生詞本／錯題本">★ ${n}</button>
+        <button onclick="toggleDark()" class="${btn} ${line} !py-1.5" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>
+      </div>
+    </div>
+    <div class="grid grid-cols-7 gap-1">
+      ${THEMES.map((t, i) => { const d = i + 1, x = find(cur.w, d), a = x && S.ans[idOf(x)], on = !book && cur.d === d;
+        return `<button onclick="selD(${d})" class="rounded-lg py-1.5 text-sm font-semibold cursor-pointer ${on ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'} ${x ? '' : 'opacity-50'}">D${d}<span class="block text-[10px] leading-3 h-3 ${on ? '' : 'text-emerald-600 dark:text-emerald-400'}">${a && a.done ? '✓' : ''}</span></button>`; }).join('')}
+    </div>
+  </div>`;
+  // ===== 桌機：完整側欄（維持原樣）=====
+  h += `<div class="hidden md:block">
+  <div class="flex items-center justify-between mb-4">
     <h1 class="text-lg font-bold">TOEIC Daily</h1>
     <button onclick="toggleDark()" class="${btn} ${line}">${S.dark ? '☀ 淺色' : '☾ 深色'}</button>
   </div>
-  <div class="${open ? '' : 'hidden'} md:block mt-3 md:mt-0">
-  <div class="grid grid-cols-4 gap-1 mb-3 md:mb-4">
+  <div class="grid grid-cols-4 gap-1 mb-4">
     ${[1, 2, 3, 4].map(w => `<button onclick="setNavWeek(${w})" class="${btn} ${nw == w ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">W${w}</button>`).join('')}
   </div>
   <p class="text-xs text-slate-500 mb-2 font-medium">Week ${nw} · 7 大主題輪動</p>
   <nav class="space-y-1">`;
-
   THEMES.forEach((t, i) => {
     const d = i + 1, x = find(nw, d), a = x && S.ans[idOf(x)];
     const st = !x
@@ -175,17 +186,21 @@ function renderSide() {
         ? `<span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">✓ ${Math.round(a.score / 4 * 100)}%</span>`
         : '<span class="text-xs text-slate-400 shrink-0">未完成</span>';
     const on = cur.view == 'day' && cur.w == nw && cur.d == d;
-    h += `<button ${x ? `onclick="go(${nw},${d})"` : 'disabled'} class="w-full text-left rounded-lg px-3 py-3 md:py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : 'opacity-40 cursor-not-allowed'}">
+    h += `<button ${x ? `onclick="go(${nw},${d})"` : 'disabled'} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : 'opacity-40 cursor-not-allowed'}">
       <span class="text-sm ${d === 5 ? 'font-bold text-indigo-600 dark:text-indigo-400' : ''}">D${d} ${t}</span>${st}
     </button>`;
   });
-
   h += `</nav>
-  <button onclick="openBook()" class="${btn} w-full mt-6 hidden md:block ${line} ${cur.view == 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>
+  <button onclick="openBook()" class="${btn} w-full mt-6 ${line} ${book ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>
   </div>`;
   side.innerHTML = h;
+
+  // 手機左側 W1–W4 直排；顯示各週完成進度
+  const rail = document.getElementById('wrail');
+  if (rail) rail.innerHTML = [1, 2, 3, 4].map(w => `<button onclick="selW(${w})" class="w-full rounded-lg py-2.5 text-sm font-semibold cursor-pointer ${cur.w === w ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">W${w}<span class="block text-[10px] font-normal leading-3 mt-0.5 ${cur.w === w ? 'text-indigo-100' : 'text-slate-500'}">${weekDone(w)}/7</span></button>`).join('');
+  document.documentElement.style.setProperty('--hdr', side.offsetHeight + 'px'); // 讓 W 欄貼在頂部列下方
 }
-function toggleNav() { cur.navOpen = !cur.navOpen; renderSide(); }
+window.addEventListener('resize', () => renderSide());
 function setNavWeek(w) { cur.nw = w; renderSide(); }
 function openBook() { cur.view = 'book'; cur.navOpen = false; render(); window.scrollTo({ top: 0 }); }
 
