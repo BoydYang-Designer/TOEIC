@@ -139,6 +139,16 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) spSto
 window.addEventListener('pagehide', () => { try { speechSynthesis.cancel(); } catch(e) {} });
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+/* 多益等級標籤（資料來自 data.json 的 level 欄位）：<650 綠、650–749 琥珀、≥750 玫瑰紅 */
+function lvColor(sc) {
+  return sc < 650 ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+    : sc < 750 ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
+    : 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300';
+}
+function lvBadge(x) {
+  const l = x && x.level; if (!l) return '';
+  return `<span class="inline-block text-xs rounded-full px-3 py-1 font-medium ${lvColor(l.score)}" title="預估難度，非官方分級">多益約 ${l.score} 分${l.cefr ? ' · ' + esc(l.cefr) : ''}</span>`;
+}
 const card = 'rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900';
 const btn = 'rounded-lg px-4 py-2.5 md:py-2 text-sm font-medium transition cursor-pointer';
 
@@ -188,7 +198,8 @@ function renderSide() {
         : '<span class="text-xs text-slate-400 shrink-0">未完成</span>';
     const on = cur.view == 'day' && cur.w == nw && cur.d == d;
     h += `<button ${x ? `onclick="go(${nw},${d})"` : 'disabled'} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : 'opacity-40 cursor-not-allowed'}">
-      <span class="text-sm ${d === 5 ? 'font-bold text-indigo-600 dark:text-indigo-400' : ''}">D${d} ${t}</span>${st}
+      <span class="text-sm ${d === 5 ? 'font-bold text-indigo-600 dark:text-indigo-400' : ''}">D${d} ${t}</span>
+      <span class="flex items-center gap-2 shrink-0">${x && x.level ? `<span class="text-[11px] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}${st}</span>
     </button>`;
   });
   h += `</nav>
@@ -259,6 +270,8 @@ function renderDay() {
       ${x.day === 5 ? '<span class="px-2 py-0.5 text-xs bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 rounded font-semibold">設計師精選</span>' : ''}
     </div>
     <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${x.week} · ${x.tag}</span>
+    ${lvBadge(x) ? ` ${lvBadge(x).replace('inline-block', 'inline-block mt-2')}` : ''}
+    ${x.level && x.level.why ? `<p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">難度：${esc(x.level.why)}（範圍 ${esc(x.level.range || '')}，為預估值）</p>` : ''}
   </header>
 
   <!-- 短文/聽力卡片 -->
