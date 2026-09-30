@@ -146,31 +146,32 @@ function rec(x) {
   return S.ans[idOf(x)] || (S.ans[idOf(x)] = { sel: [null, null, null, null], done: false, score: 0 });
 }
 
+const isMobile = () => !!(window.matchMedia && !window.matchMedia('(min-width: 768px)').matches);
 function weekDone(w) { return THEMES.filter((t, i) => { const x = find(w, i + 1); return x && S.ans[idOf(x)] && S.ans[idOf(x)].done; }).length; }
-function selW(w) { go(w, cur.d || 1); }   // 手機：W 與 D 各自獨立，切換其中一個保留另一個
-function selD(d) { go(cur.w, d); }
 
 function renderSide() {
   const n = Object.keys(S.saved).length, nw = cur.nw ?? cur.w, book = cur.view === 'book';
   const line = 'border border-slate-300 dark:border-slate-700';
-  // ===== 手機：頂部標題列 + D1–D7 橫排分頁；W1–W4 直排在左側（wrail）=====
-  let h = `<div class="md:hidden">
-    <div class="flex items-center justify-between mb-2">
-      <h1 class="text-base font-bold">TOEIC Daily</h1>
-      <div class="flex gap-2">
-        <button onclick="openBook()" class="${btn} ${line} !py-1.5 ${book ? 'bg-indigo-50 dark:bg-indigo-950' : ''}" aria-label="生詞本／錯題本">★ ${n}</button>
-        <button onclick="toggleDark()" class="${btn} ${line} !py-1.5" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>
-      </div>
-    </div>
-    <div class="grid grid-cols-7 gap-1">
-      ${THEMES.map((t, i) => { const d = i + 1, x = find(cur.w, d), a = x && S.ans[idOf(x)], on = !book && cur.d === d;
-        return `<button onclick="selD(${d})" class="rounded-lg py-1.5 text-sm font-semibold cursor-pointer ${on ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'} ${x ? '' : 'opacity-50'}">D${d}<span class="block text-[10px] leading-3 h-3 ${on ? '' : 'text-emerald-600 dark:text-emerald-400'}">${a && a.done ? '✓' : ''}</span></button>`; }).join('')}
-    </div>
-  </div>`;
+  // ===== 手機：首頁顯示標題列；進入內文／生詞本後顯示「← 返回」列 =====
+  const label = book ? '★ 生詞本／錯題本' : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
+  let h = `<div class="md:hidden">` + (cur.view === 'home'
+    ? `<div class="flex items-center justify-between">
+        <h1 class="text-base font-bold">TOEIC Daily</h1>
+        <div class="flex gap-2">
+          <a href="index.html" class="${btn} ${line} !py-1.5" aria-label="回到首頁">⌂ 首頁</a>
+          <button onclick="openBook()" class="${btn} ${line} !py-1.5" aria-label="生詞本／錯題本">★ ${n}</button>
+          <button onclick="toggleDark()" class="${btn} ${line} !py-1.5" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>
+        </div></div>`
+    : `<div class="flex items-center gap-2">
+        <button onclick="backHome()" class="${btn} ${line} !py-1.5 shrink-0">← 返回</button>
+        <span class="flex-1 min-w-0 truncate text-sm font-semibold">${label}</span>
+        <button onclick="toggleDark()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>
+      </div>`) + `</div>`;
   // ===== 桌機：完整側欄（維持原樣）=====
   h += `<div class="hidden md:block">
   <div class="flex items-center justify-between mb-4">
     <h1 class="text-lg font-bold">TOEIC Daily</h1>
+    <a href="index.html" class="${btn} ${line}" aria-label="回到首頁">⌂ 首頁</a>
     <button onclick="toggleDark()" class="${btn} ${line}">${S.dark ? '☀ 淺色' : '☾ 深色'}</button>
   </div>
   <div class="grid grid-cols-4 gap-1 mb-4">
@@ -194,15 +195,46 @@ function renderSide() {
   <button onclick="openBook()" class="${btn} w-full mt-6 ${line} ${book ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>
   </div>`;
   side.innerHTML = h;
-
-  // 手機左側 W1–W4 直排；顯示各週完成進度
-  const rail = document.getElementById('wrail');
-  if (rail) rail.innerHTML = [1, 2, 3, 4].map(w => `<button onclick="selW(${w})" class="w-full rounded-lg py-2.5 text-sm font-semibold cursor-pointer ${cur.w === w ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">W${w}<span class="block text-[10px] font-normal leading-3 mt-0.5 ${cur.w === w ? 'text-indigo-100' : 'text-slate-500'}">${weekDone(w)}/7</span></button>`).join('');
-  document.documentElement.style.setProperty('--hdr', side.offsetHeight + 'px'); // 讓 W 欄貼在頂部列下方
 }
-window.addEventListener('resize', () => renderSide());
-function setNavWeek(w) { cur.nw = w; renderSide(); }
-function openBook() { cur.view = 'book'; cur.navOpen = false; render(); window.scrollTo({ top: 0 }); }
+
+/* 手機首頁：D1–D7 垂直（左，含主題標題）× W 週次水平（可左右捲動）；點交叉格直接進入內文 */
+function renderHome() {
+  const NW = Math.max(4, ...DATA.map(x => x.week)), ws = Array.from({ length: NW }, (_, i) => i + 1);
+  const last = S.last && find(S.last.w, S.last.d);
+  let h = last ? `<button onclick="go(${last.week},${last.day})" class="w-full mb-4 rounded-xl px-4 py-3 text-left bg-indigo-600 text-white cursor-pointer">
+      <span class="block text-xs text-indigo-100">▶ 繼續上次</span>
+      <span class="block font-semibold">W${last.week} · D${last.day} ${THEMES[last.day - 1]}</span>
+      <span class="block text-xs text-indigo-100 truncate">${esc(last.tag || '')}</span></button>` : '';
+  h += `<div class="${card} overflow-hidden"><div class="overflow-x-auto"><table class="border-separate border-spacing-0 text-center"><thead><tr>
+    <th class="sticky left-0 z-10 w-36 min-w-[9rem] bg-white dark:bg-slate-900 border-b border-r border-slate-200 dark:border-slate-800"></th>
+    ${ws.map(w => `<th class="min-w-[4.5rem] px-1 py-2 border-b border-slate-200 dark:border-slate-800"><span class="block text-sm font-bold">W${w}</span><span class="block text-[11px] font-normal text-slate-500">${weekDone(w)}/7</span></th>`).join('')}
+    </tr></thead><tbody>`;
+  THEMES.forEach((t, i) => {
+    const d = i + 1;
+    h += `<tr><th class="sticky left-0 z-10 w-36 min-w-[9rem] px-3 py-2 text-left bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 ${d < 7 ? 'border-b' : ''} font-normal">
+      <span class="text-sm font-bold text-indigo-600 dark:text-indigo-400">D${d}</span> <span class="text-xs leading-4">${t}</span></th>`;
+    ws.forEach(w => {
+      const x = find(w, d), a = x && S.ans[idOf(x)], done = a && a.done, started = a && a.sel.some(v => v !== null);
+      const bd = d < 7 ? 'border-b border-slate-100 dark:border-slate-800' : '';
+      if (!x) { h += `<td class="p-1 ${bd}"><div class="h-12 rounded-lg flex items-center justify-center text-slate-300 dark:text-slate-700">—</div></td>`; return; }
+      const cls = done ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
+        : 'bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
+      h += `<td class="p-1 ${bd}"><button onclick="go(${w},${d})" class="w-full h-12 rounded-lg text-sm font-semibold cursor-pointer ${cls}">${done ? `✓<span class="block text-[10px] font-normal leading-3">${Math.round(a.score / 4 * 100)}%</span>` : started ? '<span class="text-xs">進行中</span>' : '<span class="text-xs">開始</span>'}</button></td>`;
+    });
+    h += '</tr>';
+  });
+  main.innerHTML = h + `</tbody></table></div></div><p class="mt-3 text-xs text-slate-500 text-center">點格子進入當天內容 · 左右滑動可查看更多週次</p>`;
+}
+function showHome() { cur.view = 'home'; cur.nw = cur.w; render(); window.scrollTo({ top: 0 }); }
+function backHome() { if (history.state && history.state.v) history.back(); else showHome(); } // 支援手機返回鍵
+window.addEventListener('popstate', () => { if (isMobile() && cur.view !== 'home') showHome(); });
+window.addEventListener('resize', () => { if (isMobile() !== render.m) render(); });
+function setNavWeek(w) { cur.nw = w; cur.view === 'home' ? render() : renderSide(); }
+function openBook() {
+  const fromHome = cur.view === 'home';
+  cur.view = 'book'; render(); window.scrollTo({ top: 0 });
+  if (fromHome && isMobile()) try { history.pushState({ v: 1 }, ''); } catch (e) {}
+}
 
 function renderDay() {
   const x = find(cur.w, cur.d);
@@ -349,7 +381,7 @@ function renderDay() {
   }
   h += `</div>`;
   }
-  main.innerHTML = h;
+  main.innerHTML = h + `<button onclick="backHome()" class="${btn} md:hidden w-full mt-6 border border-slate-300 dark:border-slate-700">← 返回 W${x.week} 選擇其他天</button>`;
 }
 
 function renderBook() {
@@ -441,19 +473,24 @@ function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切�
 }
 
 function render() {
+  render.m = isMobile();
+  if (cur.view === 'home' && !render.m) cur.view = 'day'; // 桌機沒有首頁，直接顯示內文
   const key = cur.view + cur.w + cur.d;
   if (render.k !== undefined && render.k !== key) spStop(); // 切換頁面即停止語音
   render.k = key;
   Sp.hlIdx = -2;
   document.documentElement.classList.toggle('dark', S.dark);
   renderSide();
-  cur.view === 'book' ? renderBook() : renderDay();
+  cur.view === 'book' ? renderBook() : cur.view === 'home' ? renderHome() : renderDay();
   if (Sp.mode === 'audio' && Sp.au && Sp.id) spHl(Sp.id, Sp.au.currentTime);
 }
 
 function go(w, d) {
+  const fromHome = cur.view === 'home';
   cur = { w, d, view: 'day', showTranscript: false };
+  S.last = { w, d }; save();
   render();
+  if (fromHome && isMobile()) try { history.pushState({ v: 1 }, ''); } catch (e) {}
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -506,7 +543,7 @@ const side = document.getElementById('side'), main = document.getElementById('ma
 
 /* 啟動：讀取 data.json 後渲染；雙擊開啟（file://）時改用手動選取檔案 */
 function loadFromText(t) {
-  try { DATA = JSON.parse(t); render(); }
+  try { DATA = JSON.parse(t); if (isMobile()) cur.view = 'home'; render(); }
   catch (e) { alert('data.json 格式有誤：' + e.message); }
 }
 function pickJson(input) {
@@ -518,6 +555,7 @@ async function boot() {
     const res = await fetch('data.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     DATA = await res.json();
+    if (isMobile()) cur.view = 'home';
     render();
   } catch (e) {
     main.innerHTML = `<div class="${card} p-8 text-center">

@@ -3,21 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TOEIC Daily Coach - Industrial Design Edition</title>
+<title>TOEIC Daily Coach</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config={darkMode:'class'}</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
-<div class="flex flex-col md:flex-row min-h-screen">
-  <aside id="side" class="sticky top-0 z-30 max-h-screen md:max-h-none md:w-72 md:shrink-0 md:h-screen overflow-y-auto border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 md:p-4"></aside>
-  <div class="flex flex-1 min-w-0">
-    <div class="md:hidden w-12 shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"><div id="wrail" class="sticky p-1 space-y-1" style="top:var(--hdr,96px)"></div></div>
-    <main id="main" class="flex-1 min-w-0 p-3 pb-28 md:p-8 md:pb-8 max-w-4xl"></main>
-  </div>
-</div>
-<div id="mini" class="fixed bottom-0 inset-x-0 z-40 md:hidden"></div>
+<div class="max-w-4xl mx-auto p-4 md:p-8">
+  <header class="flex items-start justify-between gap-3 mb-6 md:mb-10">
+    <div>
+      <h1 class="text-2xl md:text-3xl font-bold">TOEIC Daily Coach</h1>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">選擇要練習的題型</p>
+    </div>
+    <button id="dk" onclick="toggleDark()" class="rounded-lg px-4 py-2 text-sm font-medium border border-slate-300 dark:border-slate-700 cursor-pointer shrink-0" aria-label="切換深淺色"></button>
+  </header>
 
-<script src="app.js"></script>
+  <main id="grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4"></main>
+</div>
+
+<script>
+const KEY = 'toeicCoachV2'; // 與 Daily practice 共用，深淺色設定會同步
+let S = {};
+try { S = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+
+const ITEMS = [
+  { n: 1, icon: '📅', title: 'Daily practice', sub: '每日一篇 · 單字 · 4 題練習', href: 'daily.html' },
+  { n: 2, icon: '📷', title: '照片描述', sub: 'Part 1' },
+  { n: 3, icon: '💬', title: '應答問題', sub: 'Part 2' },
+  { n: 4, icon: '🗣️', title: '簡短對話', sub: 'Part 3' },
+  { n: 5, icon: '🎤', title: '簡短獨白', sub: 'Part 4' },
+  { n: 6, icon: '✏️', title: '句子填空', sub: 'Part 5' },
+  { n: 7, icon: '📝', title: '段落填空', sub: 'Part 6' },
+  { n: 8, icon: '📖', title: '閱讀理解', sub: 'Part 7' }
+];
+
+const base = 'rounded-xl border p-4 md:p-5 flex items-center gap-4 ';
+document.getElementById('grid').innerHTML = ITEMS.map(x => {
+  const inner = `
+    <div class="text-3xl shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800">${x.icon}</div>
+    <div class="flex-1 min-w-0">
+      <div class="text-xs text-slate-400 font-semibold">${x.n}</div>
+      <div class="font-bold text-base md:text-lg leading-tight">${x.title}</div>
+      <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">${x.sub}</div>
+    </div>`;
+  return x.href
+    ? `<a href="${x.href}" class="${base} border-indigo-400 bg-white dark:bg-slate-900 ring-1 ring-indigo-300 dark:ring-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950 transition">${inner}<span class="text-indigo-600 dark:text-indigo-400 text-xl shrink-0">→</span></a>`
+    : `<div class="${base} border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 opacity-60 cursor-not-allowed" aria-disabled="true">${inner}<span class="text-xs rounded-full px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 shrink-0">即將推出</span></div>`;
+}).join('');
+
+function paint() {
+  document.documentElement.classList.toggle('dark', !!S.dark);
+  document.getElementById('dk').textContent = S.dark ? '☀ 淺色' : '☾ 深色';
+}
+function toggleDark() {
+  S.dark = !S.dark;
+  try { // 只更新 dark，保留既有的作答紀錄
+    const cur = JSON.parse(localStorage.getItem(KEY) || '{}');
+    cur.dark = S.dark; localStorage.setItem(KEY, JSON.stringify(cur));
+  } catch (e) {}
+  paint();
+}
+paint();
+</script>
 </body>
 </html>

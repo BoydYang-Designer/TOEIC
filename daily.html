@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TOEIC Daily Coach - Industrial Design Edition</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class'}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
+<div class="flex flex-col md:flex-row min-h-screen">
+  <aside id="side" class="sticky top-0 z-30 max-h-screen md:max-h-none md:w-72 md:shrink-0 md:h-screen overflow-y-auto border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 md:p-4"></aside>
+  <div class="flex flex-1 min-w-0">
+    <main id="main" class="flex-1 min-w-0 p-3 pb-28 md:p-8 md:pb-8 max-w-4xl"></main>
+  </div>
+</div>
+<div id="mini" class="fixed bottom-0 inset-x-0 z-40 md:hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
