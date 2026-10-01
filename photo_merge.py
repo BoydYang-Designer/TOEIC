@@ -24,8 +24,6 @@ ID_RE = re.compile(r'^d([1-7])-(\d{3})-([emh])$')
 TIER = {'e': 'easy', 'm': 'medium', 'h': 'hard'}
 TIER_ZH = {'easy': '初級', 'medium': '中級', 'hard': '高級'}
 TIER_RANGE = {'easy': (500, 550), 'medium': (600, 650), 'hard': (700, 800)}   # 與 photo.json 的 tiers.*.score 一致
-TIER_PHOTO = {'easy': 'single', 'medium': 'multi', 'hard': 'none'}            # 初＝單人、中＝多人、高＝無人物
-PHOTO_ZH = {'single': '單人', 'multi': '多人', 'none': '無人物'}
 PHOTO_TYPES = ('single', 'multi', 'none')
 TRAPS = ('sound-alike', 'not-in-photo', 'wrong-action', 'wrong-place-or-number', 'over-inference')
 OLD_FIELDS = ('focus', 'set', 'no', 'ans', 'statements', 'zh', 'why', 'traps', 'audio')
@@ -130,13 +128,9 @@ def validate(e, ctx):
     scenes = ctx['domains'].get(dom, [])
     if e.get('scene') not in scenes:
         er.append('scene %r 不屬於 %s（可用：%s）' % (e.get('scene'), dom, '、'.join(scenes)))
-    if e.get('photo_type') not in PHOTO_TYPES:
-        er.append('photo_type 必須是 %s' % ' / '.join(PHOTO_TYPES))
-    else:
-        need = TIER_PHOTO[TIER[suffix]]
-        if e['photo_type'] != need:
-            er.append('%s 的照片必須是 %s（%s），目前是 %s（%s）；這張圖寫不出該難度' % (
-                TIER_ZH[TIER[suffix]], need, PHOTO_ZH[need], e['photo_type'], PHOTO_ZH[e['photo_type']]))
+    # photo_type 只是依圖片實際人數的記錄，不再綁定難度；有填的話必須是合法值
+    if e.get('photo_type') not in (None, '') and e.get('photo_type') not in PHOTO_TYPES:
+        er.append('photo_type 若有填，必須是 %s（依圖片實際人數）' % ' / '.join(PHOTO_TYPES))
     if not str(e.get('tag') or '').strip():
         er.append('缺少 tag')
 

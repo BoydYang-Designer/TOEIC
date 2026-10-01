@@ -19,7 +19,6 @@ const itemsOf = j => Array.isArray(j) ? j : (j && j.items) || [];
 const find = id => DATA.find(x => x.id === id);
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const L = 'ABCD';
-const PT = { single: '單人', multi: '多人', none: '無人物' }; // 只用在「寫文本」指令，說明各難度對應的照片類型
 const TR = { 'sound-alike': '音近字', 'not-in-photo': '圖中沒有', 'wrong-action': '動作錯誤', 'wrong-place-or-number': '位置／人數錯', 'over-inference': '過度推論' };
 /* 難度三級：依 level.score 判定（level.tier 有填就以它為準） */
 const TIER = { easy: '初級', medium: '中級', hard: '高級' };
@@ -347,13 +346,14 @@ function goA(view, p) { stopAudio(); Object.assign(A, p || {}); V.view = view; V
 const openAdmin = goAdmin;
 const adminCell = (d, t) => goA('adminCell', { d, t });
 const adminItem = k => goA('adminItem', { k });
-const adminNew = (d, t) => goA('adminNew', { nd: d || null, nt: t || null, sd: null, out: [] });
-function adminPick(k, v) { A[k] = v; A.sd = null; render(); }
+const adminNew = (d, t) => goA('adminNew', { nd: d || null, nt: t || null, sd: null, out: [], oid: null });
+function adminPick(k, v) { A[k] = v; A.sd = null; A.oid = null; render(); }
+const adminOrph = id => { const m = /^(d\d+)-\d+-([emh])$/.exec(id), t = m && Object.keys(TS).find(k => TS[k] === m[2]); if (t) goA('adminNew', { nd: m[1], nt: t, sd: null, out: [], oid: id }); };
 const rerollSeed = () => { A.sd = (A.sd == null ? 0 : A.sd) + 1; render(); };
-const SK = { easy: 'single', medium: 'multi', hard: 'none' }; // 難度 → 情境類型（單人／多人／無人物）
+const SK = { easy: ['single'], medium: ['multi'], hard: ['multi', 'none'] }; // 難度 → 出圖情境（seeds）來源；只影響出圖 prompt 的情境，不限制 AI 寫文本與圖片人數
 /* 從該主題的 seeds 挑一個情境；避開已出現在既有題目 image_prompt 的情境；A.sd 固定住，按「換情境」才變 */
 function pickSeed(d, t) {
-  const sd = DOM[d].seeds && DOM[d].seeds[SK[t]]; if (!sd || !sd.length) return null;
+  const sd = DOM[d].seeds && [].concat(...SK[t].map(k => DOM[d].seeds[k] || [])); if (!sd || !sd.length) return null;
   const used = DATA.map(x => String(x.image_prompt || '').toLowerCase());
   let ls = sd.filter(s => !used.some(u => u.includes(s.toLowerCase()))); if (!ls.length) ls = sd;
   if (A.sd == null) A.sd = Math.floor(Math.random() * 1000);
@@ -362,6 +362,8 @@ function pickSeed(d, t) {
 const inCell = (d, t) => DATA.filter(x => domOf(x) === d && (!t || tierOf(x) === t)).sort((a, b) => String(a.id).localeCompare(String(b.id)));
 /* 流水號：同一「主題＋難度」內最大編號 + 1（d1-001-e、d1-001-m、d1-001-h 是三張不同的圖） */
 function nextCode(d, t) {
+  if (A.oid && A.oid.startsWith(d + '-') && A.oid.endsWith('-' + TS[t])) return A.oid.slice(0, -2); // 從「待寫文本圖片」進來
+  const op = orphIn(d, t); if (op.length) return op[0].slice(0, -2);                                  // 該格已有圖片但還沒題目：沿用它
   let mx = 0; DATA.forEach(x => { const m = /^d(\d+)-(\d+)/.exec(x.id); if (m && 'd' + m[1] === d && tierOf(x) === t) mx = Math.max(mx, +m[2]); });
   return d + '-' + String(mx + 1).padStart(3, '0');
 }
@@ -479,13 +481,34 @@ function checkImages(bust) {
   const q = bust && /^https?:$/.test(location.protocol) ? '?v=' + Date.now() : ''; // 重新檢查時避開快取
   DATA.forEach(x => { const im = new Image(); im.onload = () => { if (tok === IMG.tok) { IMG.st[x.id] = 'ok'; fin(); } }; im.onerror = () => { if (tok === IMG.tok) { IMG.st[x.id] = 'missing'; fin(); } }; im.src = imgPath(x) + q; });
 }
-const recheckImages = () => { checkImages(true); render(); };
+/* 反向檢查：瀏覽器讀不到資料夾清單，但檔名有固定規則（d{N}-{NNN}-{e|m|h}.jpg），
+   所以每格從 001 試探到「現有最大編號 + 6」，找出「圖片已放好、但 photo.json 還沒有題目」的圖。 */
+const ORPH = { found: [], tok: 0, running: false };
+const orphIn = (d, t) => ORPH.found.filter(id => id.startsWith(d + '-') && id.endsWith('-' + TS[t]));
+function checkOrphans(bust) {
+  const tok = ++ORPH.tok, have = new Set(DATA.map(x => x.id)), cand = [];
+  const q = bust && /^https?:$/.test(location.protocol) ? '?v=' + Date.now() : '';
+  Object.keys(DOM).forEach(d => Object.keys(TS).forEach(t => {
+    let mx = 0; DATA.forEach(x => { const m = /^d(\d+)-(\d+)/.exec(x.id); if (m && 'd' + m[1] === d && tierOf(x) === t) mx = Math.max(mx, +m[2]); });
+    for (let i = 1; i <= mx + 6; i++) { const id = d + '-' + String(i).padStart(3, '0') + '-' + TS[t]; if (!have.has(id)) cand.push(id); }
+  }));
+  ORPH.found = []; ORPH.running = cand.length > 0; let n = 0;
+  const fin = () => { if (tok !== ORPH.tok || ++n < cand.length) return; ORPH.running = false; ORPH.found.sort(); if (['admin', 'adminCell', 'adminNew'].includes(V.view)) render(); };
+  cand.forEach(id => { const im = new Image(); im.onload = () => { if (tok === ORPH.tok) { ORPH.found.push(id); fin(); } }; im.onerror = () => { if (tok === ORPH.tok) fin(); }; im.src = 'images/' + id + '.jpg' + q; });
+}
+const recheckImages = () => { checkImages(true); checkOrphans(true); render(); };
+function orphanH() {
+  if (!ORPH.found.length) return '';
+  return `<div class="${card} p-4 mb-4 !border-sky-300 dark:!border-sky-800"><p class="text-sm font-bold text-sky-700 dark:text-sky-300">🖼 有 ${ORPH.found.length} 張圖片還沒有題目</p>`
+    + `<p class="text-xs text-slate-500 mt-1">圖片已經放在 images 資料夾，但 photo.json 還沒有對應的題目，所以不會算進下面的格子。若已經請 AI 寫好文本，請把 AI 給你的 <b>檔名.json</b> 放到 photo_merge.py 同一個資料夾合併，再重新整理本頁；還沒寫的，按下面的按鈕取得「寫文本」指令。</p>`
+    + `<div class="flex flex-wrap gap-2 mt-2">${ORPH.found.map(id => `<button onclick="adminOrph('${id}')" class="${btn} ${line} !py-1 text-xs">${esc(id)} → 取得寫文本指令</button>`).join('')}</div></div>`;
+}
 const missImgs = () => DATA.filter(x => IMG.st[x.id] === 'missing');
 
 /* 某「主題 × 難度」格子：題數、不重複圖片數、缺圖數（達標以不重複圖片數計，因為測驗同一輪不會出現同一張圖） */
 function cellStat(d, t) {
   const xs = DATA.filter(x => domOf(x) === d && tierOf(x) === t);
-  return { n: xs.length, img: uniqN(xs), miss: xs.filter(x => IMG.st[x.id] === 'missing').length };
+  return { n: xs.length, img: uniqN(xs), miss: xs.filter(x => IMG.st[x.id] === 'missing').length, orph: orphIn(d, t).length };
 }
 
 const HL = { err: ['✖', 'text-rose-600 dark:text-rose-400'], warn: ['⚠', 'text-amber-600 dark:text-amber-400'], info: ['ℹ', 'text-slate-500'] };
@@ -520,16 +543,18 @@ function adminH() {
     + `<span class="text-slate-500">未達標格子 <b>${low}</b> / ${doms.length * tiers.length}（目標每格 ≥ ${TARGET} 張圖）</span></div>`
     + `<div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><span class="text-slate-500">圖片檔：</span>${imgStatusH()}</div></div>`;
   h += healthH();
+  h += orphanH();
   h += `<div class="overflow-x-auto mb-3"><div class="grid gap-1.5 text-center text-sm min-w-[32rem]" style="grid-template-columns:4.5rem repeat(${doms.length},minmax(3rem,1fr))"><div></div>${doms.map(d => `<button onclick="adminCell('${d}',null)" class="text-xs font-bold py-1 cursor-pointer hover:text-indigo-600">${d.toUpperCase()}<br><span class="font-normal text-slate-500">${esc(DOM[d].n)}</span></button>`).join('')}`;
   tiers.forEach(t => {
     h += `<div class="text-left self-center text-xs font-bold">${TIER[t]} ${TS[t]}<span class="block font-normal text-slate-500">${tScore(t)}</span></div>` + doms.map(d => {
       const s = cellStat(d, t);
       return `<button onclick="adminCell('${d}','${t}')" class="rounded-lg py-3 font-bold cursor-pointer ${tcol(s.img)}">${s.img}`
         + (s.n !== s.img ? `<span class="block text-[10px] font-normal">${s.n} 題</span>` : '')
-        + (s.miss ? `<span class="block text-[10px] font-normal text-rose-600 dark:text-rose-400">缺圖 ${s.miss}</span>` : '') + '</button>';
+        + (s.miss ? `<span class="block text-[10px] font-normal text-rose-600 dark:text-rose-400">缺圖 ${s.miss}</span>` : '')
+        + (s.orph ? `<span class="block text-[10px] font-normal text-sky-600 dark:text-sky-400">有圖待寫 ${s.orph}</span>` : '') + '</button>';
     }).join('');
   });
-  h += `</div></div><p class="text-xs text-slate-400 mb-5">格子＝該難度、該主題的「不重複圖片數」（正常情況＝題數）。紅＝0、黃＝未達 ${TARGET}、綠＝達標；格內小字：題數與圖片數不同、或有圖片檔找不到。點格子看該格的圖片與題目；點上方 D1–D7 看該主題全部難度。</p>`;
+  h += `</div></div><p class="text-xs text-slate-400 mb-5">格子＝該難度、該主題的「不重複圖片數」（正常情況＝題數）。紅＝0、黃＝未達 ${TARGET}、綠＝達標；格內小字：題數與圖片數不同、有圖片檔找不到，或（藍字）圖片已放好但還沒有題目。點格子看該格的圖片與題目；點上方 D1–D7 看該主題全部難度。</p>`;
   return h + `<button onclick="adminNew()" class="${btn} ${pri} w-full">＋ 新增題目</button>`;
 }
 
@@ -596,15 +621,15 @@ function buildOut(d, t) {
   const seed = pickSeed(d, t), scene = seed || 'a typical ' + (DOM[d].scenes || []).join(' or ') + ' scene';
   const rule = ig.by_tier && ig.by_tier[t];
   const ip = [(ig.base || 'A realistic photograph of {scene}. Natural lighting, 4:3 landscape.').replace('{scene}', scene), rule ? 'Composition: ' + rule : '', ig.constraints || 'No text, logos or readable screens; at most 4 people.'].filter(Boolean).join(' ');
-  const common = [`主題：${domLabel(d)}（scene 必須屬於：${(DOM[d].scenes || []).join('、')}）`, `目標難度：${tn}（id 尾碼 ${TS[t]}）｜多益分數範圍 ${tScore(t)}｜照片類型 ${PT[SK[t]]}（photo_type 必須是 ${SK[t]}）${guide ? '— ' + guide : ''}`];
+  const common = [`主題：${domLabel(d)}（scene 必須屬於：${(DOM[d].scenes || []).join('、')}）`, `目標難度：${tn}（id 尾碼 ${TS[t]}）｜多益分數範圍 ${tScore(t)}${guide ? '｜難度定義：' + guide : ''}`];
   const tc = (SPEC && SPEC.tiers && SPEC.tiers[t]) || {};
   const usedTags = DATA.map(x => x.tag).filter(Boolean), usedVocab = [...new Set(DATA.flatMap(x => (x.vocab || []).map(v => v.word)).filter(Boolean))];
   const lite = specLite(d, t);
-  const tail = '只輸出一個 JSON 物件，放在單一 json 程式碼區塊內，區塊外不要加任何文字。';
+  const tail = `輸出方式：請把結果建立成一個檔案，檔名必須是 ${id}.json（內容只有單一 JSON 物件，合法 JSON、UTF-8，不要加程式碼區塊標記），讓我直接下載；回覆中除了檔案，只需一行說明檔名。若你無法建立檔案，才改成只輸出單一 json 程式碼區塊，區塊外不要加任何文字。若這張圖寫不出該難度，不要建立檔案，只輸出 skip 物件的 json 程式碼區塊。`;
   const text = [
     lite ? `我已上傳圖片（${path}）。規格附在最後面，不需要另外附 photo.json，請依規格執行：` : `我已上傳圖片（${path}）與 photo.json，請依 _spec 執行：`,
     `寫文本 ${id}`, '',
-    ...common.map(s => '- ' + s), `- image 欄位填：${path}`,
+    ...common.map(s => '- ' + s), '- 不限制出題方式，也不限制圖片人數：只依上面的難度定義與圖片實際內容出題；photo_type 依圖片實際人數填 single／multi／none（記錄用，不影響難度）。', `- image 欄位填：${path}`,
     `- image_prompt 欄位請原樣填入我實際使用的出圖 prompt：${ip}`,
     '- visible_facts 與所有句子一律依圖片實際看到的內容撰寫，不要依 prompt 想像。',
     '- pool 必須剛好 12 句：3 句 ok:true ＋ 9 句 ok:false；輸出前請逐句數過，不可多也不可少。',
@@ -619,8 +644,8 @@ function buildOut(d, t) {
   return [
     { title: '圖片檔名', note: '生好的圖片請存成這個檔名，放進 images 資料夾。每題一張獨立的圖，不與其他題目共用。', text: id + '.jpg' },
     { title: '出圖 prompt（直接貼給生圖 AI）', reroll: !!seed, note: `不用附 photo.json。${seed ? '情境：' + seed + '。不喜歡可按「換情境」。' : '（photo.json 沒有這個主題的 seeds，請自行指定情境。）'}${same.length ? '此格已有：' + same.join('；') + '。' : ''}生好圖後先檢查有沒有怪手指、文字或商標，再存成上面的檔名。`, text: ip },
-    { title: '給 AI 的「寫文本」指令', note: lite ? `只要上傳圖片，再貼這段（約 ${text.length.toLocaleString()} 字，已內含精簡規格與已用過的 tag／vocab，不必附 photo.json）。AI 會依圖片實際內容寫出完整題目 JSON；圖片若不適合這個難度，它會回傳 skip。` : '（找不到 photo.json 的 _spec，所以這份指令不含規格，請把圖片與 photo.json 一起上傳給 AI。）AI 會依圖片實際內容寫出完整題目 JSON；圖片若不適合這個難度，它會回傳 skip。', text },
-    { title: '存檔與合併', note: `把 AI 回傳的 JSON 存成 ${id}.json，放到 photo_merge.py 同一個資料夾，雙擊執行並勾選合併。合併後重新整理本頁，題數就會更新。若 AI 回傳的是 skip，就不要合併。` }
+    { title: '給 AI 的「寫文本」指令', note: lite ? `只要上傳圖片，再貼這段（約 ${text.length.toLocaleString()} 字，已內含精簡規格與已用過的 tag／vocab，不必附 photo.json）。AI 會依圖片實際內容寫出完整題目，並直接給你一個 ${id}.json 檔案（檔名已對應圖片）；若 AI 無法建檔，它會貼出 json 區塊，再自行存成 ${id}.json。圖片若不適合這個難度，它會回傳 skip（不會給檔案）。` : '（找不到 photo.json 的 _spec，所以這份指令不含規格，請把圖片與 photo.json 一起上傳給 AI。）AI 會依圖片實際內容寫出完整題目，並直接給你一個 ${id}.json 檔案（檔名已對應圖片）；若 AI 無法建檔，它會貼出 json 區塊，再自行存成 ${id}.json。圖片若不適合這個難度，它會回傳 skip（不會給檔案）。', text },
+    { title: '存檔與合併', note: `把 AI 給你的 ${id}.json 下載後（檔名不用改），放到 photo_merge.py 同一個資料夾，雙擊執行並勾選合併。合併後重新整理本頁，題數就會更新。若 AI 回傳的是 skip，就不要合併。` }
   ];
 }
 
@@ -630,10 +655,10 @@ function adminNewH() {
   let h = hdr('新增題目', 'goAdmin()');
   h += `<h2 class="font-bold mb-2">1. 選主題</h2><div class="flex flex-wrap gap-2 mb-5">${doms.map(k => `<button onclick="adminPick('nd','${k}')" class="${on(d === k)}">${esc(domLabel(k))}</button>`).join('')}</div>`;
   h += `<h2 class="font-bold mb-2">2. 選難度</h2><div class="flex flex-wrap gap-2 mb-5">${tiers.map(k => `<button onclick="adminPick('nt','${k}')" class="${on(t === k)}">${TIER[k]} ${TS[k]} <span class="text-xs opacity-70">${tScore(k)}${d ? ` · ${pool(k, d).length} 題` : ''}</span></button>`).join('')}</div>`;
-  h += `<p class="text-xs text-slate-400 -mt-3 mb-5">初級＝單人圖、中級＝多人圖、高級＝無人物圖；分數是 AI 寫文本時 level.score 可以填的範圍。</p>`;
+  h += `<p class="text-xs text-slate-400 -mt-3 mb-5">難度只看句型與干擾項的細緻度，不限制圖片人數；分數是 AI 寫文本時 level.score 可以填的範圍。</p>`;
   if (!d || !t) return h + `<p class="text-xs text-slate-400">選好主題與難度後，會出現圖片檔名與給 AI 的指令。</p>`;
   const n = pool(t, d).length;
-  h += `<p class="text-sm mb-4">${esc(domLabel(d))} · ${TIER[t]}（${tScore(t)}）目前 <b>${n}</b> 題${n < TARGET ? `，未達目標 ${TARGET} 題` : '，已達標'}。新題會是一張全新的圖片：<b>${esc(nextCode(d, t) + '-' + TS[t])}</b></p>`;
+  h += `<p class="text-sm mb-4">${esc(domLabel(d))} · ${TIER[t]}（${tScore(t)}）目前 <b>${n}</b> 題${n < TARGET ? `，未達目標 ${TARGET} 題` : '，已達標'}。${orphIn(d, t).includes(nextCode(d, t) + '-' + TS[t]) ? '這格已經有圖片（還沒有題目）：' : '新題會是一張全新的圖片：'}<b>${esc(nextCode(d, t) + '-' + TS[t])}</b>${orphIn(d, t).includes(nextCode(d, t) + '-' + TS[t]) ? '。這張圖不用再生圖，直接上傳它並貼第 3 則「寫文本」指令即可，第 2 則出圖 prompt 可略過。' : ''}</p>`;
   const outs = buildOut(d, t); A.out = outs.map(s => s.text || '');
   outs.forEach((s, i) => {
     h += `<div class="${card} p-4 mb-3"><div class="flex items-center justify-between gap-2 mb-1"><p class="font-bold text-sm">${i + 1}. ${esc(s.title)}</p><span class="flex gap-1.5 shrink-0">${s.reroll ? `<button onclick="rerollSeed()" class="${btn} ${line} !py-1 text-xs">🎲 換情境</button>` : ''}${s.text ? `<button id="cp${i}" onclick="copyOut(${i})" class="${btn} ${line} !py-1 text-xs">複製</button>` : ''}</span></div><p class="text-xs text-slate-500 mb-2">${esc(s.note)}</p>${s.text ? `<pre class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-72 overflow-auto">${esc(s.text)}</pre>` : ''}</div>`;
@@ -661,7 +686,7 @@ function loadText(t) {
       if (Object.keys(m).length) DOM = m;
     }
     RAW = itemsOf(j); DATA = RAW.map(normItem).filter(Boolean);
-    HEALTH = auditAll(RAW); checkImages(false); // 資料健檢（同步）＋ 圖片檔檢查（非同步，完成後維護頁自動更新）
+    HEALTH = auditAll(RAW); checkImages(false); checkOrphans(false); // 資料健檢（同步）＋ 圖片檔檢查（非同步，完成後維護頁自動更新）
     render();
   } catch (e) { alert('photo.json 格式有誤：' + e.message); }
 }
