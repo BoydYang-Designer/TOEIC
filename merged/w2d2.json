@@ -1,0 +1,138 @@
+{
+  "week": 2,
+  "day": 2,
+  "tag": "商務列車改道與晚餐安排",
+  "type": "Listening",
+  "level": {
+    "score": 675,
+    "range": "625-725",
+    "cefr": "B2",
+    "why": "情境結合商務差旅、交通異動與餐飲安排，需要同時掌握列車變更、抵達時間與晚餐地點等資訊。對話包含被動語態、條件句與較複雜的補充說明，並設計接近正解的時間與地點干擾項。"
+  },
+  "passage": "Traveler: Hi, I was told that the evening train to Brighton has been diverted because of track repairs. Could you tell me how this affects my arrival time?\nAgent: Certainly. Your original train was scheduled to arrive at 6:20 P.M., but the replacement service will arrive at 7:05. Since you have a dinner reservation at 7:30, I recommend taking a taxi from the station rather than waiting for the hotel shuttle.\nTraveler: That should work. The dinner is at the Riverside Restaurant, correct?\nAgent: Yes. It is about ten minutes from the station by taxi. Your hotel booking remains unchanged, so you can check in after dinner.",
+  "zh": "旅客：您好，我聽說前往布萊頓的晚班火車因鐵路維修而改道。可以告訴我這會如何影響我的抵達時間嗎？\n服務人員：當然可以。您原本搭乘的火車預計在晚上 6:20 抵達，但替代班次將在 7:05 抵達。由於您晚上 7:30 有晚餐預約，我建議您從車站搭計程車，而不是等飯店接駁車。\n旅客：這樣應該可以。晚餐是在 Riverside Restaurant，對嗎？\n服務人員：是的。從車站搭計程車大約需要十分鐘。您的飯店訂房維持不變，因此您可以在晚餐後辦理入住。",
+  "vocab": [
+    {
+      "word": "diverted",
+      "ipa": "/daɪˈvɜːrtɪd/",
+      "pos": "v.",
+      "col": "be diverted because of repairs / divert a train",
+      "zh": "改道、改線"
+    },
+    {
+      "word": "replacement",
+      "ipa": "/rɪˈpleɪsmənt/",
+      "pos": "n.",
+      "col": "replacement service / replacement train",
+      "zh": "替代班次、替代服務"
+    },
+    {
+      "word": "arrival",
+      "ipa": "/əˈraɪvəl/",
+      "pos": "n.",
+      "col": "arrival time / expected arrival",
+      "zh": "抵達、抵達時間"
+    },
+    {
+      "word": "shuttle",
+      "ipa": "/ˈʃʌtəl/",
+      "pos": "n.",
+      "col": "hotel shuttle / shuttle service",
+      "zh": "接駁車、接駁服務"
+    },
+    {
+      "word": "unchanged",
+      "ipa": "/ʌnˈtʃeɪndʒd/",
+      "pos": "adj.",
+      "col": "remain unchanged / leave unchanged",
+      "zh": "維持不變的"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "Why will the replacement train arrive later than originally expected?",
+      "opts": [
+        "The hotel shuttle has been delayed.",
+        "The train is being held for dinner passengers.",
+        "Track repairs have affected the service.",
+        "The taxi ride from the station takes longer than expected."
+      ],
+      "ans": 2,
+      "why": [
+        "飯店接駁車的延誤並不是火車較晚抵達的原因。",
+        "文章沒有提到火車為了等候晚餐旅客而停留。",
+        "正解：服務人員表示火車因鐵路維修而改道，因此替代班次較晚抵達。",
+        "計程車只是抵達車站後建議採用的交通方式，並非火車延誤原因。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What does the agent recommend the traveler do after arriving at the station?",
+      "opts": [
+        "Wait for the hotel shuttle.",
+        "Take a taxi to the restaurant.",
+        "Check in at the hotel immediately.",
+        "Change the dinner reservation."
+      ],
+      "ans": 1,
+      "why": [
+        "服務人員特別建議不要等待飯店接駁車。",
+        "正解：因為晚餐預約時間接近，服務人員建議從車站搭計程車前往餐廳。",
+        "旅客可以在晚餐後辦理入住，而不是抵達車站後立即入住。",
+        "文章沒有要求旅客更改晚餐預約。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What remains unchanged according to the agent?",
+      "opts": [
+        "The train's original arrival time.",
+        "The dinner location.",
+        "The hotel booking.",
+        "The hotel shuttle schedule."
+      ],
+      "ans": 2,
+      "why": [
+        "原本的抵達時間已由 6:20 改為 7:05。",
+        "晚餐地點仍是 Riverside Restaurant，但文章特別指出維持不變的是飯店訂房。",
+        "正解：服務人員表示旅客的飯店訂房維持不變。",
+        "文章沒有說飯店接駁車時刻表維持不變，反而建議不要等待接駁車。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The replacement service is expected to arrive ______ than the original train.",
+      "opts": [
+        "late",
+        "later",
+        "latest",
+        "lately"
+      ],
+      "ans": 1,
+      "why": [
+        "late 可作副詞，但此句需要比較級來與原班次比較。",
+        "正解：later 是 late 的比較級，表示「較晚地」。",
+        "latest 是最高級，不適合用於兩個班次的比較。",
+        "lately 表示「最近」，不是時間早晚的比較。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The traveler should take a taxi ______ waiting for the hotel shuttle.",
+      "opts": [
+        "instead of",
+        "because of",
+        "in addition to",
+        "according to"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：instead of 表示「代替、而不是」，符合搭計程車而不等接駁車的語意。",
+        "because of 表示原因，後接名詞片語，無法表達替代關係。",
+        "in addition to 表示「除了……之外還」，與句意不符。",
+        "according to 表示「根據」，不適合表示兩種交通方式的選擇。"
+      ]
+    }
+  ]
+}

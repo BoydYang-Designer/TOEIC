@@ -18,7 +18,7 @@ const itemsOf = j => Array.isArray(j) ? j : (j && j.items) || []; // daily.json 
 
 /* 狀態管理 */
 const KEY = 'toeicCoachV2';
-let S = { dark: false, ans: {}, saved: {} };
+let S = { dark: false, ans: {}, saved: {}, gen: {} };
 try { S = Object.assign(S, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch(e){}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} };
 
@@ -164,12 +164,13 @@ function renderSide() {
   const n = Object.keys(S.saved).length, nw = cur.nw ?? cur.w, book = cur.view === 'book';
   const line = 'border border-slate-300 dark:border-slate-700';
   // ===== 手機：首頁顯示標題列；進入內文／生詞本後顯示「← 返回」列 =====
-  const label = book ? '★ 生詞本／錯題本' : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
+  const label = book ? '★ 生詞本／錯題本' : cur.view === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
   let h = `<div class="md:hidden">` + (cur.view === 'home'
     ? `<div class="flex items-center justify-between">
         <h1 class="text-base font-bold">TOEIC Daily</h1>
         <div class="flex gap-2">
           <a href="index.html" class="${btn} ${line} !py-1.5" aria-label="回到首頁">⌂ 首頁</a>
+          <button onclick="toggleAdd()" class="${btn} ${line} !py-1.5 ${addMode ? '!bg-indigo-600 !text-white !border-indigo-600' : ''}" aria-label="新增文章">＋</button>
           <button onclick="openBook()" class="${btn} ${line} !py-1.5" aria-label="生詞本／錯題本">★ ${n}</button>
           <button onclick="toggleDark()" class="${btn} ${line} !py-1.5" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>
         </div></div>`
@@ -193,18 +194,20 @@ function renderSide() {
   THEMES.forEach((t, i) => {
     const d = i + 1, x = find(nw, d), a = x && S.ans[idOf(x)];
     const st = !x
-      ? '<span class="text-xs text-slate-400 shrink-0">即將推出</span>'
+      ? (addMode ? '<span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 shrink-0">＋ 新增</span>' : '<span class="text-xs text-slate-400 shrink-0">即將推出</span>')
       : a && a.done
         ? `<span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">✓ ${Math.round(a.score / x.questions.length * 100)}%</span>`
         : '<span class="text-xs text-slate-400 shrink-0">未完成</span>';
-    const on = cur.view == 'day' && cur.w == nw && cur.d == d;
-    h += `<button ${x ? `onclick="go(${nw},${d})"` : 'disabled'} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : 'opacity-40 cursor-not-allowed'}">
+    const on = (cur.view == 'day' || cur.view == 'gen') && cur.w == nw && cur.d == d;
+    h += `<button ${x ? `onclick="go(${nw},${d})"` : addMode ? `onclick="openGen(${nw},${d})"` : 'disabled'} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : addMode ? 'border border-dashed border-indigo-400' : 'opacity-40 cursor-not-allowed'}">
       <span class="text-sm ">D${d} ${t}</span>
       <span class="flex items-center gap-2 shrink-0">${x && x.level ? `<span class="text-[11px] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}${st}</span>
     </button>`;
   });
   h += `</nav>
-  <button onclick="openBook()" class="${btn} w-full mt-6 ${line} ${book ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>
+  <button onclick="toggleAdd()" class="${btn} w-full mt-4 ${addMode ? 'bg-indigo-600 text-white border border-indigo-600' : line}">${addMode ? '✕ 結束新增模式' : '＋ 新增文章'}</button>
+  ${addMode ? `<p class="text-xs text-slate-500 mt-2 leading-relaxed">${THEMES.some((t, i) => !find(nw, i + 1)) ? '點選標示「＋ 新增」的空缺日期' : `W${nw} 已全部建置，請切換其他週次`}</p>` : ''}
+  <button onclick="openBook()" class="${btn} w-full mt-4 ${line} ${book ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>
   </div>`;
   side.innerHTML = h;
 }
@@ -228,14 +231,19 @@ function renderHome() {
     ws.forEach(w => {
       const x = find(w, d), a = x && S.ans[idOf(x)], done = a && a.done, started = a && a.sel.some(v => v !== null);
       const bd = d < 7 ? 'border-b border-slate-100 dark:border-slate-800' : '';
-      if (!x) { h += `<td class="p-1 ${bd}"><div class="h-12 rounded-lg flex items-center justify-center text-slate-300 dark:text-slate-700">—</div></td>`; return; }
+      if (!x) {
+        h += addMode
+          ? `<td class="p-1 ${bd}"><button onclick="openGen(${w},${d})" class="w-full h-12 rounded-lg border border-dashed border-indigo-400 text-indigo-600 dark:text-indigo-400 text-lg cursor-pointer">＋</button></td>`
+          : `<td class="p-1 ${bd}"><div class="h-12 rounded-lg flex items-center justify-center text-slate-300 dark:text-slate-700">—</div></td>`;
+        return;
+      }
       const cls = done ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
         : 'bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
       h += `<td class="p-1 ${bd}"><button onclick="go(${w},${d})" class="w-full h-12 rounded-lg text-sm font-semibold cursor-pointer ${cls}">${done ? `✓<span class="block text-[10px] font-normal leading-3">${Math.round(a.score / x.questions.length * 100)}%</span>` : started ? '<span class="text-xs">進行中</span>' : '<span class="text-xs">開始</span>'}</button></td>`;
     });
     h += '</tr>';
   });
-  main.innerHTML = h + `</tbody></table></div></div><p class="mt-3 text-xs text-slate-500 text-center">點格子進入當天內容 · 左右滑動可查看更多週次</p>`;
+  main.innerHTML = h + `</tbody></table></div></div><p class="mt-3 text-xs text-slate-500 text-center">${addMode ? '點「＋」的空格，為該天產生 AI 提示詞' : '點格子進入當天內容 · 左右滑動可查看更多週次'}</p>`;
 }
 function showHome() { cur.view = 'home'; cur.nw = cur.w; render(); window.scrollTo({ top: 0 }); }
 function backHome() { if (history.state && history.state.v) history.back(); else showHome(); } // 支援手機返回鍵
@@ -254,6 +262,7 @@ function renderDay() {
     main.innerHTML = `<div class="${card} p-12 text-center text-slate-500">
       <h3 class="text-lg font-bold mb-2">此日內容尚未建置</h3>
       <p class="text-sm">請在 daily.json 新增 week:${cur.w}, day:${cur.d} 的資料。</p>
+      <button onclick="openGen(${cur.w},${cur.d})" class="${btn} mt-4 bg-indigo-600 text-white">＋ 產生 AI 提示詞</button>
     </div>`;
     return;
   }
@@ -510,6 +519,150 @@ function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切�
   return out + chunk(p.slice(pos));
 }
 
+/* ===== 新增文章：產生檔名與給 AI 的提示詞 ===== */
+let addMode = false; // 「＋ 新增文章」模式：空缺日期變成可點選
+const cefrOf = s => s < 575 ? 'A2+' : s < 625 ? 'B1' : s < 675 ? 'B1+' : s < 775 ? 'B2' : s < 825 ? 'B2+' : 'C1';
+const clampSc = v => Math.max(400, Math.min(990, Math.round(v / 5) * 5));
+function toggleAdd() { addMode = !addMode; render(); }
+function openGen(w, d) {
+  const fromHome = cur.view === 'home';
+  cur = { w, d, nw: w, view: 'gen' };
+  render();
+  if (fromHome && isMobile()) try { history.pushState({ v: 1 }, ''); } catch (e) {}
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function genRefs(w, d) { // 同週最近一篇較早／較晚、已存在的文章
+  let prev = null, next = null;
+  for (let k = d - 1; k >= 1 && !prev; k--) { const x = find(w, k); if (x && x.level) prev = x; }
+  for (let k = d + 1; k <= 7 && !next; k++) { const x = find(w, k); if (x && x.level) next = x; }
+  return { prev, next };
+}
+function genEff(w, d) { // 該篇的有效分數：已建置者用實際分數 → 已手動設定者 → 否則用建議值
+  const x = find(w, d); if (x && x.level) return x.level.score;
+  const g = S.gen && S.gen[`w${w}d${d}`]; if (g && g.score != null) return g.score;
+  return genSuggest(w, d).score;
+}
+function genSuggest(w, d) { // W2 以後：上一週同一天 + 25；W1 沒有上週：從 600 起、同週逐日上升（D7 約 +100，且至少比前一篇高 10）
+  if (w > 1) return { score: clampSc(genEff(w - 1, d) + 25), kind: 'week' };
+  const f = 600 + Math.round((d - 1) * 100 / 6 / 10) * 10, { prev } = genRefs(w, d);
+  const min = prev ? prev.level.score + 10 * (d - prev.day) : 0;
+  return { score: clampSc(Math.max(f, min)), kind: 'day', raised: min > f };
+}
+function genLater(w, d) { // 較晚的週、同一天已建置的最近一篇
+  const mx = Math.max(4, ...DATA.map(x => x.week));
+  for (let k = w + 1; k <= mx; k++) { const x = find(k, d); if (x && x.level) return x; }
+  return null;
+}
+function genG() {
+  const id = `w${cur.w}d${cur.d}`, g = (S.gen && S.gen[id]) || {}, sug = genSuggest(cur.w, cur.d);
+  return { id, sug, score: g.score != null ? g.score : sug.score, manual: g.score != null && g.score !== sug.score, type: g.type || 'auto', note: g.note || '' };
+}
+function genSet(k, v) {
+  S.gen = S.gen || {}; const g = S.gen[`w${cur.w}d${cur.d}`] = S.gen[`w${cur.w}d${cur.d}`] || {};
+  if (v == null || v === '') delete g[k]; else g[k] = v;
+  save();
+}
+function genStep(n) { genSet('score', clampSc(genG().score + n)); render(); }
+function genInput(v) { const n = parseFloat(v); if (isFinite(n)) genSet('score', clampSc(n)); render(); }
+function genReset() { genSet('score', null); render(); }
+function genType(t) { genSet('type', t === 'auto' ? null : t); render(); }
+function genNote(v) { genSet('note', v.trim() ? v : null); const el = document.getElementById('gen-prompt'); if (el) el.value = genPrompt(); }
+function genLen(s) { const t = Math.max(0, Math.min(1, (s - 600) / 250)); return t < 0.34 ? '偏短' : t < 0.67 ? '中等' : '偏長'; }
+function genPrompt() {
+  const g = genG(), w = cur.w, d = cur.d, s = g.score, { prev, next } = genRefs(w, d), c = cefrOf(s);
+  const typ = g.type === 'auto' ? '由你依主題與 _spec 自行決定（Reading 或 Listening）' : g.type;
+  const L = [];
+  L.push(`請依我提供的 daily.json（內含 _spec 規格與既有 items）生成 ${g.id}。`, '');
+  L.push('【基本資訊】', `・Week ${w}、Day ${d}（主題：${THEMES[d - 1]}）`, `・type：${typ}`, '');
+  L.push('【難度】已指定難度，請直接生成，不需要再詢問難度。', `・目標：多益約 ${s} 分（CEFR ${c}）。`);
+  L.push(`・level.score 填 ${s}、range 填 "${s - 50}-${s + 50}"、cefr 填 "${c}"` + (s % 50 ? '（本次分數不是 50 的倍數，優先於 _spec 中「50 的倍數」的規定）。' : '。'));
+  if (w > 1) {
+    const pe = genEff(w - 1, d), ex = !!(find(w - 1, d) && find(w - 1, d).level), df = s - pe;
+    L.push(`・上一週同一天的 w${w - 1}d${d} ${ex ? '為' : '預估約'} ${pe} 分；` + (df > 0 ? `本篇請比它難約 ${df} 分（句子更長或更複雜、資訊點更多、干擾項更接近正解）。` : df === 0 ? '本篇難度與它相當。' : `本篇可比它簡單約 ${-df} 分。`));
+  } else {
+    if (prev) L.push(`・同週較早的 w${w}d${prev.day} 約 ${prev.level.score} 分；本篇請比它稍難一些（句子更長或更複雜、資訊點更多、干擾項更接近正解），但差距不要過大。`);
+    if (next) L.push(`・同週較晚的 w${w}d${next.day} 已有 ${next.level.score} 分；本篇不要比它更難。`);
+  }
+  const lt = genLater(w, d); if (lt) L.push(`・較晚的 w${lt.week}d${lt.day} 已有 ${lt.level.score} 分；本篇不要比它更難。`);
+  L.push('・調整難度請主要靠句型（複合句、被動、分詞構句）、字彙的抽象程度、需整合的資訊量與干擾項；字數只是次要因素。', '');
+  L.push(`【長度】在 _spec 的 passage_length 範圍內取「${genLen(s)}」。`, '');
+  if (g.note.trim()) L.push('【補充要求】', g.note.trim(), '');
+  L.push('【輸出】', '・只輸出 JSON，放在單一 json 程式碼區塊內，單篇輸出單一物件；格式與自我檢查依 _spec 的 how_to_use.output 與 rules.self_check。', '・不要輸出整份 daily.json、不要輸出 timing 欄位；tag、情境與 vocab 單字不得與既有 items 重複。');
+  return L.join('\n');
+}
+async function copyEl(id, b) {
+  const e = document.getElementById(id), t = e.value !== undefined ? e.value : e.textContent;
+  let ok = false;
+  try { await navigator.clipboard.writeText(t); ok = true; } catch (_) {}
+  if (!ok) {
+    const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (_) {} ta.remove();
+  }
+  if (b) { const o = b.dataset.o || (b.dataset.o = b.textContent); b.textContent = '✓ 已複製'; setTimeout(() => { b.textContent = o; }, 1200); }
+}
+function renderGen() {
+  const g = genG(), w = cur.w, d = cur.d, s = g.score, { prev, next } = genRefs(w, d);
+  const sb = `${btn} border border-slate-300 dark:border-slate-700 !px-3`;
+  const fld = 'rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900';
+  const seg = (v, label) => `<button onclick="genType('${v}')" class="${btn} ${g.type === v ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${label}</button>`;
+  const strip = THEMES.map((t, i) => {
+    const k = i + 1, x = find(w, k);
+    const v = k === d ? s : genEff(w, k);
+    const cls = k === d ? 'ring-2 ring-indigo-500 bg-indigo-50 dark:bg-indigo-950' : x ? 'bg-slate-100 dark:bg-slate-800' : 'border border-dashed border-slate-300 dark:border-slate-700 text-slate-400';
+    return `<div class="rounded-lg px-2 py-1.5 text-center min-w-[3.5rem] ${cls}"><div class="text-[11px] text-slate-500">D${k}</div><div class="text-sm font-semibold">${v}</div><div class="text-[10px] text-slate-400">${k === d ? '本篇' : x ? '已有' : '建議'}</div></div>`;
+  }).join('');
+  main.innerHTML = `<header class="mb-6">
+    <h2 class="text-xl md:text-2xl font-bold">＋ 新增文章 · Day ${d} ${THEMES[d - 1]}</h2>
+    <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${w} · ${g.id}</span>
+  </header>
+
+  <section class="${card} p-4 md:p-6 mb-5">
+    <h3 class="font-bold mb-1">① 檔名</h3>
+    <p class="text-xs text-slate-500 mb-3 leading-relaxed">把 AI 回覆的 JSON 存成這個檔名，再用 daily_merge.py 合併進 daily.json。</p>
+    <div class="flex flex-wrap items-center gap-2 mb-2">
+      <code id="gen-fn" class="rounded-lg bg-slate-100 dark:bg-slate-800 px-3 py-2 text-sm font-mono">${g.id}.json</code>
+      <button onclick="copyEl('gen-fn',this)" class="${sb}">複製</button>
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+      <code id="gen-mp3" class="rounded-lg bg-slate-100 dark:bg-slate-800 px-3 py-2 text-sm font-mono">${g.id}.mp3</code>
+      <button onclick="copyEl('gen-mp3',this)" class="${sb}">複製</button>
+      <span class="text-xs text-slate-500">錄音檔，放在 audio 資料夾</span>
+    </div>
+  </section>
+
+  <section class="${card} p-4 md:p-6 mb-5">
+    <h3 class="font-bold mb-1">② 建議 AI 難度</h3>
+    <p class="text-xs text-slate-500 mb-3 leading-relaxed">${w > 1 ? `預設 = 上一週同一天（w${w - 1}d${d}）的分數 + 25，一週比一週難；可手動調整，下一週會以你調整後的分數為基準再 +25。` : '第 1 週沒有上週可比，從 600 起、同週逐日上升（D7 最高）；可手動調整，之後每週同一天再 +25。'}</p>
+    <div class="flex flex-wrap items-center gap-2 mb-3">
+      <button onclick="genStep(-25)" class="${sb}" aria-label="減 25 分">−25</button>
+      <input type="number" step="5" min="400" max="990" value="${s}" onchange="genInput(this.value)" class="${fld} w-24 text-center px-2 py-2 text-sm font-semibold">
+      <button onclick="genStep(25)" class="${sb}" aria-label="加 25 分">＋25</button>
+      <span class="inline-block text-xs rounded-full px-3 py-1 font-medium ${lvColor(s)}">多益約 ${s} 分 · ${cefrOf(s)}</span>
+      ${g.manual ? `<button onclick="genReset()" class="${sb}">↺ 還原建議值 ${g.sug.score}</button>` : '<span class="text-xs text-slate-400">（建議值）</span>'}
+    </div>
+    <div class="flex flex-wrap gap-2 mb-3">${strip}</div>
+    <ul class="text-xs text-slate-500 leading-relaxed space-y-1 list-disc pl-4">
+      ${w > 1 ? `<li>上一週 w${w - 1}d${d}：${find(w - 1, d) && find(w - 1, d).level ? `實際 ${find(w - 1, d).level.score} 分` : `尚未建置，以預估值 ${genEff(w - 1, d)} 分推算`}；本篇比它${s > genEff(w - 1, d) ? '高' : s < genEff(w - 1, d) ? '低' : '相同'} ${Math.abs(s - genEff(w - 1, d))} 分。</li>`
+        : `${prev ? `<li>同週較早的 w${w}d${prev.day} 為 ${prev.level.score} 分${g.sug.raised ? '，建議值已調整為至少高 10 分' : ''}。</li>` : ''}${next ? `<li>同週較晚的 w${w}d${next.day} 已有 ${next.level.score} 分，本篇不宜比它更難。</li>` : ''}`}
+      ${genLater(w, d) ? `<li>較晚的 w${genLater(w, d).week}d${d} 已有 ${genLater(w, d).level.score} 分，本篇不宜比它更難。</li>` : ''}
+      <li>難度主要由句型、字彙抽象度、資訊量與干擾項決定；字數只是次要因素，本篇長度建議「${genLen(s)}」（仍須符合 _spec 的字數範圍）。</li>
+    </ul>
+  </section>
+
+  <section class="${card} p-4 md:p-6 mb-5">
+    <h3 class="font-bold mb-3">③ 類型與補充要求（選填）</h3>
+    <div class="flex flex-wrap gap-2 mb-3">${seg('auto', '由 AI 決定')}${seg('Reading', 'Reading 閱讀')}${seg('Listening', 'Listening 聽力')}</div>
+    <textarea rows="2" oninput="genNote(this.value)" placeholder="例如：題材請與航空公司客服有關、請多出現被動語態…" class="${fld} w-full p-3 text-sm">${esc(g.note)}</textarea>
+  </section>
+
+  <section class="${card} p-4 md:p-6">
+    <h3 class="font-bold mb-1">④ 給 AI 的提示詞</h3>
+    <p class="text-xs text-slate-500 mb-3 leading-relaxed">請連同 daily.json 一起提供給 AI（提示詞不含 JSON 內容）。</p>
+    <textarea id="gen-prompt" readonly rows="16" class="${fld} w-full p-3 text-xs leading-relaxed font-mono">${esc(genPrompt())}</textarea>
+    <button onclick="copyEl('gen-prompt',this)" class="${btn} mt-3 bg-indigo-600 text-white">複製提示詞</button>
+  </section>`;
+}
+
 function render() {
   render.m = isMobile();
   if (cur.view === 'home' && !render.m) cur.view = 'day'; // 桌機沒有首頁，直接顯示內文
@@ -519,7 +672,7 @@ function render() {
   Sp.hlIdx = -2;
   document.documentElement.classList.toggle('dark', S.dark);
   renderSide();
-  cur.view === 'book' ? renderBook() : cur.view === 'home' ? renderHome() : renderDay();
+  cur.view === 'book' ? renderBook() : cur.view === 'home' ? renderHome() : cur.view === 'gen' ? renderGen() : renderDay();
   if (Sp.mode === 'audio' && Sp.au && Sp.id) spHl(Sp.id, Sp.au.currentTime);
 }
 

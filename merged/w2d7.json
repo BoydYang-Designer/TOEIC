@@ -1,0 +1,204 @@
+{
+  "week": 2,
+  "day": 7,
+  "tag": "簡報／提案：新服務試行計畫簡報",
+  "type": "Listening",
+  "level": {
+    "score": 725,
+    "range": "675-775",
+    "cefr": "B2",
+    "why": "以新服務試行計畫的商務簡報為情境，內容需要整合問題、執行方式、預算與後續時程。句型包含被動語態、條件句與較長的複合句，並加入較抽象的商務字彙，使難度略高於上一週 D7。"
+  },
+  "passage": "Good afternoon, everyone, and thank you for joining today's project review. I'd like to walk you through our proposal for a three-month pilot of the new customer support platform.\n\nAs you can see from the data we collected last quarter, response times have increased as the number of service requests has grown. To address this issue, we propose introducing a platform that will organize customer inquiries and automatically assign them to the appropriate support team. During the pilot period, performance will be monitored weekly so that any problems can be identified before the system is fully implemented.\n\nThe initial budget is estimated at 80,000 dollars, which includes software setup, employee training, and technical support. Although the pilot will require additional staff time at first, we expect the process to become more efficient once employees are familiar with the new system.\n\nOur first milestone will be completing the setup by the end of next month. If the pilot meets the agreed performance targets, we will present the results to senior management and discuss a full rollout. I'd like to emphasize that today's proposal is for the pilot only, so no decision about the full implementation is required at this stage.\n\nThat brings me to the end of the overview. I'd be happy to answer any questions before we discuss the next steps.",
+  "zh": "各位午安，感謝大家參加今天的專案檢討會。我想向各位說明我們針對新客戶支援平台提出的三個月試行計畫。\n\n如同大家從我們上季蒐集的資料中所看到的，隨著服務需求數量增加，回覆時間也變長了。為了解決這個問題，我們提議導入一個平台，將客戶詢問進行整理，並自動將這些詢問分派給適當的客服團隊。在試行期間，我們每週都會監控執行情況，以便在系統全面導入前找出任何問題。\n\n初步預算估計為八萬美元，其中包括軟體設定、員工培訓及技術支援。雖然試行初期會需要額外的員工時間，但我們預期員工熟悉新系統後，整個流程會變得更有效率。\n\n我們的第一個里程碑是在下月底前完成設定。如果試行計畫達到雙方同意的績效目標，我們將向高階管理階層提出結果，並討論全面導入。我想特別強調，今天提出的是試行計畫，因此現階段不需要決定是否全面導入。\n\n以上就是這次簡報的概要。在我們討論下一步之前，我很樂意回答各位的問題。",
+  "vocab": [
+    {
+      "word": "pilot",
+      "ipa": "/ˈpaɪlət/",
+      "pos": "n.",
+      "col": "pilot program / pilot project",
+      "zh": "試行計畫、試辦"
+    },
+    {
+      "word": "appropriate",
+      "ipa": "/əˈproʊpriət/",
+      "pos": "adj.",
+      "col": "appropriate team / appropriate solution",
+      "zh": "適當的、合適的"
+    },
+    {
+      "word": "implement",
+      "ipa": "/ˈɪmpləment/",
+      "pos": "v.",
+      "col": "implement a system / implement a plan",
+      "zh": "實施、導入"
+    },
+    {
+      "word": "milestone",
+      "ipa": "/ˈmaɪlstoʊn/",
+      "pos": "n.",
+      "col": "reach a milestone / project milestone",
+      "zh": "里程碑"
+    },
+    {
+      "word": "rollout",
+      "ipa": "/ˈroʊlaʊt/",
+      "pos": "n.",
+      "col": "full rollout / product rollout",
+      "zh": "全面推出、全面導入"
+    },
+    {
+      "word": "emphasize",
+      "ipa": "/ˈemfəsaɪz/",
+      "pos": "v.",
+      "col": "emphasize a point / emphasize the importance",
+      "zh": "強調"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "Why does the company want to introduce the new platform?",
+      "opts": [
+        "To reduce software setup costs",
+        "To address increasing response times",
+        "To replace the senior management team",
+        "To reduce the number of service requests"
+      ],
+      "ans": 1,
+      "why": [
+        "軟體設定費用包含在試行計畫預算中，並非導入平台的主要原因。",
+        "正解：服務需求增加使回覆時間變長，公司希望透過新平台處理這個問題。",
+        "簡報沒有提到要更換高階管理團隊。",
+        "平台是用來整理及分派詢問，並非降低服務需求數量。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What will happen during the pilot period?",
+      "opts": [
+        "The system will immediately be fully implemented.",
+        "Employees will stop handling customer inquiries.",
+        "The budget will be reviewed by customers.",
+        "Performance will be monitored every week."
+      ],
+      "ans": 3,
+      "why": [
+        "全面導入必須等試行結果確認後再討論。",
+        "員工仍然需要使用新系統處理客戶詢問。",
+        "簡報沒有提到由客戶檢查預算。",
+        "正解：試行期間會每週監控執行情況，以便及早發現問題。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What is included in the initial budget?",
+      "opts": [
+        "Software setup and employee training",
+        "A full rollout of the platform",
+        "Additional customer service offices",
+        "A new management team"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：初步預算包括軟體設定、員工培訓及技術支援。",
+        "全面導入要等試行結果符合目標後才會討論。",
+        "簡報沒有提到新增客服辦公室。",
+        "沒有任何內容表示需要成立新的管理團隊。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What will the company do if the pilot meets the agreed performance targets?",
+      "opts": [
+        "Cancel the pilot program",
+        "Increase the initial budget immediately",
+        "Present the results to senior management",
+        "Begin full implementation without further discussion"
+      ],
+      "ans": 2,
+      "why": [
+        "如果試行達標，公司反而會進一步討論全面導入，並非取消試行。",
+        "簡報沒有表示達標後會立即增加初步預算。",
+        "正解：公司會向高階管理階層提出試行結果，並討論全面導入。",
+        "簡報明確表示現階段不會直接決定全面導入。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The project team will ______ the new system after the pilot has been evaluated.",
+      "opts": [
+        "implementation",
+        "implemented",
+        "implementing",
+        "implement"
+      ],
+      "ans": 3,
+      "why": [
+        "implementation 是名詞，不能直接放在 will 後作主要動詞。",
+        "implemented 是過去分詞，不符合 will 後的動詞結構。",
+        "implementing 是現在分詞，不能直接接在 will 後。",
+        "正解：will 後接原形動詞，因此使用 implement。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The manager asked the team to ______ the main risks before presenting the proposal.",
+      "opts": [
+        "identification",
+        "identify",
+        "identified",
+        "identifying"
+      ],
+      "ans": 1,
+      "why": [
+        "identification 是名詞，而 ask someone to 後面需要動詞。",
+        "正解：ask someone to 後接原形動詞，因此使用 identify。",
+        "identified 是過去式或過去分詞，不符合 to 後面的結構。",
+        "identifying 是現在分詞，不能直接接在 to 後面。"
+      ]
+    }
+  ],
+  "presentation_phrases": [
+    {
+      "phrase": "Thank you for joining today's meeting.",
+      "meaning": "感謝大家參加今天的會議。",
+      "usage": "用於簡報或會議開場，先向參與者表達感謝。"
+    },
+    {
+      "phrase": "I'd like to walk you through our proposal.",
+      "meaning": "我想帶大家了解我們的提案。",
+      "usage": "用於開始逐步介紹提案內容。"
+    },
+    {
+      "phrase": "Let me highlight the main issue.",
+      "meaning": "讓我先強調主要問題。",
+      "usage": "用於從背景資訊轉入簡報的核心問題。"
+    },
+    {
+      "phrase": "As you can see from the data.",
+      "meaning": "如同大家從資料中可以看到的。",
+      "usage": "用於引用圖表、數據或先前提供的資訊。"
+    },
+    {
+      "phrase": "I'd like to emphasize one point.",
+      "meaning": "我想特別強調一點。",
+      "usage": "用於提醒聽眾注意重要資訊或限制條件。"
+    },
+    {
+      "phrase": "Our next step is to.",
+      "meaning": "我們的下一步是。",
+      "usage": "用於說明提案通過後的行動或後續安排。"
+    },
+    {
+      "phrase": "That brings me to the end of the overview.",
+      "meaning": "以上就是這次概要介紹的結尾。",
+      "usage": "用於結束主要簡報內容，準備進入問答或下一個階段。"
+    },
+    {
+      "phrase": "I'd be happy to answer any questions.",
+      "meaning": "我很樂意回答各位的問題。",
+      "usage": "用於簡報結尾，引導聽眾進入問答環節。"
+    }
+  ]
+}

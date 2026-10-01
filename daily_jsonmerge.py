@@ -114,8 +114,8 @@ def validate(e, filename=None, single=False):
     else:
         if not isinstance(lv.get('score'), int):
             wa.append('level.score 應為整數')
-        elif lv['score'] % 50:
-            wa.append('level.score 建議為 50 的倍數')
+        elif lv['score'] % 5:
+            wa.append('level.score 建議為 5 的倍數')
         if not re.match(r'^\d+-\d+$', str(lv.get('range', ''))):
             wa.append("level.range 格式應為 '600-700'")
         for k in ('cefr', 'why'):

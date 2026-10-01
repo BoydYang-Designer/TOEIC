@@ -1,0 +1,138 @@
+{
+  "week": 2,
+  "day": 5,
+  "tag": "新品上市後的客戶回饋電話",
+  "type": "Listening",
+  "level": {
+    "score": 725,
+    "range": "675-775",
+    "cefr": "B2",
+    "why": "情境結合新品上市、銷售回饋與客服處理，需要整合顧客反映的問題、銷售資訊與後續處理方式。對話包含讓步句、被動語態與條件句，並以較接近的時間、產品與處理方案作為干擾項，難度略高於前一週同日。"
+  },
+  "passage": "Sales Manager: How did the first week of sales for the new wireless speaker go?\nSales Representative: Better than expected overall. We sold nearly 180 units, although several customers mentioned that the setup instructions were difficult to follow.\nSales Manager: Was that the main issue reported by customers?\nSales Representative: Yes, and a few customers also asked whether a carrying case could be purchased separately. Since the case is not included in the current package, I suggested that we record the requests and discuss adding it as an optional accessory.\nSales Manager: That makes sense. Before we change the package, please send me a summary of the feedback. If the same concern continues next week, we can ask the product team to revise the instructions.",
+  "zh": "業務經理：新款無線喇叭上市第一週的銷售情況如何？\n業務代表：整體比預期好。我們賣出了將近 180 台，不過有幾位顧客提到設定說明很難理解。\n業務經理：這是顧客反映的主要問題嗎？\n業務代表：是的，另外也有幾位顧客詢問是否可以單獨購買攜帶盒。由於目前的套裝並未包含攜帶盒，我建議我們記錄這些需求，並討論是否將它加入為選購配件。\n業務經理：這樣合理。在我們更改套裝內容之前，請先把顧客回饋摘要寄給我。如果下週同樣的問題持續出現，我們可以請產品團隊修改說明。",
+  "vocab": [
+    {
+      "word": "overall",
+      "ipa": "/ˌoʊvərˈɔːl/",
+      "pos": "adv.",
+      "col": "perform well overall / overall sales",
+      "zh": "整體而言"
+    },
+    {
+      "word": "setup",
+      "ipa": "/ˈsetʌp/",
+      "pos": "n.",
+      "col": "setup instructions / setup process",
+      "zh": "設定、安裝設定"
+    },
+    {
+      "word": "separately",
+      "ipa": "/ˈsepərətli/",
+      "pos": "adv.",
+      "col": "purchase separately / sold separately",
+      "zh": "另外、分開地"
+    },
+    {
+      "word": "accessory",
+      "ipa": "/əkˈsesəri/",
+      "pos": "n.",
+      "col": "optional accessory / product accessory",
+      "zh": "配件"
+    },
+    {
+      "word": "revise",
+      "ipa": "/rɪˈvaɪz/",
+      "pos": "v.",
+      "col": "revise instructions / revise a document",
+      "zh": "修改、修訂"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What problem did several customers report about the new product?",
+      "opts": [
+        "The carrying case was unavailable.",
+        "The product was difficult to transport.",
+        "The setup instructions were difficult to follow.",
+        "The sales price was higher than expected."
+      ],
+      "ans": 2,
+      "why": [
+        "攜帶盒是顧客詢問是否能另外購買的配件，並非已回報的主要問題。",
+        "文章沒有說顧客認為產品本身難以攜帶。",
+        "正解：幾位顧客反映產品的設定說明很難理解。",
+        "文章只說銷售表現比預期好，沒有提到價格過高。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What do some customers want to purchase separately?",
+      "opts": [
+        "A replacement speaker",
+        "A carrying case",
+        "A revised instruction manual",
+        "An extended warranty"
+      ],
+      "ans": 1,
+      "why": [
+        "顧客並未要求購買替換用的喇叭。",
+        "正解：有幾位顧客詢問是否可以單獨購買攜帶盒。",
+        "說明書需要修改的可能性是公司後續的處理方式，不是顧客要購買的商品。",
+        "文章沒有提到延長保固。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What does the sales representative suggest doing about the carrying case?",
+      "opts": [
+        "Include it in every current package.",
+        "Offer it at a reduced price immediately.",
+        "Stop selling the current package.",
+        "Record customer requests and consider offering it as an option."
+      ],
+      "ans": 3,
+      "why": [
+        "目前的套裝並未包含攜帶盒，業務代表沒有建議立即全部加入。",
+        "文章沒有提到立即降價。",
+        "業務代表沒有建議停止銷售目前的套裝。",
+        "正解：業務代表建議記錄顧客需求，並討論將攜帶盒列為選購配件。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The carrying case is not included in the current package, so it is available ______.",
+      "opts": [
+        "separate",
+        "separately",
+        "separation",
+        "separating"
+      ],
+      "ans": 1,
+      "why": [
+        "separate 是形容詞或動詞，此處需要副詞修飾 available。",
+        "正解：separately 是副詞，表示「另外、分開地」。",
+        "separation 是名詞，不能直接修飾 available。",
+        "separating 是現在分詞，無法在此自然修飾 available。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "If the same concern continues next week, the product team may ______ the instructions.",
+      "opts": [
+        "revision",
+        "revised",
+        "revise",
+        "revising"
+      ],
+      "ans": 2,
+      "why": [
+        "revision 是名詞，不能直接接在 may 後面。",
+        "revised 是過去分詞或形容詞，may 後需要原形動詞。",
+        "正解：revise 是原形動詞，符合 may revise 的結構。",
+        "revising 是動名詞或現在分詞，不適合放在 may 後。"
+      ]
+    }
+  ]
+}
