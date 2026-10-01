@@ -1,16 +1,17 @@
 {
   "_spec": {
-    "purpose": "TOEIC Part 1（照片描述）題庫。使用者會把這份 JSON 交給 AI，分兩階段產生題目：先「出圖」再「寫文本」。請依本 _spec 產生資料。網頁分「練習」與「測驗」兩種模式，測驗會依 難度（level.tier）與 主題（domain：d1–d7）抽題，所以每一題都必須填對這兩個欄位。",
+    "purpose": "TOEIC Part 1（照片描述）題庫。使用者會把這份 JSON 交給 AI，題目分兩步產生：先由網頁組出「出圖 prompt」讓使用者自己生圖，再請 AI「寫文本」。請依本 _spec 產生資料。網頁分「練習」與「測驗」兩種模式，測驗會依 難度（level.tier）與 主題（domain：d1–d7）抽題，所以每一題都必須填對這兩個欄位。",
     "how_to_use": {
-      "stage1_trigger": "使用者輸入「出圖 d{N}-{NNN}」（例如 出圖 d1-002）→ 只輸出「一個」JSON 物件，欄位：image（圖片編碼，例如 d1-002）、photo_type、scene、domain、visible_facts、image_prompt、suitable_tiers（這張圖適合出哪些難度，easy／medium／hard 的陣列）。只指定主題時（例如「出圖 d4」），編號由 AI 依該主題現有最大流水號加 1 決定；完全沒指定時，AI 依 coverage 挑選最缺的主題。",
-      "stage1_note": "圖片只屬於「主題」，不屬於難度：同一張圖可以出初、中、高三個難度的題目。visible_facts 是「圖片裡應該清楚看得到的事實」，用來當出圖依據與日後核對。圖片編碼中的 d{N} 就是 domain，必須與 scene 相符（見 domains 對照表）；使用者在檢查圖片時就會確認主題，之後不再更改。出圖時挑「內容足夠」的畫面（有人物的圖要有清楚動作與細節；無人物的圖要有多個物件與位置關係），才能支撐不同難度。",
-      "stage2_trigger": "使用者上傳圖片並輸入「寫文本 d{N}-{NNN}-{e|m|h}」（例如 寫文本 d1-002-m）→ 輸出完整 entry_schema 的 JSON 物件。尾碼 e／m／h 就是這題的目標難度（初／中／高）。",
-      "stage2_rule": "文本一律依「上傳圖片實際看到的內容」撰寫，不依 image_prompt 想像。若圖片與 visible_facts 不符，改以圖片為準並更新 visible_facts；圖片有瑕疵（手指或肢體怪異、人數不清、出現文字或商標、物件難以辨識）須寫入 issues。domain 一律等於 id 前段的 d{N}；若實際圖片的場景明顯不屬於該主題，不要自行改 domain，改在 issues 寫「圖片場景與 d{N} 不符，建議重新編碼」，由使用者決定。難度以 id 尾碼為目標：依 tiers.guide 寫出符合該難度的句子，level.tier 必須等於尾碼（見 rules.tier）。句子庫（pool）共 12 句，全部依「上傳圖片實際看到的內容」撰寫，錯誤句必須確認圖片中真的沒有或真的不同。",
-      "output": "只輸出「一個」JSON 物件，放在單一 json 程式碼區塊內。不要輸出整份檔案、不要修改既有 items、不要加任何說明文字。若這張圖寫不出指定難度（例如圖片內容太單純，寫不出高級該有的細節），不要硬寫，改輸出 {\"id\": \"d1-002-h\", \"skip\": \"繁體中文說明原因\"}，使用者不會把它貼進 items。",
-      "coverage": "題庫整體要讓「難度 × 主題」均衡：目標是 3 個難度 × d1–d7 每格至少 2 題（共至少 42 題），測驗才抽得到題。因為一張圖可出 3 個難度，每個主題只要 2 張圖、各出 e／m／h，就能達標（共 14 張圖）。出題前先統計各格題數：若某主題的圖片少於 2 張，先出新圖；否則優先為既有的圖片補上缺少的難度（寫文本 d{N}-{NNN}-{m|h}）。",
-      "avoid_duplicates": "tag、vocab 不得與 items 內其他圖片的題目重複（同一張圖的 e／m／h 題目可共用 tag）；同一張圖的不同難度題目，pool 句子不得重複，也不可只是把較簡單題目的句子換一兩個字；同一個 domain + level.tier 內，不同圖片的畫面與句型不要雷同。",
-      "after": "使用者會自行把該物件貼進 items 陣列，圖片存為 images/d{N}-{NNN}.jpg（不含難度尾碼）。圖片檔名與 id 前段一致；難度寫在 id 尾碼與 level.tier 欄位。不需要音檔：因為選項順序每次作答都會隨機，網頁一律用語音合成朗讀，不使用整題 mp3。",
-      "image_design": "圖片以「主題 + 流水號」編碼：d{N}-{NNN}，N 為 1–7（對應 d1–d7），NNN 為該主題內的 3 位數流水號（d1-001、d1-002、d2-001…）。一張圖最多對應 3 題：d1-001-e、d1-001-m、d1-001-h，共用同一個圖片檔 images/d1-001.jpg。題目 id 的尾碼 e／m／h 就是難度（初／中／高）。"
+      "difficulty_quickref": "難度速查（id 尾碼 → 難度 → 照片類型 → 分數 → CEFR）：e＝初級＝單人 single＝500–550＝A2+；m＝中級＝多人 multi＝600–650＝B1／B1+；h＝高級＝無人物 none＝700–800＝B2／B2+。難度、照片人數、分數三者一一對應，細節見 tiers。",
+      "stage1_trigger": "（已改由網頁處理）出圖階段不再請 AI 輸出出圖 JSON：網頁「維護 → 新增題目」依 domains.*.seeds 與 image_gen 直接組出英文出圖 prompt，使用者貼給生圖 AI 即可，不需要附上本檔。",
+      "stage1_note": "出圖 prompt＝image_gen.base（{scene} 取自該主題的 seeds，easy→single、medium→multi、hard→none，並避開已出現在既有題目 image_prompt 的情境）＋ image_gen.by_tier[難度] ＋ image_gen.constraints。生出的圖是否符合，以「寫文本」階段 AI 看到的實際圖片為準；寫不出該難度就用 skip。",
+      "stage2_trigger": "使用者上傳圖片並輸入「寫文本 d{N}-{NNN}-{e|m|h}」（例如 寫文本 d1-002-m）→ 輸出完整 entry_schema 的 JSON 物件。尾碼 e／m／h 就是這題的目標難度（e＝初級 單人 500–550；m＝中級 多人 600–650；h＝高級 無人物 700–800，見 tiers）；image 一律填 images/{id}.jpg；image_prompt 原樣填入使用者提供的「實際出圖 prompt」；visible_facts 完全依上傳圖片實際看到的內容填寫（不要依 prompt 想像）。",
+      "stage2_rule": "文本一律依「上傳圖片實際看到的內容」撰寫，不依 image_prompt 想像。visible_facts 一律依圖片實際內容填寫；若圖片明顯沒照 image_prompt 畫（人數、場景、物件不同），以圖片為準，必要時寫入 issues；圖片有瑕疵（手指或肢體怪異、人數不清、出現文字或商標、物件難以辨識）須寫入 issues。domain 一律等於 id 前段的 d{N}；若實際圖片的場景明顯不屬於該主題，不要自行改 domain，改在 issues 寫「圖片場景與 d{N} 不符，建議重新編碼」，由使用者決定。難度以 id 尾碼為目標：先確認圖片人數符合該難度的 photo_type（初級＝恰好 1 人、中級＝2 人以上、高級＝0 人），不符就輸出 skip，不要硬寫；符合才依 tiers.{難度}.guide 寫出符合該難度的句子，並依 tiers.{難度}.score_pick 在該難度的分數範圍內挑 level.score；level.tier 必須等於尾碼（見 rules.tier）。句子庫（pool）共 12 句，全部依「上傳圖片實際看到的內容」撰寫，錯誤句必須確認圖片中真的沒有或真的不同。",
+      "output": "只輸出「一個」JSON 物件，放在單一 json 程式碼區塊內。不要輸出整份檔案、不要修改既有 items、不要加任何說明文字。若這張圖寫不出指定難度（例如圖片人數與難度不符，或內容太單純、寫不出該難度該有的細節），不要硬寫，改輸出 {\"id\": \"d1-002-h\", \"skip\": \"繁體中文說明原因\"}，使用者不會把它貼進 items。",
+      "coverage": "題庫整體要讓「難度 × 主題」均衡：目標是 3 個難度 × d1–d7 每格至少 2 題（共至少 42 題），測驗才抽得到題。因為每題各用一張獨立的圖，共需至少 42 張圖。出題前先統計各格題數，優先補題數最少的格子（網頁「維護」頁會即時顯示每格題數，使用者會依缺的格子選擇要新增的主題與難度）。",
+      "avoid_duplicates": "tag、vocab 不得與 items 內其他題目重複；同一個 domain + level.tier 內，不同題目的畫面與句型不要雷同。",
+      "after": "使用者會把該物件存成 {id}.json，用 photo_merge.py 合併進 items。圖片存為 images/{id}.jpg（例如 images/d1-002-m.jpg）：圖片檔名與題目 id 完全一致，一題一張圖，不跨難度共用。不需要音檔：因為選項順序每次作答都會隨機，網頁一律用語音合成朗讀，不使用整題 mp3。",
+      "image_design": "題目 id＝d{N}-{NNN}-{e|m|h}：N 為 1–7（對應 d1–d7），尾碼是難度（初／中／高），NNN 是「該主題＋該難度」內的 3 位數流水號（所以 d1-001-e、d1-001-m、d1-001-h 是三張不同的圖）。圖片檔＝images/{id}.jpg，一題一張圖，圖片數＝題目數。"
     },
     "domains": {
       "d1": {
@@ -18,21 +19,81 @@
         "scenes": [
           "office"
         ],
-        "desc": "辦公桌、會議室、影印機、文件、電腦、簡報"
+        "desc": "辦公桌、會議室、影印機、文件、電腦、簡報",
+        "seeds": {
+          "single": [
+            "a woman typing on a laptop at her desk in an office",
+            "a man answering a telephone at his office desk",
+            "a woman putting documents into a folder at her desk",
+            "a man making copies at a photocopier in an office"
+          ],
+          "multi": [
+            "two colleagues reviewing a document together at a desk",
+            "three people sitting around a meeting room table",
+            "a man handing a folder to a woman in an office",
+            "two coworkers shaking hands in an office hallway"
+          ],
+          "none": [
+            "a meeting room with chairs arranged around a table and a whiteboard",
+            "a desk with a laptop, a notebook and a coffee cup",
+            "a row of filing cabinets with folders on top",
+            "a reception desk with a telephone and a potted plant"
+          ]
+        }
       },
       "d2": {
         "name": "餐廳飲食",
         "scenes": [
           "restaurant"
         ],
-        "desc": "餐廳、咖啡廳、備餐、用餐、上菜、餐桌擺設"
+        "desc": "餐廳、咖啡廳、備餐、用餐、上菜、餐桌擺設",
+        "seeds": {
+          "single": [
+            "a waiter carrying a tray of dishes in a restaurant",
+            "a woman drinking coffee at a cafe table",
+            "a chef slicing vegetables in a restaurant kitchen",
+            "a man reading a menu at a restaurant table"
+          ],
+          "multi": [
+            "two friends eating lunch at a restaurant table",
+            "a waitress serving food to a family of three",
+            "three people raising glasses at a dining table",
+            "two cooks preparing food in a restaurant kitchen"
+          ],
+          "none": [
+            "a set dining table with plates, glasses and napkins",
+            "a cafe counter with cups, a coffee machine and a pastry display",
+            "empty tables and chairs arranged in a bright restaurant",
+            "a buffet table with covered dishes and stacks of plates"
+          ]
+        }
       },
       "d3": {
         "name": "商店購物",
         "scenes": [
           "store"
         ],
-        "desc": "商店、超市、貨架、收銀台、試穿、陳列商品"
+        "desc": "商店、超市、貨架、收銀台、試穿、陳列商品",
+        "seeds": {
+          "single": [
+            "a woman holding a shirt in a clothing store",
+            "a man pushing a shopping cart in a supermarket",
+            "a cashier scanning an item at a checkout counter",
+            "a woman choosing fruit in a grocery store"
+          ],
+          "multi": [
+            "two women trying on jackets in a clothing store",
+            "a customer paying a cashier at a store counter",
+            "a family shopping together in a supermarket aisle",
+            "a sales clerk helping a customer choose shoes"
+          ],
+          "none": [
+            "shelves stocked with boxed products in a supermarket aisle",
+            "clothes hanging on racks in a clothing store",
+            "fresh vegetables displayed in crates at a market stall",
+            "a checkout counter with a conveyor belt and shopping baskets"
+          ]
+        }
       },
       "d4": {
         "name": "街道與交通",
@@ -40,14 +101,54 @@
           "street",
           "station"
         ],
-        "desc": "街道、人行道、路口、車輛、車站、月台、機場"
+        "desc": "街道、人行道、路口、車輛、車站、月台、機場",
+        "seeds": {
+          "single": [
+            "a man waiting at a bus stop on a city street",
+            "a woman crossing a street at a crosswalk",
+            "a man walking up the stairs at a train station",
+            "a woman pulling a suitcase along a station platform"
+          ],
+          "multi": [
+            "two pedestrians crossing a street at a crosswalk",
+            "passengers boarding a train at a platform",
+            "people standing in line at a ticket counter",
+            "a group of travelers walking through an airport terminal"
+          ],
+          "none": [
+            "cars parked along both sides of a tree-lined street",
+            "an empty train platform with benches and a train arriving",
+            "bicycles locked to a rack beside a sidewalk",
+            "a bus parked at a stop next to a bench"
+          ]
+        }
       },
       "d5": {
         "name": "工地與倉庫",
         "scenes": [
           "workplace"
         ],
-        "desc": "工廠、工地、倉庫、搬運、施工、機具、安全裝備"
+        "desc": "工廠、工地、倉庫、搬運、施工、機具、安全裝備",
+        "seeds": {
+          "single": [
+            "a worker wearing a helmet driving a forklift in a warehouse",
+            "a man carrying a cardboard box in a warehouse",
+            "a construction worker using a drill on a building site",
+            "a worker pushing a cart of boxes in a warehouse"
+          ],
+          "multi": [
+            "two workers loading boxes onto shelves in a warehouse",
+            "construction workers in helmets looking at building plans",
+            "two people stacking crates beside a truck",
+            "workers assembling parts along a factory line"
+          ],
+          "none": [
+            "rows of shelves filled with cardboard boxes in a warehouse",
+            "pallets stacked beside a loading dock",
+            "tools hanging on a wall above a workbench",
+            "a ladder leaning against an unfinished wall on a building site"
+          ]
+        }
       },
       "d6": {
         "name": "旅館與居家",
@@ -55,54 +156,106 @@
           "hotel",
           "home"
         ],
-        "desc": "旅館櫃檯、客房、大廳、住家客廳、廚房、庭院"
+        "desc": "旅館櫃檯、客房、大廳、住家客廳、廚房、庭院",
+        "seeds": {
+          "single": [
+            "a woman checking in at a hotel front desk",
+            "a man carrying luggage into a hotel lobby",
+            "a woman cooking in a home kitchen",
+            "a man reading a book on a living room sofa"
+          ],
+          "multi": [
+            "a receptionist handing a key card to a guest",
+            "a family having dinner at a dining table at home",
+            "two people carrying luggage into a hotel room",
+            "a couple watching television in a living room"
+          ],
+          "none": [
+            "a hotel room with a made bed and a lamp beside it",
+            "a living room with a sofa, a coffee table and a bookshelf",
+            "a kitchen with pots hanging above a stove",
+            "a hotel lobby with armchairs and a front desk"
+          ]
+        }
       },
       "d7": {
         "name": "戶外與公園",
         "scenes": [
           "outdoor"
         ],
-        "desc": "公園、廣場、碼頭、戶外活動、園藝、野餐"
+        "desc": "公園、廣場、碼頭、戶外活動、園藝、野餐",
+        "seeds": {
+          "single": [
+            "a woman watering flowers in a garden",
+            "a man jogging on a park path",
+            "a woman taking a photo in a park",
+            "a man fishing from a pier"
+          ],
+          "multi": [
+            "two people having a picnic on a lawn",
+            "children playing on a playground",
+            "a group of friends riding bicycles on a path",
+            "two people walking a dog in a park"
+          ],
+          "none": [
+            "a wooden bench beside a path under trees",
+            "a picnic blanket with a basket and fruit on the grass",
+            "boats tied up along a pier",
+            "a fountain in a plaza with benches around it"
+          ]
+        }
       }
     },
     "tiers": {
       "easy": {
         "name": "初級",
-        "score": "≤550",
+        "score": "500–550",
         "cefr": "A2+",
-        "guide": "多為單人動作題；一句一個動作；基本現在進行式；常見物品字彙；四句差異明顯。"
+        "photo_type": "single",
+        "guide": "單人（single）動作題：畫面恰好 1 人做 1 個明確動作。正解一律用現在進行式主動句（He／She／The man／The woman is V-ing …），一句只講一個動作加一個常見物品，以 6–9 字為主，字彙限日常常見字。不使用被動進行式（is being + p.p.）與現在完成式。錯誤句差異明顯：以 wrong-action、not-in-photo 為主，另可有 1–2 句 sound-alike。",
+        "score_pick": "500＝一個動作加一個物品、字彙最基本；550＝句子稍長（含地點片語）或字彙略進階。只能填 500 或 550。",
+        "skip_if": "圖片中不是恰好 1 人（0 人或 2 人以上），或沒有一個明確的單一動作可描述。"
       },
       "medium": {
         "name": "中級",
         "score": "600–650",
-        "cefr": "B1 / B1+",
-        "guide": "多人動作或簡單物品狀態；含常見位置介系詞；干擾項有音近字或動作相近。"
+        "cefr": "B1／B1+",
+        "photo_type": "multi",
+        "guide": "多人（multi）互動題：畫面 2 人以上（最多 4 人）彼此或與物品互動。正解以現在進行式描述人與人、人與物的互動，且至少 1 句含位置介系詞（at、on、beside、in front of、next to）或人數說法（Two people、Both、Some people），以 8–11 字為主。錯誤句須包含音近字與近義動作（如 handing／holding）各至少 1 句，以及 wrong-place-or-number 至少 1 句。不要求被動式。",
+        "score_pick": "600＝一般互動、位置關係單純；650＝多個人物各有不同動作，或加入數量／位置細節。只能填 600 或 650。",
+        "skip_if": "圖片不足 2 人，或人物之間／人與物之間沒有清楚的互動動作可描述；圖中完全沒有人則屬高級。"
       },
       "hard": {
         "name": "高級",
-        "score": "≥700",
-        "cefr": "B2 / B2+",
-        "guide": "無人物的被動與位置描述（are being displayed、has been placed）；或多人細節；干擾項為近義動作、過度推論或位置細節差異。"
+        "score": "700–800",
+        "cefr": "B2／B2+",
+        "photo_type": "none",
+        "guide": "無人物（none）物品陳列與位置題：畫面完全沒有人。正解以被動式或完成式描述物品狀態與位置（are being displayed、has been placed、are stacked、is parked），並使用位置介系詞（along、in front of、next to、across from、against、beside），以 9–14 字為主；3 句正解需涵蓋至少 2 種句型（被動式、There is／are、位置片語）。錯誤句以 over-inference、wrong-place-or-number、近義動詞（如 stacked／hung）為主，另有 not-in-photo；不得把人物動作寫成正解。",
+        "score_pick": "700＝被動式加單一位置關係；750＝多個物品、多種位置關係同時出現；800＝陳列細節非常豐富，足以寫出細微位置差異與近義干擾（圖片不夠豐富就不要給 800）。只能填 700、750 或 800。",
+        "skip_if": "圖片中有人（包含背影、手、人影），或物品太少、排列太單純，寫不出被動式與位置細節。"
       },
-      "same_image_note": "同一張圖的三個難度要有實質差異：初級＝單一明顯細節、干擾項差異大；中級＝加入位置或數量細節、干擾項含音近或相近動作；高級＝被動式或細節辨識、干擾項為近義、過度推論或細微位置差異。"
+      "image_by_tier": {
+        "easy": "恰好 1 人、單一明顯動作或物件，背景單純。",
+        "medium": "2–3 人（最多 4 人）彼此互動，且有明確的位置或人數關係。",
+        "hard": "完全沒有人（連背影、手、人影都不可以）；物品陳列與位置清楚，足以寫被動式與細微位置差異。"
+      }
     },
     "entry_schema": {
       "id": "字串，格式 d{N}-{NNN}-{e|m|h}，例如 d1-001-e。前段 d{N}-{NNN} 是圖片編碼（N=主題 1–7，NNN=該主題內 3 位數流水號），尾碼 e／m／h 是難度（初／中／高）",
-      "photo_type": "'single'（單人）、'multi'（多人，2 人以上）或 'none'（無人物：物品、場景）",
+      "photo_type": "'single'（單人）、'multi'（多人，2 人以上）或 'none'（無人物：物品、場景）。依圖片實際內容填寫，且必須符合難度：初級＝single、中級＝multi、高級＝none；不符代表這張圖寫不出該難度，改輸出 skip。",
       "scene": "'office'、'restaurant'、'store'、'street'、'station'、'workplace'（工廠／工地／倉庫）、'hotel'、'outdoor'、'home' 擇一",
-      "focus": "'action'（動作）、'state'（物品狀態）、'location'（位置關係）、'mixed' 擇一",
       "domain": "'d1'–'d7' 擇一，必須等於 id 前段的 d{N}，且 scene 必須屬於該 domain 的 scenes（見 _spec.domains）。",
       "tag": "繁體中文標題，簡短描述畫面，例如「女子在辦公桌前打字」",
       "level": {
-        "score": "預估多益分數，50 的倍數",
+        "score": "預估多益分數，50 的倍數，必須落在該難度的分數範圍：初級 500–550、中級 600–650、高級 700–800（見 tiers.*.score_pick）",
         "cefr": "見 rules.difficulty",
         "tier": "'easy'、'medium'、'hard' 擇一，必須與 id 尾碼一致（e=easy、m=medium、h=hard），也必須與 score 一致（見 rules.tier）；網頁測驗的難度篩選就是用這個欄位",
         "why": "繁體中文 1 句，說明難度依據"
       },
-      "image": "images/{圖片編碼}.jpg，例如 images/d1-001.jpg（不含難度尾碼；同一張圖的 e／m／h 題目共用同一個檔案）",
-      "image_prompt": "英文出圖提示詞，需符合 rules.image_prompt",
+      "image": "圖片檔路徑，固定為 images/{id}.jpg（例如 images/d1-001-e.jpg）；一題一張圖，不與其他題目共用。",
+      "image_prompt": "英文出圖提示詞：原樣填入使用者提供、實際用來生圖的 prompt（組成規則見 image_gen；寫法需符合 rules.image_prompt）。",
       "visible_facts": [
-        "英文短句，列出圖中清楚可見的 3–6 項事實（人數、動作、物件、位置）。同一張圖的各難度題目，visible_facts 內容應一致。"
+        "英文短句，列出圖中清楚可見的 3–6 項事實（人數、動作、物件、位置），依上傳圖片實際看到的內容填寫，不要依 image_prompt 想像。"
       ],
       "pool": [
         "句子庫，固定 12 個物件：3 個 ok:true（正確）＋9 個 ok:false（錯誤）。每個物件格式：",
@@ -138,12 +291,12 @@
       },
       "answer_distribution": "不需要控制正解位置：網頁每次作答都會重新隨機排列 A–D。",
       "difficulty": {
-        "score": "多數題約 500–750；單人動作較易，無人物的被動與位置描述較難。",
-        "cefr": "≤550 A2+、600 B1、650 B1+、700–750 B2、≥800 B2+"
+        "score": "分數範圍固定：初級 500–550、中級 600–650、高級 700–800，只填 50 的倍數。單人動作較易，無人物的被動與位置描述較難。",
+        "cefr": "500–550 A2+、600 B1、650 B1+、700–750 B2、800 B2+"
       },
       "tier": {
-        "mapping": "level.score ≤550 → 'easy'；600 或 650 → 'medium'；≥700 → 'hard'。score、cefr、tier 三者必須一致。",
-        "check": "id 尾碼決定目標難度：寫文本時必須依 tiers.guide 寫出符合該難度的句子，寫完後依 level.score 對照 mapping，level.tier 必須等於尾碼。若寫完發現達不到，重寫；仍然不適合這張圖，改輸出 skip 物件（見 how_to_use.output），不要把 tier 改成與尾碼不同的值。"
+        "mapping": "level.score 500–550 → 'easy'；600–650 → 'medium'；700–800 → 'hard'。score、cefr、tier、photo_type 四者必須一致（easy＝single、medium＝multi、hard＝none）。",
+        "check": "id 尾碼決定目標難度：寫文本時先確認圖片人數符合該難度的 photo_type，再依 tiers.guide 寫句、依 tiers.score_pick 挑分數；寫完後 level.tier 必須等於尾碼，且 level.score 必須落在該難度範圍內。若寫完發現達不到，重寫；仍然不適合這張圖，改輸出 skip 物件（見 how_to_use.output），不要把 tier 改成與尾碼不同的值。"
       },
       "domain": {
         "mapping": "domain 由 scene 決定：office→d1；restaurant→d2；store→d3；street、station→d4；workplace→d5；hotel、home→d6；outdoor→d7。",
@@ -158,8 +311,8 @@
       "json_hygiene": "輸出必須是合法 JSON：雙引號、不含註解、不含結尾逗號；字串中的換行用 \\n。",
       "self_check": [
         "輸出前逐項自我檢查，通過後才輸出：",
-        "1. id 格式為 d{N}-{NNN}-{e|m|h}；image 為 images/d{N}-{NNN}.jpg；domain 等於 d{N}；scene 屬於該 domain；level.tier 等於 id 尾碼且與 level.score 一致。",
-        "2. pool 剛好 12 句：3 句 ok:true、9 句 ok:false；t 皆不重複，每句 6–14 個字；且與同一張圖其他難度題目的句子不重複。",
+        "1. id 格式為 d{N}-{NNN}-{e|m|h}；image 為 images/{id}.jpg；domain 等於 d{N}；scene 屬於該 domain；level.tier 等於 id 尾碼且與 level.score 一致。；level.score 落在該難度的分數範圍；photo_type 符合難度（初 single、中 multi、高 none）",
+        "2. pool 剛好 12 句：3 句 ok:true、9 句 ok:false；t 皆不重複，每句 6–14 個字。",
         "3. 3 句正確句都只描述圖片中清楚可見的事實，且是不同說法；每一句錯誤句單獨看都明確不符合圖片，沒有任何一句其實也說得通。",
         "4. 錯誤句的類型盡量涵蓋 5 種，且每個 why 說明錯在哪裡；ok:true 的 trap 為 'correct'、why 以「正解：」開頭。",
         "5. vocab 每個單字都出現在 pool 的句子中，且不與其他圖片的既有資料重複。",
@@ -168,7 +321,7 @@
       ],
       "pool": {
         "size": "每題固定 12 句：3 句正確（ok:true）＋9 句錯誤（ok:false）。",
-        "correct": "3 句正確句是對「同一張圖」的不同說法：換主詞、換動詞或換句型（例如主動與被動、There is／are、換同義字），彼此不能只差一兩個字；3 句都只描述圖中清楚可見的事實。",
+        "correct": "3 句正確句是對「這張圖」的不同說法：換主詞、換動詞或換句型（例如主動與被動、There is／are、換同義字），彼此不能只差一兩個字；3 句都只描述圖中清楚可見的事實。",
         "wrong_standalone": "網頁會從 9 句錯誤句中隨機抽任意 3 句搭配 1 句正確句，因此每一句錯誤句都必須「單獨」就明確不符合圖片，不能靠與其他選項比較才算錯；不可有任何一句錯誤句其實也說得通。",
         "wrong_vs_correct": "錯誤句不可與任何一句正確句語意重疊，也不可與正確句互相矛盾到讓人懷疑哪句才對；同一個錯誤概念不要重複出現（例如不要有兩句都是『看報紙』）。",
         "trap_mix": "9 句錯誤句盡量涵蓋 5 種類型：sound-alike 1–2、not-in-photo 2–3、wrong-action 2–3、wrong-place-or-number 1–2、over-inference 1–2；無人物照片沒有人的動作可錯，可多用 not-in-photo、wrong-place-or-number、over-inference。",
@@ -177,15 +330,15 @@
       }
     },
     "app_modes": {
-      "practice": "練習：與測驗相同的選題方式（難度、主題，另可加 類型、重點與題數 6／12／全部），從符合的題目隨機抽題；不計分、不記錄最佳成績。每題從 pool 隨機抽 1 正確＋3 錯誤並隨機排序；音檔可重複播放，作答後立即顯示解析與其他正確說法；答錯的題進錯題本。 同一輪不會出現同一張圖（以 image 判斷）。",
-      "test": "測驗：先選難度（初／中／高／全部），再選主題（d1–d7／全部），從符合的題目隨機抽 6 題；每題從 pool 隨機抽 1 正確＋3 錯誤並隨機排序；音檔只播放一次，作答中不顯示對錯，完成後一次檢討。符合條件的題目不足 6 題時，全部出題。 同一輪不會出現同一張圖（以 image 判斷）；題數不足 6 題時，以「不同圖片數」計算。"
+      "practice": "練習：與測驗相同的選題方式（難度、主題，另可選題數 6／12／全部；沒有類型、重點等進階條件），從符合的題目隨機抽題；不計分、不記錄最佳成績。每題從 pool 隨機抽 1 正確＋3 錯誤並隨機排序；音檔可重複播放，作答後立即顯示解析與其他正確說法；答錯的題進錯題本。 同一輪不會出現同一張圖（以 image 判斷）。",
+      "test": "測驗：先選難度（初／中／高／全部），再選主題（d1–d7／全部），從符合的題目隨機抽 6 題；每題從 pool 隨機抽 1 正確＋3 錯誤並隨機排序；音檔只播放一次，作答中不顯示對錯，完成後一次檢討。符合條件的題目不足 6 題時，全部出題。 同一輪不會出現同一張圖（以 image 判斷）；題數不足 6 題時，以「不同圖片數」計算。",
+      "maintain": "維護：統計「難度 × 主題」題數（每題一張圖）→ 點格子看該格的圖片與題目（沒有題目就顯示沒有圖片）→ 點題目看圖片與所有句子、答案；「新增題目」選主題與難度後，產生圖片檔名、可直接貼給生圖 AI 的出圖 prompt（可換情境），以及給 AI 的寫文本指令；難度以 tiers 為準（初＝單人 500–550、中＝多人 600–650、高＝無人物 700–800）。維護頁只讀取本檔，不會修改它；新題請用 photo_merge.py 合併。"
     },
     "example": {
       "id": "d1-001-e",
       "image": "images/d1-001-e.jpg",
       "photo_type": "single",
       "scene": "office",
-      "focus": "action",
       "domain": "d1",
       "tag": "女子在辦公桌前使用電腦",
       "level": {
@@ -305,7 +458,17 @@
       ],
       "issues": []
     },
-    "schema_version": 3
+    "schema_version": 6,
+    "image_gen": {
+      "說明": "網頁「維護 → 新增題目」用這裡組出英文出圖 prompt：base（{scene} 取自該主題的 seeds：easy→single、medium→multi、hard→none）＋ by_tier ＋ constraints。想調整畫風、限制或情境，直接改這裡與 domains.*.seeds。",
+      "base": "A realistic photograph of {scene}. Natural lighting, 4:3 landscape orientation, sharp focus, clean and simple composition, in the style of a TOEIC Part 1 photo.",
+      "by_tier": {
+        "easy": "Exactly one person doing one clear, simple action, with a plain uncluttered background and a few common objects.",
+        "medium": "Two or three people clearly interacting with each other or with objects, with clear positional relationships (at, on, beside, in front of, next to).",
+        "hard": "No people. Many distinct objects with clear spatial relationships and states (displayed, stacked, placed, arranged), rich in visible details."
+      },
+      "constraints": "No text, signs, logos or brand names anywhere; no readable screens or papers; no celebrities; at most 4 people, with natural proportions, normal hands and fingers, and simple, clearly visible hand actions."
+    }
   },
   "items": [
     {
@@ -313,7 +476,6 @@
       "image": "images/d1-001-e.jpg",
       "photo_type": "single",
       "scene": "office",
-      "focus": "action",
       "domain": "d1",
       "tag": "女子在辦公桌前使用電腦",
       "level": {
@@ -438,7 +600,6 @@
       "image": "images/d2-001-e.jpg",
       "photo_type": "single",
       "scene": "restaurant",
-      "focus": "action",
       "domain": "d2",
       "tag": "男子在餐廳裡端著托盤",
       "level": {
@@ -562,7 +723,6 @@
       "image": "images/d3-001-e.jpg",
       "photo_type": "multi",
       "scene": "store",
-      "focus": "action",
       "domain": "d3",
       "tag": "兩名女子在服飾店看衣服",
       "level": {
@@ -687,7 +847,6 @@
       "image": "images/d4-001-e.jpg",
       "photo_type": "multi",
       "scene": "street",
-      "focus": "action",
       "domain": "d4",
       "tag": "行人走過路口的斑馬線",
       "level": {
@@ -812,7 +971,6 @@
       "image": "images/d5-001-e.jpg",
       "photo_type": "none",
       "scene": "workplace",
-      "focus": "location",
       "domain": "d5",
       "tag": "倉庫貨架上堆放著紙箱",
       "level": {
@@ -944,7 +1102,6 @@
       "image": "images/d6-001-e.jpg",
       "photo_type": "none",
       "scene": "hotel",
-      "focus": "location",
       "domain": "d6",
       "tag": "客房內床邊的檯燈",
       "level": {
@@ -1076,7 +1233,6 @@
       "image": "images/d7-001-e.jpg",
       "photo_type": "single",
       "scene": "outdoor",
-      "focus": "action",
       "domain": "d7",
       "tag": "女子在花園裡澆花",
       "level": {
