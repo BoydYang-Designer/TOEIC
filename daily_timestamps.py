@@ -2,7 +2,7 @@
 """
 add_timestamps.py — 為 TOEIC Daily Coach 的 mp3 產生「句子時間戳記」並寫入 daily.json
 
-使用方式：雙擊執行 → 選擇 mp3（檔名如 w1d1.mp3）→ 選擇 daily.json
+使用方式：雙擊執行 → 選擇 mp3（可複選，檔名如 w1d1.mp3）→ 選擇 daily.json
 原理：用 faster-whisper 聽出每個字的時間，再與 daily.json 裡該天的 passage 對齊，
       只在對應那一天新增／更新 "timing" 欄位，其他資料一律不動。
 第一次執行會自動安裝 faster-whisper 並下載語音模型（約 150MB，需連網）。
@@ -84,12 +84,16 @@ def ensure_faster_whisper():
         subprocess.check_call([sys.executable, "-m", "pip", "install", "faster-whisper"])
 
 
-def transcribe(mp3):
+def load_model():
+    """只載入一次模型，多個檔案共用。"""
     ensure_faster_whisper()
     from faster_whisper import WhisperModel
     print(f"載入模型 {MODEL}（第一次會下載）…")
-    model = WhisperModel(MODEL, device="cpu", compute_type="int8")
-    print("辨識中，請稍候…")
+    return WhisperModel(MODEL, device="cpu", compute_type="int8")
+
+
+def transcribe(model, mp3):
+    print(f"辨識中：{os.path.basename(mp3)}")
     segs, info = model.transcribe(mp3, language="en", word_timestamps=True,
                                   beam_size=5, condition_on_previous_text=False)
     words = []
@@ -105,43 +109,86 @@ def main():
     root = tk.Tk(); root.withdraw(); root.attributes("-topmost", True)
     here = os.path.dirname(os.path.abspath(__file__))
 
-    mp3 = filedialog.askopenfilename(title="1/2 選擇 mp3 音檔", initialdir=here,
-                                     filetypes=[("音檔", "*.mp3 *.wav *.m4a"), ("所有檔案", "*.*")])
-    if not mp3: return print("已取消。")
+    mp3s = filedialog.askopenfilenames(title="1/2 選擇 mp3 音檔（可複選）", initialdir=here,
+                                       filetypes=[("音檔", "*.mp3 *.wav *.m4a"), ("所有檔案", "*.*")])
+    if not mp3s: return print("已取消。")
     jpath = filedialog.askopenfilename(title="2/2 選擇要寫入的 daily.json", initialdir=here,
                                        filetypes=[("JSON", "*.json"), ("所有檔案", "*.*")])
     if not jpath: return print("已取消。")
 
-    m = re.search(r"w(\d+)d(\d+)", os.path.basename(mp3), re.I)
-    if m: week, day = int(m.group(1)), int(m.group(2))
-    else:
-        week = simpledialog.askinteger("週次", "檔名不是 w1d1 格式，請輸入 Week（例如 5）：")
-        day = simpledialog.askinteger("天數", "請輸入 Day（1-7）：")
     with open(jpath, encoding="utf-8-sig") as f:
         data = json.load(f)
     # daily.json 可以是陣列，或含 _spec / items 的物件（目前格式）
     items = data if isinstance(data, list) else (data.get("items") if isinstance(data, dict) else None)
     if not isinstance(items, list):
         return messagebox.showerror("格式錯誤", "daily.json 需為陣列，或含 items 陣列的物件。")
-    entry = next((x for x in items if isinstance(x, dict) and x.get("week") == week and x.get("day") == day), None)
-    if entry is None:
-        return messagebox.showerror("找不到資料", f"daily.json 裡沒有 Week {week} Day {day}。")
-    print(f"目標：Week {week} Day {day}｜{entry.get('tag', '')}")
 
-    timing, report = align(entry["passage"], transcribe(mp3))
-    print("\n對齊結果：")
-    print("\n".join(report))
-    if not timing:
-        return messagebox.showerror("對齊失敗", "沒有任何句子對得上，請確認 mp3 內容與 daily.json 的英文文稿一致。")
+    print(f"共選了 {len(mp3s)} 個音檔。")
+    model = load_model()
+    done, failed = 0, []
+
+    for mp3 in sorted(mp3s):
+        name = os.path.basename(mp3)
+        print(f"\n===== {name} =====")
+
+        m = re.search(r"w(\d+)d(\d+)", name, re.I)
+        if m:
+            week, day = int(m.group(1)), int(m.group(2))
+        elif len(mp3s) == 1:
+            # 只選一個檔案時，才跳出視窗讓你手動輸入
+            week = simpledialog.askinteger("週次", "檔名不是 w1d1 格式，請輸入 Week（例如 5）：")
+            day = simpledialog.askinteger("天數", "請輸入 Day（1-7）：")
+            if week is None or day is None:
+                print("✗ 未輸入週次／天數，略過。")
+                failed.append(f"{name}（未輸入週次／天數）")
+                continue
+        else:
+            print("✗ 檔名不是 w1d1 格式，略過。")
+            failed.append(f"{name}（檔名不是 w1d1 格式）")
+            continue
+
+        entry = next((x for x in items if isinstance(x, dict)
+                      and x.get("week") == week and x.get("day") == day), None)
+        if entry is None:
+            print(f"✗ daily.json 裡沒有 Week {week} Day {day}，略過。")
+            failed.append(f"{name}（找不到 Week {week} Day {day}）")
+            continue
+        print(f"目標：Week {week} Day {day}｜{entry.get('tag', '')}")
+
+        try:
+            timing, report = align(entry["passage"], transcribe(model, mp3))
+        except Exception as e:
+            traceback.print_exc()
+            print(f"✗ 處理時發生錯誤，略過。")
+            failed.append(f"{name}（錯誤：{e}）")
+            continue
+
+        print("對齊結果：")
+        print("\n".join(report))
+        if not timing:
+            print("✗ 沒有任何句子對得上，略過（請確認 mp3 內容與英文文稿一致）。")
+            failed.append(f"{name}（沒有句子對得上）")
+            continue
+
+        entry["timing"] = timing
+        done += 1
+        print(f"✓ Week {week} Day {day}：{len(timing)} 個句子")
+
+    if done == 0:
+        msg = "所有檔案都處理失敗，未寫入任何資料。\n\n" + "\n".join(failed)
+        print("\n" + msg)
+        return messagebox.showerror("沒有可寫入的資料", msg)
 
     bak = f"{jpath}.bak-{datetime.datetime.now():%Y%m%d-%H%M%S}"
     shutil.copy2(jpath, bak)
-    entry["timing"] = timing
     tmp = jpath + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         f.write(dump_json(data) + "\n")
     os.replace(tmp, jpath)
-    msg = f"完成！已寫入 {len(timing)} 個句子的時間戳記。\n備份：{os.path.basename(bak)}"
+
+    msg = f"完成！成功 {done} 個檔案。\n備份：{os.path.basename(bak)}"
+    if failed:
+        msg += "\n\n失敗／略過：\n" + "\n".join(failed)
     print("\n" + msg)
     messagebox.showinfo("完成", msg)
 
