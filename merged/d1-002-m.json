@@ -1,0 +1,143 @@
+{
+  "id": "d1-002-m",
+  "image": "images/d1-002-m.jpg",
+  "photo_type": "multi",
+  "scene": "office",
+  "domain": "d1",
+  "tag": "男子與女子在辦公桌前討論圖表",
+  "level": {
+    "score": 650,
+    "cefr": "B1+",
+    "tier": "medium",
+    "why": "兩人各有不同動作（一人指著圖表、一人握筆），並含同桌、桌上物品等位置與人數細節。"
+  },
+  "image_prompt": "A realistic photograph of two colleagues reviewing a document together at a desk. Natural lighting, 4:3 landscape orientation, sharp focus, clean and simple composition, in the style of a TOEIC Part 1 photo. Composition: Two or three people clearly interacting with each other or with objects, with clear positional relationships (at, on, beside, in front of, next to). No text, signs, logos or brand names anywhere; no readable screens or papers; no celebrities; at most 4 people, with natural proportions, normal hands and fingers, and simple, clearly visible hand actions.",
+  "visible_facts": [
+    "A man in a light blue shirt and a woman with glasses are sitting at the same wooden desk.",
+    "The man is pointing at a chart on the desk.",
+    "The woman is holding a pen over a clipboard.",
+    "A coffee mug, a mesh pen holder and a laptop are on the desk.",
+    "A filing cabinet, other desks and a window are in the background."
+  ],
+  "pool": [
+    {
+      "t": "The man is pointing at a chart on the desk.",
+      "zh": "這名男子正指著桌上的圖表。",
+      "ok": true,
+      "trap": "correct",
+      "why": "正解：男子伸手指向桌上文件中的圖表，與畫面相符。"
+    },
+    {
+      "t": "Two people are sitting at the same desk.",
+      "zh": "兩個人正坐在同一張桌子前。",
+      "ok": true,
+      "trap": "correct",
+      "why": "正解：男子與女子並坐在同一張木桌前，與畫面相符。"
+    },
+    {
+      "t": "The woman is holding a pen over a clipboard.",
+      "zh": "這名女子正握著筆停在寫字板上方。",
+      "ok": true,
+      "trap": "correct",
+      "why": "正解：女子手持筆，筆尖靠近夾在寫字板上的文件，與畫面相符。"
+    },
+    {
+      "t": "The man is painting a chart on the desk.",
+      "zh": "這名男子正在桌上畫圖表。",
+      "ok": false,
+      "trap": "sound-alike",
+      "why": "painting 與 pointing 音近，但男子是在用手指著圖表，沒有在畫。"
+    },
+    {
+      "t": "A third coworker is standing behind the two people.",
+      "zh": "第三位同事正站在這兩個人的後面。",
+      "ok": false,
+      "trap": "not-in-photo",
+      "why": "畫面中只有兩個人，背景沒有其他人。"
+    },
+    {
+      "t": "A printer is sitting next to the window.",
+      "zh": "一台印表機放在窗戶旁邊。",
+      "ok": false,
+      "trap": "not-in-photo",
+      "why": "窗戶旁沒有印表機，畫面中也看不到任何印表機。"
+    },
+    {
+      "t": "The woman is handing a pen to the man.",
+      "zh": "這名女子正把筆遞給男子。",
+      "ok": false,
+      "trap": "wrong-action",
+      "why": "handing 與 holding 是近義動作干擾；女子是自己握著筆，沒有遞給男子。"
+    },
+    {
+      "t": "The man is typing on a keyboard.",
+      "zh": "這名男子正在鍵盤上打字。",
+      "ok": false,
+      "trap": "wrong-action",
+      "why": "男子的手是指著桌上的文件，沒有在打字。"
+    },
+    {
+      "t": "Both people are standing beside the desk.",
+      "zh": "兩個人都站在桌子旁邊。",
+      "ok": false,
+      "trap": "wrong-action",
+      "why": "兩人都是坐在椅子上，沒有站著。"
+    },
+    {
+      "t": "Three people are sitting at the desk.",
+      "zh": "三個人正坐在桌子前。",
+      "ok": false,
+      "trap": "wrong-place-or-number",
+      "why": "桌前只有兩個人，不是三個人。"
+    },
+    {
+      "t": "The coffee mug is on the cabinet behind them.",
+      "zh": "咖啡杯放在他們後面的櫃子上。",
+      "ok": false,
+      "trap": "wrong-place-or-number",
+      "why": "咖啡杯放在前方的桌面上，不在後方的櫃子上。"
+    },
+    {
+      "t": "They are preparing for a meeting with a client.",
+      "zh": "他們正在為一場客戶會議做準備。",
+      "ok": false,
+      "trap": "over-inference",
+      "why": "畫面只看得出兩人在看文件，無法確認是否為客戶會議，這是過度推論。"
+    }
+  ],
+  "vocab": [
+    {
+      "word": "point",
+      "ipa": "/pɔɪnt/",
+      "pos": "v.",
+      "col": "point at a chart / point to the screen",
+      "zh": "指向、指著"
+    },
+    {
+      "word": "clipboard",
+      "ipa": "/ˈklɪpbɔːrd/",
+      "pos": "n.",
+      "col": "hold a clipboard / paper on a clipboard",
+      "zh": "寫字板、附夾子的書寫板"
+    },
+    {
+      "word": "chart",
+      "ipa": "/tʃɑːrt/",
+      "pos": "n.",
+      "col": "bar chart / review a chart",
+      "zh": "圖表"
+    },
+    {
+      "word": "mug",
+      "ipa": "/mʌɡ/",
+      "pos": "n.",
+      "col": "coffee mug / ceramic mug",
+      "zh": "馬克杯"
+    }
+  ],
+  "issues": [
+    "圖片內容與 image_prompt 大致相符：兩名同事在桌前看文件；實際桌上另有筆筒、滑鼠、咖啡杯與筆電。",
+    "文件上的圖表（長條圖、圓餅圖）無可讀文字；筆電螢幕背對鏡頭，未見商標。",
+    "筆電在右側畫面邊緣被部分裁切，不影響出題。"
+  ]
+}

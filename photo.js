@@ -607,6 +607,7 @@ function buildOut(d, t) {
     ...common.map(s => '- ' + s), `- image 欄位填：${path}`,
     `- image_prompt 欄位請原樣填入我實際使用的出圖 prompt：${ip}`,
     '- visible_facts 與所有句子一律依圖片實際看到的內容撰寫，不要依 prompt 想像。',
+    '- pool 必須剛好 12 句：3 句 ok:true ＋ 9 句 ok:false；輸出前請逐句數過，不可多也不可少。',
     `- 已用過的 tag（不得重複）：${usedTags.join('；') || '（目前沒有）'}`,
     `- 已用過的 vocab（不得重複）：${usedVocab.join('、') || '（目前沒有）'}`,
     same.length ? `- 此格已有題目（畫面與句型不要雷同）：${same.join('；')}` : null,
@@ -616,7 +617,7 @@ function buildOut(d, t) {
     ...(lite ? ['', '【規格：photo.json 的 _spec 精簡版，只含寫文本需要的部分】', lite] : [])
   ].filter(s => s !== null).join('\n');
   return [
-    { title: '圖片檔名', note: '生好的圖片請存成這個檔名，放進 images 資料夾。每題一張獨立的圖，不與其他題目共用。', text: path },
+    { title: '圖片檔名', note: '生好的圖片請存成這個檔名，放進 images 資料夾。每題一張獨立的圖，不與其他題目共用。', text: id + '.jpg' },
     { title: '出圖 prompt（直接貼給生圖 AI）', reroll: !!seed, note: `不用附 photo.json。${seed ? '情境：' + seed + '。不喜歡可按「換情境」。' : '（photo.json 沒有這個主題的 seeds，請自行指定情境。）'}${same.length ? '此格已有：' + same.join('；') + '。' : ''}生好圖後先檢查有沒有怪手指、文字或商標，再存成上面的檔名。`, text: ip },
     { title: '給 AI 的「寫文本」指令', note: lite ? `只要上傳圖片，再貼這段（約 ${text.length.toLocaleString()} 字，已內含精簡規格與已用過的 tag／vocab，不必附 photo.json）。AI 會依圖片實際內容寫出完整題目 JSON；圖片若不適合這個難度，它會回傳 skip。` : '（找不到 photo.json 的 _spec，所以這份指令不含規格，請把圖片與 photo.json 一起上傳給 AI。）AI 會依圖片實際內容寫出完整題目 JSON；圖片若不適合這個難度，它會回傳 skip。', text },
     { title: '存檔與合併', note: `把 AI 回傳的 JSON 存成 ${id}.json，放到 photo_merge.py 同一個資料夾，雙擊執行並勾選合併。合併後重新整理本頁，題數就會更新。若 AI 回傳的是 skip，就不要合併。` }

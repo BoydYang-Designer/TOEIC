@@ -1,0 +1,144 @@
+{
+  "id": "d1-003-h",
+  "image": "images/d1-003-h.jpg",
+  "photo_type": "none",
+  "scene": "office",
+  "domain": "d1",
+  "tag": "會議桌上的水壺與綠色筆記本",
+  "level": {
+    "score": 750,
+    "cefr": "B2",
+    "tier": "hard",
+    "why": "畫面無人，需用被動式、There is 與位置片語描述水壺、托盤、多本筆記本、椅子與白板等多種位置關係。"
+  },
+  "image_prompt": "",
+  "visible_facts": [
+    "A glass pitcher and several glasses sit on a silver tray in the middle of a long wooden meeting table.",
+    "Green notebooks, each with a pen on top, are placed along both sides of the table.",
+    "Gray office chairs are arranged around the table.",
+    "A large blank whiteboard is mounted on the wall.",
+    "A window with a half-lowered shade is on the left."
+  ],
+  "pool": [
+    {
+      "t": "A glass pitcher has been placed on a tray on the table.",
+      "zh": "一個玻璃水壺被放在桌上的托盤上。",
+      "ok": true,
+      "trap": "correct",
+      "why": "正解：玻璃水壺與杯子放在桌面中間的銀色托盤上，與畫面相符。"
+    },
+    {
+      "t": "Green notebooks are arranged along both sides of the table.",
+      "zh": "綠色筆記本沿著桌子兩側排列。",
+      "ok": true,
+      "trap": "correct",
+      "why": "正解：多本綠色筆記本分別放在長桌兩側，與畫面相符。"
+    },
+    {
+      "t": "There is a large whiteboard mounted on the wall.",
+      "zh": "牆上裝設著一面大白板。",
+      "ok": true,
+      "trap": "correct",
+      "why": "正解：牆上固定著一面空白的大白板，與畫面相符。"
+    },
+    {
+      "t": "The pitcher has been placed on the floor beside the window.",
+      "zh": "水壺被放在窗戶旁邊的地板上。",
+      "ok": false,
+      "trap": "wrong-place-or-number",
+      "why": "水壺放在桌面的托盤上，不在窗邊的地板上。"
+    },
+    {
+      "t": "Only two notebooks have been placed on the table.",
+      "zh": "桌上只放了兩本筆記本。",
+      "ok": false,
+      "trap": "wrong-place-or-number",
+      "why": "桌上有許多本筆記本，不是只有兩本。"
+    },
+    {
+      "t": "A projector has been mounted above the meeting table.",
+      "zh": "一台投影機被裝設在會議桌上方。",
+      "ok": false,
+      "trap": "not-in-photo",
+      "why": "畫面中沒有投影機。"
+    },
+    {
+      "t": "A coffee machine is placed next to the whiteboard.",
+      "zh": "一台咖啡機被放在白板旁邊。",
+      "ok": false,
+      "trap": "not-in-photo",
+      "why": "白板旁沒有咖啡機，畫面中也沒有任何咖啡機。"
+    },
+    {
+      "t": "A telephone has been placed in the center of the table.",
+      "zh": "一支電話被放在桌子中央。",
+      "ok": false,
+      "trap": "not-in-photo",
+      "why": "桌子中央是水壺與托盤，沒有電話。"
+    },
+    {
+      "t": "The notebooks are stacked in a pile at the end of the table.",
+      "zh": "筆記本被堆成一疊放在桌子的尾端。",
+      "ok": false,
+      "trap": "wrong-action",
+      "why": "stacked 與 placed 是近義干擾；筆記本是各自平放在桌面上，沒有堆疊。"
+    },
+    {
+      "t": "The window shade has been pulled all the way up.",
+      "zh": "窗簾被完全拉到最上面。",
+      "ok": false,
+      "trap": "wrong-action",
+      "why": "窗戶的捲簾是放下一半的，並沒有完全拉起。"
+    },
+    {
+      "t": "The participants have just left the meeting room.",
+      "zh": "與會者剛離開會議室。",
+      "ok": false,
+      "trap": "over-inference",
+      "why": "畫面中沒有人，也看不出有人剛離開，這是過度推論。"
+    },
+    {
+      "t": "The room has been prepared for an important client meeting.",
+      "zh": "這個房間是為了一場重要的客戶會議而準備的。",
+      "ok": false,
+      "trap": "over-inference",
+      "why": "無法從畫面確認房間布置的目的或會議對象，這是過度推論。"
+    }
+  ],
+  "vocab": [
+    {
+      "word": "pitcher",
+      "ipa": "/ˈpɪtʃər/",
+      "pos": "n.",
+      "col": "glass pitcher / pitcher of water",
+      "zh": "水壺、大水罐"
+    },
+    {
+      "word": "notebook",
+      "ipa": "/ˈnoʊtbʊk/",
+      "pos": "n.",
+      "col": "open a notebook / green notebook",
+      "zh": "筆記本"
+    },
+    {
+      "word": "shade",
+      "ipa": "/ʃeɪd/",
+      "pos": "n.",
+      "col": "window shade / pull down the shade",
+      "zh": "捲簾、遮光簾"
+    },
+    {
+      "word": "projector",
+      "ipa": "/prəˈdʒɛktər/",
+      "pos": "n.",
+      "col": "ceiling projector / turn on the projector",
+      "zh": "投影機"
+    }
+  ],
+  "issues": [
+    "未提供此圖實際使用的 image_prompt，image_prompt 欄位暫留空字串，請自行補上原樣 prompt。",
+    "圖片為會議室（長木桌、灰色辦公椅、白板、窗戶），場景屬於辦公室，與 d1 相符；全圖無人。",
+    "白板為空白，筆記本封面與杯子上未見可讀文字或商標；窗外街景遠處有車輛與建築，但無可辨識文字。",
+    "筆記本數量與椅子數量不易精確數清（部分被水壺或椅背遮擋），文本已避免使用確切數字作為正解。"
+  ]
+}

@@ -4,7 +4,8 @@
 TOEIC Part 1 照片題庫 ─ 合併工具（給 photo.json 用）
 
 用法：把這支程式放在 photo.json 同一個資料夾，雙擊執行。
-  1. 自動找出主檔 photo.json，並列出同資料夾內其他 .json（例如 d1-002-m.json）作為副檔。
+  1. 自動找出主檔 photo.json，並列出同資料夾內「檔名是題目 id」的 .json（例如 d1-002-m.json）作為副檔；
+     其他名稱的 .json（例如 data.json）不會列出，需要時請按「新增檔案…」手動加入。
   2. 選取要合併的副檔（可多選：Ctrl / Shift），按「合併」→ 確認 → 寫回 photo.json（寫入前自動備份到 backup 資料夾）。
 副檔可以是：單一題目物件、題目陣列、或含 items 的物件；AI 貼出的 ```json 圍欄也能自動處理。
 AI 回傳 {"id": ..., "skip": ...} 代表它寫不出該難度，會被擋下，不會合併。
@@ -435,7 +436,7 @@ def run_gui():
         for n in names:
             p = os.path.join(BASE, n)
             if n.lower().endswith('.json') and os.path.isfile(p) and not n.startswith('.') \
-                    and os.path.abspath(p) != st['main']:
+                    and ID_RE.match(os.path.splitext(n)[0]) and os.path.abspath(p) != st['main']:
                 found.append(os.path.abspath(p))
         for p in st['manual']:
             if p not in found and os.path.abspath(p) != st['main'] and os.path.isfile(p):
@@ -493,7 +494,7 @@ def run_gui():
         if err and st['main']:
             set_detail('主檔讀取失敗：%s' % err)
         elif not st['rows']:
-            set_detail('資料夾內沒有找到其他 .json 檔。\n請按「新增檔案…」手動選取，例如 d1-002-m.json。')
+            set_detail('資料夾內沒有找到其他 .json 檔。\n請把 AI 回傳的 JSON 存成 d1-002-m.json 這類檔名放進來，或按「新增檔案…」手動選取。')
 
     def on_select(_=None):
         lines = []

@@ -1,0 +1,144 @@
+{
+  "id": "d3-001-m",
+  "image": "images/d3-001-m.jpg",
+  "photo_type": "multi",
+  "scene": "store",
+  "domain": "d3",
+  "tag": "女子在店內櫃檯用卡片付款",
+  "level": {
+    "score": 650,
+    "cefr": "B1+",
+    "tier": "medium",
+    "why": "兩人動作不同（店員操作收銀機、顧客持卡付款），並含人數與櫃檯前後位置等細節。"
+  },
+  "image_prompt": "A realistic photograph of a customer paying a cashier at a store counter. Natural lighting, 4:3 landscape orientation, sharp focus, clean and simple composition, in the style of a TOEIC Part 1 photo. Composition: Two or three people clearly interacting with each other or with objects, with clear positional relationships (at, on, beside, in front of, next to). No text, signs, logos or brand names anywhere; no readable screens or papers; no celebrities; at most 4 people, with natural proportions, normal hands and fingers, and simple, clearly visible hand actions.",
+  "visible_facts": [
+    "A man in a green apron stands behind a wooden counter and touches a cash register.",
+    "A woman in a striped sweater stands on the other side of the counter facing him.",
+    "The woman is holding cards above a payment machine on the counter.",
+    "A pile of brown paper bags is on the counter in front of the man.",
+    "Shelves behind the man hold books, containers and bottles."
+  ],
+  "pool": [
+    {
+      "t": "The woman is holding a card over a payment machine.",
+      "zh": "這名女子正把一張卡片拿在刷卡機上方。",
+      "ok": true,
+      "trap": "correct",
+      "why": "正解：女子手持卡片停在櫃檯上的刷卡機上方，與畫面相符。"
+    },
+    {
+      "t": "The cashier is wearing a green apron behind the counter.",
+      "zh": "這名店員穿著綠色圍裙站在櫃檯後面。",
+      "ok": true,
+      "trap": "correct",
+      "why": "正解：男店員穿著綠色圍裙，站在木製櫃檯後方，與畫面相符。"
+    },
+    {
+      "t": "Two people are facing each other across a counter.",
+      "zh": "兩個人隔著櫃檯面對面。",
+      "ok": true,
+      "trap": "correct",
+      "why": "正解：男子與女子分站櫃檯兩側、面向彼此，與畫面相符。"
+    },
+    {
+      "t": "The woman is playing a card game with the man.",
+      "zh": "這名女子正在和男子玩紙牌遊戲。",
+      "ok": false,
+      "trap": "sound-alike",
+      "why": "playing 與 paying 音近；畫面中女子是拿卡片付款，不是在玩牌。"
+    },
+    {
+      "t": "The cashier is handing a paper bag to the woman.",
+      "zh": "這名店員正把一個紙袋遞給女子。",
+      "ok": false,
+      "trap": "wrong-action",
+      "why": "handing 與 holding 是近義動作干擾；店員的手放在收銀機與櫃檯上，紙袋仍疊放在櫃檯上。"
+    },
+    {
+      "t": "The woman is writing a check at the counter.",
+      "zh": "這名女子正在櫃檯寫支票。",
+      "ok": false,
+      "trap": "wrong-action",
+      "why": "女子手上拿的是卡片，沒有在寫支票。"
+    },
+    {
+      "t": "The man is putting books on the shelf.",
+      "zh": "這名男子正把書放到架子上。",
+      "ok": false,
+      "trap": "wrong-action",
+      "why": "男子面向女子操作收銀機，沒有在整理書架。"
+    },
+    {
+      "t": "A shopping cart is parked beside the woman.",
+      "zh": "一台購物推車停在女子旁邊。",
+      "ok": false,
+      "trap": "not-in-photo",
+      "why": "女子旁邊沒有購物推車，畫面中也看不到任何推車。"
+    },
+    {
+      "t": "Some customers are waiting in line behind her.",
+      "zh": "一些顧客正排隊站在她後面。",
+      "ok": false,
+      "trap": "not-in-photo",
+      "why": "女子後方沒有其他顧客，畫面中只有兩個人。"
+    },
+    {
+      "t": "Three people are standing near the register.",
+      "zh": "三個人正站在收銀機附近。",
+      "ok": false,
+      "trap": "wrong-place-or-number",
+      "why": "畫面中只有兩個人，不是三個人。"
+    },
+    {
+      "t": "The cash register is on the shelf behind the man.",
+      "zh": "收銀機放在男子後方的架子上。",
+      "ok": false,
+      "trap": "wrong-place-or-number",
+      "why": "收銀機放在前方的櫃檯上，後方架子上放的是書、容器與瓶子。"
+    },
+    {
+      "t": "The woman is buying a gift for her friend.",
+      "zh": "這名女子正在為朋友買禮物。",
+      "ok": false,
+      "trap": "over-inference",
+      "why": "畫面看不出購買的物品或目的，這是過度推論。"
+    }
+  ],
+  "vocab": [
+    {
+      "word": "cashier",
+      "ipa": "/kæˈʃɪr/",
+      "pos": "n.",
+      "col": "store cashier / pay the cashier",
+      "zh": "收銀員"
+    },
+    {
+      "word": "apron",
+      "ipa": "/ˈeɪprən/",
+      "pos": "n.",
+      "col": "green apron / wear an apron",
+      "zh": "圍裙"
+    },
+    {
+      "word": "card",
+      "ipa": "/kɑːrd/",
+      "pos": "n.",
+      "col": "credit card / pay by card",
+      "zh": "卡片、信用卡"
+    },
+    {
+      "word": "register",
+      "ipa": "/ˈrɛdʒɪstər/",
+      "pos": "n.",
+      "col": "cash register / ring up at the register",
+      "zh": "收銀機"
+    }
+  ],
+  "issues": [
+    "圖片內容與 image_prompt 相符：顧客在商店櫃檯向店員付款；全圖共兩人，無可讀文字或商標。",
+    "女子手中有兩張卡片疊在一起，正解句僅寫 a card，未強調數量。",
+    "架上的書本與瓶子標籤無可讀文字；左下層架另有紙袋，因此錯誤句未使用「紙袋放在架上」作為干擾。",
+    "收銀機螢幕與刷卡機螢幕皆無可讀內容。"
+  ]
+}
