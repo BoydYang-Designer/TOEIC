@@ -2,15 +2,15 @@
   "_spec": {
     "purpose": "TOEIC Part 1（照片描述）題庫。使用者會把這份 JSON 交給 AI，分兩階段產生題目：先「出圖」再「寫文本」。請依本 _spec 產生資料。網頁分「練習」與「測驗」兩種模式，測驗會依 難度（level.tier）與 主題（domain：d1–d7）抽題，所以每一題都必須填對這兩個欄位。",
     "how_to_use": {
-      "stage1_trigger": "使用者輸入「出圖 p1s{S}q{N}」（例如 出圖 p1s1q3）→ 只輸出「一個」JSON 物件，含 id、set、no、photo_type、scene、focus、domain、target_tier、visible_facts、image_prompt。使用者可在後面指定主題與難度，例如「出圖 p1s2q4 d4 hard」；未指定時，AI 依 set_design 與 coverage 自行挑選最缺的組合。",
-      "stage1_note": "visible_facts 是「圖片裡應該清楚看得到的事實」，用來當出圖依據與日後核對。使用者拿 image_prompt 去出圖。domain 必須與 scene 相符（見 domains 對照表）；target_tier 是預定的難度（easy／medium／hard），正式難度在 stage2 依實際文本決定。",
-      "stage2_trigger": "使用者上傳圖片並輸入「寫文本 p1s{S}q{N}」→ 輸出完整 entry_schema 的 JSON 物件。",
-      "stage2_rule": "文本一律依「上傳圖片實際看到的內容」撰寫，不依 image_prompt 想像。若圖片與 visible_facts 不符，改以圖片為準並更新 visible_facts；圖片有瑕疵（手指或肢體怪異、人數不清、出現文字或商標、物件難以辨識）須寫入 issues。若實際圖片的場景與 stage1 不同，須同步修正 scene 與 domain。stage2 不輸出 target_tier，改輸出 level.tier（依 level.score 判定，見 rules.tier）。",
-      "output": "只輸出「一個」JSON 物件，放在單一 json 程式碼區塊內。不要輸出整份檔案、不要修改既有 items、不要加任何說明文字。",
-      "set_design": "每組（set）6 題，與正式多益一致；預設配置：單人 2、多人 2、無人物 2，順序可打散。難度預設每組 easy 2、medium 2、hard 2。同一組內同一個 domain 最多 2 題。使用者另有指定時以使用者為準。",
-      "coverage": "題庫整體要讓「難度 × 主題」均衡：目標是 3 個難度 × d1–d7 每格至少 2 題，測驗才抽得到題。出圖前先看 items 內各格的題數，優先補題數最少的格子。",
-      "avoid_duplicates": "同一組內 scene 與 focus 的組合不得重複；tag、vocab 不得與 items 內既有資料重複；同一個 domain + level.tier 內，畫面與句型不要雷同。",
-      "after": "使用者會自行把該物件貼進 items 陣列，圖片存為 images/p1s{S}q{N}.jpg，音檔（可省略，網頁會改用語音合成）存為 audio/p1s{S}q{N}.mp3。檔名一律以 id 命名，不因難度或主題改名；難度與主題只記在 JSON 欄位裡。"
+      "stage1_trigger": "使用者輸入「出圖 d{N}-{NNN}」（例如 出圖 d1-002）→ 只輸出「一個」JSON 物件，欄位：image（圖片編碼，例如 d1-002）、photo_type、scene、domain、visible_facts、image_prompt、suitable_tiers（這張圖適合出哪些難度，easy／medium／hard 的陣列）。只指定主題時（例如「出圖 d4」），編號由 AI 依該主題現有最大流水號加 1 決定；完全沒指定時，AI 依 coverage 挑選最缺的主題。",
+      "stage1_note": "圖片只屬於「主題」，不屬於難度：同一張圖可以出初、中、高三個難度的題目。visible_facts 是「圖片裡應該清楚看得到的事實」，用來當出圖依據與日後核對。圖片編碼中的 d{N} 就是 domain，必須與 scene 相符（見 domains 對照表）；使用者在檢查圖片時就會確認主題，之後不再更改。出圖時挑「內容足夠」的畫面（有人物的圖要有清楚動作與細節；無人物的圖要有多個物件與位置關係），才能支撐不同難度。",
+      "stage2_trigger": "使用者上傳圖片並輸入「寫文本 d{N}-{NNN}-{e|m|h}」（例如 寫文本 d1-002-m）→ 輸出完整 entry_schema 的 JSON 物件。尾碼 e／m／h 就是這題的目標難度（初／中／高）。",
+      "stage2_rule": "文本一律依「上傳圖片實際看到的內容」撰寫，不依 image_prompt 想像。若圖片與 visible_facts 不符，改以圖片為準並更新 visible_facts；圖片有瑕疵（手指或肢體怪異、人數不清、出現文字或商標、物件難以辨識）須寫入 issues。domain 一律等於 id 前段的 d{N}；若實際圖片的場景明顯不屬於該主題，不要自行改 domain，改在 issues 寫「圖片場景與 d{N} 不符，建議重新編碼」，由使用者決定。難度以 id 尾碼為目標：依 tiers.guide 寫出符合該難度的句子，level.tier 必須等於尾碼（見 rules.tier）。句子庫（pool）共 12 句，全部依「上傳圖片實際看到的內容」撰寫，錯誤句必須確認圖片中真的沒有或真的不同。",
+      "output": "只輸出「一個」JSON 物件，放在單一 json 程式碼區塊內。不要輸出整份檔案、不要修改既有 items、不要加任何說明文字。若這張圖寫不出指定難度（例如圖片內容太單純，寫不出高級該有的細節），不要硬寫，改輸出 {\"id\": \"d1-002-h\", \"skip\": \"繁體中文說明原因\"}，使用者不會把它貼進 items。",
+      "coverage": "題庫整體要讓「難度 × 主題」均衡：目標是 3 個難度 × d1–d7 每格至少 2 題（共至少 42 題），測驗才抽得到題。因為一張圖可出 3 個難度，每個主題只要 2 張圖、各出 e／m／h，就能達標（共 14 張圖）。出題前先統計各格題數：若某主題的圖片少於 2 張，先出新圖；否則優先為既有的圖片補上缺少的難度（寫文本 d{N}-{NNN}-{m|h}）。",
+      "avoid_duplicates": "tag、vocab 不得與 items 內其他圖片的題目重複（同一張圖的 e／m／h 題目可共用 tag）；同一張圖的不同難度題目，pool 句子不得重複，也不可只是把較簡單題目的句子換一兩個字；同一個 domain + level.tier 內，不同圖片的畫面與句型不要雷同。",
+      "after": "使用者會自行把該物件貼進 items 陣列，圖片存為 images/d{N}-{NNN}.jpg（不含難度尾碼）。圖片檔名與 id 前段一致；難度寫在 id 尾碼與 level.tier 欄位。不需要音檔：因為選項順序每次作答都會隨機，網頁一律用語音合成朗讀，不使用整題 mp3。",
+      "image_design": "圖片以「主題 + 流水號」編碼：d{N}-{NNN}，N 為 1–7（對應 d1–d7），NNN 為該主題內的 3 位數流水號（d1-001、d1-002、d2-001…）。一張圖最多對應 3 題：d1-001-e、d1-001-m、d1-001-h，共用同一個圖片檔 images/d1-001.jpg。題目 id 的尾碼 e／m／h 就是難度（初／中／高）。"
     },
     "domains": {
       "d1": {
@@ -83,41 +83,37 @@
         "score": "≥700",
         "cefr": "B2 / B2+",
         "guide": "無人物的被動與位置描述（are being displayed、has been placed）；或多人細節；干擾項為近義動作、過度推論或位置細節差異。"
-      }
+      },
+      "same_image_note": "同一張圖的三個難度要有實質差異：初級＝單一明顯細節、干擾項差異大；中級＝加入位置或數量細節、干擾項含音近或相近動作；高級＝被動式或細節辨識、干擾項為近義、過度推論或細微位置差異。"
     },
     "entry_schema": {
-      "id": "字串，格式 p1s{S}q{N}，例如 p1s1q3",
-      "set": "整數，組別",
-      "no": "整數 1–6，組內題號",
+      "id": "字串，格式 d{N}-{NNN}-{e|m|h}，例如 d1-001-e。前段 d{N}-{NNN} 是圖片編碼（N=主題 1–7，NNN=該主題內 3 位數流水號），尾碼 e／m／h 是難度（初／中／高）",
       "photo_type": "'single'（單人）、'multi'（多人，2 人以上）或 'none'（無人物：物品、場景）",
       "scene": "'office'、'restaurant'、'store'、'street'、'station'、'workplace'（工廠／工地／倉庫）、'hotel'、'outdoor'、'home' 擇一",
       "focus": "'action'（動作）、'state'（物品狀態）、'location'（位置關係）、'mixed' 擇一",
-      "domain": "'d1'–'d7' 擇一，依 scene 對照 _spec.domains（office→d1、restaurant→d2、store→d3、street／station→d4、workplace→d5、hotel／home→d6、outdoor→d7），不可自行指定其他值",
+      "domain": "'d1'–'d7' 擇一，必須等於 id 前段的 d{N}，且 scene 必須屬於該 domain 的 scenes（見 _spec.domains）。",
       "tag": "繁體中文標題，簡短描述畫面，例如「女子在辦公桌前打字」",
       "level": {
         "score": "預估多益分數，50 的倍數",
         "cefr": "見 rules.difficulty",
-        "tier": "'easy'、'medium'、'hard' 擇一，必須與 score 一致（見 rules.tier）；網頁測驗的難度篩選就是用這個欄位",
+        "tier": "'easy'、'medium'、'hard' 擇一，必須與 id 尾碼一致（e=easy、m=medium、h=hard），也必須與 score 一致（見 rules.tier）；網頁測驗的難度篩選就是用這個欄位",
         "why": "繁體中文 1 句，說明難度依據"
       },
-      "image": "images/{id}.jpg",
-      "audio": "audio/{id}.mp3",
+      "image": "images/{圖片編碼}.jpg，例如 images/d1-001.jpg（不含難度尾碼；同一張圖的 e／m／h 題目共用同一個檔案）",
       "image_prompt": "英文出圖提示詞，需符合 rules.image_prompt",
       "visible_facts": [
-        "英文短句，列出圖中清楚可見的 3–6 項事實（人數、動作、物件、位置）"
+        "英文短句，列出圖中清楚可見的 3–6 項事實（人數、動作、物件、位置）。同一張圖的各難度題目，visible_facts 內容應一致。"
       ],
-      "statements": [
-        "四句英文敘述 A–D，順序即選項順序"
-      ],
-      "zh": [
-        "四句敘述的繁體中文翻譯，順序與 statements 一致"
-      ],
-      "ans": "正解索引 0–3",
-      "why": [
-        "對應每個選項的解析，共 4 句，繁體中文；正解那句以「正解：」開頭，其餘說明錯在哪裡"
-      ],
-      "traps": [
-        "對應每個選項的類型，共 4 個：'correct'、'sound-alike'、'not-in-photo'、'wrong-action'、'wrong-place-or-number'、'over-inference'"
+      "pool": [
+        "句子庫，固定 12 個物件：3 個 ok:true（正確）＋9 個 ok:false（錯誤）。每個物件格式：",
+        {
+          "t": "英文敘述一句",
+          "zh": "繁體中文翻譯",
+          "ok": "true 或 false",
+          "trap": "'correct'（ok 為 true 時）；ok 為 false 時為 'sound-alike'、'not-in-photo'、'wrong-action'、'wrong-place-or-number'、'over-inference' 擇一",
+          "why": "繁體中文解析；ok 為 true 的以「正解：」開頭，ok 為 false 的說明錯在哪裡"
+        },
+        "網頁每次作答會從 pool 隨機抽 1 句正確＋3 句錯誤，再隨機排成 A–D；因此 JSON 內不需要（也不要）填 ans、statements、zh、why、traps、audio。"
       ],
       "vocab": [
         {
@@ -138,48 +134,55 @@
         "correct": "正解只描述照片中清楚可見的事實，不推測職業、心情、原因或目的（不寫 waiting for、going to、because 之類無法從畫面確認的內容）。",
         "single_or_multi": "有人的照片以現在進行式描述動作（is/are + V-ing）；主詞用 He／She／The man／The woman／Some people／They 等，並確保與畫面人數與性別一致。",
         "none": "無人物照片以被動或狀態描述（are being displayed、has been placed、is/are + p.p.）與位置介系詞（on、beside、along、in front of、next to、across from、against）。",
-        "exactly_one_correct": "四句中只能有一句符合圖片；干擾項不可同時也說得通。",
-        "traps": "干擾項盡量使用不同類型：sound-alike（音近或字形近，如 walking/working、sitting/setting、board/bored）、not-in-photo（提到圖中沒有的物品或人）、wrong-action（動作錯誤）、wrong-place-or-number（位置或人數錯誤）、over-inference（過度推論）。",
-        "vocabulary": "以多益高頻字彙為主，避免冷僻俚語。"
+        "traps": "干擾項盡量使用不同類型：sound-alike（音近或字形近，如 walking/working、sitting/setting、board/bored）、not-in-photo（提到圖中沒有的物品或人）、wrong-action（動作錯誤）、wrong-place-or-number（位置或人數錯誤）、over-inference（過度推論）。"
       },
-      "answer_distribution": "組內各題正解位置（0–3）需分散，避免集中在同一個字母。",
+      "answer_distribution": "不需要控制正解位置：網頁每次作答都會重新隨機排列 A–D。",
       "difficulty": {
         "score": "多數題約 500–750；單人動作較易，無人物的被動與位置描述較難。",
         "cefr": "≤550 A2+、600 B1、650 B1+、700–750 B2、≥800 B2+"
       },
       "tier": {
         "mapping": "level.score ≤550 → 'easy'；600 或 650 → 'medium'；≥700 → 'hard'。score、cefr、tier 三者必須一致。",
-        "check": "難度以「實際寫出的四句話」判斷，不是以出圖時的 target_tier 為準；若寫完發現與 target_tier 不同，以實際為準並在 level.why 說明依據。"
+        "check": "id 尾碼決定目標難度：寫文本時必須依 tiers.guide 寫出符合該難度的句子，寫完後依 level.score 對照 mapping，level.tier 必須等於尾碼。若寫完發現達不到，重寫；仍然不適合這張圖，改輸出 skip 物件（見 how_to_use.output），不要把 tier 改成與尾碼不同的值。"
       },
       "domain": {
         "mapping": "domain 由 scene 決定：office→d1；restaurant→d2；store→d3；street、station→d4；workplace→d5；hotel、home→d6；outdoor→d7。",
-        "check": "圖片實際場景與 scene 不符時，先改 scene，再依對照表改 domain。"
+        "check": "domain 由 id 前段的 d{N} 決定（出圖階段即確定）；scene 必須屬於該 domain。圖片實際場景與主題不符時，不要自行改 domain，改在 issues 說明。"
       },
       "vocab": {
         "count": "2–4 個",
-        "requirements": "必須實際出現在 statements 中（以原形或僅加 -s/-es/-d/-ed/-ing 的形式出現）；不得與既有 items 的單字重複。"
+        "requirements": "必須實際出現在 pool 的句子中（以原形或僅加 -s/-es/-d/-ed/-ing 的形式出現）；不得與既有 items 的單字重複。"
       },
       "image_prompt": "英文；寫實攝影風格（realistic photograph）、自然光、橫式 4:3、主體單純清楚；圖中不得有文字、標誌、商標、可讀的螢幕；人物不超過 4 位且手部動作簡單、清楚可見；不出現名人與品牌；場景為多益常見的辦公室、餐廳、商店、街道、車站、工地、倉庫、旅館、公園等，並符合該題 domain 的場景範圍。",
       "language": "介面文字（tag、zh、level.why、vocab.zh、why）一律繁體中文（台灣用語）；statements、image_prompt、visible_facts 為英文。",
       "json_hygiene": "輸出必須是合法 JSON：雙引號、不含註解、不含結尾逗號；字串中的換行用 \\n。",
       "self_check": [
         "輸出前逐項自我檢查，通過後才輸出：",
-        "1. 四句中只有一句符合圖片，且正解只描述可見事實。",
-        "2. statements、zh、why、traps 皆剛好 4 項，順序一致。",
-        "3. 干擾項的類型盡量不重複，且每個 why 說明錯在哪裡。",
-        "4. vocab 每個單字都出現在 statements 中，且不與既有資料重複。",
-        "5. domain 與 scene 符合對照表；level.tier 與 level.score 一致。",
-        "6. 整體為合法 JSON，只輸出單一物件、放在單一 json 程式碼區塊內，區塊外不加任何文字。"
-      ]
+        "1. id 格式為 d{N}-{NNN}-{e|m|h}；image 為 images/d{N}-{NNN}.jpg；domain 等於 d{N}；scene 屬於該 domain；level.tier 等於 id 尾碼且與 level.score 一致。",
+        "2. pool 剛好 12 句：3 句 ok:true、9 句 ok:false；t 皆不重複，每句 6–14 個字；且與同一張圖其他難度題目的句子不重複。",
+        "3. 3 句正確句都只描述圖片中清楚可見的事實，且是不同說法；每一句錯誤句單獨看都明確不符合圖片，沒有任何一句其實也說得通。",
+        "4. 錯誤句的類型盡量涵蓋 5 種，且每個 why 說明錯在哪裡；ok:true 的 trap 為 'correct'、why 以「正解：」開頭。",
+        "5. vocab 每個單字都出現在 pool 的句子中，且不與其他圖片的既有資料重複。",
+        "6. 不要輸出 set、no、ans、statements、zh、why、traps、audio 這些舊欄位。",
+        "7. 整體為合法 JSON，只輸出單一物件、放在單一 json 程式碼區塊內，區塊外不加任何文字。"
+      ],
+      "pool": {
+        "size": "每題固定 12 句：3 句正確（ok:true）＋9 句錯誤（ok:false）。",
+        "correct": "3 句正確句是對「同一張圖」的不同說法：換主詞、換動詞或換句型（例如主動與被動、There is／are、換同義字），彼此不能只差一兩個字；3 句都只描述圖中清楚可見的事實。",
+        "wrong_standalone": "網頁會從 9 句錯誤句中隨機抽任意 3 句搭配 1 句正確句，因此每一句錯誤句都必須「單獨」就明確不符合圖片，不能靠與其他選項比較才算錯；不可有任何一句錯誤句其實也說得通。",
+        "wrong_vs_correct": "錯誤句不可與任何一句正確句語意重疊，也不可與正確句互相矛盾到讓人懷疑哪句才對；同一個錯誤概念不要重複出現（例如不要有兩句都是『看報紙』）。",
+        "trap_mix": "9 句錯誤句盡量涵蓋 5 種類型：sound-alike 1–2、not-in-photo 2–3、wrong-action 2–3、wrong-place-or-number 1–2、over-inference 1–2；無人物照片沒有人的動作可錯，可多用 not-in-photo、wrong-place-or-number、over-inference。",
+        "order": "pool 內的順序不重要；為相容舊的作答紀錄，既有題目的原 4 句保留在 pool 最前面，新增的句子一律加在後面。",
+        "audio": "不使用整題 mp3；聽力一律由網頁語音合成朗讀隨機抽出的 4 句。"
+      }
     },
     "app_modes": {
-      "practice": "練習：可依組別（Set）練習，或依 難度、主題（d1–d7）、類型（單人／多人／無人物）、重點篩選後跨組隨機練習；作答後立即顯示解析，可重複播放音檔。",
-      "test": "測驗：先選難度（初／中／高／全部），再選主題（d1–d7／全部），從符合的題目隨機抽 6 題；音檔只播放一次，作答中不顯示對錯，完成後一次檢討。符合條件的題目不足 6 題時，全部出題。"
+      "practice": "練習：與測驗相同的選題方式（難度、主題，另可加 類型、重點與題數 6／12／全部），從符合的題目隨機抽題；不計分、不記錄最佳成績。每題從 pool 隨機抽 1 正確＋3 錯誤並隨機排序；音檔可重複播放，作答後立即顯示解析與其他正確說法；答錯的題進錯題本。 同一輪不會出現同一張圖（以 image 判斷）。",
+      "test": "測驗：先選難度（初／中／高／全部），再選主題（d1–d7／全部），從符合的題目隨機抽 6 題；每題從 pool 隨機抽 1 正確＋3 錯誤並隨機排序；音檔只播放一次，作答中不顯示對錯，完成後一次檢討。符合條件的題目不足 6 題時，全部出題。 同一輪不會出現同一張圖（以 image 判斷）；題數不足 6 題時，以「不同圖片數」計算。"
     },
     "example": {
-      "id": "p1s1q1",
-      "set": 1,
-      "no": 1,
+      "id": "d1-001-e",
+      "image": "images/d1-001.jpg",
       "photo_type": "single",
       "scene": "office",
       "focus": "action",
@@ -191,8 +194,6 @@
         "tier": "easy",
         "why": "單人動作題，使用基本現在進行式與常見辦公用品字彙。"
       },
-      "image": "images/p1s1q1.jpg",
-      "audio": "audio/p1s1q1.mp3",
       "image_prompt": "A realistic photograph of a woman sitting at a desk in a bright office, typing on a laptop, a coffee cup and a notebook on the desk, natural window light, 4:3 landscape, no text or logos visible.",
       "visible_facts": [
         "One woman is seated at a desk.",
@@ -200,30 +201,91 @@
         "A coffee cup is on the desk.",
         "A notebook is beside the laptop."
       ],
-      "statements": [
-        "The woman is typing on a laptop.",
-        "The woman is answering the phone.",
-        "The woman is watering a plant.",
-        "The woman is writing on a whiteboard."
-      ],
-      "zh": [
-        "這名女子正在筆電上打字。",
-        "這名女子正在接電話。",
-        "這名女子正在澆花。",
-        "這名女子正在白板上寫字。"
-      ],
-      "ans": 0,
-      "why": [
-        "正解：女子坐在桌前使用筆電打字，與畫面相符。",
-        "畫面中沒有人在接電話。",
-        "畫面中沒有植物，也沒有澆水的動作。",
-        "畫面中沒有白板，她也不是在書寫。"
-      ],
-      "traps": [
-        "correct",
-        "wrong-action",
-        "not-in-photo",
-        "not-in-photo"
+      "pool": [
+        {
+          "t": "The woman is typing on a laptop.",
+          "zh": "這名女子正在筆電上打字。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：女子坐在桌前使用筆電打字，與畫面相符。"
+        },
+        {
+          "t": "The woman is answering the phone.",
+          "zh": "這名女子正在接電話。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有人在接電話。"
+        },
+        {
+          "t": "The woman is watering a plant.",
+          "zh": "這名女子正在澆花。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有植物，也沒有澆水的動作。"
+        },
+        {
+          "t": "The woman is writing on a whiteboard.",
+          "zh": "這名女子正在白板上寫字。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有白板，她也不是在書寫。"
+        },
+        {
+          "t": "A woman is seated at a desk using a laptop.",
+          "zh": "一名女子坐在書桌前使用筆記型電腦。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：女子坐在桌前使用筆電，與畫面相符。"
+        },
+        {
+          "t": "The woman is using a computer at her desk.",
+          "zh": "這名女子正在她的書桌前使用電腦。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：女子在書桌前使用電腦，與畫面相符。"
+        },
+        {
+          "t": "The woman is standing next to her desk.",
+          "zh": "這名女子正站在她的書桌旁。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "女子是坐著的，不是站在書桌旁。"
+        },
+        {
+          "t": "The woman is tying her shoes.",
+          "zh": "這名女子正在綁鞋帶。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "tying 與 typing 音近，但畫面中她是在打字，沒有在綁鞋帶。"
+        },
+        {
+          "t": "Two women are talking at the desk.",
+          "zh": "兩名女子正在書桌旁交談。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "畫面中只有一名女子，而且她是在使用筆電。"
+        },
+        {
+          "t": "The woman is making copies of some papers.",
+          "zh": "這名女子正在影印一些文件。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有影印機，她是在使用筆電。"
+        },
+        {
+          "t": "The woman is waiting for a meeting to start.",
+          "zh": "這名女子正在等會議開始。",
+          "ok": false,
+          "trap": "over-inference",
+          "why": "畫面看不出她在等會議，她正在打字，這是過度推論。"
+        },
+        {
+          "t": "The woman is carrying a box across the room.",
+          "zh": "這名女子正抱著箱子走過房間。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "女子坐在桌前，沒有搬箱子。"
+        }
       ],
       "vocab": [
         {
@@ -242,13 +304,13 @@
         }
       ],
       "issues": []
-    }
+    },
+    "schema_version": 3
   },
   "items": [
     {
-      "id": "p1s1q1",
-      "set": 1,
-      "no": 1,
+      "id": "d1-001-e",
+      "image": "images/d1-001.jpg",
       "photo_type": "single",
       "scene": "office",
       "focus": "action",
@@ -260,8 +322,6 @@
         "tier": "easy",
         "why": "單人動作題，使用基本現在進行式與常見辦公用品字彙。"
       },
-      "image": "images/p1s1q1.jpg",
-      "audio": "audio/p1s1q1.mp3",
       "image_prompt": "A realistic photograph of a woman sitting at a desk in a bright office, typing on a laptop, a coffee cup and a notebook on the desk, natural window light, 4:3 landscape, no text or logos visible.",
       "visible_facts": [
         "One woman is seated at a desk.",
@@ -269,30 +329,91 @@
         "A coffee cup is on the desk.",
         "A notebook is beside the laptop."
       ],
-      "statements": [
-        "The woman is typing on a laptop.",
-        "The woman is answering the phone.",
-        "The woman is watering a plant.",
-        "The woman is writing on a whiteboard."
-      ],
-      "zh": [
-        "這名女子正在筆電上打字。",
-        "這名女子正在接電話。",
-        "這名女子正在澆花。",
-        "這名女子正在白板上寫字。"
-      ],
-      "ans": 0,
-      "why": [
-        "正解：女子坐在桌前使用筆電打字，與畫面相符。",
-        "畫面中沒有人在接電話。",
-        "畫面中沒有植物，也沒有澆水的動作。",
-        "畫面中沒有白板，她也不是在書寫。"
-      ],
-      "traps": [
-        "correct",
-        "wrong-action",
-        "not-in-photo",
-        "not-in-photo"
+      "pool": [
+        {
+          "t": "The woman is typing on a laptop.",
+          "zh": "這名女子正在筆電上打字。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：女子坐在桌前使用筆電打字，與畫面相符。"
+        },
+        {
+          "t": "The woman is answering the phone.",
+          "zh": "這名女子正在接電話。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有人在接電話。"
+        },
+        {
+          "t": "The woman is watering a plant.",
+          "zh": "這名女子正在澆花。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有植物，也沒有澆水的動作。"
+        },
+        {
+          "t": "The woman is writing on a whiteboard.",
+          "zh": "這名女子正在白板上寫字。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有白板，她也不是在書寫。"
+        },
+        {
+          "t": "A woman is seated at a desk using a laptop.",
+          "zh": "一名女子坐在書桌前使用筆記型電腦。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：女子坐在桌前使用筆電，與畫面相符。"
+        },
+        {
+          "t": "The woman is using a computer at her desk.",
+          "zh": "這名女子正在她的書桌前使用電腦。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：女子在書桌前使用電腦，與畫面相符。"
+        },
+        {
+          "t": "The woman is standing next to her desk.",
+          "zh": "這名女子正站在她的書桌旁。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "女子是坐著的，不是站在書桌旁。"
+        },
+        {
+          "t": "The woman is tying her shoes.",
+          "zh": "這名女子正在綁鞋帶。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "tying 與 typing 音近，但畫面中她是在打字，沒有在綁鞋帶。"
+        },
+        {
+          "t": "Two women are talking at the desk.",
+          "zh": "兩名女子正在書桌旁交談。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "畫面中只有一名女子，而且她是在使用筆電。"
+        },
+        {
+          "t": "The woman is making copies of some papers.",
+          "zh": "這名女子正在影印一些文件。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有影印機，她是在使用筆電。"
+        },
+        {
+          "t": "The woman is waiting for a meeting to start.",
+          "zh": "這名女子正在等會議開始。",
+          "ok": false,
+          "trap": "over-inference",
+          "why": "畫面看不出她在等會議，她正在打字，這是過度推論。"
+        },
+        {
+          "t": "The woman is carrying a box across the room.",
+          "zh": "這名女子正抱著箱子走過房間。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "女子坐在桌前，沒有搬箱子。"
+        }
       ],
       "vocab": [
         {
@@ -313,9 +434,8 @@
       "issues": []
     },
     {
-      "id": "p1s1q2",
-      "set": 1,
-      "no": 2,
+      "id": "d2-001-e",
+      "image": "images/d2-001.jpg",
       "photo_type": "single",
       "scene": "restaurant",
       "focus": "action",
@@ -327,38 +447,97 @@
         "tier": "easy",
         "why": "單人動作題，一句一個動作，字彙為常見餐飲用語，四句差異明顯。"
       },
-      "image": "images/p1s1q2.jpg",
-      "audio": "audio/p1s1q2.mp3",
       "image_prompt": "A realistic photograph of a man in a dark apron walking through a bright, tidy restaurant while carrying a round tray with two plates of food, a few empty tables with glasses in the background, warm natural window light, 4:3 landscape, hands clearly visible holding the tray, no text, logos or readable menus.",
       "visible_facts": [
         "One man wearing an apron is in a restaurant.",
         "He is carrying a tray with two plates of food.",
         "Empty tables with glasses are in the background."
       ],
-      "statements": [
-        "The man is reading a menu.",
-        "The man is washing a dish.",
-        "The man is carrying a tray.",
-        "The man is standing outside the restaurant."
-      ],
-      "zh": [
-        "這名男子正在看菜單。",
-        "這名男子正在洗盤子。",
-        "這名男子正端著托盤。",
-        "這名男子正站在餐廳外面。"
-      ],
-      "ans": 2,
-      "why": [
-        "畫面中沒有菜單，他也不是在看東西。",
-        "他手上拿的是裝食物的托盤，不是在洗盤子。",
-        "正解：男子雙手端著放有兩盤食物的托盤，與畫面相符。",
-        "他在餐廳室內，不是在餐廳外面。"
-      ],
-      "traps": [
-        "not-in-photo",
-        "wrong-action",
-        "correct",
-        "wrong-place-or-number"
+      "pool": [
+        {
+          "t": "The man is reading a menu.",
+          "zh": "這名男子正在看菜單。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有菜單，他也不是在看東西。"
+        },
+        {
+          "t": "The man is washing a dish.",
+          "zh": "這名男子正在洗盤子。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "他手上拿的是裝食物的托盤，不是在洗盤子。"
+        },
+        {
+          "t": "The man is carrying a tray.",
+          "zh": "這名男子正端著托盤。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：男子雙手端著放有兩盤食物的托盤，與畫面相符。"
+        },
+        {
+          "t": "The man is standing outside the restaurant.",
+          "zh": "這名男子正站在餐廳外面。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "他在餐廳室內，不是在餐廳外面。"
+        },
+        {
+          "t": "A man is carrying food on a tray.",
+          "zh": "一名男子正用托盤端著食物。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：男子端著放有食物的托盤，與畫面相符。"
+        },
+        {
+          "t": "The man is holding a tray with two plates.",
+          "zh": "這名男子正拿著放有兩個盤子的托盤。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：托盤上有兩盤食物，與畫面相符。"
+        },
+        {
+          "t": "The man is cooking at a stove.",
+          "zh": "這名男子正在爐子前煮菜。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "他手上端著托盤，畫面中沒有爐子，也沒有煮菜的動作。"
+        },
+        {
+          "t": "The man is sitting at an empty table.",
+          "zh": "這名男子正坐在一張空桌旁。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "他正端著托盤，沒有坐在桌旁。"
+        },
+        {
+          "t": "The man is boarding a train.",
+          "zh": "這名男子正在上火車。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "train 與 tray 音近，但畫面是在餐廳，他端的是托盤。"
+        },
+        {
+          "t": "Two waiters are carrying food on trays.",
+          "zh": "兩名服務生正用托盤端著食物。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "畫面中只有一名男子，不是兩名。"
+        },
+        {
+          "t": "Some customers are eating at the tables.",
+          "zh": "一些顧客正在桌邊用餐。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "背景的桌子是空的，沒有顧客在用餐。"
+        },
+        {
+          "t": "The man is serving dinner to a large group.",
+          "zh": "這名男子正為一大群人上晚餐。",
+          "ok": false,
+          "trap": "over-inference",
+          "why": "畫面中沒有一大群人，也無法確定是晚餐，這是過度推論。"
+        }
       ],
       "vocab": [
         {
@@ -379,9 +558,8 @@
       "issues": []
     },
     {
-      "id": "p1s1q3",
-      "set": 1,
-      "no": 3,
+      "id": "d3-001-e",
+      "image": "images/d3-001.jpg",
       "photo_type": "multi",
       "scene": "store",
       "focus": "action",
@@ -393,8 +571,6 @@
         "tier": "easy",
         "why": "雙人動作題，句型為基本現在進行式；干擾項含 clothes／closing 音近字。"
       },
-      "image": "images/p1s1q3.jpg",
-      "audio": "audio/p1s1q3.mp3",
       "image_prompt": "A realistic photograph of two women standing side by side in a bright clothing store, both looking at shirts hanging on a clothing rack, one woman holding up a shirt, 4:3 landscape, no cash register, no shopping cart, no text, logos or price tags visible.",
       "visible_facts": [
         "Two women are standing in a clothing store.",
@@ -402,30 +578,91 @@
         "One woman is holding up a shirt.",
         "There is no cash register or shopping cart."
       ],
-      "statements": [
-        "The women are paying at the counter.",
-        "The women are looking at some clothes.",
-        "The women are closing the store.",
-        "The women are pushing a shopping cart."
-      ],
-      "zh": [
-        "這兩名女子正在櫃檯結帳。",
-        "這兩名女子正在看一些衣服。",
-        "這兩名女子正在關店。",
-        "這兩名女子正推著購物車。"
-      ],
-      "ans": 1,
-      "why": [
-        "畫面中沒有櫃檯，也沒有人在付錢。",
-        "正解：兩名女子面對衣架看衣服，與畫面相符。",
-        "closing 與 clothes 音近，但畫面中沒有人在關店。",
-        "畫面中沒有購物車。"
-      ],
-      "traps": [
-        "wrong-action",
-        "correct",
-        "sound-alike",
-        "not-in-photo"
+      "pool": [
+        {
+          "t": "The women are paying at the counter.",
+          "zh": "這兩名女子正在櫃檯結帳。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有櫃檯，也沒有人在付錢。"
+        },
+        {
+          "t": "The women are looking at some clothes.",
+          "zh": "這兩名女子正在看一些衣服。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：兩名女子面對衣架看衣服，與畫面相符。"
+        },
+        {
+          "t": "The women are closing the store.",
+          "zh": "這兩名女子正在關店。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "closing 與 clothes 音近，但畫面中沒有人在關店。"
+        },
+        {
+          "t": "The women are pushing a shopping cart.",
+          "zh": "這兩名女子正推著購物車。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有購物車。"
+        },
+        {
+          "t": "Two women are looking at a rack of clothes.",
+          "zh": "兩名女子正在看衣架上的衣服。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：兩名女子面對衣架看衣服，與畫面相符。"
+        },
+        {
+          "t": "One of the women is holding up a shirt.",
+          "zh": "其中一名女子正舉著一件襯衫。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：其中一人舉起一件襯衫，與畫面相符。"
+        },
+        {
+          "t": "The women are trying on shoes.",
+          "zh": "這兩名女子正在試穿鞋子。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "她們是在看衣架上的衣服，不是在試穿鞋子。"
+        },
+        {
+          "t": "Three women are looking at clothes.",
+          "zh": "三名女子正在看衣服。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "畫面中是兩名女子，不是三名。"
+        },
+        {
+          "t": "A cashier is scanning the clothes.",
+          "zh": "一名收銀員正在掃描衣服。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有收銀員，也沒有收銀台。"
+        },
+        {
+          "t": "One woman is folding a shirt.",
+          "zh": "其中一名女子正在摺襯衫。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "folding 與 holding 音近，但她是把襯衫舉起來看，不是在摺。"
+        },
+        {
+          "t": "The women are buying clothes for a party.",
+          "zh": "這兩名女子正在為派對買衣服。",
+          "ok": false,
+          "trap": "over-inference",
+          "why": "畫面看不出她們在買東西，也無法得知是為了派對，這是過度推論。"
+        },
+        {
+          "t": "The women are sitting on a sofa.",
+          "zh": "這兩名女子正坐在沙發上。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "她們是站著看衣服，不是坐在沙發上。"
+        }
       ],
       "vocab": [
         {
@@ -446,9 +683,8 @@
       "issues": []
     },
     {
-      "id": "p1s1q4",
-      "set": 1,
-      "no": 4,
+      "id": "d4-001-e",
+      "image": "images/d4-001.jpg",
       "photo_type": "multi",
       "scene": "street",
       "focus": "action",
@@ -460,8 +696,6 @@
         "tier": "easy",
         "why": "多人動作題，動作單一明確；干擾項含 walking／working 音近字。"
       },
-      "image": "images/p1s1q4.jpg",
-      "audio": "audio/p1s1q4.mp3",
       "image_prompt": "A realistic photograph of two people walking across a zebra crosswalk on a quiet city street in daylight, a few buildings and trees in the background, no bicycles and no buses, natural light, 4:3 landscape, simple clear arm and leg positions, no text, signs or logos.",
       "visible_facts": [
         "Two people are walking across a crosswalk.",
@@ -469,30 +703,91 @@
         "Buildings and trees are in the background.",
         "There are no bicycles or buses."
       ],
-      "statements": [
-        "Some people are riding bicycles along the road.",
-        "Some people are waiting for a bus.",
-        "Some people are working on the road.",
-        "Some people are crossing the street."
-      ],
-      "zh": [
-        "有些人正沿著馬路騎腳踏車。",
-        "有些人正在等公車。",
-        "有些人正在馬路上工作。",
-        "有些人正在過馬路。"
-      ],
-      "ans": 3,
-      "why": [
-        "畫面中沒有腳踏車，大家是用走的。",
-        "畫面中沒有公車或公車站，等公車是過度推論。",
-        "working 與 walking 音近，但畫面中沒有人在施工或工作。",
-        "正解：人們正走過斑馬線穿越街道，與畫面相符。"
-      ],
-      "traps": [
-        "wrong-action",
-        "over-inference",
-        "sound-alike",
-        "correct"
+      "pool": [
+        {
+          "t": "Some people are riding bicycles along the road.",
+          "zh": "有些人正沿著馬路騎腳踏車。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有腳踏車，大家是用走的。"
+        },
+        {
+          "t": "Some people are waiting for a bus.",
+          "zh": "有些人正在等公車。",
+          "ok": false,
+          "trap": "over-inference",
+          "why": "畫面中沒有公車或公車站，等公車是過度推論。"
+        },
+        {
+          "t": "Some people are working on the road.",
+          "zh": "有些人正在馬路上工作。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "working 與 walking 音近，但畫面中沒有人在施工或工作。"
+        },
+        {
+          "t": "Some people are crossing the street.",
+          "zh": "有些人正在過馬路。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：人們正走過斑馬線穿越街道，與畫面相符。"
+        },
+        {
+          "t": "Two people are walking across the street.",
+          "zh": "兩個人正走過馬路。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：兩個人走在斑馬線上穿越街道，與畫面相符。"
+        },
+        {
+          "t": "Some pedestrians are using a crosswalk.",
+          "zh": "一些行人正在使用斑馬線。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：行人走在斑馬線上，與畫面相符。"
+        },
+        {
+          "t": "A bus is stopped at the corner.",
+          "zh": "一輛公車停在轉角。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有公車。"
+        },
+        {
+          "t": "Some people are climbing a ladder.",
+          "zh": "一些人正在爬梯子。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有梯子，大家是走在斑馬線上。"
+        },
+        {
+          "t": "Three people are crossing the street.",
+          "zh": "三個人正在過馬路。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "畫面中是兩個人，不是三個人。"
+        },
+        {
+          "t": "Some people are walking along a beach.",
+          "zh": "一些人正沿著海灘走。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "畫面是城市街道，不是海灘。"
+        },
+        {
+          "t": "Some people are doing a crossword puzzle.",
+          "zh": "一些人正在玩填字遊戲。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "crossword 與 crosswalk 音近，但畫面中沒有人在玩填字遊戲。"
+        },
+        {
+          "t": "Some people are hurrying to get to work.",
+          "zh": "一些人正趕著去上班。",
+          "ok": false,
+          "trap": "over-inference",
+          "why": "無法從畫面得知他們在趕時間或要去上班，這是過度推論。"
+        }
       ],
       "vocab": [
         {
@@ -513,9 +808,8 @@
       "issues": []
     },
     {
-      "id": "p1s1q5",
-      "set": 1,
-      "no": 5,
+      "id": "d5-001-e",
+      "image": "images/d5-001.jpg",
       "photo_type": "none",
       "scene": "workplace",
       "focus": "location",
@@ -527,8 +821,6 @@
         "tier": "easy",
         "why": "無人物題，但只用簡單被動與位置描述，四句差異明顯。"
       },
-      "image": "images/p1s1q5.jpg",
-      "audio": "audio/p1s1q5.mp3",
       "image_prompt": "A realistic photograph of a clean warehouse aisle with tall metal shelves, plain cardboard boxes stacked neatly on the shelves, an empty aisle with no people, no trucks and no forklifts, bright even lighting, 4:3 landscape, no text, labels or logos on the boxes.",
       "visible_facts": [
         "Tall metal shelves line a warehouse aisle.",
@@ -536,30 +828,91 @@
         "No people are visible.",
         "There are no trucks or forklifts."
       ],
-      "statements": [
-        "The boxes are stacked on the shelves.",
-        "The boxes are being loaded onto a truck.",
-        "The boxes are hanging from the ceiling.",
-        "The workers are moving the boxes."
-      ],
-      "zh": [
-        "紙箱被堆放在貨架上。",
-        "紙箱正被裝上卡車。",
-        "紙箱被吊在天花板上。",
-        "工人們正在搬運紙箱。"
-      ],
-      "ans": 0,
-      "why": [
-        "正解：紙箱整齊堆放在貨架上，與畫面相符。",
-        "畫面中沒有卡車，也沒有裝載的動作。",
-        "紙箱在貨架上，不是吊在天花板上。",
-        "畫面中沒有任何人，沒有工人在搬東西。"
-      ],
-      "traps": [
-        "correct",
-        "not-in-photo",
-        "wrong-place-or-number",
-        "not-in-photo"
+      "pool": [
+        {
+          "t": "The boxes are stacked on the shelves.",
+          "zh": "紙箱被堆放在貨架上。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：紙箱整齊堆放在貨架上，與畫面相符。"
+        },
+        {
+          "t": "The boxes are being loaded onto a truck.",
+          "zh": "紙箱正被裝上卡車。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有卡車，也沒有裝載的動作。"
+        },
+        {
+          "t": "The boxes are hanging from the ceiling.",
+          "zh": "紙箱被吊在天花板上。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "紙箱在貨架上，不是吊在天花板上。"
+        },
+        {
+          "t": "The workers are moving the boxes.",
+          "zh": "工人們正在搬運紙箱。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有任何人，沒有工人在搬東西。"
+        },
+        {
+          "t": "Boxes have been placed on the metal shelves.",
+          "zh": "紙箱被放在金屬貨架上。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：紙箱放在金屬貨架上，與畫面相符。"
+        },
+        {
+          "t": "Some cardboard boxes are piled on the shelves.",
+          "zh": "一些紙箱堆在貨架上。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：紙箱堆在貨架上，與畫面相符。"
+        },
+        {
+          "t": "A forklift is lifting the boxes.",
+          "zh": "一輛堆高機正在抬起紙箱。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有堆高機。"
+        },
+        {
+          "t": "The metal shelves are being repaired.",
+          "zh": "金屬貨架正在被修理。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有人，也沒有修理貨架的動作。"
+        },
+        {
+          "t": "Some workers are wearing safety helmets.",
+          "zh": "一些工人戴著安全帽。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有任何人。"
+        },
+        {
+          "t": "Some boats are stored in the warehouse.",
+          "zh": "一些船被存放在倉庫裡。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "boats 與 boxes 音近，但畫面中是紙箱，不是船。"
+        },
+        {
+          "t": "The shelves are standing in an open field.",
+          "zh": "貨架立在空曠的田野裡。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "貨架在倉庫室內，不是在戶外的田野。"
+        },
+        {
+          "t": "The boxes are ready to be shipped.",
+          "zh": "這些紙箱已準備好出貨。",
+          "ok": false,
+          "trap": "over-inference",
+          "why": "無法從畫面確認紙箱是否準備出貨，這是過度推論。"
+        }
       ],
       "vocab": [
         {
@@ -587,9 +940,8 @@
       "issues": []
     },
     {
-      "id": "p1s1q6",
-      "set": 1,
-      "no": 6,
+      "id": "d6-001-e",
+      "image": "images/d6-001.jpg",
       "photo_type": "none",
       "scene": "hotel",
       "focus": "location",
@@ -601,8 +953,6 @@
         "tier": "easy",
         "why": "無人物題，只考簡單位置介系詞 beside，其餘干擾項明顯不符。"
       },
-      "image": "images/p1s1q6.jpg",
-      "audio": "audio/p1s1q6.mp3",
       "image_prompt": "A realistic photograph of a tidy hotel room with a made bed with white pillows, a small table lamp on a nightstand beside the bed, plain walls with no windows, no suitcase and no people, soft warm lighting, 4:3 landscape, no text or logos.",
       "visible_facts": [
         "A made bed with white pillows is in a hotel room.",
@@ -610,30 +960,91 @@
         "No people are visible.",
         "There is no suitcase in the room."
       ],
-      "statements": [
-        "The lamp is on the floor.",
-        "There is a suitcase on the bed.",
-        "A lamp is beside the bed.",
-        "A guest is sleeping in the bed."
-      ],
-      "zh": [
-        "檯燈放在地板上。",
-        "床上有一個行李箱。",
-        "床邊有一盞檯燈。",
-        "一位房客正睡在床上。"
-      ],
-      "ans": 2,
-      "why": [
-        "檯燈在床頭櫃上，不在地板上。",
-        "床上沒有行李箱。",
-        "正解：檯燈放在床邊的床頭櫃上，與畫面相符。",
-        "床上沒有人，也沒有人在睡覺。"
-      ],
-      "traps": [
-        "wrong-place-or-number",
-        "not-in-photo",
-        "correct",
-        "not-in-photo"
+      "pool": [
+        {
+          "t": "The lamp is on the floor.",
+          "zh": "檯燈放在地板上。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "檯燈在床頭櫃上，不在地板上。"
+        },
+        {
+          "t": "There is a suitcase on the bed.",
+          "zh": "床上有一個行李箱。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "床上沒有行李箱。"
+        },
+        {
+          "t": "A lamp is beside the bed.",
+          "zh": "床邊有一盞檯燈。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：檯燈放在床邊的床頭櫃上，與畫面相符。"
+        },
+        {
+          "t": "A guest is sleeping in the bed.",
+          "zh": "一位房客正睡在床上。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "床上沒有人，也沒有人在睡覺。"
+        },
+        {
+          "t": "The bed in the room has been made.",
+          "zh": "房間裡的床已經鋪好了。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：床已經整理好，與畫面相符。"
+        },
+        {
+          "t": "A lamp is placed on a nightstand.",
+          "zh": "一盞檯燈放在床頭櫃上。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：檯燈放在床頭櫃上，與畫面相符。"
+        },
+        {
+          "t": "The pillows are lying on the floor.",
+          "zh": "枕頭放在地板上。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "枕頭在床上，不在地板上。"
+        },
+        {
+          "t": "A guest is reading a newspaper.",
+          "zh": "一位房客正在看報紙。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有人，也沒有人在看報紙。"
+        },
+        {
+          "t": "Two lamps are hanging above the bed.",
+          "zh": "兩盞燈掛在床的上方。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "畫面中只有一盞檯燈，放在床頭櫃上，不是掛著。"
+        },
+        {
+          "t": "A maid is changing the sheets.",
+          "zh": "一位清潔人員正在換床單。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有人，床也已經鋪好了。"
+        },
+        {
+          "t": "Some bread has been placed on the bed.",
+          "zh": "一些麵包被放在床上。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "bread 與 bed 音近，但畫面中床上沒有麵包。"
+        },
+        {
+          "t": "The room is ready for the next guest.",
+          "zh": "這間房間已準備好迎接下一位房客。",
+          "ok": false,
+          "trap": "over-inference",
+          "why": "無法從畫面確認房間是否準備迎接房客，這是過度推論。"
+        }
       ],
       "vocab": [
         {
@@ -661,9 +1072,8 @@
       "issues": []
     },
     {
-      "id": "p1s2q1",
-      "set": 2,
-      "no": 1,
+      "id": "d7-001-e",
+      "image": "images/d7-001.jpg",
       "photo_type": "single",
       "scene": "outdoor",
       "focus": "action",
@@ -675,8 +1085,6 @@
         "tier": "easy",
         "why": "單人動作題，一句一個動作，字彙為日常園藝用語，四句差異明顯。"
       },
-      "image": "images/p1s2q1.jpg",
-      "audio": "audio/p1s2q1.mp3",
       "image_prompt": "A realistic photograph of a woman standing in a sunny garden, watering colorful flowers with a metal watering can, green grass around her, no dog and no bench, natural daylight, 4:3 landscape, hands and watering can clearly visible, no text or logos.",
       "visible_facts": [
         "One woman is standing in a garden.",
@@ -684,30 +1092,91 @@
         "Green grass is around her.",
         "There is no dog or bench."
       ],
-      "statements": [
-        "The woman is cutting the grass.",
-        "The woman is watering some flowers.",
-        "The woman is walking her dog.",
-        "The woman is sitting on a bench."
-      ],
-      "zh": [
-        "這名女子正在割草。",
-        "這名女子正在幫一些花澆水。",
-        "這名女子正在遛狗。",
-        "這名女子正坐在長椅上。"
-      ],
-      "ans": 1,
-      "why": [
-        "畫面中沒有割草機或割草的動作。",
-        "正解：女子拿著澆花器替花澆水，與畫面相符。",
-        "畫面中沒有狗。",
-        "畫面中沒有長椅，她是站著的。"
-      ],
-      "traps": [
-        "wrong-action",
-        "correct",
-        "not-in-photo",
-        "wrong-action"
+      "pool": [
+        {
+          "t": "The woman is cutting the grass.",
+          "zh": "這名女子正在割草。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有割草機或割草的動作。"
+        },
+        {
+          "t": "The woman is watering some flowers.",
+          "zh": "這名女子正在幫一些花澆水。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：女子拿著澆花器替花澆水，與畫面相符。"
+        },
+        {
+          "t": "The woman is walking her dog.",
+          "zh": "這名女子正在遛狗。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有狗。"
+        },
+        {
+          "t": "The woman is sitting on a bench.",
+          "zh": "這名女子正坐在長椅上。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有長椅，她是站著的。"
+        },
+        {
+          "t": "The woman is watering plants in a garden.",
+          "zh": "這名女子正在花園裡替植物澆水。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：女子在花園裡澆水，與畫面相符。"
+        },
+        {
+          "t": "A woman is using a watering can outdoors.",
+          "zh": "一名女子正在戶外使用澆花器。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：女子拿著澆花器，與畫面相符。"
+        },
+        {
+          "t": "The woman is digging a hole with a shovel.",
+          "zh": "這名女子正用鏟子挖洞。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有鏟子，她是在澆水。"
+        },
+        {
+          "t": "Two women are working in the garden.",
+          "zh": "兩名女子正在花園裡工作。",
+          "ok": false,
+          "trap": "wrong-place-or-number",
+          "why": "畫面中只有一名女子。"
+        },
+        {
+          "t": "The woman is riding a bicycle.",
+          "zh": "這名女子正在騎腳踏車。",
+          "ok": false,
+          "trap": "not-in-photo",
+          "why": "畫面中沒有腳踏車。"
+        },
+        {
+          "t": "The woman is waiting for her friends.",
+          "zh": "這名女子正在等她的朋友。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "waiting 與 watering 音近，但她是在澆水，不是在等人。"
+        },
+        {
+          "t": "The woman is growing vegetables for sale.",
+          "zh": "這名女子正在種蔬菜來賣。",
+          "ok": false,
+          "trap": "over-inference",
+          "why": "無法從畫面得知她種的是蔬菜或要拿去賣，這是過度推論。"
+        },
+        {
+          "t": "The woman is hanging laundry outside.",
+          "zh": "這名女子正在外面晾衣服。",
+          "ok": false,
+          "trap": "wrong-action",
+          "why": "畫面中沒有衣服，她是在澆花。"
+        }
       ],
       "vocab": [
         {
