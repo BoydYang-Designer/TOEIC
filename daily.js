@@ -12,9 +12,9 @@ const THEMES = [
 /* 題庫資料 */
 
 
-/* 題庫資料由 data.json 載入（生成規則見 data.json 的 _spec，題目在 items） */
+/* 題庫資料由 daily.json 載入（生成規則見 daily.json 的 _spec，題目在 items） */
 let DATA = [];
-const itemsOf = j => Array.isArray(j) ? j : (j && j.items) || []; // data.json 可為陣列，或 { _spec, items }
+const itemsOf = j => Array.isArray(j) ? j : (j && j.items) || []; // daily.json 可為陣列，或 { _spec, items }
 
 /* 狀態管理 */
 const KEY = 'toeicCoachV2';
@@ -106,7 +106,7 @@ function spHtml(id) {
     ${mine ? `<span class="text-xs text-slate-400">${Sp.mode === 'audio' ? '音檔' : '語音合成'}</span>` : ''}`;
 }
 function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll('#passage-text .tsent.active').forEach(e => e.classList.remove('active')); }
-function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 data.json 的 timing）
+function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily.json 的 timing）
   const x = DATA.find(d => idOf(d) === id); if (!x || !x.timing) return;
   let idx = -1;
   x.timing.forEach((s, i) => { if (s.start <= t + 0.05) idx = i; });
@@ -140,7 +140,7 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) spSto
 window.addEventListener('pagehide', () => { try { speechSynthesis.cancel(); } catch(e) {} });
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-/* 多益等級標籤（資料來自 data.json 的 level 欄位）：<650 綠、650–749 琥珀、≥750 玫瑰紅 */
+/* 多益等級標籤（資料來自 daily.json 的 level 欄位）：<650 綠、650–749 琥珀、≥750 玫瑰紅 */
 function lvColor(sc) {
   return sc < 650 ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
     : sc < 750 ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
@@ -253,7 +253,7 @@ function renderDay() {
   if (!x) {
     main.innerHTML = `<div class="${card} p-12 text-center text-slate-500">
       <h3 class="text-lg font-bold mb-2">此日內容尚未建置</h3>
-      <p class="text-sm">請在 data.json 新增 week:${cur.w}, day:${cur.d} 的資料。</p>
+      <p class="text-sm">請在 daily.json 新增 week:${cur.w}, day:${cur.d} 的資料。</p>
     </div>`;
     return;
   }
@@ -579,10 +579,10 @@ function toggleDark() {
 
 const side = document.getElementById('side'), main = document.getElementById('main');
 
-/* 啟動：讀取 data.json 後渲染；雙擊開啟（file://）時改用手動選取檔案 */
+/* 啟動：讀取 daily.json 後渲染；雙擊開啟（file://）時改用手動選取檔案 */
 function loadFromText(t) {
   try { DATA = itemsOf(JSON.parse(t)); if (isMobile()) cur.view = 'home'; render(); }
-  catch (e) { alert('data.json 格式有誤：' + e.message); }
+  catch (e) { alert('daily.json 格式有誤：' + e.message); }
 }
 function pickJson(input) {
   const f = input.files[0]; if (!f) return;
@@ -590,18 +590,18 @@ function pickJson(input) {
 }
 async function boot() {
   try {
-    const res = await fetch('data.json', { cache: 'no-store' });
+    const res = await fetch('daily.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     DATA = itemsOf(await res.json());
     if (isMobile()) cur.view = 'home';
     render();
   } catch (e) {
     main.innerHTML = `<div class="${card} p-8 text-center">
-      <h3 class="text-lg font-bold mb-2">請選取 data.json</h3>
-      <p class="text-sm text-slate-500 leading-relaxed mb-4">目前是直接雙擊開啟網頁（file://），瀏覽器不允許自動讀取 data.json。<br>
-      請點下方按鈕，選擇同資料夾的 data.json 即可開始使用。<br>
+      <h3 class="text-lg font-bold mb-2">請選取 daily.json</h3>
+      <p class="text-sm text-slate-500 leading-relaxed mb-4">目前是直接雙擊開啟網頁（file://），瀏覽器不允許自動讀取 daily.json。<br>
+      請點下方按鈕，選擇同資料夾的 daily.json 即可開始使用。<br>
       上傳到 GitHub Pages 或用本機伺服器開啟時，會自動載入，不需要手動選取。</p>
-      <label class="${btn} inline-block bg-indigo-600 text-white">選取 data.json
+      <label class="${btn} inline-block bg-indigo-600 text-white">選取 daily.json
         <input type="file" accept=".json,application/json" class="hidden" onchange="pickJson(this)"></label></div>`;
     renderSide();
   }

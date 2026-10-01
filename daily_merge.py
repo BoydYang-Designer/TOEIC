@@ -3,10 +3,10 @@
 """
 TOEIC Daily Coach ─ 題庫合併工具
 
-用法：把這支程式放在 data.json 同一個資料夾，雙擊執行。
-  1. 自動找出主檔 data.json，並列出同資料夾內其他 .json（例如 w1d3.json）作為副檔。
+用法：把這支程式放在 daily.json 同一個資料夾，雙擊執行。
+  1. 自動找出主檔 daily.json，並列出同資料夾內其他 .json（例如 w1d3.json）作為副檔。
   2. 在清單中選取要合併的副檔（可多選：Ctrl / Shift），找不到的可用「新增檔案…」手動加入。
-  3. 按「合併」→ 確認 → 寫回 data.json（寫入前自動備份到 backup 資料夾）。
+  3. 按「合併」→ 確認 → 寫回 daily.json（寫入前自動備份到 backup 資料夾）。
 副檔可以是：單筆題目、題目陣列、或含 items 的物件；AI 貼出的 ```json 圍欄也能自動處理。
 """
 import json
@@ -18,7 +18,7 @@ import traceback
 from datetime import datetime
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-MAIN_NAME = 'data.json'
+MAIN_NAME = 'daily.json'
 NAME_RE = re.compile(r'^w(\d+)d(\d+)', re.I)
 
 
@@ -225,7 +225,7 @@ def analyze(path):
 def backup_main(main_path):
     d = os.path.join(os.path.dirname(main_path), 'backup')
     os.makedirs(d, exist_ok=True)
-    dst = os.path.join(d, 'data_%s.json' % datetime.now().strftime('%Y%m%d_%H%M%S'))
+    dst = os.path.join(d, 'daily_%s.json' % datetime.now().strftime('%Y%m%d_%H%M%S'))
     shutil.copy2(main_path, dst)
     return dst
 
@@ -376,7 +376,7 @@ def run_gui():
         main_var.set(p if p else '（尚未選擇）')
 
     def choose_main():
-        p = filedialog.askopenfilename(parent=root, title='選擇主檔 data.json', initialdir=BASE,
+        p = filedialog.askopenfilename(parent=root, title='選擇主檔 daily.json', initialdir=BASE,
                                        filetypes=[('JSON', '*.json'), ('所有檔案', '*.*')])
         if p:
             set_main(os.path.abspath(p))
@@ -494,7 +494,7 @@ def run_gui():
     # 合併
     def do_merge():
         if not st['main']:
-            messagebox.showwarning('尚未選擇主檔', '請先按「更換主檔…」選擇 data.json。', parent=root)
+            messagebox.showwarning('尚未選擇主檔', '請先按「更換主檔…」選擇 daily.json。', parent=root)
             return
         data, items, err = load_main()
         if err:

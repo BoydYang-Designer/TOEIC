@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-add_timestamps.py — 為 TOEIC Daily Coach 的 mp3 產生「句子時間戳記」並寫入 data.json
+add_timestamps.py — 為 TOEIC Daily Coach 的 mp3 產生「句子時間戳記」並寫入 daily.json
 
-使用方式：雙擊執行 → 選擇 mp3（檔名如 w1d1.mp3）→ 選擇 data.json
-原理：用 faster-whisper 聽出每個字的時間，再與 data.json 裡該天的 passage 對齊，
+使用方式：雙擊執行 → 選擇 mp3（檔名如 w1d1.mp3）→ 選擇 daily.json
+原理：用 faster-whisper 聽出每個字的時間，再與 daily.json 裡該天的 passage 對齊，
       只在對應那一天新增／更新 "timing" 欄位，其他資料一律不動。
 第一次執行會自動安裝 faster-whisper 並下載語音模型（約 150MB，需連網）。
 """
@@ -108,7 +108,7 @@ def main():
     mp3 = filedialog.askopenfilename(title="1/2 選擇 mp3 音檔", initialdir=here,
                                      filetypes=[("音檔", "*.mp3 *.wav *.m4a"), ("所有檔案", "*.*")])
     if not mp3: return print("已取消。")
-    jpath = filedialog.askopenfilename(title="2/2 選擇要寫入的 data.json", initialdir=here,
+    jpath = filedialog.askopenfilename(title="2/2 選擇要寫入的 daily.json", initialdir=here,
                                        filetypes=[("JSON", "*.json"), ("所有檔案", "*.*")])
     if not jpath: return print("已取消。")
 
@@ -119,20 +119,20 @@ def main():
         day = simpledialog.askinteger("天數", "請輸入 Day（1-7）：")
     with open(jpath, encoding="utf-8-sig") as f:
         data = json.load(f)
-    # data.json 可以是陣列，或含 _spec / items 的物件（目前格式）
+    # daily.json 可以是陣列，或含 _spec / items 的物件（目前格式）
     items = data if isinstance(data, list) else (data.get("items") if isinstance(data, dict) else None)
     if not isinstance(items, list):
-        return messagebox.showerror("格式錯誤", "data.json 需為陣列，或含 items 陣列的物件。")
+        return messagebox.showerror("格式錯誤", "daily.json 需為陣列，或含 items 陣列的物件。")
     entry = next((x for x in items if isinstance(x, dict) and x.get("week") == week and x.get("day") == day), None)
     if entry is None:
-        return messagebox.showerror("找不到資料", f"data.json 裡沒有 Week {week} Day {day}。")
+        return messagebox.showerror("找不到資料", f"daily.json 裡沒有 Week {week} Day {day}。")
     print(f"目標：Week {week} Day {day}｜{entry.get('tag', '')}")
 
     timing, report = align(entry["passage"], transcribe(mp3))
     print("\n對齊結果：")
     print("\n".join(report))
     if not timing:
-        return messagebox.showerror("對齊失敗", "沒有任何句子對得上，請確認 mp3 內容與 data.json 的英文文稿一致。")
+        return messagebox.showerror("對齊失敗", "沒有任何句子對得上，請確認 mp3 內容與 daily.json 的英文文稿一致。")
 
     bak = f"{jpath}.bak-{datetime.datetime.now():%Y%m%d-%H%M%S}"
     shutil.copy2(jpath, bak)
