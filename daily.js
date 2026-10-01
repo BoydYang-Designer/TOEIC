@@ -187,7 +187,7 @@ function renderSide() {
     <button onclick="toggleDark()" class="${btn} ${line}">${S.dark ? '☀ 淺色' : '☾ 深色'}</button>
   </div>
   <div class="grid grid-cols-4 gap-1 mb-4">
-    ${[1, 2, 3, 4].map(w => `<button onclick="setNavWeek(${w})" class="${btn} ${nw == w ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">W${w}</button>`).join('')}
+    ${Array.from({ length: Math.max(4, ...DATA.map(x => x.week)) + (addMode ? 1 : 0) }, (_, i) => i + 1).map(w => `<button onclick="setNavWeek(${w})" class="${btn} ${nw == w ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">W${w}</button>`).join('')}
   </div>
   <p class="text-xs text-slate-500 mb-2 font-medium">Week ${nw} · 7 大主題輪動</p>
   <nav class="space-y-1">`;
@@ -214,7 +214,7 @@ function renderSide() {
 
 /* 手機首頁：D1–D7 垂直（左，含主題標題）× W 週次水平（可左右捲動）；點交叉格直接進入內文 */
 function renderHome() {
-  const NW = Math.max(4, ...DATA.map(x => x.week)), ws = Array.from({ length: NW }, (_, i) => i + 1);
+  const NW = Math.max(4, ...DATA.map(x => x.week)) + (addMode ? 1 : 0), ws = Array.from({ length: NW }, (_, i) => i + 1);
   const last = S.last && find(S.last.w, S.last.d);
   let h = last ? `<button onclick="go(${last.week},${last.day})" class="w-full mb-4 rounded-xl px-4 py-3 text-left bg-indigo-600 text-white cursor-pointer">
       <span class="block text-xs text-indigo-100">▶ 繼續上次</span>

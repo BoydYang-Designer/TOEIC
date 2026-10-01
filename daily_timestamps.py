@@ -115,7 +115,7 @@ def main():
     m = re.search(r"w(\d+)d(\d+)", os.path.basename(mp3), re.I)
     if m: week, day = int(m.group(1)), int(m.group(2))
     else:
-        week = simpledialog.askinteger("週次", "檔名不是 w1d1 格式，請輸入 Week（1-4）：")
+        week = simpledialog.askinteger("週次", "檔名不是 w1d1 格式，請輸入 Week（例如 5）：")
         day = simpledialog.askinteger("天數", "請輸入 Day（1-7）：")
     with open(jpath, encoding="utf-8-sig") as f:
         data = json.load(f)
