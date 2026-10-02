@@ -53,8 +53,25 @@ let V = { view: 'home', pn: 10, fd: null, fm: null, fq: null, tt: null, tm: null
 /* ---------- 音訊：瀏覽器語音合成（問句與回答盡量用不同聲音）；iOS 必須在點擊當下解鎖 ---------- */
 const P = { tok: 0, playing: false, hint: '', started: false, unlocked: false, wd: 0, vq: null, va: null };
 const hasTTS = () => 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined';
+/* 挑聲音：優先 Tom（問句）與 Zoe（回答）的增強/高品質版；找不到就挑分數最高的美式英文，再不行才用任何英文 */
+const VOICE_BAD = /novelty|fred|albert|bad news|good news|bahh|bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|wobble|zarvox|junior|ralph|kathy|grandma|grandpa|eddy|flo|reed|rocko|sandy|shelley/i;
+function voiceScore(v) {
+  const n = v.name + ' ' + v.voiceURI; let s = 0;
+  if (/premium|enhanced|增強|高品質|進階|natural|online/i.test(n)) s += 10;
+  if (/google/i.test(n)) s += 5;
+  if (/^en[-_]US$/i.test(v.lang)) s += 3;
+  if (/^en[-_](IN|ZA|IE|SG|PH)$/i.test(v.lang)) s -= 5;
+  if (VOICE_BAD.test(v.name)) s -= 50;
+  return s;
+}
 function pickVoice() {
-  try { const vs = speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang)); P.vq = vs.find(v => /^en[-_]US$/i.test(v.lang)) || vs[0] || null; P.va = vs.find(v => v !== P.vq && /^en[-_](GB|AU|US)$/i.test(v.lang)) || null; } catch (e) {}
+  try {
+    const vs = speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang)).sort((a, b) => voiceScore(b) - voiceScore(a));
+    const byName = re => vs.find(v => /^en[-_]US$/i.test(v.lang) && re.test(v.name));
+    P.vq = byName(/\bTom\b/i) || vs[0] || null;
+    P.va = byName(/\bZoe\b/i) || vs.find(v => v !== P.vq && /^en[-_](GB|AU|US)$/i.test(v.lang)) || null;
+    if (P.va === P.vq) P.va = null;
+  } catch (e) {}
 }
 if (hasTTS()) { pickVoice(); try { speechSynthesis.addEventListener('voiceschanged', pickVoice); } catch (e) {} }
 function unlockTTS() { if (P.unlocked || !hasTTS()) return; P.unlocked = true; try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); } catch (e) {} }
@@ -70,7 +87,7 @@ function ttsPlay(x, tok) {
     if (tok !== P.tok) return;
     if (i >= parts.length) { P.playing = false; paintAudio(); return; }
     const q = parts[i++], u = new SpeechSynthesisUtterance(q.t);
-    u.lang = 'en-US'; u.rate = 0.9; if (q.v) u.voice = q.v; if (q.hi) u.pitch = 1.25;
+    u.lang = q.v ? q.v.lang : 'en-US'; u.rate = 0.9; if (q.v) u.voice = q.v; if (q.hi) u.pitch = 1.25;
     u.onstart = () => { P.started = true; };
     u.onend = () => setTimeout(next, q.g);
     u.onerror = e => { if (tok !== P.tok || e.error === 'interrupted' || e.error === 'canceled') return; failPlay(x, tok, '語音播放失敗（' + (e.error || 'error') + '），請再按一次播放。'); };

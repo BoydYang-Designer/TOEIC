@@ -26,16 +26,19 @@ const on=c=>`${btn} !py-1.5 ${c?'bg-indigo-600 text-white':'bg-slate-100 dark:bg
 const AU=new Set();AU.partial={};const P={tok:0,a:null,vs:[],on:false},T={id:null,k:0};
 async function auLoad(){try{const j=await(await fetch('audio/index.json',{cache:'no-store'})).json();((j.p4&&j.p4.complete)||[]).forEach(i=>AU.add(i));AU.partial=(j.p4&&j.p4.partial)||{}}catch(e){}}
 const hasTTS=()=>'speechSynthesis' in window&&typeof SpeechSynthesisUtterance!=='undefined';
-if(hasTTS()){const g=()=>{try{P.vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang))}catch(e){}};g();try{speechSynthesis.addEventListener('voiceschanged',g)}catch(e){}}
-const voiceFor=g=>g==='F'?P.vs.find(v=>/female|samantha|zira|karen|susan|hazel|jenny|aria|victoria/i.test(v.name)):P.vs.find(v=>/david|james|daniel|alex|fred|mark|george|guy|ryan|\bmale/i.test(v.name)&&!/female/i.test(v.name));
+const VBAD=/novelty|fred|albert|bad news|good news|bahh|bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|wobble|zarvox|junior|ralph|kathy|grandma|grandpa|eddy|flo|reed|rocko|sandy|shelley/i;
+const vsc=v=>{const n=v.name+' '+v.voiceURI;let s=0;if(/premium|enhanced|增強|高品質|進階|natural|online/i.test(n))s+=10;if(/google/i.test(n))s+=5;if(/^en[-_]US$/i.test(v.lang))s+=3;if(/^en[-_](IN|ZA|IE|SG|PH)$/i.test(v.lang))s-=5;if(VBAD.test(v.name))s-=50;return s};
+const isTZ=v=>!!v&&/\b(Tom|Zoe)\b/i.test(v.name);
+if(hasTTS()){const g=()=>{try{P.vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>vsc(b)-vsc(a))}catch(e){}};g();try{speechSynthesis.addEventListener('voiceschanged',g)}catch(e){}}
+const voiceFor=g=>{const us=P.vs.filter(v=>/^en[-_]US$/i.test(v.lang));return g==='F'?(us.find(v=>/\bZoe\b/i.test(v.name))||P.vs.find(v=>/female|samantha|zira|karen|susan|hazel|jenny|aria|victoria/i.test(v.name))):(us.find(v=>/\bTom\b/i.test(v.name))||P.vs.find(v=>/david|james|daniel|alex|fred|mark|george|guy|ryan|\bmale/i.test(v.name)&&!/female/i.test(v.name)))};
 function clr(){if(T.id){clearInterval(T.id);T.id=null}}
 function stop(){P.tok++;clr();if(P.a){P.a.pause();P.a=null}try{speechSynthesis.cancel()}catch(e){}paintBar(false)}
 function say(x,idx,tok,next){
   const l=x.script[idx],g=gOf(x)==='M'?'M':'F';
   const done=()=>{if(tok===P.tok)next()};
   if(!hasTTS())return done();
-  const u=new SpeechSynthesisUtterance(l.t);u.lang='en-US';const v=voiceFor(g)||P.vs[0];if(v)u.voice=v;
-  u.pitch=g==='F'?1.2:0.8;u.rate=.95;u.onend=()=>setTimeout(done,350);u.onerror=done;speechSynthesis.speak(u);
+  const u=new SpeechSynthesisUtterance(l.t);const v=voiceFor(g)||P.vs[0];u.lang=v?v.lang:'en-US';if(v)u.voice=v;
+  u.pitch=isTZ(v)?1:(g==='F'?1.2:0.8);u.rate=.95;u.onend=()=>setTimeout(done,350);u.onerror=done;speechSynthesis.speak(u);
 }
 /* 整段獨白一個 mp3：不分句播放；練習模式的句子高亮依字數比例估算。載入失敗自動改用 TTS。單句重播（點文稿）一律用 TTS。 */
 function playWhole(x,tok,cb){

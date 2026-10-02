@@ -73,8 +73,11 @@ const optOf=(x,k)=>k===0?{k,t:x.answer.t,zh:x.answer.zh,pos:x.answer.pos,ok:true
 const AU=new Set(),P={tok:0,a:new Audio(),vs:[],rate:1,rounds:3,on:false,cur:null,fr:null,w:null};
 async function auLoad(){try{const j=await(await fetch('audio/index.json',{cache:'no-store'})).json();((j.p5&&j.p5.complete)||[]).forEach(i=>AU.add(i))}catch(e){}}
 const hasTTS=()=>'speechSynthesis' in window&&typeof SpeechSynthesisUtterance!=='undefined';
-if(hasTTS()){const g=()=>{try{P.vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang))}catch(e){}};g();try{speechSynthesis.addEventListener('voiceschanged',g)}catch(e){}}
-const voiceFor=g=>g==='F'?P.vs.find(v=>/female|samantha|zira|karen|susan|hazel|jenny|aria|victoria/i.test(v.name)):P.vs.find(v=>/david|james|daniel|alex|fred|mark|george|guy|ryan|\bmale/i.test(v.name)&&!/female/i.test(v.name));
+const VBAD=/novelty|fred|albert|bad news|good news|bahh|bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|wobble|zarvox|junior|ralph|kathy|grandma|grandpa|eddy|flo|reed|rocko|sandy|shelley/i;
+const vsc=v=>{const n=v.name+' '+v.voiceURI;let s=0;if(/premium|enhanced|增強|高品質|進階|natural|online/i.test(n))s+=10;if(/google/i.test(n))s+=5;if(/^en[-_]US$/i.test(v.lang))s+=3;if(/^en[-_](IN|ZA|IE|SG|PH)$/i.test(v.lang))s-=5;if(VBAD.test(v.name))s-=50;return s};
+const isTZ=v=>!!v&&/\b(Tom|Zoe)\b/i.test(v.name);
+if(hasTTS()){const g=()=>{try{P.vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>vsc(b)-vsc(a))}catch(e){}};g();try{speechSynthesis.addEventListener('voiceschanged',g)}catch(e){}}
+const voiceFor=g=>{const us=P.vs.filter(v=>/^en[-_]US$/i.test(v.lang));return g==='F'?(us.find(v=>/\bZoe\b/i.test(v.name))||P.vs.find(v=>/female|samantha|zira|karen|susan|hazel|jenny|aria|victoria/i.test(v.name))):(us.find(v=>/\bTom\b/i.test(v.name))||P.vs.find(v=>/david|james|daniel|alex|fred|mark|george|guy|ryan|\bmale/i.test(v.name)&&!/female/i.test(v.name)))};
 function stop(){
   P.tok++;if(P.w){clearInterval(P.w);P.w=null}
   try{P.a.onended=null;P.a.onerror=null;P.a.pause()}catch(e){}
@@ -91,8 +94,8 @@ function speakOnce(x,rate,tok,done){
   }
   if(!hasTTS())return end();
   const u=new SpeechSynthesisUtterance(sayText(x)),g=x.voice==='M'?'M':'F';
-  u.lang='en-US';const v=voiceFor(g)||P.vs[0];if(v)u.voice=v;
-  u.pitch=g==='F'?1.2:0.8;u.rate=Math.max(.5,Math.min(2,.95*rate));u.onend=end;u.onerror=end;
+  const v=voiceFor(g)||P.vs[0];u.lang=v?v.lang:'en-US';if(v)u.voice=v;
+  u.pitch=isTZ(v)?1:(g==='F'?1.2:0.8);u.rate=Math.max(.5,Math.min(2,.95*rate));u.onend=end;u.onerror=end;
   try{speechSynthesis.speak(u)}catch(e){end()}
 }
 function playSent(id){
@@ -118,7 +121,7 @@ function follow(id,n){   // 跟讀：播放 → 靜音等待（句長×1.5）→
 }
 function speakWord(w){   // 單字發音只用機器發音
   stop();if(!hasTTS())return;
-  try{const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.9;const v=voiceFor('F')||P.vs[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}
+  try{const u=new SpeechSynthesisUtterance(w);const v=voiceFor('F')||P.vs[0];u.lang=v?v.lang:'en-US';u.rate=.9;if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}
 }
 const togglePlay=id=>{if(P.on&&!P.fr&&P.cur===id)stop();else playSent(id)};
 const toggleFollow=id=>{if(P.fr&&P.cur===id)stop();else follow(id,P.rounds)};

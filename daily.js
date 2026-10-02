@@ -31,9 +31,15 @@ const dyHas = x => !!(AU.idx && AU.idx.daily && (AU.idx.daily.complete || []).in
 const find = (w, d) => DATA.find(x => x.week == w && x.day == d);
 const L = 'ABCD';
 
+/* 聲音：優先 Zoe（增強/高品質），找不到就挑分數最高的英文語音 */
+const VBAD=/novelty|fred|albert|bad news|good news|bahh|bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|wobble|zarvox|junior|ralph|kathy|grandma|grandpa|eddy|flo|reed|rocko|sandy|shelley/i;
+const vsc=v=>{const n=v.name+' '+v.voiceURI;let s=0;if(/premium|enhanced|增強|高品質|進階|natural|online/i.test(n))s+=10;if(/google/i.test(n))s+=5;if(/^en[-_]US$/i.test(v.lang))s+=3;if(/^en[-_](IN|ZA|IE|SG|PH)$/i.test(v.lang))s-=5;if(VBAD.test(v.name))s-=50;return s};
+const isTZ=v=>!!v&&/\b(Tom|Zoe)\b/i.test(v.name);
+const bestVoice=()=>{try{const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>vsc(b)-vsc(a));return vs.find(v=>/^en[-_]US$/i.test(v.lang)&&/\bZoe\b/i.test(v.name))||vs[0]||null}catch(e){return null}};
+const setVoice=u=>{const v=bestVoice();u.lang=v?v.lang:'en-US';if(v)u.voice=v};
 const Sp = { hlIdx:-2, au:null, mode:'', id:null, text:'', st:'idle', offset:0, pos:0, gotB:false, t0:0, cps:0, tok:0, rate:0.9 };
 const speak = text => { // 單字發音（一次性，不含控制列）
-  try { spStop(); const u = new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=0.9; speechSynthesis.speak(u); }
+  try { spStop(); const u = new SpeechSynthesisUtterance(text); setVoice(u); u.rate=0.9; speechSynthesis.speak(u); }
   catch(e) { alert('您的瀏覽器不支援即時語音朗讀'); }
 };
 const spSnap = i => { while (i > 0 && !/\s/.test(Sp.text[i-1])) i--; return i; };
@@ -52,7 +58,7 @@ function spRun(from) {
     const tok = ++Sp.tok;
     from = Math.max(0, Math.min(from, Sp.text.length));
     const u = new SpeechSynthesisUtterance(Sp.text.slice(from));
-    u.lang = 'en-US'; u.rate = Sp.rate;
+    setVoice(u); u.rate = Sp.rate;
     Sp.offset = from; Sp.pos = from; Sp.gotB = false; Sp.t0 = Date.now(); Sp.st = 'playing';
     u.onboundary = e => { if (tok === Sp.tok) { Sp.gotB = true; Sp.pos = from + e.charIndex; } };
     u.onend = () => { if (tok === Sp.tok) { Sp.st = 'idle'; Sp.pos = 0; spUI(); } };
