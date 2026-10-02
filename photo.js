@@ -112,6 +112,7 @@ function unlockTTS() {
   try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); } catch (e) {}
 }
 function stopAudio() {
+  auStop();
   P.tok++; P.playing = false; clearTimeout(P.wd);
   if (P.au) { P.au.onerror = P.au.onended = null; P.au.pause(); P.au = null; }
   try { speechSynthesis.cancel(); } catch (e) {}
@@ -140,12 +141,19 @@ function ttsPlay(x, tok) {
   try { speechSynthesis.cancel(); setTimeout(next, 80); } // cancel 後稍等再 speak，避免部分瀏覽器吃掉第一句
   catch (e) { failPlay(x, tok, '語音合成啟動失敗，請再按一次播放。'); }
 }
+/* 整題 12 句 mp3 到齊（audio/index.json 判定）才走這裡：依抽到的順序播 A–D；中途失敗就從頭改用機器發音並記住這題 */
+function mp3Play(x, tok) {
+  const n = auNames('p1', x), sh = vw(x, shownOf(x)).sh;
+  auChain(sh.map(i => auSrc('p1', n.s[i])), [1500, 1500, 1500, 0], () => tok === P.tok,
+    () => { P.playing = false; paintAudio(); }, () => { if (tok !== P.tok) return; AU.bad['p1' + x.id] = 1; auStop(); ttsPlay(x, tok); });
+}
 function playQ() {
   const r = V.run, x = cx();
   if (!x || P.playing || (r.mode === 'mock' && r.played[x.id])) return;
   r.played[x.id] = 1; stopAudio(); P.hint = '';
   unlockTTS(); // 必須在點擊當下同步執行
   const tok = ++P.tok; P.playing = true;
+  if (!x._legacy && auFull('p1', x.id)) { mp3Play(x, tok); paintAudio(); return; }
   const src = x._legacy ? (x.audio || `audio/${x.id}.mp3`) : null; // pool 題目選項會隨機，不使用整題 mp3
   if (!src || P.bad[src]) { ttsPlay(x, tok); paintAudio(); return; }
   const au = new Audio(src); P.au = au; let fell = false;
@@ -590,6 +598,7 @@ function adminItemH() {
   if (x.image_prompt) h += `<details class="mt-3 text-xs text-slate-500"><summary class="cursor-pointer">出圖 prompt</summary><p class="mt-1 select-all">${esc(x.image_prompt)}</p></details>`;
   h += `<p class="text-xs font-bold mt-5 mb-2">題庫 12 句（網頁每次作答隨機抽 1 正確＋3 錯誤）</p><div class="space-y-1.5">${[...x._pool].sort((a, b) => (b.ok ? 1 : 0) - (a.ok ? 1 : 0)).map(poolRowH).join('')}</div>`;
   if (vocab) h += `<p class="mt-3 flex flex-wrap gap-1.5 items-center text-xs text-slate-500">單字：${vocab}</p>`;
+  h += auPanel('p1', x);
   if ((x.issues || []).length) h += `<p class="text-xs text-amber-600 mt-3">圖片備註：${x.issues.map(esc).join('；')}</p>`;
   const hs = hItems(x.id).filter(it => it.lv !== 'info'), noImg = IMG.st[x.id] === 'missing';
   if (hs.length || noImg) h += `<div class="mt-5 rounded-xl border border-slate-200 dark:border-slate-800 p-3"><p class="text-xs font-bold mb-1">此題健檢</p><ul class="text-xs space-y-0.5">`
@@ -692,6 +701,7 @@ function loadText(t) {
 }
 function pickJson(input) { const f = input.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => loadText(r.result); r.readAsText(f, 'utf-8'); }
 async function boot() {
+  await auLoad();
   try {
     const res = await fetch('photo.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);

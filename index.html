@@ -27,14 +27,14 @@ let S = {};
 try { S = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
 
 const ITEMS = [
-  { n: 1, icon: '📅', title: 'Daily practice', sub: '每日一篇 · 單字 · 隨堂測驗', href: 'daily.html' },
-  { n: 2, icon: '📷', title: '照片描述', sub: 'Part 1 · 分組模擬 · 陷阱分析', href: 'photo.html' },
-  { n: 3, icon: '💬', title: '應答問題', sub: 'Part 2' },
-  { n: 4, icon: '🗣️', title: '簡短對話', sub: 'Part 3' },
-  { n: 5, icon: '🎤', title: '簡短獨白', sub: 'Part 4' },
-  { n: 6, icon: '✏️', title: '句子填空', sub: 'Part 5' },
-  { n: 7, icon: '📝', title: '段落填空', sub: 'Part 6' },
-  { n: 8, icon: '📖', title: '閱讀理解', sub: 'Part 7' }
+  { icon: '📅', title: 'Daily practice', sub: '每日一篇 · 單字 · 隨堂測驗', href: 'daily.html' },
+  { tag: 'Part 1', icon: '📷', title: '照片描述', en: 'Photographs', sub: '分組模擬 · 陷阱分析', href: 'photo.html' },
+  { tag: 'Part 2', icon: '💬', title: '應答問題', en: 'Question-Response', sub: '題型分類 · 陷阱分析', href: 'part2.html' },
+  { tag: 'Part 3', icon: '🗣️', title: '簡短對話', en: 'Conversations' },
+  { tag: 'Part 4', icon: '🎤', title: '簡短獨白', en: 'Talks' },
+  { tag: 'Part 5', icon: '✏️', title: '句子填空', en: 'Incomplete Sentences' },
+  { tag: 'Part 6', icon: '📝', title: '段落填空', en: 'Text Completion' },
+  { tag: 'Part 7', icon: '📖', title: '閱讀理解', en: 'Reading Comprehension' }
 ];
 
 const base = 'rounded-xl border p-4 md:p-5 flex items-center gap-4 ';
@@ -42,9 +42,9 @@ document.getElementById('grid').innerHTML = ITEMS.map(x => {
   const inner = `
     <div class="text-3xl shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800">${x.icon}</div>
     <div class="flex-1 min-w-0">
-      <div class="text-xs text-slate-400 font-semibold">${x.n}</div>
-      <div class="font-bold text-base md:text-lg leading-tight">${x.title}</div>
-      <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">${x.sub}</div>
+      ${x.tag ? `<div class="text-xs text-slate-400 font-semibold">${x.tag}</div>` : ''}
+      <div class="font-bold text-base md:text-lg leading-tight">${x.title}${x.en ? ` <span class="text-sm font-normal text-slate-500 dark:text-slate-400">${x.en}</span>` : ''}</div>
+      ${x.sub ? `<div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">${x.sub}</div>` : ''}
     </div>`;
   return x.href
     ? `<a href="${x.href}" class="${base} border-indigo-400 bg-white dark:bg-slate-900 ring-1 ring-indigo-300 dark:ring-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950 transition">${inner}<span class="text-indigo-600 dark:text-indigo-400 text-xl shrink-0">→</span></a>`

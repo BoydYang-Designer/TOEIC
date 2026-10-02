@@ -1,0 +1,90 @@
+# -*- coding: utf-8 -*-
+"""audio_scan.py — 掃描 audio 資料夾，產生 audio/index.json（放在 index.html 同一層，雙擊執行）
+
+預期檔案（由題庫 json 推算）：
+  Part 1  audio/p1/{id}-s01.mp3 … -s12.mp3          （photo.json，每題 pool 幾句就幾個檔）
+  Part 2  audio/p2/{id}-q.mp3 與 {id}-s01.mp3 …      （part2.json）
+  Daily   audio/w1d1.mp3（或題目的 audio 欄位）        （daily.json）
+整題到齊才列入 complete；網頁只對 complete 的題目用 mp3。
+另外檢查：孤兒檔（不屬於任何題目，多半是打錯檔名）、檔名大小寫不符（GitHub Pages 區分大小寫）、0 KB 空檔。
+"""
+import json, os, time
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+AUD = os.path.join(ROOT, 'audio')
+warn = []
+
+
+def items(fn):
+    p = os.path.join(ROOT, fn)
+    if not os.path.exists(p):
+        print('找不到 %s，略過' % fn)
+        return []
+    j = json.load(open(p, encoding='utf-8'))
+    return j if isinstance(j, list) else j.get('items', [])
+
+
+def listdir(d):
+    return sorted(f for f in os.listdir(d) if os.path.isfile(os.path.join(d, f))) if os.path.isdir(d) else []
+
+
+def check(d, expected, label):
+    """expected: {id: [檔名.mp3,...]} → (complete, partial, orphans)"""
+    have = listdir(d)
+    low = {f.lower(): f for f in have}
+    allexp = set()
+    complete, partial = [], {}
+    for id_, names in expected.items():
+        miss = []
+        for n in names:
+            allexp.add(n)
+            if n in have:
+                if os.path.getsize(os.path.join(d, n)) == 0:
+                    warn.append('%s/%s 是 0 KB 空檔' % (label, n))
+                    miss.append(n)
+            else:
+                miss.append(n)
+                if n.lower() in low:
+                    warn.append('%s：檔名大小寫不符，現有「%s」，應為「%s」' % (label, low[n.lower()], n))
+        if not miss:
+            complete.append(id_)
+        elif len(miss) < len(names):
+            partial[id_] = [m[:-4] for m in miss]
+    orphans = [f for f in have if f not in allexp and f.lower().endswith(('.mp3', '.MP3'))]
+    return complete, partial, orphans
+
+
+out = {'v': int(time.time())}
+for part, fn, with_q in (('p1', 'photo.json', False), ('p2', 'part2.json', True)):
+    exp = {}
+    for it in items(fn):
+        if not isinstance(it, dict) or not it.get('id') or not isinstance(it.get('pool'), list):
+            continue
+        i = it['id']
+        exp[i] = ([i + '-q.mp3'] if with_q else []) + ['%s-s%02d.mp3' % (i, k + 1) for k in range(len(it['pool']))]
+    c, p, o = check(os.path.join(AUD, part), exp, 'audio/' + part)
+    out[part] = {'complete': c, 'partial': p, 'orphans': o}
+    print('%s：題目 %d，音檔完整 %d，部分 %d，孤兒檔 %d' % (part, len(exp), len(c), len(p), len(o)))
+
+dexp = {}
+for it in items('daily.json'):
+    if isinstance(it, dict) and 'week' in it and 'day' in it:
+        i = 'w%sd%s' % (it['week'], it['day'])
+        dexp[i] = [it.get('audio') or 'audio/%s.mp3' % i]
+dc = [i for i, fs in dexp.items() if all(os.path.isfile(os.path.join(ROOT, f)) and os.path.getsize(os.path.join(ROOT, f)) > 0 for f in fs)]
+out['daily'] = {'complete': dc, 'partial': {}, 'orphans': []}
+print('daily：題目 %d，有 mp3 %d' % (len(dexp), len(dc)))
+
+os.makedirs(AUD, exist_ok=True)
+with open(os.path.join(AUD, 'index.json'), 'w', encoding='utf-8') as f:
+    json.dump(out, f, ensure_ascii=False, indent=1)
+print('\n已寫入 audio/index.json')
+for part in ('p1', 'p2'):
+    for o in out[part]['orphans']:
+        warn.append('audio/%s/%s 不屬於任何題目（檔名打錯？）' % (part, o))
+for w in warn:
+    print('⚠', w)
+try:
+    input('\n按 Enter 結束')
+except EOFError:
+    pass
