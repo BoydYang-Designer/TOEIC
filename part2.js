@@ -2,7 +2,7 @@
    題目 id = d{N}-{NNN}-{e|m|h}（N=主題 D1–D7，與 Part 1 相同）；qtype = q1–q6 只是題型標籤。
    題庫格式：q（固定問句）＋ pool（12 句：3 正確＋9 錯誤）；每次作答隨機抽 1 正確＋2 錯誤並排成 A–C。
    練習：可開英文／中文文稿、可重播、答完立即看解析；測驗：音檔只播一次、全程不顯示文字、完成後才檢討。
-   維護：D×難度矩陣 → 該格題目；「新增題目」選 D／難度／Q 後產生給 AI 的指令（一次多題，AI 回傳 JSON 陣列，再用 part2_merge.py 合併）。 */
+   維護：D×難度矩陣 → 該格題目；「新增題目」選 D／難度／Q 後產生給 AI 的指令（一次多題，AI 回傳 JSON 陣列，再用 json_merge.py 合併）。 */
 const KEY = 'toeicCoachV2', PK = 'toeicPart2V1'; // KEY 只讀寫 dark；作答紀錄存在 PK
 let S = {}; try { S = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
 let R = { rec: {}, saved: {}, tests: {} };
@@ -284,35 +284,40 @@ function adminCellH() {
   return h + xs.map(x => `<details class="${card} p-3 mb-3"><summary class="cursor-pointer"><span class="font-bold text-sm">${esc(x.id)}</span> <span class="text-xs text-slate-500">${esc(x.tag)}</span><span class="flex flex-wrap gap-1 mt-1">${QT[x.qtype] ? `<span class="${chip}">${esc(qLabel(x.qtype))}</span>` : ''}<span class="${chip}">${TIER[tierOf(x)]}${x.level && x.level.score ? ' · ' + x.level.score : ''}</span></span></summary><p class="text-sm mt-3"><b>Q：</b>${esc(x.q.t)}<span class="block text-xs text-slate-500">${esc(x.q.zh)}</span></p><div class="space-y-1.5 mt-2">${[...x._pool].sort((a, b) => (b.ok ? 1 : 0) - (a.ok ? 1 : 0)).map(p => `<div class="rounded-lg border px-3 py-2 text-sm ${p.ok ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50' : 'border-slate-200 dark:border-slate-800'}"><div class="flex justify-between gap-2"><span>${esc(p.t)}</span><span class="text-xs shrink-0 ${p.ok ? 'text-emerald-600 font-bold' : 'text-slate-400'}">${p.ok ? '✓ ' + esc(p.pattern || '') : esc(TR[p.trap] || '')}</span></div><p class="text-xs text-slate-500 mt-0.5">${esc(p.zh)}</p><p class="text-xs mt-1 text-slate-600 dark:text-slate-400">${esc(p.why)}</p></div>`).join('')}</div>${auPanel('p2', x)}</details>`).join('');
 }
 const serial = (d, t) => { let mx = 0; RAW.forEach(x => { const m = x && x.id && /^d(\d)-(\d+)-([emh])$/.exec(x.id); if (m && 'd' + m[1] === d && m[3] === TS[t]) mx = Math.max(mx, +m[2]); }); return mx; };
+const cefrOf = s => s <= 550 ? 'A2+' : s === 600 ? 'B1' : s === 650 ? 'B1+' : s <= 750 ? 'B2' : 'B2+';
+const scoreList = t => { const r = []; for (let s = SCORE_RG[t][0]; s <= SCORE_RG[t][1]; s += 50) r.push(s); return r; };
 function buildOut(d, t, q, n) {
   const mx = serial(d, t), ids = Array.from({ length: n }, (_, i) => d + '-' + String(mx + 1 + i).padStart(3, '0') + '-' + TS[t]), fname = 'p2_' + ids[0] + '_x' + n + '.json';
-  const sp = SPEC || {}, tc = (sp.tiers && sp.tiers[t]) || {}, qs = (sp.qtypes && sp.qtypes[q]) || {};
+  const sp = SPEC || {}, tc = (sp.tiers && sp.tiers[t]) || {}, any = q === 'any', qs = any ? {} : (sp.qtypes && sp.qtypes[q]) || {};
+  const cell = DATA.filter(x => domOf(x) === d && tierOf(x) === t), cellQ = {}, cellWh = [...new Set(cell.filter(x => x.qtype === 'q1' && x.wh).map(x => x.wh))];
+  cell.forEach(x => { cellQ[x.qtype] = (cellQ[x.qtype] || 0) + 1; });
   const tags = DATA.map(x => x.tag).filter(Boolean), vocab = [...new Set(DATA.flatMap(x => (x.vocab || []).map(v => v.word)).filter(Boolean))];
   const sameD = DATA.filter(x => domOf(x) === d).map(x => x.id + '：' + x.q.t);
-  const lite = JSON.stringify({ domain: { [d]: sp.domains && sp.domains[d] }, tier: { [t]: tc }, qtype: { [q]: qs }, traps: sp.traps, entry_schema: sp.entry_schema, rules: sp.rules });
+  const lite = JSON.stringify({ domain: { [d]: sp.domains && sp.domains[d] }, tier: { [t]: tc }, qtype: any ? (sp.qtypes || {}) : { [q]: qs }, traps: sp.traps, entry_schema: sp.entry_schema, rules: sp.rules });
   const text = [`請為多益 Part 2 應答問題寫 ${n} 題，輸出為單一 JSON 陣列（每題一個物件），規格附在最後面，不需要另外附 part2.json。`, '',
     `- 主題：${domLabel(d)}（scene 必須屬於：${(DOM[d].scenes || []).join('、')}；問句與回答的情境請貼近此主題）`,
-    `- 難度：${TIER[t]}（id 尾碼 ${TS[t]}）｜多益分數 ${TSC[t]}${tc.guide ? '｜難度定義：' + tc.guide : ''}`,
-    `- 題型：${qLabel(q)}（qtype 填 ${q}）${qs.note ? '｜' + qs.note : ''}｜正解 pattern 只能用：${(qs.patterns || []).join('、')}`,
-    q === 'q1' ? '- 這批請讓 wh 欄位涵蓋不同疑問詞（who／what／which／when／where／why／how），不要全部相同。' : null,
+    `- 難度：${TIER[t]}（id 尾碼 ${TS[t]}）｜多益分數 ${TSC[t]}｜level.score 只能填：${scoreList(t).map(s => s + '（cefr 填 ' + cefrOf(s) + '）').join('、')}${tc.guide ? '｜難度定義：' + tc.guide : ''}`,
+    any ? `- 題型：不限，由你判斷。每題的 qtype 請從 q1–q6 擇一，並依下列規則分配：${n <= 6 ? '每題的 qtype 都要不同（q1–q6 各最多用一次）' : '各題型盡量平均，同一題型最多 ' + Math.ceil(n / 6) + ' 題'}；每題正解的 pattern 只能用該題 qtype 的合法值：${Object.keys(QT).map(k => k + '＝' + ((((sp.qtypes || {})[k] || {}).patterns) || []).join('／')).join('；')}（各題型的說明見最後面的規格）` : `- 題型：${qLabel(q)}（qtype 填 ${q}）${qs.note ? '｜' + qs.note : ''}｜正解 pattern 只能用：${(qs.patterns || []).join('、')}`,
+    q === 'q1' || any ? (any ? '- 凡 qtype 為 q1 的題目必須另填 wh 欄位，並讓 wh 涵蓋不同疑問詞（who／what／which／when／where／why／how）；其他題型不要填 wh。' : '- 這批請讓 wh 欄位涵蓋不同疑問詞（who／what／which／when／where／why／how），不要全部相同。') : null,
+    any ? `- 此主題＋難度已有的題型數量：${Object.keys(QT).map(k => k + '×' + (cellQ[k] || 0)).join('、')}${cellWh.length ? '；q1 已用過的 wh：' + cellWh.join('、') : ''}。請優先補數量最少的題型，q1 則優先用尚未用過的 wh。` : (q === 'q1' && cellWh.length ? `- 此主題＋難度的 q1 已用過的 wh：${cellWh.join('、')}，請優先用尚未用過的。` : null),
     `- id 請依序使用：${ids.join('、')}（domain 填 ${d}，level.tier 填 ${t}）`,
     '- 每題 pool 必須剛好 12 句：3 句 ok:true ＋ 9 句 ok:false；輸出前請逐題數過。',
     '- 3 句正解必須是不同說法（中高級盡量用不同 pattern），各自都能獨立成立；9 句錯誤句在任何情況下都不能回答該問句，不可模稜兩可，且至少涵蓋 4 種 trap。',
+    '- 寫完每題後逐句自我檢查：把這句當成對問句的回應，會不會被聽成「間接回答、理由或暗示」？錯誤句不可有這種可能（例如對提議回 Because…、對 Yes/No 問句陳述暗示答案的事實）；要「相關但非所問」，也必須明確沒回答到。',
     `- 已用過的 tag（不得重複）：${tags.join('；') || '（目前沒有）'}`,
     `- 已用過的 vocab（不得重複）：${vocab.join('、') || '（目前沒有）'}`,
     sameD.length ? `- 此主題已有的問句（不要雷同）：${sameD.join('；')}` : null,
     `- 輸出方式：請把結果建立成一個檔案，檔名 ${fname}（內容只有一個合法 JSON 陣列、UTF-8、不加程式碼區塊標記），回覆中除了檔案只需一行說明檔名；若無法建檔，才改成只輸出單一 json 程式碼區塊，區塊外不要加任何文字。`,
     '', '【規格：part2.json 的 _spec 精簡版】', lite].filter(s => s !== null).join('\n');
   return [{ title: '給 AI 的「寫題目」指令', note: `不需要上傳 part2.json（約 ${text.length.toLocaleString()} 字，已含規格、已用過的 tag／vocab 與此主題既有問句）。AI 會一次寫 ${n} 題，直接給你 ${fname}。`, text },
-    { title: '檔名與 id', note: `預期檔名：${fname}（檔名只方便你辨識，合併程式看的是檔案內容）。id 起始編號是網頁依目前最大流水號算的；若 id 與現有題目衝突，合併程式會提示。`, text: ids.join('\n') },
-    { title: '存檔與合併', note: `把 AI 給你的 json 下載後放到 part2_merge.py 同一個資料夾，執行並勾選合併；遇到問句重複的題目，會列出句子讓你手動決定合併或拒絕。合併後重新整理本頁，題數就會更新。` }];
+    { title: '存檔與合併', note: `AI 會依指令建立 ${fname}（id ${ids[0]}${n > 1 ? '～' + ids[n - 1] : ''} 是網頁依目前最大流水號算的，已寫在指令裡）。檔名只方便辨識，合併程式看的是檔案內容。下載後放到 json_merge.py 同一個資料夾，執行並選上方的「Part 2 應答」；p2_ 開頭的檔案會自動列出並勾選，其他檔名請按「新增檔案…」。遇到問句雷同或 id 衝突時，程式會列出句子讓你決定合併或拒絕。合併後重新整理本頁，題數就會更新。` }];
 }
 function adminNewH() {
   const on = c => `${btn} !py-1.5 ${c ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}`;
   let h = hdr('新增題目', 'openAdmin()');
   h += `<h2 class="font-bold mb-2">1. 選主題</h2><div class="flex flex-wrap gap-2 mb-5">${Object.keys(DOM).map(k => `<button onclick="apick('nd','${k}')" class="${on(A.nd === k)}">${esc(domLabel(k))}</button>`).join('')}</div>`;
   h += `<h2 class="font-bold mb-2">2. 選難度</h2><div class="flex flex-wrap gap-2 mb-5">${Object.keys(TIER).map(k => `<button onclick="apick('nt','${k}')" class="${on(A.nt === k)}">${TIER[k]} ${TS[k]} <span class="text-xs opacity-70">${TSC[k]} · ${pool(k, A.nd).length} 題</span></button>`).join('')}</div>`;
-  h += `<h2 class="font-bold mb-2">3. 選題型</h2><div class="flex flex-wrap gap-2 mb-5">${Object.keys(QT).map(k => `<button onclick="apick('nq','${k}')" class="${on(A.nq === k)}">${qLabel(k)}</button>`).join('')}</div>`;
+  h += `<h2 class="font-bold mb-2">3. 選題型</h2><div class="flex flex-wrap gap-2 mb-5"><button onclick="apick('nq','any')" class="${on(A.nq === 'any')}">🎲 讓 AI 判斷（不限題型）</button>${Object.keys(QT).map(k => `<button onclick="apick('nq','${k}')" class="${on(A.nq === k)}">${qLabel(k)}</button>`).join('')}</div>`;
   h += `<h2 class="font-bold mb-2">4. 一次幾題</h2><div class="flex flex-wrap gap-2 mb-5">${[3, 5, 8].map(k => `<button onclick="apick('nn',${k})" class="${on(A.nn === k)}">${k} 題</button>`).join('')}</div>`;
   const outs = buildOut(A.nd, A.nt, A.nq, A.nn); A.out = outs.map(s => s.text || '');
   return h + outs.map((s, i) => `<div class="${card} p-4 mb-3"><div class="flex items-center justify-between gap-2 mb-1"><p class="font-bold text-sm">${i + 1}. ${esc(s.title)}</p>${s.text ? `<button id="cp${i}" onclick="copyOut(${i})" class="${btn} ${line} !py-1 text-xs shrink-0">複製</button>` : ''}</div><p class="text-xs text-slate-500 mb-2">${esc(s.note)}</p>${s.text ? `<pre class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-72 overflow-auto">${esc(s.text)}</pre>` : ''}</div>`).join('');

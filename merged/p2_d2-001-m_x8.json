@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "d2-001-m",
+    "domain": "d2",
+    "qtype": "q3",
+    "tag": "詢問想坐室內或露台",
+    "scene": "restaurant",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "二選一問句，正解是提出第三選項、表示都可以、或兩個都不要。"
+    },
+    "q": {
+      "t": "Would you like to sit inside or on the patio?",
+      "zh": "你想坐室內還是露台？"
+    },
+    "pool": [
+      {
+        "t": "A booth would be great, if you have one.",
+        "zh": "如果有包廂座位就太好了。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "third-option",
+        "why": "正解：提出第三個選項。"
+      },
+      {
+        "t": "Whichever one is quicker.",
+        "zh": "哪個比較快就哪個。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "no-preference",
+        "why": "正解：表示都可以，看哪個快。"
+      },
+      {
+        "t": "Neither, we'd like a quiet corner.",
+        "zh": "都不要，我們想要安靜的角落。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "both-either-neither",
+        "why": "正解：兩個都不選並說明想要的位置。"
+      },
+      {
+        "t": "At six thirty tonight.",
+        "zh": "今晚六點半。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Two adults and a child.",
+        "zh": "兩個大人和一個小孩。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 How many 的答案。"
+      },
+      {
+        "t": "I'll have the baked potato.",
+        "zh": "我要烤馬鈴薯。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "potato 與 patio 音近，內容無關。"
+      },
+      {
+        "t": "My sister works inside the bank.",
+        "zh": "我姊姊在銀行裡面工作。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 inside，但與座位無關。"
+      },
+      {
+        "t": "The patio furniture is brand new.",
+        "zh": "露台的家具是全新的。",
+        "ok": false,
+        "trap": "association",
+        "why": "談露台，但沒有選擇座位。"
+      },
+      {
+        "t": "Our server recommended the fish.",
+        "zh": "我們的服務生推薦了魚。",
+        "ok": false,
+        "trap": "association",
+        "why": "與用餐有關，但沒有回答選擇。"
+      },
+      {
+        "t": "The menu has three new desserts.",
+        "zh": "菜單上有三道新甜點。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答選擇。"
+      },
+      {
+        "t": "They were sitting by the window.",
+        "zh": "他們剛才坐在窗邊。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答選擇。"
+      },
+      {
+        "t": "The kids' menu comes with crayons.",
+        "zh": "兒童菜單附贈蠟筆。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答選擇。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "patio",
+        "ipa": "/ˈpætioʊ/",
+        "pos": "n.",
+        "col": "sit on the patio",
+        "zh": "露台"
+      },
+      {
+        "word": "booth",
+        "ipa": "/buːθ/",
+        "pos": "n.",
+        "col": "a booth by the wall",
+        "zh": "包廂座位"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-002-m",
+    "domain": "d2",
+    "qtype": "q4",
+    "tag": "確認帳單是否已含服務費",
+    "scene": "restaurant",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "附加問句，正解是肯定並補充數字、更正說另外加收、或請對方看收據。"
+    },
+    "q": {
+      "t": "The service charge is already included, isn't it?",
+      "zh": "服務費已經含在內了，對吧？"
+    },
+    "pool": [
+      {
+        "t": "That's right, it's eighteen percent.",
+        "zh": "沒錯，是百分之十八。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "confirm",
+        "why": "正解：肯定並補充服務費比例。"
+      },
+      {
+        "t": "Actually, it's added separately.",
+        "zh": "其實是另外加收的。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "correct",
+        "why": "正解：更正對方的認知。"
+      },
+      {
+        "t": "It should be on the receipt.",
+        "zh": "收據上應該有寫。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "indirect",
+        "why": "正解：指向收據，間接回應。"
+      },
+      {
+        "t": "Our waiter is Daniel.",
+        "zh": "我們的服務生是丹尼爾。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Around seven o'clock.",
+        "zh": "大約七點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "A large coffee, please.",
+        "zh": "請給我一杯大杯咖啡。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "large 與 charge 音近，內容無關。"
+      },
+      {
+        "t": "Please include me in the group.",
+        "zh": "請把我也算進這組。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 include，但意思不同。"
+      },
+      {
+        "t": "She was charging her phone.",
+        "zh": "她那時正在幫手機充電。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "charge 意思不同，人稱與時態也不符。"
+      },
+      {
+        "t": "Our waiter was very friendly.",
+        "zh": "我們的服務生很友善。",
+        "ok": false,
+        "trap": "association",
+        "why": "談服務，但沒有回答問題。"
+      },
+      {
+        "t": "Dinner was delicious, thank you.",
+        "zh": "晚餐很好吃，謝謝。",
+        "ok": false,
+        "trap": "association",
+        "why": "與用餐有關，但沒有回答問題。"
+      },
+      {
+        "t": "The dessert menu is on the back.",
+        "zh": "甜點菜單在背面。",
+        "ok": false,
+        "trap": "association",
+        "why": "與菜單有關，但沒有回答問題。"
+      },
+      {
+        "t": "The tip jar is by the register.",
+        "zh": "小費罐在收銀台旁。",
+        "ok": false,
+        "trap": "association",
+        "why": "與結帳有關，但沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "service charge",
+        "ipa": "/ˈsɜːrvɪs tʃɑːrdʒ/",
+        "pos": "n.",
+        "col": "add a service charge",
+        "zh": "服務費"
+      },
+      {
+        "word": "receipt",
+        "ipa": "/rɪˈsiːt/",
+        "pos": "n.",
+        "col": "keep the receipt",
+        "zh": "收據"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-003-m",
+    "domain": "d2",
+    "qtype": "q5",
+    "tag": "說明自己對海鮮過敏",
+    "scene": "restaurant",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "陳述句，正解是提供替代菜色、主動通知廚房、或反問過敏程度。"
+    },
+    "q": {
+      "t": "I'm allergic to shellfish.",
+      "zh": "我對甲殼類海鮮過敏。"
+    },
+    "pool": [
+      {
+        "t": "The grilled chicken has no shellfish.",
+        "zh": "烤雞裡沒有甲殼類海鮮。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "respond",
+        "why": "正解：針對過敏提供安全的選擇。"
+      },
+      {
+        "t": "I'll let the kitchen know right away.",
+        "zh": "我馬上通知廚房。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "offer-help",
+        "why": "正解：主動表示會處理。"
+      },
+      {
+        "t": "How severe is your allergy?",
+        "zh": "你的過敏有多嚴重？",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "question-back",
+        "why": "正解：反問細節以便處理。"
+      },
+      {
+        "t": "In the back corner.",
+        "zh": "在後面的角落。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "About fifteen minutes.",
+        "zh": "大約十五分鐘。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 How long 的答案。"
+      },
+      {
+        "t": "He's a little selfish.",
+        "zh": "他有一點自私。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "selfish 與 shellfish 音近，內容無關。"
+      },
+      {
+        "t": "My sister is allergic to dust.",
+        "zh": "我妹妹對灰塵過敏。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 allergic，但沒有回應說話者。"
+      },
+      {
+        "t": "Our seafood comes from Maine.",
+        "zh": "我們的海鮮來自緬因州。",
+        "ok": false,
+        "trap": "association",
+        "why": "與海鮮有關，但沒有回應過敏。"
+      },
+      {
+        "t": "Fish is delivered every morning.",
+        "zh": "魚每天早上送到。",
+        "ok": false,
+        "trap": "association",
+        "why": "與食材有關，但沒有回應過敏。"
+      },
+      {
+        "t": "The lobster special is very popular.",
+        "zh": "龍蝦特餐很受歡迎。",
+        "ok": false,
+        "trap": "association",
+        "why": "與海鮮有關，但沒有回應過敏。"
+      },
+      {
+        "t": "He was ordering the soup.",
+        "zh": "他剛才在點湯。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回應。"
+      },
+      {
+        "t": "The pasta is made fresh daily.",
+        "zh": "義大利麵每天現做。",
+        "ok": false,
+        "trap": "association",
+        "why": "與食材有關，但沒有回應過敏。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "allergic",
+        "ipa": "/əˈlɜːrdʒɪk/",
+        "pos": "adj.",
+        "col": "allergic to nuts",
+        "zh": "過敏的"
+      },
+      {
+        "word": "shellfish",
+        "ipa": "/ˈʃelfɪʃ/",
+        "pos": "n.",
+        "col": "avoid shellfish",
+        "zh": "甲殼類海鮮"
+      },
+      {
+        "word": "severe",
+        "ipa": "/sɪˈvɪr/",
+        "pos": "adj.",
+        "col": "a severe allergy",
+        "zh": "嚴重的"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-004-m",
+    "domain": "d2",
+    "qtype": "q6",
+    "tag": "請服務生再送一些水",
+    "scene": "restaurant",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "請求句，正解是答應並提供做法、說明非自己負責但會轉達、或詢問細節。"
+    },
+    "q": {
+      "t": "Could you bring us some more water?",
+      "zh": "你可以再幫我們送些水來嗎？"
+    },
+    "pool": [
+      {
+        "t": "Right away, I'll bring a pitcher.",
+        "zh": "馬上來，我拿一壺過來。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "accept",
+        "why": "正解：答應並說明做法。"
+      },
+      {
+        "t": "That's not my section, but I'll get someone.",
+        "zh": "那不是我負責的區域，但我會找人來。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "decline",
+        "why": "正解：說明非自己負責，並轉達。"
+      },
+      {
+        "t": "Sparkling or still?",
+        "zh": "要氣泡水還是白開水？",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "ask-detail",
+        "why": "正解：詢問細節，等於願意幫忙。"
+      },
+      {
+        "t": "At table five.",
+        "zh": "在五號桌。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mr. Johnson did.",
+        "zh": "是強森先生做的。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "She lost her ring.",
+        "zh": "她把戒指弄丟了。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "ring 與 bring 音近，內容無關。"
+      },
+      {
+        "t": "More than two hundred guests.",
+        "zh": "超過兩百位客人。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 more，但沒有回應請求。"
+      },
+      {
+        "t": "I bring my lunch every day.",
+        "zh": "我每天都自己帶午餐。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 bring，但沒有回應請求。"
+      },
+      {
+        "t": "The water here comes from a well.",
+        "zh": "這裡的水來自一口井。",
+        "ok": false,
+        "trap": "association",
+        "why": "談水，但沒有回應請求。"
+      },
+      {
+        "t": "Our glasses are made in Italy.",
+        "zh": "我們的玻璃杯是義大利製的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與杯子有關，但沒有回應請求。"
+      },
+      {
+        "t": "She brought us bread yesterday.",
+        "zh": "她昨天送麵包給我們。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回應請求。"
+      },
+      {
+        "t": "The restaurant closes at eleven.",
+        "zh": "餐廳十一點打烊。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回應請求。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "pitcher",
+        "ipa": "/ˈpɪtʃər/",
+        "pos": "n.",
+        "col": "a pitcher of water",
+        "zh": "水壺"
+      },
+      {
+        "word": "section",
+        "ipa": "/ˈsekʃən/",
+        "pos": "n.",
+        "col": "my section",
+        "zh": "負責的區域"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-005-m",
+    "domain": "d2",
+    "qtype": "q2",
+    "tag": "詢問今日例湯是否為素食",
+    "scene": "restaurant",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "Yes/No 問句，正解是間接說明食材、表示不確定、或直接說有肉。"
+    },
+    "q": {
+      "t": "Is the soup of the day vegetarian?",
+      "zh": "今日例湯是素食嗎？"
+    },
+    "pool": [
+      {
+        "t": "It's made with vegetable broth.",
+        "zh": "它是用蔬菜高湯煮的。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "indirect",
+        "why": "正解：說明食材，間接回答。"
+      },
+      {
+        "t": "I'm not sure what's in it today.",
+        "zh": "我不確定今天裡面放了什麼。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "unsure",
+        "why": "正解：表示不確定。"
+      },
+      {
+        "t": "There's some bacon in it, I'm afraid.",
+        "zh": "恐怕裡面有一些培根。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說明含肉，等於否定。"
+      },
+      {
+        "t": "Near the entrance.",
+        "zh": "在入口附近。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Around twelve thirty.",
+        "zh": "大約十二點半。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "The soap is in the restroom.",
+        "zh": "肥皂在洗手間。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "soap 與 soup 音近，內容無關。"
+      },
+      {
+        "t": "I'll take the day off.",
+        "zh": "我要請一天假。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 day，但意思無關。"
+      },
+      {
+        "t": "Vegetarians are welcome here too.",
+        "zh": "這裡也歡迎素食者。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 vegetarian 的字根，但沒有回答。"
+      },
+      {
+        "t": "The bread basket is free.",
+        "zh": "麵包籃是免費的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與用餐有關，但沒有回答問題。"
+      },
+      {
+        "t": "Soup spoons are on the table.",
+        "zh": "湯匙在桌上。",
+        "ok": false,
+        "trap": "association",
+        "why": "與喝湯有關，但沒有回答問題。"
+      },
+      {
+        "t": "They served soup yesterday.",
+        "zh": "他們昨天供應過湯。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "The dining room is full tonight.",
+        "zh": "今晚用餐區客滿。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "vegetarian",
+        "ipa": "/ˌvedʒəˈteriən/",
+        "pos": "adj.",
+        "col": "a vegetarian dish",
+        "zh": "素食的"
+      },
+      {
+        "word": "broth",
+        "ipa": "/brɔːθ/",
+        "pos": "n.",
+        "col": "vegetable broth",
+        "zh": "高湯"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-006-m",
+    "domain": "d2",
+    "qtype": "q1",
+    "wh": "which",
+    "tag": "詢問哪種酒配鮭魚",
+    "scene": "restaurant",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "Which 問句，正解是指名、指向專家、或表示自己不太懂酒。"
+    },
+    "q": {
+      "t": "Which wine goes best with the salmon?",
+      "zh": "哪一種酒最適合搭配鮭魚？"
+    },
+    "pool": [
+      {
+        "t": "The pinot grigio works well.",
+        "zh": "灰皮諾很搭。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接指出酒款。"
+      },
+      {
+        "t": "Our sommelier made a list for each dish.",
+        "zh": "我們的侍酒師為每道菜列了清單。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "indirect",
+        "why": "正解：指向資料，間接回答。"
+      },
+      {
+        "t": "I'm not really a wine person.",
+        "zh": "我不太懂酒。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "unsure",
+        "why": "正解：表示不確定，無法回答。"
+      },
+      {
+        "t": "In the cellar downstairs.",
+        "zh": "在樓下的酒窖。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Eight dollars a glass.",
+        "zh": "一杯八美元。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 How much 的答案。"
+      },
+      {
+        "t": "Last Saturday evening.",
+        "zh": "上週六晚上。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "The line is out the door.",
+        "zh": "隊伍排到門外了。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "line 與 wine 音近，內容無關。"
+      },
+      {
+        "t": "We ate salmon last night.",
+        "zh": "我們昨晚吃了鮭魚。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 salmon，但沒有回答問題。"
+      },
+      {
+        "t": "The wine glasses are clean.",
+        "zh": "酒杯是乾淨的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與酒有關，但沒有回答問題。"
+      },
+      {
+        "t": "The corkscrew is in the drawer.",
+        "zh": "開瓶器在抽屜裡。",
+        "ok": false,
+        "trap": "association",
+        "why": "與酒有關，但沒有回答問題。"
+      },
+      {
+        "t": "She was pouring the water.",
+        "zh": "她剛才在倒水。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "The dining room is very noisy.",
+        "zh": "用餐區非常吵。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "wine",
+        "ipa": "/waɪn/",
+        "pos": "n.",
+        "col": "a glass of wine",
+        "zh": "葡萄酒"
+      },
+      {
+        "word": "salmon",
+        "ipa": "/ˈsæmən/",
+        "pos": "n.",
+        "col": "grilled salmon",
+        "zh": "鮭魚"
+      },
+      {
+        "word": "sommelier",
+        "ipa": "/ˌsʌməlˈjeɪ/",
+        "pos": "n.",
+        "col": "ask the sommelier",
+        "zh": "侍酒師"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-007-m",
+    "domain": "d2",
+    "qtype": "q1",
+    "wh": "how",
+    "tag": "詢問開胃菜還要多久",
+    "scene": "restaurant",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "How 問句，正解是給出時間、說明已送單、或表示去問問看。"
+    },
+    "q": {
+      "t": "How long until our appetizers come out?",
+      "zh": "我們的開胃菜還要多久才會上？"
+    },
+    "pool": [
+      {
+        "t": "About ten more minutes.",
+        "zh": "大約再十分鐘。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接給出時間。"
+      },
+      {
+        "t": "The order just went in.",
+        "zh": "訂單剛送進去。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "indirect",
+        "why": "正解：說明進度，間接回答。"
+      },
+      {
+        "t": "I'll go see what's taking so long.",
+        "zh": "我去看看為什麼這麼久。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "unsure",
+        "why": "正解：表示不確定，先去查。"
+      },
+      {
+        "t": "On the second floor.",
+        "zh": "在二樓。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mr. Reyes ordered it.",
+        "zh": "是雷耶斯先生點的。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Yes, we'd love some.",
+        "zh": "好啊，我們想要一些。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "How 問句不能用 Yes 回答。"
+      },
+      {
+        "t": "It took me an hour to get here.",
+        "zh": "我花了一小時才到這裡。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 take 的概念，但說的是自己的通勤。"
+      },
+      {
+        "t": "Long skirts are in style.",
+        "zh": "長裙正在流行。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 long，但意思無關。"
+      },
+      {
+        "t": "The shrimp cocktail is popular.",
+        "zh": "鮮蝦沙拉很受歡迎。",
+        "ok": false,
+        "trap": "association",
+        "why": "與開胃菜有關，但沒有回答時間。"
+      },
+      {
+        "t": "The bread is complimentary.",
+        "zh": "麵包是免費招待的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與用餐有關，但沒有回答時間。"
+      },
+      {
+        "t": "She was coming out of the kitchen.",
+        "zh": "她剛從廚房走出來。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答時間。"
+      },
+      {
+        "t": "The restroom is down the hall.",
+        "zh": "洗手間在走廊盡頭。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答時間。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "appetizer",
+        "ipa": "/ˈæpɪtaɪzər/",
+        "pos": "n.",
+        "col": "order an appetizer",
+        "zh": "開胃菜"
+      },
+      {
+        "word": "come out",
+        "ipa": "/kʌm aʊt/",
+        "pos": "phr. v.",
+        "col": "food comes out",
+        "zh": "（餐點）送出"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-008-m",
+    "domain": "d2",
+    "qtype": "q3",
+    "tag": "詢問咖啡現在上或搭甜點上",
+    "scene": "restaurant",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "二選一問句，正解是選其中之一、提出第三個飲料、或兩個都不要。"
+    },
+    "q": {
+      "t": "Do you want your coffee now or with dessert?",
+      "zh": "你的咖啡要現在上，還是搭甜點一起上？"
+    },
+    "pool": [
+      {
+        "t": "Decaf with dessert, please.",
+        "zh": "請搭甜點上，我要低咖啡因的。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "pick-one",
+        "why": "正解：選擇搭甜點並補充種類。"
+      },
+      {
+        "t": "Just tea for me, thanks.",
+        "zh": "我只要茶就好，謝謝。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "third-option",
+        "why": "正解：提出第三個飲料。"
+      },
+      {
+        "t": "Neither, I'll skip coffee tonight.",
+        "zh": "都不要，我今晚不喝咖啡。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "both-either-neither",
+        "why": "正解：兩個都不選並說明。"
+      },
+      {
+        "t": "At the corner table.",
+        "zh": "在角落那桌。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mr. Park ordered it.",
+        "zh": "是帕克先生點的。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Could you copy this menu?",
+        "zh": "你能影印這份菜單嗎？",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "copy 與 coffee 音近，內容無關。"
+      },
+      {
+        "t": "The coffee machine is loud.",
+        "zh": "咖啡機很吵。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 coffee，但沒有回答選擇。"
+      },
+      {
+        "t": "Our beans come from Brazil.",
+        "zh": "我們的咖啡豆來自巴西。",
+        "ok": false,
+        "trap": "association",
+        "why": "談咖啡，但沒有回答選擇。"
+      },
+      {
+        "t": "The bakery delivers every morning.",
+        "zh": "麵包店每天早上送貨。",
+        "ok": false,
+        "trap": "association",
+        "why": "與甜點有關，但沒有回答選擇。"
+      },
+      {
+        "t": "Dessert wine is ten dollars.",
+        "zh": "甜點酒十美元。",
+        "ok": false,
+        "trap": "association",
+        "why": "與甜點有關，但沒有回答選擇。"
+      },
+      {
+        "t": "He was drinking coffee earlier.",
+        "zh": "他稍早在喝咖啡。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答選擇。"
+      },
+      {
+        "t": "Sugar packets are on the table.",
+        "zh": "糖包在桌上。",
+        "ok": false,
+        "trap": "association",
+        "why": "與咖啡有關，但沒有回答選擇。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "dessert",
+        "ipa": "/dɪˈzɜːrt/",
+        "pos": "n.",
+        "col": "order dessert",
+        "zh": "甜點"
+      },
+      {
+        "word": "decaf",
+        "ipa": "/ˈdiːkæf/",
+        "pos": "n.",
+        "col": "a cup of decaf",
+        "zh": "低咖啡因咖啡"
+      }
+    ],
+    "issues": []
+  }
+]

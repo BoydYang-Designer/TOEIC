@@ -1,0 +1,988 @@
+[
+  {
+    "id": "d2-001-e",
+    "domain": "d2",
+    "qtype": "q1",
+    "wh": "where",
+    "tag": "詢問洗手間在哪裡",
+    "scene": "restaurant",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "Where 問句短而單純，正解都直接說出位置。"
+    },
+    "q": {
+      "t": "Where is the restroom?",
+      "zh": "洗手間在哪裡？"
+    },
+    "pool": [
+      {
+        "t": "Down the hall, on the left.",
+        "zh": "走廊盡頭，在左手邊。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出位置。"
+      },
+      {
+        "t": "Next to the front door.",
+        "zh": "在前門旁邊。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：用相對位置回答地點。"
+      },
+      {
+        "t": "Behind the bar.",
+        "zh": "在吧台後面。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接指出地點。"
+      },
+      {
+        "t": "At seven o'clock.",
+        "zh": "七點整。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Two hamburgers, please.",
+        "zh": "請給我兩個漢堡。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 What 的答案。"
+      },
+      {
+        "t": "Mr. Lee, the manager.",
+        "zh": "李經理。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "I need a rest after lunch.",
+        "zh": "午餐後我需要休息一下。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 rest，但沒有回答位置。"
+      },
+      {
+        "t": "Restaurants are busy on Friday.",
+        "zh": "星期五餐廳都很忙。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 restaurant 的字根，但沒有回答位置。"
+      },
+      {
+        "t": "The restaurant is very clean.",
+        "zh": "這家餐廳很乾淨。",
+        "ok": false,
+        "trap": "association",
+        "why": "談餐廳，但沒有回答位置。"
+      },
+      {
+        "t": "Our towels are soft.",
+        "zh": "我們的毛巾很柔軟。",
+        "ok": false,
+        "trap": "association",
+        "why": "與洗手間有關，但沒有回答位置。"
+      },
+      {
+        "t": "He went to the bank.",
+        "zh": "他去了銀行。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答位置。"
+      },
+      {
+        "t": "The hand dryer is new.",
+        "zh": "烘手機是新的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與洗手間有關，但沒有回答位置。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "restroom",
+        "ipa": "/ˈrestruːm/",
+        "pos": "n.",
+        "col": "use the restroom",
+        "zh": "洗手間"
+      },
+      {
+        "word": "hall",
+        "ipa": "/hɔːl/",
+        "pos": "n.",
+        "col": "down the hall",
+        "zh": "走廊"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-002-e",
+    "domain": "d2",
+    "qtype": "q2",
+    "tag": "詢問這個座位有沒有人坐",
+    "scene": "restaurant",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "Yes/No 問句，正解直接回答有人或沒人。"
+    },
+    "q": {
+      "t": "Is this seat taken?",
+      "zh": "這個座位有人坐嗎？"
+    },
+    "pool": [
+      {
+        "t": "No, please sit down.",
+        "zh": "沒有，請坐。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接回答沒有人坐。"
+      },
+      {
+        "t": "Yes, my friend is coming.",
+        "zh": "有，我朋友快到了。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接回答有人坐並說明。"
+      },
+      {
+        "t": "No, it's free.",
+        "zh": "沒有，空著。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接回答沒有人坐。"
+      },
+      {
+        "t": "Next to the window.",
+        "zh": "在窗戶旁邊。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "At eight o'clock.",
+        "zh": "八點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Two glasses of juice.",
+        "zh": "兩杯果汁。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 What 的答案。"
+      },
+      {
+        "t": "I took a taxi here.",
+        "zh": "我搭計程車來這裡。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 take 的變化形 took，但意思無關。"
+      },
+      {
+        "t": "The chairs are made of wood.",
+        "zh": "椅子是木頭做的。",
+        "ok": false,
+        "trap": "association",
+        "why": "談椅子，但沒有回答問題。"
+      },
+      {
+        "t": "The restaurant opens at noon.",
+        "zh": "餐廳中午開門。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      },
+      {
+        "t": "The floor was just cleaned.",
+        "zh": "地板剛擦過。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      },
+      {
+        "t": "He was taking a photo.",
+        "zh": "他那時在拍照。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "The lights are very bright.",
+        "zh": "燈光很亮。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "seat",
+        "ipa": "/siːt/",
+        "pos": "n.",
+        "col": "take a seat",
+        "zh": "座位"
+      },
+      {
+        "word": "free",
+        "ipa": "/friː/",
+        "pos": "adj.",
+        "col": "a free seat",
+        "zh": "空的"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-003-e",
+    "domain": "d2",
+    "qtype": "q3",
+    "tag": "詢問要飯還是麵",
+    "scene": "restaurant",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "二選一問句，正解直接選一個或表示都可以。"
+    },
+    "q": {
+      "t": "Do you want rice or noodles?",
+      "zh": "你要飯還是麵？"
+    },
+    "pool": [
+      {
+        "t": "Rice, please.",
+        "zh": "請給我飯。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "pick-one",
+        "why": "正解：直接選擇飯。"
+      },
+      {
+        "t": "Noodles, please.",
+        "zh": "請給我麵。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "pick-one",
+        "why": "正解：直接選擇麵。"
+      },
+      {
+        "t": "Either is fine.",
+        "zh": "兩個都可以。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "no-preference",
+        "why": "正解：表示都可以。"
+      },
+      {
+        "t": "At the second table.",
+        "zh": "在第二桌。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mr. Wang ordered it.",
+        "zh": "是王先生點的。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Yes, I do.",
+        "zh": "是的，我要。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "選擇問句不能用 Yes 回答。"
+      },
+      {
+        "t": "I want to pay now.",
+        "zh": "我現在要結帳。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 want，但沒有選擇。"
+      },
+      {
+        "t": "Prices will rise next month.",
+        "zh": "價格下個月會調漲。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "rise 與 rice 音近，內容無關。"
+      },
+      {
+        "t": "The rice cooker is broken.",
+        "zh": "電鍋壞了。",
+        "ok": false,
+        "trap": "association",
+        "why": "談飯，但沒有回答選擇。"
+      },
+      {
+        "t": "Noodles are popular in Asia.",
+        "zh": "麵食在亞洲很受歡迎。",
+        "ok": false,
+        "trap": "association",
+        "why": "談麵，但沒有回答選擇。"
+      },
+      {
+        "t": "They wanted noodles yesterday.",
+        "zh": "他們昨天想要麵。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答選擇。"
+      },
+      {
+        "t": "The spoons are on the tray.",
+        "zh": "湯匙在托盤上。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐具有關，但沒有回答選擇。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "rice",
+        "ipa": "/raɪs/",
+        "pos": "n.",
+        "col": "a bowl of rice",
+        "zh": "飯"
+      },
+      {
+        "word": "noodle",
+        "ipa": "/ˈnuːdl/",
+        "pos": "n.",
+        "col": "noodle soup",
+        "zh": "麵條"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-004-e",
+    "domain": "d2",
+    "qtype": "q4",
+    "tag": "確認餐廳今天是否營業",
+    "scene": "restaurant",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "附加問句，正解直接確認或直接更正。"
+    },
+    "q": {
+      "t": "The restaurant is open today, isn't it?",
+      "zh": "餐廳今天有開，對吧？"
+    },
+    "pool": [
+      {
+        "t": "Yes, until ten o'clock.",
+        "zh": "對，開到十點。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "confirm",
+        "why": "正解：直接肯定並補充時間。"
+      },
+      {
+        "t": "Yes, it is.",
+        "zh": "對，有開。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "confirm",
+        "why": "正解：直接肯定。"
+      },
+      {
+        "t": "No, it's closed on Mondays.",
+        "zh": "不，星期一休息。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "correct",
+        "why": "正解：直接否定並說明。"
+      },
+      {
+        "t": "In the city center.",
+        "zh": "在市中心。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mr. Lin, I think.",
+        "zh": "我想是林先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "The oven is very hot.",
+        "zh": "烤箱很燙。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "oven 與 open 音近，內容無關。"
+      },
+      {
+        "t": "Please open the window.",
+        "zh": "請把窗戶打開。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 open，但意思不同。"
+      },
+      {
+        "t": "The parking lot is free.",
+        "zh": "停車場免費。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      },
+      {
+        "t": "The menu is in English.",
+        "zh": "菜單有英文版。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      },
+      {
+        "t": "The waiters wear black.",
+        "zh": "服務生穿黑色衣服。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      },
+      {
+        "t": "She was opening a bottle.",
+        "zh": "她那時在開一瓶酒。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "Our napkins are paper.",
+        "zh": "我們的餐巾是紙做的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "open",
+        "ipa": "/ˈoʊpən/",
+        "pos": "adj.",
+        "col": "open today",
+        "zh": "營業中的"
+      },
+      {
+        "word": "closed",
+        "ipa": "/kloʊzd/",
+        "pos": "adj.",
+        "col": "closed on Mondays",
+        "zh": "休息的"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-005-e",
+    "domain": "d2",
+    "qtype": "q5",
+    "tag": "表示想要一些麵包",
+    "scene": "restaurant",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "陳述句，正解是答應、主動去拿、或反問種類。"
+    },
+    "q": {
+      "t": "I'd like some bread, please.",
+      "zh": "請給我一些麵包。"
+    },
+    "pool": [
+      {
+        "t": "Sure, I'll bring a basket of bread.",
+        "zh": "好的，我拿一籃麵包來。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "respond",
+        "why": "正解：直接回應客人的需求。"
+      },
+      {
+        "t": "I'll get it from the kitchen.",
+        "zh": "我去廚房拿。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "offer-help",
+        "why": "正解：主動表示會去拿。"
+      },
+      {
+        "t": "White or brown?",
+        "zh": "要白麵包還是全麥？",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "question-back",
+        "why": "正解：反問種類以便處理。"
+      },
+      {
+        "t": "At table six.",
+        "zh": "在六號桌。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Around nine o'clock.",
+        "zh": "大約九點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Mr. Chen's group.",
+        "zh": "陳先生那一組。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "My bed is very soft.",
+        "zh": "我的床很軟。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "bed 與 bread 音近，內容無關。"
+      },
+      {
+        "t": "I'd like to leave a tip.",
+        "zh": "我想留小費。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 I'd like，但沒有回應說話者。"
+      },
+      {
+        "t": "The pasta is very good.",
+        "zh": "義大利麵很好吃。",
+        "ok": false,
+        "trap": "association",
+        "why": "與用餐有關，但沒有回應需求。"
+      },
+      {
+        "t": "Our tables are round.",
+        "zh": "我們的桌子是圓的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回應需求。"
+      },
+      {
+        "t": "He wanted some soup.",
+        "zh": "他想要一些湯。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回應。"
+      },
+      {
+        "t": "The soup is very hot.",
+        "zh": "湯很燙。",
+        "ok": false,
+        "trap": "association",
+        "why": "與用餐有關，但沒有回應需求。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "bread",
+        "ipa": "/bred/",
+        "pos": "n.",
+        "col": "fresh bread",
+        "zh": "麵包"
+      },
+      {
+        "word": "basket",
+        "ipa": "/ˈbæskɪt/",
+        "pos": "n.",
+        "col": "a basket of bread",
+        "zh": "籃子"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-006-e",
+    "domain": "d2",
+    "qtype": "q6",
+    "tag": "詢問要不要先點飲料",
+    "scene": "restaurant",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "提議句，正解是答應、婉拒或詢問有什麼飲料。"
+    },
+    "q": {
+      "t": "Can I get you a drink?",
+      "zh": "我可以先幫你拿杯飲料嗎？"
+    },
+    "pool": [
+      {
+        "t": "Yes, an orange juice, please.",
+        "zh": "好，請給我一杯柳橙汁。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "accept",
+        "why": "正解：接受對方的提議。"
+      },
+      {
+        "t": "No, thanks, I'm fine.",
+        "zh": "不用了，謝謝，我不用。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "decline",
+        "why": "正解：禮貌婉拒。"
+      },
+      {
+        "t": "What do you have?",
+        "zh": "你們有什麼？",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "ask-detail",
+        "why": "正解：詢問細節，是提議句常見的回應。"
+      },
+      {
+        "t": "At the front counter.",
+        "zh": "在櫃台。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "On Friday night.",
+        "zh": "星期五晚上。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "My shirt is pink.",
+        "zh": "我的襯衫是粉紅色的。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "pink 與 drink 音近，內容無關。"
+      },
+      {
+        "t": "I got a new phone.",
+        "zh": "我買了新手機。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 get 的變化形 got，但意思不同。"
+      },
+      {
+        "t": "I can swim very well.",
+        "zh": "我很會游泳。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 can，但沒有回應提議。"
+      },
+      {
+        "t": "Our glasses are clean.",
+        "zh": "我們的杯子很乾淨。",
+        "ok": false,
+        "trap": "association",
+        "why": "與飲料有關，但沒有回應提議。"
+      },
+      {
+        "t": "The bar has ten stools.",
+        "zh": "吧台有十張高腳椅。",
+        "ok": false,
+        "trap": "association",
+        "why": "與酒吧有關，但沒有回應提議。"
+      },
+      {
+        "t": "They were drinking soda.",
+        "zh": "他們那時在喝汽水。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回應提議。"
+      },
+      {
+        "t": "The menu has pictures.",
+        "zh": "菜單上有圖片。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回應提議。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "drink",
+        "ipa": "/drɪŋk/",
+        "pos": "n.",
+        "col": "get a drink",
+        "zh": "飲料"
+      },
+      {
+        "word": "juice",
+        "ipa": "/dʒuːs/",
+        "pos": "n.",
+        "col": "orange juice",
+        "zh": "果汁"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-007-e",
+    "domain": "d2",
+    "qtype": "q1",
+    "wh": "who",
+    "tag": "詢問今晚的服務生是誰",
+    "scene": "restaurant",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "Who 問句短而單純，正解直接說出名字。"
+    },
+    "q": {
+      "t": "Who is our waiter tonight?",
+      "zh": "今晚誰是我們的服務生？"
+    },
+    "pool": [
+      {
+        "t": "Daniel is.",
+        "zh": "是丹尼爾。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出名字。"
+      },
+      {
+        "t": "Her name is Maria.",
+        "zh": "她叫瑪麗亞。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出服務生的名字。"
+      },
+      {
+        "t": "It's Mr. Brown.",
+        "zh": "是布朗先生。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出名字。"
+      },
+      {
+        "t": "In the kitchen.",
+        "zh": "在廚房。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "At nine o'clock.",
+        "zh": "九點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Two pizzas, please.",
+        "zh": "請給我兩個披薩。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 What 的答案。"
+      },
+      {
+        "t": "Water is free here.",
+        "zh": "這裡的水是免費的。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "water 與 waiter 音近，內容無關。"
+      },
+      {
+        "t": "Tonight is very busy.",
+        "zh": "今晚很忙。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 tonight，但沒有說是誰。"
+      },
+      {
+        "t": "The soup is hot.",
+        "zh": "湯很燙。",
+        "ok": false,
+        "trap": "association",
+        "why": "與用餐有關，但沒有回答是誰。"
+      },
+      {
+        "t": "The napkins are on the table.",
+        "zh": "餐巾在桌上。",
+        "ok": false,
+        "trap": "association",
+        "why": "與用餐有關，但沒有回答是誰。"
+      },
+      {
+        "t": "They were waiting outside.",
+        "zh": "他們那時在外面等。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答是誰。"
+      },
+      {
+        "t": "The chairs are red.",
+        "zh": "椅子是紅色的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答是誰。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "waiter",
+        "ipa": "/ˈweɪtər/",
+        "pos": "n.",
+        "col": "our waiter",
+        "zh": "服務生"
+      },
+      {
+        "word": "tonight",
+        "ipa": "/təˈnaɪt/",
+        "pos": "adv.",
+        "col": "dinner tonight",
+        "zh": "今晚"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d2-008-e",
+    "domain": "d2",
+    "qtype": "q2",
+    "tag": "詢問有沒有兩人座位",
+    "scene": "restaurant",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "Yes/No 問句，正解直接說有或沒有。"
+    },
+    "q": {
+      "t": "Do you have a table for two?",
+      "zh": "你們有兩人座的位子嗎？"
+    },
+    "pool": [
+      {
+        "t": "Yes, right this way, please.",
+        "zh": "有的，請往這邊走。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接回答有位子。"
+      },
+      {
+        "t": "Yes, we have one near the window.",
+        "zh": "有，窗邊有一桌。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接回答有位子並說明位置。"
+      },
+      {
+        "t": "Sorry, we're full tonight.",
+        "zh": "抱歉，今晚客滿了。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接回答沒有位子。"
+      },
+      {
+        "t": "At seven o'clock.",
+        "zh": "七點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Mr. Garcia.",
+        "zh": "賈西亞先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Two tacos, please.",
+        "zh": "請給我兩個塔可。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 What 的答案。"
+      },
+      {
+        "t": "That's too expensive.",
+        "zh": "那太貴了。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "too 與 two 同音，內容無關。"
+      },
+      {
+        "t": "I have a new phone.",
+        "zh": "我有一支新手機。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 have，但意思無關。"
+      },
+      {
+        "t": "The tablecloth is white.",
+        "zh": "桌布是白色的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與桌子有關，但沒有回答問題。"
+      },
+      {
+        "t": "Our napkins are linen.",
+        "zh": "我們的餐巾是亞麻的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      },
+      {
+        "t": "She had a headache yesterday.",
+        "zh": "她昨天頭痛。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "The floor is wet.",
+        "zh": "地板是濕的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與餐廳有關，但沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "table",
+        "ipa": "/ˈteɪbl/",
+        "pos": "n.",
+        "col": "a table for two",
+        "zh": "桌位"
+      },
+      {
+        "word": "full",
+        "ipa": "/fʊl/",
+        "pos": "adj.",
+        "col": "full tonight",
+        "zh": "客滿的"
+      }
+    ],
+    "issues": []
+  }
+]
