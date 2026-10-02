@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 共用）
+TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / part5 共用）
 
-用法：把這支程式放在 daily.json、photo.json、part2.json、part3.json、part4.json 所在的資料夾，雙擊執行。
-  1. 最上方選擇題庫：每日文章（daily.json）／Part 1 照片（photo.json）／Part 2 應答（part2.json）／Part 3 對話（part3.json）／Part 4 獨白（part4.json）。
+用法：把這支程式放在 daily.json、photo.json、part2.json、part3.json、part4.json、part5.json 所在的資料夾，雙擊執行。
+  1. 最上方選擇題庫：每日文章（daily.json）／Part 1 照片（photo.json）／Part 2 應答（part2.json）／Part 3 對話（part3.json）／Part 4 獨白（part4.json）／Part 5 填空（part5.json）。
      啟動時會自動選「資料夾內等待合併的副檔最多」的那一個；也可用  python json_merge.py part2  直接指定。
   2. 自動列出該題庫的副檔：
        daily  → w1d3.json 這類（其他 .json 也會列出，但不會自動勾選）
@@ -12,6 +12,7 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 共�
        part2  → p2_d1-001-h_x5.json 這類（網頁「新增題目」產生的檔名）
        part3  → p3_d1-002-m_x2.json 這類（網頁「新增題目」產生的檔名）
        part4  → p4_d1-002-m_x2.json 這類（網頁「新增題目」產生的檔名）
+       part5  → p5_d1-002-m_x3.json 這類（網頁「新增題目」產生的檔名）
      找不到的可用「新增檔案…」手動加入。
   3. 選取要合併的副檔（可多選：Ctrl / Shift）→「合併」→ 確認 → 寫回主檔（寫入前自動備份到 backup 資料夾）。
 副檔可以是：單筆題目、題目陣列、或含 items 的物件；AI 貼出的 ```json 圍欄也能自動處理。
@@ -916,7 +917,7 @@ class Part4(Part3):
     LEN = {'e': (6, 8), 'm': (8, 10), 'h': (10, 14)}
     empty_hint = ('資料夾內沒有找到副檔。\n請把網頁「新增題目」產生的檔案（例如 p4_d1-002-m_x2.json）放進來，'
                   '或按「新增檔案…」手動選取。')
-    done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p4/（{id}-s01.mp3…，一句獨白一檔），'
+    done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p4/（{id}.mp3，整段獨白錄一個檔），'
                  '再執行 audio_scan.py；沒有音檔時網頁會用機器發音。')
 
     def is_candidate(self, fname):
@@ -977,8 +978,180 @@ class Part4(Part3):
         return extra_er + er, extra_wa + wa
 
 
-PROFILES = {'daily': Daily(), 'photo': Photo(), 'part2': Part2(), 'part3': Part3(), 'part4': Part4()}
-ORDER = ('daily', 'photo', 'part2', 'part3', 'part4')
+# ───── part5 ─────
+
+class Part5(IdProfile):
+    """Part 5 句子填空：一題＝一個句子（恰好一個 _____）＋1 個正解＋11 個干擾項（網頁每次抽 3 個，共顯示 4 個）。"""
+    name = 'part5'
+    title = 'Part 5 填空'
+    main_name = 'part5.json'
+    backup_prefix = 'part5'
+    BLANK = '_____'
+    POINTS = {'wordform': 'grammar', 'tense': 'grammar', 'voice': 'grammar', 'agree': 'grammar', 'verbform': 'grammar',
+              'conj': 'grammar', 'prep': 'grammar', 'pronoun': 'grammar', 'relative': 'grammar', 'compare': 'grammar',
+              'quant': 'grammar', 'vmeaning': 'vocab', 'vcolloc': 'vocab', 'vconfuse': 'vocab'}
+    TRAPS = ('pos', 'tense', 'voice', 'agree', 'form', 'case', 'structure', 'logic', 'confusable', 'collocation', 'meaning')
+    LEN = {'e': (8, 14), 'm': (12, 20), 'h': (15, 28)}
+    empty_hint = ('資料夾內沒有找到副檔。\n請把網頁「新增題目」產生的檔案（例如 p5_d1-002-m_x3.json）放進來，'
+                  '或按「新增檔案…」手動選取。')
+    done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p5/（{id}.mp3，一題一檔，朗讀答案填入的完整句），'
+                 '再執行 audio_scan.py；沒有音檔時網頁會用機器發音。')
+
+    def is_candidate(self, fname):
+        return fname.lower().startswith('p5_')
+
+    def is_auto(self, fname):
+        return self.is_candidate(fname)
+
+    def describe(self, e):
+        s = e.get('sentence') if isinstance(e, dict) else None
+        return s.get('t', '') if isinstance(s, dict) else ''
+
+    def make_ctx(self, items, data):
+        idx = build_index(items)
+        idx['sent'] = {}
+        for o in items:
+            t = self.describe(o) if isinstance(o, dict) else ''
+            if t:
+                idx['sent'].setdefault(norm(t), set()).add(o.get('id'))
+        return {'domains': domains_of(data), 'idx': idx}
+
+    def extra_detail(self, e):
+        if isinstance(e, dict) and isinstance(e.get('sentence'), dict):
+            return ['     %s／%s｜%s' % (e.get('kind', ''), e.get('point', ''), e['sentence'].get('t', ''))]
+        return []
+
+    def validate(self, e, ctx):
+        er, wa = [], []
+        if not isinstance(e, dict):
+            return ['內容不是物件'], wa
+        if 'skip' in e:
+            return ['AI 回報寫不出這個題目，不應合併：%s' % e.get('skip')], wa
+        m = ID_RE.match(str(e.get('id', '')))
+        if not m:
+            return ['id 格式必須是 d{1-7}-{3 位數}-{e|m|h}，例如 d1-002-m'], wa
+        dom, suffix, me = 'd' + m.group(1), m.group(3), e['id']
+        idx = ctx['idx']
+
+        if e.get('domain') != dom:
+            er.append('domain 應為 %s（要等於 id 前段），目前是 %r' % (dom, e.get('domain')))
+        scenes = ctx['domains'].get(dom, [])
+        if e.get('scene') not in scenes:
+            er.append('scene %r 不屬於 %s（可用：%s）' % (e.get('scene'), dom, '、'.join(scenes)))
+        if e.get('biz') not in (None, '') and e.get('biz') not in ('hr', 'marketing', 'finance', 'manufacturing', 'it', 'general'):
+            wa.append('biz 建議為 hr／marketing／finance／manufacturing／it／general，目前是 %r' % e.get('biz'))
+
+        kind, point = e.get('kind'), e.get('point')
+        if kind not in ('grammar', 'vocab'):
+            er.append("kind 必須是 'grammar' 或 'vocab'，目前是 %r" % kind)
+        if point not in self.POINTS:
+            er.append('point 必須是 %s，目前是 %r' % ('／'.join(self.POINTS), point))
+        elif kind in ('grammar', 'vocab') and self.POINTS[point] != kind:
+            er.append('point %s 屬於 %s，但 kind 填了 %s' % (point, self.POINTS[point], kind))
+        if not str(e.get('tag') or '').strip():
+            er.append('缺少 tag')
+        check_level(e, suffix, er, wa)
+        if e.get('voice') not in ('F', 'M'):
+            wa.append("voice 應為 'F' 或 'M'（音檔與機器發音的性別），目前是 %r" % e.get('voice'))
+
+        # 句子
+        s = e.get('sentence')
+        st = ''
+        if not isinstance(s, dict) or not isinstance(s.get('t'), str) or not s['t'].strip():
+            er.append('缺少 sentence.t')
+        else:
+            st = s['t']
+            n_blank = st.count(self.BLANK)
+            if n_blank != 1:
+                er.append('sentence.t 必須恰好有一個 %s（五個底線），目前有 %d 個' % (self.BLANK, n_blank))
+            elif re.search(r'_{6,}', st):
+                er.append('sentence.t 的空格必須剛好是五個底線 %s' % self.BLANK)
+            if not str(s.get('zh') or '').strip():
+                wa.append('sentence 缺少 zh')
+
+        # 正解
+        a = e.get('answer')
+        at = ''
+        if not isinstance(a, dict) or not str(a.get('t') or '').strip():
+            er.append('answer.t 不可為空')
+        else:
+            at = a['t'].strip()
+            for k in ('zh', 'pos'):
+                if not str(a.get(k) or '').strip():
+                    wa.append('answer 缺少 %s' % k)
+            if not str(a.get('why', '')).startswith('正解：'):
+                wa.append('answer.why 建議以「正解：」開頭')
+
+        # 句長（以答案填回後的字數計）
+        if st and at and st.count(self.BLANK) == 1:
+            full = st.replace(self.BLANK, at)
+            lo, hi = self.LEN[suffix]
+            n = n_words(full)
+            if not lo <= n <= hi:
+                wa.append('句長 %d 字，不在%s的範圍 %d–%d 字' % (n, TIER_ZH[TIER[suffix]], lo, hi))
+
+        # 干擾項
+        ds = e.get('distractors')
+        texts = [at.lower()] if at else []
+        if not isinstance(ds, list) or len(ds) != 11:
+            er.append('distractors 必須剛好 11 個（目前 %s）' % (len(ds) if isinstance(ds, list) else '沒有'))
+            ds = ds if isinstance(ds, list) else []
+        n_near = n_root = 0
+        for i, d in enumerate(ds, 1):
+            if not isinstance(d, dict):
+                er.append('干擾項第 %d 個不是物件' % i)
+                continue
+            miss = [k for k in ('t', 'zh', 'pos', 'trap', 'why') if not str(d.get(k) or '').strip()]
+            if miss:
+                er.append('干擾項第 %d 個（%s）缺少：%s' % (i, d.get('t', ''), ', '.join(miss)))
+            if d.get('trap') and d.get('trap') not in self.TRAPS:
+                er.append('干擾項第 %d 個 trap 不合法：%r（可用：%s）' % (i, d.get('trap'), '／'.join(self.TRAPS)))
+            if d.get('t'):
+                texts.append(str(d['t']).strip().lower())
+            n_near += 1 if d.get('near') is True else 0
+            n_root += 1 if d.get('fam') == 'root' else 0
+            if d.get('near') is not None and not isinstance(d.get('near'), bool):
+                er.append('干擾項第 %d 個 near 必須是 true/false' % i)
+            if d.get('fam') not in ('root', 'other'):
+                wa.append('干擾項第 %d 個（%s）fam 應為 root 或 other' % (i, d.get('t', '')))
+            if kind == 'vocab' and at and a and d.get('pos') and a.get('pos') and d['pos'] != a['pos']:
+                wa.append('單字題干擾項「%s」詞性 %s 與正解 %s 不同' % (d.get('t'), d['pos'], a['pos']))
+        if len(set(texts)) != len(texts):
+            er.append('12 個選項（正解＋干擾項）裡有文字重複（忽略大小寫）')
+        if ds and n_near < 3:
+            wa.append('near:true 只有 %d 個（建議至少 3 個）' % n_near)
+        if point == 'wordform' and ds and n_root < 4:
+            wa.append('wordform 題的 root（同字根）干擾項只有 %d 個（建議至少 4 個）' % n_root)
+
+        # clue
+        cl = e.get('clue')
+        if not isinstance(cl, dict) or not str(cl.get('text') or '').strip() or not isinstance(cl.get('steps'), list):
+            wa.append('缺少 clue（需要 text 與 steps）')
+        elif len(cl['steps']) != 4 or any(not str(x or '').strip() for x in cl['steps']):
+            wa.append('clue.steps 應為 4 句（四步驟解題法）')
+
+        # vocab（網頁用 vocab 做單字發音；缺少時只提醒）
+        if not isinstance(e.get('vocab'), list) or not e['vocab']:
+            wa.append('缺少 vocab')
+        else:
+            blob = norm(' '.join([st.replace(self.BLANK, ' ' + at + ' '), at]))
+            check_vocab(e, blob, ctx, er, wa, lo=2, hi=3)
+
+        tg = str(e.get('tag') or '').strip()
+        if tg and others_of(idx['tag'], tg, me):
+            wa.append('tag「%s」與其他題目相同：%s' % (tg, '、'.join(others_of(idx['tag'], tg, me))))
+        if st:
+            n = norm(st)
+            hit = sorted({o for k, v in idx['sent'].items() if similar(n, k) for o in v if o != me})
+            if hit:
+                wa.append('句子與其他題目相同或雷同：%s' % '、'.join(hit))
+        if e.get('issues'):
+            wa.append('備註：%s' % '；'.join(map(str, e['issues'])))
+        return er, wa
+
+
+PROFILES = {'daily': Daily(), 'photo': Photo(), 'part2': Part2(), 'part3': Part3(), 'part4': Part4(), 'part5': Part5()}
+ORDER = ('daily', 'photo', 'part2', 'part3', 'part4', 'part5')
 MAIN_NAMES = {p.main_name.lower() for p in PROFILES.values()}
 TITLE_OF = {k: v.title for k, v in PROFILES.items()}
 
@@ -989,6 +1162,8 @@ def kind_of(e):
         return None
     if 'week' in e or 'passage' in e:
         return 'daily'
+    if 'sentence' in e and 'distractors' in e:
+        return 'part5'
     if 'script' in e or e.get('form') == 'talk':
         return 'part4'
     if 'dialogue' in e or 'questions' in e:
@@ -1172,7 +1347,7 @@ def run_gui(start):
     from tkinter import ttk, filedialog, messagebox
 
     root = tk.Tk()
-    root.geometry('900x720')
+    root.geometry('1120x720')
     root.minsize(760, 600)
 
     st = {'prof': PROFILES[start], 'main': None, 'manual': [], 'rows': {}, 'infos': {}}
@@ -1493,7 +1668,7 @@ def main():
         if a in PROFILES:
             start = a
         else:
-            print('用法：python json_merge.py [daily|photo|part2|part3|part4]', file=sys.stderr)
+            print('用法：python json_merge.py [daily|photo|part2|part3|part4|part5]', file=sys.stderr)
     try:
         run_gui(start)
     except Exception:

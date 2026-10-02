@@ -1,6 +1,6 @@
 /* Part 4 簡短獨白：練習／測驗／維護；題庫 part4.json（一組＝一段獨白＋3題）。記錄存在 toeicPart4V1，KEY 只讀寫 dark。
    流程：預讀題目 → 播放獨白 → 作答（測驗：預讀倒數後自動播放、只播一次、作答提示時間只提示不強制）。
-   音訊：audio/index.json 的 p4.complete 有此題 → 播 audio/p4/{id}-sNN.mp3；否則用瀏覽器 TTS（單一說話者，依 speakers[0].gender 選男女聲）。 */
+   音訊：audio/index.json 的 p4.complete 有此題 → 播整段 audio/p4/{id}.mp3（一段獨白一個檔）；否則用瀏覽器 TTS（單一說話者，依 speakers[0].gender 選男女聲）。 */
 const KEY='toeicCoachV2',PK='toeicPart4V1';
 let S={};try{S=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
 let R={rec:{},saved:{}};try{R=Object.assign(R,JSON.parse(localStorage.getItem(PK)||'{}'))}catch(e){}
@@ -33,13 +33,22 @@ function stop(){P.tok++;clr();if(P.a){P.a.pause();P.a=null}try{speechSynthesis.c
 function say(x,idx,tok,next){
   const l=x.script[idx],g=gOf(x)==='M'?'M':'F';
   const done=()=>{if(tok===P.tok)next()};
-  if(AU.has(x.id)){const a=new Audio('audio/p4/'+x.id+'-s'+String(idx+1).padStart(2,'0')+'.mp3');P.a=a;a.onended=()=>setTimeout(done,350);a.onerror=done;a.play().catch(done);return}
   if(!hasTTS())return done();
   const u=new SpeechSynthesisUtterance(l.t);u.lang='en-US';const v=voiceFor(g)||P.vs[0];if(v)u.voice=v;
   u.pitch=g==='F'?1.2:0.8;u.rate=.95;u.onend=()=>setTimeout(done,350);u.onerror=done;speechSynthesis.speak(u);
 }
+/* 整段獨白一個 mp3：不分句播放；練習模式的句子高亮依字數比例估算。載入失敗自動改用 TTS。單句重播（點文稿）一律用 TTS。 */
+function playWhole(x,tok,cb){
+  const a=new Audio('audio/p4/'+x.id+'.mp3');P.a=a;
+  const lens=x.script.map(l=>l.t.length),tot=lens.reduce((s,v)=>s+v,0)||1;
+  a.ontimeupdate=()=>{if(tok!==P.tok||!a.duration)return;const p=a.currentTime/a.duration*tot;let k=0,s=0;while(k<lens.length-1&&s+lens[k]<=p){s+=lens[k];k++}hl(k)};
+  a.onended=()=>{if(tok!==P.tok)return;P.a=null;hl(-1);paintBar(false);if(cb)cb()};
+  const bad=()=>{if(tok!==P.tok)return;P.a=null;AU.delete(x.id);play(x,0,false,cb)};
+  a.onerror=bad;a.play().catch(bad);
+}
 function play(x,from,only,cb){
   stop();const tok=P.tok;let i=from||0;paintBar(true);
+  if(AU.has(x.id)&&!only&&!from){playWhole(x,tok,cb);return}
   const step=()=>{if(tok!==P.tok)return;if(i>=x.script.length||(only&&i>from)){paintBar(false);if(cb)cb();return}hl(i);say(x,i++,tok,step)};step();
 }
 function hl(i){document.querySelectorAll('.tsent').forEach((e,k)=>e.classList.toggle('active',k===i))}
@@ -153,16 +162,14 @@ function adminH(){
   <div class="${card} p-4"><div class="flex items-center justify-between mb-2"><p class="font-bold text-sm">給 AI 的「寫題目」指令（約 ${tx.length.toLocaleString()} 字）</p><button id="cp" onclick="copyOut()" class="${btn} ${line} !py-1 text-xs">複製</button></div><pre class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-72 overflow-auto">${esc(tx)}</pre><p class="text-xs text-slate-500 mt-2">AI 回傳的檔案（p4_ 開頭）放到 json_merge.py 同資料夾，選「Part 4 獨白」合併；合併後到上方矩陣點該格，展開題組即可複製錄音稿與檔名。音檔放 audio/p4/ 後執行 audio_scan.py。</p></div>`;
 }
 const pad=i=>String(i).padStart(2,'0');
-const auSt=id=>AU.has(id)?['complete','✓ 音檔齊','text-emerald-600']:AU.partial[id]?['partial','△ 缺 '+AU.partial[id].length+' 檔','text-amber-600']:['none','✗ 無音檔','text-slate-400'];
+const auSt=id=>AU.has(id)?['complete','✓ 已有音檔','text-emerald-600']:['none','✗ 無音檔','text-slate-400'];
 const gOf=x=>((x.speakers||[])[0]||{}).gender||'?';
-const auName=(x,i)=>x.id+'-s'+pad(i+1)+'.mp3';
-const copyAudio=id=>{const x=DATA.find(v=>v.id===id);clip(x.script.map((l,i)=>auName(x,i)+'\t'+'('+gOf(x)+')\t'+l.t).join('\n'),'ca-'+id)};
-const copyNames=id=>{const x=DATA.find(v=>v.id===id);clip(x.script.map((l,i)=>auName(x,i)).join('\n'),'cn-'+id)};
+const auName=x=>x.id+'.mp3';
+const copyAudio=id=>{const x=DATA.find(v=>v.id===id);clip(x.script.map(l=>l.t).join(' '),'ca-'+id)};
+const copyNames=id=>{const x=DATA.find(v=>v.id===id);clip(auName(x),'cn-'+id)};
 function auPanelH(x){
-  const miss=AU.partial[x.id]||[],st=auSt(x.id);
-  const rows=x.script.map((l,i)=>{const f=auName(x,i),m=st[0]==='none'||miss.includes(f.slice(0,-4));
-    return `<tr class="border-t border-slate-100 dark:border-slate-800 align-top"><td class="pr-2 py-1 font-mono text-xs whitespace-nowrap ${m?'text-rose-600':'text-emerald-600'}">${m?'✗':'✓'} ${esc(f)}</td><td class="pr-2 text-xs whitespace-nowrap">${gOf(x)==='F'?'女聲':'男聲'}</td><td class="text-xs">${esc(l.t)}</td></tr>`}).join('');
-  return `<div class="mt-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 p-3"><div class="flex items-center justify-between gap-2 mb-1"><p class="text-sm font-bold">🎧 音檔 <span class="text-xs ${st[2]}">${st[1]}</span></p><span class="flex gap-1.5 shrink-0"><button id="cn-${esc(x.id)}" onclick="copyNames('${esc(x.id)}')" class="${btn} ${line} !py-1 text-xs">複製檔名</button><button id="ca-${esc(x.id)}" onclick="copyAudio('${esc(x.id)}')" class="${btn} ${line} !py-1 text-xs">複製錄音稿</button></span></div><p class="text-xs text-slate-500 mb-1">放到 audio/p4/，一句一檔；單一說話者，全程用同一個聲音（性別見表格）錄製。放好後執行 audio_scan.py。</p><div class="overflow-x-auto"><table class="w-full">${rows}</table></div></div>`;
+  const st=auSt(x.id),f=auName(x);
+  return `<div class="mt-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 p-3"><div class="flex items-center justify-between gap-2 mb-1"><p class="text-sm font-bold">🎧 音檔 <span class="text-xs ${st[2]}">${st[1]}</span></p><span class="flex gap-1.5 shrink-0"><button id="cn-${esc(x.id)}" onclick="copyNames('${esc(x.id)}')" class="${btn} ${line} !py-1 text-xs">複製檔名</button><button id="ca-${esc(x.id)}" onclick="copyAudio('${esc(x.id)}')" class="${btn} ${line} !py-1 text-xs">複製錄音稿</button></span></div><p class="text-xs text-slate-500 mb-1">整段獨白錄成一個檔，存成 audio/p4/<b class="font-mono">${esc(f)}</b>（${gOf(x)==='F'?'女聲':'男聲'}，全程同一個聲音；句子之間自然停頓即可）。放好後執行 audio_scan.py。</p><p class="text-xs rounded bg-white dark:bg-slate-900 p-2 leading-relaxed">${esc(x.script.map(l=>l.t).join(' '))}</p></div>`;
 }
 const openCell=(d,t)=>{A.cd=d;A.ct=t;go('adminCell')};
 function adminCellH(){

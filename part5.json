@@ -1,0 +1,2307 @@
+{
+  "_spec": {
+    "purpose": "多益 Part 5 句子填空題庫；一題＝一個句子（恰好一個 _____）＋1 個正解＋11 個干擾項，網頁每次作答只顯示 4 個（正解＋隨機 3 個干擾項）",
+    "schema_version": 1,
+    "domains": {
+      "d1": {
+        "name": "辦公室",
+        "scenes": [
+          "office"
+        ]
+      },
+      "d2": {
+        "name": "餐廳飲食",
+        "scenes": [
+          "restaurant"
+        ]
+      },
+      "d3": {
+        "name": "商店購物",
+        "scenes": [
+          "store"
+        ]
+      },
+      "d4": {
+        "name": "街道與交通",
+        "scenes": [
+          "street",
+          "station"
+        ]
+      },
+      "d5": {
+        "name": "工地與倉庫",
+        "scenes": [
+          "workplace"
+        ]
+      },
+      "d6": {
+        "name": "旅館與居家",
+        "scenes": [
+          "hotel",
+          "home"
+        ]
+      },
+      "d7": {
+        "name": "戶外與公園",
+        "scenes": [
+          "outdoor"
+        ]
+      }
+    },
+    "tiers": {
+      "easy": {
+        "score": "500–550",
+        "guide": "句長 8–14 字；空格前後 3 字內可判斷；常見詞性、簡單時態；單字題用高頻詞；建議作答 10–15 秒"
+      },
+      "medium": {
+        "score": "600–650",
+        "guide": "句長 12–20 字；被動語態、連接詞 vs 介系詞、關係詞；可有插入語；單字題需讀懂語意；建議作答 15–25 秒"
+      },
+      "hard": {
+        "score": "700–800",
+        "guide": "句長 15–28 字；長距離主謂一致、倒裝、省略式分詞、近義詞的精確搭配；建議作答 20–30 秒"
+      }
+    },
+    "points": {
+      "wordform": {
+        "kind": "grammar",
+        "name": "詞性",
+        "share": "25–30%"
+      },
+      "tense": {
+        "kind": "grammar",
+        "name": "時態",
+        "share": "8–10%"
+      },
+      "voice": {
+        "kind": "grammar",
+        "name": "語態",
+        "share": "6–8%"
+      },
+      "agree": {
+        "kind": "grammar",
+        "name": "主詞動詞一致",
+        "share": "5%"
+      },
+      "verbform": {
+        "kind": "grammar",
+        "name": "不定詞／動名詞／分詞",
+        "share": "6–8%"
+      },
+      "conj": {
+        "kind": "grammar",
+        "name": "連接詞 vs 介系詞",
+        "share": "7–9%"
+      },
+      "prep": {
+        "kind": "grammar",
+        "name": "介系詞",
+        "share": "5–7%"
+      },
+      "pronoun": {
+        "kind": "grammar",
+        "name": "代名詞／所有格",
+        "share": "4–5%"
+      },
+      "relative": {
+        "kind": "grammar",
+        "name": "關係詞",
+        "share": "3–4%"
+      },
+      "compare": {
+        "kind": "grammar",
+        "name": "比較級／最高級",
+        "share": "2–3%"
+      },
+      "quant": {
+        "kind": "grammar",
+        "name": "數量詞／限定詞",
+        "share": "2–3%"
+      },
+      "vmeaning": {
+        "kind": "vocab",
+        "name": "語意辨析",
+        "share": "15–20%"
+      },
+      "vcolloc": {
+        "kind": "vocab",
+        "name": "搭配詞",
+        "share": "10–12%"
+      },
+      "vconfuse": {
+        "kind": "vocab",
+        "name": "易混淆字",
+        "share": "5–8%"
+      }
+    },
+    "biz": {
+      "hr": "人事",
+      "marketing": "行銷",
+      "finance": "財務",
+      "manufacturing": "製造",
+      "it": "資訊",
+      "general": "通用"
+    },
+    "traps": {
+      "pos": "詞性不符",
+      "tense": "時態不符",
+      "voice": "語態不符",
+      "agree": "一致性錯誤",
+      "form": "動詞形式錯誤",
+      "case": "代名詞格或限定詞錯誤",
+      "structure": "連接詞與介系詞結構不符",
+      "logic": "邏輯關係不符（原因／對比／條件）",
+      "confusable": "形似音近",
+      "collocation": "搭配錯誤",
+      "meaning": "語意不符"
+    },
+    "entry_schema": "{id:d{1-7}-{3位數}-{e|m|h}, domain, scene(須屬於 domains[domain].scenes), biz(選填:hr|marketing|finance|manufacturing|it|general), kind:'grammar'|'vocab', point(須對應 kind), tag(中文簡述,不重複), level:{score,cefr,tier,why}, voice:'F'|'M', sentence:{t(恰好一個 _____ 五個底線),zh}, answer:{t,zh,pos,why(以「正解：」開頭)}, distractors:剛好11個{t,zh,pos,trap(取自traps),near(true|false),fam('root'|'other'),why}, clue:{text(空格前後3–5字的線索),steps:[4句,依四步驟解題法]}, vocab:[2–3個{word,ipa,pos,col,zh}], say(選填,音檔朗讀文字,預設把 answer.t 填回 sentence.t), issues(選填,不確定之處)}",
+    "rules": {
+      "one_blank": "一題一空，只有一個正解。任一干擾項放進空格都必須明確錯誤，原因寫在 why；任何 3 個干擾項與正解的組合都要是合格考題，不能有兩個選項同時成立。",
+      "distractors": "11 個干擾項要有層次：至少 3 個 near:true；wordform 題優先用同字根（fam:'root'）的各種變化（動詞三態、名詞單複數、副詞、形容詞），至少 4 個 root，不夠再用形似字；單字題 11 個必須詞性相同，意思與句子不符或搭配不自然；conj 題要混合連接詞與介系詞。",
+      "grammar_vocab": "文法題不依賴詞彙語意，看空格前後 3–5 字的結構就能判斷；單字題要讀懂語意或知道搭配才能答，盡量用商務情境。",
+      "style": "句子是自然的商務英文，不過度生僻，除人名外不出現專有名詞；zh 要通順；句長依難度（e 8–14、m 12–20、h 15–28 字，以答案填回後計）。",
+      "dedupe": "同一批題目不要重複句型或單字；tag、vocab.word、句子首句不得與已有題目重複。",
+      "share": "考點比例照 points 的 share；本批若指定考點，就只出該考點。",
+      "uncertain": "不確定的題目放進 issues，不要硬湊。無法達到 11 個合格干擾項時，回傳 {\"skip\":\"原因\"} 而不是勉強湊數。",
+      "output": "輸出單一合法 JSON 陣列（UTF-8、不加程式碼區塊標記）。"
+    }
+  },
+  "items": [
+    {
+      "id": "d1-001-m",
+      "domain": "d1",
+      "scene": "office",
+      "biz": "marketing",
+      "kind": "grammar",
+      "point": "wordform",
+      "tag": "形容詞修飾名詞",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "需判斷冠詞與名詞之間的詞類，且選項為同字根的各種變化。"
+      },
+      "voice": "F",
+      "sentence": {
+        "t": "Ms. Alvarez gave a _____ presentation that impressed the entire sales team.",
+        "zh": "Alvarez 女士做了一場有說服力的簡報，讓整個業務團隊印象深刻。"
+      },
+      "answer": {
+        "t": "persuasive",
+        "zh": "有說服力的",
+        "pos": "adj.",
+        "why": "正解：a 與名詞 presentation 之間需要形容詞。"
+      },
+      "distractors": [
+        {
+          "t": "persuasively",
+          "zh": "有說服力地",
+          "pos": "adv.",
+          "trap": "pos",
+          "near": true,
+          "fam": "root",
+          "why": "副詞不能修飾名詞。"
+        },
+        {
+          "t": "persuasion",
+          "zh": "說服",
+          "pos": "n.",
+          "trap": "pos",
+          "near": true,
+          "fam": "root",
+          "why": "名詞無法放在此處修飾 presentation。"
+        },
+        {
+          "t": "persuaded",
+          "zh": "被說服的",
+          "pos": "v.",
+          "trap": "form",
+          "near": true,
+          "fam": "root",
+          "why": "主詞是人才用 persuaded，簡報不會被說服。"
+        },
+        {
+          "t": "presently",
+          "zh": "目前",
+          "pos": "adv.",
+          "trap": "confusable",
+          "near": false,
+          "fam": "other",
+          "why": "形似 presentation，但是副詞。"
+        },
+        {
+          "t": "persuade",
+          "zh": "說服",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "原形動詞不能放在 a 與名詞之間。"
+        },
+        {
+          "t": "persuades",
+          "zh": "說服（第三人稱單數）",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "動詞第三人稱單數不能修飾名詞。"
+        },
+        {
+          "t": "persuasions",
+          "zh": "各種說服",
+          "pos": "n.",
+          "trap": "pos",
+          "near": false,
+          "fam": "root",
+          "why": "複數名詞不能接在 a 後面，也無法修飾 presentation。"
+        },
+        {
+          "t": "persuader",
+          "zh": "說服者",
+          "pos": "n.",
+          "trap": "pos",
+          "near": false,
+          "fam": "root",
+          "why": "名詞（人）放在此處語意與詞性都不合。"
+        },
+        {
+          "t": "persuasiveness",
+          "zh": "說服力",
+          "pos": "n.",
+          "trap": "pos",
+          "near": false,
+          "fam": "root",
+          "why": "抽象名詞不能直接修飾 presentation。"
+        },
+        {
+          "t": "presence",
+          "zh": "出席；存在",
+          "pos": "n.",
+          "trap": "confusable",
+          "near": false,
+          "fam": "other",
+          "why": "形似 presentation，但詞性是名詞，語意不通。"
+        },
+        {
+          "t": "presented",
+          "zh": "被呈現的",
+          "pos": "v.",
+          "trap": "confusable",
+          "near": false,
+          "fam": "other",
+          "why": "過去分詞放在此處語意重複且不自然（presentation 本身就是「呈現」）。"
+        }
+      ],
+      "clue": {
+        "text": "a + ___ + presentation",
+        "steps": [
+          "選項同字根 → 詞性題",
+          "冠詞與名詞之間 → 形容詞",
+          "副詞、名詞、動詞都排除",
+          "代入句子通順，換下一題"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "persuasive",
+          "ipa": "/pərˈsweɪsɪv/",
+          "pos": "adj.",
+          "col": "persuasive argument",
+          "zh": "有說服力的"
+        },
+        {
+          "word": "impress",
+          "ipa": "/ɪmˈpres/",
+          "pos": "v.",
+          "col": "impress a client",
+          "zh": "使印象深刻"
+        }
+      ]
+    },
+    {
+      "id": "d1-002-h",
+      "domain": "d1",
+      "scene": "office",
+      "biz": "general",
+      "kind": "grammar",
+      "point": "conj",
+      "tag": "讓步連接詞與介系詞",
+      "level": {
+        "score": 750,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "選項混合連接詞與介系詞，需看空格後的結構，再判斷讓步關係。"
+      },
+      "voice": "M",
+      "sentence": {
+        "t": "_____ the quarterly sales report was submitted two days after the deadline, the board of directors approved the new marketing budget without any delay.",
+        "zh": "儘管季度業績報告在截止日後兩天才提交，董事會仍毫不延誤地核准了新的行銷預算。"
+      },
+      "answer": {
+        "t": "Although",
+        "zh": "儘管",
+        "pos": "conj.",
+        "why": "正解：空格後是完整子句，且兩個子句是讓步關係（報告遲交，預算仍準時核准）。"
+      },
+      "distractors": [
+        {
+          "t": "Despite",
+          "zh": "儘管（介系詞）",
+          "pos": "prep.",
+          "trap": "structure",
+          "near": true,
+          "fam": "other",
+          "why": "介系詞後面要接名詞或動名詞，不能接完整子句。"
+        },
+        {
+          "t": "In spite of",
+          "zh": "儘管（介系詞片語）",
+          "pos": "prep.",
+          "trap": "structure",
+          "near": true,
+          "fam": "other",
+          "why": "in spite of 是介系詞片語，後面不能接子句。"
+        },
+        {
+          "t": "Because of",
+          "zh": "因為（介系詞片語）",
+          "pos": "prep.",
+          "trap": "structure",
+          "near": false,
+          "fam": "other",
+          "why": "because of 後面接名詞，且語意是原因，不是讓步。"
+        },
+        {
+          "t": "Due to",
+          "zh": "由於（介系詞片語）",
+          "pos": "prep.",
+          "trap": "structure",
+          "near": false,
+          "fam": "other",
+          "why": "due to 後面接名詞，且語意是原因。"
+        },
+        {
+          "t": "Instead of",
+          "zh": "而不是",
+          "pos": "prep.",
+          "trap": "structure",
+          "near": false,
+          "fam": "other",
+          "why": "instead of 後面接名詞或動名詞，語意也不合。"
+        },
+        {
+          "t": "During",
+          "zh": "在……期間",
+          "pos": "prep.",
+          "trap": "structure",
+          "near": false,
+          "fam": "other",
+          "why": "during 後面接名詞，不能接完整子句。"
+        },
+        {
+          "t": "Because",
+          "zh": "因為",
+          "pos": "conj.",
+          "trap": "logic",
+          "near": true,
+          "fam": "other",
+          "why": "結構正確，但「報告遲交」不是「準時核准」的原因，邏輯不合。"
+        },
+        {
+          "t": "Since",
+          "zh": "因為；自從",
+          "pos": "conj.",
+          "trap": "logic",
+          "near": false,
+          "fam": "other",
+          "why": "表原因或起始時間，與前後句的對比關係不合。"
+        },
+        {
+          "t": "Unless",
+          "zh": "除非",
+          "pos": "conj.",
+          "trap": "logic",
+          "near": false,
+          "fam": "other",
+          "why": "表否定條件，與已經發生的事實不合。"
+        },
+        {
+          "t": "Until",
+          "zh": "直到",
+          "pos": "conj.",
+          "trap": "logic",
+          "near": false,
+          "fam": "other",
+          "why": "表時間的持續終點，語意不通。"
+        },
+        {
+          "t": "As long as",
+          "zh": "只要",
+          "pos": "conj.",
+          "trap": "logic",
+          "near": false,
+          "fam": "other",
+          "why": "表條件，不是讓步，語意不合。"
+        }
+      ],
+      "clue": {
+        "text": "___ + 子句 , + 子句",
+        "steps": [
+          "選項混合連接詞與介系詞 → 結構題",
+          "空格後是完整子句 → 需連接詞，排除 Despite、In spite of、Because of、Due to、Instead of、During",
+          "兩個子句是讓步關係 → 排除 Because、Since、Unless、Until、As long as",
+          "Although 代入後句意通順"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "quarterly",
+          "ipa": "/ˈkwɔːrtərli/",
+          "pos": "adj.",
+          "col": "quarterly report",
+          "zh": "每季的"
+        },
+        {
+          "word": "approve",
+          "ipa": "/əˈpruːv/",
+          "pos": "v.",
+          "col": "approve a budget",
+          "zh": "核准"
+        }
+      ]
+    },
+    {
+      "id": "d2-001-e",
+      "domain": "d2",
+      "scene": "restaurant",
+      "biz": "general",
+      "kind": "vocab",
+      "point": "vmeaning",
+      "tag": "週末客滿的形容詞",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "高頻形容詞，從「所以請提早訂位」即可判斷語意。"
+      },
+      "voice": "M",
+      "sentence": {
+        "t": "The restaurant is usually _____ on weekends, so please book a table early.",
+        "zh": "這家餐廳週末通常很擁擠，所以請提早訂位。"
+      },
+      "answer": {
+        "t": "crowded",
+        "zh": "擁擠的",
+        "pos": "adj.",
+        "why": "正解：後半句建議提早訂位，表示週末客人多，需要 crowded。"
+      },
+      "distractors": [
+        {
+          "t": "empty",
+          "zh": "空的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": true,
+          "fam": "other",
+          "why": "「空蕩」與「需提早訂位」邏輯相反。"
+        },
+        {
+          "t": "quiet",
+          "zh": "安靜的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": true,
+          "fam": "other",
+          "why": "安靜表示客人少，不需要提早訂位。"
+        },
+        {
+          "t": "closed",
+          "zh": "休息的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "店休就無法訂位，語意矛盾。"
+        },
+        {
+          "t": "silent",
+          "zh": "寂靜的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "不用來形容餐廳客人多寡，也與訂位原因不符。"
+        },
+        {
+          "t": "delicious",
+          "zh": "美味的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "形容食物味道，不能形容餐廳在週末的狀態。"
+        },
+        {
+          "t": "hungry",
+          "zh": "飢餓的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "形容人或動物，不能形容餐廳。"
+        },
+        {
+          "t": "cheap",
+          "zh": "便宜的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "價格便宜與「提早訂位」沒有因果關係。"
+        },
+        {
+          "t": "slow",
+          "zh": "慢的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "「慢」不構成提早訂位的理由。"
+        },
+        {
+          "t": "open",
+          "zh": "營業中的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": true,
+          "fam": "other",
+          "why": "營業中無法說明為何要提早訂位，邏輯不足。"
+        },
+        {
+          "t": "spicy",
+          "zh": "辣的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "形容食物，不能形容餐廳。"
+        },
+        {
+          "t": "tired",
+          "zh": "疲倦的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "形容人，不能形容餐廳。"
+        }
+      ],
+      "clue": {
+        "text": "so please book a table early",
+        "steps": [
+          "選項都是形容詞 → 單字語意題",
+          "找線索：so please book a table early（所以請提早訂位）",
+          "empty、quiet、closed 與「需提早訂位」矛盾；delicious、hungry、spicy 不能形容餐廳",
+          "crowded 代入後句意通順"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "crowded",
+          "ipa": "/ˈkraʊdɪd/",
+          "pos": "adj.",
+          "col": "a crowded restaurant",
+          "zh": "擁擠的"
+        },
+        {
+          "word": "book",
+          "ipa": "/bʊk/",
+          "pos": "v.",
+          "col": "book a table",
+          "zh": "預訂"
+        }
+      ]
+    },
+    {
+      "id": "d2-002-h",
+      "domain": "d2",
+      "scene": "restaurant",
+      "biz": "general",
+      "kind": "grammar",
+      "point": "voice",
+      "tag": "關係子句中的過去被動",
+      "level": {
+        "score": 700,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "選項是同一動詞的各種時態與語態，需同時看主詞與時間副詞。"
+      },
+      "voice": "F",
+      "sentence": {
+        "t": "The catering order, which _____ by the banquet manager earlier this week, will be delivered to the conference center before noon on Friday.",
+        "zh": "宴會經理本週稍早已確認的外燴訂單，將於週五中午前送到會議中心。"
+      },
+      "answer": {
+        "t": "was confirmed",
+        "zh": "已被確認",
+        "pos": "v.",
+        "why": "正解：order 是被確認的對象，且 earlier this week 是過去時間，需用過去被動 was confirmed。"
+      },
+      "distractors": [
+        {
+          "t": "confirmed",
+          "zh": "確認了",
+          "pos": "v.",
+          "trap": "voice",
+          "near": true,
+          "fam": "root",
+          "why": "主動過去式後面要有受詞，不能直接接 by + 人。"
+        },
+        {
+          "t": "confirms",
+          "zh": "確認（第三人稱單數）",
+          "pos": "v.",
+          "trap": "voice",
+          "near": false,
+          "fam": "root",
+          "why": "主動語態且是現在式，與 by 及 earlier this week 都不合。"
+        },
+        {
+          "t": "confirm",
+          "zh": "確認",
+          "pos": "v.",
+          "trap": "voice",
+          "near": false,
+          "fam": "root",
+          "why": "原形動詞不能作關係子句的動詞，也不是被動。"
+        },
+        {
+          "t": "has confirmed",
+          "zh": "已確認",
+          "pos": "v.",
+          "trap": "voice",
+          "near": false,
+          "fam": "root",
+          "why": "現在完成式主動，後面缺受詞，且與 by 矛盾。"
+        },
+        {
+          "t": "had confirmed",
+          "zh": "（當時）已確認",
+          "pos": "v.",
+          "trap": "voice",
+          "near": false,
+          "fam": "root",
+          "why": "過去完成式主動，後面缺受詞，且與 by 矛盾。"
+        },
+        {
+          "t": "is confirming",
+          "zh": "正在確認",
+          "pos": "v.",
+          "trap": "voice",
+          "near": false,
+          "fam": "root",
+          "why": "現在進行式主動，與被動的 by 及過去時間不合。"
+        },
+        {
+          "t": "will confirm",
+          "zh": "將確認",
+          "pos": "v.",
+          "trap": "voice",
+          "near": false,
+          "fam": "root",
+          "why": "未來式主動，與 earlier this week 不合。"
+        },
+        {
+          "t": "to confirm",
+          "zh": "為了確認",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "不定詞不能作關係子句的動詞。"
+        },
+        {
+          "t": "confirming",
+          "zh": "確認中",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "現在分詞不能單獨作關係子句的動詞。"
+        },
+        {
+          "t": "is confirmed",
+          "zh": "被確認（現在式）",
+          "pos": "v.",
+          "trap": "tense",
+          "near": true,
+          "fam": "root",
+          "why": "語態對，但現在式與 earlier this week（過去）不合。"
+        },
+        {
+          "t": "will be confirmed",
+          "zh": "將被確認",
+          "pos": "v.",
+          "trap": "tense",
+          "near": true,
+          "fam": "root",
+          "why": "語態對，但未來式與 earlier this week（過去）不合。"
+        }
+      ],
+      "clue": {
+        "text": "which ___ by the banquet manager earlier this week",
+        "steps": [
+          "選項是同一動詞的各種形式 → 時態／語態題",
+          "order 是被確認的對象，後面有 by + 人 → 被動語態",
+          "earlier this week 是過去 → 排除 is confirmed、will be confirmed",
+          "was confirmed 的主詞、時態、語態都吻合"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "catering",
+          "ipa": "/ˈkeɪtərɪŋ/",
+          "pos": "n.",
+          "col": "catering service",
+          "zh": "外燴"
+        },
+        {
+          "word": "banquet",
+          "ipa": "/ˈbæŋkwɪt/",
+          "pos": "n.",
+          "col": "banquet hall",
+          "zh": "宴會"
+        }
+      ]
+    },
+    {
+      "id": "d3-001-m",
+      "domain": "d3",
+      "scene": "store",
+      "biz": "manufacturing",
+      "kind": "vocab",
+      "point": "vcolloc",
+      "tag": "meet the deadline",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "需知道 deadline 的慣用動詞搭配，近似動詞容易誤選。"
+      },
+      "voice": "M",
+      "sentence": {
+        "t": "The supplier failed to _____ the deadline, so the store opened without its holiday displays.",
+        "zh": "供應商未能趕上期限，所以商店開張時沒有節慶展示品。"
+      },
+      "answer": {
+        "t": "meet",
+        "zh": "達成（期限）",
+        "pos": "v.",
+        "why": "正解：meet a deadline 是固定搭配，表示「趕上期限」。"
+      },
+      "distractors": [
+        {
+          "t": "reach",
+          "zh": "抵達",
+          "pos": "v.",
+          "trap": "collocation",
+          "near": true,
+          "fam": "other",
+          "why": "reach 搭配地點或目標（reach an agreement），不搭配 deadline。"
+        },
+        {
+          "t": "keep",
+          "zh": "保持",
+          "pos": "v.",
+          "trap": "collocation",
+          "near": true,
+          "fam": "other",
+          "why": "常見的中式英文，標準說法是 meet a deadline 或 keep to a deadline。"
+        },
+        {
+          "t": "follow",
+          "zh": "遵循",
+          "pos": "v.",
+          "trap": "collocation",
+          "near": false,
+          "fam": "other",
+          "why": "follow 搭配指示、規則，不搭配 deadline。"
+        },
+        {
+          "t": "catch",
+          "zh": "抓住",
+          "pos": "v.",
+          "trap": "collocation",
+          "near": false,
+          "fam": "other",
+          "why": "catch 不與 deadline 搭配。"
+        },
+        {
+          "t": "achieve",
+          "zh": "達成",
+          "pos": "v.",
+          "trap": "collocation",
+          "near": true,
+          "fam": "other",
+          "why": "achieve 搭配目標、成就，不搭配 deadline。"
+        },
+        {
+          "t": "obey",
+          "zh": "服從",
+          "pos": "v.",
+          "trap": "collocation",
+          "near": false,
+          "fam": "other",
+          "why": "obey 搭配法律、命令，不搭配 deadline。"
+        },
+        {
+          "t": "arrive",
+          "zh": "抵達",
+          "pos": "v.",
+          "trap": "collocation",
+          "near": false,
+          "fam": "other",
+          "why": "arrive 是不及物動詞，不能直接接受詞。"
+        },
+        {
+          "t": "touch",
+          "zh": "觸碰",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "touch 是實際碰觸，語意不通。"
+        },
+        {
+          "t": "hold",
+          "zh": "握住；舉行",
+          "pos": "v.",
+          "trap": "collocation",
+          "near": false,
+          "fam": "other",
+          "why": "hold 不與 deadline 搭配。"
+        },
+        {
+          "t": "answer",
+          "zh": "回答",
+          "pos": "v.",
+          "trap": "collocation",
+          "near": false,
+          "fam": "other",
+          "why": "answer 搭配問題、電話，不搭配 deadline。"
+        },
+        {
+          "t": "complete",
+          "zh": "完成",
+          "pos": "v.",
+          "trap": "collocation",
+          "near": false,
+          "fam": "other",
+          "why": "complete 的受詞是工作或表格，不是期限本身。"
+        }
+      ],
+      "clue": {
+        "text": "failed to ___ the deadline",
+        "steps": [
+          "選項都是動詞 → 搭配詞題",
+          "deadline 的固定動詞搭配：meet、miss、extend",
+          "reach、keep、achieve 看似合理，但不是慣用搭配",
+          "meet the deadline 代入後通順"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "deadline",
+          "ipa": "/ˈdedlaɪn/",
+          "pos": "n.",
+          "col": "meet a deadline",
+          "zh": "期限"
+        },
+        {
+          "word": "supplier",
+          "ipa": "/səˈplaɪər/",
+          "pos": "n.",
+          "col": "a reliable supplier",
+          "zh": "供應商"
+        }
+      ]
+    },
+    {
+      "id": "d3-002-e",
+      "domain": "d3",
+      "scene": "store",
+      "biz": "general",
+      "kind": "grammar",
+      "point": "prep",
+      "tag": "星期前面的介系詞",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "星期幾搭配 on，屬於基本介系詞用法。"
+      },
+      "voice": "M",
+      "sentence": {
+        "t": "The big sale starts _____ Monday and ends on Friday.",
+        "zh": "大特賣從星期一開始，到星期五結束。"
+      },
+      "answer": {
+        "t": "on",
+        "zh": "在（某一天）",
+        "pos": "prep.",
+        "why": "正解：星期幾前面用 on（on Monday）。"
+      },
+      "distractors": [
+        {
+          "t": "at",
+          "zh": "在（時刻）",
+          "pos": "prep.",
+          "trap": "collocation",
+          "near": true,
+          "fam": "other",
+          "why": "at 用於時刻（at noon），不用於星期幾。"
+        },
+        {
+          "t": "in",
+          "zh": "在（月份、年份）",
+          "pos": "prep.",
+          "trap": "collocation",
+          "near": true,
+          "fam": "other",
+          "why": "in 用於月份、年份（in May），不用於星期幾。"
+        },
+        {
+          "t": "for",
+          "zh": "為了；持續",
+          "pos": "prep.",
+          "trap": "collocation",
+          "near": false,
+          "fam": "other",
+          "why": "for 後面接一段時間（for two days），不接星期幾。"
+        },
+        {
+          "t": "to",
+          "zh": "到",
+          "pos": "prep.",
+          "trap": "collocation",
+          "near": false,
+          "fam": "other",
+          "why": "to 表方向或終點，不能表示開始的時間點。"
+        },
+        {
+          "t": "of",
+          "zh": "……的",
+          "pos": "prep.",
+          "trap": "collocation",
+          "near": false,
+          "fam": "other",
+          "why": "of 表所屬關係，不能放在 starts 與 Monday 之間。"
+        },
+        {
+          "t": "with",
+          "zh": "與……一起",
+          "pos": "prep.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "with 表伴隨，語意不通。"
+        },
+        {
+          "t": "since",
+          "zh": "自從",
+          "pos": "prep.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "since 搭配現在完成式，表從過去持續到現在。"
+        },
+        {
+          "t": "during",
+          "zh": "在……期間",
+          "pos": "prep.",
+          "trap": "collocation",
+          "near": true,
+          "fam": "other",
+          "why": "during 後面接一段期間（during the sale），不接單一星期幾。"
+        },
+        {
+          "t": "into",
+          "zh": "進入",
+          "pos": "prep.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "into 表進入某處，語意不通。"
+        },
+        {
+          "t": "under",
+          "zh": "在……之下",
+          "pos": "prep.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "under 表位置或條件，語意不通。"
+        },
+        {
+          "t": "between",
+          "zh": "在……之間",
+          "pos": "prep.",
+          "trap": "structure",
+          "near": false,
+          "fam": "other",
+          "why": "between 需要兩個對象（between A and B），此處不成立。"
+        }
+      ],
+      "clue": {
+        "text": "starts ___ Monday",
+        "steps": [
+          "選項都是介系詞 → 介系詞題",
+          "看後面的名詞：Monday（星期幾）",
+          "星期幾、日期用 on；at 用於時刻，in 用於月份或年份",
+          "starts on Monday 代入後通順"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "sale",
+          "ipa": "/seɪl/",
+          "pos": "n.",
+          "col": "on sale",
+          "zh": "特價"
+        },
+        {
+          "word": "start",
+          "ipa": "/stɑːrt/",
+          "pos": "v.",
+          "col": "start on Monday",
+          "zh": "開始"
+        }
+      ]
+    },
+    {
+      "id": "d4-001-m",
+      "domain": "d4",
+      "scene": "station",
+      "biz": "general",
+      "kind": "grammar",
+      "point": "tense",
+      "tag": "過去完成式",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "by the time 引導過去子句，主要子句需用過去完成式。"
+      },
+      "voice": "F",
+      "sentence": {
+        "t": "The train _____ by the time we reached the platform, so we waited for the next one.",
+        "zh": "我們抵達月台時，火車已經開走了，所以我們等下一班。"
+      },
+      "answer": {
+        "t": "had already left",
+        "zh": "已經開走了",
+        "pos": "v.",
+        "why": "正解：by the time + 過去式子句，主要子句要用過去完成式，表示更早已發生。"
+      },
+      "distractors": [
+        {
+          "t": "will leave",
+          "zh": "將離開",
+          "pos": "v.",
+          "trap": "tense",
+          "near": false,
+          "fam": "root",
+          "why": "未來式，與 by the time we reached（過去）不合。"
+        },
+        {
+          "t": "leaves",
+          "zh": "離開（現在式）",
+          "pos": "v.",
+          "trap": "tense",
+          "near": false,
+          "fam": "root",
+          "why": "現在式，與過去的時間點不合。"
+        },
+        {
+          "t": "is leaving",
+          "zh": "正要離開",
+          "pos": "v.",
+          "trap": "tense",
+          "near": false,
+          "fam": "root",
+          "why": "現在進行式，與過去的時間點不合。"
+        },
+        {
+          "t": "has already left",
+          "zh": "已經離開（現在完成式）",
+          "pos": "v.",
+          "trap": "tense",
+          "near": true,
+          "fam": "root",
+          "why": "現在完成式連結「現在」，不能搭配過去時間點。"
+        },
+        {
+          "t": "have already left",
+          "zh": "已經離開（現在完成式）",
+          "pos": "v.",
+          "trap": "agree",
+          "near": false,
+          "fam": "root",
+          "why": "主詞 train 是單數，且現在完成式與過去時間點不合。"
+        },
+        {
+          "t": "would leave",
+          "zh": "會離開",
+          "pos": "v.",
+          "trap": "tense",
+          "near": false,
+          "fam": "root",
+          "why": "would 表過去的未來或假設，語意不合。"
+        },
+        {
+          "t": "was leaving",
+          "zh": "正要離開",
+          "pos": "v.",
+          "trap": "tense",
+          "near": true,
+          "fam": "root",
+          "why": "過去進行式表示當時正在離開，無法表示「已經開走」。"
+        },
+        {
+          "t": "leaving",
+          "zh": "離開中",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "現在分詞不能單獨作述語動詞。"
+        },
+        {
+          "t": "to leave",
+          "zh": "離開",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "不定詞不能單獨作述語動詞。"
+        },
+        {
+          "t": "will have left",
+          "zh": "屆時已離開",
+          "pos": "v.",
+          "trap": "tense",
+          "near": true,
+          "fam": "root",
+          "why": "未來完成式，與過去的時間點不合。"
+        },
+        {
+          "t": "leave",
+          "zh": "離開",
+          "pos": "v.",
+          "trap": "agree",
+          "near": false,
+          "fam": "root",
+          "why": "原形動詞與單數主詞不一致，時態也不合。"
+        }
+      ],
+      "clue": {
+        "text": "by the time we reached the platform",
+        "steps": [
+          "選項是 leave 的各種時態 → 時態題",
+          "by the time + 過去式 → 主要子句用過去完成式",
+          "排除現在式、未來式、現在完成式與進行式",
+          "had already left 代入後通順"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "platform",
+          "ipa": "/ˈplætfɔːrm/",
+          "pos": "n.",
+          "col": "station platform",
+          "zh": "月台"
+        },
+        {
+          "word": "reach",
+          "ipa": "/riːtʃ/",
+          "pos": "v.",
+          "col": "reach the platform",
+          "zh": "抵達"
+        }
+      ]
+    },
+    {
+      "id": "d4-002-h",
+      "domain": "d4",
+      "scene": "street",
+      "biz": "general",
+      "kind": "vocab",
+      "point": "vconfuse",
+      "tag": "adapt 與 adopt",
+      "level": {
+        "score": 750,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "形似字 adapt／adopt 與其變化形混雜，需同時判斷語意與動詞形式。"
+      },
+      "voice": "M",
+      "sentence": {
+        "t": "Commuters who relocate abroad must learn to _____ quickly to unfamiliar transit systems and ticketing rules.",
+        "zh": "搬到國外的通勤者必須學會快速適應不熟悉的交通系統與售票規則。"
+      },
+      "answer": {
+        "t": "adapt",
+        "zh": "適應",
+        "pos": "v.",
+        "why": "正解：adapt to 表示「適應」，且 to 後面要接原形動詞。"
+      },
+      "distractors": [
+        {
+          "t": "adopt",
+          "zh": "採用；收養",
+          "pos": "v.",
+          "trap": "confusable",
+          "near": true,
+          "fam": "other",
+          "why": "形似字，adopt 是「採用」，不接 to 表示適應。"
+        },
+        {
+          "t": "adopts",
+          "zh": "採用（第三人稱單數）",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "other",
+          "why": "to 後面要接原形，且 adopt 語意不合。"
+        },
+        {
+          "t": "adopted",
+          "zh": "採用了",
+          "pos": "v.",
+          "trap": "form",
+          "near": true,
+          "fam": "other",
+          "why": "過去式不能接在 learn to 後面，語意也不合。"
+        },
+        {
+          "t": "adopting",
+          "zh": "採用中",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "other",
+          "why": "to 後面不能接 -ing，語意也不合。"
+        },
+        {
+          "t": "adapts",
+          "zh": "適應（第三人稱單數）",
+          "pos": "v.",
+          "trap": "form",
+          "near": true,
+          "fam": "root",
+          "why": "learn to 後面要接原形動詞。"
+        },
+        {
+          "t": "adapted",
+          "zh": "適應了",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "過去式不能接在 learn to 後面。"
+        },
+        {
+          "t": "adapting",
+          "zh": "適應中",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "learn to 後面要接原形動詞，不能用 -ing。"
+        },
+        {
+          "t": "adjourn",
+          "zh": "休會",
+          "pos": "v.",
+          "trap": "confusable",
+          "near": false,
+          "fam": "other",
+          "why": "形似字，意思是「（會議）延會」，語意不合。"
+        },
+        {
+          "t": "adore",
+          "zh": "愛慕",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "adore 不搭配 to + 名詞表示適應。"
+        },
+        {
+          "t": "afford",
+          "zh": "負擔得起",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "afford 後面接 to + 動詞，語意與句子不合。"
+        },
+        {
+          "t": "advertise",
+          "zh": "刊登廣告",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "advertise 的語意與「適應」無關。"
+        }
+      ],
+      "clue": {
+        "text": "learn to ___ quickly to unfamiliar transit systems",
+        "steps": [
+          "選項混合 adapt／adopt 與其變化形 → 易混淆字題",
+          "空格後面是 quickly to …，語意是「適應」",
+          "to 後面要原形動詞；adopt 意思是「採用」，不能接 to 表適應",
+          "learn to adapt to 代入後通順"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "adapt",
+          "ipa": "/əˈdæpt/",
+          "pos": "v.",
+          "col": "adapt to change",
+          "zh": "適應"
+        },
+        {
+          "word": "relocate",
+          "ipa": "/ˌriːloʊˈkeɪt/",
+          "pos": "v.",
+          "col": "relocate overseas",
+          "zh": "搬遷"
+        },
+        {
+          "word": "commuter",
+          "ipa": "/kəˈmjuːtər/",
+          "pos": "n.",
+          "col": "daily commuter",
+          "zh": "通勤者"
+        }
+      ]
+    },
+    {
+      "id": "d5-001-e",
+      "domain": "d5",
+      "scene": "workplace",
+      "biz": "manufacturing",
+      "kind": "grammar",
+      "point": "tense",
+      "tag": "過去簡單式",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "yesterday 是明確的過去時間線索。"
+      },
+      "voice": "M",
+      "sentence": {
+        "t": "The warehouse staff _____ all the boxes to the loading dock yesterday.",
+        "zh": "倉庫人員昨天把所有箱子搬到了裝卸平台。"
+      },
+      "answer": {
+        "t": "moved",
+        "zh": "搬了",
+        "pos": "v.",
+        "why": "正解：yesterday 表示過去，用過去簡單式。"
+      },
+      "distractors": [
+        {
+          "t": "move",
+          "zh": "搬",
+          "pos": "v.",
+          "trap": "tense",
+          "near": true,
+          "fam": "root",
+          "why": "原形或現在式，與 yesterday 不合。"
+        },
+        {
+          "t": "moves",
+          "zh": "搬（現在式）",
+          "pos": "v.",
+          "trap": "tense",
+          "near": false,
+          "fam": "root",
+          "why": "現在式，與 yesterday 不合。"
+        },
+        {
+          "t": "moving",
+          "zh": "搬動中",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "現在分詞不能單獨作述語動詞。"
+        },
+        {
+          "t": "will move",
+          "zh": "將搬",
+          "pos": "v.",
+          "trap": "tense",
+          "near": true,
+          "fam": "root",
+          "why": "未來式，與 yesterday 不合。"
+        },
+        {
+          "t": "is moving",
+          "zh": "正在搬",
+          "pos": "v.",
+          "trap": "tense",
+          "near": false,
+          "fam": "root",
+          "why": "現在進行式，與 yesterday 不合。"
+        },
+        {
+          "t": "are moving",
+          "zh": "正在搬",
+          "pos": "v.",
+          "trap": "tense",
+          "near": false,
+          "fam": "root",
+          "why": "現在進行式，與 yesterday 不合。"
+        },
+        {
+          "t": "has moved",
+          "zh": "已搬",
+          "pos": "v.",
+          "trap": "tense",
+          "near": true,
+          "fam": "root",
+          "why": "現在完成式不能與 yesterday 這種明確過去時間並用。"
+        },
+        {
+          "t": "have moved",
+          "zh": "已搬",
+          "pos": "v.",
+          "trap": "tense",
+          "near": false,
+          "fam": "root",
+          "why": "現在完成式不能與 yesterday 並用。"
+        },
+        {
+          "t": "can move",
+          "zh": "能搬",
+          "pos": "v.",
+          "trap": "tense",
+          "near": false,
+          "fam": "root",
+          "why": "助動詞 can 表現在的能力，與 yesterday 不合。"
+        },
+        {
+          "t": "will be moving",
+          "zh": "屆時正在搬",
+          "pos": "v.",
+          "trap": "tense",
+          "near": false,
+          "fam": "root",
+          "why": "未來進行式，與 yesterday 不合。"
+        },
+        {
+          "t": "to move",
+          "zh": "要搬",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "不定詞不能單獨作述語動詞。"
+        }
+      ],
+      "clue": {
+        "text": "all the boxes ... yesterday",
+        "steps": [
+          "選項是 move 的各種形式 → 時態題",
+          "找時間線索：yesterday → 過去",
+          "現在式、未來式、現在完成式都不能與 yesterday 並用",
+          "moved 代入後通順"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "warehouse",
+          "ipa": "/ˈwerhaʊs/",
+          "pos": "n.",
+          "col": "warehouse staff",
+          "zh": "倉庫"
+        },
+        {
+          "word": "loading dock",
+          "ipa": "/ˈloʊdɪŋ dɑːk/",
+          "pos": "n.",
+          "col": "at the loading dock",
+          "zh": "裝卸平台"
+        }
+      ]
+    },
+    {
+      "id": "d5-002-h",
+      "domain": "d5",
+      "scene": "workplace",
+      "biz": "manufacturing",
+      "kind": "grammar",
+      "point": "wordform",
+      "tag": "形容詞修飾複合名詞",
+      "level": {
+        "score": 700,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "長句中空格位於動詞與複合名詞之間，選項為同字根的各種變化。"
+      },
+      "voice": "F",
+      "sentence": {
+        "t": "To ensure that every worker follows the new protective equipment rules, the site supervisor will conduct _____ safety inspections throughout the construction project.",
+        "zh": "為確保每位工人遵守新的防護裝備規定，現場主管將在整個工程期間經常進行安全檢查。"
+      },
+      "answer": {
+        "t": "frequent",
+        "zh": "頻繁的",
+        "pos": "adj.",
+        "why": "正解：空格在 conduct 與名詞片語 safety inspections 之間，需要形容詞修飾名詞。"
+      },
+      "distractors": [
+        {
+          "t": "frequently",
+          "zh": "經常",
+          "pos": "adv.",
+          "trap": "pos",
+          "near": true,
+          "fam": "root",
+          "why": "副詞不能修飾名詞 inspections。"
+        },
+        {
+          "t": "frequency",
+          "zh": "頻率",
+          "pos": "n.",
+          "trap": "pos",
+          "near": true,
+          "fam": "root",
+          "why": "名詞放在此處無法修飾 safety inspections。"
+        },
+        {
+          "t": "frequented",
+          "zh": "常被造訪的",
+          "pos": "v.",
+          "trap": "form",
+          "near": true,
+          "fam": "root",
+          "why": "過去分詞指「常被造訪」，與 inspections 語意不通。"
+        },
+        {
+          "t": "frequents",
+          "zh": "常去（第三人稱單數）",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "動詞不能放在 conduct 與名詞之間修飾名詞。"
+        },
+        {
+          "t": "frequenting",
+          "zh": "常去",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "現在分詞語意是「常去某處」，與 inspections 不合。"
+        },
+        {
+          "t": "frequencies",
+          "zh": "頻率（複數）",
+          "pos": "n.",
+          "trap": "pos",
+          "near": false,
+          "fam": "root",
+          "why": "複數名詞不能修飾 safety inspections。"
+        },
+        {
+          "t": "frequenter",
+          "zh": "常客",
+          "pos": "n.",
+          "trap": "pos",
+          "near": false,
+          "fam": "root",
+          "why": "名詞（人）不能修飾 inspections。"
+        },
+        {
+          "t": "frequenters",
+          "zh": "常客（複數）",
+          "pos": "n.",
+          "trap": "pos",
+          "near": false,
+          "fam": "root",
+          "why": "複數名詞不能修飾 inspections。"
+        },
+        {
+          "t": "fragrant",
+          "zh": "芳香的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "形容詞但語意不合，檢查不會是「芳香的」。"
+        },
+        {
+          "t": "fluent",
+          "zh": "流利的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "形容詞但語意不合，用於語言能力。"
+        },
+        {
+          "t": "frail",
+          "zh": "虛弱的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "形容詞但語意不合，用於人的身體狀況。"
+        }
+      ],
+      "clue": {
+        "text": "conduct ___ safety inspections",
+        "steps": [
+          "選項同字根 → 詞性題",
+          "空格在 conduct 與名詞片語 safety inspections 之間 → 需要形容詞",
+          "副詞、名詞、動詞形式都不能修飾名詞",
+          "frequent 代入後意思是「頻繁的」，通順"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "inspection",
+          "ipa": "/ɪnˈspekʃən/",
+          "pos": "n.",
+          "col": "safety inspection",
+          "zh": "檢查"
+        },
+        {
+          "word": "supervisor",
+          "ipa": "/ˈsuːpərvaɪzər/",
+          "pos": "n.",
+          "col": "site supervisor",
+          "zh": "主管"
+        }
+      ]
+    },
+    {
+      "id": "d6-001-m",
+      "domain": "d6",
+      "scene": "hotel",
+      "biz": "general",
+      "kind": "vocab",
+      "point": "vmeaning",
+      "tag": "通知櫃檯",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "需從「事先、保留房間」的目的判斷動詞語意。"
+      },
+      "voice": "F",
+      "sentence": {
+        "t": "Guests arriving after midnight should _____ the front desk in advance so that their rooms are held.",
+        "zh": "午夜後抵達的旅客應事先通知櫃檯，以便保留房間。"
+      },
+      "answer": {
+        "t": "notify",
+        "zh": "通知",
+        "pos": "v.",
+        "why": "正解：受詞是 the front desk，目的是讓房間被保留，所以要事先「通知」櫃檯。"
+      },
+      "distractors": [
+        {
+          "t": "reserve",
+          "zh": "預訂",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": true,
+          "fam": "other",
+          "why": "reserve 的受詞是房間或座位，不能以櫃檯為受詞。"
+        },
+        {
+          "t": "decorate",
+          "zh": "裝飾",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "裝飾櫃檯與保留房間無關。"
+        },
+        {
+          "t": "repair",
+          "zh": "修理",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "修理櫃檯與保留房間無關。"
+        },
+        {
+          "t": "borrow",
+          "zh": "借",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "borrow 的受詞是物品，語意不合。"
+        },
+        {
+          "t": "refund",
+          "zh": "退款",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "refund 的受詞是款項或顧客，不是櫃檯。"
+        },
+        {
+          "t": "ignore",
+          "zh": "忽視",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": true,
+          "fam": "other",
+          "why": "忽視櫃檯無法讓房間被保留，邏輯相反。"
+        },
+        {
+          "t": "rent",
+          "zh": "租",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "rent 的受詞是房間或設備，不是櫃檯。"
+        },
+        {
+          "t": "invite",
+          "zh": "邀請",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": true,
+          "fam": "other",
+          "why": "邀請櫃檯與目的不合。"
+        },
+        {
+          "t": "recycle",
+          "zh": "回收",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "回收櫃檯語意不通。"
+        },
+        {
+          "t": "clean",
+          "zh": "清潔",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "清潔櫃檯與保留房間無關。"
+        },
+        {
+          "t": "occupy",
+          "zh": "佔用",
+          "pos": "v.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "佔用櫃檯語意不通。"
+        }
+      ],
+      "clue": {
+        "text": "the front desk in advance",
+        "steps": [
+          "選項都是動詞 → 單字語意題",
+          "受詞是 the front desk，目的是讓房間被保留 → 要「通知」櫃檯",
+          "reserve、rent 的受詞是房間，其他動詞語意不合",
+          "notify 代入後通順"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "notify",
+          "ipa": "/ˈnoʊtɪfaɪ/",
+          "pos": "v.",
+          "col": "notify the manager",
+          "zh": "通知"
+        },
+        {
+          "word": "in advance",
+          "ipa": "/ɪn ədˈvæns/",
+          "pos": "adv.",
+          "col": "pay in advance",
+          "zh": "事先"
+        }
+      ]
+    },
+    {
+      "id": "d6-002-m",
+      "domain": "d6",
+      "scene": "home",
+      "biz": "general",
+      "kind": "grammar",
+      "point": "voice",
+      "tag": "by + 人的被動語態",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "主詞是被動作的對象，並有 by + 人 與過去時間。"
+      },
+      "voice": "M",
+      "sentence": {
+        "t": "The lobby walls _____ by a local artist last month, and guests have praised the new design.",
+        "zh": "大廳的牆面上個月由當地藝術家重新粉刷，旅客都稱讚新的設計。"
+      },
+      "answer": {
+        "t": "were repainted",
+        "zh": "被重新粉刷了",
+        "pos": "v.",
+        "why": "正解：walls 是被粉刷的對象，且 by a local artist 與 last month 表示過去被動。"
+      },
+      "distractors": [
+        {
+          "t": "repainted",
+          "zh": "粉刷了",
+          "pos": "v.",
+          "trap": "voice",
+          "near": true,
+          "fam": "root",
+          "why": "主動過去式後面要有受詞，不能直接接 by + 人。"
+        },
+        {
+          "t": "repaint",
+          "zh": "重新粉刷",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "原形動詞不能作此句的述語動詞。"
+        },
+        {
+          "t": "repaints",
+          "zh": "重新粉刷（第三人稱單數）",
+          "pos": "v.",
+          "trap": "agree",
+          "near": false,
+          "fam": "root",
+          "why": "主動、現在式，且與複數主詞 walls 不一致。"
+        },
+        {
+          "t": "repainting",
+          "zh": "重新粉刷中",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "現在分詞不能單獨作述語動詞。"
+        },
+        {
+          "t": "have repainted",
+          "zh": "已粉刷",
+          "pos": "v.",
+          "trap": "voice",
+          "near": false,
+          "fam": "root",
+          "why": "主動語態，後面缺受詞，且與 by 矛盾。"
+        },
+        {
+          "t": "had repainted",
+          "zh": "（當時）已粉刷",
+          "pos": "v.",
+          "trap": "voice",
+          "near": false,
+          "fam": "root",
+          "why": "主動語態，後面缺受詞，且與 by 矛盾。"
+        },
+        {
+          "t": "are repainting",
+          "zh": "正在粉刷",
+          "pos": "v.",
+          "trap": "voice",
+          "near": false,
+          "fam": "root",
+          "why": "主動進行式，與 by 及 last month 都不合。"
+        },
+        {
+          "t": "will repaint",
+          "zh": "將粉刷",
+          "pos": "v.",
+          "trap": "voice",
+          "near": false,
+          "fam": "root",
+          "why": "未來式主動，與 last month 不合。"
+        },
+        {
+          "t": "will be repainted",
+          "zh": "將被粉刷",
+          "pos": "v.",
+          "trap": "tense",
+          "near": true,
+          "fam": "root",
+          "why": "語態對，但未來式與 last month 不合。"
+        },
+        {
+          "t": "are repainted",
+          "zh": "被粉刷（現在式）",
+          "pos": "v.",
+          "trap": "tense",
+          "near": true,
+          "fam": "root",
+          "why": "語態對，但現在式與 last month 不合。"
+        },
+        {
+          "t": "is repainted",
+          "zh": "被粉刷（現在式）",
+          "pos": "v.",
+          "trap": "agree",
+          "near": false,
+          "fam": "root",
+          "why": "與複數主詞 walls 不一致，時態也不合。"
+        }
+      ],
+      "clue": {
+        "text": "The lobby walls ___ by a local artist last month",
+        "steps": [
+          "選項是 repaint 的各種形式 → 時態／語態題",
+          "walls 是被粉刷的對象，後面有 by + 人 → 被動語態",
+          "last month 是過去 → 排除 are、is、will be repainted",
+          "were repainted 與複數主詞 walls 一致"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "lobby",
+          "ipa": "/ˈlɑːbi/",
+          "pos": "n.",
+          "col": "hotel lobby",
+          "zh": "大廳"
+        },
+        {
+          "word": "praise",
+          "ipa": "/preɪz/",
+          "pos": "v.",
+          "col": "praise the design",
+          "zh": "稱讚"
+        }
+      ]
+    },
+    {
+      "id": "d7-001-m",
+      "domain": "d7",
+      "scene": "outdoor",
+      "biz": "general",
+      "kind": "vocab",
+      "point": "vconfuse",
+      "tag": "principle 與 principal",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "形似字 principle／principal 與其變化形，需知道 guiding principle 的搭配。"
+      },
+      "voice": "F",
+      "sentence": {
+        "t": "The park's guiding _____ is to protect local wildlife while still allowing visitors to enjoy nature.",
+        "zh": "這座公園的指導原則是保護當地野生動物，同時仍讓遊客享受大自然。"
+      },
+      "answer": {
+        "t": "principle",
+        "zh": "原則",
+        "pos": "n.",
+        "why": "正解：guiding principle 是固定搭配，意思是「指導原則」。"
+      },
+      "distractors": [
+        {
+          "t": "principal",
+          "zh": "校長；本金",
+          "pos": "n.",
+          "trap": "confusable",
+          "near": true,
+          "fam": "other",
+          "why": "形似字，principal 指校長或本金，不是「原則」。"
+        },
+        {
+          "t": "principals",
+          "zh": "校長（複數）",
+          "pos": "n.",
+          "trap": "confusable",
+          "near": false,
+          "fam": "other",
+          "why": "形似字，且複數與單數動詞 is 不一致。"
+        },
+        {
+          "t": "principles",
+          "zh": "原則（複數）",
+          "pos": "n.",
+          "trap": "agree",
+          "near": true,
+          "fam": "root",
+          "why": "複數名詞與單數動詞 is 不一致。"
+        },
+        {
+          "t": "principality",
+          "zh": "公國",
+          "pos": "n.",
+          "trap": "confusable",
+          "near": false,
+          "fam": "other",
+          "why": "形似字，意思是「公國」，語意不合。"
+        },
+        {
+          "t": "privilege",
+          "zh": "特權",
+          "pos": "n.",
+          "trap": "confusable",
+          "near": true,
+          "fam": "other",
+          "why": "形似字，guiding privilege 不是慣用搭配，語意不合。"
+        },
+        {
+          "t": "prince",
+          "zh": "王子",
+          "pos": "n.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "語意不合。"
+        },
+        {
+          "t": "privacy",
+          "zh": "隱私",
+          "pos": "n.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "guiding privacy 不是慣用搭配，語意不合。"
+        },
+        {
+          "t": "pricing",
+          "zh": "定價",
+          "pos": "n.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "語意不合，與保護野生動物無關。"
+        },
+        {
+          "t": "printer",
+          "zh": "印表機",
+          "pos": "n.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "語意不合。"
+        },
+        {
+          "t": "prisoner",
+          "zh": "囚犯",
+          "pos": "n.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "語意不合。"
+        },
+        {
+          "t": "prison",
+          "zh": "監獄",
+          "pos": "n.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "語意不合。"
+        }
+      ],
+      "clue": {
+        "text": "The park's guiding ___ is to protect",
+        "steps": [
+          "選項是 principle／principal 等形似字 → 易混淆字題",
+          "guiding ___ 是固定搭配，意思是「指導原則」",
+          "principal 指校長或本金，principles 是複數，與 is 不一致",
+          "principle 代入後通順"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "principle",
+          "ipa": "/ˈprɪnsəpl/",
+          "pos": "n.",
+          "col": "guiding principle",
+          "zh": "原則"
+        },
+        {
+          "word": "wildlife",
+          "ipa": "/ˈwaɪldlaɪf/",
+          "pos": "n.",
+          "col": "protect wildlife",
+          "zh": "野生動物"
+        }
+      ]
+    },
+    {
+      "id": "d7-002-e",
+      "domain": "d7",
+      "scene": "outdoor",
+      "biz": "general",
+      "kind": "grammar",
+      "point": "wordform",
+      "tag": "冠詞後的形容詞",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "冠詞與名詞之間要用形容詞，選項為同字根的各種變化。"
+      },
+      "voice": "M",
+      "sentence": {
+        "t": "The park offers a _____ view of the mountains from the north entrance.",
+        "zh": "這座公園從北側入口可以欣賞到美麗的山景。"
+      },
+      "answer": {
+        "t": "beautiful",
+        "zh": "美麗的",
+        "pos": "adj.",
+        "why": "正解：a 與名詞 view 之間需要形容詞。"
+      },
+      "distractors": [
+        {
+          "t": "beauty",
+          "zh": "美麗；美人",
+          "pos": "n.",
+          "trap": "pos",
+          "near": true,
+          "fam": "root",
+          "why": "名詞不能放在 a 與 view 之間修飾 view。"
+        },
+        {
+          "t": "beauties",
+          "zh": "美人（複數）",
+          "pos": "n.",
+          "trap": "pos",
+          "near": false,
+          "fam": "root",
+          "why": "複數名詞不能接在 a 後面。"
+        },
+        {
+          "t": "beautify",
+          "zh": "美化",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "原形動詞不能修飾名詞。"
+        },
+        {
+          "t": "beautifies",
+          "zh": "美化（第三人稱單數）",
+          "pos": "v.",
+          "trap": "form",
+          "near": false,
+          "fam": "root",
+          "why": "動詞第三人稱單數不能修飾名詞。"
+        },
+        {
+          "t": "beautifying",
+          "zh": "美化中",
+          "pos": "v.",
+          "trap": "form",
+          "near": true,
+          "fam": "root",
+          "why": "現在分詞語意是「正在美化」，與 view 不合。"
+        },
+        {
+          "t": "beautifully",
+          "zh": "美麗地",
+          "pos": "adv.",
+          "trap": "pos",
+          "near": true,
+          "fam": "root",
+          "why": "副詞不能修飾名詞。"
+        },
+        {
+          "t": "beautician",
+          "zh": "美容師",
+          "pos": "n.",
+          "trap": "pos",
+          "near": false,
+          "fam": "root",
+          "why": "名詞（人），語意與詞性都不合。"
+        },
+        {
+          "t": "beautifier",
+          "zh": "美化者",
+          "pos": "n.",
+          "trap": "pos",
+          "near": false,
+          "fam": "root",
+          "why": "名詞，無法修飾 view。"
+        },
+        {
+          "t": "beautification",
+          "zh": "美化",
+          "pos": "n.",
+          "trap": "pos",
+          "near": false,
+          "fam": "root",
+          "why": "名詞，無法修飾 view。"
+        },
+        {
+          "t": "dutiful",
+          "zh": "盡責的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "形容詞但語意不合，用於形容人。"
+        },
+        {
+          "t": "fruitful",
+          "zh": "有成果的",
+          "pos": "adj.",
+          "trap": "meaning",
+          "near": false,
+          "fam": "other",
+          "why": "形容詞但語意不合，view 不會是「有成果的」。"
+        }
+      ],
+      "clue": {
+        "text": "a + ___ + view",
+        "steps": [
+          "選項同字根 → 詞性題",
+          "冠詞與名詞之間 → 形容詞",
+          "副詞、名詞、動詞都排除",
+          "代入句子通順，換下一題"
+        ]
+      },
+      "vocab": [
+        {
+          "word": "view",
+          "ipa": "/vjuː/",
+          "pos": "n.",
+          "col": "a mountain view",
+          "zh": "景色"
+        },
+        {
+          "word": "entrance",
+          "ipa": "/ˈentrəns/",
+          "pos": "n.",
+          "col": "north entrance",
+          "zh": "入口"
+        }
+      ]
+    }
+  ]
+}
