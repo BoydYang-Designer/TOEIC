@@ -5,7 +5,7 @@ let S={};try{S=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
 let R={rec:{},saved:{}};try{R=Object.assign(R,JSON.parse(localStorage.getItem(PK)||'{}'))}catch(e){}
 const saveR=()=>{try{localStorage.setItem(PK,JSON.stringify(R))}catch(e){}};
 let DATA=[],SPEC=null;
-const TESTN=3,TIER={easy:'初級',medium:'中級',hard:'高級'},TS={easy:'e',medium:'m',hard:'h'};
+const TESTN=12,TIER={easy:'初級',medium:'中級',hard:'高級'},TS={easy:'e',medium:'m',hard:'h'};
 const QT={main:'主旨',detail:'細節',infer:'推論',intent:'意圖',next:'未來行動',graphic:'圖表'};
 const TR={'mention-not-ask':'提到但非所問','wrong-speaker':'張冠李戴','number-mix':'數字混淆','sound-alike':'音近字','over-infer':'過度推論',opposite:'相反',partial:'部分正確'};
 let DOM={d1:'辦公室',d2:'餐廳飲食',d3:'商店購物',d4:'街道與交通',d5:'工地與倉庫',d6:'旅館與居家',d7:'戶外與公園'};
@@ -51,7 +51,11 @@ function play1(i){const r=V.run;if(r.mode==='practice')play(r.sets[r.i],i,true)}
 /* ---------- 作答 ---------- */
 function begin(mode,sets){stop();V.run={mode,sets,i:0,ord:{},ans:{},played:{},showT:false,zh:false};V.view='run';render();scrollTo(0,0)}
 const one=id=>begin('practice',[DATA.find(x=>x.id===id)]);
-const ordFor=(r,x,q)=>{const k=x.id+'|'+q.id;return r.ord[k]||(r.ord[k]=(q.qtype==='graphic'||q.choices.every(c=>/\d/.test(c.t)&&c.t.split(' ').length<=4))?q.choices.map((_,i)=>i):shuf(q.choices.map((_,i)=>i)))};
+const ordFor=(r,x,q)=>{const k=x.id+'|'+q.id;if(r.ord[k])return r.ord[k];
+  const ok=q.choices.findIndex(c=>c.ok);
+  if(!r.bag||!r.bag.length)r.bag=shuf(q.choices.map((_,i)=>i));
+  const pos=r.bag.pop(),rest=shuf(q.choices.map((_,i)=>i).filter(i=>i!==ok));
+  rest.splice(pos,0,ok);return r.ord[k]=rest};
 function pick(k,ci){const r=V.run;if(r.mode==='practice'&&r.ans[k]!==undefined)return;r.ans[k]=ci;const y=scrollY;render();scrollTo(0,y)}
 const tg=k=>{V.run[k]=!V.run[k];const y=scrollY;render();scrollTo(0,y)};
 function next(){stop();const r=V.run;if(r.i>=r.sets.length-1)finish();else{r.i++;render();scrollTo(0,0)}}
