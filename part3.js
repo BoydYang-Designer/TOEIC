@@ -13,7 +13,7 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;',
 const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const card='rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900',btn='rounded-lg px-4 py-2.5 text-sm font-medium transition cursor-pointer',line='border border-slate-300 dark:border-slate-700',pri='bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed',chip='text-xs rounded-full px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300';
 const main=document.getElementById('main');
-let V={view:'home',fd:'',ft:'',run:null},A={d:'d1',t:'easy',f:'2p',n:1};
+let V={view:'home',fd:'',ft:'',run:null},A={d:'d1',t:'easy',f:'2p',n:1,g:'any'};
 const okSet=x=>x&&x.id&&Array.isArray(x.dialogue)&&x.dialogue.length&&Array.isArray(x.questions)&&x.questions.length&&x.questions.every(q=>q.q&&Array.isArray(q.choices)&&q.choices.length>=2&&q.choices.filter(c=>c.ok).length===1);
 const tier=x=>(x.level&&x.level.tier)||'medium';
 const poolOf=()=>DATA.filter(x=>(!V.fd||x.domain===V.fd)&&(!V.ft||tier(x)===V.ft));
@@ -51,7 +51,7 @@ function play1(i){const r=V.run;if(r.mode==='practice')play(r.sets[r.i],i,true)}
 /* ---------- 作答 ---------- */
 function begin(mode,sets){stop();V.run={mode,sets,i:0,ord:{},ans:{},played:{},showT:false,zh:false};V.view='run';render();scrollTo(0,0)}
 const one=id=>begin('practice',[DATA.find(x=>x.id===id)]);
-const ordFor=(r,x,q)=>{const k=x.id+'|'+q.id;return r.ord[k]||(r.ord[k]=(x.graphic||q.qtype==='graphic')?q.choices.map((_,i)=>i):shuf(q.choices.map((_,i)=>i)))};
+const ordFor=(r,x,q)=>{const k=x.id+'|'+q.id;return r.ord[k]||(r.ord[k]=(q.qtype==='graphic'||q.choices.every(c=>/\d/.test(c.t)&&c.t.split(' ').length<=4))?q.choices.map((_,i)=>i):shuf(q.choices.map((_,i)=>i)))};
 function pick(k,ci){const r=V.run;if(r.mode==='practice'&&r.ans[k]!==undefined)return;r.ans[k]=ci;const y=scrollY;render();scrollTo(0,y)}
 const tg=k=>{V.run[k]=!V.run[k];const y=scrollY;render();scrollTo(0,y)};
 function next(){stop();const r=V.run;if(r.i>=r.sets.length-1)finish();else{r.i++;render();scrollTo(0,0)}}
@@ -107,14 +107,16 @@ function resultH(){
 const serial=(d,t)=>{let mx=0;DATA.forEach(x=>{const m=/^d(\d)-(\d+)-([emh])$/.exec(x.id);if(m&&'d'+m[1]===d&&m[3]===TS[t])mx=Math.max(mx,+m[2])});return mx};
 const SC={easy:[500,550],medium:[600,650],hard:[700,800]},cefr=s=>s<=550?'A2+':s===600?'B1':s===650?'B1+':s<=750?'B2':'B2+';
 function promptText(){
-  const {d,t,f,n}=A,mx=serial(d,t),ids=Array.from({length:n},(_,i)=>d+'-'+String(mx+1+i).padStart(3,'0')+'-'+TS[t]),sp=SPEC||{};
+  const cq={};DATA.filter(x=>x.domain===A.d&&tier(x)===A.t).forEach(x=>x.questions.forEach(q=>{cq[q.qtype]=(cq[q.qtype]||0)+1}));
+  const {d,t,f,n,g}=A,mx=serial(d,t),ids=Array.from({length:n},(_,i)=>d+'-'+String(mx+1+i).padStart(3,'0')+'-'+TS[t]),sp=SPEC||{};
   const lite=JSON.stringify({domain:{[d]:sp.domains&&sp.domains[d]},tier:{[t]:sp.tiers&&sp.tiers[t]},qtypes:sp.qtypes,traps:sp.traps,entry_schema:sp.entry_schema,rules:sp.rules});
   return [`請為多益 Part 3 簡短對話寫 ${n} 組題目（每組一段對話＋3題），輸出為單一 JSON 陣列，規格在最後，不需要另外附 part3.json。`,'',
   `- 主題：${d.toUpperCase()} ${DOM[d]}（scene 須屬於：${((sp.domains&&sp.domains[d]&&sp.domains[d].scenes)||[]).join('、')}）`,
   `- 難度：${TIER[t]}（id 尾碼 ${TS[t]}）｜level.score 只能填：${SC[t].map(s=>s+'（cefr 填 '+cefr(s)+'）').join('、')}${sp.tiers&&sp.tiers[t]?'｜'+sp.tiers[t].guide:''}`,
   `- 形式：${f==='3p'?'三人對話（form 填 3p，須有兩位同性別說話者）':'兩人對話（form 填 2p）'}`,
   `- id 依序使用：${ids.join('、')}（domain 填 ${d}，level.tier 填 ${t}）`,
-  '- 每組 3 題；題型請搭配（主旨／細節／推論／意圖／未來行動／圖表），各組不要完全相同；圖表題須提供 graphic。',
+  `- 每組 3 題；題型請搭配（主旨／細節／推論／意圖／未來行動${g==='no'?'':'／圖表'}），各組不要完全相同；${g==='no'?'本批不要出圖表題（graphic 填 null）':g==='one'?'這批至少 1 組要含圖表題，圖表題須提供 graphic，且答案需結合圖表與對話':'圖表題須提供 graphic'}。`,
+  `- 此主題＋難度已有的題型題數：${Object.keys(QT).map(k=>k+'×'+(cq[k]||0)).join('、')}，請優先補數量最少的題型。`,
   '- 每題 4 選項、剛好 1 正解；錯誤選項須有明確依據可排除，並標 trap；每個選項都要附 zh（中文翻譯）；evidence 為對話句索引（從 0 起），依題號遞增。',
   `- 已用過的 vocab（不得重複）：${[...new Set(DATA.flatMap(x=>(x.vocab||[]).map(v=>v.word)))].join('、')||'（無）'}`,
   `- 已用過的 tag（不得重複）：${DATA.map(x=>x.tag).join('；')||'（無）'}`,
@@ -129,6 +131,7 @@ function adminH(){
   <h2 class="font-bold mb-2">新增題目</h2><div class="flex flex-wrap gap-2 mb-2">${ds.map(d=>`<button onclick="ap('d','${d}')" class="${on(A.d===d)}">${d.toUpperCase()}</button>`).join('')}</div>
   <div class="flex flex-wrap gap-2 mb-2">${Object.keys(TIER).map(t=>`<button onclick="ap('t','${t}')" class="${on(A.t===t)}">${TIER[t]}</button>`).join('')}</div>
   <div class="flex flex-wrap gap-2 mb-2">${['2p','3p'].map(f=>`<button onclick="ap('f','${f}')" class="${on(A.f===f)}">${f==='3p'?'三人':'兩人'}</button>`).join('')}${[1,2,3].map(k=>`<button onclick="ap('n',${k})" class="${on(A.n===k)}">${k} 組</button>`).join('')}</div>
+  <div class="flex flex-wrap gap-2 mb-2">${[['any','圖表：不限'],['one','至少 1 組圖表題'],['no','不含圖表題']].map(([k,v])=>`<button onclick="ap('g','${k}')" class="${on(A.g===k)}">${v}</button>`).join('')}</div>
   <div class="${card} p-4"><div class="flex items-center justify-between mb-2"><p class="font-bold text-sm">給 AI 的「寫題目」指令（約 ${tx.length.toLocaleString()} 字）</p><button id="cp" onclick="copyOut()" class="${btn} ${line} !py-1 text-xs">複製</button></div><pre class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-72 overflow-auto">${esc(tx)}</pre><p class="text-xs text-slate-500 mt-2">AI 回傳的檔案（p3_ 開頭）放到 json_merge.py 同資料夾，選「Part 3 對話」合併；合併後到上方矩陣點該格，展開題組即可複製錄音稿與檔名。音檔放 audio/p3/ 後執行 audio_scan.py。</p></div>`;
 }
 const pad=i=>String(i).padStart(2,'0');

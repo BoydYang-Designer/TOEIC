@@ -1,68 +1,1593 @@
 {
-"_spec":{"purpose":"多益 Part 3 簡短對話題庫；一組＝一段對話＋3題四選一","schema_version":1,
-"domains":{"d1":{"name":"辦公室","scenes":["office"]},"d2":{"name":"餐廳飲食","scenes":["restaurant"]},"d3":{"name":"商店購物","scenes":["store"]},"d4":{"name":"街道與交通","scenes":["street","station"]},"d5":{"name":"工地與倉庫","scenes":["workplace"]},"d6":{"name":"旅館與居家","scenes":["hotel","home"]},"d7":{"name":"戶外與公園","scenes":["outdoor"]}},
-"tiers":{"easy":{"score":"500–550","guide":"兩人、6–8 句、答案幾乎照字面出現"},"medium":{"score":"600–650","guide":"同義換句、至少 1 題推論或意圖"},"hard":{"score":"700–800","guide":"三人、10 句以上、先說 A 再改 B、含圖表或意圖題"}},
-"qtypes":{"main":"主旨／目的／問題／職業／地點","detail":"細節","infer":"推論","intent":"意圖（題目引用對話中一句話）","next":"未來行動／要求建議","graphic":"圖表題，題目以 Look at the graphic 開頭，須有 graphic"},
-"traps":{"mention-not-ask":"對話提到但非所問","wrong-speaker":"張冠李戴","number-mix":"數字時間混淆","sound-alike":"音近字","over-infer":"過度推論","opposite":"相反","partial":"部分正確"},
-"entry_schema":"{id:d{1-7}-{3位數}-{e|m|h}, domain, scene, tag(中文,不重複), form:'2p'|'3p', level:{score,cefr,tier,why}, speakers:[{id,gender:'F'|'M',role}], dialogue:[{sp,t,zh}], graphic:null|{title,columns:[],rows:[[]]}, questions:[{id:'q1',qtype,q:{t,zh},choices:剛好4個{t,zh,ok,trap(錯誤句,取自traps)|pattern(正解:direct|paraphrase|summary),why}, evidence:[對話句索引從0起,遞增]}] 共3題, vocab:[2–4個{word,ipa,pos,col,zh}]}",
-"rules":{"choices":"每題 4 選項、剛好 1 正解；正解盡量用同義替換，不照抄對話原字；錯誤選項需有明確對話依據可排除。","order":"3 題的 evidence 依題號遞增。","dialogue":"每句 5–25 字，口語自然；3p 須有兩位同性別說話者；說話者 id 與 speakers 一致。","output":"輸出單一合法 JSON 陣列（UTF-8、不加程式碼區塊標記）。"}},
-"items":[
-{"id":"d1-001-e","domain":"d1","scene":"office","tag":"更改會議時間","form":"2p",
-"level":{"score":550,"cefr":"A2+","tier":"easy","why":"兩人對話，答案幾乎字面出現。"},
-"speakers":[{"id":"W","gender":"F","role":"同事"},{"id":"M","gender":"M","role":"同事"}],
-"dialogue":[
-{"sp":"W","t":"Hi, Mark. Did you get my email about tomorrow's sales meeting?","zh":"嗨，馬克。你收到我寄的明天業務會議的郵件了嗎？"},
-{"sp":"M","t":"Yes, I did. Is it still at ten o'clock?","zh":"收到了。還是十點嗎？"},
-{"sp":"W","t":"No, it was moved to two in the afternoon, because the projector in Room B is being repaired.","zh":"不是，改到下午兩點了，因為 B 室的投影機在維修。"},
-{"sp":"M","t":"That works for me. Should I bring the quarterly report?","zh":"我可以。我要帶季報告嗎？"},
-{"sp":"W","t":"Yes, please. And could you print twelve copies before the meeting?","zh":"要，麻煩你。可以在會前列印十二份嗎？"},
-{"sp":"M","t":"Sure. I'll do that this afternoon.","zh":"好，我今天下午就做。"}],
-"graphic":null,
-"questions":[
-{"id":"q1","qtype":"main","q":{"t":"What are the speakers mainly discussing?","zh":"說話者主要在討論什麼？"},"choices":[
-{"t":"A product launch","ok":false,"trap":"over-infer","why":"對話沒有提到新產品。"},
-{"t":"A change to a meeting","ok":true,"pattern":"summary","why":"正解：會議時間由十點改到下午兩點。"},
-{"t":"A broken printer","ok":false,"trap":"mention-not-ask","why":"壞掉的是投影機，列印只是附帶任務。"},
-{"t":"Quarterly sales results","ok":false,"trap":"partial","why":"季報告只是要帶去的資料，不是討論重點。"}],"evidence":[2]},
-{"id":"q2","qtype":"detail","q":{"t":"Why was the meeting time changed?","zh":"會議時間為什麼更改？"},"choices":[
-{"t":"A manager is traveling.","ok":false,"trap":"over-infer","why":"沒有提到經理出差。"},
-{"t":"Some equipment needs repairs.","ok":true,"pattern":"paraphrase","why":"正解：projector is being repaired → equipment needs repairs。"},
-{"t":"Some employees are absent.","ok":false,"trap":"over-infer","why":"沒有人缺席。"},
-{"t":"The room is too small.","ok":false,"trap":"partial","why":"提到 Room B，但原因不是空間。"}],"evidence":[2]},
-{"id":"q3","qtype":"next","q":{"t":"What will the man do this afternoon?","zh":"男士今天下午要做什麼？"},"choices":[
-{"t":"Repair a projector","ok":false,"trap":"mention-not-ask","why":"維修投影機的不是他。"},
-{"t":"Reserve Room B","ok":false,"trap":"over-infer","why":"沒有提到預約會議室。"},
-{"t":"Email a schedule","ok":false,"trap":"wrong-speaker","why":"寄郵件的是女士。"},
-{"t":"Make some copies","ok":true,"pattern":"paraphrase","why":"正解：print twelve copies → make some copies。"}],"evidence":[4,5]}],
-"vocab":[{"word":"quarterly","ipa":"/ˈkwɔːrtərli/","pos":"adj.","col":"quarterly report","zh":"每季的"},{"word":"projector","ipa":"/prəˈdʒektər/","pos":"n.","col":"projector screen","zh":"投影機"}]},
-{"id":"d1-001-h","domain":"d1","scene":"office","tag":"挑選訓練教室","form":"3p",
-"level":{"score":750,"cefr":"B2","tier":"hard","why":"三人對話、含意圖題與圖表題，需整合數字與設備條件。"},
-"speakers":[{"id":"W1","gender":"F","role":"行政人員 Dana"},{"id":"W2","gender":"F","role":"人資專員"},{"id":"M","gender":"M","role":"部門主管"}],
-"dialogue":[
-{"sp":"W1","t":"We need a room for the new-hire training on Thursday. How many people are coming?","zh":"我們需要一間教室辦週四的新人訓練。會有多少人？"},
-{"sp":"M","t":"Eighteen, I think. Although Priya mentioned two more might join.","zh":"我想是十八人。不過 Priya 說可能再多兩個。"},
-{"sp":"W2","t":"That's right. Twenty people in total, and we'll need a projector.","zh":"沒錯。總共二十人，而且需要投影機。"},
-{"sp":"W1","t":"Okay. Room A is the biggest, but it's closed for painting.","zh":"好。A 室最大，但在粉刷。"},
-{"sp":"M","t":"What about Room B? It's smaller, but I'd rather not squeeze everyone in.","zh":"B 室呢？它比較小，但我不想把大家擠在一起。"},
-{"sp":"W2","t":"Room B only holds fifteen. Room C fits twenty-five and has a screen.","zh":"B 室只能容納十五人。C 室可坐二十五人，還有螢幕。"},
-{"sp":"M","t":"Then C is the obvious choice. Would you book it, Dana?","zh":"那 C 室顯然最好。Dana，你可以預約嗎？"},
-{"sp":"W1","t":"I will, right after I confirm the catering order.","zh":"我會，確認完餐點訂單就辦。"}],
-"graphic":{"title":"Training Rooms","columns":["Room","Seats","Equipment"],"rows":[["A","40","Projector"],["B","15","Projector"],["C","25","Screen"],["D","20","None"]]},
-"questions":[
-{"id":"q1","qtype":"main","q":{"t":"What are the speakers trying to do?","zh":"說話者想做什麼？"},"choices":[
-{"t":"Hire more employees","ok":false,"trap":"over-infer","why":"訓練對象是新進員工，但不是在招人。"},
-{"t":"Order food for an event","ok":false,"trap":"mention-not-ask","why":"餐點只在最後一句提到。"},
-{"t":"Repair a classroom","ok":false,"trap":"mention-not-ask","why":"粉刷的是 A 室，與目的無關。"},
-{"t":"Select a space for a training","ok":true,"pattern":"summary","why":"正解：整段在比較教室以辦理訓練。"}],"evidence":[0]},
-{"id":"q2","qtype":"intent","q":{"t":"What does the man imply when he says, \"I'd rather not squeeze everyone in\"?","zh":"男士說「我不想把大家擠在一起」暗示什麼？"},"choices":[
-{"t":"Room B may be too small.","ok":true,"pattern":"paraphrase","why":"正解：B 室比較小，他擔心容納不下二十人。"},
-{"t":"Room A should be repainted.","ok":false,"trap":"mention-not-ask","why":"粉刷只是 A 室不能用的原因。"},
-{"t":"Fewer people should attend.","ok":false,"trap":"opposite","why":"他是想換教室，不是減少人數。"},
-{"t":"The training should be canceled.","ok":false,"trap":"over-infer","why":"沒有任何取消的跡象。"}],"evidence":[4]},
-{"id":"q3","qtype":"graphic","q":{"t":"Look at the graphic. Which room will the speakers use?","zh":"看圖表，說話者會使用哪間教室？"},"choices":[
-{"t":"Room A","ok":false,"trap":"mention-not-ask","why":"A 室雖最大，但在粉刷。"},
-{"t":"Room B","ok":false,"trap":"number-mix","why":"只有 15 個座位，容納不了 20 人。"},
-{"t":"Room C","ok":true,"pattern":"direct","why":"正解：25 個座位，有螢幕；男士選 C。"},
-{"t":"Room D","ok":false,"trap":"over-infer","why":"圖表有 20 座位但沒有設備，與需求不符。"}],"evidence":[5,6]}],
-"vocab":[{"word":"squeeze","ipa":"/skwiːz/","pos":"v.","col":"squeeze in","zh":"擠進"},{"word":"catering","ipa":"/ˈkeɪtərɪŋ/","pos":"n.","col":"catering order","zh":"外燴餐飲"}]}
-]}
+  "_spec": {
+    "purpose": "多益 Part 3 簡短對話題庫；一組＝一段對話＋3題四選一",
+    "schema_version": 1,
+    "domains": {
+      "d1": {
+        "name": "辦公室",
+        "scenes": [
+          "office"
+        ]
+      },
+      "d2": {
+        "name": "餐廳飲食",
+        "scenes": [
+          "restaurant"
+        ]
+      },
+      "d3": {
+        "name": "商店購物",
+        "scenes": [
+          "store"
+        ]
+      },
+      "d4": {
+        "name": "街道與交通",
+        "scenes": [
+          "street",
+          "station"
+        ]
+      },
+      "d5": {
+        "name": "工地與倉庫",
+        "scenes": [
+          "workplace"
+        ]
+      },
+      "d6": {
+        "name": "旅館與居家",
+        "scenes": [
+          "hotel",
+          "home"
+        ]
+      },
+      "d7": {
+        "name": "戶外與公園",
+        "scenes": [
+          "outdoor"
+        ]
+      }
+    },
+    "tiers": {
+      "easy": {
+        "score": "500–550",
+        "guide": "兩人、6–8 句、答案幾乎照字面出現"
+      },
+      "medium": {
+        "score": "600–650",
+        "guide": "同義換句、至少 1 題推論或意圖"
+      },
+      "hard": {
+        "score": "700–800",
+        "guide": "三人、10 句以上、先說 A 再改 B、含圖表或意圖題"
+      }
+    },
+    "qtypes": {
+      "main": "主旨／目的／問題／職業／地點",
+      "detail": "細節",
+      "infer": "推論",
+      "intent": "意圖（題目引用對話中一句話）",
+      "next": "未來行動／要求建議",
+      "graphic": "圖表題，題目以 Look at the graphic 開頭，須有 graphic"
+    },
+    "traps": {
+      "mention-not-ask": "對話提到但非所問",
+      "wrong-speaker": "張冠李戴",
+      "number-mix": "數字時間混淆",
+      "sound-alike": "音近字",
+      "over-infer": "過度推論",
+      "opposite": "相反",
+      "partial": "部分正確"
+    },
+    "entry_schema": "{id:d{1-7}-{3位數}-{e|m|h}, domain, scene, tag(中文,不重複), form:'2p'|'3p', level:{score,cefr,tier,why}, speakers:[{id,gender:'F'|'M',role}], dialogue:[{sp,t,zh}], graphic:null|{title,columns:[],rows:[[]]}, questions:[{id:'q1',qtype,q:{t,zh},choices:剛好4個{t,zh,ok,trap(錯誤句,取自traps)|pattern(正解:direct|paraphrase|summary),why}, evidence:[對話句索引從0起,遞增]}] 共3題, vocab:[2–4個{word,ipa,pos,col,zh}]}",
+    "rules": {
+      "choices": "每題 4 選項、剛好 1 正解；正解盡量用同義替換，不照抄對話原字；錯誤選項需有明確對話依據可排除。",
+      "order": "3 題的 evidence 依題號遞增。",
+      "dialogue": "每句 5–25 字，口語自然；3p 須有兩位同性別說話者；說話者 id 與 speakers 一致。",
+      "output": "輸出單一合法 JSON 陣列（UTF-8、不加程式碼區塊標記）。"
+    }
+  },
+  "items": [
+    {
+      "id": "d1-001-e",
+      "domain": "d1",
+      "scene": "office",
+      "tag": "更改會議時間",
+      "form": "2p",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "兩人對話，答案幾乎字面出現。"
+      },
+      "speakers": [
+        {
+          "id": "W",
+          "gender": "F",
+          "role": "同事"
+        },
+        {
+          "id": "M",
+          "gender": "M",
+          "role": "同事"
+        }
+      ],
+      "dialogue": [
+        {
+          "sp": "W",
+          "t": "Hi, Mark. Did you get my email about tomorrow's sales meeting?",
+          "zh": "嗨，馬克。你收到我寄的明天業務會議的郵件了嗎？"
+        },
+        {
+          "sp": "M",
+          "t": "Yes, I did. Is it still at ten o'clock?",
+          "zh": "收到了。還是十點嗎？"
+        },
+        {
+          "sp": "W",
+          "t": "No, it was moved to two in the afternoon, because the projector in Room B is being repaired.",
+          "zh": "不是，改到下午兩點了，因為 B 室的投影機在維修。"
+        },
+        {
+          "sp": "M",
+          "t": "That works for me. Should I bring the quarterly report?",
+          "zh": "我可以。我要帶季報告嗎？"
+        },
+        {
+          "sp": "W",
+          "t": "Yes, please. And could you print twelve copies before the meeting?",
+          "zh": "要，麻煩你。可以在會前列印十二份嗎？"
+        },
+        {
+          "sp": "M",
+          "t": "Sure. I'll do that this afternoon.",
+          "zh": "好，我今天下午就做。"
+        }
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "id": "q1",
+          "qtype": "main",
+          "q": {
+            "t": "What are the speakers mainly discussing?",
+            "zh": "說話者主要在討論什麼？"
+          },
+          "choices": [
+            {
+              "t": "A product launch",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "對話沒有提到新產品。"
+            },
+            {
+              "t": "A change to a meeting",
+              "ok": true,
+              "pattern": "summary",
+              "why": "正解：會議時間由十點改到下午兩點。"
+            },
+            {
+              "t": "A broken printer",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "壞掉的是投影機，列印只是附帶任務。"
+            },
+            {
+              "t": "Quarterly sales results",
+              "ok": false,
+              "trap": "partial",
+              "why": "季報告只是要帶去的資料，不是討論重點。"
+            }
+          ],
+          "evidence": [
+            2
+          ]
+        },
+        {
+          "id": "q2",
+          "qtype": "detail",
+          "q": {
+            "t": "Why was the meeting time changed?",
+            "zh": "會議時間為什麼更改？"
+          },
+          "choices": [
+            {
+              "t": "A manager is traveling.",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "沒有提到經理出差。"
+            },
+            {
+              "t": "Some equipment needs repairs.",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：projector is being repaired → equipment needs repairs。"
+            },
+            {
+              "t": "Some employees are absent.",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "沒有人缺席。"
+            },
+            {
+              "t": "The room is too small.",
+              "ok": false,
+              "trap": "partial",
+              "why": "提到 Room B，但原因不是空間。"
+            }
+          ],
+          "evidence": [
+            2
+          ]
+        },
+        {
+          "id": "q3",
+          "qtype": "next",
+          "q": {
+            "t": "What will the man do this afternoon?",
+            "zh": "男士今天下午要做什麼？"
+          },
+          "choices": [
+            {
+              "t": "Repair a projector",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "維修投影機的不是他。"
+            },
+            {
+              "t": "Reserve Room B",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "沒有提到預約會議室。"
+            },
+            {
+              "t": "Email a schedule",
+              "ok": false,
+              "trap": "wrong-speaker",
+              "why": "寄郵件的是女士。"
+            },
+            {
+              "t": "Make some copies",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：print twelve copies → make some copies。"
+            }
+          ],
+          "evidence": [
+            4,
+            5
+          ]
+        }
+      ],
+      "vocab": [
+        {
+          "word": "quarterly",
+          "ipa": "/ˈkwɔːrtərli/",
+          "pos": "adj.",
+          "col": "quarterly report",
+          "zh": "每季的"
+        },
+        {
+          "word": "projector",
+          "ipa": "/prəˈdʒektər/",
+          "pos": "n.",
+          "col": "projector screen",
+          "zh": "投影機"
+        }
+      ]
+    },
+    {
+      "id": "d1-001-m",
+      "domain": "d1",
+      "scene": "office",
+      "tag": "報價單延遲寄出",
+      "form": "2p",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "需同義換句理解，並推論客戶可能改找別家。"
+      },
+      "speakers": [
+        {
+          "id": "M",
+          "gender": "M",
+          "role": "業務經理"
+        },
+        {
+          "id": "W",
+          "gender": "F",
+          "role": "業務專員 Karen"
+        }
+      ],
+      "dialogue": [
+        {
+          "sp": "M",
+          "t": "Karen, have you sent the revised quote to Hartley Industries yet?",
+          "zh": "Karen，你把修訂後的報價單寄給 Hartley Industries 了嗎？"
+        },
+        {
+          "sp": "W",
+          "t": "Not yet. I'm still waiting for the supplier to confirm the new shipping costs.",
+          "zh": "還沒。我還在等供應商確認新的運費。"
+        },
+        {
+          "sp": "M",
+          "t": "Hartley wanted it by noon, so they might go with another vendor.",
+          "zh": "Hartley 要求中午前拿到，所以他們可能改找別家廠商。"
+        },
+        {
+          "sp": "W",
+          "t": "I know. I'll call the supplier again, and I might have to estimate the figure.",
+          "zh": "我知道。我會再打給供應商，也許得先估算那個數字。"
+        },
+        {
+          "sp": "M",
+          "t": "Please don't guess. An incorrect quote would look worse than a late one.",
+          "zh": "請不要用猜的。錯誤的報價比遲交更難看。"
+        },
+        {
+          "sp": "W",
+          "t": "You're right. I'll tell Hartley we'll have an accurate quote by this afternoon.",
+          "zh": "你說得對。我會告訴 Hartley 今天下午前提供準確報價。"
+        }
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "id": "q1",
+          "qtype": "main",
+          "q": {
+            "t": "What is the woman's problem?",
+            "zh": "女士的問題是什麼？"
+          },
+          "choices": [
+            {
+              "t": "A client canceled an order.",
+              "zh": "客戶取消了訂單。",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "Hartley 只是可能改找別家，並未取消訂單。"
+            },
+            {
+              "t": "Some cost details have not been confirmed.",
+              "zh": "有些費用細節尚未確認。",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：她還在等供應商確認新的運費。"
+            },
+            {
+              "t": "A shipment arrived late.",
+              "zh": "貨物延遲送達。",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "提到運費，但沒有提到貨物送達。"
+            },
+            {
+              "t": "Her manager rejected a proposal.",
+              "zh": "經理拒絕了一份提案。",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "經理只是在催報價，沒有拒絕任何提案。"
+            }
+          ],
+          "evidence": [
+            1
+          ]
+        },
+        {
+          "id": "q2",
+          "qtype": "infer",
+          "q": {
+            "t": "What does the man imply about Hartley Industries?",
+            "zh": "男士對 Hartley Industries 暗示了什麼？"
+          },
+          "choices": [
+            {
+              "t": "It may do business with another company.",
+              "zh": "它可能改和別家公司交易。",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：might go with another vendor 暗示客戶可能流失。"
+            },
+            {
+              "t": "It prefers late quotes.",
+              "zh": "它偏好較晚的報價。",
+              "ok": false,
+              "trap": "opposite",
+              "why": "客戶要求中午前拿到，與此相反。"
+            },
+            {
+              "t": "It is a new supplier.",
+              "zh": "它是新的供應商。",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "Hartley 是收報價的客戶，不是供應商。"
+            },
+            {
+              "t": "It has already received the quote.",
+              "zh": "它已收到報價。",
+              "ok": false,
+              "trap": "opposite",
+              "why": "報價單還沒寄出。"
+            }
+          ],
+          "evidence": [
+            2
+          ]
+        },
+        {
+          "id": "q3",
+          "qtype": "next",
+          "q": {
+            "t": "What will the woman most likely do next?",
+            "zh": "女士接下來最可能做什麼？"
+          },
+          "choices": [
+            {
+              "t": "Estimate the shipping costs.",
+              "zh": "估算運費。",
+              "ok": false,
+              "trap": "opposite",
+              "why": "男士要她不要用猜的。"
+            },
+            {
+              "t": "Contact a supplier again.",
+              "zh": "再次聯絡供應商。",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：I'll call the supplier again。"
+            },
+            {
+              "t": "Visit Hartley's office.",
+              "zh": "拜訪 Hartley 的辦公室。",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "沒有提到拜訪客戶。"
+            },
+            {
+              "t": "Send the quote immediately.",
+              "zh": "立刻寄出報價單。",
+              "ok": false,
+              "trap": "partial",
+              "why": "她要拿到準確數字，下午才提供。"
+            }
+          ],
+          "evidence": [
+            3,
+            5
+          ]
+        }
+      ],
+      "vocab": [
+        {
+          "word": "quote",
+          "ipa": "/kwoʊt/",
+          "pos": "n.",
+          "col": "revised quote",
+          "zh": "報價單"
+        },
+        {
+          "word": "vendor",
+          "ipa": "/ˈvendər/",
+          "pos": "n.",
+          "col": "choose a vendor",
+          "zh": "供應商、廠商"
+        },
+        {
+          "word": "estimate",
+          "ipa": "/ˈestɪmeɪt/",
+          "pos": "v.",
+          "col": "estimate the cost",
+          "zh": "估算"
+        }
+      ]
+    },
+    {
+      "id": "d1-001-h",
+      "domain": "d1",
+      "scene": "office",
+      "tag": "挑選訓練教室",
+      "form": "3p",
+      "level": {
+        "score": 750,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "三人對話、含意圖題與圖表題，需整合數字與設備條件。"
+      },
+      "speakers": [
+        {
+          "id": "W1",
+          "gender": "F",
+          "role": "行政人員 Dana"
+        },
+        {
+          "id": "W2",
+          "gender": "F",
+          "role": "人資專員"
+        },
+        {
+          "id": "M",
+          "gender": "M",
+          "role": "部門主管"
+        }
+      ],
+      "dialogue": [
+        {
+          "sp": "W1",
+          "t": "We need a room for the new-hire training on Thursday. How many people are coming?",
+          "zh": "我們需要一間教室辦週四的新人訓練。會有多少人？"
+        },
+        {
+          "sp": "M",
+          "t": "Eighteen, I think. Although Priya mentioned two more might join.",
+          "zh": "我想是十八人。不過 Priya 說可能再多兩個。"
+        },
+        {
+          "sp": "W2",
+          "t": "That's right. Twenty people in total, and we'll need a projector.",
+          "zh": "沒錯。總共二十人，而且需要投影機。"
+        },
+        {
+          "sp": "W1",
+          "t": "Okay. Room A is the biggest, but it's closed for painting.",
+          "zh": "好。A 室最大，但在粉刷。"
+        },
+        {
+          "sp": "M",
+          "t": "What about Room B? It's smaller, but I'd rather not squeeze everyone in.",
+          "zh": "B 室呢？它比較小，但我不想把大家擠在一起。"
+        },
+        {
+          "sp": "W2",
+          "t": "Room B only holds fifteen. Room C fits twenty-five and has a screen.",
+          "zh": "B 室只能容納十五人。C 室可坐二十五人，還有螢幕。"
+        },
+        {
+          "sp": "M",
+          "t": "Then C is the obvious choice. Would you book it, Dana?",
+          "zh": "那 C 室顯然最好。Dana，你可以預約嗎？"
+        },
+        {
+          "sp": "W1",
+          "t": "I will, right after I confirm the catering order.",
+          "zh": "我會，確認完餐點訂單就辦。"
+        }
+      ],
+      "graphic": {
+        "title": "Training Rooms",
+        "columns": [
+          "Room",
+          "Seats",
+          "Equipment"
+        ],
+        "rows": [
+          [
+            "A",
+            "40",
+            "Projector"
+          ],
+          [
+            "B",
+            "15",
+            "Projector"
+          ],
+          [
+            "C",
+            "25",
+            "Screen"
+          ],
+          [
+            "D",
+            "20",
+            "None"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "qtype": "main",
+          "q": {
+            "t": "What are the speakers trying to do?",
+            "zh": "說話者想做什麼？"
+          },
+          "choices": [
+            {
+              "t": "Hire more employees",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "訓練對象是新進員工，但不是在招人。"
+            },
+            {
+              "t": "Order food for an event",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "餐點只在最後一句提到。"
+            },
+            {
+              "t": "Repair a classroom",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "粉刷的是 A 室，與目的無關。"
+            },
+            {
+              "t": "Select a space for a training",
+              "ok": true,
+              "pattern": "summary",
+              "why": "正解：整段在比較教室以辦理訓練。"
+            }
+          ],
+          "evidence": [
+            0
+          ]
+        },
+        {
+          "id": "q2",
+          "qtype": "intent",
+          "q": {
+            "t": "What does the man imply when he says, \"I'd rather not squeeze everyone in\"?",
+            "zh": "男士說「我不想把大家擠在一起」暗示什麼？"
+          },
+          "choices": [
+            {
+              "t": "Room B may be too small.",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：B 室比較小，他擔心容納不下二十人。"
+            },
+            {
+              "t": "Room A should be repainted.",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "粉刷只是 A 室不能用的原因。"
+            },
+            {
+              "t": "Fewer people should attend.",
+              "ok": false,
+              "trap": "opposite",
+              "why": "他是想換教室，不是減少人數。"
+            },
+            {
+              "t": "The training should be canceled.",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "沒有任何取消的跡象。"
+            }
+          ],
+          "evidence": [
+            4
+          ]
+        },
+        {
+          "id": "q3",
+          "qtype": "graphic",
+          "q": {
+            "t": "Look at the graphic. Which room will the speakers use?",
+            "zh": "看圖表，說話者會使用哪間教室？"
+          },
+          "choices": [
+            {
+              "t": "Room A",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "A 室雖最大，但在粉刷。"
+            },
+            {
+              "t": "Room B",
+              "ok": false,
+              "trap": "number-mix",
+              "why": "只有 15 個座位，容納不了 20 人。"
+            },
+            {
+              "t": "Room C",
+              "ok": true,
+              "pattern": "direct",
+              "why": "正解：25 個座位，有螢幕；男士選 C。"
+            },
+            {
+              "t": "Room D",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "圖表有 20 座位但沒有設備，與需求不符。"
+            }
+          ],
+          "evidence": [
+            5,
+            6
+          ]
+        }
+      ],
+      "vocab": [
+        {
+          "word": "squeeze",
+          "ipa": "/skwiːz/",
+          "pos": "v.",
+          "col": "squeeze in",
+          "zh": "擠進"
+        },
+        {
+          "word": "catering",
+          "ipa": "/ˈkeɪtərɪŋ/",
+          "pos": "n.",
+          "col": "catering order",
+          "zh": "外燴餐飲"
+        }
+      ]
+    },
+    {
+      "id": "d1-002-e",
+      "domain": "d1",
+      "scene": "office",
+      "tag": "借用會議室",
+      "form": "2p",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "對話簡短，答案幾乎照字面出現。"
+      },
+      "speakers": [
+        {
+          "id": "M",
+          "gender": "M",
+          "role": "員工"
+        },
+        {
+          "id": "W",
+          "gender": "F",
+          "role": "行政人員 Anna"
+        }
+      ],
+      "dialogue": [
+        {
+          "sp": "M",
+          "t": "Hello, Anna. Can I book Meeting Room 3 for tomorrow?",
+          "zh": "哈囉，Anna。我可以預約明天的 3 號會議室嗎？"
+        },
+        {
+          "sp": "W",
+          "t": "Sure. What time do you need it?",
+          "zh": "當然。你需要幾點？"
+        },
+        {
+          "sp": "M",
+          "t": "From two to four in the afternoon. I have an interview.",
+          "zh": "下午兩點到四點。我有一場面試。"
+        },
+        {
+          "sp": "W",
+          "t": "Sorry, Room 3 is busy then. Room 5 is free.",
+          "zh": "抱歉，3 號那時有人用。5 號是空的。"
+        },
+        {
+          "sp": "M",
+          "t": "That's fine. Is there a screen in Room 5?",
+          "zh": "可以。5 號有螢幕嗎？"
+        },
+        {
+          "sp": "W",
+          "t": "Yes, there is. I'll put your name on the schedule.",
+          "zh": "有的。我會把你的名字寫進時間表。"
+        },
+        {
+          "sp": "M",
+          "t": "Thank you. I'll be there at two o'clock.",
+          "zh": "謝謝。我兩點會到。"
+        }
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "id": "q1",
+          "qtype": "main",
+          "q": {
+            "t": "What is the man asking about?",
+            "zh": "男士在詢問什麼？"
+          },
+          "choices": [
+            {
+              "t": "Hiring a new worker",
+              "zh": "僱用新員工",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "提到 interview，但他問的是借會議室。"
+            },
+            {
+              "t": "Fixing a screen",
+              "zh": "修理螢幕",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "只問 5 號室有沒有螢幕，不是修理。"
+            },
+            {
+              "t": "Booking a meeting room",
+              "zh": "預約會議室",
+              "ok": true,
+              "pattern": "direct",
+              "why": "正解：Can I book Meeting Room 3?"
+            },
+            {
+              "t": "Ordering lunch",
+              "zh": "訂午餐",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "完全沒有提到午餐。"
+            }
+          ],
+          "evidence": [
+            0
+          ]
+        },
+        {
+          "id": "q2",
+          "qtype": "detail",
+          "q": {
+            "t": "Which room will the man use?",
+            "zh": "男士會使用哪一間會議室？"
+          },
+          "choices": [
+            {
+              "t": "Room 2",
+              "zh": "2 號室",
+              "ok": false,
+              "trap": "number-mix",
+              "why": "two 是時間（兩點），不是房號。"
+            },
+            {
+              "t": "Room 3",
+              "zh": "3 號室",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "他原本想借，但那時段已被使用。"
+            },
+            {
+              "t": "Room 4",
+              "zh": "4 號室",
+              "ok": false,
+              "trap": "number-mix",
+              "why": "four 是結束時間（四點）。"
+            },
+            {
+              "t": "Room 5",
+              "zh": "5 號室",
+              "ok": true,
+              "pattern": "direct",
+              "why": "正解：Room 5 is free，他接受了。"
+            }
+          ],
+          "evidence": [
+            3,
+            4
+          ]
+        },
+        {
+          "id": "q3",
+          "qtype": "next",
+          "q": {
+            "t": "What will the woman do next?",
+            "zh": "女士接下來要做什麼？"
+          },
+          "choices": [
+            {
+              "t": "Add the man's name to a schedule",
+              "zh": "把男士的名字加到時間表",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：I'll put your name on the schedule。"
+            },
+            {
+              "t": "Set up a new screen",
+              "zh": "安裝新螢幕",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "5 號室本來就有螢幕。"
+            },
+            {
+              "t": "Interview a job candidate",
+              "zh": "面試應徵者",
+              "ok": false,
+              "trap": "wrong-speaker",
+              "why": "要面試的是男士。"
+            },
+            {
+              "t": "Move to Room 3",
+              "zh": "移到 3 號室",
+              "ok": false,
+              "trap": "opposite",
+              "why": "3 號室沒空，才改借 5 號。"
+            }
+          ],
+          "evidence": [
+            5
+          ]
+        }
+      ],
+      "vocab": [
+        {
+          "word": "interview",
+          "ipa": "/ˈɪntərvjuː/",
+          "pos": "n.",
+          "col": "job interview",
+          "zh": "面試"
+        },
+        {
+          "word": "schedule",
+          "ipa": "/ˈskedʒuːl/",
+          "pos": "n.",
+          "col": "on the schedule",
+          "zh": "時間表"
+        }
+      ]
+    },
+    {
+      "id": "d1-002-m",
+      "domain": "d1",
+      "scene": "office",
+      "tag": "請同事檢視簡報",
+      "form": "2p",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "需聽出男士建議刪減的言外之意。"
+      },
+      "speakers": [
+        {
+          "id": "W",
+          "gender": "F",
+          "role": "行銷專員 Priya"
+        },
+        {
+          "id": "M",
+          "gender": "M",
+          "role": "同事 Tom"
+        }
+      ],
+      "dialogue": [
+        {
+          "sp": "W",
+          "t": "Tom, do you have a few minutes? I'd like your opinion on my presentation.",
+          "zh": "Tom，你有幾分鐘嗎？我想聽聽你對我簡報的意見。"
+        },
+        {
+          "sp": "M",
+          "t": "Sure, but I have a call with a client at three, so we'll need to be quick.",
+          "zh": "好，不過我三點要和客戶通話，所以得快一點。"
+        },
+        {
+          "sp": "W",
+          "t": "That's fine. I'm presenting to the board tomorrow, and I'm worried it's too long.",
+          "zh": "沒問題。我明天要向董事會簡報，我擔心太長。"
+        },
+        {
+          "sp": "M",
+          "t": "Well, there are forty slides here. Most executives prefer a shorter format.",
+          "zh": "嗯，這裡有四十張投影片。多數高階主管偏好簡短的形式。"
+        },
+        {
+          "sp": "W",
+          "t": "Hmm, I thought more detail would impress them. What would you cut?",
+          "zh": "嗯，我以為更多細節會讓他們印象深刻。你會刪哪裡？"
+        },
+        {
+          "sp": "M",
+          "t": "Start with the background section. Then send me the new version tonight, and I'll review it.",
+          "zh": "先從背景那段開始。然後今晚把新版寄給我，我來看看。"
+        },
+        {
+          "sp": "W",
+          "t": "Great idea. I'll trim it this evening.",
+          "zh": "好主意。我今天傍晚就來刪減。"
+        }
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "id": "q1",
+          "qtype": "main",
+          "q": {
+            "t": "What does the woman ask the man to do?",
+            "zh": "女士請男士做什麼？"
+          },
+          "choices": [
+            {
+              "t": "Attend a board meeting for her.",
+              "zh": "替她出席董事會。",
+              "ok": false,
+              "trap": "wrong-speaker",
+              "why": "明天向董事會簡報的是女士本人。"
+            },
+            {
+              "t": "Give feedback on a presentation.",
+              "zh": "對簡報提供意見。",
+              "ok": true,
+              "pattern": "summary",
+              "why": "正解：她想聽他對簡報的意見。"
+            },
+            {
+              "t": "Reduce the number of slides.",
+              "zh": "減少投影片數量。",
+              "ok": false,
+              "trap": "wrong-speaker",
+              "why": "這是男士的建議，不是女士的請求。"
+            },
+            {
+              "t": "Call a client at three.",
+              "zh": "三點打電話給客戶。",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "客戶電話是男士的行程，不是她的請求。"
+            }
+          ],
+          "evidence": [
+            0
+          ]
+        },
+        {
+          "id": "q2",
+          "qtype": "intent",
+          "q": {
+            "t": "What does the man imply when he says, \"Most executives prefer a shorter format\"?",
+            "zh": "男士說「多數高階主管偏好簡短的形式」暗示什麼？"
+          },
+          "choices": [
+            {
+              "t": "The presentation should be shortened.",
+              "zh": "簡報應該縮短。",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：提到四十張後才說這句，暗示太長。"
+            },
+            {
+              "t": "The meeting should be postponed.",
+              "zh": "會議應該延期。",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "沒有任何延期的暗示。"
+            },
+            {
+              "t": "More detail is needed.",
+              "zh": "需要更多細節。",
+              "ok": false,
+              "trap": "opposite",
+              "why": "他的意思是要更精簡。"
+            },
+            {
+              "t": "Executives dislike presentations.",
+              "zh": "主管討厭簡報。",
+              "ok": false,
+              "trap": "partial",
+              "why": "他們偏好簡短的，並非討厭簡報本身。"
+            }
+          ],
+          "evidence": [
+            3
+          ]
+        },
+        {
+          "id": "q3",
+          "qtype": "next",
+          "q": {
+            "t": "What will the woman do this evening?",
+            "zh": "女士今天傍晚要做什麼？"
+          },
+          "choices": [
+            {
+              "t": "Meet with the board.",
+              "zh": "與董事會開會。",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "董事會簡報是明天，不是今晚。"
+            },
+            {
+              "t": "Shorten a presentation.",
+              "zh": "縮短簡報。",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：I'll trim it this evening。"
+            },
+            {
+              "t": "Review a document.",
+              "zh": "審閱文件。",
+              "ok": false,
+              "trap": "wrong-speaker",
+              "why": "要審閱新版的是男士。"
+            },
+            {
+              "t": "Order some supplies.",
+              "zh": "訂購用品。",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "完全沒有提到訂購。"
+            }
+          ],
+          "evidence": [
+            5,
+            6
+          ]
+        }
+      ],
+      "vocab": [
+        {
+          "word": "executive",
+          "ipa": "/ɪɡˈzekjətɪv/",
+          "pos": "n.",
+          "col": "senior executive",
+          "zh": "高階主管"
+        },
+        {
+          "word": "trim",
+          "ipa": "/trɪm/",
+          "pos": "v.",
+          "col": "trim a report",
+          "zh": "刪減"
+        }
+      ]
+    },
+    {
+      "id": "d1-003-e",
+      "domain": "d1",
+      "scene": "office",
+      "tag": "詢問電腦課教室",
+      "form": "2p",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "資訊直接說出，只需對照圖表找房號。"
+      },
+      "speakers": [
+        {
+          "id": "W",
+          "gender": "F",
+          "role": "同事 Jenny"
+        },
+        {
+          "id": "M",
+          "gender": "M",
+          "role": "同事 Paul"
+        }
+      ],
+      "dialogue": [
+        {
+          "sp": "W",
+          "t": "Paul, are you going to a training session today?",
+          "zh": "Paul，你今天要去上訓練課嗎？"
+        },
+        {
+          "sp": "M",
+          "t": "Yes. I want to learn how to use the new software.",
+          "zh": "對。我想學怎麼使用新軟體。"
+        },
+        {
+          "sp": "W",
+          "t": "Then you should take the Computer Skills class.",
+          "zh": "那你應該上電腦技能課。"
+        },
+        {
+          "sp": "M",
+          "t": "What time does it start?",
+          "zh": "它幾點開始？"
+        },
+        {
+          "sp": "W",
+          "t": "It starts at nine. Don't be late.",
+          "zh": "九點開始。別遲到。"
+        },
+        {
+          "sp": "M",
+          "t": "I won't. I'll leave my desk at ten to nine.",
+          "zh": "不會。我八點五十分離開座位。"
+        }
+      ],
+      "graphic": {
+        "title": "Training Schedule",
+        "columns": [
+          "Course",
+          "Time",
+          "Room"
+        ],
+        "rows": [
+          [
+            "Computer Skills",
+            "9:00 A.M.",
+            "Room 2"
+          ],
+          [
+            "Safety Training",
+            "10:00 A.M.",
+            "Room 4"
+          ],
+          [
+            "Customer Service",
+            "1:00 P.M.",
+            "Room 4"
+          ],
+          [
+            "Team Building",
+            "3:00 P.M.",
+            "Room 1"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "qtype": "detail",
+          "q": {
+            "t": "Why does the man want to attend the training?",
+            "zh": "男士為什麼想參加訓練？"
+          },
+          "choices": [
+            {
+              "t": "To meet a new manager",
+              "zh": "為了認識新經理",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "沒有提到新經理。"
+            },
+            {
+              "t": "To get a new computer",
+              "zh": "為了領新電腦",
+              "ok": false,
+              "trap": "partial",
+              "why": "課程與電腦有關，但目的是學軟體，不是領電腦。"
+            },
+            {
+              "t": "To learn about new software",
+              "zh": "為了學習新軟體",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：learn how to use the new software。"
+            },
+            {
+              "t": "To prepare for a trip",
+              "zh": "為了準備旅行",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "沒有任何旅行的線索。"
+            }
+          ],
+          "evidence": [
+            1
+          ]
+        },
+        {
+          "id": "q2",
+          "qtype": "graphic",
+          "q": {
+            "t": "Look at the graphic. Which room will the man go to?",
+            "zh": "看圖表，男士會去哪一間教室？"
+          },
+          "choices": [
+            {
+              "t": "Room 1",
+              "zh": "1 號室",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "那是 Team Building 的教室。"
+            },
+            {
+              "t": "Room 2",
+              "zh": "2 號室",
+              "ok": true,
+              "pattern": "direct",
+              "why": "正解：他要上 Computer Skills，圖表顯示在 Room 2。"
+            },
+            {
+              "t": "Room 3",
+              "zh": "3 號室",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "圖表中沒有 Room 3。"
+            },
+            {
+              "t": "Room 4",
+              "zh": "4 號室",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "那是 Safety Training 與 Customer Service 的教室。"
+            }
+          ],
+          "evidence": [
+            2
+          ]
+        },
+        {
+          "id": "q3",
+          "qtype": "detail",
+          "q": {
+            "t": "What time will the man leave his desk?",
+            "zh": "男士幾點離開座位？"
+          },
+          "choices": [
+            {
+              "t": "8:50",
+              "zh": "八點五十分",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：ten to nine ＝ 8:50。"
+            },
+            {
+              "t": "9:00",
+              "zh": "九點整",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "這是課程開始時間。"
+            },
+            {
+              "t": "9:10",
+              "zh": "九點十分",
+              "ok": false,
+              "trap": "number-mix",
+              "why": "把 ten to nine 誤聽成九點過十分。"
+            },
+            {
+              "t": "10:00",
+              "zh": "十點整",
+              "ok": false,
+              "trap": "number-mix",
+              "why": "ten 與 nine 混淆，也與安全課的時間混淆。"
+            }
+          ],
+          "evidence": [
+            5
+          ]
+        }
+      ],
+      "vocab": [
+        {
+          "word": "software",
+          "ipa": "/ˈsɔːftwer/",
+          "pos": "n.",
+          "col": "new software",
+          "zh": "軟體"
+        },
+        {
+          "word": "session",
+          "ipa": "/ˈseʃn/",
+          "pos": "n.",
+          "col": "training session",
+          "zh": "（一場）課程"
+        }
+      ]
+    },
+    {
+      "id": "d1-003-m",
+      "domain": "d1",
+      "scene": "office",
+      "tag": "緊急訂購碳粉匣",
+      "form": "2p",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "需結合圖表與對話，並理解引用句的真正用意。"
+      },
+      "speakers": [
+        {
+          "id": "W",
+          "gender": "F",
+          "role": "部門主管 Lisa"
+        },
+        {
+          "id": "M",
+          "gender": "M",
+          "role": "行政助理 Ben"
+        }
+      ],
+      "dialogue": [
+        {
+          "sp": "W",
+          "t": "Ben, the printer is almost out of toner. Could you order a new cartridge today?",
+          "zh": "Ben，印表機的碳粉快用完了。你今天可以訂一個新的碳粉匣嗎？"
+        },
+        {
+          "sp": "M",
+          "t": "Sure. Let me check the supplier's list. A cartridge costs forty-five dollars.",
+          "zh": "好，我看一下供應商的清單。一個碳粉匣四十五美元。"
+        },
+        {
+          "sp": "W",
+          "t": "That's fine. When would it arrive? We need to print handouts for Monday's workshop.",
+          "zh": "可以。什麼時候會到？我們要為星期一的工作坊列印講義。"
+        },
+        {
+          "sp": "M",
+          "t": "Standard delivery takes five days, but express delivery cuts it to two days for an extra fee.",
+          "zh": "標準配送要五天，快遞可縮短為兩天，但要加收費用。"
+        },
+        {
+          "sp": "W",
+          "t": "It's Thursday, so five days is too late. Please choose the express option.",
+          "zh": "今天星期四，所以五天太晚了。請選快遞。"
+        },
+        {
+          "sp": "M",
+          "t": "Understood. I'll use my company card and send you the confirmation.",
+          "zh": "了解。我會用公司卡付款，並把確認信寄給你。"
+        }
+      ],
+      "graphic": {
+        "title": "Delivery Options",
+        "columns": [
+          "Option",
+          "Delivery time",
+          "Extra fee"
+        ],
+        "rows": [
+          [
+            "Standard",
+            "5 days",
+            "$0"
+          ],
+          [
+            "Express",
+            "2 days",
+            "$15"
+          ],
+          [
+            "Overnight",
+            "1 day",
+            "$30"
+          ],
+          [
+            "In-store pickup",
+            "Same day",
+            "$5"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "qtype": "detail",
+          "q": {
+            "t": "Why does the woman need the toner?",
+            "zh": "女士為什麼需要碳粉？"
+          },
+          "choices": [
+            {
+              "t": "To replace a broken printer",
+              "zh": "為了更換壞掉的印表機",
+              "ok": false,
+              "trap": "partial",
+              "why": "印表機只是碳粉快用完，並沒有壞。"
+            },
+            {
+              "t": "To prepare materials for a workshop",
+              "zh": "為了準備工作坊的資料",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：print handouts for Monday's workshop。"
+            },
+            {
+              "t": "To send invoices to customers",
+              "zh": "為了寄發票給客戶",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "沒有提到發票或客戶。"
+            },
+            {
+              "t": "To meet a supplier on Thursday",
+              "zh": "為了星期四與供應商見面",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "星期四只是說話當天，不是與供應商見面。"
+            }
+          ],
+          "evidence": [
+            2
+          ]
+        },
+        {
+          "id": "q2",
+          "qtype": "graphic",
+          "q": {
+            "t": "Look at the graphic. How much extra will the company pay for delivery?",
+            "zh": "看圖表，公司需額外支付多少運費？"
+          },
+          "choices": [
+            {
+              "t": "$0",
+              "zh": "0 美元",
+              "ok": false,
+              "trap": "partial",
+              "why": "這是標準配送，但她選了快遞。"
+            },
+            {
+              "t": "$15",
+              "zh": "15 美元",
+              "ok": true,
+              "pattern": "direct",
+              "why": "正解：選快遞（2 天），圖表上加收 $15。"
+            },
+            {
+              "t": "$30",
+              "zh": "30 美元",
+              "ok": false,
+              "trap": "number-mix",
+              "why": "這是隔夜配送的費用。"
+            },
+            {
+              "t": "$45",
+              "zh": "45 美元",
+              "ok": false,
+              "trap": "mention-not-ask",
+              "why": "這是碳粉匣的價格，不是運費。"
+            }
+          ],
+          "evidence": [
+            3,
+            4
+          ]
+        },
+        {
+          "id": "q3",
+          "qtype": "intent",
+          "q": {
+            "t": "Why does the woman say, \"five days is too late\"?",
+            "zh": "女士為什麼說「五天太晚了」？"
+          },
+          "choices": [
+            {
+              "t": "She wants a lower price.",
+              "zh": "她想要較低的價格。",
+              "ok": false,
+              "trap": "opposite",
+              "why": "她選了要加價的快遞。"
+            },
+            {
+              "t": "She needs the item sooner.",
+              "zh": "她需要更快拿到物品。",
+              "ok": true,
+              "pattern": "paraphrase",
+              "why": "正解：星期一要用，所以拒絕標準配送。"
+            },
+            {
+              "t": "She will be away on Monday.",
+              "zh": "她星期一不在。",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "星期一有工作坊，沒有說她缺席。"
+            },
+            {
+              "t": "She is unsure about the order.",
+              "zh": "她不確定要不要訂購。",
+              "ok": false,
+              "trap": "over-infer",
+              "why": "她明確要求下單並選擇快遞。"
+            }
+          ],
+          "evidence": [
+            4
+          ]
+        }
+      ],
+      "vocab": [
+        {
+          "word": "cartridge",
+          "ipa": "/ˈkɑːrtrɪdʒ/",
+          "pos": "n.",
+          "col": "toner cartridge",
+          "zh": "碳粉匣"
+        },
+        {
+          "word": "handout",
+          "ipa": "/ˈhændaʊt/",
+          "pos": "n.",
+          "col": "print handouts",
+          "zh": "講義"
+        },
+        {
+          "word": "express",
+          "ipa": "/ɪkˈspres/",
+          "pos": "adj.",
+          "col": "express delivery",
+          "zh": "快遞的"
+        }
+      ]
+    }
+  ]
+}

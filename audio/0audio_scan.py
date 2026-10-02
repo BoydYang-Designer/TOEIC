@@ -5,12 +5,13 @@
   index.html / part2.html / daily.html / *.json   ← 網站根目錄（ROOT）
   audio/audio_scan.py                             ← 本檔
   audio/index.json                                ← 本檔產生
-  audio/p1/、audio/p2/、audio/p3/、audio/daily/   ← mp3
+  audio/p1/、audio/p2/、audio/p3/、audio/p4/、audio/daily/   ← mp3
 
 預期檔案（由題庫 json 推算）：
   Part 1  audio/p1/{id}-s01.mp3 … -s12.mp3          （photo.json，每題 pool 幾句就幾個檔）
   Part 2  audio/p2/{id}-q.mp3 與 {id}-s01.mp3 …      （part2.json）
   Part 3  audio/p3/{id}-s01.mp3 …                   （part3.json，每句對話一檔，依 dialogue 句數）
+  Part 4  audio/p4/{id}-s01.mp3 …                   （part4.json，每句獨白一檔，依 script 句數）
   Daily   audio/daily/w1d1.mp3（或題目的 audio 欄位）  （daily.json，整篇一個檔）
   字母    audio/A.mp3 … E.mp3（Part 1／2 共用，大寫檔名；Part 1 需 A–D、Part 2 需 A–C 到齊，才會在每個選項前先念字母）
 整題到齊才列入 complete；網頁只對 complete 的題目用 mp3。
@@ -100,6 +101,15 @@ c, p, o = check(os.path.join(AUD, 'p3'), exp, 'audio/p3')
 out['p3'] = {'complete': c, 'partial': p, 'orphans': o}
 print('p3：題組 %d，音檔完整 %d，部分 %d，孤兒檔 %d' % (len(exp), len(c), len(p), len(o)))
 
+# Part 4：audio/p4/{id}-s01.mp3 …（每句獨白一檔，依 script 句數；單一說話者）
+exp = {}
+for it in items('part4.json'):
+    if isinstance(it, dict) and it.get('id') and isinstance(it.get('script'), list):
+        exp[it['id']] = ['%s-s%02d.mp3' % (it['id'], k + 1) for k in range(len(it['script']))]
+c, p, o = check(os.path.join(AUD, 'p4'), exp, 'audio/p4')
+out['p4'] = {'complete': c, 'partial': p, 'orphans': o}
+print('p4：題組 %d，音檔完整 %d，部分 %d，孤兒檔 %d' % (len(exp), len(c), len(p), len(o)))
+
 # Daily：audio/daily/{id}.mp3；題目若有 audio 欄位（相對網站根目錄的路徑）則以該路徑為準
 DDIR = os.path.join(AUD, 'daily')
 dexp, dcustom = {}, {}
@@ -130,7 +140,7 @@ os.makedirs(AUD, exist_ok=True)
 with open(os.path.join(AUD, 'index.json'), 'w', encoding='utf-8') as f:
     json.dump(out, f, ensure_ascii=False, indent=1)
 print('\n已寫入 audio/index.json')
-for part in ('p1', 'p2', 'p3', 'daily'):
+for part in ('p1', 'p2', 'p3', 'p4', 'daily'):
     for o in out[part]['orphans']:
         warn.append('audio/%s/%s 不屬於任何題目（檔名打錯？）' % (part, o))
 for w in warn:

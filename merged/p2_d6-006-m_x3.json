@@ -1,0 +1,393 @@
+[
+ {
+  "id": "d6-006-m",
+  "domain": "d6",
+  "qtype": "q1",
+  "wh": "how",
+  "tag": "詢問如何連上旅館網路",
+  "scene": "hotel",
+  "level": {
+   "score": 600,
+   "cefr": "B1",
+   "tier": "medium",
+   "why": "How 問句，正解以指引或表示不確定回應，干擾項以相關但非所問為主。"
+  },
+  "q": {
+   "t": "How do I connect to the hotel internet?",
+   "zh": "我要怎麼連上旅館的網路？"
+  },
+  "pool": [
+   {
+    "t": "Just choose the guest network.",
+    "zh": "選擇訪客網路就可以。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：直接說明方法。",
+    "pattern": "direct"
+   },
+   {
+    "t": "The instructions are by the phone.",
+    "zh": "說明在電話旁邊。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：指出資訊位置，間接回答。",
+    "pattern": "indirect"
+   },
+   {
+    "t": "I'm not sure, I haven't tried it.",
+    "zh": "我不確定，我沒試過。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：表示不確定。",
+    "pattern": "unsure"
+   },
+   {
+    "t": "At seven o'clock.",
+    "zh": "七點。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "How 問句卻回答時間。"
+   },
+   {
+    "t": "In room twelve.",
+    "zh": "在十二號房。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "How 問句卻回答地點。"
+   },
+   {
+    "t": "The business center has printers.",
+    "zh": "商務中心有印表機。",
+    "ok": false,
+    "trap": "association",
+    "why": "與旅館設施相關，但沒有說明方法。"
+   },
+   {
+    "t": "The TV has many channels.",
+    "zh": "電視有很多頻道。",
+    "ok": false,
+    "trap": "association",
+    "why": "與房間設備相關，但沒有說明方法。"
+   },
+   {
+    "t": "The pool has a great view.",
+    "zh": "游泳池景色很棒。",
+    "ok": false,
+    "trap": "association",
+    "why": "與旅館相關，但沒有說明方法。"
+   },
+   {
+    "t": "I use the internet for work.",
+    "zh": "我用網路工作。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 internet，沒有說明方法。"
+   },
+   {
+    "t": "The hotel has many rooms.",
+    "zh": "這間旅館有很多房間。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 hotel，沒有說明方法。"
+   },
+   {
+    "t": "I collect old stamps.",
+    "zh": "我收集舊郵票。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "connect 與 collect 音近，但意思無關。"
+   },
+   {
+    "t": "He connected his laptop yesterday.",
+    "zh": "他昨天連上了他的筆電。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "談別人過去的事，沒有說明方法。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "internet",
+    "ipa": "/ˈɪntərnɛt/",
+    "pos": "n.",
+    "col": "hotel internet",
+    "zh": "網路"
+   },
+   {
+    "word": "connect",
+    "ipa": "/kəˈnɛkt/",
+    "pos": "v.",
+    "col": "connect to the network",
+    "zh": "連接"
+   },
+   {
+    "word": "network",
+    "ipa": "/ˈnɛtwɜːrk/",
+    "pos": "n.",
+    "col": "guest network",
+    "zh": "網路"
+   }
+  ],
+  "issues": []
+ },
+ {
+  "id": "d6-007-m",
+  "domain": "d6",
+  "qtype": "q5",
+  "tag": "說明烘衣機今早壞了",
+  "scene": "home",
+  "level": {
+   "score": 650,
+   "cefr": "B1+",
+   "tier": "medium",
+   "why": "陳述句，正解需判斷說話者求助意圖並給出建議、反問或協助，干擾項以相關但非所問為主。"
+  },
+  "q": {
+   "t": "The dryer stopped working this morning.",
+   "zh": "烘衣機今天早上不能用了。"
+  },
+  "pool": [
+   {
+    "t": "I'll hang the laundry outside for you.",
+    "zh": "我幫你把衣服晾到外面。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：主動提供協助。",
+    "pattern": "offer-help"
+   },
+   {
+    "t": "Did you check the power plug?",
+    "zh": "你檢查過電源插頭了嗎？",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：反問以釐清問題。",
+    "pattern": "question-back"
+   },
+   {
+    "t": "Let's call the repair service today.",
+    "zh": "我們今天打給維修服務吧。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：提出解決方式。",
+    "pattern": "respond"
+   },
+   {
+    "t": "In the basement.",
+    "zh": "在地下室。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "與陳述內容無關的地點回答。"
+   },
+   {
+    "t": "Ten dollars.",
+    "zh": "十美元。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "與陳述內容無關的價錢回答。"
+   },
+   {
+    "t": "Laundry detergent is on sale.",
+    "zh": "洗衣精在特價。",
+    "ok": false,
+    "trap": "association",
+    "why": "與洗衣相關，但沒有回應。"
+   },
+   {
+    "t": "The basement is quite damp.",
+    "zh": "地下室很潮濕。",
+    "ok": false,
+    "trap": "association",
+    "why": "與居家相關，但沒有回應。"
+   },
+   {
+    "t": "I need to buy more hangers.",
+    "zh": "我得多買些衣架。",
+    "ok": false,
+    "trap": "association",
+    "why": "與洗衣相關，但沒有回應。"
+   },
+   {
+    "t": "I stopped by the store.",
+    "zh": "我順道去了商店。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 stopped，沒有回應。"
+   },
+   {
+    "t": "This morning I went jogging.",
+    "zh": "我今天早上去慢跑。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 this morning，沒有回應。"
+   },
+   {
+    "t": "The driver is waiting outside.",
+    "zh": "司機在外面等。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "dryer 與 driver 音近，但意思無關。"
+   },
+   {
+    "t": "He fixed the dryer last year.",
+    "zh": "他去年修過烘衣機。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "談別人過去的事，沒有回應。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "dryer",
+    "ipa": "/ˈdraɪər/",
+    "pos": "n.",
+    "col": "clothes dryer",
+    "zh": "烘衣機"
+   },
+   {
+    "word": "laundry",
+    "ipa": "/ˈlɔːndri/",
+    "pos": "n.",
+    "col": "do the laundry",
+    "zh": "待洗衣物"
+   },
+   {
+    "word": "hangers",
+    "ipa": "/ˈhæŋərz/",
+    "pos": "n.",
+    "col": "coat hangers",
+    "zh": "衣架"
+   }
+  ],
+  "issues": []
+ },
+ {
+  "id": "d6-008-m",
+  "domain": "d6",
+  "qtype": "q2",
+  "tag": "詢問房間有沒有保險箱",
+  "scene": "hotel",
+  "level": {
+   "score": 600,
+   "cefr": "B1",
+   "tier": "medium",
+   "why": "Yes/No 問句，正解以部分資訊或查證回應，干擾項以相關但非所問為主。"
+  },
+  "q": {
+   "t": "Does the room have a safe for valuables?",
+   "zh": "房間有放貴重物品的保險箱嗎？"
+  },
+  "pool": [
+   {
+    "t": "Yes, it's in the closet.",
+    "zh": "有，在衣櫃裡。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：直接回答並補充位置。",
+    "pattern": "direct"
+   },
+   {
+    "t": "Most rooms do, but not all.",
+    "zh": "大部分有，但不是全部。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：給出部分資訊。",
+    "pattern": "indirect"
+   },
+   {
+    "t": "Let me look at your booking.",
+    "zh": "我看一下您的訂房資料。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：表示需要查證。",
+    "pattern": "unsure"
+   },
+   {
+    "t": "On the sixth floor.",
+    "zh": "在六樓。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "Yes/No 問句卻回答地點。"
+   },
+   {
+    "t": "Because it's new.",
+    "zh": "因為它是新的。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "Yes/No 問句卻回答原因。"
+   },
+   {
+    "t": "Mr. Kim did.",
+    "zh": "是金先生做的。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "Yes/No 問句卻回答人物。"
+   },
+   {
+    "t": "Jewelry is expensive these days.",
+    "zh": "現在珠寶很貴。",
+    "ok": false,
+    "trap": "association",
+    "why": "與貴重物品相關，但沒有回答。"
+   },
+   {
+    "t": "The minibar is restocked daily.",
+    "zh": "小冰箱每天補貨。",
+    "ok": false,
+    "trap": "association",
+    "why": "與房間設備相關，但沒有回答。"
+   },
+   {
+    "t": "The closet has extra pillows.",
+    "zh": "衣櫃裡有多的枕頭。",
+    "ok": false,
+    "trap": "association",
+    "why": "與房間相關，但沒有回答。"
+   },
+   {
+    "t": "I always feel safe here.",
+    "zh": "我在這裡總是覺得安全。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 safe，但意思不同。"
+   },
+   {
+    "t": "The room is very quiet.",
+    "zh": "房間很安靜。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 room，沒有回答。"
+   },
+   {
+    "t": "I'm saving money for a trip.",
+    "zh": "我正在存錢準備旅行。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "safe 與 saving 音近，但意思無關。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "safe",
+    "ipa": "/seɪf/",
+    "pos": "n.",
+    "col": "room safe",
+    "zh": "保險箱"
+   },
+   {
+    "word": "valuables",
+    "ipa": "/ˈvæljuəblz/",
+    "pos": "n.",
+    "col": "store valuables",
+    "zh": "貴重物品"
+   },
+   {
+    "word": "closet",
+    "ipa": "/ˈklɑːzɪt/",
+    "pos": "n.",
+    "col": "walk-in closet",
+    "zh": "衣櫃"
+   }
+  ],
+  "issues": []
+ }
+]

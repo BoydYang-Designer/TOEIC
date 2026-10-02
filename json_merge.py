@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 共用）
+TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 共用）
 
-用法：把這支程式放在 daily.json、photo.json、part2.json、part3.json 所在的資料夾，雙擊執行。
-  1. 最上方選擇題庫：每日文章（daily.json）／Part 1 照片（photo.json）／Part 2 應答（part2.json）／Part 3 對話（part3.json）。
+用法：把這支程式放在 daily.json、photo.json、part2.json、part3.json、part4.json 所在的資料夾，雙擊執行。
+  1. 最上方選擇題庫：每日文章（daily.json）／Part 1 照片（photo.json）／Part 2 應答（part2.json）／Part 3 對話（part3.json）／Part 4 獨白（part4.json）。
      啟動時會自動選「資料夾內等待合併的副檔最多」的那一個；也可用  python json_merge.py part2  直接指定。
   2. 自動列出該題庫的副檔：
        daily  → w1d3.json 這類（其他 .json 也會列出，但不會自動勾選）
        photo  → d1-002-m.json 這類（檔名是題目 id）
        part2  → p2_d1-001-h_x5.json 這類（網頁「新增題目」產生的檔名）
        part3  → p3_d1-002-m_x2.json 這類（網頁「新增題目」產生的檔名）
+       part4  → p4_d1-002-m_x2.json 這類（網頁「新增題目」產生的檔名）
      找不到的可用「新增檔案…」手動加入。
   3. 選取要合併的副檔（可多選：Ctrl / Shift）→「合併」→ 確認 → 寫回主檔（寫入前自動備份到 backup 資料夾）。
 副檔可以是：單筆題目、題目陣列、或含 items 的物件；AI 貼出的 ```json 圍欄也能自動處理。
@@ -788,6 +789,8 @@ class Part3(IdProfile):
         else:
             if not 5 <= len(dl) <= 16:
                 wa.append('對話有 %d 句（建議 5–16）' % len(dl))
+            elif suffix == 'e' and not 6 <= len(dl) <= 8:
+                wa.append('初級對話建議 6–8 句（目前 %d 句）' % len(dl))
             spoke = set()
             for i, l in enumerate(dl):
                 if not isinstance(l, dict) or not str(l.get('t') or '').strip():
@@ -900,8 +903,82 @@ class Part3(IdProfile):
         return er, wa
 
 
-PROFILES = {'daily': Daily(), 'photo': Photo(), 'part2': Part2(), 'part3': Part3()}
-ORDER = ('daily', 'photo', 'part2', 'part3')
+# ───── part4 ─────
+
+class Part4(Part3):
+    """Part 4 簡短獨白：一組＝一段獨白（script，單一說話者）＋3 題四選一（questions）。"""
+    name = 'part4'
+    title = 'Part 4 獨白'
+    main_name = 'part4.json'
+    backup_prefix = 'part4'
+    QTYPES = ('main', 'detail', 'infer', 'intent', 'next', 'graphic', 'who')
+    MTYPES = ('voicemail', 'announcement', 'news', 'ad', 'radio', 'tour', 'meeting', 'speech')
+    LEN = {'e': (6, 8), 'm': (8, 10), 'h': (10, 14)}
+    empty_hint = ('資料夾內沒有找到副檔。\n請把網頁「新增題目」產生的檔案（例如 p4_d1-002-m_x2.json）放進來，'
+                  '或按「新增檔案…」手動選取。')
+    done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p4/（{id}-s01.mp3…，一句獨白一檔），'
+                 '再執行 audio_scan.py；沒有音檔時網頁會用機器發音。')
+
+    def is_candidate(self, fname):
+        return fname.lower().startswith('p4_')
+
+    def describe(self, e):
+        d = e.get('script') if isinstance(e, dict) else None
+        return d[0].get('t', '') if isinstance(d, list) and d and isinstance(d[0], dict) else ''
+
+    def extra_detail(self, e):
+        if isinstance(e, dict) and isinstance(e.get('script'), list):
+            qs = [str(q.get('qtype', '?')) for q in e.get('questions') or [] if isinstance(q, dict)]
+            return ['     %s｜%d 句｜%s' % (e.get('mtype', ''), len(e['script']), '／'.join(qs))]
+        return []
+
+    def validate(self, e, ctx):
+        if not isinstance(e, dict):
+            return ['內容不是物件'], []
+        if 'skip' in e:
+            return ['AI 回報寫不出這個難度，不應合併：%s' % e.get('skip')], []
+        pre, extra_er, extra_wa = [], [], []
+        if e.get('form') != 'talk':
+            extra_er.append("form 必須是 'talk'，目前是 %r" % e.get('form'))
+        if e.get('mtype') not in self.MTYPES:
+            extra_er.append('mtype 必須是 %s，目前是 %r' % ('／'.join(self.MTYPES), e.get('mtype')))
+        sp = e.get('speakers')
+        g = 'F'
+        if not isinstance(sp, list) or len(sp) != 1 or not isinstance(sp[0], dict) or sp[0].get('gender') not in ('F', 'M'):
+            extra_er.append("speakers 必須剛好 1 位，且需要 gender（'F' 或 'M'）")
+        else:
+            g = sp[0]['gender']
+        sc = e.get('script')
+        if 'dialogue' in e:
+            extra_er.append('Part 4 使用 script，不是 dialogue')
+        if not isinstance(sc, list) or not sc:
+            extra_er.append('缺少 script')
+            sc = []
+        # 轉成 Part 3 的格式重用共同檢查（同一位說話者 S，加一位假想說話者湊足兩人）
+        e2 = dict(e)
+        e2['form'] = '2p'
+        e2['speakers'] = [{'id': 'S', 'gender': g}, {'id': '_x', 'gender': 'M' if g == 'F' else 'F'}]
+        e2['dialogue'] = [dict(l, sp='S') if isinstance(l, dict) else l for l in sc]
+        er, wa = Part3.validate(self, e2, ctx)
+        skip = ('沒有發言', '兩人對話', '對話有', '初級對話', "form 必須是 '2p'")
+        er = [x for x in er if not x.startswith("form 必須是 '2p'")]
+        wa = [x for x in wa if not any(k in x for k in skip)]
+        er = [x.replace('dialogue', 'script') for x in er]
+        wa = [x.replace('dialogue', 'script') for x in wa]
+        m = ID_RE.match(str(e.get('id', '')))
+        if m and sc:
+            lo, hi = self.LEN[m.group(3)]
+            if not lo <= len(sc) <= hi:
+                wa.append('%s獨白建議 %d–%d 句（目前 %d 句）' % (TIER_ZH[TIER[m.group(3)]], lo, hi, len(sc)))
+        if m and m.group(3) == 'h':
+            qts = [q.get('qtype') for q in e.get('questions') or [] if isinstance(q, dict)]
+            if 'graphic' not in qts and 'intent' not in qts:
+                wa.append('高級題建議至少含 1 題圖表題或意圖題')
+        return extra_er + er, extra_wa + wa
+
+
+PROFILES = {'daily': Daily(), 'photo': Photo(), 'part2': Part2(), 'part3': Part3(), 'part4': Part4()}
+ORDER = ('daily', 'photo', 'part2', 'part3', 'part4')
 MAIN_NAMES = {p.main_name.lower() for p in PROFILES.values()}
 TITLE_OF = {k: v.title for k, v in PROFILES.items()}
 
@@ -912,6 +989,8 @@ def kind_of(e):
         return None
     if 'week' in e or 'passage' in e:
         return 'daily'
+    if 'script' in e or e.get('form') == 'talk':
+        return 'part4'
     if 'dialogue' in e or 'questions' in e:
         return 'part3'
     if 'qtype' in e:
@@ -1414,7 +1493,7 @@ def main():
         if a in PROFILES:
             start = a
         else:
-            print('用法：python json_merge.py [daily|photo|part2|part3]', file=sys.stderr)
+            print('用法：python json_merge.py [daily|photo|part2|part3|part4]', file=sys.stderr)
     try:
         run_gui(start)
     except Exception:

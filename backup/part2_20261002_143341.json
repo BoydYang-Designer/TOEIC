@@ -7807,6 +7807,261 @@
       "issues": []
     },
     {
+      "id": "d4-001-m",
+      "domain": "d4",
+      "qtype": "q1",
+      "wh": "which",
+      "tag": "詢問去博物館該走哪個出口",
+      "scene": "station",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "Which 問句，正解是指向標示、表示不確定並建議看地圖、或直接指名出口。"
+      },
+      "q": {
+        "t": "Which exit should I take for the museum?",
+        "zh": "去博物館我該走哪個出口？"
+      },
+      "pool": [
+        {
+          "t": "The signs are posted above the stairs.",
+          "zh": "標示掛在樓梯上方。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：指向標示，間接回答。"
+        },
+        {
+          "t": "I'm not sure. Look at the map.",
+          "zh": "我不確定，看一下地圖。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示不確定並建議查看地圖。"
+        },
+        {
+          "t": "Exit B, near the escalator.",
+          "zh": "B 出口，在手扶梯旁。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接指名出口。"
+        },
+        {
+          "t": "At nine thirty.",
+          "zh": "九點半。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 When 的答案。"
+        },
+        {
+          "t": "Mr. Collins did.",
+          "zh": "是柯林斯先生做的。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Who 的答案。"
+        },
+        {
+          "t": "The museum opens at ten.",
+          "zh": "博物館十點開門。",
+          "ok": false,
+          "trap": "association",
+          "why": "談博物館，但沒有回答問題。"
+        },
+        {
+          "t": "The museum has a gift shop.",
+          "zh": "博物館有紀念品店。",
+          "ok": false,
+          "trap": "association",
+          "why": "談博物館，但沒有回答問題。"
+        },
+        {
+          "t": "Kids visit it on school trips.",
+          "zh": "孩子們會在校外教學時去參觀。",
+          "ok": false,
+          "trap": "association",
+          "why": "談博物館，但沒有回答問題。"
+        },
+        {
+          "t": "Admission is free on Sundays.",
+          "zh": "星期日免費入場。",
+          "ok": false,
+          "trap": "association",
+          "why": "談博物館，但沒有回答問題。"
+        },
+        {
+          "t": "I take my time getting up.",
+          "zh": "我起床都慢慢來。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 take，但意思不同。"
+        },
+        {
+          "t": "Take it easy this weekend.",
+          "zh": "這個週末放輕鬆。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 take，但意思不同。"
+        },
+        {
+          "t": "She exited the building earlier.",
+          "zh": "她稍早離開了那棟大樓。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "人稱與時態不符，沒有回答問題。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "exit",
+          "ipa": "/ˈeksɪt/",
+          "pos": "n.",
+          "col": "take exit B",
+          "zh": "出口"
+        },
+        {
+          "word": "escalator",
+          "ipa": "/ˈeskəleɪtər/",
+          "pos": "n.",
+          "col": "near the escalator",
+          "zh": "手扶梯"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d4-001-h",
+      "domain": "d4",
+      "qtype": "q1",
+      "wh": "why",
+      "tag": "詢問車站附近街道為何封閉",
+      "scene": "street",
+      "level": {
+        "score": 700,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "Why 問句，正解含間接指引與不確定回答，需聽懂意圖。"
+      },
+      "q": {
+        "t": "Why did they close the street near the station this morning?",
+        "zh": "為什麼他們今天早上封閉了車站附近的街道？"
+      },
+      "pool": [
+        {
+          "t": "I heard a water pipe burst under the road.",
+          "zh": "我聽說路面下有水管爆裂。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接說明封街原因。"
+        },
+        {
+          "t": "The street is very long and narrow.",
+          "zh": "這條街又長又窄。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 street，但沒有回答原因。"
+        },
+        {
+          "t": "You'd better ask the officer over there.",
+          "zh": "你最好去問那邊的警察。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：建議詢問他人，間接回應。"
+        },
+        {
+          "t": "I'll take these clothes, please.",
+          "zh": "這些衣服我要了。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "clothes 與 close 音近，內容無關。"
+        },
+        {
+          "t": "At the corner of Main Street.",
+          "zh": "在緬因街的轉角。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "I just got here, so I'm not sure.",
+          "zh": "我剛到，所以不確定。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示不知道原因。"
+        },
+        {
+          "t": "The station has a new ticket machine.",
+          "zh": "車站有新的售票機。",
+          "ok": false,
+          "trap": "association",
+          "why": "與車站相關，但沒有說明原因。"
+        },
+        {
+          "t": "About twenty minutes by bus.",
+          "zh": "搭公車大約二十分鐘。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間長短，答非所問。"
+        },
+        {
+          "t": "Mr. Kim, from the city office.",
+          "zh": "市政府的金先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "This morning I woke up at six.",
+          "zh": "今天早上我六點起床。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 this morning，但沒有回答原因。"
+        },
+        {
+          "t": "I will close it tomorrow morning.",
+          "zh": "我明天早上會把它關起來。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "人稱與時態錯誤。"
+        },
+        {
+          "t": "Parking is free near the station.",
+          "zh": "車站附近停車免費。",
+          "ok": false,
+          "trap": "association",
+          "why": "與車站相關，但沒有說明原因。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "burst",
+          "ipa": "/bɜːrst/",
+          "pos": "v.",
+          "col": "a pipe bursts",
+          "zh": "爆裂"
+        },
+        {
+          "word": "officer",
+          "ipa": "/ˈɔːfɪsər/",
+          "pos": "n.",
+          "col": "a police officer",
+          "zh": "警官"
+        },
+        {
+          "word": "pipe",
+          "ipa": "/paɪp/",
+          "pos": "n.",
+          "col": "a water pipe",
+          "zh": "水管"
+        }
+      ],
+      "issues": []
+    },
+    {
       "id": "d4-002-e",
       "domain": "d4",
       "qtype": "q1",
@@ -7926,6 +8181,260 @@
           "pos": "n.",
           "col": "at the corner",
           "zh": "轉角"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d4-002-m",
+      "domain": "d4",
+      "qtype": "q1",
+      "wh": "how",
+      "tag": "詢問如何前往體育場",
+      "scene": "street",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "How 問句，正解是指出可搭的交通、說出路線、或表示不熟並建議問司機。"
+      },
+      "q": {
+        "t": "How can I get to the stadium from here?",
+        "zh": "我從這裡要怎麼去體育場？"
+      },
+      "pool": [
+        {
+          "t": "The express bus stops right outside.",
+          "zh": "快速公車就停在外面。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：指出交通工具，間接回答。"
+        },
+        {
+          "t": "Just take the blue line.",
+          "zh": "搭藍線就可以了。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接說出路線。"
+        },
+        {
+          "t": "I'm new in town. Try asking the driver.",
+          "zh": "我剛搬來，問問司機吧。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示不熟並建議詢問他人。"
+        },
+        {
+          "t": "At six o'clock.",
+          "zh": "六點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 When 的答案。"
+        },
+        {
+          "t": "Mr. Hughes.",
+          "zh": "休斯先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Who 的答案。"
+        },
+        {
+          "t": "The stadium seats fifty thousand.",
+          "zh": "體育場可容納五萬人。",
+          "ok": false,
+          "trap": "association",
+          "why": "談體育場，但沒有回答怎麼去。"
+        },
+        {
+          "t": "There's a game tonight.",
+          "zh": "今晚有比賽。",
+          "ok": false,
+          "trap": "association",
+          "why": "談體育場，但沒有回答怎麼去。"
+        },
+        {
+          "t": "Tickets sell out quickly.",
+          "zh": "門票很快就賣完。",
+          "ok": false,
+          "trap": "association",
+          "why": "談體育場，但沒有回答怎麼去。"
+        },
+        {
+          "t": "The seats are very comfortable.",
+          "zh": "座位非常舒服。",
+          "ok": false,
+          "trap": "association",
+          "why": "談體育場，但沒有回答怎麼去。"
+        },
+        {
+          "t": "I get up early every day.",
+          "zh": "我每天都很早起。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 get，但意思不同。"
+        },
+        {
+          "t": "Here are your keys.",
+          "zh": "這是你的鑰匙。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 here，但意思不同。"
+        },
+        {
+          "t": "She got a new phone.",
+          "zh": "她買了新手機。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "人稱與時態不符，沒有回答問題。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "stadium",
+          "ipa": "/ˈsteɪdiəm/",
+          "pos": "n.",
+          "col": "go to the stadium",
+          "zh": "體育場"
+        },
+        {
+          "word": "express",
+          "ipa": "/ɪkˈspres/",
+          "pos": "adj.",
+          "col": "an express bus",
+          "zh": "快速的"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d4-002-h",
+      "domain": "d4",
+      "qtype": "q2",
+      "tag": "詢問錯過十點車後是否還有較晚班次",
+      "scene": "station",
+      "level": {
+        "score": 750,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "含條件子句的 Yes/No 問句，正解為直答、指引、需查證。"
+      },
+      "q": {
+        "t": "If we miss the ten o'clock, is there a later train to the coast?",
+        "zh": "如果我們錯過十點那班，還有較晚到海邊的火車嗎？"
+      },
+      "pool": [
+        {
+          "t": "The coast is beautiful this time of year.",
+          "zh": "海邊這個時節很美。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 coast，但沒有回答。"
+        },
+        {
+          "t": "Yes, there's another one at eleven fifteen.",
+          "zh": "有，十一點十五分還有一班。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接肯定並給出時間。"
+        },
+        {
+          "t": "The mist was thick this morning.",
+          "zh": "今天早上霧很濃。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "mist 與 miss 音近，內容無關。"
+        },
+        {
+          "t": "At the ticket office downstairs.",
+          "zh": "在樓下的售票處。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "Check the board over there; it's updated hourly.",
+          "zh": "去看那邊的看板，每小時更新。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：指引查看看板，間接回答。"
+        },
+        {
+          "t": "We missed the bus to the coast last week.",
+          "zh": "我們上週錯過了去海邊的公車。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回答。"
+        },
+        {
+          "t": "Two adults and one child.",
+          "zh": "兩個大人和一個小孩。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人數，答非所問。"
+        },
+        {
+          "t": "Let me look it up for you.",
+          "zh": "我幫你查一下。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示需要查證。"
+        },
+        {
+          "t": "It rained heavily all night.",
+          "zh": "整晚下大雨。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "rained 與 train 音近，內容無關。"
+        },
+        {
+          "t": "I like to travel to the coast.",
+          "zh": "我喜歡去海邊旅行。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 coast，但沒有回答。"
+        },
+        {
+          "t": "About fifteen minutes.",
+          "zh": "大約十五分鐘。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間長短，答非所問。"
+        },
+        {
+          "t": "The café in the station opens at six.",
+          "zh": "車站裡的咖啡店六點開門。",
+          "ok": false,
+          "trap": "association",
+          "why": "與車站相關，但沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "coast",
+          "ipa": "/koʊst/",
+          "pos": "n.",
+          "col": "the east coast",
+          "zh": "海岸"
+        },
+        {
+          "word": "miss",
+          "ipa": "/mɪs/",
+          "pos": "v.",
+          "col": "miss a train",
+          "zh": "錯過"
+        },
+        {
+          "word": "board",
+          "ipa": "/bɔːrd/",
+          "pos": "n.",
+          "col": "the departure board",
+          "zh": "看板"
         }
       ],
       "issues": []
@@ -8054,6 +8563,259 @@
       "issues": []
     },
     {
+      "id": "d4-003-m",
+      "domain": "d4",
+      "qtype": "q2",
+      "tag": "詢問是否有公車到港口",
+      "scene": "street",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "Yes/No 問句，正解是指出公車號碼、說明末班時間、或表示要查路線圖。"
+      },
+      "q": {
+        "t": "Is there a bus that goes to the harbor?",
+        "zh": "有沒有公車可以到港口？"
+      },
+      "pool": [
+        {
+          "t": "The number twelve stops there.",
+          "zh": "十二號公車會到那裡。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：指出公車號碼，間接回答。"
+        },
+        {
+          "t": "Not after eight, I'm afraid.",
+          "zh": "八點以後就沒有了，恐怕。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：有條件地回答。"
+        },
+        {
+          "t": "Let me look at the route map.",
+          "zh": "我看一下路線圖。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示不確定，先去查證。"
+        },
+        {
+          "t": "Around eight o'clock.",
+          "zh": "大約八點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 When 的答案。"
+        },
+        {
+          "t": "Mr. Barnes.",
+          "zh": "巴恩斯先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Who 的答案。"
+        },
+        {
+          "t": "At the ferry dock.",
+          "zh": "在渡輪碼頭。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Where 的答案。"
+        },
+        {
+          "t": "It's getting harder to park.",
+          "zh": "停車越來越困難。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "harder 與 harbor 音近，內容無關。"
+        },
+        {
+          "t": "There is a lot of noise.",
+          "zh": "有很多噪音。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 there is，但意思不同。"
+        },
+        {
+          "t": "The harbor view is beautiful.",
+          "zh": "港口的景色很美。",
+          "ok": false,
+          "trap": "association",
+          "why": "談港口，但沒有回答問題。"
+        },
+        {
+          "t": "Ferries are popular in summer.",
+          "zh": "夏天渡輪很受歡迎。",
+          "ok": false,
+          "trap": "association",
+          "why": "與港口有關，但沒有回答問題。"
+        },
+        {
+          "t": "Fish markets open early.",
+          "zh": "魚市場很早開。",
+          "ok": false,
+          "trap": "association",
+          "why": "與港口有關，但沒有回答問題。"
+        },
+        {
+          "t": "She went to the harbor yesterday.",
+          "zh": "她昨天去了港口。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "人稱與時態不符，沒有回答問題。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "harbor",
+          "ipa": "/ˈhɑːrbər/",
+          "pos": "n.",
+          "col": "the harbor",
+          "zh": "港口"
+        },
+        {
+          "word": "route",
+          "ipa": "/ruːt/",
+          "pos": "n.",
+          "col": "a route map",
+          "zh": "路線"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d4-003-h",
+      "domain": "d4",
+      "qtype": "q3",
+      "tag": "詢問走路口號誌或地下道較快",
+      "scene": "street",
+      "level": {
+        "score": 750,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "選擇疑問句，正解含選一、第三選項與皆可，干擾項音近且自然。"
+      },
+      "q": {
+        "t": "Would it be faster to cross at the lights or use the underpass?",
+        "zh": "在路口號誌過馬路比較快，還是走地下道比較快？"
+      },
+      "pool": [
+        {
+          "t": "The underpass, especially with all this traffic.",
+          "zh": "走地下道，尤其車這麼多。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "pick-one",
+          "why": "正解：選擇地下道並附理由。"
+        },
+        {
+          "t": "The lights in my kitchen are broken.",
+          "zh": "我廚房的燈壞了。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 lights，但意思不符。"
+        },
+        {
+          "t": "Neither, there's a footbridge by the bakery.",
+          "zh": "都不用，麵包店旁有天橋。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "third-option",
+          "why": "正解：提出第三選項。"
+        },
+        {
+          "t": "I'd like more pasta, please.",
+          "zh": "我想再要一些義大利麵。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "pasta 與 faster 音近，內容無關。"
+        },
+        {
+          "t": "At half past three.",
+          "zh": "三點半。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "Either one is fine, they're about equal.",
+          "zh": "哪個都行，差不多。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "both-either-neither",
+          "why": "正解：表示兩者皆可。"
+        },
+        {
+          "t": "My boss is in a meeting.",
+          "zh": "我老闆在開會。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "boss 與 cross 音近，內容無關。"
+        },
+        {
+          "t": "There's a pharmacy across the road.",
+          "zh": "對面有一間藥局。",
+          "ok": false,
+          "trap": "association",
+          "why": "與過馬路相關，但沒有回答。"
+        },
+        {
+          "t": "The underpass was built in 1990.",
+          "zh": "地下道是一九九零年蓋的。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 underpass，但沒有回答。"
+        },
+        {
+          "t": "Yes, I do it every day.",
+          "zh": "是的，我每天都這樣做。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "用 Yes 回答選擇題，答非所問。"
+        },
+        {
+          "t": "Pedestrians should always look both ways.",
+          "zh": "行人應該要左右看。",
+          "ok": false,
+          "trap": "association",
+          "why": "與過馬路相關，但沒有選擇。"
+        },
+        {
+          "t": "He crossed the river by boat yesterday.",
+          "zh": "他昨天搭船過河。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "cross",
+          "ipa": "/krɔːs/",
+          "pos": "v.",
+          "col": "cross the street",
+          "zh": "穿越"
+        },
+        {
+          "word": "underpass",
+          "ipa": "/ˈʌndərpæs/",
+          "pos": "n.",
+          "col": "a pedestrian underpass",
+          "zh": "地下道"
+        },
+        {
+          "word": "footbridge",
+          "ipa": "/ˈfʊtbrɪdʒ/",
+          "pos": "n.",
+          "col": "cross a footbridge",
+          "zh": "天橋"
+        }
+      ],
+      "issues": []
+    },
+    {
       "id": "d4-004-e",
       "domain": "d4",
       "qtype": "q3",
@@ -8172,6 +8934,266 @@
           "pos": "n.",
           "col": "take a taxi",
           "zh": "計程車"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d4-004-m",
+      "domain": "d4",
+      "qtype": "q3",
+      "tag": "詢問走橋或隧道",
+      "scene": "street",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "二選一問句，正解是提出第三條路、看哪邊車少、或兩條都封閉。"
+      },
+      "q": {
+        "t": "Should we take the bridge or the tunnel?",
+        "zh": "我們要走橋還是隧道？"
+      },
+      "pool": [
+        {
+          "t": "Let's try the back roads.",
+          "zh": "我們走小路吧。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "third-option",
+          "why": "正解：提出第三個選項。"
+        },
+        {
+          "t": "Whichever has less traffic.",
+          "zh": "哪邊車少走哪邊。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "no-preference",
+          "why": "正解：表示沒有偏好，看車流。"
+        },
+        {
+          "t": "Neither, both are closed for repairs.",
+          "zh": "都不行，兩邊都因施工封閉了。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "both-either-neither",
+          "why": "正解：兩個都不行並說明。"
+        },
+        {
+          "t": "Around five o'clock.",
+          "zh": "大約五點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 When 的答案。"
+        },
+        {
+          "t": "Mr. Ford.",
+          "zh": "福特先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Who 的答案。"
+        },
+        {
+          "t": "The bridge was built in 1950.",
+          "zh": "橋是一九五〇年蓋的。",
+          "ok": false,
+          "trap": "association",
+          "why": "談橋，但沒有回答選擇。"
+        },
+        {
+          "t": "The tunnel is two miles long.",
+          "zh": "隧道長兩英里。",
+          "ok": false,
+          "trap": "association",
+          "why": "談隧道，但沒有回答選擇。"
+        },
+        {
+          "t": "Tolls go up next month.",
+          "zh": "過路費下個月漲價。",
+          "ok": false,
+          "trap": "association",
+          "why": "與道路有關，但沒有回答選擇。"
+        },
+        {
+          "t": "My bridge club meets weekly.",
+          "zh": "我的橋牌社每週聚會。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 bridge，但意思不同。"
+        },
+        {
+          "t": "The fridge is empty.",
+          "zh": "冰箱是空的。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "fridge 與 bridge 音近，內容無關。"
+        },
+        {
+          "t": "Use a funnel for the oil.",
+          "zh": "用漏斗倒油。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "funnel 與 tunnel 音近，內容無關。"
+        },
+        {
+          "t": "They were building a tunnel.",
+          "zh": "他們那時在蓋隧道。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "人稱與時態不符，沒有回答問題。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "bridge",
+          "ipa": "/brɪdʒ/",
+          "pos": "n.",
+          "col": "cross the bridge",
+          "zh": "橋"
+        },
+        {
+          "word": "tunnel",
+          "ipa": "/ˈtʌnl/",
+          "pos": "n.",
+          "col": "through the tunnel",
+          "zh": "隧道"
+        },
+        {
+          "word": "traffic",
+          "ipa": "/ˈtræfɪk/",
+          "pos": "n.",
+          "col": "heavy traffic",
+          "zh": "車流"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d4-004-h",
+      "domain": "d4",
+      "qtype": "q4",
+      "tag": "確認對方是否說過這條街通往舊市場",
+      "scene": "street",
+      "level": {
+        "score": 800,
+        "cefr": "B2+",
+        "tier": "hard",
+        "why": "附加問句，正解含確認、更正與含糊回應，干擾項自然。"
+      },
+      "q": {
+        "t": "You said this street leads to the old market, didn't you?",
+        "zh": "你說過這條街通往舊市場，對吧？"
+      },
+      "pool": [
+        {
+          "t": "I made my bed this morning.",
+          "zh": "我今天早上整理了床。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "bed 與 said 音近，內容無關。"
+        },
+        {
+          "t": "Yes, about five minutes further on.",
+          "zh": "對，再往前大約五分鐘。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "confirm",
+          "why": "正解：確認並補充距離。"
+        },
+        {
+          "t": "The old market sells fresh fruit.",
+          "zh": "舊市場賣新鮮水果。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 old market，但沒有確認。"
+        },
+        {
+          "t": "Because I was running late.",
+          "zh": "因為我遲到了。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答原因，答非所問。"
+        },
+        {
+          "t": "Actually, I said the next street over.",
+          "zh": "其實我說的是隔壁那條街。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "correct",
+          "why": "正解：更正說法。"
+        },
+        {
+          "t": "It's about two kilometers long.",
+          "zh": "大約兩公里長。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答長度，答非所問。"
+        },
+        {
+          "t": "The market opens at seven on Sundays.",
+          "zh": "市場週日七點開。",
+          "ok": false,
+          "trap": "association",
+          "why": "與市場相關，但沒有確認。"
+        },
+        {
+          "t": "I was just guessing, to be honest.",
+          "zh": "老實說，我只是猜的。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：承認不確定，間接回應。"
+        },
+        {
+          "t": "This street is under repair.",
+          "zh": "這條街正在整修。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 street，但沒有確認。"
+        },
+        {
+          "t": "Mr. Chen, from the tourist office.",
+          "zh": "旅遊局的陳先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "There's a good bakery near the fountain.",
+          "zh": "噴水池附近有間不錯的麵包店。",
+          "ok": false,
+          "trap": "association",
+          "why": "與街道相關，但沒有確認。"
+        },
+        {
+          "t": "We walked to the old market last year.",
+          "zh": "我們去年走路去過舊市場。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有確認。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "leads",
+          "ipa": "/liːdz/",
+          "pos": "v.",
+          "col": "a road leads to",
+          "zh": "通往"
+        },
+        {
+          "word": "market",
+          "ipa": "/ˈmɑːrkɪt/",
+          "pos": "n.",
+          "col": "an open-air market",
+          "zh": "市場"
+        },
+        {
+          "word": "repair",
+          "ipa": "/rɪˈper/",
+          "pos": "n.",
+          "col": "under repair",
+          "zh": "整修"
         }
       ],
       "issues": []
@@ -8300,6 +9322,259 @@
       "issues": []
     },
     {
+      "id": "d4-005-m",
+      "domain": "d4",
+      "qtype": "q4",
+      "tag": "確認這條線是否每站都停",
+      "scene": "station",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "附加問句，正解是有條件地確認、更正為快車、或指向地圖。"
+      },
+      "q": {
+        "t": "This line stops at every station, doesn't it?",
+        "zh": "這條線每一站都停，對吧？"
+      },
+      "pool": [
+        {
+          "t": "Yes, except late at night.",
+          "zh": "對，深夜除外。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "confirm",
+          "why": "正解：有條件地確認。"
+        },
+        {
+          "t": "No, this is the express line.",
+          "zh": "不，這是快車線。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "correct",
+          "why": "正解：否定並更正。"
+        },
+        {
+          "t": "That's what the map shows.",
+          "zh": "地圖上是這樣顯示的。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：說明依據，間接回應。"
+        },
+        {
+          "t": "On the upper level.",
+          "zh": "在上層。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Where 的答案。"
+        },
+        {
+          "t": "Mr. Brooks.",
+          "zh": "布魯克斯先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Who 的答案。"
+        },
+        {
+          "t": "The shops close at six.",
+          "zh": "商店六點打烊。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "shops 與 stops 音近，內容無關。"
+        },
+        {
+          "t": "I stand in line at the bank.",
+          "zh": "我在銀行排隊。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 line，但意思不同。"
+        },
+        {
+          "t": "Please stop talking.",
+          "zh": "請不要再說話。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 stop，但意思不同。"
+        },
+        {
+          "t": "Commuters fill the cars at rush hour.",
+          "zh": "尖峰時段通勤族擠滿車廂。",
+          "ok": false,
+          "trap": "association",
+          "why": "談通勤，但沒有回答問題。"
+        },
+        {
+          "t": "The platform is being repainted.",
+          "zh": "月台正在重新粉刷。",
+          "ok": false,
+          "trap": "association",
+          "why": "與車站有關，但沒有回答問題。"
+        },
+        {
+          "t": "Announcements are in two languages.",
+          "zh": "廣播有兩種語言。",
+          "ok": false,
+          "trap": "association",
+          "why": "與車站有關，但沒有回答問題。"
+        },
+        {
+          "t": "He stopped by yesterday.",
+          "zh": "他昨天順道來過。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "人稱與時態不符，沒有回答問題。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "commuter",
+          "ipa": "/kəˈmjuːtər/",
+          "pos": "n.",
+          "col": "a daily commuter",
+          "zh": "通勤者"
+        },
+        {
+          "word": "rush hour",
+          "ipa": "/rʌʃ aʊər/",
+          "pos": "n.",
+          "col": "during rush hour",
+          "zh": "尖峰時段"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d4-005-h",
+      "domain": "d4",
+      "qtype": "q6",
+      "tag": "請對方示範如何儲值交通卡",
+      "scene": "station",
+      "level": {
+        "score": 800,
+        "cefr": "B2+",
+        "tier": "hard",
+        "why": "禮貌請求，正解含接受、附理由婉拒與反問細節，干擾項自然。"
+      },
+      "q": {
+        "t": "Would you mind showing me how to top up this transit card?",
+        "zh": "你可以示範一下怎麼儲值這張交通卡嗎？"
+      },
+      "pool": [
+        {
+          "t": "Sure, the machine is right over here.",
+          "zh": "好啊，機器就在這邊。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "accept",
+          "why": "正解：接受請求。"
+        },
+        {
+          "t": "The guard is on his break.",
+          "zh": "警衛正在休息。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "guard 與 card 音近，內容無關。"
+        },
+        {
+          "t": "I'd love to, but my train is boarding now.",
+          "zh": "我很想，但我的火車正在上車。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "decline",
+          "why": "正解：拒絕並附理由。"
+        },
+        {
+          "t": "The crowd is growing outside.",
+          "zh": "外面人群越來越多。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "growing 與 showing 音近，內容無關。"
+        },
+        {
+          "t": "I got this card as a gift last year.",
+          "zh": "這張卡是我去年收到的禮物。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 card，但沒有回應請求。"
+        },
+        {
+          "t": "Is it a prepaid card or a monthly pass?",
+          "zh": "是預付卡還是月票？",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "ask-detail",
+          "why": "正解：詢問細節再決定。"
+        },
+        {
+          "t": "Transit workers are on strike today.",
+          "zh": "交通工作人員今天罷工。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 transit，但沒有回應請求。"
+        },
+        {
+          "t": "At eleven thirty sharp.",
+          "zh": "十一點三十分整。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "Yes, it was very crowded.",
+          "zh": "對，那裡很擠。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "用 Yes 回答請求，內容不符。"
+        },
+        {
+          "t": "The station café sells coffee and sandwiches.",
+          "zh": "車站咖啡店賣咖啡和三明治。",
+          "ok": false,
+          "trap": "association",
+          "why": "與車站相關，但沒有回應請求。"
+        },
+        {
+          "t": "My commute is about an hour each way.",
+          "zh": "我通勤單程約一小時。",
+          "ok": false,
+          "trap": "association",
+          "why": "與交通相關，但沒有回應請求。"
+        },
+        {
+          "t": "She topped up hers yesterday morning.",
+          "zh": "她昨天早上儲值了她的。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回應請求。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "top up",
+          "ipa": "/tɑːp ʌp/",
+          "pos": "v.",
+          "col": "top up a card",
+          "zh": "儲值"
+        },
+        {
+          "word": "prepaid",
+          "ipa": "/ˌpriːˈpeɪd/",
+          "pos": "adj.",
+          "col": "a prepaid card",
+          "zh": "預付的"
+        },
+        {
+          "word": "transit",
+          "ipa": "/ˈtrænzɪt/",
+          "pos": "n.",
+          "col": "public transit",
+          "zh": "大眾運輸"
+        }
+      ],
+      "issues": []
+    },
+    {
       "id": "d4-006-e",
       "domain": "d4",
       "qtype": "q5",
@@ -8418,6 +9693,129 @@
           "pos": "n.",
           "col": "in your pocket",
           "zh": "口袋"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d4-006-m",
+      "domain": "d4",
+      "qtype": "q5",
+      "tag": "抱怨早上交通很糟",
+      "scene": "street",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "陳述句，正解是推測原因、反問是否要提早出門、或表達同感。"
+      },
+      "q": {
+        "t": "The traffic is terrible this morning.",
+        "zh": "今天早上交通真糟。"
+      },
+      "pool": [
+        {
+          "t": "There must be an accident on Fifth.",
+          "zh": "第五街一定有事故。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "respond",
+          "why": "正解：針對說話內容推測原因。"
+        },
+        {
+          "t": "Do you want to leave earlier?",
+          "zh": "你要不要早點出門？",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "question-back",
+          "why": "正解：反問以便提出建議。"
+        },
+        {
+          "t": "Tell me about it.",
+          "zh": "可不是嗎。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "emotion",
+          "why": "正解：表達同感。"
+        },
+        {
+          "t": "Around eight thirty.",
+          "zh": "大約八點半。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 When 的答案。"
+        },
+        {
+          "t": "Mr. Ross.",
+          "zh": "羅斯先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Who 的答案。"
+        },
+        {
+          "t": "Gas prices are lower now.",
+          "zh": "油價現在比較低。",
+          "ok": false,
+          "trap": "association",
+          "why": "與交通有關，但沒有回應說話者。"
+        },
+        {
+          "t": "My car needs an oil change.",
+          "zh": "我的車該換機油了。",
+          "ok": false,
+          "trap": "association",
+          "why": "與車有關，但沒有回應說話者。"
+        },
+        {
+          "t": "Parking downtown is expensive.",
+          "zh": "市中心停車很貴。",
+          "ok": false,
+          "trap": "association",
+          "why": "與交通有關，但沒有回應說話者。"
+        },
+        {
+          "t": "This morning I had cereal.",
+          "zh": "今天早上我吃了麥片。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 morning，但意思不同。"
+        },
+        {
+          "t": "I'm terrible at math.",
+          "zh": "我數學很差。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 terrible，但意思不同。"
+        },
+        {
+          "t": "The graphic design is nice.",
+          "zh": "這個平面設計很好看。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "graphic 與 traffic 音近，內容無關。"
+        },
+        {
+          "t": "She was driving to work.",
+          "zh": "她那時開車上班。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "人稱與時態不符，沒有回答問題。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "accident",
+          "ipa": "/ˈæksɪdənt/",
+          "pos": "n.",
+          "col": "a car accident",
+          "zh": "事故"
+        },
+        {
+          "word": "terrible",
+          "ipa": "/ˈterəbl/",
+          "pos": "adj.",
+          "col": "terrible weather",
+          "zh": "很糟的"
         }
       ],
       "issues": []
@@ -8546,6 +9944,129 @@
       "issues": []
     },
     {
+      "id": "d4-007-m",
+      "domain": "d4",
+      "qtype": "q6",
+      "tag": "請乘客提醒何時抵達中央車站",
+      "scene": "station",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "請求句，正解是答應並說明同站下車、婉拒並說明、或詢問要在哪一站下。"
+      },
+      "q": {
+        "t": "Could you tell me when we reach Central Station?",
+        "zh": "到中央車站時可以告訴我嗎？"
+      },
+      "pool": [
+        {
+          "t": "Sure, I'm getting off there too.",
+          "zh": "好的，我也在那裡下車。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "accept",
+          "why": "正解：答應並說明理由。"
+        },
+        {
+          "t": "Sorry, I'm getting off before that.",
+          "zh": "抱歉，我在那之前就下車了。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "decline",
+          "why": "正解：婉拒並說明理由。"
+        },
+        {
+          "t": "Which stop do you need?",
+          "zh": "你要在哪一站下？",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "ask-detail",
+          "why": "正解：詢問細節，等於願意幫忙。"
+        },
+        {
+          "t": "At platform six.",
+          "zh": "在六號月台。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Where 的答案。"
+        },
+        {
+          "t": "Mr. Dunn.",
+          "zh": "鄧恩先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Who 的答案。"
+        },
+        {
+          "t": "Central Station is very old.",
+          "zh": "中央車站很老舊。",
+          "ok": false,
+          "trap": "association",
+          "why": "談車站，但沒有回應請求。"
+        },
+        {
+          "t": "Station cafés are expensive.",
+          "zh": "車站的咖啡店很貴。",
+          "ok": false,
+          "trap": "association",
+          "why": "談車站，但沒有回應請求。"
+        },
+        {
+          "t": "The city hall is nearby.",
+          "zh": "市政廳就在附近。",
+          "ok": false,
+          "trap": "association",
+          "why": "談地點，但沒有回應請求。"
+        },
+        {
+          "t": "Tell me a story first.",
+          "zh": "先跟我說個故事。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 tell，但意思不同。"
+        },
+        {
+          "t": "I reach the office by nine.",
+          "zh": "我九點前到辦公室。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 reach，但意思不同。"
+        },
+        {
+          "t": "The beach is crowded in July.",
+          "zh": "七月海灘很擠。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "beach 與 reach 音近，內容無關。"
+        },
+        {
+          "t": "He told me that yesterday.",
+          "zh": "他昨天跟我說過了。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "人稱與時態不符，沒有回答問題。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "reach",
+          "ipa": "/riːtʃ/",
+          "pos": "v.",
+          "col": "reach the station",
+          "zh": "抵達"
+        },
+        {
+          "word": "stop",
+          "ipa": "/stɑːp/",
+          "pos": "n.",
+          "col": "the next stop",
+          "zh": "站"
+        }
+      ],
+      "issues": []
+    },
+    {
       "id": "d4-008-e",
       "domain": "d4",
       "qtype": "q2",
@@ -8664,6 +10185,4557 @@
           "pos": "n.",
           "col": "two blocks away",
           "zh": "街區"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d4-008-m",
+      "domain": "d4",
+      "qtype": "q3",
+      "tag": "詢問搭公車或騎腳踏車",
+      "scene": "street",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "二選一問句，正解是提出搭便車、哪個快就哪個、或兩個都不行並說明。"
+      },
+      "q": {
+        "t": "Do you want to take the bus or ride your bike?",
+        "zh": "你想搭公車還是騎腳踏車？"
+      },
+      "pool": [
+        {
+          "t": "I'll catch a ride with Anna.",
+          "zh": "我搭安娜的便車。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "third-option",
+          "why": "正解：提出第三個選項。"
+        },
+        {
+          "t": "Whichever gets me there sooner.",
+          "zh": "哪個比較快到就哪個。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "no-preference",
+          "why": "正解：表示沒有偏好，看時間。"
+        },
+        {
+          "t": "Neither, it's too far in this heat.",
+          "zh": "都不要，這種大熱天太遠了。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "both-either-neither",
+          "why": "正解：兩個都不選並說明。"
+        },
+        {
+          "t": "At the bike shop.",
+          "zh": "在腳踏車行。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Where 的答案。"
+        },
+        {
+          "t": "Mr. Grant.",
+          "zh": "格蘭特先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "這是回答 Who 的答案。"
+        },
+        {
+          "t": "Bike lanes are new downtown.",
+          "zh": "市中心新增了自行車道。",
+          "ok": false,
+          "trap": "association",
+          "why": "談腳踏車，但沒有回答選擇。"
+        },
+        {
+          "t": "Helmets are required by law.",
+          "zh": "法律規定要戴安全帽。",
+          "ok": false,
+          "trap": "association",
+          "why": "與騎車有關，但沒有回答選擇。"
+        },
+        {
+          "t": "Our bus is painted green.",
+          "zh": "我們的公車漆成綠色。",
+          "ok": false,
+          "trap": "association",
+          "why": "談公車，但沒有回答選擇。"
+        },
+        {
+          "t": "I like the red one.",
+          "zh": "我喜歡紅色的那個。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "like 與 bike 音近，內容無關。"
+        },
+        {
+          "t": "I'd like to take a break.",
+          "zh": "我想休息一下。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 take，但意思不同。"
+        },
+        {
+          "t": "He bought a bike pump.",
+          "zh": "他買了一個打氣筒。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 bike，但意思不同。"
+        },
+        {
+          "t": "He rode his bike yesterday.",
+          "zh": "他昨天騎了腳踏車。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "人稱與時態不符，沒有回答問題。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "bike",
+          "ipa": "/baɪk/",
+          "pos": "n.",
+          "col": "ride a bike",
+          "zh": "腳踏車"
+        },
+        {
+          "word": "ride",
+          "ipa": "/raɪd/",
+          "pos": "n.",
+          "col": "catch a ride",
+          "zh": "搭便車"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-001-e",
+      "domain": "d5",
+      "qtype": "q1",
+      "wh": "where",
+      "tag": "詢問安全帽放在哪裡",
+      "scene": "workplace",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "短 Where 問句，正解有明確地點線索。"
+      },
+      "q": {
+        "t": "Where do we keep the safety helmets?",
+        "zh": "我們的安全帽放在哪裡？"
+      },
+      "pool": [
+        {
+          "t": "On the shelf by the door.",
+          "zh": "在門邊的架子上。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接回答地點。"
+        },
+        {
+          "t": "The hole is very deep.",
+          "zh": "那個洞很深。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "deep 與 keep 音近，內容無關。"
+        },
+        {
+          "t": "At nine o'clock tomorrow.",
+          "zh": "明天九點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "In the cabinet next to the office.",
+          "zh": "在辦公室旁的櫃子裡。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接回答地點。"
+        },
+        {
+          "t": "We keep working until six.",
+          "zh": "我們工作到六點。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 keep，但沒有回答地點。"
+        },
+        {
+          "t": "Mr. Lee, the site manager.",
+          "zh": "李先生，工地經理。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "Ask Tom, he has the key.",
+          "zh": "問湯姆，他有鑰匙。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：指引詢問他人。"
+        },
+        {
+          "t": "Safety is very important here.",
+          "zh": "這裡安全很重要。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 safety，但沒有回答地點。"
+        },
+        {
+          "t": "Yes, we do.",
+          "zh": "是的，我們有。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "用 Yes 回答 Where，答非所問。"
+        },
+        {
+          "t": "The new ones are bright yellow.",
+          "zh": "新的是亮黃色。",
+          "ok": false,
+          "trap": "association",
+          "why": "與安全帽相關，但沒有回答地點。"
+        },
+        {
+          "t": "Everyone must wear one on site.",
+          "zh": "在工地每個人都必須戴。",
+          "ok": false,
+          "trap": "association",
+          "why": "與安全帽相關，但沒有回答地點。"
+        },
+        {
+          "t": "They arrived last week.",
+          "zh": "它們上週到的。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態不符，沒有回答地點。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "helmet",
+          "ipa": "/ˈhelmɪt/",
+          "pos": "n.",
+          "col": "a safety helmet",
+          "zh": "安全帽"
+        },
+        {
+          "word": "shelf",
+          "ipa": "/ʃelf/",
+          "pos": "n.",
+          "col": "on the shelf",
+          "zh": "架子"
+        },
+        {
+          "word": "safety",
+          "ipa": "/ˈseɪfti/",
+          "pos": "n.",
+          "col": "safety rules",
+          "zh": "安全"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-001-m",
+      "domain": "d5",
+      "qtype": "q1",
+      "wh": "when",
+      "tag": "詢問何時澆灌水泥",
+      "scene": "workplace",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "When 問句，正解為不確定時間、條件或指引他人。"
+      },
+      "q": {
+        "t": "When is the concrete going to be poured?",
+        "zh": "水泥什麼時候要澆灌？"
+      },
+      "pool": [
+        {
+          "t": "Probably early next week.",
+          "zh": "可能下週初。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：給出大概時間。"
+        },
+        {
+          "t": "We need about ten tons of it.",
+          "zh": "我們大約需要十噸。",
+          "ok": false,
+          "trap": "association",
+          "why": "與水泥相關，但沒有回答時間。"
+        },
+        {
+          "t": "It depends on the weather forecast.",
+          "zh": "要看天氣預報。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：說明取決於條件。"
+        },
+        {
+          "t": "Workers wear boots near wet concrete.",
+          "zh": "工人在濕水泥旁會穿靴子。",
+          "ok": false,
+          "trap": "association",
+          "why": "與水泥相關，但沒有回答時間。"
+        },
+        {
+          "t": "In the north corner of the site.",
+          "zh": "在工地北邊角落。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "Ask the foreman.",
+          "zh": "去問工頭。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：指引詢問他人。"
+        },
+        {
+          "t": "Concrete is stronger than wood.",
+          "zh": "水泥比木頭堅固。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 concrete，但沒有回答。"
+        },
+        {
+          "t": "The mixer truck needs a new tire.",
+          "zh": "攪拌車需要新輪胎。",
+          "ok": false,
+          "trap": "association",
+          "why": "與水泥作業相關，但沒有回答時間。"
+        },
+        {
+          "t": "Mr. Davis, I think.",
+          "zh": "我想是戴維斯先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "The concrete in my garden is cracked.",
+          "zh": "我花園的水泥裂了。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 concrete，但沒有回答。"
+        },
+        {
+          "t": "About fifty dollars.",
+          "zh": "大約五十美元。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答價錢，答非所問。"
+        },
+        {
+          "t": "The bored crew went home early.",
+          "zh": "無聊的工班提早回家了。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "bored 與 poured 音近，內容無關。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "concrete",
+          "ipa": "/ˈkɑːŋkriːt/",
+          "pos": "n.",
+          "col": "pour concrete",
+          "zh": "水泥"
+        },
+        {
+          "word": "foreman",
+          "ipa": "/ˈfɔːrmən/",
+          "pos": "n.",
+          "col": "the site foreman",
+          "zh": "工頭"
+        },
+        {
+          "word": "forecast",
+          "ipa": "/ˈfɔːrkæst/",
+          "pos": "n.",
+          "col": "a weather forecast",
+          "zh": "預報"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-001-h",
+      "domain": "d5",
+      "qtype": "q1",
+      "wh": "why",
+      "tag": "詢問供應商為何取回合板",
+      "scene": "workplace",
+      "level": {
+        "score": 700,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "Why 問句，正解為間接指引、需查證或簡短原因。"
+      },
+      "q": {
+        "t": "Why did the supplier take back the plywood sheets yesterday?",
+        "zh": "供應商昨天為什麼把合板收回去？"
+      },
+      "pool": [
+        {
+          "t": "Some of the sheets were damaged.",
+          "zh": "有些板子損壞了。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接說明原因。"
+        },
+        {
+          "t": "Plywood is cheaper than solid wood.",
+          "zh": "合板比實木便宜。",
+          "ok": false,
+          "trap": "association",
+          "why": "與合板相關，但沒有說明原因。"
+        },
+        {
+          "t": "You'd have to check with purchasing.",
+          "zh": "你得問採購部門。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：指引詢問他人。"
+        },
+        {
+          "t": "The sheets are stored flat.",
+          "zh": "板子是平放存放的。",
+          "ok": false,
+          "trap": "association",
+          "why": "與合板相關，但沒有說明原因。"
+        },
+        {
+          "t": "Please take your seats.",
+          "zh": "請就座。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "seats 與 sheets 音近，內容無關。"
+        },
+        {
+          "t": "I wasn't here, so let me ask Karen.",
+          "zh": "我當時不在，我去問凱倫。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示不確定並願意查證。"
+        },
+        {
+          "t": "Suppliers usually ship on Mondays.",
+          "zh": "供應商通常週一出貨。",
+          "ok": false,
+          "trap": "association",
+          "why": "與供應商相關，但沒有說明原因。"
+        },
+        {
+          "t": "The supplier's phone number is on the wall.",
+          "zh": "供應商的電話號碼在牆上。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 supplier，但沒有回答。"
+        },
+        {
+          "t": "Next to the door.",
+          "zh": "在門旁邊。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "Around two o'clock.",
+          "zh": "大約兩點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "Mr. Brandt.",
+          "zh": "布蘭特先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "They'll take it back tomorrow.",
+          "zh": "他們明天會收回去。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態不符，沒有說明原因。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "plywood",
+          "ipa": "/ˈplaɪwʊd/",
+          "pos": "n.",
+          "col": "sheets of plywood",
+          "zh": "合板"
+        },
+        {
+          "word": "supplier",
+          "ipa": "/səˈplaɪər/",
+          "pos": "n.",
+          "col": "a building supplier",
+          "zh": "供應商"
+        },
+        {
+          "word": "damaged",
+          "ipa": "/ˈdæmɪdʒd/",
+          "pos": "adj.",
+          "col": "damaged goods",
+          "zh": "損壞的"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-002-e",
+      "domain": "d5",
+      "qtype": "q1",
+      "wh": "who",
+      "tag": "詢問裝卸區由誰負責",
+      "scene": "workplace",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "短 Who 問句，正解直接說出人名或指引。"
+      },
+      "q": {
+        "t": "Who is in charge of the loading area?",
+        "zh": "誰負責裝卸區？"
+      },
+      "pool": [
+        {
+          "t": "It's a large area.",
+          "zh": "那是一大片區域。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "large 與 charge 音近，內容無關。"
+        },
+        {
+          "t": "Ms. Garcia is.",
+          "zh": "是賈西亞女士。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接說出人名。"
+        },
+        {
+          "t": "In front of the gate.",
+          "zh": "在大門前面。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "The loading area is very busy.",
+          "zh": "裝卸區非常忙。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 loading area，但沒有回答。"
+        },
+        {
+          "t": "Our new manager, Paul.",
+          "zh": "我們的新經理保羅。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接說出人名。"
+        },
+        {
+          "t": "At six every morning.",
+          "zh": "每天早上六點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "I'm not sure. Let me check.",
+          "zh": "我不確定，我查一下。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示需要查證。"
+        },
+        {
+          "t": "Trucks arrive every morning.",
+          "zh": "卡車每天早上都來。",
+          "ok": false,
+          "trap": "association",
+          "why": "與裝卸區相關，但沒有回答。"
+        },
+        {
+          "t": "Yes, I think so.",
+          "zh": "對，我想是的。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "用 Yes 回答 Who，答非所問。"
+        },
+        {
+          "t": "The area is closed for cleaning today.",
+          "zh": "那個區域今天關閉清潔。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 area，但沒有回答。"
+        },
+        {
+          "t": "Pallets are stacked by the wall.",
+          "zh": "棧板堆在牆邊。",
+          "ok": false,
+          "trap": "association",
+          "why": "與裝卸區相關，但沒有回答。"
+        },
+        {
+          "t": "We will load it tomorrow.",
+          "zh": "我們明天會裝貨。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "in charge",
+          "ipa": "/ɪn tʃɑːrdʒ/",
+          "pos": "adj.",
+          "col": "in charge of",
+          "zh": "負責"
+        },
+        {
+          "word": "pallet",
+          "ipa": "/ˈpælət/",
+          "pos": "n.",
+          "col": "a wooden pallet",
+          "zh": "棧板"
+        },
+        {
+          "word": "truck",
+          "ipa": "/trʌk/",
+          "pos": "n.",
+          "col": "a delivery truck",
+          "zh": "卡車"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-002-m",
+      "domain": "d5",
+      "qtype": "q1",
+      "wh": "which",
+      "tag": "詢問該先卸哪一輛卡車",
+      "scene": "workplace",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "Which 問句，正解含選擇依據或需查證。"
+      },
+      "q": {
+        "t": "Which truck should I unload first?",
+        "zh": "我應該先卸哪一輛卡車？"
+      },
+      "pool": [
+        {
+          "t": "The blue one by the dock.",
+          "zh": "碼頭邊那輛藍色的。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接指出哪一輛。"
+        },
+        {
+          "t": "The dock is open until six.",
+          "zh": "碼頭開到六點。",
+          "ok": false,
+          "trap": "association",
+          "why": "與卸貨相關，但沒有回答。"
+        },
+        {
+          "t": "Whichever driver has waited longest.",
+          "zh": "等最久的那位司機。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：給出判斷依據。"
+        },
+        {
+          "t": "Drivers need to sign the forms.",
+          "zh": "司機需要簽表格。",
+          "ok": false,
+          "trap": "association",
+          "why": "與卸貨相關，但沒有回答。"
+        },
+        {
+          "t": "The first shift starts at seven.",
+          "zh": "第一班七點開始。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 first，但沒有回答。"
+        },
+        {
+          "t": "Let me check the delivery list.",
+          "zh": "我查一下送貨清單。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：需要查證。"
+        },
+        {
+          "t": "Unloading takes about an hour.",
+          "zh": "卸貨大約要一小時。",
+          "ok": false,
+          "trap": "association",
+          "why": "與卸貨相關，但沒有回答。"
+        },
+        {
+          "t": "I should leave soon.",
+          "zh": "我該走了。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 should，但沒有回答。"
+        },
+        {
+          "t": "Yes, you should.",
+          "zh": "是的，你應該。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "用 Yes 回答 Which，答非所問。"
+        },
+        {
+          "t": "Around noon.",
+          "zh": "大約中午。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "Mr. Reyes did.",
+          "zh": "雷耶斯先生做的。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "I unloaded one yesterday.",
+          "zh": "我昨天卸了一輛。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態不符，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "unload",
+          "ipa": "/ʌnˈloʊd/",
+          "pos": "v.",
+          "col": "unload a truck",
+          "zh": "卸貨"
+        },
+        {
+          "word": "dock",
+          "ipa": "/dɑːk/",
+          "pos": "n.",
+          "col": "a loading dock",
+          "zh": "碼頭"
+        },
+        {
+          "word": "driver",
+          "ipa": "/ˈdraɪvər/",
+          "pos": "n.",
+          "col": "a truck driver",
+          "zh": "司機"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-002-h",
+      "domain": "d5",
+      "qtype": "q2",
+      "tag": "詢問公用事業標線前能否開挖",
+      "scene": "workplace",
+      "level": {
+        "score": 750,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "含時間條件的 Yes/No 問句，正解為條件式、需查證或轉由他人決定。"
+      },
+      "q": {
+        "t": "Can we start digging the trench before the utility company marks the lines?",
+        "zh": "在公用事業公司標出管線之前，我們可以開始挖溝嗎？"
+      },
+      "pool": [
+        {
+          "t": "Not unless the site manager approves it.",
+          "zh": "除非工地經理同意，否則不行。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：有條件的否定。"
+        },
+        {
+          "t": "The excavator is parked by the fence.",
+          "zh": "挖土機停在圍欄旁。",
+          "ok": false,
+          "trap": "association",
+          "why": "與挖溝相關，但沒有回答。"
+        },
+        {
+          "t": "I'd wait; hitting a gas line would be a disaster.",
+          "zh": "我會等，挖到瓦斯管就糟了。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：建議等待並附理由。"
+        },
+        {
+          "t": "The trench has to be two meters deep.",
+          "zh": "溝要挖兩公尺深。",
+          "ok": false,
+          "trap": "association",
+          "why": "與挖溝相關，但沒有回答。"
+        },
+        {
+          "t": "She speaks French and Spanish.",
+          "zh": "她會說法文和西班牙文。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "French 與 trench 音近，內容無關。"
+        },
+        {
+          "t": "Let me call them and find out.",
+          "zh": "我打給他們問清楚。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示需要查證。"
+        },
+        {
+          "t": "Utility workers wear orange vests.",
+          "zh": "公用事業工人穿橘色背心。",
+          "ok": false,
+          "trap": "association",
+          "why": "與公用事業相關，但沒有回答。"
+        },
+        {
+          "t": "I start work at six every day.",
+          "zh": "我每天六點開始工作。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 start，但沒有回答。"
+        },
+        {
+          "t": "The lines at the cafeteria are long.",
+          "zh": "自助餐廳排隊很長。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 lines，但意思不符。"
+        },
+        {
+          "t": "Over by the main entrance.",
+          "zh": "在主入口那邊。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "About three hundred dollars.",
+          "zh": "大約三百美元。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答價錢，答非所問。"
+        },
+        {
+          "t": "We dug a trench last spring.",
+          "zh": "我們去年春天挖過一條溝。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態不符，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "trench",
+          "ipa": "/trentʃ/",
+          "pos": "n.",
+          "col": "dig a trench",
+          "zh": "溝渠"
+        },
+        {
+          "word": "excavator",
+          "ipa": "/ˈekskəveɪtər/",
+          "pos": "n.",
+          "col": "operate an excavator",
+          "zh": "挖土機"
+        },
+        {
+          "word": "utility",
+          "ipa": "/juːˈtɪləti/",
+          "pos": "n.",
+          "col": "a utility company",
+          "zh": "公用事業"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-003-e",
+      "domain": "d5",
+      "qtype": "q2",
+      "tag": "詢問起重機今天是否運作",
+      "scene": "workplace",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "短 Yes/No 問句，正解有明確 Yes/No 線索。"
+      },
+      "q": {
+        "t": "Is the crane working today?",
+        "zh": "起重機今天有在運作嗎？"
+      },
+      "pool": [
+        {
+          "t": "Yes, since this morning.",
+          "zh": "有，從今天早上開始。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接肯定。"
+        },
+        {
+          "t": "I'm walking home now.",
+          "zh": "我現在走路回家。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "walking 與 working 音近，內容無關。"
+        },
+        {
+          "t": "On the second floor.",
+          "zh": "在二樓。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "No, it's being repaired.",
+          "zh": "沒有，它正在維修。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接否定並附理由。"
+        },
+        {
+          "t": "I'm working until five.",
+          "zh": "我工作到五點。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 working，但沒有回答。"
+        },
+        {
+          "t": "Today is Friday.",
+          "zh": "今天是星期五。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 today，但沒有回答。"
+        },
+        {
+          "t": "I don't know. Let me ask.",
+          "zh": "我不知道，我去問問。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示需要查證。"
+        },
+        {
+          "t": "Two hundred kilos.",
+          "zh": "兩百公斤。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答重量，答非所問。"
+        },
+        {
+          "t": "The crane is yellow and very tall.",
+          "zh": "起重機是黃色的，很高。",
+          "ok": false,
+          "trap": "association",
+          "why": "描述外觀，沒有回答。"
+        },
+        {
+          "t": "That crane lifts steel beams.",
+          "zh": "那台起重機吊鋼樑。",
+          "ok": false,
+          "trap": "association",
+          "why": "描述用途，沒有回答。"
+        },
+        {
+          "t": "I worked there last year.",
+          "zh": "我去年在那裡工作。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回答。"
+        },
+        {
+          "t": "Mr. Brown does.",
+          "zh": "布朗先生有。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "crane",
+          "ipa": "/kreɪn/",
+          "pos": "n.",
+          "col": "a tower crane",
+          "zh": "起重機"
+        },
+        {
+          "word": "steel",
+          "ipa": "/stiːl/",
+          "pos": "n.",
+          "col": "steel beams",
+          "zh": "鋼"
+        },
+        {
+          "word": "beam",
+          "ipa": "/biːm/",
+          "pos": "n.",
+          "col": "a steel beam",
+          "zh": "樑"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-003-m",
+      "domain": "d5",
+      "qtype": "q2",
+      "tag": "詢問檢查員是否已核准鷹架",
+      "scene": "workplace",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "Yes/No 問句，正解為部分回答或提供相關資訊。"
+      },
+      "q": {
+        "t": "Has the inspector signed off on the scaffolding yet?",
+        "zh": "檢查員已經核可鷹架了嗎？"
+      },
+      "pool": [
+        {
+          "t": "Not yet, he's coming at three.",
+          "zh": "還沒，他三點會來。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：否定並補充時間。"
+        },
+        {
+          "t": "Scaffolding must be tied to the building.",
+          "zh": "鷹架必須固定在建築物上。",
+          "ok": false,
+          "trap": "association",
+          "why": "與鷹架相關，但沒有回答。"
+        },
+        {
+          "t": "The inspection is scheduled for tomorrow.",
+          "zh": "檢查排在明天。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：提供相關資訊間接回答。"
+        },
+        {
+          "t": "The inspector drives a gray van.",
+          "zh": "檢查員開一輛灰色廂型車。",
+          "ok": false,
+          "trap": "association",
+          "why": "與檢查員相關，但沒有回答。"
+        },
+        {
+          "t": "I signed up for the night shift.",
+          "zh": "我報名了夜班。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 sign，但意思不符。"
+        },
+        {
+          "t": "I haven't heard back from him.",
+          "zh": "我還沒收到他的回覆。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示不確定。"
+        },
+        {
+          "t": "Workers must wear harnesses up there.",
+          "zh": "在上面工作要繫安全帶。",
+          "ok": false,
+          "trap": "association",
+          "why": "與鷹架相關，但沒有回答。"
+        },
+        {
+          "t": "Yesterday the scaffolding looked taller.",
+          "zh": "昨天鷹架看起來比較高。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 scaffolding，但沒有回答。"
+        },
+        {
+          "t": "On the third level.",
+          "zh": "在第三層。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "About six meters.",
+          "zh": "大約六公尺。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答長度，答非所問。"
+        },
+        {
+          "t": "Mr. Park does.",
+          "zh": "朴先生有。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "He inspected our old site last year.",
+          "zh": "他去年檢查過我們的舊工地。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態不符，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "inspector",
+          "ipa": "/ɪnˈspektər/",
+          "pos": "n.",
+          "col": "a safety inspector",
+          "zh": "檢查員"
+        },
+        {
+          "word": "scaffolding",
+          "ipa": "/ˈskæfəldɪŋ/",
+          "pos": "n.",
+          "col": "put up scaffolding",
+          "zh": "鷹架"
+        },
+        {
+          "word": "harness",
+          "ipa": "/ˈhɑːrnɪs/",
+          "pos": "n.",
+          "col": "wear a harness",
+          "zh": "安全帶"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-003-h",
+      "domain": "d5",
+      "qtype": "q3",
+      "tag": "詢問扛鋼筋上樓梯或等貨梯",
+      "scene": "workplace",
+      "level": {
+        "score": 800,
+        "cefr": "B2+",
+        "tier": "hard",
+        "why": "選擇疑問句，正解為第三選項、無偏好與有條件選擇。"
+      },
+      "q": {
+        "t": "Should we haul the rebar up the stairs or wait for the freight elevator?",
+        "zh": "我們要扛鋼筋爬樓梯，還是等貨梯？"
+      },
+      "pool": [
+        {
+          "t": "Neither, the hoist is free now.",
+          "zh": "都不用，吊升機現在有空。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "third-option",
+          "why": "正解：提出第三選項。"
+        },
+        {
+          "t": "Rebar rusts quickly in wet weather.",
+          "zh": "鋼筋在潮濕天氣很快生鏽。",
+          "ok": false,
+          "trap": "association",
+          "why": "與鋼筋相關，但沒有選擇。"
+        },
+        {
+          "t": "I don't mind, it's your call.",
+          "zh": "我都可以，由你決定。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "no-preference",
+          "why": "正解：表示沒有偏好。"
+        },
+        {
+          "t": "Rebar comes in different thicknesses.",
+          "zh": "鋼筋有不同的粗細。",
+          "ok": false,
+          "trap": "association",
+          "why": "與鋼筋相關，但沒有選擇。"
+        },
+        {
+          "t": "He dropped the ball again.",
+          "zh": "他又失誤了。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "ball 與 haul 音近，內容無關。"
+        },
+        {
+          "t": "The elevator, unless it's still broken.",
+          "zh": "搭貨梯，除非還是壞的。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "pick-one",
+          "why": "正解：有條件地選擇貨梯。"
+        },
+        {
+          "t": "Elevator inspections are done monthly.",
+          "zh": "電梯每月檢查一次。",
+          "ok": false,
+          "trap": "association",
+          "why": "與電梯相關，但沒有選擇。"
+        },
+        {
+          "t": "We should celebrate on Friday.",
+          "zh": "我們星期五該慶祝一下。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 should，但意思不符。"
+        },
+        {
+          "t": "The freight rates have gone up.",
+          "zh": "貨運費率上漲了。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 freight，但沒有選擇。"
+        },
+        {
+          "t": "At the end of the month.",
+          "zh": "在月底。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "Yes, I'd love to.",
+          "zh": "好啊，我很樂意。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "用 Yes 回答選擇題，答非所問。"
+        },
+        {
+          "t": "We hauled it up last week.",
+          "zh": "我們上週扛上去了。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態不符，沒有選擇。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "rebar",
+          "ipa": "/ˈriːbɑːr/",
+          "pos": "n.",
+          "col": "steel rebar",
+          "zh": "鋼筋"
+        },
+        {
+          "word": "haul",
+          "ipa": "/hɔːl/",
+          "pos": "v.",
+          "col": "haul materials",
+          "zh": "拖運"
+        },
+        {
+          "word": "freight elevator",
+          "ipa": "/freɪt ˈelɪveɪtər/",
+          "pos": "n.",
+          "col": "use the freight elevator",
+          "zh": "貨梯"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-004-e",
+      "domain": "d5",
+      "qtype": "q2",
+      "tag": "詢問是否有梯子可借",
+      "scene": "workplace",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "短 Yes/No 問句，正解直接肯定或否定。"
+      },
+      "q": {
+        "t": "Do you have a ladder I can use?",
+        "zh": "你有梯子可以借我用嗎？"
+      },
+      "pool": [
+        {
+          "t": "Yes, there's one in the back.",
+          "zh": "有，後面有一把。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接肯定並說明位置。"
+        },
+        {
+          "t": "I wrote a letter yesterday.",
+          "zh": "我昨天寫了一封信。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "letter 與 ladder 音近，內容無關。"
+        },
+        {
+          "t": "I have a lot of work to do.",
+          "zh": "我有很多工作要做。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 have，但沒有回答。"
+        },
+        {
+          "t": "No, Dave borrowed it.",
+          "zh": "沒有，戴夫借走了。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：直接否定並附理由。"
+        },
+        {
+          "t": "On Tuesday afternoon.",
+          "zh": "星期二下午。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "Forty dollars.",
+          "zh": "四十美元。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答價錢，答非所問。"
+        },
+        {
+          "t": "Let me check the storeroom.",
+          "zh": "我去看看儲藏室。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示需要查證。"
+        },
+        {
+          "t": "About two hours.",
+          "zh": "大約兩小時。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間長短，答非所問。"
+        },
+        {
+          "t": "That wall needs new paint.",
+          "zh": "那面牆需要重新粉刷。",
+          "ok": false,
+          "trap": "association",
+          "why": "與工作相關，但沒有回答。"
+        },
+        {
+          "t": "Ladders must be checked every month.",
+          "zh": "梯子每個月都要檢查。",
+          "ok": false,
+          "trap": "association",
+          "why": "談規定，沒有回答。"
+        },
+        {
+          "t": "The roof is leaking again.",
+          "zh": "屋頂又漏水了。",
+          "ok": false,
+          "trap": "association",
+          "why": "談工地問題，沒有回答。"
+        },
+        {
+          "t": "He used a ladder last week.",
+          "zh": "他上週用過梯子。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "ladder",
+          "ipa": "/ˈlædər/",
+          "pos": "n.",
+          "col": "climb a ladder",
+          "zh": "梯子"
+        },
+        {
+          "word": "borrow",
+          "ipa": "/ˈbɑːroʊ/",
+          "pos": "v.",
+          "col": "borrow a tool",
+          "zh": "借入"
+        },
+        {
+          "word": "storeroom",
+          "ipa": "/ˈstɔːrruːm/",
+          "pos": "n.",
+          "col": "the storeroom",
+          "zh": "儲藏室"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-004-m",
+      "domain": "d5",
+      "qtype": "q3",
+      "tag": "詢問水泥放室內或蓋防水布",
+      "scene": "workplace",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "選擇疑問句，正解含第三選項與有條件的選擇。"
+      },
+      "q": {
+        "t": "Should we keep the cement inside or leave it under the tarp?",
+        "zh": "水泥要放室內，還是蓋防水布放著？"
+      },
+      "pool": [
+        {
+          "t": "Neither, the shed has more room.",
+          "zh": "都不用，工具棚空間比較大。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "third-option",
+          "why": "正解：提出第三選項。"
+        },
+        {
+          "t": "Cement bags weigh about twenty-five kilos.",
+          "zh": "水泥袋大約重二十五公斤。",
+          "ok": false,
+          "trap": "association",
+          "why": "與水泥相關，但沒有選擇。"
+        },
+        {
+          "t": "Either way, as long as it stays dry.",
+          "zh": "哪種都行，只要保持乾燥。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "both-either-neither",
+          "why": "正解：皆可但附條件。"
+        },
+        {
+          "t": "That cement is from a new supplier.",
+          "zh": "那批水泥來自新供應商。",
+          "ok": false,
+          "trap": "association",
+          "why": "與水泥相關，但沒有選擇。"
+        },
+        {
+          "t": "I bought a lemon tart.",
+          "zh": "我買了檸檬塔。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "tart 與 tarp 音近，內容無關。"
+        },
+        {
+          "t": "Inside, if the rain starts.",
+          "zh": "如果下雨就放室內。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "pick-one",
+          "why": "正解：有條件地選擇室內。"
+        },
+        {
+          "t": "Dry cement can irritate your skin.",
+          "zh": "乾水泥會刺激皮膚。",
+          "ok": false,
+          "trap": "association",
+          "why": "與水泥相關，但沒有選擇。"
+        },
+        {
+          "t": "Please keep the radio down.",
+          "zh": "請把收音機音量關小。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 keep，但意思不符。"
+        },
+        {
+          "t": "At seven in the morning.",
+          "zh": "早上七點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "Yes, I should.",
+          "zh": "是的，我應該。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "用 Yes 回答選擇題，答非所問。"
+        },
+        {
+          "t": "About forty bags.",
+          "zh": "大約四十袋。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答數量，答非所問。"
+        },
+        {
+          "t": "She kept her bike inside yesterday.",
+          "zh": "她昨天把腳踏車放在室內。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有選擇。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "cement",
+          "ipa": "/sɪˈment/",
+          "pos": "n.",
+          "col": "a bag of cement",
+          "zh": "水泥"
+        },
+        {
+          "word": "tarp",
+          "ipa": "/tɑːrp/",
+          "pos": "n.",
+          "col": "cover with a tarp",
+          "zh": "防水布"
+        },
+        {
+          "word": "shed",
+          "ipa": "/ʃed/",
+          "pos": "n.",
+          "col": "a storage shed",
+          "zh": "工具棚"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-004-h",
+      "domain": "d5",
+      "qtype": "q4",
+      "tag": "確認安全說明會期間不開空壓機",
+      "scene": "workplace",
+      "level": {
+        "score": 700,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "附加問句，正解含確認、更正與反問式間接回應。"
+      },
+      "q": {
+        "t": "You're not planning to run the compressor during the safety briefing, are you?",
+        "zh": "你不會在安全說明會期間開空壓機吧？"
+      },
+      "pool": [
+        {
+          "t": "No, I'll switch it off before then.",
+          "zh": "不會，那之前我會關掉。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "confirm",
+          "why": "正解：確認不會開。"
+        },
+        {
+          "t": "The compressor is rented from Hanson's.",
+          "zh": "空壓機是跟漢森租的。",
+          "ok": false,
+          "trap": "association",
+          "why": "與空壓機相關，但沒有確認。"
+        },
+        {
+          "t": "Actually, I need it for about ten minutes.",
+          "zh": "其實我要用大約十分鐘。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "correct",
+          "why": "正解：更正對方的預期。"
+        },
+        {
+          "t": "Air hoses should be checked weekly.",
+          "zh": "空氣管每週要檢查。",
+          "ok": false,
+          "trap": "association",
+          "why": "與空壓機相關，但沒有確認。"
+        },
+        {
+          "t": "We're planting trees by the fence.",
+          "zh": "我們在圍欄邊種樹。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "planting 與 planning 音近，內容無關。"
+        },
+        {
+          "t": "What time does the briefing start?",
+          "zh": "說明會幾點開始？",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：反問以釐清。"
+        },
+        {
+          "t": "Briefings are held in the break room.",
+          "zh": "說明會在休息室舉行。",
+          "ok": false,
+          "trap": "association",
+          "why": "與說明會相關，但沒有確認。"
+        },
+        {
+          "t": "I'm planning a trip next month.",
+          "zh": "我下個月計畫去旅行。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 planning，但意思不符。"
+        },
+        {
+          "t": "My run was good this morning.",
+          "zh": "我今天早上跑得不錯。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 run，但意思不符。"
+        },
+        {
+          "t": "Two of them.",
+          "zh": "其中兩個。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答數量，答非所問。"
+        },
+        {
+          "t": "Behind the main office.",
+          "zh": "在主辦公室後面。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "They ran it all morning yesterday.",
+          "zh": "他們昨天整個早上都開著。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有確認。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "compressor",
+          "ipa": "/kəmˈpresər/",
+          "pos": "n.",
+          "col": "an air compressor",
+          "zh": "空壓機"
+        },
+        {
+          "word": "briefing",
+          "ipa": "/ˈbriːfɪŋ/",
+          "pos": "n.",
+          "col": "a safety briefing",
+          "zh": "說明會"
+        },
+        {
+          "word": "hose",
+          "ipa": "/hoʊz/",
+          "pos": "n.",
+          "col": "an air hose",
+          "zh": "軟管"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-005-e",
+      "domain": "d5",
+      "qtype": "q3",
+      "tag": "詢問要小電鑽或大電鑽",
+      "scene": "workplace",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "短選擇疑問句，正解明確選擇或表態。"
+      },
+      "q": {
+        "t": "Do you want the small drill or the large one?",
+        "zh": "你要小的電鑽還是大的？"
+      },
+      "pool": [
+        {
+          "t": "The large one, please.",
+          "zh": "請給我大的。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "pick-one",
+          "why": "正解：直接選大的。"
+        },
+        {
+          "t": "I'll grill some chicken.",
+          "zh": "我要烤一些雞肉。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "grill 與 drill 音近，內容無關。"
+        },
+        {
+          "t": "I drilled a hole yesterday.",
+          "zh": "我昨天鑽了一個洞。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態不符，沒有選擇。"
+        },
+        {
+          "t": "Either one is fine.",
+          "zh": "哪個都可以。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "both-either-neither",
+          "why": "正解：表示兩者皆可。"
+        },
+        {
+          "t": "At the hardware store.",
+          "zh": "在五金行。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "Yes, I do.",
+          "zh": "是的，我要。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "用 Yes 回答選擇題，答非所問。"
+        },
+        {
+          "t": "Neither, I need a saw.",
+          "zh": "都不要，我需要一把鋸子。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "third-option",
+          "why": "正解：提出第三選項。"
+        },
+        {
+          "t": "Around three o'clock.",
+          "zh": "大約三點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "The battery is charging.",
+          "zh": "電池正在充電。",
+          "ok": false,
+          "trap": "association",
+          "why": "與電鑽相關，但沒有選擇。"
+        },
+        {
+          "t": "Drills are very loud.",
+          "zh": "電鑽很吵。",
+          "ok": false,
+          "trap": "association",
+          "why": "與電鑽相關，但沒有選擇。"
+        },
+        {
+          "t": "The large truck is outside.",
+          "zh": "大卡車在外面。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 large，但沒有選擇。"
+        },
+        {
+          "t": "The small room is cold.",
+          "zh": "那個小房間很冷。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 small，但沒有選擇。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "drill",
+          "ipa": "/drɪl/",
+          "pos": "n.",
+          "col": "an electric drill",
+          "zh": "電鑽"
+        },
+        {
+          "word": "saw",
+          "ipa": "/sɔː/",
+          "pos": "n.",
+          "col": "a hand saw",
+          "zh": "鋸子"
+        },
+        {
+          "word": "hardware",
+          "ipa": "/ˈhɑːrdwer/",
+          "pos": "n.",
+          "col": "a hardware store",
+          "zh": "五金"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-005-m",
+      "domain": "d5",
+      "qtype": "q4",
+      "tag": "確認是否為工班多訂手套",
+      "scene": "workplace",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "附加問句，正解含確認、更正與間接回應。"
+      },
+      "q": {
+        "t": "You ordered extra gloves for the crew, didn't you?",
+        "zh": "你有幫工班多訂手套，對吧？"
+      },
+      "pool": [
+        {
+          "t": "Yes, they come on Thursday.",
+          "zh": "對，星期四會到。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "confirm",
+          "why": "正解：確認並補充到貨時間。"
+        },
+        {
+          "t": "The gloves are made of leather.",
+          "zh": "手套是皮製的。",
+          "ok": false,
+          "trap": "association",
+          "why": "與手套相關，但沒有確認。"
+        },
+        {
+          "t": "Actually, I ordered goggles.",
+          "zh": "其實我訂的是護目鏡。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "correct",
+          "why": "正解：更正訂購內容。"
+        },
+        {
+          "t": "Safety training starts next week.",
+          "zh": "安全訓練下週開始。",
+          "ok": false,
+          "trap": "association",
+          "why": "與工班相關，但沒有確認。"
+        },
+        {
+          "t": "She loves her new job.",
+          "zh": "她很喜歡她的新工作。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "loves 與 gloves 音近，內容無關。"
+        },
+        {
+          "t": "I gave the list to Anna.",
+          "zh": "我把清單交給安娜了。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：間接說明處理者。"
+        },
+        {
+          "t": "The crew has ten members.",
+          "zh": "工班有十個人。",
+          "ok": false,
+          "trap": "association",
+          "why": "與工班相關，但沒有確認。"
+        },
+        {
+          "t": "I need extra time to finish.",
+          "zh": "我需要多一點時間完成。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 extra，但意思不符。"
+        },
+        {
+          "t": "The crew lunch is at noon.",
+          "zh": "工班午餐在中午。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 crew，但沒有確認。"
+        },
+        {
+          "t": "About twenty minutes.",
+          "zh": "大約二十分鐘。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間長短，答非所問。"
+        },
+        {
+          "t": "It starts at eight.",
+          "zh": "八點開始。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "He ordered lunch for us last week.",
+          "zh": "他上週幫我們訂了午餐。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有確認。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "gloves",
+          "ipa": "/ɡlʌvz/",
+          "pos": "n.",
+          "col": "work gloves",
+          "zh": "手套"
+        },
+        {
+          "word": "crew",
+          "ipa": "/kruː/",
+          "pos": "n.",
+          "col": "a construction crew",
+          "zh": "工班"
+        },
+        {
+          "word": "goggles",
+          "ipa": "/ˈɡɑːɡlz/",
+          "pos": "n.",
+          "col": "safety goggles",
+          "zh": "護目鏡"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-005-h",
+      "domain": "d5",
+      "qtype": "q6",
+      "tag": "請對方移開小貨車讓垃圾箱運入",
+      "scene": "workplace",
+      "level": {
+        "score": 750,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "禮貌請求，正解含有條件接受、附理由婉拒與詢問細節。"
+      },
+      "q": {
+        "t": "Would you mind moving your pickup so the dumpster can be dropped off?",
+        "zh": "可以請你把小貨車移開，好讓垃圾箱卸下來嗎？"
+      },
+      "pool": [
+        {
+          "t": "Sure, give me five minutes to finish loading.",
+          "zh": "好，給我五分鐘裝完貨。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "accept",
+          "why": "正解：有條件地接受。"
+        },
+        {
+          "t": "Dumpsters are emptied every Friday.",
+          "zh": "垃圾箱每週五清空。",
+          "ok": false,
+          "trap": "association",
+          "why": "與垃圾箱相關，但沒有回應請求。"
+        },
+        {
+          "t": "I would, but I'm waiting for a delivery myself.",
+          "zh": "我想移，但我自己在等一批貨。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "decline",
+          "why": "正解：婉拒並附理由。"
+        },
+        {
+          "t": "The pickup needs an oil change.",
+          "zh": "這輛小貨車需要換機油。",
+          "ok": false,
+          "trap": "association",
+          "why": "與小貨車相關，但沒有回應請求。"
+        },
+        {
+          "t": "That hardhat is mine.",
+          "zh": "那頂安全帽是我的。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "mine 與 mind 音近，內容無關。"
+        },
+        {
+          "t": "Where would you like me to park it?",
+          "zh": "你想讓我停哪裡？",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "ask-detail",
+          "why": "正解：詢問細節。"
+        },
+        {
+          "t": "Parking permits are issued at the front gate.",
+          "zh": "停車許可在前門核發。",
+          "ok": false,
+          "trap": "association",
+          "why": "與停車相關，但沒有回應請求。"
+        },
+        {
+          "t": "I don't mind the noise.",
+          "zh": "我不介意噪音。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 mind，但意思不符。"
+        },
+        {
+          "t": "My pickup is a 2015 model.",
+          "zh": "我的小貨車是二零一五年款。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 pickup，但沒有回應請求。"
+        },
+        {
+          "t": "About forty dollars.",
+          "zh": "大約四十美元。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答價錢，答非所問。"
+        },
+        {
+          "t": "Mr. Ortiz did.",
+          "zh": "奧提茲先生做的。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "She moved her pickup last week.",
+          "zh": "她上週移動了她的小貨車。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回應請求。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "dumpster",
+          "ipa": "/ˈdʌmpstər/",
+          "pos": "n.",
+          "col": "a construction dumpster",
+          "zh": "大型垃圾箱"
+        },
+        {
+          "word": "pickup",
+          "ipa": "/ˈpɪkʌp/",
+          "pos": "n.",
+          "col": "a pickup truck",
+          "zh": "小貨車"
+        },
+        {
+          "word": "permit",
+          "ipa": "/ˈpɜːrmɪt/",
+          "pos": "n.",
+          "col": "a parking permit",
+          "zh": "許可證"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-006-e",
+      "domain": "d5",
+      "qtype": "q4",
+      "tag": "確認貨物是否今早送達",
+      "scene": "workplace",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "簡單附加問句，正解有明確確認或更正。"
+      },
+      "q": {
+        "t": "The shipment arrived this morning, didn't it?",
+        "zh": "貨今天早上到了，不是嗎？"
+      },
+      "pool": [
+        {
+          "t": "Yes, around nine.",
+          "zh": "對，大約九點。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "confirm",
+          "why": "正解：直接確認並給時間。"
+        },
+        {
+          "t": "There's a warning sign there.",
+          "zh": "那裡有個警告標誌。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "warning 與 morning 音近，內容無關。"
+        },
+        {
+          "t": "This morning I'm very busy.",
+          "zh": "今天早上我很忙。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 this morning，但沒有確認。"
+        },
+        {
+          "t": "No, it came yesterday.",
+          "zh": "不是，是昨天到的。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "correct",
+          "why": "正解：更正到貨時間。"
+        },
+        {
+          "t": "About ten dollars.",
+          "zh": "大約十美元。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答價錢，答非所問。"
+        },
+        {
+          "t": "Two hours.",
+          "zh": "兩小時。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間長短，答非所問。"
+        },
+        {
+          "t": "I'll check with the driver.",
+          "zh": "我問一下司機。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：需向他人確認。"
+        },
+        {
+          "t": "Blue and white.",
+          "zh": "藍色和白色。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答顏色，答非所問。"
+        },
+        {
+          "t": "The forklift needs gas.",
+          "zh": "堆高機需要加油。",
+          "ok": false,
+          "trap": "association",
+          "why": "與倉庫相關，但沒有確認。"
+        },
+        {
+          "t": "Trucks use the back gate.",
+          "zh": "卡車走後門。",
+          "ok": false,
+          "trap": "association",
+          "why": "與貨運相關，但沒有確認。"
+        },
+        {
+          "t": "The shipment is very heavy.",
+          "zh": "那批貨很重。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 shipment，但沒有確認。"
+        },
+        {
+          "t": "We shipped ours last year.",
+          "zh": "我們去年寄出我們的。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有確認。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "shipment",
+          "ipa": "/ˈʃɪpmənt/",
+          "pos": "n.",
+          "col": "a large shipment",
+          "zh": "貨物"
+        },
+        {
+          "word": "forklift",
+          "ipa": "/ˈfɔːrklɪft/",
+          "pos": "n.",
+          "col": "drive a forklift",
+          "zh": "堆高機"
+        },
+        {
+          "word": "gate",
+          "ipa": "/ɡeɪt/",
+          "pos": "n.",
+          "col": "the back gate",
+          "zh": "大門"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-006-m",
+      "domain": "d5",
+      "qtype": "q5",
+      "tag": "說明發電機又沒油",
+      "scene": "workplace",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "陳述句，正解需依說話者意圖給予協助、回應或反問。"
+      },
+      "q": {
+        "t": "The generator ran out of fuel again.",
+        "zh": "發電機又沒油了。"
+      },
+      "pool": [
+        {
+          "t": "I'll get a can from the truck.",
+          "zh": "我去卡車上拿一桶油。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "offer-help",
+          "why": "正解：主動提議協助。"
+        },
+        {
+          "t": "Generators are very loud.",
+          "zh": "發電機很吵。",
+          "ok": false,
+          "trap": "association",
+          "why": "與發電機相關，但沒有回應。"
+        },
+        {
+          "t": "That's the second time this week.",
+          "zh": "這星期第二次了。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "respond",
+          "why": "正解：回應並表達同感。"
+        },
+        {
+          "t": "Diesel prices went up last month.",
+          "zh": "柴油價格上個月漲了。",
+          "ok": false,
+          "trap": "association",
+          "why": "與燃料相關，但沒有回應。"
+        },
+        {
+          "t": "I ran two miles this morning.",
+          "zh": "我今天早上跑了兩英里。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 ran，但意思不符。"
+        },
+        {
+          "t": "Who was supposed to refill it?",
+          "zh": "本來該由誰補油？",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "question-back",
+          "why": "正解：反問責任歸屬。"
+        },
+        {
+          "t": "We need power for the saws.",
+          "zh": "我們的鋸子需要電。",
+          "ok": false,
+          "trap": "association",
+          "why": "與發電機相關，但沒有回應。"
+        },
+        {
+          "t": "The bus ran late again.",
+          "zh": "公車又誤點了。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 ran 與 again，意思不符。"
+        },
+        {
+          "t": "About two weeks.",
+          "zh": "大約兩週。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間長短，答非所問。"
+        },
+        {
+          "t": "Mr. Ito does.",
+          "zh": "伊藤先生有。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "Yes, I'd like some.",
+          "zh": "好，我想要一些。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "與陳述句不符。"
+        },
+        {
+          "t": "I filled mine up yesterday.",
+          "zh": "我昨天把我的加滿了。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回應。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "generator",
+          "ipa": "/ˈdʒenəreɪtər/",
+          "pos": "n.",
+          "col": "a portable generator",
+          "zh": "發電機"
+        },
+        {
+          "word": "fuel",
+          "ipa": "/ˈfjuːəl/",
+          "pos": "n.",
+          "col": "run out of fuel",
+          "zh": "燃料"
+        },
+        {
+          "word": "refill",
+          "ipa": "/ˌriːˈfɪl/",
+          "pos": "v.",
+          "col": "refill a tank",
+          "zh": "重新加滿"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-007-e",
+      "domain": "d5",
+      "qtype": "q5",
+      "tag": "說明找不到捲尺",
+      "scene": "workplace",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "簡短陳述句，正解為明確的協助或建議。"
+      },
+      "q": {
+        "t": "I can't find the tape measure.",
+        "zh": "我找不到捲尺。"
+      },
+      "pool": [
+        {
+          "t": "I'll help you look for it.",
+          "zh": "我幫你找。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "offer-help",
+          "why": "正解：主動提議協助。"
+        },
+        {
+          "t": "Please take a seat.",
+          "zh": "請坐。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "take 與 tape 音近，內容無關。"
+        },
+        {
+          "t": "I'm fine, thank you.",
+          "zh": "我很好，謝謝。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "fine 與 find 音近，內容無關。"
+        },
+        {
+          "t": "Try the toolbox by the door.",
+          "zh": "試試門邊的工具箱。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "respond",
+          "why": "正解：給出建議。"
+        },
+        {
+          "t": "I can't come on Friday.",
+          "zh": "我星期五不能來。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 can't，但意思不符。"
+        },
+        {
+          "t": "At five o'clock.",
+          "zh": "五點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "When did you use it last?",
+          "zh": "你上次什麼時候用的？",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "question-back",
+          "why": "正解：反問以協助尋找。"
+        },
+        {
+          "t": "Yes, it is.",
+          "zh": "是的，沒錯。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "與陳述句不符。"
+        },
+        {
+          "t": "About thirty dollars.",
+          "zh": "大約三十美元。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答價錢，答非所問。"
+        },
+        {
+          "t": "Tape measures are very cheap.",
+          "zh": "捲尺很便宜。",
+          "ok": false,
+          "trap": "association",
+          "why": "與捲尺相關，但沒有回應。"
+        },
+        {
+          "t": "That wall is three meters long.",
+          "zh": "那面牆三公尺長。",
+          "ok": false,
+          "trap": "association",
+          "why": "與測量相關，但沒有回應。"
+        },
+        {
+          "t": "He found his tape yesterday.",
+          "zh": "他昨天找到他的捲尺了。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回應。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "tape measure",
+          "ipa": "/teɪp ˈmeʒər/",
+          "pos": "n.",
+          "col": "use a tape measure",
+          "zh": "捲尺"
+        },
+        {
+          "word": "toolbox",
+          "ipa": "/ˈtuːlbɑːks/",
+          "pos": "n.",
+          "col": "open a toolbox",
+          "zh": "工具箱"
+        },
+        {
+          "word": "look for",
+          "ipa": "/lʊk fɔːr/",
+          "pos": "v.",
+          "col": "look for a tool",
+          "zh": "尋找"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-007-m",
+      "domain": "d5",
+      "qtype": "q6",
+      "tag": "提議幫忙盤點庫存",
+      "scene": "workplace",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "提議句，正解含接受、婉拒與詢問細節。"
+      },
+      "q": {
+        "t": "Would you like me to help count the inventory?",
+        "zh": "需要我幫忙盤點庫存嗎？"
+      },
+      "pool": [
+        {
+          "t": "That would save me a lot of time.",
+          "zh": "那會幫我省很多時間。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "accept",
+          "why": "正解：接受提議。"
+        },
+        {
+          "t": "Inventory is checked every quarter.",
+          "zh": "庫存每一季盤點一次。",
+          "ok": false,
+          "trap": "association",
+          "why": "與庫存相關，但沒有回應提議。"
+        },
+        {
+          "t": "Thanks, but I'm almost done.",
+          "zh": "謝謝，但我快做完了。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "decline",
+          "why": "正解：婉拒並附理由。"
+        },
+        {
+          "t": "The new system tracks all the stock.",
+          "zh": "新系統會追蹤所有存貨。",
+          "ok": false,
+          "trap": "association",
+          "why": "與庫存相關，但沒有回應提議。"
+        },
+        {
+          "t": "I would like a window seat.",
+          "zh": "我想要靠窗的座位。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 would like，但意思不符。"
+        },
+        {
+          "t": "Which rows have you finished?",
+          "zh": "你完成哪幾排了？",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "ask-detail",
+          "why": "正解：詢問細節。"
+        },
+        {
+          "t": "We counted forty cartons last time.",
+          "zh": "上次我們點了四十箱。",
+          "ok": false,
+          "trap": "association",
+          "why": "與盤點相關，但沒有回應提議。"
+        },
+        {
+          "t": "I like to count on my friends.",
+          "zh": "我喜歡依靠朋友。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 count，但意思不符。"
+        },
+        {
+          "t": "At four thirty.",
+          "zh": "四點半。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "Mr. Wu, I think.",
+          "zh": "我想是吳先生。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "Two hundred cartons.",
+          "zh": "兩百箱。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答數量，答非所問。"
+        },
+        {
+          "t": "He helped me move last week.",
+          "zh": "他上週幫我搬家。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回應提議。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "inventory",
+          "ipa": "/ˈɪnvəntɔːri/",
+          "pos": "n.",
+          "col": "count the inventory",
+          "zh": "庫存"
+        },
+        {
+          "word": "count",
+          "ipa": "/kaʊnt/",
+          "pos": "v.",
+          "col": "count items",
+          "zh": "清點"
+        },
+        {
+          "word": "carton",
+          "ipa": "/ˈkɑːrtn/",
+          "pos": "n.",
+          "col": "a carton of tiles",
+          "zh": "紙箱"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-008-e",
+      "domain": "d5",
+      "qtype": "q6",
+      "tag": "請同事幫忙抬起油漆桶",
+      "scene": "workplace",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "簡短請求，正解為明確接受、婉拒或詢問。"
+      },
+      "q": {
+        "t": "Could you help me lift this paint can?",
+        "zh": "你可以幫我抬這個油漆桶嗎？"
+      },
+      "pool": [
+        {
+          "t": "Sure, I'll grab one side.",
+          "zh": "好，我抓住一邊。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "accept",
+          "why": "正解：接受請求。"
+        },
+        {
+          "t": "Turn left at the gate.",
+          "zh": "在大門左轉。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "left 與 lift 音近，內容無關。"
+        },
+        {
+          "t": "This paint can is dark blue.",
+          "zh": "這個油漆桶是深藍色。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 paint can，但沒有回應。"
+        },
+        {
+          "t": "Sorry, I have to finish this.",
+          "zh": "抱歉，我得先完成這個。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "decline",
+          "why": "正解：婉拒並附理由。"
+        },
+        {
+          "t": "This lift goes to the third floor.",
+          "zh": "這部電梯到三樓。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 lift，但意思不符。"
+        },
+        {
+          "t": "Around six o'clock.",
+          "zh": "大約六點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答時間，答非所問。"
+        },
+        {
+          "t": "Where do you want it?",
+          "zh": "你要放哪裡？",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "ask-detail",
+          "why": "正解：詢問細節。"
+        },
+        {
+          "t": "Yes, it was.",
+          "zh": "是的，它是。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "與請求不符。"
+        },
+        {
+          "t": "Mr. Kim does.",
+          "zh": "金先生有。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        },
+        {
+          "t": "We need three more cans.",
+          "zh": "我們還需要三罐。",
+          "ok": false,
+          "trap": "association",
+          "why": "與油漆相關，但沒有回應。"
+        },
+        {
+          "t": "The walls look better in white.",
+          "zh": "牆壁漆白色比較好看。",
+          "ok": false,
+          "trap": "association",
+          "why": "與油漆相關，但沒有回應。"
+        },
+        {
+          "t": "She helped me last week.",
+          "zh": "她上週幫過我。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "時態與人稱不符，沒有回應。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "lift",
+          "ipa": "/lɪft/",
+          "pos": "v.",
+          "col": "lift a box",
+          "zh": "抬起"
+        },
+        {
+          "word": "paint",
+          "ipa": "/peɪnt/",
+          "pos": "n.",
+          "col": "a can of paint",
+          "zh": "油漆"
+        },
+        {
+          "word": "grab",
+          "ipa": "/ɡræb/",
+          "pos": "v.",
+          "col": "grab a handle",
+          "zh": "抓住"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d5-008-m",
+      "domain": "d5",
+      "qtype": "q2",
+      "tag": "詢問午餐前是否恢復供電",
+      "scene": "workplace",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "Yes/No 問句，正解為間接或不確定回答。"
+      },
+      "q": {
+        "t": "Will the electricity be back on before lunch?",
+        "zh": "午餐前電力會恢復嗎？"
+      },
+      "pool": [
+        {
+          "t": "The electrician says it should be.",
+          "zh": "電工說應該會。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "direct",
+          "why": "正解：轉述專業人員意見。"
+        },
+        {
+          "t": "Electricity bills went up this year.",
+          "zh": "今年電費上漲了。",
+          "ok": false,
+          "trap": "association",
+          "why": "與電力相關，但沒有回答。"
+        },
+        {
+          "t": "They're working on it right now.",
+          "zh": "他們正在處理。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "indirect",
+          "why": "正解：提供相關資訊。"
+        },
+        {
+          "t": "Wires must be kept off the ground.",
+          "zh": "電線必須離地。",
+          "ok": false,
+          "trap": "association",
+          "why": "與電力相關，但沒有回答。"
+        },
+        {
+          "t": "They launched a new website.",
+          "zh": "他們推出了新網站。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "launched 與 lunch 音近，內容無關。"
+        },
+        {
+          "t": "Nobody has told me yet.",
+          "zh": "還沒有人告訴我。",
+          "ok": true,
+          "trap": "correct",
+          "pattern": "unsure",
+          "why": "正解：表示不確定。"
+        },
+        {
+          "t": "Extension cords are in the toolbox.",
+          "zh": "延長線在工具箱裡。",
+          "ok": false,
+          "trap": "association",
+          "why": "與電力相關，但沒有回答。"
+        },
+        {
+          "t": "Lunch is at twelve thirty today.",
+          "zh": "今天午餐是十二點半。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 lunch，但沒有回答。"
+        },
+        {
+          "t": "I eat lunch at my desk.",
+          "zh": "我在座位上吃午餐。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 lunch，但沒有回答。"
+        },
+        {
+          "t": "In the break room.",
+          "zh": "在休息室。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答地點，答非所問。"
+        },
+        {
+          "t": "Two electricians.",
+          "zh": "兩位電工。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人數，答非所問。"
+        },
+        {
+          "t": "Mr. Sato does.",
+          "zh": "佐藤先生有。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "回答人物，答非所問。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "electricity",
+          "ipa": "/ɪˌlekˈtrɪsəti/",
+          "pos": "n.",
+          "col": "lose electricity",
+          "zh": "電力"
+        },
+        {
+          "word": "electrician",
+          "ipa": "/ɪˌlekˈtrɪʃn/",
+          "pos": "n.",
+          "col": "call an electrician",
+          "zh": "電工"
+        },
+        {
+          "word": "wire",
+          "ipa": "/ˈwaɪər/",
+          "pos": "n.",
+          "col": "an electrical wire",
+          "zh": "電線"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-001-e",
+      "domain": "d6",
+      "qtype": "q1",
+      "wh": "where",
+      "tag": "詢問旅館健身房在哪裡",
+      "scene": "hotel",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "Where 問句，答案是明確樓層或位置，干擾項明顯答非所問。"
+      },
+      "q": {
+        "t": "Where is the hotel gym?",
+        "zh": "旅館的健身房在哪裡？"
+      },
+      "pool": [
+        {
+          "t": "It's on the second floor.",
+          "zh": "在二樓。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：直接說出樓層位置。",
+          "pattern": "direct"
+        },
+        {
+          "t": "Right next to the lobby.",
+          "zh": "就在大廳旁邊。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：直接說出相對位置。",
+          "pattern": "direct"
+        },
+        {
+          "t": "I'm not sure, let me ask.",
+          "zh": "我不確定，我去問問。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：表示不確定並願意詢問。",
+          "pattern": "unsure"
+        },
+        {
+          "t": "Jim is the new manager.",
+          "zh": "吉姆是新經理。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "gym 與 Jim 音近，但回答的是人。"
+        },
+        {
+          "t": "The hotel is very nice.",
+          "zh": "這間旅館很棒。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 hotel，沒有說明位置。"
+        },
+        {
+          "t": "I go to the gym every morning.",
+          "zh": "我每天早上都去健身房。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 gym，沒有說明位置。"
+        },
+        {
+          "t": "At six in the morning.",
+          "zh": "早上六點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "Where 問句卻回答時間。"
+        },
+        {
+          "t": "Yes, I did.",
+          "zh": "是的，我做了。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "Where 問句不能用 Yes 回答。"
+        },
+        {
+          "t": "Last night.",
+          "zh": "昨晚。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "Where 問句卻回答時間。"
+        },
+        {
+          "t": "The pool closes at nine.",
+          "zh": "游泳池九點關。",
+          "ok": false,
+          "trap": "association",
+          "why": "與旅館設施相關，但沒有回答位置。"
+        },
+        {
+          "t": "The towels are in the bathroom.",
+          "zh": "毛巾在浴室裡。",
+          "ok": false,
+          "trap": "association",
+          "why": "談的是毛巾位置，不是健身房。"
+        },
+        {
+          "t": "He went to the gym yesterday.",
+          "zh": "他昨天去了健身房。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談某人過去的行為，沒有回答位置。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "gym",
+          "ipa": "/dʒɪm/",
+          "pos": "n.",
+          "col": "hotel gym",
+          "zh": "健身房"
+        },
+        {
+          "word": "lobby",
+          "ipa": "/ˈlɑːbi/",
+          "pos": "n.",
+          "col": "hotel lobby",
+          "zh": "大廳"
+        },
+        {
+          "word": "floor",
+          "ipa": "/flɔːr/",
+          "pos": "n.",
+          "col": "second floor",
+          "zh": "樓層"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-001-m",
+      "domain": "d6",
+      "qtype": "q1",
+      "wh": "why",
+      "tag": "詢問游泳池下午為何關閉",
+      "scene": "hotel",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "Why 問句，正解以間接資訊或表示不確定回應，干擾項以相關但非所問為主。"
+      },
+      "q": {
+        "t": "Why is the pool closed this afternoon?",
+        "zh": "游泳池今天下午為什麼關閉？"
+      },
+      "pool": [
+        {
+          "t": "There's a private event there.",
+          "zh": "那裡有私人活動。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：直接說明原因。",
+          "pattern": "direct"
+        },
+        {
+          "t": "The sign near the entrance explains it.",
+          "zh": "入口附近的告示有說明。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：請對方看告示，間接回答。",
+          "pattern": "indirect"
+        },
+        {
+          "t": "I'm not sure, I just got here.",
+          "zh": "我不確定，我才剛到。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：表示不確定。",
+          "pattern": "unsure"
+        },
+        {
+          "t": "Yes, I love swimming.",
+          "zh": "是的，我喜歡游泳。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "Why 問句不能用 Yes 回答。"
+        },
+        {
+          "t": "At the end of the hall.",
+          "zh": "在走廊盡頭。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "Why 問句卻回答地點。"
+        },
+        {
+          "t": "I don't like the pool much.",
+          "zh": "我不太喜歡那個游泳池。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 pool，沒有說明原因。"
+        },
+        {
+          "t": "This afternoon I have a long meeting.",
+          "zh": "我今天下午有個長會議。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 this afternoon，談自己的行程。"
+        },
+        {
+          "t": "The spa has a sauna.",
+          "zh": "水療中心有烤箱式桑拿。",
+          "ok": false,
+          "trap": "association",
+          "why": "與休閒設施相關，但沒有說明原因。"
+        },
+        {
+          "t": "Breakfast ends at ten.",
+          "zh": "早餐十點結束。",
+          "ok": false,
+          "trap": "association",
+          "why": "與旅館服務相關，但沒有說明原因。"
+        },
+        {
+          "t": "There are lounge chairs outside.",
+          "zh": "外面有躺椅。",
+          "ok": false,
+          "trap": "association",
+          "why": "與泳池區相關，但沒有說明原因。"
+        },
+        {
+          "t": "I swam there yesterday.",
+          "zh": "我昨天在那裡游過泳。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談自己過去的事，沒有說明原因。"
+        },
+        {
+          "t": "My kids closed the door.",
+          "zh": "我的孩子們關了門。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人過去的行為，沒有說明原因。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "pool",
+          "ipa": "/puːl/",
+          "pos": "n.",
+          "col": "swimming pool",
+          "zh": "游泳池"
+        },
+        {
+          "word": "private",
+          "ipa": "/ˈpraɪvət/",
+          "pos": "adj.",
+          "col": "private event",
+          "zh": "私人的"
+        },
+        {
+          "word": "sign",
+          "ipa": "/saɪn/",
+          "pos": "n.",
+          "col": "read the sign",
+          "zh": "告示"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-002-e",
+      "domain": "d6",
+      "qtype": "q1",
+      "wh": "when",
+      "tag": "詢問旅館早餐何時開始",
+      "scene": "hotel",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "When 問句，答案是明確時間，干擾項明顯答非所問。"
+      },
+      "q": {
+        "t": "When does the hotel breakfast start?",
+        "zh": "旅館早餐什麼時候開始？"
+      },
+      "pool": [
+        {
+          "t": "At six thirty.",
+          "zh": "六點半。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：直接給出時間。",
+          "pattern": "direct"
+        },
+        {
+          "t": "Right after seven o'clock.",
+          "zh": "七點剛過。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：直接給出時間。",
+          "pattern": "direct"
+        },
+        {
+          "t": "The card in your room has the time.",
+          "zh": "你房間的卡片上有時間。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：請對方查看房卡資訊，間接回答。",
+          "pattern": "indirect"
+        },
+        {
+          "t": "In the dining room.",
+          "zh": "在餐廳裡。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "When 問句卻回答地點。"
+        },
+        {
+          "t": "Yes, it does.",
+          "zh": "是的，會。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "When 問句不能用 Yes 回答。"
+        },
+        {
+          "t": "Mr. Lee did.",
+          "zh": "是李先生做的。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "When 問句卻回答人物。"
+        },
+        {
+          "t": "I never skip breakfast.",
+          "zh": "我從不跳過早餐。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 breakfast，沒有說明時間。"
+        },
+        {
+          "t": "Breakfast was great yesterday.",
+          "zh": "昨天的早餐很棒。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 breakfast，只評論過去的餐點。"
+        },
+        {
+          "t": "The buffet has fruit and eggs.",
+          "zh": "自助餐有水果和蛋。",
+          "ok": false,
+          "trap": "association",
+          "why": "談早餐內容，沒有回答時間。"
+        },
+        {
+          "t": "I'd like some coffee.",
+          "zh": "我想要一些咖啡。",
+          "ok": false,
+          "trap": "association",
+          "why": "與早餐相關，但沒有回答時間。"
+        },
+        {
+          "t": "I started the trip last week.",
+          "zh": "我上週開始這趟旅行。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談自己過去的事，與早餐無關。"
+        },
+        {
+          "t": "She ate breakfast an hour ago.",
+          "zh": "她一小時前吃了早餐。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人過去的行為，沒有回答時間。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "breakfast",
+          "ipa": "/ˈbrɛkfəst/",
+          "pos": "n.",
+          "col": "hotel breakfast",
+          "zh": "早餐"
+        },
+        {
+          "word": "buffet",
+          "ipa": "/bəˈfeɪ/",
+          "pos": "n.",
+          "col": "breakfast buffet",
+          "zh": "自助餐"
+        },
+        {
+          "word": "start",
+          "ipa": "/stɑːrt/",
+          "pos": "v.",
+          "col": "start at six",
+          "zh": "開始"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-002-m",
+      "domain": "d6",
+      "qtype": "q2",
+      "tag": "詢問是否已叫水管工修水槽",
+      "scene": "home",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "Yes/No 問句，正解以間接資訊或表示不確定回應，干擾項以相關但非所問為主。"
+      },
+      "q": {
+        "t": "Did you call the plumber about the sink?",
+        "zh": "你有為水槽的事打給水管工嗎？"
+      },
+      "pool": [
+        {
+          "t": "Yes, he comes at four today.",
+          "zh": "有，他今天四點會來。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：直接回答並補充時間。",
+          "pattern": "direct"
+        },
+        {
+          "t": "Someone from the company is coming tomorrow.",
+          "zh": "公司明天會派人來。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：間接表示已聯絡過。",
+          "pattern": "indirect"
+        },
+        {
+          "t": "I'm not sure, ask Mark.",
+          "zh": "我不確定，問問馬克。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：表示不確定。",
+          "pattern": "unsure"
+        },
+        {
+          "t": "Under the sink.",
+          "zh": "在水槽底下。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "Yes/No 問句卻回答地點。"
+        },
+        {
+          "t": "Because of the rain.",
+          "zh": "因為下雨。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "Yes/No 問句卻回答原因。"
+        },
+        {
+          "t": "I called my sister last night.",
+          "zh": "我昨晚打給我姊姊。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 called，但對象與事情無關。"
+        },
+        {
+          "t": "It's a different number.",
+          "zh": "那是不同的號碼。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "plumber 與 number 音近，但意思無關。"
+        },
+        {
+          "t": "The sink is full of dishes.",
+          "zh": "水槽裡堆滿碗盤。",
+          "ok": false,
+          "trap": "association",
+          "why": "與水槽相關，但沒有回答。"
+        },
+        {
+          "t": "Pipes are expensive to replace.",
+          "zh": "更換水管很貴。",
+          "ok": false,
+          "trap": "association",
+          "why": "與水管相關，但沒有回答。"
+        },
+        {
+          "t": "The kitchen needs a new faucet.",
+          "zh": "廚房需要新水龍頭。",
+          "ok": false,
+          "trap": "association",
+          "why": "與水槽相關，但沒有回答。"
+        },
+        {
+          "t": "She is calling from work now.",
+          "zh": "她現在正從公司打電話。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人現在的行為，沒有回答。"
+        },
+        {
+          "t": "They fixed the roof last year.",
+          "zh": "他們去年修了屋頂。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人過去的事，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "plumber",
+          "ipa": "/ˈplʌmər/",
+          "pos": "n.",
+          "col": "call a plumber",
+          "zh": "水管工"
+        },
+        {
+          "word": "sink",
+          "ipa": "/sɪŋk/",
+          "pos": "n.",
+          "col": "kitchen sink",
+          "zh": "水槽"
+        },
+        {
+          "word": "faucet",
+          "ipa": "/ˈfɔːsɪt/",
+          "pos": "n.",
+          "col": "new faucet",
+          "zh": "水龍頭"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-003-e",
+      "domain": "d6",
+      "qtype": "q2",
+      "tag": "詢問客房是否準備好",
+      "scene": "hotel",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "Yes/No 問句，答案有明確線索，干擾項明顯答非所問。"
+      },
+      "q": {
+        "t": "Is the room ready yet?",
+        "zh": "房間準備好了嗎？"
+      },
+      "pool": [
+        {
+          "t": "Yes, you can go up now.",
+          "zh": "是的，您現在可以上去了。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：直接回答 Yes。",
+          "pattern": "direct"
+        },
+        {
+          "t": "Housekeeping is still cleaning it.",
+          "zh": "房務還在打掃。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：以現況暗示尚未準備好。",
+          "pattern": "indirect"
+        },
+        {
+          "t": "I'll check with the front desk.",
+          "zh": "我去問櫃台。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：表示不確定，需查證。",
+          "pattern": "unsure"
+        },
+        {
+          "t": "On the third floor.",
+          "zh": "在三樓。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "Yes/No 問句卻回答地點。"
+        },
+        {
+          "t": "Because it was cold.",
+          "zh": "因為很冷。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "Yes/No 問句卻回答原因。"
+        },
+        {
+          "t": "The manager did.",
+          "zh": "是經理做的。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "Yes/No 問句卻回答人物。"
+        },
+        {
+          "t": "I'm ready to eat dinner.",
+          "zh": "我準備好吃晚餐了。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 ready，但談的是自己。"
+        },
+        {
+          "t": "I have a room with two beds.",
+          "zh": "我有一間兩張床的房間。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 room，沒有回答問題。"
+        },
+        {
+          "t": "The towels are in the closet.",
+          "zh": "毛巾在衣櫥裡。",
+          "ok": false,
+          "trap": "association",
+          "why": "與房間相關，但沒有回答。"
+        },
+        {
+          "t": "The pool is on the roof.",
+          "zh": "游泳池在屋頂。",
+          "ok": false,
+          "trap": "association",
+          "why": "與旅館相關，但沒有回答。"
+        },
+        {
+          "t": "I cleaned my own room last week.",
+          "zh": "我上週自己打掃了房間。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談自己過去的事，沒有回答。"
+        },
+        {
+          "t": "We were late for check-in.",
+          "zh": "我們辦理入住時遲到了。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談過去的事，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "ready",
+          "ipa": "/ˈrɛdi/",
+          "pos": "adj.",
+          "col": "room is ready",
+          "zh": "準備好的"
+        },
+        {
+          "word": "towel",
+          "ipa": "/ˈtaʊəl/",
+          "pos": "n.",
+          "col": "clean towel",
+          "zh": "毛巾"
+        },
+        {
+          "word": "clean",
+          "ipa": "/kliːn/",
+          "pos": "v.",
+          "col": "clean the room",
+          "zh": "打掃"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-003-m",
+      "domain": "d6",
+      "qtype": "q3",
+      "tag": "詢問房間面街或面花園",
+      "scene": "hotel",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "選擇問句，正解以無偏好或第三選項回應，干擾項以相關但非所問為主。"
+      },
+      "q": {
+        "t": "Do you prefer a room facing the street or the garden?",
+        "zh": "您想要面向街道還是花園的房間？"
+      },
+      "pool": [
+        {
+          "t": "Whichever one is quieter.",
+          "zh": "哪一邊比較安靜都行。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：以條件表達無偏好。",
+          "pattern": "no-preference"
+        },
+        {
+          "t": "Do you have one facing the pool?",
+          "zh": "有面向游泳池的嗎？",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：提出第三個選項。",
+          "pattern": "third-option"
+        },
+        {
+          "t": "Neither, I'd rather have a high floor.",
+          "zh": "都不要，我寧願住高樓層。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：兩者都不選，改提其他需求。",
+          "pattern": "both-either-neither"
+        },
+        {
+          "t": "At nine o'clock.",
+          "zh": "九點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "選擇問句卻回答時間。"
+        },
+        {
+          "t": "Yes, I do.",
+          "zh": "是的，我想要。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "選擇問句不能用 Yes 回答。"
+        },
+        {
+          "t": "The manager, I think.",
+          "zh": "我想是經理。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "選擇問句卻回答人物。"
+        },
+        {
+          "t": "The room rate includes breakfast.",
+          "zh": "房價包含早餐。",
+          "ok": false,
+          "trap": "association",
+          "why": "與訂房相關，但沒有回答。"
+        },
+        {
+          "t": "Check-in starts at three.",
+          "zh": "三點開始辦理入住。",
+          "ok": false,
+          "trap": "association",
+          "why": "與訂房相關，但沒有回答。"
+        },
+        {
+          "t": "There's a nice café nearby.",
+          "zh": "附近有間不錯的咖啡館。",
+          "ok": false,
+          "trap": "association",
+          "why": "與旅館周邊相關，但沒有回答。"
+        },
+        {
+          "t": "My garden at home is small.",
+          "zh": "我家的花園很小。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 garden，談自己的家。"
+        },
+        {
+          "t": "I grew up on a quiet street.",
+          "zh": "我在安靜的街上長大。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 street，談過去經歷。"
+        },
+        {
+          "t": "She stayed in the garden room last year.",
+          "zh": "她去年住過花園房。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人過去的事，沒有選擇。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "garden",
+          "ipa": "/ˈɡɑːrdn/",
+          "pos": "n.",
+          "col": "garden view",
+          "zh": "花園"
+        },
+        {
+          "word": "street",
+          "ipa": "/striːt/",
+          "pos": "n.",
+          "col": "busy street",
+          "zh": "街道"
+        },
+        {
+          "word": "facing",
+          "ipa": "/ˈfeɪsɪŋ/",
+          "pos": "adj.",
+          "col": "facing the sea",
+          "zh": "面向的"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-004-e",
+      "domain": "d6",
+      "qtype": "q3",
+      "tag": "詢問要特大床或兩張單人床",
+      "scene": "hotel",
+      "level": {
+        "score": 500,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "選擇問句，答案直接選其一，干擾項明顯答非所問。"
+      },
+      "q": {
+        "t": "Do you want a king bed or twin beds?",
+        "zh": "您要特大床還是兩張單人床？"
+      },
+      "pool": [
+        {
+          "t": "A king bed, please.",
+          "zh": "請給我特大床。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：直接選其中一項。",
+          "pattern": "pick-one"
+        },
+        {
+          "t": "Either one is fine with me.",
+          "zh": "哪個都可以。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：表示無偏好。",
+          "pattern": "no-preference"
+        },
+        {
+          "t": "Is there a room with a sofa bed?",
+          "zh": "有附沙發床的房間嗎？",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：提出第三個選項。",
+          "pattern": "third-option"
+        },
+        {
+          "t": "At the front desk.",
+          "zh": "在櫃台。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "選擇問句卻回答地點。"
+        },
+        {
+          "t": "Yes, I do.",
+          "zh": "是的，我要。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "選擇問句不能用 Yes 回答。"
+        },
+        {
+          "t": "Last Friday.",
+          "zh": "上週五。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "選擇問句卻回答時間。"
+        },
+        {
+          "t": "I made my bed this morning.",
+          "zh": "我今早鋪了床。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 bed，沒有做選擇。"
+        },
+        {
+          "t": "The twin sisters are in room ten.",
+          "zh": "雙胞胎姊妹在十號房。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 twin，沒有做選擇。"
+        },
+        {
+          "t": "The room has a nice view.",
+          "zh": "房間景色很好。",
+          "ok": false,
+          "trap": "association",
+          "why": "與房間相關，但沒有選擇。"
+        },
+        {
+          "t": "Breakfast comes with the room.",
+          "zh": "房價含早餐。",
+          "ok": false,
+          "trap": "association",
+          "why": "與房間相關，但沒有選擇。"
+        },
+        {
+          "t": "I win every time we play.",
+          "zh": "我們玩的時候我每次都贏。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "twin 與 win 音近，但意思無關。"
+        },
+        {
+          "t": "She wanted a suite.",
+          "zh": "她想要套房。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人過去的想法，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "king",
+          "ipa": "/kɪŋ/",
+          "pos": "adj.",
+          "col": "king bed",
+          "zh": "特大號的"
+        },
+        {
+          "word": "twin",
+          "ipa": "/twɪn/",
+          "pos": "adj.",
+          "col": "twin beds",
+          "zh": "兩張單人床的"
+        },
+        {
+          "word": "bed",
+          "ipa": "/bɛd/",
+          "pos": "n.",
+          "col": "double bed",
+          "zh": "床"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-004-m",
+      "domain": "d6",
+      "qtype": "q4",
+      "tag": "確認出門前是否關掉暖氣",
+      "scene": "home",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "附加問句，正解可直接確認、更正或間接提供線索，干擾項以相關但非所問為主。"
+      },
+      "q": {
+        "t": "You turned off the heater before leaving, didn't you?",
+        "zh": "你出門前有關掉暖氣，對吧？"
+      },
+      "pool": [
+        {
+          "t": "Yes, I switched it off.",
+          "zh": "對，我把它關了。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：確認對方說法。",
+          "pattern": "confirm"
+        },
+        {
+          "t": "No, I only lowered the temperature.",
+          "zh": "沒有，我只是調低溫度。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：更正對方說法。",
+          "pattern": "correct"
+        },
+        {
+          "t": "I saw the red light was still on.",
+          "zh": "我看到紅燈還亮著。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：以線索間接回答。",
+          "pattern": "indirect"
+        },
+        {
+          "t": "In the living room.",
+          "zh": "在客廳。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "附加問句卻回答地點。"
+        },
+        {
+          "t": "Last winter.",
+          "zh": "去年冬天。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "附加問句卻回答時間。"
+        },
+        {
+          "t": "I left my umbrella at the office.",
+          "zh": "我把雨傘忘在辦公室。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 left，談別的事。"
+        },
+        {
+          "t": "I'm a slow eater.",
+          "zh": "我吃東西很慢。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "heater 與 eater 音近，但意思無關。"
+        },
+        {
+          "t": "It gets cold in this house at night.",
+          "zh": "這房子晚上會變冷。",
+          "ok": false,
+          "trap": "association",
+          "why": "與暖氣相關，但沒有回答。"
+        },
+        {
+          "t": "The heater needs a new filter.",
+          "zh": "暖氣需要換新濾網。",
+          "ok": false,
+          "trap": "association",
+          "why": "與暖氣相關，但沒有回答。"
+        },
+        {
+          "t": "Winter is my favorite season.",
+          "zh": "冬天是我最愛的季節。",
+          "ok": false,
+          "trap": "association",
+          "why": "與暖氣相關，但沒有回答。"
+        },
+        {
+          "t": "They turned on the lights earlier.",
+          "zh": "他們稍早開了燈。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人開燈的事，沒有回答。"
+        },
+        {
+          "t": "He leaves for work at eight.",
+          "zh": "他八點出門上班。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人的習慣，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "heater",
+          "ipa": "/ˈhiːtər/",
+          "pos": "n.",
+          "col": "turn off the heater",
+          "zh": "暖氣機"
+        },
+        {
+          "word": "switch off",
+          "ipa": "/swɪtʃ ɔːf/",
+          "pos": "v.",
+          "col": "switch off the light",
+          "zh": "關掉"
+        },
+        {
+          "word": "filter",
+          "ipa": "/ˈfɪltər/",
+          "pos": "n.",
+          "col": "new filter",
+          "zh": "濾網"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-005-e",
+      "domain": "d6",
+      "qtype": "q4",
+      "tag": "確認房務是否每天來打掃",
+      "scene": "hotel",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "附加問句，答案有明確 Yes/No 線索，干擾項明顯答非所問。"
+      },
+      "q": {
+        "t": "Housekeeping comes every day, doesn't it?",
+        "zh": "房務每天都會來，對嗎？"
+      },
+      "pool": [
+        {
+          "t": "Yes, every morning.",
+          "zh": "對，每天早上。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：確認對方說法。",
+          "pattern": "confirm"
+        },
+        {
+          "t": "No, only every other day.",
+          "zh": "不，只有隔天一次。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：更正對方說法。",
+          "pattern": "correct"
+        },
+        {
+          "t": "You can request it at the front desk.",
+          "zh": "您可以到櫃台申請。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：間接說明需要申請。",
+          "pattern": "indirect"
+        },
+        {
+          "t": "On the fourth floor.",
+          "zh": "在四樓。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "附加問句卻回答地點。"
+        },
+        {
+          "t": "Fifty dollars a night.",
+          "zh": "一晚五十美元。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "附加問句卻回答價錢。"
+        },
+        {
+          "t": "Next Friday.",
+          "zh": "下週五。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "附加問句卻回答時間。"
+        },
+        {
+          "t": "I come here every day for work.",
+          "zh": "我每天為了工作來這裡。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 every day，但談自己。"
+        },
+        {
+          "t": "House cleaning costs a lot.",
+          "zh": "打掃房子很花錢。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 house 與 cleaning 概念，沒有回答。"
+        },
+        {
+          "t": "The sheets are very soft.",
+          "zh": "床單很柔軟。",
+          "ok": false,
+          "trap": "association",
+          "why": "與房務相關，但沒有回答。"
+        },
+        {
+          "t": "I need more towels.",
+          "zh": "我需要更多毛巾。",
+          "ok": false,
+          "trap": "association",
+          "why": "與房務相關，但沒有回答。"
+        },
+        {
+          "t": "I'm going to a housewarming party.",
+          "zh": "我要去參加喬遷派對。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "housekeeping 與 housewarming 音近，但意思無關。"
+        },
+        {
+          "t": "I came here last night.",
+          "zh": "我昨晚來到這裡。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談自己過去的事，沒有回答。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "housekeeping",
+          "ipa": "/ˈhaʊskiːpɪŋ/",
+          "pos": "n.",
+          "col": "hotel housekeeping",
+          "zh": "房務"
+        },
+        {
+          "word": "sheet",
+          "ipa": "/ʃiːt/",
+          "pos": "n.",
+          "col": "clean sheets",
+          "zh": "床單"
+        },
+        {
+          "word": "request",
+          "ipa": "/rɪˈkwɛst/",
+          "pos": "v.",
+          "col": "request a towel",
+          "zh": "要求"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-005-m",
+      "domain": "d6",
+      "qtype": "q6",
+      "tag": "提議櫃台保管行李到中午",
+      "scene": "hotel",
+      "level": {
+        "score": 600,
+        "cefr": "B1",
+        "tier": "medium",
+        "why": "提議句，正解以詢問細節或附帶條件回應，干擾項以相關但非所問為主。"
+      },
+      "q": {
+        "t": "Would you like me to keep your luggage until noon?",
+        "zh": "需要我幫您保管行李到中午嗎？"
+      },
+      "pool": [
+        {
+          "t": "That would help a lot, thanks.",
+          "zh": "那幫了大忙，謝謝。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：接受提議。",
+          "pattern": "accept"
+        },
+        {
+          "t": "Will there be a fee for that?",
+          "zh": "這要收費嗎？",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：詢問細節。",
+          "pattern": "ask-detail"
+        },
+        {
+          "t": "No thanks, my friend will pick it up.",
+          "zh": "不用了，我朋友會來拿。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：婉拒提議並說明原因。",
+          "pattern": "decline"
+        },
+        {
+          "t": "Yes, I did.",
+          "zh": "是的，我做了。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "提議句不能這樣回應。"
+        },
+        {
+          "t": "On the first floor.",
+          "zh": "在一樓。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "提議句卻回答地點。"
+        },
+        {
+          "t": "Two nights.",
+          "zh": "兩晚。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "提議句卻回答天數。"
+        },
+        {
+          "t": "I lost my luggage once.",
+          "zh": "我曾經弄丟過行李。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 luggage，沒有回應提議。"
+        },
+        {
+          "t": "The lobby has free internet.",
+          "zh": "大廳有免費網路。",
+          "ok": false,
+          "trap": "association",
+          "why": "與旅館相關，但沒有回應提議。"
+        },
+        {
+          "t": "I bought this bag in Italy.",
+          "zh": "我在義大利買了這個包包。",
+          "ok": false,
+          "trap": "association",
+          "why": "與行李相關，但沒有回應提議。"
+        },
+        {
+          "t": "The elevator was full this morning.",
+          "zh": "今早電梯很擠。",
+          "ok": false,
+          "trap": "association",
+          "why": "與旅館相關，但沒有回應提議。"
+        },
+        {
+          "t": "She kept her luggage here yesterday.",
+          "zh": "她昨天把行李放在這裡。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人過去的事，沒有回應。"
+        },
+        {
+          "t": "He keeps his bags upstairs.",
+          "zh": "他把包包放在樓上。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人的習慣，沒有回應。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "luggage",
+          "ipa": "/ˈlʌɡɪdʒ/",
+          "pos": "n.",
+          "col": "carry luggage",
+          "zh": "行李"
+        },
+        {
+          "word": "noon",
+          "ipa": "/nuːn/",
+          "pos": "n.",
+          "col": "until noon",
+          "zh": "中午"
+        },
+        {
+          "word": "fee",
+          "ipa": "/fiː/",
+          "pos": "n.",
+          "col": "extra fee",
+          "zh": "費用"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-006-e",
+      "domain": "d6",
+      "qtype": "q5",
+      "tag": "說明房間冷氣故障",
+      "scene": "hotel",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "陳述句，回應符合說話者意圖，干擾項明顯答非所問。"
+      },
+      "q": {
+        "t": "The air conditioner isn't working.",
+        "zh": "冷氣不能用。"
+      },
+      "pool": [
+        {
+          "t": "I'll send maintenance up now.",
+          "zh": "我馬上請維修人員上去。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：主動提供協助。",
+          "pattern": "offer-help"
+        },
+        {
+          "t": "Oh no, I'm so sorry about that.",
+          "zh": "哎呀，真的很抱歉。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：對問題表達歉意。",
+          "pattern": "emotion"
+        },
+        {
+          "t": "Which room are you staying in?",
+          "zh": "您住哪一間房？",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：反問以確認房號。",
+          "pattern": "question-back"
+        },
+        {
+          "t": "At seven o'clock.",
+          "zh": "七點。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "對陳述句回答時間，不合情境。"
+        },
+        {
+          "t": "Yes, I'd love some.",
+          "zh": "好的，我很想要一些。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "與陳述內容無關。"
+        },
+        {
+          "t": "It's on the second floor.",
+          "zh": "在二樓。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "與陳述內容無關。"
+        },
+        {
+          "t": "The air outside is fresh today.",
+          "zh": "今天外面空氣很新鮮。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 air，沒有回應問題。"
+        },
+        {
+          "t": "I'm not working this weekend.",
+          "zh": "我這週末不上班。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 working，沒有回應問題。"
+        },
+        {
+          "t": "Our neighbors are very noisy.",
+          "zh": "我們的鄰居很吵。",
+          "ok": false,
+          "trap": "association",
+          "why": "談居住問題，但沒有回應。"
+        },
+        {
+          "t": "The elevator is very slow.",
+          "zh": "電梯很慢。",
+          "ok": false,
+          "trap": "association",
+          "why": "談旅館設施，但沒有回應。"
+        },
+        {
+          "t": "He works at the bank.",
+          "zh": "他在銀行工作。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人的工作，與問題無關。"
+        },
+        {
+          "t": "They fixed my car yesterday.",
+          "zh": "他們昨天修好了我的車。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談過去的另一件事，與問題無關。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "air conditioner",
+          "ipa": "/ɛr kənˈdɪʃənər/",
+          "pos": "n.",
+          "col": "broken air conditioner",
+          "zh": "冷氣機"
+        },
+        {
+          "word": "maintenance",
+          "ipa": "/ˈmeɪntənəns/",
+          "pos": "n.",
+          "col": "maintenance staff",
+          "zh": "維修"
+        },
+        {
+          "word": "elevator",
+          "ipa": "/ˈɛləveɪtər/",
+          "pos": "n.",
+          "col": "take the elevator",
+          "zh": "電梯"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-007-e",
+      "domain": "d6",
+      "qtype": "q6",
+      "tag": "請櫃台早上六點叫醒",
+      "scene": "hotel",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "請求句，回應直接接受、婉拒或詢問細節，干擾項明顯答非所問。"
+      },
+      "q": {
+        "t": "Could you wake me up at six?",
+        "zh": "你可以早上六點叫醒我嗎？"
+      },
+      "pool": [
+        {
+          "t": "Sure, no problem.",
+          "zh": "沒問題。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：直接答應請求。",
+          "pattern": "accept"
+        },
+        {
+          "t": "Do you want a phone call?",
+          "zh": "您要用電話叫醒嗎？",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：詢問細節。",
+          "pattern": "ask-detail"
+        },
+        {
+          "t": "Sorry, you'll need to use the room alarm.",
+          "zh": "抱歉，您得用房內鬧鐘。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：婉拒請求並說明替代方式。",
+          "pattern": "decline"
+        },
+        {
+          "t": "Yes, I did.",
+          "zh": "是的，我做了。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "請求句不能這樣回應。"
+        },
+        {
+          "t": "At the front desk.",
+          "zh": "在櫃台。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "請求句卻回答地點。"
+        },
+        {
+          "t": "Last night.",
+          "zh": "昨晚。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "請求句卻回答時間。"
+        },
+        {
+          "t": "I woke up late today.",
+          "zh": "我今天很晚才起床。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 wake up，沒有回應請求。"
+        },
+        {
+          "t": "I could not sleep well last night.",
+          "zh": "我昨晚睡不好。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 could，沒有回應請求。"
+        },
+        {
+          "t": "Breakfast is served at seven.",
+          "zh": "早餐七點供應。",
+          "ok": false,
+          "trap": "association",
+          "why": "與早晨相關，但沒有回應請求。"
+        },
+        {
+          "t": "The bed is very comfortable.",
+          "zh": "床很舒服。",
+          "ok": false,
+          "trap": "association",
+          "why": "與睡覺相關，但沒有回應請求。"
+        },
+        {
+          "t": "I got up at six yesterday.",
+          "zh": "我昨天六點起床。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談自己過去的事，沒有回應。"
+        },
+        {
+          "t": "He gets up at six every day.",
+          "zh": "他每天六點起床。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人的習慣，沒有回應。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "wake up",
+          "ipa": "/weɪk ʌp/",
+          "pos": "v.",
+          "col": "wake someone up",
+          "zh": "叫醒"
+        },
+        {
+          "word": "comfortable",
+          "ipa": "/ˈkʌmftərbəl/",
+          "pos": "adj.",
+          "col": "comfortable bed",
+          "zh": "舒服的"
+        },
+        {
+          "word": "sleep",
+          "ipa": "/sliːp/",
+          "pos": "v.",
+          "col": "sleep well",
+          "zh": "睡覺"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "d6-008-e",
+      "domain": "d6",
+      "qtype": "q6",
+      "tag": "提議今天整理車庫",
+      "scene": "home",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "提議句，回應直接接受、婉拒或詢問細節，干擾項明顯答非所問。"
+      },
+      "q": {
+        "t": "Why don't we clean the garage today?",
+        "zh": "我們今天何不整理車庫？"
+      },
+      "pool": [
+        {
+          "t": "Good idea, let's start after lunch.",
+          "zh": "好主意，午餐後開始吧。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：接受提議。",
+          "pattern": "accept"
+        },
+        {
+          "t": "Sorry, I have to work today.",
+          "zh": "抱歉，我今天得工作。",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：婉拒提議。",
+          "pattern": "decline"
+        },
+        {
+          "t": "What should I do first?",
+          "zh": "我該先做什麼？",
+          "ok": true,
+          "trap": "correct",
+          "why": "正解：詢問細節。",
+          "pattern": "ask-detail"
+        },
+        {
+          "t": "At the front door.",
+          "zh": "在前門。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "提議句卻回答地點。"
+        },
+        {
+          "t": "Mr. Kim did.",
+          "zh": "是金先生做的。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "提議句卻回答人物。"
+        },
+        {
+          "t": "About ten dollars.",
+          "zh": "大約十美元。",
+          "ok": false,
+          "trap": "wrong-wh",
+          "why": "提議句卻回答價錢。"
+        },
+        {
+          "t": "The garage is next to the house.",
+          "zh": "車庫在房子旁邊。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 garage，沒有回應提議。"
+        },
+        {
+          "t": "I clean my room every week.",
+          "zh": "我每週打掃我的房間。",
+          "ok": false,
+          "trap": "word-repeat",
+          "why": "重複 clean，沒有回應提議。"
+        },
+        {
+          "t": "My neighbor has a new car.",
+          "zh": "我鄰居有輛新車。",
+          "ok": false,
+          "trap": "association",
+          "why": "與車庫相關，但沒有回應。"
+        },
+        {
+          "t": "The dog is sleeping on the sofa.",
+          "zh": "狗在沙發上睡覺。",
+          "ok": false,
+          "trap": "association",
+          "why": "談居家情況，但沒有回應。"
+        },
+        {
+          "t": "I saw a garbage truck today.",
+          "zh": "我今天看到一輛垃圾車。",
+          "ok": false,
+          "trap": "sound-alike",
+          "why": "garage 與 garbage 音近，但意思無關。"
+        },
+        {
+          "t": "They painted the fence last week.",
+          "zh": "他們上週漆了圍籬。",
+          "ok": false,
+          "trap": "wrong-tense-person",
+          "why": "談別人過去的事，沒有回應。"
+        }
+      ],
+      "vocab": [
+        {
+          "word": "garage",
+          "ipa": "/gəˈrɑːʒ/",
+          "pos": "n.",
+          "col": "clean the garage",
+          "zh": "車庫"
+        },
+        {
+          "word": "garbage",
+          "ipa": "/ˈɡɑːrbɪdʒ/",
+          "pos": "n.",
+          "col": "garbage truck",
+          "zh": "垃圾"
+        },
+        {
+          "word": "neighbor",
+          "ipa": "/ˈneɪbər/",
+          "pos": "n.",
+          "col": "next-door neighbor",
+          "zh": "鄰居"
         }
       ],
       "issues": []

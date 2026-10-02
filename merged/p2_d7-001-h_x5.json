@@ -1,0 +1,646 @@
+[
+ {
+  "id": "d7-001-h",
+  "domain": "d7",
+  "qtype": "q1",
+  "wh": "when",
+  "tag": "詢問前往登山口接駁車何時到",
+  "scene": "outdoor",
+  "level": {
+   "score": 700,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "When 問句，正解以預估、迴避或查證回應，干擾項混合音近與相關誘答。"
+  },
+  "q": {
+   "t": "When will the shuttle to the trailhead come?",
+   "zh": "前往登山口的接駁車什麼時候來？"
+  },
+  "pool": [
+   {
+    "t": "It should be here in ten minutes.",
+    "zh": "應該十分鐘後到。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：直接給出預估時間。",
+    "pattern": "direct"
+   },
+   {
+    "t": "It runs whenever it fills up.",
+    "zh": "坐滿就會發車。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：以條件迴避，間接回答。",
+    "pattern": "indirect"
+   },
+   {
+    "t": "Let me check the schedule board.",
+    "zh": "我去看一下時刻表。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：表示需要查證。",
+    "pattern": "unsure"
+   },
+   {
+    "t": "At the visitor center.",
+    "zh": "在遊客中心。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "When 問句卻回答地點。"
+   },
+   {
+    "t": "Mr. Adams drives it.",
+    "zh": "是亞當斯先生開的。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "When 問句卻回答人物。"
+   },
+   {
+    "t": "The trailhead has a map.",
+    "zh": "登山口有地圖。",
+    "ok": false,
+    "trap": "association",
+    "why": "與登山口相關，但沒有回答時間。"
+   },
+   {
+    "t": "Parking is full this morning.",
+    "zh": "今早停車場客滿了。",
+    "ok": false,
+    "trap": "association",
+    "why": "與登山口相關，但沒有回答時間。"
+   },
+   {
+    "t": "The first stop is the lake.",
+    "zh": "第一站是湖邊。",
+    "ok": false,
+    "trap": "association",
+    "why": "與接駁相關，但沒有回答時間。"
+   },
+   {
+    "t": "I come here every weekend.",
+    "zh": "我每個週末都來這裡。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 come，談自己的習慣。"
+   },
+   {
+    "t": "The shuttle was crowded yesterday.",
+    "zh": "昨天接駁車很擠。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 shuttle，談過去的事。"
+   },
+   {
+    "t": "Hand me the shovel, please.",
+    "zh": "請把鏟子遞給我。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "shuttle 與 shovel 音近，但意思無關。"
+   },
+   {
+    "t": "They took a bus yesterday.",
+    "zh": "他們昨天搭了公車。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "談別人過去的事，沒有回答。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "shuttle",
+    "ipa": "/ˈʃʌtl/",
+    "pos": "n.",
+    "col": "shuttle bus",
+    "zh": "接駁車"
+   },
+   {
+    "word": "trailhead",
+    "ipa": "/ˈtreɪlhɛd/",
+    "pos": "n.",
+    "col": "at the trailhead",
+    "zh": "登山口"
+   },
+   {
+    "word": "parking",
+    "ipa": "/ˈpɑːrkɪŋ/",
+    "pos": "n.",
+    "col": "parking lot",
+    "zh": "停車"
+   }
+  ],
+  "issues": []
+ },
+ {
+  "id": "d7-002-h",
+  "domain": "d7",
+  "qtype": "q2",
+  "tag": "詢問風停後能否生營火",
+  "scene": "outdoor",
+  "level": {
+   "score": 750,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "Yes/No 問句含條件子句，正解以條件限制或查證回應，干擾項混合相關誘答。"
+  },
+  "q": {
+   "t": "Can we light a campfire if the wind dies down?",
+   "zh": "如果風停了，我們可以生營火嗎？"
+  },
+  "pool": [
+   {
+    "t": "Yes, but only until nine.",
+    "zh": "可以，但只能到九點。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：有條件地直接回答。",
+    "pattern": "direct"
+   },
+   {
+    "t": "Only in the marked fire rings.",
+    "zh": "只能在標示的火圈裡。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：以限制條件間接回答。",
+    "pattern": "indirect"
+   },
+   {
+    "t": "Let me check if there's a fire ban.",
+    "zh": "我查一下有沒有禁火令。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：表示需要查證。",
+    "pattern": "unsure"
+   },
+   {
+    "t": "Behind the picnic area.",
+    "zh": "在野餐區後面。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "Yes/No 問句卻回答地點。"
+   },
+   {
+    "t": "Three bundles.",
+    "zh": "三捆。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "Yes/No 問句卻回答數量。"
+   },
+   {
+    "t": "My uncle Joe.",
+    "zh": "我叔叔喬。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "Yes/No 問句卻回答人物。"
+   },
+   {
+    "t": "Firewood is sold at the camp store.",
+    "zh": "營地商店有賣柴火。",
+    "ok": false,
+    "trap": "association",
+    "why": "與營火相關，但沒有回答。"
+   },
+   {
+    "t": "S'mores are my favorite.",
+    "zh": "我最愛棉花糖夾心餅。",
+    "ok": false,
+    "trap": "association",
+    "why": "與營火相關，但沒有回答。"
+   },
+   {
+    "t": "It gets chilly after sunset.",
+    "zh": "日落後會變冷。",
+    "ok": false,
+    "trap": "association",
+    "why": "與戶外相關，但沒有回答。"
+   },
+   {
+    "t": "I light candles at home.",
+    "zh": "我在家點蠟燭。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 light，談自己。"
+   },
+   {
+    "t": "The wind was loud last night.",
+    "zh": "昨晚風聲很大。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 wind，談過去的事。"
+   },
+   {
+    "t": "We built one last summer.",
+    "zh": "我們去年夏天生過一個。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "談過去的事，沒有回答。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "campfire",
+    "ipa": "/ˈkæmpfaɪər/",
+    "pos": "n.",
+    "col": "light a campfire",
+    "zh": "營火"
+   },
+   {
+    "word": "wind",
+    "ipa": "/wɪnd/",
+    "pos": "n.",
+    "col": "strong wind",
+    "zh": "風"
+   },
+   {
+    "word": "firewood",
+    "ipa": "/ˈfaɪərwʊd/",
+    "pos": "n.",
+    "col": "buy firewood",
+    "zh": "柴火"
+   }
+  ],
+  "issues": []
+ },
+ {
+  "id": "d7-003-h",
+  "domain": "d7",
+  "qtype": "q3",
+  "tag": "詢問日出出發或等天暖",
+  "scene": "outdoor",
+  "level": {
+   "score": 800,
+   "cefr": "B2+",
+   "tier": "hard",
+   "why": "選擇問句含時間語意，正解以條件、無偏好或第三選項回應，干擾項混合音近與相關誘答。"
+  },
+  "q": {
+   "t": "Would you rather start at sunrise or wait until it warms up?",
+   "zh": "你想日出就出發，還是等天氣暖一點？"
+  },
+  "pool": [
+   {
+    "t": "If it's going to be hot, sunrise.",
+    "zh": "如果會很熱，就日出出發。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：以條件選擇其一。",
+    "pattern": "pick-one"
+   },
+   {
+    "t": "Whatever works for the group.",
+    "zh": "看團體方便就好。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：表達無偏好。",
+    "pattern": "no-preference"
+   },
+   {
+    "t": "How about starting after a late breakfast?",
+    "zh": "晚點吃完早餐再出發如何？",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：提出第三個選項。",
+    "pattern": "third-option"
+   },
+   {
+    "t": "On the north trail.",
+    "zh": "在北邊步道。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "選擇問句卻回答地點。"
+   },
+   {
+    "t": "Yes, I would.",
+    "zh": "是的，我想。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "選擇問句不能用 Yes 回答。"
+   },
+   {
+    "t": "My sister Jen.",
+    "zh": "我姊姊珍。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "選擇問句卻回答人物。"
+   },
+   {
+    "t": "The summit is above the clouds.",
+    "zh": "山頂在雲層之上。",
+    "ok": false,
+    "trap": "association",
+    "why": "與健行相關，但沒有做選擇。"
+   },
+   {
+    "t": "Trail mix gives you energy.",
+    "zh": "綜合堅果能補充體力。",
+    "ok": false,
+    "trap": "association",
+    "why": "與健行相關，但沒有做選擇。"
+   },
+   {
+    "t": "I wait for the bus every day.",
+    "zh": "我每天等公車。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 wait，談無關的事。"
+   },
+   {
+    "t": "The sun rises early in summer.",
+    "zh": "夏天太陽很早升起。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "與 sunrise 同源，只是陳述事實。"
+   },
+   {
+    "t": "I lost some weight last year.",
+    "zh": "我去年瘦了一些。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "wait 與 weight 音近，但意思無關。"
+   },
+   {
+    "t": "She started the hike yesterday.",
+    "zh": "她昨天開始健行。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "談別人過去的事，沒有做選擇。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "sunrise",
+    "ipa": "/ˈsʌnraɪz/",
+    "pos": "n.",
+    "col": "at sunrise",
+    "zh": "日出"
+   },
+   {
+    "word": "warm up",
+    "ipa": "/wɔːrm ʌp/",
+    "pos": "v.",
+    "col": "wait for it to warm up",
+    "zh": "變暖"
+   },
+   {
+    "word": "summit",
+    "ipa": "/ˈsʌmɪt/",
+    "pos": "n.",
+    "col": "reach the summit",
+    "zh": "山頂"
+   }
+  ],
+  "issues": []
+ },
+ {
+  "id": "d7-004-h",
+  "domain": "d7",
+  "qtype": "q5",
+  "tag": "說明擔心暴風雨在抵達營地前來襲",
+  "scene": "outdoor",
+  "level": {
+   "score": 700,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "陳述句，正解需判斷說話者擔憂並以對策、反問或同理回應，干擾項混合音近與相關誘答。"
+  },
+  "q": {
+   "t": "I'm worried the storm will hit before we reach camp.",
+   "zh": "我擔心暴風雨在我們到營地前就來了。"
+  },
+  "pool": [
+   {
+    "t": "We can set up camp early if we need to.",
+    "zh": "必要的話我們可以提早紮營。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：提出因應方案。",
+    "pattern": "respond"
+   },
+   {
+    "t": "How far is the nearest shelter?",
+    "zh": "最近的避難處有多遠？",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：反問以確認對策。",
+    "pattern": "question-back"
+   },
+   {
+    "t": "I'm a little nervous about it too.",
+    "zh": "我對這也有點緊張。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：表達同感。",
+    "pattern": "emotion"
+   },
+   {
+    "t": "In the north valley.",
+    "zh": "在北邊山谷。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "與陳述內容無關的地點回答。"
+   },
+   {
+    "t": "Around eight o'clock.",
+    "zh": "大約八點。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "與陳述內容無關的時間回答。"
+   },
+   {
+    "t": "The lake looks calm right now.",
+    "zh": "湖面現在看起來很平靜。",
+    "ok": false,
+    "trap": "association",
+    "why": "與戶外相關，但沒有回應。"
+   },
+   {
+    "t": "We saw an eagle this morning.",
+    "zh": "我們今早看到一隻老鷹。",
+    "ok": false,
+    "trap": "association",
+    "why": "與戶外相關，但沒有回應。"
+   },
+   {
+    "t": "The campsite has hot showers.",
+    "zh": "營地有熱水淋浴。",
+    "ok": false,
+    "trap": "association",
+    "why": "與營地相關，但沒有回應。"
+   },
+   {
+    "t": "My camp chair is very light.",
+    "zh": "我的露營椅很輕。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 camp，沒有回應。"
+   },
+   {
+    "t": "I reached the top last year.",
+    "zh": "我去年登頂過。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 reach，沒有回應。"
+   },
+   {
+    "t": "I picked up a stone.",
+    "zh": "我撿了一顆石頭。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "storm 與 stone 音近，但意思無關。"
+   },
+   {
+    "t": "He worried about it yesterday.",
+    "zh": "他昨天擔心過這件事。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "談別人過去的事，沒有回應。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "storm",
+    "ipa": "/stɔːrm/",
+    "pos": "n.",
+    "col": "summer storm",
+    "zh": "暴風雨"
+   },
+   {
+    "word": "shelter",
+    "ipa": "/ˈʃɛltər/",
+    "pos": "n.",
+    "col": "find shelter",
+    "zh": "避難處"
+   },
+   {
+    "word": "nervous",
+    "ipa": "/ˈnɜːrvəs/",
+    "pos": "adj.",
+    "col": "feel nervous",
+    "zh": "緊張的"
+   }
+  ],
+  "issues": []
+ },
+ {
+  "id": "d7-005-h",
+  "domain": "d7",
+  "qtype": "q6",
+  "tag": "請對方移車讓拖車通過",
+  "scene": "outdoor",
+  "level": {
+   "score": 750,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "請求句，正解以接受、附理由婉拒或詢問細節回應，干擾項混合音近與相關誘答。"
+  },
+  "q": {
+   "t": "Could you move your car so the trailer can get through?",
+   "zh": "你可以把車移開，讓拖車通過嗎？"
+  },
+  "pool": [
+   {
+    "t": "Sure, give me a minute.",
+    "zh": "好，給我一分鐘。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：接受請求。",
+    "pattern": "accept"
+   },
+   {
+    "t": "I can't, I'm waiting for my family.",
+    "zh": "我不能，我在等家人。",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：婉拒並說明理由。",
+    "pattern": "decline"
+   },
+   {
+    "t": "How much room do you need?",
+    "zh": "你需要多少空間？",
+    "ok": true,
+    "trap": "correct",
+    "why": "正解：詢問細節。",
+    "pattern": "ask-detail"
+   },
+   {
+    "t": "Behind the visitor center.",
+    "zh": "在遊客中心後面。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "請求句卻回答地點。"
+   },
+   {
+    "t": "Yes, it is.",
+    "zh": "是的。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "請求句不能這樣回應。"
+   },
+   {
+    "t": "Last weekend.",
+    "zh": "上週末。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "請求句卻回答時間。"
+   },
+   {
+    "t": "The lot fills up by nine.",
+    "zh": "停車場九點前就滿了。",
+    "ok": false,
+    "trap": "association",
+    "why": "與停車相關，但沒有回應請求。"
+   },
+   {
+    "t": "Our trailer carries two boats.",
+    "zh": "我們的拖車載兩艘船。",
+    "ok": false,
+    "trap": "association",
+    "why": "與拖車相關，但沒有回應請求。"
+   },
+   {
+    "t": "I could not find my keys.",
+    "zh": "我找不到我的鑰匙。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 could，沒有回應請求。"
+   },
+   {
+    "t": "My car is red.",
+    "zh": "我的車是紅色的。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 car，沒有回應請求。"
+   },
+   {
+    "t": "I love this trail.",
+    "zh": "我喜歡這條步道。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "trail 與 trailer 音近，但意思無關。"
+   },
+   {
+    "t": "She moved here last year.",
+    "zh": "她去年搬來這裡。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "重複 move 的變化，談別人過去的事。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "trailer",
+    "ipa": "/ˈtreɪlər/",
+    "pos": "n.",
+    "col": "boat trailer",
+    "zh": "拖車"
+   },
+   {
+    "word": "boat",
+    "ipa": "/boʊt/",
+    "pos": "n.",
+    "col": "rent a boat",
+    "zh": "船"
+   }
+  ],
+  "issues": []
+ }
+]
