@@ -1,0 +1,988 @@
+[
+  {
+    "id": "d4-001-e",
+    "domain": "d4",
+    "qtype": "q1",
+    "wh": "when",
+    "tag": "詢問下一班火車何時開",
+    "scene": "station",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "When 問句短而單純，正解都直接給出時間。"
+    },
+    "q": {
+      "t": "When does the next train leave?",
+      "zh": "下一班火車什麼時候開？"
+    },
+    "pool": [
+      {
+        "t": "In ten minutes.",
+        "zh": "十分鐘後。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接給出時間。"
+      },
+      {
+        "t": "At two fifteen.",
+        "zh": "兩點十五分。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出時刻。"
+      },
+      {
+        "t": "Right after three o'clock.",
+        "zh": "三點剛過。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接給出時間。"
+      },
+      {
+        "t": "On platform four.",
+        "zh": "在四號月台。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Two dollars.",
+        "zh": "兩美元。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 How much 的答案。"
+      },
+      {
+        "t": "Mr. Lee, the conductor.",
+        "zh": "列車長李先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "It will rain tomorrow.",
+        "zh": "明天會下雨。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "rain 與 train 音近，內容無關。"
+      },
+      {
+        "t": "I live near the station.",
+        "zh": "我住在車站附近。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "live 與 leave 音近，內容無關。"
+      },
+      {
+        "t": "I leave my keys at home.",
+        "zh": "我把鑰匙留在家裡。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 leave，但意思不同。"
+      },
+      {
+        "t": "The train was very crowded.",
+        "zh": "火車非常擠。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "Tickets are sold at the window.",
+        "zh": "車票在窗口販售。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "They were leaving early.",
+        "zh": "他們那時正要提早離開。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "train",
+        "ipa": "/treɪn/",
+        "pos": "n.",
+        "col": "the next train",
+        "zh": "火車"
+      },
+      {
+        "word": "platform",
+        "ipa": "/ˈplætfɔːrm/",
+        "pos": "n.",
+        "col": "platform four",
+        "zh": "月台"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d4-002-e",
+    "domain": "d4",
+    "qtype": "q1",
+    "wh": "where",
+    "tag": "詢問公車站在哪裡",
+    "scene": "street",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "Where 問句短而單純，正解都直接說出位置。"
+    },
+    "q": {
+      "t": "Where is the bus stop?",
+      "zh": "公車站在哪裡？"
+    },
+    "pool": [
+      {
+        "t": "Across the street.",
+        "zh": "在對面。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出位置。"
+      },
+      {
+        "t": "Next to the bank.",
+        "zh": "在銀行旁邊。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：用相對位置回答地點。"
+      },
+      {
+        "t": "At the corner of Main Street.",
+        "zh": "在主街的轉角。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出地點。"
+      },
+      {
+        "t": "At eight thirty.",
+        "zh": "八點半。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Five dollars.",
+        "zh": "五美元。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 How much 的答案。"
+      },
+      {
+        "t": "The driver, Mr. Hill.",
+        "zh": "司機希爾先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "I work in a shop.",
+        "zh": "我在一間商店工作。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "shop 與 stop 音近，內容無關。"
+      },
+      {
+        "t": "I'll stop by tomorrow.",
+        "zh": "我明天會順道過去。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 stop，但意思不同。"
+      },
+      {
+        "t": "Buses are very clean here.",
+        "zh": "這裡的公車很乾淨。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "The street is very busy.",
+        "zh": "這條街很繁忙。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "Fares went up last year.",
+        "zh": "車資去年漲價了。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "He took the bus to work.",
+        "zh": "他搭公車上班。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "bus stop",
+        "ipa": "/bʌs stɑːp/",
+        "pos": "n.",
+        "col": "wait at the bus stop",
+        "zh": "公車站"
+      },
+      {
+        "word": "corner",
+        "ipa": "/ˈkɔːrnər/",
+        "pos": "n.",
+        "col": "at the corner",
+        "zh": "轉角"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d4-003-e",
+    "domain": "d4",
+    "qtype": "q2",
+    "tag": "詢問是否為往機場的公車",
+    "scene": "station",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "Yes/No 問句，正解直接回答是或不是。"
+    },
+    "q": {
+      "t": "Is this the bus to the airport?",
+      "zh": "這是去機場的公車嗎？"
+    },
+    "pool": [
+      {
+        "t": "Yes, it is.",
+        "zh": "是的，沒錯。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接肯定。"
+      },
+      {
+        "t": "No, that one is across the street.",
+        "zh": "不是，那班在對面。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接否定並說明。"
+      },
+      {
+        "t": "Yes, get on here.",
+        "zh": "是的，在這裡上車。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接肯定並指示。"
+      },
+      {
+        "t": "Around noon.",
+        "zh": "中午左右。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "At gate twelve.",
+        "zh": "在十二號登機門。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mr. Park, I think.",
+        "zh": "我想是帕克先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "My boss called me.",
+        "zh": "我老闆打電話給我。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "boss 與 bus 音近，內容無關。"
+      },
+      {
+        "t": "The airport is very far.",
+        "zh": "機場非常遠。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 airport，但意思不同。"
+      },
+      {
+        "t": "The driver is very friendly.",
+        "zh": "司機很友善。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "The airport has fast Wi-Fi.",
+        "zh": "機場有很快的無線網路。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "Buses are cleaned every night.",
+        "zh": "公車每晚都會清潔。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "She was going to the airport.",
+        "zh": "她那時要去機場。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "airport",
+        "ipa": "/ˈerpɔːrt/",
+        "pos": "n.",
+        "col": "go to the airport",
+        "zh": "機場"
+      },
+      {
+        "word": "get on",
+        "ipa": "/ɡet ɑːn/",
+        "pos": "phr. v.",
+        "col": "get on the bus",
+        "zh": "上車"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d4-004-e",
+    "domain": "d4",
+    "qtype": "q3",
+    "tag": "詢問走路或搭計程車",
+    "scene": "street",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "二選一問句，正解直接選一個或表示都可以。"
+    },
+    "q": {
+      "t": "Do you want to walk or take a taxi?",
+      "zh": "你想走路還是搭計程車？"
+    },
+    "pool": [
+      {
+        "t": "Let's walk.",
+        "zh": "我們走路吧。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "pick-one",
+        "why": "正解：直接選擇走路。"
+      },
+      {
+        "t": "A taxi, please.",
+        "zh": "請搭計程車。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "pick-one",
+        "why": "正解：直接選擇計程車。"
+      },
+      {
+        "t": "Either is fine.",
+        "zh": "兩個都可以。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "no-preference",
+        "why": "正解：表示都可以。"
+      },
+      {
+        "t": "At the hotel.",
+        "zh": "在旅館。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mr. Green.",
+        "zh": "格林先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Yes, I do.",
+        "zh": "是的，我要。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "選擇問句不能用 Yes 回答。"
+      },
+      {
+        "t": "I work until six.",
+        "zh": "我工作到六點。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "work 與 walk 音近，內容無關。"
+      },
+      {
+        "t": "Take a break, please.",
+        "zh": "請休息一下。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 take，但意思不同。"
+      },
+      {
+        "t": "I want a new phone.",
+        "zh": "我想要一支新手機。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 want，但意思不同。"
+      },
+      {
+        "t": "The street is very wide.",
+        "zh": "這條街很寬。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "Taxis are yellow in this city.",
+        "zh": "這個城市的計程車是黃色的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "They walked to the park.",
+        "zh": "他們走路去了公園。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "walk",
+        "ipa": "/wɔːk/",
+        "pos": "v.",
+        "col": "walk to the station",
+        "zh": "走路"
+      },
+      {
+        "word": "taxi",
+        "ipa": "/ˈtæksi/",
+        "pos": "n.",
+        "col": "take a taxi",
+        "zh": "計程車"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d4-005-e",
+    "domain": "d4",
+    "qtype": "q4",
+    "tag": "確認郵局是否在這條街",
+    "scene": "street",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "附加問句，正解直接確認或直接更正。"
+    },
+    "q": {
+      "t": "The post office is on this street, isn't it?",
+      "zh": "郵局在這條街上，對吧？"
+    },
+    "pool": [
+      {
+        "t": "Yes, it's on the left.",
+        "zh": "對，在左手邊。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "confirm",
+        "why": "正解：直接肯定並補充位置。"
+      },
+      {
+        "t": "Yes, next to the café.",
+        "zh": "對，在咖啡店旁邊。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "confirm",
+        "why": "正解：直接肯定並補充位置。"
+      },
+      {
+        "t": "No, it's on Oak Street.",
+        "zh": "不，在橡樹街。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "correct",
+        "why": "正解：否定並更正位置。"
+      },
+      {
+        "t": "At nine o'clock.",
+        "zh": "九點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Mrs. Wilson.",
+        "zh": "威爾森太太。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Two stamps, please.",
+        "zh": "請給我兩張郵票。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 What 的答案。"
+      },
+      {
+        "t": "Dinner is my treat.",
+        "zh": "晚餐我請客。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "treat 與 street 音近，內容無關。"
+      },
+      {
+        "t": "I post photos online.",
+        "zh": "我在網路上發照片。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 post，但意思不同。"
+      },
+      {
+        "t": "This is my first visit.",
+        "zh": "這是我第一次來。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 this，但意思不同。"
+      },
+      {
+        "t": "Stamps cost sixty cents.",
+        "zh": "郵票六十美分。",
+        "ok": false,
+        "trap": "association",
+        "why": "與郵局有關，但沒有回答問題。"
+      },
+      {
+        "t": "The mail comes at noon.",
+        "zh": "郵件中午送到。",
+        "ok": false,
+        "trap": "association",
+        "why": "與郵局有關，但沒有回答問題。"
+      },
+      {
+        "t": "They were posting a letter.",
+        "zh": "他們那時在寄信。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "post office",
+        "ipa": "/poʊst ˈɔːfɪs/",
+        "pos": "n.",
+        "col": "the post office",
+        "zh": "郵局"
+      },
+      {
+        "word": "left",
+        "ipa": "/left/",
+        "pos": "n.",
+        "col": "on the left",
+        "zh": "左邊"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d4-006-e",
+    "domain": "d4",
+    "qtype": "q5",
+    "tag": "說明車票遺失",
+    "scene": "station",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "陳述句，正解是給建議、主動幫忙找、或反問最後一次看到的地點。"
+    },
+    "q": {
+      "t": "I lost my ticket.",
+      "zh": "我的車票掉了。"
+    },
+    "pool": [
+      {
+        "t": "Check your pockets again.",
+        "zh": "再檢查一下口袋。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "respond",
+        "why": "正解：針對問題給出建議。"
+      },
+      {
+        "t": "I'll help you look for it.",
+        "zh": "我幫你找。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "offer-help",
+        "why": "正解：主動表示幫忙。"
+      },
+      {
+        "t": "Where did you last have it?",
+        "zh": "你最後一次看到它是在哪裡？",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "question-back",
+        "why": "正解：反問細節以便協助。"
+      },
+      {
+        "t": "At platform two.",
+        "zh": "在二號月台。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "At noon.",
+        "zh": "中午。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Mr. Reyes did.",
+        "zh": "是雷耶斯先生做的。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "This is my last day.",
+        "zh": "今天是我的最後一天。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "last 與 lost 音近，內容無關。"
+      },
+      {
+        "t": "I lost weight this year.",
+        "zh": "我今年瘦了。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 lost，但意思不同。"
+      },
+      {
+        "t": "The station is very old.",
+        "zh": "這個車站很老舊。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "Our trains run on time.",
+        "zh": "我們的火車很準時。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "Tickets come in three colors.",
+        "zh": "車票有三種顏色。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "He lost his hat last week.",
+        "zh": "他上週弄丟了帽子。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "ticket",
+        "ipa": "/ˈtɪkɪt/",
+        "pos": "n.",
+        "col": "a train ticket",
+        "zh": "車票"
+      },
+      {
+        "word": "pocket",
+        "ipa": "/ˈpɑːkɪt/",
+        "pos": "n.",
+        "col": "in your pocket",
+        "zh": "口袋"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d4-007-e",
+    "domain": "d4",
+    "qtype": "q6",
+    "tag": "提議幫忙提行李箱",
+    "scene": "station",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "提議句，正解是接受、婉拒並說明、或詢問放在哪裡。"
+    },
+    "q": {
+      "t": "Can I take your suitcase?",
+      "zh": "我可以幫你拿行李箱嗎？"
+    },
+    "pool": [
+      {
+        "t": "Yes, thank you very much.",
+        "zh": "好的，非常謝謝你。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "accept",
+        "why": "正解：接受提議。"
+      },
+      {
+        "t": "No, thanks, it's light.",
+        "zh": "不用了，謝謝，它很輕。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "decline",
+        "why": "正解：婉拒並說明。"
+      },
+      {
+        "t": "Where should we put it?",
+        "zh": "我們要放在哪裡？",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "ask-detail",
+        "why": "正解：詢問細節，等於接受。"
+      },
+      {
+        "t": "At gate five.",
+        "zh": "在五號登機門。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "At seven o'clock.",
+        "zh": "七點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Mr. Gomez.",
+        "zh": "戈麥茲先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "I'd like some cake.",
+        "zh": "我想要一些蛋糕。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "cake 與 take 音近，內容無關。"
+      },
+      {
+        "t": "I take the train to work.",
+        "zh": "我搭火車上班。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 take，但意思不同。"
+      },
+      {
+        "t": "Suitcases come in many sizes.",
+        "zh": "行李箱有很多尺寸。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "Traveling can be tiring.",
+        "zh": "旅行可能很累。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "The weather is cold today.",
+        "zh": "今天天氣很冷。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "She took her suitcase yesterday.",
+        "zh": "她昨天帶走了她的行李箱。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "suitcase",
+        "ipa": "/ˈsuːtkeɪs/",
+        "pos": "n.",
+        "col": "a heavy suitcase",
+        "zh": "行李箱"
+      },
+      {
+        "word": "light",
+        "ipa": "/laɪt/",
+        "pos": "adj.",
+        "col": "a light suitcase",
+        "zh": "輕的"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d4-008-e",
+    "domain": "d4",
+    "qtype": "q2",
+    "tag": "詢問地鐵站是否在附近",
+    "scene": "street",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "Yes/No 問句，正解直接說在或不在並補充距離。"
+    },
+    "q": {
+      "t": "Is the subway station near here?",
+      "zh": "地鐵站在這附近嗎？"
+    },
+    "pool": [
+      {
+        "t": "Yes, just two blocks away.",
+        "zh": "是的，只要兩個街區。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接肯定並補充距離。"
+      },
+      {
+        "t": "No, it's quite far.",
+        "zh": "不，滿遠的。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接否定。"
+      },
+      {
+        "t": "Yes, it's behind that building.",
+        "zh": "是的，在那棟大樓後面。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接肯定並指出位置。"
+      },
+      {
+        "t": "At eight o'clock.",
+        "zh": "八點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Mr. Stone.",
+        "zh": "史東先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Three dollars.",
+        "zh": "三美元。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 How much 的答案。"
+      },
+      {
+        "t": "My ear hurts.",
+        "zh": "我的耳朵痛。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "ear 與 near 音近，內容無關。"
+      },
+      {
+        "t": "Here is your change.",
+        "zh": "這是你的零錢。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 here，但意思不同。"
+      },
+      {
+        "t": "The radio station plays jazz.",
+        "zh": "這個廣播電台播放爵士樂。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 station，但意思不同。"
+      },
+      {
+        "t": "The subway is very fast.",
+        "zh": "地鐵非常快。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "The subway was built in 1990.",
+        "zh": "地鐵是一九九〇年蓋的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與交通有關，但沒有回答問題。"
+      },
+      {
+        "t": "He was near the door.",
+        "zh": "他那時在門邊。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "subway",
+        "ipa": "/ˈsʌbweɪ/",
+        "pos": "n.",
+        "col": "take the subway",
+        "zh": "地鐵"
+      },
+      {
+        "word": "block",
+        "ipa": "/blɑːk/",
+        "pos": "n.",
+        "col": "two blocks away",
+        "zh": "街區"
+      }
+    ],
+    "issues": []
+  }
+]

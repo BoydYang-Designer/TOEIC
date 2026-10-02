@@ -1,0 +1,988 @@
+[
+  {
+    "id": "d3-001-e",
+    "domain": "d3",
+    "qtype": "q1",
+    "wh": "where",
+    "tag": "詢問鞋子在哪個區域",
+    "scene": "store",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "Where 問句短而單純，正解都直接說出位置。"
+    },
+    "q": {
+      "t": "Where can I find the shoes?",
+      "zh": "鞋子在哪裡可以找到？"
+    },
+    "pool": [
+      {
+        "t": "In aisle five.",
+        "zh": "在第五走道。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出位置。"
+      },
+      {
+        "t": "Next to the cashier.",
+        "zh": "在收銀員旁邊。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：用相對位置回答地點。"
+      },
+      {
+        "t": "Upstairs, on the second floor.",
+        "zh": "樓上，二樓。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出樓層。"
+      },
+      {
+        "t": "At six o'clock.",
+        "zh": "六點整。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Twenty dollars.",
+        "zh": "二十美元。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 How much 的答案。"
+      },
+      {
+        "t": "Mr. Kim, the manager.",
+        "zh": "金經理。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "The show starts at noon.",
+        "zh": "表演中午開始。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "show 與 shoes 音近，內容無關。"
+      },
+      {
+        "t": "I can find my keys.",
+        "zh": "我找得到我的鑰匙。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 find，但沒有回答位置。"
+      },
+      {
+        "t": "She found a red coat.",
+        "zh": "她找到一件紅色外套。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "We sell hats and gloves.",
+        "zh": "我們賣帽子和手套。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商品有關，但沒有回答位置。"
+      },
+      {
+        "t": "The socks are blue.",
+        "zh": "襪子是藍色的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商品有關，但沒有回答位置。"
+      },
+      {
+        "t": "Sandals are very comfortable.",
+        "zh": "涼鞋非常舒適。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商品有關，但沒有回答位置。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "shoe",
+        "ipa": "/ʃuː/",
+        "pos": "n.",
+        "col": "a pair of shoes",
+        "zh": "鞋子"
+      },
+      {
+        "word": "aisle",
+        "ipa": "/aɪl/",
+        "pos": "n.",
+        "col": "in aisle five",
+        "zh": "走道"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d3-002-e",
+    "domain": "d3",
+    "qtype": "q2",
+    "tag": "詢問夾克是否特價",
+    "scene": "store",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "Yes/No 問句，正解直接回答有或沒有打折。"
+    },
+    "q": {
+      "t": "Is this jacket on sale?",
+      "zh": "這件夾克有特價嗎？"
+    },
+    "pool": [
+      {
+        "t": "Yes, it's thirty percent off.",
+        "zh": "有，打七折。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接肯定並補充折扣。"
+      },
+      {
+        "t": "No, it's the regular price.",
+        "zh": "沒有，是原價。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接否定。"
+      },
+      {
+        "t": "Yes, until Sunday.",
+        "zh": "有，到星期日為止。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接肯定並補充期限。"
+      },
+      {
+        "t": "In the fitting room.",
+        "zh": "在試衣間。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mrs. Park.",
+        "zh": "朴太太。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Around three o'clock.",
+        "zh": "大約三點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "This bag is too heavy.",
+        "zh": "這個袋子太重了。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 this，但沒有回答問題。"
+      },
+      {
+        "t": "The color is dark blue.",
+        "zh": "顏色是深藍色。",
+        "ok": false,
+        "trap": "association",
+        "why": "談夾克，但沒有回答問題。"
+      },
+      {
+        "t": "It has two pockets.",
+        "zh": "它有兩個口袋。",
+        "ok": false,
+        "trap": "association",
+        "why": "談夾克，但沒有回答問題。"
+      },
+      {
+        "t": "The zipper is a little stiff.",
+        "zh": "拉鍊有點緊。",
+        "ok": false,
+        "trap": "association",
+        "why": "談夾克，但沒有回答問題。"
+      },
+      {
+        "t": "She was selling coats.",
+        "zh": "她那時在賣外套。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "Wool keeps you warm.",
+        "zh": "羊毛很保暖。",
+        "ok": false,
+        "trap": "association",
+        "why": "談材質，但沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "jacket",
+        "ipa": "/ˈdʒækɪt/",
+        "pos": "n.",
+        "col": "a leather jacket",
+        "zh": "夾克"
+      },
+      {
+        "word": "on sale",
+        "ipa": "/ɑːn seɪl/",
+        "pos": "phr.",
+        "col": "on sale this week",
+        "zh": "特價中"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d3-003-e",
+    "domain": "d3",
+    "qtype": "q3",
+    "tag": "詢問要袋子還是盒子",
+    "scene": "store",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "二選一問句，正解直接選一個或表示都可以。"
+    },
+    "q": {
+      "t": "Do you want a bag or a box?",
+      "zh": "你要袋子還是盒子？"
+    },
+    "pool": [
+      {
+        "t": "A bag, please.",
+        "zh": "請給我袋子。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "pick-one",
+        "why": "正解：直接選擇袋子。"
+      },
+      {
+        "t": "A box, please.",
+        "zh": "請給我盒子。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "pick-one",
+        "why": "正解：直接選擇盒子。"
+      },
+      {
+        "t": "Either one is fine.",
+        "zh": "哪個都可以。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "no-preference",
+        "why": "正解：表示都可以。"
+      },
+      {
+        "t": "At the front desk.",
+        "zh": "在服務台。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mr. Hall bought it.",
+        "zh": "是霍爾先生買的。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Yes, I do.",
+        "zh": "是的，我要。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "選擇問句不能用 Yes 回答。"
+      },
+      {
+        "t": "There's a bug on the wall.",
+        "zh": "牆上有一隻蟲。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "bug 與 bag 音近，內容無關。"
+      },
+      {
+        "t": "I want to pay by card.",
+        "zh": "我想刷卡付款。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 want，但沒有選擇。"
+      },
+      {
+        "t": "The line is very long.",
+        "zh": "隊伍很長。",
+        "ok": false,
+        "trap": "association",
+        "why": "與結帳有關，但沒有回答選擇。"
+      },
+      {
+        "t": "Gift wrap is five dollars.",
+        "zh": "禮物包裝要五美元。",
+        "ok": false,
+        "trap": "association",
+        "why": "與包裝有關，但沒有回答選擇。"
+      },
+      {
+        "t": "They wanted a big box.",
+        "zh": "他們想要一個大盒子。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "The checkout is closed.",
+        "zh": "結帳櫃台關了。",
+        "ok": false,
+        "trap": "association",
+        "why": "與結帳有關，但沒有回答選擇。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "bag",
+        "ipa": "/bæɡ/",
+        "pos": "n.",
+        "col": "a paper bag",
+        "zh": "袋子"
+      },
+      {
+        "word": "box",
+        "ipa": "/bɑːks/",
+        "pos": "n.",
+        "col": "a gift box",
+        "zh": "盒子"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d3-004-e",
+    "domain": "d3",
+    "qtype": "q4",
+    "tag": "確認商店是否九點開門",
+    "scene": "store",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "附加問句，正解直接確認或直接更正時間。"
+    },
+    "q": {
+      "t": "The store opens at nine, doesn't it?",
+      "zh": "商店九點開門，對吧？"
+    },
+    "pool": [
+      {
+        "t": "Yes, it does.",
+        "zh": "對，是的。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "confirm",
+        "why": "正解：直接肯定。"
+      },
+      {
+        "t": "Yes, right at nine.",
+        "zh": "對，九點整。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "confirm",
+        "why": "正解：肯定並補充時間。"
+      },
+      {
+        "t": "No, it opens at ten.",
+        "zh": "不，是十點開門。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "correct",
+        "why": "正解：否定並更正時間。"
+      },
+      {
+        "t": "On Main Street.",
+        "zh": "在主街上。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mr. Ross, the owner.",
+        "zh": "老闆羅斯先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Nice shirt, by the way.",
+        "zh": "順帶一提，你的襯衫真好看。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "nice 與 nine 音近，內容無關。"
+      },
+      {
+        "t": "Please store the boxes there.",
+        "zh": "請把箱子存放在那邊。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "store 當動詞，意思與商店不同。"
+      },
+      {
+        "t": "Open the box, please.",
+        "zh": "請打開盒子。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 open，但意思不同。"
+      },
+      {
+        "t": "The parking lot is big.",
+        "zh": "停車場很大。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商店有關，但沒有回答問題。"
+      },
+      {
+        "t": "The cashier is new.",
+        "zh": "收銀員是新來的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商店有關，但沒有回答問題。"
+      },
+      {
+        "t": "She was opening a package.",
+        "zh": "她那時在拆包裹。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "The sign is red.",
+        "zh": "招牌是紅色的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商店有關，但沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "store",
+        "ipa": "/stɔːr/",
+        "pos": "n.",
+        "col": "a clothing store",
+        "zh": "商店"
+      },
+      {
+        "word": "owner",
+        "ipa": "/ˈoʊnər/",
+        "pos": "n.",
+        "col": "the store owner",
+        "zh": "老闆"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d3-005-e",
+    "domain": "d3",
+    "qtype": "q5",
+    "tag": "表示在找禮物",
+    "scene": "store",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "陳述句，正解是詢問對象、主動協助、或推薦商品。"
+    },
+    "q": {
+      "t": "I'm looking for a gift.",
+      "zh": "我在找一份禮物。"
+    },
+    "pool": [
+      {
+        "t": "Who is it for?",
+        "zh": "是要送誰的？",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "question-back",
+        "why": "正解：反問細節以便推薦。"
+      },
+      {
+        "t": "I can help you find one.",
+        "zh": "我可以幫你找。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "offer-help",
+        "why": "正解：主動表示願意幫忙。"
+      },
+      {
+        "t": "We have a nice scarf over here.",
+        "zh": "這邊有一條不錯的圍巾。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "respond",
+        "why": "正解：針對需求推薦商品。"
+      },
+      {
+        "t": "In the back room.",
+        "zh": "在後面的房間。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Around noon.",
+        "zh": "中午左右。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Mr. Green did.",
+        "zh": "是格林先生做的。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "The lift is broken.",
+        "zh": "電梯壞了。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "lift 與 gift 音近，內容無關。"
+      },
+      {
+        "t": "I'm looking at the clock.",
+        "zh": "我正在看時鐘。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 looking，但沒有回應說話者。"
+      },
+      {
+        "t": "Our hours are on the door.",
+        "zh": "我們的營業時間貼在門上。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商店有關，但沒有回應需求。"
+      },
+      {
+        "t": "The floor is slippery.",
+        "zh": "地板很滑。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商店有關，但沒有回應需求。"
+      },
+      {
+        "t": "He looked for his keys.",
+        "zh": "他找過他的鑰匙。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "The cashier is on break.",
+        "zh": "收銀員在休息。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商店有關，但沒有回應需求。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "gift",
+        "ipa": "/ɡɪft/",
+        "pos": "n.",
+        "col": "a birthday gift",
+        "zh": "禮物"
+      },
+      {
+        "word": "scarf",
+        "ipa": "/skɑːrf/",
+        "pos": "n.",
+        "col": "a wool scarf",
+        "zh": "圍巾"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d3-006-e",
+    "domain": "d3",
+    "qtype": "q6",
+    "tag": "店員詢問是否需要協助",
+    "scene": "store",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "提議句，正解是答應並說出需求、婉拒、或詢問有沒有某商品。"
+    },
+    "q": {
+      "t": "Can I help you?",
+      "zh": "需要我幫忙嗎？"
+    },
+    "pool": [
+      {
+        "t": "Yes, I'm looking for a belt.",
+        "zh": "需要，我在找皮帶。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "accept",
+        "why": "正解：接受協助並說出需求。"
+      },
+      {
+        "t": "No, thanks, I'm just looking.",
+        "zh": "不用，謝謝，我只是看看。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "decline",
+        "why": "正解：禮貌婉拒。"
+      },
+      {
+        "t": "Do you sell leather wallets?",
+        "zh": "你們有賣皮夾嗎？",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "ask-detail",
+        "why": "正解：詢問商品，等於接受協助。"
+      },
+      {
+        "t": "At the back of the store.",
+        "zh": "在店的後面。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Around seven o'clock.",
+        "zh": "大約七點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Mr. Lopez, I think.",
+        "zh": "我想是洛佩茲先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "Help yourself to a sample.",
+        "zh": "請自行取用試吃品。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 help，但意思不同，也不是回應。"
+      },
+      {
+        "t": "I can drive a truck.",
+        "zh": "我會開卡車。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 can，但沒有回應提議。"
+      },
+      {
+        "t": "The store closes at nine.",
+        "zh": "商店九點打烊。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商店有關，但沒有回應提議。"
+      },
+      {
+        "t": "The sale ends Friday.",
+        "zh": "特賣到星期五結束。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商店有關，但沒有回應提議。"
+      },
+      {
+        "t": "She helped me yesterday.",
+        "zh": "她昨天幫過我。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      },
+      {
+        "t": "The windows are very clean.",
+        "zh": "窗戶很乾淨。",
+        "ok": false,
+        "trap": "association",
+        "why": "與商店有關，但沒有回應提議。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "belt",
+        "ipa": "/belt/",
+        "pos": "n.",
+        "col": "a leather belt",
+        "zh": "皮帶"
+      },
+      {
+        "word": "wallet",
+        "ipa": "/ˈwɑːlɪt/",
+        "pos": "n.",
+        "col": "a leather wallet",
+        "zh": "皮夾"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d3-007-e",
+    "domain": "d3",
+    "qtype": "q1",
+    "wh": "how",
+    "tag": "詢問檯燈多少錢",
+    "scene": "store",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "How much 問句短而單純，正解都直接說出價錢。"
+    },
+    "q": {
+      "t": "How much is this lamp?",
+      "zh": "這盞檯燈多少錢？"
+    },
+    "pool": [
+      {
+        "t": "It's twenty dollars.",
+        "zh": "二十美元。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出價錢。"
+      },
+      {
+        "t": "Ten dollars each.",
+        "zh": "一個十美元。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出單價。"
+      },
+      {
+        "t": "Just fifteen dollars.",
+        "zh": "只要十五美元。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出價錢。"
+      },
+      {
+        "t": "In aisle three.",
+        "zh": "在第三走道。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "At four o'clock.",
+        "zh": "四點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Mr. Cole did.",
+        "zh": "是柯爾先生做的。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "The lamb is very tender.",
+        "zh": "羊肉很嫩。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "lamb 與 lamp 音近，內容無關。"
+      },
+      {
+        "t": "Much better, thank you.",
+        "zh": "好多了，謝謝。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 much，但沒有回答價錢。"
+      },
+      {
+        "t": "I like this song.",
+        "zh": "我喜歡這首歌。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 this，但沒有回答價錢。"
+      },
+      {
+        "t": "The lamp is made in Italy.",
+        "zh": "這盞燈是義大利製的。",
+        "ok": false,
+        "trap": "association",
+        "why": "談檯燈，但沒有回答價錢。"
+      },
+      {
+        "t": "It has a blue shade.",
+        "zh": "它有藍色的燈罩。",
+        "ok": false,
+        "trap": "association",
+        "why": "談檯燈，但沒有回答價錢。"
+      },
+      {
+        "t": "He was buying a lamp.",
+        "zh": "他那時在買檯燈。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答價錢。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "lamp",
+        "ipa": "/læmp/",
+        "pos": "n.",
+        "col": "a desk lamp",
+        "zh": "檯燈"
+      },
+      {
+        "word": "dollar",
+        "ipa": "/ˈdɑːlər/",
+        "pos": "n.",
+        "col": "twenty dollars",
+        "zh": "美元"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d3-008-e",
+    "domain": "d3",
+    "qtype": "q2",
+    "tag": "詢問是否可刷信用卡",
+    "scene": "store",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "Yes/No 問句，正解直接說可以或只收現金。"
+    },
+    "q": {
+      "t": "Do you take credit cards?",
+      "zh": "你們收信用卡嗎？"
+    },
+    "pool": [
+      {
+        "t": "Yes, Visa and Mastercard.",
+        "zh": "收，Visa 和萬事達卡。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接肯定並補充卡別。"
+      },
+      {
+        "t": "No, cash only.",
+        "zh": "不收，只收現金。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接否定並說明。"
+      },
+      {
+        "t": "Yes, we take all major cards.",
+        "zh": "收，主要的卡都收。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接肯定。"
+      },
+      {
+        "t": "At the front door.",
+        "zh": "在前門。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "At three o'clock.",
+        "zh": "三點。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Mr. Wu, I think.",
+        "zh": "我想是吳先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "My car is parked outside.",
+        "zh": "我的車停在外面。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "car 與 card 音近，內容無關。"
+      },
+      {
+        "t": "I take the bus to work.",
+        "zh": "我搭公車上班。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 take，但意思無關。"
+      },
+      {
+        "t": "The prices are on the tags.",
+        "zh": "價格標在吊牌上。",
+        "ok": false,
+        "trap": "association",
+        "why": "與購物有關，但沒有回答問題。"
+      },
+      {
+        "t": "Our cashier is very fast.",
+        "zh": "我們的收銀員很快。",
+        "ok": false,
+        "trap": "association",
+        "why": "與結帳有關，但沒有回答問題。"
+      },
+      {
+        "t": "The register is new.",
+        "zh": "收銀機是新的。",
+        "ok": false,
+        "trap": "association",
+        "why": "與結帳有關，但沒有回答問題。"
+      },
+      {
+        "t": "She took her bag home.",
+        "zh": "她把袋子帶回家了。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "人稱與時態不符，沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "credit card",
+        "ipa": "/ˈkredɪt kɑːrd/",
+        "pos": "n.",
+        "col": "pay by credit card",
+        "zh": "信用卡"
+      },
+      {
+        "word": "cash",
+        "ipa": "/kæʃ/",
+        "pos": "n.",
+        "col": "cash only",
+        "zh": "現金"
+      }
+    ],
+    "issues": []
+  }
+]

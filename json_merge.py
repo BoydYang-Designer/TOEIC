@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-TOEIC Coach ─ 題庫合併工具（daily / photo / part2 共用）
+TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 共用）
 
-用法：把這支程式放在 daily.json、photo.json、part2.json 所在的資料夾，雙擊執行。
-  1. 最上方選擇題庫：每日文章（daily.json）／Part 1 照片（photo.json）／Part 2 應答（part2.json）。
+用法：把這支程式放在 daily.json、photo.json、part2.json、part3.json 所在的資料夾，雙擊執行。
+  1. 最上方選擇題庫：每日文章（daily.json）／Part 1 照片（photo.json）／Part 2 應答（part2.json）／Part 3 對話（part3.json）。
      啟動時會自動選「資料夾內等待合併的副檔最多」的那一個；也可用  python json_merge.py part2  直接指定。
   2. 自動列出該題庫的副檔：
        daily  → w1d3.json 這類（其他 .json 也會列出，但不會自動勾選）
        photo  → d1-002-m.json 這類（檔名是題目 id）
        part2  → p2_d1-001-h_x5.json 這類（網頁「新增題目」產生的檔名）
+       part3  → p3_d1-002-m_x2.json 這類（網頁「新增題目」產生的檔名）
      找不到的可用「新增檔案…」手動加入。
   3. 選取要合併的副檔（可多選：Ctrl / Shift）→「合併」→ 確認 → 寫回主檔（寫入前自動備份到 backup 資料夾）。
 副檔可以是：單筆題目、題目陣列、或含 items 的物件；AI 貼出的 ```json 圍欄也能自動處理。
@@ -688,8 +689,219 @@ class Part2(IdProfile):
         return er, wa
 
 
-PROFILES = {'daily': Daily(), 'photo': Photo(), 'part2': Part2()}
-ORDER = ('daily', 'photo', 'part2')
+# ───── part3 ─────
+
+class Part3(IdProfile):
+    """Part 3 簡短對話：一組＝一段對話（dialogue）＋3 題四選一（questions）。"""
+    name = 'part3'
+    title = 'Part 3 對話'
+    main_name = 'part3.json'
+    backup_prefix = 'part3'
+    has_dups = True
+    QTYPES = ('main', 'detail', 'infer', 'intent', 'next', 'graphic')
+    TRAPS = ('mention-not-ask', 'wrong-speaker', 'number-mix', 'sound-alike', 'over-infer', 'opposite', 'partial')
+    PATTERNS = ('direct', 'paraphrase', 'summary')
+    empty_hint = ('資料夾內沒有找到副檔。\n請把網頁「新增題目」產生的檔案（例如 p3_d1-002-m_x2.json）放進來，'
+                  '或按「新增檔案…」手動選取。')
+    done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p3/（{id}-s01.mp3…，一句對話一檔），'
+                 '再執行 audio_scan.py；沒有音檔時網頁會用機器發音。')
+
+    def is_candidate(self, fname):
+        return fname.lower().startswith('p3_')
+
+    def is_auto(self, fname):
+        return self.is_candidate(fname)
+
+    def describe(self, e):
+        d = e.get('dialogue') if isinstance(e, dict) else None
+        return d[0].get('t', '') if isinstance(d, list) and d and isinstance(d[0], dict) else ''
+
+    def make_ctx(self, items, data):
+        spec = data.get('_spec') if isinstance(data, dict) and isinstance(data.get('_spec'), dict) else {}
+        traps = [k for k in (spec.get('traps') or {}) if k != 'correct'] or list(self.TRAPS)
+        return {'domains': domains_of(data), 'idx': build_index(items), 'traps': traps}
+
+    def find_dups(self, e, refs):
+        t = self.describe(e)
+        if not t:
+            return []
+        me, n = self.key(e), norm(t)
+        return [(i, x) for i, x in refs if i != me and similar(n, norm(x))]
+
+    def extra_detail(self, e):
+        if isinstance(e, dict) and isinstance(e.get('dialogue'), list):
+            qs = [str(q.get('qtype', '?')) for q in e.get('questions') or [] if isinstance(q, dict)]
+            return ['     %s｜%d 句｜%s' % (e.get('form', ''), len(e['dialogue']), '／'.join(qs))]
+        return []
+
+    def validate(self, e, ctx):
+        er, wa = [], []
+        if not isinstance(e, dict):
+            return ['內容不是物件'], wa
+        if 'skip' in e:
+            return ['AI 回報寫不出這個難度，不應合併：%s' % e.get('skip')], wa
+        m = ID_RE.match(str(e.get('id', '')))
+        if not m:
+            return ['id 格式必須是 d{1-7}-{3 位數}-{e|m|h}，例如 d1-002-h'], wa
+        dom, suffix, me = 'd' + m.group(1), m.group(3), e['id']
+        idx = ctx['idx']
+        if e.get('domain') != dom:
+            er.append('domain 應為 %s（要等於 id 前段），目前是 %r' % (dom, e.get('domain')))
+        scenes = ctx['domains'].get(dom, [])
+        if e.get('scene') not in scenes:
+            er.append('scene %r 不屬於 %s（可用：%s）' % (e.get('scene'), dom, '、'.join(scenes)))
+        if not str(e.get('tag') or '').strip():
+            er.append('缺少 tag')
+        check_level(e, suffix, er, wa)
+
+        # 形式與說話者
+        form = e.get('form')
+        if form not in ('2p', '3p'):
+            er.append("form 必須是 '2p' 或 '3p'，目前是 %r" % form)
+        sp = e.get('speakers')
+        sids = []
+        if not isinstance(sp, list) or not sp:
+            er.append('缺少 speakers')
+        else:
+            for s in sp:
+                if not isinstance(s, dict) or not s.get('id') or s.get('gender') not in ('F', 'M'):
+                    er.append("speakers 每項需要 id 與 gender（'F' 或 'M'）")
+                    break
+                sids.append(s['id'])
+            if len(set(sids)) != len(sids):
+                er.append('speakers 的 id 重複')
+            want = 2 if form == '2p' else 3 if form == '3p' else None
+            if want and len(sp) != want:
+                er.append('form 是 %s，speakers 應有 %d 位（目前 %d）' % (form, want, len(sp)))
+            genders = [s.get('gender') for s in sp if isinstance(s, dict)]
+            if form == '3p' and genders and len(set(genders)) == 1:
+                wa.append('三人對話的說話者全是同一性別，不易分辨')
+            if form == '2p' and len(genders) == 2 and len(set(genders)) == 1:
+                wa.append('兩人對話建議一男一女')
+
+        # 對話
+        dl = e.get('dialogue')
+        blob = []
+        if not isinstance(dl, list) or not dl:
+            er.append('缺少 dialogue')
+            dl = []
+        else:
+            if not 5 <= len(dl) <= 16:
+                wa.append('對話有 %d 句（建議 5–16）' % len(dl))
+            spoke = set()
+            for i, l in enumerate(dl):
+                if not isinstance(l, dict) or not str(l.get('t') or '').strip():
+                    er.append('dialogue 第 %d 句格式不對（需要 sp、t）' % i)
+                    continue
+                if sids and l.get('sp') not in sids:
+                    er.append('dialogue 第 %d 句的 sp %r 不在 speakers 內' % (i, l.get('sp')))
+                spoke.add(l.get('sp'))
+                if not str(l.get('zh') or '').strip():
+                    wa.append('dialogue 第 %d 句缺少 zh' % i)
+                n = n_words(l['t'])
+                if not 3 <= n <= 30:
+                    wa.append('dialogue 第 %d 句有 %d 個字（建議 3–30）' % (i, n))
+                blob.append(norm(l['t']))
+            if sids and not set(sids) <= spoke:
+                wa.append('有說話者沒有發言：%s' % '、'.join(sorted(set(sids) - spoke)))
+        dtext = ' '.join(blob)
+
+        # 圖表
+        g = e.get('graphic')
+        if g is not None:
+            cols = g.get('columns') if isinstance(g, dict) else None
+            rows = g.get('rows') if isinstance(g, dict) else None
+            if not isinstance(g, dict) or not g.get('title') or not isinstance(cols, list) or not cols \
+                    or not isinstance(rows, list) or not rows:
+                er.append('graphic 需要 title、columns（陣列）、rows（二維陣列）')
+            elif any(not isinstance(r, list) or len(r) != len(cols) for r in rows):
+                er.append('graphic.rows 每列的欄數必須等於 columns（%d 欄）' % len(cols))
+
+        # 題目
+        qs = e.get('questions')
+        has_gq, last_ev = False, -1
+        if not isinstance(qs, list) or len(qs) != 3:
+            er.append('questions 必須剛好 3 題（目前 %s）' % (len(qs) if isinstance(qs, list) else '沒有'))
+            qs = qs if isinstance(qs, list) else []
+        for qi, q in enumerate(qs, 1):
+            tag = '第 %d 題' % qi
+            if not isinstance(q, dict):
+                er.append('%s 不是物件' % tag)
+                continue
+            qt = q.get('qtype')
+            if qt not in self.QTYPES:
+                er.append('%s qtype 必須是 %s，目前是 %r' % (tag, '／'.join(self.QTYPES), qt))
+            qq = q.get('q')
+            qtext = ''
+            if not isinstance(qq, dict) or not str(qq.get('t') or '').strip():
+                er.append('%s 缺少 q.t' % tag)
+            else:
+                qtext = qq['t'].strip()
+                if not str(qq.get('zh') or '').strip():
+                    wa.append('%s 缺少 q.zh' % tag)
+            blob.append(norm(qtext))
+            if qt == 'graphic':
+                has_gq = True
+                if g is None:
+                    er.append('%s 是圖表題，但沒有 graphic' % tag)
+                if qtext and not qtext.lower().startswith('look at the graphic'):
+                    wa.append('%s 圖表題題目應以 Look at the graphic 開頭' % tag)
+            if qt == 'intent':
+                mq = re.search(r'["“](.+?)["”]', qtext)
+                if not mq:
+                    wa.append('%s 意圖題應在題目中引用對話裡的一句話（用引號）' % tag)
+                elif norm(mq.group(1)) not in dtext:
+                    wa.append('%s 引用的句子不在對話中：%s' % (tag, mq.group(1)))
+            ch = q.get('choices')
+            if not isinstance(ch, list) or len(ch) != 4:
+                er.append('%s choices 必須剛好 4 個（目前 %s）' % (tag, len(ch) if isinstance(ch, list) else '沒有'))
+            else:
+                texts, n_ok = [], 0
+                for ci, c in enumerate(ch, 1):
+                    if not isinstance(c, dict) or not str(c.get('t') or '').strip() or not isinstance(c.get('ok'), bool):
+                        er.append('%s 選項 %d 格式不對（需要 t 與 ok:true/false）' % (tag, ci))
+                        continue
+                    texts.append(norm(c['t']))
+                    blob.append(norm(c['t']))
+                    if not str(c.get('zh') or '').strip():
+                        wa.append('%s 選項 %d 缺少 zh' % (tag, ci))
+                    if not str(c.get('why') or '').strip():
+                        wa.append('%s 選項 %d 缺少 why' % (tag, ci))
+                    if c['ok']:
+                        n_ok += 1
+                        if c.get('pattern') not in self.PATTERNS:
+                            wa.append('%s 正解 pattern %r 不在合法值（%s）' % (tag, c.get('pattern'), '、'.join(self.PATTERNS)))
+                        if not str(c.get('why', '')).startswith('正解：'):
+                            wa.append('%s 正解的 why 建議以「正解：」開頭' % tag)
+                    elif c.get('trap') not in ctx['traps']:
+                        er.append('%s 選項 %d trap 不合法：%r' % (tag, ci, c.get('trap')))
+                if n_ok != 1:
+                    er.append('%s 必須剛好 1 個正解（目前 %d）' % (tag, n_ok))
+                if len(set(texts)) != len(texts):
+                    er.append('%s 有重複的選項' % tag)
+            ev = q.get('evidence')
+            if not isinstance(ev, list) or not ev:
+                wa.append('%s 缺少 evidence（證據句索引）' % tag)
+            elif any(not isinstance(i, int) or isinstance(i, bool) or not 0 <= i < max(len(dl), 1) for i in ev):
+                er.append('%s evidence 必須是 0–%d 的整數索引：%r' % (tag, len(dl) - 1, ev))
+            else:
+                if min(ev) < last_ev:
+                    wa.append('%s 的證據句比前一題更前面（答案順序通常與題號一致）' % tag)
+                last_ev = max(last_ev, min(ev))
+        if g is not None and qs and not has_gq:
+            wa.append('有 graphic 但沒有任何圖表題')
+
+        check_vocab(e, ' '.join([dtext] + blob), ctx, er, wa)
+        tg = str(e.get('tag') or '').strip()
+        if tg and others_of(idx['tag'], tg, me):
+            wa.append('tag「%s」與其他題目相同' % tg)
+        if e.get('issues'):
+            wa.append('備註：%s' % '；'.join(map(str, e['issues'])))
+        return er, wa
+
+
+PROFILES = {'daily': Daily(), 'photo': Photo(), 'part2': Part2(), 'part3': Part3()}
+ORDER = ('daily', 'photo', 'part2', 'part3')
 MAIN_NAMES = {p.main_name.lower() for p in PROFILES.values()}
 TITLE_OF = {k: v.title for k, v in PROFILES.items()}
 
@@ -700,6 +912,8 @@ def kind_of(e):
         return None
     if 'week' in e or 'passage' in e:
         return 'daily'
+    if 'dialogue' in e or 'questions' in e:
+        return 'part3'
     if 'qtype' in e:
         return 'part2'
     if 'image' in e or 'photo_type' in e:
@@ -1200,7 +1414,7 @@ def main():
         if a in PROFILES:
             start = a
         else:
-            print('用法：python json_merge.py [daily|photo|part2]', file=sys.stderr)
+            print('用法：python json_merge.py [daily|photo|part2|part3]', file=sys.stderr)
     try:
         run_gui(start)
     except Exception:

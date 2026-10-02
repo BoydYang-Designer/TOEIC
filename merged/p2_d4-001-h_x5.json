@@ -1,0 +1,653 @@
+[
+ {
+  "id": "d4-001-h",
+  "domain": "d4",
+  "qtype": "q1",
+  "wh": "why",
+  "tag": "詢問車站附近街道為何封閉",
+  "scene": "street",
+  "level": {
+   "score": 700,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "Why 問句，正解含間接指引與不確定回答，需聽懂意圖。"
+  },
+  "q": {
+   "t": "Why did they close the street near the station this morning?",
+   "zh": "為什麼他們今天早上封閉了車站附近的街道？"
+  },
+  "pool": [
+   {
+    "t": "I heard a water pipe burst under the road.",
+    "zh": "我聽說路面下有水管爆裂。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "direct",
+    "why": "正解：直接說明封街原因。"
+   },
+   {
+    "t": "The street is very long and narrow.",
+    "zh": "這條街又長又窄。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 street，但沒有回答原因。"
+   },
+   {
+    "t": "You'd better ask the officer over there.",
+    "zh": "你最好去問那邊的警察。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "indirect",
+    "why": "正解：建議詢問他人，間接回應。"
+   },
+   {
+    "t": "I'll take these clothes, please.",
+    "zh": "這些衣服我要了。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "clothes 與 close 音近，內容無關。"
+   },
+   {
+    "t": "At the corner of Main Street.",
+    "zh": "在緬因街的轉角。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答地點，答非所問。"
+   },
+   {
+    "t": "I just got here, so I'm not sure.",
+    "zh": "我剛到，所以不確定。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "unsure",
+    "why": "正解：表示不知道原因。"
+   },
+   {
+    "t": "The station has a new ticket machine.",
+    "zh": "車站有新的售票機。",
+    "ok": false,
+    "trap": "association",
+    "why": "與車站相關，但沒有說明原因。"
+   },
+   {
+    "t": "About twenty minutes by bus.",
+    "zh": "搭公車大約二十分鐘。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答時間長短，答非所問。"
+   },
+   {
+    "t": "Mr. Kim, from the city office.",
+    "zh": "市政府的金先生。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答人物，答非所問。"
+   },
+   {
+    "t": "This morning I woke up at six.",
+    "zh": "今天早上我六點起床。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 this morning，但沒有回答原因。"
+   },
+   {
+    "t": "I will close it tomorrow morning.",
+    "zh": "我明天早上會把它關起來。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "人稱與時態錯誤。"
+   },
+   {
+    "t": "Parking is free near the station.",
+    "zh": "車站附近停車免費。",
+    "ok": false,
+    "trap": "association",
+    "why": "與車站相關，但沒有說明原因。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "burst",
+    "ipa": "/bɜːrst/",
+    "pos": "v.",
+    "col": "a pipe bursts",
+    "zh": "爆裂"
+   },
+   {
+    "word": "officer",
+    "ipa": "/ˈɔːfɪsər/",
+    "pos": "n.",
+    "col": "a police officer",
+    "zh": "警官"
+   },
+   {
+    "word": "pipe",
+    "ipa": "/paɪp/",
+    "pos": "n.",
+    "col": "a water pipe",
+    "zh": "水管"
+   }
+  ],
+  "issues": []
+ },
+ {
+  "id": "d4-002-h",
+  "domain": "d4",
+  "qtype": "q2",
+  "tag": "詢問錯過十點車後是否還有較晚班次",
+  "scene": "station",
+  "level": {
+   "score": 750,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "含條件子句的 Yes/No 問句，正解為直答、指引、需查證。"
+  },
+  "q": {
+   "t": "If we miss the ten o'clock, is there a later train to the coast?",
+   "zh": "如果我們錯過十點那班，還有較晚到海邊的火車嗎？"
+  },
+  "pool": [
+   {
+    "t": "The coast is beautiful this time of year.",
+    "zh": "海邊這個時節很美。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 coast，但沒有回答。"
+   },
+   {
+    "t": "Yes, there's another one at eleven fifteen.",
+    "zh": "有，十一點十五分還有一班。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "direct",
+    "why": "正解：直接肯定並給出時間。"
+   },
+   {
+    "t": "The mist was thick this morning.",
+    "zh": "今天早上霧很濃。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "mist 與 miss 音近，內容無關。"
+   },
+   {
+    "t": "At the ticket office downstairs.",
+    "zh": "在樓下的售票處。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答地點，答非所問。"
+   },
+   {
+    "t": "Check the board over there; it's updated hourly.",
+    "zh": "去看那邊的看板，每小時更新。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "indirect",
+    "why": "正解：指引查看看板，間接回答。"
+   },
+   {
+    "t": "We missed the bus to the coast last week.",
+    "zh": "我們上週錯過了去海邊的公車。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "時態與人稱不符，沒有回答。"
+   },
+   {
+    "t": "Two adults and one child.",
+    "zh": "兩個大人和一個小孩。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答人數，答非所問。"
+   },
+   {
+    "t": "Let me look it up for you.",
+    "zh": "我幫你查一下。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "unsure",
+    "why": "正解：表示需要查證。"
+   },
+   {
+    "t": "It rained heavily all night.",
+    "zh": "整晚下大雨。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "rained 與 train 音近，內容無關。"
+   },
+   {
+    "t": "I like to travel to the coast.",
+    "zh": "我喜歡去海邊旅行。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 coast，但沒有回答。"
+   },
+   {
+    "t": "About fifteen minutes.",
+    "zh": "大約十五分鐘。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答時間長短，答非所問。"
+   },
+   {
+    "t": "The café in the station opens at six.",
+    "zh": "車站裡的咖啡店六點開門。",
+    "ok": false,
+    "trap": "association",
+    "why": "與車站相關，但沒有回答。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "coast",
+    "ipa": "/koʊst/",
+    "pos": "n.",
+    "col": "the east coast",
+    "zh": "海岸"
+   },
+   {
+    "word": "miss",
+    "ipa": "/mɪs/",
+    "pos": "v.",
+    "col": "miss a train",
+    "zh": "錯過"
+   },
+   {
+    "word": "board",
+    "ipa": "/bɔːrd/",
+    "pos": "n.",
+    "col": "the departure board",
+    "zh": "看板"
+   }
+  ],
+  "issues": []
+ },
+ {
+  "id": "d4-003-h",
+  "domain": "d4",
+  "qtype": "q3",
+  "tag": "詢問走路口號誌或地下道較快",
+  "scene": "street",
+  "level": {
+   "score": 750,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "選擇疑問句，正解含選一、第三選項與皆可，干擾項音近且自然。"
+  },
+  "q": {
+   "t": "Would it be faster to cross at the lights or use the underpass?",
+   "zh": "在路口號誌過馬路比較快，還是走地下道比較快？"
+  },
+  "pool": [
+   {
+    "t": "The underpass, especially with all this traffic.",
+    "zh": "走地下道，尤其車這麼多。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "pick-one",
+    "why": "正解：選擇地下道並附理由。"
+   },
+   {
+    "t": "The lights in my kitchen are broken.",
+    "zh": "我廚房的燈壞了。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 lights，但意思不符。"
+   },
+   {
+    "t": "Neither, there's a footbridge by the bakery.",
+    "zh": "都不用，麵包店旁有天橋。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "third-option",
+    "why": "正解：提出第三選項。"
+   },
+   {
+    "t": "I'd like more pasta, please.",
+    "zh": "我想再要一些義大利麵。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "pasta 與 faster 音近，內容無關。"
+   },
+   {
+    "t": "At half past three.",
+    "zh": "三點半。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答時間，答非所問。"
+   },
+   {
+    "t": "Either one is fine, they're about equal.",
+    "zh": "哪個都行，差不多。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "both-either-neither",
+    "why": "正解：表示兩者皆可。"
+   },
+   {
+    "t": "My boss is in a meeting.",
+    "zh": "我老闆在開會。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "boss 與 cross 音近，內容無關。"
+   },
+   {
+    "t": "There's a pharmacy across the road.",
+    "zh": "對面有一間藥局。",
+    "ok": false,
+    "trap": "association",
+    "why": "與過馬路相關，但沒有回答。"
+   },
+   {
+    "t": "The underpass was built in 1990.",
+    "zh": "地下道是一九九零年蓋的。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 underpass，但沒有回答。"
+   },
+   {
+    "t": "Yes, I do it every day.",
+    "zh": "是的，我每天都這樣做。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "用 Yes 回答選擇題，答非所問。"
+   },
+   {
+    "t": "Pedestrians should always look both ways.",
+    "zh": "行人應該要左右看。",
+    "ok": false,
+    "trap": "association",
+    "why": "與過馬路相關，但沒有選擇。"
+   },
+   {
+    "t": "He crossed the river by boat yesterday.",
+    "zh": "他昨天搭船過河。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "時態與人稱不符，沒有回答。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "cross",
+    "ipa": "/krɔːs/",
+    "pos": "v.",
+    "col": "cross the street",
+    "zh": "穿越"
+   },
+   {
+    "word": "underpass",
+    "ipa": "/ˈʌndərpæs/",
+    "pos": "n.",
+    "col": "a pedestrian underpass",
+    "zh": "地下道"
+   },
+   {
+    "word": "footbridge",
+    "ipa": "/ˈfʊtbrɪdʒ/",
+    "pos": "n.",
+    "col": "cross a footbridge",
+    "zh": "天橋"
+   }
+  ],
+  "issues": []
+ },
+ {
+  "id": "d4-004-h",
+  "domain": "d4",
+  "qtype": "q4",
+  "tag": "確認對方是否說過這條街通往舊市場",
+  "scene": "street",
+  "level": {
+   "score": 800,
+   "cefr": "B2+",
+   "tier": "hard",
+   "why": "附加問句，正解含確認、更正與含糊回應，干擾項自然。"
+  },
+  "q": {
+   "t": "You said this street leads to the old market, didn't you?",
+   "zh": "你說過這條街通往舊市場，對吧？"
+  },
+  "pool": [
+   {
+    "t": "I made my bed this morning.",
+    "zh": "我今天早上整理了床。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "bed 與 said 音近，內容無關。"
+   },
+   {
+    "t": "Yes, about five minutes further on.",
+    "zh": "對，再往前大約五分鐘。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "confirm",
+    "why": "正解：確認並補充距離。"
+   },
+   {
+    "t": "The old market sells fresh fruit.",
+    "zh": "舊市場賣新鮮水果。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 old market，但沒有確認。"
+   },
+   {
+    "t": "Because I was running late.",
+    "zh": "因為我遲到了。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答原因，答非所問。"
+   },
+   {
+    "t": "Actually, I said the next street over.",
+    "zh": "其實我說的是隔壁那條街。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "correct",
+    "why": "正解：更正說法。"
+   },
+   {
+    "t": "It's about two kilometers long.",
+    "zh": "大約兩公里長。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答長度，答非所問。"
+   },
+   {
+    "t": "The market opens at seven on Sundays.",
+    "zh": "市場週日七點開。",
+    "ok": false,
+    "trap": "association",
+    "why": "與市場相關，但沒有確認。"
+   },
+   {
+    "t": "I was just guessing, to be honest.",
+    "zh": "老實說，我只是猜的。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "indirect",
+    "why": "正解：承認不確定，間接回應。"
+   },
+   {
+    "t": "This street is under repair.",
+    "zh": "這條街正在整修。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 street，但沒有確認。"
+   },
+   {
+    "t": "Mr. Chen, from the tourist office.",
+    "zh": "旅遊局的陳先生。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答人物，答非所問。"
+   },
+   {
+    "t": "There's a good bakery near the fountain.",
+    "zh": "噴水池附近有間不錯的麵包店。",
+    "ok": false,
+    "trap": "association",
+    "why": "與街道相關，但沒有確認。"
+   },
+   {
+    "t": "We walked to the old market last year.",
+    "zh": "我們去年走路去過舊市場。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "時態與人稱不符，沒有確認。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "leads",
+    "ipa": "/liːdz/",
+    "pos": "v.",
+    "col": "a road leads to",
+    "zh": "通往"
+   },
+   {
+    "word": "market",
+    "ipa": "/ˈmɑːrkɪt/",
+    "pos": "n.",
+    "col": "an open-air market",
+    "zh": "市場"
+   },
+   {
+    "word": "repair",
+    "ipa": "/rɪˈper/",
+    "pos": "n.",
+    "col": "under repair",
+    "zh": "整修"
+   }
+  ],
+  "issues": []
+ },
+ {
+  "id": "d4-005-h",
+  "domain": "d4",
+  "qtype": "q6",
+  "tag": "請對方示範如何儲值交通卡",
+  "scene": "station",
+  "level": {
+   "score": 800,
+   "cefr": "B2+",
+   "tier": "hard",
+   "why": "禮貌請求，正解含接受、附理由婉拒與反問細節，干擾項自然。"
+  },
+  "q": {
+   "t": "Would you mind showing me how to top up this transit card?",
+   "zh": "你可以示範一下怎麼儲值這張交通卡嗎？"
+  },
+  "pool": [
+   {
+    "t": "Sure, the machine is right over here.",
+    "zh": "好啊，機器就在這邊。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "accept",
+    "why": "正解：接受請求。"
+   },
+   {
+    "t": "The guard is on his break.",
+    "zh": "警衛正在休息。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "guard 與 card 音近，內容無關。"
+   },
+   {
+    "t": "I'd love to, but my train is boarding now.",
+    "zh": "我很想，但我的火車正在上車。",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "decline",
+    "why": "正解：拒絕並附理由。"
+   },
+   {
+    "t": "The crowd is growing outside.",
+    "zh": "外面人群越來越多。",
+    "ok": false,
+    "trap": "sound-alike",
+    "why": "growing 與 showing 音近，內容無關。"
+   },
+   {
+    "t": "I got this card as a gift last year.",
+    "zh": "這張卡是我去年收到的禮物。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 card，但沒有回應請求。"
+   },
+   {
+    "t": "Is it a prepaid card or a monthly pass?",
+    "zh": "是預付卡還是月票？",
+    "ok": true,
+    "trap": "correct",
+    "pattern": "ask-detail",
+    "why": "正解：詢問細節再決定。"
+   },
+   {
+    "t": "Transit workers are on strike today.",
+    "zh": "交通工作人員今天罷工。",
+    "ok": false,
+    "trap": "word-repeat",
+    "why": "重複 transit，但沒有回應請求。"
+   },
+   {
+    "t": "At eleven thirty sharp.",
+    "zh": "十一點三十分整。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "回答時間，答非所問。"
+   },
+   {
+    "t": "Yes, it was very crowded.",
+    "zh": "對，那裡很擠。",
+    "ok": false,
+    "trap": "wrong-wh",
+    "why": "用 Yes 回答請求，內容不符。"
+   },
+   {
+    "t": "The station café sells coffee and sandwiches.",
+    "zh": "車站咖啡店賣咖啡和三明治。",
+    "ok": false,
+    "trap": "association",
+    "why": "與車站相關，但沒有回應請求。"
+   },
+   {
+    "t": "My commute is about an hour each way.",
+    "zh": "我通勤單程約一小時。",
+    "ok": false,
+    "trap": "association",
+    "why": "與交通相關，但沒有回應請求。"
+   },
+   {
+    "t": "She topped up hers yesterday morning.",
+    "zh": "她昨天早上儲值了她的。",
+    "ok": false,
+    "trap": "wrong-tense-person",
+    "why": "時態與人稱不符，沒有回應請求。"
+   }
+  ],
+  "vocab": [
+   {
+    "word": "top up",
+    "ipa": "/tɑːp ʌp/",
+    "pos": "v.",
+    "col": "top up a card",
+    "zh": "儲值"
+   },
+   {
+    "word": "prepaid",
+    "ipa": "/ˌpriːˈpeɪd/",
+    "pos": "adj.",
+    "col": "a prepaid card",
+    "zh": "預付的"
+   },
+   {
+    "word": "transit",
+    "ipa": "/ˈtrænzɪt/",
+    "pos": "n.",
+    "col": "public transit",
+    "zh": "大眾運輸"
+   }
+  ],
+  "issues": []
+ }
+]
