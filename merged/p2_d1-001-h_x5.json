@@ -1,0 +1,629 @@
+[
+  {
+    "id": "d1-001-h",
+    "domain": "d1",
+    "qtype": "q1",
+    "wh": "who",
+    "tag": "詢問預算由誰核准",
+    "scene": "office",
+    "level": {
+      "score": 750,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "問句含 supposed to 與 before 子句；正解分別是直接指名、指向資料、表示不確定，干擾項混有音近與重複用字。"
+    },
+    "q": {
+      "t": "Who's supposed to approve the budget before it goes to the board?",
+      "zh": "預算送交董事會之前，應該由誰來核准？"
+    },
+    "pool": [
+      {
+        "t": "Ms. Kim from the finance team does.",
+        "zh": "財務部的金小姐負責。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出負責核准的人。"
+      },
+      {
+        "t": "It's on the approval list Daniel sent around.",
+        "zh": "丹尼爾傳閱的核准名單上有寫。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "indirect",
+        "why": "正解：指向資料來源，間接回答是誰。"
+      },
+      {
+        "t": "I'm not sure since the process changed last month.",
+        "zh": "我不確定，因為流程上個月改了。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "unsure",
+        "why": "正解：表示不確定並說明原因。"
+      },
+      {
+        "t": "Before the end of the quarter.",
+        "zh": "在本季結束前。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "In the second floor conference room.",
+        "zh": "在二樓會議室。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "The board meets on the first Monday.",
+        "zh": "董事會在第一個週一開會。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 board，但沒有說誰核准。"
+      },
+      {
+        "t": "The budget was much smaller last year.",
+        "zh": "去年的預算小得多。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 budget，但沒有回答是誰。"
+      },
+      {
+        "t": "We need to improve the layout first.",
+        "zh": "我們得先改善版面配置。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "improve 與 approve 音近，內容無關。"
+      },
+      {
+        "t": "I was bored during the whole session.",
+        "zh": "整場會議我都很無聊。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "bored 與 board 同音，內容無關。"
+      },
+      {
+        "t": "The accounting software is being updated.",
+        "zh": "會計軟體正在更新。",
+        "ok": false,
+        "trap": "association",
+        "why": "與財務有關，但沒有說是誰。"
+      },
+      {
+        "t": "The weekly meeting ran two hours long.",
+        "zh": "每週會議開了兩個小時。",
+        "ok": false,
+        "trap": "association",
+        "why": "談會議，但沒有回答是誰。"
+      },
+      {
+        "t": "The finance office just got new desks.",
+        "zh": "財務辦公室剛換了新桌子。",
+        "ok": false,
+        "trap": "association",
+        "why": "與財務部有關，但沒有回答是誰。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "approve",
+        "ipa": "/əˈpruːv/",
+        "pos": "v.",
+        "col": "approve a budget / approve a request",
+        "zh": "核准、批准"
+      },
+      {
+        "word": "budget",
+        "ipa": "/ˈbʌdʒɪt/",
+        "pos": "n.",
+        "col": "annual budget / cut the budget",
+        "zh": "預算"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d1-002-h",
+    "domain": "d1",
+    "qtype": "q1",
+    "wh": "which",
+    "tag": "詢問影印機故障該聯絡哪家廠商",
+    "scene": "office",
+    "level": {
+      "score": 700,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "Which 問句附帶條件子句，正解是指名、說出相關資訊、先查再答三種做法，干擾項語氣自然。"
+    },
+    "q": {
+      "t": "Which vendor should we call if the copier breaks down again?",
+      "zh": "如果影印機又壞了，我們該打給哪一家廠商？"
+    },
+    "pool": [
+      {
+        "t": "Call Rapid Repair, their number is on the machine.",
+        "zh": "打給快速修理，電話在機器上。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接指出廠商名稱。"
+      },
+      {
+        "t": "Our service contract is with Delta Office.",
+        "zh": "我們的維修合約是跟達爾塔辦公公司簽的。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "indirect",
+        "why": "正解：說出合約對象，間接指出該聯絡誰。"
+      },
+      {
+        "t": "Let me check which company we signed with.",
+        "zh": "我查一下我們跟哪家公司簽約。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "unsure",
+        "why": "正解：先查證再回答，是高分常見的回應。"
+      },
+      {
+        "t": "Yes, I'll be there by noon.",
+        "zh": "好的，我中午前會到。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "用 Yes 回答 Which 問句，答非所問。"
+      },
+      {
+        "t": "Sometime before the end of the month.",
+        "zh": "這個月底前的某個時候。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "Because the toner was running low.",
+        "zh": "因為碳粉快用完了。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Why 的答案。"
+      },
+      {
+        "t": "The copier is in the supply room.",
+        "zh": "影印機在庫房裡。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 copier，但回答的是位置。"
+      },
+      {
+        "t": "It broke down twice last month.",
+        "zh": "它上個月壞了兩次。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "時態不符，說的是過去發生的事，沒有指出廠商。"
+      },
+      {
+        "t": "The brakes on the van need fixing.",
+        "zh": "廂型車的煞車需要修理。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "brakes 與 breaks 同音，內容無關。"
+      },
+      {
+        "t": "I ordered extra toner cartridges on Monday.",
+        "zh": "我週一訂了多的碳粉匣。",
+        "ok": false,
+        "trap": "association",
+        "why": "與影印機有關，但沒有指出廠商。"
+      },
+      {
+        "t": "Paper jams happen most often in the morning.",
+        "zh": "卡紙最常發生在早上。",
+        "ok": false,
+        "trap": "association",
+        "why": "談影印機問題，但沒有回答問題。"
+      },
+      {
+        "t": "The new model prints twice as fast.",
+        "zh": "新型號的列印速度快一倍。",
+        "ok": false,
+        "trap": "association",
+        "why": "談影印機規格，但沒有回答問題。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "vendor",
+        "ipa": "/ˈvendər/",
+        "pos": "n.",
+        "col": "contact a vendor / office equipment vendor",
+        "zh": "廠商、供應商"
+      },
+      {
+        "word": "copier",
+        "ipa": "/ˈkɑːpiər/",
+        "pos": "n.",
+        "col": "office copier / the copier breaks down",
+        "zh": "影印機"
+      },
+      {
+        "word": "contract",
+        "ipa": "/ˈkɑːntrækt/",
+        "pos": "n.",
+        "col": "service contract / sign a contract",
+        "zh": "合約"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d1-003-h",
+    "domain": "d1",
+    "qtype": "q1",
+    "wh": "when",
+    "tag": "詢問客戶何時簽署協議",
+    "scene": "office",
+    "level": {
+      "score": 750,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "問句 15 字且含 if 條件子句，正解是估計時間、說出所需時程、視條件而定，不易用刪去法。"
+    },
+    "q": {
+      "t": "When do you expect the client to sign the agreement if we send it today?",
+      "zh": "如果我們今天寄出，你預期客戶什麼時候會簽署協議？"
+    },
+    "pool": [
+      {
+        "t": "Probably by the end of next week.",
+        "zh": "大概下週末前。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接給出預估時間。"
+      },
+      {
+        "t": "Their legal team usually takes about ten days.",
+        "zh": "他們的法務團隊通常要花十天左右。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "indirect",
+        "why": "正解：給出所需時程，間接回答何時。"
+      },
+      {
+        "t": "That depends on when their lawyer gets back.",
+        "zh": "那要看他們的律師何時回來。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "unsure",
+        "why": "正解：有條件的回答，無法確定時間。"
+      },
+      {
+        "t": "In the downtown office.",
+        "zh": "在市中心的辦公室。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "Mr. Alvarez from the sales department.",
+        "zh": "業務部的阿爾瓦雷斯先生。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Who 的答案。"
+      },
+      {
+        "t": "There's a sign at the front entrance.",
+        "zh": "前門有一個告示牌。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "sign 當名詞「告示牌」，與簽署無關。"
+      },
+      {
+        "t": "The agreement has three pages.",
+        "zh": "協議共有三頁。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 agreement，但沒有回答時間。"
+      },
+      {
+        "t": "We need to inspect the new shipment.",
+        "zh": "我們得檢查新到的貨。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "inspect 與 expect 音近，內容無關。"
+      },
+      {
+        "t": "The client's office is near the airport.",
+        "zh": "客戶的辦公室在機場附近。",
+        "ok": false,
+        "trap": "association",
+        "why": "談客戶，但沒有回答時間。"
+      },
+      {
+        "t": "Our lawyer wants a few changes in section four.",
+        "zh": "我們的律師想修改第四節的幾處。",
+        "ok": false,
+        "trap": "association",
+        "why": "談協議內容，但沒有說出時間。"
+      },
+      {
+        "t": "Express mail costs more than regular post.",
+        "zh": "快遞比一般郵寄貴。",
+        "ok": false,
+        "trap": "association",
+        "why": "與寄送有關，但沒有回答時間。"
+      },
+      {
+        "t": "They signed a similar agreement last year.",
+        "zh": "他們去年簽過類似的協議。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "時態不符，說的是過去簽過的事，不是這次何時簽。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "agreement",
+        "ipa": "/əˈɡriːmənt/",
+        "pos": "n.",
+        "col": "sign an agreement / reach an agreement",
+        "zh": "協議"
+      },
+      {
+        "word": "expect",
+        "ipa": "/ɪkˈspekt/",
+        "pos": "v.",
+        "col": "expect a reply / expect to finish",
+        "zh": "預期"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d1-004-h",
+    "domain": "d1",
+    "qtype": "q1",
+    "wh": "why",
+    "tag": "詢問電子報為何未在假期前寄出",
+    "scene": "office",
+    "level": {
+      "score": 800,
+      "cefr": "B2+",
+      "tier": "hard",
+      "why": "否定式 Why 問句；正解含直接原因、說明等待事項、承諾查證，語氣都很自然。"
+    },
+    "q": {
+      "t": "Why wasn't the company newsletter sent out before the holiday break?",
+      "zh": "公司電子報為什麼沒有在假期前寄出？"
+    },
+    "pool": [
+      {
+        "t": "Because the editor was out sick all week.",
+        "zh": "因為編輯整週都請病假。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接說出原因。"
+      },
+      {
+        "t": "We're still waiting for the final photos.",
+        "zh": "我們還在等最後的照片。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "indirect",
+        "why": "正解：說明延遲的原因是等待素材。"
+      },
+      {
+        "t": "Good question, let me find out for you.",
+        "zh": "問得好，我去幫你查。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "unsure",
+        "why": "正解：承諾查證，是高分常見的迴避型回應。"
+      },
+      {
+        "t": "At the end of next month.",
+        "zh": "在下個月底。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "By express courier.",
+        "zh": "用快遞寄。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 How 的答案。"
+      },
+      {
+        "t": "I'll send you the holiday schedule.",
+        "zh": "我會把假期時程寄給你。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 send 與 holiday，但沒有說明原因。"
+      },
+      {
+        "t": "We take a short break at three.",
+        "zh": "我們三點會短暫休息。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "break 當「休息」，與問句中的假期不同。"
+      },
+      {
+        "t": "The new perfume has a lovely scent.",
+        "zh": "這款新香水氣味很宜人。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "scent 與 sent 同音，內容無關。"
+      },
+      {
+        "t": "The mailing list has over a thousand names.",
+        "zh": "郵寄名單有超過一千個名字。",
+        "ok": false,
+        "trap": "association",
+        "why": "與電子報有關，但沒有說明原因。"
+      },
+      {
+        "t": "Most employees read it on their phones.",
+        "zh": "大部分員工用手機閱讀。",
+        "ok": false,
+        "trap": "association",
+        "why": "談閱讀習慣，沒有說明原因。"
+      },
+      {
+        "t": "Our logo is on the front page.",
+        "zh": "我們的標誌在首頁。",
+        "ok": false,
+        "trap": "association",
+        "why": "談電子報版面，沒有說明原因。"
+      },
+      {
+        "t": "Last quarter's issue won an industry award.",
+        "zh": "上一季那期得了業界獎項。",
+        "ok": false,
+        "trap": "association",
+        "why": "談電子報成績，沒有說明原因。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "newsletter",
+        "ipa": "/ˈnuːzletər/",
+        "pos": "n.",
+        "col": "company newsletter / monthly newsletter",
+        "zh": "電子報、內部通訊"
+      },
+      {
+        "word": "editor",
+        "ipa": "/ˈedɪtər/",
+        "pos": "n.",
+        "col": "chief editor / newsletter editor",
+        "zh": "編輯"
+      }
+    ],
+    "issues": []
+  },
+  {
+    "id": "d1-005-h",
+    "domain": "d1",
+    "qtype": "q1",
+    "wh": "how",
+    "tag": "詢問主管不在時如何處理客訴",
+    "scene": "office",
+    "level": {
+      "score": 800,
+      "cefr": "B2+",
+      "tier": "hard",
+      "why": "How 問句附 if 條件；正解是依規定辦理、找代理人、視情況而定，干擾項含同音與時態陷阱。"
+    },
+    "q": {
+      "t": "How should I handle the client complaint if my manager is unavailable?",
+      "zh": "如果我的經理聯絡不上，我該怎麼處理客戶的客訴？"
+    },
+    "pool": [
+      {
+        "t": "Follow the escalation steps in the staff handbook.",
+        "zh": "照員工手冊裡的上報步驟處理。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "direct",
+        "why": "正解：直接指出處理方式。"
+      },
+      {
+        "t": "Ms. Lopez covers for him when he's out.",
+        "zh": "他不在時由羅培茲小姐代理。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "indirect",
+        "why": "正解：指出代理人，間接說明該怎麼做。"
+      },
+      {
+        "t": "It depends on how serious the complaint is.",
+        "zh": "那要看客訴有多嚴重。",
+        "ok": true,
+        "trap": "correct",
+        "pattern": "unsure",
+        "why": "正解：有條件的回答，不直接給方法。"
+      },
+      {
+        "t": "Around three o'clock this afternoon.",
+        "zh": "今天下午三點左右。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 When 的答案。"
+      },
+      {
+        "t": "In the customer service department.",
+        "zh": "在客服部。",
+        "ok": false,
+        "trap": "wrong-wh",
+        "why": "這是回答 Where 的答案。"
+      },
+      {
+        "t": "My manager is on vacation until Friday.",
+        "zh": "我的經理休假到週五。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 manager，但沒有回答怎麼處理。"
+      },
+      {
+        "t": "The client lives in another state.",
+        "zh": "那位客戶住在別的州。",
+        "ok": false,
+        "trap": "word-repeat",
+        "why": "重複 client，但沒有回答怎麼處理。"
+      },
+      {
+        "t": "I handled the invoices last week.",
+        "zh": "我上週處理了那些發票。",
+        "ok": false,
+        "trap": "wrong-tense-person",
+        "why": "時態與人稱不符，說的是過去自己做過的事。"
+      },
+      {
+        "t": "Thank you, that's a lovely compliment.",
+        "zh": "謝謝，這是很棒的讚美。",
+        "ok": false,
+        "trap": "sound-alike",
+        "why": "compliment 與 complaint 音近，內容無關。"
+      },
+      {
+        "t": "Customer satisfaction scores went up this quarter.",
+        "zh": "這一季客戶滿意度分數上升了。",
+        "ok": false,
+        "trap": "association",
+        "why": "與客戶有關，但沒有回答怎麼處理。"
+      },
+      {
+        "t": "The call center closes at nine.",
+        "zh": "客服中心九點關閉。",
+        "ok": false,
+        "trap": "association",
+        "why": "與客服有關，但沒有回答怎麼處理。"
+      },
+      {
+        "t": "We hired two new customer service agents.",
+        "zh": "我們新聘了兩位客服人員。",
+        "ok": false,
+        "trap": "association",
+        "why": "與客服有關，但沒有回答怎麼處理。"
+      }
+    ],
+    "vocab": [
+      {
+        "word": "complaint",
+        "ipa": "/kəmˈpleɪnt/",
+        "pos": "n.",
+        "col": "customer complaint / file a complaint",
+        "zh": "客訴、抱怨"
+      },
+      {
+        "word": "unavailable",
+        "ipa": "/ˌʌnəˈveɪləbl/",
+        "pos": "adj.",
+        "col": "be unavailable / temporarily unavailable",
+        "zh": "無法聯絡的、沒空的"
+      }
+    ],
+    "issues": []
+  }
+]

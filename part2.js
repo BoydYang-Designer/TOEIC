@@ -80,9 +80,10 @@ function ttsPlay(x, tok) {
 }
 /* 整題 mp3 到齊（audio/index.json 判定）才走這裡：問句 → A → B → C；中途播放失敗就從頭改用機器發音並記住這題 */
 function mp3Play(x, tok) {
-  const n = auNames('p2', x), sh = vw(x, shownOf(x)).sh;
-  auChain([auSrc('p2', n.q), ...sh.map(i => auSrc('p2', n.s[i]))], [1600, 1300, 1300, 0], () => tok === P.tok,
-    () => { P.playing = false; paintAudio(); }, () => { if (tok !== P.tok) return; AU.bad['p2' + x.id] = 1; auStop(); ttsPlay(x, tok); });
+  const n = auNames('p2', x), sh = vw(x, shownOf(x)).sh, q = auSeq(sh.map(i => auSrc('p2', n.s[i])), 1300, { src: auSrc('p2', n.q), gap: 1600 });
+  auChain(q.srcs, q.gaps, () => tok === P.tok,
+    () => { P.playing = false; paintAudio(); },
+    () => { if (tok !== P.tok) return; auStop(); if (q.letters) { AU.noLet = true; mp3Play(x, tok); return; } AU.bad['p2' + x.id] = 1; ttsPlay(x, tok); }); // 字母檔壞了先改成只播句子，再壞才改機器發音
 }
 function playQ() {
   const r = V.run, x = cx(); if (!x || P.playing || (r.mode === 'mock' && r.played[x.id])) return;

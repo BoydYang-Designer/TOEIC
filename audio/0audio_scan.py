@@ -11,6 +11,7 @@
   Part 1  audio/p1/{id}-s01.mp3 … -s12.mp3          （photo.json，每題 pool 幾句就幾個檔）
   Part 2  audio/p2/{id}-q.mp3 與 {id}-s01.mp3 …      （part2.json）
   Daily   audio/daily/w1d1.mp3（或題目的 audio 欄位）  （daily.json，整篇一個檔）
+  字母    audio/A.mp3 … E.mp3（Part 1／2 共用，大寫檔名；Part 1 需 A–D、Part 2 需 A–C 到齊，才會在每個選項前先念字母）
 整題到齊才列入 complete；網頁只對 complete 的題目用 mp3。
 另外檢查：孤兒檔（不屬於任何題目，多半是打錯檔名）、檔名大小寫不符（GitHub Pages 區分大小寫）、0 KB 空檔、
 舊位置的 daily 檔（audio/w1d1.mp3 → 請搬到 audio/daily/）。
@@ -62,6 +63,22 @@ def check(d, expected, label):
 
 
 out = {'v': int(time.time())}
+
+# 選項字母 audio/A.mp3 … E.mp3（Part 1／Part 2 共用，大寫檔名）
+have_root = listdir(AUD)
+low_root = {f.lower(): f for f in have_root}
+letters = []
+for c in 'ABCDE':
+    n = c + '.mp3'
+    if n in have_root:
+        if os.path.getsize(os.path.join(AUD, n)) == 0:
+            warn.append('audio/%s 是 0 KB 空檔' % n)
+        else:
+            letters.append(c)
+    elif n.lower() in low_root:
+        warn.append('audio：字母檔名大小寫不符，現有「%s」，應為「%s」' % (low_root[n.lower()], n))
+out['letters'] = letters
+print('letters：已有 %s（Part 1 需 A–D，Part 2 需 A–C）' % (''.join(letters) or '無'))
 for part, fn, with_q in (('p1', 'photo.json', False), ('p2', 'part2.json', True)):
     exp = {}
     for it in items(fn):

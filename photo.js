@@ -143,9 +143,10 @@ function ttsPlay(x, tok) {
 }
 /* 整題 12 句 mp3 到齊（audio/index.json 判定）才走這裡：依抽到的順序播 A–D；中途失敗就從頭改用機器發音並記住這題 */
 function mp3Play(x, tok) {
-  const n = auNames('p1', x), sh = vw(x, shownOf(x)).sh;
-  auChain(sh.map(i => auSrc('p1', n.s[i])), [1500, 1500, 1500, 0], () => tok === P.tok,
-    () => { P.playing = false; paintAudio(); }, () => { if (tok !== P.tok) return; AU.bad['p1' + x.id] = 1; auStop(); ttsPlay(x, tok); });
+  const n = auNames('p1', x), sh = vw(x, shownOf(x)).sh, q = auSeq(sh.map(i => auSrc('p1', n.s[i])), 1500);
+  auChain(q.srcs, q.gaps, () => tok === P.tok,
+    () => { P.playing = false; paintAudio(); },
+    () => { if (tok !== P.tok) return; auStop(); if (q.letters) { AU.noLet = true; mp3Play(x, tok); return; } AU.bad['p1' + x.id] = 1; ttsPlay(x, tok); }); // 字母檔壞了先改成只播句子，再壞才改機器發音
 }
 function playQ() {
   const r = V.run, x = cx();

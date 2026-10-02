@@ -2,10 +2,22 @@
    路徑：audio/p1/{id}-s01..s12.mp3；audio/p2/{id}-q.mp3 與 {id}-s01..s12.mp3（編號＝pool 順序，從 01 起，請勿打亂既有題目的 pool 順序）
    規則：整題（Part 2 含問句＋全部回答句）到齊才用 mp3，否則整題用機器發音。
    哪些題目到齊由 audio/index.json（audio_scan.py 產生）決定，開頁時讀一次，播放時不再逐檔探測。讀不到清單（含雙擊開啟 file://）就全部用機器發音。 */
-const AU = { idx: null, el: null, bad: {} };
+const AU = { idx: null, el: null, bad: {}, noLet: false };
+/* 選項字母音檔：audio/A.mp3 … audio/E.mp3（全站共用，不分題）。播放時在每個選項句前面先播字母。
+   audio/index.json 的 letters 列出已有的字母；本題需要的字母（Part 1 = A–D、Part 2 = A–C）到齊才使用，否則只播句子。 */
+const AU_LET = 'ABCDE', AU_LGAP = 500;
 async function auLoad() { try { const r = await fetch('audio/index.json', { cache: 'no-store' }); if (r.ok) AU.idx = await r.json(); } catch (e) {} }
 const auNames = (part, x) => ({ q: part === 'p2' ? x.id + '-q' : null, s: (x._pool || []).map((_, i) => x.id + '-s' + String(i + 1).padStart(2, '0')) });
 const auSrc = (part, name) => 'audio/' + part + '/' + name + '.mp3' + (AU.idx && AU.idx.v ? '?v=' + AU.idx.v : '');
+const auLetterOk = n => !AU.noLet && !!(AU.idx && Array.isArray(AU.idx.letters)) && AU_LET.slice(0, n).split('').every(c => AU.idx.letters.includes(c));
+const auLetterSrc = k => 'audio/' + AU_LET[k] + '.mp3' + (AU.idx && AU.idx.v ? '?v=' + AU.idx.v : '');
+/* 組出播放清單：[lead(問句)] + 每個選項「字母 → 句子」；sentSrcs＝依抽到順序排好的句子網址，gapS＝句子後的停頓 */
+function auSeq(sentSrcs, gapS, lead) {
+  const let_ = auLetterOk(sentSrcs.length), srcs = [], gaps = [];
+  if (lead) { srcs.push(lead.src); gaps.push(lead.gap); }
+  sentSrcs.forEach((s, k) => { if (let_) { srcs.push(auLetterSrc(k)); gaps.push(AU_LGAP); } srcs.push(s); gaps.push(k < sentSrcs.length - 1 ? gapS : 0); });
+  return { srcs, gaps, letters: let_ };
+}
 const auFull = (part, id) => !!(AU.idx && AU.idx[part] && (AU.idx[part].complete || []).includes(id)) && !AU.bad[part + id];
 /* 連續播放：全程重複使用同一個 Audio 元素（iOS 只要第一段從點擊啟動，後面換 src 都能繼續播） */
 function auChain(srcs, gaps, live, done, fail) {
@@ -33,6 +45,7 @@ function auPanel(part, x) {
   const n = auNames(part, x), rows = (n.q ? [{ name: n.q, text: x.q.t }] : []).concat(x._pool.map((p, i) => ({ name: n.s[i], text: p.t })));
   const I = (AU.idx && AU.idx[part]) || {}, full = (I.complete || []).includes(x.id), ms = (I.partial || {})[x.id], has = r => full || !!(ms && !ms.includes(r.name));
   const got = rows.filter(has).length, miss = rows.filter(r => !has(r));
-  return `<div class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 p-3"><div class="flex flex-wrap items-center justify-between gap-2 mb-2"><p class="text-xs font-bold">🔊 音檔 ${got}/${rows.length}${got === rows.length ? '（完整，播放用 mp3）' : '（未到齊，整題用機器發音）'}${AU.idx ? '' : ' · 尚未讀到 audio/index.json'}</p>${miss.length ? `<button onclick="auCopy(this.dataset.t)" data-t="${esc(miss.map(r => r.name + '.mp3 | ' + r.text).join('\n'))}" class="${btn} ${line} !py-1 text-xs">複製缺的（檔名 | 句子）</button>` : ''}</div>`
+  const lt = AU.idx && Array.isArray(AU.idx.letters) ? AU.idx.letters : [], ltLine = `<p class="text-[11px] text-slate-500 mb-2">🔤 選項字母 audio/A–E.mp3：${AU_LET.split('').map(c => `<span class="${lt.includes(c) ? 'text-emerald-600' : 'text-rose-500'}">${c}${lt.includes(c) ? '✔' : '✖'}</span>`).join(' ')}（本題需 ${AU_LET.slice(0, part === 'p1' ? 4 : 3)}；沒到齊就只播句子，不報字母）</p>`;
+  return `<div class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 p-3"><div class="flex flex-wrap items-center justify-between gap-2 mb-2"><p class="text-xs font-bold">🔊 音檔 ${got}/${rows.length}${got === rows.length ? '（完整，播放用 mp3）' : '（未到齊，整題用機器發音）'}${AU.idx ? '' : ' · 尚未讀到 audio/index.json'}</p>${miss.length ? `<button onclick="auCopy(this.dataset.t)" data-t="${esc(miss.map(r => r.name + '.mp3 | ' + r.text).join('\n'))}" class="${btn} ${line} !py-1 text-xs">複製缺的（檔名 | 句子）</button>` : ''}</div>${ltLine}`
     + rows.map(r => `<div class="flex items-center gap-2 text-xs py-0.5"><span class="${has(r) ? 'text-emerald-600' : 'text-rose-500'}">${has(r) ? '✔' : '✖'}</span><code class="shrink-0">${r.name}.mp3</code><span class="truncate flex-1 text-slate-500">${esc(r.text)}</span><button onclick="auCopy(this.dataset.t)" data-t="${esc(r.name + '.mp3')}" class="${btn} ${line} !py-0.5 !px-2 text-xs">檔名</button><button onclick="auCopy(this.dataset.t)" data-t="${esc(r.text)}" class="${btn} ${line} !py-0.5 !px-2 text-xs">句子</button></div>`).join('') + '</div>';
 }
