@@ -1,0 +1,668 @@
+[
+ {
+  "id": "d5-001-h",
+  "domain": "d5",
+  "scene": "workplace",
+  "mtype": "meeting",
+  "tag": "鋼筋提前進場晨會更正",
+  "form": "talk",
+  "level": {
+   "score": 800,
+   "cefr": "B2+",
+   "tier": "hard",
+   "why": "先說下午兩點再更正為十一點，資訊密集，含意圖題與未來行動題"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "construction site foreman"
+   }
+  ],
+  "script": [
+   {
+    "t": "Alright, let's keep this briefing short, because the steel arrives earlier than expected today.",
+    "zh": "好，我們把這次簡報縮短，因為鋼材今天比預期提早到。"
+   },
+   {
+    "t": "Yesterday I told you the rebar would be delivered at two o'clock this afternoon.",
+    "zh": "昨天我告訴大家鋼筋會在今天下午兩點送到。"
+   },
+   {
+    "t": "The steel company called, and the truck will actually be here at eleven.",
+    "zh": "鋼鐵公司來電，卡車實際上十一點就會到。"
+   },
+   {
+    "t": "That means we need to clear the north yard before then.",
+    "zh": "這表示我們得在那之前清空北邊的場地。"
+   },
+   {
+    "t": "Tom's team will move the lumber to the south side, and Priya's team will cover the cement bags with tarps.",
+    "zh": "湯姆的小組會把木材搬到南側，普莉亞的小組會用防水布蓋住水泥袋。"
+   },
+   {
+    "t": "I know that sounds like a lot of work, but the forecast shows rain by noon.",
+    "zh": "我知道這聽起來工作量很大，但預報顯示中午前會下雨。"
+   },
+   {
+    "t": "If the materials get wet, we will lose at least a day of work.",
+    "zh": "如果材料淋濕，我們至少會損失一天工時。"
+   },
+   {
+    "t": "Because the crane is booked for the morning, the steel will be lifted onto the third floor after lunch.",
+    "zh": "因為起重機早上已被排滿，鋼材會在午餐後吊上三樓。"
+   },
+   {
+    "t": "Remember, nobody should stand within ten meters of the crane while it is moving.",
+    "zh": "請記得，起重機移動時，任何人都不應站在十公尺內。"
+   },
+   {
+    "t": "The safety officer will walk around at ten thirty to check the yard.",
+    "zh": "安全人員會在十點半巡視場地。"
+   },
+   {
+    "t": "Please finish your tasks before she arrives, or she may stop the delivery.",
+    "zh": "請在她到達前完成工作，否則她可能會叫停進貨。"
+   },
+   {
+    "t": "Okay, that's everything, so let's get to work.",
+    "zh": "好，就這些，我們開工吧。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "What is the main purpose of the talk?",
+     "zh": "這段談話的主要目的是什麼？"
+    },
+    "choices": [
+     {
+      "t": "To prepare workers for an earlier steel delivery",
+      "zh": "讓工人為提早的鋼材進場做準備",
+      "ok": true,
+      "pattern": "summary",
+      "why": "鋼材從下午兩點改為十一點到，需先清場。"
+     },
+     {
+      "t": "To explain how to use the crane safely",
+      "zh": "說明如何安全使用起重機",
+      "ok": false,
+      "trap": "partial",
+      "why": "起重機安全只是附帶提醒。"
+     },
+     {
+      "t": "To announce a day off because of rain",
+      "zh": "宣布因下雨放假一天",
+      "ok": false,
+      "trap": "opposite",
+      "why": "他是要大家搶在下雨前完成工作。"
+     },
+     {
+      "t": "To report the results of a safety check",
+      "zh": "報告安全檢查結果",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "安全人員檢查是之後才進行，尚無結果。"
+     }
+    ],
+    "evidence": [
+     0,
+     2
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "intent",
+    "q": {
+     "t": "Why does the speaker say, \"I know that sounds like a lot of work\"?",
+     "zh": "說話者為什麼說「I know that sounds like a lot of work」？"
+    },
+    "choices": [
+     {
+      "t": "To admit the tasks are demanding but necessary",
+      "zh": "承認任務吃重但有必要",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "接著說預報顯示中午前下雨，材料淋濕會損失一天。"
+     },
+     {
+      "t": "To suggest canceling the delivery",
+      "zh": "建議取消進貨",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "他仍要大家為進貨做準備。"
+     },
+     {
+      "t": "To apologize for giving the wrong time",
+      "zh": "為給錯時間道歉",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "時間變動是鋼鐵公司造成的，他沒有道歉。"
+     },
+     {
+      "t": "To offer extra pay for the work",
+      "zh": "提供額外工資",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "獨白沒有提到加薪。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "What does the speaker ask the workers to do before the safety officer arrives?",
+     "zh": "說話者要求工人在安全人員到達前做什麼？"
+    },
+    "choices": [
+     {
+      "t": "Complete their assigned jobs",
+      "zh": "完成各自分配的工作",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "finish your tasks 的同義替換。"
+     },
+     {
+      "t": "Lift the steel onto the third floor",
+      "zh": "把鋼材吊上三樓",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "吊上三樓是午餐後的安排。"
+     },
+     {
+      "t": "Move the lumber to the north yard",
+      "zh": "把木材搬到北側場地",
+      "ok": false,
+      "trap": "opposite",
+      "why": "木材要搬到南側，北側要清空。"
+     },
+     {
+      "t": "Call the steel company again",
+      "zh": "再打電話給鋼鐵公司",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "打電話的是鋼鐵公司，不是工人。"
+     }
+    ],
+    "evidence": [
+     9,
+     10
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "rebar",
+    "ipa": "/ˈriːbɑːr/",
+    "pos": "n.",
+    "col": "steel rebar",
+    "zh": "鋼筋"
+   },
+   {
+    "word": "tarp",
+    "ipa": "/tɑːrp/",
+    "pos": "n.",
+    "col": "cover with a tarp",
+    "zh": "防水布"
+   },
+   {
+    "word": "lumber",
+    "ipa": "/ˈlʌmbər/",
+    "pos": "n.",
+    "col": "a stack of lumber",
+    "zh": "木材"
+   }
+  ]
+ },
+ {
+  "id": "d5-002-h",
+  "domain": "d5",
+  "scene": "workplace",
+  "mtype": "radio",
+  "tag": "倉庫假期徵才廣播節目",
+  "form": "talk",
+  "level": {
+   "score": 700,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "先說網頁夜班時薪再更正，需結合圖表與班次時數計算"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "radio show host"
+   }
+  ],
+  "script": [
+   {
+    "t": "You are listening to Work Week on Radio 640, and I am your host, Dana.",
+    "zh": "您收聽的是640電台的《工作週》，我是主持人黛娜。"
+   },
+   {
+    "t": "Today we are talking about holiday jobs at Greenline Logistics, which is hiring two hundred warehouse workers.",
+    "zh": "今天我們來談綠線物流的假期工作，他們要招募兩百名倉庫人員。"
+   },
+   {
+    "t": "Every shift runs eight hours, and there are three to choose from.",
+    "zh": "每個班次八小時，共有三種可選。"
+   },
+   {
+    "t": "The morning shift starts at six and the evening shift starts at two, as shown on the company's web page.",
+    "zh": "早班六點開始，晚班兩點開始，公司網頁上也是這樣寫的。"
+   },
+   {
+    "t": "The page lists the night shift at twenty-four dollars an hour, but that was a mistake.",
+    "zh": "網頁把夜班列為每小時二十四美元，但那是錯誤。"
+   },
+   {
+    "t": "The correct rate is twenty-six dollars an hour, because night work is harder to fill.",
+    "zh": "正確的時薪是二十六美元，因為夜班比較難補人。"
+   },
+   {
+    "t": "New workers don't need experience, however they must complete a one-day safety class first.",
+    "zh": "新進人員不需要經驗，不過必須先完成一天的安全課程。"
+   },
+   {
+    "t": "Classes are held every Tuesday at the Greenline training center.",
+    "zh": "課程每週二在綠線訓練中心舉行。"
+   },
+   {
+    "t": "Our guest, hiring manager Paul Reyes, will be joining us after the break.",
+    "zh": "我們的來賓、招募經理保羅·雷耶斯，將在廣告後加入我們。"
+   },
+   {
+    "t": "So stay with us, because you can ask him your questions live.",
+    "zh": "所以請不要走開，您可以現場向他提問。"
+   },
+   {
+    "t": "This is Work Week, and we'll be right back.",
+    "zh": "這裡是《工作週》，我們馬上回來。"
+   }
+  ],
+  "graphic": {
+   "title": "Greenline Logistics Shifts (Company Web Page)",
+   "columns": [
+    "Shift",
+    "Start Time",
+    "Hourly Pay"
+   ],
+   "rows": [
+    [
+     "Morning",
+     "6 a.m.",
+     "$18"
+    ],
+    [
+     "Evening",
+     "2 p.m.",
+     "$20"
+    ],
+    [
+     "Night",
+     "10 p.m.",
+     "$24"
+    ]
+   ]
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "who",
+    "q": {
+     "t": "Who is Dana?",
+     "zh": "黛娜是誰？"
+    },
+    "choices": [
+     {
+      "t": "A radio host",
+      "zh": "廣播節目主持人",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "她自稱是《工作週》的主持人。"
+     },
+     {
+      "t": "A hiring manager",
+      "zh": "招募經理",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "招募經理是之後的來賓保羅·雷耶斯。"
+     },
+     {
+      "t": "A warehouse worker",
+      "zh": "倉庫員工",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "倉庫工作只是節目主題。"
+     },
+     {
+      "t": "A safety class teacher",
+      "zh": "安全課程老師",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "安全課程只是新進人員的要求。"
+     }
+    ],
+    "evidence": [
+     0
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "graphic",
+    "q": {
+     "t": "Look at the graphic. How much will a worker earn for one full night shift?",
+     "zh": "請看圖表。一個完整夜班可以賺多少錢？"
+    },
+    "choices": [
+     {
+      "t": "$208",
+      "zh": "208美元",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正確時薪26美元乘以八小時。"
+     },
+     {
+      "t": "$192",
+      "zh": "192美元",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "以網頁錯誤時薪24美元計算。"
+     },
+     {
+      "t": "$160",
+      "zh": "160美元",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "以晚班時薪20美元計算。"
+     },
+     {
+      "t": "$26",
+      "zh": "26美元",
+      "ok": false,
+      "trap": "partial",
+      "why": "這只是時薪，不是整個班次的收入。"
+     }
+    ],
+    "evidence": [
+     2,
+     5
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "detail",
+    "q": {
+     "t": "What must new workers do before they start?",
+     "zh": "新進人員開工前必須做什麼？"
+    },
+    "choices": [
+     {
+      "t": "Finish a one-day safety class",
+      "zh": "完成一天的安全課程",
+      "ok": true,
+      "pattern": "direct",
+      "why": "原文 complete a one-day safety class。"
+     },
+     {
+      "t": "Show proof of experience",
+      "zh": "出示經驗證明",
+      "ok": false,
+      "trap": "opposite",
+      "why": "說話者說不需要經驗。"
+     },
+     {
+      "t": "Visit the company's web page",
+      "zh": "瀏覽公司網頁",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "網頁只是資訊來源，不是要求。"
+     },
+     {
+      "t": "Meet the hiring manager",
+      "zh": "與招募經理見面",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "經理只是稍後的節目來賓。"
+     }
+    ],
+    "evidence": [
+     6
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "logistics",
+    "ipa": "/ləˈdʒɪstɪks/",
+    "pos": "n.",
+    "col": "logistics company",
+    "zh": "物流"
+   },
+   {
+    "word": "shift",
+    "ipa": "/ʃɪft/",
+    "pos": "n.",
+    "col": "night shift",
+    "zh": "班次"
+   }
+  ]
+ },
+ {
+  "id": "d5-003-h",
+  "domain": "d5",
+  "scene": "workplace",
+  "mtype": "ad",
+  "tag": "工程機具出租廣告",
+  "form": "talk",
+  "level": {
+   "score": 700,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "先說免運門檻500美元再更正為300美元，含意圖題與推論題"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "equipment company advertiser"
+   }
+  ],
+  "script": [
+   {
+    "t": "Got a big job coming up and not enough equipment to finish it on time?",
+    "zh": "有大工程要開工，設備卻不夠準時完工嗎？"
+   },
+   {
+    "t": "Ironside Machinery has what you need, from small power tools to full-size excavators.",
+    "zh": "艾恩賽德機具什麼都有，從小型電動工具到全尺寸挖土機。"
+   },
+   {
+    "t": "Last month, we told customers that delivery was free for orders over five hundred dollars.",
+    "zh": "上個月我們告訴客戶，訂單超過五百美元免運費。"
+   },
+   {
+    "t": "We have since lowered that limit, so now it is free for any order over three hundred dollars.",
+    "zh": "我們已降低門檻，現在任何超過三百美元的訂單都免運費。"
+   },
+   {
+    "t": "Better yet, every machine comes with a trained operator at no extra charge on weekdays.",
+    "zh": "更棒的是，平日每台機器都附贈受過訓練的操作員，不另收費。"
+   },
+   {
+    "t": "Yes, you heard that right.",
+    "zh": "沒錯，您沒聽錯。"
+   },
+   {
+    "t": "On weekends, an operator is available for a small daily fee.",
+    "zh": "週末則可加購操作員，每天收取少許費用。"
+   },
+   {
+    "t": "Our equipment is checked every morning, so breakdowns on your site are rare.",
+    "zh": "我們的設備每天早上都會檢查，所以在您工地故障的情況很少見。"
+   },
+   {
+    "t": "If something does go wrong, we promise a replacement within three hours.",
+    "zh": "如果真的出問題，我們保證三小時內更換。"
+   },
+   {
+    "t": "Visit our yard on Dock Street, or book online anytime.",
+    "zh": "歡迎到碼頭街的場地，或隨時線上預約。"
+   },
+   {
+    "t": "Ironside Machinery: we help you build it right.",
+    "zh": "艾恩賽德機具：幫您把工程做對。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "detail",
+    "q": {
+     "t": "What is the minimum order for free delivery now?",
+     "zh": "現在免運費的最低訂單金額是多少？"
+    },
+    "choices": [
+     {
+      "t": "$300",
+      "zh": "300美元",
+      "ok": true,
+      "pattern": "direct",
+      "why": "限額已降到三百美元。"
+     },
+     {
+      "t": "$500",
+      "zh": "500美元",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "這是上個月的舊門檻。"
+     },
+     {
+      "t": "Any amount",
+      "zh": "任何金額",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "仍需超過三百美元。"
+     },
+     {
+      "t": "Three hours",
+      "zh": "三小時",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "三小時是更換設備的承諾時間。"
+     }
+    ],
+    "evidence": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "intent",
+    "q": {
+     "t": "What does the speaker mean when he says, \"Yes, you heard that right\"?",
+     "zh": "說話者說「Yes, you heard that right」是什麼意思？"
+    },
+    "choices": [
+     {
+      "t": "He wants to stress that the offer is real.",
+      "zh": "他想強調這項優惠是真的。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "前一句的操作員免費聽起來好得不真實。"
+     },
+     {
+      "t": "He is apologizing for an earlier mistake.",
+      "zh": "他為先前的錯誤道歉。",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "先前更正的是運費門檻，並非在道歉。"
+     },
+     {
+      "t": "He is asking listeners to repeat an order.",
+      "zh": "他請聽眾重複訂單。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有要求重複訂單。"
+     },
+     {
+      "t": "He is warning that the offer will end soon.",
+      "zh": "他警告優惠即將結束。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有提到期限。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "infer",
+    "q": {
+     "t": "What can be inferred about a customer who hires a machine on Saturday?",
+     "zh": "關於週六租用機器的客戶，可以推論什麼？"
+    },
+    "choices": [
+     {
+      "t": "The customer may pay extra for an operator.",
+      "zh": "客戶可能要為操作員額外付費。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "週末操作員要收每日費用。"
+     },
+     {
+      "t": "The customer cannot get an operator.",
+      "zh": "客戶無法找到操作員。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "週末仍可加購操作員。"
+     },
+     {
+      "t": "The customer will receive free repairs.",
+      "zh": "客戶可獲得免費維修。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白說的是三小時內更換，沒有免費維修。"
+     },
+     {
+      "t": "The customer must visit the yard.",
+      "zh": "客戶必須親自到場地。",
+      "ok": false,
+      "trap": "partial",
+      "why": "也可以線上預約。"
+     }
+    ],
+    "evidence": [
+     6
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "excavator",
+    "ipa": "/ˈɛkskəveɪtər/",
+    "pos": "n.",
+    "col": "operate an excavator",
+    "zh": "挖土機"
+   },
+   {
+    "word": "operator",
+    "ipa": "/ˈɒpəreɪtər/",
+    "pos": "n.",
+    "col": "trained operator",
+    "zh": "操作員"
+   }
+  ]
+ }
+]

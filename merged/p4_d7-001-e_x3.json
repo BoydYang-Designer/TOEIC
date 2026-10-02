@@ -1,0 +1,586 @@
+[
+ {
+  "id": "d7-001-e",
+  "domain": "d7",
+  "scene": "outdoor",
+  "mtype": "announcement",
+  "tag": "公園野餐區暫停使用廣播",
+  "form": "talk",
+  "level": {
+   "score": 500,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "單一主題、句子簡短，答案多半照字面出現"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "park staff member"
+   }
+  ],
+  "script": [
+   {
+    "t": "Good afternoon, visitors to Greenhill Park.",
+    "zh": "各位綠丘公園的遊客，午安。"
+   },
+   {
+    "t": "The picnic area near the lake is closed today.",
+    "zh": "湖邊的野餐區今天關閉。"
+   },
+   {
+    "t": "Workers are cutting the grass and fixing the tables.",
+    "zh": "工人正在割草並修理桌子。"
+   },
+   {
+    "t": "It will open again tomorrow at nine a.m.",
+    "zh": "明天早上九點會再度開放。"
+   },
+   {
+    "t": "You can still have lunch at the tables by the playground.",
+    "zh": "您仍可在遊戲場旁的桌子用午餐。"
+   },
+   {
+    "t": "Please keep your dog on a leash everywhere in the park.",
+    "zh": "請在公園各處讓您的狗繫上牽繩。"
+   },
+   {
+    "t": "Thank you for your patience, and enjoy your visit.",
+    "zh": "謝謝您的耐心，祝您遊園愉快。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "What is the announcement mainly about?",
+     "zh": "這則廣播主要是關於什麼？"
+    },
+    "choices": [
+     {
+      "t": "A closed picnic area",
+      "zh": "關閉的野餐區",
+      "ok": true,
+      "pattern": "summary",
+      "why": "野餐區今天因工作而關閉。"
+     },
+     {
+      "t": "A lost dog",
+      "zh": "走失的狗",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "狗只是被要求繫牽繩。"
+     },
+     {
+      "t": "A new playground",
+      "zh": "新的遊戲場",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "遊戲場只是替代用餐地點。"
+     },
+     {
+      "t": "A lake cleaning day",
+      "zh": "湖泊清潔日",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有提到清潔湖泊。"
+     }
+    ],
+    "evidence": [
+     1
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "detail",
+    "q": {
+     "t": "When will the picnic area open again?",
+     "zh": "野餐區何時再開放？"
+    },
+    "choices": [
+     {
+      "t": "Tomorrow at nine a.m.",
+      "zh": "明天早上九點",
+      "ok": true,
+      "pattern": "direct",
+      "why": "原文 tomorrow at nine a.m.。"
+     },
+     {
+      "t": "Today at nine a.m.",
+      "zh": "今天早上九點",
+      "ok": false,
+      "trap": "opposite",
+      "why": "今天仍關閉。"
+     },
+     {
+      "t": "Tomorrow at noon",
+      "zh": "明天中午",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "時間是早上九點。"
+     },
+     {
+      "t": "Next week",
+      "zh": "下週",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "明天就會開放。"
+     }
+    ],
+    "evidence": [
+     3
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "What are visitors asked to do?",
+     "zh": "遊客被要求做什麼？"
+    },
+    "choices": [
+     {
+      "t": "Keep their dogs on a leash",
+      "zh": "讓狗繫上牽繩",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "Please keep your dog on a leash。"
+     },
+     {
+      "t": "Help cut the grass",
+      "zh": "幫忙割草",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "割草是工人的工作。"
+     },
+     {
+      "t": "Leave the park early",
+      "zh": "提早離開公園",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有要求離園。"
+     },
+     {
+      "t": "Eat lunch by the lake",
+      "zh": "在湖邊吃午餐",
+      "ok": false,
+      "trap": "opposite",
+      "why": "湖邊的野餐區今天關閉。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "picnic",
+    "ipa": "/ˈpɪknɪk/",
+    "pos": "n.",
+    "col": "picnic area",
+    "zh": "野餐"
+   },
+   {
+    "word": "leash",
+    "ipa": "/liːʃ/",
+    "pos": "n.",
+    "col": "on a leash",
+    "zh": "牽繩"
+   }
+  ]
+ },
+ {
+  "id": "d7-002-e",
+  "domain": "d7",
+  "scene": "outdoor",
+  "mtype": "radio",
+  "tag": "戶外健行天氣廣播",
+  "form": "talk",
+  "level": {
+   "score": 550,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "單一主題、句子簡短，含一題簡單推論"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "radio weather host"
+   }
+  ],
+  "script": [
+   {
+    "t": "Good morning, hikers and campers, and welcome to the Outdoor Report on Radio 88.",
+    "zh": "早安，健行者與露營者，歡迎收聽88電台的《戶外報告》。"
+   },
+   {
+    "t": "Today will be sunny and warm, with a high of twenty-eight degrees.",
+    "zh": "今天晴朗溫暖，最高溫二十八度。"
+   },
+   {
+    "t": "It is a great day for a walk on Eagle Mountain Trail.",
+    "zh": "今天很適合走鷹山步道。"
+   },
+   {
+    "t": "However, strong winds are expected after three in the afternoon.",
+    "zh": "然而，預計下午三點後會有強風。"
+   },
+   {
+    "t": "If you plan to stay late, bring a warm jacket.",
+    "zh": "如果您打算待到晚一點，請帶一件保暖外套。"
+   },
+   {
+    "t": "Tomorrow, rain is coming, so the trail may be wet.",
+    "zh": "明天會下雨，所以步道可能很濕。"
+   },
+   {
+    "t": "This has been the Outdoor Report, and have a safe trip.",
+    "zh": "以上是《戶外報告》，祝您旅途平安。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "who",
+    "q": {
+     "t": "Who most likely is the speaker?",
+     "zh": "說話者最可能是誰？"
+    },
+    "choices": [
+     {
+      "t": "A radio host",
+      "zh": "廣播節目主持人",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "他歡迎聽眾收聽《戶外報告》。"
+     },
+     {
+      "t": "A park ranger",
+      "zh": "公園管理員",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "他在電台播報，沒有說自己是管理員。"
+     },
+     {
+      "t": "A hiker",
+      "zh": "健行者",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "健行者是他的聽眾。"
+     },
+     {
+      "t": "A camp cook",
+      "zh": "露營廚師",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "獨白未提到烹飪。"
+     }
+    ],
+    "evidence": [
+     0
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "detail",
+    "q": {
+     "t": "What is the high temperature today?",
+     "zh": "今天的最高溫是多少？"
+    },
+    "choices": [
+     {
+      "t": "Twenty-eight degrees",
+      "zh": "二十八度",
+      "ok": true,
+      "pattern": "direct",
+      "why": "high of twenty-eight degrees。"
+     },
+     {
+      "t": "Eighteen degrees",
+      "zh": "十八度",
+      "ok": false,
+      "trap": "sound-alike",
+      "why": "與 twenty-eight 發音易混，但數字不同。"
+     },
+     {
+      "t": "Eighty-eight degrees",
+      "zh": "八十八度",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "88 是電台頻道。"
+     },
+     {
+      "t": "Three degrees",
+      "zh": "三度",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "三是強風開始的時間（三點）。"
+     }
+    ],
+    "evidence": [
+     1
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "infer",
+    "q": {
+     "t": "What can be inferred about the afternoon?",
+     "zh": "關於下午，可以推論什麼？"
+    },
+    "choices": [
+     {
+      "t": "It may feel cooler.",
+      "zh": "可能會比較涼。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "有強風，並建議待晚的人帶保暖外套。"
+     },
+     {
+      "t": "It will be rainy.",
+      "zh": "會下雨。",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "下雨是明天的天氣。"
+     },
+     {
+      "t": "The trail will be closed.",
+      "zh": "步道會關閉。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有說步道關閉。"
+     },
+     {
+      "t": "It will be hotter than the morning.",
+      "zh": "會比早上熱。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "他建議帶外套，並非更熱。"
+     }
+    ],
+    "evidence": [
+     3,
+     4
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "trail",
+    "ipa": "/treɪl/",
+    "pos": "n.",
+    "col": "mountain trail",
+    "zh": "步道"
+   },
+   {
+    "word": "hiker",
+    "ipa": "/ˈhaɪkər/",
+    "pos": "n.",
+    "col": "experienced hiker",
+    "zh": "健行者"
+   }
+  ]
+ },
+ {
+  "id": "d7-003-e",
+  "domain": "d7",
+  "scene": "outdoor",
+  "mtype": "ad",
+  "tag": "松湖露營區優惠廣告",
+  "form": "talk",
+  "level": {
+   "score": 500,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "單一主題、句子簡短，含一題簡單意圖題"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "campground advertiser"
+   }
+  ],
+  "script": [
+   {
+    "t": "Do you want a weekend away from the city?",
+    "zh": "您想遠離城市過個週末嗎？"
+   },
+   {
+    "t": "Come camp under the stars at Pine Lake Campground!",
+    "zh": "來松湖露營區，在星空下露營吧！"
+   },
+   {
+    "t": "Each campsite has a fire pit and a picnic table.",
+    "zh": "每個營位都有營火坑和野餐桌。"
+   },
+   {
+    "t": "You can swim in the lake or walk along the forest trail.",
+    "zh": "您可以在湖裡游泳，或沿著森林步道散步。"
+   },
+   {
+    "t": "Firewood is free for every guest.",
+    "zh": "每位客人都可免費取用柴火。"
+   },
+   {
+    "t": "Book two nights, and the third night is half price.",
+    "zh": "訂兩晚，第三晚半價。"
+   },
+   {
+    "t": "Just call 555-0155 or visit our website today.",
+    "zh": "今天就撥555-0155或瀏覽我們的網站。"
+   },
+   {
+    "t": "Pine Lake Campground: your weekend starts here!",
+    "zh": "松湖露營區：您的週末從這裡開始！"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "What is being advertised?",
+     "zh": "這則廣告在宣傳什麼？"
+    },
+    "choices": [
+     {
+      "t": "A campground",
+      "zh": "露營區",
+      "ok": true,
+      "pattern": "summary",
+      "why": "Pine Lake Campground。"
+     },
+     {
+      "t": "A swimming school",
+      "zh": "游泳學校",
+      "ok": false,
+      "trap": "partial",
+      "why": "游泳只是露營區的活動之一。"
+     },
+     {
+      "t": "A hiking shoe store",
+      "zh": "健行鞋店",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有提到賣鞋。"
+     },
+     {
+      "t": "A city hotel",
+      "zh": "市區旅館",
+      "ok": false,
+      "trap": "opposite",
+      "why": "廣告說的是遠離城市的露營。"
+     }
+    ],
+    "evidence": [
+     1
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "intent",
+    "q": {
+     "t": "What does the speaker mean when she says, \"Book two nights, and the third night is half price\"?",
+     "zh": "說話者說「Book two nights, and the third night is half price」是什麼意思？"
+    },
+    "choices": [
+     {
+      "t": "A three-night stay costs less than usual.",
+      "zh": "住三晚比平常便宜。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "第三晚半價。"
+     },
+     {
+      "t": "Guests must stay only two nights.",
+      "zh": "客人只能住兩晚。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "第三晚可以半價住，並非限制兩晚。"
+     },
+     {
+      "t": "The third night is free.",
+      "zh": "第三晚免費。",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "是半價，不是免費。"
+     },
+     {
+      "t": "All nights are half price.",
+      "zh": "每晚都半價。",
+      "ok": false,
+      "trap": "partial",
+      "why": "只有第三晚半價。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "How can listeners book a campsite?",
+     "zh": "聽眾要如何預訂營位？"
+    },
+    "choices": [
+     {
+      "t": "By phone or on the website",
+      "zh": "用電話或網站",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "call or visit our website。"
+     },
+     {
+      "t": "By visiting the lake",
+      "zh": "到湖邊現場",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "湖只是露營區的景點。"
+     },
+     {
+      "t": "By bringing firewood",
+      "zh": "自帶柴火",
+      "ok": false,
+      "trap": "opposite",
+      "why": "柴火是免費提供的。"
+     },
+     {
+      "t": "By writing a letter",
+      "zh": "寫信",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有提到寫信。"
+     }
+    ],
+    "evidence": [
+     6
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "campsite",
+    "ipa": "/ˈkæmpsaɪt/",
+    "pos": "n.",
+    "col": "book a campsite",
+    "zh": "營位"
+   },
+   {
+    "word": "firewood",
+    "ipa": "/ˈfaɪərwʊd/",
+    "pos": "n.",
+    "col": "free firewood",
+    "zh": "柴火"
+   }
+  ]
+ }
+]

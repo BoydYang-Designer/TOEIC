@@ -1,0 +1,644 @@
+[
+ {
+  "id": "d5-001-m",
+  "domain": "d5",
+  "scene": "workplace",
+  "mtype": "announcement",
+  "tag": "工地腳手架拆除時程通知",
+  "form": "talk",
+  "level": {
+   "score": 650,
+   "cefr": "B1+",
+   "tier": "medium",
+   "why": "有 however 轉折，含意圖題，需用同義換句理解延期原因"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "construction site supervisor"
+   }
+  ],
+  "script": [
+   {
+    "t": "Attention, everyone at the Riverside Tower construction site, this is a notice from the site office.",
+    "zh": "注意，河畔大樓工地的所有人員，這是來自工地辦公室的通知。"
+   },
+   {
+    "t": "We planned to take down the scaffolding on the east side this Thursday.",
+    "zh": "我們原本計畫本週四拆除東側的鷹架。"
+   },
+   {
+    "t": "However, the weather report says heavy rain is coming that day.",
+    "zh": "然而，氣象預報說那天會下大雨。"
+   },
+   {
+    "t": "Because wet metal can be slippery, the work will move to next Monday.",
+    "zh": "因為濕的金屬可能很滑，這項工作會改到下週一。"
+   },
+   {
+    "t": "Until then, please stay away from the area marked with orange tape.",
+    "zh": "在那之前，請遠離用橘色膠帶標示的區域。"
+   },
+   {
+    "t": "The concrete team will still start on schedule, but they will work on the west side only.",
+    "zh": "混凝土小組仍會按時開工，但只會在西側作業。"
+   },
+   {
+    "t": "Please check the board near the main entrance for your new assignments.",
+    "zh": "請到主要入口附近的公告板查看您的新任務分配。"
+   },
+   {
+    "t": "If you cannot find your name, talk to your team leader.",
+    "zh": "如果找不到您的名字，請找您的組長。"
+   },
+   {
+    "t": "Thank you, and please be careful out there.",
+    "zh": "謝謝大家，請多加小心。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "What is the purpose of the announcement?",
+     "zh": "這則公告的目的是什麼？"
+    },
+    "choices": [
+     {
+      "t": "To report a delay in removing the scaffolding",
+      "zh": "告知拆除鷹架延期",
+      "ok": true,
+      "pattern": "summary",
+      "why": "原定週四，因下雨改到下週一。"
+     },
+     {
+      "t": "To introduce a new rule for the concrete team",
+      "zh": "介紹混凝土小組的新規定",
+      "ok": false,
+      "trap": "partial",
+      "why": "混凝土小組只是照常開工，並非新規定。"
+     },
+     {
+      "t": "To warn about rain damage on the site",
+      "zh": "警告工地的雨損",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "下雨只是延期原因，尚未有損害。"
+     },
+     {
+      "t": "To ask for new team leaders",
+      "zh": "徵求新的組長",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "組長只是詢問對象，並非公告目的。"
+     }
+    ],
+    "evidence": [
+     1,
+     3
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "intent",
+    "q": {
+     "t": "What does the speaker imply when he says, \"The concrete team will still start on schedule\"?",
+     "zh": "說話者說「The concrete team will still start on schedule」是暗示什麼？"
+    },
+    "choices": [
+     {
+      "t": "Some work will not be affected by the delay.",
+      "zh": "部分工作不受延期影響。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "混凝土小組照原計畫開工，只限西側。"
+     },
+     {
+      "t": "The concrete work has been postponed too.",
+      "zh": "混凝土工作也延期了。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "他說會按時開始。"
+     },
+     {
+      "t": "All teams will stop working next week.",
+      "zh": "所有小組下週都要停工。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "只有東側鷹架拆除延期，並非全面停工。"
+     },
+     {
+      "t": "The concrete team will work on the east side.",
+      "zh": "混凝土小組將在東側作業。",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "他們只在西側作業。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "What are workers asked to do about their assignments?",
+     "zh": "關於工作分配，工人被要求做什麼？"
+    },
+    "choices": [
+     {
+      "t": "Look at a posted board",
+      "zh": "查看張貼的公告板",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "請到主要入口附近的 board 查看。"
+     },
+     {
+      "t": "Wait for a phone call",
+      "zh": "等電話通知",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白未提到會打電話。"
+     },
+     {
+      "t": "Ask the concrete team",
+      "zh": "詢問混凝土小組",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "混凝土小組只是被提到的另一個小組。"
+     },
+     {
+      "t": "Stay inside the orange tape area",
+      "zh": "待在橘色膠帶區域內",
+      "ok": false,
+      "trap": "opposite",
+      "why": "他要大家遠離橘色膠帶區域。"
+     }
+    ],
+    "evidence": [
+     6
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "scaffolding",
+    "ipa": "/ˈskæfoʊldɪŋ/",
+    "pos": "n.",
+    "col": "take down the scaffolding",
+    "zh": "鷹架"
+   },
+   {
+    "word": "slippery",
+    "ipa": "/ˈslɪpəri/",
+    "pos": "adj.",
+    "col": "slippery floor",
+    "zh": "濕滑的"
+   }
+  ]
+ },
+ {
+  "id": "d5-002-m",
+  "domain": "d5",
+  "scene": "workplace",
+  "mtype": "news",
+  "tag": "港口路物流中心擴建新聞",
+  "form": "talk",
+  "level": {
+   "score": 600,
+   "cefr": "B1",
+   "tier": "medium",
+   "why": "先說兩百個職缺再更正為三百，有 however 轉折，含推論題"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "business news reporter"
+   }
+  ],
+  "script": [
+   {
+    "t": "Here is your midday business update on Channel 5.",
+    "zh": "這裡是五台的午間商業快報。"
+   },
+   {
+    "t": "Port Road Distribution Center has announced a plan to nearly double its size.",
+    "zh": "港口路物流中心宣布計畫將規模擴大近一倍。"
+   },
+   {
+    "t": "The company first said the expansion would bring in two hundred jobs, but it has now raised that number to three hundred.",
+    "zh": "公司起初說擴建會帶來兩百個職缺，但現在已把數字提高到三百個。"
+   },
+   {
+    "t": "Most of the new workers will load and unload trucks around the clock.",
+    "zh": "大多數新員工將全天候裝卸卡車。"
+   },
+   {
+    "t": "Construction is set to begin in April.",
+    "zh": "工程預定四月開始。"
+   },
+   {
+    "t": "However, nearby neighbors have asked for quieter work hours.",
+    "zh": "然而，附近鄰居要求降低施工時段的噪音。"
+   },
+   {
+    "t": "In response, the company has promised to stop heavy machinery after eight p.m.",
+    "zh": "對此，公司承諾晚上八點後停止使用重型機具。"
+   },
+   {
+    "t": "Managers say the larger building will help them handle more online orders.",
+    "zh": "主管表示，更大的建築能幫助他們處理更多網路訂單。"
+   },
+   {
+    "t": "Applications will open on the company website next month.",
+    "zh": "應徵將於下個月在公司網站開放。"
+   },
+   {
+    "t": "That's all for business, and now back to the studio.",
+    "zh": "商業新聞就到這裡，現在交還給攝影棚。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "who",
+    "q": {
+     "t": "Who most likely is the speaker?",
+     "zh": "說話者最可能是誰？"
+    },
+    "choices": [
+     {
+      "t": "A business news reporter",
+      "zh": "商業新聞記者",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "她播報商業快報並交還攝影棚。"
+     },
+     {
+      "t": "A warehouse manager",
+      "zh": "倉庫經理",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "經理是被她轉述的對象。"
+     },
+     {
+      "t": "A job recruiter",
+      "zh": "求才人員",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "應徵只是她報導的消息。"
+     },
+     {
+      "t": "A construction worker",
+      "zh": "營造工人",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "施工只是新聞內容，她並非工人。"
+     }
+    ],
+    "evidence": [
+     0
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "detail",
+    "q": {
+     "t": "How many new jobs will the expansion create?",
+     "zh": "擴建會創造多少新職缺？"
+    },
+    "choices": [
+     {
+      "t": "Three hundred",
+      "zh": "三百個",
+      "ok": true,
+      "pattern": "direct",
+      "why": "更正後的數字是三百。"
+     },
+     {
+      "t": "Two hundred",
+      "zh": "兩百個",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "這是公司起初說的數字，後來已提高。"
+     },
+     {
+      "t": "One hundred",
+      "zh": "一百個",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "獨白沒有提到一百。"
+     },
+     {
+      "t": "Eight hundred",
+      "zh": "八百個",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "八是晚上八點的時間。"
+     }
+    ],
+    "evidence": [
+     2
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "infer",
+    "q": {
+     "t": "What can be inferred about the company's plan?",
+     "zh": "關於公司的計畫，可以推論什麼？"
+    },
+    "choices": [
+     {
+      "t": "It will change its work habits for the neighbors.",
+      "zh": "公司會為了鄰居調整施工做法。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "鄰居要求安靜後，公司承諾八點後停用重型機具。"
+     },
+     {
+      "t": "The neighbors want the plan canceled.",
+      "zh": "鄰居要求取消計畫。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "鄰居只要求較安靜的施工時間。"
+     },
+     {
+      "t": "Machines will run all night.",
+      "zh": "機具會整夜運轉。",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "重型機具八點後停止，全天候的是裝卸工作。"
+     },
+     {
+      "t": "Construction will start in March.",
+      "zh": "工程三月開始。",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "工程預定四月開始。"
+     }
+    ],
+    "evidence": [
+     5,
+     6
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "distribution",
+    "ipa": "/ˌdɪstrɪˈbjuːʃən/",
+    "pos": "n.",
+    "col": "distribution center",
+    "zh": "配送；物流"
+   },
+   {
+    "word": "expansion",
+    "ipa": "/ɪkˈspænʃən/",
+    "pos": "n.",
+    "col": "plan an expansion",
+    "zh": "擴建；擴張"
+   },
+   {
+    "word": "machinery",
+    "ipa": "/məˈʃiːnəri/",
+    "pos": "n.",
+    "col": "heavy machinery",
+    "zh": "機具；機械"
+   }
+  ]
+ },
+ {
+  "id": "d5-003-m",
+  "domain": "d5",
+  "scene": "workplace",
+  "mtype": "tour",
+  "tag": "物流中心參觀導覽",
+  "form": "talk",
+  "level": {
+   "score": 650,
+   "cefr": "B1+",
+   "tier": "medium",
+   "why": "講義行程與口頭更正需對照，有 however 轉折，含圖表題與推論題"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "distribution center tour guide"
+   }
+  ],
+  "script": [
+   {
+    "t": "Welcome to the Lakeview Distribution Center, and please stay together as we begin the tour.",
+    "zh": "歡迎來到湖景物流中心，導覽開始了，請大家保持在一起。"
+   },
+   {
+    "t": "First, I need everyone to put on a hard hat and safety glasses.",
+    "zh": "首先，我需要每個人戴上安全帽和護目鏡。"
+   },
+   {
+    "t": "You can find them on the shelf next to the door.",
+    "zh": "你們可以在門旁的架子上找到。"
+   },
+   {
+    "t": "Our first stop is the receiving dock, where trucks drop off new shipments.",
+    "zh": "第一站是收貨碼頭，卡車會在那裡卸下新到的貨物。"
+   },
+   {
+    "t": "The schedule in your handout shows a visit to the cold room at 10:40.",
+    "zh": "你們講義上的行程表顯示10:40要參觀冷藏室。"
+   },
+   {
+    "t": "However, that room is closed for cleaning today, so we will see the packing area instead.",
+    "zh": "然而，那個房間今天因清潔而關閉，所以我們改看包裝區。"
+   },
+   {
+    "t": "Photos are fine in most places, but please do not take pictures of the control room screens.",
+    "zh": "大部分地方可以拍照，但請不要拍控制室的螢幕。"
+   },
+   {
+    "t": "Some of the information on them is private.",
+    "zh": "上面有些資訊是不公開的。"
+   },
+   {
+    "t": "If you have questions, please raise your hand, and let's get started.",
+    "zh": "如果有問題，請舉手，我們開始吧。"
+   }
+  ],
+  "graphic": {
+   "title": "Lakeview Distribution Center Tour Schedule (Handout)",
+   "columns": [
+    "Time",
+    "Stop"
+   ],
+   "rows": [
+    [
+     "10:00",
+     "Receiving Dock"
+    ],
+    [
+     "10:20",
+     "Sorting Floor"
+    ],
+    [
+     "10:40",
+     "Cold Room"
+    ],
+    [
+     "11:00",
+     "Control Room"
+    ]
+   ]
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "next",
+    "q": {
+     "t": "What are visitors told to do before the tour?",
+     "zh": "參觀前，訪客被告知要做什麼？"
+    },
+    "choices": [
+     {
+      "t": "Put on protective gear",
+      "zh": "穿戴防護裝備",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "hard hat 和 safety glasses 即防護裝備。"
+     },
+     {
+      "t": "Read the handout",
+      "zh": "閱讀講義",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "講義只是後面提到的行程資料。"
+     },
+     {
+      "t": "Visit the packing area",
+      "zh": "參觀包裝區",
+      "ok": false,
+      "trap": "partial",
+      "why": "包裝區是之後的行程，不是開始前要做的事。"
+     },
+     {
+      "t": "Raise their hands",
+      "zh": "舉手",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "舉手是有問題時才做。"
+     }
+    ],
+    "evidence": [
+     1
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "graphic",
+    "q": {
+     "t": "Look at the graphic. Which area will the group visit at 10:40?",
+     "zh": "請看圖表。團體在10:40會參觀哪個區域？"
+    },
+    "choices": [
+     {
+      "t": "The packing area",
+      "zh": "包裝區",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "冷藏室關閉，改看包裝區。"
+     },
+     {
+      "t": "The cold room",
+      "zh": "冷藏室",
+      "ok": false,
+      "trap": "opposite",
+      "why": "這是講義上的原定行程，但已關閉。"
+     },
+     {
+      "t": "The sorting floor",
+      "zh": "分揀區",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "分揀區是10:20的行程。"
+     },
+     {
+      "t": "The control room",
+      "zh": "控制室",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "控制室是11:00的行程。"
+     }
+    ],
+    "evidence": [
+     4,
+     5
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "infer",
+    "q": {
+     "t": "What can be inferred about the control room screens?",
+     "zh": "關於控制室的螢幕，可以推論什麼？"
+    },
+    "choices": [
+     {
+      "t": "They show information that should not be shared.",
+      "zh": "螢幕顯示不該公開的資訊。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "禁止拍照，因為上面有些資訊是不公開的。"
+     },
+     {
+      "t": "They are broken today.",
+      "zh": "今天壞了。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有提到故障。"
+     },
+     {
+      "t": "They are in the cold room.",
+      "zh": "在冷藏室裡。",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "螢幕在控制室。"
+     },
+     {
+      "t": "They can be photographed freely.",
+      "zh": "可以隨意拍照。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "說話者要求不要拍。"
+     }
+    ],
+    "evidence": [
+     6,
+     7
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "handout",
+    "ipa": "/ˈhændaʊt/",
+    "pos": "n.",
+    "col": "read the handout",
+    "zh": "講義；分發資料"
+   },
+   {
+    "word": "packing",
+    "ipa": "/ˈpækɪŋ/",
+    "pos": "n.",
+    "col": "packing area",
+    "zh": "包裝"
+   }
+  ]
+ }
+]

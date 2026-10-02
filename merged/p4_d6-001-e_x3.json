@@ -1,0 +1,593 @@
+[
+ {
+  "id": "d6-001-e",
+  "domain": "d6",
+  "scene": "hotel",
+  "mtype": "announcement",
+  "tag": "旅館泳池清潔暫停開放廣播",
+  "form": "talk",
+  "level": {
+   "score": 500,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "單一主題、句子簡短，答案多半照字面出現"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "hotel front desk manager"
+   }
+  ],
+  "script": [
+   {
+    "t": "Good evening, guests of the Bayview Hotel.",
+    "zh": "各位貝景飯店的貴賓，晚安。"
+   },
+   {
+    "t": "The swimming pool will be closed tomorrow for cleaning.",
+    "zh": "游泳池明天將因清潔而關閉。"
+   },
+   {
+    "t": "It will open again on Friday at seven a.m.",
+    "zh": "週五早上七點會再度開放。"
+   },
+   {
+    "t": "If you want to swim, you can use the pool at our sister hotel across the street.",
+    "zh": "如果您想游泳，可以使用對面姊妹飯店的游泳池。"
+   },
+   {
+    "t": "Just show your room key at the front door of that hotel.",
+    "zh": "只要在那間飯店的大門出示您的房卡即可。"
+   },
+   {
+    "t": "The gym on the second floor is open all day.",
+    "zh": "二樓的健身房全天開放。"
+   },
+   {
+    "t": "Please ask the front desk if you need more towels.",
+    "zh": "如果需要更多毛巾，請詢問櫃檯。"
+   },
+   {
+    "t": "Thank you, and enjoy your stay.",
+    "zh": "謝謝大家，祝您住宿愉快。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "What is the announcement mainly about?",
+     "zh": "這則廣播主要是關於什麼？"
+    },
+    "choices": [
+     {
+      "t": "A pool closing",
+      "zh": "游泳池關閉",
+      "ok": true,
+      "pattern": "summary",
+      "why": "說明游泳池明天因清潔關閉。"
+     },
+     {
+      "t": "A new gym",
+      "zh": "新的健身房",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "健身房只是附帶提到，且全天開放。"
+     },
+     {
+      "t": "A room change",
+      "zh": "更換房間",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有提到換房。"
+     },
+     {
+      "t": "A towel sale",
+      "zh": "毛巾特賣",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "毛巾只是可向櫃檯索取。"
+     }
+    ],
+    "evidence": [
+     1
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "detail",
+    "q": {
+     "t": "When will the pool open again?",
+     "zh": "游泳池何時再開放？"
+    },
+    "choices": [
+     {
+      "t": "On Friday morning",
+      "zh": "週五早上",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "Friday at seven a.m."
+     },
+     {
+      "t": "Tomorrow morning",
+      "zh": "明天早上",
+      "ok": false,
+      "trap": "opposite",
+      "why": "明天是關閉的日子。"
+     },
+     {
+      "t": "On Friday night",
+      "zh": "週五晚上",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "是早上七點，不是晚上。"
+     },
+     {
+      "t": "On Saturday at seven",
+      "zh": "週六早上七點",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "七點是對的，但日期是週五。"
+     }
+    ],
+    "evidence": [
+     2
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "What should guests do if they want to use the other pool?",
+     "zh": "客人若想使用另一個游泳池，應該怎麼做？"
+    },
+    "choices": [
+     {
+      "t": "Show their room key",
+      "zh": "出示房卡",
+      "ok": true,
+      "pattern": "direct",
+      "why": "Just show your room key。"
+     },
+     {
+      "t": "Ask for more towels",
+      "zh": "要求更多毛巾",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "毛巾是另一項服務，與使用泳池無關。"
+     },
+     {
+      "t": "Go to the second floor",
+      "zh": "去二樓",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "二樓是健身房。"
+     },
+     {
+      "t": "Wait until Friday",
+      "zh": "等到週五",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "他們可以今天就去對面使用游泳池。"
+     }
+    ],
+    "evidence": [
+     4
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "towel",
+    "ipa": "/ˈtaʊəl/",
+    "pos": "n.",
+    "col": "clean towel",
+    "zh": "毛巾"
+   },
+   {
+    "word": "gym",
+    "ipa": "/dʒɪm/",
+    "pos": "n.",
+    "col": "hotel gym",
+    "zh": "健身房"
+   }
+  ]
+ },
+ {
+  "id": "d6-002-e",
+  "domain": "d6",
+  "scene": "home",
+  "mtype": "voicemail",
+  "tag": "洗衣機維修預約確認留言",
+  "form": "talk",
+  "level": {
+   "score": 550,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "單一主題、句子簡短，含一題簡單推論"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "home repair technician"
+   }
+  ],
+  "script": [
+   {
+    "t": "Hi, Ms. Kim, it's Ben from Brightside Home Services calling about your washing machine.",
+    "zh": "嗨，金小姐，我是明亮居家服務的班，來電是關於您的洗衣機。"
+   },
+   {
+    "t": "I can come to your apartment tomorrow at two in the afternoon.",
+    "zh": "我明天下午兩點可以到您的公寓。"
+   },
+   {
+    "t": "The repair should take about one hour.",
+    "zh": "維修大約需要一小時。"
+   },
+   {
+    "t": "Please make sure someone is home to open the door.",
+    "zh": "請確保有人在家開門。"
+   },
+   {
+    "t": "I will also bring a new hose, so you do not need to buy one.",
+    "zh": "我也會帶一條新水管，所以您不需要自己買。"
+   },
+   {
+    "t": "The total price will be sixty dollars.",
+    "zh": "總價是六十美元。"
+   },
+   {
+    "t": "If two o'clock is a problem, please call me back at 555-0123.",
+    "zh": "如果兩點不方便，請回電555-0123給我。"
+   },
+   {
+    "t": "Thank you, and have a nice day.",
+    "zh": "謝謝您，祝您有美好的一天。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "who",
+    "q": {
+     "t": "Who most likely is the speaker?",
+     "zh": "說話者最可能是誰？"
+    },
+    "choices": [
+     {
+      "t": "A repair technician",
+      "zh": "維修技師",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "他來電說要到府維修洗衣機。"
+     },
+     {
+      "t": "An apartment owner",
+      "zh": "公寓屋主",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "公寓是金小姐的家。"
+     },
+     {
+      "t": "A store cashier",
+      "zh": "商店收銀員",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白未提到商店購物。"
+     },
+     {
+      "t": "A delivery driver",
+      "zh": "送貨司機",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "他要來維修，不是送貨。"
+     }
+    ],
+    "evidence": [
+     0
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "infer",
+    "q": {
+     "t": "What can be inferred about the washing machine?",
+     "zh": "關於洗衣機，可以推論什麼？"
+    },
+    "choices": [
+     {
+      "t": "It needs a new part.",
+      "zh": "它需要新零件。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "他要帶新水管來更換。"
+     },
+     {
+      "t": "It is brand new.",
+      "zh": "它是全新的。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "全新的機器不需要維修。"
+     },
+     {
+      "t": "It cannot be fixed.",
+      "zh": "它無法修理。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "他說維修約需一小時。"
+     },
+     {
+      "t": "It was bought last week.",
+      "zh": "它是上週買的。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有提到購買時間。"
+     }
+    ],
+    "evidence": [
+     4
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "What should Ms. Kim do if two o'clock is a problem?",
+     "zh": "如果兩點不方便，金小姐該怎麼做？"
+    },
+    "choices": [
+     {
+      "t": "Phone the speaker",
+      "zh": "打電話給說話者",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "please call me back。"
+     },
+     {
+      "t": "Buy a new hose",
+      "zh": "買一條新水管",
+      "ok": false,
+      "trap": "opposite",
+      "why": "他說會自己帶水管。"
+     },
+     {
+      "t": "Pay sixty dollars now",
+      "zh": "現在付六十美元",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "六十美元是總價，沒有要求現在付。"
+     },
+     {
+      "t": "Leave the door open",
+      "zh": "讓門開著",
+      "ok": false,
+      "trap": "partial",
+      "why": "他要求有人在家開門，與時間不便無關。"
+     }
+    ],
+    "evidence": [
+     6
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "hose",
+    "ipa": "/hoʊz/",
+    "pos": "n.",
+    "col": "a new hose",
+    "zh": "水管"
+   },
+   {
+    "word": "apartment",
+    "ipa": "/əˈpɑːrtmənt/",
+    "pos": "n.",
+    "col": "apartment building",
+    "zh": "公寓"
+   }
+  ]
+ },
+ {
+  "id": "d6-003-e",
+  "domain": "d6",
+  "scene": "home",
+  "mtype": "ad",
+  "tag": "居家清潔服務廣告",
+  "form": "talk",
+  "level": {
+   "score": 500,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "單一主題、句子簡短，含一題簡單意圖題"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "cleaning service advertiser"
+   }
+  ],
+  "script": [
+   {
+    "t": "Too busy to clean your home this week?",
+    "zh": "這週太忙沒時間打掃家裡嗎？"
+   },
+   {
+    "t": "Call Sparkle Maids, and we will make your house shine.",
+    "zh": "打給閃亮女傭服務，我們會讓您的家閃閃發亮。"
+   },
+   {
+    "t": "Our team cleans every bedroom, bathroom, and living room.",
+    "zh": "我們的團隊會清潔每間臥室、浴室和客廳。"
+   },
+   {
+    "t": "We bring all our own cleaning products.",
+    "zh": "我們自備所有清潔用品。"
+   },
+   {
+    "t": "A two-bedroom home takes only three hours.",
+    "zh": "兩房的住家只需三小時。"
+   },
+   {
+    "t": "New customers get twenty percent off their first visit.",
+    "zh": "新客戶首次服務可享八折。"
+   },
+   {
+    "t": "You relax, and we do the rest.",
+    "zh": "您放輕鬆，其餘交給我們。"
+   },
+   {
+    "t": "Call 555-0199 today and book your first visit.",
+    "zh": "今天就撥555-0199，預約您的第一次服務。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "What is being advertised?",
+     "zh": "這則廣告在宣傳什麼？"
+    },
+    "choices": [
+     {
+      "t": "A home cleaning service",
+      "zh": "居家清潔服務",
+      "ok": true,
+      "pattern": "summary",
+      "why": "Sparkle Maids 會清潔住家。"
+     },
+     {
+      "t": "A moving company",
+      "zh": "搬家公司",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有提到搬家。"
+     },
+     {
+      "t": "A cleaning product store",
+      "zh": "清潔用品商店",
+      "ok": false,
+      "trap": "partial",
+      "why": "清潔用品是他們自備的，並非販售。"
+     },
+     {
+      "t": "A hotel booking site",
+      "zh": "旅館訂房網站",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有提到旅館。"
+     }
+    ],
+    "evidence": [
+     1
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "detail",
+    "q": {
+     "t": "How long does it take to clean a two-bedroom home?",
+     "zh": "清潔一間兩房的住家需要多久？"
+    },
+    "choices": [
+     {
+      "t": "Three hours",
+      "zh": "三小時",
+      "ok": true,
+      "pattern": "direct",
+      "why": "原文 only three hours。"
+     },
+     {
+      "t": "Two hours",
+      "zh": "兩小時",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "「兩」是房間數，不是時數。"
+     },
+     {
+      "t": "Twenty minutes",
+      "zh": "二十分鐘",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "二十是折扣百分比。"
+     },
+     {
+      "t": "One week",
+      "zh": "一週",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "this week 是在問客人這週是否忙碌。"
+     }
+    ],
+    "evidence": [
+     4
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "intent",
+    "q": {
+     "t": "What does the speaker mean when she says, \"You relax, and we do the rest\"?",
+     "zh": "說話者說「You relax, and we do the rest」是什麼意思？"
+    },
+    "choices": [
+     {
+      "t": "Customers do not need to do the cleaning.",
+      "zh": "客戶不需要自己打掃。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "清潔工作全由團隊完成。"
+     },
+     {
+      "t": "Customers must clean the bedrooms first.",
+      "zh": "客戶必須先打掃臥室。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "團隊會清潔每間臥室。"
+     },
+     {
+      "t": "Customers should bring cleaning products.",
+      "zh": "客戶要準備清潔用品。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "他們自備清潔用品。"
+     },
+     {
+      "t": "Customers can stay for only three hours.",
+      "zh": "客戶只能待三小時。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "三小時是清潔所需時間，不是限制。"
+     }
+    ],
+    "evidence": [
+     6
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "maid",
+    "ipa": "/meɪd/",
+    "pos": "n.",
+    "col": "hotel maid",
+    "zh": "清潔女工"
+   },
+   {
+    "word": "bedroom",
+    "ipa": "/ˈbɛdruːm/",
+    "pos": "n.",
+    "col": "two-bedroom home",
+    "zh": "臥室"
+   }
+  ]
+ }
+]

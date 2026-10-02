@@ -253,7 +253,7 @@ function runH(){
     <div class="grid grid-cols-3 gap-2 mt-3"><button ${r.i===0?'disabled':''} onclick="goto(${r.i-1})" class="${btn} ${line}">← 上一題</button><button onclick="flag()" class="${btn} ${line}">${r.flag[x.id]?'⚑ 取消標記':'⚐ 待檢查'}</button><button ${last?'disabled':''} onclick="goto(${r.i+1})" class="${btn} ${line}">下一題 →</button></div>
     <button onclick="submit()" class="${btn} ${pri} w-full mt-3">交卷（已答 ${r.items.filter(y=>r.ans[y.id]!==undefined).length}/${n}）</button>`;
   }
-  if(!done)return `${top}${clk}${q}${optsPre(x,d,a,true)}<button onclick="skip()" class="${btn} ${line} w-full mt-2">${last?'跳過並結束':'跳過這題'}</button>`;
+  if(!done)return `${top}${clk}${q}<div class="flex flex-wrap items-center gap-2 mb-3"><button data-play="${esc(x.id)}" onclick="togglePlay('${esc(x.id)}')" class="${btn} ${line} !py-1.5">▶ 播放整句</button>${[0.75,1,1.25].map(v=>`<button onclick="setRate(${v})" class="${on(P.rate===v)}">${v}×</button>`).join('')}<span class="text-xs text-slate-500">${AU.has(x.id)?'錄音檔':'機器發音'}（會念出答案）</span></div>${optsPre(x,d,a,true)}<button onclick="skip()" class="${btn} ${line} w-full mt-2">${last?'跳過並結束':'跳過這題'}</button>`;
   const lg=r.log[x.id],ok=lg&&lg.ok;
   return `${top}${q}<div class="${card} p-3 mb-3 flex items-center justify-between"><b class="${ok?'text-emerald-600':'text-rose-600'}">${ok?'✓ 答對了':'✗ 答錯了'}</b><span class="text-xs ${lg&&lg.secs>WARN?'text-rose-600':'text-slate-500'}">用時 ${lg?lg.secs:0} 秒${lg&&lg.secs>WARN?'（超過 30 秒）':''}</span></div>
   ${optsPost(x,d,a)}${explainH(x,d)}${bankH(x,d)}${audioH(x)}

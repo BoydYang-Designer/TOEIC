@@ -1,0 +1,405 @@
+[
+ {
+  "id": "d1-002-e",
+  "domain": "d1",
+  "scene": "office",
+  "mtype": "voicemail",
+  "tag": "會議室更換通知留言",
+  "form": "talk",
+  "level": {
+   "score": 500,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "電話留言單一主題，會議室與時間照字面出現。"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "財務部職員 Daniel"
+   }
+  ],
+  "script": [
+   {
+    "t": "Good afternoon, Ms. Park. This is Daniel Wu from the Finance office.",
+    "zh": "Park 小姐午安，我是財務部的 Daniel Wu。"
+   },
+   {
+    "t": "I am calling about Monday's budget meeting.",
+    "zh": "我來電是關於週一的預算會議。"
+   },
+   {
+    "t": "We have moved it from Room 301 to Room 205 on the second floor.",
+    "zh": "我們已把會議從 301 室改到二樓的 205 室。"
+   },
+   {
+    "t": "The projector in Room 301 is broken, and the repair will take until Tuesday.",
+    "zh": "301 室的投影機壞了，維修要到週二才會完成。"
+   },
+   {
+    "t": "The meeting will still start at ten a.m.",
+    "zh": "會議仍然在上午十點開始。"
+   },
+   {
+    "t": "Please bring a printed copy of your department report.",
+    "zh": "請帶一份您部門報告的列印本。"
+   },
+   {
+    "t": "If you have any questions, call me at extension 4120.",
+    "zh": "如果有任何問題，請撥分機 4120 找我。"
+   },
+   {
+    "t": "Thank you, and have a nice day.",
+    "zh": "謝謝您，祝您有愉快的一天。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "Why is the speaker calling?",
+     "zh": "說話者為什麼來電？"
+    },
+    "choices": [
+     {
+      "t": "To tell Ms. Park about a new meeting room",
+      "zh": "告知 Park 小姐新的會議室",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：moved it from Room 301 to Room 205。"
+     },
+     {
+      "t": "To ask for a repair of the projector",
+      "zh": "要求維修投影機",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "投影機故障只是換房間的原因。"
+     },
+     {
+      "t": "To cancel the budget meeting",
+      "zh": "取消預算會議",
+      "ok": false,
+      "trap": "opposite",
+      "why": "會議照常舉行，只是換地點。"
+     },
+     {
+      "t": "To change the starting time",
+      "zh": "更改開始時間",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "會議仍在上午十點開始。"
+     }
+    ],
+    "evidence": [
+     1,
+     2
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "intent",
+    "q": {
+     "t": "Why does the speaker say, \"The projector in Room 301 is broken, and the repair will take until Tuesday.\"?",
+     "zh": "說話者為什麼說「The projector in Room 301 is broken, and the repair will take until Tuesday.」？"
+    },
+    "choices": [
+     {
+      "t": "To explain why the room was changed",
+      "zh": "說明為什麼換會議室",
+      "ok": true,
+      "pattern": "summary",
+      "why": "正解：前一句換房間，這句說明原因。"
+     },
+     {
+      "t": "To ask Ms. Park to fix it",
+      "zh": "請 Park 小姐修理",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "沒有要求她修理。"
+     },
+     {
+      "t": "To suggest meeting on Tuesday",
+      "zh": "建議改到週二開會",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "週二只是維修完成的時間。"
+     },
+     {
+      "t": "To report a problem in Room 205",
+      "zh": "回報 205 室的問題",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "壞掉的是 301 室。"
+     }
+    ],
+    "evidence": [
+     3
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "infer",
+    "q": {
+     "t": "What can be inferred about Ms. Park?",
+     "zh": "關於 Park 小姐可以推論什麼？"
+    },
+    "choices": [
+     {
+      "t": "She is expected to attend the meeting.",
+      "zh": "預期她會出席會議。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：請她帶部門報告，表示她要參加。"
+     },
+     {
+      "t": "She works in the Finance office.",
+      "zh": "她在財務部工作。",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "財務部是說話者的部門，她有自己的部門。"
+     },
+     {
+      "t": "She repaired the projector.",
+      "zh": "她修理了投影機。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到她修過投影機。"
+     },
+     {
+      "t": "She will give a talk on Tuesday.",
+      "zh": "她週二要演講。",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "週二只與維修有關。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "projector",
+    "ipa": "/prəˈdʒektər/",
+    "pos": "n.",
+    "col": "broken projector",
+    "zh": "投影機"
+   },
+   {
+    "word": "budget",
+    "ipa": "/ˈbʌdʒɪt/",
+    "pos": "n.",
+    "col": "budget meeting",
+    "zh": "預算"
+   },
+   {
+    "word": "department",
+    "ipa": "/dɪˈpɑːrtmənt/",
+    "pos": "n.",
+    "col": "department report",
+    "zh": "部門"
+   }
+  ]
+ },
+ {
+  "id": "d1-003-e",
+  "domain": "d1",
+  "scene": "office",
+  "mtype": "tour",
+  "tag": "新進員工辦公室導覽",
+  "form": "talk",
+  "level": {
+   "score": 550,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "導覽內容依樓層順序，地點與下一步直接提到。"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "人資專員 Rachel"
+   }
+  ],
+  "script": [
+   {
+    "t": "Hi, everyone, and congratulations on your first day!",
+    "zh": "大家好，恭喜各位第一天上班！"
+   },
+   {
+    "t": "I am Rachel from Human Resources, and I will show you around the office today.",
+    "zh": "我是人資部的 Rachel，今天由我帶大家參觀辦公室。"
+   },
+   {
+    "t": "We are standing in the lobby, where visitors sign in at the front desk.",
+    "zh": "我們現在站在大廳，訪客會在櫃檯簽到。"
+   },
+   {
+    "t": "Please follow me to the second floor, where the sales team works.",
+    "zh": "請跟我到二樓，業務團隊在那裡工作。"
+   },
+   {
+    "t": "The break room is next to the elevator, and free coffee is available all day.",
+    "zh": "休息室在電梯旁邊，整天都有免費咖啡。"
+   },
+   {
+    "t": "Your desks are on the third floor, near the large window.",
+    "zh": "各位的座位在三樓，靠近大窗戶。"
+   },
+   {
+    "t": "After the tour, please return to the lobby to pick up your laptops.",
+    "zh": "導覽結束後，請回到大廳領取筆記型電腦。"
+   },
+   {
+    "t": "Now, if you are ready, please watch your step and follow me.",
+    "zh": "現在，如果大家準備好了，請小心腳步並跟我來。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "What is the purpose of the talk?",
+     "zh": "這段談話的目的是什麼？"
+    },
+    "choices": [
+     {
+      "t": "To show new employees around the office",
+      "zh": "帶新進員工參觀辦公室",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：first day / show you around the office。"
+     },
+     {
+      "t": "To interview job applicants",
+      "zh": "面試求職者",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "聽眾是第一天上班的員工。"
+     },
+     {
+      "t": "To announce an office move",
+      "zh": "宣布辦公室搬遷",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到搬遷。"
+     },
+     {
+      "t": "To explain a holiday schedule",
+      "zh": "說明假期時程",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到假期。"
+     }
+    ],
+    "evidence": [
+     0,
+     1
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "detail",
+    "q": {
+     "t": "Where are the new employees' desks?",
+     "zh": "新進員工的座位在哪裡？"
+    },
+    "choices": [
+     {
+      "t": "On the third floor",
+      "zh": "在三樓",
+      "ok": true,
+      "pattern": "direct",
+      "why": "正解：Your desks are on the third floor。"
+     },
+     {
+      "t": "In the lobby",
+      "zh": "在大廳",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "大廳是訪客簽到與領筆電的地方。"
+     },
+     {
+      "t": "On the second floor",
+      "zh": "在二樓",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "二樓是業務團隊的位置。"
+     },
+     {
+      "t": "Next to the elevator",
+      "zh": "在電梯旁",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "電梯旁是休息室。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "What will the listeners do after the tour?",
+     "zh": "聽眾在導覽後要做什麼？"
+    },
+    "choices": [
+     {
+      "t": "Collect their laptops",
+      "zh": "領取筆記型電腦",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：pick up your laptops → Collect。"
+     },
+     {
+      "t": "Sign in at the front desk",
+      "zh": "在櫃檯簽到",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "簽到的是訪客。"
+     },
+     {
+      "t": "Join a sales team meeting",
+      "zh": "參加業務會議",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "業務團隊只是參觀地點。"
+     },
+     {
+      "t": "Have free coffee in the break room",
+      "zh": "在休息室喝免費咖啡",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "咖啡是介紹設施，不是導覽後的行動。"
+     }
+    ],
+    "evidence": [
+     6
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "lobby",
+    "ipa": "/ˈlɑːbi/",
+    "pos": "n.",
+    "col": "hotel lobby; office lobby",
+    "zh": "大廳"
+   },
+   {
+    "word": "elevator",
+    "ipa": "/ˈeləveɪtər/",
+    "pos": "n.",
+    "col": "next to the elevator",
+    "zh": "電梯"
+   }
+  ]
+ }
+]

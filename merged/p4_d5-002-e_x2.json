@@ -1,0 +1,412 @@
+[
+ {
+  "id": "d5-002-e",
+  "domain": "d5",
+  "scene": "workplace",
+  "mtype": "announcement",
+  "tag": "工地混凝土澆置通知廣播",
+  "form": "talk",
+  "level": {
+   "score": 500,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "單一主題、句子簡短，答案多半可在原句找到"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "construction site manager"
+   }
+  ],
+  "script": [
+   {
+    "t": "Attention, everyone working at the Maple Street building site.",
+    "zh": "注意，所有在楓樹街工地工作的人員。"
+   },
+   {
+    "t": "Tomorrow morning, we will pour concrete on the second floor.",
+    "zh": "明天早上，我們要在二樓澆灌混凝土。"
+   },
+   {
+    "t": "The trucks will arrive at seven o'clock.",
+    "zh": "卡車會在七點抵達。"
+   },
+   {
+    "t": "Please park your cars outside the front fence before then.",
+    "zh": "請在那之前把車停在前面圍欄外。"
+   },
+   {
+    "t": "Do not walk under the crane while the work is going on.",
+    "zh": "施工期間，請不要走在起重機下方。"
+   },
+   {
+    "t": "The job should be finished by noon.",
+    "zh": "這項工作預計中午前完成。"
+   },
+   {
+    "t": "If you have any questions, please see me in the site office.",
+    "zh": "如有任何問題，請到工地辦公室找我。"
+   },
+   {
+    "t": "Thank you for your attention.",
+    "zh": "謝謝大家的注意。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "who",
+    "q": {
+     "t": "Who most likely is the speaker?",
+     "zh": "說話者最可能是誰？"
+    },
+    "choices": [
+     {
+      "t": "A site manager",
+      "zh": "工地主管",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "他對工地人員下達指示，並說可到工地辦公室找他。"
+     },
+     {
+      "t": "A truck driver",
+      "zh": "卡車司機",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "卡車只是將抵達的車輛，說話者在對工人說話。"
+     },
+     {
+      "t": "A crane operator",
+      "zh": "起重機操作員",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "起重機只是被提到，他是在提醒大家別走在下面。"
+     },
+     {
+      "t": "A building owner",
+      "zh": "大樓業主",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有任何擁有大樓的線索。"
+     }
+    ],
+    "evidence": [
+     0
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "infer",
+    "q": {
+     "t": "Why are workers asked to park outside the fence?",
+     "zh": "為什麼要求工人把車停在圍欄外？"
+    },
+    "choices": [
+     {
+      "t": "To leave room for the trucks",
+      "zh": "為卡車留出空間",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "卡車早上七點要抵達，需先清出場地。"
+     },
+     {
+      "t": "To keep the cars cool",
+      "zh": "讓車子保持涼爽",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有提到天氣或溫度。"
+     },
+     {
+      "t": "To finish work by noon",
+      "zh": "為了中午前完工",
+      "ok": false,
+      "trap": "partial",
+      "why": "中午完工是工作預計時間，與停車無關。"
+     },
+     {
+      "t": "To walk under the crane",
+      "zh": "為了走在起重機下",
+      "ok": false,
+      "trap": "opposite",
+      "why": "說話者要大家別走在起重機下方。"
+     }
+    ],
+    "evidence": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "detail",
+    "q": {
+     "t": "When should the job be finished?",
+     "zh": "這項工作應在何時完成？"
+    },
+    "choices": [
+     {
+      "t": "By noon",
+      "zh": "中午前",
+      "ok": true,
+      "pattern": "direct",
+      "why": "原句 finished by noon。"
+     },
+     {
+      "t": "At seven o'clock",
+      "zh": "七點",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "七點是卡車抵達的時間。"
+     },
+     {
+      "t": "Tomorrow evening",
+      "zh": "明天傍晚",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "獨白沒有提到傍晚。"
+     },
+     {
+      "t": "On the second floor",
+      "zh": "在二樓",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "二樓是施工地點，不是時間。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "concrete",
+    "ipa": "/ˈkɒŋkriːt/",
+    "pos": "n.",
+    "col": "pour concrete",
+    "zh": "混凝土"
+   },
+   {
+    "word": "fence",
+    "ipa": "/fɛns/",
+    "pos": "n.",
+    "col": "front fence",
+    "zh": "圍欄"
+   },
+   {
+    "word": "crane",
+    "ipa": "/kreɪn/",
+    "pos": "n.",
+    "col": "construction crane",
+    "zh": "起重機"
+   }
+  ]
+ },
+ {
+  "id": "d5-003-e",
+  "domain": "d5",
+  "scene": "workplace",
+  "mtype": "voicemail",
+  "tag": "貨運卸貨時間變更留言",
+  "form": "talk",
+  "level": {
+   "score": 550,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "單一主題、句子簡短，需理解時間改變的原因"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "warehouse office clerk"
+   }
+  ],
+  "script": [
+   {
+    "t": "Hello, Mr. Silva, this is Rita from the Eastside Warehouse office.",
+    "zh": "您好，席爾瓦先生，我是東區倉庫辦公室的麗塔。"
+   },
+   {
+    "t": "I am calling about your shipment of floor tiles.",
+    "zh": "我來電是關於您那批地磚的貨運。"
+   },
+   {
+    "t": "Our dock will be busy at nine, so please come at ten instead.",
+    "zh": "我們的碼頭九點會很忙，所以請改在十點過來。"
+   },
+   {
+    "t": "You can use Dock 3 to unload the pallets.",
+    "zh": "您可以使用三號碼頭卸下棧板。"
+   },
+   {
+    "t": "Please bring your shipping form with you.",
+    "zh": "請帶著您的運送單過來。"
+   },
+   {
+    "t": "I am sorry for the change.",
+    "zh": "很抱歉有這項更動。"
+   },
+   {
+    "t": "Please call me at 555-0188 if you cannot make it.",
+    "zh": "如果您無法準時，請打555-0188給我。"
+   },
+   {
+    "t": "Thank you, and have a good day.",
+    "zh": "謝謝您，祝您有美好的一天。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "who",
+    "q": {
+     "t": "Who most likely is Mr. Silva?",
+     "zh": "席爾瓦先生最可能是誰？"
+    },
+    "choices": [
+     {
+      "t": "A delivery driver",
+      "zh": "送貨司機",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "他要載貨物到倉庫卸貨並帶運送單。"
+     },
+     {
+      "t": "A warehouse clerk",
+      "zh": "倉庫職員",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "倉庫職員是說話者麗塔。"
+     },
+     {
+      "t": "A tile designer",
+      "zh": "磁磚設計師",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "磁磚只是貨物，沒有設計相關線索。"
+     },
+     {
+      "t": "A phone operator",
+      "zh": "電話接線員",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "電話只是留言方式，並非他的職業。"
+     }
+    ],
+    "evidence": [
+     1,
+     3
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "intent",
+    "q": {
+     "t": "What does the speaker mean when she says, \"Our dock will be busy at nine\"?",
+     "zh": "說話者說「Our dock will be busy at nine」是什麼意思？"
+    },
+    "choices": [
+     {
+      "t": "She is explaining why the time must change.",
+      "zh": "她在解釋為何要改時間。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "接著她請對方改十點來。"
+     },
+     {
+      "t": "She wants Mr. Silva to arrive at nine.",
+      "zh": "她希望席爾瓦先生九點到。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "她請他改在十點，不是九點。"
+     },
+     {
+      "t": "She is asking him to use Dock 9.",
+      "zh": "她要他使用九號碼頭。",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "她說的是三號碼頭，九是時間。"
+     },
+     {
+      "t": "She plans to close the dock all day.",
+      "zh": "她打算整天關閉碼頭。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "只有九點忙碌，沒說整天關閉。"
+     }
+    ],
+    "evidence": [
+     2
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "What should Mr. Silva do if he cannot come at ten?",
+     "zh": "如果席爾瓦先生十點無法到，應該怎麼做？"
+    },
+    "choices": [
+     {
+      "t": "Phone the speaker",
+      "zh": "打電話給說話者",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "原句 call me。"
+     },
+     {
+      "t": "Use a different dock",
+      "zh": "使用另一個碼頭",
+      "ok": false,
+      "trap": "partial",
+      "why": "三號碼頭是一般卸貨指示，不是無法到時的做法。"
+     },
+     {
+      "t": "Bring a new shipping form",
+      "zh": "帶新的運送單",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "帶運送單是一般要求，與無法到達無關。"
+     },
+     {
+      "t": "Come at nine",
+      "zh": "九點過來",
+      "ok": false,
+      "trap": "opposite",
+      "why": "九點碼頭很忙，所以才改時間。"
+     }
+    ],
+    "evidence": [
+     6
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "shipment",
+    "ipa": "/ˈʃɪpmənt/",
+    "pos": "n.",
+    "col": "a shipment of tiles",
+    "zh": "運送的貨物"
+   },
+   {
+    "word": "dock",
+    "ipa": "/dɒk/",
+    "pos": "n.",
+    "col": "loading dock",
+    "zh": "裝卸碼頭"
+   },
+   {
+    "word": "pallet",
+    "ipa": "/ˈpælɪt/",
+    "pos": "n.",
+    "col": "unload pallets",
+    "zh": "棧板"
+   }
+  ]
+ }
+]

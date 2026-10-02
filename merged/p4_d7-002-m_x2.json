@@ -1,0 +1,439 @@
+[
+ {
+  "id": "d7-002-m",
+  "domain": "d7",
+  "scene": "outdoor",
+  "mtype": "news",
+  "tag": "雪松嶺公園新步道開放新聞",
+  "form": "talk",
+  "level": {
+   "score": 600,
+   "cefr": "B1",
+   "tier": "medium",
+   "why": "有 but／however 轉折，同義換句，含意圖題"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "news reporter"
+   }
+  ],
+  "script": [
+   {
+    "t": "Here is some good news for nature lovers, as Cedar Ridge Park opens its new lakeside trail this Saturday.",
+    "zh": "對喜愛大自然的人有個好消息，雪松嶺公園的新湖畔步道本週六開放。"
+   },
+   {
+    "t": "The park first planned to open the trail in May, but heavy spring rain slowed the work.",
+    "zh": "公園原本計畫五月開放步道，但春季豪雨拖慢了工程。"
+   },
+   {
+    "t": "The path is five kilometers long and goes around the whole lake.",
+    "zh": "這條步道長五公里，環繞整個湖泊。"
+   },
+   {
+    "t": "Along the way, visitors can see wild birds and rest on several wooden benches.",
+    "zh": "沿途遊客可以看到野鳥，並在幾張木長椅上休息。"
+   },
+   {
+    "t": "However, bicycles are not allowed on the trail because it is narrow.",
+    "zh": "然而，因為步道狹窄，禁止自行車通行。"
+   },
+   {
+    "t": "Park officials say cyclists can still use the old road on the east side.",
+    "zh": "公園官員表示，單車騎士仍可使用東側的舊路。"
+   },
+   {
+    "t": "The opening ceremony will start at ten a.m., and the first fifty visitors will get free water bottles.",
+    "zh": "開幕儀式將在上午十點開始，前五十位訪客可獲得免費水壺。"
+   },
+   {
+    "t": "Some neighbors worry that the parking lot will be too small.",
+    "zh": "有些鄰居擔心停車場會太小。"
+   },
+   {
+    "t": "In response, officials promise free bus service from the train station all weekend.",
+    "zh": "對此，官員承諾整個週末提供從火車站出發的免費公車。"
+   },
+   {
+    "t": "That's all for outdoor news, and now back to the studio.",
+    "zh": "戶外新聞就到這裡，現在交還給攝影棚。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "What is the report mainly about?",
+     "zh": "這則報導主要是關於什麼？"
+    },
+    "choices": [
+     {
+      "t": "The opening of a new walking path",
+      "zh": "新步行步道的開放",
+      "ok": true,
+      "pattern": "summary",
+      "why": "新湖畔步道本週六開放。"
+     },
+     {
+      "t": "The closing of a lake",
+      "zh": "湖泊的關閉",
+      "ok": false,
+      "trap": "opposite",
+      "why": "湖泊並未關閉。"
+     },
+     {
+      "t": "A bicycle race",
+      "zh": "自行車比賽",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "自行車只是被禁止上步道。"
+     },
+     {
+      "t": "A bird watching class",
+      "zh": "賞鳥課程",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "野鳥只是沿途景色。"
+     }
+    ],
+    "evidence": [
+     0,
+     1
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "next",
+    "q": {
+     "t": "What does the report suggest cyclists do?",
+     "zh": "報導建議單車騎士怎麼做？"
+    },
+    "choices": [
+     {
+      "t": "Ride on the old road",
+      "zh": "騎在舊路上",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "cyclists can still use the old road。"
+     },
+     {
+      "t": "Ride on the new trail",
+      "zh": "騎上新步道",
+      "ok": false,
+      "trap": "opposite",
+      "why": "步道禁止自行車。"
+     },
+     {
+      "t": "Wait until May",
+      "zh": "等到五月",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "五月是原定開放時間，且與自行車無關。"
+     },
+     {
+      "t": "Take a bus to the lake",
+      "zh": "搭公車到湖邊",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "免費公車是針對停車場問題，並非給單車騎士的建議。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "intent",
+    "q": {
+     "t": "Why does the reporter say, \"Some neighbors worry that the parking lot will be too small\"?",
+     "zh": "記者為什麼說「Some neighbors worry that the parking lot will be too small」？"
+    },
+    "choices": [
+     {
+      "t": "To introduce a concern officials plan to address",
+      "zh": "引出官員打算處理的疑慮",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "下一句官員承諾提供免費公車。"
+     },
+     {
+      "t": "To say the opening should be delayed",
+      "zh": "表示開幕應該延後",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "他沒有提出這樣的主張。"
+     },
+     {
+      "t": "To ask neighbors to stay home",
+      "zh": "請鄰居待在家裡",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有這樣的要求。"
+     },
+     {
+      "t": "To announce a larger parking lot",
+      "zh": "宣布更大的停車場",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "官員提供的是免費公車，不是擴建停車場。"
+     }
+    ],
+    "evidence": [
+     7
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "bench",
+    "ipa": "/bɛntʃ/",
+    "pos": "n.",
+    "col": "wooden bench",
+    "zh": "長椅"
+   },
+   {
+    "word": "cyclist",
+    "ipa": "/ˈsaɪklɪst/",
+    "pos": "n.",
+    "col": "experienced cyclist",
+    "zh": "單車騎士"
+   }
+  ]
+ },
+ {
+  "id": "d7-003-m",
+  "domain": "d7",
+  "scene": "outdoor",
+  "mtype": "voicemail",
+  "tag": "露營區營位更正留言",
+  "form": "talk",
+  "level": {
+   "score": 650,
+   "cefr": "B1+",
+   "tier": "medium",
+   "why": "先說楓樹營位再更正為雪松營位，需結合圖表，含推論題"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "campground office staff member"
+   }
+  ],
+  "script": [
+   {
+    "t": "Good morning, Mr. Garcia, Hana here from the Riverbend Campground office.",
+    "zh": "早安，賈西亞先生，我是河灣露營區辦公室的哈娜。"
+   },
+   {
+    "t": "I'm calling about your booking for this weekend for six people.",
+    "zh": "我來電是關於您這個週末六人的預約。"
+   },
+   {
+    "t": "You reserved the Maple site, but I checked again and it fits only four guests.",
+    "zh": "您預訂的是楓樹營位，但我再查了一次，它只容納四位客人。"
+   },
+   {
+    "t": "The Cedar site is the one that fits six, and it is available for both nights.",
+    "zh": "容納六人的是雪松營位，而且兩晚都有空位。"
+   },
+   {
+    "t": "Because Cedar is closer to the lake, its price is a little higher than Maple's.",
+    "zh": "因為雪松營位離湖較近，價格比楓樹營位稍高。"
+   },
+   {
+    "t": "However, it has no electricity, so please remember to bring a flashlight.",
+    "zh": "然而，它沒有電，所以請記得帶手電筒。"
+   },
+   {
+    "t": "Campfires are allowed only in the metal fire rings.",
+    "zh": "營火只能在金屬火圈內生。"
+   },
+   {
+    "t": "Please reply by Thursday noon, or the site may be given to another group.",
+    "zh": "請在週四中午前回覆，否則營位可能會給其他團體。"
+   },
+   {
+    "t": "Call me at 555-0133, and thank you for choosing Riverbend.",
+    "zh": "請撥555-0133找我，謝謝您選擇河灣。"
+   }
+  ],
+  "graphic": {
+   "title": "Riverbend Campground Sites (Website)",
+   "columns": [
+    "Site",
+    "Type",
+    "Max Guests",
+    "Price per Night"
+   ],
+   "rows": [
+    [
+     "Maple",
+     "Tent",
+     "6",
+     "$25"
+    ],
+    [
+     "Cedar",
+     "Tent",
+     "6",
+     "$30"
+    ],
+    [
+     "Birch",
+     "Cabin",
+     "4",
+     "$60"
+    ]
+   ]
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "Why is the speaker calling?",
+     "zh": "說話者為什麼來電？"
+    },
+    "choices": [
+     {
+      "t": "To correct a campsite assignment",
+      "zh": "更正營位安排",
+      "ok": true,
+      "pattern": "summary",
+      "why": "楓樹營位容納不了六人，改為雪松營位。"
+     },
+     {
+      "t": "To cancel the booking",
+      "zh": "取消預約",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "預約仍保留，只是換營位。"
+     },
+     {
+      "t": "To ask for payment",
+      "zh": "要求付款",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "獨白沒有要求付款。"
+     },
+     {
+      "t": "To announce a new cabin",
+      "zh": "宣布新的小木屋",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "小木屋沒有被提到，只出現在圖表中。"
+     }
+    ],
+    "evidence": [
+     1,
+     2
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "graphic",
+    "q": {
+     "t": "Look at the graphic. How much will Mr. Garcia pay for two nights at the site that fits his group?",
+     "zh": "請看圖表。賈西亞先生在適合他們團體的營位住兩晚要付多少錢？"
+    },
+    "choices": [
+     {
+      "t": "$60",
+      "zh": "60美元",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "雪松營位每晚30美元，兩晚60美元。"
+     },
+     {
+      "t": "$30",
+      "zh": "30美元",
+      "ok": false,
+      "trap": "partial",
+      "why": "這只是一晚的價格。"
+     },
+     {
+      "t": "$50",
+      "zh": "50美元",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "這是楓樹營位兩晚的價格，但該營位容納不下六人。"
+     },
+     {
+      "t": "$120",
+      "zh": "120美元",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "這是小木屋兩晚的價格，與他的預約無關。"
+     }
+    ],
+    "evidence": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "infer",
+    "q": {
+     "t": "What can be inferred about the Cedar site?",
+     "zh": "關於雪松營位，可以推論什麼？"
+    },
+    "choices": [
+     {
+      "t": "Guests need their own light at night.",
+      "zh": "客人晚上需要自備照明。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "沒有電，所以要帶手電筒。"
+     },
+     {
+      "t": "It is cheaper than the Maple site.",
+      "zh": "比楓樹營位便宜。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "雪松價格較高。"
+     },
+     {
+      "t": "It is far from the lake.",
+      "zh": "離湖很遠。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "雪松離湖較近。"
+     },
+     {
+      "t": "It includes a cabin.",
+      "zh": "附一間小木屋。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "雪松是帳篷營位，沒有提到小木屋。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "campground",
+    "ipa": "/ˈkæmpɡraʊnd/",
+    "pos": "n.",
+    "col": "book a campground",
+    "zh": "露營區"
+   },
+   {
+    "word": "flashlight",
+    "ipa": "/ˈflæʃlaɪt/",
+    "pos": "n.",
+    "col": "bring a flashlight",
+    "zh": "手電筒"
+   }
+  ]
+ }
+]

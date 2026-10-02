@@ -1,0 +1,469 @@
+[
+ {
+  "id": "d3-002-h",
+  "domain": "d3",
+  "scene": "store",
+  "mtype": "announcement",
+  "tag": "百貨週末特賣折扣更正廣播",
+  "form": "talk",
+  "level": {
+   "score": 800,
+   "cefr": "B2+",
+   "tier": "hard",
+   "why": "賣場廣播連續更正開始時間與各樓層折扣，需對照圖表與獨白判斷。"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "百貨公司廣播人員"
+   }
+  ],
+  "script": [
+   {
+    "t": "Shoppers at Brookfield Department Store, we have a few updates about this weekend's sale.",
+    "zh": "Brookfield 百貨的顧客請注意，我們有幾項關於本週末特賣的更新。"
+   },
+   {
+    "t": "First, the sale will begin at nine a.m. on Saturday, not at ten as advertised in the newspaper.",
+    "zh": "首先，特賣週六上午九點開始，而不是報紙上刊登的十點。"
+   },
+   {
+    "t": "Please note that the printed schedule lists furniture at forty percent off.",
+    "zh": "請注意，印刷的時程表上家具是六折。"
+   },
+   {
+    "t": "Because of high demand, however, the furniture discount has been lowered to thirty percent.",
+    "zh": "不過，由於需求很高，家具折扣已調降為七折。"
+   },
+   {
+    "t": "On the other hand, the toy department has increased its discount from twenty-five to forty-five percent.",
+    "zh": "另一方面，玩具部門的折扣已從七五折提高到五五折。"
+   },
+   {
+    "t": "Cosmetics and clothing prices remain the same as shown on the schedule.",
+    "zh": "化妝品與服飾的價格維持與時程表相同。"
+   },
+   {
+    "t": "Coupons cannot be combined with sale prices, but they can be used on regular-priced items.",
+    "zh": "優惠券不能與特價疊用，但可用於原價商品。"
+   },
+   {
+    "t": "Parking will be free for the first three hours, although valet service is unavailable this weekend.",
+    "zh": "前三小時停車免費，不過本週末不提供代客泊車。"
+   },
+   {
+    "t": "If you are carrying heavy bags, our staff can hold them at the customer service desk.",
+    "zh": "如果您提著沉重的袋子，我們的人員可以幫您寄放在客服櫃檯。"
+   },
+   {
+    "t": "Shoppers who spend over two hundred dollars will receive a free tote bag at the second-floor information counter.",
+    "zh": "消費超過兩百美元的顧客，可在二樓詢問台領取免費托特包。"
+   },
+   {
+    "t": "Please remember to keep your proof of purchase in case you need to exchange an item.",
+    "zh": "請記得保留購買證明，以便需要換貨時使用。"
+   },
+   {
+    "t": "Thank you for shopping at Brookfield, and enjoy the rest of your day.",
+    "zh": "感謝您在 Brookfield 購物，祝您有愉快的一天。"
+   }
+  ],
+  "graphic": {
+   "title": "Brookfield Weekend Sale — Printed Schedule",
+   "columns": [
+    "Floor",
+    "Department",
+    "Discount"
+   ],
+   "rows": [
+    [
+     "1st floor",
+     "Cosmetics",
+     "20% off"
+    ],
+    [
+     "2nd floor",
+     "Clothing",
+     "30% off"
+    ],
+    [
+     "3rd floor",
+     "Furniture",
+     "40% off"
+    ],
+    [
+     "4th floor",
+     "Toys",
+     "25% off"
+    ]
+   ]
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "detail",
+    "q": {
+     "t": "When will the sale begin on Saturday?",
+     "zh": "特賣週六幾點開始？"
+    },
+    "choices": [
+     {
+      "t": "An hour earlier than advertised",
+      "zh": "比廣告所登早一小時",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：九點開始，而不是報紙上的十點。"
+     },
+     {
+      "t": "At ten a.m.",
+      "zh": "上午十點",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "十點是報紙上刊登的舊時間。"
+     },
+     {
+      "t": "At noon",
+      "zh": "中午",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到中午。"
+     },
+     {
+      "t": "On Friday evening",
+      "zh": "週五晚上",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到週五。"
+     }
+    ],
+    "evidence": [
+     1
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "graphic",
+    "q": {
+     "t": "Look at the graphic. Which floor now has the biggest discount?",
+     "zh": "請看圖表。現在哪一層樓的折扣最大？"
+    },
+    "choices": [
+     {
+      "t": "The fourth floor",
+      "zh": "四樓",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：玩具折扣提高到 45%，圖表顯示玩具在四樓。"
+     },
+     {
+      "t": "The third floor",
+      "zh": "三樓",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "家具原本 40%，現已降到 30%。"
+     },
+     {
+      "t": "The second floor",
+      "zh": "二樓",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "服飾維持 30%。"
+     },
+     {
+      "t": "The first floor",
+      "zh": "一樓",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "化妝品維持 20%。"
+     }
+    ],
+    "evidence": [
+     3,
+     4
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "What does the speaker remind shoppers to do?",
+     "zh": "說話者提醒顧客做什麼？"
+    },
+    "choices": [
+     {
+      "t": "Keep their proof of purchase",
+      "zh": "保留購買證明",
+      "ok": true,
+      "pattern": "direct",
+      "why": "正解：keep your proof of purchase。"
+     },
+     {
+      "t": "Leave their bags at the service desk",
+      "zh": "把袋子寄放在客服櫃檯",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "寄放是店方提供的選擇，不是提醒事項。"
+     },
+     {
+      "t": "Collect a tote bag first",
+      "zh": "先去領托特包",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "托特包是消費滿額的贈品。"
+     },
+     {
+      "t": "Use coupons on sale items",
+      "zh": "在特價商品上使用優惠券",
+      "ok": false,
+      "trap": "opposite",
+      "why": "優惠券不能與特價疊用。"
+     }
+    ],
+    "evidence": [
+     10
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "demand",
+    "ipa": "/dɪˈmænd/",
+    "pos": "n.",
+    "col": "high demand",
+    "zh": "需求"
+   },
+   {
+    "word": "combine",
+    "ipa": "/kəmˈbaɪn/",
+    "pos": "v.",
+    "col": "combine coupons",
+    "zh": "合併；疊用"
+   },
+   {
+    "word": "purchase",
+    "ipa": "/ˈpɜːrtʃəs/",
+    "pos": "n.",
+    "col": "proof of purchase",
+    "zh": "購買"
+   }
+  ]
+ },
+ {
+  "id": "d3-003-h",
+  "domain": "d3",
+  "scene": "store",
+  "mtype": "voicemail",
+  "tag": "沙發缺貨改色留言",
+  "form": "talk",
+  "level": {
+   "score": 700,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "電話留言先說原訂內容再更正為替代方案，需推論與理解催促意圖。"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "家具店業務人員"
+   }
+  ],
+  "script": [
+   {
+    "t": "Good evening, Ms. Nguyen, Ravi here at Urban Home, following up on your sofa order.",
+    "zh": "Nguyen 小姐晚安，我是 Urban Home 的 Ravi，來跟進您的沙發訂單。"
+   },
+   {
+    "t": "When you ordered, I told you the gray sofa would be delivered on Wednesday.",
+    "zh": "您下單時，我告訴您灰色沙發會在週三送達。"
+   },
+   {
+    "t": "Unfortunately, I made a mistake, because the gray model is out of stock until next month.",
+    "zh": "很抱歉，我弄錯了，因為灰色款要到下個月才有貨。"
+   },
+   {
+    "t": "What we do have is the same sofa in dark blue, which arrived in our stockroom this morning.",
+    "zh": "我們現有的是同款深藍色，今天早上已到倉庫。"
+   },
+   {
+    "t": "I can deliver it on Thursday between one and five p.m., and I will waive the twenty-dollar delivery fee.",
+    "zh": "我可以在週四下午一點到五點之間送達，並免除二十美元運費。"
+   },
+   {
+    "t": "If you would rather wait for the gray one, I will hold your deposit until it comes in.",
+    "zh": "如果您寧可等灰色款，我會保留您的訂金，直到到貨。"
+   },
+   {
+    "t": "Of course, I understand if you have your heart set on gray.",
+    "zh": "當然，我理解您如果心裡一直想要灰色。"
+   },
+   {
+    "t": "The blue fabric costs less, so your final price would drop by fifty dollars.",
+    "zh": "藍色布料比較便宜，所以您的最終價格會減少五十美元。"
+   },
+   {
+    "t": "Please call me back at 555-0187 before tomorrow at noon to let me know which you prefer.",
+    "zh": "請在明天中午前回電 555-0187，告訴我您偏好哪一種。"
+   },
+   {
+    "t": "If I do not hear from you, I will assume you want the blue sofa on Thursday.",
+    "zh": "如果沒有收到您的回覆，我會當作您要週四送達的藍色沙發。"
+   },
+   {
+    "t": "Again, I apologize for the confusion, and thank you for your patience.",
+    "zh": "再次為造成的混淆致歉，並感謝您的耐心。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "who",
+    "q": {
+     "t": "Who most likely is the speaker?",
+     "zh": "說話者最可能是誰？"
+    },
+    "choices": [
+     {
+      "t": "A furniture store employee",
+      "zh": "家具店員工",
+      "ok": true,
+      "pattern": "summary",
+      "why": "正解：Urban Home，處理沙發訂單與送貨安排。"
+     },
+     {
+      "t": "A delivery driver",
+      "zh": "送貨司機",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "他只是安排送貨，並非負責開車的人。"
+     },
+     {
+      "t": "A fabric manufacturer",
+      "zh": "布料製造商",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到製造。"
+     },
+     {
+      "t": "Another customer",
+      "zh": "另一位顧客",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "他是在處理 Nguyen 小姐的訂單。"
+     }
+    ],
+    "evidence": [
+     0
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "infer",
+    "q": {
+     "t": "What can be inferred about the gray sofa?",
+     "zh": "關於灰色沙發可以推論出什麼？"
+    },
+    "choices": [
+     {
+      "t": "It will not be available for several weeks.",
+      "zh": "幾週內都不會有貨。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：下個月才有貨，願意等的話會保留訂金。"
+     },
+     {
+      "t": "It costs less than the blue sofa.",
+      "zh": "它比藍色沙發便宜。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "便宜的是藍色布料。"
+     },
+     {
+      "t": "It has been permanently discontinued.",
+      "zh": "它已永久停產。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "只說缺貨到下個月，之後會到貨。"
+     },
+     {
+      "t": "It will be delivered on Thursday.",
+      "zh": "它會在週四送達。",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "週四送的是藍色款。"
+     }
+    ],
+    "evidence": [
+     2,
+     5
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "intent",
+    "q": {
+     "t": "Why does the speaker say, \"If I do not hear from you, I will assume you want the blue sofa on Thursday.\"?",
+     "zh": "說話者為什麼說「If I do not hear from you, I will assume you want the blue sofa on Thursday.」？"
+    },
+    "choices": [
+     {
+      "t": "To encourage Ms. Nguyen to reply promptly",
+      "zh": "鼓勵 Nguyen 小姐盡快回覆",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：沒收到回覆就視為選藍色，所以請她及時回電。"
+     },
+     {
+      "t": "To cancel the original order",
+      "zh": "取消原本的訂單",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有要取消訂單。"
+     },
+     {
+      "t": "To charge a late fee",
+      "zh": "收取逾期費用",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到收費。"
+     },
+     {
+      "t": "To confirm a Wednesday delivery",
+      "zh": "確認週三送貨",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "週三是原本錯誤告知的日期。"
+     }
+    ],
+    "evidence": [
+     9
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "deposit",
+    "ipa": "/dɪˈpɑːzɪt/",
+    "pos": "n.",
+    "col": "hold a deposit",
+    "zh": "訂金"
+   },
+   {
+    "word": "waive",
+    "ipa": "/weɪv/",
+    "pos": "v.",
+    "col": "waive a fee",
+    "zh": "免除"
+   },
+   {
+    "word": "fabric",
+    "ipa": "/ˈfæbrɪk/",
+    "pos": "n.",
+    "col": "blue fabric",
+    "zh": "布料"
+   }
+  ]
+ }
+]

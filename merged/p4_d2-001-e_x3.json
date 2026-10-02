@@ -1,0 +1,616 @@
+[
+ {
+  "id": "d2-001-e",
+  "domain": "d2",
+  "scene": "restaurant",
+  "mtype": "announcement",
+  "tag": "晚餐點餐時間提前截止",
+  "form": "talk",
+  "level": {
+   "score": 500,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "餐廳廣播單一主題，時間與原因幾乎照字面出現。"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "餐廳經理"
+   }
+  ],
+  "script": [
+   {
+    "t": "Good evening, ladies and gentlemen, and welcome to Sunset Bistro.",
+    "zh": "各位女士先生晚安，歡迎光臨 Sunset Bistro。"
+   },
+   {
+    "t": "May I have your attention for a short announcement about tonight's dinner service?",
+    "zh": "請各位留意一下，我要簡短宣布今晚的晚餐供餐事項。"
+   },
+   {
+    "t": "Our kitchen will stop taking orders at nine thirty instead of ten o'clock.",
+    "zh": "我們的廚房將在九點半停止接單，而不是十點。"
+   },
+   {
+    "t": "We are getting ready for a large wedding party that will arrive early tomorrow morning.",
+    "zh": "我們正在為明天一早抵達的大型婚宴團體做準備。"
+   },
+   {
+    "t": "If you would like dessert or a main dish, please place your order before nine thirty.",
+    "zh": "如果您想點甜點或主餐，請在九點半前下單。"
+   },
+   {
+    "t": "Drinks and coffee will still be served until closing time.",
+    "zh": "飲料和咖啡仍會供應到打烊時間。"
+   },
+   {
+    "t": "Please ask any of our servers if you need help with the menu.",
+    "zh": "如果您需要菜單方面的協助，請隨時詢問我們的服務生。"
+   },
+   {
+    "t": "Thank you for dining with us, and enjoy the rest of your evening.",
+    "zh": "感謝您蒞臨用餐，祝您今晚愉快。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "What is the purpose of the announcement?",
+     "zh": "這則廣播的目的是什麼？"
+    },
+    "choices": [
+     {
+      "t": "To change the time for taking orders",
+      "zh": "更改接受點餐的時間",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：九點半停止接單，而不是十點。"
+     },
+     {
+      "t": "To introduce a new dessert menu",
+      "zh": "介紹新的甜點菜單",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "甜點只在要求客人提早點餐時提到。"
+     },
+     {
+      "t": "To invite guests to a wedding",
+      "zh": "邀請客人參加婚禮",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "婚宴只是廚房提早準備的原因。"
+     },
+     {
+      "t": "To apologize for slow service",
+      "zh": "為服務太慢道歉",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "全文沒有道歉或提到出餐很慢。"
+     }
+    ],
+    "evidence": [
+     1,
+     2
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "detail",
+    "q": {
+     "t": "Why will the kitchen stop taking orders early?",
+     "zh": "廚房為什麼要提早停止接單？"
+    },
+    "choices": [
+     {
+      "t": "It is preparing for a large event.",
+      "zh": "正在為大型活動做準備。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：wedding party → large event；為明早的婚宴團體做準備。"
+     },
+     {
+      "t": "Some workers are in a training session.",
+      "zh": "有些員工在參加訓練。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "全文沒有提到員工訓練。"
+     },
+     {
+      "t": "The restaurant has run out of food.",
+      "zh": "餐廳食材已經用完。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到食材不足，飲料與咖啡仍供應。"
+     },
+     {
+      "t": "The restaurant will close at ten o'clock.",
+      "zh": "餐廳十點打烊。",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "十點是原本的停止接單時間，不是原因。"
+     }
+    ],
+    "evidence": [
+     3
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "What does the speaker ask the guests to do?",
+     "zh": "說話者請客人做什麼？"
+    },
+    "choices": [
+     {
+      "t": "Order their food before nine thirty",
+      "zh": "在九點半前點餐",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：please place your order before nine thirty。"
+     },
+     {
+      "t": "Pay their bills at the counter",
+      "zh": "到櫃檯結帳",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到結帳方式。"
+     },
+     {
+      "t": "Leave the restaurant before closing",
+      "zh": "在打烊前離開餐廳",
+      "ok": false,
+      "trap": "opposite",
+      "why": "飲料與咖啡仍供應到打烊，並沒有要客人離開。"
+     },
+     {
+      "t": "Order their drinks before ten o'clock",
+      "zh": "在十點前點飲料",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "飲料供應到打烊；十點是舊的接單時間。"
+     }
+    ],
+    "evidence": [
+     4
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "kitchen",
+    "ipa": "/ˈkɪtʃən/",
+    "pos": "n.",
+    "col": "kitchen staff",
+    "zh": "廚房"
+   },
+   {
+    "word": "dessert",
+    "ipa": "/dɪˈzɜːrt/",
+    "pos": "n.",
+    "col": "order dessert",
+    "zh": "甜點"
+   },
+   {
+    "word": "serve",
+    "ipa": "/sɜːrv/",
+    "pos": "v.",
+    "col": "serve until closing",
+    "zh": "供應（餐飲）"
+   }
+  ]
+ },
+ {
+  "id": "d2-002-e",
+  "domain": "d2",
+  "scene": "restaurant",
+  "mtype": "ad",
+  "tag": "新開咖啡館午餐特惠",
+  "form": "talk",
+  "level": {
+   "score": 550,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "廣告內容單純，價格與優惠條件照字面出現。"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "M",
+    "role": "廣告旁白"
+   }
+  ],
+  "script": [
+   {
+    "t": "Hungry for something fresh? Green Fork Cafe is now open on Main Street!",
+    "zh": "想吃點新鮮的嗎？Green Fork Cafe 現已在大街開幕！"
+   },
+   {
+    "t": "Every sandwich and salad is made with vegetables from local farms.",
+    "zh": "每一份三明治與沙拉都使用當地農場的蔬菜。"
+   },
+   {
+    "t": "Our lunch special costs only eight dollars and includes a drink.",
+    "zh": "我們的午間特餐只要八美元，還附一杯飲料。"
+   },
+   {
+    "t": "It is served every weekday from eleven thirty to two o'clock.",
+    "zh": "每個平日從十一點半供應到兩點。"
+   },
+   {
+    "t": "This week only, new customers get a free bowl of soup with any lunch special.",
+    "zh": "僅限本週，新客人點任一份午間特餐可免費獲得一碗湯。"
+   },
+   {
+    "t": "We also offer fast delivery to offices within two miles.",
+    "zh": "我們也提供兩英里內辦公室的快速外送。"
+   },
+   {
+    "t": "Call 555-0192 or visit our website to see the full menu.",
+    "zh": "請撥打 555-0192 或上網站查看完整菜單。"
+   },
+   {
+    "t": "Green Fork Cafe: fresh food, friendly service, and a great price!",
+    "zh": "Green Fork Cafe：新鮮美食、親切服務、超值價格！"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "main",
+    "q": {
+     "t": "What is being advertised?",
+     "zh": "廣告的是什麼？"
+    },
+    "choices": [
+     {
+      "t": "A newly opened cafe",
+      "zh": "一家新開幕的咖啡館",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：now open on Main Street → newly opened。"
+     },
+     {
+      "t": "A farm that sells vegetables",
+      "zh": "販售蔬菜的農場",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "當地農場只是食材來源。"
+     },
+     {
+      "t": "A food delivery application",
+      "zh": "外送應用程式",
+      "ok": false,
+      "trap": "partial",
+      "why": "外送只是店家額外提供的服務之一。"
+     },
+     {
+      "t": "A cooking class for beginners",
+      "zh": "初學者烹飪課",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "全文沒有提到課程。"
+     }
+    ],
+    "evidence": [
+     0,
+     1
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "detail",
+    "q": {
+     "t": "What comes with the lunch special?",
+     "zh": "午間特餐附什麼？"
+    },
+    "choices": [
+     {
+      "t": "A beverage",
+      "zh": "一杯飲料",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：includes a drink → A beverage。"
+     },
+     {
+      "t": "A bowl of soup",
+      "zh": "一碗湯",
+      "ok": false,
+      "trap": "partial",
+      "why": "湯只限本週新客人另有的優惠。"
+     },
+     {
+      "t": "Free delivery",
+      "zh": "免費外送",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "外送是另外的服務，沒說免費。"
+     },
+     {
+      "t": "A small dessert",
+      "zh": "一份小甜點",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "全文沒有提到甜點。"
+     }
+    ],
+    "evidence": [
+     2
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "intent",
+    "q": {
+     "t": "What does the speaker imply when he says, \"This week only, new customers get a free bowl of soup with any lunch special.\"?",
+     "zh": "說話者說「This week only, new customers get a free bowl of soup with any lunch special.」是暗示什麼？"
+    },
+    "choices": [
+     {
+      "t": "Customers should visit soon.",
+      "zh": "顧客應該盡快光臨。",
+      "ok": true,
+      "pattern": "summary",
+      "why": "正解：This week only 表示優惠有期限，鼓勵盡早來店。"
+     },
+     {
+      "t": "The menu has recently changed.",
+      "zh": "菜單最近更動了。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到菜單更動。"
+     },
+     {
+      "t": "Soup is always free at the cafe.",
+      "zh": "店裡的湯一直都免費。",
+      "ok": false,
+      "trap": "opposite",
+      "why": "優惠只限本週與新客人。"
+     },
+     {
+      "t": "The cafe will close this week.",
+      "zh": "咖啡館本週將關門。",
+      "ok": false,
+      "trap": "sound-alike",
+      "why": "This week only 指優惠期間，不是關店。"
+     }
+    ],
+    "evidence": [
+     4
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "local",
+    "ipa": "/ˈloʊkəl/",
+    "pos": "adj.",
+    "col": "local farms",
+    "zh": "當地的"
+   },
+   {
+    "word": "delivery",
+    "ipa": "/dɪˈlɪvəri/",
+    "pos": "n.",
+    "col": "fast delivery",
+    "zh": "外送；配送"
+   },
+   {
+    "word": "special",
+    "ipa": "/ˈspeʃəl/",
+    "pos": "n.",
+    "col": "lunch special",
+    "zh": "特價餐"
+   }
+  ]
+ },
+ {
+  "id": "d2-003-e",
+  "domain": "d2",
+  "scene": "restaurant",
+  "mtype": "radio",
+  "tag": "夜市美食節活動預告",
+  "form": "talk",
+  "level": {
+   "score": 550,
+   "cefr": "A2+",
+   "tier": "easy",
+   "why": "廣播節目預告，時間、費用與後續節目皆直接提到。"
+  },
+  "speakers": [
+   {
+    "id": "S",
+    "gender": "F",
+    "role": "廣播節目主持人"
+   }
+  ],
+  "script": [
+   {
+    "t": "You are listening to Morning Menu on Radio 98, and I am your host, Nina.",
+    "zh": "您正在收聽 Radio 98 的《Morning Menu》，我是主持人 Nina。"
+   },
+   {
+    "t": "This weekend, the city's Night Market Food Festival begins at Riverside Park.",
+    "zh": "本週末，城市的夜市美食節將在河濱公園登場。"
+   },
+   {
+    "t": "More than thirty food stands will sell dumplings, noodles, and fresh fruit juice.",
+    "zh": "三十多個攤位將販售水餃、麵食和新鮮果汁。"
+   },
+   {
+    "t": "Entry is free, but visitors must pay for the food they buy.",
+    "zh": "入場免費，但訪客必須為購買的食物付費。"
+   },
+   {
+    "t": "The festival opens at five p.m. on Friday and closes at ten.",
+    "zh": "美食節週五下午五點開始，十點結束。"
+   },
+   {
+    "t": "Because parking near the park is limited, the organizers suggest taking the bus.",
+    "zh": "由於公園附近的停車位有限，主辦單位建議搭公車。"
+   },
+   {
+    "t": "Free shuttle buses will leave from the City Library every fifteen minutes.",
+    "zh": "免費接駁車每十五分鐘從市立圖書館出發。"
+   },
+   {
+    "t": "Stay with us after the break, when a chef will share a simple noodle recipe.",
+    "zh": "請在廣告後繼續收聽，一位主廚將分享簡單的麵食食譜。"
+   }
+  ],
+  "graphic": null,
+  "questions": [
+   {
+    "id": "q1",
+    "qtype": "who",
+    "q": {
+     "t": "Who most likely is the speaker?",
+     "zh": "說話者最可能是誰？"
+    },
+    "choices": [
+     {
+      "t": "A radio host",
+      "zh": "廣播節目主持人",
+      "ok": true,
+      "pattern": "direct",
+      "why": "正解：Morning Menu on Radio 98, I am your host。"
+     },
+     {
+      "t": "A festival organizer",
+      "zh": "美食節主辦人",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "主辦單位是第三方，說話者只是轉述建議。"
+     },
+     {
+      "t": "A professional chef",
+      "zh": "專業主廚",
+      "ok": false,
+      "trap": "wrong-speaker",
+      "why": "主廚是廣告後才會出現的來賓。"
+     },
+     {
+      "t": "A bus driver",
+      "zh": "公車司機",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "公車與接駁車只是交通資訊。"
+     }
+    ],
+    "evidence": [
+     0
+    ]
+   },
+   {
+    "id": "q2",
+    "qtype": "infer",
+    "q": {
+     "t": "What can be inferred about parking near the park?",
+     "zh": "關於公園附近的停車，可以推論什麼？"
+    },
+    "choices": [
+     {
+      "t": "It may be hard to find a space.",
+      "zh": "可能很難找到車位。",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：parking is limited → 車位可能不好找。"
+     },
+     {
+      "t": "It costs ten dollars.",
+      "zh": "要價十美元。",
+      "ok": false,
+      "trap": "number-mix",
+      "why": "沒有提到停車費，十是結束時間。"
+     },
+     {
+      "t": "It is free for all visitors.",
+      "zh": "對所有訪客免費。",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到免費停車；免費的是入場與接駁車。"
+     },
+     {
+      "t": "It is only available at the library.",
+      "zh": "只有圖書館提供停車。",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "圖書館是接駁車的出發地點。"
+     }
+    ],
+    "evidence": [
+     5
+    ]
+   },
+   {
+    "id": "q3",
+    "qtype": "next",
+    "q": {
+     "t": "What will listeners hear after the break?",
+     "zh": "聽眾在廣告後會聽到什麼？"
+    },
+    "choices": [
+     {
+      "t": "Cooking advice from a chef",
+      "zh": "主廚的烹飪建議",
+      "ok": true,
+      "pattern": "paraphrase",
+      "why": "正解：a chef will share a simple noodle recipe。"
+     },
+     {
+      "t": "A traffic report",
+      "zh": "路況報導",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "沒有提到路況報導。"
+     },
+     {
+      "t": "A ticket giveaway",
+      "zh": "門票抽獎",
+      "ok": false,
+      "trap": "over-infer",
+      "why": "入場免費，沒有提到門票。"
+     },
+     {
+      "t": "A bus schedule",
+      "zh": "公車時刻表",
+      "ok": false,
+      "trap": "mention-not-ask",
+      "why": "接駁車班距已在前面提過，不是廣告後內容。"
+     }
+    ],
+    "evidence": [
+     7
+    ]
+   }
+  ],
+  "vocab": [
+   {
+    "word": "festival",
+    "ipa": "/ˈfestɪvəl/",
+    "pos": "n.",
+    "col": "food festival",
+    "zh": "節慶；美食節"
+   },
+   {
+    "word": "organizer",
+    "ipa": "/ˈɔːrɡənaɪzər/",
+    "pos": "n.",
+    "col": "festival organizer",
+    "zh": "主辦人"
+   },
+   {
+    "word": "shuttle",
+    "ipa": "/ˈʃʌtl/",
+    "pos": "n.",
+    "col": "shuttle bus",
+    "zh": "接駁車"
+   }
+  ]
+ }
+]
