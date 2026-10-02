@@ -24,6 +24,10 @@ const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch
 
 let cur = { w: 1, d: 1, view: 'day', showTranscript: false };
 const idOf = x => `w${x.week}d${x.day}`;
+const AUDIO_DIR = 'audio/daily/'; // daily 的 mp3 放這個資料夾（題目有 audio 欄位時以該欄位為準）
+const audioPath = x => x.audio || AUDIO_DIR + idOf(x) + '.mp3';
+let AUX = null; // audio/index.json（由 audio/audio_scan.py 產生）
+async function auxLoad() { try { const r = await fetch('audio/index.json', { cache: 'no-store' }); if (r.ok) AUX = await r.json(); } catch (e) {} }
 const find = (w, d) => DATA.find(x => x.week == w && x.day == d);
 const L = 'ABCD';
 
@@ -65,7 +69,7 @@ function spToggle(id, startAt) { // 播放／暫停／繼續；startAt = 從指�
   if (Sp.id !== id) {
     spStop(); const x = DATA.find(d => idOf(d) === id);
     Sp.id = id; Sp.text = x.passage; Sp.cps = 0;
-    const au = new Audio(x.audio || `audio/${id}.mp3`);
+    const au = new Audio(audioPath(x));
     Sp.au = au; Sp.mode = 'audio'; Sp.st = 'playing';
     if (startAt) au.currentTime = startAt;
     au.ontimeupdate = () => { if (Sp.au === au) spHl(id, au.currentTime); };
@@ -282,6 +286,8 @@ function renderDay() {
     ${lvBadge(x) ? ` ${lvBadge(x).replace('inline-block', 'inline-block mt-2')}` : ''}
     ${x.level && x.level.why ? `<p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">難度：${esc(x.level.why)}（範圍 ${esc(x.level.range || '')}，為預估值）</p>` : ''}
   </header>
+
+  ${addMode ? auPanel(x) : ''}
 
   <!-- 短文/聽力卡片 -->
   <section class="${card} p-4 md:p-6 mb-5 md:mb-6">
@@ -590,6 +596,31 @@ function genPrompt() {
   L.push('【輸出】', '・只輸出 JSON，放在單一 json 程式碼區塊內，單篇輸出單一物件；格式與自我檢查依 _spec 的 how_to_use.output 與 rules.self_check。', '・不要輸出整份 daily.json、不要輸出 timing 欄位；tag、情境與 vocab 單字不得與既有 items 重複。');
   return L.join('\n');
 }
+/* ===== 音檔維護：複製檔名、路徑與文稿（維護模式「＋ 新增文章」開啟時顯示在每篇文章上方） ===== */
+function auPanel(x) {
+  const id = idOf(x), path = audioPath(x), fn = path.split('/').pop();
+  const have = AUX && AUX.daily && Array.isArray(AUX.daily.complete) ? AUX.daily.complete.includes(id) : null;
+  const st = have === null ? ['未讀取 audio/index.json（尚未執行 audio_scan.py 或用 file:// 開啟）', 'bg-slate-100 dark:bg-slate-800 text-slate-500']
+    : have ? ['✔ 已有 mp3', 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400']
+    : ['✖ 尚無 mp3（目前播放會改用語音合成）', 'bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400'];
+  const sb = `${btn} border border-slate-300 dark:border-slate-700 !px-3 !py-1.5 text-xs shrink-0`;
+  const code = 'rounded-lg bg-slate-100 dark:bg-slate-800 px-3 py-1.5 text-sm font-mono break-all';
+  const lines = String(x.passage || '').split(/\n+/).map(t => t.trim()).filter(Boolean);
+  return `<section class="${card} p-4 md:p-6 mb-5 md:mb-6">
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+      <h3 class="font-bold text-sm">🎧 音檔維護 · ${id}</h3>
+      <span class="inline-block text-xs rounded-full px-3 py-1 font-medium ${st[1]}">${st[0]}</span>
+    </div>
+    <p class="text-xs text-slate-500 mb-3 leading-relaxed">錄好 mp3 後，用下列檔名存到 <b>${esc(path.slice(0, path.lastIndexOf('/') + 1))}</b> 資料夾，再執行 <b>audio/audio_scan.py</b> 並重新整理本頁。</p>
+    <div class="flex flex-wrap items-center gap-2 mb-2"><span class="text-xs text-slate-500 w-12 shrink-0">檔名</span><code id="au-fn" class="${code}">${esc(fn)}</code><button onclick="copyEl('au-fn',this)" class="${sb}">複製</button></div>
+    <div class="flex flex-wrap items-center gap-2 mb-3"><span class="text-xs text-slate-500 w-12 shrink-0">路徑</span><code id="au-path" class="${code}">${esc(path)}</code><button onclick="copyEl('au-path',this)" class="${sb}">複製</button></div>
+    <div class="flex items-center justify-between gap-2 mb-1"><span class="text-xs font-bold">英文文稿（整篇一個檔，錄音／TTS 用）</span><button onclick="copyEl('au-txt',this)" class="${sb}">複製全文</button></div>
+    <pre id="au-txt" class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-48 overflow-auto">${esc(x.passage || '')}</pre>
+    <details class="mt-3"><summary class="text-xs cursor-pointer text-slate-500">分段複製（${lines.length} 段）</summary>
+      <div class="space-y-1.5 mt-2">${lines.map((t, i) => `<div class="flex items-start gap-2 rounded-lg border border-slate-200 dark:border-slate-800 px-3 py-2"><span id="au-l${i}" class="flex-1 min-w-0 text-sm break-words">${esc(t)}</span><button onclick="copyEl('au-l${i}',this)" class="${sb}">複製</button></div>`).join('')}</div>
+    </details>
+  </section>`;
+}
 async function copyEl(id, b) {
   const e = document.getElementById(id), t = e.value !== undefined ? e.value : e.textContent;
   let ok = false;
@@ -626,7 +657,7 @@ function renderGen() {
     <div class="flex flex-wrap items-center gap-2">
       <code id="gen-mp3" class="rounded-lg bg-slate-100 dark:bg-slate-800 px-3 py-2 text-sm font-mono">${g.id}.mp3</code>
       <button onclick="copyEl('gen-mp3',this)" class="${sb}">複製</button>
-      <span class="text-xs text-slate-500">錄音檔，放在 audio 資料夾</span>
+      <span class="text-xs text-slate-500">錄音檔，放在 audio/daily 資料夾</span>
     </div>
   </section>
 
@@ -746,6 +777,7 @@ async function boot() {
     const res = await fetch('daily.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     DATA = itemsOf(await res.json());
+    await auxLoad();
     if (isMobile()) cur.view = 'home';
     render();
   } catch (e) {
