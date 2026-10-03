@@ -5,7 +5,7 @@
   index.html / part2.html / daily.html / *.json   ← 網站根目錄（ROOT）
   audio/audio_scan.py                             ← 本檔
   audio/index.json                                ← 本檔產生
-  audio/p1/、audio/p2/、audio/p3/、audio/p4/、audio/p5/、audio/daily/   ← mp3
+  audio/p1/、audio/p2/、audio/p3/、audio/p4/、audio/p5/、audio/p6/、audio/daily/   ← mp3
 
 預期檔案（由題庫 json 推算）：
   Part 1  audio/p1/{id}-s01.mp3 … -s12.mp3          （part1.json，每題 pool 幾句就幾個檔）
@@ -13,6 +13,7 @@
   Part 3  audio/p3/{id}-s01.mp3 …                   （part3.json，每句對話一檔，依 dialogue 句數）
   Part 4  audio/p4/{id}.mp3                          （part4.json，整段獨白一個檔，不分句）
   Part 5  audio/p5/{id}.mp3                         （part5.json，一題一檔，朗讀答案填入的完整句；say 欄位若有則朗讀 say）
+  Part 6  audio/p6/{id}.mp3                         （part6.json，一篇一檔，朗讀答案填入的整篇；say 欄位若有則朗讀 say）
   Daily   audio/daily/w1d1.mp3（或題目的 audio 欄位）  （daily.json，整篇一個檔）
   字母    audio/A.mp3 … E.mp3（Part 1／2 共用，大寫檔名；Part 1 需 A–D、Part 2 需 A–C 到齊，才會在每個選項前先念字母）
 整題到齊才列入 complete；網頁只對 complete 的題目用 mp3。
@@ -124,6 +125,15 @@ c, p, o = check(os.path.join(AUD, 'p5'), exp, 'audio/p5')
 out['p5'] = {'complete': c, 'partial': {}, 'orphans': o}
 print('p5：題目 %d，音檔完整 %d，缺 %d，孤兒檔 %d' % (len(exp), len(c), len(exp) - len(c), len(o)))
 
+# Part 6：audio/p6/{id}.mp3（一篇一檔，朗讀答案填入的整篇；say 欄位若有則朗讀 say）
+exp = {}
+for it in items('part6.json'):
+    if isinstance(it, dict) and it.get('id') and isinstance(it.get('body'), list):
+        exp[it['id']] = [it['id'] + '.mp3']
+c, p, o = check(os.path.join(AUD, 'p6'), exp, 'audio/p6')
+out['p6'] = {'complete': c, 'partial': {}, 'orphans': o}
+print('p6：文章 %d，音檔完整 %d，缺 %d，孤兒檔 %d' % (len(exp), len(c), len(exp) - len(c), len(o)))
+
 # Daily：audio/daily/{id}.mp3；題目若有 audio 欄位（相對網站根目錄的路徑）則以該路徑為準
 DDIR = os.path.join(AUD, 'daily')
 dexp, dcustom = {}, {}
@@ -154,7 +164,7 @@ os.makedirs(AUD, exist_ok=True)
 with open(os.path.join(AUD, 'index.json'), 'w', encoding='utf-8') as f:
     json.dump(out, f, ensure_ascii=False, indent=1)
 print('\n已寫入 audio/index.json')
-for part in ('p1', 'p2', 'p3', 'p4', 'p5', 'daily'):
+for part in ('p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'daily'):
     for o in out[part]['orphans']:
         warn.append('audio/%s/%s 不屬於任何題目（檔名打錯？）' % (part, o))
 for w in warn:

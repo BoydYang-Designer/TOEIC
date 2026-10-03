@@ -1,4 +1,4 @@
-/* Part 6 段落填空（階段 1：練習模式＋音訊）。骨架取自 part5.js；規格見 part6_設計指引.md
+/* Part 6 段落填空（階段 1–3：練習、模擬測驗、結果頁、維護頁）。骨架取自 part5.js；規格見 part6_設計指引.md
    記錄存在 toeicPart6V1（rec／saved／rot／stat，key＝題目id#空格編號），KEY 只讀寫 dark。
    音訊：audio/index.json 的 p6.complete 有此題 → 播 audio/p6/{id}.mp3；否則用瀏覽器 TTS。 */
 const KEY='toeicCoachV2',PK='toeicPart6V1';
@@ -116,7 +116,7 @@ window.addEventListener('pagehide',()=>{try{stop()}catch(e){}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
 function toggleDark(){S.dark=!S.dark;try{const c=JSON.parse(localStorage.getItem(KEY)||'{}')||{};c.dark=S.dark;localStorage.setItem(KEY,JSON.stringify(c))}catch(e){}render()}
 /* ===== 階段 2：模擬測驗、結果頁、錯題複習、完整篩選、選項庫、線索高亮 ===== */
-let DATA=[],SPEC=null,V={view:'home',mode:'practice',fd:'',ft:'',fc:'',fk:'',fp:'',list:[],i:0,r:null,t:null};
+let DATA=[],SPEC=null,LERR='',LMSG='',V={view:'home',mode:'practice',fd:'',ft:'',fc:'',fk:'',fp:'',list:[],i:0,r:null,t:null};
 const TIER={easy:'初級',medium:'中級',hard:'高級'},KD={grammar:'文法',vocab:'詞彙',transition:'轉折詞',insert:'句子插入'},SC={local:'線索在空格附近',near:'線索在前後句',far:'線索在標頭或跨段'},SCN={local:'空格附近',near:'前後句',far:'標頭／跨段'},SUG={easy:100,medium:120,hard:140};
 const tier=x=>(x.level&&x.level.tier)||'medium',byId=id=>DATA.find(x=>x.id===id),qk=(x,q)=>x.id+'#'+q.n,sug=x=>SUG[tier(x)]||120;
 const qi=(x,q)=>({id:qk(x,q),point:q.point,answer:q.answer,distractors:q.distractors});   // 讓 deal()／optOf() 把「一個空格」當成一題
@@ -267,12 +267,23 @@ function resultH(){
 }
 
 /* ---------- 首頁 ---------- */
+const pickBtn=()=>`<label class="${btn} ${pri} inline-block mt-3">選取 part6.json<input type="file" accept=".json,application/json" class="hidden" onchange="pickJson(this)"></label>`;
+const loadWarn=()=>{
+  if(!LERR)return '';
+  const code='px-1 rounded bg-amber-100 dark:bg-amber-900/50',T={file:'請手動選取 part6.json',fetch:'讀不到 part6.json，可以手動選取',bad:'part6.json 格式有誤',empty:'part6.json 內沒有可用的題目'}[LERR];
+  const B={file:`直接雙擊開啟時，瀏覽器不允許自動讀取本機的 json 檔。請選擇同資料夾的 part6.json（本次開啟有效，重新整理後要再選一次）。<br>想要自動載入：在專案資料夾執行 <code class="${code}">python -m http.server 8000</code>，再開 <code class="${code}">http://localhost:8000/part6.html</code>；或上傳到 GitHub Pages。<br><span class="text-xs">備註：用手動選取時讀不到 audio/index.json，所以暫時都用機器發音。</span>`,
+    fetch:'請確認 part6.json 與 part6.html 在同一個資料夾、檔名大小寫正確（GitHub Pages 區分大小寫）。也可以先手動選取檔案使用。',
+    bad:'JSON 解析失敗：'+esc(LMSG)+'。可用 json_merge.py 重新合併，或改選另一個檔案。',
+    empty:'請確認 items 內每篇都有 head、body、zh、questions（4 題）。可用 json_merge.py 合併並驗證題目，或改選另一個檔案。'}[LERR];
+  return `<div class="rounded-xl border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 p-4 mb-4 text-sm leading-relaxed"><b>${T}</b><br>${B}<br>${pickBtn()}</div>`;
+};
 function homeH(){
   const pool=poolOf(),ws=wrongItems(),ds=[...new Set(DATA.map(x=>x.domain))].sort(),cs=[...new Set(DATA.map(x=>x.doc))].filter(Boolean),dn=d=>(SPEC&&SPEC.domains&&SPEC.domains[d]&&SPEC.domains[d].name)||'';
   const ks=Object.keys(KD).filter(k=>DATA.some(x=>x.questions.some(q=>q.kind===k)));
   const pts=V.fk?Object.keys((SPEC&&SPEC.points)||{}).filter(p=>SPEC.points[p].kind===V.fk&&DATA.some(x=>x.questions.some(q=>q.point===p))):[];
   const lim=l=>Math.round(l.reduce((s,x)=>s+sug(x),0)/60*10)/10;
-  return `<div class="flex items-center justify-between mb-4"><div><a href="index.html" class="text-sm text-slate-500">← 首頁</a><h1 class="text-xl font-bold">Part 6 段落填空</h1></div><button onclick="toggleDark()" class="${btn} ${line} !py-1.5">${S.dark?'☀':'☾'}</button></div>
+  return `<div class="flex items-center justify-between mb-4"><div><a href="index.html" class="text-sm text-slate-500">← 首頁</a><h1 class="text-xl font-bold">Part 6 段落填空</h1></div><div class="flex gap-2"><button onclick="go('maint')" class="${btn} ${line} !py-1.5" aria-label="維護">🛠 維護</button><button onclick="toggleDark()" class="${btn} ${line} !py-1.5">${S.dark?'☀':'☾'}</button></div></div>
+  ${loadWarn()}
   <div class="flex flex-wrap gap-2 mb-2"><button onclick="setF('fd','')" class="${on(!V.fd)}">全部主題</button>${ds.map(d=>`<button onclick="setF('fd','${d}')" class="${on(V.fd===d)}">${d.toUpperCase()} ${esc(dn(d))}</button>`).join('')}</div>
   <div class="flex flex-wrap gap-2 mb-2"><button onclick="setF('ft','')" class="${on(!V.ft)}">全部難度</button>${Object.keys(TIER).map(k=>`<button onclick="setF('ft','${k}')" class="${on(V.ft===k)}">${TIER[k]}</button>`).join('')}</div>
   <div class="flex flex-wrap gap-2 mb-2"><button onclick="setF('fc','')" class="${on(!V.fc)}">全部文章類型</button>${cs.map(k=>`<button onclick="setF('fc','${esc(k)}')" class="${on(V.fc===k)}">${esc(docN(k))}</button>`).join('')}</div>
@@ -283,12 +294,131 @@ function homeH(){
   ${pool.length>=4?`<button onclick="beginTest(shuf(poolOf()).slice(0,4))" class="${btn} ${pri} w-full mb-3">模擬測驗 完整版（4 篇・16 題・約 ${lim(pool.slice(0,4))} 分鐘）</button>`:''}
   ${ws.length?`<button onclick="beginReview()" class="${btn} ${line} w-full mb-4">錯題複習（${ws.length} 篇）</button>`:'<div class="mb-4"></div>'}
   ${pool.map(x=>{const rs=x.questions.map(q=>R.rec[qk(x,q)]),all=rs.every(Boolean),c=rs.filter(t=>t&&t.ok).length;return `<button onclick="begin([byId('${esc(x.id)}')])" class="${card} p-3 mb-2 w-full text-left flex justify-between gap-2"><span class="min-w-0"><b class="text-sm">${esc(x.id)}</b> <span class="text-xs text-slate-500">${esc(x.tag)}</span><span class="flex flex-wrap gap-1 mt-1"><span class="${chip}">${TIER[tier(x)]}</span><span class="${chip}">${esc(docN(x.doc))}</span></span></span><span class="text-xs shrink-0 ${all?(c===4?'text-emerald-600':'text-rose-600'):'text-slate-400'}">${all?(c===4?'✓ ':'✗ ')+c+'/4':'尚未作答'}</span></button>`}).join('')||`<div class="${card} p-8 text-center text-sm text-slate-500">沒有符合的題目（題庫共 ${DATA.length} 篇）。</div>`}`}
+/* ===== 階段 3：維護頁（題數矩陣、考點統計、AI 寫題目指令、單篇檢視、音檔清單） ===== */
+let M={fd:'',ft:'',gd:'d1',gt:'medium',gdoc:'memo',n:1,pts:{},prompt:''};
+const SCORES={easy:[500,550],medium:[600,650],hard:[700,750,800]},SUF={easy:'e',medium:'m',hard:'h'};
+const cefrOf=s=>s<=550?'A2+':s===600?'B1':s===650?'B1+':s<=750?'B2':'B2+';
+const shr=s=>{const m=String(s||'').match(/(\d+)(?:\s*[–-]\s*(\d+))?/);return m?[+m[1],+(m[2]||m[1])]:null};
+const DOMS=()=>[...new Set([...Object.keys((SPEC&&SPEC.domains)||{}),...DATA.map(x=>x.domain)])].filter(Boolean).sort();
+const dnm=d=>(SPEC&&SPEC.domains&&SPEC.domains[d]&&SPEC.domains[d].name)||'';
+const allQ=()=>DATA.flatMap(x=>x.questions);
+const mList=()=>DATA.filter(x=>(!M.fd||x.domain===M.fd)&&(!M.ft||tier(x)===M.ft));
+const who=x=>x.voice==='M'?'M':'F';
+const missText=l=>l.filter(x=>!AU.has(x.id)).map(x=>`${x.id}.mp3 | ${sayText(x)} | ${who(x)}`).join('\n');
+const filledP=x=>x.body.map(p=>p.replace(/\[\[(\d)\]\]/g,(_,n)=>(x.questions.find(q=>q.n===+n)||{answer:{t:''}}).answer.t));
+const subjOf=x=>{const s=(x.head||[]).find(h=>/^\s*subject\s*:/i.test(h));return s?s.replace(/^[^:]*:/,'').trim():((x.head||[])[0]||'')};
+const firstOf=x=>{const t=filledP(x).join(' ').trim(),m=t.match(/[.?!](\s|$)/);return m?t.slice(0,m.index+1):t};
+function cp(t,b){
+  const o=b&&b.textContent,ok=()=>{if(b){b.textContent='✓ 已複製';setTimeout(()=>{b.textContent=o},1200)}};
+  const fb=()=>{const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;opacity:0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}ta.remove();ok()};
+  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(ok,fb);else fb();
+}
+const mset=(k,v)=>{M[k]=v;render()};
+const mcell=(d,t)=>{const same=M.fd===d&&M.ft===t;M.fd=same?'':d;M.ft=same?'':t;if(!same){M.gd=d;M.gt=t}render()};
+const mpt=p=>{M.pts[p]=!M.pts[p];render()};
+const mgen=()=>{M.prompt=promptText();render();const e=document.getElementById('mp');if(e&&e.scrollIntoView)e.scrollIntoView({behavior:'smooth',block:'center'})};
+function promptText(){
+  const sp=SPEC||{},d=M.gd,t=M.gt,n=M.n,sc=(sp.domains&&sp.domains[d]&&sp.domains[d].scenes)||[],T=(sp.tiers&&sp.tiers[t])||{};
+  const mx=DATA.filter(x=>x.domain===d&&tier(x)===t).reduce((a,x)=>Math.max(a,+String(x.id).split('-')[1]||0),0);
+  const ids=Array.from({length:n},(_,i)=>`${d}-${String(mx+1+i).padStart(3,'0')}-${SUF[t]}`);
+  const sel=Object.keys(M.pts).filter(k=>M.pts[k]),qs=allQ(),cnt=p=>qs.filter(q=>q.point===p).length,P=sp.points||{};
+  const ptLine=sel.length?`只出下列考點（每篇仍須符合組成規則）：${sel.map(p=>pName(p)+'('+p+')').join('、')}`
+    :`不限；各考點現有「空格」題數與建議占比：${Object.keys(P).map(p=>`${pName(p)}(${p}) 現有 ${cnt(p)}、建議 ${P[p].share}`).join('；')}；請優先補數量最少者`;
+  const rules=sp.rules?(Array.isArray(sp.rules)?sp.rules:Object.values(sp.rules)):[];
+  const uniq=f=>[...new Set(DATA.flatMap(f))].filter(Boolean);
+  const vocab=uniq(x=>(x.vocab||[]).map(v=>v.word)),tags=uniq(x=>[x.tag]);
+  const heads=DATA.map(x=>`${x.id}：${subjOf(x)}／${firstOf(x)}`);
+  const spec=JSON.stringify(Object.fromEntries(Object.entries(sp).filter(([k])=>k!=='domains')));
+  return `請為多益 Part 6 段落填空寫 ${n} 篇（每篇一篇文章、4 個空格；非插入題 1 正解＋7 干擾項，插入題 1 正解句＋3 干擾句），輸出為單一 JSON 陣列，規格在最後，不需要另外附 part6.json。
+
+- 主題：${d.toUpperCase()} ${dnm(d)}（scene 須屬於：${sc.join('、')||'—'}）；可選填 biz。
+- 文章類型：${M.gdoc}（${docN(M.gdoc)}；doc 欄位照填）。
+- 難度：${TIER[t]}（id 尾碼 ${SUF[t]}）｜level.score 只能填：${SCORES[t].map(s=>`${s}（cefr ${cefrOf(s)}）`).join('、')}｜${T.guide||''}
+- 考點：${ptLine}。
+- id 依序使用：${ids.join('、')}（domain 填 ${d}，level.tier 填 ${t}）；voice 填 F 或 M。
+- 每篇剛好 4 空格 [[1]]–[[4]]、剛好 1 題 insert；其餘規則見下方 rules。
+- clue.steps 依四步驟各寫一句：掃描選項判斷題型 → 分析空格前後線索 → 刪去法 → 代入驗證（插入題改為：判斷為插入題留到最後 → 找前後連結線索 → 逐句排除 → 代入檢查連貫）。
+${rules.map(r=>'- '+r).join('\n')}
+- 已用過的 vocab（不得重複）：${vocab.join('、')||'（無）'}
+- 已用過的 tag（不得重複）：${tags.join('、')||'（無）'}
+- 已有的標頭主旨或標題與首句（不要雷同）：${heads.join('；')||'（無）'}
+- 輸出方式：建立檔案 p6_${ids[0]}_x${n}.json（只含一個合法 JSON 陣列、UTF-8、不加程式碼區塊標記）；無法建檔才輸出單一 json 程式碼區塊。
+
+【規格：part6.json 的 _spec 精簡版】
+${spec}
+
+寫完請自我檢查：逐篇逐空格把每個干擾項代回整篇，確認只有 1 個選項成立；確認 [[1]]–[[4]] 依序各 1 次；確認至少 2 題 scope 為 near 或 far；確認 clue.text 是原文片段；確認數字與日期一致。有任何不確定寫進 issues。`;
+}
+function matrixH(){
+  const ds=DOMS(),ts=Object.keys(TIER);
+  const cell=(d,t)=>{const l=DATA.filter(x=>x.domain===d&&tier(x)===t),a=l.filter(x=>AU.has(x.id)).length,sel=M.fd===d&&M.ft===t;
+    return `<td class="p-0.5"><button onclick="mcell('${d}','${t}')" class="${btn} !px-2 !py-1.5 w-full ${sel?'bg-indigo-600 text-white':l.length?'bg-slate-100 dark:bg-slate-800':'bg-slate-50 dark:bg-slate-900 text-slate-400'}">${l.length} · 🎧${a}</button></td>`};
+  const tot=l=>`${l.length} · 🎧${l.filter(x=>AU.has(x.id)).length}`;
+  return `<div class="${card} p-4 mb-4"><p class="text-sm font-bold mb-1">題數矩陣（主題 × 難度）</p><p class="text-xs text-slate-500 mb-2">格內＝篇數 · 🎧音檔完整數；點一格可篩選下方單篇列表，並帶入「新增題目」。</p>
+  <div class="overflow-x-auto"><table class="w-full text-center text-sm"><thead><tr><th></th>${ts.map(t=>`<th class="text-xs font-medium text-slate-500 pb-1">${TIER[t]}</th>`).join('')}<th class="text-xs font-medium text-slate-500 pb-1">合計</th></tr></thead><tbody>
+  ${ds.map(d=>`<tr><td class="text-left text-xs pr-2 whitespace-nowrap">${d.toUpperCase()} ${esc(dnm(d))}</td>${ts.map(t=>cell(d,t)).join('')}<td class="text-xs text-slate-500">${tot(DATA.filter(x=>x.domain===d))}</td></tr>`).join('')}
+  <tr><td class="text-left text-xs pr-2">合計</td>${ts.map(t=>`<td class="text-xs text-slate-500 py-1">${tot(DATA.filter(x=>tier(x)===t))}</td>`).join('')}<td class="text-xs font-bold py-1">${tot(DATA)}</td></tr></tbody></table></div></div>`;
+}
+function statsH(){
+  const qs=allQ(),tot=qs.length,P=(SPEC&&SPEC.points)||{},cnt=(k,v)=>qs.filter(q=>q[k]===v).length;
+  const pct=n=>tot?(n/tot*100).toFixed(1):'0.0';
+  const docs=[...new Set(DATA.map(x=>x.doc))].filter(Boolean);
+  const rows=Object.keys(P).map(p=>{const n=cnt('point',p),r=shr(P[p].share),low=r&&tot&&n/tot*100<r[0];
+    return `<tr class="${low?'bg-amber-50 dark:bg-amber-900/20':''}"><td class="py-1 pr-2">${esc(P[p].name||p)} <span class="text-xs text-slate-400">${KD[P[p].kind]||''}</span></td><td class="pr-3 text-right">${n}</td><td class="pr-3 text-right">${pct(n)}%</td><td class="text-xs text-slate-500">${esc(P[p].share||'')}${low?' <b class="text-amber-600">偏少</b>':''}</td></tr>`}).join('');
+  return `<div class="${card} p-4 mb-4"><p class="text-sm font-bold mb-2">統計（以「空格」計，共 ${tot} 個空格 / ${DATA.length} 篇）</p>
+  <div class="flex flex-wrap gap-1.5 mb-3">${Object.keys(KD).map(k=>`<span class="${chip}">${KD[k]} ${cnt('kind',k)}（${pct(cnt('kind',k))}%）</span>`).join('')}</div>
+  <div class="overflow-x-auto"><table class="text-sm w-full"><thead><tr class="text-xs text-slate-500 text-left"><th class="font-medium">考點</th><th class="font-medium text-right pr-3">題數</th><th class="font-medium text-right pr-3">占比</th><th class="font-medium">建議占比</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <p class="text-xs text-slate-500 mt-3 mb-1">文章類型</p><div class="flex flex-wrap gap-1.5 mb-2">${docs.map(k=>`<span class="${chip}">${esc(docN(k))} ${DATA.filter(x=>x.doc===k).length}</span>`).join('')||'<span class="text-xs text-slate-400">—</span>'}</div>
+  <p class="text-xs text-slate-500 mb-1">線索範圍（scope）</p><div class="flex flex-wrap gap-1.5">${Object.keys(SCN).map(k=>`<span class="${chip}">${SCN[k]} ${cnt('scope',k)}（${pct(cnt('scope',k))}%）</span>`).join('')}</div></div>`;
+}
+function genH(){
+  const sp=SPEC||{},ds=DOMS(),docs=Object.keys(sp.docs||{}),P=sp.points||{},sel='rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5 text-sm';
+  return `<div class="${card} p-4 mb-4"><p class="text-sm font-bold mb-2">新增題目：給 AI 的寫題目指令</p>
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-3"><label class="text-xs text-slate-500">主題<select class="${sel} w-full" onchange="mset('gd',this.value)">${ds.map(d=>`<option value="${d}" ${M.gd===d?'selected':''}>${d.toUpperCase()} ${esc(dnm(d))}</option>`).join('')}</select></label>
+  <label class="text-xs text-slate-500">難度<select class="${sel} w-full" onchange="mset('gt',this.value)">${Object.keys(TIER).map(t=>`<option value="${t}" ${M.gt===t?'selected':''}>${TIER[t]}</option>`).join('')}</select></label>
+  <label class="text-xs text-slate-500">文章類型<select class="${sel} w-full" onchange="mset('gdoc',this.value)">${docs.map(k=>`<option value="${k}" ${M.gdoc===k?'selected':''}>${esc(docN(k))}（${k}）</option>`).join('')}</select></label></div>
+  <div class="flex flex-wrap items-center gap-2 mb-3"><span class="text-xs text-slate-500">篇數</span>${[1,2,3,5].map(k=>`<button onclick="mset('n',${k})" class="${on(M.n===k)}">${k}</button>`).join('')}</div>
+  <p class="text-xs text-slate-500 mb-1">本批必含的考點（選填，不選＝不限，由 AI 補數量最少者）</p><div class="flex flex-wrap gap-1.5 mb-3">${Object.keys(P).map(p=>`<button onclick="mpt('${p}')" class="${on(M.pts[p])} !py-1 !px-2.5 text-xs">${esc(P[p].name||p)}</button>`).join('')}</div>
+  <button onclick="mgen()" class="${btn} ${pri}">產生指令</button>
+  ${M.prompt?`<div id="mp" class="mt-3"><textarea readonly class="w-full h-64 text-xs rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 p-2 font-mono">${esc(M.prompt)}</textarea><button onclick="cp(M.prompt,this)" class="${btn} ${line} mt-2">複製指令</button></div>`:''}</div>`;
+}
+function itemH(x){
+  const pill=n=>{const q=x.questions.find(z=>z.n===n);return `<b class="${PA}">(${n}) ${esc(q.answer.t)}</b>`};
+  const qh=q=>{const st=R.stat[qk(x,q)],y=qi(x,q),all=[0,...q.distractors.map((_,i)=>i+1)],ex=(a,k)=>(a&&a[k])||0;
+    return `<div class="mb-3"><p class="text-sm"><b>第 ${q.n} 空</b> ${chips(q)}</p><div class="mt-1 space-y-1">${all.map(k=>{const o=optOf(y,k),fam=k>0&&q.kind!=='insert'&&q.distractors[k-1].fam==='root';
+      return `<div class="text-xs rounded border px-2 py-1 ${o.ok?'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50':'border-slate-200 dark:border-slate-800'}"><b>${esc(o.t)}</b> <span class="text-slate-500">${esc(o.zh||'')} ${esc(o.pos||'')}</span>${o.ok?' <span class="text-emerald-600">✓ 正解</span>':` <span class="text-slate-500">[${esc(trn(o.trap))}]</span>`}${o.near?' <span class="text-amber-600">near</span>':''}${fam?' <span class="text-sky-600">root</span>':''}${st?` <span class="text-slate-400">· 曝光 ${ex(st.shown,k)}／選 ${ex(st.picked,k)}</span>`:''}<span class="block text-slate-500">${esc(o.why)}</span></div>`}).join('')}</div></div>`};
+  const has=AU.has(x.id);
+  return `<details class="${card} p-3 mb-2"><summary class="cursor-pointer text-sm"><b>${esc(x.id)}</b> <span class="text-xs text-slate-500">${esc(x.tag)}</span><span class="text-xs ml-1 ${has?'text-emerald-600':'text-rose-500'}">${has?'🎧✔':'🎧✖'}</span><span class="flex flex-wrap gap-1 mt-1"><span class="${chip}">${TIER[tier(x)]}</span><span class="${chip}">${esc(docN(x.doc))}</span><span class="${chip}">${x.voice==='M'?'男聲':'女聲'}</span></span></summary><div class="mt-3">
+  ${passH(x,pill)}${x.questions.map(qh).join('')}${zhH(x)}${vocabH(x)}
+  <div class="${card} p-3 mt-3"><p class="text-xs font-bold mb-2">🔊 音檔 ${has?'✔ 有':'✖ 缺'}：<code>audio/p6/${esc(x.id)}.mp3</code>（${x.voice==='M'?'男聲':'女聲'}）</p>${audioBar(x)}<div class="flex flex-wrap gap-2"><button onclick="cp(this.dataset.t,this)" data-t="${esc(x.id+'.mp3')}" class="${btn} ${line} !py-1 text-xs">複製檔名</button><button onclick="cp(this.dataset.t,this)" data-t="${esc(sayText(x))}" class="${btn} ${line} !py-1 text-xs">複製朗讀稿</button></div></div></div></details>`;
+}
+function maintH(){
+  const l=mList(),miss=l.filter(x=>!AU.has(x.id)).length;
+  return `<div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><button onclick="go('home')" class="${btn} ${line} !py-1.5">←</button><h1 class="text-lg font-bold">Part 6 維護</h1></div><button onclick="toggleDark()" class="${btn} ${line} !py-1.5">${S.dark?'☀':'☾'}</button></div>
+  ${matrixH()}${statsH()}${genH()}
+  <div class="flex flex-wrap items-center justify-between gap-2 mb-2"><p class="text-sm font-bold">單篇檢視（${l.length} 篇${M.fd||M.ft?'｜'+(M.fd?M.fd.toUpperCase():'全部主題')+' '+(M.ft?TIER[M.ft]:'全部難度'):''}）</p>
+  <div class="flex gap-2">${M.fd||M.ft?`<button onclick="mset('fd','');mset('ft','')" class="${btn} ${line} !py-1 text-xs">顯示全部</button>`:''}${miss?`<button onclick="cp(missText(mList()),this)" class="${btn} ${line} !py-1 text-xs">複製本格缺的清單（${miss}）</button>`:''}</div></div>
+  ${miss?'<p class="text-xs text-slate-500 mb-2">清單格式：檔名.mp3 | 朗讀稿 | M或F，可直接貼給 AI 語音工具。</p>':''}
+  ${l.map(itemH).join('')||`<div class="${card} p-8 text-center text-sm text-slate-500">這一格還沒有題目。</div>`}`;
+}
 function render(){
   document.documentElement.classList.toggle('dark',!!S.dark);const v=V.view;
-  main.innerHTML=v==='run'&&V.r?runH():v==='test'&&V.t&&!V.t.res?testH():v==='result'&&V.t&&V.t.res?resultH():homeH();
+  main.innerHTML=v==='maint'?maintH():v==='run'&&V.r?runH():v==='test'&&V.t&&!V.t.res?testH():v==='result'&&V.t&&V.t.res?resultH():homeH();
   if(v==='test'&&!T.id)startClock();else if(v!=='test')clrT();
   paintAudio();
 }
-(async()=>{try{const j=await(await fetch('part6.json',{cache:'no-store'})).json();SPEC=j._spec||null;
-  DATA=(j.items||[]).filter(x=>x&&x.id&&['head','body','zh','questions'].every(k=>Array.isArray(x[k]))&&x.questions.length===4)}catch(e){}
-  await auLoad();render()})();
+/* ---------- 啟動：讀取 part6.json；雙擊開啟（file://）或讀不到時，可在首頁手動選取 ---------- */
+function loadText(t){
+  try{
+    const j=JSON.parse(t);SPEC=(j&&j._spec)||null;
+    DATA=(Array.isArray(j)?j:(j&&j.items)||[]).filter(x=>x&&x.id&&['head','body','zh','questions'].every(k=>Array.isArray(x[k]))&&x.questions.length===4);
+    LERR=DATA.length?'':'empty';
+  }catch(e){LERR='bad';LMSG=e.message}
+  render();
+}
+function pickJson(input){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=()=>loadText(r.result);r.readAsText(f,'utf-8');input.value=''}
+(async()=>{
+  await auLoad();
+  try{const res=await fetch('part6.json',{cache:'no-store'});if(!res.ok)throw new Error('HTTP '+res.status);loadText(await res.text())}
+  catch(e){LERR=location.protocol==='file:'?'file':'fetch';render()}
+})();

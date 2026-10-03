@@ -1,553 +1,1288 @@
 {
- "_spec": {
-  "purpose": "多益 Part 6 段落填空題庫；一題＝一篇文章（4 個空格）；非插入題 1 正解＋7 干擾項（網頁每次顯示 4 個），插入題 1 正解句＋3 干擾句。",
-  "schema_version": 1,
-  "domains": {
-   "d1": {
-    "name": "辦公室",
-    "scenes": [
-     "office"
-    ]
-   },
-   "d2": {
-    "name": "餐廳飲食",
-    "scenes": [
-     "restaurant"
-    ]
-   },
-   "d3": {
-    "name": "商店購物",
-    "scenes": [
-     "store"
-    ]
-   },
-   "d4": {
-    "name": "街道與交通",
-    "scenes": [
-     "street",
-     "station"
-    ]
-   },
-   "d5": {
-    "name": "工地與倉庫",
-    "scenes": [
-     "workplace"
-    ]
-   },
-   "d6": {
-    "name": "旅館與居家",
-    "scenes": [
-     "hotel",
-     "home"
-    ]
-   },
-   "d7": {
-    "name": "戶外與公園",
-    "scenes": [
-     "outdoor"
-    ]
-   }
-  },
-  "docs": {
-   "email": "電子郵件",
-   "letter": "書信",
-   "memo": "備忘錄",
-   "notice": "公告",
-   "article": "文章",
-   "ad": "廣告",
-   "instructions": "說明指南"
-  },
-  "tiers": {
-   "easy": {
-    "score": "500–550",
-    "guide": "80–110 字；2–3 段；文法線索在空格前後 3 字內；插入句有明顯代名詞或 this/these＋名詞線索；建議作答 100 秒"
-   },
-   "medium": {
-    "score": "600–650",
-    "guide": "100–140 字；3 段；時態或代名詞需看前後句；詞彙題讀前半句；至少 1 題 scope=far；建議作答 120 秒"
-   },
-   "hard": {
-    "score": "700–800",
-    "guide": "130–180 字；3–4 段；插入句線索隱微；轉折詞需跨段判斷；干擾句與主題相關且文法正確；建議作答 140 秒"
-   }
-  },
-  "points": {
-   "wordform": {
-    "kind": "grammar",
-    "name": "詞性",
-    "share": "10–12%"
-   },
-   "tense": {
-    "kind": "grammar",
-    "name": "時態",
-    "share": "8–10%"
-   },
-   "voice": {
-    "kind": "grammar",
-    "name": "語態",
-    "share": "3–4%"
-   },
-   "agree": {
-    "kind": "grammar",
-    "name": "主詞動詞一致",
-    "share": "2–3%"
-   },
-   "verbform": {
-    "kind": "grammar",
-    "name": "不定詞／動名詞／分詞",
-    "share": "3–4%"
-   },
-   "conj": {
-    "kind": "grammar",
-    "name": "連接詞 vs 介系詞",
-    "share": "4–5%"
-   },
-   "prep": {
-    "kind": "grammar",
-    "name": "介系詞",
-    "share": "3–4%"
-   },
-   "pronoun": {
-    "kind": "grammar",
-    "name": "代名詞／所有格",
-    "share": "3–4%"
-   },
-   "relative": {
-    "kind": "grammar",
-    "name": "關係詞",
-    "share": "1–2%"
-   },
-   "quant": {
-    "kind": "grammar",
-    "name": "數量詞／限定詞",
-    "share": "1–2%"
-   },
-   "vmeaning": {
-    "kind": "vocab",
-    "name": "語意辨析",
-    "share": "8–10%"
-   },
-   "vcolloc": {
-    "kind": "vocab",
-    "name": "搭配詞",
-    "share": "6–8%"
-   },
-   "vconfuse": {
-    "kind": "vocab",
-    "name": "易混淆字",
-    "share": "2–3%"
-   },
-   "transition": {
-    "kind": "transition",
-    "name": "連接詞／轉折詞",
-    "share": "8–12%"
-   },
-   "insert": {
-    "kind": "insert",
-    "name": "句子插入",
-    "share": "25%"
-   }
-  },
-  "biz": {
-   "hr": "人事",
-   "marketing": "行銷",
-   "finance": "財務",
-   "manufacturing": "製造",
-   "it": "資訊",
-   "general": "通用"
-  },
-  "traps": {
-   "pos": "詞性不符",
-   "tense": "時態不符",
-   "voice": "語態不符",
-   "agree": "一致性錯誤",
-   "form": "動詞形式錯誤",
-   "case": "代名詞格或限定詞錯誤",
-   "structure": "連接詞與介系詞結構不符",
-   "logic": "邏輯關係不符（原因／對比／條件）",
-   "confusable": "形似音近",
-   "collocation": "搭配錯誤",
-   "meaning": "語意不符",
-   "topic": "話題跳離",
-   "reference": "指涉不明或錯誤",
-   "sequence": "順序不合",
-   "contradiction": "與文中資訊矛盾",
-   "redundant": "重複前後句",
-   "tone": "語氣或對象不符"
-  },
-  "entry_schema": "{id:d{1-7}-{3位數}-{e|m|h}, domain, scene(須屬於 domains[domain].scenes), biz(選填), doc, tag(中文簡述,不重複), level:{score,cefr,tier,why}, voice:'F'|'M', head:[0–5行標頭字串], body:[2–4個段落字串,[[1]]–[[4]]各出現一次且依序], zh:[與body同長,答案填入後的中文翻譯], questions:[剛好4題{n:1–4, kind:'grammar'|'vocab'|'transition'|'insert', point, tag, scope:'local'|'near'|'far', answer:{t,zh,pos,why(以「正解：」開頭)}, distractors:[非insert剛好7個、insert剛好3個 {t,zh,pos(insert免),trap,near,fam('root'|'other',insert免),why}], clue:{text(須為head或body的原文片段),steps:[4句]}}], vocab:[3–5個{word,ipa,pos,col,zh}], say(選填,朗讀全文用,預設=標頭＋body填入答案), issues(選填)}",
-  "rules": {
-   "composition": "每篇剛好 4 空格、剛好 1 題 insert；其餘至少 1 題文法、至少 1 題 vocab 或 transition；同一 point 同篇最多 2 次；空格依序、分散、每句最多 1 個；insert 空格在句首且不是全文第一句。",
-   "context": "每篇至少 2 題不能只看同一句就答對（scope 為 near 或 far）；scope 全是 local 的文章不合格。",
-   "distractors": "非插入題 1 正解＋7 干擾項：至少 2 個 near:true；wordform 至少 3 個 fam:'root'；vocab 同詞性；transition 要涵蓋不同邏輯功能且不能兩個同時成立。插入題 1 正解句＋3 干擾句：4 句皆文法正確；3 個干擾句至少用 2 種 trap；至少 1 個看似相關。",
-   "unique": "每個干擾項代回整篇都必須明確錯誤，原因寫在 why；不能有兩個選項同時成立；空格答案不得依賴另一空格的答案。",
-   "style": "自然商務英文；除人名公司名外不用真實品牌；email 用 .example 網域；zh 為答案填入後的全文翻譯；字數依難度。",
-   "dedupe": "tag、標頭主旨或標題、vocab.word、首句不得與已有題目重複。",
-   "uncertain": "不確定的放進 issues；無法達到規格時回傳 {\"skip\":\"原因\"}。",
-   "output": "輸出單一合法 JSON 陣列（UTF-8、不加程式碼區塊標記）。"
-  }
- },
- "items": [
-  {
-   "id": "d1-001-m",
-   "domain": "d1",
-   "scene": "office",
-   "biz": "general",
-   "doc": "memo",
-   "tag": "新停車證領取辦法",
-   "level": {
-    "score": 650,
-    "cefr": "B1+",
-    "tier": "medium",
-    "why": "時態題需對照標頭日期、插入句靠 however 的對比關係，其餘兩題線索在同句內。"
-   },
-   "voice": "F",
-   "head": [
-    "To: All Staff",
-    "From: Karen Lopez, Office Manager",
-    "Date: March 4",
-    "Subject: New Parking Arrangements"
-   ],
-   "body": [
-    "Beginning April 1, employees [[1]] their parking passes at the front desk instead of the security office. This change is intended to shorten the wait for visitors who arrive in the morning. Passes can be collected at any time during business hours.",
-    "Because the lot has only 120 spaces, the number of passes is strictly [[2]]. [[3]] Carpool groups, however, will receive priority, so please register yours by March 20.",
-    "Thank you for your [[4]] during this transition. The security office will remain open for all other requests. Questions should be sent to Ms. Lopez at klopez@brightwave.example."
-   ],
-   "zh": [
-    "從 4 月 1 日起，員工將改到櫃檯領取停車證，不再到保全室領取。這項變更是為了縮短早上來訪的訪客的等候時間。停車證在營業時間內隨時都能領取。",
-    "由於停車場只有 120 個車位，停車證的數量受到嚴格限制。證件不會保留給特定部門或職稱。不過，共乘小組將享有優先權，請在 3 月 20 日前登記你們的小組。",
-    "感謝各位在這段過渡期的配合。保全室仍會受理其他所有申請。如有疑問，請寄到 Lopez 女士的信箱 klopez@brightwave.example。"
-   ],
-   "questions": [
-    {
-     "n": 1,
-     "kind": "grammar",
-     "point": "tense",
-     "tag": "未來時間點用未來式",
-     "scope": "far",
-     "answer": {
-      "t": "will collect",
-      "zh": "將會領取",
-      "pos": "v.",
-      "why": "正解：標頭日期是 3 月 4 日，Beginning April 1 指向未來，用未來式。"
-     },
-     "distractors": [
-      {
-       "t": "collected",
-       "zh": "領取了",
-       "pos": "v.",
-       "trap": "tense",
-       "near": true,
-       "fam": "root",
-       "why": "過去式，與未來的 April 1 矛盾。"
+  "_spec": {
+    "purpose": "多益 Part 6 段落填空題庫；一題＝一篇文章（4 個空格）；非插入題 1 正解＋7 干擾項（網頁每次顯示 4 個），插入題 1 正解句＋3 干擾句。",
+    "schema_version": 1,
+    "domains": {
+      "d1": {
+        "name": "辦公室",
+        "scenes": [
+          "office"
+        ]
       },
-      {
-       "t": "have collected",
-       "zh": "已經領取",
-       "pos": "v.",
-       "trap": "tense",
-       "near": true,
-       "fam": "root",
-       "why": "現在完成式不能搭配未來起算的時間。"
+      "d2": {
+        "name": "餐廳飲食",
+        "scenes": [
+          "restaurant"
+        ]
       },
-      {
-       "t": "had collected",
-       "zh": "（當時）已領取",
-       "pos": "v.",
-       "trap": "tense",
-       "near": false,
-       "fam": "root",
-       "why": "過去完成式需要另一個過去時間點。"
+      "d3": {
+        "name": "商店購物",
+        "scenes": [
+          "store"
+        ]
       },
-      {
-       "t": "were collecting",
-       "zh": "當時正在領取",
-       "pos": "v.",
-       "trap": "tense",
-       "near": false,
-       "fam": "root",
-       "why": "過去進行式，時間錯誤。"
+      "d4": {
+        "name": "街道與交通",
+        "scenes": [
+          "street",
+          "station"
+        ]
       },
-      {
-       "t": "have been collecting",
-       "zh": "一直在領取",
-       "pos": "v.",
-       "trap": "tense",
-       "near": false,
-       "fam": "root",
-       "why": "現在完成進行式，與 Beginning April 1 的新規定不符。"
+      "d5": {
+        "name": "工地與倉庫",
+        "scenes": [
+          "workplace"
+        ]
       },
-      {
-       "t": "collecting",
-       "zh": "領取（動名詞／分詞）",
-       "pos": "v.",
-       "trap": "form",
-       "near": true,
-       "fam": "root",
-       "why": "句子缺少定位動詞，不能只放分詞。"
+      "d6": {
+        "name": "旅館與居家",
+        "scenes": [
+          "hotel",
+          "home"
+        ]
       },
-      {
-       "t": "to collect",
-       "zh": "去領取",
-       "pos": "v.",
-       "trap": "form",
-       "near": false,
-       "fam": "root",
-       "why": "不定詞不能作為句子的主要動詞。"
+      "d7": {
+        "name": "戶外與公園",
+        "scenes": [
+          "outdoor"
+        ]
       }
-     ],
-     "clue": {
-      "text": "Beginning April 1",
-      "steps": [
-       "選項同字根且全是動詞變化 → 時態／動詞形式題",
-       "Beginning April 1 是未來時間，再對照標頭 Date: March 4",
-       "過去式、完成式、進行式都與未來時間衝突，分詞與不定詞缺少定位動詞",
-       "代入 will collect，句意為「從 4 月 1 日起員工將領取」，通順"
-      ]
-     }
     },
-    {
-     "n": 2,
-     "kind": "vocab",
-     "point": "vmeaning",
-     "tag": "車位少 → 數量受限",
-     "scope": "near",
-     "answer": {
-      "t": "limited",
-      "zh": "有限的",
-      "pos": "adj.",
-      "why": "正解：前半句說只有 120 個車位，所以停車證數量受到限制。"
-     },
-     "distractors": [
-      {
-       "t": "unlimited",
-       "zh": "無限的",
-       "pos": "adj.",
-       "trap": "meaning",
-       "near": true,
-       "fam": "other",
-       "why": "與「只有 120 個車位」矛盾。"
-      },
-      {
-       "t": "expanded",
-       "zh": "擴大的",
-       "pos": "adj.",
-       "trap": "meaning",
-       "near": true,
-       "fam": "other",
-       "why": "車位有限，不會是擴大。"
-      },
-      {
-       "t": "abundant",
-       "zh": "充裕的",
-       "pos": "adj.",
-       "trap": "meaning",
-       "near": false,
-       "fam": "other",
-       "why": "與車位少的原因相反。"
-      },
-      {
-       "t": "optional",
-       "zh": "非必要的",
-       "pos": "adj.",
-       "trap": "meaning",
-       "near": false,
-       "fam": "other",
-       "why": "數量不能是「選擇性」，語意不通。"
-      },
-      {
-       "t": "flexible",
-       "zh": "有彈性的",
-       "pos": "adj.",
-       "trap": "collocation",
-       "near": false,
-       "fam": "other",
-       "why": "strictly flexible 搭配矛盾。"
-      },
-      {
-       "t": "unnecessary",
-       "zh": "不必要的",
-       "pos": "adj.",
-       "trap": "meaning",
-       "near": false,
-       "fam": "other",
-       "why": "與句意無關。"
-      },
-      {
-       "t": "endless",
-       "zh": "無止盡的",
-       "pos": "adj.",
-       "trap": "meaning",
-       "near": false,
-       "fam": "other",
-       "why": "與有限車位矛盾。"
-      }
-     ],
-     "clue": {
-      "text": "the lot has only 120 spaces",
-      "steps": [
-       "選項都是形容詞 → 詞彙題（語意辨析）",
-       "Because the lot has only 120 spaces 說明原因：車位很少",
-       "unlimited、expanded、abundant、endless 都與原因相反，optional、flexible、unnecessary 與 strictly 搭配不通",
-       "代入 strictly limited，語意和搭配都自然"
-      ]
-     }
+    "docs": {
+      "email": "電子郵件",
+      "letter": "書信",
+      "memo": "備忘錄",
+      "notice": "公告",
+      "article": "文章",
+      "ad": "廣告",
+      "instructions": "說明指南"
     },
-    {
-     "n": 3,
-     "kind": "insert",
-     "point": "insert",
-     "tag": "however 前面需要先有對比的規則",
-     "scope": "near",
-     "answer": {
-      "t": "Passes will not be reserved for particular departments or job titles.",
-      "zh": "停車證不會保留給特定部門或職稱。",
-      "why": "正解：下一句 Carpool groups, however 的 however 需要前一句提出一般規則，共乘才是例外。"
-     },
-     "distractors": [
-      {
-       "t": "The lot was repainted last month by an outside contractor.",
-       "zh": "停車場上個月由外包商重新畫線。",
-       "trap": "topic",
-       "near": true,
-       "why": "話題跳到維修，與停車證數量無關，也無法和 however 形成對比。"
+    "tiers": {
+      "easy": {
+        "score": "500–550",
+        "guide": "80–110 字；2–3 段；文法線索在空格前後 3 字內；插入句有明顯代名詞或 this/these＋名詞線索；建議作答 100 秒"
       },
-      {
-       "t": "Passes will continue to be issued by the security office after April 1.",
-       "zh": "4 月 1 日後停車證仍由保全室核發。",
-       "trap": "contradiction",
-       "near": true,
-       "why": "與第一段 instead of the security office 矛盾。"
+      "medium": {
+        "score": "600–650",
+        "guide": "100–140 字；3 段；時態或代名詞需看前後句；詞彙題讀前半句；至少 1 題 scope=far；建議作答 120 秒"
       },
-      {
-       "t": "As a result, the cafeteria will open one hour earlier.",
-       "zh": "因此，自助餐廳將提早一小時開放。",
-       "trap": "logic",
-       "near": false,
-       "why": "As a result 沒有對應的原因，內容也與停車無關。"
+      "hard": {
+        "score": "700–800",
+        "guide": "130–180 字；3–4 段；插入句線索隱微；轉折詞需跨段判斷；干擾句與主題相關且文法正確；建議作答 140 秒"
       }
-     ],
-     "clue": {
-      "text": "Carpool groups, however,",
-      "steps": [
-       "四個選項都是完整句子 → 句子插入題，留到最後做",
-       "後一句有 however，表示前一句是一般規則、共乘是例外",
-       "與 repainting 無關、與第一段矛盾、As a result 沒有原因，三者都排除",
-       "代入正解，兩句形成「不保留給特定單位 → 但共乘優先」的對比，連貫"
-      ]
-     }
     },
-    {
-     "n": 4,
-     "kind": "grammar",
-     "point": "wordform",
-     "tag": "your 後面接名詞",
-     "scope": "local",
-     "answer": {
-      "t": "cooperation",
-      "zh": "合作；配合",
-      "pos": "n.",
-      "why": "正解：所有格 your 後面需要名詞。"
-     },
-     "distractors": [
-      {
-       "t": "cooperate",
-       "zh": "合作",
-       "pos": "v.",
-       "trap": "pos",
-       "near": true,
-       "fam": "root",
-       "why": "原形動詞不能接在 your 後面。"
+    "points": {
+      "wordform": {
+        "kind": "grammar",
+        "name": "詞性",
+        "share": "10–12%"
       },
-      {
-       "t": "cooperates",
-       "zh": "合作（第三人稱單數）",
-       "pos": "v.",
-       "trap": "pos",
-       "near": false,
-       "fam": "root",
-       "why": "動詞不能接在 your 後面。"
+      "tense": {
+        "kind": "grammar",
+        "name": "時態",
+        "share": "8–10%"
       },
-      {
-       "t": "cooperated",
-       "zh": "合作了",
-       "pos": "v.",
-       "trap": "pos",
-       "near": false,
-       "fam": "root",
-       "why": "過去式動詞，詞性不符。"
+      "voice": {
+        "kind": "grammar",
+        "name": "語態",
+        "share": "3–4%"
       },
-      {
-       "t": "cooperative",
-       "zh": "合作的",
-       "pos": "adj.",
-       "trap": "pos",
-       "near": true,
-       "fam": "root",
-       "why": "形容詞後面還需要名詞，這裡沒有。"
+      "agree": {
+        "kind": "grammar",
+        "name": "主詞動詞一致",
+        "share": "2–3%"
       },
-      {
-       "t": "cooperatively",
-       "zh": "合作地",
-       "pos": "adv.",
-       "trap": "pos",
-       "near": true,
-       "fam": "root",
-       "why": "副詞不能放在 for your 之後當名詞。"
+      "verbform": {
+        "kind": "grammar",
+        "name": "不定詞／動名詞／分詞",
+        "share": "3–4%"
       },
-      {
-       "t": "cooperator",
-       "zh": "合作者",
-       "pos": "n.",
-       "trap": "meaning",
-       "near": false,
-       "fam": "root",
-       "why": "單數可數名詞前需要冠詞，且語意是「人」，不符。"
+      "conj": {
+        "kind": "grammar",
+        "name": "連接詞 vs 介系詞",
+        "share": "4–5%"
       },
-      {
-       "t": "cooperators",
-       "zh": "合作者們",
-       "pos": "n.",
-       "trap": "meaning",
-       "near": false,
-       "fam": "root",
-       "why": "語意是「人」，感謝的是配合行為。"
+      "prep": {
+        "kind": "grammar",
+        "name": "介系詞",
+        "share": "3–4%"
+      },
+      "pronoun": {
+        "kind": "grammar",
+        "name": "代名詞／所有格",
+        "share": "3–4%"
+      },
+      "relative": {
+        "kind": "grammar",
+        "name": "關係詞",
+        "share": "1–2%"
+      },
+      "quant": {
+        "kind": "grammar",
+        "name": "數量詞／限定詞",
+        "share": "1–2%"
+      },
+      "vmeaning": {
+        "kind": "vocab",
+        "name": "語意辨析",
+        "share": "8–10%"
+      },
+      "vcolloc": {
+        "kind": "vocab",
+        "name": "搭配詞",
+        "share": "6–8%"
+      },
+      "vconfuse": {
+        "kind": "vocab",
+        "name": "易混淆字",
+        "share": "2–3%"
+      },
+      "transition": {
+        "kind": "transition",
+        "name": "連接詞／轉折詞",
+        "share": "8–12%"
+      },
+      "insert": {
+        "kind": "insert",
+        "name": "句子插入",
+        "share": "25%"
       }
-     ],
-     "clue": {
-      "text": "Thank you for your",
-      "steps": [
-       "選項同字根 → 詞性題",
-       "for your ＋ ___ ＋ during → 需要名詞",
-       "動詞、形容詞、副詞都排除；cooperator(s) 是「人」，語意不符",
-       "代入 cooperation，Thank you for your cooperation 是固定說法"
-      ]
-     }
+    },
+    "biz": {
+      "hr": "人事",
+      "marketing": "行銷",
+      "finance": "財務",
+      "manufacturing": "製造",
+      "it": "資訊",
+      "general": "通用"
+    },
+    "traps": {
+      "pos": "詞性不符",
+      "tense": "時態不符",
+      "voice": "語態不符",
+      "agree": "一致性錯誤",
+      "form": "動詞形式錯誤",
+      "case": "代名詞格或限定詞錯誤",
+      "structure": "連接詞與介系詞結構不符",
+      "logic": "邏輯關係不符（原因／對比／條件）",
+      "confusable": "形似音近",
+      "collocation": "搭配錯誤",
+      "meaning": "語意不符",
+      "topic": "話題跳離",
+      "reference": "指涉不明或錯誤",
+      "sequence": "順序不合",
+      "contradiction": "與文中資訊矛盾",
+      "redundant": "重複前後句",
+      "tone": "語氣或對象不符"
+    },
+    "entry_schema": "{id:d{1-7}-{3位數}-{e|m|h}, domain, scene(須屬於 domains[domain].scenes), biz(選填), doc, tag(中文簡述,不重複), level:{score,cefr,tier,why}, voice:'F'|'M', head:[0–5行標頭字串], body:[2–4個段落字串,[[1]]–[[4]]各出現一次且依序], zh:[與body同長,答案填入後的中文翻譯], questions:[剛好4題{n:1–4, kind:'grammar'|'vocab'|'transition'|'insert', point, tag, scope:'local'|'near'|'far', answer:{t,zh,pos,why(以「正解：」開頭)}, distractors:[非insert剛好7個、insert剛好3個 {t,zh,pos(insert免),trap,near,fam('root'|'other',insert免),why}], clue:{text(須為head或body的原文片段),steps:[4句]}}], vocab:[3–5個{word,ipa,pos,col,zh}], say(選填,朗讀全文用,預設=標頭＋body填入答案), issues(選填)}",
+    "rules": {
+      "composition": "每篇剛好 4 空格、剛好 1 題 insert；其餘至少 1 題文法、至少 1 題 vocab 或 transition；同一 point 同篇最多 2 次；空格依序、分散、每句最多 1 個；insert 空格在句首且不是全文第一句。",
+      "context": "每篇至少 2 題不能只看同一句就答對（scope 為 near 或 far）；scope 全是 local 的文章不合格。",
+      "distractors": "非插入題 1 正解＋7 干擾項：至少 2 個 near:true；wordform 至少 3 個 fam:'root'；vocab 同詞性；transition 要涵蓋不同邏輯功能且不能兩個同時成立。插入題 1 正解句＋3 干擾句：4 句皆文法正確；3 個干擾句至少用 2 種 trap；至少 1 個看似相關。",
+      "unique": "每個干擾項代回整篇都必須明確錯誤，原因寫在 why；不能有兩個選項同時成立；空格答案不得依賴另一空格的答案。",
+      "style": "自然商務英文；除人名公司名外不用真實品牌；email 用 .example 網域；zh 為答案填入後的全文翻譯；字數依難度。",
+      "dedupe": "tag、標頭主旨或標題、vocab.word、首句不得與已有題目重複。",
+      "uncertain": "不確定的放進 issues；無法達到規格時回傳 {\"skip\":\"原因\"}。",
+      "output": "輸出單一合法 JSON 陣列（UTF-8、不加程式碼區塊標記）。"
     }
-   ],
-   "vocab": [
+  },
+  "items": [
     {
-     "word": "priority",
-     "ipa": "/praɪˈɔːrəti/",
-     "pos": "n.",
-     "col": "receive priority",
-     "zh": "優先權"
+      "id": "d1-001-m",
+      "domain": "d1",
+      "scene": "office",
+      "biz": "general",
+      "doc": "memo",
+      "tag": "新停車證領取辦法",
+      "level": {
+        "score": 650,
+        "cefr": "B1+",
+        "tier": "medium",
+        "why": "時態題需對照標頭日期、插入句靠 however 的對比關係，其餘兩題線索在同句內。"
+      },
+      "voice": "F",
+      "head": [
+        "To: All Staff",
+        "From: Karen Lopez, Office Manager",
+        "Date: March 4",
+        "Subject: New Parking Arrangements"
+      ],
+      "body": [
+        "Beginning April 1, employees [[1]] their parking passes at the front desk instead of the security office. This change is intended to shorten the wait for visitors who arrive in the morning. Passes can be collected at any time during business hours.",
+        "Because the lot has only 120 spaces, the number of passes is strictly [[2]]. [[3]] Carpool groups, however, will receive priority, so please register yours by March 20.",
+        "Thank you for your [[4]] during this transition. The security office will remain open for all other requests. Questions should be sent to Ms. Lopez at klopez@brightwave.example."
+      ],
+      "zh": [
+        "從 4 月 1 日起，員工將改到櫃檯領取停車證，不再到保全室領取。這項變更是為了縮短早上來訪的訪客的等候時間。停車證在營業時間內隨時都能領取。",
+        "由於停車場只有 120 個車位，停車證的數量受到嚴格限制。證件不會保留給特定部門或職稱。不過，共乘小組將享有優先權，請在 3 月 20 日前登記你們的小組。",
+        "感謝各位在這段過渡期的配合。保全室仍會受理其他所有申請。如有疑問，請寄到 Lopez 女士的信箱 klopez@brightwave.example。"
+      ],
+      "questions": [
+        {
+          "n": 1,
+          "kind": "grammar",
+          "point": "tense",
+          "tag": "未來時間點用未來式",
+          "scope": "far",
+          "answer": {
+            "t": "will collect",
+            "zh": "將會領取",
+            "pos": "v.",
+            "why": "正解：標頭日期是 3 月 4 日，Beginning April 1 指向未來，用未來式。"
+          },
+          "distractors": [
+            {
+              "t": "collected",
+              "zh": "領取了",
+              "pos": "v.",
+              "trap": "tense",
+              "near": true,
+              "fam": "root",
+              "why": "過去式，與未來的 April 1 矛盾。"
+            },
+            {
+              "t": "have collected",
+              "zh": "已經領取",
+              "pos": "v.",
+              "trap": "tense",
+              "near": true,
+              "fam": "root",
+              "why": "現在完成式不能搭配未來起算的時間。"
+            },
+            {
+              "t": "had collected",
+              "zh": "（當時）已領取",
+              "pos": "v.",
+              "trap": "tense",
+              "near": false,
+              "fam": "root",
+              "why": "過去完成式需要另一個過去時間點。"
+            },
+            {
+              "t": "were collecting",
+              "zh": "當時正在領取",
+              "pos": "v.",
+              "trap": "tense",
+              "near": false,
+              "fam": "root",
+              "why": "過去進行式，時間錯誤。"
+            },
+            {
+              "t": "have been collecting",
+              "zh": "一直在領取",
+              "pos": "v.",
+              "trap": "tense",
+              "near": false,
+              "fam": "root",
+              "why": "現在完成進行式，與 Beginning April 1 的新規定不符。"
+            },
+            {
+              "t": "collecting",
+              "zh": "領取（動名詞／分詞）",
+              "pos": "v.",
+              "trap": "form",
+              "near": true,
+              "fam": "root",
+              "why": "句子缺少定位動詞，不能只放分詞。"
+            },
+            {
+              "t": "to collect",
+              "zh": "去領取",
+              "pos": "v.",
+              "trap": "form",
+              "near": false,
+              "fam": "root",
+              "why": "不定詞不能作為句子的主要動詞。"
+            }
+          ],
+          "clue": {
+            "text": "Beginning April 1",
+            "steps": [
+              "選項同字根且全是動詞變化 → 時態／動詞形式題",
+              "Beginning April 1 是未來時間，再對照標頭 Date: March 4",
+              "過去式、完成式、進行式都與未來時間衝突，分詞與不定詞缺少定位動詞",
+              "代入 will collect，句意為「從 4 月 1 日起員工將領取」，通順"
+            ]
+          }
+        },
+        {
+          "n": 2,
+          "kind": "vocab",
+          "point": "vmeaning",
+          "tag": "車位少 → 數量受限",
+          "scope": "near",
+          "answer": {
+            "t": "limited",
+            "zh": "有限的",
+            "pos": "adj.",
+            "why": "正解：前半句說只有 120 個車位，所以停車證數量受到限制。"
+          },
+          "distractors": [
+            {
+              "t": "unlimited",
+              "zh": "無限的",
+              "pos": "adj.",
+              "trap": "meaning",
+              "near": true,
+              "fam": "other",
+              "why": "與「只有 120 個車位」矛盾。"
+            },
+            {
+              "t": "expanded",
+              "zh": "擴大的",
+              "pos": "adj.",
+              "trap": "meaning",
+              "near": true,
+              "fam": "other",
+              "why": "車位有限，不會是擴大。"
+            },
+            {
+              "t": "abundant",
+              "zh": "充裕的",
+              "pos": "adj.",
+              "trap": "meaning",
+              "near": false,
+              "fam": "other",
+              "why": "與車位少的原因相反。"
+            },
+            {
+              "t": "optional",
+              "zh": "非必要的",
+              "pos": "adj.",
+              "trap": "meaning",
+              "near": false,
+              "fam": "other",
+              "why": "數量不能是「選擇性」，語意不通。"
+            },
+            {
+              "t": "flexible",
+              "zh": "有彈性的",
+              "pos": "adj.",
+              "trap": "collocation",
+              "near": false,
+              "fam": "other",
+              "why": "strictly flexible 搭配矛盾。"
+            },
+            {
+              "t": "unnecessary",
+              "zh": "不必要的",
+              "pos": "adj.",
+              "trap": "meaning",
+              "near": false,
+              "fam": "other",
+              "why": "與句意無關。"
+            },
+            {
+              "t": "endless",
+              "zh": "無止盡的",
+              "pos": "adj.",
+              "trap": "meaning",
+              "near": false,
+              "fam": "other",
+              "why": "與有限車位矛盾。"
+            }
+          ],
+          "clue": {
+            "text": "the lot has only 120 spaces",
+            "steps": [
+              "選項都是形容詞 → 詞彙題（語意辨析）",
+              "Because the lot has only 120 spaces 說明原因：車位很少",
+              "unlimited、expanded、abundant、endless 都與原因相反，optional、flexible、unnecessary 與 strictly 搭配不通",
+              "代入 strictly limited，語意和搭配都自然"
+            ]
+          }
+        },
+        {
+          "n": 3,
+          "kind": "insert",
+          "point": "insert",
+          "tag": "however 前面需要先有對比的規則",
+          "scope": "near",
+          "answer": {
+            "t": "Passes will not be reserved for particular departments or job titles.",
+            "zh": "停車證不會保留給特定部門或職稱。",
+            "why": "正解：下一句 Carpool groups, however 的 however 需要前一句提出一般規則，共乘才是例外。"
+          },
+          "distractors": [
+            {
+              "t": "The lot was repainted last month by an outside contractor.",
+              "zh": "停車場上個月由外包商重新畫線。",
+              "trap": "topic",
+              "near": true,
+              "why": "話題跳到維修，與停車證數量無關，也無法和 however 形成對比。"
+            },
+            {
+              "t": "Passes will continue to be issued by the security office after April 1.",
+              "zh": "4 月 1 日後停車證仍由保全室核發。",
+              "trap": "contradiction",
+              "near": true,
+              "why": "與第一段 instead of the security office 矛盾。"
+            },
+            {
+              "t": "As a result, the cafeteria will open one hour earlier.",
+              "zh": "因此，自助餐廳將提早一小時開放。",
+              "trap": "logic",
+              "near": false,
+              "why": "As a result 沒有對應的原因，內容也與停車無關。"
+            }
+          ],
+          "clue": {
+            "text": "Carpool groups, however,",
+            "steps": [
+              "四個選項都是完整句子 → 句子插入題，留到最後做",
+              "後一句有 however，表示前一句是一般規則、共乘是例外",
+              "與 repainting 無關、與第一段矛盾、As a result 沒有原因，三者都排除",
+              "代入正解，兩句形成「不保留給特定單位 → 但共乘優先」的對比，連貫"
+            ]
+          }
+        },
+        {
+          "n": 4,
+          "kind": "grammar",
+          "point": "wordform",
+          "tag": "your 後面接名詞",
+          "scope": "local",
+          "answer": {
+            "t": "cooperation",
+            "zh": "合作；配合",
+            "pos": "n.",
+            "why": "正解：所有格 your 後面需要名詞。"
+          },
+          "distractors": [
+            {
+              "t": "cooperate",
+              "zh": "合作",
+              "pos": "v.",
+              "trap": "pos",
+              "near": true,
+              "fam": "root",
+              "why": "原形動詞不能接在 your 後面。"
+            },
+            {
+              "t": "cooperates",
+              "zh": "合作（第三人稱單數）",
+              "pos": "v.",
+              "trap": "pos",
+              "near": false,
+              "fam": "root",
+              "why": "動詞不能接在 your 後面。"
+            },
+            {
+              "t": "cooperated",
+              "zh": "合作了",
+              "pos": "v.",
+              "trap": "pos",
+              "near": false,
+              "fam": "root",
+              "why": "過去式動詞，詞性不符。"
+            },
+            {
+              "t": "cooperative",
+              "zh": "合作的",
+              "pos": "adj.",
+              "trap": "pos",
+              "near": true,
+              "fam": "root",
+              "why": "形容詞後面還需要名詞，這裡沒有。"
+            },
+            {
+              "t": "cooperatively",
+              "zh": "合作地",
+              "pos": "adv.",
+              "trap": "pos",
+              "near": true,
+              "fam": "root",
+              "why": "副詞不能放在 for your 之後當名詞。"
+            },
+            {
+              "t": "cooperator",
+              "zh": "合作者",
+              "pos": "n.",
+              "trap": "meaning",
+              "near": false,
+              "fam": "root",
+              "why": "單數可數名詞前需要冠詞，且語意是「人」，不符。"
+            },
+            {
+              "t": "cooperators",
+              "zh": "合作者們",
+              "pos": "n.",
+              "trap": "meaning",
+              "near": false,
+              "fam": "root",
+              "why": "語意是「人」，感謝的是配合行為。"
+            }
+          ],
+          "clue": {
+            "text": "Thank you for your",
+            "steps": [
+              "選項同字根 → 詞性題",
+              "for your ＋ ___ ＋ during → 需要名詞",
+              "動詞、形容詞、副詞都排除；cooperator(s) 是「人」，語意不符",
+              "代入 cooperation，Thank you for your cooperation 是固定說法"
+            ]
+          }
+        }
+      ],
+      "vocab": [
+        {
+          "word": "priority",
+          "ipa": "/praɪˈɔːrəti/",
+          "pos": "n.",
+          "col": "receive priority",
+          "zh": "優先權"
+        },
+        {
+          "word": "transition",
+          "ipa": "/trænˈzɪʃn/",
+          "pos": "n.",
+          "col": "during the transition",
+          "zh": "過渡期"
+        },
+        {
+          "word": "reserve",
+          "ipa": "/rɪˈzɜːrv/",
+          "pos": "v.",
+          "col": "reserve a space",
+          "zh": "保留"
+        }
+      ]
     },
     {
-     "word": "transition",
-     "ipa": "/trænˈzɪʃn/",
-     "pos": "n.",
-     "col": "during the transition",
-     "zh": "過渡期"
+      "id": "d2-001-e",
+      "domain": "d2",
+      "scene": "restaurant",
+      "biz": "general",
+      "doc": "notice",
+      "tag": "餐廳內用暫停改外帶",
+      "level": {
+        "score": 550,
+        "cefr": "A2+",
+        "tier": "easy",
+        "why": "動詞與詞性題的線索在空格前後 3 字內；插入句有 This means 的明顯指涉；轉折詞看前一句即可判斷。"
+      },
+      "voice": "F",
+      "head": [
+        "Notice: Temporary Dining Room Closure",
+        "Maple Table Restaurant",
+        "Posted: June 3"
+      ],
+      "body": [
+        "Maple Table Restaurant will [[1]] its dining room for repairs from June 10 to June 14. During that week, we will serve takeout orders only.",
+        "[[2]] Customers can order by phone or on our website. Orders will be ready in about 20 minutes. [[3]], large orders may take a little longer.",
+        "We are sorry for the inconvenience, and thank you for your [[4]]. The dining room will reopen on June 15. Please ask our staff if you have any questions."
+      ],
+      "zh": [
+        "Maple Table 餐廳將在 6 月 10 日至 6 月 14 日關閉內用區進行整修。那一週我們只提供外帶訂單。",
+        "這表示您仍可以在家享用我們的完整菜單。顧客可以用電話或透過我們的網站訂餐。餐點大約 20 分鐘內即可備妥。不過，大量訂單可能會多花一點時間。",
+        "我們為造成的不便致歉，也感謝您的耐心。內用區將在 6 月 15 日重新開放。如有任何問題，請詢問我們的工作人員。"
+      ],
+      "questions": [
+        {
+          "n": 1,
+          "kind": "grammar",
+          "point": "verbform",
+          "tag": "will 後面接原形動詞",
+          "scope": "local",
+          "answer": {
+            "t": "close",
+            "zh": "關閉",
+            "pos": "v.",
+            "why": "正解：助動詞 will 後面要接原形動詞，will close 是「將要關閉」。"
+          },
+          "distractors": [
+            {
+              "t": "closes",
+              "zh": "關閉（第三人稱單數）",
+              "pos": "v.",
+              "trap": "form",
+              "near": true,
+              "fam": "root",
+              "why": "will 後面不能接第三人稱單數形。"
+            },
+            {
+              "t": "closed",
+              "zh": "關閉了",
+              "pos": "v.",
+              "trap": "form",
+              "near": true,
+              "fam": "root",
+              "why": "will 後面不能接過去式。"
+            },
+            {
+              "t": "closing",
+              "zh": "關閉中",
+              "pos": "v.",
+              "trap": "form",
+              "near": true,
+              "fam": "root",
+              "why": "will 後面不能接 -ing；will closing 不成句。"
+            },
+            {
+              "t": "to close",
+              "zh": "要關閉",
+              "pos": "v.",
+              "trap": "form",
+              "near": false,
+              "fam": "root",
+              "why": "will 與 to 不能連用。"
+            },
+            {
+              "t": "closure",
+              "zh": "關閉（名詞）",
+              "pos": "n.",
+              "trap": "pos",
+              "near": false,
+              "fam": "root",
+              "why": "will 後面需要動詞，closure 是名詞。"
+            },
+            {
+              "t": "closely",
+              "zh": "緊密地",
+              "pos": "adv.",
+              "trap": "pos",
+              "near": false,
+              "fam": "root",
+              "why": "副詞不能直接接 its dining room 當受詞。"
+            },
+            {
+              "t": "closer",
+              "zh": "更近的",
+              "pos": "adj.",
+              "trap": "pos",
+              "near": false,
+              "fam": "root",
+              "why": "形容詞不能接受詞，也不能跟在 will 後面。"
+            }
+          ],
+          "clue": {
+            "text": "Maple Table Restaurant will",
+            "steps": [
+              "選項是同一個字的不同形式 → 文法題（動詞形式）",
+              "空格前面是助動詞 will，後面接 its dining room（受詞）",
+              "will 後面只能接原形動詞，closes、closed、closing、to close 都排除；closure、closely、closer 不是動詞",
+              "代入 will close its dining room，句意通順"
+            ]
+          }
+        },
+        {
+          "n": 2,
+          "kind": "insert",
+          "point": "insert",
+          "tag": "This means 承接外帶限定",
+          "scope": "near",
+          "answer": {
+            "t": "This means you can still enjoy our full menu at home.",
+            "zh": "這表示您仍可以在家享用我們的完整菜單。",
+            "why": "正解：This 指前一段「只提供外帶」，後面再說明怎麼訂餐，銜接自然。"
+          },
+          "distractors": [
+            {
+              "t": "Our chef recently won an award for her chocolate cake.",
+              "zh": "我們的主廚最近因巧克力蛋糕得獎。",
+              "trap": "topic",
+              "near": true,
+              "why": "話題跳到主廚得獎，和外帶訂餐無關，也沒有承接前一段。"
+            },
+            {
+              "t": "He will return to the kitchen on June 15.",
+              "zh": "他將在 6 月 15 日回到廚房。",
+              "trap": "reference",
+              "near": false,
+              "why": "He 沒有可指涉的人物，前面沒有提到任何男性。"
+            },
+            {
+              "t": "The dining room will stay open for lunch every day that week.",
+              "zh": "那一週內用區每天午餐時間都會開放。",
+              "trap": "contradiction",
+              "near": false,
+              "why": "與第一段「內用區 6 月 10 日至 14 日關閉」矛盾。"
+            }
+          ],
+          "clue": {
+            "text": "we will serve takeout orders only",
+            "steps": [
+              "四個選項都是完整句子 → 句子插入題，留到最後做",
+              "空格下一句開始談如何訂餐（電話、網站），前面需要先交代「外帶」這件事",
+              "話題跳離、He 沒有指涉對象、與關閉矛盾，三者都排除",
+              "代入 This means you can still enjoy our full menu at home，承接第一段並帶出訂餐方式"
+            ]
+          }
+        },
+        {
+          "n": 3,
+          "kind": "transition",
+          "point": "transition",
+          "tag": "20 分鐘 → 大單較久（對比）",
+          "scope": "near",
+          "answer": {
+            "t": "However",
+            "zh": "不過",
+            "pos": "adv.",
+            "why": "正解：前一句說約 20 分鐘備妥，後一句說大量訂單較久，兩句是對比關係。"
+          },
+          "distractors": [
+            {
+              "t": "Therefore",
+              "zh": "因此",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": true,
+              "fam": "other",
+              "why": "前後句不是因果，大量訂單較久不是 20 分鐘備妥的結果。"
+            },
+            {
+              "t": "Instead",
+              "zh": "反而",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": true,
+              "fam": "other",
+              "why": "Instead 表示取代，前後句沒有取代關係。"
+            },
+            {
+              "t": "For example",
+              "zh": "例如",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": false,
+              "fam": "other",
+              "why": "大量訂單不是「20 分鐘備妥」的例子。"
+            },
+            {
+              "t": "Meanwhile",
+              "zh": "同時",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": false,
+              "fam": "other",
+              "why": "兩句不是同時發生的事件。"
+            },
+            {
+              "t": "Similarly",
+              "zh": "同樣地",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": false,
+              "fam": "other",
+              "why": "Similarly 表示相似，但前後句內容是對比。"
+            },
+            {
+              "t": "Otherwise",
+              "zh": "否則",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": false,
+              "fam": "other",
+              "why": "Otherwise 需要前面有條件，這裡沒有。"
+            },
+            {
+              "t": "As a result",
+              "zh": "結果",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": false,
+              "fam": "other",
+              "why": "大量訂單較久不是前一句的結果。"
+            }
+          ],
+          "clue": {
+            "text": "Orders will be ready in about 20 minutes.",
+            "steps": [
+              "選項都是連接副詞 → 轉折詞題",
+              "前一句：約 20 分鐘備妥；後一句：大量訂單可能多花時間",
+              "一般情況與例外的關係是對比，要用表示轉折的詞",
+              "Therefore、As a result、Instead、For example、Meanwhile、Similarly、Otherwise 功能都不合，代入 However 最自然"
+            ]
+          }
+        },
+        {
+          "n": 4,
+          "kind": "grammar",
+          "point": "wordform",
+          "tag": "your 後面接名詞（patience）",
+          "scope": "local",
+          "answer": {
+            "t": "patience",
+            "zh": "耐心",
+            "pos": "n.",
+            "why": "正解：your 後面要接名詞，thank you for your patience 是固定說法。"
+          },
+          "distractors": [
+            {
+              "t": "patient",
+              "zh": "有耐心的",
+              "pos": "adj.",
+              "trap": "pos",
+              "near": true,
+              "fam": "root",
+              "why": "your 後面需要名詞，patient 是形容詞（當名詞是「病人」，語意不符）。"
+            },
+            {
+              "t": "patiently",
+              "zh": "耐心地",
+              "pos": "adv.",
+              "trap": "pos",
+              "near": true,
+              "fam": "root",
+              "why": "副詞不能接在 your 後面。"
+            },
+            {
+              "t": "impatient",
+              "zh": "不耐煩的",
+              "pos": "adj.",
+              "trap": "pos",
+              "near": false,
+              "fam": "root",
+              "why": "形容詞，且語意相反。"
+            },
+            {
+              "t": "impatience",
+              "zh": "不耐煩",
+              "pos": "n.",
+              "trap": "meaning",
+              "near": true,
+              "fam": "root",
+              "why": "詞性對，但「感謝你的不耐煩」語意不通。"
+            },
+            {
+              "t": "impatiently",
+              "zh": "不耐煩地",
+              "pos": "adv.",
+              "trap": "pos",
+              "near": false,
+              "fam": "root",
+              "why": "副詞，且語意相反。"
+            },
+            {
+              "t": "patients",
+              "zh": "病人們",
+              "pos": "n.",
+              "trap": "confusable",
+              "near": false,
+              "fam": "root",
+              "why": "形近字，「感謝你的病人們」在餐廳公告中語意不通。"
+            },
+            {
+              "t": "patient's",
+              "zh": "病人的",
+              "pos": "n.",
+              "trap": "case",
+              "near": false,
+              "fam": "root",
+              "why": "所有格後面還需要名詞，句子不完整。"
+            }
+          ],
+          "clue": {
+            "text": "thank you for your",
+            "steps": [
+              "選項同字根 → 詞性題",
+              "for your ＋ ___ 後面需要名詞",
+              "patient、patiently、impatient、impatiently 不是名詞或詞性不合；patients、patient's 語意或結構不合",
+              "impatience 是名詞但語意相反，代入 patience，thank you for your patience 是固定說法"
+            ]
+          }
+        }
+      ],
+      "vocab": [
+        {
+          "word": "repairs",
+          "ipa": "/rɪˈpɛrz/",
+          "pos": "n.",
+          "col": "close for repairs",
+          "zh": "整修"
+        },
+        {
+          "word": "takeout",
+          "ipa": "/ˈteɪkaʊt/",
+          "pos": "n.",
+          "col": "takeout orders",
+          "zh": "外帶"
+        },
+        {
+          "word": "inconvenience",
+          "ipa": "/ˌɪnkənˈviːniəns/",
+          "pos": "n.",
+          "col": "apologize for the inconvenience",
+          "zh": "不便"
+        },
+        {
+          "word": "patience",
+          "ipa": "/ˈpeɪʃns/",
+          "pos": "n.",
+          "col": "thank you for your patience",
+          "zh": "耐心"
+        }
+      ]
     },
     {
-     "word": "reserve",
-     "ipa": "/rɪˈzɜːrv/",
-     "pos": "v.",
-     "col": "reserve a space",
-     "zh": "保留"
+      "id": "d3-001-h",
+      "domain": "d3",
+      "scene": "store",
+      "biz": "general",
+      "doc": "email",
+      "tag": "訂購餐桌延遲出貨通知",
+      "level": {
+        "score": 750,
+        "cefr": "B2",
+        "tier": "hard",
+        "why": "時態題需對照標頭日期；插入句靠後一句的 those days 判斷；轉折詞要看上一段的改期安排；主詞動詞一致的主詞被長修飾語隔開。"
+      },
+      "voice": "M",
+      "head": [
+        "To: Dana Whitfield",
+        "From: Marcus Chen, Customer Care, Harbor & Pine Home Goods",
+        "Date: November 12",
+        "Subject: Update on Your Table Order"
+      ],
+      "body": [
+        "Thank you for contacting us about the oak dining table you ordered on October 28. We regret to inform you that the delivery, which was originally scheduled for November 8, [[1]] because of a shortage of hardware from our supplier.",
+        "[[2]] Should you be unable to receive the table on any of those days, simply reply to this message and we will arrange another time. To make up for the delay, we are also offering free white-glove delivery, which includes assembly in your home.",
+        "[[3]], if you would rather cancel the order, a full refund will be issued within five business days. Please note that the shipment of replacement hardware, together with two other parts, [[4]] expected to reach our warehouse on November 18, so no further delay is anticipated."
+      ],
+      "zh": [
+        "感謝您就 10 月 28 日訂購的橡木餐桌來信詢問。我們很遺憾通知您，原定於 11 月 8 日送達的商品，因供應商的五金零件短缺而延遲了。",
+        "新的送貨時段是 11 月 21 日至 11 月 23 日。如果您在那幾天都無法收貨，請直接回覆這封郵件，我們會另行安排時間。為了彌補這次延誤，我們也提供免費的到府專業配送，包含在您家中組裝。",
+        "或者，如果您寧可取消訂單，我們會在五個工作天內全額退款。請留意，替換五金零件與另外兩項零件的貨物預計 11 月 18 日抵達我們的倉庫，因此預期不會再有延誤。"
+      ],
+      "questions": [
+        {
+          "n": 1,
+          "kind": "grammar",
+          "point": "tense",
+          "tag": "標頭日期 → 現在完成式被動",
+          "scope": "far",
+          "answer": {
+            "t": "has been delayed",
+            "zh": "已經延遲了",
+            "pos": "v.",
+            "why": "正解：標頭日期是 11 月 12 日，原定 11 月 8 日的送貨已過期，要用現在完成式；主詞 delivery 是被延遲，所以用被動。"
+          },
+          "distractors": [
+            {
+              "t": "will be delayed",
+              "zh": "將會被延遲",
+              "pos": "v.",
+              "trap": "tense",
+              "near": true,
+              "fam": "root",
+              "why": "will 表示未來，但原定送貨日 11 月 8 日早於標頭日期 11 月 12 日，已經過了。"
+            },
+            {
+              "t": "has delayed",
+              "zh": "已經延遲（主動）",
+              "pos": "v.",
+              "trap": "voice",
+              "near": true,
+              "fam": "root",
+              "why": "delay 在這裡需要受詞，主動語態後面沒有受詞；delivery 是被延遲的對象。"
+            },
+            {
+              "t": "is delaying",
+              "zh": "正在延遲（主動）",
+              "pos": "v.",
+              "trap": "voice",
+              "near": true,
+              "fam": "root",
+              "why": "主動進行式後面缺受詞，語態不對。"
+            },
+            {
+              "t": "was delaying",
+              "zh": "當時正在延遲（主動）",
+              "pos": "v.",
+              "trap": "voice",
+              "near": false,
+              "fam": "root",
+              "why": "主動語態且缺受詞，也不符合現在的說明語氣。"
+            },
+            {
+              "t": "delays",
+              "zh": "延遲（第三人稱單數）",
+              "pos": "v.",
+              "trap": "voice",
+              "near": false,
+              "fam": "root",
+              "why": "主動語態缺受詞，且主詞 delivery 是被延遲。"
+            },
+            {
+              "t": "delaying",
+              "zh": "延遲中",
+              "pos": "v.",
+              "trap": "form",
+              "near": false,
+              "fam": "root",
+              "why": "沒有 be 動詞，-ing 不能單獨當述語。"
+            },
+            {
+              "t": "had delayed",
+              "zh": "已經延遲了（過去完成，主動）",
+              "pos": "v.",
+              "trap": "voice",
+              "near": false,
+              "fam": "root",
+              "why": "主動語態缺受詞，且沒有更早的過去時間點。"
+            }
+          ],
+          "clue": {
+            "text": "Date: November 12",
+            "steps": [
+              "選項是同一個動詞的不同形式 → 文法題（時態與語態）",
+              "插入的述語要和 delivery 搭配：delivery 是被延遲的對象，需要被動",
+              "看標頭 Date: November 12，原定 11 月 8 日已過，排除 will be delayed；主動形式缺受詞全部排除",
+              "代入 has been delayed，時態與語態都正確"
+            ]
+          }
+        },
+        {
+          "n": 2,
+          "kind": "insert",
+          "point": "insert",
+          "tag": "those days 需要前面先出現日期",
+          "scope": "near",
+          "answer": {
+            "t": "The new delivery window is now November 21 to November 23.",
+            "zh": "新的送貨時段改為 11 月 21 日至 11 月 23 日。",
+            "why": "正解：下一句的 any of those days 需要前面先提到幾個日期，這句剛好提供。"
+          },
+          "distractors": [
+            {
+              "t": "Our showroom now carries a wider selection of oak furniture for the holiday season.",
+              "zh": "我們的展示間現在提供更多橡木家具，適合節慶選購。",
+              "trap": "topic",
+              "near": true,
+              "why": "同為家具話題但跳離訂單延遲，且 those days 沒有指涉的日期。"
+            },
+            {
+              "t": "The table left our warehouse on October 30 and has since been in transit.",
+              "zh": "餐桌 10 月 30 日離開倉庫，之後一直在運送中。",
+              "trap": "contradiction",
+              "near": true,
+              "why": "與第一段「因五金零件短缺而延遲」矛盾，也沒有提供 those days 的日期。"
+            },
+            {
+              "t": "As noted above, the delay was caused by a shortage of hardware.",
+              "zh": "如上所述，延誤是因為五金零件短缺。",
+              "trap": "redundant",
+              "near": false,
+              "why": "重複第一段已說明的原因，且 those days 仍沒有指涉的日期。"
+            }
+          ],
+          "clue": {
+            "text": "any of those days",
+            "steps": [
+              "四個選項都是完整句子 → 句子插入題，留到最後做",
+              "下一句有 any of those days，表示前面一定先列出幾個日期",
+              "話題跳離、與延遲矛盾、重複前段原因，三者都沒有提供日期",
+              "代入新的送貨時段，those days 就有明確指涉，段落連貫"
+            ]
+          }
+        },
+        {
+          "n": 3,
+          "kind": "transition",
+          "point": "transition",
+          "tag": "改期 vs 取消（替代選項）",
+          "scope": "far",
+          "answer": {
+            "t": "Alternatively",
+            "zh": "或者",
+            "pos": "adv.",
+            "why": "正解：上一段提供「改期」方案，這句提供另一個選擇「取消並退款」，是替代關係。"
+          },
+          "distractors": [
+            {
+              "t": "Consequently",
+              "zh": "因此",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": true,
+              "fam": "other",
+              "why": "取消並退款不是改期方案的結果，沒有因果關係。"
+            },
+            {
+              "t": "Accordingly",
+              "zh": "因此",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": true,
+              "fam": "other",
+              "why": "表示依前述而採取行動，但取消是另一個選擇，不是依據改期而來。"
+            },
+            {
+              "t": "For example",
+              "zh": "例如",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": false,
+              "fam": "other",
+              "why": "取消訂單不是改期的例子。"
+            },
+            {
+              "t": "Meanwhile",
+              "zh": "同時",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": false,
+              "fam": "other",
+              "why": "兩者不是同時發生的事件。"
+            },
+            {
+              "t": "Similarly",
+              "zh": "同樣地",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": false,
+              "fam": "other",
+              "why": "取消與改期是不同做法，不是相似的情況。"
+            },
+            {
+              "t": "Previously",
+              "zh": "先前",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": false,
+              "fam": "other",
+              "why": "後面是 will be issued 的未來時態，與 Previously 不合。"
+            },
+            {
+              "t": "In particular",
+              "zh": "尤其",
+              "pos": "adv.",
+              "trap": "logic",
+              "near": false,
+              "fam": "other",
+              "why": "In particular 用來強調前述重點，不是提出另一個選項。"
+            }
+          ],
+          "clue": {
+            "text": "if you would rather cancel the order",
+            "steps": [
+              "選項都是連接副詞 → 轉折詞題，要跨段看上一段",
+              "上一段提供改期，本句提供取消與退款，兩者是二選一",
+              "因果、舉例、同時、相似、強調都不是「另一個選擇」的功能",
+              "代入 Alternatively，兩種做法形成替代關係"
+            ]
+          }
+        },
+        {
+          "n": 4,
+          "kind": "grammar",
+          "point": "agree",
+          "tag": "主詞 shipment 為單數（隔著插入語）",
+          "scope": "near",
+          "answer": {
+            "t": "is",
+            "zh": "是",
+            "pos": "v.",
+            "why": "正解：主詞是單數的 shipment，together with two other parts 只是插入語，不影響動詞，且預計日期在未來，用 is expected。"
+          },
+          "distractors": [
+            {
+              "t": "are",
+              "zh": "是（複數）",
+              "pos": "v.",
+              "trap": "agree",
+              "near": true,
+              "fam": "other",
+              "why": "被 two other parts 誤導；together with 不會讓主詞變複數。"
+            },
+            {
+              "t": "were",
+              "zh": "當時是（複數）",
+              "pos": "v.",
+              "trap": "agree",
+              "near": true,
+              "fam": "other",
+              "why": "複數且過去式，主詞是單數、預計日期在未來。"
+            },
+            {
+              "t": "be",
+              "zh": "是（原形）",
+              "pos": "v.",
+              "trap": "form",
+              "near": false,
+              "fam": "other",
+              "why": "原形 be 不能直接當述語動詞。"
+            },
+            {
+              "t": "being",
+              "zh": "正在是",
+              "pos": "v.",
+              "trap": "form",
+              "near": false,
+              "fam": "other",
+              "why": "-ing 不能單獨當述語。"
+            },
+            {
+              "t": "been",
+              "zh": "已是",
+              "pos": "v.",
+              "trap": "form",
+              "near": false,
+              "fam": "other",
+              "why": "been 前面需要 has/have，不能單獨當述語。"
+            },
+            {
+              "t": "am",
+              "zh": "是（第一人稱）",
+              "pos": "v.",
+              "trap": "agree",
+              "near": false,
+              "fam": "other",
+              "why": "am 只能搭配 I。"
+            },
+            {
+              "t": "is being",
+              "zh": "正被",
+              "pos": "v.",
+              "trap": "form",
+              "near": false,
+              "fam": "other",
+              "why": "is being expected 不是正確說法，與 to reach 的搭配不通。"
+            }
+          ],
+          "clue": {
+            "text": "shipment of replacement hardware",
+            "steps": [
+              "選項都是 be 動詞變化 → 文法題（主詞動詞一致）",
+              "先找主詞：shipment（單數），together with two other parts 是插入語",
+              "are、were 被 parts 誤導；be、being、been、am、is being 結構不合",
+              "代入 is expected to reach，單數主詞配 is，時態也合"
+            ]
+          }
+        }
+      ],
+      "vocab": [
+        {
+          "word": "shortage",
+          "ipa": "/ˈʃɔːrtɪdʒ/",
+          "pos": "n.",
+          "col": "a shortage of hardware",
+          "zh": "短缺"
+        },
+        {
+          "word": "refund",
+          "ipa": "/ˈriːfʌnd/",
+          "pos": "n.",
+          "col": "issue a full refund",
+          "zh": "退款"
+        },
+        {
+          "word": "assembly",
+          "ipa": "/əˈsembli/",
+          "pos": "n.",
+          "col": "includes assembly",
+          "zh": "組裝"
+        },
+        {
+          "word": "shipment",
+          "ipa": "/ˈʃɪpmənt/",
+          "pos": "n.",
+          "col": "the shipment of parts",
+          "zh": "出貨；貨物"
+        }
+      ]
     }
-   ]
-  }
- ]
+  ]
 }
