@@ -789,7 +789,7 @@ function healthH() {
 function adminH() {
   const doms = DOMS(), tiers = Object.keys(TIER), N = DATA.length;
   let low = 0; doms.forEach(d => tiers.forEach(t => { if (cellStat(d, t).n < TARGET) low++; }));
-  let h = hdr('維護', 'goHome()');
+  let h = hdr('維護', 'backAdmin()');
   h += `<div class="${card} p-4 mb-4 text-sm"><div class="flex flex-wrap gap-x-6 gap-y-1"><span>題目 <b>${N}</b> 篇（${N * 4} 個空格）${HEALTH.dropped ? ` <span class="${HL.err[1]}">（另有 ${HEALTH.dropped} 筆格式不合被略過）</span>` : ''}</span>`
     + `<span>音檔 <b>${DATA.filter(auHas).length}</b> 題</span>`
     + `<span class="text-slate-500">未達標格子 <b>${low}</b> / ${doms.length * tiers.length}（目標每格 ≥ ${TARGET} 篇）</span></div>`
@@ -931,6 +931,7 @@ function render() {
 }
 
 /* ---------- 啟動：讀取 part6.json；雙擊開啟（file://）或讀不到時，可在首頁手動選取 ---------- */
+function backAdmin() { if (window._ah) location.href = 'index.html#mt'; else goHome(); } // 從首頁「維護總覽」進來的，返回就回總覽
 function loadText(t) {
   try {
     const j = JSON.parse(t); SPEC = (j && j._spec) || null;
@@ -939,6 +940,7 @@ function loadText(t) {
     LERR = DATA.length ? '' : 'empty'; HEALTH = auditAll(RAW);
   } catch (e) { LERR = 'bad'; LMSG = e.message; }
   render();
+  if (location.hash === '#admin' && !window._ah) { window._ah = 1; goAdmin(); } // 從首頁「維護總覽」直接進入維護頁
 }
 function pickJson(input) { const f = input.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => loadText(r.result); r.readAsText(f, 'utf-8'); input.value = ''; }
 (async () => {

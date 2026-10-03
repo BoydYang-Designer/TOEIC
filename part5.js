@@ -438,7 +438,7 @@ function ptCount() { const c = {}; Object.keys(PT).forEach(k => c[k] = 0); DATA.
 function adminH() {
   const doms = Object.keys(DOM), tiers = Object.keys(TIER), N = DATA.length, cnt = ptCount();
   let low = 0; doms.forEach(d => tiers.forEach(t => { if (cellStat(d, t).n < TARGET) low++; }));
-  let h = hdr('維護', 'goHome()');
+  let h = hdr('維護', 'backAdmin()');
   h += `<div class="${card} p-4 mb-4 text-sm"><div class="flex flex-wrap gap-x-6 gap-y-1"><span>題目 <b>${N}</b> 題${HEALTH.dropped ? ` <span class="${HL.err[1]}">（另有 ${HEALTH.dropped} 筆格式不合被略過）</span>` : ''}</span>`
     + `<span>音檔 <b>${N - missAu().length}</b> 題</span>`
     + `<span class="text-slate-500">未達標格子 <b>${low}</b> / ${doms.length * tiers.length}（目標每格 ≥ ${TARGET} 題）</span></div>`
@@ -690,12 +690,14 @@ function render() {
 }
 
 /* ---------- 啟動：讀取 part5.json；雙擊開啟（file://）時改用手動選取 ---------- */
+function backAdmin() { if (window._ah) location.href = 'index.html#mt'; else goHome(); } // 從首頁「維護總覽」進來的，返回就回總覽
 function loadText(t) {
   try {
     const j = JSON.parse(t); SPEC = (j && j._spec) || null; const d = SPEC && SPEC.domains;
     if (d) Object.keys(d).forEach(k => { if (d[k] && d[k].name) DOM[k] = d[k].name; });
     RAW = Array.isArray(j) ? j : (j && j.items) || []; DATA = RAW.filter(okItem);
     HEALTH = auditAll(RAW); render();
+    if (location.hash === '#admin' && !window._ah) { window._ah = 1; goAdmin(); } // 從首頁「維護總覽」直接進入維護頁
   } catch (e) { alert('part5.json 格式有誤：' + e.message); }
 }
 function pickJson(input) { const f = input.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => loadText(r.result); r.readAsText(f, 'utf-8'); }

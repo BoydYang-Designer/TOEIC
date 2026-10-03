@@ -5,7 +5,7 @@
   index.html / part2.html / daily.html / *.json   ← 網站根目錄（ROOT）
   audio/audio_scan.py                             ← 本檔
   audio/index.json                                ← 本檔產生
-  audio/p1/、audio/p2/、audio/p3/、audio/p4/、audio/p5/、audio/p6/、audio/daily/   ← mp3
+  audio/p1/、audio/p2/、audio/p3/、audio/p4/、audio/p5/、audio/p6/、audio/p7/、audio/daily/   ← mp3
 
 預期檔案（由題庫 json 推算）：
   Part 1  audio/p1/{id}-s01.mp3 … -s12.mp3          （part1.json，每題 pool 幾句就幾個檔）
@@ -14,6 +14,7 @@
   Part 4  audio/p4/{id}.mp3                          （part4.json，整段獨白一個檔，不分句）
   Part 5  audio/p5/{id}.mp3                         （part5.json，一題一檔，朗讀答案填入的完整句；say 欄位若有則朗讀 say）
   Part 6  audio/p6/{id}.mp3                         （part6.json，一篇一檔，朗讀答案填入的整篇；say 欄位若有則朗讀 say）
+  Part 7  audio/p7/{id}-d{k}.mp3                    （part7.json，每份需朗讀的文件一檔，k 從 1 起＝docs 順序；form/invoice/schedule/table 或 read:false 的文件不需要）
   Daily   audio/daily/w1d1.mp3（或題目的 audio 欄位）  （daily.json，整篇一個檔）
   字母    audio/A.mp3 … E.mp3（Part 1／2 共用，大寫檔名；Part 1 需 A–D、Part 2 需 A–C 到齊，才會在每個選項前先念字母）
 整題到齊才列入 complete；網頁只對 complete 的題目用 mp3。
@@ -67,6 +68,7 @@ def check(d, expected, label):
 
 
 out = {'v': int(time.time())}
+TOT = {}   # 各 Part 的題目總數，給首頁「維護總覽」用
 
 # 選項字母 audio/A.mp3 … E.mp3（Part 1／Part 2 共用，大寫檔名）
 have_root = listdir(AUD)
@@ -92,6 +94,7 @@ for part, fn, with_q in (('p1', 'part1.json', False), ('p2', 'part2.json', True)
         exp[i] = ([i + '-q.mp3'] if with_q else []) + ['%s-s%02d.mp3' % (i, k + 1) for k in range(len(it['pool']))]
     c, p, o = check(os.path.join(AUD, part), exp, 'audio/' + part)
     out[part] = {'complete': c, 'partial': p, 'orphans': o}
+    TOT[part] = len(exp)
     print('%s：題目 %d，音檔完整 %d，部分 %d，孤兒檔 %d' % (part, len(exp), len(c), len(p), len(o)))
 
 # Part 3：audio/p3/{id}-s01.mp3 …（每句對話一檔；網頁目前只用對話音檔，題目與選項仍不念）
@@ -101,6 +104,7 @@ for it in items('part3.json'):
         exp[it['id']] = ['%s-s%02d.mp3' % (it['id'], k + 1) for k in range(len(it['dialogue']))]
 c, p, o = check(os.path.join(AUD, 'p3'), exp, 'audio/p3')
 out['p3'] = {'complete': c, 'partial': p, 'orphans': o}
+TOT['p3'] = len(exp)
 print('p3：題組 %d，音檔完整 %d，部分 %d，孤兒檔 %d' % (len(exp), len(c), len(p), len(o)))
 
 # Part 4：audio/p4/{id}.mp3（整段獨白一個檔；單一說話者，不分句）
@@ -114,6 +118,7 @@ if legacy:
     warn.append('audio/p4 有 %d 個舊的逐句檔（如 %s）。Part 4 已改為整段獨白一個檔 {id}.mp3，舊檔可刪除或另存' % (len(legacy), legacy[0]))
     o = [f for f in o if f not in legacy]
 out['p4'] = {'complete': c, 'partial': p, 'orphans': o}
+TOT['p4'] = len(exp)
 print('p4：題組 %d，音檔完整 %d，孤兒檔 %d' % (len(exp), len(c), len(o)))
 
 # Part 5：audio/p5/{id}.mp3（一題一檔，朗讀答案填入的完整句；partial 固定為空，保留是為了與其他 Part 相同的讀取方式）
@@ -123,6 +128,7 @@ for it in items('part5.json'):
         exp[it['id']] = [it['id'] + '.mp3']
 c, p, o = check(os.path.join(AUD, 'p5'), exp, 'audio/p5')
 out['p5'] = {'complete': c, 'partial': {}, 'orphans': o}
+TOT['p5'] = len(exp)
 print('p5：題目 %d，音檔完整 %d，缺 %d，孤兒檔 %d' % (len(exp), len(c), len(exp) - len(c), len(o)))
 
 # Part 6：audio/p6/{id}.mp3（一篇一檔，朗讀答案填入的整篇；say 欄位若有則朗讀 say）
@@ -132,7 +138,24 @@ for it in items('part6.json'):
         exp[it['id']] = [it['id'] + '.mp3']
 c, p, o = check(os.path.join(AUD, 'p6'), exp, 'audio/p6')
 out['p6'] = {'complete': c, 'partial': {}, 'orphans': o}
+TOT['p6'] = len(exp)
 print('p6：文章 %d，音檔完整 %d，缺 %d，孤兒檔 %d' % (len(exp), len(c), len(exp) - len(c), len(o)))
+
+# Part 7：audio/p7/{id}-d{k}.mp3（每份需朗讀的文件一檔；k 從 1 起＝docs 順序）
+#   與 part7.js 的規則一致：kind 為 form／invoice／schedule／table，或 read 為 false 的文件不朗讀，不需要音檔。
+#   p7.complete 列的是「文件鍵 {id}-d{k}」（不是題組 id），part7.js 也是這樣讀；total 以文件數計。
+NOAUD7 = ('form', 'invoice', 'schedule', 'table')
+exp = {}
+for it in items('part7.json'):
+    if isinstance(it, dict) and it.get('id') and isinstance(it.get('docs'), list):
+        for k, d in enumerate(it['docs']):
+            if isinstance(d, dict) and d.get('read') is not False and d.get('kind') not in NOAUD7:
+                key = '%s-d%d' % (it['id'], k + 1)
+                exp[key] = [key + '.mp3']
+c, p, o = check(os.path.join(AUD, 'p7'), exp, 'audio/p7')
+out['p7'] = {'complete': c, 'partial': {}, 'orphans': o, 'unit': '份文件'}
+TOT['p7'] = len(exp)
+print('p7：需朗讀的文件 %d，音檔完整 %d，缺 %d，孤兒檔 %d' % (len(exp), len(c), len(exp) - len(c), len(o)))
 
 # Daily：audio/daily/{id}.mp3；題目若有 audio 欄位（相對網站根目錄的路徑）則以該路徑為準
 DDIR = os.path.join(AUD, 'daily')
@@ -158,15 +181,19 @@ for f in listdir(AUD):
     if base and base in dexp:
         warn.append('audio/%s 還在舊位置，請搬到 audio/daily/' % f)
 out['daily'] = {'complete': dc, 'partial': dp, 'orphans': do}
+TOT['daily'] = len(dexp) + len(dcustom)
 print('daily：題目 %d，音檔完整 %d，孤兒檔 %d' % (len(dexp) + len(dcustom), len(dc), len(do)))
+
+for part in ('p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'daily'):
+    for o in out[part]['orphans']:
+        warn.append('audio/%s/%s 不屬於任何題目（檔名打錯？）' % (part, o))
+    out[part]['total'] = TOT.get(part, 0)
+out['warn'] = warn   # 首頁「維護總覽」會顯示這些警告
 
 os.makedirs(AUD, exist_ok=True)
 with open(os.path.join(AUD, 'index.json'), 'w', encoding='utf-8') as f:
     json.dump(out, f, ensure_ascii=False, indent=1)
 print('\n已寫入 audio/index.json')
-for part in ('p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'daily'):
-    for o in out[part]['orphans']:
-        warn.append('audio/%s/%s 不屬於任何題目（檔名打錯？）' % (part, o))
 for w in warn:
     print('⚠', w)
 try:

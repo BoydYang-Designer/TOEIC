@@ -407,7 +407,7 @@ function adminH() {
   const doms = Object.keys(DOM), tiers = Object.keys(TIER), qc = {}; DATA.forEach(x => x.questions.forEach(q => { qc[q.qtype] = (qc[q.qtype] || 0) + 1; }));
   let low = 0; doms.forEach(d => tiers.forEach(t => { if (pool(t, d).length < TARGET) low++; }));
   const nAu = DATA.filter(auHas).length, H = HEALTH;
-  let h = hdr('維護', 'goHome()');
+  let h = hdr('維護', 'backAdmin()');
   h += `<div class="${card} p-4 mb-4 text-sm"><div class="flex flex-wrap gap-x-6 gap-y-1"><span>題組 <b>${DATA.length}</b> 組（共 ${DATA.reduce((a, x) => a + x.questions.length, 0)} 題）${H.dropped ? ` <span class="${HL.err[1]}">（另有 ${H.dropped} 筆格式不合被略過）</span>` : ''}</span><span>音檔 <b>${nAu}</b> 組</span><span class="text-slate-500">未達標格子 <b>${low}</b> / ${doms.length * tiers.length}（目標每格 ≥ ${TARGET} 組）</span></div>
     <div class="flex flex-wrap gap-1.5 mt-3">${Object.keys(QT).map(k => `<span class="${chip}">${QT[k]} <b>${qc[k] || 0}</b></span>`).join('')}</div>
     <div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><span class="text-slate-500">音檔：</span>${audioStatusH()}</div></div>`;
@@ -613,11 +613,13 @@ function render() {
 }
 
 /* ---------- 啟動：讀取 part3.json；雙擊開啟（file://）時改用手動選取 ---------- */
+function backAdmin() { if (window._ah) location.href = 'index.html#mt'; else goHome(); } // 從首頁「維護總覽」進來的，返回就回總覽
 function loadText(t) {
   try {
     const j = JSON.parse(t), d = j && j._spec && j._spec.domains; SPEC = (j && j._spec) || null;
     if (d && typeof d === 'object') { const m = {}; Object.keys(d).forEach(k => { if (d[k] && d[k].name) m[k] = { n: d[k].name, scenes: d[k].scenes || [] }; }); if (Object.keys(m).length) DOM = m; }
     RAW = itemsOf(j); DATA = RAW.map(normItem).filter(Boolean); HEALTH = auditAll(RAW); render();
+    if (location.hash === '#admin' && !window._ah) { window._ah = 1; openAdmin(); } // 從首頁「維護總覽」直接進入維護頁
   } catch (e) { alert('part3.json 格式有誤：' + e.message); }
 }
 function pickJson(input) { const f = input.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => loadText(r.result); r.readAsText(f, 'utf-8'); }

@@ -574,7 +574,7 @@ function healthH() {
 function adminH() {
   const doms = Object.keys(DOM), tiers = Object.keys(TIER), N = DATA.length, M = uniqN(DATA);
   let low = 0; doms.forEach(d => tiers.forEach(t => { if (cellStat(d, t).img < TARGET) low++; }));
-  let h = hdr('維護', 'goHome()');
+  let h = hdr('維護', 'backAdmin()');
   h += `<div class="${card} p-4 mb-4 text-sm"><div class="flex flex-wrap gap-x-6 gap-y-1"><span>題目 <b>${N}</b> 題${HEALTH.dropped ? ` <span class="${HL.err[1]}">（另有 ${HEALTH.dropped} 筆格式不合被略過）</span>` : ''}</span>`
     + `<span>圖片 <b>${M}</b> 張${M !== N ? ` <span class="${HL.warn[1]}">⚠ 與題數不符：有題目共用同一張圖</span>` : ''}</span>`
     + `<span>音檔 <b>${DATA.filter(x => auNeed(x) && auHas(x)).length}</b> 題</span>`
@@ -839,6 +839,7 @@ function render() {
 }
 
 /* ---------- 啟動：讀取 part1.json；雙擊開啟（file://）時改用手動選取 ---------- */
+function backAdmin() { if (window._ah) location.href = 'index.html#mt'; else goHome(); } // 從首頁「維護總覽」進來的，返回就回總覽
 function loadText(t) {
   try {
     const j = JSON.parse(t), d = j && j._spec && j._spec.domains; SPEC = (j && j._spec) || null;
@@ -849,6 +850,7 @@ function loadText(t) {
     RAW = itemsOf(j); DATA = RAW.map(normItem).filter(Boolean);
     HEALTH = auditAll(RAW); checkImages(false); checkOrphans(false); // 資料健檢（同步）＋ 圖片檔檢查（非同步，完成後維護頁自動更新）
     render();
+    if (location.hash === '#admin' && !window._ah) { window._ah = 1; goAdmin(); } // 從首頁「維護總覽」直接進入維護頁
   } catch (e) { alert('part1.json 格式有誤：' + e.message); }
 }
 function pickJson(input) { const f = input.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => loadText(r.result); r.readAsText(f, 'utf-8'); }

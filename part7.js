@@ -518,7 +518,7 @@ function maintH() {
   const rows = Object.keys(DOM).map(d => `<tr><td class="pr-2 py-1 text-xs whitespace-nowrap"><button data-d="${d}" data-t="" onclick="setM(this.dataset.d,this.dataset.t)" class="cursor-pointer ${V.mf.d === d && !V.mf.t ? 'font-bold text-indigo-600' : ''}">${d.toUpperCase()} ${esc(DOM[d])}</button></td>${Object.keys(TIER).map(t => `<td class="p-1">${mCell(d, t)}</td>`).join('')}<td class="pl-2 text-xs text-slate-500 whitespace-nowrap">${DATA.filter(x => x.domain === d).length} 組</td></tr>`).join('');
   const xs = DATA.filter(x => (!V.mf.d || x.domain === V.mf.d) && (!V.mf.t || tier(x) === V.mf.t)), miss = missOf(xs), label = V.mf.d || V.mf.t ? [V.mf.d ? V.mf.d.toUpperCase() : '', V.mf.t ? TIER[V.mf.t] : ''].filter(Boolean).join(' · ') : '全部';
   const orph = AUI && Array.isArray(AUI.orphans) ? AUI.orphans.length : 0;
-  return hdr('維護', 'goHome()')
+  return hdr('維護', 'backAdmin()')
     + `<div class="text-xs text-slate-500 mb-3">${AUI ? `audio/index.json 已讀取（p7 完整文件音檔 ${AU.size} 個${orph ? `，孤兒檔 ${orph} 個` : ''}）` : '<span class="text-amber-600">尚未讀到 audio/index.json（含雙擊開啟 file://），所有音檔都視為缺。</span>'} · <a href="#" onclick="go('reports');return false" class="text-indigo-600 underline">提報 ${R.reports.length} 則</a></div>`
     + `<div class="${card} p-4 mb-4 overflow-x-auto"><h2 class="font-bold text-sm mb-1">題數矩陣（主題 × 難度）</h2><div class="text-xs text-slate-400 mb-2">格內：組數、🎧 文件音檔整組到齊的組數；每格目標 2 組，偏少標黃。點格子可篩選下方題組。</div><table class="w-full"><thead><tr><th></th>${Object.keys(TIER).map(t => `<th class="text-xs font-medium text-slate-500 pb-1"><button data-d="" data-t="${t}" onclick="setM(this.dataset.d,this.dataset.t)" class="cursor-pointer ${V.mf.t === t && !V.mf.d ? 'font-bold text-indigo-600' : ''}">${TIER[t]}</button></th>`).join('')}<th></th></tr></thead><tbody>${rows}</tbody></table></div>`
     + statH() + newH()
@@ -528,11 +528,13 @@ function maintH() {
 }
 
 /* ---------- 啟動 ---------- */
+function backAdmin() { if (window._ah) location.href = 'index.html#mt'; else goHome(); } // 從首頁「維護總覽」進來的，返回就回總覽
 function loadText(t) {
   try {
     const j = JSON.parse(t); SPEC = (j && j._spec) || null;
     if (SPEC) { [['domains', DOM, o => o.name], ['formats', FMT, o => o.name], ['qtypes', QT, o => o.name], ['kinds', KD, o => o], ['traps', TR, o => o]].forEach(([k, tg, f]) => { const s = SPEC[k]; if (s) Object.keys(s).forEach(i => { const v = f(s[i]); if (v) tg[i] = v; }); }); }
     DATA = (Array.isArray(j) ? j : (j && j.items) || []).filter(okItem); render();
+    if (location.hash === '#admin' && !window._ah) { window._ah = 1; go('maint'); } // 從首頁「維護總覽」直接進入維護頁
   } catch (e) { alert('part7.json 格式有誤：' + e.message); }
 }
 function pickJson(input) { const f = input.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => loadText(r.result); r.readAsText(f, 'utf-8'); }

@@ -755,7 +755,7 @@ function adminH() {
   const ds = Object.keys(DOM), tiers = Object.keys(TIER);
   let missAu = 0, tot = DATA.length;
   DATA.forEach(x => { if (!AU.has(x.id)) missAu++; });
-  let h = hdr('維護', 'goHome()');
+  let h = hdr('維護', 'backAdmin()');
   // 概況
   h += `<div class="${card} p-4 mb-3">
     <div class="flex flex-wrap gap-4 text-sm">
@@ -932,6 +932,7 @@ function render() {
 }
 
 /* ---------- 啟動 ---------- */
+function backAdmin() { if (window._ah) location.href = 'index.html#mt'; else goHome(); } // 從首頁「維護總覽」進來的，返回就回總覽
 function loadText(t) {
   try {
     const j = JSON.parse(t);
@@ -948,6 +949,7 @@ function loadText(t) {
     RAW = Array.isArray(j) ? j : (j && j.items) || [];
     DATA = RAW.filter(okSet);
     render();
+    if (location.hash === '#admin' && !window._ah) { window._ah = 1; openAdmin(); } // 從首頁「維護總覽」直接進入維護頁
   } catch (e) { alert('part4.json 格式有誤：' + e.message); }
 }
 function pickJson(i) {
