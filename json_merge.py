@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / part5 / part6 共用）
+TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / part5 / part6 / part7 共用）
 
-用法：把這支程式放在 daily.json、part1.json、part2.json、part3.json、part4.json、part5.json、part6.json 所在的資料夾，雙擊執行。
-  1. 最上方選擇題庫：每日文章（daily.json）／Part 1 照片（part1.json）／Part 2 應答（part2.json）／Part 3 對話（part3.json）／Part 4 獨白（part4.json）／Part 5 填空（part5.json）／Part 6 段落填空（part6.json）。
+用法：把這支程式放在 daily.json、part1.json、part2.json、part3.json、part4.json、part5.json、part6.json、part7.json 所在的資料夾，雙擊執行。
+  1. 最上方選擇題庫：每日文章（daily.json）／Part 1 照片（part1.json）／Part 2 應答（part2.json）／Part 3 對話（part3.json）／Part 4 獨白（part4.json）／Part 5 填空（part5.json）／Part 6 段落填空（part6.json）／Part 7 閱讀理解（part7.json）。
      啟動時會自動選「資料夾內等待合併的副檔最多」的那一個；也可用  python json_merge.py part2  直接指定。
   2. 自動列出該題庫的副檔：
        daily  → w1d3.json 這類（其他 .json 也會列出，但不會自動勾選）
@@ -14,6 +14,7 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / par
        part4  → p4_d1-002-m_x2.json 這類（網頁「新增題目」產生的檔名）
        part5  → p5_d1-002-m_x3.json 這類（網頁「新增題目」產生的檔名）
        part6  → p6_d1-002-m_x2.json 這類（網頁「新增題目」產生的檔名）
+       part7  → p7_d1-002-m_x2.json 這類（網頁「新增題目」產生的檔名）
      找不到的可用「新增檔案…」手動加入。
   3. 選取要合併的副檔（可多選：Ctrl / Shift）→「合併」→ 確認 → 寫回主檔（寫入前自動備份到 backup 資料夾）。
 副檔可以是：單筆題目、題目陣列、或含 items 的物件；AI 貼出的 ```json 圍欄也能自動處理。
@@ -1442,8 +1443,489 @@ class Part6(IdProfile):
         return er, wa
 
 
-PROFILES = {'daily': Daily(), 'photo': Photo(), 'part2': Part2(), 'part3': Part3(), 'part4': Part4(), 'part5': Part5(), 'part6': Part6()}
-ORDER = ('daily', 'photo', 'part2', 'part3', 'part4', 'part5', 'part6')
+# ───── part7 ─────
+
+class Part7(IdProfile):
+    """Part 7 閱讀理解：一題＝一個題組（1–3 份文件＋2–5 題）；每題 4 選項（1 正解＋3 干擾項）。"""
+    name = 'part7'
+    title = 'Part 7 閱讀'
+    main_name = 'part7.json'
+    backup_prefix = 'part7'
+    FORMATS = {'single': (1, (2, 4)), 'double': (2, (5, 5)), 'triple': (3, (5, 5))}
+    KINDS = ('email', 'letter', 'memo', 'notice', 'article', 'ad', 'review', 'webpage', 'form', 'invoice',
+             'schedule', 'table', 'chat')
+    QTYPES = ('purpose', 'detail', 'notTrue', 'inference', 'vocab', 'intent', 'insert')
+    TRAPS = ('unmentioned', 'distort', 'opposite', 'partial', 'overreach', 'wrongdoc', 'commonmeaning',
+             'nearmeaning', 'position')
+    WORDS = {'single': {'e': (80, 150), 'm': (150, 250), 'h': (220, 350)},
+             'double': {'e': (200, 300), 'm': (280, 420), 'h': (380, 520)},
+             'triple': {'e': (300, 420), 'm': (400, 580), 'h': (550, 750)}}
+    ONCE_PER_SET = ('vocab', 'notTrue', 'insert')
+    WEEKDAYS = ('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday')
+    MONTHS = ('january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october',
+              'november', 'december')
+    empty_hint = ('資料夾內沒有找到副檔。\n請把網頁「新增題目」產生的檔案（例如 p7_d1-002-m_x2.json）放進來，'
+                  '或按「新增檔案…」手動選取。')
+    done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p7/（{id}-d{k}.mp3，一份文件一檔，k＝文件序號從 1 起；'
+                 'form／invoice／schedule／table 與 read:false 的文件不需要），再執行 audio_scan.py；沒有音檔時網頁會用機器發音。')
+
+    def is_candidate(self, fname):
+        return fname.lower().startswith('p7_')
+
+    def is_auto(self, fname):
+        return self.is_candidate(fname)
+
+    # ── 文字來源 ──
+    @staticmethod
+    def doc_texts(d):
+        """文件裡所有可被 evidence 引用的文字欄位（各自獨立，不相接）。"""
+        out = []
+        if not isinstance(d, dict):
+            return out
+        for k in ('head', 'body'):
+            if isinstance(d.get(k), list):
+                out += [t for t in d[k] if isinstance(t, str)]
+        if isinstance(d.get('messages'), list):
+            out += [m['t'] for m in d['messages'] if isinstance(m, dict) and isinstance(m.get('t'), str)]
+        tb = d.get('table')
+        if isinstance(tb, dict):
+            out += [c for c in (tb.get('header') or []) if isinstance(c, str)]
+            for r in tb.get('rows') or []:
+                if isinstance(r, list):
+                    out += [c for c in r if isinstance(c, str)]
+        if isinstance(d.get('say'), str):
+            out.append(d['say'])
+        return out
+
+    @staticmethod
+    def doc_body_texts(d):
+        """正文（不含 head）：body、messages、表格儲存格。"""
+        out = []
+        if isinstance(d.get('body'), list):
+            out += [t for t in d['body'] if isinstance(t, str)]
+        if isinstance(d.get('messages'), list):
+            out += [m['t'] for m in d['messages'] if isinstance(m, dict) and isinstance(m.get('t'), str)]
+        tb = d.get('table')
+        if isinstance(tb, dict):
+            out += [c for c in (tb.get('header') or []) if isinstance(c, str)]
+            for r in tb.get('rows') or []:
+                if isinstance(r, list):
+                    out += [c for c in r if isinstance(c, str)]
+        return out
+
+    def count_words(self, e):
+        n = 0
+        for d in e.get('docs') or []:
+            if isinstance(d, dict):
+                n += sum(n_words(t) for t in self.doc_texts({k: v for k, v in d.items() if k != 'say'}))
+        return n
+
+    @staticmethod
+    def fix_quote(s):
+        return str(s).replace('\u2019', "'").replace('\u2018', "'").replace('\u201c', '"').replace('\u201d', '"')
+
+    def first_sentence(self, e):
+        docs = e.get('docs') or []
+        if not docs or not isinstance(docs[0], dict):
+            return ''
+        d = docs[0]
+        t = ' '.join(self.doc_body_texts(d))
+        t = re.sub(r'\s*\[[1-4]\]\s*', ' ', t)
+        for s in re.split(r'(?<=[.?!])\s+', t):
+            if n_words(s) >= 5:
+                return s.strip()
+        return t[:80].strip()
+
+    def head_of(self, e):
+        docs = e.get('docs') or []
+        if docs and isinstance(docs[0], dict) and isinstance(docs[0].get('head'), list):
+            return ' / '.join(str(x) for x in docs[0]['head'])
+        return ''
+
+    def describe(self, e):
+        return str(e.get('tag', '')) if isinstance(e, dict) else ''
+
+    def make_ctx(self, items, data):
+        idx = build_index(items)
+        idx['first'] = {}
+        idx['head'] = {}
+        for o in items:
+            if not isinstance(o, dict):
+                continue
+            f = norm(self.first_sentence(o))
+            if f:
+                idx['first'].setdefault(f, set()).add(o.get('id'))
+            h = norm(self.head_of(o))
+            if h:
+                idx['head'].setdefault(h, set()).add(o.get('id'))
+        spec = data.get('_spec') if isinstance(data, dict) and isinstance(data.get('_spec'), dict) else {}
+        kinds = tuple(spec['kinds']) if isinstance(spec.get('kinds'), dict) and spec['kinds'] else self.KINDS
+        qtypes = tuple(spec['qtypes']) if isinstance(spec.get('qtypes'), dict) and spec['qtypes'] else self.QTYPES
+        traps = tuple(spec['traps']) if isinstance(spec.get('traps'), dict) and spec['traps'] else self.TRAPS
+        return {'domains': domains_of(data), 'idx': idx, 'kinds': kinds, 'qtypes': qtypes, 'traps': traps}
+
+    def extra_detail(self, e):
+        if not isinstance(e, dict):
+            return []
+        docs = [d.get('kind', '?') for d in e.get('docs') or [] if isinstance(d, dict)]
+        qs = [q.get('type', '?') for q in e.get('questions') or [] if isinstance(q, dict)]
+        return ['     %s｜文件：%s｜題型：%s' % (e.get('format', ''), '＋'.join(docs), '、'.join(qs))]
+
+    # ── 日期與星期 ──
+    def check_dates(self, e, wa):
+        text = ' '.join(t for d in e.get('docs') or [] for t in self.doc_texts(d))
+        for q in e.get('questions') or []:
+            if isinstance(q, dict):
+                text += ' ' + str(q.get('stem') or '')
+                for o in q.get('options') or []:
+                    if isinstance(o, dict):
+                        text += ' ' + str(o.get('t') or '')
+        mon = '(' + '|'.join(m.capitalize() for m in self.MONTHS) + ')'
+        wd = '(' + '|'.join(w.capitalize() for w in self.WEEKDAYS) + ')'
+        pairs = []
+        for m in re.finditer(wd + r',?\s+' + mon + r'\.?\s+(\d{1,2})\b', text):
+            pairs.append((m.group(1), m.group(2), int(m.group(3))))
+        for m in re.finditer(mon + r'\.?\s+(\d{1,2})(?:st|nd|rd|th)?\s*[,(]\s*' + wd + r'\b', text):
+            pairs.append((m.group(3), m.group(1), int(m.group(2))))
+        if not pairs:
+            return
+        years = None
+        for w, mo, dd in pairs:
+            ok = set()
+            for y in range(2020, 2036):
+                try:
+                    if datetime(y, self.MONTHS.index(mo.lower()) + 1, dd).weekday() == self.WEEKDAYS.index(w.lower()):
+                        ok.add(y)
+                except ValueError:
+                    pass
+            if not ok:
+                wa.append('星期與日期對不上：%s, %s %d（2020–2035 年都沒有這一天）' % (w, mo, dd))
+                return
+            years = ok if years is None else years & ok
+            if not years:
+                wa.append('文中的星期與日期無法落在同一年（請用程式驗算）：%s' % '；'.join(
+                    '%s, %s %d' % p for p in pairs[:4]))
+                return
+
+    # ── 主驗證 ──
+    def validate(self, e, ctx):
+        er, wa = [], []
+        if not isinstance(e, dict):
+            return ['內容不是物件'], wa
+        if 'skip' in e:
+            return ['AI 回報寫不出這個題目，不應合併：%s' % e.get('skip')], wa
+        m = ID_RE.match(str(e.get('id', '')))
+        if not m:
+            return ['id 格式必須是 d{1-7}-{3 位數}-{e|m|h}，例如 d1-002-m'], wa
+        dom, suffix, me = 'd' + m.group(1), m.group(3), e['id']
+        idx = ctx['idx']
+
+        if e.get('domain') != dom:
+            er.append('domain 應為 %s（要等於 id 前段），目前是 %r' % (dom, e.get('domain')))
+        scenes = ctx['domains'].get(dom, [])
+        if e.get('scene') not in scenes:
+            er.append('scene %r 不屬於 %s（可用：%s）' % (e.get('scene'), dom, '、'.join(scenes)))
+        if e.get('biz') not in (None, '') and e.get('biz') not in ('hr', 'marketing', 'finance', 'manufacturing', 'it', 'general'):
+            wa.append('biz 建議為 hr／marketing／finance／manufacturing／it／general，目前是 %r' % e.get('biz'))
+        if not str(e.get('tag') or '').strip():
+            er.append('缺少 tag')
+        check_level(e, suffix, er, wa)
+
+        fmt = e.get('format')
+        if fmt not in self.FORMATS:
+            er.append("format 必須是 single／double／triple，目前是 %r" % fmt)
+            return er, wa
+        n_docs, (qlo, qhi) = self.FORMATS[fmt]
+
+        # ── 文件 ──
+        docs = e.get('docs')
+        if not isinstance(docs, list) or len(docs) != n_docs:
+            er.append('%s 的 docs 必須剛好 %d 份（目前 %s）' % (fmt, n_docs, len(docs) if isinstance(docs, list) else '沒有'))
+            docs = docs if isinstance(docs, list) else []
+        for i, d in enumerate(docs):
+            p = '文件 %d' % (i + 1)
+            if not isinstance(d, dict):
+                er.append('%s 不是物件' % p)
+                continue
+            if d.get('kind') not in ctx['kinds']:
+                er.append('%s kind %r 不在 _spec.kinds（%s）' % (p, d.get('kind'), '／'.join(ctx['kinds'])))
+            if d.get('voice') not in ('F', 'M'):
+                er.append("%s voice 必須是 'F' 或 'M'，目前是 %r" % (p, d.get('voice')))
+            if not str(d.get('label') or '').strip():
+                wa.append('%s 缺少 label（中文名稱）' % p)
+            if d.get('read') is not None and not isinstance(d.get('read'), bool):
+                er.append('%s read 必須是 true/false' % p)
+            if isinstance(d.get('head'), list) and len(d['head']) > 5:
+                wa.append('%s head 有 %d 行（建議 0–5 行）' % (p, len(d['head'])))
+            if d.get('kind') == 'chat':
+                ms, sp = d.get('messages'), d.get('speakers')
+                if not isinstance(ms, list) or not ms:
+                    er.append('%s（chat）必須有 messages' % p)
+                    ms = []
+                if not isinstance(sp, dict) or not sp:
+                    er.append('%s（chat）必須有 speakers（姓名 → F/M）' % p)
+                    sp = {}
+                for k, g in sp.items():
+                    if g not in ('F', 'M'):
+                        er.append("%s speakers[%s] 必須是 'F' 或 'M'" % (p, k))
+                for j, ms_ in enumerate(ms):
+                    if not isinstance(ms_, dict) or not str(ms_.get('t') or '').strip() or not str(ms_.get('who') or '').strip():
+                        er.append('%s messages[%d] 需要 who、time、t、zh' % (p, j))
+                        continue
+                    if ms_['who'] not in sp:
+                        er.append('%s messages[%d] 的 who「%s」不在 speakers 內' % (p, j, ms_['who']))
+                    for k in ('time', 'zh'):
+                        if not str(ms_.get(k) or '').strip():
+                            wa.append('%s messages[%d] 缺少 %s' % (p, j, k))
+            else:
+                b = d.get('body')
+                if not isinstance(b, list) or not b or any(not isinstance(t, str) or not t.strip() for t in b):
+                    er.append('%s 必須有 body（非空字串陣列）' % p)
+                else:
+                    z = d.get('zh')
+                    if not isinstance(z, list) or len(z) != len(b):
+                        er.append('%s 的 zh 必須與 body 同長（body %d 段，zh %s）' % (
+                            p, len(b), len(z) if isinstance(z, list) else '沒有'))
+            tb = d.get('table')
+            if tb is not None:
+                if not isinstance(tb, dict) or not isinstance(tb.get('header'), list) or not isinstance(tb.get('rows'), list):
+                    er.append('%s table 必須是 {header:[…], rows:[[…]]}' % p)
+                else:
+                    w = len(tb['header'])
+                    if any(not isinstance(r, list) or len(r) != w for r in tb['rows']):
+                        er.append('%s table 的每一列長度必須等於 header（%d 欄）' % (p, w))
+
+        # ── 題目 ──
+        qs = e.get('questions')
+        if not isinstance(qs, list) or not qlo <= len(qs) <= qhi:
+            er.append('%s 的 questions 必須是 %s 題（目前 %s）' % (
+                fmt, str(qlo) if qlo == qhi else '%d–%d' % (qlo, qhi), len(qs) if isinstance(qs, list) else '沒有'))
+            qs = qs if isinstance(qs, list) else []
+        for i, q in enumerate(qs, 1):
+            if isinstance(q, dict) and q.get('n') != i:
+                er.append('第 %d 題的 n 應為 %d（題號必須連號），目前是 %r' % (i, i, q.get('n')))
+        type_n, n_int, n_longest, n_len_chk, n_detail = {}, 0, 0, 0, 0
+        docs_ok = [d for d in docs if isinstance(d, dict)]
+        all_text = [' '.join(self.doc_texts(d)) for d in docs]
+        for i, q in enumerate(qs, 1):
+            p = '第 %d 題' % i
+            if not isinstance(q, dict):
+                er.append('%s 不是物件' % p)
+                continue
+            qt = q.get('type')
+            if qt not in ctx['qtypes']:
+                er.append('%s type %r 不在 _spec.qtypes（%s）' % (p, qt, '／'.join(ctx['qtypes'])))
+            type_n[qt] = type_n.get(qt, 0) + 1
+            n_detail += 1 if qt == 'detail' else 0
+            if not str(q.get('stem') or '').strip():
+                er.append('%s 缺少 stem' % p)
+            if not str(q.get('stem_zh') or '').strip():
+                wa.append('%s 缺少 stem_zh' % p)
+            src = q.get('src')
+            src_ok = isinstance(src, list) and src and all(isinstance(s, int) and not isinstance(s, bool) and 0 <= s < len(docs) for s in src)
+            if not src_ok:
+                er.append('%s src 必須是合法的文件索引陣列（0–%d）' % (p, max(len(docs) - 1, 0)))
+                src = []
+            integ = len(src) >= 2
+            n_int += 1 if integ else 0
+            if integ and fmt == 'single':
+                er.append('%s 單篇組不可能有整合題（src 長度 ≥ 2）' % p)
+
+            # 選項
+            ops = q.get('options')
+            oks = []
+            if not isinstance(ops, list) or len(ops) != 4:
+                er.append('%s options 必須剛好 4 個（目前 %s）' % (p, len(ops) if isinstance(ops, list) else '沒有'))
+                ops = []
+            else:
+                texts = []
+                for j, o in enumerate(ops, 1):
+                    if not isinstance(o, dict) or not str(o.get('t') or '').strip() or not isinstance(o.get('ok'), bool):
+                        er.append('%s 選項 %d 格式不對（需要 t 與 ok:true/false）' % (p, j))
+                        continue
+                    texts.append(o['t'].strip().lower())
+                    if not str(o.get('zh') or '').strip():
+                        wa.append('%s 選項 %d 缺少 zh' % (p, j))
+                    if not str(o.get('why') or '').strip():
+                        er.append('%s 選項 %d 缺少 why' % (p, j))
+                    if o['ok']:
+                        oks.append(o)
+                        if not str(o.get('why', '')).startswith('正解：'):
+                            er.append('%s 正解的 why 必須以「正解：」開頭' % p)
+                    elif o.get('trap') not in ctx['traps']:
+                        er.append('%s 選項 %d（%s）trap 不合法：%r（可用：%s）' % (p, j, o['t'], o.get('trap'), '／'.join(ctx['traps'])))
+                if len(oks) != 1:
+                    er.append('%s 必須剛好 1 個 ok:true（目前 %d 個）' % (p, len(oks)))
+                if len(set(texts)) != len(texts):
+                    er.append('%s 選項文字有重複' % p)
+                lens = [len(str(o.get('t') or '')) for o in ops if isinstance(o, dict)]
+                if qt not in ('insert',) and lens and min(lens) > 0 and max(lens) > 2 * min(lens) and max(lens) > 12:
+                    wa.append('%s 選項長度差超過 2 倍（%d–%d 字元）' % (p, min(lens), max(lens)))
+                if qt not in ('insert', 'vocab') and len(oks) == 1 and lens:
+                    n_len_chk += 1
+                    if len(str(oks[0].get('t') or '')) == max(lens) and lens.count(max(lens)) == 1:
+                        n_longest += 1
+                if qt == 'insert':
+                    if [str(o.get('t')) for o in ops if isinstance(o, dict)] != ['[1]', '[2]', '[3]', '[4]']:
+                        er.append('%s（insert）options 的 t 必須依序是 [1]、[2]、[3]、[4]' % p)
+                if qt == 'vocab' and not any(isinstance(o, dict) and o.get('trap') == 'commonmeaning' for o in ops):
+                    er.append('%s（vocab）至少要有 1 個 trap:commonmeaning 的干擾項' % p)
+                # 正解疑似照抄原文
+                if qt not in ('insert',) and len(oks) == 1:
+                    w = norm(oks[0]['t']).split()
+                    if len(w) >= 6:
+                        grams = {' '.join(w[a:a + 6]) for a in range(len(w) - 5)}
+                        for dt in all_text:
+                            nd = norm(dt)
+                            if any(g in nd for g in grams):
+                                wa.append('%s 正解與原文有連續 6 個以上相同單字（疑似照抄，請改成同義轉述）' % p)
+                                break
+
+            # evidence
+            ev = q.get('evidence')
+            if not isinstance(ev, list) or not ev:
+                er.append('%s evidence 至少 1 筆' % p)
+                ev = []
+            ev_docs = set()
+            for j, x in enumerate(ev, 1):
+                if not isinstance(x, dict) or not isinstance(x.get('doc'), int) or isinstance(x.get('doc'), bool) \
+                        or not isinstance(x.get('quote'), str) or not x['quote'].strip():
+                    er.append('%s evidence 第 %d 筆需要 doc（整數）與 quote' % (p, j))
+                    continue
+                if not 0 <= x['doc'] < len(docs) or not isinstance(docs[x['doc']], dict):
+                    er.append('%s evidence 第 %d 筆的 doc 索引 %d 不存在' % (p, j, x['doc']))
+                    continue
+                if src and x['doc'] not in src:
+                    er.append('%s evidence 第 %d 筆的 doc %d 不在 src %s 內' % (p, j, x['doc'], src))
+                ev_docs.add(x['doc'])
+                if not any(x['quote'] in t for t in self.doc_texts(docs[x['doc']])):
+                    er.append('%s evidence 第 %d 筆的 quote 沒有逐字出現在文件 %d：%r' % (p, j, x['doc'] + 1, x['quote'][:40]))
+            if integ and (len(ev) < 2 or len(ev_docs) < 2):
+                er.append('%s 是整合題，evidence 需要 ≥ 2 筆且來自不同文件（目前 %d 筆、%d 份文件）' % (p, len(ev), len(ev_docs)))
+            if integ and ops and not any(isinstance(o, dict) and o.get('trap') in ('partial', 'wrongdoc') for o in ops):
+                wa.append('%s 整合題建議至少 1 個干擾項標 partial 或 wrongdoc（只看單一文件會選的答案）' % p)
+            if qt == 'notTrue' and len(ev) < 3:
+                wa.append('%s（notTrue）建議列出 3 個有被提到的選項的證據（目前 %d 筆）' % (p, len(ev)))
+
+            # clue
+            cl = q.get('clue')
+            if not isinstance(cl, dict) or not isinstance(cl.get('steps'), list):
+                er.append('%s 缺少 clue（需要 text 與 steps）' % p)
+            else:
+                if len(cl['steps']) != 4 or any(not str(s or '').strip() for s in cl['steps']):
+                    er.append('%s clue.steps 必須剛好 4 句' % p)
+                ct = str(cl.get('text') or '').strip()
+                if not ct or not any(ct in t for t in all_text):
+                    er.append('%s clue.text 必須是任一文件的原文片段：%r' % (p, ct[:40]))
+
+            # 各題型
+            tg = q.get('target')
+            if qt == 'vocab':
+                if not isinstance(tg, dict) or not isinstance(tg.get('doc'), int) or not str(tg.get('word') or '').strip():
+                    er.append('%s（vocab）需要 target:{doc, word}' % p)
+                elif not 0 <= tg['doc'] < len(docs) or not isinstance(docs[tg['doc']], dict):
+                    er.append('%s（vocab）target.doc 索引不存在' % p)
+                else:
+                    body = ' '.join(self.doc_body_texts(docs[tg['doc']]))
+                    cnt = len(re.findall(r'(?<![A-Za-z])' + re.escape(tg['word']) + r'(?![A-Za-z])', body, re.I))
+                    if cnt != 1:
+                        er.append('%s（vocab）目標字「%s」在文件 %d 正文中必須恰好出現 1 次（目前 %d 次）' % (p, tg['word'], tg['doc'] + 1, cnt))
+                    if src and tg['doc'] not in src:
+                        er.append('%s（vocab）target.doc 不在 src 內' % p)
+            elif qt == 'intent':
+                if not isinstance(tg, dict) or not isinstance(tg.get('doc'), int) or not isinstance(tg.get('msg'), int):
+                    er.append('%s（intent）需要 target:{doc, msg}' % p)
+                elif not 0 <= tg['doc'] < len(docs) or not isinstance(docs[tg['doc']], dict):
+                    er.append('%s（intent）target.doc 索引不存在' % p)
+                elif docs[tg['doc']].get('kind') != 'chat':
+                    er.append('%s（intent）只能用在 kind 為 chat 的文件' % p)
+                else:
+                    msgs = docs[tg['doc']].get('messages') or []
+                    if not 0 <= tg['msg'] < len(msgs) or not isinstance(msgs[tg['msg']], dict):
+                        er.append('%s（intent）target.msg 索引 %d 不存在' % (p, tg['msg']))
+                    else:
+                        mm = msgs[tg['msg']]
+                        stem = self.fix_quote(q.get('stem') or '')
+                        quoted = re.findall(r'"(.+?)"', stem)
+                        mt = self.fix_quote(mm.get('t') or '')
+                        if not quoted:
+                            er.append('%s（intent）題幹必須包含引號內的原句' % p)
+                        elif not any(x.strip(' .,!?') in mt for x in quoted):
+                            er.append('%s（intent）題幹的引號句與 target.msg 的訊息不一致：%r' % (p, quoted[0][:40]))
+                        if str(mm.get('time') or '').strip() and str(mm['time']).strip() not in str(q.get('stem') or ''):
+                            er.append('%s（intent）題幹必須包含該則訊息的時間 %s' % (p, mm['time']))
+            elif qt == 'insert':
+                if not isinstance(tg, dict) or not isinstance(tg.get('doc'), int) or not str(tg.get('sentence') or '').strip():
+                    er.append('%s（insert）需要 target:{doc, sentence}' % p)
+                elif not 0 <= tg['doc'] < len(docs) or not isinstance(docs[tg['doc']], dict):
+                    er.append('%s（insert）target.doc 索引不存在' % p)
+                else:
+                    dd = docs[tg['doc']]
+                    if dd.get('kind') == 'chat':
+                        er.append('%s（insert）文件必須是散文（不可為 chat）' % p)
+                    body = ' '.join(t for t in (dd.get('body') or []) if isinstance(t, str))
+                    for mk in '1234':
+                        c = body.count('[%s]' % mk)
+                        if c != 1:
+                            er.append('%s（insert）文件 %d 的 body 中 [%s] 必須恰好出現 1 次（目前 %d 次）' % (p, tg['doc'] + 1, mk, c))
+                    nsent = len([s for s in re.split(r'(?<=[.?!])\s+', re.sub(r'\[[1-4]\]', '', body)) if n_words(s) >= 3])
+                    if nsent < 4:
+                        wa.append('%s（insert）文件只有 %d 句（建議 ≥ 4 句散文）' % (p, nsent))
+                    if not str(tg.get('sentence_zh') or '').strip():
+                        wa.append('%s（insert）缺少 target.sentence_zh' % p)
+                    if src and tg['doc'] not in src:
+                        er.append('%s（insert）target.doc 不在 src 內' % p)
+
+        # ── 組內規則 ──
+        for t in self.ONCE_PER_SET:
+            if type_n.get(t, 0) > 1:
+                er.append('每組 %s 題最多 1 題（目前 %d 題）' % (t, type_n[t]))
+        if fmt in ('double', 'triple'):
+            if n_int < 2:
+                er.append('%s 至少要有 2 題整合題（src 長度 ≥ 2），目前 %d 題' % ('雙篇' if fmt == 'double' else '三篇', n_int))
+            if qs and n_int == len(qs):
+                wa.append('全部題目都是整合題（建議也放 1–2 題單文件題）')
+            if fmt == 'triple' and not any(isinstance(q, dict) and isinstance(q.get('src'), list) and len(q['src']) >= 2
+                                           and len(set(x.get('doc') for x in q.get('evidence') or [] if isinstance(x, dict))) >= 2
+                                           for q in qs):
+                wa.append('三篇建議至少 1 題用到 2 份以上文件的資訊並比對')
+        if fmt == 'single' and qs and not n_detail:
+            wa.append('單篇組沒有 detail（細節題）')
+        if n_len_chk >= 3 and n_longest / float(n_len_chk) >= 0.6:
+            wa.append('正解是最長選項的題目有 %d / %d 題（容易被猜中，請調整選項長度）' % (n_longest, n_len_chk))
+
+        # ── vocab（單字表） ──
+        blob = norm(' '.join(' '.join(self.doc_texts(d)) for d in docs_ok))
+        check_vocab(e, blob, ctx, er, wa, lo=3, hi=6)
+
+        # ── 字數 ──
+        nw = self.count_words(e)
+        lo, hi = self.WORDS[fmt][suffix]
+        if not lo <= nw <= hi:
+            wa.append('字數 %d，不在%s%s的範圍 %d–%d 字' % (nw, TIER_ZH[TIER[suffix]], {'single': '單篇', 'double': '雙篇', 'triple': '三篇'}[fmt], lo, hi))
+
+        # ── 日期與重複 ──
+        self.check_dates(e, wa)
+        tg_ = str(e.get('tag') or '').strip()
+        if tg_ and others_of(idx['tag'], tg_, me):
+            wa.append('tag「%s」與其他題目相同：%s' % (tg_, '、'.join(others_of(idx['tag'], tg_, me))))
+        h = norm(self.head_of(e))
+        if h:
+            hit = sorted({o for k, v in idx['head'].items() if similar(h, k) for o in v if o != me})
+            if hit:
+                wa.append('文件標頭與其他題目相同或雷同：%s' % '、'.join(hit))
+        f = norm(self.first_sentence(e))
+        if f:
+            hit = sorted({o for k, v in idx['first'].items() if similar(f, k) for o in v if o != me})
+            if hit:
+                wa.append('首句與其他題目相同或雷同：%s' % '、'.join(hit))
+        if e.get('issues'):
+            wa.append('備註：%s' % '；'.join(map(str, e['issues'])))
+        return er, wa
+
+
+PROFILES = {'daily': Daily(), 'photo': Photo(), 'part2': Part2(), 'part3': Part3(), 'part4': Part4(), 'part5': Part5(), 'part6': Part6(), 'part7': Part7()}
+ORDER = ('daily', 'photo', 'part2', 'part3', 'part4', 'part5', 'part6', 'part7')
 MAIN_NAMES = {p.main_name.lower() for p in PROFILES.values()}
 TITLE_OF = {k: v.title for k, v in PROFILES.items()}
 
@@ -1456,6 +1938,8 @@ def kind_of(e):
         return 'daily'
     if 'sentence' in e and 'distractors' in e:
         return 'part5'
+    if isinstance(e.get('docs'), list) and 'questions' in e and 'format' in e:
+        return 'part7'
     if 'body' in e and 'head' in e and 'questions' in e:
         return 'part6'
     if 'script' in e or e.get('form') == 'talk':
@@ -1962,7 +2446,7 @@ def main():
         if a in PROFILES:
             start = a
         else:
-            print('用法：python json_merge.py [daily|photo|part2|part3|part4|part5|part6]', file=sys.stderr)
+            print('用法：python json_merge.py [daily|photo|part2|part3|part4|part5|part6|part7]', file=sys.stderr)
     try:
         run_gui(start)
     except Exception:

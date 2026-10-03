@@ -705,7 +705,7 @@
    "tag": "社區陶藝工作坊報名",
    "level": {
     "score": 550,
-    "cefr": "B1",
+    "cefr": "A2+",
     "tier": "easy",
     "why": "整合題只需對照會員價、報名截止日與初學者時段；干擾項多為只看公告就會選的答案。"
    },
@@ -993,7 +993,7 @@
      ],
      "options": [
       {
-       "t": "She will not receive a free set of tools.",
+       "t": "She is not eligible for the free tool set.",
        "zh": "她不會獲得免費工具。",
        "ok": true,
        "why": "正解：公告要求 3 月 28 日前報名才贈工具，email 日期是 3 月 30 日，已逾期。"
@@ -1010,7 +1010,7 @@
        "zh": "她在截止日前報名。",
        "ok": false,
        "why": "email 日期 3 月 30 日晚於 3 月 28 日。",
-       "trap": "opposite"
+       "trap": "partial"
       },
       {
        "t": "She became a member after registering.",
