@@ -91,7 +91,8 @@ function audHtml() {
   const x = r.sets[r.i], mock = r.mode === 'mock', done = !!r.played[x.id], hint = P.hint ? `<span class="text-xs text-rose-500 basis-full">${esc(P.hint)}</span>` : '';
   if (P.on) return (mock ? `<button disabled class="${btn} ${pri}">🔊 播放中…</button>` : `<button onclick="stopAudio()" class="${btn} ${line}">⏹ 停止</button>`) + hint;
   if (mock && done) return `<button disabled class="${btn} ${pri}">已播放</button>`;
-  return `<button onclick="playSet()" class="${btn} ${pri}">${done ? '🔁 重播' : '🔊 播放對話'}</button>` + hint;
+  const allDone = x.questions.every(q => r.ans[qKey(x, q)] !== undefined); // 整組都答完：重播改次要樣式，讓「下一組」成為唯一主要按鈕
+  return `<button onclick="playSet()" class="${btn} ${allDone ? line : pri}">${done ? '🔁 重播' : '🔊 播放對話'}</button>` + hint;
 }
 function paintAudio() { const e = document.getElementById('aud'); if (e && V.view === 'run') e.innerHTML = audHtml(); }
 
@@ -127,7 +128,7 @@ function pick(k, ci) {
 }
 function nextSet() {
   const r = V.run; stopAudio(); P.hint = '';
-  if (r.i + 1 < r.sets.length) { r.i++; render(); window.scrollTo({ top: 0 }); return; }
+  if (r.i + 1 < r.sets.length) { r.i++; render(); window.scrollTo({ top: 0 }); playSet(); return; } // 換組後自動播放對話（沿用按「下一組」的點擊手勢，手機也能播）
   finish();
 }
 function finish() {
@@ -182,7 +183,8 @@ function runH() {
   if (pr) x.questions.forEach(q => { if (done(q)) (q.evidence || []).forEach(i => ev.add(i)); });
   let h = hdr(`${mock ? '測驗' : '練習'} · ${r.i + 1} / ${n}`, 'quit()');
   h += `<div class="h-1.5 rounded bg-slate-200 dark:bg-slate-800 mb-4"><div class="h-1.5 rounded bg-indigo-600" style="width:${(r.i + nAns / x.questions.length) / n * 100}%"></div></div>`;
-  h += `<div class="flex items-center gap-3 mb-4"><span id="aud" class="flex items-center gap-2 flex-wrap">${audHtml()}</span><span class="text-xs text-slate-400">${mock ? '只播放一次' : '可重複播放'}</span><span class="ml-auto">${rpBtn(x.id)}</span></div>`;
+  const nextBtn = `<button ${mock && !allDone ? 'disabled' : ''} onclick="nextSet()" class="${btn} ${allDone ? pri : line + ' disabled:opacity-40 disabled:cursor-not-allowed'}">${last ? '完成，看結果' : '下一組 →'}</button>`;
+  h += `<div class="flex items-center gap-3 mb-4 flex-wrap"><span id="aud" class="flex items-center gap-2 flex-wrap">${audHtml()}</span>${nextBtn}<span class="text-xs text-slate-400">${mock ? '只播放一次' : '可重複播放'}</span><span class="ml-auto">${rpBtn(x.id)}</span></div>`;
   if (pr) h += `<div class="flex items-center gap-2 mb-3 text-xs text-slate-500">文稿：${[[0, '關'], [1, '英文'], [2, '英＋中']].map(([k, l]) => `<button onclick="V.tx=${k};render()" class="${btn} !py-1 !px-3 text-xs ${V.tx === k ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${l}</button>`).join('')}</div>`;
   if (pr && V.tx) h += `<div class="${card} p-3 mb-3">${x.dialogue.map((l, i) => `<p class="tsent px-2 py-1 text-sm ${ev.has(i) ? '!bg-amber-100 dark:!bg-amber-900/40' : ''}" onclick="play1(${i})"><b>${esc(l.sp)}:</b> ${esc(l.t)}${V.tx === 2 && l.zh ? `<span class="block text-xs text-slate-500">${esc(l.zh)}</span>` : ''}</p>`).join('')}</div>`;
   else if (mock) h += `<p class="text-xs text-slate-500 mb-3">${formL(x)}對話，聽完後回答 ${x.questions.length} 題（文字作答後才顯示）</p>`;
@@ -196,8 +198,7 @@ function runH() {
       return `<button ${pr && dn ? 'disabled' : ''} data-k="${esc(k)}" data-c="${ci}" onclick="pick(this.dataset.k,+this.dataset.c)" class="w-full text-left rounded-lg px-3 py-2 text-sm mb-1.5 cursor-pointer ${cls}"><b>${LT[j]}.</b> ${esc(c.t)}${pr && dn && c.zh ? `<span class="block text-xs text-slate-500">${esc(c.zh)}</span>` : ''}${pr && dn ? `<span class="block text-xs mt-1 ${c.ok ? 'text-emerald-600' : 'text-slate-500'}">${c.ok ? '✓ 正解' : esc(TR[c.trap] || '')}：${esc(c.why)}</span>` : ''}</button>`;
     }).join('')}</div></div>`;
   }).join('');
-  h += `<button ${mock && !allDone ? 'disabled' : ''} onclick="nextSet()" class="${btn} ${pri} w-full mt-5">${last ? '完成，看結果' : '下一組 →'}</button>`;
-  if (mock && !allDone) h += `<p class="text-xs text-slate-400 mt-2">請先回答這一組的 ${x.questions.length} 題（還差 ${x.questions.length - nAns} 題）。</p>`;
+  if (mock && !allDone) h += `<p class="text-xs text-slate-400 mt-2">請先回答這一組的 ${x.questions.length} 題（還差 ${x.questions.length - nAns} 題），才能按「${last ? '完成，看結果' : '下一組'}」。</p>`;
   return h;
 }
 function resultH() {

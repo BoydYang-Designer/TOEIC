@@ -223,11 +223,12 @@ function runH() {
   if (V.run.mode === 'test') return testRunH();
   const x = cx(), r = V.run, done = setDone(x), nA = x.questions.filter(q => r.sel[qkey(x, q)] !== undefined).length;
   const sec = x.format === 'single' ? 60 : 65, lim = x.questions.length * sec;
+  const nextBtn = done ? `<button onclick="nextSet()" class="${btn} ${pri} !py-1.5">${r.i < r.ids.length - 1 ? '下一組 →' : '完成，看結果'}</button>` : ''; // 整組答完才出現，放在上方控制列（Part 7 無播放鈕、不自動播放）
   return hdr(`${r.mode === 'book' ? '錯題本' : '練習'} · 第 ${r.i + 1} / ${r.ids.length} 組`, 'if(V.run&&Object.keys(V.run.sel).length&&!confirm(\'離開後本次練習不會繼續，確定嗎？\'))void 0;else goBack()')
     + `<div class="h-1.5 rounded bg-slate-200 dark:bg-slate-800 mb-3"><div class="h-1.5 rounded bg-indigo-600" style="width:${Math.round(nA / x.questions.length * 100)}%"></div></div>
-    <div class="flex flex-wrap items-center gap-2 mb-3"><span class="${chip}">${esc(x.id)}</span><span class="${chip}">${esc(FMT[x.format] || x.format)}</span><span class="${chip}">${esc(TIER[tier(x)] || '')}</span><span class="${chip}">建議 ${lim} 秒</span><button onclick="V.rp=!V.rp;render()" class="${btn} ${line} !py-1 text-xs ml-auto">⚑ 提報</button></div>${V.rp ? rpH(x) : ''}
+    <div class="flex flex-wrap items-center gap-2 mb-3"><span class="${chip}">${esc(x.id)}</span><span class="${chip}">${esc(FMT[x.format] || x.format)}</span><span class="${chip}">${esc(TIER[tier(x)] || '')}</span><span class="${chip}">建議 ${lim} 秒</span>${nextBtn}<button onclick="V.rp=!V.rp;render()" class="${btn} ${line} !py-1 text-xs ml-auto">⚑ 提報</button></div>${V.rp ? rpH(x) : ''}
     <details class="text-xs text-slate-500 mb-3"><summary class="cursor-pointer">解題提示</summary><ul class="list-disc pl-5 mt-1"><li>先瀏覽題目 10–15 秒再讀文章</li><li>NOT 題最後做</li><li>整合題先找共同連結點（人名、日期、產品）</li></ul></details>
-    <div class="grid md:grid-cols-2 gap-4 items-start"><div class="md:sticky md:top-4 md:max-h-[calc(100vh-2rem)] md:overflow-y-auto">${docsH(x)}</div><div class="space-y-3">${x.questions.map(q => qH(x, q)).join('')}${done ? reviewH(x) : ''}${done ? `<button onclick="nextSet()" class="${btn} ${pri} w-full mt-2">${r.i < r.ids.length - 1 ? '下一組 →' : '完成，看結果'}</button>` : ''}</div></div>`;
+    <div class="grid md:grid-cols-2 gap-4 items-start"><div class="md:sticky md:top-4 md:max-h-[calc(100vh-2rem)] md:overflow-y-auto">${docsH(x)}</div><div class="space-y-3">${x.questions.map(q => qH(x, q)).join('')}${done ? reviewH(x) : ''}</div></div>`;
 }
 function resultH() {
   const r = V.run || V.last, test = r.mode === 'test', ids = r.ids, rows = [];

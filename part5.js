@@ -265,14 +265,15 @@ function runH() {
   let h = hdr(`${mock ? '測驗' : '練習'} · ${r.i + 1} / ${n}`, 'quit()');
   h += `<div class="h-1.5 rounded bg-slate-200 dark:bg-slate-800 mb-4"><div class="h-1.5 rounded bg-indigo-600" style="width:${(r.i + (ans ? 1 : 0)) / n * 100}%"></div></div>`;
   h += `<div class="${card} p-5"><p class="text-lg leading-relaxed">${sentH(x, ans && !mock)}</p></div>`;
-  h += `<div class="flex items-center gap-3 my-4 flex-wrap">${mock ? '' : `<button data-play="${esc(x.id)}" data-lbl="run" onclick="togglePlay(this.dataset.play)" class="${btn} ${pri}">${P.on && !P.fr && P.cur === x.id ? '⏹ 停止' : (r.played[x.id] ? '🔁 重播' : '🔊 播放')}</button>`}<span id="tm" class="text-xs ${cc}">${esc(ct)}</span><span class="ml-auto">${rpBtn(x.id)}</span></div>`;
+  const nextBtn = ans && !mock ? `<button onclick="nextQ()" class="${btn} ${pri}">${r.i + 1 < n ? '下一題 →' : '完成，看結果'}</button>` : ''; // 作答後才出現，緊接播放鈕右側；Part 5 換題不自動播放
+  h += `<div class="flex items-center gap-3 my-4 flex-wrap">${mock ? '' : `<button data-play="${esc(x.id)}" data-lbl="run" onclick="togglePlay(this.dataset.play)" class="${btn} ${ans ? line : pri}">${P.on && !P.fr && P.cur === x.id ? '⏹ 停止' : (r.played[x.id] ? '🔁 重播' : '🔊 播放')}</button>`}${nextBtn}<span id="tm" class="text-xs ${cc}">${esc(ct)}</span><span class="ml-auto">${rpBtn(x.id)}</span></div>`;
   if (!ans) h += `<p class="text-xs text-slate-500 mb-2">選出最適合填入空格的選項${mock ? '（作答中不顯示對錯，選完直接下一題）' : '（播放會念出完整句子，含答案）'}</p>`;
   h += `<div class="grid grid-cols-2 gap-2">${d.shown.map((k, i) => {
     let c = 'border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800';
     if (ans) c = i === d.pos ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400' : i === sel ? 'border-rose-500 bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-400' : 'opacity-40 border-slate-200 dark:border-slate-800';
     return `<button ${ans ? 'disabled' : `onclick="pick(${i})"`} class="rounded-lg border px-3 py-3 text-base font-bold cursor-pointer text-left ${c}"><span class="mr-1">${L[i]}.</span>${esc(optOf(x, k).t)}</button>`;
   }).join('')}</div>`;
-  if (ans) h += revealH(x, sel, d.shown) + explainH(x) + bankH(x, d) + audioH(x) + `<button onclick="nextQ()" class="${btn} ${pri} w-full mt-5">${r.i + 1 < n ? '下一題 →' : '完成，看結果'}</button>`;
+  if (ans) h += revealH(x, sel, d.shown) + explainH(x) + bankH(x, d) + audioH(x);
   return h;
 }
 function resultH() {

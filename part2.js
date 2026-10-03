@@ -114,7 +114,8 @@ function audHtml() {
   const mock = r.mode === 'mock', done = !!r.played[x.id], hint = P.hint ? `<span class="text-xs text-rose-500 basis-full">${esc(P.hint)}</span>` : '';
   if (P.playing) return (mock ? `<button disabled class="${btn} ${pri}">🔊 播放中…</button>` : `<button onclick="stopAudio();paintAudio()" class="${btn} ${line}">⏹ 停止</button>`) + hint;
   if (mock && done) return `<button disabled class="${btn} ${pri}">已播放</button>`;
-  return `<button onclick="playQ()" class="${btn} ${pri}">${done ? '🔁 重播' : '🔊 播放'}</button>` + hint;
+  const answered = r.sel[x.id] !== undefined; // 已作答：重播改次要樣式，讓「下一題」成為唯一主要按鈕
+  return `<button onclick="playQ()" class="${btn} ${answered ? line : pri}">${done ? '🔁 重播' : '🔊 播放'}</button>` + hint;
 }
 function paintAudio() { const e = document.getElementById('aud'); if (e) e.innerHTML = audHtml(); }
 
@@ -133,7 +134,7 @@ function pick(oi) {
 }
 function nextQ() {
   const r = V.run; stopAudio(); P.hint = '';
-  if (r.i + 1 < r.ids.length) { r.i++; render(); window.scrollTo({ top: 0 }); return; }
+  if (r.i + 1 < r.ids.length) { r.i++; render(); window.scrollTo({ top: 0 }); playQ(); return; } // 換題後自動播放（沿用按「下一題」／選項的點擊手勢，手機也能播）
   const sc = score(), n = r.ids.length;
   if (r.key === 'test') { const o = R.tests[r.cfg] || {}, pct = Math.round(sc / n * 100); R.tests[r.cfg] = { best: Math.max(o.best || 0, pct), last: pct, n }; saveR(); }
   V.view = 'result'; render(); window.scrollTo({ top: 0 });
@@ -173,7 +174,8 @@ function runH() {
   const r = V.run, x = cx(), n = r.ids.length, sel = r.sel[x.id], ans = sel !== undefined, mock = r.mode === 'mock', sh = shownOf(x), v = vw(x, sh), tx = mock ? 0 : V.tx;
   let h = hdr(`${mock ? '測驗' : '練習'} · ${r.i + 1} / ${n}`, 'quit()');
   h += `<div class="h-1.5 rounded bg-slate-200 dark:bg-slate-800 mb-4"><div class="h-1.5 rounded bg-indigo-600" style="width:${(r.i + (ans ? 1 : 0)) / n * 100}%"></div></div>`;
-  h += `<div class="flex items-center gap-3 mb-4"><span id="aud" class="flex items-center gap-2 flex-wrap">${audHtml()}</span><span class="text-xs text-slate-400">${mock ? '只播放一次' : '可重複播放'}</span><span class="ml-auto">${rpBtn(x.id)}</span></div>`;
+  const nextBtn = ans ? `<button onclick="nextQ()" class="${btn} ${pri}">${r.i + 1 < n ? '下一題 →' : '完成，看結果'}</button>` : '';
+  h += `<div class="flex items-center gap-3 mb-4 flex-wrap"><span id="aud" class="flex items-center gap-2 flex-wrap">${audHtml()}</span>${nextBtn}<span class="text-xs text-slate-400">${mock ? '只播放一次' : '可重複播放'}</span><span class="ml-auto">${rpBtn(x.id)}</span></div>`;
   if (!mock && !ans) h += `<div class="flex items-center gap-2 mb-3 text-xs text-slate-500">文稿：${[[0, '關'], [1, '英文'], [2, '中文']].map(([k, l]) => `<button onclick="V.tx=${k};render()" class="${btn} !py-1 !px-3 text-xs ${V.tx === k ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${l}</button>`).join('')}</div>`;
   if (!ans) {
     if (tx) h += `<p class="text-sm mb-3"><b>Q：</b>${esc(tx === 1 ? x.q.t : x.q.zh)}</p><div class="space-y-2">${v.s.map((p, i) => `<button onclick="pick(${i})" class="${btn} ${line} w-full text-left hover:bg-slate-100 dark:hover:bg-slate-800"><b>${L[i]}.</b> ${esc(tx === 1 ? p.t : p.zh)}</button>`).join('')}</div>`;
@@ -183,7 +185,7 @@ function runH() {
       const c = i === v.ans ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700' : i === sel ? 'border-rose-500 bg-rose-50 dark:bg-rose-950/50 text-rose-700' : 'opacity-40 border-slate-200 dark:border-slate-800';
       return `<button disabled class="rounded-lg border py-3 text-lg font-bold ${c}">${L[i]}</button>`;
     }).join('')}</div>`;
-    h += revealH(x, sel, sh) + `<button onclick="nextQ()" class="${btn} ${pri} w-full mt-5">${r.i + 1 < n ? '下一題 →' : '完成，看結果'}</button>`;
+    h += revealH(x, sel, sh);
   }
   return h;
 }

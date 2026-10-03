@@ -255,7 +255,7 @@ function next() {
   stop();
   const r = V.run;
   if (r.i >= r.sets.length - 1) finish();
-  else { r.i++; render(); window.scrollTo({ top: 0 }); }
+  else { r.i++; render(); window.scrollTo({ top: 0 }); if (r.mode === 'practice') startPlay(); } // 練習：換組後直接自動播放（沿用按「下一組」的點擊手勢）；測驗由 render() 的 autoStart() 自動預讀＋播放
 }
 function finish() {
   const r = V.run;
@@ -409,6 +409,8 @@ function runH() {
   if (pr) x.questions.forEach(q => { if (r.ans[x.id + '|' + q.id] !== undefined) (q.evidence || []).forEach(i => ev.add(i)); });
   const allDone = x.questions.every(q => r.ans[x.id + '|' + q.id] !== undefined);
   const pct = Math.round((r.i / r.sets.length) * 100);
+  // 「下一組」放在控制列（練習：播放鈕右側）；整組答完＝主要樣式，未答完＝次要樣式（測驗另加 disabled）。預讀／尚未播放時不顯示。
+  const nextBtn = `<button ${!pr && !allDone ? 'disabled' : ''} onclick="next()" class="${btn} ${allDone ? pri : line + ' disabled:opacity-40 disabled:cursor-not-allowed'} !py-1.5">${last ? (pr ? '結束' : '交卷') : '下一組 →'}</button>`;
   let h = `<div class="flex items-center justify-between gap-2 mb-3">
     <button onclick="quit()" class="${btn} ${line} !py-1.5">← 離開</button>
     <span class="text-sm font-medium">${pr ? '練習' : '測驗'} · ${r.i + 1} / ${r.sets.length}</span>
@@ -426,14 +428,15 @@ function runH() {
     ctl = `<span class="text-sm">預讀題目與圖表… <b id="cd">${T.k}</b> 秒後自動播放（只播一次）</span>
       <button onclick="startPlay()" class="${btn} ${pri} !py-1.5">跳過，立即播放</button>`;
   } else if (pr) {
-    ctl = `<button id="pb" onclick="toggle()" class="${btn} ${pri} !py-1.5"></button>
+    ctl = `<button id="pb" onclick="toggle()" class="${btn} ${allDone ? line : pri} !py-1.5"></button>
+      ${nextBtn}
       <button onclick="tg('showT')" class="${btn} ${line} !py-1.5">${r.showT ? '隱藏' : '顯示'}文稿</button>
       ${r.showT ? `<button onclick="tg('zh')" class="${btn} ${line} !py-1.5">${r.zh ? '隱藏' : '顯示'}中文</button>` : ''}
       <span class="ml-auto">${rpBtn(x.id)}</span>`;
   } else if (st === 'play') {
-    ctl = `<span class="text-sm">播放中…（獨白只播一次，可邊聽邊作答）</span><span class="ml-auto">${rpBtn(x.id)}</span>`;
+    ctl = `<span class="text-sm">播放中…（獨白只播一次，可邊聽邊作答）</span>${nextBtn}<span class="ml-auto">${rpBtn(x.id)}</span>`;
   } else {
-    ctl = `<span class="text-sm">作答提示時間 <b id="cd">${T.k}</b> 秒（僅提示，不會強制換題）</span><span class="ml-auto">${rpBtn(x.id)}</span>`;
+    ctl = `<span class="text-sm">作答提示時間 <b id="cd">${T.k}</b> 秒（僅提示，不會強制換題）</span>${nextBtn}<span class="ml-auto">${rpBtn(x.id)}</span>`;
   }
   h += `<div class="${card} p-3 mb-3 flex flex-wrap items-center gap-2">${ctl}</div>`;
 
@@ -467,7 +470,6 @@ function runH() {
     }).join('')}</div></div>`;
   });
 
-  h += `<button ${!pr && !allDone ? 'disabled' : ''} onclick="next()" class="${btn} ${pri} w-full">${last ? (pr ? '結束' : '交卷') : '下一組 →'}</button>`;
   return h;
 }
 
