@@ -21,11 +21,12 @@
   <main id="grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4"></main>
 
   <details id="mt" class="mt-8 md:mt-12 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 p-3 md:p-4">
-    <summary class="cursor-pointer font-bold text-base md:text-lg select-none">🔧 維護總覽 <span class="text-sm font-normal text-slate-500 dark:text-slate-400">音檔狀態</span> <span id="mtb" class="ml-1 text-xs font-normal"></span></summary>
+    <summary class="cursor-pointer font-bold text-base md:text-lg select-none">🔧 維護總覽 <span class="text-sm font-normal text-slate-500 dark:text-slate-400">音檔・Timing 狀態</span> <span id="mtb" class="ml-1 text-xs font-normal"></span></summary>
     <div id="mtc" class="mt-3"></div>
   </details>
 </div>
 
+<script src="timing.js"></script>
 <script>
 const KEY = 'toeicCoachV2'; // 與 Daily practice 共用，深淺色設定會同步
 let S = {};
@@ -75,12 +76,12 @@ const MT = [
   ['p3', '🗣️', 'Part 3', 'part3.html'], ['p4', '🎤', 'Part 4', 'part4.html'], ['p5', '✏️', 'Part 5', 'part5.html'], ['p6', '📝', 'Part 6', 'part6.html'], ['p7', '📖', 'Part 7', 'part7.html']
 ];
 const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-function mtRow(I, k, icon, label, href) {
+function mtRow(I, k, icon, label, href, tmx) {
   const d = I[k] || {}, t = d.total, c = (d.complete || []).length, pn = Object.keys(d.partial || {}).length, o = (d.orphans || []).length;
   const head = `<a href="${href}" class="font-bold hover:underline">${icon} ${label}</a>`;
   const mb = `<a href="${href}#admin" class="text-xs rounded-lg px-2.5 py-1 border border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 shrink-0">🛠 維護</a>`;
   if (typeof t !== 'number') return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 md:p-4"><div class="flex justify-between gap-2">${head}<span class="flex items-center gap-2"><span class="text-xs text-slate-500">無資料，請重新執行 audio_scan.py</span>${mb}</span></div></div>`;
-  const none = Math.max(0, t - c - pn), pct = t ? Math.round(c / t * 100) : 0, ok = t > 0 && c === t && !o;
+  const none = Math.max(0, t - c - pn), pct = t ? Math.round(c / t * 100) : 0, ok = t > 0 && c === t && !o && (!tmx || tmx.ok === tmx.total);
   const badge = ok ? '<span class="text-xs rounded-full px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">✔ 完整</span>'
     : '<span class="text-xs rounded-full px-2 py-0.5 bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">⚠ 待補</span>';
   const pl = Object.entries(d.partial || {}).map(([id, m]) => `<div><code>${esc(id)}</code> 缺 ${m.length} 個：${esc(m.join('、'))}</div>`).join('');
@@ -89,27 +90,49 @@ function mtRow(I, k, icon, label, href) {
   return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 md:p-4">
     <div class="flex items-center justify-between gap-2">${head}<span class="flex items-center gap-2">${badge}${mb}</span></div>
     <div class="h-2 rounded-full bg-slate-100 dark:bg-slate-800 mt-2 overflow-hidden"><div class="h-full bg-emerald-500" style="width:${pct}%"></div></div>
-    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1.5">共 ${t} ${esc(d.unit || '題')} · 完整 ${c} · 部分 ${pn} · 無音檔 ${none} · 孤兒檔 ${o}</div>${detail}</div>`;
+    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1.5">共 ${t} ${esc(d.unit || '題')} · 完整 ${c} · 部分 ${pn} · 無音檔 ${none} · 孤兒檔 ${o}</div>${detail}${tmx ? mtTiming(tmx) : ''}</div>`;
+}
+/* Daily 的 timing 狀態：讀 daily.json，用 timing.js 的 tmInfo 判斷（與 daily.html 維護頁同一套標準） */
+function mtTimingData(D) {
+  const items = Array.isArray(D) ? D : (D && Array.isArray(D.items) ? D.items : null);
+  if (!items) return null;
+  const r = { total: items.length, ok: 0, partial: 0, bad: 0, none: 0, todo: [] };
+  items.forEach(x => {
+    const s = tmInfo(x).state; r[s]++;
+    if (s !== 'ok') r.todo.push({ id: `w${x.week}d${x.day}`, tag: x.tag || '', s, why: tmWhy(x) });
+  });
+  return r;
+}
+function mtTiming(r) {
+  const pct = r.total ? Math.round(r.ok / r.total * 100) : 0, done = r.ok === r.total;
+  const list = r.todo.length ? `<details class="mt-2 text-xs text-slate-600 dark:text-slate-400"><summary class="cursor-pointer">看 timing 明細（${r.todo.length} 篇未完成）</summary>${r.todo.map(t => `<div class="py-0.5"><code>${esc(t.id)}</code> ${TM_LABEL[t.s]}${t.why && t.why !== TM_LABEL[t.s] ? '（' + esc(t.why) + '）' : ''} <span class="text-slate-400">${esc(t.tag)}</span></div>`).join('')}</details>` : '';
+  return `<div class="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+    <div class="flex items-center justify-between gap-2"><span class="text-sm font-semibold">⏱ Timing（句子時間戳記）</span>${done ? '<span class="text-xs rounded-full px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">✔ 完整</span>' : '<span class="text-xs rounded-full px-2 py-0.5 bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">⚠ 待補</span>'}</div>
+    <div class="h-2 rounded-full bg-slate-100 dark:bg-slate-800 mt-2 overflow-hidden"><div class="h-full bg-emerald-500" style="width:${pct}%"></div></div>
+    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1.5">共 ${r.total} 篇 · 完成 ${r.ok} · 部分 ${r.partial} · 異常 ${r.bad} · 未做 ${r.none}</div>${list}</div>`;
 }
 async function mtLoad() {
   const box = document.getElementById('mtc'), tag = document.getElementById('mtb');
   const head = '';
+  const getJ = async u => { try { const r = await fetch(u, { cache: 'no-store' }); if (!r.ok) return null; return await r.json(); } catch (e) { return null; } };
   try {
-    const r = await fetch('audio/index.json', { cache: 'no-store' });
-    if (!r.ok) throw 0;
-    const I = await r.json();
+    const [I0, D] = await Promise.all([getJ('audio/index.json'), getJ('daily.json')]);
+    if (!I0 && !D) throw 0;
+    const I = I0 || {}, tmx = D ? mtTimingData(D) : null;
     const lt = Array.isArray(I.letters) ? I.letters : [];
     const when = I.v ? new Date(I.v * 1000).toLocaleString('zh-TW', { hour12: false }) : '—';
     const w = Array.isArray(I.warn) ? I.warn : [];
-    const bad = MT.filter(m => { const d = I[m[0]] || {}; return !(d.total > 0 && (d.complete || []).length === d.total && !(d.orphans || []).length); }).length;
+    const bad = MT.filter(m => { const d = I[m[0]] || {}; return !(d.total > 0 && (d.complete || []).length === d.total && !(d.orphans || []).length && (m[0] !== 'daily' || !tmx || tmx.ok === tmx.total)); }).length;
     tag.innerHTML = bad ? `<span class="rounded-full px-2 py-0.5 bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">⚠ ${bad} 項待補</span>` : '<span class="rounded-full px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">✔ 全部完整</span>';
     box.innerHTML = head
       + `<p class="text-xs text-slate-500 dark:text-slate-400 mb-3">最後掃描：${when} · 選項字母 ${'ABCDE'.split('').map(c => `<span class="${lt.includes(c) ? 'text-emerald-600' : 'text-rose-500'}">${c}${lt.includes(c) ? '✔' : '✖'}</span>`).join(' ')}（Part 1 需 A–D，Part 2 需 A–C）</p>`
-      + `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${MT.map(m => mtRow(I, ...m)).join('')}</div>`
+      + `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${MT.map(m => mtRow(I, ...m, m[0] === 'daily' ? tmx : null)).join('')}</div>`
       + (w.length ? `<details class="mt-3 rounded-xl border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-3 text-xs"><summary class="cursor-pointer font-semibold">⚠ 掃描警告 ${w.length} 則</summary><ul class="mt-2 space-y-1 list-disc pl-4">${w.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>` : '')
-      + '<p class="text-xs text-slate-400 mt-3">資料來自 audio/index.json；新增或搬動音檔後，請重新執行 audio/audio_scan.py 並上傳。</p>';
+      + (I0 ? '' : '<p class="text-xs text-amber-600 mt-3">讀不到 audio/index.json，音檔狀態無法顯示（請執行 audio/audio_scan.py）。</p>')
+      + (D ? '' : '<p class="text-xs text-amber-600 mt-3">讀不到 daily.json，Timing 狀態無法顯示。</p>')
+      + '<p class="text-xs text-slate-400 mt-3">音檔資料來自 audio/index.json（新增或搬動音檔後請重新執行 audio/audio_scan.py 並上傳）；Timing 直接讀 daily.json，上傳新的 daily.json 後重新整理即更新。</p>';
   } catch (e) {
-    box.innerHTML = head + '<p class="text-sm text-slate-500 dark:text-slate-400">讀不到 audio/index.json（尚未掃描，或以 file:// 直接開啟）。請執行 audio/audio_scan.py 後從網站網址開啟。</p>';
+    box.innerHTML = head + '<p class="text-sm text-slate-500 dark:text-slate-400">讀不到 audio/index.json 與 daily.json（尚未掃描，或以 file:// 直接開啟）。請從網站網址開啟（VS Code Go Live 即可）。</p>';
   }
 }
 /* 記住展開狀態（同一分頁內）；從各 Part 維護頁返回時（index.html#mt）自動展開並捲到總覽 */

@@ -2,44 +2,11 @@
    依賴（執行時才用到，載入順序在 audio.js 之後、daily.js 之前即可）：
    daily.js 的 DATA／S／save／cur／find／idOf／esc／card／btn／main／render／push／audioSrc／dyHas／setVoice
    audio.js 的 AU
-   ① tmInfo(x)       檢查一篇的 timing 完成度（維護頁、語音練習共用）
+   timing.js 的 tmInfo／tmBadge／TM_LABEL／TM_COLOR（需先載入 timing.js）
    ② 語音練習頁       cur.view === 'speak'：「一句一句」與「整篇」兩種模式
                      錄音＋語音辨識＋逐字比對的做法沿用 quiz.js（MediaRecorder＋SpeechRecognition＋LCS） */
 
-/* ================= ① timing 完成度 ================= */
-const TM_LABEL = { ok: '完成', partial: '部分', bad: '異常', none: '未做' };
-const TM_COLOR = {
-  ok: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300',
-  partial: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300',
-  bad: 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300',
-  none: 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400'
-};
-/* state：none＝沒有 timing；bad＝欄位或範圍有誤；partial＝有些文字沒被任何一段涵蓋；ok＝完成 */
-function tmInfo(x) {
-  const p = String((x && x.passage) || ''), tm = x && x.timing;
-  if (!Array.isArray(tm) || !tm.length) return { state: 'none', n: 0, issues: [], gaps: [], dur: 0 };
-  const issues = [];
-  tm.forEach((t, i) => {
-    const q = `第 ${i + 1} 段`;
-    if (!t || ![t.start, t.end, t.from, t.to].every(Number.isFinite)) { issues.push(q + '：start／end／from／to 缺漏或不是數字'); return; }
-    if (!(t.from >= 0 && t.from < t.to && t.to <= p.length)) issues.push(q + '：文字範圍（from／to）不合');
-    if (!(t.end > t.start)) issues.push(q + '：結束時間沒有大於開始時間');
-    const o = tm[i - 1];
-    if (i && o && Number.isFinite(o.to)) {
-      if (t.from < o.to) issues.push(q + '：文字範圍與前一段重疊');
-      if (t.start < o.end - 0.01) issues.push(q + '：開始時間早於前一段的結束');
-    }
-  });
-  if (issues.length) return { state: 'bad', n: tm.length, issues, gaps: [], dur: 0 };
-  const gaps = []; let pos = 0;
-  tm.concat([{ from: p.length, to: p.length }]).forEach(t => {
-    const g = p.slice(pos, t.from);
-    if (/[A-Za-z0-9]/.test(g)) gaps.push(g.trim());
-    pos = t.to;
-  });
-  return { state: gaps.length ? 'partial' : 'ok', n: tm.length, issues: [], gaps, dur: tm[tm.length - 1].end };
-}
-const tmBadge = x => { const s = tmInfo(x).state; return `<span class="inline-block text-[11px] font-semibold rounded px-1.5 py-0.5 ${TM_COLOR[s]}">⏱ ${TM_LABEL[s]}</span>`; };
+/* ================= ① timing 完成度：已搬到 timing.js（tmInfo／tmBadge／TM_LABEL／TM_COLOR），HTML 需先載入 timing.js ================= */
 
 /* ================= 切句（沒有 timing 時使用；也用來補 timing 漏掉的段落） ================= */
 const SK_ABBR = /\b(Mr|Mrs|Ms|Dr|Prof|Inc|Ltd|Co|Corp|St|No|vs|etc)\.$/;
@@ -107,36 +74,79 @@ function skSepBefore(k) { // 兩句之間原文的分隔（換行保留）
 
 /* ================= 比對（沿用 quiz.js 的 LCS 作法，加上縮寫／數字正規化） ================= */
 const SK_NUM = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19, twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90 };
-function skToks(s) {
+function skRaw(s) { // 正規化後切成字（英文數字詞尚未合併）
   s = String(s).toLowerCase().replace(/[’‘`]/g, "'")
     .replace(/\b([ap])\.m\.?/g, '$1m')
     .replace(/(\d),(?=\d{3}\b)/g, '$1')
-    .replace(/(\d):(\d\d)/g, '$1$2')
+    .replace(/\b(\d{1,2}):00\b/g, '$1').replace(/\b(\d{1,2}):0(\d)\b/g, '$1 0 $2').replace(/\b(\d{1,2}):(\d\d)\b/g, '$1 $2')
+    .replace(/\$\s?(\d+)/g, '$1 dollars')
     .replace(/%/g, ' percent').replace(/&/g, ' and ')
     .replace(/\bcan't\b/g, 'cannot').replace(/\bwon't\b/g, 'will not')
     .replace(/n't\b/g, ' not').replace(/'re\b/g, ' are').replace(/'m\b/g, ' am').replace(/'ve\b/g, ' have').replace(/'ll\b/g, ' will').replace(/'d\b/g, ' would')
     .replace(/\b(it|that|there|what|he|she|who|let|here|how|where)'s\b/g, '$1 is')
     .replace(/'s\b/g, '')
     .replace(/-/g, ' ').replace(/[^a-z0-9\s']/g, ' ').replace(/'/g, '');
-  return s.split(/\s+/).filter(Boolean).map(w => (w in SK_NUM) ? String(SK_NUM[w]) : w);
+  return s.split(/\s+/).filter(Boolean);
+}
+const skToks = s => skNumMerge(skRaw(s));
+/* 英文數字詞轉阿拉伯數字：twenty five→25、five hundred→500、ten thirty→10 30（不會硬湊成 40）；ten oh five→10 0 5 */
+const skHas = w => Object.prototype.hasOwnProperty.call(SK_NUM, w);
+function skNumMergeIx(ws) { // 回傳 [{t, ix}]：t＝合併後的字，ix＝它涵蓋原本第幾個字
+  const out = []; let th = 0, cur = null, on = false, ix = [];
+  const flush = () => { if (on) out.push({ t: String(th + (cur || 0)), ix }); th = 0; cur = null; on = false; ix = []; };
+  ws.forEach((w, i) => {
+    if (skHas(w)) {
+      const v = SK_NUM[w];
+      if (on && cur !== null && ((cur % 100 >= 20 && cur % 10 === 0 && v >= 1 && v <= 9) || (cur >= 100 && cur % 100 === 0 && v < 100))) { cur += v; ix.push(i); }
+      else if (on && cur === null && th) { cur = v; ix.push(i); }
+      else { flush(); cur = v; on = true; ix = [i]; }
+    } else if (w === 'hundred' && on && cur !== null && cur < 100) { cur *= 100; ix.push(i); }
+    else if (w === 'thousand' && on && cur !== null && cur < 1000) { th += cur * 1000; cur = null; ix.push(i); }
+    else { flush(); out.push({ t: w, ix: [i] }); }
+  });
+  flush();
+  out.forEach((o, k) => { if (o.t === 'oh' && out[k - 1] && /^\d+$/.test(out[k - 1].t) && out[k + 1] && /^[1-9]$/.test(out[k + 1].t)) o.t = '0'; });
+  return out;
+}
+const skNumMerge = ws => skNumMergeIx(ws).map(o => o.t);
+/* 評分寬嚴（S.spkLevel）：strict＝每個字都要一樣（預設）；loose＝相近的字（單複數、時態、差一個字母）算對，漏念 a／an／the／of／to 不扣分 */
+const SK_SKIP = new Set(['a', 'an', 'the', 'of', 'to']);
+const skLoose = () => S.spkLevel === 'loose';
+const skStem = w => w.replace(/(ing|ed|es|s|d)$/, '');
+function skLev(a, b) { // 編輯距離（只在 ≤1 時有意義，其餘回傳 2）
+  if (Math.abs(a.length - b.length) > 1) return 2;
+  let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++;
+  if (a.length === b.length) return a.slice(i + 1) === b.slice(i + 1) ? 1 : 2;
+  const [l, sh] = a.length > b.length ? [a, b] : [b, a]; return l.slice(i + 1) === sh.slice(i) ? 1 : 2;
+}
+function skEq(h, t, loose) {
+  if (h === t) return true;
+  if (!loose || /\d/.test(h + t)) return false; // 數字一定要一樣
+  const sh = skStem(h), st = skStem(t);
+  if (sh === st && sh.length >= 3) return true;
+  return Math.min(h.length, t.length) >= 5 && skLev(h, t) <= 1;
 }
 /* sents：[{t}]；heard：辨識到的整段文字。回傳 {pct, sents:[{pct, words:[{w, ok}]}]} */
 function skCompare(sents, heard) {
+  const loose = skLoose();
   const H = skToks(heard), T = [], own = [];
-  const disp = sents.map(s => (String(s.t).match(/\S+/g) || []).map(w => ({ w, k: skToks(w) })));
-  disp.forEach((ws, si) => ws.forEach((d, wi) => d.k.forEach(k => { T.push(k); own.push([si, wi]); })));
+  const disp = sents.map(s => (String(s.t).match(/\S+/g) || []).map(w => ({ w, k: skRaw(w) })));
+  const R = [], RO = []; // 文稿的每個原始字，以及它屬於哪一句的哪個字（英文數字詞要跨字合併，如 twenty five → 25）
+  disp.forEach((ws, si) => ws.forEach((d, wi) => d.k.forEach(k => { R.push(k); RO.push([si, wi]); })));
+  skNumMergeIx(R).forEach(o => { T.push(o.t); own.push(o.ix.map(i => RO[i])); });
   const m = H.length, n = T.length, hit = new Array(n).fill(false);
   if (m && n) {
     const dp = Array.from({ length: m + 1 }, () => new Uint16Array(n + 1));
-    for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) dp[i][j] = H[i - 1] === T[j - 1] ? dp[i - 1][j - 1] + 1 : Math.max(dp[i - 1][j], dp[i][j - 1]);
+    for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) dp[i][j] = skEq(H[i - 1], T[j - 1], loose) ? dp[i - 1][j - 1] + 1 : Math.max(dp[i - 1][j], dp[i][j - 1]);
     let i = m, j = n;
     while (i > 0 && j > 0) {
-      if (H[i - 1] === T[j - 1]) { hit[j - 1] = true; i--; j--; }
+      if (skEq(H[i - 1], T[j - 1], loose)) { hit[j - 1] = true; i--; j--; }
       else if (dp[i - 1][j] >= dp[i][j - 1]) i--; else j--;
     }
   }
+  if (loose) T.forEach((t, j) => { if (!hit[j] && SK_SKIP.has(t)) hit[j] = true; });
   const okc = disp.map(ws => ws.map(() => 0));
-  own.forEach(([si, wi], j) => { if (hit[j]) okc[si][wi]++; });
+  own.forEach((os, j) => { if (hit[j]) os.forEach(([si, wi]) => okc[si][wi]++); });
   let totAll = 0, okAll = 0;
   const out = disp.map((ws, si) => {
     let tot = 0, ok = 0;
@@ -313,6 +323,12 @@ function skFinish(tk) {
 }
 
 /* ================= 操作 ================= */
+function skLevel(v) { // 切換評分寬嚴；已錄的結果依新標準重新計分（「最佳」紀錄不動）
+  S.spkLevel = v; save();
+  Object.keys(SK.res || {}).forEach(i => { const r = SK.res[i]; if (r && r.sup && r.heard && SK.sents[i]) { const c = skCompare([SK.sents[i]], r.heard); r.pct = c.pct; r.words = c.sents[0].words; } });
+  const w = SK.wres; if (w && w.sup && w.heard) { w.c = skCompare(SK.sents, w.heard); w.pct = w.c.pct; }
+  skRender();
+}
 function skMode(m) { skStopAll(); SK.mode = m; S.spkMode = m; save(); skRender(); }
 function skGo(i) { skStopAll(); SK.i = Math.max(0, Math.min(SK.sents.length - 1, i)); SK.err = ''; skRender(); }
 function skRate(r) { SK.rate = r; if (SK.au) SK.au.playbackRate = r; skRender(); }
@@ -436,7 +452,8 @@ function skRender() {
       <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${x.week} · Day ${x.day} · ${esc(x.tag || '')}</span>
     </header>
     ${skNotes(x)}
-    <div class="flex gap-2 mb-4">${tab('sent', '一句一句')}${tab('whole', '整篇')}</div>
+    <div class="flex gap-2 mb-3">${tab('sent', '一句一句')}${tab('whole', '整篇')}</div>
+    <div class="flex flex-wrap items-center gap-2 mb-4 text-xs"><span class="text-slate-500">評分</span><button onclick="skLevel('loose')" class="${skSeg(skLoose())} !py-1">寬鬆</button><button onclick="skLevel('strict')" class="${skSeg(!skLoose())} !py-1">嚴格</button><span class="text-slate-400">${skLoose() ? '相近的字（單複數、時態）算對，漏念 a／the／to／of 不扣分' : '每個字都要念對'}</span></div>
     ${SK.mode === 'sent' ? skSentH(x) : skWholeH(x)}
     <button onclick="skBack()" class="${btn} md:hidden w-full mt-6 border border-slate-300 dark:border-slate-700">← 返回內文</button>`;
 }
