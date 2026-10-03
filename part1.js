@@ -196,7 +196,7 @@ function pick(oi) {
   r.sel[x.id] = oi;
   const ok = oi === v.ans;
   R.rec[x.id] = { sel: oi, ok, trap: v.s[oi].trap || '', shown: v.sh };
-  if (!ok) R.saved[x.id] = 1;
+  if (!ok) R.saved[x.id] = 1; else delete R.saved[x.id]; // 答錯加入錯題本；之後答對就自動移出
   saveR();
   if (r.mode === 'mock') nextQ(); else render();
 }
@@ -516,9 +516,27 @@ function orphanH() {
 const missImgs = () => DATA.filter(x => IMG.st[x.id] === 'missing');
 
 /* 某「主題 × 難度」格子：題數、不重複圖片數、缺圖數（達標以不重複圖片數計，因為測驗同一輪不會出現同一張圖） */
+/* ---------- 缺音檔提示：以 audio/index.json 為準；整題 12 句沒到齊＝缺音檔（該題改用機器發音，仍可作答）。舊格式（statements）不用句子音檔，不算 ---------- */
+const auNeed = x => !x._legacy;
+const auHas = x => !!(AU.idx && AU.idx.p1 && (AU.idx.p1.complete || []).includes(x.id));
+const auMissing = x => auNeed(x) && !auHas(x);
+const missAud = () => DATA.filter(auMissing);
+/* 某題缺的音檔：[{name, text}]（只含缺的；partial 清單有列出缺哪幾句，沒列＝全缺） */
+function auMissRows(x) {
+  if (!auMissing(x)) return [];
+  const n = auNames('p1', x), I = (AU.idx && AU.idx.p1) || {}, ms = (I.partial || {})[x.id];
+  return x._pool.map((p, i) => ({ name: n.s[i], text: p.t })).filter(r => !ms || ms.includes(r.name));
+}
+async function recheckAudio() { await auLoad(); render(); }
+function clipText(t, bid) {
+  const done = () => { const b = document.getElementById(bid); if (b) { b.dataset.l = b.dataset.l || b.textContent; b.textContent = '已複製 ✓'; setTimeout(() => { if (b.isConnected) b.textContent = b.dataset.l || '複製'; }, 1500); } };
+  const fb = () => { const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove(); done(); };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(done, fb); else fb();
+}
+function copyCellMiss(d, t) { clipText(inCell(d, t).flatMap(auMissRows).map(r => r.name + '.mp3 | ' + r.text).join('\n'), 'cm'); }
 function cellStat(d, t) {
   const xs = DATA.filter(x => domOf(x) === d && tierOf(x) === t);
-  return { n: xs.length, img: uniqN(xs), miss: xs.filter(x => IMG.st[x.id] === 'missing').length, orph: orphIn(d, t).length };
+  return { n: xs.length, img: uniqN(xs), miss: xs.filter(x => IMG.st[x.id] === 'missing').length, aud: xs.filter(auMissing).length, orph: orphIn(d, t).length };
 }
 
 const HL = { err: ['✖', 'text-rose-600 dark:text-rose-400'], warn: ['⚠', 'text-amber-600 dark:text-amber-400'], info: ['ℹ', 'text-slate-500'] };
@@ -529,6 +547,13 @@ function imgStatusH() {
     : miss ? `<span class="text-rose-600 dark:text-rose-400">✖ 缺 <b>${miss}</b> 張（已找到 ${ok} / ${N}）</span>`
       : `<span class="text-emerald-600 dark:text-emerald-400">✔ ${ok} 張圖片檔都找到了</span>`;
   return `<span class="flex items-center gap-2">${s}${N ? `<button onclick="recheckImages()" class="${btn} ${line} !py-0.5 !px-2 text-xs">重新檢查</button>` : ''}</span>`;
+}
+function audioStatusH() {
+  const N = DATA.filter(auNeed).length, miss = missAud().length, ok = N - miss;
+  const s = !N ? '' : !AU.idx ? '<span class="text-rose-600 dark:text-rose-400">✖ 尚未讀到 audio/index.json（全部用機器發音）</span>'
+    : miss ? `<span class="text-rose-600 dark:text-rose-400">✖ 缺 <b>${miss}</b> 題（有 mp3：${ok} / ${N}；缺的整題改用機器發音）</span>`
+      : `<span class="text-emerald-600 dark:text-emerald-400">✔ ${ok} 題都有 mp3</span>`;
+  return `<span class="flex items-center gap-2">${s}${N ? `<button onclick="recheckAudio()" class="${btn} ${line} !py-0.5 !px-2 text-xs">重新檢查</button>` : ''}</span>`;
 }
 function healthH() {
   const H = HEALTH, miss = missImgs(), clean = !H.err && !H.warn && !H.info && !miss.length;
@@ -550,8 +575,10 @@ function adminH() {
   let h = hdr('維護', 'goHome()');
   h += `<div class="${card} p-4 mb-4 text-sm"><div class="flex flex-wrap gap-x-6 gap-y-1"><span>題目 <b>${N}</b> 題${HEALTH.dropped ? ` <span class="${HL.err[1]}">（另有 ${HEALTH.dropped} 筆格式不合被略過）</span>` : ''}</span>`
     + `<span>圖片 <b>${M}</b> 張${M !== N ? ` <span class="${HL.warn[1]}">⚠ 與題數不符：有題目共用同一張圖</span>` : ''}</span>`
+    + `<span>音檔 <b>${DATA.filter(x => auNeed(x) && auHas(x)).length}</b> 題</span>`
     + `<span class="text-slate-500">未達標格子 <b>${low}</b> / ${doms.length * tiers.length}（目標每格 ≥ ${TARGET} 張圖）</span></div>`
-    + `<div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><span class="text-slate-500">圖片檔：</span>${imgStatusH()}</div></div>`;
+    + `<div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><span class="text-slate-500">圖片檔：</span>${imgStatusH()}</div>`
+    + `<div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><span class="text-slate-500">音檔：</span>${audioStatusH()}</div></div>`;
   h += healthH();
   h += orphanH();
   h += `<div class="overflow-x-auto mb-3"><div class="grid gap-1.5 text-center text-sm min-w-[32rem]" style="grid-template-columns:4.5rem repeat(${doms.length},minmax(3rem,1fr))"><div></div>${doms.map(d => `<button onclick="adminCell('${d}',null)" class="text-xs font-bold py-1 cursor-pointer hover:text-indigo-600">${d.toUpperCase()}<br><span class="font-normal text-slate-500">${esc(DOM[d].n)}</span></button>`).join('')}`;
@@ -561,10 +588,11 @@ function adminH() {
       return `<button onclick="adminCell('${d}','${t}')" class="rounded-lg py-3 font-bold cursor-pointer ${tcol(s.img)}">${s.img}`
         + (s.n !== s.img ? `<span class="block text-[10px] font-normal">${s.n} 題</span>` : '')
         + (s.miss ? `<span class="block text-[10px] font-normal text-rose-600 dark:text-rose-400">缺圖 ${s.miss}</span>` : '')
+        + (s.aud ? `<span class="block text-[10px] font-normal text-rose-600 dark:text-rose-400">缺音檔 ${s.aud}</span>` : '')
         + (s.orph ? `<span class="block text-[10px] font-normal text-sky-600 dark:text-sky-400">有圖待寫 ${s.orph}</span>` : '') + '</button>';
     }).join('');
   });
-  h += `</div></div><p class="text-xs text-slate-400 mb-5">格子＝該難度、該主題的「不重複圖片數」（正常情況＝題數）。紅＝0、黃＝未達 ${TARGET}、綠＝達標；格內小字：題數與圖片數不同、有圖片檔找不到，或（藍字）圖片已放好但還沒有題目。點格子看該格的圖片與題目；點上方 D1–D7 看該主題全部難度。</p>`;
+  h += `</div></div><p class="text-xs text-slate-400 mb-5">格子＝該難度、該主題的「不重複圖片數」（正常情況＝題數）。紅＝0、黃＝未達 ${TARGET}、綠＝達標；格內小字：題數與圖片數不同、有圖片檔找不到、缺音檔的題數（缺的整題用機器發音，仍可作答），或（藍字）圖片已放好但還沒有題目。點格子看該格的圖片與題目；點上方 D1–D7 看該主題全部難度。</p>`;
   h += `<button onclick="go('reports')" class="${btn} ${line} w-full mb-3">⚑ 提報彙整${openRpN() ? `（待處理 ${openRpN()}）` : ''}</button>`;
   return h + `<button onclick="adminNew()" class="${btn} ${pri} w-full">＋ 新增題目</button>`;
 }
@@ -572,12 +600,14 @@ function adminH() {
 function adminCellH() {
   const d = A.d, t = A.t, xs = inCell(d, t), nm = domLabel(d) + (t ? ' · ' + TIER[t] : '');
   let h = hdr(nm, 'goAdmin()');
-  h += `<button onclick="adminNew('${d}',${t ? `'${t}'` : 'null'})" class="${btn} ${pri} w-full mb-4">＋ 新增 ${esc(nm.replace(' · ', ' '))} 題目</button>`;
+  h += `<button onclick="adminNew('${d}',${t ? `'${t}'` : 'null'})" class="${btn} ${pri} w-full mb-3">＋ 新增 ${esc(nm.replace(' · ', ' '))} 題目</button>`;
+  { const nm_ = xs.filter(auMissing).length; h += `<button id="cm" ${nm_ ? '' : 'disabled'} onclick="copyCellMiss('${d}',${t ? `'${t}'` : 'null'})" class="${btn} ${line} w-full mb-4">複製本格缺的音檔清單（${nm_}）</button>`; }
   if (!xs.length) return h + `<div class="${card} p-8 text-center text-sm text-slate-500">目前沒有圖片（0 題）。<br><span class="text-xs text-slate-400">點上方「＋ 新增」開始建立。</span></div>`;
   return h + xs.map(x => {
     const k = tierOf(x), sc = x.level && x.level.score;
     const nh = hItems(x.id).filter(h => h.lv !== 'info').length;
     const badge = (IMG.st[x.id] === 'missing' ? `<span class="${chip} !bg-rose-100 !text-rose-700 dark:!bg-rose-950 dark:!text-rose-300">缺圖</span>` : '')
+      + (auMissing(x) ? `<span class="${chip} !bg-rose-100 !text-rose-700 dark:!bg-rose-950 dark:!text-rose-300">缺音檔</span>` : '')
       + (nh ? `<span class="${chip} !bg-amber-100 !text-amber-700 dark:!bg-amber-950 dark:!text-amber-300">⚠ ${nh}</span>` : '')
       + (openRpN(x.id) ? `<span class="${chip} !bg-rose-100 !text-rose-700 dark:!bg-rose-950 dark:!text-rose-300">⚑ 提報 ${openRpN(x.id)}</span>` : '');
     return `<div class="${card} p-3 mb-3 flex gap-3"><button onclick="adminItem(this.dataset.k)" data-k="${esc(x.id)}" class="w-28 shrink-0 cursor-pointer text-left">${imgH(x)}</button>

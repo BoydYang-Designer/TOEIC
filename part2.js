@@ -2,14 +2,16 @@
    題目 id = d{N}-{NNN}-{e|m|h}（N=主題 D1–D7，與 Part 1 相同）；qtype = q1–q6 只是題型標籤。
    題庫格式：q（固定問句）＋ pool（12 句：3 正確＋9 錯誤）；每次作答隨機抽 1 正確＋2 錯誤並排成 A–C。
    練習：可開英文／中文文稿、可重播、答完立即看解析；測驗：音檔只播一次、全程不顯示文字、完成後才檢討。
-   維護：D×難度矩陣 → 該格題目；「新增題目」選 D／難度／Q 後產生給 AI 的指令（一次多題，AI 回傳 JSON 陣列，再用 json_merge.py 合併）。 */
+   維護：D×難度矩陣 → 該格題目 → 單題頁（12 句、音檔面板、提報）；另有「⚑ 提報」（存在 PK.reports，介面比照 Part 1）；「新增題目」選 D／難度／Q 後產生給 AI 的指令（一次多題，AI 回傳 JSON 陣列，再用 json_merge.py 合併）。 */
 const KEY = 'toeicCoachV2', PK = 'toeicPart2V1'; // KEY 只讀寫 dark；作答紀錄存在 PK
 let S = {}; try { S = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
 let R = { rec: {}, saved: {}, tests: {} };
 try { R = Object.assign(R, JSON.parse(localStorage.getItem(PK) || '{}')); } catch (e) {}
+if (!R.tests) R.tests = {};
+if (!Array.isArray(R.reports)) R.reports = []; // 提報紀錄（存在 PK 裡，與作答紀錄同一份 localStorage）
 const saveR = () => { try { localStorage.setItem(PK, JSON.stringify(R)); } catch (e) {} };
 let DATA = [], RAW = [], SPEC = null, HEALTH = { list: [], err: 0, warn: 0, dropped: 0 };
-const TESTN = 10, TARGET = 4, L = 'ABC';
+const TESTN = 6, TARGET = 2, L = 'ABC'; // 與 Part 1 相同（PART_UI_GUIDE 1.2 #4 預設；若要維持 10／4 只改這一行）
 const TIER = { easy: '初級', medium: '中級', hard: '高級' }, TS = { easy: 'e', medium: 'm', hard: 'h' }, TSC = { easy: '500–550', medium: '600–650', hard: '700–800' };
 const SCORE_RG = { easy: [500, 550], medium: [600, 650], hard: [700, 800] };
 const QT = { q1: 'WH 疑問句', q2: 'Yes/No 疑問句', q3: '選擇疑問句', q4: '附加問句', q5: '陳述句', q6: '建議／請求／提議' };
@@ -48,7 +50,7 @@ const line = 'border border-slate-300 dark:border-slate-700';
 const pri = 'bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed';
 const chip = 'text-xs rounded-full px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300';
 const main = document.getElementById('main');
-let V = { view: 'home', pn: 10, fd: null, fm: null, fq: null, tt: null, tm: null, tx: 0, run: null };
+let V = { rp: null, rf: null, rkf: null, view: 'home', pn: 10, fd: null, fm: null, fq: null, tt: null, tm: null, tx: 0, run: null };
 
 /* ---------- 音訊：瀏覽器語音合成（問句與回答盡量用不同聲音）；iOS 必須在點擊當下解鎖 ---------- */
 const P = { tok: 0, playing: false, hint: '', started: false, unlocked: false, wd: 0, vq: null, va: null };
@@ -126,7 +128,7 @@ function pick(oi) {
   const r = V.run, x = cx(); if (r.sel[x.id] !== undefined) return;
   const v = vw(x, shownOf(x)); r.sel[x.id] = oi; const ok = oi === v.ans;
   R.rec[x.id] = { sel: oi, ok, trap: v.s[oi].trap || '', shown: v.sh };
-  if (!ok) R.saved[x.id] = 1; saveR();
+  if (!ok) R.saved[x.id] = 1; else delete R.saved[x.id]; saveR(); // 答錯加入錯題本；之後答對就自動移出
   if (r.mode === 'mock') nextQ(); else render();
 }
 function nextQ() {
@@ -171,27 +173,33 @@ function runH() {
   const r = V.run, x = cx(), n = r.ids.length, sel = r.sel[x.id], ans = sel !== undefined, mock = r.mode === 'mock', sh = shownOf(x), v = vw(x, sh), tx = mock ? 0 : V.tx;
   let h = hdr(`${mock ? '測驗' : '練習'} · ${r.i + 1} / ${n}`, 'quit()');
   h += `<div class="h-1.5 rounded bg-slate-200 dark:bg-slate-800 mb-4"><div class="h-1.5 rounded bg-indigo-600" style="width:${(r.i + (ans ? 1 : 0)) / n * 100}%"></div></div>`;
-  h += `<div class="flex items-center gap-3 mb-4"><span id="aud" class="flex items-center gap-2 flex-wrap">${audHtml()}</span><span class="text-xs text-slate-400">${mock ? '只播放一次' : '可重複播放'}</span></div>`;
+  h += `<div class="flex items-center gap-3 mb-4"><span id="aud" class="flex items-center gap-2 flex-wrap">${audHtml()}</span><span class="text-xs text-slate-400">${mock ? '只播放一次' : '可重複播放'}</span><span class="ml-auto">${rpBtn(x.id)}</span></div>`;
   if (!mock && !ans) h += `<div class="flex items-center gap-2 mb-3 text-xs text-slate-500">文稿：${[[0, '關'], [1, '英文'], [2, '中文']].map(([k, l]) => `<button onclick="V.tx=${k};render()" class="${btn} !py-1 !px-3 text-xs ${V.tx === k ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${l}</button>`).join('')}</div>`;
   if (!ans) {
     if (tx) h += `<p class="text-sm mb-3"><b>Q：</b>${esc(tx === 1 ? x.q.t : x.q.zh)}</p><div class="space-y-2">${v.s.map((p, i) => `<button onclick="pick(${i})" class="${btn} ${line} w-full text-left hover:bg-slate-100 dark:hover:bg-slate-800"><b>${L[i]}.</b> ${esc(tx === 1 ? p.t : p.zh)}</button>`).join('')}</div>`;
     else h += `<p class="text-xs text-slate-500 mb-2">聽一句問句與三個回答，選出最適當的回應（文字作答後才顯示）</p><div class="grid grid-cols-3 gap-2">${[0, 1, 2].map(i => `<button onclick="pick(${i})" class="rounded-lg border ${line} py-3 text-lg font-bold cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800">${L[i]}</button>`).join('')}</div>`;
-  } else h += revealH(x, sel, sh) + `<button onclick="nextQ()" class="${btn} ${pri} w-full mt-5">${r.i + 1 < n ? '下一題 →' : '完成，看結果'}</button>`;
+  } else {
+    h += `<div class="grid grid-cols-3 gap-2">${[0, 1, 2].map(i => {
+      const c = i === v.ans ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700' : i === sel ? 'border-rose-500 bg-rose-50 dark:bg-rose-950/50 text-rose-700' : 'opacity-40 border-slate-200 dark:border-slate-800';
+      return `<button disabled class="rounded-lg border py-3 text-lg font-bold ${c}">${L[i]}</button>`;
+    }).join('')}</div>`;
+    h += revealH(x, sel, sh) + `<button onclick="nextQ()" class="${btn} ${pri} w-full mt-5">${r.i + 1 < n ? '下一題 →' : '完成，看結果'}</button>`;
+  }
   return h;
 }
 function resultH() {
   const r = V.run, n = r.ids.length, sc = score(), test = r.key === 'test', prac = r.key === 'practice', book = r.key === 'book';
   let h = hdr('作答結果', 'goBack()'), sub = test ? '測驗成績' : '練習結果（不計入成績）';
   if (test) { const [t, m] = r.cfg.split('|'); sub += ` · ${TIER[t] || '不限難度'} · ${DOM[m] ? domLabel(m) : '不限主題'}`; }
-  h += `<div class="${card} p-5 text-center mb-5"><p class="text-sm text-slate-500">${sub}</p><p class="text-4xl font-bold mt-1 ${sc / n >= 0.75 ? 'text-emerald-600' : 'text-amber-600'}">${sc} / ${n}</p><div class="flex gap-2 justify-center mt-4"><button onclick="goBack()" class="${btn} ${line}">${test ? '回測驗選單' : book ? '回錯題本' : '回練習選單'}</button>${test ? `<button onclick="startTest()" class="${btn} ${pri}">再測一次</button>` : prac ? `<button onclick="startPractice()" class="${btn} ${pri}">再練一次</button>` : ''}</div></div>`;
-  r.ids.forEach((id, i) => { const x = find(id), s = r.sel[id], ok = s === vw(x, r.shown[id]).ans; h += `<div class="${card} p-4 mb-3"><p class="text-sm font-bold ${ok ? 'text-emerald-600' : 'text-rose-600'}">${ok ? '✓' : '✗'} Q${i + 1} · ${esc(x.tag)}</p>${revealH(x, s, r.shown[id])}</div>`; });
+  h += `<div class="${card} p-5 text-center mb-5"><p class="text-sm text-slate-500">${sub}</p><p class="text-4xl font-bold mt-1 ${sc / n >= 0.75 ? 'text-emerald-600' : 'text-amber-600'}">${sc} / ${n}</p><div class="flex gap-2 justify-center mt-4"><button onclick="goBack()" class="${btn} ${line}">${test ? '回測驗選單' : book ? '回錯題本' : '回練習選單'}</button>${test ? `<button onclick="startTest()" class="${btn} ${pri}">再測一次（重新抽題）</button>` : prac ? `<button onclick="startPractice()" class="${btn} ${pri}">再練一次（重新抽題）</button>` : ''}</div></div>`;
+  r.ids.forEach((id, i) => { const x = find(id), s = r.sel[id], ok = s === vw(x, r.shown[id]).ans; h += `<div class="${card} p-4 mb-3"><p class="text-sm font-bold ${ok ? 'text-emerald-600' : 'text-rose-600'}">${ok ? '✓' : '✗'} Q${i + 1} · ${esc(x.tag)}</p>${revealH(x, s, r.shown[id])}<div class="mt-3 text-right">${rpBtn(id)}</div></div>`; });
   return h;
 }
 function bookH() {
   const ids = Object.keys(R.saved).filter(find); let h = hdr('錯題本', 'goHome()');
   if (!ids.length) return h + `<p class="text-sm text-slate-400 text-center py-10">目前沒有錯題。</p>`;
   h += `<button onclick="startRun(${JSON.stringify(ids).replace(/"/g, '&quot;')},'practice','book')" class="${btn} ${pri} w-full mb-4">重做這 ${ids.length} 題</button>`;
-  ids.forEach(id => { const x = find(id); h += `<div class="${card} p-4 mb-3"><div class="flex justify-between items-center"><p class="text-sm font-bold">${esc(x.tag)}</p><button onclick="unsave(this.dataset.id)" data-id="${esc(id)}" class="text-xs text-rose-500 hover:underline">移除</button></div>${revealH(x, (R.rec[id] || {}).sel, (R.rec[id] || {}).shown)}</div>`; });
+  ids.forEach(id => { const x = find(id); h += `<div class="${card} p-4 mb-3"><div class="flex justify-between items-center"><p class="text-sm font-bold">${esc(x.tag)}</p><button onclick="unsave(this.dataset.id)" data-id="${esc(id)}" class="text-xs text-rose-500 hover:underline">移除</button></div>${revealH(x, (R.rec[id] || {}).sel, (R.rec[id] || {}).shown)}<div class="mt-3 text-right">${rpBtn(id)}</div></div>`; });
   return h;
 }
 function homeH() {
@@ -200,7 +208,7 @@ function homeH() {
   const nSaved = Object.keys(R.saved).filter(find).length;
   h += `<div class="grid gap-3 md:grid-cols-2 mb-4"><button onclick="openPractice()" class="${card} p-5 text-left hover:border-indigo-500 cursor-pointer"><p class="text-xl font-bold">📖 練習</p><p class="text-sm text-slate-500 mt-2">依難度、主題、題型隨機抽題，不計分。可開英文／中文文稿，可重複播放，作答後立即看解析。</p></button>
     <button onclick="openTest()" class="${card} p-5 text-left hover:border-indigo-500 cursor-pointer"><p class="text-xl font-bold">📝 測驗</p><p class="text-sm text-slate-500 mt-2">選難度（可再選主題），隨機抽 ${TESTN} 題。音檔只播一次、不顯示文字，完成後才檢討。</p></button></div>
-    <div class="grid grid-cols-2 gap-3"><button onclick="openBook()" class="${btn} ${line}">★ 錯題本 ${nSaved}</button><button onclick="openAdmin()" class="${btn} ${line}">🛠 維護</button></div>`;
+    <div class="grid grid-cols-3 gap-3"><button onclick="openBook()" class="${btn} ${line}">★ 錯題本 ${nSaved}</button><button onclick="go('reports')" class="${btn} ${line}">⚑ 提報${openRpN() ? ' ' + openRpN() : ''}</button><button onclick="openAdmin()" class="${btn} ${line}">🛠 維護</button></div>`;
   const cnt = {}; Object.values(R.rec).forEach(r => { if (!r.ok && TR[r.trap]) cnt[r.trap] = (cnt[r.trap] || 0) + 1; });
   const top = Object.entries(cnt).sort((a, b) => b[1] - a[1]);
   if (top.length) h += `<h2 class="font-bold mt-8 mb-2">你常中的陷阱（依最近一次作答）</h2><div class="flex flex-wrap gap-2">${top.map(([k, v]) => `<span class="${chip}">${TR[k]} × ${v}</span>`).join('')}</div>`;
@@ -217,13 +225,14 @@ function practiceH() {
   const m = pool(V.fd, V.fm, V.fq).length, n = V.pn ? Math.min(m, V.pn) : m;
   h += `<button onclick="startPractice()" ${m ? '' : 'disabled'} class="${btn} ${pri} w-full">開始練習（${n} 題）</button>`;
   if (!m) h += `<p class="text-xs text-rose-500 mt-2">這個組合目前沒有題目，請換一個條件。</p>`;
+  else if (V.pn && m < V.pn) h += `<p class="text-xs text-amber-600 mt-2">這個組合目前只有 ${m} 題，將全部出題。</p>`;
   return h;
 }
 function testH() {
   let h = hdr('測驗', 'goHome()');
   h += `<p class="text-sm text-slate-500 mb-5">依條件隨機抽 ${TESTN} 題。音檔只播放一次，作答中不顯示文字與對錯，完成後一次檢討。</p>`;
   h += `<h2 class="font-bold mb-2">1. 選難度</h2><div class="flex flex-wrap gap-2 mb-1">${fbtn('tt', null, '不限難度', pool(null, V.tm).length)}${Object.keys(TIER).map(k => fbtn('tt', k, TIER[k], pool(k, V.tm).length)).join('')}</div><p class="text-xs text-slate-400 mb-5">${tierHint()}。</p>`;
-  h += `<h2 class="font-bold mb-2">2. 選主題 <span class="text-xs font-normal text-slate-400">（可不選）</span></h2><div class="flex flex-wrap gap-2 mb-5">${fbtn('tm', null, '不限主題', pool(V.tt, null).length)}${Object.keys(DOM).map(k => fbtn('tm', k, domLabel(k), pool(V.tt, k).length)).join('')}</div>`;
+  h += `<h2 class="font-bold mb-2">2. 選主題 <span class="text-xs font-normal text-slate-400">（可不選）</span></h2><div class="flex flex-wrap gap-2 mb-1">${fbtn('tm', null, '不限主題', pool(V.tt, null).length)}${Object.keys(DOM).map(k => fbtn('tm', k, domLabel(k), pool(V.tt, k).length)).join('')}</div><p class="text-xs text-slate-400 mb-5">${V.tm ? '只從「' + domLabel(V.tm) + '」抽題；再點一次可取消。' : '不限主題：依上面選的難度，從所有主題隨機抽題。'}</p>`;
   const n = pool(V.tt, V.tm).length, o = R.tests[tcKey()];
   h += `<button onclick="startTest()" ${n ? '' : 'disabled'} class="${btn} ${pri} w-full">開始測驗（${Math.min(n, TESTN)} 題）</button>`;
   if (!n) h += `<p class="text-xs text-rose-500 mt-2">這個組合目前沒有題目，請換一個條件。</p>`; else if (n < TESTN) h += `<p class="text-xs text-amber-600 mt-2">這個組合目前只有 ${n} 題，將全部出題。</p>`;
@@ -279,7 +288,7 @@ const A = { d: null, t: null, nd: 'd1', nt: 'easy', nq: 'q1', nn: 5, out: [] };
 const tcol = n => n >= TARGET ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400' : n ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-400' : 'bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400';
 const HL = { err: ['✖', 'text-rose-600 dark:text-rose-400'], warn: ['⚠', 'text-amber-600 dark:text-amber-400'] };
 function goA(view, p) { stopAudio(); Object.assign(A, p || {}); V.view = view; V.run = null; render(); window.scrollTo({ top: 0 }); }
-const adminCell = (d, t) => goA('adminCell', { d, t }), adminNew = (d, t) => goA('adminNew', { nd: d || A.nd, nt: t || A.nt });
+const adminCell = (d, t) => goA('adminCell', { d, t }), adminItem = k => goA('adminItem', { k }), adminNew = (d, t) => goA('adminNew', { nd: d || A.nd, nt: t || A.nt });
 const apick = (k, v) => { A[k] = v; render(); };
 function adminH() {
   const doms = Object.keys(DOM), tiers = Object.keys(TIER), qc = {}; DATA.forEach(x => { qc[x.qtype] = (qc[x.qtype] || 0) + 1; });
@@ -289,16 +298,41 @@ function adminH() {
     <div class="flex flex-wrap gap-1.5 mt-3">${Object.keys(QT).map(k => `<span class="${chip}">${qLabel(k)} <b>${qc[k] || 0}</b></span>`).join('')}</div></div>`;
   const H = HEALTH;
   h += `<div class="${card} p-4 mb-4"><div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm"><b>資料健檢</b>${!H.err && !H.warn ? '<span class="text-emerald-600 dark:text-emerald-400">✔ 全部通過</span>' : `${H.err ? `<span class="${HL.err[1]}">✖ 錯誤 <b>${H.err}</b></span>` : ''}${H.warn ? `<span class="${HL.warn[1]}">⚠ 提醒 <b>${H.warn}</b></span>` : ''}`}</div>`;
-  if (H.list.length) { const g = {}, order = []; H.list.forEach(it => { if (!g[it.id]) { g[it.id] = []; order.push(it.id); } g[it.id].push(it); }); h += `<details class="mt-2" ${H.err ? 'open' : ''}><summary class="text-xs cursor-pointer text-slate-500">查看明細（${order.length} 題有項目）</summary><div class="max-h-96 overflow-auto">${order.map(id => `<div class="mt-2"><p class="text-xs font-bold">${esc(id)}</p><ul class="text-xs space-y-0.5 mt-0.5">${g[id].map(it => `<li class="${HL[it.lv][1]}">${HL[it.lv][0]} ${esc(it.msg)}</li>`).join('')}</ul></div>`).join('')}</div></details>`; }
+  if (H.list.length) { const g = {}, order = []; H.list.forEach(it => { if (!g[it.id]) { g[it.id] = []; order.push(it.id); } g[it.id].push(it); }); h += `<details class="mt-2" ${H.err ? 'open' : ''}><summary class="text-xs cursor-pointer text-slate-500">查看明細（${order.length} 題有項目）</summary><div class="max-h-96 overflow-auto">${order.map(id => `<div class="mt-2"><p class="text-xs">${idBtn(id)}</p><ul class="text-xs space-y-0.5 mt-0.5">${g[id].map(it => `<li class="${HL[it.lv][1]}">${HL[it.lv][0]} ${esc(it.msg)}</li>`).join('')}</ul></div>`).join('')}</div></details>`; }
   h += `</div><div class="overflow-x-auto mb-3"><div class="grid gap-1.5 text-center text-sm min-w-[32rem]" style="grid-template-columns:4.5rem repeat(${doms.length},minmax(3rem,1fr))"><div></div>${doms.map(d => `<button onclick="adminCell('${d}',null)" class="text-xs font-bold py-1 cursor-pointer hover:text-indigo-600">${d.toUpperCase()}<br><span class="font-normal text-slate-500">${esc(DOM[d].n)}</span></button>`).join('')}`;
   tiers.forEach(t => { h += `<div class="text-left self-center text-xs font-bold">${TIER[t]} ${TS[t]}<span class="block font-normal text-slate-500">${TSC[t]}</span></div>` + doms.map(d => { const n = pool(t, d).length; return `<button onclick="adminCell('${d}','${t}')" class="rounded-lg py-3 font-bold cursor-pointer ${tcol(n)}">${n}</button>`; }).join(''); });
-  return h + `</div></div><p class="text-xs text-slate-400 mb-5">格子＝該難度、該主題的題數。紅＝0、黃＝未達 ${TARGET}、綠＝達標。點格子看題目；點上方 D1–D7 看該主題全部難度。</p><button onclick="adminNew()" class="${btn} ${pri} w-full">＋ 新增題目</button>`;
+  return h + `</div></div><p class="text-xs text-slate-400 mb-5">格子＝該難度、該主題的題數。紅＝0、黃＝未達 ${TARGET}、綠＝達標。點格子看題目；點上方 D1–D7 看該主題全部難度。</p><button onclick="go('reports')" class="${btn} ${line} w-full mb-3">⚑ 提報彙整${openRpN() ? `（待處理 ${openRpN()}）` : ''}</button><button onclick="adminNew()" class="${btn} ${pri} w-full">＋ 新增題目</button>`;
 }
 function adminCellH() {
   const d = A.d, t = A.t, xs = DATA.filter(x => domOf(x) === d && (!t || tierOf(x) === t)).sort((a, b) => String(a.id).localeCompare(String(b.id))), nm = domLabel(d) + (t ? ' · ' + TIER[t] : '');
   let h = hdr(nm, 'openAdmin()') + `<button onclick="adminNew('${d}',${t ? `'${t}'` : 'null'})" class="${btn} ${pri} w-full mb-4">＋ 新增 ${esc(nm.replace(' · ', ' '))} 題目</button>`;
-  if (!xs.length) return h + `<div class="${card} p-8 text-center text-sm text-slate-500">目前沒有題目（0 題）。</div>`;
-  return h + xs.map(x => `<details class="${card} p-3 mb-3"><summary class="cursor-pointer"><span class="font-bold text-sm">${esc(x.id)}</span> <span class="text-xs text-slate-500">${esc(x.tag)}</span><span class="flex flex-wrap gap-1 mt-1">${QT[x.qtype] ? `<span class="${chip}">${esc(qLabel(x.qtype))}</span>` : ''}<span class="${chip}">${TIER[tierOf(x)]}${x.level && x.level.score ? ' · ' + x.level.score : ''}</span></span></summary><p class="text-sm mt-3"><b>Q：</b>${esc(x.q.t)}<span class="block text-xs text-slate-500">${esc(x.q.zh)}</span></p><div class="space-y-1.5 mt-2">${[...x._pool].sort((a, b) => (b.ok ? 1 : 0) - (a.ok ? 1 : 0)).map(p => `<div class="rounded-lg border px-3 py-2 text-sm ${p.ok ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50' : 'border-slate-200 dark:border-slate-800'}"><div class="flex justify-between gap-2"><span>${esc(p.t)}</span><span class="text-xs shrink-0 ${p.ok ? 'text-emerald-600 font-bold' : 'text-slate-400'}">${p.ok ? '✓ ' + esc(p.pattern || '') : esc(TR[p.trap] || '')}</span></div><p class="text-xs text-slate-500 mt-0.5">${esc(p.zh)}</p><p class="text-xs mt-1 text-slate-600 dark:text-slate-400">${esc(p.why)}</p></div>`).join('')}</div>${auPanel('p2', x)}</details>`).join('');
+  if (!xs.length) return h + `<div class="${card} p-8 text-center text-sm text-slate-500">目前沒有題目（0 題）。<br><span class="text-xs text-slate-400">點上方「＋ 新增」開始建立。</span></div>`;
+  return h + xs.map(x => {
+    const k = tierOf(x), sc = x.level && x.level.score, nh = hItems(x.id).length, nr = openRpN(x.id);
+    const badge = (nh ? `<span class="${chip} !bg-amber-100 !text-amber-700 dark:!bg-amber-950 dark:!text-amber-300">⚠ ${nh}</span>` : '')
+      + (nr ? `<span class="${chip} !bg-rose-100 !text-rose-700 dark:!bg-rose-950 dark:!text-rose-300">⚑ 提報 ${nr}</span>` : '');
+    return `<div class="${card} p-3 mb-3"><p class="font-bold text-sm">${esc(x.id)}</p><p class="text-xs text-slate-500 truncate">${esc(x.tag)}</p><p class="text-sm mt-2">${esc(x.q.t)}</p>
+      <div class="flex flex-wrap gap-1 mt-2">${badge}<span class="${chip}">${TIER[k]}${sc ? ' · ' + sc : ''}</span>${QT[x.qtype] ? `<span class="${chip}">${esc(qLabel(x.qtype))}</span>` : ''}</div>
+      <button onclick="adminItem(this.dataset.k)" data-k="${esc(x.id)}" class="${btn} ${line} !py-1 text-xs mt-2">看題目與答案</button></div>`;
+  }).join('');
+}
+const poolRowH = p => `<div class="rounded-lg border px-3 py-2 text-sm ${p.ok ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50' : 'border-slate-200 dark:border-slate-800'}"><div class="flex justify-between gap-2"><span>${esc(p.t)}</span><span class="text-xs shrink-0 ${p.ok ? 'text-emerald-600 font-bold' : 'text-slate-400'}">${p.ok ? '✓ 正解' + (p.pattern ? ' · ' + esc(p.pattern) : '') : esc(TR[p.trap] || '')}</span></div><p class="text-xs text-slate-500 mt-0.5">${esc(p.zh)}</p><p class="text-xs mt-1 text-slate-600 dark:text-slate-400">${esc(p.why)}</p></div>`;
+function adminItemH() {
+  const x = find(A.k);
+  if (!x) return hdr('維護', 'openAdmin()') + `<p class="text-sm text-slate-400 text-center py-8">找不到這一題。</p>`;
+  const d = domOf(x), t = tierOf(x), sc = x.level && x.level.score;
+  const vocab = (x.vocab || []).map(w => `<span class="${chip}">${esc(w.word)} ${esc(w.zh)}</span>`).join(' ');
+  let h = hdr(x.id, d ? `adminCell('${d}','${t}')` : 'openAdmin()');
+  h += `<p class="text-sm font-bold">${esc(x.tag)}</p><div class="flex flex-wrap gap-1.5 mt-2"><span class="${chip}">${TIER[t]}${sc ? ' · ' + sc : ''}</span>${d ? `<span class="${chip}">${esc(domLabel(d))}</span>` : ''}${QT[x.qtype] ? `<span class="${chip}">${esc(qLabel(x.qtype))}${x.wh ? ' · ' + esc(x.wh) : ''}</span>` : ''}</div>`;
+  if (x.level && x.level.why) h += `<p class="text-xs text-slate-500 mt-2">${esc(x.level.why)}</p>`;
+  h += `<p class="text-sm mt-4"><b>Q：</b>${esc(x.q.t)}<span class="block text-xs text-slate-500">${esc(x.q.zh)}</span></p>`;
+  h += `<p class="text-xs font-bold mt-5 mb-2">題庫 12 句（網頁每次作答隨機抽 1 正確＋2 錯誤）</p><div class="space-y-1.5">${[...x._pool].sort((a, b) => (b.ok ? 1 : 0) - (a.ok ? 1 : 0)).map(poolRowH).join('')}</div>`;
+  if (vocab) h += `<p class="mt-3 flex flex-wrap gap-1.5 items-center text-xs text-slate-500">單字：${vocab}</p>`;
+  h += auPanel('p2', x);
+  { const rs = reportsOf(x.id); h += `<div class="mt-5"><div class="flex items-center justify-between mb-2"><p class="text-xs font-bold">提報（${rs.length}）</p>${rpBtn(x.id)}</div>${rs.map(r => reportCardH(r)).join('')}</div>`; }
+  const hs = hItems(x.id);
+  if (hs.length) h += `<div class="mt-5 rounded-xl border border-slate-200 dark:border-slate-800 p-3"><p class="text-xs font-bold mb-1">此題健檢</p><ul class="text-xs space-y-0.5">${hs.map(it => `<li class="${HL[it.lv][1]}">${HL[it.lv][0]} ${esc(it.msg)}</li>`).join('')}</ul></div>`;
+  return h;
 }
 const serial = (d, t) => { let mx = 0; RAW.forEach(x => { const m = x && x.id && /^d(\d)-(\d+)-([emh])$/.exec(x.id); if (m && 'd' + m[1] === d && m[3] === TS[t]) mx = Math.max(mx, +m[2]); }); return mx; };
 const cefrOf = s => s <= 550 ? 'A2+' : s === 600 ? 'B1' : s === 650 ? 'B1+' : s <= 750 ? 'B2' : 'B2+';
@@ -344,10 +378,127 @@ function copyOut(i) {
   const fb = () => { const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove(); done(); };
   if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(done, fb); else fb();
 }
+/* ---------- 提報：發現答案、解析或音檔有瑕疵時記錄；存在 localStorage（PK.reports），管理員可彙整、編輯狀態、匯出／匯入（與 Part 1 相同；沒有圖片，所以「照片瑕疵」改為「問句／題目不自然」） ---------- */
+const RK = { answer: '答案／解析有誤', question: '問句／題目不自然', audio: '音檔問題', other: '其他' };
+const RS = { open: '待處理', fixing: '處理中', fixed: '已修正', wontfix: '不處理' };
+const RSC = { open: '!bg-amber-100 !text-amber-700 dark:!bg-amber-950 dark:!text-amber-300', fixing: '!bg-sky-100 !text-sky-700 dark:!bg-sky-950 dark:!text-sky-300', fixed: '!bg-emerald-100 !text-emerald-700 dark:!bg-emerald-950 dark:!text-emerald-300', wontfix: '' };
+const fmtT = t => { const d = new Date(t), p = n => String(n).padStart(2, '0'); return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`; };
+const reportsOf = id => R.reports.filter(r => r.qid === id).sort((a, b) => b.created - a.created);
+const openRpN = id => R.reports.filter(r => (r.status === 'open' || r.status === 'fixing') && (!id || r.qid === id)).length;
+const rpBtn = qid => { const n = reportsOf(qid).length; return `<button onclick="openReport(this.dataset.q)" data-q="${esc(qid)}" class="text-xs rounded-lg px-2.5 py-1 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">⚑ 提報${n ? ` (${n})` : ''}</button>`; };
+const idBtn = id => find(id) ? `<button onclick="adminItem(this.dataset.k)" data-k="${esc(id)}" class="font-bold underline decoration-dotted cursor-pointer">${esc(id)}</button>` : `<b>${esc(id)}</b>`;
+const hItems = id => (HEALTH.list || []).filter(h => h.id === id);
+function toast(m) { const d = document.createElement('div'); d.textContent = m; d.className = 'fixed left-1/2 -translate-x-1/2 bottom-6 z-[60] rounded-lg bg-slate-800 text-white text-sm px-4 py-2 shadow-lg'; document.body.appendChild(d); setTimeout(() => d.remove(), 1800); }
+/* 提報當下的問句與三個回答快照：之後題庫改了，管理員仍看得到使用者當時聽到什麼 */
+function snapOf(qid) {
+  const x = find(qid); if (!x) return null;
+  let sh = null, sel = null;
+  if (V.run && V.run.ids.includes(qid)) { sh = V.run.shown[qid]; sel = V.run.sel[qid]; }
+  if (!sh && R.rec[qid]) { sh = R.rec[qid].shown; sel = R.rec[qid].sel; }
+  if (!okShown(x, sh)) return null;
+  const v = vw(x, sh);
+  return { q: x.q.t, sents: v.s.map(p => ({ t: p.t, ok: !!p.ok })), sel: sel === undefined ? null : sel };
+}
+function openReport(qid) { V.rp = { mode: 'new', qid, kind: 'answer', note: '', reporter: R.reporter || '', snap: snapOf(qid), focus: true }; render(); }
+function editReport(id) { const r = R.reports.find(q => q.id === id); if (!r) return; V.rp = Object.assign({ mode: 'edit', id, focus: true }, JSON.parse(JSON.stringify(r))); render(); }
+function closeReport() { V.rp = null; render(); }
+function saveReport() {
+  const p = V.rp; if (!p) return;
+  const g = i => { const e = document.getElementById(i); return e ? e.value : ''; };
+  const note = g('rpn').trim(), kind = g('rpk') || 'other', reporter = g('rpr').trim();
+  if (!note) { toast('請簡單描述問題'); return; }
+  const now = Date.now();
+  if (p.mode === 'new') {
+    R.reports.push({ id: 'r' + now.toString(36) + Math.random().toString(36).slice(2, 6), qid: p.qid, kind, note, reporter, status: 'open', adminNote: '', created: now, updated: now, snap: p.snap || null });
+    R.reporter = reporter; toast('已提報，謝謝！');
+  } else {
+    const r = R.reports.find(q => q.id === p.id); if (!r) return closeReport();
+    Object.assign(r, { kind, note, reporter, status: g('rps') || r.status, adminNote: g('rpa').trim(), updated: now }); toast('已更新');
+  }
+  saveR(); V.rp = null; render();
+}
+function setRs(id, st) { const r = R.reports.find(q => q.id === id); if (!r) return; r.status = st; r.updated = Date.now(); saveR(); render(); }
+function delReport(id) { if (!confirm('確定刪除這筆提報？')) return; R.reports = R.reports.filter(q => q.id !== id); saveR(); render(); }
+function setRf(k, v) { V[k] = V[k] === v ? null : v; render(); }
+function rpModalH() {
+  const p = V.rp; if (!p) return '';
+  const edit = p.mode === 'edit', sn = p.snap;
+  const hide = !!(V.run && V.run.mode === 'mock' && V.run.ids.includes(p.qid) && V.run.sel[p.qid] === undefined); // 測驗中還沒作答：不顯示文字
+  const opt = (o, cur) => Object.keys(o).map(k => `<option value="${k}"${k === cur ? ' selected' : ''}>${o[k]}</option>`).join('');
+  const inp = 'w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm';
+  return `<div class="fixed inset-0 z-50 bg-black/50 overflow-y-auto" onclick="if(event.target===this)closeReport()"><div class="min-h-full flex items-end sm:items-center justify-center p-3">
+    <div class="${card} w-full max-w-lg p-4 md:p-5"><div class="flex items-center justify-between mb-3"><h2 class="font-bold">${edit ? '編輯提報' : '⚑ 提報問題'} · ${esc(p.qid)}</h2><button onclick="closeReport()" class="text-slate-400 hover:text-slate-600 text-xl leading-none cursor-pointer" aria-label="關閉">×</button></div>
+    <label class="block text-xs text-slate-500 mb-1">問題類型</label><select id="rpk" class="${inp} mb-3">${opt(RK, p.kind)}</select>
+    <label class="block text-xs text-slate-500 mb-1">描述問題（例如：B 句其實也能回答問句、音檔念錯、中文翻譯不對…）</label><textarea id="rpn" rows="4" class="${inp} mb-3">${esc(p.note)}</textarea>
+    <label class="block text-xs text-slate-500 mb-1">提報人（選填）</label><input id="rpr" value="${esc(p.reporter)}" class="${inp} mb-3" maxlength="30">
+    ${edit ? `<div class="grid grid-cols-2 gap-3 mb-3"><div><label class="block text-xs text-slate-500 mb-1">處理狀態</label><select id="rps" class="${inp}">${opt(RS, p.status)}</select></div></div>
+    <label class="block text-xs text-slate-500 mb-1">管理員備註（例如：已改 pool 第 3 句、已重做音檔）</label><textarea id="rpa" rows="2" class="${inp} mb-3">${esc(p.adminNote)}</textarea>` : ''}
+    ${sn && !hide ? `<details class="text-xs text-slate-500 mb-3"><summary class="cursor-pointer">提報當下的問句與三個回答</summary><p class="mt-1">Q：${esc(sn.q)}</p><ul class="mt-1 space-y-0.5">${sn.sents.map((s, i) => `<li>${L[i]}. ${esc(s.t)}${s.ok ? ' <b class="text-emerald-600">✓ 正解</b>' : ''}${sn.sel === i ? ' <span class="text-rose-500">（使用者選）</span>' : ''}</li>`).join('')}</ul></details>` : ''}
+    <div class="flex gap-2 justify-end"><button onclick="closeReport()" class="${btn} ${line}">取消</button><button onclick="saveReport()" class="${btn} ${pri}">${edit ? '儲存變更' : '送出提報'}</button></div></div></div></div>`;
+}
+function reportCardH(r) {
+  const x = find(r.qid), sn = r.snap;
+  return `<div class="${card} p-3 mb-3"><div class="min-w-0">
+    <div class="flex flex-wrap items-center gap-1.5">${x ? idBtn(r.qid) : `<b class="text-sm">${esc(r.qid)}</b><span class="${chip}">題目已不存在</span>`}<span class="${chip}">${RK[r.kind] || esc(r.kind)}</span><span class="${chip} ${RSC[r.status] || ''}">${RS[r.status] || esc(r.status)}</span></div>
+    <p class="text-sm mt-1.5 whitespace-pre-wrap break-words">${esc(r.note)}</p>
+    <p class="text-xs text-slate-400 mt-1">${esc(r.reporter || '匿名')} · ${fmtT(r.created)}${r.updated > r.created ? ' · 更新 ' + fmtT(r.updated) : ''}</p>
+    ${r.adminNote ? `<p class="text-xs mt-1.5 rounded bg-slate-100 dark:bg-slate-800 px-2 py-1 whitespace-pre-wrap break-words"><b>管理員：</b>${esc(r.adminNote)}</p>` : ''}
+    ${sn ? `<details class="text-xs text-slate-500 mt-1.5"><summary class="cursor-pointer">當時的問句與回答</summary><p class="mt-1">Q：${esc(sn.q)}</p><ul class="mt-1 space-y-0.5">${sn.sents.map((s, i) => `<li>${L[i]}. ${esc(s.t)}${s.ok ? ' ✓' : ''}${sn.sel === i ? ' ←使用者選' : ''}</li>`).join('')}</ul></details>` : ''}</div>
+    <div class="flex flex-wrap gap-1.5 mt-2.5">${Object.keys(RS).map(k => `<button onclick="setRs('${r.id}','${k}')" class="text-xs rounded-lg px-2.5 py-1 cursor-pointer ${r.status === k ? 'bg-indigo-600 text-white' : 'border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800'}">${RS[k]}</button>`).join('')}
+    <button onclick="editReport('${r.id}')" class="text-xs rounded-lg px-2.5 py-1 border border-slate-300 dark:border-slate-700 cursor-pointer ml-auto">✎ 編輯</button><button onclick="delReport('${r.id}')" class="text-xs rounded-lg px-2.5 py-1 text-rose-500 hover:underline cursor-pointer">刪除</button></div></div>`;
+}
+function reportsH() {
+  const all = R.reports.slice().sort((a, b) => b.created - a.created);
+  const list = all.filter(r => (!V.rf || r.status === V.rf) && (!V.rkf || r.kind === V.rkf));
+  const fb = (k, v, label, n) => `<button onclick="setRf('${k}','${v}')" class="${btn} !py-1.5 !px-3 text-xs ${V[k] === v ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${label} <span class="opacity-70">${n}</span></button>`;
+  let h = hdr('提報彙整', 'goHome()');
+  h += `<div class="${card} p-4 mb-4"><div class="flex flex-wrap gap-2">${Object.keys(RS).map(k => fb('rf', k, RS[k], all.filter(r => r.status === k).length)).join('')}</div>
+    <div class="flex flex-wrap gap-2 mt-2">${Object.keys(RK).map(k => fb('rkf', k, RK[k], all.filter(r => r.kind === k).length)).join('')}</div>
+    <div class="flex flex-wrap gap-2 mt-3 pt-3 border-t border-slate-200 dark:border-slate-800"><button onclick="exportReports('json')" class="${btn} ${line} !py-1.5 text-xs">匯出 JSON</button><button onclick="exportReports('csv')" class="${btn} ${line} !py-1.5 text-xs">匯出 CSV（Excel）</button>
+    <label class="${btn} ${line} !py-1.5 text-xs">匯入合併 JSON<input type="file" accept=".json,application/json" class="hidden" onchange="importReports(this)"></label></div>
+    <p class="text-xs text-slate-400 mt-2">提報只存在各人瀏覽器的 localStorage。要彙整時，請使用者匯出 JSON 傳給管理員，管理員在這裡「匯入合併」（以提報編號去重，較新的版本優先）。</p></div>`;
+  if (!list.length) return h + `<p class="text-sm text-slate-400 text-center py-10">${all.length ? '沒有符合篩選的提報。' : '目前沒有提報。作答時按「⚑ 提報」即可記錄。'}</p>`;
+  return h + `<p class="text-xs text-slate-500 mb-2">共 ${list.length} 筆</p>` + list.map(r => reportCardH(r)).join('');
+}
+function download(name, text, mime) {
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: mime })); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+function exportReports(fmt) {
+  if (!R.reports.length) { toast('沒有可匯出的提報'); return; }
+  const d = new Date(), p = n => String(n).padStart(2, '0'), stamp = `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`;
+  if (fmt === 'json') { download(`part2-reports-${stamp}.json`, JSON.stringify({ app: 'toeic-part2-reports', v: 1, exported: Date.now(), reports: R.reports }, null, 2), 'application/json'); return; }
+  const cell = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const head = ['提報編號', '題目ID', '類型', '狀態', '描述', '提報人', '建立時間', '更新時間', '管理員備註', '問句', 'A', 'B', 'C', '正解', '使用者選'];
+  const rows = R.reports.slice().sort((a, b) => a.created - b.created).map(r => { const s = r.snap;
+    return [r.id, r.qid, RK[r.kind] || r.kind, RS[r.status] || r.status, r.note, r.reporter, fmtT(r.created), fmtT(r.updated), r.adminNote, s ? s.q : '',
+      ...[0, 1, 2].map(i => s && s.sents[i] ? s.sents[i].t : ''), s ? L[s.sents.findIndex(z => z.ok)] || '' : '', s && s.sel != null ? L[s.sel] : ''].map(cell).join(','); });
+  download(`part2-reports-${stamp}.csv`, '\ufeff' + [head.map(cell).join(','), ...rows].join('\r\n'), 'text/csv;charset=utf-8');
+}
+function importReports(input) {
+  const f = input.files[0]; if (!f) return; const fr = new FileReader();
+  fr.onload = () => {
+    try {
+      const j = JSON.parse(fr.result), arr = Array.isArray(j) ? j : j && j.reports;
+      if (!Array.isArray(arr)) throw new Error('找不到 reports 陣列');
+      let add = 0, upd = 0;
+      arr.forEach(r => {
+        if (!r || typeof r.id !== 'string' || typeof r.qid !== 'string') return;
+        const n = { id: r.id, qid: r.qid, kind: RK[r.kind] ? r.kind : 'other', note: String(r.note || ''), reporter: String(r.reporter || ''), status: RS[r.status] ? r.status : 'open', adminNote: String(r.adminNote || ''), created: +r.created || Date.now(), updated: +r.updated || +r.created || Date.now(), snap: r.snap || null };
+        const o = R.reports.find(q => q.id === n.id);
+        if (!o) { R.reports.push(n); add++; } else if (n.updated > o.updated) { Object.assign(o, n); upd++; }
+      });
+      saveR(); toast(`匯入完成：新增 ${add}、更新 ${upd}`); render();
+    } catch (e) { alert('匯入失敗：' + e.message); }
+  };
+  fr.readAsText(f, 'utf-8'); input.value = '';
+}
+
 function render() {
   document.documentElement.classList.toggle('dark', !!S.dark);
   const v = V.view;
-  main.innerHTML = v === 'run' ? runH() : v === 'result' ? resultH() : v === 'book' ? bookH() : v === 'practice' ? practiceH() : v === 'test' ? testH() : v === 'admin' ? adminH() : v === 'adminCell' ? adminCellH() : v === 'adminNew' ? adminNewH() : homeH();
+  const body = v === 'run' ? runH() : v === 'result' ? resultH() : v === 'book' ? bookH() : v === 'practice' ? practiceH() : v === 'test' ? testH() : v === 'admin' ? adminH() : v === 'adminCell' ? adminCellH() : v === 'adminItem' ? adminItemH() : v === 'adminNew' ? adminNewH() : v === 'reports' ? reportsH() : homeH();
+  main.innerHTML = body + rpModalH();
+  if (V.rp && V.rp.focus) { V.rp.focus = false; const t = document.getElementById('rpn'); if (t) t.focus(); }
 }
 
 /* ---------- 啟動：讀取 part2.json；雙擊開啟（file://）時改用手動選取 ---------- */
