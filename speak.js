@@ -98,9 +98,16 @@ function skNumMergeIx(ws) { // 回傳 [{t, ix}]：t＝合併後的字，ix＝它
     if (skHas(w)) {
       const v = SK_NUM[w];
       if (on && cur !== null && ((cur % 100 >= 20 && cur % 10 === 0 && v >= 1 && v <= 9) || (cur >= 100 && cur % 100 === 0 && v < 100))) { cur += v; ix.push(i); }
+      else if (on && cur !== null && th === 0 && (cur === 19 || cur === 20) && v >= 10) { cur = cur * 100 + v; ix.push(i); } // 年份：twenty twenty→2020、nineteen ninety nine→1999
       else if (on && cur === null && th) { cur = v; ix.push(i); }
       else { flush(); cur = v; on = true; ix = [i]; }
-    } else if (w === 'hundred' && on && cur !== null && cur < 100) { cur *= 100; ix.push(i); }
+    } else if (w === 'oh' && on && cur !== null && th === 0 && (cur === 19 || cur === 20) && SK_NUM[ws[i + 1]] >= 1 && SK_NUM[ws[i + 1]] <= 9) { cur *= 100; ix.push(i); } // twenty oh five→2005
+    else if (w === 'and' && on && ((cur !== null && cur >= 100 && cur % 100 === 0) || (cur === null && th)) && skHas(ws[i + 1])) ix.push(i); // one hundred and five
+    else if ((w === 'hundred' || w === 'thousand') && !on && out.length && out[out.length - 1].t === 'a') { // a hundred／a thousand
+      const p = out.pop(); on = true; ix = p.ix.concat(i);
+      if (w === 'hundred') cur = 100; else { th = 1000; cur = null; }
+    }
+    else if (w === 'hundred' && on && cur !== null && cur < 100) { cur *= 100; ix.push(i); }
     else if (w === 'thousand' && on && cur !== null && cur < 1000) { th += cur * 1000; cur = null; ix.push(i); }
     else { flush(); out.push({ t: w, ix: [i] }); }
   });
