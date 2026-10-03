@@ -8,7 +8,7 @@
   audio/p1/、audio/p2/、audio/p3/、audio/p4/、audio/p5/、audio/daily/   ← mp3
 
 預期檔案（由題庫 json 推算）：
-  Part 1  audio/p1/{id}-s01.mp3 … -s12.mp3          （photo.json，每題 pool 幾句就幾個檔）
+  Part 1  audio/p1/{id}-s01.mp3 … -s12.mp3          （part1.json，每題 pool 幾句就幾個檔）
   Part 2  audio/p2/{id}-q.mp3 與 {id}-s01.mp3 …      （part2.json）
   Part 3  audio/p3/{id}-s01.mp3 …                   （part3.json，每句對話一檔，依 dialogue 句數）
   Part 4  audio/p4/{id}.mp3                          （part4.json，整段獨白一個檔，不分句）
@@ -82,7 +82,7 @@ for c in 'ABCDE':
         warn.append('audio：字母檔名大小寫不符，現有「%s」，應為「%s」' % (low_root[n.lower()], n))
 out['letters'] = letters
 print('letters：已有 %s（Part 1 需 A–D，Part 2 需 A–C）' % (''.join(letters) or '無'))
-for part, fn, with_q in (('p1', 'photo.json', False), ('p2', 'part2.json', True)):
+for part, fn, with_q in (('p1', 'part1.json', False), ('p2', 'part2.json', True)):
     exp = {}
     for it in items(fn):
         if not isinstance(it, dict) or not it.get('id') or not isinstance(it.get('pool'), list):

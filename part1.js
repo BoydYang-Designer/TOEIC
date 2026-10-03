@@ -1,8 +1,8 @@
-/* Part 1 照片描述：首頁分「練習」與「測驗」；題庫來自 photo.json
+/* Part 1 照片描述：首頁分「練習」與「測驗」；題庫來自 part1.json
    練習：與測驗相同的選題方式（難度／主題／題數），隨機抽題，不計分；音檔可重播，作答後立即看解析
    編碼：題目 id = d{N}-{NNN}-{e|m|h}（N=主題 1–7、NNN=該主題流水號、尾碼=難度）；每題一張獨立的圖（圖片檔 images/{id}.jpg），不跨難度共用。
    維護頁：首頁「🛠 維護」→ 難度×主題題數矩陣 → 該格的題目與圖片 → 答案；「新增題目」產生圖片檔名與給 AI 的指令。
-   維護頁另有「資料健檢」（格式錯誤／被略過的題目）、缺圖檢查與圖片數比對；「寫文本」指令已內含精簡規格，不必再上傳整份 photo.json。
+   維護頁另有「資料健檢」（格式錯誤／被略過的題目）、缺圖檢查與圖片數比對；「寫文本」指令已內含精簡規格，不必再上傳整份 part1.json。
    題庫格式：每題有 pool（12 句：3 正確＋9 錯誤）；每次作答隨機抽 1 正確＋3 錯誤並隨機排成 A–D。舊格式（statements 四句）仍可讀，但不會洗牌。
    測驗：先選難度（初／中／高），再選主題（D1–D7），隨機抽 6 題，音檔只播一次，完成後才檢討、記錄成績 */
 const KEY = 'toeicCoachV2', PK = 'toeicPart1V1'; // KEY 只讀寫 dark（與其他頁同步），作答紀錄存在 PK
@@ -22,7 +22,7 @@ const L = 'ABCD';
 const TR = { 'sound-alike': '音近字', 'not-in-photo': '圖中沒有', 'wrong-action': '動作錯誤', 'wrong-place-or-number': '位置／人數錯', 'over-inference': '過度推論' };
 /* 難度三級：依 level.score 判定（level.tier 有填就以它為準） */
 const TIER = { easy: '初級', medium: '中級', hard: '高級' };
-/* 主題 D1–D7：依 scene 對應（photo.json 的 _spec.domains 有定義時會覆蓋這份預設） */
+/* 主題 D1–D7：依 scene 對應（part1.json 的 _spec.domains 有定義時會覆蓋這份預設） */
 const DOM_DEF = {
   d1: { n: '辦公室', scenes: ['office'] },
   d2: { n: '餐廳飲食', scenes: ['restaurant'] },
@@ -297,7 +297,7 @@ function bookH() {
 /* 首頁：練習／測驗 */
 function homeH() {
   let h = hdr('Part 1 照片描述');
-  if (!DATA.length) return h + `<div class="${card} p-8 text-center text-sm text-slate-500">photo.json 還沒有題目。請把 AI 生成的題目貼進 items。<br><button onclick="openAdmin()" class="${btn} ${line} mt-4">🛠 維護</button></div>`;
+  if (!DATA.length) return h + `<div class="${card} p-8 text-center text-sm text-slate-500">part1.json 還沒有題目。請把 AI 生成的題目貼進 items。<br><button onclick="openAdmin()" class="${btn} ${line} mt-4">🛠 維護</button></div>`;
   const nSaved = Object.keys(R.saved).filter(find).length;
   h += `<div class="grid gap-3 md:grid-cols-2 mb-4">
     <button onclick="openPractice()" class="${card} p-5 text-left hover:border-indigo-500 cursor-pointer"><p class="text-xl font-bold">📖 練習</p>
@@ -342,9 +342,9 @@ function testH() {
 }
 /* ---------- 維護頁：題數矩陣 → 該格的題目（每題一張圖）→ 圖片與答案；新增題目 ---------- */
 const TS = { easy: 'e', medium: 'm', hard: 'h' };
-const TARGET = 2; // 每格（難度 × 主題）至少題數，與 photo.json 的 _spec.coverage 一致
-let SPEC = null;  // photo.json 的 _spec（loadText 讀入），用來帶入各難度的 guide
-/* 各難度的多益分數範圍：以 photo.json 的 _spec.tiers.*.score 為準，讀不到時用預設 */
+const TARGET = 2; // 每格（難度 × 主題）至少題數，與 part1.json 的 _spec.coverage 一致
+let SPEC = null;  // part1.json 的 _spec（loadText 讀入），用來帶入各難度的 guide
+/* 各難度的多益分數範圍：以 part1.json 的 _spec.tiers.*.score 為準，讀不到時用預設 */
 const TSC_DEF = { easy: '500–550', medium: '600–650', hard: '700–800' };
 const tScore = k => (SPEC && SPEC.tiers && SPEC.tiers[k] && SPEC.tiers[k].score) || TSC_DEF[k];
 const tierHint = () => Object.keys(TIER).map(k => `${TIER[k]} ${tScore(k)}`).join('；') + '（多益預估分數）';
@@ -379,14 +379,14 @@ function nextCode(d, t) {
 const tcol = n => n >= TARGET ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400' : n ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-400' : 'bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400';
 
 /* ---------- 資料健檢（auditAll）＋圖片檢查（checkImages）---------- */
-/* 規則來自 photo.json 的 _spec.rules.self_check 與 photo_merge.py 的 validate()；只讀取、不修改資料。
+/* 規則來自 part1.json 的 _spec.rules.self_check 與 json_merge.py 的 validate()；只讀取、不修改資料。
    ✖ 錯誤＝會讓題目壞掉或被略過；⚠ 提醒＝不符規格但仍可作答；ℹ 備註＝題目自己寫的 issues。 */
 const ID_RE = /^d([1-7])-(\d{3})-([emh])$/, SUF = { e: 'easy', m: 'medium', h: 'hard' };
 const OLD_F = ['set', 'no', 'ans', 'statements', 'zh', 'why', 'traps', 'audio'];
 const nrm = s => String(s == null ? '' : s).toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
 const nWords = s => (String(s).match(/[A-Za-z0-9']+/g) || []).length;
 const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-let RAW = [];                                                     // photo.json 原始 items（含被略過的）
+let RAW = [];                                                     // part1.json 原始 items（含被略過的）
 let HEALTH = { list: [], err: 0, warn: 0, info: 0, dropped: 0 };  // 健檢結果
 const IMG = { st: {}, tok: 0, running: false, total: 0, n: 0 };   // 圖片檢查：st[id] = 'ok' | 'missing'
 
@@ -491,7 +491,7 @@ function checkImages(bust) {
   DATA.forEach(x => { const im = new Image(); im.onload = () => { if (tok === IMG.tok) { IMG.st[x.id] = 'ok'; fin(); } }; im.onerror = () => { if (tok === IMG.tok) { IMG.st[x.id] = 'missing'; fin(); } }; im.src = imgPath(x) + q; });
 }
 /* 反向檢查：瀏覽器讀不到資料夾清單，但檔名有固定規則（d{N}-{NNN}-{e|m|h}.jpg），
-   所以每格從 001 試探到「現有最大編號 + 6」，找出「圖片已放好、但 photo.json 還沒有題目」的圖。 */
+   所以每格從 001 試探到「現有最大編號 + 6」，找出「圖片已放好、但 part1.json 還沒有題目」的圖。 */
 const ORPH = { found: [], tok: 0, running: false };
 const orphIn = (d, t) => ORPH.found.filter(id => id.startsWith(d + '-') && id.endsWith('-' + TS[t]));
 function checkOrphans(bust) {
@@ -509,7 +509,7 @@ const recheckImages = () => { checkImages(true); checkOrphans(true); render(); }
 function orphanH() {
   if (!ORPH.found.length) return '';
   return `<div class="${card} p-4 mb-4 !border-sky-300 dark:!border-sky-800"><p class="text-sm font-bold text-sky-700 dark:text-sky-300">🖼 有 ${ORPH.found.length} 張圖片還沒有題目</p>`
-    + `<p class="text-xs text-slate-500 mt-1">圖片已經放在 images 資料夾，但 photo.json 還沒有對應的題目，所以不會算進下面的格子。若已經請 AI 寫好文本，請把 AI 給你的 <b>檔名.json</b> 放到 photo_merge.py 同一個資料夾合併，再重新整理本頁；還沒寫的，按下面的按鈕取得「寫文本」指令。</p>`
+    + `<p class="text-xs text-slate-500 mt-1">圖片已經放在 images 資料夾，但 part1.json 還沒有對應的題目，所以不會算進下面的格子。若已經請 AI 寫好文本，請把 AI 給你的 <b>檔名.json</b> 放到 json_merge.py 同一個資料夾合併，再重新整理本頁；還沒寫的，按下面的按鈕取得「寫文本」指令。</p>`
     + `<div class="flex flex-wrap gap-2 mt-2">${ORPH.found.map(id => `<button onclick="adminOrph('${id}')" class="${btn} ${line} !py-1 text-xs">${esc(id)} → 取得寫文本指令</button>`).join('')}</div></div>`;
 }
 const missImgs = () => DATA.filter(x => IMG.st[x.id] === 'missing');
@@ -610,7 +610,7 @@ function adminItemH() {
 
 /* 「寫文本」用的精簡規格：只留寫文本需要的部分（目標主題、目標難度、entry_schema、rules、example），
    保留 _spec 原本的鍵名結構（tiers.guide、rules.tier…），讓規格裡的互相參照仍然成立；不含出圖 seeds、其他難度、app_modes。
-   這樣使用者只要上傳圖片、貼指令，不必再附上整份 photo.json（題數增加後它會越來越大）。 */
+   這樣使用者只要上傳圖片、貼指令，不必再附上整份 part1.json（題數增加後它會越來越大）。 */
 function specLite(d, t) {
   if (!SPEC) return '';
   const T = SPEC.tiers || {}, H = SPEC.how_to_use || {}, dm = Object.assign({}, SPEC.domains && SPEC.domains[d]);
@@ -637,7 +637,7 @@ function buildOut(d, t) {
   const lite = specLite(d, t);
   const tail = `輸出方式：請把結果建立成一個檔案，檔名必須是 ${id}.json（內容只有單一 JSON 物件，合法 JSON、UTF-8，不要加程式碼區塊標記），讓我直接下載；回覆中除了檔案，只需一行說明檔名。若你無法建立檔案，才改成只輸出單一 json 程式碼區塊，區塊外不要加任何文字。若這張圖寫不出該難度，不要建立檔案，只輸出 skip 物件的 json 程式碼區塊。`;
   const text = [
-    lite ? `我已上傳圖片（${path}）。規格附在最後面，不需要另外附 photo.json，請依規格執行：` : `我已上傳圖片（${path}）與 photo.json，請依 _spec 執行：`,
+    lite ? `我已上傳圖片（${path}）。規格附在最後面，不需要另外附 part1.json，請依規格執行：` : `我已上傳圖片（${path}）與 part1.json，請依 _spec 執行：`,
     `寫文本 ${id}`, '',
     ...common.map(s => '- ' + s), '- 不限制出題方式，也不限制圖片人數：只依上面的難度定義與圖片實際內容出題；photo_type 依圖片實際人數填 single／multi／none（記錄用，不影響難度）。', `- image 欄位填：${path}`,
     `- image_prompt 欄位請原樣填入我實際使用的出圖 prompt：${ip}`,
@@ -649,13 +649,13 @@ function buildOut(d, t) {
     `- level.tier 填 ${t}；level.score 必須在 ${tScore(t)}（50 的倍數）${tc.score_pick ? '，依下列標準挑：' + tc.score_pick : ''}`,
     `- 如果這張圖寫不出${tn}該有的內容${tc.skip_if ? '（' + tc.skip_if.replace(/。$/, '') + '）' : ''}，輸出 skip 物件，不要硬寫。`,
     '', tail,
-    ...(lite ? ['', '【規格：photo.json 的 _spec 精簡版，只含寫文本需要的部分】', lite] : [])
+    ...(lite ? ['', '【規格：part1.json 的 _spec 精簡版，只含寫文本需要的部分】', lite] : [])
   ].filter(s => s !== null).join('\n');
   return [
     { title: '圖片檔名', note: '生好的圖片請存成這個檔名，放進 images 資料夾。每題一張獨立的圖，不與其他題目共用。', text: id + '.jpg' },
-    { title: '出圖 prompt（直接貼給生圖 AI）', reroll: !!seed, note: `不用附 photo.json。${seed ? '情境：' + seed + '。不喜歡可按「換情境」。' : '（photo.json 沒有這個主題的 seeds，請自行指定情境。）'}${same.length ? '此格已有：' + same.join('；') + '。' : ''}生好圖後先檢查有沒有怪手指、文字或商標，再存成上面的檔名。`, text: ip },
-    { title: '給 AI 的「寫文本」指令', note: lite ? `只要上傳圖片，再貼這段（約 ${text.length.toLocaleString()} 字，已內含精簡規格與已用過的 tag／vocab，不必附 photo.json）。AI 會依圖片實際內容寫出完整題目，並直接給你一個 ${id}.json 檔案（檔名已對應圖片）；若 AI 無法建檔，它會貼出 json 區塊，再自行存成 ${id}.json。圖片若不適合這個難度，它會回傳 skip（不會給檔案）。` : '（找不到 photo.json 的 _spec，所以這份指令不含規格，請把圖片與 photo.json 一起上傳給 AI。）AI 會依圖片實際內容寫出完整題目，並直接給你一個 ${id}.json 檔案（檔名已對應圖片）；若 AI 無法建檔，它會貼出 json 區塊，再自行存成 ${id}.json。圖片若不適合這個難度，它會回傳 skip（不會給檔案）。', text },
-    { title: '存檔與合併', note: `把 AI 給你的 ${id}.json 下載後（檔名不用改），放到 photo_merge.py 同一個資料夾，雙擊執行並勾選合併。合併後重新整理本頁，題數就會更新。若 AI 回傳的是 skip，就不要合併。` }
+    { title: '出圖 prompt（直接貼給生圖 AI）', reroll: !!seed, note: `不用附 part1.json。${seed ? '情境：' + seed + '。不喜歡可按「換情境」。' : '（part1.json 沒有這個主題的 seeds，請自行指定情境。）'}${same.length ? '此格已有：' + same.join('；') + '。' : ''}生好圖後先檢查有沒有怪手指、文字或商標，再存成上面的檔名。`, text: ip },
+    { title: '給 AI 的「寫文本」指令', note: lite ? `只要上傳圖片，再貼這段（約 ${text.length.toLocaleString()} 字，已內含精簡規格與已用過的 tag／vocab，不必附 part1.json）。AI 會依圖片實際內容寫出完整題目，並直接給你一個 ${id}.json 檔案（檔名已對應圖片）；若 AI 無法建檔，它會貼出 json 區塊，再自行存成 ${id}.json。圖片若不適合這個難度，它會回傳 skip（不會給檔案）。` : '（找不到 part1.json 的 _spec，所以這份指令不含規格，請把圖片與 part1.json 一起上傳給 AI。）AI 會依圖片實際內容寫出完整題目，並直接給你一個 ${id}.json 檔案（檔名已對應圖片）；若 AI 無法建檔，它會貼出 json 區塊，再自行存成 ${id}.json。圖片若不適合這個難度，它會回傳 skip（不會給檔案）。', text },
+    { title: '存檔與合併', note: `把 AI 給你的 ${id}.json 下載後（檔名不用改），放到 json_merge.py 同一個資料夾，雙擊執行並勾選合併。合併後重新整理本頁，題數就會更新。若 AI 回傳的是 skip，就不要合併。` }
   ];
 }
 
@@ -687,30 +687,30 @@ function render() {
   main.innerHTML = v === 'run' ? runH() : v === 'result' ? resultH() : v === 'book' ? bookH() : v === 'practice' ? practiceH() : v === 'test' ? testH() : v === 'admin' ? adminH() : v === 'adminCell' ? adminCellH() : v === 'adminItem' ? adminItemH() : v === 'adminNew' ? adminNewH() : homeH();
 }
 
-/* ---------- 啟動：讀取 photo.json；雙擊開啟（file://）時改用手動選取 ---------- */
+/* ---------- 啟動：讀取 part1.json；雙擊開啟（file://）時改用手動選取 ---------- */
 function loadText(t) {
   try {
     const j = JSON.parse(t), d = j && j._spec && j._spec.domains; SPEC = (j && j._spec) || null;
-    if (d && typeof d === 'object') { // 主題名稱與 scene 對照以 photo.json 為準
+    if (d && typeof d === 'object') { // 主題名稱與 scene 對照以 part1.json 為準
       const m = {}; Object.keys(d).forEach(k => { const v = d[k]; if (v && v.name) m[k] = { n: v.name, scenes: v.scenes || [], seeds: v.seeds || null }; });
       if (Object.keys(m).length) DOM = m;
     }
     RAW = itemsOf(j); DATA = RAW.map(normItem).filter(Boolean);
     HEALTH = auditAll(RAW); checkImages(false); checkOrphans(false); // 資料健檢（同步）＋ 圖片檔檢查（非同步，完成後維護頁自動更新）
     render();
-  } catch (e) { alert('photo.json 格式有誤：' + e.message); }
+  } catch (e) { alert('part1.json 格式有誤：' + e.message); }
 }
 function pickJson(input) { const f = input.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => loadText(r.result); r.readAsText(f, 'utf-8'); }
 async function boot() {
   await auLoad();
   try {
-    const res = await fetch('photo.json', { cache: 'no-store' });
+    const res = await fetch('part1.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     loadText(await res.text());
   } catch (e) {
-    main.innerHTML = `<div class="${card} p-8 text-center"><h3 class="text-lg font-bold mb-2">請選取 photo.json</h3>
-      <p class="text-sm text-slate-500 mb-4">直接雙擊開啟時瀏覽器不允許自動讀取。請選擇同資料夾的 photo.json；上傳到 GitHub Pages 或用本機伺服器開啟則會自動載入。</p>
-      <label class="${btn} inline-block ${pri}">選取 photo.json<input type="file" accept=".json,application/json" class="hidden" onchange="pickJson(this)"></label></div>`;
+    main.innerHTML = `<div class="${card} p-8 text-center"><h3 class="text-lg font-bold mb-2">請選取 part1.json</h3>
+      <p class="text-sm text-slate-500 mb-4">直接雙擊開啟時瀏覽器不允許自動讀取。請選擇同資料夾的 part1.json；上傳到 GitHub Pages 或用本機伺服器開啟則會自動載入。</p>
+      <label class="${btn} inline-block ${pri}">選取 part1.json<input type="file" accept=".json,application/json" class="hidden" onchange="pickJson(this)"></label></div>`;
   }
 }
 boot();

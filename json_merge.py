@@ -3,8 +3,8 @@
 """
 TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / part5 共用）
 
-用法：把這支程式放在 daily.json、photo.json、part2.json、part3.json、part4.json、part5.json 所在的資料夾，雙擊執行。
-  1. 最上方選擇題庫：每日文章（daily.json）／Part 1 照片（photo.json）／Part 2 應答（part2.json）／Part 3 對話（part3.json）／Part 4 獨白（part4.json）／Part 5 填空（part5.json）。
+用法：把這支程式放在 daily.json、part1.json、part2.json、part3.json、part4.json、part5.json 所在的資料夾，雙擊執行。
+  1. 最上方選擇題庫：每日文章（daily.json）／Part 1 照片（part1.json）／Part 2 應答（part2.json）／Part 3 對話（part3.json）／Part 4 獨白（part4.json）／Part 5 填空（part5.json）。
      啟動時會自動選「資料夾內等待合併的副檔最多」的那一個；也可用  python json_merge.py part2  直接指定。
   2. 自動列出該題庫的副檔：
        daily  → w1d3.json 這類（其他 .json 也會列出，但不會自動勾選）
@@ -496,7 +496,7 @@ class Daily(Profile):
 class Photo(IdProfile):
     name = 'photo'
     title = 'Part 1 照片'
-    main_name = 'photo.json'
+    main_name = 'part1.json'
     backup_prefix = 'photo'
     PHOTO_TYPES = ('single', 'multi', 'none')
     TRAPS = ('sound-alike', 'not-in-photo', 'wrong-action', 'wrong-place-or-number', 'over-inference')

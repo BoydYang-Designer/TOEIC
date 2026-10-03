@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-photo-auto-speech.py  ——  Part 1 照片描述：勾選要補錄的題目，產生缺少的 mp3
+part1-auto-speech.py  ——  Part 1 照片描述：勾選要補錄的題目，產生缺少的 mp3
 
-用法：把這支檔案放在「有 photo.json 的資料夾」（或 audio 資料夾裡），直接雙擊執行。
-  1. 讀 photo.json，檢查 audio/p1/{題目id}-sNN.mp3（NN 依 pool 順序 01~12）是否存在
+用法：把這支檔案放在「有 part1.json 的資料夾」（或 audio 資料夾裡），直接雙擊執行。
+  1. 讀 part1.json，檢查 audio/p1/{題目id}-sNN.mp3（NN 依 pool 順序 01~12）是否存在
   2. 視窗列出有缺的題目，勾選這次要做的（可一次勾前 N 題、依前綴勾 d1 / d2-001 等）
   3. 按「開始產生」，用 Edge 神經網路語音（edge-tts）錄製並存到正確位置
   4. 做完清單會自動更新，下次再勾下一批；全部做完可執行 audio/audio_scan.py 更新 index.json
@@ -47,7 +47,7 @@ HERE = Path(__file__).resolve().parent
 # ------------------------------- 資料與計畫 -------------------------------
 def find_root():
     for d in (HERE, HERE.parent, Path.cwd()):
-        if (d / "photo.json").exists():
+        if (d / "part1.json").exists():
             return d
     return None
 
@@ -58,7 +58,7 @@ def ok_file(p: Path) -> bool:
 
 def build_plan(root: Path):
     """回傳 groups：list of dict(key, total, voice, jobs[])，只包含有缺檔的題目。"""
-    data = json.loads((root / "photo.json").read_text(encoding="utf-8-sig"))
+    data = json.loads((root / "part1.json").read_text(encoding="utf-8-sig"))
     items = data["items"] if isinstance(data, dict) else data
     audio = root / "audio"
     groups = []
@@ -407,7 +407,7 @@ def run_cli(root: Path, dry: bool):
 def main():
     root = find_root()
     if not root:
-        print("找不到 photo.json。請把本檔案放在 photo.json 所在的資料夾（或 audio 資料夾內）。")
+        print("找不到 part1.json。請把本檔案放在 part1.json 所在的資料夾（或 audio 資料夾內）。")
         input("\n按 Enter 結束…")
         return
     want_cli = "--cli" in sys.argv or "--dry" in sys.argv
