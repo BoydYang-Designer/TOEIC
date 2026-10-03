@@ -362,11 +362,40 @@ function goA(view, p) { stopAudio(); Object.assign(A, p || {}); V.view = view; V
 const adminCell = (d, t) => goA('adminCell', { d, t }), adminItem = k => goA('adminItem', { k }), adminNew = (d, t) => goA('adminNew', { nd: d || A.nd, nt: t || A.nt });
 const apick = (k, v) => { A[k] = v; render(); };
 const idBtn = id => find(id) ? `<button onclick="adminItem(this.dataset.k)" data-k="${esc(id)}" class="font-bold underline decoration-dotted cursor-pointer">${esc(id)}</button>` : `<b>${esc(id)}</b>`;
-const auSt = id => auFull('p3', id) ? ['complete', '✓ 音檔齊', 'text-emerald-600'] : (((AU.idx || {}).p3 || {}).partial || {})[id] ? ['partial', '△ 缺 ' + AU.idx.p3.partial[id].length + ' 檔', 'text-amber-600'] : ['none', '✗ 無音檔', 'text-slate-400'];
+const auSt = id => auFull('p3', id) ? ['complete', '✓ 音檔齊', 'text-emerald-600'] : (((AU.idx || {}).p3 || {}).partial || {})[id] ? ['partial', '✖ 缺 ' + AU.idx.p3.partial[id].length + ' 檔', 'text-rose-600'] : ['none', '✖ 缺音檔（整組改用機器發音）', 'text-rose-600'];
 const gOf = (x, sp) => ((x.speakers || []).find(s => s.id === sp) || {}).gender || '?';
 const auName = (x, i) => x.id + '-s' + pad(i + 1) + '.mp3';
 const copyAudio = id => { const x = find(id); clip(x.dialogue.map((l, i) => auName(x, i) + '\t' + l.sp + '(' + gOf(x, l.sp) + ')\t' + l.t).join('\n'), 'ca-' + id); };
 const copyNames = id => { const x = find(id); clip(x.dialogue.map((l, i) => auName(x, i)).join('\n'), 'cn-' + id); };
+/* ---------- 缺音檔提示（PART_UI_GUIDE 5.7）：以 audio/index.json 為準；整組對話沒到齊（不在 p3.complete）＝缺音檔，該組改用機器發音，仍可作答 ---------- */
+const UNIT = '組';
+const auHas = x => !!(AU.idx && AU.idx.p3 && (AU.idx.p3.complete || []).includes(x.id));
+const auMissing = x => !auHas(x);
+const missAud = () => DATA.filter(auMissing);
+const inCell = (d, t) => DATA.filter(x => domOf(x) === d && (!t || tierOf(x) === t)).sort((a, b) => String(a.id).localeCompare(String(b.id)));
+/* 某組缺的音檔：[{name, text, g}]（partial 清單有列出缺哪幾句，沒列＝全缺） */
+function auMissRows(x) {
+  if (!auMissing(x)) return [];
+  const ms = (((AU.idx || {}).p3 || {}).partial || {})[x.id];
+  return x.dialogue.map((l, i) => ({ name: auName(x, i).slice(0, -4), text: l.t, g: gOf(x, l.sp) })).filter(r => !ms || ms.includes(r.name));
+}
+const auChipH = x => auHas(x) ? `<span class="${chip} !text-emerald-700 dark:!text-emerald-400">✓ 音檔齊</span>`
+  : `<span class="${chip} !bg-rose-100 !text-rose-700 dark:!bg-rose-950 dark:!text-rose-300">缺音檔${((((AU.idx || {}).p3 || {}).partial || {})[x.id] || []).length ? '（缺 ' + AU.idx.p3.partial[x.id].length + ' 檔）' : ''}</span>`;
+async function recheckAudio() { await auLoad(); render(); }
+function clipText(t, bid) {
+  const done = () => { const b = document.getElementById(bid); if (b) { b.dataset.l = b.dataset.l || b.textContent; b.textContent = '已複製 ✓'; setTimeout(() => { if (b.isConnected) b.textContent = b.dataset.l || '複製'; }, 1500); } };
+  const fb = () => { const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove(); done(); };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(done, fb); else fb();
+}
+function copyCellMiss(d, t) { clipText(inCell(d, t).flatMap(auMissRows).map(r => r.name + '.mp3 | ' + r.text + ' | ' + r.g).join('\n'), 'cm'); }
+function cellStat(d, t) { const xs = pool(t, d); return { n: xs.length, aud: xs.filter(auMissing).length }; }
+function audioStatusH() {
+  const N = DATA.length, miss = missAud().length, ok = N - miss;
+  const s = !N ? '' : !AU.idx ? '<span class="text-rose-600 dark:text-rose-400">✖ 尚未讀到 audio/index.json（全部用機器發音）</span>'
+    : miss ? `<span class="text-rose-600 dark:text-rose-400">✖ 缺 <b>${miss}</b> ${UNIT}（有 mp3：${ok} / ${N}；缺的整${UNIT}改用機器發音）</span>`
+      : `<span class="text-emerald-600 dark:text-emerald-400">✔ ${ok} ${UNIT}都有 mp3</span>`;
+  return `<span class="flex items-center gap-2">${s}${N ? `<button onclick="recheckAudio()" class="${btn} ${line} !py-0.5 !px-2 text-xs">重新檢查</button>` : ''}</span>`;
+}
 function auPanelH(x) {
   const miss = (((AU.idx || {}).p3 || {}).partial || {})[x.id] || [], st = auSt(x.id);
   const rows = x.dialogue.map((l, i) => { const f = auName(x, i), m = st[0] === 'none' || miss.includes(f.slice(0, -4));
@@ -376,26 +405,27 @@ function auPanelH(x) {
 function adminH() {
   const doms = Object.keys(DOM), tiers = Object.keys(TIER), qc = {}; DATA.forEach(x => x.questions.forEach(q => { qc[q.qtype] = (qc[q.qtype] || 0) + 1; }));
   let low = 0; doms.forEach(d => tiers.forEach(t => { if (pool(t, d).length < TARGET) low++; }));
-  const nAu = DATA.filter(x => auFull('p3', x.id)).length, H = HEALTH;
+  const nAu = DATA.filter(auHas).length, H = HEALTH;
   let h = hdr('維護', 'goHome()');
-  h += `<div class="${card} p-4 mb-4 text-sm"><div class="flex flex-wrap gap-x-6 gap-y-1"><span>題組 <b>${DATA.length}</b> 組（共 ${DATA.reduce((a, x) => a + x.questions.length, 0)} 題）${H.dropped ? ` <span class="${HL.err[1]}">（另有 ${H.dropped} 筆格式不合被略過）</span>` : ''}</span><span class="text-slate-500">未達標格子 <b>${low}</b> / ${doms.length * tiers.length}（目標每格 ≥ ${TARGET} 組）</span></div>
+  h += `<div class="${card} p-4 mb-4 text-sm"><div class="flex flex-wrap gap-x-6 gap-y-1"><span>題組 <b>${DATA.length}</b> 組（共 ${DATA.reduce((a, x) => a + x.questions.length, 0)} 題）${H.dropped ? ` <span class="${HL.err[1]}">（另有 ${H.dropped} 筆格式不合被略過）</span>` : ''}</span><span>音檔 <b>${nAu}</b> 組</span><span class="text-slate-500">未達標格子 <b>${low}</b> / ${doms.length * tiers.length}（目標每格 ≥ ${TARGET} 組）</span></div>
     <div class="flex flex-wrap gap-1.5 mt-3">${Object.keys(QT).map(k => `<span class="${chip}">${QT[k]} <b>${qc[k] || 0}</b></span>`).join('')}</div>
-    <div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><span class="text-slate-500">音檔：</span>${!AU.idx ? '<span class="text-slate-400">尚未讀到 audio/index.json（缺檔的題組用機器發音）</span>' : `<span class="${nAu === DATA.length ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'}">${nAu === DATA.length ? '✔ ' : ''}整組齊全 <b>${nAu}</b> / ${DATA.length} 組</span>`}</div></div>`;
+    <div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><span class="text-slate-500">音檔：</span>${audioStatusH()}</div></div>`;
   h += `<div class="${card} p-4 mb-4"><div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm"><b>資料健檢</b>${!H.err && !H.warn ? '<span class="text-emerald-600 dark:text-emerald-400">✔ 全部通過</span>' : `${H.err ? `<span class="${HL.err[1]}">✖ 錯誤 <b>${H.err}</b></span>` : ''}${H.warn ? `<span class="${HL.warn[1]}">⚠ 提醒 <b>${H.warn}</b></span>` : ''}`}</div>`;
   if (H.list.length) { const g = {}, order = []; H.list.forEach(it => { if (!g[it.id]) { g[it.id] = []; order.push(it.id); } g[it.id].push(it); }); h += `<details class="mt-2" ${H.err ? 'open' : ''}><summary class="text-xs cursor-pointer text-slate-500">查看明細（${order.length} 組有項目）</summary><div class="max-h-96 overflow-auto">${order.map(id => `<div class="mt-2"><p class="text-xs">${idBtn(id)}</p><ul class="text-xs space-y-0.5 mt-0.5">${g[id].map(it => `<li class="${HL[it.lv][1]}">${HL[it.lv][0]} ${esc(it.msg)}</li>`).join('')}</ul></div>`).join('')}</div></details>`; }
   h += `</div><div class="overflow-x-auto mb-3"><div class="grid gap-1.5 text-center text-sm min-w-[32rem]" style="grid-template-columns:4.5rem repeat(${doms.length},minmax(3rem,1fr))"><div></div>${doms.map(d => `<button onclick="adminCell('${d}',null)" class="text-xs font-bold py-1 cursor-pointer hover:text-indigo-600">${d.toUpperCase()}<br><span class="font-normal text-slate-500">${esc(DOM[d].n)}</span></button>`).join('')}`;
-  tiers.forEach(t => { h += `<div class="text-left self-center text-xs font-bold">${TIER[t]} ${TS[t]}<span class="block font-normal text-slate-500">${TSC[t]}</span></div>` + doms.map(d => { const n = pool(t, d).length; return `<button onclick="adminCell('${d}','${t}')" class="rounded-lg py-3 font-bold cursor-pointer ${tcol(n)}">${n}</button>`; }).join(''); });
-  return h + `</div></div><p class="text-xs text-slate-400 mb-5">格子＝該難度、該主題的題組數（每組一段對話＋3 題）。紅＝0、黃＝未達 ${TARGET}、綠＝達標。點格子看題組；點上方 D1–D7 看該主題全部難度。</p><button onclick="go('reports')" class="${btn} ${line} w-full mb-3">⚑ 提報彙整${openRpN() ? `（待處理 ${openRpN()}）` : ''}</button><button onclick="adminNew()" class="${btn} ${pri} w-full">＋ 新增題目</button>`;
+  tiers.forEach(t => { h += `<div class="text-left self-center text-xs font-bold">${TIER[t]} ${TS[t]}<span class="block font-normal text-slate-500">${TSC[t]}</span></div>` + doms.map(d => { const s = cellStat(d, t); return `<button onclick="adminCell('${d}','${t}')" class="rounded-lg py-3 font-bold cursor-pointer ${tcol(s.n)}">${s.n}${s.aud ? `<span class="block text-[10px] font-normal text-rose-600 dark:text-rose-400">缺音檔 ${s.aud}</span>` : ''}</button>`; }).join(''); });
+  return h + `</div></div><p class="text-xs text-slate-400 mb-5">格子＝該難度、該主題的題組數（每組一段對話＋3 題）。紅＝0、黃＝未達 ${TARGET}、綠＝達標；格內紅字小字＝缺音檔的組數（缺的整組用機器發音，仍可作答）。點格子看題組；點上方 D1–D7 看該主題全部難度。</p><button onclick="go('reports')" class="${btn} ${line} w-full mb-3">⚑ 提報彙整${openRpN() ? `（待處理 ${openRpN()}）` : ''}</button><button onclick="adminNew()" class="${btn} ${pri} w-full">＋ 新增題目</button>`;
 }
 function adminCellH() {
   const d = A.d, t = A.t, xs = DATA.filter(x => domOf(x) === d && (!t || tierOf(x) === t)).sort((a, b) => String(a.id).localeCompare(String(b.id))), nm = domLabel(d) + (t ? ' · ' + TIER[t] : '');
-  let h = hdr(nm, 'openAdmin()') + `<button onclick="adminNew('${d}',${t ? `'${t}'` : 'null'})" class="${btn} ${pri} w-full mb-4">＋ 新增 ${esc(nm.replace(' · ', ' '))} 題目</button>`;
+  let h = hdr(nm, 'openAdmin()') + `<button onclick="adminNew('${d}',${t ? `'${t}'` : 'null'})" class="${btn} ${pri} w-full mb-3">＋ 新增 ${esc(nm.replace(' · ', ' '))} 題目</button>`;
+  { const nm_ = xs.filter(auMissing).length; h += `<button id="cm" ${nm_ ? '' : 'disabled'} onclick="copyCellMiss('${d}',${t ? `'${t}'` : 'null'})" class="${btn} ${line} w-full mb-4">複製本格缺的音檔清單（${nm_}）</button>`; }
   if (!xs.length) return h + `<div class="${card} p-8 text-center text-sm text-slate-500">目前沒有題目（0 組）。<br><span class="text-xs text-slate-400">點上方「＋ 新增」開始建立。</span></div>`;
   return h + xs.map(x => {
-    const k = tierOf(x), sc = x.level && x.level.score, nh = hItems(x.id).length, nr = openRpN(x.id), st = auSt(x.id), r = R.rec[x.id];
+    const k = tierOf(x), sc = x.level && x.level.score, nh = hItems(x.id).length, nr = openRpN(x.id), r = R.rec[x.id];
     const badge = (nh ? `<span class="${chip} !bg-amber-100 !text-amber-700 dark:!bg-amber-950 dark:!text-amber-300">⚠ ${nh}</span>` : '') + (nr ? `<span class="${chip} !bg-rose-100 !text-rose-700 dark:!bg-rose-950 dark:!text-rose-300">⚑ 提報 ${nr}</span>` : '');
     return `<div class="${card} p-3 mb-3"><p class="font-bold text-sm">${esc(x.id)}</p><p class="text-xs text-slate-500 truncate">${esc(x.tag)}</p><p class="text-sm mt-2">${esc(x.dialogue[0].t)}</p>
-      <div class="flex flex-wrap gap-1 mt-2">${badge}<span class="${chip}">${TIER[k]}${sc ? ' · ' + sc : ''}</span><span class="${chip}">${formL(x)}</span>${x.graphic ? `<span class="${chip}">圖表</span>` : ''}<span class="${chip} ${st[2]}">${st[1]}</span>${r ? `<span class="${chip}">上次 ${r.s}/${x.questions.length}</span>` : ''}</div>
+      <div class="flex flex-wrap gap-1 mt-2">${badge}<span class="${chip}">${TIER[k]}${sc ? ' · ' + sc : ''}</span><span class="${chip}">${formL(x)}</span>${x.graphic ? `<span class="${chip}">圖表</span>` : ''}${auChipH(x)}${r ? `<span class="${chip}">上次 ${r.s}/${x.questions.length}</span>` : ''}</div>
       <button onclick="adminItem(this.dataset.k)" data-k="${esc(x.id)}" class="${btn} ${line} !py-1 text-xs mt-2">看題目與答案</button></div>`;
   }).join('');
 }
