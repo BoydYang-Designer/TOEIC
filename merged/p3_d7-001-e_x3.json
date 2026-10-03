@@ -1,0 +1,675 @@
+[
+  {
+    "id": "d7-001-e",
+    "domain": "d7",
+    "scene": "outdoor",
+    "tag": "詢問公園野餐區位置與規定",
+    "form": "2p",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "兩人短對話，問答直接，答案幾乎照字面出現。"
+    },
+    "speakers": [
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "遊客"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "公園人員"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W",
+        "t": "Excuse me, we'd like to have a picnic today. Is there a good spot nearby?",
+        "zh": "不好意思，我們今天想野餐。附近有好地點嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Yes, the picnic area is next to the lake, about five minutes from here.",
+        "zh": "有，野餐區在湖邊，離這裡大約五分鐘。"
+      },
+      {
+        "sp": "W",
+        "t": "Do we need a permit? There will be about fifteen of us.",
+        "zh": "我們需要許可證嗎？我們大約會有十五個人。"
+      },
+      {
+        "sp": "M",
+        "t": "For groups under twenty, you don't need one. Just find a free table.",
+        "zh": "二十人以下的團體不需要。只要找張空的桌子就好。"
+      },
+      {
+        "sp": "W",
+        "t": "Great. Are there any restrooms close to the lake?",
+        "zh": "太好了。湖邊附近有廁所嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "There are some behind the snack stand. Please take your trash with you when you leave.",
+        "zh": "點心攤後面有。離開時請把垃圾帶走。"
+      },
+      {
+        "sp": "W",
+        "t": "Of course. Thanks for your help.",
+        "zh": "當然。謝謝你的幫忙。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {
+          "t": "Who most likely is the man?",
+          "zh": "這位男士最可能是誰？"
+        },
+        "choices": [
+          {
+            "t": "A hotel clerk",
+            "zh": "飯店櫃檯人員",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "對話與飯店無關。"
+          },
+          {
+            "t": "A park worker",
+            "zh": "公園工作人員",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "他介紹野餐區位置、規定與設施，是公園人員。"
+          },
+          {
+            "t": "A lake tour guide",
+            "zh": "湖上導覽員",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "湖只是野餐區的位置。"
+          },
+          {
+            "t": "A snack seller",
+            "zh": "點心攤販",
+            "ok": false,
+            "trap": "partial",
+            "why": "點心攤只是指引廁所位置的地標。"
+          }
+        ],
+        "evidence": [
+          1
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": {
+          "t": "Why doesn't the woman need a permit?",
+          "zh": "女士為什麼不需要許可證？"
+        },
+        "choices": [
+          {
+            "t": "The park is free today.",
+            "zh": "公園今天免費。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到費用。"
+          },
+          {
+            "t": "Groups of fifteen must wait in line.",
+            "zh": "十五人的團體要排隊。",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "十五是她團體的人數，與排隊無關。"
+          },
+          {
+            "t": "The man gave her special permission.",
+            "zh": "男士特別允許她。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "是規則本身不需要，並非特例。"
+          },
+          {
+            "t": "Her group is smaller than twenty people.",
+            "zh": "她的團體少於二十人。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "男士說二十人以下不需要。"
+          }
+        ],
+        "evidence": [
+          3
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": {
+          "t": "What can be inferred about the man?",
+          "zh": "關於這位男士可以推論出什麼？"
+        },
+        "choices": [
+          {
+            "t": "He wants visitors to keep the park clean.",
+            "zh": "他希望遊客維持公園整潔。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "他請遊客離開時帶走垃圾。"
+          },
+          {
+            "t": "He thinks the restrooms are dirty.",
+            "zh": "他覺得廁所很髒。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有評論廁所。"
+          },
+          {
+            "t": "He will collect the trash himself.",
+            "zh": "他會自己收垃圾。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "他要求遊客自行帶走。"
+          },
+          {
+            "t": "He wants the group to leave early.",
+            "zh": "他希望團體早點離開。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到離開時間。"
+          }
+        ],
+        "evidence": [
+          5
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "permit",
+        "ipa": "/ˈpɜːrmɪt/",
+        "pos": "n.",
+        "col": "need a permit",
+        "zh": "許可證"
+      },
+      {
+        "word": "restrooms",
+        "ipa": "/ˈrestruːmz/",
+        "pos": "n.",
+        "col": "public restrooms",
+        "zh": "洗手間"
+      },
+      {
+        "word": "trash",
+        "ipa": "/træʃ/",
+        "pos": "n.",
+        "col": "take out the trash",
+        "zh": "垃圾"
+      }
+    ]
+  },
+  {
+    "id": "d7-002-e",
+    "domain": "d7",
+    "scene": "outdoor",
+    "tag": "為帶小孩的家庭選擇步道",
+    "form": "2p",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "兩人對話搭配簡單步道表，條件（簡單、一小時）直接說出，容易對照。"
+    },
+    "speakers": [
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "公園人員"
+      },
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "遊客"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "M",
+        "t": "Welcome to Maple Hill Park. Are you planning to hike today?",
+        "zh": "歡迎來到楓丘公園。你們今天打算健行嗎？"
+      },
+      {
+        "sp": "W",
+        "t": "Yes. My two kids are only six, so we need something easy.",
+        "zh": "是的。我兩個孩子才六歲，所以需要簡單一點的。"
+      },
+      {
+        "sp": "M",
+        "t": "Then I recommend the easy trails. Do you have a lot of time?",
+        "zh": "那我推薦簡單的步道。你們時間多嗎？"
+      },
+      {
+        "sp": "W",
+        "t": "We only have about an hour. We want to be back before lunch.",
+        "zh": "我們只有大約一小時。想在午餐前回來。"
+      },
+      {
+        "sp": "M",
+        "t": "Then I'd pick the shortest easy trail. It starts behind the visitor center.",
+        "zh": "那我會選最短的簡單步道。它從遊客中心後面開始。"
+      },
+      {
+        "sp": "W",
+        "t": "Perfect. Is it okay if my kids bring a ball to play with at the end?",
+        "zh": "太好了。我的孩子可以帶球到終點玩嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Sure, there's a grass field near the end. Just stay on the path while you walk.",
+        "zh": "當然，終點附近有片草地。走的時候請待在步道上。"
+      },
+      {
+        "sp": "W",
+        "t": "We will. I'll get some water at the center first.",
+        "zh": "我們會的。我先去遊客中心拿些水。"
+      }
+    ],
+    "graphic": {
+      "title": "Maple Hill Park Trails",
+      "columns": [
+        "Trail",
+        "Distance",
+        "Time",
+        "Level"
+      ],
+      "rows": [
+        [
+          "Lakeside Loop",
+          "2 km",
+          "40 min",
+          "Easy"
+        ],
+        [
+          "Waterfall Walk",
+          "3 km",
+          "1 hr 20 min",
+          "Easy"
+        ],
+        [
+          "Pine Ridge",
+          "5 km",
+          "2 hr",
+          "Moderate"
+        ],
+        [
+          "Eagle Peak",
+          "8 km",
+          "4 hr",
+          "Hard"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "intent",
+        "q": {
+          "t": "Why does the woman say, \"We want to be back before lunch\"?",
+          "zh": "女士為什麼說「我們想在午餐前回來」？"
+        },
+        "choices": [
+          {
+            "t": "To ask where to eat lunch",
+            "zh": "詢問在哪裡吃午餐",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "午餐只是時間限制，她沒問餐廳。"
+          },
+          {
+            "t": "To explain why she needs a short hike",
+            "zh": "解釋她為何需要短程健行",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "她先說只有一小時，再說明要在午餐前回來。"
+          },
+          {
+            "t": "To complain about the park hours",
+            "zh": "抱怨公園開放時間",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到公園時間。"
+          },
+          {
+            "t": "To say the kids are hungry",
+            "zh": "說孩子餓了",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "她沒有說孩子餓。"
+          }
+        ],
+        "evidence": [
+          3
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "graphic",
+        "q": {
+          "t": "Look at the graphic. Which trail will the woman most likely take?",
+          "zh": "請看圖表。這位女士最可能走哪條步道？"
+        },
+        "choices": [
+          {
+            "t": "Lakeside Loop",
+            "zh": "湖畔環線",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "需要簡單且約一小時內，只有 Lakeside Loop 是 40 分鐘的簡單步道。"
+          },
+          {
+            "t": "Waterfall Walk",
+            "zh": "瀑布步道",
+            "ok": false,
+            "trap": "partial",
+            "why": "難度簡單，但需 1 小時 20 分，超過一小時。"
+          },
+          {
+            "t": "Pine Ridge",
+            "zh": "松嶺步道",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "難度中等且要兩小時。"
+          },
+          {
+            "t": "Eagle Peak",
+            "zh": "鷹峰步道",
+            "ok": false,
+            "trap": "opposite",
+            "why": "困難且要四小時，與需求相反。"
+          }
+        ],
+        "evidence": [
+          3,
+          4
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": {
+          "t": "What will the woman do next?",
+          "zh": "這位女士接下來會做什麼？"
+        },
+        "choices": [
+          {
+            "t": "Buy a ball in the gift shop",
+            "zh": "在禮品店買球",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "球是孩子自己帶的。"
+          },
+          {
+            "t": "Walk to the grass field",
+            "zh": "走到草地",
+            "ok": false,
+            "trap": "partial",
+            "why": "草地在步道終點附近，不是現在要去。"
+          },
+          {
+            "t": "Pick up some water at the visitor center",
+            "zh": "到遊客中心拿水",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "她說要先去遊客中心拿水。"
+          },
+          {
+            "t": "Start the Pine Ridge trail",
+            "zh": "開始走松嶺步道",
+            "ok": false,
+            "trap": "opposite",
+            "why": "她要選最短的簡單步道。"
+          }
+        ],
+        "evidence": [
+          7
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "trail",
+        "ipa": "/treɪl/",
+        "pos": "n.",
+        "col": "a hiking trail",
+        "zh": "步道"
+      },
+      {
+        "word": "hike",
+        "ipa": "/haɪk/",
+        "pos": "v.",
+        "col": "go for a hike",
+        "zh": "健行"
+      },
+      {
+        "word": "path",
+        "ipa": "/pæθ/",
+        "pos": "n.",
+        "col": "stay on the path",
+        "zh": "小徑"
+      }
+    ]
+  },
+  {
+    "id": "d7-003-e",
+    "domain": "d7",
+    "scene": "outdoor",
+    "tag": "公園足球賽因場地濕滑可能取消",
+    "form": "2p",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "兩人討論比賽可能延期，時間與原因皆直接說出。"
+    },
+    "speakers": [
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "隊友"
+      },
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "隊友"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "M",
+        "t": "Did you see the sky? I think the soccer game at the park may be canceled.",
+        "zh": "你看到天空了嗎？我覺得公園的足球賽可能會取消。"
+      },
+      {
+        "sp": "W",
+        "t": "I heard the same thing. The field is still wet from last night's rain.",
+        "zh": "我也聽說了。球場還因為昨晚的雨很濕。"
+      },
+      {
+        "sp": "M",
+        "t": "The coach texted me. He said we'll know by noon.",
+        "zh": "教練傳訊息給我。他說中午前會知道結果。"
+      },
+      {
+        "sp": "W",
+        "t": "If it's canceled, can we play on Sunday instead?",
+        "zh": "如果取消，我們可以改星期日踢嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Maybe not. The other team is busy on Sunday, but they're free next Saturday.",
+        "zh": "可能不行。對方隊伍星期日有事，但下週六有空。"
+      },
+      {
+        "sp": "W",
+        "t": "Then let's plan for next Saturday at ten.",
+        "zh": "那我們就計劃下週六十點。"
+      },
+      {
+        "sp": "M",
+        "t": "Okay. I'll tell the rest of the players tonight.",
+        "zh": "好。我今晚會通知其他球員。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {
+          "t": "What are the speakers mainly discussing?",
+          "zh": "說話者主要在討論什麼？"
+        },
+        "choices": [
+          {
+            "t": "A new soccer team",
+            "zh": "一支新的足球隊",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到新球隊。"
+          },
+          {
+            "t": "Buying a ball for practice",
+            "zh": "買練習用的球",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "沒有談到買球。"
+          },
+          {
+            "t": "A game that may be delayed",
+            "zh": "一場可能被延後的比賽",
+            "ok": true,
+            "pattern": "summary",
+            "why": "全段圍繞足球賽可能取消與改期。"
+          },
+          {
+            "t": "Fixing the park field",
+            "zh": "修補公園球場",
+            "ok": false,
+            "trap": "partial",
+            "why": "球場濕只是取消原因，沒有討論整修。"
+          }
+        ],
+        "evidence": [
+          0
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": {
+          "t": "When will the speakers learn the coach's decision?",
+          "zh": "說話者何時會得知教練的決定？"
+        },
+        "choices": [
+          {
+            "t": "By midday",
+            "zh": "中午之前",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "男士說 by noon。"
+          },
+          {
+            "t": "Tonight",
+            "zh": "今晚",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "今晚是男士要通知其他球員的時間。"
+          },
+          {
+            "t": "On Sunday",
+            "zh": "星期日",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "星期日是對方隊伍沒空的日子。"
+          },
+          {
+            "t": "Next Saturday at ten",
+            "zh": "下週六十點",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "那是新的比賽時間。"
+          }
+        ],
+        "evidence": [
+          2
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": {
+          "t": "What can be inferred about the other team?",
+          "zh": "關於對方隊伍可以推論出什麼？"
+        },
+        "choices": [
+          {
+            "t": "They can't play next Saturday.",
+            "zh": "他們下週六不能比賽。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "他們下週六有空。"
+          },
+          {
+            "t": "They are not available this Sunday.",
+            "zh": "他們這個星期日沒空。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "男士說對方星期日有事。"
+          },
+          {
+            "t": "They canceled the game already.",
+            "zh": "他們已取消比賽。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "取消與否尚待教練決定。"
+          },
+          {
+            "t": "They forgot about the game.",
+            "zh": "他們忘了比賽。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有這樣的資訊。"
+          }
+        ],
+        "evidence": [
+          4
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "field",
+        "ipa": "/fiːld/",
+        "pos": "n.",
+        "col": "a soccer field",
+        "zh": "球場"
+      },
+      {
+        "word": "canceled",
+        "ipa": "/ˈkænsəld/",
+        "pos": "adj.",
+        "col": "the game is canceled",
+        "zh": "被取消的"
+      },
+      {
+        "word": "coach",
+        "ipa": "/koʊtʃ/",
+        "pos": "n.",
+        "col": "the team coach",
+        "zh": "教練"
+      }
+    ]
+  }
+]

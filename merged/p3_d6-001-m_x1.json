@@ -1,0 +1,77 @@
+[
+  {
+    "id": "d6-001-m",
+    "domain": "d6",
+    "scene": "home",
+    "tag": "水管漏水協調維修時間",
+    "form": "3p",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "以同義換句說明漏水維修的時間協調，並需由對話推論女士當天的工作安排。"
+    },
+    "speakers": [
+      { "id": "W1", "gender": "F", "role": "房客" },
+      { "id": "W2", "gender": "F", "role": "室友" },
+      { "id": "M", "gender": "M", "role": "水電工" }
+    ],
+    "dialogue": [
+      { "sp": "M", "t": "Good morning. I'm the plumber your landlord sent about the kitchen sink.", "zh": "早安。我是你們房東派來處理廚房水槽的水電工。" },
+      { "sp": "W1", "t": "Thanks for coming. The leak started two days ago, and it's getting worse.", "zh": "謝謝你來。漏水是兩天前開始的，而且越來越嚴重。" },
+      { "sp": "W2", "t": "We put a bucket under it, but it fills up every evening.", "zh": "我們在下面放了水桶，但每天晚上都會裝滿。" },
+      { "sp": "M", "t": "I see. I'll have to take the pipe apart and use a drill, so it will be loud for about two hours.", "zh": "我懂了。我得把水管拆開並使用電鑽，所以大約兩小時會很吵。" },
+      { "sp": "W1", "t": "Two hours? I have a video call at ten, so I can't work with that noise.", "zh": "兩小時？我十點有視訊會議，有那種噪音我沒辦法工作。" },
+      { "sp": "W2", "t": "I'm free this afternoon. Could you start after lunch?", "zh": "我今天下午有空。你可以午餐後再開始嗎？" },
+      { "sp": "M", "t": "I have another job at two, so I'd have to come back tomorrow morning.", "zh": "我兩點還有另一個工作，所以我得明天早上再來。" },
+      { "sp": "W1", "t": "Tomorrow works for me. I'm free all morning.", "zh": "明天我可以。我整個早上都有空。" },
+      { "sp": "W2", "t": "In the meantime, can you stop the leak temporarily so we don't need the bucket?", "zh": "在那之前，你可以暫時止住漏水，這樣我們就不需要水桶了嗎？" },
+      { "sp": "M", "t": "Yes, I can tighten the joint now. It will hold until tomorrow.", "zh": "可以，我現在可以鎖緊接頭。它撐到明天沒問題。" },
+      { "sp": "W1", "t": "Great, thank you. We'll see you at eight.", "zh": "太好了，謝謝你。我們八點見。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "Why is the man at the apartment?", "zh": "男子為什麼來到這間公寓？" },
+        "choices": [
+          { "t": "To fix a leaking sink", "zh": "修理漏水的水槽", "ok": true, "pattern": "paraphrase", "why": "他說是房東派他來處理廚房水槽漏水。" },
+          { "t": "To collect the rent", "zh": "收租金", "ok": false, "trap": "wrong-speaker", "why": "派他來的是房東，他本人是水電工。" },
+          { "t": "To empty a bucket", "zh": "倒掉水桶裡的水", "ok": false, "trap": "mention-not-ask", "why": "水桶是房客暫時用來接水的。" },
+          { "t": "To install a new drill", "zh": "安裝新電鑽", "ok": false, "trap": "sound-alike", "why": "電鑽是他維修時用的工具。" }
+        ],
+        "evidence": [0, 1]
+      },
+      {
+        "id": "q2",
+        "qtype": "infer",
+        "q": { "t": "What can be inferred about the first woman?", "zh": "關於第一位女士可以推論出什麼？" },
+        "choices": [
+          { "t": "She will be working at home this morning.", "zh": "她今天早上會在家工作。", "ok": true, "pattern": "paraphrase", "why": "她十點有視訊會議，不能有噪音。" },
+          { "t": "She works for the landlord.", "zh": "她為房東工作。", "ok": false, "trap": "wrong-speaker", "why": "房東只是派水電工的人。" },
+          { "t": "She will be away all day.", "zh": "她整天都不在家。", "ok": false, "trap": "opposite", "why": "她明天早上有空，今天早上有視訊會議。" },
+          { "t": "She wants the leak left alone.", "zh": "她希望不要處理漏水。", "ok": false, "trap": "opposite", "why": "她同意明天早上來修。" }
+        ],
+        "evidence": [4]
+      },
+      {
+        "id": "q3",
+        "qtype": "detail",
+        "q": { "t": "Why can't the man work in the afternoon?", "zh": "男子下午為什麼不能工作？" },
+        "choices": [
+          { "t": "He has another job.", "zh": "他有另一個工作。", "ok": true, "pattern": "paraphrase", "why": "他說兩點還有另一個工作。" },
+          { "t": "He needs a lunch break.", "zh": "他需要午休。", "ok": false, "trap": "mention-not-ask", "why": "午餐是室友提議的開工時間點。" },
+          { "t": "The noise is not allowed after two.", "zh": "兩點後不准製造噪音。", "ok": false, "trap": "number-mix", "why": "兩點是他另一個工作的時間。" },
+          { "t": "The landlord will arrive then.", "zh": "房東那時會到。", "ok": false, "trap": "over-infer", "why": "對話沒有提到房東會來。" }
+        ],
+        "evidence": [6]
+      }
+    ],
+    "vocab": [
+      { "word": "leak", "ipa": "/liːk/", "pos": "n.", "col": "fix a leak", "zh": "漏水" },
+      { "word": "plumber", "ipa": "/ˈplʌmər/", "pos": "n.", "col": "call a plumber", "zh": "水電工" },
+      { "word": "temporarily", "ipa": "/ˌtempəˈrerəli/", "pos": "adv.", "col": "temporarily closed", "zh": "暫時地" }
+    ]
+  }
+]

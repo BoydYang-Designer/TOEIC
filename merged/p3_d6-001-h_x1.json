@@ -1,0 +1,86 @@
+[
+  {
+    "id": "d6-001-h",
+    "domain": "d6",
+    "scene": "hotel",
+    "tag": "會議住宿房型因早餐改訂",
+    "form": "3p",
+    "level": {
+      "score": 750,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "三人對話先選價格最低的房型、後因早餐承諾改選，並需結合房型表與預算判斷。"
+    },
+    "speakers": [
+      { "id": "M1", "gender": "M", "role": "活動負責人" },
+      { "id": "M2", "gender": "M", "role": "同事" },
+      { "id": "W", "gender": "F", "role": "飯店櫃檯人員" }
+    ],
+    "dialogue": [
+      { "sp": "M1", "t": "We need eight rooms for our guests attending next month's sales conference.", "zh": "我們需要八間房，給下個月參加業務會議的賓客。" },
+      { "sp": "W", "t": "Certainly. For how many nights, and what is your budget per room?", "zh": "沒問題。要住幾晚，每間房的預算是多少？" },
+      { "sp": "M1", "t": "Three nights, and we'd like to stay under one hundred twenty dollars per room per night.", "zh": "三晚，而且我們希望每間每晚低於一百二十元。" },
+      { "sp": "M2", "t": "Since that's the budget, let's just take the lowest-priced rooms to save money.", "zh": "既然這是預算，我們就直接選價格最低的房間來省錢吧。" },
+      { "sp": "W", "t": "The Standard Single is ninety dollars, and we have fourteen of them.", "zh": "標準單人房是九十元，我們有十四間。" },
+      { "sp": "M1", "t": "That sounds ideal. Wait, does that rate include breakfast? Our guests have early meetings.", "zh": "聽起來很理想。等等，那個價格有含早餐嗎？我們的賓客有早場會議。" },
+      { "sp": "W", "t": "I'm afraid breakfast isn't included with the single rooms.", "zh": "恐怕單人房不含早餐。" },
+      { "sp": "M2", "t": "Then it's not ideal. Breakfast was part of the invitation we sent to everyone.", "zh": "那就不理想了。早餐是我們寄給大家的邀請函內容之一。" },
+      { "sp": "M1", "t": "You're right. Is there another room type under our price ceiling that comes with breakfast?", "zh": "你說得對。有沒有另一種房型在我們的價格上限內，而且附早餐？" },
+      { "sp": "W", "t": "Yes, one other type is within your budget, and breakfast comes with it. We have enough for all eight.", "zh": "有，另一種房型在你們的預算內，而且附早餐。我們的房間數足夠給八位。" },
+      { "sp": "M1", "t": "Excellent. Let's switch to that, and I'll sign the form now.", "zh": "太好了。我們改訂那種，我現在就簽表格。" }
+    ],
+    "graphic": {
+      "title": "Room Types and Rates",
+      "columns": ["Room Type", "Rate per Night", "Rooms Available", "Breakfast"],
+      "rows": [
+        ["Standard Single", "$90", "14", "Not included"],
+        ["Standard Double", "$110", "9", "Included"],
+        ["Deluxe Double", "$140", "10", "Included"],
+        ["Suite", "$220", "2", "Included"]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What are the men trying to do?", "zh": "這兩位男子想做什麼？" },
+        "choices": [
+          { "t": "Arrange rooms for conference guests", "zh": "為會議賓客安排房間", "ok": true, "pattern": "summary", "why": "他們需要八間房給業務會議的賓客。" },
+          { "t": "Cancel a hotel stay", "zh": "取消住宿", "ok": false, "trap": "opposite", "why": "他們是在訂房。" },
+          { "t": "Change the date of a conference", "zh": "更改會議日期", "ok": false, "trap": "over-infer", "why": "對話沒有提到日期變更。" },
+          { "t": "Apply for a company card", "zh": "申辦公司信用卡", "ok": false, "trap": "over-infer", "why": "對話沒有提到信用卡。" }
+        ],
+        "evidence": [0, 1]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": { "t": "What does the second man mean when he says, \"Then it's not ideal\"?", "zh": "第二位男子說「Then it's not ideal」是什麼意思？" },
+        "choices": [
+          { "t": "The single rooms would not meet a promise made to the guests.", "zh": "單人房無法符合對賓客的承諾。", "ok": true, "pattern": "paraphrase", "why": "他接著說早餐是邀請函內容之一。" },
+          { "t": "He thinks the single rooms cost too much.", "zh": "他覺得單人房太貴。", "ok": false, "trap": "opposite", "why": "單人房 $90 在預算內，問題是沒有早餐。" },
+          { "t": "He wants to cancel the conference.", "zh": "他想取消會議。", "ok": false, "trap": "over-infer", "why": "對話沒有提到取消會議。" },
+          { "t": "The hotel sent the invitation.", "zh": "邀請函是飯店寄的。", "ok": false, "trap": "wrong-speaker", "why": "邀請函是他們自己寄給賓客的。" }
+        ],
+        "evidence": [7]
+      },
+      {
+        "id": "q3",
+        "qtype": "graphic",
+        "q": { "t": "Look at the graphic. Which room type will the men most likely book?", "zh": "請看圖表。兩位男子最可能訂哪一種房型？" },
+        "choices": [
+          { "t": "Standard Double", "zh": "標準雙人房", "ok": true, "pattern": "summary", "why": "每晚 $110 低於 $120、有 9 間足夠八位賓客，且含早餐。" },
+          { "t": "Standard Single", "zh": "標準單人房", "ok": false, "trap": "partial", "why": "價格和數量符合，但不含早餐。" },
+          { "t": "Deluxe Double", "zh": "豪華雙人房", "ok": false, "trap": "number-mix", "why": "$140 超過每晚 $120 的預算。" },
+          { "t": "Suite", "zh": "套房", "ok": false, "trap": "number-mix", "why": "$220 超出預算，且只有 2 間，不夠八位。" }
+        ],
+        "evidence": [9]
+      }
+    ],
+    "vocab": [
+      { "word": "conference", "ipa": "/ˈkɑːnfərəns/", "pos": "n.", "col": "a sales conference", "zh": "會議" },
+      { "word": "rate", "ipa": "/reɪt/", "pos": "n.", "col": "a room rate", "zh": "費率；價格" },
+      { "word": "budget", "ipa": "/ˈbʌdʒɪt/", "pos": "n.", "col": "within budget", "zh": "預算" }
+    ]
+  }
+]

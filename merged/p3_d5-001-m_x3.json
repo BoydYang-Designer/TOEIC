@@ -1,0 +1,224 @@
+[
+  {
+    "id": "d5-001-m",
+    "domain": "d5",
+    "scene": "workplace",
+    "tag": "混凝土澆置因雨提前",
+    "form": "2p",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "以同義換句說明因天氣調整施工時間，並需推論提早施作的原因。"
+    },
+    "speakers": [
+      { "id": "M", "gender": "M", "role": "工地領班" },
+      { "id": "W", "gender": "F", "role": "現場工程師" }
+    ],
+    "dialogue": [
+      { "sp": "M", "t": "Have you looked at the weather report for Thursday? It says heavy rain starting around noon.", "zh": "你看過週四的天氣預報了嗎？上面說中午左右開始下大雨。" },
+      { "sp": "W", "t": "I did. We were going to pour the concrete for the second floor that morning.", "zh": "看了。我們原本要在那天早上澆灌二樓的混凝土。" },
+      { "sp": "M", "t": "The mixer trucks are booked for eight a.m. If the rain begins at noon, we might not finish.", "zh": "預拌車已經訂在早上八點。如果中午開始下雨，我們可能做不完。" },
+      { "sp": "W", "t": "Pouring takes about six hours, so we'd be caught in the rain. Can we move it earlier?", "zh": "澆灌大約要六小時，所以我們會被雨淋到。可以提早嗎？" },
+      { "sp": "M", "t": "The supplier can send trucks at five a.m. if we ask by the end of today.", "zh": "如果我們今天之內提出，供應商可以早上五點派車。" },
+      { "sp": "W", "t": "Then let's do that. I'd rather start early than risk ruining the surface.", "zh": "那就這麼做。我寧可提早開始，也不想冒著毀掉表面的風險。" },
+      { "sp": "M", "t": "Good. I'll call the supplier and tell the workers to be here by four thirty.", "zh": "好。我會打給供應商，並通知工人們四點半前到這裡。" },
+      { "sp": "W", "t": "Perfect. I'll prepare the safety checklist tonight.", "zh": "太好了。我今晚會準備好安全檢查表。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What are the speakers mainly discussing?", "zh": "說話者主要在討論什麼？" },
+        "choices": [
+          { "t": "Changing a work time because of the weather", "zh": "因天氣而更改工作時間", "ok": true, "pattern": "summary", "why": "預報週四中午下雨，所以要把澆灌提早。" },
+          { "t": "Buying a new mixer truck", "zh": "購買新的預拌車", "ok": false, "trap": "over-infer", "why": "預拌車只是已預訂的車輛，沒有購買。" },
+          { "t": "Cancelling the work for Thursday", "zh": "取消週四的工作", "ok": false, "trap": "opposite", "why": "他們是把工作提早進行，而不是取消。" },
+          { "t": "Preparing a safety checklist", "zh": "準備安全檢查表", "ok": false, "trap": "mention-not-ask", "why": "檢查表只在最後一句提到。" }
+        ],
+        "evidence": [0, 1]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": { "t": "By when must the speakers contact the supplier?", "zh": "說話者必須在何時之前聯絡供應商？" },
+        "choices": [
+          { "t": "By the end of today", "zh": "今天之內", "ok": true, "pattern": "direct", "why": "男子說今天之內提出，供應商才能早上五點派車。" },
+          { "t": "By Thursday noon", "zh": "週四中午前", "ok": false, "trap": "number-mix", "why": "週四中午是預計開始下雨的時間。" },
+          { "t": "By five a.m.", "zh": "早上五點前", "ok": false, "trap": "number-mix", "why": "五點是供應商可派車的時間。" },
+          { "t": "By four thirty", "zh": "四點半前", "ok": false, "trap": "number-mix", "why": "四點半是工人需要到場的時間。" }
+        ],
+        "evidence": [4]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": { "t": "What does the woman imply about rain and fresh concrete?", "zh": "關於雨與剛澆灌的混凝土，這位女士暗示了什麼？" },
+        "choices": [
+          { "t": "Rain could damage the finished surface.", "zh": "雨可能會破壞完成的表面。", "ok": true, "pattern": "paraphrase", "why": "她寧可提早開始，也不想冒毀掉表面的風險。" },
+          { "t": "Rain makes the work go faster.", "zh": "下雨會讓工作更快。", "ok": false, "trap": "opposite", "why": "她擔心下雨造成問題，而不是加快進度。" },
+          { "t": "The surface is already ruined.", "zh": "表面已經毀了。", "ok": false, "trap": "over-infer", "why": "工作尚未開始，她只是擔心風險。" },
+          { "t": "The supplier will charge extra for rain.", "zh": "供應商會因下雨加收費用。", "ok": false, "trap": "over-infer", "why": "對話沒有提到加收費用。" }
+        ],
+        "evidence": [5]
+      }
+    ],
+    "vocab": [
+      { "word": "concrete", "ipa": "/ˈkɑːŋkriːt/", "pos": "n.", "col": "pour concrete", "zh": "混凝土" },
+      { "word": "supplier", "ipa": "/səˈplaɪər/", "pos": "n.", "col": "a building supplier", "zh": "供應商" },
+      { "word": "surface", "ipa": "/ˈsɜːrfɪs/", "pos": "n.", "col": "a smooth surface", "zh": "表面" }
+    ]
+  },
+  {
+    "id": "d5-002-m",
+    "domain": "d5",
+    "scene": "workplace",
+    "tag": "安排大型貨車卸貨碼頭",
+    "form": "2p",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "需結合碼頭時段與車長限制，再配合到達時間與卸貨時間選出合適碼頭。"
+    },
+    "speakers": [
+      { "id": "M", "gender": "M", "role": "貨運調度員" },
+      { "id": "W", "gender": "F", "role": "碼頭主管" }
+    ],
+    "dialogue": [
+      { "sp": "M", "t": "Our truck with the steel shelves will reach your site around twelve thirty today.", "zh": "我們載鋼製貨架的貨車今天大約十二點半會到你們那裡。" },
+      { "sp": "W", "t": "Okay. How long is the vehicle? Some of our docks can't handle long ones.", "zh": "好的。車子多長？我們有些碼頭無法處理長的車。" },
+      { "sp": "M", "t": "Fourteen meters. It's the largest vehicle we send.", "zh": "十四公尺。這是我們派出最大的車。" },
+      { "sp": "W", "t": "I'll assign a suitable dock for you. It may mean a short wait after you arrive.", "zh": "我會為你們安排合適的碼頭。抵達後可能要稍等一下。" },
+      { "sp": "M", "t": "That's fine. We're not in a hurry, as long as the unloading is done by four.", "zh": "沒關係。我們不趕，只要卸貨在四點前完成就好。" },
+      { "sp": "W", "t": "It will be. Unloading usually takes about an hour and a half.", "zh": "會的。卸貨通常大約要一個半小時。" },
+      { "sp": "M", "t": "Great. Should I have the driver call you when he's twenty minutes away?", "zh": "太好了。要不要讓司機在離你們二十分鐘時打給你？" },
+      { "sp": "W", "t": "Yes, please. I'll have a team ready as soon as he calls.", "zh": "好的，麻煩了。他一打來我就會讓一組人準備好。" }
+    ],
+    "graphic": {
+      "title": "Loading Dock Availability",
+      "columns": ["Dock", "Open Time", "Max Vehicle Length"],
+      "rows": [
+        ["Dock 1", "9:00–11:00", "12 m"],
+        ["Dock 2", "11:00–1:00", "8 m"],
+        ["Dock 3", "1:00–3:00", "16 m"],
+        ["Dock 4", "3:00–5:00", "12 m"]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "graphic",
+        "q": { "t": "Look at the graphic. Which dock will the truck most likely use?", "zh": "請看圖表。這輛貨車最可能使用哪個碼頭？" },
+        "choices": [
+          { "t": "Dock 3", "zh": "3 號碼頭", "ok": true, "pattern": "summary", "why": "車長 14 公尺，需容許 16 公尺的碼頭；一點開放，也能在四點前卸完貨。" },
+          { "t": "Dock 1", "zh": "1 號碼頭", "ok": false, "trap": "number-mix", "why": "它十一點就結束開放，且只容許 12 公尺。" },
+          { "t": "Dock 2", "zh": "2 號碼頭", "ok": false, "trap": "partial", "why": "時間接近抵達時間，但只容許 8 公尺的車。" },
+          { "t": "Dock 4", "zh": "4 號碼頭", "ok": false, "trap": "number-mix", "why": "三點才開放，無法在四點前卸完，也只容許 12 公尺。" }
+        ],
+        "evidence": [0, 2]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": { "t": "What does the man mean when he says, \"We're not in a hurry\"?", "zh": "男子說「We're not in a hurry」是什麼意思？" },
+        "choices": [
+          { "t": "He can accept a short delay.", "zh": "他可以接受稍微延後。", "ok": true, "pattern": "paraphrase", "why": "這是回應女士說抵達後可能要稍等。" },
+          { "t": "He wants the truck unloaded immediately.", "zh": "他希望貨車立刻卸貨。", "ok": false, "trap": "opposite", "why": "他表示可以等。" },
+          { "t": "He has no deadline at all.", "zh": "他完全沒有截止時間。", "ok": false, "trap": "partial", "why": "他仍要求四點前卸完。" },
+          { "t": "He is unsure about the truck's size.", "zh": "他不確定貨車大小。", "ok": false, "trap": "over-infer", "why": "他清楚回答了車長是十四公尺。" }
+        ],
+        "evidence": [4]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": { "t": "What does the woman ask the man to do?", "zh": "這位女士要求男子做什麼？" },
+        "choices": [
+          { "t": "Have the driver call when he is nearby", "zh": "讓司機在接近時打電話", "ok": true, "pattern": "paraphrase", "why": "男子建議離二十分鐘時打給她，她回答好的。" },
+          { "t": "Send the truck earlier", "zh": "提早派車", "ok": false, "trap": "over-infer", "why": "對話沒有提到提早。" },
+          { "t": "Choose a dock himself", "zh": "自己選碼頭", "ok": false, "trap": "wrong-speaker", "why": "是女士要為他們安排碼頭。" },
+          { "t": "Bring a larger vehicle", "zh": "改派更大的車", "ok": false, "trap": "opposite", "why": "男子說這已是最大的車，也沒有人要求換車。" }
+        ],
+        "evidence": [6, 7]
+      }
+    ],
+    "vocab": [
+      { "word": "dock", "ipa": "/dɑːk/", "pos": "n.", "col": "a loading dock", "zh": "碼頭；裝卸區" },
+      { "word": "unloading", "ipa": "/ʌnˈloʊdɪŋ/", "pos": "n.", "col": "unloading time", "zh": "卸貨" },
+      { "word": "vehicle", "ipa": "/ˈviːəkl/", "pos": "n.", "col": "a large vehicle", "zh": "車輛" }
+    ]
+  },
+  {
+    "id": "d5-003-m",
+    "domain": "d5",
+    "scene": "workplace",
+    "tag": "盤點數量與系統不符",
+    "form": "2p",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "以同義換句說明庫存差異的調查過程，並需推論主管對原因的懷疑。"
+    },
+    "speakers": [
+      { "id": "W", "gender": "F", "role": "庫存人員" },
+      { "id": "M", "gender": "M", "role": "倉庫主管" }
+    ],
+    "dialogue": [
+      { "sp": "W", "t": "I finished counting the pallets in Section C, and the numbers don't match the system.", "zh": "我數完 C 區的棧板了，數量和系統不一致。" },
+      { "sp": "M", "t": "How big is the difference? Are we missing items, or do we have extra?", "zh": "差多少？是少了東西，還是多出來？" },
+      { "sp": "W", "t": "The system says one hundred twenty cartons of tiles, but I counted only one hundred.", "zh": "系統顯示有一百二十箱磁磚，但我只數到一百箱。" },
+      { "sp": "M", "t": "Twenty cartons is a lot. Could some have been moved to Section D by mistake?", "zh": "二十箱不少。有沒有可能不小心被搬到 D 區？" },
+      { "sp": "W", "t": "I checked there first. Section D only has bags of cement.", "zh": "我先查過那裡了。D 區只有水泥袋。" },
+      { "sp": "M", "t": "Then let's review last week's outgoing orders. Maybe a truck took too many.", "zh": "那我們來檢視上週的出貨訂單。也許有車載走太多了。" },
+      { "sp": "W", "t": "Good idea. I'll print the loading records and look at them this afternoon.", "zh": "好主意。我會列印裝載紀錄，今天下午來看。" },
+      { "sp": "M", "t": "Let me know what you find, and I'll contact the customer if needed.", "zh": "有發現再告訴我，必要的話我會聯絡客戶。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What problem does the woman report?", "zh": "這位女士回報了什麼問題？" },
+        "choices": [
+          { "t": "The actual stock is lower than the recorded amount.", "zh": "實際庫存比紀錄的數量少。", "ok": true, "pattern": "paraphrase", "why": "系統顯示一百二十箱，她只數到一百箱。" },
+          { "t": "Section D is full of cement.", "zh": "D 區堆滿水泥。", "ok": false, "trap": "mention-not-ask", "why": "水泥只是她檢查 D 區時提到的。" },
+          { "t": "A truck arrived late.", "zh": "有貨車遲到。", "ok": false, "trap": "over-infer", "why": "對話沒有提到貨車遲到。" },
+          { "t": "The computer system is offline.", "zh": "電腦系統離線。", "ok": false, "trap": "over-infer", "why": "系統有運作，只是數量與實物不符。" }
+        ],
+        "evidence": [0, 2]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": { "t": "Where did the woman look for the missing cartons first?", "zh": "這位女士一開始在哪裡找不見的箱子？" },
+        "choices": [
+          { "t": "In Section D", "zh": "在 D 區", "ok": true, "pattern": "paraphrase", "why": "她說先查過那裡，只有水泥袋。" },
+          { "t": "In Section C", "zh": "在 C 區", "ok": false, "trap": "mention-not-ask", "why": "C 區是她盤點的地方，發現數量不符。" },
+          { "t": "In last week's orders", "zh": "在上週的訂單中", "ok": false, "trap": "wrong-speaker", "why": "檢視出貨訂單是男子之後提出的做法。" },
+          { "t": "In the customer's truck", "zh": "在客戶的貨車上", "ok": false, "trap": "over-infer", "why": "對話沒有說她去查貨車。" }
+        ],
+        "evidence": [4]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": { "t": "What does the man suspect might have happened?", "zh": "男子懷疑可能發生了什麼事？" },
+        "choices": [
+          { "t": "Too many cartons were loaded onto a truck.", "zh": "有太多箱子被裝上貨車。", "ok": true, "pattern": "paraphrase", "why": "他說也許有車載走太多了。" },
+          { "t": "The tiles were damaged.", "zh": "磁磚受損了。", "ok": false, "trap": "over-infer", "why": "對話沒有提到損壞。" },
+          { "t": "The woman counted incorrectly.", "zh": "這位女士數錯了。", "ok": false, "trap": "over-infer", "why": "他沒有質疑她的盤點，而是去檢視出貨紀錄。" },
+          { "t": "The cement was mixed up with the tiles.", "zh": "水泥和磁磚被搞混了。", "ok": false, "trap": "mention-not-ask", "why": "水泥只是 D 區存放的物品。" }
+        ],
+        "evidence": [5]
+      }
+    ],
+    "vocab": [
+      { "word": "pallets", "ipa": "/ˈpælɪts/", "pos": "n.", "col": "stack of pallets", "zh": "棧板" },
+      { "word": "cartons", "ipa": "/ˈkɑːrtnz/", "pos": "n.", "col": "cartons of tiles", "zh": "紙箱" },
+      { "word": "records", "ipa": "/ˈrekərdz/", "pos": "n.", "col": "loading records", "zh": "紀錄" }
+    ]
+  }
+]

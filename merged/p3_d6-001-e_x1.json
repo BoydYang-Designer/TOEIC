@@ -1,0 +1,77 @@
+[
+  {
+    "id": "d6-001-e",
+    "domain": "d6",
+    "scene": "hotel",
+    "tag": "客房冷氣故障要求換房",
+    "form": "3p",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "三人對話但句子簡短，問題、新房位置與景觀都幾乎照字面出現。"
+    },
+    "speakers": [
+      { "id": "W1", "gender": "F", "role": "房客" },
+      { "id": "W2", "gender": "F", "role": "櫃檯人員" },
+      { "id": "M", "gender": "M", "role": "房客的同伴" }
+    ],
+    "dialogue": [
+      { "sp": "W1", "t": "Hello, our air conditioner isn't working in Room 305.", "zh": "哈囉，我們 305 號房的冷氣不能用。" },
+      { "sp": "W2", "t": "I'm sorry about that. It's very warm today, isn't it?", "zh": "很抱歉。今天很熱，對吧？" },
+      { "sp": "M", "t": "Yes, it feels like an oven in there. Can we change rooms?", "zh": "對，裡面感覺像烤箱。我們可以換房間嗎？" },
+      { "sp": "W2", "t": "Of course. I have a room on the fourth floor with a lake view.", "zh": "當然可以。我有一間在四樓、能看到湖景的房間。" },
+      { "sp": "W1", "t": "That sounds nice. Is it the same price as our old room?", "zh": "聽起來不錯。價格和我們原本的房間一樣嗎？" },
+      { "sp": "W2", "t": "Yes, the price is the same, and it has two beds.", "zh": "是的，價格一樣，而且有兩張床。" },
+      { "sp": "M", "t": "Two beds is perfect. We have two large bags upstairs.", "zh": "兩張床太好了。我們樓上有兩個大包包。" },
+      { "sp": "W2", "t": "A porter can bring them to the new room for you.", "zh": "行李員可以幫你們把它們搬到新房間。" },
+      { "sp": "W1", "t": "Thank you. How long will we have to wait?", "zh": "謝謝你。我們要等多久？" },
+      { "sp": "W2", "t": "About ten minutes. Please enjoy a cold drink in the lobby.", "zh": "大約十分鐘。請在大廳享用一杯冷飲。" },
+      { "sp": "M", "t": "That's a great idea. We'll sit by the window.", "zh": "這主意很棒。我們會坐在窗邊。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What problem do the guests have?", "zh": "房客遇到什麼問題？" },
+        "choices": [
+          { "t": "The cooling system in their room is broken.", "zh": "他們房間的冷卻設備壞了。", "ok": true, "pattern": "paraphrase", "why": "女士說 305 號房的冷氣不能用。" },
+          { "t": "Their room is too small.", "zh": "他們的房間太小。", "ok": false, "trap": "over-infer", "why": "對話沒有提到房間大小。" },
+          { "t": "The price is too high.", "zh": "價格太高。", "ok": false, "trap": "mention-not-ask", "why": "價格是之後詢問新房時才問到。" },
+          { "t": "The beds are not clean.", "zh": "床不乾淨。", "ok": false, "trap": "over-infer", "why": "沒有提到床的清潔。" }
+        ],
+        "evidence": [0]
+      },
+      {
+        "id": "q2",
+        "qtype": "infer",
+        "q": { "t": "What can be inferred about Room 305?", "zh": "關於 305 號房可以推論出什麼？" },
+        "choices": [
+          { "t": "It is uncomfortably hot.", "zh": "它熱得讓人不舒服。", "ok": true, "pattern": "paraphrase", "why": "男子說裡面感覺像烤箱。" },
+          { "t": "It has a lake view.", "zh": "它有湖景。", "ok": false, "trap": "mention-not-ask", "why": "湖景是新房間的特色。" },
+          { "t": "It is on the fourth floor.", "zh": "它在四樓。", "ok": false, "trap": "mention-not-ask", "why": "四樓是新房間的位置。" },
+          { "t": "It has only one bed.", "zh": "它只有一張床。", "ok": false, "trap": "over-infer", "why": "對話沒有說舊房間的床數。" }
+        ],
+        "evidence": [2]
+      },
+      {
+        "id": "q3",
+        "qtype": "detail",
+        "q": { "t": "What can the guests see from the new room?", "zh": "房客從新房間可以看到什麼？" },
+        "choices": [
+          { "t": "A lake", "zh": "一座湖", "ok": true, "pattern": "direct", "why": "櫃檯人員說新房間有湖景。" },
+          { "t": "The lobby", "zh": "大廳", "ok": false, "trap": "mention-not-ask", "why": "大廳是他們等待時去的地方。" },
+          { "t": "A garden", "zh": "花園", "ok": false, "trap": "over-infer", "why": "對話沒有提到花園。" },
+          { "t": "The street", "zh": "街道", "ok": false, "trap": "over-infer", "why": "對話沒有提到街景。" }
+        ],
+        "evidence": [3]
+      }
+    ],
+    "vocab": [
+      { "word": "conditioner", "ipa": "/kənˈdɪʃənər/", "pos": "n.", "col": "an air conditioner", "zh": "冷氣機（air conditioner）" },
+      { "word": "porter", "ipa": "/ˈpɔːrtər/", "pos": "n.", "col": "a hotel porter", "zh": "行李員" },
+      { "word": "lobby", "ipa": "/ˈlɑːbi/", "pos": "n.", "col": "the hotel lobby", "zh": "大廳" }
+    ]
+  }
+]

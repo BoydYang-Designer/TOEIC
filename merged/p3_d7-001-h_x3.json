@@ -1,0 +1,750 @@
+[
+  {
+    "id": "d7-001-h",
+    "domain": "d7",
+    "scene": "outdoor",
+    "tag": "湖岸清潔活動集合地點改變",
+    "form": "3p",
+    "level": {
+      "score": 750,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "三人討論先定泥濘的碼頭、後改涼亭並更動開始時間，需追蹤方案變化與說話意圖。"
+    },
+    "speakers": [
+      {
+        "id": "W1",
+        "gender": "F",
+        "role": "活動主辦人"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "志工"
+      },
+      {
+        "id": "W2",
+        "gender": "F",
+        "role": "志工"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W1",
+        "t": "Thanks for coming, everyone. We're planning the lakeshore cleanup for this Saturday, and we need to confirm where volunteers will meet.",
+        "zh": "謝謝大家來。我們在規劃這週六的湖岸清潔活動，需要確認志工在哪裡集合。"
+      },
+      {
+        "sp": "M",
+        "t": "I thought we agreed on the boat ramp, since that's where most of the litter collects.",
+        "zh": "我以為我們說好是船艇坡道，因為大部分垃圾都堆在那裡。"
+      },
+      {
+        "sp": "W2",
+        "t": "We did, but I drove past this morning, and the whole ramp area is covered in mud from the storm.",
+        "zh": "是說好了，但我今早開車經過，整個坡道區因為暴風雨滿是泥巴。"
+      },
+      {
+        "sp": "M",
+        "t": "That's a problem. Volunteers would be slipping around, and the garbage bags would get ruined.",
+        "zh": "那是個問題。志工會一直滑倒，垃圾袋也會被弄壞。"
+      },
+      {
+        "sp": "W1",
+        "t": "Then what about the pavilion near the picnic grounds? It has a paved floor and plenty of covered space.",
+        "zh": "那野餐區旁的涼亭呢？它有鋪面地板，而且有很多有遮蔽的空間。"
+      },
+      {
+        "sp": "W2",
+        "t": "That works for registration, but it's a ten-minute walk from the shoreline. Will people mind carrying the supplies?",
+        "zh": "那裡適合報到，但離岸邊要走十分鐘。大家會介意搬器材嗎？"
+      },
+      {
+        "sp": "W1",
+        "t": "Not if we use the park's wagons. I already asked the office, and they can lend us three.",
+        "zh": "如果用公園的推車就不會。我已經問過辦公室，他們可以借我們三台。"
+      },
+      {
+        "sp": "M",
+        "t": "In that case, I support the pavilion. Should I tell the volunteers by email or by phone?",
+        "zh": "那樣的話我支持涼亭。我該用電子郵件還是電話通知志工？"
+      },
+      {
+        "sp": "W1",
+        "t": "Email is quicker. Could you send it out today and mention that we'll start at nine instead of eight?",
+        "zh": "電子郵件比較快。你今天可以寄出，並說明我們改為九點開始而不是八點嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Sure. Why the later start, though? I thought we wanted to finish before the afternoon heat.",
+        "zh": "好。不過為什麼要晚一點開始？我以為我們想在下午高溫前結束。"
+      },
+      {
+        "sp": "W1",
+        "t": "The park office won't unlock the supply shed until eight thirty, so nine is the earliest realistic time.",
+        "zh": "公園辦公室八點半才會開器材棚，所以九點是最早合理的時間。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {
+          "t": "What are the speakers mainly discussing?",
+          "zh": "說話者主要在討論什麼？"
+        },
+        "choices": [
+          {
+            "t": "Reporting damage from a storm",
+            "zh": "通報暴風雨造成的損害",
+            "ok": false,
+            "trap": "partial",
+            "why": "暴風雨泥濘只是換地點的原因。"
+          },
+          {
+            "t": "Choosing a meeting place for a volunteer event",
+            "zh": "為志工活動選擇集合地點",
+            "ok": true,
+            "pattern": "summary",
+            "why": "開場即說要確認志工集合地點，後續也圍繞地點與時間。"
+          },
+          {
+            "t": "Buying supplies for a picnic",
+            "zh": "為野餐採買用品",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有野餐活動。"
+          },
+          {
+            "t": "Hiring workers for the park",
+            "zh": "為公園僱用員工",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "他們是志工，沒有僱用。"
+          }
+        ],
+        "evidence": [
+          0
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": {
+          "t": "Why do the speakers reject the boat ramp?",
+          "zh": "說話者為什麼不用船艇坡道？"
+        },
+        "choices": [
+          {
+            "t": "It is too far from the picnic grounds.",
+            "zh": "離野餐區太遠。",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "距離問題是在談涼亭到岸邊時提到的。"
+          },
+          {
+            "t": "The park office has closed it.",
+            "zh": "公園辦公室把它關閉了。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到被關閉。"
+          },
+          {
+            "t": "There is not enough room for volunteers.",
+            "zh": "容不下志工。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "問題是泥濘，不是空間。"
+          },
+          {
+            "t": "The ground is muddy after the storm.",
+            "zh": "暴風雨後地面泥濘。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "W2 說整個坡道區被暴風雨弄得滿是泥巴。"
+          }
+        ],
+        "evidence": [
+          2
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "intent",
+        "q": {
+          "t": "Why does the man ask, \"Why the later start, though?\"",
+          "zh": "男士為什麼問「不過為什麼要晚一點開始？」"
+        },
+        "choices": [
+          {
+            "t": "He wants to know why the time changed.",
+            "zh": "他想知道為何時間改變。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "他對改為九點感到意外，並說明自己原本期望早點結束。"
+          },
+          {
+            "t": "He is refusing to send the email.",
+            "zh": "他拒絕寄電子郵件。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "他先說 Sure，並未拒絕。"
+          },
+          {
+            "t": "He is asking about the cost of wagons.",
+            "zh": "他在問推車費用。",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "推車是先前談的，與此問題無關。"
+          },
+          {
+            "t": "He is suggesting an earlier finish.",
+            "zh": "他建議更早結束。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "他是想知道原因，而且擔心下午太熱，並不是提出新建議。"
+          }
+        ],
+        "evidence": [
+          9
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "litter",
+        "ipa": "/ˈlɪtər/",
+        "pos": "n.",
+        "col": "pick up litter",
+        "zh": "垃圾；廢棄物"
+      },
+      {
+        "word": "pavilion",
+        "ipa": "/pəˈvɪljən/",
+        "pos": "n.",
+        "col": "a park pavilion",
+        "zh": "涼亭"
+      },
+      {
+        "word": "lakeshore",
+        "ipa": "/ˈleɪkʃɔːr/",
+        "pos": "n.",
+        "col": "a lakeshore cleanup",
+        "zh": "湖岸"
+      }
+    ]
+  },
+  {
+    "id": "d7-002-h",
+    "domain": "d7",
+    "scene": "outdoor",
+    "tag": "公司騎車活動由山路改為谷地環線",
+    "form": "3p",
+    "level": {
+      "score": 800,
+      "cefr": "B2+",
+      "tier": "hard",
+      "why": "三人對話先屬意山嶺路線、後依體力與條件改選，須結合圖表多項條件並判斷意圖與後續行動。"
+    },
+    "speakers": [
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "單車店員工"
+      },
+      {
+        "id": "W1",
+        "gender": "F",
+        "role": "公司同事"
+      },
+      {
+        "id": "W2",
+        "gender": "F",
+        "role": "公司同事"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "M",
+        "t": "Hi there. Are you ladies planning a group ride today?",
+        "zh": "嗨，兩位女士是打算今天來辦團體騎乘嗎？"
+      },
+      {
+        "sp": "W1",
+        "t": "Yes, our company outing is next Friday. We have twenty people, and we want a route with good scenery.",
+        "zh": "是的，我們公司活動在下週五。我們有二十個人，想要風景好的路線。"
+      },
+      {
+        "sp": "W2",
+        "t": "Originally we were thinking of the Ridge Trail, because the views are supposed to be the best.",
+        "zh": "原本我們想選山嶺步道，因為據說風景最棒。"
+      },
+      {
+        "sp": "M",
+        "t": "They are, but it's a tough climb. Is everyone in your group an experienced rider?",
+        "zh": "確實是，但爬坡很辛苦。你們團隊每個人都很有經驗嗎？"
+      },
+      {
+        "sp": "W1",
+        "t": "Honestly, no. Half of them haven't ridden a bike in years, and the weather will be hot.",
+        "zh": "老實說不是。有一半的人好幾年沒騎車了，而且天氣會很熱。"
+      },
+      {
+        "sp": "W2",
+        "t": "Then the ridge is out. We want at least four rest stops, and nothing longer than twenty-five kilometers.",
+        "zh": "那山嶺就不考慮了。我們要至少四個休息點，而且不要超過二十五公里。"
+      },
+      {
+        "sp": "M",
+        "t": "That narrows it down to just one route. It's a pretty ride with a gentle climb.",
+        "zh": "那就只剩一條路線了。風景很美，爬坡也平緩。"
+      },
+      {
+        "sp": "W1",
+        "t": "Perfect. Do you have a group price for twenty bikes?",
+        "zh": "太好了。二十台車有團體價嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Yes, groups of fifteen or more get a fifteen percent reduction if you book a week ahead.",
+        "zh": "有，十五人以上的團體若提前一週預約可享八五折。"
+      },
+      {
+        "sp": "W2",
+        "t": "We're exactly a week ahead, so we qualify. Could you hold twenty bikes for next Friday morning?",
+        "zh": "我們剛好提前一週，所以符合。你可以幫我們保留二十台車給下週五早上嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Certainly. I'll need a name and phone number, and a payment of one hundred dollars to hold them.",
+        "zh": "當然。我需要姓名和電話，還有一百美元的款項來保留車輛。"
+      }
+    ],
+    "graphic": {
+      "title": "Group Bike Routes",
+      "columns": [
+        "Route",
+        "Length",
+        "Elevation Gain",
+        "Rest Stops"
+      ],
+      "rows": [
+        [
+          "River Path",
+          "12 km",
+          "40 m",
+          "3"
+        ],
+        [
+          "Valley Loop",
+          "20 km",
+          "120 m",
+          "4"
+        ],
+        [
+          "Ridge Trail",
+          "25 km",
+          "400 m",
+          "2"
+        ],
+        [
+          "Coast Run",
+          "30 km",
+          "200 m",
+          "5"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "intent",
+        "q": {
+          "t": "Why does the woman say, \"Half of them haven't ridden a bike in years\"?",
+          "zh": "這位女士為什麼說「有一半的人好幾年沒騎車了」？"
+        },
+        "choices": [
+          {
+            "t": "To explain why a hard route is unsuitable",
+            "zh": "說明為何困難路線不適合",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "針對男士問是否都很有經驗，她說明一半的人久未騎車。"
+          },
+          {
+            "t": "To ask for a beginner lesson",
+            "zh": "要求初學者課程",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到上課。"
+          },
+          {
+            "t": "To say the group wants a longer ride",
+            "zh": "說團隊想騎更久",
+            "ok": false,
+            "trap": "opposite",
+            "why": "她的意思是團隊體力有限。"
+          },
+          {
+            "t": "To request a discount",
+            "zh": "要求折扣",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "折扣是後面才談。"
+          }
+        ],
+        "evidence": [
+          4
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "graphic",
+        "q": {
+          "t": "Look at the graphic. Which route will the women most likely choose?",
+          "zh": "請看圖表。這兩位女士最可能選哪條路線？"
+        },
+        "choices": [
+          {
+            "t": "River Path",
+            "zh": "河畔步道",
+            "ok": false,
+            "trap": "partial",
+            "why": "長度符合，但只有三個休息點。"
+          },
+          {
+            "t": "Ridge Trail",
+            "zh": "山嶺步道",
+            "ok": false,
+            "trap": "opposite",
+            "why": "她們已明確排除。"
+          },
+          {
+            "t": "Valley Loop",
+            "zh": "谷地環線",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "不選山嶺、至少四個休息點、不超過 25 公里，只有 Valley Loop 符合。"
+          },
+          {
+            "t": "Coast Run",
+            "zh": "海岸路線",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "休息點夠多，但 30 公里超過 25 公里上限。"
+          }
+        ],
+        "evidence": [
+          5,
+          6
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": {
+          "t": "What will the women most likely give the man?",
+          "zh": "這兩位女士接下來最可能給男士什麼？"
+        },
+        "choices": [
+          {
+            "t": "A map of the Ridge Trail",
+            "zh": "山嶺步道地圖",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "山嶺路線已被排除。"
+          },
+          {
+            "t": "Their contact details and a payment",
+            "zh": "聯絡資料與款項",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "他要求姓名、電話與一百美元款項。"
+          },
+          {
+            "t": "A list of experienced riders",
+            "zh": "有經驗騎士名單",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有要提供名單。"
+          },
+          {
+            "t": "A new date for the outing",
+            "zh": "活動的新日期",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "日期已確定為下週五。"
+          }
+        ],
+        "evidence": [
+          10
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "scenery",
+        "ipa": "/ˈsiːnəri/",
+        "pos": "n.",
+        "col": "beautiful scenery",
+        "zh": "風景"
+      },
+      {
+        "word": "experienced",
+        "ipa": "/ɪkˈspɪriənst/",
+        "pos": "adj.",
+        "col": "an experienced rider",
+        "zh": "有經驗的"
+      },
+      {
+        "word": "climb",
+        "ipa": "/klaɪm/",
+        "pos": "n.",
+        "col": "a steep climb",
+        "zh": "爬坡"
+      }
+    ]
+  },
+  {
+    "id": "d7-003-h",
+    "domain": "d7",
+    "scene": "outdoor",
+    "tag": "戶外音樂會因暴風雨改到音樂台",
+    "form": "3p",
+    "level": {
+      "score": 750,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "三人討論先設草坪舞台、後因天氣改用音樂台，並比較多個方案，需判斷說話意圖。"
+    },
+    "speakers": [
+      {
+        "id": "W1",
+        "gender": "F",
+        "role": "活動總監"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "舞台技師"
+      },
+      {
+        "id": "W2",
+        "gender": "F",
+        "role": "活動企劃"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W1",
+        "t": "The concert in Riverside Park starts at seven, and the sound check is at four. Is the stage ready, Gary?",
+        "zh": "河濱公園的音樂會七點開始，音響測試在四點。舞台準備好了嗎，Gary？"
+      },
+      {
+        "sp": "M",
+        "t": "Mostly. We built it on the main lawn, but the ground on the left side is still soft from yesterday.",
+        "zh": "差不多了。我們把它蓋在主草坪上，但左側地面還因昨天的雨很軟。"
+      },
+      {
+        "sp": "W2",
+        "t": "That's concerning. The radar shows storms rolling in around eight, so people might need cover.",
+        "zh": "這讓人擔心。雷達顯示八點左右會有暴風雨，所以大家可能需要遮蔽處。"
+      },
+      {
+        "sp": "W1",
+        "t": "Let's not panic yet. Can the band play under the bandshell near the playground instead?",
+        "zh": "先別慌。樂團可以改在遊樂場旁的音樂台演出嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Yes, but the bandshell holds only about four hundred people, while we sold six hundred tickets.",
+        "zh": "可以，但音樂台只容納約四百人，而我們賣了六百張票。"
+      },
+      {
+        "sp": "W2",
+        "t": "Then we could keep the show on the lawn and begin an hour earlier, so it ends before the storm.",
+        "zh": "那我們可以維持在草坪，並提早一小時開始，這樣就能在暴風雨前結束。"
+      },
+      {
+        "sp": "W1",
+        "t": "Starting at six is risky. Many ticket holders work until five thirty and wouldn't make it in time.",
+        "zh": "六點開始很冒險。很多持票人五點半才下班，來不及趕到。"
+      },
+      {
+        "sp": "M",
+        "t": "True. How about a shorter program? We could start at seven and cut the second band.",
+        "zh": "沒錯。縮短節目如何？我們可以七點開始，並刪掉第二個樂團。"
+      },
+      {
+        "sp": "W2",
+        "t": "The second band is the main attraction, though. People will be furious if they miss it.",
+        "zh": "不過第二個樂團是主要賣點。如果錯過，大家會很生氣。"
+      },
+      {
+        "sp": "W1",
+        "t": "Then the bandshell is our best option. We'll let the extra people stand on the paved plaza, and I'll rent a few big tents.",
+        "zh": "那音樂台是最好的選擇。多出來的人可以站在鋪面廣場，我會租幾頂大帳篷。"
+      },
+      {
+        "sp": "M",
+        "t": "I'll update the signs and the website right now so nobody goes to the wrong place.",
+        "zh": "我現在就更新告示牌和網站，這樣沒有人會去錯地方。"
+      },
+      {
+        "sp": "W2",
+        "t": "Good. I'll also tell the security staff to keep the plaza clear of chairs.",
+        "zh": "好。我也會告訴保全人員，不要讓廣場上放椅子。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "detail",
+        "q": {
+          "t": "Why is the bandshell a problem?",
+          "zh": "為什麼音樂台是個問題？"
+        },
+        "choices": [
+          {
+            "t": "It is still soft from the rain.",
+            "zh": "它還因雨而鬆軟。",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "地面鬆軟的是草坪左側。"
+          },
+          {
+            "t": "It is too far from the lawn.",
+            "zh": "離草坪太遠。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到距離。"
+          },
+          {
+            "t": "It can't hold everyone who bought tickets.",
+            "zh": "它容納不下所有購票的人。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "音樂台約四百人，但賣出六百張票。"
+          },
+          {
+            "t": "It is full of the band's equipment.",
+            "zh": "它裡面堆滿樂團器材。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有這樣的資訊。"
+          }
+        ],
+        "evidence": [
+          4
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "infer",
+        "q": {
+          "t": "What does the director imply about the audience?",
+          "zh": "總監對觀眾暗示了什麼？"
+        },
+        "choices": [
+          {
+            "t": "Many can't arrive in time for a six o'clock start.",
+            "zh": "許多人趕不上六點開始。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "很多人五點半才下班，無法及時抵達。"
+          },
+          {
+            "t": "Most will skip the concert because of the storm.",
+            "zh": "多數人會因暴風雨放棄。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有說觀眾會不來。"
+          },
+          {
+            "t": "They prefer sitting on the lawn.",
+            "zh": "他們偏好坐在草坪。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到偏好。"
+          },
+          {
+            "t": "Many tickets remain unsold.",
+            "zh": "許多票還沒賣出。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "已賣出六百張票。"
+          }
+        ],
+        "evidence": [
+          6
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "intent",
+        "q": {
+          "t": "Why does the woman say, \"The second band is the main attraction, though\"?",
+          "zh": "這位女士為什麼說「不過第二個樂團是主要賣點」？"
+        },
+        "choices": [
+          {
+            "t": "To praise the technician's idea",
+            "zh": "稱讚技師的點子",
+            "ok": false,
+            "trap": "opposite",
+            "why": "她是反對該提議。"
+          },
+          {
+            "t": "To suggest adding more bands",
+            "zh": "建議增加更多樂團",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "她沒有要增加樂團。"
+          },
+          {
+            "t": "To announce a band has canceled",
+            "zh": "宣布有樂團取消",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有樂團取消。"
+          },
+          {
+            "t": "To reject the idea of cutting a band",
+            "zh": "否決刪掉一個樂團的點子",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "她是在回應男士刪掉第二個樂團的提議。"
+          }
+        ],
+        "evidence": [
+          8
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "bandshell",
+        "ipa": "/ˈbændʃel/",
+        "pos": "n.",
+        "col": "play under the bandshell",
+        "zh": "音樂台"
+      },
+      {
+        "word": "plaza",
+        "ipa": "/ˈplɑːzə/",
+        "pos": "n.",
+        "col": "a paved plaza",
+        "zh": "廣場"
+      },
+      {
+        "word": "radar",
+        "ipa": "/ˈreɪdɑːr/",
+        "pos": "n.",
+        "col": "weather radar",
+        "zh": "雷達"
+      }
+    ]
+  }
+]

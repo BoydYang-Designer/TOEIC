@@ -1,0 +1,73 @@
+[
+  {
+    "id": "d3-003-e",
+    "domain": "d3",
+    "scene": "store",
+    "tag": "詢問禮品包裝服務",
+    "form": "2p",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "兩人對話僅 8 句，用語簡單，三題答案幾乎都能在對話中直接找到。"
+    },
+    "speakers": [
+      { "id": "W", "gender": "F", "role": "顧客" },
+      { "id": "M", "gender": "M", "role": "店員" }
+    ],
+    "dialogue": [
+      { "sp": "W", "t": "Hi, I'd like to buy this blue scarf as a birthday gift for my sister.", "zh": "嗨，我想買這條藍色圍巾當作送給我妹妹的生日禮物。" },
+      { "sp": "M", "t": "It's a lovely choice. It costs thirty dollars, and it comes in two other colors.", "zh": "這選擇很棒。它要三十元，另外還有兩種顏色。" },
+      { "sp": "W", "t": "Thanks, but blue is her favorite. Can you wrap it for me?", "zh": "謝謝，不過藍色是她最愛的顏色。你可以幫我包起來嗎？" },
+      { "sp": "M", "t": "Of course. Gift wrapping is free if you spend over twenty-five dollars.", "zh": "當然可以。消費超過二十五元的話，禮品包裝是免費的。" },
+      { "sp": "W", "t": "Great. Her party is tomorrow, so I need it ready in about ten minutes.", "zh": "太好了。她的派對是明天，所以我需要在大約十分鐘內拿到。" },
+      { "sp": "M", "t": "No problem. Please look around while I wrap it, and I'll call you at the counter.", "zh": "沒問題。我包裝的時候請隨意逛逛，我會在櫃檯叫您。" },
+      { "sp": "W", "t": "Perfect. I'll go and look at the hats over there.", "zh": "太好了。我去看看那邊的帽子。" },
+      { "sp": "M", "t": "Sure. Those are on sale this week, too.", "zh": "好的。那些帽子這週也在特價。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "Why does the woman visit the store?", "zh": "這位女士為什麼來到這家店？" },
+        "choices": [
+          { "t": "To buy a present for a family member", "zh": "為家人買禮物", "ok": true, "pattern": "paraphrase", "why": "她說要買圍巾當作妹妹的生日禮物。" },
+          { "t": "To return a scarf she bought earlier", "zh": "退還先前買的圍巾", "ok": false, "trap": "opposite", "why": "她是要購買圍巾，而不是退貨。" },
+          { "t": "To ask about a sale on hats", "zh": "詢問帽子的特價", "ok": false, "trap": "mention-not-ask", "why": "帽子特價是男子最後才提到，並非她來店的目的。" },
+          { "t": "To pick up an order for a party", "zh": "領取派對用的訂購商品", "ok": false, "trap": "partial", "why": "派對只是送禮的場合，她並非來取訂購品。" }
+        ],
+        "evidence": [0]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": { "t": "What does the man say is free for the woman?", "zh": "男子說什麼對這位女士是免費的？" },
+        "choices": [
+          { "t": "Gift wrapping", "zh": "禮品包裝", "ok": true, "pattern": "direct", "why": "男子說消費超過二十五元，禮品包裝免費。" },
+          { "t": "A different color", "zh": "換成不同顏色", "ok": false, "trap": "mention-not-ask", "why": "他只提到還有其他兩種顏色，並未說免費更換。" },
+          { "t": "Delivery to her sister", "zh": "送貨給她妹妹", "ok": false, "trap": "wrong-speaker", "why": "對話中沒有提到任何送貨服務。" },
+          { "t": "A hat", "zh": "一頂帽子", "ok": false, "trap": "sound-alike", "why": "帽子只是特價商品，並非免費贈品。" }
+        ],
+        "evidence": [3]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": { "t": "What will the woman most likely do while she waits?", "zh": "這位女士等待時最可能做什麼？" },
+        "choices": [
+          { "t": "Browse other items in the store", "zh": "逛店內其他商品", "ok": true, "pattern": "paraphrase", "why": "店員請她隨意逛逛，她說要去看帽子。" },
+          { "t": "Choose a different scarf color", "zh": "挑選不同顏色的圍巾", "ok": false, "trap": "opposite", "why": "她說藍色是妹妹的最愛，不會改選別色。" },
+          { "t": "Call her sister about the party", "zh": "打電話給妹妹談派對", "ok": false, "trap": "over-infer", "why": "對話中沒有任何打電話給妹妹的跡象。" },
+          { "t": "Wait quietly at the counter", "zh": "在櫃檯安靜等候", "ok": false, "trap": "partial", "why": "店員會在櫃檯叫她，但她說要先去看帽子。" }
+        ],
+        "evidence": [5, 6]
+      }
+    ],
+    "vocab": [
+      { "word": "wrap", "ipa": "/ræp/", "pos": "v.", "col": "wrap a gift", "zh": "包裝；包起來" },
+      { "word": "scarf", "ipa": "/skɑːrf/", "pos": "n.", "col": "a wool scarf", "zh": "圍巾" },
+      { "word": "counter", "ipa": "/ˈkaʊntər/", "pos": "n.", "col": "at the counter", "zh": "櫃檯" }
+    ]
+  }
+]

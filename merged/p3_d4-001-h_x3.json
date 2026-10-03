@@ -1,0 +1,236 @@
+[
+  {
+    "id": "d4-001-h",
+    "domain": "d4",
+    "scene": "station",
+    "tag": "改搭較早班次的火車",
+    "form": "3p",
+    "level": {
+      "score": 800,
+      "cefr": "B2+",
+      "tier": "hard",
+      "why": "三人對話先選最便宜班次、再因會議時間改選，且需結合時刻表與現在時間才能判斷班次。"
+    },
+    "speakers": [
+      { "id": "W1", "gender": "F", "role": "乘客" },
+      { "id": "M", "gender": "M", "role": "乘客" },
+      { "id": "W2", "gender": "F", "role": "售票員" }
+    ],
+    "dialogue": [
+      { "sp": "W1", "t": "We'd like two tickets to Eastgate on the cheapest train, please.", "zh": "我們想買兩張到 Eastgate 的票，搭最便宜的班次。" },
+      { "sp": "W2", "t": "It's two thirty now, and the cheapest train leaves at 3:30. Is that all right?", "zh": "現在是兩點半，最便宜的班次三點半開。這樣可以嗎？" },
+      { "sp": "M", "t": "Hold on. Our meeting in Eastgate starts at 4:30, so we must arrive before then.", "zh": "等一下。我們在 Eastgate 的會議四點半開始，所以必須在那之前到。" },
+      { "sp": "W1", "t": "Right. The cheapest train won't work, then, will it?", "zh": "對。這樣最便宜的班次就不行了，對吧？" },
+      { "sp": "W2", "t": "No, it arrives at 5:20. The 2:10 train would have worked, but it already left.", "zh": "不行，它五點二十分才到。兩點十分那班本來可以，但已經開走了。" },
+      { "sp": "M", "t": "So what's our best choice from here?", "zh": "那我們現在最好的選擇是什麼？" },
+      { "sp": "W2", "t": "The 2:50 train is the only one that gets you there in time, and it costs $45.", "zh": "兩點五十分那班是唯一能讓你們準時到的，票價是四十五元。" },
+      { "sp": "W1", "t": "That's more than we expected, but the meeting matters more. We'll take it.", "zh": "這比我們預期的貴，但會議更重要。我們就搭那班。" },
+      { "sp": "M", "t": "Is the gate far from here? We don't want to miss it.", "zh": "閘口離這裡遠嗎？我們不想錯過它。" },
+      { "sp": "W2", "t": "Gate 6 is straight ahead, so you have plenty of time.", "zh": "6 號閘口就在正前方，所以你們時間很充裕。" },
+      { "sp": "W1", "t": "Thanks. We'll pay by card, if that's all right.", "zh": "謝謝。我們想刷卡付款，可以嗎？" }
+    ],
+    "graphic": {
+      "title": "Eastgate Train Timetable",
+      "columns": ["Train", "Departs", "Arrives", "Price"],
+      "rows": [
+        ["T201", "2:10", "3:40", "$38"],
+        ["T215", "2:50", "4:05", "$45"],
+        ["T233", "3:30", "5:20", "$32"],
+        ["T247", "4:15", "5:30", "$45"]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What are the speakers mainly discussing?", "zh": "說話者主要在討論什麼？" },
+        "choices": [
+          { "t": "Finding a train that fits their meeting time", "zh": "找一班配合他們會議時間的火車", "ok": true, "pattern": "summary", "why": "最便宜的班次趕不上會議，所以重新選班次。" },
+          { "t": "Changing a ticket they already bought", "zh": "更改已經買好的車票", "ok": false, "trap": "over-infer", "why": "他們是在買票，尚未買過。" },
+          { "t": "Finding the way to the gate", "zh": "找往閘口的路", "ok": false, "trap": "mention-not-ask", "why": "閘口只是之後順帶問的小事。" },
+          { "t": "Choosing how to pay for tickets", "zh": "選擇如何付票款", "ok": false, "trap": "partial", "why": "付款方式只在最後一句提到。" }
+        ],
+        "evidence": [1, 2]
+      },
+      {
+        "id": "q2",
+        "qtype": "infer",
+        "q": { "t": "What can be inferred about the 2:10 train?", "zh": "關於兩點十分那班火車可以推論出什麼？" },
+        "choices": [
+          { "t": "It would have arrived in time but has departed.", "zh": "它本來能準時到，但已經開走了。", "ok": true, "pattern": "paraphrase", "why": "售票員說它本來可以，但已經離開。" },
+          { "t": "It is the cheapest train.", "zh": "它是最便宜的班次。", "ok": false, "trap": "opposite", "why": "最便宜的是三點半那班。" },
+          { "t": "It arrives after the meeting begins.", "zh": "它在會議開始後才到。", "ok": false, "trap": "opposite", "why": "售票員說它本來可以趕上。" },
+          { "t": "It is sold out.", "zh": "它已經賣完了。", "ok": false, "trap": "over-infer", "why": "原因是已開走，而不是賣完。" }
+        ],
+        "evidence": [4]
+      },
+      {
+        "id": "q3",
+        "qtype": "graphic",
+        "q": { "t": "Look at the graphic. Which train will the speakers most likely take?", "zh": "請看圖表。說話者最可能搭哪一班火車？" },
+        "choices": [
+          { "t": "T215", "zh": "T215", "ok": true, "pattern": "summary", "why": "兩點五十分開、四點零五分到，票價 $45，是現在唯一能趕上會議的班次。" },
+          { "t": "T201", "zh": "T201", "ok": false, "trap": "number-mix", "why": "兩點十分那班已經開走。" },
+          { "t": "T233", "zh": "T233", "ok": false, "trap": "mention-not-ask", "why": "這是最便宜的班次，但五點二十分才到。" },
+          { "t": "T247", "zh": "T247", "ok": false, "trap": "over-infer", "why": "五點三十分才到，遠超過會議時間。" }
+        ],
+        "evidence": [6]
+      }
+    ],
+    "vocab": [
+      { "word": "gate", "ipa": "/ɡeɪt/", "pos": "n.", "col": "boarding gate", "zh": "閘口；登車口" },
+      { "word": "arrive", "ipa": "/əˈraɪv/", "pos": "v.", "col": "arrive on time", "zh": "抵達" },
+      { "word": "cheapest", "ipa": "/ˈtʃiːpɪst/", "pos": "adj.", "col": "the cheapest option", "zh": "最便宜的" }
+    ]
+  },
+  {
+    "id": "d4-002-h",
+    "domain": "d4",
+    "scene": "street",
+    "tag": "路邊拋錨改叫拖吊車",
+    "form": "3p",
+    "level": {
+      "score": 750,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "駕駛先打算自行修理、後因技師說明改為拖吊，需理解言外之意與後續行動。"
+    },
+    "speakers": [
+      { "id": "M1", "gender": "M", "role": "駕駛" },
+      { "id": "M2", "gender": "M", "role": "路過的技師" },
+      { "id": "W", "gender": "F", "role": "交通警察" }
+    ],
+    "dialogue": [
+      { "sp": "M1", "t": "My car just stopped in the middle of the road, and the engine won't turn over.", "zh": "我的車剛剛在路中間熄火了，引擎發不動。" },
+      { "sp": "W", "t": "Please steer to the curb first. You're blocking the right lane, and traffic is building up.", "zh": "請先把車開到路邊。你擋住右側車道了，車流越來越塞。" },
+      { "sp": "M1", "t": "I will. My brother is on his way with a spare part, so I'll wait here and fix it myself.", "zh": "好。我哥哥帶著備用零件正在趕來，所以我會在這裡等，自己修。" },
+      { "sp": "W", "t": "I can't let you stay here for long. This street is a no-parking zone after four o'clock.", "zh": "我不能讓你在這裡待太久。這條街四點後禁止停車。" },
+      { "sp": "M2", "t": "Excuse me, I'm a mechanic. I heard what you said. It sounds like a starter problem, which takes hours to repair.", "zh": "不好意思，我是技師。我聽到你說的了。聽起來像是啟動馬達的問題，要花好幾個小時修。" },
+      { "sp": "M1", "t": "Hours? My brother only expected a quick fix of about twenty minutes.", "zh": "好幾個小時？我哥哥原本只預期大約二十分鐘就能修好。" },
+      { "sp": "M2", "t": "Not for this problem. You'd be better off having the car towed to a garage.", "zh": "這個問題不是。你最好把車拖到修車廠。" },
+      { "sp": "W", "t": "I agree. I can call a tow truck now, and it should arrive within fifteen minutes.", "zh": "我同意。我現在可以叫拖吊車，大約十五分鐘內會到。" },
+      { "sp": "M1", "t": "All right, please do that. I'll let my brother know not to come.", "zh": "好的，麻煩你。我會告訴我哥哥不用來了。" },
+      { "sp": "M2", "t": "There's a garage on Pine Avenue that I'd recommend. Tell them Dave sent you.", "zh": "我推薦 Pine 大道上有一家修車廠。跟他們說是 Dave 介紹的。" },
+      { "sp": "M1", "t": "Thanks, I'll give them a call as soon as the tow truck leaves.", "zh": "謝謝，拖吊車一離開我就打電話給他們。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "detail",
+        "q": { "t": "What does the driver originally plan to do?", "zh": "駕駛原本打算做什麼？" },
+        "choices": [
+          { "t": "Wait for his brother and repair the car himself", "zh": "等哥哥來，自己修車", "ok": true, "pattern": "paraphrase", "why": "他說哥哥帶零件來，他會在這裡等並自己修。" },
+          { "t": "Call a tow truck right away", "zh": "立刻叫拖吊車", "ok": false, "trap": "mention-not-ask", "why": "叫拖吊車是之後警察提出的做法。" },
+          { "t": "Ask the mechanic to fix it", "zh": "請技師來修", "ok": false, "trap": "wrong-speaker", "why": "技師是主動插話，駕駛原本沒有這個打算。" },
+          { "t": "Push the car to a garage", "zh": "把車推到修車廠", "ok": false, "trap": "over-infer", "why": "對話中沒有提到推車去修車廠。" }
+        ],
+        "evidence": [2]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": { "t": "What does the mechanic mean when he says, \"Not for this problem\"?", "zh": "技師說「Not for this problem」是什麼意思？" },
+        "choices": [
+          { "t": "The repair will take much longer than expected.", "zh": "修理會比預期花更久的時間。", "ok": true, "pattern": "paraphrase", "why": "這是回應二十分鐘就能修好的說法，他前面說要好幾個小時。" },
+          { "t": "The problem is easy to fix.", "zh": "這個問題很容易修。", "ok": false, "trap": "opposite", "why": "他說這需要好幾個小時。" },
+          { "t": "The brother cannot come.", "zh": "哥哥無法前來。", "ok": false, "trap": "over-infer", "why": "技師沒有談到哥哥能不能來。" },
+          { "t": "He does not repair cars.", "zh": "他不修車。", "ok": false, "trap": "wrong-speaker", "why": "他說自己是技師，只是在說明這個問題的修理時間。" }
+        ],
+        "evidence": [6]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": { "t": "What will the driver do once the tow truck leaves?", "zh": "拖吊車離開後，駕駛會做什麼？" },
+        "choices": [
+          { "t": "Contact the recommended garage", "zh": "聯絡被推薦的修車廠", "ok": true, "pattern": "paraphrase", "why": "他說拖吊車一離開就打電話給那家修車廠。" },
+          { "t": "Wait for his brother to arrive", "zh": "等哥哥到達", "ok": false, "trap": "opposite", "why": "他說要告訴哥哥不用來了。" },
+          { "t": "Drive the car to the curb", "zh": "把車開到路邊", "ok": false, "trap": "mention-not-ask", "why": "開到路邊是對話一開始警察的要求。" },
+          { "t": "Call the officer", "zh": "打電話給警察", "ok": false, "trap": "wrong-speaker", "why": "是警察要打電話叫拖吊車，不是駕駛。" }
+        ],
+        "evidence": [10]
+      }
+    ],
+    "vocab": [
+      { "word": "mechanic", "ipa": "/məˈkænɪk/", "pos": "n.", "col": "an auto mechanic", "zh": "技師" },
+      { "word": "curb", "ipa": "/kɜːrb/", "pos": "n.", "col": "pull over to the curb", "zh": "路緣；路邊" },
+      { "word": "garage", "ipa": "/ɡəˈrɑːʒ/", "pos": "n.", "col": "a repair garage", "zh": "修車廠" }
+    ]
+  },
+  {
+    "id": "d4-003-h",
+    "domain": "d4",
+    "scene": "station",
+    "tag": "大型行李不能上公車",
+    "form": "3p",
+    "level": {
+      "score": 700,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "旅客先想搭公車、因尖峰規定與班次時間改搭計程車，需推論他們對樣品的顧慮。"
+    },
+    "speakers": [
+      { "id": "W1", "gender": "F", "role": "旅客" },
+      { "id": "M", "gender": "M", "role": "旅客" },
+      { "id": "W2", "gender": "F", "role": "客服人員" }
+    ],
+    "dialogue": [
+      { "sp": "W1", "t": "We need to reach the convention center by six, and we'd hoped to take the city bus.", "zh": "我們六點前必須到會議中心，原本希望搭市區公車。" },
+      { "sp": "W2", "t": "The bus is fine, but I should mention that large suitcases aren't allowed during rush hour.", "zh": "公車可以搭，但我得說明，尖峰時段不准攜帶大型行李箱。" },
+      { "sp": "M", "t": "We have two big suitcases and a case of product samples.", "zh": "我們有兩個大行李箱，還有一箱產品樣品。" },
+      { "sp": "W1", "t": "Oh, that's a problem. Could we pay a little extra to bring them on?", "zh": "噢，這下麻煩了。我們可以多付一點錢帶上車嗎？" },
+      { "sp": "W2", "t": "I'm afraid there's no option like that. Rush hour starts at five, and it's already half past four.", "zh": "恐怕沒有這種做法。尖峰時段五點開始，而現在已經四點半了。" },
+      { "sp": "M", "t": "Then maybe we should leave right away and ride the bus ahead of the crowds?", "zh": "那我們是不是該馬上出發，趕在人潮之前搭公車？" },
+      { "sp": "W2", "t": "You could, but the next bus doesn't depart for thirty-five minutes, which puts you past five.", "zh": "可以，但下一班公車三十五分鐘後才發車，那就過五點了。" },
+      { "sp": "W1", "t": "In that case, a taxi seems better. Where is the nearest taxi stand?", "zh": "這樣的話，計程車似乎比較好。最近的計程車招呼站在哪裡？" },
+      { "sp": "W2", "t": "Walk out the east door, and you'll see it right across from the newsstand.", "zh": "從東側的門走出去，就會看到它在書報攤正對面。" },
+      { "sp": "M", "t": "Thanks. It'll cost more, but at least our samples will arrive in good condition.", "zh": "謝謝。雖然比較貴，但至少我們的樣品能完好無損地到達。" },
+      { "sp": "W1", "t": "And we won't have to rush. Let's go.", "zh": "而且我們也不用趕。走吧。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What problem do the speakers have?", "zh": "說話者遇到什麼問題？" },
+        "choices": [
+          { "t": "Their luggage is not allowed on the bus at that time.", "zh": "那個時段他們的行李不能帶上公車。", "ok": true, "pattern": "paraphrase", "why": "尖峰時段不准攜帶大型行李箱。" },
+          { "t": "They have missed the last bus.", "zh": "他們錯過了最後一班公車。", "ok": false, "trap": "over-infer", "why": "對話中只說下一班要等三十五分鐘。" },
+          { "t": "The bus fare is too high.", "zh": "公車車資太貴。", "ok": false, "trap": "mention-not-ask", "why": "他們問的是多付錢帶行李，不是車資太高。" },
+          { "t": "The convention starts earlier than planned.", "zh": "會議比預定更早開始。", "ok": false, "trap": "over-infer", "why": "對話只說六點前要到，沒有提前。" }
+        ],
+        "evidence": [1, 2]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": { "t": "Why won't leaving early on the bus solve the problem?", "zh": "為什麼提早搭公車也無法解決問題？" },
+        "choices": [
+          { "t": "The next bus leaves after rush hour begins.", "zh": "下一班公車在尖峰時段開始後才發車。", "ok": true, "pattern": "paraphrase", "why": "下一班三十五分鐘後發車，已過五點。" },
+          { "t": "No buses run before five o'clock.", "zh": "五點前沒有公車行駛。", "ok": false, "trap": "over-infer", "why": "對話只說下一班要等三十五分鐘，並非沒有公車。" },
+          { "t": "Their suitcases are too heavy.", "zh": "他們的行李箱太重。", "ok": false, "trap": "partial", "why": "限制是行李箱太大，不是重量。" },
+          { "t": "The taxi stand is too far away.", "zh": "計程車招呼站太遠。", "ok": false, "trap": "mention-not-ask", "why": "招呼站是之後才問，且就在附近。" }
+        ],
+        "evidence": [6]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": { "t": "What can be inferred about the product samples?", "zh": "關於產品樣品可以推論出什麼？" },
+        "choices": [
+          { "t": "They could be damaged on a crowded bus.", "zh": "擠滿人的公車上它們可能會受損。", "ok": true, "pattern": "paraphrase", "why": "男子說搭計程車至少能讓樣品完好抵達。" },
+          { "t": "They have already been delivered.", "zh": "它們已經送到了。", "ok": false, "trap": "opposite", "why": "他們正要把樣品帶去會議中心。" },
+          { "t": "They are very cheap to replace.", "zh": "它們很便宜、容易補充。", "ok": false, "trap": "over-infer", "why": "對話中沒有提到價格。" },
+          { "t": "They belong to the service agent.", "zh": "它們是客服人員的。", "ok": false, "trap": "wrong-speaker", "why": "樣品是男子和同伴要帶去的。" }
+        ],
+        "evidence": [9]
+      }
+    ],
+    "vocab": [
+      { "word": "suitcases", "ipa": "/ˈsuːtkeɪsɪz/", "pos": "n.", "col": "pack suitcases", "zh": "行李箱" },
+      { "word": "samples", "ipa": "/ˈsæmplz/", "pos": "n.", "col": "product samples", "zh": "樣品" },
+      { "word": "newsstand", "ipa": "/ˈnuːzstænd/", "pos": "n.", "col": "buy at a newsstand", "zh": "書報攤" }
+    ]
+  }
+]

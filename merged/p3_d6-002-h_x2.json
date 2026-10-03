@@ -1,0 +1,476 @@
+[
+  {
+    "id": "d6-002-h",
+    "domain": "d6",
+    "scene": "hotel",
+    "tag": "團體住宿延長一晚並改換樓層",
+    "form": "3p",
+    "level": {
+      "score": 700,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "三人對話先訂定三晚、後因會議改期延長並改換樓層，需整合多句資訊判斷意圖與後續行動。"
+    },
+    "speakers": [
+      {
+        "id": "W2",
+        "gender": "F",
+        "role": "櫃檯人員"
+      },
+      {
+        "id": "W1",
+        "gender": "F",
+        "role": "旅客"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "旅客同事"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W2",
+        "t": "Good afternoon, and welcome to the Lakeview Hotel. How may I help you two?",
+        "zh": "午安，歡迎光臨湖景飯店。有什麼我可以為兩位效勞的嗎？"
+      },
+      {
+        "sp": "W1",
+        "t": "Hi. We have two single rooms for three nights, under the name Rivera, for the design fair.",
+        "zh": "嗨。我們以 Rivera 的名字訂了兩間單人房、三個晚上，為了參加設計展。"
+      },
+      {
+        "sp": "W2",
+        "t": "I see them. Both rooms are on the sixth floor, and breakfast is served from six thirty.",
+        "zh": "我查到了。兩間都在六樓，早餐從六點半開始供應。"
+      },
+      {
+        "sp": "M",
+        "t": "Actually, Dana, the fair organizers just emailed me. Our final meeting has been moved to Saturday morning.",
+        "zh": "其實，Dana，展覽主辦單位剛寄信給我。我們最後的會議改到週六早上了。"
+      },
+      {
+        "sp": "W1",
+        "t": "So we'll need to stay one more night. Can you extend both rooms through Saturday, please?",
+        "zh": "所以我們得多住一晚。可以請你把兩間房延長到週六嗎？"
+      },
+      {
+        "sp": "W2",
+        "t": "Let me look. The sixth floor is full on Friday, but I can offer you two rooms on the fourth floor.",
+        "zh": "我看看。六樓週五客滿了，但我可以給兩位四樓的兩間房。"
+      },
+      {
+        "sp": "M",
+        "t": "Are the fourth-floor rooms quiet? I need to prepare my presentation tonight and tomorrow night.",
+        "zh": "四樓的房間安靜嗎？我今晚和明晚都得準備我的簡報。"
+      },
+      {
+        "sp": "W2",
+        "t": "Very quiet. They face the garden, while the sixth-floor rooms look out on the main road.",
+        "zh": "非常安靜。它們面向花園，而六樓房間面對大馬路。"
+      },
+      {
+        "sp": "W1",
+        "t": "That's actually better for us. Please change both rooms to the fourth floor for all four nights.",
+        "zh": "那對我們反而更好。請把兩間房都改到四樓，住滿四晚。"
+      },
+      {
+        "sp": "W2",
+        "t": "Done. I'll print new key cards, and a bellhop can carry your bags up shortly.",
+        "zh": "好了。我會印新的房卡，行李員很快會幫兩位把行李送上去。"
+      },
+      {
+        "sp": "M",
+        "t": "Thanks. Could you also arrange a wake-up call at six tomorrow? The fair opens at eight, and we need to be there early.",
+        "zh": "謝謝。可以也幫我們安排明天六點的晨喚嗎？展覽八點開始，我們得提早到。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "detail",
+        "q": {
+          "t": "Why do the speakers need an extra night?",
+          "zh": "說話者為什麼需要多住一晚？"
+        },
+        "choices": [
+          {
+            "t": "The fair opens a day earlier.",
+            "zh": "展覽提早一天開始。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "是會議延後到週六，而非提前。"
+          },
+          {
+            "t": "The sixth-floor rooms were not ready.",
+            "zh": "六樓房間還沒準備好。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "對話沒說房間未備妥。"
+          },
+          {
+            "t": "Their final meeting was rescheduled.",
+            "zh": "他們最後的會議改期了。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "男士說最後的會議改到週六早上，所以要多住。"
+          },
+          {
+            "t": "The hotel is full on Friday.",
+            "zh": "飯店週五客滿。",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "只有六樓週五客滿，且那是換房原因而非多住原因。"
+          }
+        ],
+        "evidence": [
+          3,
+          4
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": {
+          "t": "Why does the man ask, \"Are the fourth-floor rooms quiet?\"",
+          "zh": "男士為什麼問「四樓的房間安靜嗎？」"
+        },
+        "choices": [
+          {
+            "t": "He wants to avoid the garden.",
+            "zh": "他想避開花園。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "花園景觀是後來客服介紹的優點，他並未排斥。"
+          },
+          {
+            "t": "He needs a calm place to work.",
+            "zh": "他需要安靜的地方工作。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "他接著說今晚和明晚要準備簡報。"
+          },
+          {
+            "t": "He is unhappy with the breakfast time.",
+            "zh": "他對早餐時間不滿意。",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "早餐時間與此問題無關。"
+          },
+          {
+            "t": "He wants to move back to the sixth floor.",
+            "zh": "他想搬回六樓。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "他是在確認四樓是否適合，不是想回六樓。"
+          }
+        ],
+        "evidence": [
+          6
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": {
+          "t": "What will the clerk most likely do for the guests?",
+          "zh": "櫃檯人員接下來最可能為旅客做什麼？"
+        },
+        "choices": [
+          {
+            "t": "Move them back to the sixth floor",
+            "zh": "把他們換回六樓",
+            "ok": false,
+            "trap": "opposite",
+            "why": "六樓週五客滿，且已決定改四樓。"
+          },
+          {
+            "t": "Contact the fair organizers",
+            "zh": "聯絡展覽主辦單位",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "主辦單位是寄信給男士，不需櫃檯聯絡。"
+          },
+          {
+            "t": "Print the man's presentation",
+            "zh": "列印男士的簡報",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "她要印的是房卡，不是簡報。"
+          },
+          {
+            "t": "Set up an early morning call",
+            "zh": "安排清晨的叫醒電話",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "男士請她安排明天六點的 wake-up call。"
+          }
+        ],
+        "evidence": [
+          10
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "extend",
+        "ipa": "/ɪkˈstend/",
+        "pos": "v.",
+        "col": "extend a stay",
+        "zh": "延長"
+      },
+      {
+        "word": "bellhop",
+        "ipa": "/ˈbelhɑːp/",
+        "pos": "n.",
+        "col": "a hotel bellhop",
+        "zh": "行李員"
+      },
+      {
+        "word": "presentation",
+        "ipa": "/ˌprezənˈteɪʃən/",
+        "pos": "n.",
+        "col": "prepare a presentation",
+        "zh": "簡報"
+      }
+    ]
+  },
+  {
+    "id": "d6-003-h",
+    "domain": "d6",
+    "scene": "home",
+    "tag": "三位室友討論備用房改成書房",
+    "form": "3p",
+    "level": {
+      "score": 750,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "三人討論先提出沙發床方案、再改用摺疊床墊，需判斷說話意圖並整合多句資訊。"
+    },
+    "speakers": [
+      {
+        "id": "W1",
+        "gender": "F",
+        "role": "室友"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "室友"
+      },
+      {
+        "id": "W2",
+        "gender": "F",
+        "role": "室友"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W1",
+        "t": "Okay, everyone, we need to decide what to do with the spare bedroom before the end of the month.",
+        "zh": "好，各位，我們得在月底前決定備用臥室要怎麼用。"
+      },
+      {
+        "sp": "M",
+        "t": "I'd like to turn it into a home office. Working at the kitchen table is getting impossible.",
+        "zh": "我想把它改成居家辦公室。在廚房餐桌工作越來越不可能了。"
+      },
+      {
+        "sp": "W2",
+        "t": "That makes sense, but my cousin is hoping to stay with us for a few weeks this summer.",
+        "zh": "有道理，但我表妹今年夏天想來跟我們住幾個星期。"
+      },
+      {
+        "sp": "W1",
+        "t": "We could buy a sofa bed for the office. Then it would work for both purposes.",
+        "zh": "我們可以為辦公室買張沙發床，這樣兩種用途都能兼顧。"
+      },
+      {
+        "sp": "M",
+        "t": "A sofa bed would take up too much space, and I'd need room for two monitors and a bookshelf.",
+        "zh": "沙發床會佔太多空間，而我需要放兩台螢幕和一個書架。"
+      },
+      {
+        "sp": "W2",
+        "t": "What about a fold-out mattress instead? We could store it in the closet when she's not here.",
+        "zh": "改用摺疊床墊如何？她不在時我們可以收進衣櫃。"
+      },
+      {
+        "sp": "W1",
+        "t": "Good idea. That's cheaper, too. Still, the desk should be small, or the room will feel crowded.",
+        "zh": "好主意，也比較便宜。不過書桌要小一點，不然房間會顯得擁擠。"
+      },
+      {
+        "sp": "M",
+        "t": "Fine. I'll look for a narrow desk, and I'll measure the wall before I order anything.",
+        "zh": "好。我會找窄一點的書桌，而且訂購前會先量牆面。"
+      },
+      {
+        "sp": "W2",
+        "t": "Great. Meanwhile, I'll ask my cousin which weeks she's planning to visit so we can avoid conflicts.",
+        "zh": "太好了。同時我會問表妹打算哪幾週來，以避免衝突。"
+      },
+      {
+        "sp": "W1",
+        "t": "And I'll paint the walls a lighter color this weekend if someone helps me. The dark green makes the room feel smaller.",
+        "zh": "我這週末會把牆漆成淺一點的顏色，如果有人幫我的話。深綠色讓房間顯得更小。"
+      },
+      {
+        "sp": "M",
+        "t": "I'm free Saturday afternoon, so count me in. Then I can start moving furniture on Monday.",
+        "zh": "我週六下午有空，算我一份。這樣我週一就能開始搬家具。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {
+          "t": "What are the speakers mainly discussing?",
+          "zh": "說話者主要在討論什麼？"
+        },
+        "choices": [
+          {
+            "t": "Where to hold a family gathering",
+            "zh": "在哪裡舉辦家庭聚會",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "表妹來訪只是考量因素，沒有聚會。"
+          },
+          {
+            "t": "How to set up an extra room",
+            "zh": "如何佈置多出來的房間",
+            "ok": true,
+            "pattern": "summary",
+            "why": "全段圍繞備用臥室要如何規劃。"
+          },
+          {
+            "t": "How to paint the living room",
+            "zh": "如何粉刷客廳",
+            "ok": false,
+            "trap": "partial",
+            "why": "漆牆是針對備用房，且只是其中一項安排。"
+          },
+          {
+            "t": "Which monitors to buy",
+            "zh": "要買哪種螢幕",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "螢幕只是男士需要放置的物品之一。"
+          }
+        ],
+        "evidence": [
+          0
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": {
+          "t": "Why does the man say, \"A sofa bed would take up too much space\"?",
+          "zh": "男士為什麼說「沙發床會佔太多空間」？"
+        },
+        "choices": [
+          {
+            "t": "To suggest leaving the room empty",
+            "zh": "建議把房間空著",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "他想要的是辦公室，不是空房。"
+          },
+          {
+            "t": "To compare furniture prices",
+            "zh": "比較家具價格",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "價格是後來 W1 提到的。"
+          },
+          {
+            "t": "To reject the idea of buying one",
+            "zh": "為了否決買沙發床的提議",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "他是回應 W1 的沙發床建議並說明不適合。"
+          },
+          {
+            "t": "To ask for a larger sofa bed",
+            "zh": "要求買更大的沙發床",
+            "ok": false,
+            "trap": "opposite",
+            "why": "他認為沙發床太佔空間，不會要更大的。"
+          }
+        ],
+        "evidence": [
+          4
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": {
+          "t": "What can be inferred about the cousin's visit?",
+          "zh": "關於表妹的來訪可以推論出什麼？"
+        },
+        "choices": [
+          {
+            "t": "She will probably sleep on a fold-out mattress.",
+            "zh": "她很可能睡在摺疊床墊上。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "大家採用摺疊床墊方案，並將在她來時使用。"
+          },
+          {
+            "t": "She will stay at a hotel.",
+            "zh": "她會住旅館。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "她要住在他們家。"
+          },
+          {
+            "t": "She will bring her own sofa bed.",
+            "zh": "她會自己帶沙發床。",
+            "ok": false,
+            "trap": "wrong-speaker",
+            "why": "沙發床是 W1 提議，且被否決。"
+          },
+          {
+            "t": "She will visit for just one weekend.",
+            "zh": "她只會來一個週末。",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "她要待幾個星期，不是一個週末。"
+          }
+        ],
+        "evidence": [
+          5,
+          8
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "spare",
+        "ipa": "/sper/",
+        "pos": "adj.",
+        "col": "a spare bedroom",
+        "zh": "備用的；多餘的"
+      },
+      {
+        "word": "narrow",
+        "ipa": "/ˈnæroʊ/",
+        "pos": "adj.",
+        "col": "a narrow desk",
+        "zh": "狹窄的"
+      },
+      {
+        "word": "measure",
+        "ipa": "/ˈmeʒər/",
+        "pos": "v.",
+        "col": "measure the wall",
+        "zh": "測量"
+      }
+    ]
+  }
+]

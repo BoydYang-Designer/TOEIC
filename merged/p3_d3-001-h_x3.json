@@ -1,0 +1,237 @@
+[
+  {
+    "id": "d3-001-h",
+    "domain": "d3",
+    "scene": "store",
+    "tag": "挑選家用洗衣機",
+    "form": "3p",
+    "level": {
+      "score": 800,
+      "cefr": "B2+",
+      "tier": "hard",
+      "why": "三人對話先選最便宜機種、再因容量與到貨時間改選，且需結合圖表與預算才能判斷最終機種。"
+    },
+    "speakers": [
+      { "id": "W1", "gender": "F", "role": "顧客" },
+      { "id": "M", "gender": "M", "role": "顧客" },
+      { "id": "W2", "gender": "F", "role": "店員" }
+    ],
+    "dialogue": [
+      { "sp": "W2", "t": "Good afternoon. Are you two shopping for a washing machine today?", "zh": "午安。兩位今天是來選購洗衣機的嗎？" },
+      { "sp": "W1", "t": "Yes, our old one died last week. We were thinking of the cheapest model on your sale table.", "zh": "是的，我們的舊洗衣機上週壞了。我們原本想買特價桌上最便宜的機種。" },
+      { "sp": "M", "t": "Right, but with three kids, I'm not sure seven kilograms will be enough for us.", "zh": "對，不過家裡有三個孩子，我不確定七公斤夠不夠用。" },
+      { "sp": "W2", "t": "That's a fair concern. Most families your size choose at least nine kilograms.", "zh": "這個顧慮很合理。像你們這種人數的家庭，大多至少選九公斤。" },
+      { "sp": "W1", "t": "Then let's consider the nine-kilogram one. How soon could you bring it to our house?", "zh": "那我們考慮九公斤的那台。你們多快能送到我們家？" },
+      { "sp": "W2", "t": "That model takes five days, I'm afraid. Is that too long for you?", "zh": "那個機種恐怕要五天。這對你們來說太久嗎？" },
+      { "sp": "W1", "t": "Yes, we have a lot of laundry, and we'd like it within three days.", "zh": "是的，我們有很多衣服要洗，希望三天內送到。" },
+      { "sp": "M", "t": "Hmm, what about the ten-kilogram model? It's more expensive, but it would arrive on time.", "zh": "嗯，十公斤的機種呢？它比較貴，但可以準時到。" },
+      { "sp": "W2", "t": "Exactly. It costs about a hundred and fifty dollars more than the nine-kilogram one.", "zh": "沒錯。它比九公斤的那台貴大約一百五十元。" },
+      { "sp": "W1", "t": "That's acceptable. Our budget is seven hundred dollars, so we can afford it.", "zh": "這可以接受。我們的預算是七百元，所以負擔得起。" },
+      { "sp": "M", "t": "Then it's decided. We'll take the ten-kilogram model.", "zh": "那就決定了。我們買十公斤的機種。" },
+      { "sp": "W2", "t": "Wonderful. I'll prepare the paperwork while you two finish looking around the store.", "zh": "太好了。你們兩位繼續逛逛，我來準備文件。" }
+    ],
+    "graphic": {
+      "title": "Washing Machine Sale Models",
+      "columns": ["Model", "Capacity", "Price", "Delivery Time"],
+      "rows": [
+        ["Wash-A", "7 kg", "$420", "2 days"],
+        ["Wash-B", "9 kg", "$540", "5 days"],
+        ["Wash-C", "10 kg", "$690", "3 days"],
+        ["Wash-D", "12 kg", "$820", "7 days"]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What are the speakers mainly discussing?", "zh": "說話者主要在討論什麼？" },
+        "choices": [
+          { "t": "Choosing a new appliance for a household", "zh": "為家庭挑選新家電", "ok": true, "pattern": "summary", "why": "舊洗衣機壞了，他們在挑選新的洗衣機。" },
+          { "t": "Repairing a broken washing machine", "zh": "修理壞掉的洗衣機", "ok": false, "trap": "mention-not-ask", "why": "舊機器壞了只是背景，對話是在買新的。" },
+          { "t": "Comparing different delivery companies", "zh": "比較不同的配送公司", "ok": false, "trap": "partial", "why": "到貨時間只是選機種的條件之一。" },
+          { "t": "Returning a damaged item to the store", "zh": "把損壞的商品退回店裡", "ok": false, "trap": "over-infer", "why": "沒有任何退貨的內容。" }
+        ],
+        "evidence": [1]
+      },
+      {
+        "id": "q2",
+        "qtype": "infer",
+        "q": { "t": "What does the man imply about his family?", "zh": "男子對他的家人暗示了什麼？" },
+        "choices": [
+          { "t": "It produces a large amount of laundry.", "zh": "家裡的洗衣量很大。", "ok": true, "pattern": "paraphrase", "why": "他提到有三個孩子，擔心七公斤不夠用。" },
+          { "t": "It wants the cheapest machine available.", "zh": "家裡想要最便宜的機器。", "ok": false, "trap": "partial", "why": "最便宜是原本的想法，男子擔心容量不足，後來改選較貴的機種。" },
+          { "t": "It plans to move to a new house soon.", "zh": "家裡打算很快搬家。", "ok": false, "trap": "over-infer", "why": "對話沒有提到搬家，只說送到現在的家。" },
+          { "t": "It has just bought a new dryer.", "zh": "家裡剛買了新的烘衣機。", "ok": false, "trap": "wrong-speaker", "why": "對話中沒有人提到買烘衣機。" }
+        ],
+        "evidence": [2]
+      },
+      {
+        "id": "q3",
+        "qtype": "graphic",
+        "q": { "t": "Look at the graphic. Which model will the speakers most likely buy?", "zh": "請看圖表。說話者最可能買哪一款？" },
+        "choices": [
+          { "t": "Wash-C", "zh": "Wash-C", "ok": true, "pattern": "summary", "why": "10 公斤、三天到貨、$690，符合三天內到貨與七百元預算。" },
+          { "t": "Wash-A", "zh": "Wash-A", "ok": false, "trap": "mention-not-ask", "why": "這是原本想買的最便宜機種，但七公斤容量不夠。" },
+          { "t": "Wash-B", "zh": "Wash-B", "ok": false, "trap": "number-mix", "why": "九公斤要五天才到，超過他們要求的三天。" },
+          { "t": "Wash-D", "zh": "Wash-D", "ok": false, "trap": "over-infer", "why": "12 公斤要七天且 $820 超出預算。" }
+        ],
+        "evidence": [6, 9]
+      }
+    ],
+    "vocab": [
+      { "word": "laundry", "ipa": "/ˈlɔːndri/", "pos": "n.", "col": "do the laundry", "zh": "待洗衣物" },
+      { "word": "afford", "ipa": "/əˈfɔːrd/", "pos": "v.", "col": "afford to buy", "zh": "負擔得起" },
+      { "word": "paperwork", "ipa": "/ˈpeɪpərwɜːrk/", "pos": "n.", "col": "complete the paperwork", "zh": "文件作業" }
+    ]
+  },
+  {
+    "id": "d3-002-h",
+    "domain": "d3",
+    "scene": "store",
+    "tag": "更換破損咖啡機",
+    "form": "3p",
+    "level": {
+      "score": 750,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "顧客先堅持退款、後改為換新款，並需理解主管話語的言外之意與後續動作。"
+    },
+    "speakers": [
+      { "id": "M1", "gender": "M", "role": "顧客" },
+      { "id": "M2", "gender": "M", "role": "店員" },
+      { "id": "W", "gender": "F", "role": "店經理" }
+    ],
+    "dialogue": [
+      { "sp": "M1", "t": "Hi, I bought this coffee maker two weeks ago, and the lid already cracked.", "zh": "嗨，我兩週前買了這台咖啡機，蓋子已經裂了。" },
+      { "sp": "M2", "t": "I'm sorry to hear that. Do you have the proof of purchase with you?", "zh": "很遺憾聽到這件事。您有帶購買證明嗎？" },
+      { "sp": "M1", "t": "Yes, it's in my bag. Honestly, I'd like my money back, because I don't trust this brand anymore.", "zh": "有，在我的包包裡。老實說，我想退錢，因為我不再信任這個品牌了。" },
+      { "sp": "M2", "t": "Refunds need a manager's approval, so let me call Ms. Carter over.", "zh": "退款需要經理核准，我請 Carter 女士過來。" },
+      { "sp": "W", "t": "Hello, sir. I'm Ms. Carter. Could you show me where the lid cracked?", "zh": "您好，先生。我是 Carter。可以讓我看看蓋子裂在哪裡嗎？" },
+      { "sp": "M1", "t": "Right here along the edge. It happened the first time I washed it.", "zh": "就在這邊的邊緣。我第一次清洗它的時候就裂了。" },
+      { "sp": "W", "t": "That's clearly a manufacturing flaw. We can give you a refund, but we also have a newer model in stock.", "zh": "這顯然是製造瑕疵。我們可以退款給您，不過我們也有較新的機種有現貨。" },
+      { "sp": "M1", "t": "Does the newer one cost more? I don't want to pay extra.", "zh": "新的比較貴嗎？我不想多付錢。" },
+      { "sp": "W", "t": "It's twenty dollars higher, but we'll cover the difference because of the trouble.", "zh": "它高二十元，但為了這次的麻煩，差額由我們負擔。" },
+      { "sp": "M1", "t": "In that case, I'll take the new model instead of the refund.", "zh": "那樣的話，我要新機種，不要退款了。" },
+      { "sp": "M2", "t": "Great. I'll get one from the shelf and bring it to the register while you sign the form.", "zh": "太好了。您簽表格的時候，我去架上拿一台，帶到收銀台。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "detail",
+        "q": { "t": "Why does the man first ask for his money back?", "zh": "男子一開始為什麼要求退錢？" },
+        "choices": [
+          { "t": "He has lost confidence in the brand.", "zh": "他對這個品牌失去信心。", "ok": true, "pattern": "paraphrase", "why": "他說不再信任這個品牌。" },
+          { "t": "The lid cracked after two weeks.", "zh": "蓋子在兩週後裂開。", "ok": false, "trap": "partial", "why": "這是商品的問題，但他要求退錢的理由是不再信任品牌。" },
+          { "t": "He lost his proof of purchase.", "zh": "他弄丟了購買證明。", "ok": false, "trap": "opposite", "why": "他說購買證明在包包裡。" },
+          { "t": "The manager asked him to request one.", "zh": "經理要求他提出退款。", "ok": false, "trap": "wrong-speaker", "why": "是男子自己提出退款，經理是之後才出現。" }
+        ],
+        "evidence": [2]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": { "t": "What does the manager mean when she says, \"That's clearly a manufacturing flaw\"?", "zh": "經理說「That's clearly a manufacturing flaw」是什麼意思？" },
+        "choices": [
+          { "t": "The damage was not caused by the customer.", "zh": "損壞不是顧客造成的。", "ok": true, "pattern": "paraphrase", "why": "製造瑕疵代表問題出在產品本身。" },
+          { "t": "The customer must pay for the repair.", "zh": "顧客必須支付維修費。", "ok": false, "trap": "opposite", "why": "後來店家還願意負擔差額。" },
+          { "t": "The coffee maker is no longer sold.", "zh": "這款咖啡機已經停售。", "ok": false, "trap": "over-infer", "why": "她只說有較新的機種有現貨，沒有說舊款停售。" },
+          { "t": "The product was made two weeks ago.", "zh": "這個產品是兩週前製造的。", "ok": false, "trap": "number-mix", "why": "兩週前是男子購買的時間，不是製造時間。" }
+        ],
+        "evidence": [6]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": { "t": "What will the clerk probably do next?", "zh": "店員接下來可能會做什麼？" },
+        "choices": [
+          { "t": "Get a new coffee maker for the man", "zh": "幫男子拿一台新咖啡機", "ok": true, "pattern": "paraphrase", "why": "他說要從架上拿一台帶到收銀台。" },
+          { "t": "Give the man his money back", "zh": "把錢退還給男子", "ok": false, "trap": "opposite", "why": "男子已改選新機種，不要退款。" },
+          { "t": "Call the manager to the counter", "zh": "請經理到櫃台來", "ok": false, "trap": "partial", "why": "經理已經來了，這件事已完成。" },
+          { "t": "Fill out the form for the man", "zh": "幫男子填寫表格", "ok": false, "trap": "wrong-speaker", "why": "是男子要簽表格，店員去拿商品。" }
+        ],
+        "evidence": [10]
+      }
+    ],
+    "vocab": [
+      { "word": "refund", "ipa": "/ˈriːfʌnd/", "pos": "n.", "col": "ask for a refund", "zh": "退款" },
+      { "word": "approval", "ipa": "/əˈpruːvl/", "pos": "n.", "col": "need approval", "zh": "核准" },
+      { "word": "flaw", "ipa": "/flɔː/", "pos": "n.", "col": "a manufacturing flaw", "zh": "瑕疵；缺陷" }
+    ]
+  },
+  {
+    "id": "d3-003-h",
+    "domain": "d3",
+    "scene": "store",
+    "tag": "訂購書桌並決定自行組裝",
+    "form": "3p",
+    "level": {
+      "score": 700,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "顧客先要求組裝服務、後改為自己組裝，並需加總金額與推論友人的能力。"
+    },
+    "speakers": [
+      { "id": "W1", "gender": "F", "role": "顧客" },
+      { "id": "M", "gender": "M", "role": "顧客的朋友" },
+      { "id": "W2", "gender": "F", "role": "店員" }
+    ],
+    "dialogue": [
+      { "sp": "W1", "t": "I'd like to order this oak desk for my home office, and I want your staff to assemble it.", "zh": "我想訂這張橡木書桌放在家庭辦公室，而且我要你們的員工幫忙組裝。" },
+      { "sp": "W2", "t": "Certainly. The desk is two hundred sixty dollars, and our assembly service costs another forty.", "zh": "沒問題。書桌是兩百六十元，我們的組裝服務另外收四十元。" },
+      { "sp": "M", "t": "Forty dollars just for putting it together? I built my own bookshelf in an hour.", "zh": "光是組裝就要四十元？我自己一小時就組好了我的書架。" },
+      { "sp": "W1", "t": "True, but you're good at that. I'm terrible with tools and instructions.", "zh": "是沒錯，但你很擅長這種事。我對工具和說明書很不行。" },
+      { "sp": "M", "t": "I can help you this weekend, so you'd save the forty dollars.", "zh": "這個週末我可以幫你，這樣你就能省下四十元。" },
+      { "sp": "W1", "t": "Okay, you convinced me. We'll skip the assembly, but can the desk go to my third-floor apartment?", "zh": "好吧，你說服我了。我們不要組裝服務，但書桌可以送到我三樓的公寓嗎？" },
+      { "sp": "W2", "t": "Yes, but our drivers charge a fifteen-dollar stairs fee, so your total will be two hundred seventy-five.", "zh": "可以，不過我們的司機會收十五元的樓梯費，所以您的總額是兩百七十五元。" },
+      { "sp": "W1", "t": "That's fine. Is there a Saturday morning slot, so my friend can be there?", "zh": "沒問題。有週六早上的時段嗎？這樣我朋友就能在場。" },
+      { "sp": "W2", "t": "Saturday mornings are full, but I can put you down for two o'clock that afternoon.", "zh": "週六早上都滿了，不過我可以幫您排當天下午兩點。" },
+      { "sp": "M", "t": "Two is fine with me. I'll bring my toolbox over around one.", "zh": "兩點我可以。我一點左右會帶著工具箱過去。" },
+      { "sp": "W1", "t": "Then please put me down for that time, and I'll pay the total at the register now.", "zh": "那就請幫我排那個時段，我現在就在收銀台付總額。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "Where most likely are the speakers?", "zh": "說話者最可能在哪裡？" },
+        "choices": [
+          { "t": "At a furniture store", "zh": "在家具店", "ok": true, "pattern": "summary", "why": "女士在訂書桌，並討論組裝與配送。" },
+          { "t": "At a hardware store", "zh": "在五金行", "ok": false, "trap": "mention-not-ask", "why": "工具箱只是朋友自己要帶的物品，店裡賣的是書桌。" },
+          { "t": "At a moving company", "zh": "在搬家公司", "ok": false, "trap": "partial", "why": "配送與樓梯費只是購買書桌的附帶服務。" },
+          { "t": "At an office supply store", "zh": "在辦公用品店", "ok": false, "trap": "over-infer", "why": "書桌是放在家庭辦公室，但店裡賣的是家具，且沒提到辦公用品。" }
+        ],
+        "evidence": [0, 1]
+      },
+      {
+        "id": "q2",
+        "qtype": "infer",
+        "q": { "t": "What can be inferred about the man?", "zh": "關於男子可以推論出什麼？" },
+        "choices": [
+          { "t": "He is skilled at putting furniture together.", "zh": "他很擅長組裝家具。", "ok": true, "pattern": "paraphrase", "why": "他一小時就自己組好書架，女士也說他很擅長。" },
+          { "t": "He works at the store.", "zh": "他在這家店工作。", "ok": false, "trap": "wrong-speaker", "why": "他是陪同顧客的朋友，並非員工。" },
+          { "t": "He plans to buy a bookshelf.", "zh": "他打算買一個書架。", "ok": false, "trap": "mention-not-ask", "why": "書架是他已經自己組好的東西。" },
+          { "t": "He thinks the desk is too expensive.", "zh": "他覺得書桌太貴。", "ok": false, "trap": "over-infer", "why": "他嫌的是組裝費，不是書桌價格。" }
+        ],
+        "evidence": [2, 3]
+      },
+      {
+        "id": "q3",
+        "qtype": "detail",
+        "q": { "t": "How much will the woman pay today?", "zh": "這位女士今天要付多少錢？" },
+        "choices": [
+          { "t": "$275", "zh": "275 元", "ok": true, "pattern": "direct", "why": "店員說總額是兩百七十五元（書桌加樓梯費）。" },
+          { "t": "$260", "zh": "260 元", "ok": false, "trap": "partial", "why": "這只是書桌價格，還要加上樓梯費。" },
+          { "t": "$300", "zh": "300 元", "ok": false, "trap": "number-mix", "why": "這是書桌加組裝費，但她已經不要組裝服務。" },
+          { "t": "$315", "zh": "315 元", "ok": false, "trap": "over-infer", "why": "把組裝費也算進去，但她已取消組裝。" }
+        ],
+        "evidence": [6]
+      }
+    ],
+    "vocab": [
+      { "word": "assembly", "ipa": "/əˈsembli/", "pos": "n.", "col": "assembly service", "zh": "組裝" },
+      { "word": "fee", "ipa": "/fiː/", "pos": "n.", "col": "pay a fee", "zh": "費用" },
+      { "word": "toolbox", "ipa": "/ˈtuːlbɑːks/", "pos": "n.", "col": "a metal toolbox", "zh": "工具箱" }
+    ]
+  }
+]

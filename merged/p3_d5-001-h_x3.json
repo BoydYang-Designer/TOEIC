@@ -1,0 +1,237 @@
+[
+  {
+    "id": "d5-001-h",
+    "domain": "d5",
+    "scene": "workplace",
+    "tag": "強風改期吊掛鋼樑",
+    "form": "3p",
+    "level": {
+      "score": 750,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "三人對話先敲定上午吊掛、再因風速限制改到下午，並需理解同意語句的意圖。"
+    },
+    "speakers": [
+      { "id": "W1", "gender": "F", "role": "工地經理" },
+      { "id": "W2", "gender": "F", "role": "安全督導" },
+      { "id": "M", "gender": "M", "role": "起重機操作員" }
+    ],
+    "dialogue": [
+      { "sp": "W1", "t": "We should lift the steel beams to the fourth floor first thing tomorrow morning.", "zh": "我們應該明天一早就把鋼樑吊到四樓。" },
+      { "sp": "M", "t": "That works for me. The crane is ready, and my team can start at seven.", "zh": "我可以。起重機已準備好，我的團隊七點就能開始。" },
+      { "sp": "W2", "t": "Before we confirm, I looked at the wind report. Gusts could reach forty kilometers per hour in the morning.", "zh": "在確認之前，我看了風況報告。早上的陣風可能達到每小時四十公里。" },
+      { "sp": "W1", "t": "Is that too strong for lifting?", "zh": "那樣對吊掛來說太強了嗎？" },
+      { "sp": "W2", "t": "Our safety rule says we stop lifting above thirty-five.", "zh": "我們的安全規定是超過三十五就要停止吊掛。" },
+      { "sp": "M", "t": "She's right. Swinging a heavy beam in strong gusts is dangerous.", "zh": "她說得對。在強陣風中擺動沉重的鋼樑很危險。" },
+      { "sp": "W1", "t": "Then what about the afternoon?", "zh": "那下午呢？" },
+      { "sp": "W2", "t": "The wind drops after one o'clock, so the afternoon should be safe.", "zh": "風在一點後會減弱，所以下午應該是安全的。" },
+      { "sp": "W1", "t": "Fine, we'll lift after lunch. In the morning, the workers can cut and sort the beams on the ground.", "zh": "好，我們午餐後再吊。早上工人可以在地面切割並分類鋼樑。" },
+      { "sp": "M", "t": "Good idea. That way we won't waste the morning.", "zh": "好主意。這樣我們就不會浪費早上的時間。" },
+      { "sp": "W2", "t": "I'll inspect the crane cables at noon, so everything is ready by one.", "zh": "我中午會檢查起重機的鋼索，這樣一點前一切都會就緒。" },
+      { "sp": "W1", "t": "Perfect. I'll update the daily plan and send it out tonight.", "zh": "太好了。我今晚會更新每日計畫並發出去。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What are the speakers mainly discussing?", "zh": "說話者主要在討論什麼？" },
+        "choices": [
+          { "t": "Rescheduling a lifting job because of the wind", "zh": "因風勢而重新安排吊掛作業", "ok": true, "pattern": "summary", "why": "原定早上吊掛，因陣風過強改到下午。" },
+          { "t": "Buying a new crane", "zh": "購買新的起重機", "ok": false, "trap": "over-infer", "why": "起重機已準備好，沒有提到購買。" },
+          { "t": "Repairing damaged steel beams", "zh": "修理受損的鋼樑", "ok": false, "trap": "mention-not-ask", "why": "鋼樑是吊掛的對象，沒有說受損。" },
+          { "t": "Training new workers", "zh": "訓練新工人", "ok": false, "trap": "over-infer", "why": "對話沒有提到訓練。" }
+        ],
+        "evidence": [0, 2]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": { "t": "What does the man mean when he says, \"She's right\"?", "zh": "男子說「She's right」是什麼意思？" },
+        "choices": [
+          { "t": "He agrees that strong wind is a safety risk.", "zh": "他同意強風是安全風險。", "ok": true, "pattern": "paraphrase", "why": "他接著說強陣風中擺動鋼樑很危險。" },
+          { "t": "He prefers to start earlier.", "zh": "他比較想提早開始。", "ok": false, "trap": "opposite", "why": "他支持督導的看法，不提早吊掛。" },
+          { "t": "He thinks the crane is broken.", "zh": "他認為起重機壞了。", "ok": false, "trap": "over-infer", "why": "他一開始說起重機已準備好。" },
+          { "t": "He wants to cancel the project.", "zh": "他想取消這個工程。", "ok": false, "trap": "over-infer", "why": "對話只是改到下午，並非取消。" }
+        ],
+        "evidence": [5]
+      },
+      {
+        "id": "q3",
+        "qtype": "detail",
+        "q": { "t": "What will the workers do in the morning?", "zh": "工人早上會做什麼？" },
+        "choices": [
+          { "t": "Prepare the beams on the ground", "zh": "在地面準備鋼樑", "ok": true, "pattern": "paraphrase", "why": "經理說早上工人可以在地面切割並分類鋼樑。" },
+          { "t": "Lift the beams to the fourth floor", "zh": "把鋼樑吊到四樓", "ok": false, "trap": "opposite", "why": "吊掛已改到下午。" },
+          { "t": "Inspect the crane cables", "zh": "檢查起重機鋼索", "ok": false, "trap": "wrong-speaker", "why": "是安全督導中午去檢查，不是工人。" },
+          { "t": "Update the daily plan", "zh": "更新每日計畫", "ok": false, "trap": "wrong-speaker", "why": "是經理今晚更新計畫。" }
+        ],
+        "evidence": [8]
+      }
+    ],
+    "vocab": [
+      { "word": "crane", "ipa": "/kreɪn/", "pos": "n.", "col": "a tower crane", "zh": "起重機" },
+      { "word": "gusts", "ipa": "/ɡʌsts/", "pos": "n.", "col": "strong gusts of wind", "zh": "陣風" },
+      { "word": "beams", "ipa": "/biːmz/", "pos": "n.", "col": "steel beams", "zh": "樑；鋼樑" }
+    ]
+  },
+  {
+    "id": "d5-002-h",
+    "domain": "d5",
+    "scene": "workplace",
+    "tag": "為油漆挑選存放區",
+    "form": "3p",
+    "level": {
+      "score": 800,
+      "cefr": "B2+",
+      "tier": "hard",
+      "why": "三人對話先考慮離門最近的區域、後因溫度與重量改選，並需結合圖表與三項條件判斷。"
+    },
+    "speakers": [
+      { "id": "W", "gender": "F", "role": "倉儲主管" },
+      { "id": "M1", "gender": "M", "role": "倉儲人員" },
+      { "id": "M2", "gender": "M", "role": "品管人員" }
+    ],
+    "dialogue": [
+      { "sp": "W", "t": "The new paint order arrives tomorrow, and it weighs about six hundred kilograms in total.", "zh": "新的油漆訂單明天會到，總重大約六百公斤。" },
+      { "sp": "M1", "t": "Zone A is closest to the loading door, and it has forty open racks.", "zh": "A 區離裝卸門最近，而且有四十個空貨架。" },
+      { "sp": "M2", "t": "But Zone A gets hot. The label says to keep the paint between ten and twenty-five degrees.", "zh": "但 A 區會變熱。標籤上說油漆要保存在十到二十五度之間。" },
+      { "sp": "M1", "t": "I forgot about that. We can't use Zone A, then.", "zh": "我忘了這點。那就不能用 A 區了。" },
+      { "sp": "W", "t": "What about Zone D? It has plenty of space.", "zh": "那 D 區呢？它有很多空間。" },
+      { "sp": "M2", "t": "That's too cold. At five degrees, the paint could be damaged.", "zh": "那太冷了。在五度時，油漆可能會受損。" },
+      { "sp": "M1", "t": "Then we need the right temperature and a rack that holds all six hundred kilograms.", "zh": "那我們需要合適的溫度，以及能承重全部六百公斤的貨架。" },
+      { "sp": "W", "t": "I want everything on a single rack, so it can be moved in one trip.", "zh": "我希望所有東西放在同一個貨架上，這樣一趟就能搬完。" },
+      { "sp": "M2", "t": "Then there's only one zone that fits all three conditions.", "zh": "那麼只有一個區域符合這三項條件。" },
+      { "sp": "M1", "t": "Agreed. I'll mark the rack tomorrow morning before the truck arrives.", "zh": "同意。明天早上貨車到之前，我會標記好那個貨架。" },
+      { "sp": "W", "t": "And I'll print the location labels this afternoon.", "zh": "我今天下午會把位置標籤印出來。" }
+    ],
+    "graphic": {
+      "title": "Storage Zones",
+      "columns": ["Zone", "Temperature", "Rack Capacity", "Open Racks"],
+      "rows": [
+        ["Zone A", "35°C", "800 kg", "40"],
+        ["Zone B", "18°C", "500 kg", "25"],
+        ["Zone C", "20°C", "900 kg", "12"],
+        ["Zone D", "5°C", "900 kg", "30"]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "intent",
+        "q": { "t": "What does the man mean when he says, \"I forgot about that\"?", "zh": "男子說「I forgot about that」是什麼意思？" },
+        "choices": [
+          { "t": "He had overlooked the heat problem in Zone A.", "zh": "他先前忽略了 A 區的高溫問題。", "ok": true, "pattern": "paraphrase", "why": "他隨後說因此不能用 A 區。" },
+          { "t": "He disagrees with the paint label.", "zh": "他不同意油漆標籤。", "ok": false, "trap": "opposite", "why": "他接受標籤的溫度規定。" },
+          { "t": "He forgot when the order arrives.", "zh": "他忘了訂單何時到。", "ok": false, "trap": "over-infer", "why": "對話沒有顯示他忘了到貨時間。" },
+          { "t": "He wants to use Zone D instead.", "zh": "他想改用 D 區。", "ok": false, "trap": "wrong-speaker", "why": "是女士提出 D 區，且被否決。" }
+        ],
+        "evidence": [3]
+      },
+      {
+        "id": "q2",
+        "qtype": "graphic",
+        "q": { "t": "Look at the graphic. Where will the paint most likely be stored?", "zh": "請看圖表。油漆最可能存放在哪裡？" },
+        "choices": [
+          { "t": "Zone C", "zh": "C 區", "ok": true, "pattern": "summary", "why": "20°C 在 10–25 度之間，單一貨架可承重 900 公斤，足以放 600 公斤。" },
+          { "t": "Zone A", "zh": "A 區", "ok": false, "trap": "number-mix", "why": "35°C 超過油漆需要的 10–25 度。" },
+          { "t": "Zone B", "zh": "B 區", "ok": false, "trap": "partial", "why": "溫度合適，但貨架只能承重 500 公斤，不夠 600 公斤。" },
+          { "t": "Zone D", "zh": "D 區", "ok": false, "trap": "mention-not-ask", "why": "D 區只有 5°C，太冷，已被否決。" }
+        ],
+        "evidence": [6, 7]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": { "t": "What does the man say he will do tomorrow morning?", "zh": "男子說他明天早上會做什麼？" },
+        "choices": [
+          { "t": "Mark the rack before the truck arrives", "zh": "在貨車到之前標記貨架", "ok": true, "pattern": "direct", "why": "他說明天早上貨車到之前會標記貨架。" },
+          { "t": "Print the location labels", "zh": "印出位置標籤", "ok": false, "trap": "wrong-speaker", "why": "是女士今天下午要印標籤。" },
+          { "t": "Move the paint to Zone D", "zh": "把油漆搬到 D 區", "ok": false, "trap": "opposite", "why": "D 區太冷，已被否決。" },
+          { "t": "Call the paint supplier", "zh": "打給油漆供應商", "ok": false, "trap": "over-infer", "why": "對話沒有提到打電話給供應商。" }
+        ],
+        "evidence": [9]
+      }
+    ],
+    "vocab": [
+      { "word": "rack", "ipa": "/ræk/", "pos": "n.", "col": "a storage rack", "zh": "貨架" },
+      { "word": "labels", "ipa": "/ˈleɪblz/", "pos": "n.", "col": "location labels", "zh": "標籤" },
+      { "word": "temperature", "ipa": "/ˈtemprətʃər/", "pos": "n.", "col": "the right temperature", "zh": "溫度" }
+    ]
+  },
+  {
+    "id": "d5-003-h",
+    "domain": "d5",
+    "scene": "workplace",
+    "tag": "供應商送錯顏色磁磚",
+    "form": "3p",
+    "level": {
+      "score": 700,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "三人對話先要求換貨、因生產期太長改為挪用並取得補償，需理解意圖與因果。"
+    },
+    "speakers": [
+      { "id": "W1", "gender": "F", "role": "採購人員" },
+      { "id": "W2", "gender": "F", "role": "工地主任" },
+      { "id": "M", "gender": "M", "role": "供應商業務" }
+    ],
+    "dialogue": [
+      { "sp": "W1", "t": "The tiles arrived this morning, but they're gray, and we ordered white ones.", "zh": "磁磚今天早上到了，但它們是灰色的，我們訂的是白色。" },
+      { "sp": "M", "t": "I'm sorry about that. Our order sheet shows the wrong color code was entered on our side.", "zh": "很抱歉。我們的訂單表顯示是我們這邊輸入了錯誤的顏色代碼。" },
+      { "sp": "W2", "t": "We need the white tiles by Friday for the lobby floor. Can you swap them quickly?", "zh": "我們週五前需要白色磁磚來鋪大廳地板。你可以很快換貨嗎？" },
+      { "sp": "M", "t": "I can send the white ones, but the factory needs ten days to make that many.", "zh": "我可以送白色的，但工廠要十天才能做出那麼多。" },
+      { "sp": "W2", "t": "Ten days is too long. The lobby inspection is next week.", "zh": "十天太久了。大廳的驗收在下週。" },
+      { "sp": "W1", "t": "Then returning them makes no sense. Could we use the gray tiles in the back hallway instead?", "zh": "那退回去就沒意義了。我們能把灰色磁磚改用在後面的走廊嗎？" },
+      { "sp": "W2", "t": "That works. The hallway needs about half the amount.", "zh": "可以。走廊大約只需要一半的量。" },
+      { "sp": "M", "t": "In that case, I can give you a twenty percent credit on the gray tiles for the mistake.", "zh": "那樣的話，為這次的錯誤，我可以給你們灰色磁磚八折的補償。" },
+      { "sp": "W1", "t": "That's fair. If any white tiles are in stock, please send them for the lobby.", "zh": "這很合理。如果有白色磁磚的現貨，請送來給大廳用。" },
+      { "sp": "M", "t": "I'll check our other storage center and call you back within the hour.", "zh": "我會查一下我們其他的倉儲中心，一小時內回電給你們。" },
+      { "sp": "W2", "t": "Thanks. Please call me directly, since I manage the lobby schedule.", "zh": "謝謝。請直接打給我，因為我負責大廳的工程時程。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What problem is being discussed?", "zh": "他們在討論什麼問題？" },
+        "choices": [
+          { "t": "Tiles of the wrong color were sent.", "zh": "送來了顏色錯誤的磁磚。", "ok": true, "pattern": "paraphrase", "why": "他們訂白色，收到灰色。" },
+          { "t": "The tiles were broken in transit.", "zh": "磁磚在運送中破損。", "ok": false, "trap": "over-infer", "why": "沒有提到破損。" },
+          { "t": "The tiles arrived a week late.", "zh": "磁磚晚了一週到。", "ok": false, "trap": "number-mix", "why": "磁磚是今天早上到，一週是驗收的時間。" },
+          { "t": "The invoice amount is incorrect.", "zh": "發票金額有誤。", "ok": false, "trap": "over-infer", "why": "問題是顏色，不是金額。" }
+        ],
+        "evidence": [0, 1]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": { "t": "Why can't the supplier replace the tiles quickly?", "zh": "供應商為什麼無法很快換貨？" },
+        "choices": [
+          { "t": "The factory needs ten days to make them.", "zh": "工廠需要十天來製造。", "ok": true, "pattern": "direct", "why": "男子說工廠要十天才能做出那麼多。" },
+          { "t": "The supplier has no order sheet.", "zh": "供應商沒有訂單表。", "ok": false, "trap": "opposite", "why": "他查看了訂單表。" },
+          { "t": "The customer entered the wrong code.", "zh": "是客戶輸入了錯誤代碼。", "ok": false, "trap": "wrong-speaker", "why": "男子說錯誤出在供應商這邊。" },
+          { "t": "Friday is a holiday.", "zh": "週五是假日。", "ok": false, "trap": "over-infer", "why": "對話沒有提到假日。" }
+        ],
+        "evidence": [3]
+      },
+      {
+        "id": "q3",
+        "qtype": "intent",
+        "q": { "t": "What does the woman mean when she says, \"Then returning them makes no sense\"?", "zh": "女士說「Then returning them makes no sense」是什麼意思？" },
+        "choices": [
+          { "t": "Sending the gray tiles back would not solve the problem.", "zh": "把灰色磁磚退回去無法解決問題。", "ok": true, "pattern": "paraphrase", "why": "換貨要十天，趕不上驗收，所以她改提挪用。" },
+          { "t": "She wants her money back immediately.", "zh": "她想立刻拿回錢。", "ok": false, "trap": "opposite", "why": "她反而提出保留並使用灰色磁磚。" },
+          { "t": "She likes the gray color.", "zh": "她喜歡灰色。", "ok": false, "trap": "over-infer", "why": "她只是找實際可行的使用方式。" },
+          { "t": "She is angry at the supplier.", "zh": "她對供應商很生氣。", "ok": false, "trap": "over-infer", "why": "她語氣務實，且接受補償。" }
+        ],
+        "evidence": [5]
+      }
+    ],
+    "vocab": [
+      { "word": "tiles", "ipa": "/taɪlz/", "pos": "n.", "col": "floor tiles", "zh": "磁磚" },
+      { "word": "inspection", "ipa": "/ɪnˈspekʃn/", "pos": "n.", "col": "pass an inspection", "zh": "檢查；驗收" },
+      { "word": "credit", "ipa": "/ˈkredɪt/", "pos": "n.", "col": "a credit on the order", "zh": "折讓；補償金額" }
+    ]
+  }
+]

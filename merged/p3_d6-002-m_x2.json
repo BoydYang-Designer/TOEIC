@@ -1,0 +1,452 @@
+[
+  {
+    "id": "d6-002-m",
+    "domain": "d6",
+    "scene": "hotel",
+    "tag": "詢問飯店健身房與泳池開放時間",
+    "form": "2p",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "對話以間接說法表達需求（如暗示需要毛巾），並需對照開放時間表才能判斷，屬中級。"
+    },
+    "speakers": [
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "旅客"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "櫃檯人員"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W",
+        "t": "Hi, I'm in Room 512. I have a meeting at nine tomorrow, and I'd like to exercise first.",
+        "zh": "嗨，我住 512 號房。我明天九點有會議，想先運動一下。"
+      },
+      {
+        "sp": "M",
+        "t": "Certainly. Are you hoping to swim, or would a workout with machines be fine too?",
+        "zh": "當然可以。您想游泳，還是用器材運動也可以？"
+      },
+      {
+        "sp": "W",
+        "t": "I'd rather swim, but I have to be finished by eight thirty at the latest.",
+        "zh": "我比較想游泳，但最晚八點半前必須結束。"
+      },
+      {
+        "sp": "M",
+        "t": "I'm afraid the pool doesn't open early enough for that, as you can see on our hours sheet.",
+        "zh": "恐怕游泳池開得沒那麼早，您可以從我們的時間表看到。"
+      },
+      {
+        "sp": "W",
+        "t": "In that case, I'll take whatever is open at seven. Is it on the same floor?",
+        "zh": "那樣的話，我就去七點有開的地方。在同一層樓嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Yes, both are on the second floor, just past the elevators on your left.",
+        "zh": "是的，兩者都在二樓，過了電梯後左手邊。"
+      },
+      {
+        "sp": "W",
+        "t": "Great. I didn't bring a towel, though. Do I need to borrow one from the front desk?",
+        "zh": "太好了。不過我沒帶毛巾。我需要向櫃檯借嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "No need. I'll have housekeeping send a few fresh towels up to your room tonight.",
+        "zh": "不用。我會請房務人員今晚送幾條乾淨的毛巾到您房間。"
+      }
+    ],
+    "graphic": {
+      "title": "Hotel Facility Hours",
+      "columns": [
+        "Facility",
+        "Opening Hours",
+        "Floor"
+      ],
+      "rows": [
+        [
+          "Fitness Center",
+          "6:00 a.m.–10:00 p.m.",
+          "2nd"
+        ],
+        [
+          "Swimming Pool",
+          "8:00 a.m.–8:00 p.m.",
+          "2nd"
+        ],
+        [
+          "Spa",
+          "10:00 a.m.–6:00 p.m.",
+          "9th"
+        ],
+        [
+          "Business Center",
+          "Open 24 hours",
+          "1st"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "graphic",
+        "q": {
+          "t": "Look at the graphic. Where will the woman most likely exercise tomorrow?",
+          "zh": "請看圖表。這位女士明天最可能在哪裡運動？"
+        },
+        "choices": [
+          {
+            "t": "The swimming pool",
+            "zh": "游泳池",
+            "ok": false,
+            "trap": "partial",
+            "why": "她想游泳，但泳池八點才開，七點用不了。"
+          },
+          {
+            "t": "The spa",
+            "zh": "水療中心",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "水療十點才開，且在九樓，與「同一層」不符。"
+          },
+          {
+            "t": "The fitness center",
+            "zh": "健身房",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "她要在七點運動；泳池八點才開，只有健身房六點就開，且與泳池同在二樓。"
+          },
+          {
+            "t": "The business center",
+            "zh": "商務中心",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "商務中心雖全天開放，但不是運動場所。"
+          }
+        ],
+        "evidence": [
+          3,
+          4
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": {
+          "t": "Why does the woman say, \"I didn't bring a towel, though\"?",
+          "zh": "女士為什麼說「不過我沒帶毛巾」？"
+        },
+        "choices": [
+          {
+            "t": "She is hinting that she needs one provided.",
+            "zh": "她在暗示需要有人提供毛巾。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "她接著問是否要向櫃檯借，表示在暗示需要毛巾。"
+          },
+          {
+            "t": "She plans to buy a towel at the shop.",
+            "zh": "她打算去店裡買毛巾。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "她問的是要不要借，沒有提到購買。"
+          },
+          {
+            "t": "She refuses to use the fitness center.",
+            "zh": "她拒絕使用健身房。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "她已說七點有開的就去，沒有拒絕。"
+          },
+          {
+            "t": "She is explaining why she packed lightly.",
+            "zh": "她在解釋為何行李帶得少。",
+            "ok": false,
+            "trap": "partial",
+            "why": "重點是需要毛巾，而非解釋行李。"
+          }
+        ],
+        "evidence": [
+          6
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": {
+          "t": "What will the man most likely do?",
+          "zh": "這位男士接下來最可能做什麼？"
+        },
+        "choices": [
+          {
+            "t": "Print an hours sheet for her",
+            "zh": "為她列印時間表",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "時間表只在先前提到，不是接下來的動作。"
+          },
+          {
+            "t": "Arrange for towels to be delivered",
+            "zh": "安排毛巾送到房間",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "他說會請房務人員把毛巾送到房間。"
+          },
+          {
+            "t": "Open the pool earlier",
+            "zh": "提早開放游泳池",
+            "ok": false,
+            "trap": "opposite",
+            "why": "他說泳池不會那麼早開。"
+          },
+          {
+            "t": "Move her to a second-floor room",
+            "zh": "幫她換到二樓房間",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "二樓是設施樓層，不是她的房間。"
+          }
+        ],
+        "evidence": [
+          7
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "workout",
+        "ipa": "/ˈwɜːrkaʊt/",
+        "pos": "n.",
+        "col": "a morning workout",
+        "zh": "運動；健身"
+      },
+      {
+        "word": "housekeeping",
+        "ipa": "/ˈhaʊskiːpɪŋ/",
+        "pos": "n.",
+        "col": "call housekeeping",
+        "zh": "房務部"
+      }
+    ]
+  },
+  {
+    "id": "d6-003-m",
+    "domain": "d6",
+    "scene": "home",
+    "tag": "討論如何處理舊沙發",
+    "form": "2p",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "室友討論處置舊家具的利弊，需理解同義換句並推論女士的決定。"
+    },
+    "speakers": [
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "室友"
+      },
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "室友"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "M",
+        "t": "Have you decided what to do about the old sofa? It's taking up half of the living room.",
+        "zh": "你決定好舊沙發要怎麼處理了嗎？它佔了客廳一半的空間。"
+      },
+      {
+        "sp": "W",
+        "t": "I was going to donate it, but a friend told me people pay decent money for used furniture.",
+        "zh": "我本來想捐掉，但朋友說二手家具很有人願意付不錯的價錢。"
+      },
+      {
+        "sp": "M",
+        "t": "True, but selling it takes effort. You have to take photos, answer messages, and arrange pickup.",
+        "zh": "沒錯，但要賣很費工。你得拍照、回訊息、還要安排取貨。"
+      },
+      {
+        "sp": "W",
+        "t": "I know, and the cushions are a little worn. Maybe nobody would want it at a fair price.",
+        "zh": "我知道，而且椅墊有點舊了。也許沒人想以合理價錢買。"
+      },
+      {
+        "sp": "M",
+        "t": "Then I'd suggest the charity. They collect it for free, and they give you a form for your taxes.",
+        "zh": "那我建議找慈善團體。他們免費來收，還會給你報稅用的表格。"
+      },
+      {
+        "sp": "W",
+        "t": "That sounds easier. I'll call them tomorrow and see if they can come before the weekend.",
+        "zh": "聽起來比較省事。我明天打給他們，看能不能在週末前來收。"
+      },
+      {
+        "sp": "M",
+        "t": "Good. Once it's gone, we can finally move the bookshelf to that wall.",
+        "zh": "好。沙發一搬走，我們終於可以把書架移到那面牆。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {
+          "t": "What are the speakers mainly discussing?",
+          "zh": "兩位說話者主要在討論什麼？"
+        },
+        "choices": [
+          {
+            "t": "Choosing a new sofa for the living room",
+            "zh": "為客廳挑選新沙發",
+            "ok": false,
+            "trap": "partial",
+            "why": "只談如何處理舊的，沒有挑新的。"
+          },
+          {
+            "t": "Where to put a bookshelf",
+            "zh": "書架要放哪裡",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "書架只在最後一句順帶提到。"
+          },
+          {
+            "t": "Planning a party for friends",
+            "zh": "規劃朋友聚會",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "完全沒有聚會的內容。"
+          },
+          {
+            "t": "What to do with unwanted furniture",
+            "zh": "如何處理不要的家具",
+            "ok": true,
+            "pattern": "summary",
+            "why": "全段圍繞舊沙發要賣還是捐。"
+          }
+        ],
+        "evidence": [
+          0
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": {
+          "t": "Why does the man discourage selling the sofa?",
+          "zh": "男士為什麼不贊成賣沙發？"
+        },
+        "choices": [
+          {
+            "t": "It would require a lot of work.",
+            "zh": "那要花很多功夫。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "他說 selling it takes effort，並列出拍照、回訊息、安排取貨。"
+          },
+          {
+            "t": "The sofa is too heavy to move.",
+            "zh": "沙發太重搬不動。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到重量。"
+          },
+          {
+            "t": "A friend advised against it.",
+            "zh": "朋友勸過不要賣。",
+            "ok": false,
+            "trap": "wrong-speaker",
+            "why": "是朋友說可以賣到好價錢，而且是對女士說的。"
+          },
+          {
+            "t": "The sofa is too expensive.",
+            "zh": "沙發太貴。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "討論的是賣價，不是買價，且朋友說能賣錢。"
+          }
+        ],
+        "evidence": [
+          2
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": {
+          "t": "What can be inferred about the woman?",
+          "zh": "關於這位女士可以推論出什麼？"
+        },
+        "choices": [
+          {
+            "t": "She will sell it online this weekend.",
+            "zh": "她這週末會在網路上賣掉。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "她決定不賣，改為聯絡慈善團體。"
+          },
+          {
+            "t": "She will probably donate the sofa.",
+            "zh": "她很可能會捐出沙發。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "她說聽起來比較省事，會打給慈善團體。"
+          },
+          {
+            "t": "She will buy a new bookshelf.",
+            "zh": "她會買新書架。",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "書架是男士最後提到的移動計畫。"
+          },
+          {
+            "t": "She will ask her friend to take it.",
+            "zh": "她會請朋友收走。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "朋友只是提供賣二手的消息。"
+          }
+        ],
+        "evidence": [
+          5
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "donate",
+        "ipa": "/ˈdoʊneɪt/",
+        "pos": "v.",
+        "col": "donate old furniture",
+        "zh": "捐贈"
+      },
+      {
+        "word": "cushions",
+        "ipa": "/ˈkʊʃənz/",
+        "pos": "n.",
+        "col": "sofa cushions",
+        "zh": "椅墊；靠墊"
+      },
+      {
+        "word": "charity",
+        "ipa": "/ˈtʃærəti/",
+        "pos": "n.",
+        "col": "a local charity",
+        "zh": "慈善機構"
+      }
+    ]
+  }
+]

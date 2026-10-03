@@ -1,0 +1,141 @@
+[
+  {
+    "id": "d6-002-e",
+    "domain": "d6",
+    "scene": "hotel",
+    "tag": "入住選房並詢問延後退房",
+    "form": "2p",
+    "level": {"score": 550, "cefr": "A2+", "tier": "easy", "why": "兩人短對話，房型條件與請求都以簡單句直接說出，搭配一張簡單房價表即可作答。"},
+    "speakers": [
+      {"id": "M", "gender": "M", "role": "櫃檯人員"},
+      {"id": "W", "gender": "F", "role": "旅客"}
+    ],
+    "dialogue": [
+      {"sp": "M", "t": "Welcome to the Harbor Hotel. Do you have a reservation with us tonight?", "zh": "歡迎光臨港灣飯店。請問您今晚有預約嗎？"},
+      {"sp": "W", "t": "No, I don't. I need a room for two nights for my sister and me.", "zh": "沒有。我需要一間房住兩晚，給我姊姊和我。"},
+      {"sp": "M", "t": "We have several room types today. Which one would you like to see first?", "zh": "我們今天有好幾種房型。您想先看哪一種？"},
+      {"sp": "W", "t": "We need two beds, and we can't pay more than one hundred twenty-five dollars a night.", "zh": "我們需要兩張床，而且一晚不能超過一百二十五美元。"},
+      {"sp": "M", "t": "I see. Only one of our rooms has two beds at that price, and breakfast is included.", "zh": "了解。在那個價位下只有一種房型有兩張床，而且含早餐。"},
+      {"sp": "W", "t": "Perfect. Could I also have a late checkout on Sunday? Our train leaves in the evening.", "zh": "太好了。我週日可以延後退房嗎？我們的火車傍晚才開。"},
+      {"sp": "M", "t": "Let me ask my manager. I'll call your room in a few minutes with an answer.", "zh": "我去問一下經理。幾分鐘後會打電話到您房間回覆。"}
+    ],
+    "graphic": {
+      "title": "Harbor Hotel Room Rates",
+      "columns": ["Room Type", "Beds", "Price per Night", "Floor"],
+      "rows": [
+        ["Standard", "One queen", "$90", "3rd"],
+        ["Deluxe", "Two double", "$120", "5th"],
+        ["Family", "Two queen", "$160", "7th"],
+        ["Suite", "One king", "$180", "8th"]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "graphic",
+        "q": {"t": "Look at the graphic. Which floor will the women's room most likely be on?", "zh": "請看圖表。這兩位女士的房間最可能在幾樓？"},
+        "choices": [
+          {"t": "The 3rd floor", "zh": "3 樓", "ok": false, "trap": "partial", "why": "Standard 價格符合預算，但只有一張床，不符「兩張床」。"},
+          {"t": "The 5th floor", "zh": "5 樓", "ok": true, "pattern": "paraphrase", "why": "需要兩張床且不超過 125 美元，只有 Deluxe（$120、兩張床）符合，位於 5 樓。"},
+          {"t": "The 7th floor", "zh": "7 樓", "ok": false, "trap": "partial", "why": "Family 有兩張床，但 $160 超過預算。"},
+          {"t": "The 8th floor", "zh": "8 樓", "ok": false, "trap": "number-mix", "why": "Suite 只有一張床且 $180 超出預算，是把樓層與房型混淆。"}
+        ],
+        "evidence": [3, 4]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": {"t": "Why does the woman say, \"Our train leaves in the evening\"?", "zh": "女士為什麼說「我們的火車傍晚才開」？"},
+        "choices": [
+          {"t": "She wants to leave the hotel later than usual.", "zh": "她想比平常晚一點離開飯店。", "ok": true, "pattern": "paraphrase", "why": "她先問能否延後退房，再說明火車傍晚才開作為理由。"},
+          {"t": "She wants to ask the way to the train station.", "zh": "她想問往火車站的路。", "ok": false, "trap": "mention-not-ask", "why": "對話提到火車，但她沒有問路。"},
+          {"t": "She wants to check out earlier than planned.", "zh": "她想比原訂時間更早退房。", "ok": false, "trap": "opposite", "why": "她要的是延後退房，與提早相反。"},
+          {"t": "She wants to complain about the room price.", "zh": "她想抱怨房價。", "ok": false, "trap": "over-infer", "why": "她對房價沒有抱怨，還說「Perfect」。"}
+        ],
+        "evidence": [5]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": {"t": "What will the man most likely do next?", "zh": "這位男士接下來最可能做什麼？"},
+        "choices": [
+          {"t": "Talk to his supervisor about her request", "zh": "就她的請求詢問他的主管", "ok": true, "pattern": "paraphrase", "why": "他說 Let me ask my manager，manager 即主管。"},
+          {"t": "Show her the different room types", "zh": "帶她看不同的房型", "ok": false, "trap": "mention-not-ask", "why": "他先前問過想先看哪一種，但後來已確定房型，不是接下來的動作。"},
+          {"t": "Call a taxi to the train station", "zh": "叫計程車到火車站", "ok": false, "trap": "over-infer", "why": "對話完全沒有提到叫車。"},
+          {"t": "Bring breakfast up to her room", "zh": "把早餐送到她房間", "ok": false, "trap": "partial", "why": "只提到含早餐，他說要打電話到房間回覆，不是送早餐。"}
+        ],
+        "evidence": [6]
+      }
+    ],
+    "vocab": [
+      {"word": "reservation", "ipa": "/ˌrezərˈveɪʃən/", "pos": "n.", "col": "make a reservation", "zh": "預約；訂位"},
+      {"word": "checkout", "ipa": "/ˈtʃekaʊt/", "pos": "n.", "col": "late checkout", "zh": "退房"},
+      {"word": "manager", "ipa": "/ˈmænɪdʒər/", "pos": "n.", "col": "ask the manager", "zh": "經理；主管"}
+    ]
+  },
+  {
+    "id": "d6-003-e",
+    "domain": "d6",
+    "scene": "home",
+    "tag": "為父母來訪整理公寓",
+    "form": "2p",
+    "level": {"score": 500, "cefr": "A2+", "tier": "easy", "why": "室友間的日常分工對話，句子簡短，答案幾乎照字面出現。"},
+    "speakers": [
+      {"id": "W", "gender": "F", "role": "房客"},
+      {"id": "M", "gender": "M", "role": "室友"}
+    ],
+    "dialogue": [
+      {"sp": "W", "t": "My parents are visiting this Saturday, so we should clean the apartment tonight.", "zh": "我爸媽這個週六會來，所以我們今晚該打掃公寓。"},
+      {"sp": "M", "t": "Good idea. I can vacuum the living room and wash the windows after dinner.", "zh": "好主意。我晚餐後可以吸客廳的地並擦窗戶。"},
+      {"sp": "W", "t": "Thanks. I'll tidy the guest room and put fresh sheets on the sofa bed.", "zh": "謝謝。我會整理客房，並在沙發床上鋪乾淨的床單。"},
+      {"sp": "M", "t": "Do you want me to buy some fruit and flowers on my way home?", "zh": "要不要我回家路上買些水果和花？"},
+      {"sp": "W", "t": "Yes, please. Just get some apples and a small bunch of roses.", "zh": "好，麻煩你。買一些蘋果和一小束玫瑰就好。"},
+      {"sp": "M", "t": "Okay. Oh, the kitchen sink is dripping again. Should I call the landlord?", "zh": "好。對了，廚房水槽又在滴水了。我要打給房東嗎？"},
+      {"sp": "W", "t": "Don't worry. I already sent him a message this morning, and he said he'd come on Friday.", "zh": "別擔心。我今早已傳訊息給他，他說週五會來。"}
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {"t": "What are the speakers mainly discussing?", "zh": "兩位說話者主要在討論什麼？"},
+        "choices": [
+          {"t": "Preparing for a family visit", "zh": "為家人來訪做準備", "ok": true, "pattern": "summary", "why": "全段圍繞父母週六來訪前的打掃與採買。"},
+          {"t": "Moving to a new apartment", "zh": "搬到新公寓", "ok": false, "trap": "over-infer", "why": "對話只談打掃現在的公寓，沒有搬家。"},
+          {"t": "Repairing a kitchen sink", "zh": "修理廚房水槽", "ok": false, "trap": "mention-not-ask", "why": "水槽只在後段順帶一提，不是主題。"},
+          {"t": "Planning a dinner party for friends", "zh": "規劃朋友的晚宴", "ok": false, "trap": "partial", "why": "訪客是父母，且沒有提到晚宴；只有提到晚餐後打掃。"}
+        ],
+        "evidence": [0]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": {"t": "What will the man buy on his way home?", "zh": "這位男士回家路上會買什麼？"},
+        "choices": [
+          {"t": "Some fruit and flowers", "zh": "一些水果和花", "ok": true, "pattern": "paraphrase", "why": "女士要他買蘋果與玫瑰，即水果和花。"},
+          {"t": "Fresh sheets for the sofa bed", "zh": "沙發床的乾淨床單", "ok": false, "trap": "wrong-speaker", "why": "鋪床單的是女士，且不是要買的東西。"},
+          {"t": "Food for Saturday's dinner", "zh": "週六晚餐的食材", "ok": false, "trap": "over-infer", "why": "對話沒有提到要買晚餐食材。"},
+          {"t": "A new kitchen sink", "zh": "一個新的廚房水槽", "ok": false, "trap": "mention-not-ask", "why": "水槽只是在說滴水問題，沒人說要買。"}
+        ],
+        "evidence": [3, 4]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": {"t": "What can be inferred about the kitchen sink?", "zh": "關於廚房水槽可以推論出什麼？"},
+        "choices": [
+          {"t": "It will probably be fixed before the parents arrive.", "zh": "它可能會在父母抵達前修好。", "ok": true, "pattern": "paraphrase", "why": "房東週五會來，而父母週六才到。"},
+          {"t": "The man has already repaired it himself.", "zh": "這位男士已自己修好了。", "ok": false, "trap": "wrong-speaker", "why": "男士只是詢問要不要聯絡房東，並沒有修。"},
+          {"t": "The woman plans to fix it herself.", "zh": "這位女士打算自己修。", "ok": false, "trap": "opposite", "why": "她已請房東處理，並不打算自己修。"},
+          {"t": "It stopped dripping this morning.", "zh": "它今天早上已停止滴水。", "ok": false, "trap": "number-mix", "why": "「今早」是女士傳訊息的時間，水槽仍在滴水。"}
+        ],
+        "evidence": [5, 6]
+      }
+    ],
+    "vocab": [
+      {"word": "vacuum", "ipa": "/ˈvækjuːm/", "pos": "v.", "col": "vacuum the floor", "zh": "用吸塵器打掃"},
+      {"word": "tidy", "ipa": "/ˈtaɪdi/", "pos": "v.", "col": "tidy the room", "zh": "整理；收拾"},
+      {"word": "landlord", "ipa": "/ˈlændlɔːrd/", "pos": "n.", "col": "call the landlord", "zh": "房東"}
+    ]
+  }
+]

@@ -1,0 +1,224 @@
+[
+  {
+    "id": "d3-001-m",
+    "domain": "d3",
+    "scene": "store",
+    "tag": "詢問缺貨商品調貨",
+    "form": "2p",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "對話以同義換句呈現缺貨與調貨流程，且需由言談推論顧客的急迫性。"
+    },
+    "speakers": [
+      { "id": "W", "gender": "F", "role": "顧客" },
+      { "id": "M", "gender": "M", "role": "店員" }
+    ],
+    "dialogue": [
+      { "sp": "W", "t": "Hello, I'm looking for the Aero cordless vacuum, but the shelf is empty.", "zh": "哈囉，我在找 Aero 無線吸塵器，但貨架上是空的。" },
+      { "sp": "M", "t": "I'm afraid we sold the last one this morning. It's been selling quickly since the ad came out.", "zh": "恐怕最後一台今天早上賣掉了。自從廣告推出後，它賣得很快。" },
+      { "sp": "W", "t": "That's a shame. Do you know when more units will arrive?", "zh": "真可惜。你知道什麼時候會有更多貨到嗎？" },
+      { "sp": "M", "t": "Our warehouse ships on Thursday, but I can check whether the downtown branch has one in stock.", "zh": "我們的倉庫週四出貨，不過我可以查一下市區分店有沒有現貨。" },
+      { "sp": "W", "t": "Please do. I'd rather not wait a week, because my old vacuum broke yesterday.", "zh": "麻煩你了。我不想等一週，因為我的舊吸塵器昨天壞了。" },
+      { "sp": "M", "t": "Good news, they have two left. I can have one transferred here by tomorrow afternoon.", "zh": "好消息，他們還剩兩台。我可以安排明天下午前調一台過來。" },
+      { "sp": "W", "t": "That works for me. Should I pay now, or when I pick it up?", "zh": "這樣可以。我該現在付款，還是取貨時再付？" },
+      { "sp": "M", "t": "You can pay when it arrives. I just need your phone number so we can notify you.", "zh": "您可以在到貨時付款。我只需要您的電話號碼，好通知您。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What problem does the woman have?", "zh": "這位女士遇到什麼問題？" },
+        "choices": [
+          { "t": "A product she wants is not available.", "zh": "她想要的商品買不到。", "ok": true, "pattern": "paraphrase", "why": "貨架是空的，最後一台已賣出。" },
+          { "t": "Her old vacuum is broken.", "zh": "她的舊吸塵器壞了。", "ok": false, "trap": "mention-not-ask", "why": "舊吸塵器壞了有提到，但她來店裡遇到的問題是商品缺貨。" },
+          { "t": "New stock will not arrive until next week.", "zh": "新貨要到下週才會到。", "ok": false, "trap": "number-mix", "why": "週四出貨、她不想等一週，並未說到貨要下週。" },
+          { "t": "The downtown branch has no stock.", "zh": "市區分店沒有庫存。", "ok": false, "trap": "opposite", "why": "分店還剩兩台。" }
+        ],
+        "evidence": [0, 1]
+      },
+      {
+        "id": "q2",
+        "qtype": "infer",
+        "q": { "t": "What does the woman imply when she mentions her old vacuum?", "zh": "這位女士提到舊吸塵器時暗示了什麼？" },
+        "choices": [
+          { "t": "She needs a new one soon.", "zh": "她很快就需要一台新的。", "ok": true, "pattern": "paraphrase", "why": "舊的昨天壞了，所以她不想等一週。" },
+          { "t": "She plans to repair it instead.", "zh": "她打算改成修理它。", "ok": false, "trap": "over-infer", "why": "對話中沒有提到修理。" },
+          { "t": "She is willing to wait for the Thursday shipment.", "zh": "她願意等週四的出貨。", "ok": false, "trap": "opposite", "why": "她說不想等一週。" },
+          { "t": "She bought it at the downtown branch.", "zh": "她是在市區分店買的。", "ok": false, "trap": "mention-not-ask", "why": "市區分店是男子提到的調貨來源，與舊吸塵器無關。" }
+        ],
+        "evidence": [4]
+      },
+      {
+        "id": "q3",
+        "qtype": "detail",
+        "q": { "t": "How will the woman get the vacuum?", "zh": "這位女士要如何拿到吸塵器？" },
+        "choices": [
+          { "t": "It will be moved from another location.", "zh": "會從另一個據點調過來。", "ok": true, "pattern": "paraphrase", "why": "男子說可以從分店調一台過來。" },
+          { "t": "It will be sent from the warehouse on Thursday.", "zh": "週四會從倉庫送出。", "ok": false, "trap": "number-mix", "why": "週四是倉庫出貨日，不是她取得商品的方式。" },
+          { "t": "She will drive to the downtown branch tonight.", "zh": "她今晚會開車去市區分店。", "ok": false, "trap": "wrong-speaker", "why": "是由店員安排調貨，她在店裡取貨。" },
+          { "t": "The man will order a different model for her.", "zh": "男子會幫她訂不同的型號。", "ok": false, "trap": "opposite", "why": "調的是同一款吸塵器。" }
+        ],
+        "evidence": [5]
+      }
+    ],
+    "vocab": [
+      { "word": "warehouse", "ipa": "/ˈwerhaʊs/", "pos": "n.", "col": "a warehouse worker", "zh": "倉庫" },
+      { "word": "branch", "ipa": "/bræntʃ/", "pos": "n.", "col": "a branch office", "zh": "分店；分公司" },
+      { "word": "notify", "ipa": "/ˈnoʊtɪfaɪ/", "pos": "v.", "col": "notify customers", "zh": "通知" }
+    ]
+  },
+  {
+    "id": "d3-002-m",
+    "domain": "d3",
+    "scene": "store",
+    "tag": "比較筆電促銷方案",
+    "form": "2p",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "需結合圖表中的規格與價格，再配合對話中的條件與語意判斷。"
+    },
+    "speakers": [
+      { "id": "W", "gender": "F", "role": "顧客" },
+      { "id": "M", "gender": "M", "role": "店員" }
+    ],
+    "dialogue": [
+      { "sp": "W", "t": "I travel often for work, so I need a laptop whose battery lasts at least ten hours.", "zh": "我常因公出差，所以需要電池至少能撐十小時的筆電。" },
+      { "sp": "M", "t": "Then you'll like our sale models. May I ask what your price limit is?", "zh": "那您會喜歡我們的特價機種。請問您的預算上限是多少？" },
+      { "sp": "W", "t": "Nine hundred dollars at most, and I want a screen larger than thirteen inches.", "zh": "最多九百元，而且我想要大於十三吋的螢幕。" },
+      { "sp": "M", "t": "I see. Our best-selling model has the longest battery life, but it costs more than that.", "zh": "了解。我們最暢銷的機種電池續航最久，不過價格比那高。" },
+      { "sp": "W", "t": "Well, I'd rather not pay extra for features I won't use.", "zh": "嗯，我不想為用不到的功能多付錢。" },
+      { "sp": "M", "t": "Understood. There's one model that matches everything you've told me.", "zh": "了解。有一款符合您所說的所有條件。" },
+      { "sp": "W", "t": "Great. Does it come with a carrying case, or is that sold separately?", "zh": "太好了。它有附攜帶保護套，還是要另外購買？" },
+      { "sp": "M", "t": "A case is included. Let me get one from the back so you can try it.", "zh": "有附保護套。我去後面拿一台來讓您試用。" }
+    ],
+    "graphic": {
+      "title": "Laptop Sale Prices",
+      "columns": ["Model", "Screen", "Battery Life", "Sale Price"],
+      "rows": [
+        ["Luna 13", "13 inches", "12 hours", "$780"],
+        ["Luna 15", "15 inches", "9 hours", "$850"],
+        ["Orbit Pro", "15 inches", "14 hours", "$1,050"],
+        ["Orbit Lite", "14 inches", "10 hours", "$690"]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "graphic",
+        "q": { "t": "Look at the graphic. Which laptop will the woman most likely buy?", "zh": "請看圖表。這位女士最可能買哪一台筆電？" },
+        "choices": [
+          { "t": "Orbit Lite", "zh": "Orbit Lite", "ok": true, "pattern": "summary", "why": "14 吋、續航 10 小時、$690，符合所有條件。" },
+          { "t": "Luna 13", "zh": "Luna 13", "ok": false, "trap": "partial", "why": "續航與價格符合，但螢幕只有 13 吋，不大於十三吋。" },
+          { "t": "Luna 15", "zh": "Luna 15", "ok": false, "trap": "number-mix", "why": "續航只有 9 小時，不到十小時。" },
+          { "t": "Orbit Pro", "zh": "Orbit Pro", "ok": false, "trap": "mention-not-ask", "why": "這是男子提到最暢銷的機種，但 $1,050 超出預算。" }
+        ],
+        "evidence": [0, 2]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": { "t": "What does the woman mean when she says, \"I'd rather not pay extra for features I won't use\"?", "zh": "女士說「I'd rather not pay extra for features I won't use」是什麼意思？" },
+        "choices": [
+          { "t": "She prefers a simpler, less expensive model.", "zh": "她偏好較簡單、較便宜的機種。", "ok": true, "pattern": "paraphrase", "why": "她拒絕為用不到的功能加價，等於不選較貴的機種。" },
+          { "t": "She wants the model with the longest battery life.", "zh": "她想要電池續航最久的機種。", "ok": false, "trap": "opposite", "why": "續航最久的機種較貴，她不想多付錢。" },
+          { "t": "She has already chosen a laptop.", "zh": "她已經選好筆電了。", "ok": false, "trap": "over-infer", "why": "之後男子才說有一款符合條件，她尚未選定。" },
+          { "t": "She thinks all the sale prices are too high.", "zh": "她覺得所有特價價格都太高。", "ok": false, "trap": "partial", "why": "她只是不想為多餘功能加價，並非批評所有價格。" }
+        ],
+        "evidence": [4]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": { "t": "What will the man most likely do next?", "zh": "男子接下來最可能做什麼？" },
+        "choices": [
+          { "t": "Bring a laptop for the woman to test", "zh": "拿一台筆電給女士試用", "ok": true, "pattern": "paraphrase", "why": "他說要去後面拿一台讓她試用。" },
+          { "t": "Order a carrying case separately", "zh": "另外訂購攜帶保護套", "ok": false, "trap": "opposite", "why": "保護套已隨機附贈。" },
+          { "t": "Show her a price list on the Internet", "zh": "給她看網路上的價目表", "ok": false, "trap": "mention-not-ask", "why": "價格資訊在圖表上，對話中並未提到上網查詢。" },
+          { "t": "Check another store's stock", "zh": "查詢其他分店的庫存", "ok": false, "trap": "over-infer", "why": "他要從店內後方拿貨，沒有提到其他分店。" }
+        ],
+        "evidence": [7]
+      }
+    ],
+    "vocab": [
+      { "word": "battery", "ipa": "/ˈbætəri/", "pos": "n.", "col": "battery life", "zh": "電池" },
+      { "word": "separately", "ipa": "/ˈsepərətli/", "pos": "adv.", "col": "sold separately", "zh": "分開地；另外" },
+      { "word": "features", "ipa": "/ˈfiːtʃərz/", "pos": "n.", "col": "extra features", "zh": "功能；特色" }
+    ]
+  },
+  {
+    "id": "d3-003-m",
+    "domain": "d3",
+    "scene": "store",
+    "tag": "詢問會員點數兌換",
+    "form": "2p",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "涉及點數規則的變更與金額換算，需用推論理解女士原本的誤解。"
+    },
+    "speakers": [
+      { "id": "W", "gender": "F", "role": "顧客" },
+      { "id": "M", "gender": "M", "role": "收銀員" }
+    ],
+    "dialogue": [
+      { "sp": "M", "t": "Welcome to Greenfield Market. Are you a member of our rewards program?", "zh": "歡迎光臨 Greenfield 超市。請問您是我們回饋計畫的會員嗎？" },
+      { "sp": "W", "t": "Yes, but I left my card at home. Can you look me up by phone number?", "zh": "是的，但我把卡片放在家裡了。你可以用電話號碼查我的資料嗎？" },
+      { "sp": "M", "t": "Sure. You have twelve hundred points, which is enough to cover fifteen dollars of today's purchase.", "zh": "當然。您有一千兩百點，足以折抵今天消費的十五元。" },
+      { "sp": "W", "t": "Really? I thought points expired after one year, and mine are from last spring.", "zh": "真的嗎？我以為點數一年後就會過期，而我的是去年春天的。" },
+      { "sp": "M", "t": "They used to, but the company changed that policy in January, so yours are still valid.", "zh": "以前是這樣，但公司一月改了這項規定，所以您的點數仍然有效。" },
+      { "sp": "W", "t": "That's a relief. Please apply them to this order.", "zh": "那我就放心了。請把它們用在這筆訂單上。" },
+      { "sp": "M", "t": "Done. Your total is now twenty-two dollars, and you'll earn new points on that amount.", "zh": "好了。您現在的總額是二十二元，而且這筆金額會累積新的點數。" },
+      { "sp": "W", "t": "Wonderful. I'll make sure to bring my card next time.", "zh": "太好了。我下次一定會帶卡片。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What are the speakers mainly discussing?", "zh": "說話者主要在討論什麼？" },
+        "choices": [
+          { "t": "Using reward points for a purchase", "zh": "使用回饋點數支付購物", "ok": true, "pattern": "summary", "why": "全段圍繞查詢並使用點數折抵消費。" },
+          { "t": "Replacing a lost membership card", "zh": "補發遺失的會員卡", "ok": false, "trap": "mention-not-ask", "why": "卡片只是放在家裡，並非遺失，也沒有討論補發。" },
+          { "t": "Signing up for the rewards program", "zh": "加入回饋計畫", "ok": false, "trap": "opposite", "why": "女士已經是會員。" },
+          { "t": "Returning an item she bought last spring", "zh": "退還去年春天買的商品", "ok": false, "trap": "over-infer", "why": "去年春天是指點數的取得時間，沒有退貨。" }
+        ],
+        "evidence": [0, 1]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": { "t": "How much of the woman's bill can her points cover?", "zh": "女士的點數可以折抵帳單多少錢？" },
+        "choices": [
+          { "t": "$15", "zh": "15 元", "ok": true, "pattern": "direct", "why": "男子說點數足以折抵十五元。" },
+          { "t": "$12", "zh": "12 元", "ok": false, "trap": "number-mix", "why": "一千兩百是點數，不是金額。" },
+          { "t": "$22", "zh": "22 元", "ok": false, "trap": "number-mix", "why": "二十二元是折抵後的應付總額。" },
+          { "t": "The whole bill", "zh": "整張帳單", "ok": false, "trap": "over-infer", "why": "折抵後她還需支付二十二元。" }
+        ],
+        "evidence": [2]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": { "t": "What does the woman imply about her points?", "zh": "女士對她的點數暗示了什麼？" },
+        "choices": [
+          { "t": "She was unaware of a policy change.", "zh": "她不知道規定有變更。", "ok": true, "pattern": "paraphrase", "why": "她以為點數一年會過期，男子說一月已改規定。" },
+          { "t": "She earned them only this week.", "zh": "她這週才剛賺到這些點數。", "ok": false, "trap": "opposite", "why": "她說點數是去年春天的。" },
+          { "t": "She received them from a friend.", "zh": "她是從朋友那裡拿到的。", "ok": false, "trap": "wrong-speaker", "why": "對話中沒有提到朋友。" },
+          { "t": "She wants to cancel them.", "zh": "她想取消這些點數。", "ok": false, "trap": "over-infer", "why": "她反而要求把點數用在訂單上。" }
+        ],
+        "evidence": [3, 4]
+      }
+    ],
+    "vocab": [
+      { "word": "policy", "ipa": "/ˈpɑːləsi/", "pos": "n.", "col": "store policy", "zh": "政策；規定" },
+      { "word": "valid", "ipa": "/ˈvælɪd/", "pos": "adj.", "col": "valid for one year", "zh": "有效的" },
+      { "word": "member", "ipa": "/ˈmembər/", "pos": "n.", "col": "a loyal member", "zh": "會員" }
+    ]
+  }
+]

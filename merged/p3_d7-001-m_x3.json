@@ -1,0 +1,670 @@
+[
+  {
+    "id": "d7-001-m",
+    "domain": "d7",
+    "scene": "outdoor",
+    "tag": "詢問社區花園的菜圃名額",
+    "form": "2p",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "對話使用同義換句，需由候補名單推論花園搶手，屬中級。"
+    },
+    "speakers": [
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "居民"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "園區人員"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W",
+        "t": "Hi, I'd like to know how to get a plot in the community garden.",
+        "zh": "嗨，我想知道怎麼取得社區花園的一塊菜圃。"
+      },
+      {
+        "sp": "M",
+        "t": "We have a waiting list right now, but a few spaces will open up in April.",
+        "zh": "目前有候補名單，不過四月會空出幾個名額。"
+      },
+      {
+        "sp": "W",
+        "t": "How much does it cost, and do I need to bring my own tools?",
+        "zh": "費用多少？我需要自備工具嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "It's thirty dollars a season. Tools are shared, but you'll need to buy your own seeds.",
+        "zh": "一季三十美元。工具是共用的，但種子要自己買。"
+      },
+      {
+        "sp": "W",
+        "t": "That's reasonable. Can I visit the garden first, to see which spots get the most sun?",
+        "zh": "很合理。我可以先去看看哪些位置日照最多嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Of course. Come this Saturday morning, and one of our volunteers will walk you around.",
+        "zh": "當然。這週六早上過來，會有一位志工帶你參觀。"
+      },
+      {
+        "sp": "W",
+        "t": "Wonderful. Please put me on the list, and I'll bring my neighbor along too.",
+        "zh": "太好了。請把我列入名單，我也會帶鄰居一起去。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {
+          "t": "Why is the woman talking to the man?",
+          "zh": "女士為什麼和男士說話？"
+        },
+        "choices": [
+          {
+            "t": "To request a space in a garden",
+            "zh": "為了申請花園裡的一塊地",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "她想知道如何取得社區花園的菜圃。"
+          },
+          {
+            "t": "To sign up for a gardening class",
+            "zh": "報名園藝課",
+            "ok": false,
+            "trap": "partial",
+            "why": "沒有提到課程。"
+          },
+          {
+            "t": "To volunteer at the garden",
+            "zh": "到花園當志工",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "志工是男士提到的帶路人員，她不是要當志工。"
+          },
+          {
+            "t": "To buy garden tools",
+            "zh": "買園藝工具",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "工具是共用的，不是她來的目的。"
+          }
+        ],
+        "evidence": [
+          0
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "infer",
+        "q": {
+          "t": "What can be inferred about the community garden?",
+          "zh": "關於社區花園可以推論出什麼？"
+        },
+        "choices": [
+          {
+            "t": "It is closed until April.",
+            "zh": "它到四月才開放。",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "四月是空出名額的時間，花園並未關閉。"
+          },
+          {
+            "t": "The fees are too high for most people.",
+            "zh": "費用對多數人太高。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "女士覺得費用合理。"
+          },
+          {
+            "t": "Many people want spaces there.",
+            "zh": "許多人想要那裡的菜圃。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "有候補名單，表示需求大於名額。"
+          },
+          {
+            "t": "Tools are difficult to find.",
+            "zh": "工具很難找到。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "工具是共用的。"
+          }
+        ],
+        "evidence": [
+          1
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "detail",
+        "q": {
+          "t": "What must the woman buy on her own?",
+          "zh": "女士必須自己買什麼？"
+        },
+        "choices": [
+          {
+            "t": "Garden tools",
+            "zh": "園藝工具",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "工具是共用的，不用自備。"
+          },
+          {
+            "t": "Fertilizer",
+            "zh": "肥料",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到肥料。"
+          },
+          {
+            "t": "A map of the garden",
+            "zh": "花園地圖",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到地圖。"
+          },
+          {
+            "t": "Seeds",
+            "zh": "種子",
+            "ok": true,
+            "pattern": "direct",
+            "why": "男士說種子要自己買。"
+          }
+        ],
+        "evidence": [
+          3
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "plot",
+        "ipa": "/plɑːt/",
+        "pos": "n.",
+        "col": "a garden plot",
+        "zh": "（一小塊）菜圃"
+      },
+      {
+        "word": "seeds",
+        "ipa": "/siːdz/",
+        "pos": "n.",
+        "col": "buy vegetable seeds",
+        "zh": "種子"
+      },
+      {
+        "word": "volunteers",
+        "ipa": "/ˌvɑːlənˈtɪrz/",
+        "pos": "n.",
+        "col": "park volunteers",
+        "zh": "志工"
+      }
+    ]
+  },
+  {
+    "id": "d7-002-m",
+    "domain": "d7",
+    "scene": "outdoor",
+    "tag": "為青少年挑選夏季戶外課程",
+    "form": "2p",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "需先排除與練球衝突的日子再對照預算與課表，並理解說話意圖，屬中級偏上。"
+    },
+    "speakers": [
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "家長"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "園區人員"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W",
+        "t": "Hello, I'm looking for an outdoor activity for my son this summer. He's fifteen.",
+        "zh": "你好，我想為兒子找這個夏天的戶外活動。他十五歲。"
+      },
+      {
+        "sp": "M",
+        "t": "We have several programs. Do you prefer weekdays or weekends?",
+        "zh": "我們有幾個課程。你偏好平日還是週末？"
+      },
+      {
+        "sp": "W",
+        "t": "Weekday evenings, please. He has soccer practice on Tuesdays and Thursdays, though.",
+        "zh": "請給我平日晚上的。不過他星期二和星期四要練足球。"
+      },
+      {
+        "sp": "M",
+        "t": "I see. And is there a price range you'd like to stay within?",
+        "zh": "了解。還有你想控制在哪個價格範圍內嗎？"
+      },
+      {
+        "sp": "W",
+        "t": "I'd rather not pay more than forty dollars for the whole program.",
+        "zh": "整個課程我不想付超過四十美元。"
+      },
+      {
+        "sp": "M",
+        "t": "Then here's our schedule. Take it home and talk it over with your son.",
+        "zh": "那這是我們的課表。帶回家和你兒子討論一下。"
+      },
+      {
+        "sp": "W",
+        "t": "Thank you. I'll discuss the options with him tonight and call you back to register.",
+        "zh": "謝謝你。我今晚會和他討論，再打電話給你報名。"
+      }
+    ],
+    "graphic": {
+      "title": "Summer Outdoor Programs",
+      "columns": [
+        "Activity",
+        "Day",
+        "Time",
+        "Fee"
+      ],
+      "rows": [
+        [
+          "Kayaking Basics",
+          "Tuesday",
+          "6:00 p.m.",
+          "$45"
+        ],
+        [
+          "Trail Running",
+          "Wednesday",
+          "6:30 p.m.",
+          "$30"
+        ],
+        [
+          "Rock Climbing",
+          "Thursday",
+          "5:30 p.m.",
+          "$35"
+        ],
+        [
+          "Bird Watching",
+          "Saturday",
+          "8:00 a.m.",
+          "$15"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "intent",
+        "q": {
+          "t": "Why does the woman say, \"He has soccer practice on Tuesdays and Thursdays, though\"?",
+          "zh": "女士為什麼說「不過他星期二和星期四要練足球」？"
+        },
+        "choices": [
+          {
+            "t": "To request a class on Tuesdays",
+            "zh": "要求星期二的課程",
+            "ok": false,
+            "trap": "opposite",
+            "why": "星期二正是他沒空的日子。"
+          },
+          {
+            "t": "To show which days her son is unavailable",
+            "zh": "說明兒子哪幾天沒空",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "她先要平日晚上，再用 though 排除這兩天。"
+          },
+          {
+            "t": "To say her son dislikes weekends",
+            "zh": "說兒子不喜歡週末",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "她沒有談週末的好惡。"
+          },
+          {
+            "t": "To complain about the fee",
+            "zh": "抱怨費用",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "費用是後面才談的。"
+          }
+        ],
+        "evidence": [
+          2
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "graphic",
+        "q": {
+          "t": "Look at the graphic. Which activity will the son most likely join?",
+          "zh": "請看圖表。兒子最可能參加哪項活動？"
+        },
+        "choices": [
+          {
+            "t": "Rock Climbing",
+            "zh": "攀岩",
+            "ok": false,
+            "trap": "partial",
+            "why": "費用符合，但在星期四，與練球衝突。"
+          },
+          {
+            "t": "Kayaking Basics",
+            "zh": "獨木舟入門",
+            "ok": false,
+            "trap": "partial",
+            "why": "在星期二且 $45，兩項都不符。"
+          },
+          {
+            "t": "Bird Watching",
+            "zh": "賞鳥",
+            "ok": false,
+            "trap": "opposite",
+            "why": "在星期六早上，不是平日晚上。"
+          },
+          {
+            "t": "Trail Running",
+            "zh": "越野跑",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "平日晚上、不在星期二四、四十美元以內，只有星期三 $30 的 Trail Running 符合。"
+          }
+        ],
+        "evidence": [
+          2,
+          4
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": {
+          "t": "What will the woman most likely do next?",
+          "zh": "女士接下來最可能做什麼？"
+        },
+        "choices": [
+          {
+            "t": "Talk with her son before signing up",
+            "zh": "報名前先和兒子討論",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "她說今晚會和他討論再回電報名。"
+          },
+          {
+            "t": "Print the schedule herself",
+            "zh": "自己列印課表",
+            "ok": false,
+            "trap": "wrong-speaker",
+            "why": "是男士把課表給她。"
+          },
+          {
+            "t": "Pay forty dollars today",
+            "zh": "今天付四十美元",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "四十美元是預算上限，不是今天要付的。"
+          },
+          {
+            "t": "Visit the park on Saturday",
+            "zh": "星期六去公園",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到她要週六去。"
+          }
+        ],
+        "evidence": [
+          6
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "register",
+        "ipa": "/ˈredʒɪstər/",
+        "pos": "v.",
+        "col": "register for a class",
+        "zh": "報名；登記"
+      },
+      {
+        "word": "outdoor",
+        "ipa": "/ˈaʊtdɔːr/",
+        "pos": "adj.",
+        "col": "an outdoor activity",
+        "zh": "戶外的"
+      },
+      {
+        "word": "practice",
+        "ipa": "/ˈpræktɪs/",
+        "pos": "n.",
+        "col": "soccer practice",
+        "zh": "練習"
+      }
+    ]
+  },
+  {
+    "id": "d7-003-m",
+    "domain": "d7",
+    "scene": "outdoor",
+    "tag": "營位被洪水影響改換山丘營位",
+    "form": "2p",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "營位更動的原因需靠同義換句理解，並推論先生行動不便。"
+    },
+    "speakers": [
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "露營區人員"
+      },
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "露營者"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "M",
+        "t": "Good morning. Are you checking in at Pinecrest Campground, or are you just visiting for the day?",
+        "zh": "早安。你們是要在松林露營區入住，還是只來玩一天？"
+      },
+      {
+        "sp": "W",
+        "t": "Checking in. We reserved a site near the river for three nights.",
+        "zh": "要入住。我們訂了河邊的營位三晚。"
+      },
+      {
+        "sp": "M",
+        "t": "I'm sorry, but that area is closed after yesterday's flooding. I can offer you a spot on the hill instead.",
+        "zh": "很抱歉，那一區在昨天淹水後關閉了。我可以改給你們山丘上的營位。"
+      },
+      {
+        "sp": "W",
+        "t": "How far is the hill from the washrooms? My husband has a bad knee.",
+        "zh": "山丘離洗手間多遠？我先生膝蓋不好。"
+      },
+      {
+        "sp": "M",
+        "t": "About a two-minute walk on a flat path. Campfires are allowed, but only until ten o'clock.",
+        "zh": "走平坦的路大約兩分鐘。可以升營火，但只到十點。"
+      },
+      {
+        "sp": "W",
+        "t": "That sounds fine. Will we pay the same price, even though there's no view of the river?",
+        "zh": "聽起來可以。即使看不到河景，我們付的價錢還是一樣嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Yes, but I'll include two bundles of firewood to make up for it.",
+        "zh": "是的，但我會附上兩綑柴火作為補償。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {
+          "t": "What problem does the man describe?",
+          "zh": "男士描述了什麼問題？"
+        },
+        "choices": [
+          {
+            "t": "The campground has no space for visitors.",
+            "zh": "露營區沒有空位給訪客。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "他還能提供山丘營位。"
+          },
+          {
+            "t": "The campsite the woman wanted is unavailable.",
+            "zh": "女士想要的營位無法使用。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "河邊營位因淹水而關閉。"
+          },
+          {
+            "t": "The hill is too far from the river.",
+            "zh": "山丘離河太遠。",
+            "ok": false,
+            "trap": "partial",
+            "why": "距離並不是問題，問題是河邊關閉。"
+          },
+          {
+            "t": "The woman arrived on the wrong day.",
+            "zh": "女士來錯日子。",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "沒有提到日期錯誤。"
+          }
+        ],
+        "evidence": [
+          2
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "infer",
+        "q": {
+          "t": "What can be inferred about the woman's husband?",
+          "zh": "關於女士的先生可以推論出什麼？"
+        },
+        "choices": [
+          {
+            "t": "He may find long walks difficult.",
+            "zh": "他可能不方便走長路。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "她因先生膝蓋不好而詢問步行距離。"
+          },
+          {
+            "t": "He wants a spot nearer the river.",
+            "zh": "他想要更靠近河的營位。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "她擔心的是離洗手間的距離，並不要河邊。"
+          },
+          {
+            "t": "He will not join the camping trip.",
+            "zh": "他不會參加露營。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有這樣的暗示。"
+          },
+          {
+            "t": "He has asked for a refund.",
+            "zh": "他要求退款。",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "她問的是價格是否相同，且不是他問的。"
+          }
+        ],
+        "evidence": [
+          3
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "detail",
+        "q": {
+          "t": "What is allowed until ten o'clock?",
+          "zh": "到十點為止可以做什麼？"
+        },
+        "choices": [
+          {
+            "t": "Swimming in the river",
+            "zh": "在河裡游泳",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到游泳。"
+          },
+          {
+            "t": "Playing music",
+            "zh": "播放音樂",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到音樂。"
+          },
+          {
+            "t": "Using the washrooms",
+            "zh": "使用洗手間",
+            "ok": false,
+            "trap": "partial",
+            "why": "洗手間只是提到距離，沒有時間限制。"
+          },
+          {
+            "t": "Making a fire",
+            "zh": "生火",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "男士說營火可以升，但只到十點。"
+          }
+        ],
+        "evidence": [
+          4
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "washrooms",
+        "ipa": "/ˈwɑːʃruːmz/",
+        "pos": "n.",
+        "col": "clean washrooms",
+        "zh": "洗手間"
+      },
+      {
+        "word": "campfires",
+        "ipa": "/ˈkæmpfaɪərz/",
+        "pos": "n.",
+        "col": "light campfires",
+        "zh": "營火"
+      },
+      {
+        "word": "firewood",
+        "ipa": "/ˈfaɪərwʊd/",
+        "pos": "n.",
+        "col": "a bundle of firewood",
+        "zh": "柴火"
+      }
+    ]
+  }
+]

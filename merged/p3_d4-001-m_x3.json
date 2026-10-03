@@ -1,0 +1,224 @@
+[
+  {
+    "id": "d4-001-m",
+    "domain": "d4",
+    "scene": "station",
+    "tag": "地鐵維修改搭接駁車",
+    "form": "2p",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "以同義換句說明路線維修與接駁方式，並需由月票的說明推論其涵蓋範圍。"
+    },
+    "speakers": [
+      { "id": "W", "gender": "F", "role": "乘客" },
+      { "id": "M", "gender": "M", "role": "車站人員" }
+    ],
+    "dialogue": [
+      { "sp": "W", "t": "Is the Blue Line running normally this morning? I have to reach Harbor Station by nine.", "zh": "藍線今天早上正常行駛嗎？我九點前必須到達港口站。" },
+      { "sp": "M", "t": "Not exactly. Because of track repairs, trains stop at Central, and shuttle buses cover the rest.", "zh": "不太正常。因為軌道維修，列車只到中央站，其餘路段由接駁巴士負責。" },
+      { "sp": "W", "t": "How long does the shuttle take? I have an important appointment at nine thirty.", "zh": "接駁車要多久？我九點半有個重要的約。" },
+      { "sp": "M", "t": "It adds roughly twenty minutes to the usual trip, so I'd leave right away.", "zh": "它會讓平常的行程多出大約二十分鐘，所以我建議您馬上出發。" },
+      { "sp": "W", "t": "Where do I catch the shuttle? Is it inside the station?", "zh": "我要在哪裡搭接駁車？是在車站裡面嗎？" },
+      { "sp": "M", "t": "No, it's outside Exit B, on the opposite side of the main road.", "zh": "不是，在 B 出口外面，主要道路的對面。" },
+      { "sp": "W", "t": "Got it. Do I have to pay extra for it?", "zh": "了解。我需要另外付費嗎？" },
+      { "sp": "M", "t": "Not at all. Just show your train pass to the driver.", "zh": "完全不用。只要把您的車票月票給司機看就好。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What is the woman asking about?", "zh": "這位女士在詢問什麼？" },
+        "choices": [
+          { "t": "How to reach a station while service is disrupted", "zh": "在服務受影響時如何到達某個車站", "ok": true, "pattern": "summary", "why": "她問藍線是否正常，並詢問接駁方式。" },
+          { "t": "When the repairs will be finished", "zh": "維修何時完成", "ok": false, "trap": "partial", "why": "維修只是原因，她關心的是如何準時抵達。" },
+          { "t": "Where to buy a train pass", "zh": "哪裡買車票月票", "ok": false, "trap": "mention-not-ask", "why": "月票是男子最後提到的，她沒有問購買。" },
+          { "t": "How to apply for a job", "zh": "如何應徵工作", "ok": false, "trap": "over-infer", "why": "她只提到約會，不是求職。" }
+        ],
+        "evidence": [0, 1]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": { "t": "How much longer will the trip take because of the shuttle?", "zh": "因為接駁車，行程會多花多久？" },
+        "choices": [
+          { "t": "About twenty minutes", "zh": "大約二十分鐘", "ok": true, "pattern": "paraphrase", "why": "男子說會多出大約二十分鐘。" },
+          { "t": "About thirty minutes", "zh": "大約三十分鐘", "ok": false, "trap": "number-mix", "why": "九點半是她約會的時間。" },
+          { "t": "About nine minutes", "zh": "大約九分鐘", "ok": false, "trap": "number-mix", "why": "九點是她必須抵達的時間。" },
+          { "t": "No extra time at all", "zh": "完全不會多花時間", "ok": false, "trap": "opposite", "why": "男子說會多出時間，並建議馬上出發。" }
+        ],
+        "evidence": [3]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": { "t": "What can be inferred about the woman's train pass?", "zh": "關於這位女士的車票月票可以推論出什麼？" },
+        "choices": [
+          { "t": "It covers the shuttle ride.", "zh": "它涵蓋接駁車的車程。", "ok": true, "pattern": "paraphrase", "why": "她不用另外付費，只要給司機看月票。" },
+          { "t": "It cannot be used on buses.", "zh": "它不能用在公車上。", "ok": false, "trap": "opposite", "why": "司機接受月票，所以搭接駁巴士可以使用。" },
+          { "t": "It has already expired.", "zh": "它已經過期了。", "ok": false, "trap": "over-infer", "why": "對話中沒有提到過期。" },
+          { "t": "She bought it from the driver.", "zh": "她是向司機買的。", "ok": false, "trap": "wrong-speaker", "why": "司機只是查看月票，沒有提到販售。" }
+        ],
+        "evidence": [6, 7]
+      }
+    ],
+    "vocab": [
+      { "word": "shuttle", "ipa": "/ˈʃʌtl/", "pos": "n.", "col": "a shuttle bus", "zh": "接駁車" },
+      { "word": "repairs", "ipa": "/rɪˈperz/", "pos": "n.", "col": "track repairs", "zh": "維修" },
+      { "word": "pass", "ipa": "/pæs/", "pos": "n.", "col": "a monthly pass", "zh": "通行證；月票" }
+    ]
+  },
+  {
+    "id": "d4-002-m",
+    "domain": "d4",
+    "scene": "street",
+    "tag": "比較前往會場的交通方式",
+    "form": "2p",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "需結合圖表中的時間與費用，再依現在時間與預算條件挑出最合適的選項。"
+    },
+    "speakers": [
+      { "id": "W", "gender": "F", "role": "同事" },
+      { "id": "M", "gender": "M", "role": "同事" }
+    ],
+    "dialogue": [
+      { "sp": "W", "t": "The event starts at two o'clock, and it's already one thirty. How should we get to Lakeside Hall?", "zh": "活動兩點開始，而現在已經一點半了。我們該怎麼去 Lakeside Hall？" },
+      { "sp": "M", "t": "Walking takes too long. I'd say we take a taxi, even though it costs more.", "zh": "走路太久了。我想我們搭計程車，雖然比較貴。" },
+      { "sp": "W", "t": "Well, I'm trying to keep today's costs down.", "zh": "嗯，我今天想盡量控制開銷。" },
+      { "sp": "M", "t": "But we can't be late. The organizer said the doors close ten minutes after the start.", "zh": "但我們不能遲到。主辦單位說活動開始十分鐘後就會關門。" },
+      { "sp": "W", "t": "True. Is there anything quick that doesn't cost a lot?", "zh": "沒錯。有沒有什麼又快又不貴的方式？" },
+      { "sp": "M", "t": "Let me check the app. There's a subway route and a bus, and both are cheaper than a taxi.", "zh": "我來看一下應用程式。有地鐵路線和公車，兩者都比計程車便宜。" },
+      { "sp": "W", "t": "Then let's take the cheapest option that still gets us there before two.", "zh": "那我們就選最便宜、而且還能在兩點前到的方式。" },
+      { "sp": "M", "t": "Okay, I'll buy the tickets from the machine right now.", "zh": "好，我現在就去售票機買票。" }
+    ],
+    "graphic": {
+      "title": "Ways to Reach Lakeside Hall",
+      "columns": ["Option", "Travel Time", "Cost"],
+      "rows": [
+        ["Walk", "40 min", "Free"],
+        ["Bus 8", "25 min", "$2"],
+        ["Subway + walk", "20 min", "$3"],
+        ["Taxi", "12 min", "$15"]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "intent",
+        "q": { "t": "What does the woman mean when she says, \"I'm trying to keep today's costs down\"?", "zh": "女士說「I'm trying to keep today's costs down」是什麼意思？" },
+        "choices": [
+          { "t": "She prefers a less expensive way to travel.", "zh": "她偏好比較便宜的交通方式。", "ok": true, "pattern": "paraphrase", "why": "這是在回應男子建議搭較貴的計程車。" },
+          { "t": "She wants to walk to the hall.", "zh": "她想走路去會場。", "ok": false, "trap": "partial", "why": "走路雖然免費，但太久，她也問有沒有快的方式。" },
+          { "t": "She forgot her wallet at the office.", "zh": "她把錢包忘在辦公室。", "ok": false, "trap": "over-infer", "why": "對話沒有提到忘記錢包。" },
+          { "t": "She is unsure when the event begins.", "zh": "她不確定活動何時開始。", "ok": false, "trap": "opposite", "why": "她一開始就說活動兩點開始。" }
+        ],
+        "evidence": [2]
+      },
+      {
+        "id": "q2",
+        "qtype": "graphic",
+        "q": { "t": "Look at the graphic. Which option will the speakers most likely choose?", "zh": "請看圖表。說話者最可能選哪個選項？" },
+        "choices": [
+          { "t": "Bus 8", "zh": "8 號公車", "ok": true, "pattern": "summary", "why": "現在一點半，25 分鐘可在兩點前到，且 $2 是能準時抵達的選項中最便宜的。" },
+          { "t": "Walk", "zh": "步行", "ok": false, "trap": "number-mix", "why": "雖然免費，但要 40 分鐘，會超過兩點。" },
+          { "t": "Subway + walk", "zh": "地鐵加步行", "ok": false, "trap": "partial", "why": "能準時到，但 $3 不是最便宜的。" },
+          { "t": "Taxi", "zh": "計程車", "ok": false, "trap": "mention-not-ask", "why": "這是男子一開始的建議，但費用最高，被女士否決。" }
+        ],
+        "evidence": [6]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": { "t": "What will the man probably do next?", "zh": "男子接下來可能會做什麼？" },
+        "choices": [
+          { "t": "Purchase tickets", "zh": "購買車票", "ok": true, "pattern": "paraphrase", "why": "他說現在就去售票機買票。" },
+          { "t": "Call a taxi", "zh": "叫計程車", "ok": false, "trap": "opposite", "why": "他們決定搭較便宜的方式。" },
+          { "t": "Ask the organizer about the doors", "zh": "向主辦單位詢問關門時間", "ok": false, "trap": "mention-not-ask", "why": "關門時間是主辦單位已說過的，不需再問。" },
+          { "t": "Walk to the venue", "zh": "走路去會場", "ok": false, "trap": "opposite", "why": "走路太久，已被排除。" }
+        ],
+        "evidence": [7]
+      }
+    ],
+    "vocab": [
+      { "word": "organizer", "ipa": "/ˈɔːrɡənaɪzər/", "pos": "n.", "col": "event organizer", "zh": "主辦者" },
+      { "word": "subway", "ipa": "/ˈsʌbweɪ/", "pos": "n.", "col": "take the subway", "zh": "地鐵" },
+      { "word": "costs", "ipa": "/kɔːsts/", "pos": "n.", "col": "keep costs down", "zh": "開銷；成本" }
+    ]
+  },
+  {
+    "id": "d4-003-m",
+    "domain": "d4",
+    "scene": "street",
+    "tag": "詢問河畔自行車租借",
+    "form": "2p",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "以同義換句說明車款缺貨與價差，並需由路線描述推論女士的需求。"
+    },
+    "speakers": [
+      { "id": "W", "gender": "F", "role": "遊客" },
+      { "id": "M", "gender": "M", "role": "租車店員" }
+    ],
+    "dialogue": [
+      { "sp": "W", "t": "Are there any bikes left to rent for the afternoon? I'd like to ride along the river.", "zh": "還有可以租一個下午的自行車嗎？我想沿著河邊騎。" },
+      { "sp": "M", "t": "I'm sorry, all of our city bikes are out, but we still have two electric ones.", "zh": "很抱歉，我們的城市自行車都租出去了，不過還有兩台電動的。" },
+      { "sp": "W", "t": "How much more do those cost? I'm on a tight budget this trip.", "zh": "那些貴多少？這趟旅行我的預算很緊。" },
+      { "sp": "M", "t": "They're ten dollars more per day, but the motor helps a lot on the hills.", "zh": "它們每天貴十元，不過馬達在爬坡時幫助很大。" },
+      { "sp": "W", "t": "The river path is flat, though, so I probably don't need that.", "zh": "不過河邊的步道很平坦，所以我大概不需要那個。" },
+      { "sp": "M", "t": "In that case, try Pedal House two blocks north. They usually have regular bikes available.", "zh": "那樣的話，可以試試往北兩個街區的 Pedal House。他們通常有一般自行車。" },
+      { "sp": "W", "t": "Great, thanks. Will I need to leave a deposit or an ID?", "zh": "太好了，謝謝。我需要留押金或證件嗎？" },
+      { "sp": "M", "t": "You should bring a photo ID. Most places also hold a small deposit.", "zh": "您應該帶有照片的證件。大多數店家也會收一小筆押金。" }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": { "t": "What is the woman's problem?", "zh": "這位女士遇到什麼問題？" },
+        "choices": [
+          { "t": "The ordinary bikes she wants are all taken.", "zh": "她想要的一般自行車都被租走了。", "ok": true, "pattern": "paraphrase", "why": "男子說城市自行車都租出去了。" },
+          { "t": "She forgot to bring a photo ID.", "zh": "她忘了帶有照片的證件。", "ok": false, "trap": "mention-not-ask", "why": "證件是之後才提到的，她並未說忘記帶。" },
+          { "t": "The river path is closed.", "zh": "河邊步道封閉了。", "ok": false, "trap": "over-infer", "why": "她說步道很平坦，沒有說封閉。" },
+          { "t": "The electric bikes are too heavy.", "zh": "電動自行車太重了。", "ok": false, "trap": "over-infer", "why": "她擔心的是價格，沒有提到重量。" }
+        ],
+        "evidence": [0, 1]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": { "t": "How much extra do the electric bikes cost per day?", "zh": "電動自行車每天要多付多少錢？" },
+        "choices": [
+          { "t": "Ten dollars", "zh": "十元", "ok": true, "pattern": "direct", "why": "男子說每天貴十元。" },
+          { "t": "Two dollars", "zh": "兩元", "ok": false, "trap": "number-mix", "why": "二是剩下的電動自行車數量。" },
+          { "t": "Nothing", "zh": "不用多付", "ok": false, "trap": "opposite", "why": "電動車比較貴。" },
+          { "t": "A small deposit", "zh": "一小筆押金", "ok": false, "trap": "mention-not-ask", "why": "押金是租車時的另一件事，不是電動車的加價。" }
+        ],
+        "evidence": [3]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": { "t": "What can be inferred about the woman's plan?", "zh": "關於這位女士的計畫可以推論出什麼？" },
+        "choices": [
+          { "t": "She expects an easy, level ride.", "zh": "她預期騎的是輕鬆平坦的路線。", "ok": true, "pattern": "paraphrase", "why": "她說河邊步道平坦，不需要馬達。" },
+          { "t": "She plans to ride up steep hills.", "zh": "她打算騎上陡坡。", "ok": false, "trap": "opposite", "why": "她說步道是平坦的。" },
+          { "t": "She will pay extra for a motor.", "zh": "她會多付錢租有馬達的車。", "ok": false, "trap": "opposite", "why": "她說大概不需要，且預算很緊。" },
+          { "t": "She does not have a photo ID.", "zh": "她沒有有照片的證件。", "ok": false, "trap": "over-infer", "why": "她只是在詢問是否需要證件。" }
+        ],
+        "evidence": [4]
+      }
+    ],
+    "vocab": [
+      { "word": "rent", "ipa": "/rent/", "pos": "v.", "col": "rent a bike", "zh": "租借" },
+      { "word": "motor", "ipa": "/ˈmoʊtər/", "pos": "n.", "col": "an electric motor", "zh": "馬達" },
+      { "word": "deposit", "ipa": "/dɪˈpɑːzɪt/", "pos": "n.", "col": "leave a deposit", "zh": "押金" }
+    ]
+  }
+]
