@@ -356,7 +356,7 @@ function auditAll(raw) {
 const hItems = id => (HEALTH.list || []).filter(h => h.id === id);
 
 /* ---------- 維護：D×難度矩陣 → 該格題組 → 單題頁；新增題目 ---------- */
-const A = { d: null, t: null, k: null, nd: 'd1', nt: 'easy', nf: '2p', nn: 1, ng: 'any', out: [] };
+const A = { d: null, t: null, k: null, nd: 'd1', nt: 'easy', nf: '2p', nn: 1, ng: 'one', out: [] };
 const tcol = n => n >= TARGET ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400' : n ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-400' : 'bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400';
 const HL = { err: ['✖', 'text-rose-600 dark:text-rose-400'], warn: ['⚠', 'text-amber-600 dark:text-amber-400'] };
 function goA(view, p) { stopAudio(); Object.assign(A, p || {}); V.view = view; V.run = null; render(); window.scrollTo({ top: 0 }); }
@@ -450,6 +450,21 @@ function adminItemH() {
 const serial = (d, t) => { let mx = 0; RAW.forEach(x => { const m = x && x.id && /^d(\d)-(\d+)-([emh])$/.exec(x.id); if (m && 'd' + m[1] === d && m[3] === TS[t]) mx = Math.max(mx, +m[2]); }); return mx; };
 const cefrOf = s => s <= 550 ? 'A2+' : s === 600 ? 'B1' : s === 650 ? 'B1+' : s <= 750 ? 'B2' : 'B2+';
 const scoreList = t => { const r = []; for (let s = SCORE_RG[t][0]; s <= SCORE_RG[t][1]; s += 50) r.push(s); return r; };
+/* 題型配置：把 n×3 個題位依「該格已有題數＋本批已分配數」由少到多輪流分給各題型；每組 3 題不重複；中級／高級每組保證含推論或意圖 */
+function planQ(cq, ids, t, g) {
+  const order = Object.keys(QT), ks = order.filter(k => g !== 'no' || k !== 'graphic'), used = {}, load = k => (cq[k] || 0) + (used[k] || 0);
+  const take = (set, k) => { set.push(k); used[k] = (used[k] || 0) + 1; };
+  return ids.map((id, si) => {
+    const set = [];
+    if (g === 'one' && si === 0) take(set, 'graphic');
+    while (set.length < 3) take(set, ks.filter(k => !set.includes(k)).sort((a, b) => load(a) - load(b) || order.indexOf(a) - order.indexOf(b))[0]);
+    if (t !== 'easy' && !set.some(k => k === 'infer' || k === 'intent')) {
+      const k = ['infer', 'intent'].sort((a, b) => load(a) - load(b))[0], i = set.map((v, j) => v === 'graphic' ? -1 : j).filter(j => j >= 0).pop();
+      used[set[i]]--; set[i] = k; used[k] = (used[k] || 0) + 1;
+    }
+    return { id, set: set.sort((a, b) => order.indexOf(a) - order.indexOf(b)) };
+  });
+}
 function buildOut(d, t, f, n, g) {
   const mx = serial(d, t), ids = Array.from({ length: n }, (_, i) => d + '-' + String(mx + 1 + i).padStart(3, '0') + '-' + TS[t]), fname = 'p3_' + ids[0] + '_x' + n + '.json', sp = SPEC || {};
   const cq = {}; DATA.filter(x => domOf(x) === d && tierOf(x) === t).forEach(x => x.questions.forEach(q => { cq[q.qtype] = (cq[q.qtype] || 0) + 1; }));
@@ -459,8 +474,10 @@ function buildOut(d, t, f, n, g) {
     `- 難度：${TIER[t]}（id 尾碼 ${TS[t]}）｜level.score 只能填：${scoreList(t).map(s => s + '（cefr 填 ' + cefrOf(s) + '）').join('、')}${sp.tiers && sp.tiers[t] ? '｜' + sp.tiers[t].guide : ''}`,
     `- 形式：${f === '3p' ? '三人對話（form 填 3p，須有兩位同性別說話者）' : '兩人對話（form 填 2p）'}`,
     `- id 依序使用：${ids.join('、')}（domain 填 ${d}，level.tier 填 ${t}）`,
-    `- 每組 3 題；題型請搭配（主旨／細節／推論／意圖／未來行動${g === 'no' ? '' : '／圖表'}），各組不要完全相同；${g === 'no' ? '本批不要出圖表題（graphic 填 null）' : g === 'one' ? '這批至少 1 組要含圖表題，圖表題須提供 graphic，且答案需結合圖表與對話' : '圖表題須提供 graphic'}。`,
+    `- 每組 3 題；題型請搭配（主旨／細節／推論／意圖／未來行動${g === 'no' ? '' : '／圖表'}），各組不要完全相同；${g === 'no' ? '本批不要出圖表題（graphic 填 null）' : g === 'one' ? '這批至少 1 組要含圖表題，圖表題須提供 graphic，且答案需結合圖表與對話' : '圖表題可有可無（沒有圖表題的組，graphic 填 null）；出圖表題時須提供 graphic，且答案需結合圖表與對話'}。`,
     `- 此主題＋難度已有的題型題數：${Object.keys(QT).map(k => k + '×' + (cq[k] || 0)).join('、')}，請優先補數量最少的題型。`,
+    `- 建議題型配置（可小幅調整，但各組不要完全相同）：${planQ(cq, ids, t, g).map(p => p.id + '：' + p.set.map(k => QT[k] + '(' + k + ')').join('／')).join('；')}`,
+    `- 每組對話 ${f === '3p' ? '10 句以上' : '6–8 句'}，每句英文 5–25 個單字；speakers 的 id ${f === '3p' ? '用 W1／W2／M 這類（兩位同性別）' : '用 W／M'}，role 用中文；level.why 用一句中文說明。`,
     '- 每題 4 選項、剛好 1 正解；錯誤選項須有明確依據可排除，並標 trap；每個選項都要附 zh（中文翻譯）；evidence 為對話句索引（從 0 起），依題號遞增。',
     `- 已用過的 vocab（不得重複）：${[...new Set(DATA.flatMap(x => (x.vocab || []).map(v => v.word)))].join('、') || '（無）'}`,
     `- 已用過的 tag（不得重複）：${DATA.map(x => x.tag).join('；') || '（無）'}`,
@@ -477,7 +494,7 @@ function adminNewH() {
   h += `<h2 class="font-bold mb-2">2. 選難度</h2><div class="flex flex-wrap gap-2 mb-5">${Object.keys(TIER).map(k => `<button onclick="apick('nt','${k}')" class="${on(A.nt === k)}">${TIER[k]} ${TS[k]} <span class="text-xs opacity-70">${TSC[k]} · ${pool(k, A.nd).length} 組</span></button>`).join('')}</div>`;
   h += `<h2 class="font-bold mb-2">3. 選形式</h2><div class="flex flex-wrap gap-2 mb-5">${['2p', '3p'].map(k => `<button onclick="apick('nf','${k}')" class="${on(A.nf === k)}">${k === '3p' ? '三人' : '兩人'}</button>`).join('')}</div>`;
   h += `<h2 class="font-bold mb-2">4. 一次幾組</h2><div class="flex flex-wrap gap-2 mb-5">${[1, 2, 3].map(k => `<button onclick="apick('nn',${k})" class="${on(A.nn === k)}">${k} 組</button>`).join('')}</div>`;
-  h += `<h2 class="font-bold mb-2">5. 圖表題</h2><div class="flex flex-wrap gap-2 mb-5">${[['any', '不限'], ['one', '至少 1 組含圖表題'], ['no', '不含圖表題']].map(([k, v]) => `<button onclick="apick('ng','${k}')" class="${on(A.ng === k)}">${v}</button>`).join('')}</div>`;
+  h += `<h2 class="font-bold mb-2">5. 圖表題</h2><div class="flex flex-wrap gap-2 mb-5">${[['any', '不限（AI 決定）'], ['one', '至少 1 組含圖表題'], ['no', '不含圖表題']].map(([k, v]) => `<button onclick="apick('ng','${k}')" class="${on(A.ng === k)}">${v}</button>`).join('')}</div>`;
   const outs = buildOut(A.nd, A.nt, A.nf, A.nn, A.ng); A.out = outs.map(s => s.text || '');
   return h + outs.map((s, i) => `<div class="${card} p-4 mb-3"><div class="flex items-center justify-between gap-2 mb-1"><p class="font-bold text-sm">${i + 1}. ${esc(s.title)}</p>${s.text ? `<button id="cp${i}" onclick="copyOut(${i})" class="${btn} ${line} !py-1 text-xs shrink-0">複製</button>` : ''}</div><p class="text-xs text-slate-500 mb-2">${esc(s.note)}</p>${s.text ? `<pre class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-72 overflow-auto">${esc(s.text)}</pre>` : ''}</div>`).join('');
 }

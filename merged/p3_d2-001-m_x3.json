@@ -1,0 +1,702 @@
+[
+  {
+    "id": "d2-001-m",
+    "domain": "d2",
+    "scene": "restaurant",
+    "tag": "帳單金額有誤",
+    "form": "2p",
+    "level": {
+      "score": 600,
+      "cefr": "B1",
+      "tier": "medium",
+      "why": "需聽懂數字差異並用同義換句理解帳單錯誤，另含一題語意意圖。"
+    },
+    "speakers": [
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "顧客"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "服務生"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W",
+        "t": "Excuse me, I think there's a mistake on our bill.",
+        "zh": "不好意思，我覺得我們的帳單有錯。"
+      },
+      {
+        "sp": "M",
+        "t": "I'm sorry about that. Which item looks wrong to you?",
+        "zh": "很抱歉。你覺得哪一項不對？"
+      },
+      {
+        "sp": "W",
+        "t": "We ordered two appetizers, but I see three listed here.",
+        "zh": "我們點了兩份開胃菜，但這裡列了三份。"
+      },
+      {
+        "sp": "M",
+        "t": "Let me check with the kitchen. The system may have counted one twice.",
+        "zh": "我向廚房確認一下。系統可能重複計算了一份。"
+      },
+      {
+        "sp": "W",
+        "t": "That would explain the extra fourteen dollars on the total.",
+        "zh": "這就解釋了總額多出的十四美元。"
+      },
+      {
+        "sp": "M",
+        "t": "You're right. I'll remove it and bring you a corrected receipt in a minute.",
+        "zh": "您說得對。我會刪掉它，馬上給您一張更正過的收據。"
+      },
+      {
+        "sp": "W",
+        "t": "Thanks. Could you also pack up our leftover pasta?",
+        "zh": "謝謝。可以也幫我們把剩下的義大利麵打包嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Of course. I'll take care of both things now.",
+        "zh": "當然。這兩件事我現在就處理。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {
+          "t": "Why is the woman talking to the waiter?",
+          "zh": "女士為什麼和服務生說話？"
+        },
+        "choices": [
+          {
+            "t": "To point out an error on a bill",
+            "zh": "指出帳單上的錯誤",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：mistake on our bill 換成 error on a bill。"
+          },
+          {
+            "t": "To order more appetizers",
+            "zh": "加點開胃菜",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "對話提到開胃菜，但是在說帳單算錯，不是要加點。"
+          },
+          {
+            "t": "To complain about the food quality",
+            "zh": "抱怨食物品質",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "全文沒有對食物品質表達不滿。"
+          },
+          {
+            "t": "To ask for a discount on the meal",
+            "zh": "要求餐點折扣",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "她只要求更正多收的金額，沒有要求折扣。"
+          }
+        ],
+        "evidence": [
+          0,
+          2
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": {
+          "t": "What does the woman mean when she says, \"That would explain the extra fourteen dollars on the total\"?",
+          "zh": "女士說「這就解釋了總額多出的十四美元」是什麼意思？"
+        },
+        "choices": [
+          {
+            "t": "She thinks the repeated item caused the higher charge.",
+            "zh": "她認為重複計算的品項造成金額偏高。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：系統多算一份開胃菜，剛好說明多出的金額。"
+          },
+          {
+            "t": "She plans to leave a fourteen-dollar tip.",
+            "zh": "她打算留十四美元小費。",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "十四美元是多收的金額，不是小費。"
+          },
+          {
+            "t": "She is happy that the meal cost less than expected.",
+            "zh": "她很高興餐點比預期便宜。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "金額是「多出」，與此相反。"
+          },
+          {
+            "t": "She believes the kitchen made a wrong dish.",
+            "zh": "她認為廚房做錯了餐點。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "對話討論的是帳單重複計算，不是餐點做錯。"
+          }
+        ],
+        "evidence": [
+          4
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": {
+          "t": "What will the man most likely do next?",
+          "zh": "男士接下來最可能做什麼？"
+        },
+        "choices": [
+          {
+            "t": "Correct the bill and wrap up some food",
+            "zh": "更正帳單並打包食物",
+            "ok": true,
+            "pattern": "summary",
+            "why": "正解：他會刪除多算的一項、給更正收據，並處理打包剩菜。"
+          },
+          {
+            "t": "Only correct the bill",
+            "zh": "只更正帳單",
+            "ok": false,
+            "trap": "partial",
+            "why": "部分正確：他也答應處理打包剩菜（both things）。"
+          },
+          {
+            "t": "Add a third appetizer to the order",
+            "zh": "在訂單中再加第三份開胃菜",
+            "ok": false,
+            "trap": "opposite",
+            "why": "相反：他要刪掉多算的那一份。"
+          },
+          {
+            "t": "Cook a new plate of pasta",
+            "zh": "重新做一盤義大利麵",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "女士只是要打包剩下的麵，沒有要重做。"
+          }
+        ],
+        "evidence": [
+          5,
+          6,
+          7
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "appetizer",
+        "ipa": "/ˈæpɪtaɪzər/",
+        "pos": "n.",
+        "col": "order an appetizer",
+        "zh": "開胃菜"
+      },
+      {
+        "word": "receipt",
+        "ipa": "/rɪˈsiːt/",
+        "pos": "n.",
+        "col": "a corrected receipt",
+        "zh": "收據"
+      },
+      {
+        "word": "leftover",
+        "ipa": "/ˈleftoʊvər/",
+        "pos": "adj.",
+        "col": "leftover pasta",
+        "zh": "剩下的"
+      }
+    ]
+  },
+  {
+    "id": "d2-002-m",
+    "domain": "d2",
+    "scene": "restaurant",
+    "tag": "詢問餐點過敏成分",
+    "form": "2p",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "需結合圖表的成分與價格，並推論說話者必須避開的食材。"
+    },
+    "speakers": [
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "顧客"
+      },
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "女服務生"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "M",
+        "t": "Before I order, are any of your dishes made with peanuts?",
+        "zh": "點餐前想請問，你們有哪些菜用了花生嗎？"
+      },
+      {
+        "sp": "W",
+        "t": "Yes, the Pad Thai is. Do you have an allergy?",
+        "zh": "有，泰式炒河粉有。您會過敏嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "I do, and I can't have dairy either, so I have to be careful.",
+        "zh": "會，而且我也不能吃乳製品，所以得小心。"
+      },
+      {
+        "sp": "W",
+        "t": "Then please skip the curry. The chef can also adjust a dish if you'd like.",
+        "zh": "那請避開咖哩。如果您需要，主廚也能調整菜色。"
+      },
+      {
+        "sp": "M",
+        "t": "Thanks. I'd like something light, and I don't want to spend more than fifteen dollars.",
+        "zh": "謝謝。我想吃清淡的，而且不想花超過十五美元。"
+      },
+      {
+        "sp": "W",
+        "t": "That narrows it down. I'll tell the kitchen about your allergy right now.",
+        "zh": "那範圍就縮小了。我現在就告訴廚房您會過敏。"
+      },
+      {
+        "sp": "M",
+        "t": "I appreciate that. I'd rather be safe than sorry.",
+        "zh": "謝謝你。我寧可謹慎一點。"
+      }
+    ],
+    "graphic": {
+      "title": "Today's Menu",
+      "columns": [
+        "Dish",
+        "Contains",
+        "Price"
+      ],
+      "rows": [
+        [
+          "Pad Thai",
+          "Peanuts, eggs",
+          "$14"
+        ],
+        [
+          "Chicken Curry",
+          "Dairy",
+          "$16"
+        ],
+        [
+          "Veggie Stir-fry",
+          "Soy",
+          "$12"
+        ],
+        [
+          "Salmon Plate",
+          "Fish",
+          "$18"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "infer",
+        "q": {
+          "t": "What is implied about the man?",
+          "zh": "關於男士，文中暗示了什麼？"
+        },
+        "choices": [
+          {
+            "t": "He needs to avoid certain ingredients.",
+            "zh": "他必須避開某些食材。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：他對花生過敏且不能吃乳製品。"
+          },
+          {
+            "t": "He has eaten at the restaurant before.",
+            "zh": "他以前來過這家餐廳。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有任何線索顯示他來過。"
+          },
+          {
+            "t": "He is allergic only to dairy.",
+            "zh": "他只對乳製品過敏。",
+            "ok": false,
+            "trap": "partial",
+            "why": "部分正確：他也要避開花生。"
+          },
+          {
+            "t": "He would like to order takeout.",
+            "zh": "他想點外帶。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "對話沒有提到外帶。"
+          }
+        ],
+        "evidence": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": {
+          "t": "What does the waitress offer to do?",
+          "zh": "女服務生提議做什麼？"
+        },
+        "choices": [
+          {
+            "t": "Change how a dish is prepared",
+            "zh": "更改餐點的做法",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：The chef can also adjust a dish 換成 change how a dish is prepared。"
+          },
+          {
+            "t": "Recommend the chicken curry",
+            "zh": "推薦咖哩雞",
+            "ok": false,
+            "trap": "opposite",
+            "why": "相反：她建議他避開咖哩。"
+          },
+          {
+            "t": "Give him a discount on the curry",
+            "zh": "給他咖哩折扣",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "咖哩只是被提醒避開，沒有提到折扣。"
+          },
+          {
+            "t": "Move him to a quieter table",
+            "zh": "請他換到較安靜的桌位",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "對話沒有提到換座位。"
+          }
+        ],
+        "evidence": [
+          3
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "graphic",
+        "q": {
+          "t": "Look at the graphic. Which dish will the man most likely order?",
+          "zh": "請看圖表。男士最可能點哪一道菜？"
+        },
+        "choices": [
+          {
+            "t": "Veggie Stir-fry",
+            "zh": "蔬菜炒什錦",
+            "ok": true,
+            "pattern": "summary",
+            "why": "正解：不含花生與乳製品，且 $12 低於 15 美元。"
+          },
+          {
+            "t": "Pad Thai",
+            "zh": "泰式炒河粉",
+            "ok": false,
+            "trap": "opposite",
+            "why": "相反：含花生，他會過敏。"
+          },
+          {
+            "t": "Chicken Curry",
+            "zh": "咖哩雞",
+            "ok": false,
+            "trap": "partial",
+            "why": "含乳製品，且 $16 超過預算。"
+          },
+          {
+            "t": "Salmon Plate",
+            "zh": "鮭魚套餐",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "雖不含花生與乳製品，但 $18 超過 15 美元。"
+          }
+        ],
+        "evidence": [
+          4
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "allergy",
+        "ipa": "/ˈælərdʒi/",
+        "pos": "n.",
+        "col": "a food allergy",
+        "zh": "過敏"
+      },
+      {
+        "word": "adjust",
+        "ipa": "/əˈdʒʌst/",
+        "pos": "v.",
+        "col": "adjust a recipe",
+        "zh": "調整"
+      },
+      {
+        "word": "dairy",
+        "ipa": "/ˈderi/",
+        "pos": "n.",
+        "col": "dairy products",
+        "zh": "乳製品"
+      }
+    ]
+  },
+  {
+    "id": "d2-003-m",
+    "domain": "d2",
+    "scene": "restaurant",
+    "tag": "海鮮進貨延遲",
+    "form": "2p",
+    "level": {
+      "score": 650,
+      "cefr": "B1+",
+      "tier": "medium",
+      "why": "需從語意推知備案需求，並結合圖表時間計算實際到貨時間。"
+    },
+    "speakers": [
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "餐廳經理"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "主廚"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W",
+        "t": "Chef, lunch starts at eleven. Has the seafood delivery come in yet?",
+        "zh": "主廚，午餐十一點開始。海鮮送來了嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Not yet. The supplier called to say their truck broke down.",
+        "zh": "還沒。供應商打電話說他們的貨車故障了。"
+      },
+      {
+        "sp": "W",
+        "t": "How late will it be? We can't just wait and hope.",
+        "zh": "會晚多久？我們不能只是乾等著期待。"
+      },
+      {
+        "sp": "M",
+        "t": "About three hours behind their usual time, so we should change today's menu.",
+        "zh": "比平常時間晚約三小時，所以我們得更動今天的菜單。"
+      },
+      {
+        "sp": "W",
+        "t": "Okay. Could you replace the fish tacos with something we already have?",
+        "zh": "好。你可以把魚肉塔可換成我們現有食材做的菜嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Sure. I'll make chicken wraps, since we have plenty of chicken in the freezer.",
+        "zh": "可以。我來做雞肉捲，因為冷凍庫裡有很多雞肉。"
+      },
+      {
+        "sp": "W",
+        "t": "Perfect. I'll update the menu board and let the servers know.",
+        "zh": "太好了。我會更新菜單板並通知服務生。"
+      }
+    ],
+    "graphic": {
+      "title": "Supplier Delivery Schedule",
+      "columns": [
+        "Supplier",
+        "Items",
+        "Usual Time"
+      ],
+      "rows": [
+        [
+          "Green Farm",
+          "Vegetables",
+          "7:00 A.M."
+        ],
+        [
+          "Ocean Fresh",
+          "Seafood",
+          "9:00 A.M."
+        ],
+        [
+          "Valley Dairy",
+          "Milk and cheese",
+          "10:00 A.M."
+        ],
+        [
+          "Baker's Best",
+          "Bread",
+          "6:00 A.M."
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "intent",
+        "q": {
+          "t": "What does the woman imply when she says, \"We can't just wait and hope\"?",
+          "zh": "女士說「我們不能只是乾等著期待」暗示什麼？"
+        },
+        "choices": [
+          {
+            "t": "The kitchen needs a backup plan.",
+            "zh": "廚房需要備案。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：她接著就要求更動菜單，找替代方案。"
+          },
+          {
+            "t": "Customers will wait for their orders.",
+            "zh": "客人會願意等餐。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "相反：她的意思是不能乾等。"
+          },
+          {
+            "t": "The restaurant should close for lunch.",
+            "zh": "餐廳午餐應該休息不營業。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "後面是調整菜單繼續營業，沒有要關門。"
+          },
+          {
+            "t": "She does not believe the supplier called.",
+            "zh": "她不相信供應商打過電話。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "她詢問晚多久，並未質疑來電。"
+          }
+        ],
+        "evidence": [
+          2
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "graphic",
+        "q": {
+          "t": "Look at the graphic. When will the seafood most likely arrive?",
+          "zh": "請看圖表。海鮮最可能何時送到？"
+        },
+        "choices": [
+          {
+            "t": "At 12:00 noon",
+            "zh": "中午十二點",
+            "ok": true,
+            "pattern": "summary",
+            "why": "正解：Ocean Fresh 平常 9:00，晚三小時就是 12:00。"
+          },
+          {
+            "t": "At 9:00 A.M.",
+            "zh": "上午九點",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "這是平常送貨時間，今天延遲了。"
+          },
+          {
+            "t": "At 10:00 A.M.",
+            "zh": "上午十點",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "這是 Valley Dairy 的送貨時間，並非海鮮。"
+          },
+          {
+            "t": "At 11:00 A.M.",
+            "zh": "上午十一點",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "這是午餐開始時間，不是到貨時間。"
+          }
+        ],
+        "evidence": [
+          3
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": {
+          "t": "What does the man imply about the kitchen?",
+          "zh": "關於廚房，男士暗示了什麼？"
+        },
+        "choices": [
+          {
+            "t": "It has enough chicken for a new dish.",
+            "zh": "有足夠的雞肉可做新菜。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：冷凍庫裡有很多雞肉。"
+          },
+          {
+            "t": "It can no longer serve any fish dishes.",
+            "zh": "再也無法供應任何魚類料理。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "只是今天海鮮延遲，並非永遠不能供應。"
+          },
+          {
+            "t": "It will order extra seafood tomorrow.",
+            "zh": "明天會多訂海鮮。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "對話沒有提到明天的訂單。"
+          },
+          {
+            "t": "It wants to change suppliers.",
+            "zh": "想更換供應商。",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "只提到貨車故障，沒有說要換供應商。"
+          }
+        ],
+        "evidence": [
+          5
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "delivery",
+        "ipa": "/dɪˈlɪvəri/",
+        "pos": "n.",
+        "col": "a late delivery",
+        "zh": "送貨"
+      },
+      {
+        "word": "replace",
+        "ipa": "/rɪˈpleɪs/",
+        "pos": "v.",
+        "col": "replace A with B",
+        "zh": "以…取代"
+      },
+      {
+        "word": "freezer",
+        "ipa": "/ˈfriːzər/",
+        "pos": "n.",
+        "col": "in the freezer",
+        "zh": "冷凍庫"
+      }
+    ]
+  }
+]
