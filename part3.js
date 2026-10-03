@@ -11,7 +11,7 @@ if (!R.tests) R.tests = {};                      // 測驗紀錄：{ '難度|主
 if (!R.qrec) R.qrec = {};                        // 每題最近一次作答：{ 'd1-001-e|q1': { sel, ok, trap } }（首頁「常中的陷阱」與錯題本用）
 if (!Array.isArray(R.reports)) R.reports = [];  // 提報紀錄（存在 PK 裡，與作答紀錄同一份 localStorage）
 const saveR = () => { try { localStorage.setItem(PK, JSON.stringify(R)); } catch (e) {} };
-let DATA = [], RAW = [], SPEC = null, HEALTH = { list: [], err: 0, warn: 0, dropped: 0 };
+let DATA = [], RAW = [], JP = null, SPEC = null, HEALTH = { list: [], err: 0, warn: 0, dropped: 0 };
 const TESTN = 6, TARGET = 2, LT = 'ABCD'; // TESTN／TARGET 與 Part 1 相同（PART_UI_GUIDE 1.2 #4 預設；單位是「組」）
 const TIER = { easy: '初級', medium: '中級', hard: '高級' }, TS = { easy: 'e', medium: 'm', hard: 'h' }, TSC = { easy: '500–550', medium: '600–650', hard: '700–800' };
 const SCORE_RG = { easy: [500, 550], medium: [600, 650], hard: [700, 800] };
@@ -356,12 +356,21 @@ function auditAll(raw) {
 const hItems = id => (HEALTH.list || []).filter(h => h.id === id);
 
 /* ---------- 維護：D×難度矩陣 → 該格題組 → 單題頁；新增題目 ---------- */
-const A = { d: null, t: null, k: null, nd: 'd1', nt: 'easy', nf: '2p', nn: 1, ng: 'one', out: [] };
+const A = { d: null, t: null, k: null, nds: ['d1'], nts: ['easy'], nf: 'auto', nn: 1, ng: 'one', out: [], seeds: [], hint: '', must: [], sc: {}, scn: {}, start: '', imp: null };
+const SEEDS = { d1: ['會議安排', '簡報準備', '設備故障', '訂購文具', '同事請假', '客戶來訪', '出差安排', '新人報到'], d2: ['訂位候位', '點餐更換', '結帳折扣', '客訴處理', '外帶外送', '活動包場', '菜單推薦', '食材缺貨'], d3: ['退換貨', '尋找商品', '比價折扣', '付款方式', '缺貨調貨', '包裝運送', '會員點數', '試穿試用'], d4: ['問路指引', '購票搭車', '班次延誤', '塞車改道', '停車問題', '轉乘路線', '計程車叫車', '道路施工'], d5: ['安全規定', '貨物盤點', '設備檢修', '進度回報', '出貨排程', '人員調派', '材料短缺', '倉庫整理'], d6: ['訂房入住', '房間設備', '延後退房', '飯店服務', '水電維修', '搬家整理', '訪客安排', '鄰居問題'], d7: ['天氣變化', '活動籌辦', '公園設施', '野餐集合', '導覽行程', '場地租借', '步道封閉', '義工活動'] };
+const FORM_DEF = { easy: '2p', medium: '2p', hard: '3p' };
+const RK_ = (d, t) => d + '|' + t;
 const tcol = n => n >= TARGET ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400' : n ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-400' : 'bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400';
 const HL = { err: ['✖', 'text-rose-600 dark:text-rose-400'], warn: ['⚠', 'text-amber-600 dark:text-amber-400'] };
 function goA(view, p) { stopAudio(); Object.assign(A, p || {}); V.view = view; V.run = null; render(); window.scrollTo({ top: 0 }); }
-const adminCell = (d, t) => goA('adminCell', { d, t }), adminItem = k => goA('adminItem', { k }), adminNew = (d, t) => goA('adminNew', { nd: d || A.nd, nt: t || A.nt });
+const adminCell = (d, t) => goA('adminCell', { d, t }), adminItem = k => goA('adminItem', { k }), adminNew = (d, t) => goA('adminNew', { nds: d ? [d] : A.nds, nts: t ? [t] : A.nts });
 const apick = (k, v) => { A[k] = v; render(); };
+const atog = (k, v) => { const a = A[k].includes(v) ? A[k].filter(x => x !== v) : A[k].concat(v); if (!a.length && (k === 'nds' || k === 'nts')) return; A[k] = a; render(); };
+const ascore = (t, v) => { A.sc[t] = v; render(); };
+const ascene = (d, v) => { const a = A.scn[d] || []; A.scn[d] = a.includes(v) ? a.filter(x => x !== v) : a.concat(v); render(); };
+const ahint = v => { A.hint = v; };
+const astart = v => { A.start = String(v).replace(/\D/g, ''); render(); };
+const fillLow = () => { let best = null; Object.keys(DOM).forEach(d => Object.keys(TIER).forEach(t => { const n = pool(t, d).length; if (!best || n < best.n) best = { d, t, n }; })); if (best) { A.nds = [best.d]; A.nts = [best.t]; A.nn = Math.min(3, Math.max(1, TARGET - best.n)); A.seeds = []; } render(); };
 const idBtn = id => find(id) ? `<button onclick="adminItem(this.dataset.k)" data-k="${esc(id)}" class="font-bold underline decoration-dotted cursor-pointer">${esc(id)}</button>` : `<b>${esc(id)}</b>`;
 const auSt = id => auFull('p3', id) ? ['complete', '✓ 音檔齊', 'text-emerald-600'] : (((AU.idx || {}).p3 || {}).partial || {})[id] ? ['partial', '✖ 缺 ' + AU.idx.p3.partial[id].length + ' 檔', 'text-rose-600'] : ['none', '✖ 缺音檔（整組改用機器發音）', 'text-rose-600'];
 const gOf = (x, sp) => ((x.speakers || []).find(s => s.id === sp) || {}).gender || '?';
@@ -451,52 +460,111 @@ const serial = (d, t) => { let mx = 0; RAW.forEach(x => { const m = x && x.id &&
 const cefrOf = s => s <= 550 ? 'A2+' : s === 600 ? 'B1' : s === 650 ? 'B1+' : s <= 750 ? 'B2' : 'B2+';
 const scoreList = t => { const r = []; for (let s = SCORE_RG[t][0]; s <= SCORE_RG[t][1]; s += 50) r.push(s); return r; };
 /* 題型配置：把 n×3 個題位依「該格已有題數＋本批已分配數」由少到多輪流分給各題型；每組 3 題不重複；中級／高級每組保證含推論或意圖 */
-function planQ(cq, ids, t, g) {
+function planQ(cq, ids, t, g, must) {
   const order = Object.keys(QT), ks = order.filter(k => g !== 'no' || k !== 'graphic'), used = {}, load = k => (cq[k] || 0) + (used[k] || 0);
   const take = (set, k) => { set.push(k); used[k] = (used[k] || 0) + 1; };
+  const seeds = ids.map(() => []); if (g === 'one') take(seeds[0], 'graphic');
+  (must || []).filter(k => k !== 'graphic' && QT[k]).forEach((k, i) => { for (let j = 0; j < ids.length; j++) { const s = seeds[(i + j + (g === 'one' ? 1 : 0)) % ids.length]; if (s.length < 3 && !s.includes(k)) { take(s, k); break; } } });
   return ids.map((id, si) => {
-    const set = [];
-    if (g === 'one' && si === 0) take(set, 'graphic');
+    const set = seeds[si];
     while (set.length < 3) take(set, ks.filter(k => !set.includes(k)).sort((a, b) => load(a) - load(b) || order.indexOf(a) - order.indexOf(b))[0]);
     if (t !== 'easy' && !set.some(k => k === 'infer' || k === 'intent')) {
-      const k = ['infer', 'intent'].sort((a, b) => load(a) - load(b))[0], i = set.map((v, j) => v === 'graphic' ? -1 : j).filter(j => j >= 0).pop();
-      used[set[i]]--; set[i] = k; used[k] = (used[k] || 0) + 1;
+      const k = ['infer', 'intent'].sort((a, b) => load(a) - load(b))[0], i = set.map((v, j) => v === 'graphic' || (must || []).includes(v) ? -1 : j).filter(j => j >= 0).pop();
+      if (i !== undefined) { used[set[i]]--; set[i] = k; used[k] = (used[k] || 0) + 1; }
     }
     return { id, set: set.sort((a, b) => order.indexOf(a) - order.indexOf(b)) };
   });
 }
-function buildOut(d, t, f, n, g) {
-  const mx = serial(d, t), ids = Array.from({ length: n }, (_, i) => d + '-' + String(mx + 1 + i).padStart(3, '0') + '-' + TS[t]), fname = 'p3_' + ids[0] + '_x' + n + '.json', sp = SPEC || {};
+function buildOut(d, t, f, n, g, o) {
+  o = o || {};
+  const sp = SPEC || {}, mx = o.start ? Math.max(0, +o.start - 1) : serial(d, t), ids = Array.from({ length: n }, (_, i) => d + '-' + String(mx + 1 + i).padStart(3, '0') + '-' + TS[t]), fname = 'p3_' + ids[0] + '_x' + n + '.json';
+  const forms = ids.map((_, i) => f === 'mix' ? (i % 2 ? '3p' : '2p') : (f === 'auto' || !f ? FORM_DEF[t] : f)), same = forms.every(v => v === forms[0]), FL = v => v === '3p' ? '三人' : '兩人';
   const cq = {}; DATA.filter(x => domOf(x) === d && tierOf(x) === t).forEach(x => x.questions.forEach(q => { cq[q.qtype] = (cq[q.qtype] || 0) + 1; }));
   const lite = JSON.stringify({ domain: { [d]: sp.domains && sp.domains[d] }, tier: { [t]: sp.tiers && sp.tiers[t] }, qtypes: sp.qtypes, traps: sp.traps, entry_schema: sp.entry_schema, rules: sp.rules });
+  const scs = scoreList(t), scSel = o.sc && o.sc[t], scUse = typeof scSel === 'number' ? [scSel] : scs, scenes = (o.scn && o.scn[d] && o.scn[d].length ? o.scn[d] : (DOM[d] && DOM[d].scenes) || []);
+  const seeds = (o.seeds || []).filter(s => s.startsWith(d + ':')).map(s => s.slice(d.length + 1)), first = x => { const w = String(x.dialogue[0].t).split(/\s+/); return w.slice(0, 8).join(' ') + (w.length > 8 ? '…' : ''); };
   const text = [`請為多益 Part 3 簡短對話寫 ${n} 組題目（每組一段對話＋3題），輸出為單一 JSON 陣列，規格在最後，不需要另外附 part3.json。`, '',
-    `- 主題：${domLabel(d)}（scene 須屬於：${((DOM[d] && DOM[d].scenes) || []).join('、')}）`,
-    `- 難度：${TIER[t]}（id 尾碼 ${TS[t]}）｜level.score 只能填：${scoreList(t).map(s => s + '（cefr 填 ' + cefrOf(s) + '）').join('、')}${sp.tiers && sp.tiers[t] ? '｜' + sp.tiers[t].guide : ''}`,
-    `- 形式：${f === '3p' ? '三人對話（form 填 3p，須有兩位同性別說話者）' : '兩人對話（form 填 2p）'}`,
+    `- 主題：${domLabel(d)}（scene 須屬於：${scenes.join('、')}）`,
+    `- 難度：${TIER[t]}（id 尾碼 ${TS[t]}）｜level.score 只能填：${scUse.map(s => s + '（cefr 填 ' + cefrOf(s) + '）').join('、')}${scSel === 'mix' && scs.length > 1 ? '，各組請盡量平均分配不同分數' : ''}${sp.tiers && sp.tiers[t] ? '｜' + sp.tiers[t].guide : ''}`,
+    same ? `- 形式：${forms[0] === '3p' ? '三人對話（form 填 3p，須有兩位同性別說話者）' : '兩人對話（form 填 2p）'}` : `- 形式：${ids.map((id, i) => id + '＝' + FL(forms[i]) + '（form 填 ' + forms[i] + '）').join('；')}；三人對話須有兩位同性別說話者`,
     `- id 依序使用：${ids.join('、')}（domain 填 ${d}，level.tier 填 ${t}）`,
+    ...(seeds.length ? [`- 情境提示（各組依序挑用不同情境；tag 仍不得與已用過的重複）：${seeds.join('、')}`] : []),
+    ...(o.hint && o.hint.trim() ? [`- 補充要求：${o.hint.trim()}`] : []),
     `- 每組 3 題；題型請搭配（主旨／細節／推論／意圖／未來行動${g === 'no' ? '' : '／圖表'}），各組不要完全相同；${g === 'no' ? '本批不要出圖表題（graphic 填 null）' : g === 'one' ? '這批至少 1 組要含圖表題，圖表題須提供 graphic，且答案需結合圖表與對話' : '圖表題可有可無（沒有圖表題的組，graphic 填 null）；出圖表題時須提供 graphic，且答案需結合圖表與對話'}。`,
     `- 此主題＋難度已有的題型題數：${Object.keys(QT).map(k => k + '×' + (cq[k] || 0)).join('、')}，請優先補數量最少的題型。`,
-    `- 建議題型配置（可小幅調整，但各組不要完全相同）：${planQ(cq, ids, t, g).map(p => p.id + '：' + p.set.map(k => QT[k] + '(' + k + ')').join('／')).join('；')}`,
-    `- 每組對話 ${f === '3p' ? '10 句以上' : '6–8 句'}，每句英文 5–25 個單字；speakers 的 id ${f === '3p' ? '用 W1／W2／M 這類（兩位同性別）' : '用 W／M'}，role 用中文；level.why 用一句中文說明。`,
+    `- 建議題型配置（可小幅調整，但各組不要完全相同）：${planQ(cq, ids, t, g, o.must).map(p => p.id + '：' + p.set.map(k => QT[k] + '(' + k + ')').join('／')).join('；')}`,
+    `- 每組對話 ${same ? (forms[0] === '3p' ? '10 句以上' : '6–8 句') : '兩人 6–8 句、三人 10 句以上'}，每句英文 5–25 個單字；speakers 的 id ${same ? (forms[0] === '3p' ? '用 W1／W2／M 這類（兩位同性別）' : '用 W／M') : '兩人用 W／M，三人用 W1／W2／M 這類（兩位同性別）'}，role 用中文；level.why 用一句中文說明。`,
     '- 每題 4 選項、剛好 1 正解；錯誤選項須有明確依據可排除，並標 trap；每個選項都要附 zh（中文翻譯）；evidence 為對話句索引（從 0 起），依題號遞增。',
     `- 已用過的 vocab（不得重複）：${[...new Set(DATA.flatMap(x => (x.vocab || []).map(v => v.word)))].join('、') || '（無）'}`,
-    `- 已用過的 tag（不得重複）：${DATA.map(x => x.tag).join('；') || '（無）'}`,
-    `- 已有的對話首句（不要雷同）：${DATA.map(x => x.dialogue[0].t).join('；') || '（無）'}`,
+    `- 已用過的 tag（不得重複）：${[...new Set(DATA.map(x => x.tag))].join('；') || '（無）'}`,
+    `- 已有的對話首句（不要雷同，只列前 8 字）：${DATA.map(first).join('；') || '（無）'}`,
     `- 輸出方式：建立檔案 ${fname}（只含一個合法 JSON 陣列、UTF-8、不加程式碼區塊標記）；無法建檔才輸出單一 json 程式碼區塊。`,
     '', '【規格：part3.json 的 _spec 精簡版】', lite].join('\n');
-  return [{ title: '給 AI 的「寫題目」指令', note: `不需要上傳 part3.json（約 ${text.length.toLocaleString()} 字，已含規格、已用過的 tag／vocab 與既有對話首句）。AI 會一次寫 ${n} 組，直接給你 ${fname}。`, text },
-    { title: '存檔與合併', note: `AI 會依指令建立 ${fname}（id ${ids[0]}${n > 1 ? '～' + ids[n - 1] : ''} 是網頁依目前最大流水號算的，已寫在指令裡）。下載後放到 json_merge.py 同一個資料夾，執行並選「Part 3 對話」；p3_ 開頭的檔案會自動列出並勾選，其他檔名請按「新增檔案…」。合併後重新整理本頁，題數就會更新。音檔放 audio/p3/ 後執行 audio_scan.py，再到該組題目頁複製錄音稿與檔名。` }];
+  return { title: `${domLabel(d)} · ${TIER[t]}（${n} 組）`, fname, text, note: `約 ${text.length.toLocaleString()} 字；id ${ids[0]}${n > 1 ? '～' + ids[n - 1] : ''}（目前此格最大號 ${String(mx).padStart(3, '0')}，本批從 ${String(mx + 1).padStart(3, '0')} 開始）。不需要上傳 part3.json，AI 會直接給你 ${fname}。` };
 }
+const comboList = () => { const r = []; Object.keys(DOM).filter(d => A.nds.includes(d)).forEach(d => Object.keys(TIER).filter(t => A.nts.includes(t)).forEach(t => r.push([d, t]))); return r; };
+const MERGE_NOTE = '各份 AI 回覆的檔案下載後，先到下方「貼回檢查」確認沒有錯誤，可直接下載合併後的 part3.json 取代原檔（建議先備份）；也可照舊放到 json_merge.py 同一資料夾，執行並選「Part 3 對話」。合併後重新整理本頁，題數就會更新。音檔放 audio/p3/ 後執行 audio_scan.py，再到該組題目頁複製錄音稿與檔名。';
+/* ---------- 貼回 AI 的 JSON：先健檢（含與現有題庫比對 id／tag／vocab／首句）再合併下載 ---------- */
+const impParse = text => { const j = JSON.parse(String(text).trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '')), a = itemsOf(j); if (!Array.isArray(a) || !a.length) throw new Error('找不到題目陣列'); return a; };
+function impRun(srcs) {
+  const items = [], errs = [];
+  srcs.forEach(s => { try { items.push(...impParse(s.text)); } catch (e) { errs.push(s.name + '：' + e.message); } });
+  if (!items.length) { A.imp = { err: errs.join('；') || '沒有內容', names: srcs.map(s => s.name), items: [] }; return render(); }
+  const test = JSON.parse(JSON.stringify(items)); test.forEach(normItem);
+  const ids = new Set(test.map(x => x && x.id).filter(Boolean)), base = {}; auditAll(RAW).list.forEach(h => { const k = h.id + '|' + h.lv + '|' + h.msg; base[k] = (base[k] || 0) + 1; });
+  const list = auditAll(RAW.concat(test)).list.filter(h => { const k = h.id + '|' + h.lv + '|' + h.msg; if (base[k] > 0) { base[k]--; return false; } return true; }); // 扣掉現有題庫本來就有的項目，只留新內容造成的
+  const old = new Set(DATA.map(x => nrm(x.dialogue[0].t))); test.forEach(x => { if (x && x._ok && old.has(nrm(x.dialogue[0].t))) list.push({ id: x.id, lv: 'warn', msg: '首句與現有題目相同' }); });
+  const c = lv => list.filter(h => h.lv === lv).length;
+  A.imp = { names: srcs.map(s => s.name), items, ids: [...ids], err: errs.join('；'), res: { list, err: c('err'), warn: c('warn') } }; render();
+}
+const impPaste = () => { const e = document.getElementById('impt'); A.impText = e ? e.value : ''; if (A.impText.trim()) impRun([{ name: '貼上的內容', text: A.impText }]); };
+const impFiles = input => { const fs = [...input.files]; if (!fs.length) return; Promise.all(fs.map(f => new Promise(ok => { const r = new FileReader(); r.onload = () => ok({ name: f.name, text: r.result }); r.readAsText(f, 'utf-8'); }))).then(impRun); };
+const impClear = () => { A.imp = null; A.impText = ''; render(); };
+function impMerge() {
+  const im = A.imp; if (!im || !im.res || im.res.err || !im.items.length) return;
+  const m = Array.isArray(JP) ? JP.concat(im.items) : Object.assign({}, JP, { items: itemsOf(JP).concat(im.items) });
+  download('part3.json', JSON.stringify(m, null, 2) + '\n', 'application/json'); toast('已下載合併後的 part3.json（共 ' + (itemsOf(JP).length + im.items.length) + ' 組）');
+}
+const impH = () => {
+  const im = A.imp, on = 'rounded-lg border px-3 py-1.5 text-sm cursor-pointer';
+  let h = `<div class="${card} p-4 mb-3"><p class="font-bold text-sm mb-1">6. 貼回 AI 的 JSON 先檢查</p><p class="text-xs text-slate-500 mb-2">選取 AI 產生的 p3_*.json（可多選），或貼上內容。會用「資料健檢」的規則檢查，並與現有題庫比對 id、tag、vocab、對話首句；沒有錯誤才能下載合併檔。</p><div class="flex flex-wrap items-center gap-2 mb-2"><label class="${btn} ${line} !py-1.5 text-xs">選取檔案<input type="file" accept=".json,application/json" multiple class="hidden" onchange="impFiles(this)"></label><button onclick="impPaste()" class="${btn} ${line} !py-1.5 text-xs">檢查貼上的內容</button>${im ? `<button onclick="impClear()" class="${btn} !py-1.5 text-xs text-slate-500">清除</button>` : ''}</div><textarea id="impt" oninput="A.impText=this.value" rows="3" placeholder="把 JSON 貼在這裡…" class="w-full text-xs rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent p-2">${esc(A.impText || '')}</textarea>`;
+  if (im) {
+    if (im.err) h += `<p class="text-xs mt-2 ${HL.err[1]}">✖ ${esc(im.err)}</p>`;
+    if (im.res) {
+      const r = im.res, g = {}, order = []; r.list.forEach(it => { if (!g[it.id]) { g[it.id] = []; order.push(it.id); } g[it.id].push(it); });
+      h += `<div class="mt-3 text-sm flex flex-wrap gap-x-4 gap-y-1"><span>讀到 <b>${im.items.length}</b> 組（${esc(im.ids.join('、'))}）</span>${!r.err && !r.warn ? '<span class="text-emerald-600 dark:text-emerald-400">✔ 全部通過</span>' : `${r.err ? `<span class="${HL.err[1]}">✖ 錯誤 <b>${r.err}</b></span>` : ''}${r.warn ? `<span class="${HL.warn[1]}">⚠ 提醒 <b>${r.warn}</b></span>` : ''}`}</div>`;
+      if (order.length) h += `<div class="max-h-72 overflow-auto mt-2">${order.map(id => `<div class="mt-2"><p class="text-xs font-bold">${esc(id)}</p><ul class="text-xs space-y-0.5 mt-0.5">${g[id].map(it => `<li class="${HL[it.lv][1]}">${HL[it.lv][0]} ${esc(it.msg)}</li>`).join('')}</ul></div>`).join('')}</div>`;
+      h += `<button onclick="impMerge()" ${r.err ? 'disabled' : ''} class="${btn} ${pri} w-full mt-3">${r.err ? '請先修正錯誤再合併' : '下載合併後的 part3.json（現有 ' + RAW.length + ' ＋ 新增 ' + im.items.length + ' 組）'}</button>${r.err ? '' : '<p class="text-xs text-slate-400 mt-1">提醒（⚠）不影響合併，但建議請 AI 修正；下載後用它取代原本的 part3.json，重新整理即可。</p>'}`;
+    }
+  }
+  return h + '</div>';
+};
+const downloadOut = i => download((A.outF[i] || 'prompt').replace(/\.json$/, '') + '_指令.txt', A.out[i] || '', 'text/plain');
 function adminNewH() {
-  const on = c => `${btn} !py-1.5 ${c ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}`;
+  const on = c => `${btn} !py-1.5 ${c ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}`, doms = Object.keys(DOM), tiers = Object.keys(TIER), combos = comboList();
   let h = hdr('新增題目', 'openAdmin()');
-  h += `<h2 class="font-bold mb-2">1. 選主題</h2><div class="flex flex-wrap gap-2 mb-5">${Object.keys(DOM).map(k => `<button onclick="apick('nd','${k}')" class="${on(A.nd === k)}">${esc(domLabel(k))}</button>`).join('')}</div>`;
-  h += `<h2 class="font-bold mb-2">2. 選難度</h2><div class="flex flex-wrap gap-2 mb-5">${Object.keys(TIER).map(k => `<button onclick="apick('nt','${k}')" class="${on(A.nt === k)}">${TIER[k]} ${TS[k]} <span class="text-xs opacity-70">${TSC[k]} · ${pool(k, A.nd).length} 組</span></button>`).join('')}</div>`;
-  h += `<h2 class="font-bold mb-2">3. 選形式</h2><div class="flex flex-wrap gap-2 mb-5">${['2p', '3p'].map(k => `<button onclick="apick('nf','${k}')" class="${on(A.nf === k)}">${k === '3p' ? '三人' : '兩人'}</button>`).join('')}</div>`;
-  h += `<h2 class="font-bold mb-2">4. 一次幾組</h2><div class="flex flex-wrap gap-2 mb-5">${[1, 2, 3].map(k => `<button onclick="apick('nn',${k})" class="${on(A.nn === k)}">${k} 組</button>`).join('')}</div>`;
-  h += `<h2 class="font-bold mb-2">5. 圖表題</h2><div class="flex flex-wrap gap-2 mb-5">${[['any', '不限（AI 決定）'], ['one', '至少 1 組含圖表題'], ['no', '不含圖表題']].map(([k, v]) => `<button onclick="apick('ng','${k}')" class="${on(A.ng === k)}">${v}</button>`).join('')}</div>`;
-  const outs = buildOut(A.nd, A.nt, A.nf, A.nn, A.ng); A.out = outs.map(s => s.text || '');
-  return h + outs.map((s, i) => `<div class="${card} p-4 mb-3"><div class="flex items-center justify-between gap-2 mb-1"><p class="font-bold text-sm">${i + 1}. ${esc(s.title)}</p>${s.text ? `<button id="cp${i}" onclick="copyOut(${i})" class="${btn} ${line} !py-1 text-xs shrink-0">複製</button>` : ''}</div><p class="text-xs text-slate-500 mb-2">${esc(s.note)}</p>${s.text ? `<pre class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-72 overflow-auto">${esc(s.text)}</pre>` : ''}</div>`).join('');
+  if (!DATA.length) h += `<div class="rounded-lg border border-rose-300 bg-rose-50 dark:bg-rose-950/40 dark:border-rose-900 text-rose-700 dark:text-rose-300 text-xs p-3 mb-4">⚠ 尚未載入題庫（0 組）。目前產生的指令不含「已用過的 vocab／tag／對話首句」，AI 可能寫出重複內容；請先載入 part3.json（雙擊開啟時請按「選取 part3.json」）。</div>`;
+  const rec = Math.min(3, Math.max(1, ...combos.map(([d, t]) => TARGET - pool(t, d).length)));
+  let low = null; doms.forEach(d => tiers.forEach(t => { const n = pool(t, d).length; if (!low || n < low.n) low = { d, t, n }; }));
+  h += `<div class="sticky top-0 z-10 -mx-1 px-1 py-2 mb-3 bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur text-xs text-slate-600 dark:text-slate-300 border-b border-slate-200 dark:border-slate-800">${combos.length} 份指令 · 每份 ${A.nn} 組 · ${combos.map(([d, t]) => d.toUpperCase() + TS[t]).join('、')} · 形式 ${A.nf === 'auto' ? '依難度' : A.nf === 'mix' ? '混合' : A.nf === '3p' ? '三人' : '兩人'}${low ? ` <button onclick="fillLow()" class="ml-2 underline text-indigo-600 dark:text-indigo-400 cursor-pointer">補最缺的格子（${low.d.toUpperCase()} ${TIER[low.t]}：${low.n} 組）</button>` : ''}</div>`;
+  h += `<h2 class="font-bold mb-2">1. 選主題 <span class="text-xs font-normal text-slate-500">可複選</span></h2><div class="flex flex-wrap gap-2 mb-5">${doms.map(k => `<button onclick="atog('nds','${k}')" class="${on(A.nds.includes(k))}">${esc(domLabel(k))}</button>`).join('')}</div>`;
+  const multiSc = A.nds.filter(d => (DOM[d].scenes || []).length > 1);
+  if (multiSc.length) h += multiSc.map(d => `<div class="mb-4 -mt-2 text-xs"><span class="text-slate-500">${d.toUpperCase()} 場景（不選＝AI 自選）：</span> ${DOM[d].scenes.map(s => `<button onclick="ascene('${d}','${s}')" class="${chip} cursor-pointer ${(A.scn[d] || []).includes(s) ? '!bg-indigo-600 !text-white' : ''}">${esc(s)}</button>`).join(' ')}</div>`).join('');
+  h += `<h2 class="font-bold mb-2">2. 選難度 <span class="text-xs font-normal text-slate-500">可複選</span></h2><div class="flex flex-wrap gap-2 mb-3">${tiers.map(k => `<button onclick="atog('nts','${k}')" class="${on(A.nts.includes(k))}">${TIER[k]} ${TS[k]} <span class="text-xs opacity-70">${TSC[k]} · ${A.nds.length === 1 ? pool(k, A.nds[0]).length : A.nds.map(d => pool(k, d).length).join('/')} 組</span></button>`).join('')}</div>`;
+  h += `<div class="mb-5 text-xs space-y-1.5">${tiers.filter(t => A.nts.includes(t)).map(t => `<div><span class="text-slate-500">${TIER[t]}分數：</span> ${[['auto', 'AI 決定'], ...scoreList(t).map(s => [s, String(s)]), ...(scoreList(t).length > 1 ? [['mix', '平均分配']] : [])].map(([v, l]) => `<button onclick="ascore('${t}',${typeof v === 'number' ? v : `'${v}'`})" class="${chip} cursor-pointer ${(A.sc[t] || 'auto') === v ? '!bg-indigo-600 !text-white' : ''}">${l}</button>`).join(' ')}</div>`).join('')}</div>`;
+  h += `<h2 class="font-bold mb-2">3. 選形式</h2><div class="flex flex-wrap gap-2 mb-1">${[['auto', '依難度（初中兩人、高級三人）'], ['2p', '兩人'], ['3p', '三人'], ['mix', '混合']].map(([k, v]) => `<button onclick="apick('nf','${k}')" class="${on(A.nf === k)}">${v}</button>`).join('')}</div>`;
+  const mism = A.nf === '2p' || A.nf === '3p' ? A.nts.filter(t => FORM_DEF[t] !== A.nf) : A.nf === 'mix' ? A.nts : [];
+  h += `<p class="text-xs mb-5 ${mism.length ? HL.warn[1] : 'text-slate-400'}">${mism.length ? `⚠ ${mism.map(t => TIER[t]).join('、')}的預設形式是${mism.map(t => FORM_DEF[t] === '3p' ? '三人' : '兩人').join('／')}，選其他形式會被資料健檢提醒。` : '「混合」＝兩人與三人輪流出現（至少 2 組才會同時有）。'}</p>`;
+  h += `<h2 class="font-bold mb-2">4. 一次幾組 <span class="text-xs font-normal text-slate-500">（每份指令；目前選擇建議補 ${rec} 組，目標每格 ${TARGET} 組）</span></h2><div class="flex flex-wrap gap-2 mb-5">${[1, 2, 3].map(k => `<button onclick="apick('nn',${k})" class="${on(A.nn === k)}">${k} 組${k === rec ? ' ★' : ''}</button>`).join('')}</div>`;
+  h += `<h2 class="font-bold mb-2">5. 圖表題與題型</h2><div class="flex flex-wrap gap-2 mb-3">${[['any', '不限（AI 決定）'], ['one', '至少 1 組含圖表題'], ['no', '不含圖表題']].map(([k, v]) => `<button onclick="apick('ng','${k}')" class="${on(A.ng === k)}">${v}</button>`).join('')}</div>`;
+  h += `<div class="mb-5 text-xs"><span class="text-slate-500">指定一定要出的題型（可複選；不選＝依缺口自動配置）：</span> ${Object.keys(QT).filter(k => k !== 'graphic').map(k => `<button onclick="atog('must','${k}')" class="${chip} cursor-pointer ${A.must.includes(k) ? '!bg-indigo-600 !text-white' : ''}">${QT[k]}</button>`).join(' ')}</div>`;
+  h += `<h2 class="font-bold mb-2">6. 情境提示 <span class="text-xs font-normal text-slate-500">（選填）</span></h2>${A.nds.map(d => `<div class="mb-2 text-xs"><span class="text-slate-500">${d.toUpperCase()}：</span> ${(SEEDS[d] || []).map(s => { const key = d + ':' + s; return `<button onclick="atog('seeds','${key}')" class="${chip} cursor-pointer ${A.seeds.includes(key) ? '!bg-indigo-600 !text-white' : ''}">${esc(s)}</button>`; }).join(' ')}</div>`).join('')}<input id="hint" value="${esc(A.hint)}" oninput="ahint(this.value)" placeholder="其他補充要求，例如：不要出現電話對話、第 2 組要有客訴情境" class="w-full text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent px-3 py-2 mt-1 mb-5">`;
+  h += `<details class="mb-5" ${A.start ? 'open' : ''}><summary class="text-sm font-bold cursor-pointer">進階：起始流水號</summary><p class="text-xs text-slate-500 mt-1 mb-2">預設依目前題庫的最大號 + 1。如果前一批還沒合併就要產生下一批，請在這裡填起始號碼，避免 id 重複（會套用到所有份指令）。</p><input value="${esc(A.start)}" oninput="A.start=this.value.replace(/\\D/g,'')" onchange="astart(this.value)" inputmode="numeric" placeholder="留空＝自動" class="w-32 text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent px-3 py-1.5"></details>`;
+  const outs = combos.map(([d, t]) => buildOut(d, t, A.nf, A.nn, A.ng, A)); A.out = outs.map(s => s.text); A.outF = outs.map(s => s.fname);
+  if (combos.length > 1) h += `<p class="text-xs ${HL.warn[1]} mb-2">⚠ 同時產生多份指令時，各份彼此不知道對方會寫什麼（tag、vocab 可能撞），建議依序使用，或每份合併後再產生下一份。</p>`;
+  h += outs.map((s, i) => `<div class="${card} p-4 mb-3"><div class="flex items-center justify-between gap-2 mb-1"><p class="font-bold text-sm">${i + 1}. ${esc(s.title)}</p><span class="flex gap-1.5 shrink-0"><button onclick="downloadOut(${i})" class="${btn} ${line} !py-1 text-xs">下載 .txt</button><button id="cp${i}" onclick="copyOut(${i})" class="${btn} ${line} !py-1 text-xs">複製</button></span></div><p class="text-xs text-slate-500 mb-2">${esc(s.note)}</p><pre class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-72 overflow-auto">${esc(s.text)}</pre></div>`).join('');
+  h += `<div class="${card} p-4 mb-3"><p class="font-bold text-sm mb-1">存檔與合併</p><p class="text-xs text-slate-500">${esc(MERGE_NOTE)}</p></div>` + impH();
+  return h;
 }
 function clip(t, bid) {
   const d = () => { const b = document.getElementById(bid); if (b) { b.dataset.l = b.dataset.l || b.textContent; b.textContent = '已複製 ✓'; setTimeout(() => { if (b.isConnected) b.textContent = b.dataset.l || '複製'; }, 1500); } };
@@ -635,7 +703,7 @@ function loadText(t) {
   try {
     const j = JSON.parse(t), d = j && j._spec && j._spec.domains; SPEC = (j && j._spec) || null;
     if (d && typeof d === 'object') { const m = {}; Object.keys(d).forEach(k => { if (d[k] && d[k].name) m[k] = { n: d[k].name, scenes: d[k].scenes || [] }; }); if (Object.keys(m).length) DOM = m; }
-    RAW = itemsOf(j); DATA = RAW.map(normItem).filter(Boolean); HEALTH = auditAll(RAW); render();
+    JP = JSON.parse(t); RAW = itemsOf(j); DATA = RAW.map(normItem).filter(Boolean); HEALTH = auditAll(RAW); render();
     if (location.hash === '#admin' && !window._ah) { window._ah = 1; openAdmin(); } // 從首頁「維護總覽」直接進入維護頁
   } catch (e) { alert('part3.json 格式有誤：' + e.message); }
 }

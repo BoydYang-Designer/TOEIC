@@ -1,0 +1,511 @@
+[
+  {
+    "id": "d1-002-h",
+    "domain": "d1",
+    "scene": "office",
+    "tag": "規劃客戶拜訪交通",
+    "form": "3p",
+    "level": {
+      "score": 750,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "三人對話先訂火車後改搭飛機，需結合圖表的時間與價格及對話中的限制才能作答。"
+    },
+    "speakers": [
+      {
+        "id": "W1",
+        "gender": "F",
+        "role": "行政助理"
+      },
+      {
+        "id": "W2",
+        "gender": "F",
+        "role": "業務專員"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "部門經理"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W1",
+        "t": "Okay, let's settle the travel plan for the Chicago client visit next Friday.",
+        "zh": "好，我們來敲定下週五拜訪芝加哥客戶的行程。"
+      },
+      {
+        "sp": "M",
+        "t": "The meeting starts at twelve thirty, so we should arrive at least an hour early.",
+        "zh": "會議十二點半開始，所以我們至少要提早一小時抵達。"
+      },
+      {
+        "sp": "W2",
+        "t": "I'd suggest the morning train. It's cheap, and we could prepare our slides on board.",
+        "zh": "我建議搭早班火車。很便宜，而且可以在車上準備簡報。"
+      },
+      {
+        "sp": "W1",
+        "t": "That sounds good. I'll buy three seats on the six o'clock train right now.",
+        "zh": "聽起來不錯。我現在就買三個六點那班火車的座位。"
+      },
+      {
+        "sp": "M",
+        "t": "Wait, I just heard the rail workers are on strike that day. Check before you buy anything.",
+        "zh": "等一下，我剛聽說那天鐵路工人要罷工。買之前先確認。"
+      },
+      {
+        "sp": "W1",
+        "t": "You're right. The railway website says all Friday trains have been canceled.",
+        "zh": "你說得對。鐵路網站說週五所有班次都取消了。"
+      },
+      {
+        "sp": "W2",
+        "t": "Then we'll have to fly. Is there a spending limit for each person?",
+        "zh": "那我們得搭飛機了。每個人有花費上限嗎？"
+      },
+      {
+        "sp": "M",
+        "t": "Yes, the finance office won't approve anything above one hundred seventy dollars per traveler.",
+        "zh": "有，財務部不會核准每位出差者超過一百七十美元的費用。"
+      },
+      {
+        "sp": "W2",
+        "t": "Understood. I'd also rather skip the bus, since it would get us there too late.",
+        "zh": "了解。我也寧可不搭巴士，因為會太晚到。"
+      },
+      {
+        "sp": "W1",
+        "t": "Agreed. I'll pick a flight that fits and send you both the confirmation by tomorrow.",
+        "zh": "同意。我會挑一班合適的航班，明天前把確認信寄給你們兩位。"
+      },
+      {
+        "sp": "M",
+        "t": "Perfect. Please also arrange a taxi from the airport to the client's office.",
+        "zh": "很好。也請安排從機場到客戶辦公室的計程車。"
+      }
+    ],
+    "graphic": {
+      "title": "Transportation Options to Chicago",
+      "columns": [
+        "Option",
+        "Departs",
+        "Arrives",
+        "Cost per Person"
+      ],
+      "rows": [
+        [
+          "Train",
+          "6:00 A.M.",
+          "11:30 A.M.",
+          "$85"
+        ],
+        [
+          "Flight A",
+          "7:30 A.M.",
+          "9:45 A.M.",
+          "$210"
+        ],
+        [
+          "Flight B",
+          "9:00 A.M.",
+          "11:15 A.M.",
+          "$160"
+        ],
+        [
+          "Bus",
+          "5:00 A.M.",
+          "12:30 P.M.",
+          "$45"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "detail",
+        "q": {
+          "t": "Why will the team not take the train?",
+          "zh": "團隊為什麼不搭火車？"
+        },
+        "choices": [
+          {
+            "t": "Service has been suspended that day.",
+            "zh": "那天停駛。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：鐵路工人罷工，週五所有班次取消。"
+          },
+          {
+            "t": "The tickets are too expensive.",
+            "zh": "票價太貴。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "火車被形容為便宜，且票價並非原因。"
+          },
+          {
+            "t": "The meeting was moved to another day.",
+            "zh": "會議改到另一天。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "會議時間沒有更動，改變的是交通方式。"
+          },
+          {
+            "t": "The train would arrive too late.",
+            "zh": "火車會太晚到。",
+            "ok": false,
+            "trap": "wrong-speaker",
+            "why": "太晚到的是巴士，不是火車。"
+          }
+        ],
+        "evidence": [
+          4,
+          5
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "infer",
+        "q": {
+          "t": "What does the man imply about the finance office?",
+          "zh": "關於財務部，男士暗示了什麼？"
+        },
+        "choices": [
+          {
+            "t": "It restricts how much employees can spend on travel.",
+            "zh": "它限制員工的出差花費。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：不核准超過一百七十美元的費用。"
+          },
+          {
+            "t": "It will approve any flight price.",
+            "zh": "它會核准任何機票價格。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "相反：有每人一百七十美元的上限。"
+          },
+          {
+            "t": "It canceled the client meeting.",
+            "zh": "它取消了客戶會議。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有任何線索顯示財務部取消會議。"
+          },
+          {
+            "t": "It is arranging the airport taxi.",
+            "zh": "它在安排機場計程車。",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "計程車是男士請同事安排，與財務部無關。"
+          }
+        ],
+        "evidence": [
+          7
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "graphic",
+        "q": {
+          "t": "Look at the graphic. Which option will the team most likely choose?",
+          "zh": "請看圖表。團隊最可能選哪一個選項？"
+        },
+        "choices": [
+          {
+            "t": "Flight B",
+            "zh": "航班 B",
+            "ok": true,
+            "pattern": "summary",
+            "why": "正解：11:15 抵達，趕得上十一點半前；$160 未超過 $170。"
+          },
+          {
+            "t": "Flight A",
+            "zh": "航班 A",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "雖然最早到，但 $210 超過每人 $170 的上限。"
+          },
+          {
+            "t": "Train",
+            "zh": "火車",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "原本的計畫，但當天班次已取消。"
+          },
+          {
+            "t": "Bus",
+            "zh": "巴士",
+            "ok": false,
+            "trap": "partial",
+            "why": "12:30 才到，趕不上提早一小時抵達的要求。"
+          }
+        ],
+        "evidence": [
+          7,
+          8
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "strike",
+        "ipa": "/straɪk/",
+        "pos": "n.",
+        "col": "on strike",
+        "zh": "罷工"
+      },
+      {
+        "word": "traveler",
+        "ipa": "/ˈtrævələr/",
+        "pos": "n.",
+        "col": "each traveler",
+        "zh": "出差者、旅客"
+      },
+      {
+        "word": "confirmation",
+        "ipa": "/ˌkɑːnfərˈmeɪʃn/",
+        "pos": "n.",
+        "col": "a flight confirmation",
+        "zh": "確認（信）"
+      }
+    ]
+  },
+  {
+    "id": "d1-003-h",
+    "domain": "d1",
+    "scene": "office",
+    "tag": "新進員工第一週安排",
+    "form": "3p",
+    "level": {
+      "score": 700,
+      "cefr": "B2",
+      "tier": "hard",
+      "why": "三人對話先排訓練後因筆電延遲改期，需掌握計畫轉折與說話者語氣意圖。"
+    },
+    "speakers": [
+      {
+        "id": "W1",
+        "gender": "F",
+        "role": "人資專員"
+      },
+      {
+        "id": "W2",
+        "gender": "F",
+        "role": "資訊部專員"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "部門主管"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W1",
+        "t": "Our new analyst, Jenna, starts on Monday, so let's finalize her first-week plan.",
+        "zh": "我們的新分析師 Jenna 週一報到，所以來敲定她第一週的計畫。"
+      },
+      {
+        "sp": "M",
+        "t": "I'd like her to begin the financial reports training on Monday morning.",
+        "zh": "我希望她週一早上就開始財務報表訓練。"
+      },
+      {
+        "sp": "W2",
+        "t": "Her laptop should be ready by then. I only need to install the accounting programs.",
+        "zh": "她的筆電到時應該準備好了。我只需要安裝會計程式。"
+      },
+      {
+        "sp": "W1",
+        "t": "Great. I'll set up her desk near the window, so she can meet the whole team.",
+        "zh": "太好了。我會把她的座位安排在窗邊，讓她認識整個團隊。"
+      },
+      {
+        "sp": "W2",
+        "t": "Actually, I just got an email. The shipment of new laptops won't arrive until Wednesday.",
+        "zh": "其實我剛收到一封郵件。新筆電的貨要到週三才會到。"
+      },
+      {
+        "sp": "M",
+        "t": "Then training on Monday won't work. She can't practice without a computer.",
+        "zh": "那週一的訓練就不行了。沒有電腦她無法練習。"
+      },
+      {
+        "sp": "W1",
+        "t": "How about spending Monday and Tuesday meeting the team and reviewing company policies?",
+        "zh": "週一和週二用來認識團隊並了解公司規定如何？"
+      },
+      {
+        "sp": "M",
+        "t": "That's better. At least she won't be sitting around with nothing to do.",
+        "zh": "這樣比較好。至少她不會閒坐著沒事做。"
+      },
+      {
+        "sp": "W2",
+        "t": "I could lend her a spare computer, but it's quite slow and outdated.",
+        "zh": "我可以借她一台備用電腦，但它很慢又過時。"
+      },
+      {
+        "sp": "M",
+        "t": "Let's not rush that. Please just configure the new laptop on Wednesday morning.",
+        "zh": "先不用急著這樣做。請在週三早上把新筆電設定好就好。"
+      },
+      {
+        "sp": "W2",
+        "t": "Understood. I'll set it up as soon as it arrives and let Jenna know.",
+        "zh": "了解。筆電一到我就設定好，並通知 Jenna。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {
+          "t": "What are the speakers mainly discussing?",
+          "zh": "說話者主要在討論什麼？"
+        },
+        "choices": [
+          {
+            "t": "Scheduling a new employee's first week",
+            "zh": "安排新進員工的第一週行程",
+            "ok": true,
+            "pattern": "summary",
+            "why": "正解：討論 Jenna 第一週的訓練、座位與電腦。"
+          },
+          {
+            "t": "Ordering new laptops for the department",
+            "zh": "為部門訂購新筆電",
+            "ok": false,
+            "trap": "partial",
+            "why": "筆電只是延遲的原因，不是討論主題。"
+          },
+          {
+            "t": "Interviewing candidates for an open position",
+            "zh": "面試職缺的應徵者",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "Jenna 已錄取並即將報到，沒有面試。"
+          },
+          {
+            "t": "Moving the team to a different floor",
+            "zh": "把團隊搬到不同樓層",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "只提到安排座位，沒有搬遷。"
+          }
+        ],
+        "evidence": [
+          0,
+          1
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "intent",
+        "q": {
+          "t": "What does the man mean when he says, \"At least she won't be sitting around with nothing to do\"?",
+          "zh": "男士說「至少她不會閒坐著沒事做」是什麼意思？"
+        },
+        "choices": [
+          {
+            "t": "The new employee will have useful activities.",
+            "zh": "新進員工會有有意義的活動可做。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：週一、週二安排認識團隊與了解規定。"
+          },
+          {
+            "t": "Jenna should skip the training.",
+            "zh": "Jenna 應該跳過訓練。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "相反：訓練只是延到週三。"
+          },
+          {
+            "t": "Jenna will work from home.",
+            "zh": "Jenna 會在家工作。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "完全沒有提到居家工作。"
+          },
+          {
+            "t": "Jenna will use the old computer.",
+            "zh": "Jenna 會使用舊電腦。",
+            "ok": false,
+            "trap": "wrong-speaker",
+            "why": "舊電腦是女士提議，男士說先不用急。"
+          }
+        ],
+        "evidence": [
+          7
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": {
+          "t": "What does the man ask the IT specialist to do?",
+          "zh": "男士要求資訊部專員做什麼？"
+        },
+        "choices": [
+          {
+            "t": "Prepare a new computer on Wednesday",
+            "zh": "在週三準備好新電腦",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：Configure the new laptop on Wednesday morning。"
+          },
+          {
+            "t": "Lend Jenna the spare computer",
+            "zh": "借 Jenna 備用電腦",
+            "ok": false,
+            "trap": "wrong-speaker",
+            "why": "這是女士的提議，男士表示先不用急著這樣做。"
+          },
+          {
+            "t": "Install the accounting programs on Monday",
+            "zh": "週一安裝會計程式",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "這是原本的計畫，因貨延遲已無法進行。"
+          },
+          {
+            "t": "Cancel the laptop shipment",
+            "zh": "取消筆電出貨",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有人提到取消，只是要等到週三。"
+          }
+        ],
+        "evidence": [
+          9
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "shipment",
+        "ipa": "/ˈʃɪpmənt/",
+        "pos": "n.",
+        "col": "a delayed shipment",
+        "zh": "出貨、貨物"
+      },
+      {
+        "word": "outdated",
+        "ipa": "/ˌaʊtˈdeɪtɪd/",
+        "pos": "adj.",
+        "col": "an outdated computer",
+        "zh": "過時的"
+      },
+      {
+        "word": "configure",
+        "ipa": "/kənˈfɪɡjər/",
+        "pos": "v.",
+        "col": "configure a laptop",
+        "zh": "設定（設備）"
+      }
+    ]
+  }
+]

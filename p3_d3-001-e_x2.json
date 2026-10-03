@@ -1,0 +1,459 @@
+[
+  {
+    "id": "d3-001-e",
+    "domain": "d3",
+    "scene": "store",
+    "tag": "鞋子尺寸不合要換貨",
+    "form": "2p",
+    "level": {
+      "score": 500,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "兩人短對話，答案幾乎照字面出現，情境是常見的換貨。"
+    },
+    "speakers": [
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "顧客"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "店員"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "W",
+        "t": "Hi, I bought these shoes yesterday, but they're too small.",
+        "zh": "你好，我昨天買了這雙鞋，但是太小了。"
+      },
+      {
+        "sp": "M",
+        "t": "I'm sorry to hear that. Do you still have the box?",
+        "zh": "很遺憾聽到這件事。你還留著鞋盒嗎？"
+      },
+      {
+        "sp": "W",
+        "t": "Yes, I have the box right here in my bag.",
+        "zh": "有，鞋盒就在我的袋子裡。"
+      },
+      {
+        "sp": "M",
+        "t": "Great. Would you like a bigger size or your money back?",
+        "zh": "太好了。你想要大一點的尺寸，還是退錢？"
+      },
+      {
+        "sp": "W",
+        "t": "I'd like a size eight, please. These are size seven.",
+        "zh": "我想要八號，麻煩你。這雙是七號。"
+      },
+      {
+        "sp": "M",
+        "t": "Let me check the stockroom. I'll be back in two minutes.",
+        "zh": "我去倉庫看看。兩分鐘後回來。"
+      },
+      {
+        "sp": "W",
+        "t": "Thank you. I'll look at the socks while I wait.",
+        "zh": "謝謝。我等的時候去看看襪子。"
+      }
+    ],
+    "graphic": null,
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "main",
+        "q": {
+          "t": "Why is the woman at the store?",
+          "zh": "女士為什麼在店裡？"
+        },
+        "choices": [
+          {
+            "t": "Her shoes are too small.",
+            "zh": "她的鞋子太小。",
+            "ok": true,
+            "pattern": "direct",
+            "why": "正解：對話第一句 they're too small。"
+          },
+          {
+            "t": "She wants to buy some socks.",
+            "zh": "她想買襪子。",
+            "ok": false,
+            "trap": "mention-not-ask",
+            "why": "襪子是她等待時才要看的，不是來店裡的原因。"
+          },
+          {
+            "t": "She wants to pay for her shoes.",
+            "zh": "她想付鞋子的錢。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "鞋子昨天就買了。"
+          },
+          {
+            "t": "Her shoes are too big.",
+            "zh": "她的鞋子太大。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "相反：鞋子太小。"
+          }
+        ],
+        "evidence": [
+          0
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "detail",
+        "q": {
+          "t": "What size does the woman want?",
+          "zh": "女士想要幾號？"
+        },
+        "choices": [
+          {
+            "t": "Size eight",
+            "zh": "八號",
+            "ok": true,
+            "pattern": "direct",
+            "why": "正解：I'd like a size eight。"
+          },
+          {
+            "t": "Size seven",
+            "zh": "七號",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "這是她現在這雙的尺寸。"
+          },
+          {
+            "t": "Size nine",
+            "zh": "九號",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "對話沒有提到九號。"
+          },
+          {
+            "t": "A smaller size",
+            "zh": "較小的尺寸",
+            "ok": false,
+            "trap": "opposite",
+            "why": "相反：她要大一點的尺寸。"
+          }
+        ],
+        "evidence": [
+          4
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "infer",
+        "q": {
+          "t": "What can be inferred about the store?",
+          "zh": "關於這家店，可推論出什麼？"
+        },
+        "choices": [
+          {
+            "t": "It keeps extra shoes in a back room.",
+            "zh": "它把多的鞋子放在後面的倉庫。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：店員說要去 stockroom 查看。"
+          },
+          {
+            "t": "It is closing soon.",
+            "zh": "它快要打烊了。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有任何打烊的線索。"
+          },
+          {
+            "t": "It does not sell socks.",
+            "zh": "它不賣襪子。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "相反：女士說要去看襪子。"
+          },
+          {
+            "t": "It has no size eight shoes.",
+            "zh": "它沒有八號鞋。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "店員只是去查，沒有說賣完。"
+          }
+        ],
+        "evidence": [
+          5
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "stockroom",
+        "ipa": "/ˈstɑːkruːm/",
+        "pos": "n.",
+        "col": "check the stockroom",
+        "zh": "倉庫、備貨室"
+      },
+      {
+        "word": "size",
+        "ipa": "/saɪz/",
+        "pos": "n.",
+        "col": "a bigger size",
+        "zh": "尺寸"
+      },
+      {
+        "word": "box",
+        "ipa": "/bɑːks/",
+        "pos": "n.",
+        "col": "a shoe box",
+        "zh": "盒子"
+      }
+    ]
+  },
+  {
+    "id": "d3-002-e",
+    "domain": "d3",
+    "scene": "store",
+    "tag": "挑選預算內的背包",
+    "form": "2p",
+    "level": {
+      "score": 550,
+      "cefr": "A2+",
+      "tier": "easy",
+      "why": "兩人短對話，需用圖表的顏色與價格配合對話挑出商品。"
+    },
+    "speakers": [
+      {
+        "id": "W",
+        "gender": "F",
+        "role": "顧客"
+      },
+      {
+        "id": "M",
+        "gender": "M",
+        "role": "店員"
+      }
+    ],
+    "dialogue": [
+      {
+        "sp": "M",
+        "t": "Can I help you find something today?",
+        "zh": "需要我幫你找什麼東西嗎？"
+      },
+      {
+        "sp": "W",
+        "t": "Yes, I'm looking for a backpack for school.",
+        "zh": "是的，我想找一個上學用的背包。"
+      },
+      {
+        "sp": "M",
+        "t": "We have several. Do you have a color in mind?",
+        "zh": "我們有好幾款。你有想要的顏色嗎？"
+      },
+      {
+        "sp": "W",
+        "t": "I'd like a blue one, and I can spend up to forty dollars.",
+        "zh": "我想要藍色的，而且最多可以花四十美元。"
+      },
+      {
+        "sp": "M",
+        "t": "Backpack A is blue and very new, but it costs fifty-five dollars.",
+        "zh": "背包 A 是藍色又很新，但要五十五美元。"
+      },
+      {
+        "sp": "W",
+        "t": "That's a little more than I planned to spend.",
+        "zh": "這比我打算花的錢多一點。"
+      },
+      {
+        "sp": "M",
+        "t": "I understand. Please look at the other blue bag on our list.",
+        "zh": "我了解。請看看我們清單上另一個藍色的包。"
+      },
+      {
+        "sp": "W",
+        "t": "Okay, I'll go and see the other bag now.",
+        "zh": "好，我現在就去看另一個包。"
+      }
+    ],
+    "graphic": {
+      "title": "Backpack Price List",
+      "columns": [
+        "Backpack",
+        "Color",
+        "Price"
+      ],
+      "rows": [
+        [
+          "Backpack A",
+          "Blue",
+          "$55"
+        ],
+        [
+          "Backpack B",
+          "Blue",
+          "$35"
+        ],
+        [
+          "Backpack C",
+          "Black",
+          "$30"
+        ],
+        [
+          "Backpack D",
+          "Green",
+          "$38"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "qtype": "intent",
+        "q": {
+          "t": "What does the woman mean when she says, \"That's a little more than I planned to spend\"?",
+          "zh": "女士說「這比我打算花的錢多一點」是什麼意思？"
+        },
+        "choices": [
+          {
+            "t": "The bag costs more than she wants to pay.",
+            "zh": "這個包的價錢超過她想付的。",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：背包 A 要 55 美元，她最多只想花 40 美元。"
+          },
+          {
+            "t": "She wants to buy two bags.",
+            "zh": "她想買兩個包。",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "沒有提到要買兩個。"
+          },
+          {
+            "t": "She likes the bag very much.",
+            "zh": "她非常喜歡這個包。",
+            "ok": false,
+            "trap": "opposite",
+            "why": "相反：她覺得太貴。"
+          },
+          {
+            "t": "She plans to spend fifty-five dollars.",
+            "zh": "她打算花五十五美元。",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "五十五美元是價格，她的預算是四十美元。"
+          }
+        ],
+        "evidence": [
+          5
+        ]
+      },
+      {
+        "id": "q2",
+        "qtype": "graphic",
+        "q": {
+          "t": "Look at the graphic. Which backpack will the woman probably buy?",
+          "zh": "請看圖表。女士最可能買哪一個背包？"
+        },
+        "choices": [
+          {
+            "t": "Backpack B",
+            "zh": "背包 B",
+            "ok": true,
+            "pattern": "summary",
+            "why": "正解：藍色且 $35，符合顏色與四十美元預算。"
+          },
+          {
+            "t": "Backpack A",
+            "zh": "背包 A",
+            "ok": false,
+            "trap": "number-mix",
+            "why": "藍色但 $55，超過預算。"
+          },
+          {
+            "t": "Backpack C",
+            "zh": "背包 C",
+            "ok": false,
+            "trap": "partial",
+            "why": "價格符合，但是黑色，她要藍色。"
+          },
+          {
+            "t": "Backpack D",
+            "zh": "背包 D",
+            "ok": false,
+            "trap": "partial",
+            "why": "價格符合，但是綠色，她要藍色。"
+          }
+        ],
+        "evidence": [
+          6,
+          7
+        ]
+      },
+      {
+        "id": "q3",
+        "qtype": "next",
+        "q": {
+          "t": "What will the woman do next?",
+          "zh": "女士接下來會做什麼？"
+        },
+        "choices": [
+          {
+            "t": "Look at a different backpack",
+            "zh": "看另一個背包",
+            "ok": true,
+            "pattern": "paraphrase",
+            "why": "正解：I'll go and see the other bag now。"
+          },
+          {
+            "t": "Pay for Backpack A",
+            "zh": "買背包 A 結帳",
+            "ok": false,
+            "trap": "opposite",
+            "why": "她覺得背包 A 太貴。"
+          },
+          {
+            "t": "Leave the store",
+            "zh": "離開商店",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "她說要去看另一個包，沒有要離開。"
+          },
+          {
+            "t": "Ask the man for a refund",
+            "zh": "向店員要求退錢",
+            "ok": false,
+            "trap": "over-infer",
+            "why": "她還沒買任何東西。"
+          }
+        ],
+        "evidence": [
+          7
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "word": "backpack",
+        "ipa": "/ˈbækpæk/",
+        "pos": "n.",
+        "col": "a school backpack",
+        "zh": "背包"
+      },
+      {
+        "word": "spend",
+        "ipa": "/spend/",
+        "pos": "v.",
+        "col": "spend forty dollars",
+        "zh": "花（錢）"
+      },
+      {
+        "word": "planned",
+        "ipa": "/plænd/",
+        "pos": "v.",
+        "col": "planned to spend",
+        "zh": "計畫（過去式）"
+      }
+    ]
+  }
+]
