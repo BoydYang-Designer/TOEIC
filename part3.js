@@ -48,7 +48,11 @@ const main = document.getElementById('main');
 let V = { view: 'home', pn: 3, fd: null, fm: null, tt: null, tm: null, tx: 0, rp: null, rf: null, rkf: null, run: null };
 
 /* ---------- 音訊：優先 mp3（audio.js 讀 audio/index.json），否則瀏覽器語音合成（男女聲分開）---------- */
-const P = { tok: 0, on: false, vs: [], hint: '' };
+const SPEEDS = [0.75, 1, 1.25, 1.5];
+const P = { tok: 0, on: false, vs: [], hint: '', speed: (() => { try { const v = parseFloat(localStorage.getItem('p3speed')); return SPEEDS.includes(v) ? v : 1; } catch (e) { return 1; } })() };
+const curSpeed = () => (V.run && V.run.mode === 'practice') ? P.speed : 1; // 模擬考固定 1×
+function setSpeed(v) { v = parseFloat(v); if (!SPEEDS.includes(v)) return; P.speed = v; try { localStorage.setItem('p3speed', v); } catch (e) {} if (AU.el) { AU.el.defaultPlaybackRate = curSpeed(); AU.el.playbackRate = curSpeed(); } }
+const speedH = () => (V.run && V.run.mode === 'practice') ? `<select onchange="setSpeed(this.value)" aria-label="播放速度" class="${btn} ${line} !px-2">${SPEEDS.map(v => `<option value="${v}"${v === P.speed ? ' selected' : ''}>${v}×</option>`).join('')}</select>` : '';
 const hasTTS = () => 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined';
 const VBAD = /novelty|fred|albert|bad news|good news|bahh|bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|wobble|zarvox|junior|ralph|kathy|grandma|grandpa|eddy|flo|reed|rocko|sandy|shelley/i;
 const vsc = v => { const n = v.name + ' ' + v.voiceURI; let s = 0; if (/premium|enhanced|增強|高品質|進階|natural|online/i.test(n)) s += 10; if (/google/i.test(n)) s += 5; if (/^en[-_]US$/i.test(v.lang)) s += 3; if (/^en[-_](IN|ZA|IE|SG|PH)$/i.test(v.lang)) s -= 5; if (VBAD.test(v.name)) s -= 50; return s; };
@@ -62,14 +66,14 @@ function say(x, idx, tok, next) {
   const done = () => { if (tok === P.tok) next(); };
   if (auFull('p3', x.id)) { // 整組 mp3 到齊：全程重複使用同一個 Audio 元素（iOS 需要）；播放失敗就改用機器發音
     const a = AU.el || (AU.el = new Audio()), bad = () => { if (tok !== P.tok) return; AU.bad['p3' + x.id] = 1; say(x, idx, tok, next); };
-    a.onended = () => setTimeout(done, 350); a.onerror = bad; a.src = auSrc('p3', x.id + '-s' + pad(idx + 1));
+    a.onended = () => setTimeout(done, 350); a.onerror = bad; a.src = auSrc('p3', x.id + '-s' + pad(idx + 1)); a.defaultPlaybackRate = curSpeed(); a.playbackRate = curSpeed();
     a.play().catch(e => { if (e.name !== 'AbortError') bad(); });
     return;
   }
   if (!hasTTS()) { failPlay(x, tok, '這個瀏覽器不支援語音合成，請改用 Chrome 或 Safari。'); return; }
   const u = new SpeechSynthesisUtterance(l.t), v = voiceFor(g) || P.vs[0];
   u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v;
-  u.pitch = isTZ(v) ? 1 + (i > 1 ? 0.1 : 0) : (g === 'F' ? 1.2 : 0.8) + (i > 1 ? 0.15 : 0); u.rate = .95;
+  u.pitch = isTZ(v) ? 1 + (i > 1 ? 0.1 : 0) : (g === 'F' ? 1.2 : 0.8) + (i > 1 ? 0.15 : 0); u.rate = .95 * curSpeed();
   u.onend = () => setTimeout(done, 350);
   u.onerror = e => { if (tok !== P.tok || e.error === 'interrupted' || e.error === 'canceled') return; failPlay(x, tok, '語音播放失敗（' + (e.error || 'error') + '），請再按一次播放。'); };
   speechSynthesis.speak(u);
@@ -89,10 +93,10 @@ function play1(i) { const r = V.run; if (r && r.mode === 'practice') play(r.sets
 function audHtml() {
   const r = V.run; if (!r || !r.sets[r.i]) return '';
   const x = r.sets[r.i], mock = r.mode === 'mock', done = !!r.played[x.id], hint = P.hint ? `<span class="text-xs text-rose-500 basis-full">${esc(P.hint)}</span>` : '';
-  if (P.on) return (mock ? `<button disabled class="${btn} ${pri}">🔊 播放中…</button>` : `<button onclick="stopAudio()" class="${btn} ${line}">⏹ 停止</button>`) + hint;
+  if (P.on) return (mock ? `<button disabled class="${btn} ${pri}">🔊 播放中…</button>` : `<button onclick="stopAudio()" class="${btn} ${line}">⏹ 停止</button>`) + speedH() + hint;
   if (mock && done) return `<button disabled class="${btn} ${pri}">已播放</button>`;
   const allDone = x.questions.every(q => r.ans[qKey(x, q)] !== undefined); // 整組都答完：重播改次要樣式，讓「下一組」成為唯一主要按鈕
-  return `<button onclick="playSet()" class="${btn} ${allDone ? line : pri}">${done ? '🔁 重播' : '🔊 播放對話'}</button>` + hint;
+  return `<button onclick="playSet()" class="${btn} ${allDone ? line : pri}">${done ? '🔁 重播' : '🔊 播放對話'}</button>` + speedH() + hint;
 }
 function paintAudio() { const e = document.getElementById('aud'); if (e && V.view === 'run') e.innerHTML = audHtml(); }
 
