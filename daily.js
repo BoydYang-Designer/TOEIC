@@ -37,7 +37,19 @@ const vsc=v=>{const n=v.name+' '+v.voiceURI;let s=0;if(/premium|enhanced|增強|
 const isTZ=v=>!!v&&/\b(Tom|Zoe)\b/i.test(v.name);
 const bestVoice=()=>{try{const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>vsc(b)-vsc(a));return vs.find(v=>/^en[-_]US$/i.test(v.lang)&&/\bZoe\b/i.test(v.name))||vs[0]||null}catch(e){return null}};
 const setVoice=u=>{const v=bestVoice();u.lang=v?v.lang:'en-US';if(v)u.voice=v};
-const Sp = { hlIdx:-2, au:null, mode:'', id:null, text:'', st:'idle', offset:0, pos:0, gotB:false, t0:0, cps:0, tok:0, rate:0.9 };
+const Sp = { hlIdx:-2, au:null, mode:'', id:null, text:'', st:'idle', offset:0, pos:0, gotB:false, t0:0, cps:0, tok:0, rate:0.9, speed:1 };
+const SP_SPEEDS = [0.75, 1, 1.25];
+try { const v = parseFloat(localStorage.getItem('dailyspeed')); if (SP_SPEEDS.includes(v)) Sp.speed = v; } catch(e) {}
+Sp.rate = Math.max(0.5, Math.min(2, 0.9 * Sp.speed)); // 語音合成：1× ＝ 原本的 0.9
+function spSetSpeed(v) {
+  v = parseFloat(v); if (!SP_SPEEDS.includes(v)) return;
+  Sp.speed = v; Sp.rate = Math.max(0.5, Math.min(2, 0.9 * v));
+  try { localStorage.setItem('dailyspeed', v); } catch(e) {}
+  if (Sp.au) { try { Sp.au.defaultPlaybackRate = v; Sp.au.playbackRate = v; } catch(e) {} }       // mp3：立即生效
+  else if (Sp.mode === 'tts' && Sp.st === 'playing') { spCps(); const p = spSnap(Math.round(spNow())); Sp.cps = 0; spRun(p); } // 語音合成：從目前位置換速度重播
+  else Sp.cps = 0;
+  spUI();
+}
 const speak = text => { // 單字發音（一次性，不含控制列）
   try { spStop(); const u = new SpeechSynthesisUtterance(text); setVoice(u); u.rate=0.9; speechSynthesis.speak(u); }
   catch(e) { alert('您的瀏覽器不支援即時語音朗讀'); }
@@ -76,6 +88,7 @@ function spToggle(id, startAt) { // 播放／暫停／繼續；startAt = 從指�
     spStop(); const x = DATA.find(d => idOf(d) === id);
     Sp.id = id; Sp.text = x.passage; Sp.cps = 0;
     const au = new Audio(audioSrc(x));
+    try { au.defaultPlaybackRate = Sp.speed; au.playbackRate = Sp.speed; au.preservesPitch = true; au.webkitPreservesPitch = true; } catch(e) {}
     Sp.au = au; Sp.mode = 'audio'; Sp.st = 'playing';
     if (startAt) au.currentTime = startAt;
     au.ontimeupdate = () => { if (Sp.au === au) spHl(id, au.currentTime); };
@@ -113,6 +126,7 @@ function spHtml(id) {
   return `<button onclick="spToggle('${id}')" class="${b}">${playing ? '⏸ 暫停' : (mine ? '▶ 繼續' : '🔊 播放語音')}</button>
     <button onclick="spBack()" ${mine ? '' : 'disabled'} class="${b}" title="倒轉 5 秒">⏪ 5秒</button>
     <button onclick="spStop()" ${mine ? '' : 'disabled'} class="${b}" title="停止">⏹</button>
+    <span class="inline-flex items-center gap-1"><span class="text-xs text-slate-400">語速</span>${SP_SPEEDS.map(v => `<button onclick="spSetSpeed(${v})" class="rounded-lg px-2.5 py-2 text-xs font-medium transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300'}">${v}×</button>`).join('')}</span>
     ${mine ? `<span class="text-xs text-slate-400">${Sp.mode === 'audio' ? '音檔' : '語音合成'}</span>` : ''}`;
 }
 function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll('#passage-text .tsent.active').forEach(e => e.classList.remove('active')); }

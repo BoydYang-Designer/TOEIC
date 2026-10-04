@@ -48,11 +48,11 @@ const main = document.getElementById('main');
 let V = { view: 'home', pn: 3, fd: null, fm: null, tt: null, tm: null, tx: 0, rp: null, rf: null, rkf: null, run: null };
 
 /* ---------- 音訊：優先 mp3（audio.js 讀 audio/index.json），否則瀏覽器語音合成（男女聲分開）---------- */
-const SPEEDS = [0.75, 1, 1.25, 1.5];
+const SPEEDS = [0.75, 1, 1.25];
 const P = { tok: 0, on: false, vs: [], hint: '', speed: (() => { try { const v = parseFloat(localStorage.getItem('p3speed')); return SPEEDS.includes(v) ? v : 1; } catch (e) { return 1; } })() };
 const curSpeed = () => (V.run && V.run.mode === 'practice') ? P.speed : 1; // 模擬考固定 1×
-function setSpeed(v) { v = parseFloat(v); if (!SPEEDS.includes(v)) return; P.speed = v; try { localStorage.setItem('p3speed', v); } catch (e) {} if (AU.el) { AU.el.defaultPlaybackRate = curSpeed(); AU.el.playbackRate = curSpeed(); } }
-const speedH = () => (V.run && V.run.mode === 'practice') ? `<select onchange="setSpeed(this.value)" aria-label="播放速度" class="${btn} ${line} !px-2">${SPEEDS.map(v => `<option value="${v}"${v === P.speed ? ' selected' : ''}>${v}×</option>`).join('')}</select>` : '';
+function setSpeed(v) { v = parseFloat(v); if (!SPEEDS.includes(v)) return; P.speed = v; try { localStorage.setItem('p3speed', v); } catch (e) {} if (AU.el) { AU.el.defaultPlaybackRate = curSpeed(); AU.el.playbackRate = curSpeed(); } paintAudio(); }
+const speedH = () => (V.run && V.run.mode === 'practice') ? `<span class="inline-flex items-center gap-1"><span class="text-xs text-slate-500">語速</span>${SPEEDS.map(v => `<button onclick="setSpeed(${v})" class="${btn} !py-1.5 !px-2.5 text-xs ${v === P.speed ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${v}×</button>`).join('')}</span>` : '';
 const hasTTS = () => 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined';
 const VBAD = /novelty|fred|albert|bad news|good news|bahh|bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|wobble|zarvox|junior|ralph|kathy|grandma|grandpa|eddy|flo|reed|rocko|sandy|shelley/i;
 const vsc = v => { const n = v.name + ' ' + v.voiceURI; let s = 0; if (/premium|enhanced|增強|高品質|進階|natural|online/i.test(n)) s += 10; if (/google/i.test(n)) s += 5; if (/^en[-_]US$/i.test(v.lang)) s += 3; if (/^en[-_](IN|ZA|IE|SG|PH)$/i.test(v.lang)) s -= 5; if (VBAD.test(v.name)) s -= 50; return s; };

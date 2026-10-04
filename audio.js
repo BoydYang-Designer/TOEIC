@@ -2,7 +2,17 @@
    路徑：audio/p1/{id}-s01..s12.mp3；audio/p2/{id}-q.mp3 與 {id}-s01..s12.mp3（編號＝pool 順序，從 01 起，請勿打亂既有題目的 pool 順序）
    規則：整題（Part 2 含問句＋全部回答句）到齊才用 mp3，否則整題用機器發音。
    哪些題目到齊由 audio/index.json（audio_scan.py 產生）決定，開頁時讀一次，播放時不再逐檔探測。讀不到清單（含雙擊開啟 file://）就全部用機器發音。 */
-const AU = { idx: null, el: null, bad: {}, noLet: false };
+const AU = { idx: null, el: null, bad: {}, noLet: false, rate: 1, speed: 1 };
+/* 播放速度（Part 1／2 共用）：AU.speed＝使用者選的；AU.rate＝這次播放實際採用（模擬考固定 1，由各 Part 在開始播放時設定） */
+const AU_SPEEDS = [0.75, 1, 1.25];
+try { const v = parseFloat(localStorage.getItem('p12speed')); if (AU_SPEEDS.includes(v)) AU.speed = v; } catch (e) {}
+function auApply(a) { a = a || AU.el; if (!a) return; try { a.defaultPlaybackRate = AU.rate; a.playbackRate = AU.rate; a.preservesPitch = true; a.webkitPreservesPitch = true; } catch (e) {} }
+function auSetSpeed(v) {
+  v = parseFloat(v); if (!AU_SPEEDS.includes(v)) return;
+  AU.speed = v; AU.rate = v; try { localStorage.setItem('p12speed', v); } catch (e) {}
+  auApply(); if (typeof P !== 'undefined' && P && P.au) auApply(P.au); if (typeof paintAudio === 'function') paintAudio(); // 播放中的 mp3 立即生效；機器發音從下一句起生效
+}
+const auSpeedSel = () => `<span class="inline-flex items-center gap-1"><span class="text-xs text-slate-500">語速</span>${AU_SPEEDS.map(v => `<button onclick="auSetSpeed(${v})" class="${btn} !py-1.5 !px-2.5 text-xs ${v === AU.speed ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${v}×</button>`).join('')}</span>`;
 /* 選項字母音檔：audio/A.mp3 … audio/E.mp3（全站共用，不分題）。播放時在每個選項句前面先播字母。
    audio/index.json 的 letters 列出已有的字母；本題需要的字母（Part 1 = A–D、Part 2 = A–C）到齊才使用，否則只播句子。 */
 const AU_LET = 'ABCDE', AU_LGAP = 500;
@@ -28,7 +38,7 @@ function auChain(srcs, gaps, live, done, fail) {
     const k = i++;
     a.onended = () => setTimeout(next, gaps[k] || 1000);
     a.onerror = () => { if (live()) fail(); };
-    a.src = srcs[k];
+    a.src = srcs[k]; auApply(a); // 換 src 會重設速度，所以每段都重新套用
     a.play().catch(e => { if (e.name !== 'AbortError' && live()) fail(); });
   };
   next();

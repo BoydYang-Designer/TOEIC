@@ -54,7 +54,10 @@ const L = 'ABCD';
 
 /* ---------- 音訊 ---------- */
 const AU = new Set(); AU.partial = {};
-const P = { tok: 0, a: null, vs: [], on: false, unlocked: false };
+const SPEEDS = [0.75, 1, 1.25];
+const P = { tok: 0, a: null, vs: [], on: false, unlocked: false, speed: (() => { try { const v = parseFloat(localStorage.getItem('p4speed')); return SPEEDS.includes(v) ? v : 1; } catch (e) { return 1; } })() };
+function setSpeed(v) { v = parseFloat(v); if (!SPEEDS.includes(v)) return; P.speed = v; try { localStorage.setItem('p4speed', v); } catch (e) {} if (P.a) { try { P.a.defaultPlaybackRate = v; P.a.playbackRate = v; } catch (e) {} } document.querySelectorAll('[data-spd]').forEach(b => { const on = +b.dataset.spd === v; b.classList.toggle('bg-indigo-600', on); b.classList.toggle('text-white', on); b.classList.toggle('bg-slate-100', !on); b.classList.toggle('dark:bg-slate-800', !on); }); }
+const speedH = () => `<span class="inline-flex items-center gap-1"><span class="text-xs text-slate-500">語速</span>${SPEEDS.map(v => `<button data-spd="${v}" onclick="setSpeed(${v})" class="${btn} !py-1.5 !px-2.5 text-xs ${v === P.speed ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${v}×</button>`).join('')}</span>`;
 const T = { id: null, k: 0 };
 async function auLoad() {
   try {
@@ -105,7 +108,7 @@ function say(x, idx, tok, next) {
   const v = voiceFor(g) || P.vs[0];
   u.lang = v ? v.lang : 'en-US'; if (v) u.voice = v;
   u.pitch = isTZ(v) ? 1 : (g === 'F' ? 1.2 : 0.8);
-  u.rate = 0.95;
+  u.rate = 0.95 * P.speed;
   u.onend = () => setTimeout(done, 350);
   u.onerror = done;
   speechSynthesis.speak(u);
@@ -122,7 +125,7 @@ function playWhole(x, tok, cb) {
   };
   a.onended = () => { if (tok !== P.tok) return; P.a = null; hl(-1); paintBar(false); if (cb) cb(); };
   const bad = () => { if (tok !== P.tok) return; P.a = null; AU.delete(x.id); play(x, 0, false, cb); };
-  a.onerror = bad; a.play().catch(bad);
+  a.onerror = bad; try { a.defaultPlaybackRate = P.speed; a.playbackRate = P.speed; a.preservesPitch = true; a.webkitPreservesPitch = true; } catch (e) {} a.play().catch(bad);
 }
 function play(x, from, only, cb) {
   stop(); const tok = P.tok; let i = from || 0; paintBar(true);
@@ -428,7 +431,7 @@ function runH() {
     ctl = `<span class="text-sm">預讀題目與圖表… <b id="cd">${T.k}</b> 秒後自動播放（只播一次）</span>
       <button onclick="startPlay()" class="${btn} ${pri} !py-1.5">跳過，立即播放</button>`;
   } else if (pr) {
-    ctl = `<button id="pb" onclick="toggle()" class="${btn} ${allDone ? line : pri} !py-1.5"></button>
+    ctl = `<button id="pb" onclick="toggle()" class="${btn} ${allDone ? line : pri} !py-1.5"></button>${speedH()}
       ${nextBtn}
       <button onclick="tg('showT')" class="${btn} ${line} !py-1.5">${r.showT ? '隱藏' : '顯示'}文稿</button>
       ${r.showT ? `<button onclick="tg('zh')" class="${btn} ${line} !py-1.5">${r.zh ? '隱藏' : '顯示'}中文</button>` : ''}

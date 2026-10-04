@@ -89,7 +89,7 @@ function ttsPlay(x, tok) {
     if (tok !== P.tok) return;
     if (i >= parts.length) { P.playing = false; paintAudio(); return; }
     const q = parts[i++], u = new SpeechSynthesisUtterance(q.t);
-    u.lang = q.v ? q.v.lang : 'en-US'; u.rate = 0.9; if (q.v) u.voice = q.v; if (q.hi) u.pitch = 1.25;
+    u.lang = q.v ? q.v.lang : 'en-US'; u.rate = 0.9 * AU.rate; if (q.v) u.voice = q.v; if (q.hi) u.pitch = 1.25;
     u.onstart = () => { P.started = true; };
     u.onend = () => setTimeout(next, q.g);
     u.onerror = e => { if (tok !== P.tok || e.error === 'interrupted' || e.error === 'canceled') return; failPlay(x, tok, '語音播放失敗（' + (e.error || 'error') + '），請再按一次播放。'); };
@@ -106,16 +106,16 @@ function mp3Play(x, tok) {
 }
 function playQ() {
   const r = V.run, x = cx(); if (!x || P.playing || (r.mode === 'mock' && r.played[x.id])) return;
-  r.played[x.id] = 1; stopAudio(); P.hint = ''; unlockTTS();
+  r.played[x.id] = 1; AU.rate = r.mode === 'practice' ? AU.speed : 1; stopAudio(); P.hint = ''; unlockTTS();
   const tok = ++P.tok; P.playing = true; if (auFull('p2', x.id)) mp3Play(x, tok); else ttsPlay(x, tok); paintAudio();
 }
 function audHtml() {
   const r = V.run, x = cx(); if (!x) return '';
   const mock = r.mode === 'mock', done = !!r.played[x.id], hint = P.hint ? `<span class="text-xs text-rose-500 basis-full">${esc(P.hint)}</span>` : '';
-  if (P.playing) return (mock ? `<button disabled class="${btn} ${pri}">🔊 播放中…</button>` : `<button onclick="stopAudio();paintAudio()" class="${btn} ${line}">⏹ 停止</button>`) + hint;
+  if (P.playing) return (mock ? `<button disabled class="${btn} ${pri}">🔊 播放中…</button>` : `<button onclick="stopAudio();paintAudio()" class="${btn} ${line}">⏹ 停止</button>` + auSpeedSel()) + hint;
   if (mock && done) return `<button disabled class="${btn} ${pri}">已播放</button>`;
   const answered = r.sel[x.id] !== undefined; // 已作答：重播改次要樣式，讓「下一題」成為唯一主要按鈕
-  return `<button onclick="playQ()" class="${btn} ${answered ? line : pri}">${done ? '🔁 重播' : '🔊 播放'}</button>` + hint;
+  return `<button onclick="playQ()" class="${btn} ${answered ? line : pri}">${done ? '🔁 重播' : '🔊 播放'}</button>` + (mock ? '' : auSpeedSel()) + hint;
 }
 function paintAudio() { const e = document.getElementById('aud'); if (e) e.innerHTML = audHtml(); }
 
