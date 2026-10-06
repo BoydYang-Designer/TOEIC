@@ -28,6 +28,24 @@
       <div id="mpc" class="mt-3 text-sm text-slate-500">載入中…</div>
     </details>
   </details>
+
+  <details id="lk" class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 p-3 md:p-4">
+    <summary class="cursor-pointer font-bold text-base md:text-lg select-none">🔖 網址紀錄 <span class="text-sm font-normal text-slate-500 dark:text-slate-400">網站・影片・備註</span> <span id="lkn" class="text-sm font-normal text-slate-500 dark:text-slate-400"></span></summary>
+    <div class="mt-3 space-y-2">
+      <div class="flex gap-2">
+        <input id="lku" type="url" inputmode="url" autocomplete="off" placeholder="貼上網址（https://…）" class="flex-1 min-w-0 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm">
+        <button id="lkp" type="button" class="rounded-lg px-3 py-2 text-sm border border-slate-300 dark:border-slate-700 shrink-0">貼上</button>
+      </div>
+      <textarea id="lkt" rows="2" placeholder="備註（選填）：為什麼收藏、重點是什麼" class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm"></textarea>
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="lka" type="button" class="rounded-lg px-4 py-2 text-sm font-medium bg-indigo-600 text-white">新增紀錄</button>
+        <input id="lkq" type="search" placeholder="搜尋網址或備註" class="flex-1 min-w-[8rem] rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm">
+        <button id="lkc" type="button" class="rounded-lg px-3 py-2 text-sm border border-slate-300 dark:border-slate-700 shrink-0">複製全部</button>
+      </div>
+      <div id="lkl" class="space-y-2 pt-1"></div>
+      <p class="text-xs text-slate-400">紀錄存在這個瀏覽器（localStorage），手機與電腦不會自動同步；整合內容時按「複製全部」即可貼出。清除瀏覽器資料會一併刪除。</p>
+    </div>
+  </details>
 </div>
 
 <script src="timing.js"></script>
@@ -159,6 +177,80 @@ async function mtLoad() {
     sc.onload = () => TMap.mount(box); sc.onerror = () => { box.textContent = '讀不到 map.js'; busy = false; };
     document.head.appendChild(sc);
   });
+})();
+/* ===== 網址紀錄：存 localStorage（鍵 toeicLinksV1，獨立於作答紀錄） ===== */
+(function () {
+  const LK = 'toeicLinksV1';
+  let L = [];
+  try { L = JSON.parse(localStorage.getItem(LK) || '[]'); if (!Array.isArray(L)) L = []; } catch (e) { L = []; }
+  const opened = new Set(); let editing = null, q = '';
+  const $ = id => document.getElementById(id);
+  const save = () => { try { localStorage.setItem(LK, JSON.stringify(L)); } catch (e) { alert('儲存失敗（瀏覽器空間不足或無痕模式）'); } };
+  const norm = u => { u = u.trim(); if (u && !/^[a-z][a-z0-9+.-]*:\/\//i.test(u) && /^\S+\.\S+$/.test(u)) u = 'https://' + u; return u; };
+  const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
+  const safe = u => /^https?:\/\//i.test(u);
+  const icon = u => /youtu\.?be|bilibili|vimeo|tiktok|instagram|twitch/i.test(host(u)) ? '🎬' : '🔗';
+  const fmt = t => new Date(t).toLocaleDateString('zh-TW');
+  const inp = 'w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm';
+  const btn = 'rounded-lg px-3 py-1.5 text-xs border border-slate-300 dark:border-slate-700';
+  async function copy(txt) {
+    try { await navigator.clipboard.writeText(txt); return true; } catch (e) {}
+    const a = document.createElement('textarea'); a.value = txt; a.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(a); a.select(); let ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {} a.remove(); return ok;
+  }
+  function render() {
+    const kw = q.trim().toLowerCase();
+    const list = L.filter(x => !kw || (x.url + ' ' + x.note).toLowerCase().includes(kw));
+    $('lkn').textContent = L.length ? '（' + L.length + '）' : '';
+    if (!list.length) { $('lkl').innerHTML = `<p class="text-sm text-slate-500 dark:text-slate-400 py-2">${L.length ? '沒有符合的紀錄。' : '還沒有紀錄。貼上網址、寫下備註後按「新增紀錄」。'}</p>`; return; }
+    $('lkl').innerHTML = list.map(x => {
+      if (editing === x.id) return `<div class="rounded-xl border border-indigo-400 bg-white dark:bg-slate-900 p-3 space-y-2" data-id="${x.id}">
+        <input class="${inp}" data-f="url" value="${esc(x.url)}" inputmode="url">
+        <textarea class="${inp}" data-f="note" rows="3" placeholder="備註">${esc(x.note)}</textarea>
+        <div class="flex gap-2"><button type="button" data-act="save" class="rounded-lg px-3 py-1.5 text-xs bg-indigo-600 text-white">儲存</button><button type="button" data-act="cancel" class="${btn}">取消</button></div></div>`;
+      const link = safe(x.url) ? `<a href="${esc(x.url)}" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-400 underline break-all text-sm">${esc(x.url)}</a>` : `<span class="break-all text-sm">${esc(x.url)}</span>`;
+      return `<details data-id="${x.id}" ${opened.has(x.id) ? 'open' : ''} class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3">
+        <summary class="cursor-pointer select-none"><span class="font-semibold text-sm">${icon(x.url)} ${esc(host(x.url))}</span> <span class="text-xs text-slate-400">${fmt(x.t)}</span>${x.note ? `<div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">${esc(x.note.split('\n')[0])}</div>` : ''}</summary>
+        <div class="mt-2 space-y-2">${link}${x.note ? `<p class="text-sm whitespace-pre-wrap break-words">${esc(x.note)}</p>` : '<p class="text-xs text-slate-400">（沒有備註）</p>'}
+        <div class="flex flex-wrap gap-2"><button type="button" data-act="edit" class="${btn}">✎ 編輯</button><button type="button" data-act="copy" class="${btn}">複製網址</button><button type="button" data-act="del" class="${btn} text-rose-600 dark:text-rose-400">🗑 刪除</button></div></div></details>`;
+    }).join('');
+  }
+  function add() {
+    const u = norm($('lku').value), n = $('lkt').value.trim();
+    if (!u) { $('lku').focus(); return; }
+    if (L.some(x => x.url === u) && !confirm('這個網址已經記錄過了，還要再新增一筆嗎？')) return;
+    const id = 'l' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+    L.unshift({ id, url: u, note: n, t: Date.now() }); save();
+    $('lku').value = ''; $('lkt').value = ''; opened.add(id); render();
+  }
+  $('lka').onclick = add;
+  $('lku').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); add(); } });
+  $('lkq').addEventListener('input', e => { q = e.target.value; render(); });
+  $('lkp').onclick = async () => {
+    try { const t = await navigator.clipboard.readText(); if (t) $('lku').value = t.trim(); } catch (e) { $('lku').focus(); alert('瀏覽器不允許讀取剪貼簿，請長按輸入框手動貼上。'); }
+  };
+  $('lkc').onclick = async e => {
+    if (!L.length) return;
+    const txt = L.map((x, i) => (i + 1) + '. ' + x.url + (x.note ? '\n   備註：' + x.note.replace(/\n/g, '\n   ') : '')).join('\n');
+    const ok = await copy(txt), b = e.target, o = b.textContent; b.textContent = ok ? '已複製 ✔' : '複製失敗'; setTimeout(() => b.textContent = o, 1500);
+  };
+  $('lkl').addEventListener('toggle', e => { const id = e.target.dataset && e.target.dataset.id; if (id) e.target.open ? opened.add(id) : opened.delete(id); }, true);
+  $('lkl').addEventListener('click', async e => {
+    const b = e.target.closest('[data-act]'); if (!b) return;
+    const row = b.closest('[data-id]'), id = row.dataset.id, x = L.find(v => v.id === id); if (!x) return;
+    const act = b.dataset.act;
+    if (act === 'edit') { editing = id; render(); }
+    else if (act === 'cancel') { editing = null; render(); }
+    else if (act === 'save') {
+      const u = norm(row.querySelector('[data-f=url]').value);
+      if (!u) return;
+      x.url = u; x.note = row.querySelector('[data-f=note]').value.trim(); editing = null; save(); render();
+    }
+    else if (act === 'del') { if (confirm('刪除這筆紀錄？')) { L = L.filter(v => v.id !== id); opened.delete(id); save(); render(); } }
+    else if (act === 'copy') { const ok = await copy(x.url); const o = b.textContent; b.textContent = ok ? '已複製 ✔' : '複製失敗'; setTimeout(() => b.textContent = o, 1500); }
+  });
+  render();
 })();
 mtLoad();
 paint();
