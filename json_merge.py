@@ -8,6 +8,8 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / par
      啟動時會自動選「資料夾內等待合併的副檔最多」的那一個；也可用  python json_merge.py part2  直接指定。
   2. 自動列出該題庫的副檔：
        daily  → w1d3.json 這類（其他 .json 也會列出，但不會自動勾選）
+                也支援「補丁」副檔 w1d3_extra.json：只含 week、day、extra_vocab（網頁「入庫彙整」產生的提示詞，AI 回傳的詳解），
+                會把 extra_vocab 併進主檔該篇文章（同一個 text 取代舊的、其餘新增），不動文章的其他欄位。
        photo  → d1-002-m.json 這類（檔名是題目 id）
        part2  → p2_d1-001-h_x5.json 這類（網頁「新增題目」產生的檔名）
        part3  → p3_d1-002-m_x2.json 這類（網頁「新增題目」產生的檔名）
@@ -20,6 +22,7 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / par
 副檔可以是：單筆題目、題目陣列、或含 items 的物件；AI 貼出的 ```json 圍欄也能自動處理。
 選錯題庫時（例如把 part2 的檔案放在 daily 模式），會直接提示「這是哪個題庫的題目」。
 """
+import copy
 import difflib
 import json
 import os
@@ -327,7 +330,17 @@ class Daily(Profile):
     backup_prefix = 'daily'
     name_re = re.compile(r'^w(\d+)d(\d+)', re.I)
     empty_hint = '資料夾內沒有找到其他 .json 檔。\n請按「新增檔案…」手動選取，例如 w1d3.json。'
-    done_note = '記得把對應的 mp3 放進 audio 資料夾（例如 audio/w1d3.mp3），並完成 timing 對時。'
+    done_note = '記得把對應的 mp3 放進 audio 資料夾（例如 audio/w1d3.mp3），並完成 timing 對時。（若合併的是 _extra 補丁，重新整理網頁即可看到詳解。）'
+    XTYPES = ('word', 'phrase', 'sentence')
+
+    @staticmethod
+    def is_patch(e):
+        """補丁：只有 week／day／extra_vocab，沒有文章本體。"""
+        return isinstance(e, dict) and 'extra_vocab' in e and not any(k in e for k in ('passage', 'questions', 'vocab', 'zh', 'tag'))
+
+    @staticmethod
+    def xkey(v):
+        return re.sub(r'\s+', ' ', str(v.get('text') if isinstance(v, dict) else v or '').strip().lower())
 
     def key(self, e):
         return (e.get('week'), e.get('day')) if isinstance(e, dict) else (None, None)
@@ -362,11 +375,30 @@ class Daily(Profile):
         return bool(self.name_re.match(fname))
 
     def same_content(self, a, b):
-        """不比對 timing（主檔的 timing 通常已對時、副檔是空的）。"""
+        """不比對 timing（主檔的 timing 通常已對時、副檔是空的）。補丁：每一筆都已經在主檔且內容相同才算「相同」。"""
+        if self.is_patch(b):
+            old = {self.xkey(v): v for v in (a.get('extra_vocab') or []) if isinstance(v, dict)}
+            return isinstance(a, dict) and all(self.xkey(v) in old and old[self.xkey(v)] == v for v in b['extra_vocab'])
         strip = lambda e: {k: v for k, v in e.items() if k != 'timing'}
         return isinstance(a, dict) and isinstance(b, dict) and strip(a) == strip(b)
 
     def finalize(self, e, old):
+        if self.is_patch(e):   # 補丁：把 extra_vocab 併進舊文章（同 text 取代、其餘新增），e 整個換成合併後的文章
+            merged = copy.deepcopy(old)
+            cur = list(merged.get('extra_vocab') or [])
+            for nv in e['extra_vocab']:
+                k = self.xkey(nv)
+                i = next((j for j, o in enumerate(cur) if self.xkey(o) == k), None)
+                if i is None:
+                    cur.append(nv)
+                else:
+                    cur[i] = nv
+            merged['extra_vocab'] = cur
+            e.clear()
+            e.update(merged)
+            return
+        if old and 'extra_vocab' not in e and old.get('extra_vocab'):
+            e['extra_vocab'] = old['extra_vocab']   # 整篇重新合併時，保留已寫回的詳解
         e.setdefault('timing', [])
         if old and not e['timing'] and old.get('passage') == e.get('passage'):
             e['timing'] = old.get('timing', [])   # 文稿沒變 → 保留舊的對時資料
@@ -376,17 +408,70 @@ class Daily(Profile):
             items.sort(key=lambda x: (x['week'], x['day']))
 
     def make_ctx(self, items, data):
-        return {}
+        return {'passages': {self.key(x): str(x.get('passage') or '') for x in items if isinstance(x, dict)}}
 
     def extra_detail(self, e):
+        if self.is_patch(e):
+            xs = e.get('extra_vocab')
+            return ['     補丁：extra_vocab %d 筆' % (len(xs) if isinstance(xs, list) else 0)]
         if isinstance(e, dict) and isinstance(e.get('questions'), list):
             return ['     題數 %d、單字 %d、type %s' % (len(e['questions']), len(e.get('vocab') or []), e.get('type'))]
         return []
+
+    def validate_patch(self, e, ctx):
+        er, wa = [], []
+        for k in ('week', 'day'):
+            if not isinstance(e.get(k), int) or isinstance(e.get(k), bool):
+                er.append('%s 必須是整數' % k)
+        passages = ctx.get('passages') or {}
+        key = self.key(e)
+        if not er and key not in passages:
+            er.append('主檔沒有 W%dD%d，補丁無處可合（請先合併該篇文章）' % key)
+        xs = e.get('extra_vocab')
+        if not isinstance(xs, list) or not xs:
+            er.append('extra_vocab 必須是非空陣列')
+            return er, wa
+        passage = passages.get(key, '').lower()
+        seen = set()
+        for i, v in enumerate(xs, 1):
+            if not isinstance(v, dict):
+                er.append('extra_vocab 第 %d 項不是物件' % i)
+                continue
+            t = str(v.get('text') or '').strip()
+            if not t:
+                er.append('extra_vocab 第 %d 項缺少 text' % i)
+                continue
+            if v.get('type') not in self.XTYPES:
+                er.append("「%s」type 必須是 word／phrase／sentence" % t)
+                continue
+            k = self.xkey(v)
+            if k in seen:
+                er.append('「%s」在這個檔案裡重複' % t)
+            seen.add(k)
+            if not str(v.get('zh') or '').strip():
+                er.append('「%s」缺少 zh' % t)
+            if passage and t.lower() not in passage:
+                wa.append('「%s」沒有出現在文章裡（網頁無法畫底線；請確認 text 是照抄）' % t)
+            ex = v.get('examples')
+            if ex is not None and (not isinstance(ex, list) or not all(isinstance(o, dict) and str(o.get('en') or '').strip() for o in ex)):
+                er.append('「%s」examples 每一項需含 en（zh 建議也寫）' % t)
+            elif v['type'] in ('word', 'phrase') and (not ex or len(ex) < 2):
+                wa.append('「%s」例句少於 2 句' % t)
+            if v['type'] == 'word' and not (v.get('ipa') and v.get('pos')):
+                wa.append('「%s」缺少 ipa 或 pos' % t)
+            if v['type'] == 'sentence' and not (v.get('structure') or v.get('grammar')):
+                wa.append('「%s」沒有 structure／grammar' % t)
+            for lk in ('forms', 'family', 'confusable', 'similar', 'grammar', 'key_words'):
+                if lk in v and not isinstance(v[lk], list):
+                    er.append('「%s」%s 必須是陣列' % (t, lk))
+        return er, wa
 
     def validate(self, e, ctx):
         er, wa = [], []
         if not isinstance(e, dict):
             return ['內容不是物件'], wa
+        if self.is_patch(e):
+            return self.validate_patch(e, ctx)
         filename, single = ctx.get('name'), ctx.get('single')
 
         for k in ('week', 'day'):

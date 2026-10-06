@@ -5,3 +5,17 @@ button:focus-visible{outline:2px solid #4f46e5;outline-offset:2px}
 .tsent.active{background:rgba(79,70,229,.18);box-shadow:0 0 0 3px rgba(79,70,229,.18)}
 .dark .tsent:hover{background:rgba(129,140,248,.15)}
 .dark .tsent.active{background:rgba(129,140,248,.3);box-shadow:0 0 0 3px rgba(129,140,248,.3)}
+/* 核心單字標示：不加 padding／粗體，字寬不變，開關標示時行數不會變；顏色淺 */
+mark.hl{background:rgba(251,191,36,.24);color:inherit;padding:0;border-radius:2px}
+.dark mark.hl{background:rgba(251,191,36,.20)}
+/* 入庫標註：只用底線（不影響排版）；單字／片語／句子三種顏色 */
+.mk{cursor:pointer;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:2px;text-underline-offset:3px}
+.mk-word{text-decoration-color:#0ea5e9}
+.mk-phrase{text-decoration-color:#8b5cf6}
+.mk-sentence{text-decoration-color:#10b981;text-decoration-style:solid;text-decoration-thickness:1px}
+
+/* 標註模式：文稿只做選取，不當成可點播放的句子 */
+.annot{cursor:text}
+.annot .tsent{cursor:text}
+.annot .tsent:hover{background:transparent}
+.dark .annot .tsent:hover{background:transparent}

@@ -74,9 +74,15 @@ function skSepBefore(k) { // 兩句之間原文的分隔（換行保留）
 
 /* ================= 比對（沿用 quiz.js 的 LCS 作法，加上縮寫／數字正規化） ================= */
 const SK_NUM = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19, twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90 };
+const SK_ORD = [0, 'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth', 'thirteenth', 'fourteenth', 'fifteenth', 'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth', 'twentieth', 'twenty first', 'twenty second', 'twenty third', 'twenty fourth', 'twenty fifth', 'twenty sixth', 'twenty seventh', 'twenty eighth', 'twenty ninth', 'thirtieth', 'thirty first'];
 function skRaw(s) { // 正規化後切成字（英文數字詞尚未合併）
   s = String(s).toLowerCase().replace(/[’‘`]/g, "'")
-    .replace(/\b([ap])\.m\.?/g, '$1m')
+    .replace(/\b([ap])\.m\.?/g, '$1m').replace(/(\d)\s?(am|pm)\b/g, '$1 $2')
+    .replace(/\b((?:[a-z]\.){2,})/g, m => m.replace(/\./g, '')) // U.S. → us
+    .replace(/\b(\d{1,2})(st|nd|rd|th)\b/g, (m, n) => SK_ORD[+n] || m) // 5th → fifth
+    .replace(/\bmr\b\.?/g, 'mister').replace(/\b(ms|mrs|miss|miz)\b\.?/g, 'ms').replace(/\bdr\b\.?/g, 'doctor')
+    .replace(/\bok\b/g, 'okay').replace(/\betc\b\.?/g, 'et cetera').replace(/\bvs\b\.?/g, 'versus')
+    .replace(/(\d)\.(\d)/g, '$1 point $2') // 1.5 → 1 point 5
     .replace(/(\d),(?=\d{3}\b)/g, '$1')
     .replace(/\b(\d{1,2}):00\b/g, '$1').replace(/\b(\d{1,2}):0(\d)\b/g, '$1 0 $2').replace(/\b(\d{1,2}):(\d\d)\b/g, '$1 $2')
     .replace(/\$\s?(\d+)/g, '$1 dollars')
@@ -141,6 +147,18 @@ function skCompare(sents, heard) {
   const R = [], RO = []; // 文稿的每個原始字，以及它屬於哪一句的哪個字（英文數字詞要跨字合併，如 twenty five → 25）
   disp.forEach((ws, si) => ws.forEach((d, wi) => d.k.forEach(k => { R.push(k); RO.push([si, wi]); })));
   skNumMergeIx(R).forEach(o => { T.push(o.t); own.push(o.ix.map(i => RO[i])); });
+  /* 複合字：念出來／辨識出來可能是 email、e mail、e-mail；check-in、check in、checkin ——相鄰兩字黏起來剛好等於另一邊的某個字就視為同一個字 */
+  const Ts = new Set(T), H2 = [];
+  for (let i = 0; i < H.length; i++) {
+    const j = i + 1 < H.length ? H[i] + H[i + 1] : '';
+    if (j && !/\d/.test(j) && Ts.has(j) && !(Ts.has(H[i]) && Ts.has(H[i + 1]))) { H2.push(j); i++; } else H2.push(H[i]);
+  }
+  const Hs = new Set(H2), T2 = [], own2 = [];
+  for (let j = 0; j < T.length; j++) {
+    const c = j + 1 < T.length ? T[j] + T[j + 1] : '';
+    if (c && !/\d/.test(c) && Hs.has(c) && !(Hs.has(T[j]) && Hs.has(T[j + 1]))) { T2.push(c); own2.push(own[j].concat(own[j + 1])); j++; } else { T2.push(T[j]); own2.push(own[j]); }
+  }
+  H.length = 0; H2.forEach(h => H.push(h)); T.length = 0; T2.forEach(t => T.push(t)); own.length = 0; own2.forEach(o => own.push(o));
   const m = H.length, n = T.length, hit = new Array(n).fill(false);
   if (m && n) {
     const dp = Array.from({ length: m + 1 }, () => new Uint16Array(n + 1));
