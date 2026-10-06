@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-add_timestamps.py — 為 TOEIC Daily Coach 的 mp3 產生「句子時間戳記」並寫入 daily.json
+daily_timestamps.py — 為 TOEIC Daily Coach 的 mp3 產生「句子時間戳記」並寫入 daily.json
 
 使用方式：雙擊執行 → 選擇 mp3（可複選，檔名如 w1d1.mp3）→ 選擇 daily.json
 原理：用 faster-whisper 聽出每個字的時間，再與 daily.json 裡該天的 passage 對齊，
@@ -9,7 +9,7 @@ add_timestamps.py — 為 TOEIC Daily Coach 的 mp3 產生「句子時間戳記�
 
 【判斷標準】固定使用下方 CFG（不需要每次選）。想調整才改 CFG 的數字；語音練習的「寬／嚴」在網頁裡切換，跟這裡無關。
 """
-import sys, os, re, json, shutil, subprocess, difflib, datetime, traceback
+import sys, os, re, json, subprocess, difflib, traceback
 
 MODEL = "base.en"   # 想更準可改 "small.en"（較慢、模型較大）
 
@@ -17,13 +17,33 @@ MODEL = "base.en"   # 想更準可改 "small.en"（較慢、模型較大）
 #   min_ratio：這句的字有多少比例在辨識結果裡找得到（舊版是 0.3，太鬆）
 #   fuzzy    ：辨識聽成不同字時，相似度達多少才算（None＝不算，0＝一律算）
 #   edges    ："any"＝句首或句尾至少一個字要對到（否則 start／end 會偏）；"both"＝兩個都要；None＝不檢查
-#   max_rate ：每秒最多幾個字，超過代表時間被壓縮（正常約 2.5–4）；None＝不檢查
-CFG = dict(min_ratio=0.60, fuzzy=0.70, edges="any", max_rate=8.0)
+#   max_rate ：每秒最多幾個字，超過代表時間被壓縮（正常約 2.5–4）；None＝不檢查（超過 3 個字的句子才檢查，太短的句子不準）
+#   fill_gaps：True＝對不到的句子，若前後句都對到了且中間空檔合理，就依字數「推估」時間補上（報告顯示 ≈）；False＝不補
+CFG = dict(min_ratio=0.60, fuzzy=0.70, edges="any", max_rate=8.0, fill_gaps=True)
 ABBR = {"mr", "ms", "mrs", "dr", "inc", "co", "ltd", "no", "vs", "st", "jr", "sr"}
 
 
 def norm(w):
     return re.sub(r"[^a-z0-9]", "", w.lower())
+
+
+DIG = "zero one two three four five six seven eight nine".split()
+SPEAKER = re.compile(r"[A-Za-z][A-Za-z.\-]*:")   # Customer: / Agent: / Man: … 說話者標籤
+
+
+def expand_words(words):
+    """whisper 把數字寫成 64182 / 6-4-1-8-2 時，展開成 six four one eight two（時間平均分配）。"""
+    out = []
+    for s, e, t in words:
+        n = norm(t)
+        if not n:
+            continue
+        if n.isdigit():
+            step = (e - s) / len(n)
+            out += [(s + k * step, s + (k + 1) * step, DIG[int(c)]) for k, c in enumerate(n)]
+        else:
+            out.append((s, e, n))
+    return out
 
 
 def split_sentences(text):
@@ -55,7 +75,10 @@ def align(passage, words, cfg):
     """words: [(start, end, text)]（whisper 逐字結果）→ (timing 清單, 報告, 統計)。cfg＝判斷標準（見上方 CFG）。"""
     ptoks = [(m.start(), m.end(), norm(m.group())) for m in re.finditer(r"\S+", passage)]
     ptoks = [t for t in ptoks if t[2]]
-    wtoks = [(s, e, norm(t)) for s, e, t in words if norm(t)]
+    # 說話者標籤（行首的 Customer: / Agent:）音檔不會唸，不列入比對（句子範圍 from/to 不變）
+    ptoks = [t for t in ptoks
+             if not (SPEAKER.fullmatch(passage[t[0]:t[1]]) and (t[0] == 0 or passage[t[0] - 1] == "\n"))]
+    wtoks = expand_words(words)
     pw, ww = [t[2] for t in ptoks], [t[2] for t in wtoks]
     sm = difflib.SequenceMatcher(None, pw, ww, autojunk=False)
     match = {}
@@ -68,12 +91,13 @@ def align(passage, words, cfg):
                 if difflib.SequenceMatcher(None, pw[i1 + k], ww[j1 + k]).ratio() >= cfg["fuzzy"]:
                     match[i1 + k] = j1 + k
     timing, report, sents = [], [], split_sentences(passage)
+    res = []   # 每句：[a, b, 字數, label, timing 或 None, 失敗原因]
     for a, b in sents:
         idx = [i for i, t in enumerate(ptoks) if a <= t[0] < b]
         hit = [wtoks[match[i]] for i in idx if i in match]
         label = passage[a:b].replace("\n", " ")[:50]
         if not idx or not hit:
-            report.append(f"  ✗ 未對到（音檔可能沒唸這句）：{label}")
+            res.append([a, b, max(len(idx), 1), label, None, "未對到（音檔可能沒唸這句）"])
             continue
         ratio = len(hit) / len(idx)
         start = round(min(h[0] for h in hit), 2)
@@ -86,13 +110,43 @@ def align(passage, words, cfg):
             why = "句首或句尾的字沒對到"
         elif cfg["edges"] == "any" and idx[0] not in match and idx[-1] not in match:
             why = "句首與句尾都沒對到"
-        elif cfg["max_rate"] and len(idx) / (end - start) > cfg["max_rate"]:
+        elif cfg["max_rate"] and len(idx) > 3 and len(idx) / (end - start) > cfg["max_rate"]:
             why = f"語速 {len(idx) / (end - start):.1f} 字/秒太快，時間可能被壓縮"
         if why:
-            report.append(f"  ✗ {why}：{label}")
+            res.append([a, b, len(idx), label, None, why])
             continue
-        timing.append({"start": start, "end": end, "from": a, "to": b})
-        report.append(f"  ✓ {start:6.2f}s – {end:6.2f}s  對中 {ratio:3.0%}  {label}")
+        res.append([a, b, len(idx), label, {"start": start, "end": end, "from": a, "to": b}, f"對中 {ratio:3.0%}"])
+
+    # 補洞：連續幾句對不到、但前後句都對到時，依字數把中間的空檔分配給它們（推估值）
+    if cfg.get("fill_gaps"):
+        i = 0
+        while i < len(res):
+            if res[i][4] is not None:
+                i += 1
+                continue
+            j = i
+            while j < len(res) and res[j][4] is None:
+                j += 1
+            if 0 < i and j < len(res):
+                t0, t1 = res[i - 1][4]["end"], res[j][4]["start"]
+                n = sum(r[2] for r in res[i:j])
+                gap = t1 - t0
+                if gap > 0 and 1.0 <= n / gap <= 6.0:   # 空檔長度要像「真的有人唸了這幾句」
+                    cur = t0
+                    for r in res[i:j]:
+                        d = gap * r[2] / n
+                        r[4] = {"start": round(cur, 2), "end": round(max(cur + d, cur + 0.1), 2), "from": r[0], "to": r[1]}
+                        r[5] = "≈推估（前後句夾住）"
+                        cur += d
+            i = j
+
+    for a, b, n, label, t, note in res:
+        if t is None:
+            report.append(f"  ✗ {note}：{label}")
+        else:
+            timing.append(t)
+            mark = "≈" if note.startswith("≈") else "✓"
+            report.append(f"  {mark} {t['start']:6.2f}s – {t['end']:6.2f}s  {note}  {label}")
     return timing, report, len(sents)
 
 
@@ -210,14 +264,12 @@ def main():
         print("\n" + msg)
         return messagebox.showerror("沒有可寫入的資料", msg)
 
-    bak = f"{jpath}.bak-{datetime.datetime.now():%Y%m%d-%H%M%S}"
-    shutil.copy2(jpath, bak)
     tmp = jpath + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         f.write(dump_json(data) + "\n")
     os.replace(tmp, jpath)
 
-    msg = f"完成！成功 {done} 個檔案（模型：{MODEL}）。\n備份：{os.path.basename(bak)}"
+    msg = f"完成！成功 {done} 個檔案（模型：{MODEL}）。"
     if partial:
         msg += "\n\n有漏句（維護總覽會顯示「部分」），可改用較大的模型（MODEL 改 small.en）或放寬 CFG 再跑一次：\n" + "\n".join(partial)
     if failed:

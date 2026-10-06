@@ -414,7 +414,7 @@ function auPanelH(x) {
   const miss = (((AU.idx || {}).p3 || {}).partial || {})[x.id] || [], st = auSt(x.id);
   const rows = x.dialogue.map((l, i) => { const f = auName(x, i), m = st[0] === 'none' || miss.includes(f.slice(0, -4));
     return `<tr class="border-t border-slate-100 dark:border-slate-800 align-top"><td class="pr-2 py-1 font-mono text-xs whitespace-nowrap ${m ? 'text-rose-600' : 'text-emerald-600'}">${m ? '✗' : '✓'} ${esc(f)}</td><td class="pr-2 text-xs whitespace-nowrap">${esc(l.sp)}／${gOf(x, l.sp)}</td><td class="text-xs">${esc(l.t)}</td></tr>`; }).join('');
-  return `<div class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 p-3"><div class="flex flex-wrap items-center justify-between gap-2 mb-1"><p class="text-xs font-bold">🎧 音檔 <span class="${st[2]}">${st[1]}</span>${AU.idx ? '' : ' · 尚未讀到 audio/index.json'}</p><span class="flex gap-1.5 shrink-0"><button id="cn-${esc(x.id)}" onclick="copyNames(this.dataset.k)" data-k="${esc(x.id)}" class="${btn} ${line} !py-1 text-xs">複製檔名</button><button id="ca-${esc(x.id)}" onclick="copyAudio(this.dataset.k)" data-k="${esc(x.id)}" class="${btn} ${line} !py-1 text-xs">複製錄音稿</button></span></div><p class="text-xs text-slate-500 mb-1">放到 audio/p3/，一句一檔；F＝女聲、M＝男聲，請依性別錄製。放好後執行 audio_scan.py。</p><div class="overflow-x-auto"><table class="w-full">${rows}</table></div></div>`;
+  return `<div class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 p-3"><div class="flex flex-wrap items-center justify-between gap-2 mb-1"><p class="text-xs font-bold">🎧 音檔 <span class="${st[2]}">${st[1]}</span>${AU.idx ? '' : ' · 尚未讀到 audio/index.json'}</p><span class="flex gap-1.5 shrink-0"><button id="cn-${esc(x.id)}" onclick="copyNames(this.dataset.k)" data-k="${esc(x.id)}" class="${btn} ${line} !py-1 text-xs">複製檔名</button><button id="ca-${esc(x.id)}" onclick="copyAudio(this.dataset.k)" data-k="${esc(x.id)}" class="${btn} ${line} !py-1 text-xs">複製錄音稿</button></span></div><p class="text-xs text-slate-500 mb-1">放到 audio/p3/，一句一檔；F＝女聲、M＝男聲，請依性別錄製。放好後執行 Scan總表與音檔.py。</p><div class="overflow-x-auto"><table class="w-full">${rows}</table></div></div>`;
 }
 function adminH() {
   const doms = Object.keys(DOM), tiers = Object.keys(TIER), qc = {}; DATA.forEach(x => x.questions.forEach(q => { qc[q.qtype] = (qc[q.qtype] || 0) + 1; }));
@@ -507,7 +507,7 @@ function buildOut(d, t, f, n, g, o) {
   return { title: `${domLabel(d)} · ${TIER[t]}（${n} 組）`, fname, text, note: `約 ${text.length.toLocaleString()} 字；id ${ids[0]}${n > 1 ? '～' + ids[n - 1] : ''}（目前此格最大號 ${String(mx).padStart(3, '0')}，本批從 ${String(mx + 1).padStart(3, '0')} 開始）。不需要上傳 part3.json，AI 會直接給你 ${fname}。` };
 }
 const comboList = () => { const r = []; Object.keys(DOM).filter(d => A.nds.includes(d)).forEach(d => Object.keys(TIER).filter(t => A.nts.includes(t)).forEach(t => r.push([d, t]))); return r; };
-const MERGE_NOTE = '各份 AI 回覆的檔案下載後，先到下方「貼回檢查」確認沒有錯誤，可直接下載合併後的 part3.json 取代原檔（建議先備份）；也可照舊放到 json_merge.py 同一資料夾，執行並選「Part 3 對話」。合併後重新整理本頁，題數就會更新。音檔放 audio/p3/ 後執行 audio_scan.py，再到該組題目頁複製錄音稿與檔名。';
+const MERGE_NOTE = '各份 AI 回覆的檔案下載後，先到下方「貼回檢查」確認沒有錯誤，可直接下載合併後的 part3.json 取代原檔（建議先備份）；也可照舊放到 json_merge.py 同一資料夾，執行並選「Part 3 對話」。合併後重新整理本頁，題數就會更新。音檔放 audio/p3/ 後執行 Scan總表與音檔.py，再到該組題目頁複製錄音稿與檔名。';
 /* ---------- 貼回 AI 的 JSON：先健檢（含與現有題庫比對 id／tag／vocab／首句）再合併下載 ---------- */
 const impParse = text => { const j = JSON.parse(String(text).trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '')), a = itemsOf(j); if (!Array.isArray(a) || !a.length) throw new Error('找不到題目陣列'); return a; };
 function impRun(srcs) {

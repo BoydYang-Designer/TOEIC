@@ -1,7 +1,7 @@
 /* Part 7 閱讀理解（階段 1–3：練習、錯題本、模擬測驗、結果頁、提報、維護頁）。版型以 Part 1 為準（PART_UI_GUIDE.md），題組格式見 part7_設計指引.md。
    題庫 part7.json（一組＝1–3 份文件＋2–5 題）。記錄存在 toeicPart7V1（rec／saved／rot／stat／tests／reports），KEY 只讀寫 dark。
    key＝「組id#n」。音訊：audio/index.json 的 p7.complete 含「{id}-d{k}」→ 播 audio/p7/{id}-d{k}.mp3，否則瀏覽器 TTS。自成一體，不依賴 audio.js。
-   畫面：home／practice／book／run／result／test／reports／maint。模擬測驗的作答資料先放在 run.ans，交卷時才一次寫進 rec／saved／stat／rot／tests。 */
+   畫面：home／practice／book／run／result／test／reports／maint／maintCell／maintItem／maintNew。模擬測驗的作答資料先放在 run.ans，交卷時才一次寫進 rec／saved／stat／rot／tests。 */
 const KEY = 'toeicCoachV2', PK = 'toeicPart7V1';
 let S = {}; try { S = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
 let R = { rec: {}, saved: {}, rot: {}, stat: {}, tests: {}, reports: [] };
@@ -277,7 +277,7 @@ function render() {
   document.documentElement.classList.toggle('dark', !!S.dark);
   const v = V.view;
   main.className = (v === 'run' ? 'max-w-6xl' : 'max-w-3xl') + ' mx-auto p-3 md:p-8 pb-16';
-  main.innerHTML = v === 'run' ? runH() : v === 'result' ? resultH() : v === 'book' ? bookH() : v === 'practice' ? practiceH() : v === 'test' ? testH() : v === 'reports' ? reportsH() : v === 'maint' ? maintH() : homeH();
+  main.innerHTML = v === 'run' ? runH() : v === 'result' ? resultH() : v === 'book' ? bookH() : v === 'practice' ? practiceH() : v === 'test' ? testH() : v === 'reports' ? reportsH() : v === 'maint' ? maintH() : v === 'maintCell' ? maintCellH() : v === 'maintItem' ? maintItemH() : v === 'maintNew' ? maintNewH() : homeH();
   if (v === 'result' && V.run) { V.last = V.run; V.run = null; }
   paintAudio();
   if (v === 'run' && V.run && V.run.mode === 'test') updTimer();
@@ -428,11 +428,6 @@ const sayText = d => d.say ? d.say : d.kind === 'chat' ? (d.messages || []).map(
 const wordsOf = d => [].concat(d.head || [], d.body || [], (d.messages || []).map(m => m.t), d.table ? d.table.header.concat.apply(d.table.header, d.table.rows) : []).join(' ').split(/\s+/).filter(Boolean).length;
 const missOf = xs => { const out = []; xs.forEach(x => rd(x).forEach(o => { if (!AU.has(dkey(x, o.k))) out.push(`${dkey(x, o.k)}.mp3 | ${sayText(o.d)} | ${voiceOf(o.d)}`); })); return out; };
 const rng = s => { const m = String(s || '').match(/(\d+)\D+(\d+)/); return m ? [+m[1], +m[2]] : null; };
-function setM(d, t) { V.mf = (V.mf.d === (d || null) && V.mf.t === (t || null)) ? { d: null, t: null } : { d: d || null, t: t || null }; render(); }
-function mCell(d, t) {
-  const xs = nSets(d, t), n = xs.length, a = xs.filter(auDone).length, on = V.mf.d === d && V.mf.t === t;
-  return `<button data-d="${d}" data-t="${t}" onclick="setM(this.dataset.d,this.dataset.t)" class="w-full rounded-lg border px-2 py-2 text-xs ${on ? 'ring-2 ring-indigo-500 ' : ''}${n < 2 ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-300 dark:border-amber-700' : 'border-slate-300 dark:border-slate-700'}"><b class="text-sm">${n}</b> 組<br><span class="text-slate-500">🎧 ${a}</span></button>`;
-}
 function statH() {
   const N = DATA.reduce((s, x) => s + nq(x), 0), qn = {}, fn = {};
   let ni = 0; DATA.forEach(x => { fn[x.format] = fn[x.format] || [0, 0, 0]; fn[x.format][0]++; fn[x.format][1] += nq(x); x.questions.forEach(q => { qn[q.type] = (qn[q.type] || 0) + 1; if (isInt(q)) { ni++; fn[x.format][2]++; } }); });
@@ -464,7 +459,7 @@ function nextIds(d, t, n) {
 }
 const firstSent = x => { const d = x.docs[0] || {}, t = (d.kind === 'chat' ? (d.messages || []).map(m => m.t) : (d.body || [])).join(' ').replace(/\s*\[[1-4]\]\s*/g, ' '), ss = t.match(/[^.?!]+[.?!]+/g) || [t]; return (ss.find(s => s.trim().split(/\s+/).length >= 5) || t).trim().slice(0, 140); };
 function promptText() {
-  const w = V.nw, ids = nextIds(w.d, w.t, w.n), sc = (SPEC && SPEC.domains && SPEC.domains[w.d] && SPEC.domains[w.d].scenes) || [];
+  const w = { d: A.nd, t: A.nt, f: A.nf, k: A.nk, n: A.nn, q: A.nq }, ids = nextIds(w.d, w.t, w.n), sc = (SPEC && SPEC.domains && SPEC.domains[w.d] && SPEC.domains[w.d].scenes) || [];
   const N = DATA.reduce((s, x) => s + nq(x), 0), qn = {}; DATA.forEach(x => x.questions.forEach(q => { qn[q.type] = (qn[q.type] || 0) + 1; }));
   const types = Object.keys(QT).map(k => `${QT[k]} ${qn[k] || 0} 題（建議 ${(SPEC && SPEC.qtypes && SPEC.qtypes[k] && SPEC.qtypes[k].share) || '—'}）`).join('、');
   const spec = {}; if (SPEC) { ['schema_version', 'formats', 'kinds', 'qtypes', 'traps', 'entry_schema', 'rules'].forEach(k => { if (SPEC[k] !== undefined) spec[k] = SPEC[k]; }); if (SPEC.tiers) spec.tiers = SPEC.tiers[w.t] ? { [w.t]: SPEC.tiers[w.t] } : SPEC.tiers; }
@@ -473,7 +468,7 @@ function promptText() {
   const heads = DATA.map(x => `${x.id}：${(x.docs[0].head || []).join(' / ') || x.tag}｜${firstSent(x)}`);
   return `請為多益 Part 7 閱讀理解寫 ${w.n} 組（組別：${FMT[w.f]}），每組的文件與題目規格見下方；輸出為單一 JSON 陣列，規格在最後，不需要另外附 part7.json。
 
-- 主題：${w.d.toUpperCase()} ${DOM[w.d]}（scene 須屬於：${sc.join('、')}）；可選填 biz。
+- 主題：${w.d.toUpperCase()} ${DOM[w.d]}（scene 須屬於：${sc.join('、')}）；可選填 biz（只能是 hr／marketing／finance／manufacturing／it／general，不確定就省略此欄）。
 - 組別：${FD[w.f]}；文件類型建議：${w.k.length ? w.k.map(k => KD[k] + '（' + k + '）').join('＋') : '不限（依組別挑選合理組合）'}。
 - 難度：${TIER[w.t]}（id 尾碼 ${SUF[w.t]}）｜level.score 只能填：${SC[w.t].map(s => `${s[0]}（cefr ${s[1]}）`).join('、')}｜${SPEC && SPEC.tiers && SPEC.tiers[w.t] ? SPEC.tiers[w.t].guide : ''}
 - 題型：${w.q.length ? '本批必含：' + w.q.map(k => QT[k] + '（' + k + '）').join('、') + '；' : ''}目前各題型題數與建議占比：${types}；請優先補數量最少者。
@@ -496,35 +491,88 @@ ${JSON.stringify(spec)}
 2. 把每個干擾項代回整份文件，確認只有 1 個選項成立（尤其整合題：單看一份文件會得到哪個錯誤答案？它是否標了 partial 或 wrongdoc？）。
 3. 正解沒有照抄原文；至少 1 個干擾項沿用原文字詞但意思不對。
 4. 用程式驗算所有金額、日期、星期與時間。
-5. intent 只用在 chat；vocab 目標字在該文件只出現 1 次；insert 的 [1]–[4] 各 1 次，插入後文法與邏輯成立。
+5. clue.text 逐字出自文件、biz 只用允許值、正解 why 以「正解：」開頭；intent 只用在 chat；vocab 目標字在該文件只出現 1 次；insert 的 [1]–[4] 各 1 次，插入後文法與邏輯成立。
 6. 有任何不確定寫進 issues；無法達到規格時回傳 {"skip":"原因"}。`;
 }
-function setN(k, v) { V.nw[k] = v; render(); }
-function togN(k, v) { const a = V.nw[k], i = a.indexOf(v); if (i >= 0) a.splice(i, 1); else a.push(v); render(); }
-function pillN(k, v, label, multi) {
-  const on = multi ? V.nw[k].includes(v) : V.nw[k] === v;
-  return `<button data-k="${k}" data-v="${v}" onclick="${multi ? 'togN' : 'setN'}(this.dataset.k,${typeof v === 'number' ? '+' : ''}this.dataset.v)" class="${btn} !py-1.5 ${on ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${esc(label)}</button>`;
-}
-function newH() {
-  const row = (t, inner) => `<div class="mb-3"><div class="text-xs font-bold mb-1">${t}</div><div class="flex flex-wrap gap-2">${inner}</div></div>`;
-  return `<div class="${card} p-4 mb-4"><h2 class="font-bold text-sm mb-3">新增題目：產生「給 AI 的寫題目指令」</h2>`
-    + row('主題', Object.keys(DOM).map(k => pillN('d', k, k.toUpperCase() + ' ' + DOM[k])).join('')) + row('難度', Object.keys(TIER).map(k => pillN('t', k, TIER[k])).join(''))
-    + row('組別', Object.keys(FMT).map(k => pillN('f', k, FMT[k])).join('')) + row('文件類型（可複選，可不選）', Object.keys(KD).map(k => pillN('k', k, KD[k], 1)).join(''))
-    + row('組數', [1, 2, 3, 5].map(n => pillN('n', n, n + ' 組')).join('')) + row('本批必含題型（可複選，可不選）', Object.keys(QT).map(k => pillN('q', k, QT[k], 1)).join(''))
-    + (SPEC ? '' : `<div class="text-xs text-amber-600 mb-2">題庫沒有 _spec，指令裡的規格會是空的。</div>`)
-    + `<textarea id="pt" readonly rows="8" class="${fld} font-mono text-xs mb-2">${esc(promptText())}</textarea><button onclick="cp(document.getElementById('pt').value,this)" class="${btn} ${pri} w-full">複製指令</button></div>`;
-}
+/* ---------- 維護頁（比照 Part 1）：題數矩陣 → 該格的題組 → 題組與答案；新增題組：選主題／難度／組別 → 給 AI 的指令 ---------- */
+const TARGET = 2; // 每格（主題 × 難度）至少組數
+const A = { d: null, t: null, k: null, nd: null, nt: null, nf: 'single', nk: [], nn: 1, nq: [], out: [] }; // 維護頁狀態
+const goMaint = () => goM('maint');
+function goM(view, p) { stop(); Object.assign(A, p || {}); V.view = view; V.run = null; render(); window.scrollTo({ top: 0 }); }
+const maintCell = (d, t) => goM('maintCell', { d: d || null, t: t || null });
+const maintItem = k => goM('maintItem', { k });
+const maintNew = (d, t) => goM('maintNew', { nd: d || null, nt: t || null, nf: 'single', nk: [], nn: 1, nq: [], out: [] });
+function maintPick(k, v) { A[k] = v; render(); }
+function maintTog(k, v) { const a = A[k], i = a.indexOf(v); if (i >= 0) a.splice(i, 1); else a.push(v); render(); }
+const domLabel = k => DOM[k] ? k.toUpperCase() + ' ' + DOM[k] : '';
+const tScore = k => { const s = SC[k]; return s[0][0] + '–' + s[s.length - 1][0]; };
+const tcol = n => n >= TARGET ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400' : n ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-400' : 'bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400';
+const rBad = '!bg-rose-100 !text-rose-700 dark:!bg-rose-950 dark:!text-rose-300';
+
 function maintH() {
-  const rows = Object.keys(DOM).map(d => `<tr><td class="pr-2 py-1 text-xs whitespace-nowrap"><button data-d="${d}" data-t="" onclick="setM(this.dataset.d,this.dataset.t)" class="cursor-pointer ${V.mf.d === d && !V.mf.t ? 'font-bold text-indigo-600' : ''}">${d.toUpperCase()} ${esc(DOM[d])}</button></td>${Object.keys(TIER).map(t => `<td class="p-1">${mCell(d, t)}</td>`).join('')}<td class="pl-2 text-xs text-slate-500 whitespace-nowrap">${DATA.filter(x => x.domain === d).length} 組</td></tr>`).join('');
-  const xs = DATA.filter(x => (!V.mf.d || x.domain === V.mf.d) && (!V.mf.t || tier(x) === V.mf.t)), miss = missOf(xs), label = V.mf.d || V.mf.t ? [V.mf.d ? V.mf.d.toUpperCase() : '', V.mf.t ? TIER[V.mf.t] : ''].filter(Boolean).join(' · ') : '全部';
-  const orph = AUI && Array.isArray(AUI.orphans) ? AUI.orphans.length : 0;
-  return hdr('維護', 'backAdmin()')
-    + `<div class="text-xs text-slate-500 mb-3">${AUI ? `audio/index.json 已讀取（p7 完整文件音檔 ${AU.size} 個${orph ? `，孤兒檔 ${orph} 個` : ''}）` : '<span class="text-amber-600">尚未讀到 audio/index.json（含雙擊開啟 file://），所有音檔都視為缺。</span>'} · <a href="#" onclick="go('reports');return false" class="text-indigo-600 underline">提報 ${R.reports.length} 則</a></div>`
-    + `<div class="${card} p-4 mb-4 overflow-x-auto"><h2 class="font-bold text-sm mb-1">題數矩陣（主題 × 難度）</h2><div class="text-xs text-slate-400 mb-2">格內：組數、🎧 文件音檔整組到齊的組數；每格目標 2 組，偏少標黃。點格子可篩選下方題組。</div><table class="w-full"><thead><tr><th></th>${Object.keys(TIER).map(t => `<th class="text-xs font-medium text-slate-500 pb-1"><button data-d="" data-t="${t}" onclick="setM(this.dataset.d,this.dataset.t)" class="cursor-pointer ${V.mf.t === t && !V.mf.d ? 'font-bold text-indigo-600' : ''}">${TIER[t]}</button></th>`).join('')}<th></th></tr></thead><tbody>${rows}</tbody></table></div>`
-    + statH() + newH()
-    + `<div class="flex flex-wrap items-center justify-between gap-2 mb-2"><h2 class="font-bold text-sm">題組（${esc(label)}・${xs.length} 組）</h2>${miss.length ? `<button data-t="${esc(miss.join('\n'))}" onclick="cp(this.dataset.t,this)" class="${btn} ${line} !py-1 text-xs">複製${V.mf.d || V.mf.t ? '本格' : '全部'}缺的清單（${miss.length} 檔）</button>` : '<span class="text-xs text-emerald-600">音檔都到齊了</span>'}</div><div class="text-[11px] text-slate-400 mb-2">缺音檔清單格式：檔名.mp3 | 朗讀稿 | M 或 F（chat 為 M+F，朗讀稿內以 (M)／(F) 標每則訊息的聲音）</div>`
-    + (xs.length ? xs.map(x => { const need = rd(x), got = need.filter(o => AU.has(dkey(x, o.k))).length;
-      return `<details class="${card} p-3 mb-2"><summary class="cursor-pointer text-sm"><b>${esc(x.id)}</b> · ${esc(x.tag)} <span class="${chip} ml-1">${esc(FMT[x.format] || x.format)}</span> <span class="${chip}">${esc(TIER[tier(x)] || '')}</span> <span class="${chip}">${nq(x)} 題</span> <span class="${chip}">🎧 ${got}/${need.length}</span></summary><div class="mt-2">${setDetailH(x)}</div></details>`; }).join('') : `<p class="text-sm text-slate-400 text-center py-6">這個條件下沒有題組。</p>`);
+  const doms = Object.keys(DOM), tiers = Object.keys(TIER), N = DATA.length, Q = DATA.reduce((s, x) => s + nq(x), 0), full = DATA.filter(auDone).length;
+  let low = 0; doms.forEach(d => tiers.forEach(t => { if (nSets(d, t).length < TARGET) low++; }));
+  const orph = AUI && Array.isArray(AUI.orphans) ? AUI.orphans.length : 0, miss = missOf(DATA);
+  let h = hdr('維護', 'backAdmin()');
+  h += `<div class="${card} p-4 mb-4 text-sm"><div class="flex flex-wrap gap-x-6 gap-y-1"><span>題組 <b>${N}</b> 組</span><span>題目 <b>${Q}</b> 題</span><span>文件音檔 <b>${full}</b> / ${N} 組完整</span><span class="text-slate-500">未達標格子 <b>${low}</b> / ${doms.length * tiers.length}（目標每格 ≥ ${TARGET} 組）</span></div>`
+    + `<div class="text-xs text-slate-500 mt-2">${AUI ? `audio/index.json 已讀取（p7 完整文件音檔 ${AU.size} 個${orph ? `，孤兒檔 ${orph} 個` : ''}）` : '<span class="text-amber-600">尚未讀到 audio/index.json（含雙擊開啟 file://），所有音檔都視為缺。</span>'}</div></div>`;
+  h += `<div class="overflow-x-auto mb-3"><div class="grid gap-1.5 text-center text-sm min-w-[32rem]" style="grid-template-columns:4.5rem repeat(${doms.length},minmax(3rem,1fr))"><div></div>${doms.map(d => `<button onclick="maintCell('${d}',null)" class="text-xs font-bold py-1 cursor-pointer hover:text-indigo-600">${d.toUpperCase()}<br><span class="font-normal text-slate-500">${esc(DOM[d])}</span></button>`).join('')}`;
+  tiers.forEach(t => {
+    h += `<div class="text-left self-center text-xs font-bold">${TIER[t]}<span class="block font-normal text-slate-500">${tScore(t)}</span></div>` + doms.map(d => {
+      const xs = nSets(d, t), n = xs.length, aud = AUI ? xs.filter(x => !auDone(x)).length : 0;
+      return `<button onclick="maintCell('${d}','${t}')" class="rounded-lg py-3 font-bold cursor-pointer ${tcol(n)}">${n}${aud ? `<span class="block text-[10px] font-normal text-rose-600 dark:text-rose-400">缺音檔 ${aud}</span>` : ''}</button>`;
+    }).join('');
+  });
+  h += `</div></div><p class="text-xs text-slate-400 mb-5">格子＝該主題、該難度的題組數。紅＝0、黃＝未達 ${TARGET}、綠＝達標；格內小字：文件音檔沒到齊的組數（缺的文件用機器發音，仍可作答）。點格子看該格的題組；點上方 D1–D7 看該主題全部難度。</p>`;
+  h += statH();
+  h += `<button onclick="go('reports')" class="${btn} ${line} w-full mb-3">⚑ 提報彙整（${R.reports.length}）</button>`;
+  if (miss.length) h += `<button data-t="${esc(miss.join('\n'))}" onclick="cp(this.dataset.t,this)" class="${btn} ${line} w-full mb-3">複製全部缺的音檔清單（${miss.length} 檔）</button>`;
+  return h + `<button onclick="maintNew()" class="${btn} ${pri} w-full">＋ 新增題組</button>`;
+}
+
+function maintCellH() {
+  const d = A.d, t = A.t, xs = DATA.filter(x => x.domain === d && (!t || tier(x) === t)), nm = domLabel(d) + (t ? ' · ' + TIER[t] : ''), miss = missOf(xs);
+  let h = hdr(nm, 'goMaint()');
+  h += `<button onclick="maintNew('${d}',${t ? `'${t}'` : 'null'})" class="${btn} ${pri} w-full mb-3">＋ 新增 ${esc(nm.replace(' · ', ' '))} 題組</button>`;
+  h += `<button ${miss.length ? '' : 'disabled'} data-t="${esc(miss.join('\n'))}" onclick="cp(this.dataset.t,this)" class="${btn} ${line} w-full mb-1 disabled:opacity-40 disabled:cursor-not-allowed">複製本格缺的音檔清單（${miss.length} 檔）</button><div class="text-[11px] text-slate-400 mb-4">格式：檔名.mp3 | 朗讀稿 | M 或 F（chat 為 M+F，朗讀稿內以 (M)／(F) 標每則訊息的聲音）</div>`;
+  if (!xs.length) return h + `<div class="${card} p-8 text-center text-sm text-slate-500">目前沒有題組（0 組）。<br><span class="text-xs text-slate-400">點上方「＋ 新增」開始建立。</span></div>`;
+  return h + xs.map(x => {
+    const need = rd(x), got = need.filter(o => AU.has(dkey(x, o.k))).length, rp = R.reports.filter(r => r.id === x.id).length;
+    return `<div class="${card} p-3 mb-3"><p class="font-bold text-sm">${esc(x.id)}</p><p class="text-xs text-slate-500 truncate">${esc(x.tag)}</p>
+      <div class="flex flex-wrap gap-1 mt-2"><span class="${chip}">${esc(FMT[x.format] || x.format)}</span><span class="${chip}">${esc(TIER[tier(x)] || '')}${x.level && x.level.score ? ' · ' + x.level.score : ''}</span><span class="${chip}">${nq(x)} 題</span>${need.length ? `<span class="${chip}${got < need.length ? ' ' + rBad : ''}">🎧 ${got}/${need.length}</span>` : ''}${rp ? `<span class="${chip} ${rBad}">⚑ 提報 ${rp}</span>` : ''}</div>
+      <button data-k="${esc(x.id)}" onclick="maintItem(this.dataset.k)" class="${btn} ${line} !py-1 text-xs mt-2">看題組與答案</button></div>`;
+  }).join('');
+}
+
+function maintItemH() {
+  const x = find(A.k);
+  if (!x) return hdr('維護', 'goMaint()') + `<p class="text-sm text-slate-400 text-center py-8">找不到這一組。</p>`;
+  return hdr(x.id, `maintCell('${x.domain}','${tier(x)}')`) + `<p class="text-sm mb-1"><b>${esc(x.tag)}</b></p><div class="flex flex-wrap gap-1 mb-3"><span class="${chip}">${esc(domLabel(x.domain))}</span><span class="${chip}">${esc(FMT[x.format] || x.format)}</span><span class="${chip}">${esc(TIER[tier(x)] || '')}${x.level && x.level.score ? ' · ' + x.level.score : ''}</span><span class="${chip}">${nq(x)} 題</span></div>` + `<div class="${card} p-3">${setDetailH(x)}</div>`;
+}
+
+/* ---- 新增題組：選主題＋難度＋組別 → 給 AI 的寫題目指令 ---- */
+function maintNewH() {
+  const doms = Object.keys(DOM), tiers = Object.keys(TIER), d = A.nd, t = A.nt;
+  const on = c => `${btn} !py-1.5 ${c ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}`;
+  const sec = (n, ttl, opt, inner, hint) => `<h2 class="font-bold mb-2">${n}. ${ttl}${opt ? ' <span class="text-xs font-normal text-slate-400">（可不選）</span>' : ''}</h2><div class="flex flex-wrap gap-2 ${hint ? 'mb-1' : 'mb-5'}">${inner}</div>${hint ? `<p class="text-xs text-slate-400 mb-5">${hint}</p>` : ''}`;
+  let h = hdr('新增題組', 'goMaint()');
+  h += sec(1, '選主題', 0, doms.map(k => `<button onclick="maintPick('nd','${k}')" class="${on(d === k)}">${esc(domLabel(k))}</button>`).join(''));
+  h += sec(2, '選難度', 0, tiers.map(k => `<button onclick="maintPick('nt','${k}')" class="${on(t === k)}">${TIER[k]} <span class="text-xs opacity-70">${tScore(k)}${d ? ` · ${nSets(d, k).length} 組` : ''}</span></button>`).join(''), '分數是 AI 寫題目時 level.score 可以填的範圍。');
+  h += sec(3, '選組別', 0, Object.keys(FMT).map(k => `<button onclick="maintPick('nf','${k}')" class="${on(A.nf === k)}">${esc(FMT[k])}</button>`).join(''), '雙篇、三篇含整合題。');
+  h += sec(4, '選組數', 0, [1, 2, 3, 5].map(n => `<button onclick="maintPick('nn',${n})" class="${on(A.nn === n)}">${n} 組</button>`).join(''));
+  h += sec(5, '選文件類型', 1, Object.keys(KD).map(k => `<button onclick="maintTog('nk','${k}')" class="${on(A.nk.includes(k))}">${esc(KD[k])}</button>`).join(''));
+  h += sec(6, '本批必含題型', 1, Object.keys(QT).map(k => `<button onclick="maintTog('nq','${k}')" class="${on(A.nq.includes(k))}">${esc(QT[k])}</button>`).join(''));
+  if (!d || !t) return h + `<p class="text-xs text-slate-400">選好主題與難度後，會出現給 AI 的指令。</p>`;
+  const n = nSets(d, t).length, ids = nextIds(d, t, A.nn), text = promptText(); A.out = [text];
+  h += `<p class="text-sm mb-4">${esc(domLabel(d))} · ${TIER[t]}（${tScore(t)}）目前 <b>${n}</b> 組${n < TARGET ? `，未達目標 ${TARGET} 組` : '，已達標'}。這批新題組的 id：<b>${esc(ids.join('、'))}</b></p>`;
+  h += `<div class="${card} p-4 mb-3"><div class="flex items-center justify-between gap-2 mb-1"><p class="font-bold text-sm">1. 給 AI 的「寫題目」指令</p><button id="cp0" onclick="copyOut(0)" class="${btn} ${line} !py-1 text-xs shrink-0">複製</button></div><p class="text-xs text-slate-500 mb-2">約 ${text.length.toLocaleString()} 字，已內含精簡規格與已用過的 vocab／tag／文件標頭，不必另外附 part7.json。AI 會直接給你一個 p7_${esc(ids[0])}_x${A.nn}.json 檔案（單一 JSON 陣列）；若 AI 無法建檔，它會貼出 json 區塊，再自行存成這個檔名。寫不出該規格時它會回傳 skip（不要合併）。</p><pre class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-72 overflow-auto">${esc(text)}</pre></div>`;
+  h += `<div class="${card} p-4 mb-3"><p class="font-bold text-sm mb-1">2. 存檔與合併</p><p class="text-xs text-slate-500">把 AI 給你的 p7_${esc(ids[0])}_x${A.nn}.json 下載後，合併進 part7.json 的 items（你平常合併題庫的方式，例如 json_merge.py 能選 part7.json 就直接用）；合併後重新整理本頁，組數就會更新。若 AI 回傳的是 skip，就不要合併。有朗讀的文件錄好後，依本格「複製缺的音檔清單」的檔名放進 audio/p7/，再重新執行 Scan總表與音檔.py。</p></div>`;
+  return h;
+}
+function copyOut(i) {
+  const t = A.out[i] || '', done = () => { const b = document.getElementById('cp' + i); if (b) { b.textContent = '已複製 ✓'; setTimeout(() => { if (b.isConnected) b.textContent = '複製'; }, 1500); } };
+  const fb = () => { const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove(); done(); };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(done, fb); else fb();
 }
 
 /* ---------- 啟動 ---------- */

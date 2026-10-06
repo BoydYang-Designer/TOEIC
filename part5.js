@@ -539,7 +539,7 @@ function buildOut(d, t, pts, n) {
   return [
     { title: '題目編號', note: `這一批新題會依序使用這些 id（同一「主題＋難度」內最大編號 + 1）。音檔請存成 audio/p5/{id}.mp3，一題一檔。`, text: ids.join('\n') },
     { title: '給 AI 的「寫題目」指令', note: `直接貼給 AI（約 ${text.length.toLocaleString()} 字，已內含精簡規格與已用過的 tag／vocab／句子，不必附 part5.json）。AI 會給你一個 p5_ 開頭的 JSON 檔；若 AI 無法建檔，它會貼出 json 區塊，再自行存成同名檔案。`, text },
-    { title: '存檔與合併', note: `把 AI 給你的 p5_ 開頭檔案放到 json_merge.py 同一個資料夾，雙擊執行並選「Part 5 填空」合併。合併後重新整理本頁，題數就會更新；再到上方矩陣點該格，展開題目即可複製檔名與句子，音檔放 audio/p5/ 後執行 audio_scan.py。` }
+    { title: '存檔與合併', note: `把 AI 給你的 p5_ 開頭檔案放到 json_merge.py 同一個資料夾，雙擊執行並選「Part 5 填空」合併。合併後重新整理本頁，題數就會更新；再到上方矩陣點該格，展開題目即可複製檔名與句子，音檔放 audio/p5/ 後執行 Scan總表與音檔.py。` }
   ];
 }
 function adminNewH() {

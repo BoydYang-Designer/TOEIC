@@ -7,11 +7,11 @@ part3-auto-speech.py  ——  Part 3 簡短對話：勾選要補錄的題組，�
   1. 讀 part3.json，檢查 audio/p3/ 底下每組對話「每一句」的 mp3 是否存在
   2. 視窗列出有缺的題組，勾選這次要做的（可一次勾前 N 題、依前綴勾 d1 / d2-001、依難度勾 -e / -m / -h）
   3. 按「開始產生」，用 Edge 神經網路語音（edge-tts）錄製並存到正確位置
-  4. 做完清單會自動更新，下次再勾下一批；全部做完可執行 audio/audio_scan.py 更新 index.json
+  4. 做完清單會自動更新，下次再勾下一批；全部做完可執行 Scan總表與音檔.py 更新 index.json
 
 聲音：依 speakers 的 gender（F／M）挑女聲／男聲；整組聲音依題目 id 固定。
       三人對話若有兩位同性別，會自動分配不同的聲音，聽得出是兩個人。
-檔名：audio/p3/{id}-s01.mp3 …（編號＝dialogue 順序，從 01 起），與 audio_scan.py、part3.js 一致。
+檔名：audio/p3/{id}-s01.mp3 …（編號＝dialogue 順序，從 01 起），與 Scan總表與音檔.py、part3.js 一致。
 參數：--cli 強制使用文字模式（沒有 tkinter 時會自動使用）；--dry 只列清單不產生。
 """
 import asyncio
@@ -28,7 +28,7 @@ from pathlib import Path
 # ============================== 設定區（只要改這裡）==============================
 SUBDIR = "p3"                 # 句子音檔資料夾：audio/p3/
 ITEMS_FILE = "part3.json"
-# 檔名格式（必須和 audio_scan.py、part3.js 一致！）
+# 檔名格式（必須和 Scan總表與音檔.py、part3.js 一致！）
 S_NAME = "{id}-s{n:02d}.mp3"  # n = 1 起，依 dialogue 順序
 RATE = "+0%"                  # 語速，例如 "-10%" 更慢、"+0%" 正常
 TIMEOUT = 30                  # 單一檔案最久等幾秒，超過就當失敗並重試
@@ -175,12 +175,12 @@ def generate(jobs, log, progress, stop):
 
 
 def run_scan(root: Path, log):
-    scan = root / "audio" / "audio_scan.py"
+    scan = root / "Scan總表與音檔.py"
     if not scan.exists():
-        log("（找不到 audio/audio_scan.py，請自行更新 index.json）")
+        log("（找不到 Scan總表與音檔.py，請自行更新 index.json）")
         return
     r = subprocess.run([sys.executable, str(scan)], cwd=str(scan.parent), capture_output=True, text=True, input="\n")
-    log((r.stdout or "") + (r.stderr or "") or "audio_scan.py 已執行。")
+    log((r.stdout or "") + (r.stderr or "") or "Scan總表與音檔.py 已執行。")
 
 
 # ------------------------------- 視窗模式 -------------------------------
@@ -336,8 +336,8 @@ def run_gui(root: Path):
         stop_btn.config(state="disabled")
         log(f"—— 完成：成功 {ok}，失敗 {bad}" + (f"，已取消 {skipped}" if skipped else "") + " ——")
         reload_plan()
-        if ok and (root / "audio" / "audio_scan.py").exists():
-            if messagebox.askyesno("更新 index.json", "要順便執行 audio/audio_scan.py 更新 index.json 嗎？\n（網頁之後按 Ctrl+F5 重新整理）"):
+        if ok and (root / "Scan總表與音檔.py").exists():
+            if messagebox.askyesno("更新 index.json", "要順便執行 Scan總表與音檔.py 更新 index.json 嗎？\n（網頁之後按 Ctrl+F5 重新整理）"):
                 run_scan(root, log)
 
     def poll():
@@ -359,7 +359,7 @@ def run_gui(root: Path):
     stop_btn = ttk.Button(act, text="■ 停止（做完手上的就停）", command=lambda: (S["stop"].set(), log("要求停止…")), state="disabled")
     stop_btn.pack(side="left", padx=6)
     ttk.Button(act, text="重新掃描", command=lambda: None if S["running"] else reload_plan()).pack(side="left")
-    ttk.Button(act, text="執行 audio_scan.py", command=lambda: run_scan(root, log)).pack(side="right")
+    ttk.Button(act, text="執行 Scan總表與音檔.py", command=lambda: run_scan(root, log)).pack(side="right")
 
     reload_plan()
     if not S["groups"]:
@@ -420,8 +420,8 @@ def run_cli(root: Path, dry: bool):
         return
     ok, bad, _ = generate(jobs, print, lambda d, t: None, threading.Event())
     print(f"\n完成：成功 {ok}，失敗 {bad}。")
-    if ok and (root / "audio" / "audio_scan.py").exists():
-        if input("要順便執行 audio/audio_scan.py 更新 index.json 嗎？(Y/n) ").strip().lower() not in ("n", "no"):
+    if ok and (root / "Scan總表與音檔.py").exists():
+        if input("要順便執行 Scan總表與音檔.py 更新 index.json 嗎？(Y/n) ").strip().lower() not in ("n", "no"):
             run_scan(root, print)
     print("網頁請按 Ctrl+F5 重新整理。再次執行本程式可以做下一批。")
 

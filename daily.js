@@ -26,7 +26,9 @@ let cur = { w: 1, d: 1, view: 'launch', showTranscript: false };
 const idOf = x => `w${x.week}d${x.day}`;
 const AUDIO_DIR = 'audio/daily/'; // daily 的 mp3 放這個資料夾（題目有 audio 欄位時以該欄位為準）
 const audioPath = x => x.audio || AUDIO_DIR + idOf(x) + '.mp3';
-const audioSrc = x => audioPath(x) + (AU.idx && AU.idx.v ? '?v=' + AU.idx.v : ''); // AU / auLoad / auCopy 來自 audio.js（audio/index.json 由 audio/audio_scan.py 產生）
+const audioSrc = x => audioPath(x) + (AU.idx && AU.idx.v ? '?v=' + AU.idx.v : ''); // AU / auLoad / auCopy 來自 audio.js（audio/index.json 由 Scan總表與音檔.py 產生）
+// 複製全文用：兩人以上對話時，行首的「人名:」改成「(人名:)」，避免被當成要唸出來的字
+const spkParen = t => { t = String(t || ''); const re = /^([A-Z][A-Za-z.'\- ]{0,20}):(?=\s|$)/gm; const names = new Set((t.match(re) || []).map(m => m.slice(0, -1))); return names.size >= 2 ? t.replace(re, '($1:)') : t; };
 const dyHas = x => !!(AU.idx && AU.idx.daily && (AU.idx.daily.complete || []).includes(idOf(x)));
 const find = (w, d) => DATA.find(x => x.week == w && x.day == d);
 const L = 'ABCD';
@@ -90,7 +92,7 @@ function spToggle(id, startAt) { // 播放／暫停／繼續；startAt = 從指�
     const au = new Audio(audioSrc(x));
     try { au.defaultPlaybackRate = Sp.speed; au.playbackRate = Sp.speed; au.preservesPitch = true; au.webkitPreservesPitch = true; } catch(e) {}
     Sp.au = au; Sp.mode = 'audio'; Sp.st = 'playing';
-    if (startAt) au.currentTime = startAt;
+    if (startAt) { const go = () => { try { au.currentTime = startAt; } catch (e) {} }; au.addEventListener('loadedmetadata', go, { once: true }); }
     au.ontimeupdate = () => { if (Sp.au === au) spHl(id, au.currentTime); };
     au.onended = () => { if (Sp.au === au) { Sp.au = null; Sp.mode = ''; Sp.st = 'idle'; Sp.id = null; spClearHl(); spUI(); } };
     au.onerror = () => spAudioFail(au);
@@ -143,6 +145,7 @@ function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily
 }
 function spSeek(id, i) { // 點文稿句子：跳到該句播放
   const x = DATA.find(d => idOf(d) === id), t = x.timing[i].start;
+  if (Sp.id === id && Sp.mode === 'tts') { spRun(x.timing[i].from); return; } // 語音合成：從該句的字元位置重播
   if (Sp.id === id && Sp.mode === 'audio' && Sp.au) {
     Sp.au.currentTime = t;
     if (Sp.st === 'paused') { Sp.au.play(); Sp.st = 'playing'; }
@@ -198,10 +201,15 @@ let SEC = null; // null＝選單；'learn'＝學習；'maint'＝維護
 const inMaint = () => SEC === 'maint';
 const push = () => { if (isMobile()) try { history.pushState({ v: 1 }, ''); } catch (e) {} }; // 手機：每往下一層就記一筆，返回鍵才能一層一層退
 function showLaunch() { SEC = null; cur = Object.assign({}, cur, { view: 'launch' }); render(); window.scrollTo({ top: 0 }); }
+/* 從 vocab.html（TSL 單字總表）點進來：記住進入的那一天，之後「返回」就回到總表（總表會自動還原篩選與捲動位置） */
+let VBACK = null;
+const vFrom = () => !!VBACK && VBACK.w == cur.w && VBACK.d == cur.d;
+function backToVocab() { VBACK = null; location.href = 'vocab.html'; }
 function up() { // 往上一層
   const v = cur.view, m = isMobile();
   if (v === 'launch') return;
-  if (dnUp()) return; // 入庫彙整／回報彙整／詳解頁：回到上一層並還原捲動位置
+  if (dnUp()) { if (vFrom()) backToVocab(); return; } // 入庫彙整／回報彙整／詳解頁：回到上一層並還原捲動位置（從 vocab.html 進來則直接回總表）
+  if (v === 'day' && vFrom()) return backToVocab();
   if (v === 'speak') { cur.view = 'day'; render(); return; }
   if (SEC === 'maint') { if (v === 'maint') return showLaunch(); cur.view = 'maint'; cur.nw = cur.w; render(); window.scrollTo({ top: 0 }); return; }
   if (v === 'home' || (v === 'day' && !m)) return showLaunch();
@@ -278,7 +286,7 @@ function renderMaint() {
     <span>mp3：${AU.idx ? `<b class="text-emerald-600 dark:text-emerald-400">${mpOk}</b> / ${N}${mpOk < N ? ` <span class="text-rose-600 dark:text-rose-400">（缺 ${N - mpOk}）</span>` : ' ✔'}` : '<span class="text-amber-600 dark:text-amber-400">尚未讀到 audio/index.json</span>'}</span>
     <span>timing 完成：<b class="text-emerald-600 dark:text-emerald-400">${tm.ok}</b> / ${N}</span></div>
     ${tm.ok < N ? `<p class="mt-1 text-xs text-slate-500">未完成的 timing：未做 <b>${tm.none}</b>　部分 <b>${tm.partial}</b>　異常 <b>${tm.bad}</b></p>` : ''}
-    <div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><button onclick="recheckAudio()" class="${btn} border border-slate-300 dark:border-slate-700 !py-0.5 !px-2 text-xs">重新讀取 audio/index.json</button><span class="text-slate-400">timing 看 daily.json 內的 timing 欄位；放好 mp3 並執行 add_timestamps.py、重新整理後更新</span></div></div>
+    <div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><button onclick="recheckAudio()" class="${btn} border border-slate-300 dark:border-slate-700 !py-0.5 !px-2 text-xs">重新讀取 audio/index.json</button><span class="text-slate-400">timing 看 daily.json 內的 timing 欄位；放好 mp3 並執行 daily_timestamps.py、重新整理後更新</span></div></div>
   <div class="${card} overflow-hidden mb-3"><div class="overflow-x-auto"><table class="border-separate border-spacing-0 text-center"><thead><tr>
     <th class="sticky left-0 z-10 w-14 min-w-[3.5rem] bg-white dark:bg-slate-900 border-b border-r border-slate-200 dark:border-slate-800"></th>
     ${THEMES.map((t, i) => `<th class="min-w-[5.5rem] px-1 py-2 border-b border-slate-200 dark:border-slate-800"><span class="block text-sm font-bold">D${i + 1}</span><span class="block text-[10px] font-normal text-slate-500 truncate max-w-[5.5rem]">${t}</span></th>`).join('')}</tr></thead><tbody>`;
@@ -305,7 +313,7 @@ function timingPanel(x) {
   const id = idOf(x), t = tmInfo(x), p = String(x.passage || ''), tm = x.timing || [];
   const sb = `${btn} border border-slate-300 dark:border-slate-700 !py-0.5 !px-2 text-xs shrink-0`;
   let msg;
-  if (t.state === 'none') msg = `<p class="text-xs text-rose-600 dark:text-rose-400">尚未對時。放好 audio/daily/${id}.mp3 後，用 add_timestamps.py 對時，會把 timing 寫進 daily.json。</p>`;
+  if (t.state === 'none') msg = `<p class="text-xs text-rose-600 dark:text-rose-400">尚未對時。放好 audio/daily/${id}.mp3 後，用 daily_timestamps.py 對時，會把 timing 寫進 daily.json。</p>`;
   else if (t.state === 'bad') msg = `<p class="text-xs text-rose-600 dark:text-rose-400 mb-1">timing 資料有誤，建議重新對時：</p><ul class="text-xs text-slate-600 dark:text-slate-400 list-disc pl-4">${t.issues.slice(0, 8).map(s => `<li>${esc(s)}</li>`).join('')}${t.issues.length > 8 ? `<li>…另有 ${t.issues.length - 8} 項</li>` : ''}</ul>`;
   else if (t.state === 'partial') msg = `<p class="text-xs text-amber-600 dark:text-amber-400 mb-1">下面的文字沒有被任何一段 timing 涵蓋（句子漏掉或對時失敗）：</p><ul class="text-xs text-slate-600 dark:text-slate-400 list-disc pl-4">${t.gaps.slice(0, 6).map(s => `<li>${esc(s.length > 90 ? s.slice(0, 90) + '…' : s)}</li>`).join('')}</ul>`;
   else msg = '<p class="text-xs text-emerald-600 dark:text-emerald-400">每一段文字都有對應的時間 ✔</p>';
@@ -419,12 +427,12 @@ function renderAudioAdmin() {
   const fb = (k, t) => `<button onclick="setAudF('${k}')" class="${btn} !py-1.5 text-xs ${f === k ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${t}</button>`;
   const tmTodo = tmMiss.map(x => `${idOf(x)}.mp3 | timing ${TM_LABEL[tmInfo(x).state]}`).join('\n');
   let h = `<header class="mb-5"><h2 class="text-xl md:text-2xl font-bold">🎧 音檔／Timing 清單</h2>
-    <p class="mt-2 text-sm">文章 <b>${xs.length}</b> 篇　${AU.idx ? `<span class="text-emerald-600 dark:text-emerald-400">有 mp3 <b>${xs.length - mpMiss.length}</b></span>　<span class="${mpMiss.length ? 'text-rose-600 dark:text-rose-400' : 'text-slate-500'}">缺 mp3 <b>${mpMiss.length}</b></span>` : '<span class="text-amber-600 dark:text-amber-400 text-xs">尚未讀到 audio/index.json（先執行 audio/audio_scan.py；雙擊 file:// 開啟也讀不到）</span>'}　<span class="text-emerald-600 dark:text-emerald-400">timing 完成 <b>${xs.length - tmMiss.length}</b></span>　<span class="${tmMiss.length ? 'text-rose-600 dark:text-rose-400' : 'text-slate-500'}">未完成 <b>${tmMiss.length}</b></span></p>
+    <p class="mt-2 text-sm">文章 <b>${xs.length}</b> 篇　${AU.idx ? `<span class="text-emerald-600 dark:text-emerald-400">有 mp3 <b>${xs.length - mpMiss.length}</b></span>　<span class="${mpMiss.length ? 'text-rose-600 dark:text-rose-400' : 'text-slate-500'}">缺 mp3 <b>${mpMiss.length}</b></span>` : '<span class="text-amber-600 dark:text-amber-400 text-xs">尚未讀到 audio/index.json（先執行 Scan總表與音檔.py；雙擊 file:// 開啟也讀不到）</span>'}　<span class="text-emerald-600 dark:text-emerald-400">timing 完成 <b>${xs.length - tmMiss.length}</b></span>　<span class="${tmMiss.length ? 'text-rose-600 dark:text-rose-400' : 'text-slate-500'}">未完成 <b>${tmMiss.length}</b></span></p>
     <div class="flex flex-wrap gap-2 mt-3">${fb('all', '全部')}${fb('mp3', `缺 mp3（${mpMiss.length}）`)}${fb('tm', `timing 未完成（${tmMiss.length}）`)}
       <button onclick="recheckAudio()" class="${sb}">重新檢查</button>
-      ${mpMiss.length && AU.idx ? `<button onclick="auCopy(this.dataset.t)" data-t="${esc(mpMiss.map(x => '【' + audioPath(x).split('/').pop() + '】\n' + String(x.passage || '')).join('\n\n'))}" class="${sb}">複製缺的 mp3（檔名＋全文）</button>` : ''}
+      ${mpMiss.length && AU.idx ? `<button onclick="auCopy(this.dataset.t)" data-t="${esc(mpMiss.map(x => '【' + audioPath(x).split('/').pop() + '】\n' + spkParen(x.passage)).join('\n\n'))}" class="${sb}">複製缺的 mp3（檔名＋全文）</button>` : ''}
       ${tmMiss.length ? `<button onclick="auCopy(this.dataset.t)" data-t="${esc(tmTodo)}" class="${sb}">複製 timing 待辦</button>` : ''}</div>
-    <p class="text-xs text-slate-500 mt-2">mp3 放 audio/daily/，檔名 w{週}d{天}.mp3；放好後執行 audio/audio_scan.py 與 add_timestamps.py，再重新整理。</p></header>`;
+    <p class="text-xs text-slate-500 mt-2">mp3 放 audio/daily/，檔名 w{週}d{天}.mp3；放好後執行 Scan總表與音檔.py 與 daily_timestamps.py，再重新整理。</p></header>`;
   if (orph.length) h += `<div class="${card} p-3 mb-4 text-xs text-amber-600 dark:text-amber-400">⚠ audio/daily 內有不屬於任何文章的檔案（檔名打錯？）：${orph.map(esc).join('、')}</div>`;
   if (!list.length) return main.innerHTML = h + `<div class="${card} p-8 text-center text-sm text-slate-500">${xs.length ? '這個條件下沒有項目 ✔' : '目前沒有文章'}</div>`;
   main.innerHTML = h + list.map(x => `<details class="${card} p-3 mb-2"><summary class="cursor-pointer flex flex-wrap items-center gap-2"><b class="text-sm">W${x.week} · D${x.day}</b>${stChips(x)}<code class="text-xs text-slate-500">${esc(audioPath(x).split('/').pop())}</code><span class="text-xs text-slate-500 truncate flex-1 min-w-0">${esc(x.tag || '')}</span>${x.level ? `<span class="text-[11px] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}</summary>
@@ -622,7 +630,7 @@ function renderBook() {
     const rm = `<button onclick="toggleSave('${k}')" class="text-xs text-rose-500 hover:underline">移除</button>`;
     
     if (type === 'v') {
-      const w = x.vocab[idx];
+      const w = x.vocab[idx]; if (!w) return;
       v += `<div class="${card} p-4 flex justify-between items-start">
         <div>
           <div class="flex items-center gap-2">
@@ -636,7 +644,7 @@ function renderBook() {
         ${rm}
       </div>`;
     } else {
-      const z = x.questions[idx];
+      const z = x.questions[idx]; if (!z) return;
       q += `<div class="${card} p-4">
         <div class="flex justify-between items-center mb-2">
           <span class="text-xs text-indigo-500 font-medium">Week ${x.week} Day ${x.day} · ${THEMES[x.day-1]}</span>
@@ -644,7 +652,7 @@ function renderBook() {
         </div>
         <p class="font-medium text-sm my-1">${esc(z.q)}</p>
         <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">正解 (${L[z.ans]}): ${esc(z.opts[z.ans])}</p>
-        <p class="text-xs text-slate-500 mt-1">${esc(z.why[z.ans])}</p>
+        <p class="text-xs text-slate-500 mt-1">${esc((z.why || [])[z.ans] || '')}</p>
       </div>`;
     }
   });
@@ -744,6 +752,59 @@ function genReset() { genSet('score', null); render(); }
 function genType(t) { genSet('type', t === 'auto' ? null : t); render(); }
 function genNote(v) { genSet('note', v.trim() ? v : null); const el = document.getElementById('gen-prompt'); if (el) el.value = genPrompt(); }
 function genLen(s) { const t = Math.max(0, Math.min(1, (s - 600) / 250)); return t < 0.34 ? '偏短' : t < 0.67 ? '中等' : '偏長'; }
+/* ===== TSL 候選單字：從 tsl.js（依詞頻排名）挑出「還沒收錄」的字，並依本篇難度取不同區段，放進新增文章的提示詞 ===== */
+const TSL_POOL = 10;        // 每篇提供幾個候選字（建議 8–10；AI 從中挑 4–5 個放進 vocab，其餘留給之後的文章）
+const tslNz = s => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim(); // 自備，不依賴其他函式內的 nz
+const TSL_BY_LEVEL = true;  // true＝依難度取區段（分數低取前段＝較常見、分數高取後段＝較少見）；false＝一律取最前面
+function tslUsed() { // 已收錄 = 既有文章的 vocab.word 與 extra_vocab.text（含 -s/-es/-d/-ed/-ing 變化形）
+  const u = new Set();
+  DATA.forEach(x => { (x.vocab || []).forEach(v => u.add(tslNz(v.word))); (x.extra_vocab || []).forEach(v => u.add(tslNz(v.text))); });
+  return u;
+}
+function tslUnused() {
+  if (typeof TSL_WORDS === 'undefined') return null; // daily.html 沒載入 tsl.js
+  const u = tslUsed();
+  const hit = w => [w, w + 's', w + 'es', w + 'd', w + 'ed', w + 'ing', w.replace(/e$/, '') + 'ing', w.replace(/y$/, 'ies'), w.replace(/y$/, 'ied')].some(k => u.has(k));
+  return TSL_WORDS.filter(w => !hit(tslNz(w)));
+}
+function tslPick(score) { // 未收錄清單依詞頻排名排列；600 分從最前面取、850 分以上從最後面取，中間按比例
+  const all = tslUnused(); if (!all) return null;
+  const t = TSL_BY_LEVEL ? Math.max(0, Math.min(1, (score - 600) / 250)) : 0;
+  const st = Math.round(t * Math.max(0, all.length - TSL_POOL)), words = all.slice(st, st + TSL_POOL);
+  const rk = w => TSL_WORDS.indexOf(w) + 1;
+  return { words, left: all.length, r1: words.length ? rk(words[0]) : 0, r2: words.length ? rk(words[words.length - 1]) : 0 };
+}
+function tslMap() { // 變化形 → TSL 原字（例如 renewed → renew）
+  if (typeof TSL_WORDS === 'undefined') return null;
+  const m = new Map();
+  TSL_WORDS.forEach((w, i) => { const b = tslNz(w); [b, b + 's', b + 'es', b + 'd', b + 'ed', b + 'ing', b.replace(/e$/, '') + 'ing', b.replace(/y$/, 'ies'), b.replace(/y$/, 'ied')].forEach(k => { if (!m.has(k)) m.set(k, { w, r: i + 1 }); }); });
+  return m;
+}
+function tslHits() { // 每篇文章實際收錄了哪些 TSL 單字：[{x, list:[{word, w, r}]}]
+  const m = tslMap(); if (!m) return null;
+  const out = [];
+  [...DATA].sort((a, b) => a.week - b.week || a.day - b.day).forEach(x => {
+    const seen = new Set(), list = [];
+    [...(x.vocab || []).map(v => v.word), ...(x.extra_vocab || []).map(v => v.text)].forEach(t => {
+      const h = m.get(tslNz(t)); if (h && !seen.has(h.w)) { seen.add(h.w); list.push({ word: t, w: h.w, r: h.r }); }
+    });
+    if (list.length) out.push({ x, list });
+  });
+  return out;
+}
+function tslPanel(s) {
+  const tp = tslPick(s), hs = tslHits();
+  if (!tp || !hs) return '<p class="text-[11px] text-amber-600 mb-2">未載入 tsl.js，提示詞沒有帶入 TSL 候選字（請在 daily.html 加入 &lt;script src="tsl.js"&gt;）。</p>';
+  const chip = (t, c) => `<span class="inline-block rounded-full px-2 py-0.5 text-xs ${c}">${t}</span>`;
+  const total = hs.reduce((n, h) => n + h.list.length, 0);
+  return `<div class="rounded-lg border border-slate-200 dark:border-slate-800 p-3 mb-3 text-xs">
+    <p class="font-bold mb-1">本篇候選 TSL 單字（${s} 分，詞頻排名 #${tp.r1}–#${tp.r2}）</p>
+    <div class="flex flex-wrap gap-1 mb-1">${tp.words.map(w => chip(esc(w), 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300')).join('')}</div>
+    <p class="text-slate-500 mb-2">AI 會從這些字挑 4–5 個；合併進 daily.json 後，被挑中的就會出現在下方「已收錄」。TSL 尚未收錄 <b>${tp.left}</b> / ${TSL_WORDS.length} 字。</p>
+    <details><summary class="cursor-pointer font-bold">已收錄的 TSL 單字：${total} 個（${hs.length} 篇）</summary>
+      <div class="mt-2 space-y-1.5">${hs.map(h => `<div><span class="text-slate-500">w${h.x.week}d${h.x.day}</span> ${h.list.map(i => chip(`${esc(i.word)} <span class="opacity-60">#${i.r}</span>`, 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300')).join(' ')}</div>`).join('')}</div>
+    </details></div>`;
+}
 function genPrompt() {
   const g = genG(), w = cur.w, d = cur.d, s = g.score, { prev, next } = genRefs(w, d), c = cefrOf(s);
   const typ = g.type === 'auto' ? '由你依主題與 _spec 自行決定（Reading 或 Listening）' : g.type;
@@ -762,6 +823,12 @@ function genPrompt() {
   const lt = genLater(w, d); if (lt) L.push(`・較晚的 w${lt.week}d${lt.day} 已有 ${lt.level.score} 分；本篇不要比它更難。`);
   L.push('・調整難度請主要靠句型（複合句、被動、分詞構句）、字彙的抽象程度、需整合的資訊量與干擾項；字數只是次要因素。', '');
   L.push(`【長度】在 _spec 的 passage_length 範圍內取「${genLen(s)}」。`, '');
+  const tp = tslPick(s);
+  if (tp && tp.words.length) {
+    L.push('【TSL 候選單字】', `・以下是 TSL（New TOEIC Service List）中「尚未收錄」、且程度符合本篇難度（約 ${s} 分）的單字（詞頻排名 #${tp.r1}–#${tp.r2}，數字越大越少見）：${tp.words.join(', ')}`,
+      '・請從中挑 4–5 個（至少 3 個）最符合本篇主題與情境的單字，自然地寫進 passage 並放進 vocab；不適合的不要硬塞，沒用到的會留給之後的文章。',
+      '・vocab 總數仍依 _spec（3–6 個）；若清單以外還有更適合的商務字彙，可補足但不得與既有 items 重複。', '');
+  }
   if (g.note.trim()) L.push('【補充要求】', g.note.trim(), '');
   L.push('【輸出】', '・只輸出 JSON，放在單一 json 程式碼區塊內，單篇輸出單一物件；格式與自我檢查依 _spec 的 how_to_use.output 與 rules.self_check。', '・不要輸出整份 daily.json、不要輸出 timing 欄位；tag、情境與 vocab 單字不得與既有 items 重複。');
   return L.join('\n');
@@ -771,11 +838,10 @@ function dyPanel(x) {
   const id = idOf(x), path = audioPath(x), fn = path.split('/').pop(), has = dyHas(x), pass = String(x.passage || '');
   const sb = `${btn} border border-slate-300 dark:border-slate-700 !py-0.5 !px-2 text-xs shrink-0`;
   const cp = (t, label) => `<button onclick="auCopy(this.dataset.t)" data-t="${esc(t)}" class="${sb}">${label}</button>`;
-  const lines = pass.split(/\n+/).map(t => t.trim()).filter(Boolean);
-  return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 p-3"><div class="flex flex-wrap items-center justify-between gap-2 mb-2"><p class="text-xs font-bold">🔊 音檔 ${has ? '1/1（完整，播放用 mp3）' : '0/1（缺，播放改用機器發音）'}${AU.idx ? '' : ' · 尚未讀到 audio/index.json'}</p>${has ? '' : cp(fn + ' | ' + pass, '複製缺的（檔名 | 全文）')}</div>
-    <div class="flex items-center gap-2 text-xs py-0.5"><span class="${has ? 'text-emerald-600' : 'text-rose-500'}">${has ? '✔' : '✖'}</span><code class="shrink-0">${esc(fn)}</code><span class="truncate flex-1 text-slate-500">${esc(lines[0] || '')}</span>${cp(fn, '檔名')}${cp(path, '路徑')}${cp(pass, '全文')}</div>
-    <p class="text-[11px] text-slate-400 mt-1">放到 ${esc(path.slice(0, path.lastIndexOf('/') + 1))}，再執行 audio/audio_scan.py 並重新整理本頁。</p>
-    <details class="mt-2"><summary class="text-xs cursor-pointer text-slate-500">分段複製（${lines.length} 段）</summary>${lines.map(t => `<div class="flex items-center gap-2 text-xs py-0.5"><span class="truncate flex-1 text-slate-500">${esc(t)}</span>${cp(t, '句子')}</div>`).join('')}</details></div>`;
+  const first = (pass.split(/\n+/).map(t => t.trim()).find(Boolean)) || '';
+  return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 p-3"><div class="flex flex-wrap items-center justify-between gap-2 mb-2"><p class="text-xs font-bold">🔊 音檔 ${has ? '1/1（完整，播放用 mp3）' : '0/1（缺，播放改用機器發音）'}${AU.idx ? '' : ' · 尚未讀到 audio/index.json'}</p>${has ? '' : cp(fn + ' | ' + spkParen(pass), '複製缺的（檔名 | 全文）')}</div>
+    <div class="flex items-center gap-2 text-xs py-0.5"><span class="${has ? 'text-emerald-600' : 'text-rose-500'}">${has ? '✔' : '✖'}</span><code class="shrink-0">${esc(fn)}</code><span class="truncate flex-1 text-slate-500">${esc(first)}</span>${cp(fn, '檔名')}${cp(path, '路徑')}${cp(spkParen(pass), '全文')}</div>
+    <p class="text-[11px] text-slate-400 mt-1">放到 ${esc(path.slice(0, path.lastIndexOf('/') + 1))}，再執行 Scan總表與音檔.py 並重新整理本頁。</p></div>`;
 }
 const dyHead = '音檔總覽';
 
@@ -807,7 +873,7 @@ function renderGen() {
 
   <section class="${card} p-4 md:p-6 mb-5">
     <h3 class="font-bold mb-1">① 檔名</h3>
-    <p class="text-xs text-slate-500 mb-3 leading-relaxed">把 AI 回覆的 JSON 存成這個檔名，再用 daily_merge.py 合併進 daily.json。</p>
+    <p class="text-xs text-slate-500 mb-3 leading-relaxed">把 AI 回覆的 JSON 存成這個檔名，再用 json_merge.py 合併進 daily.json。</p>
     <div class="flex flex-wrap items-center gap-2 mb-2">
       <code id="gen-fn" class="rounded-lg bg-slate-100 dark:bg-slate-800 px-3 py-2 text-sm font-mono">${g.id}.json</code>
       <button onclick="copyEl('gen-fn',this)" class="${sb}">複製</button>
@@ -847,6 +913,7 @@ function renderGen() {
   <section class="${card} p-4 md:p-6">
     <h3 class="font-bold mb-1">④ 給 AI 的提示詞</h3>
     <p class="text-xs text-slate-500 mb-3 leading-relaxed">請連同 daily.json 一起提供給 AI（提示詞不含 JSON 內容）。</p>
+    ${tslPanel(s)}
     <textarea id="gen-prompt" readonly rows="16" class="${fld} w-full p-3 text-xs leading-relaxed font-mono">${esc(genPrompt())}</textarea>
     <button onclick="copyEl('gen-prompt',this)" class="${btn} mt-3 bg-indigo-600 text-white">複製提示詞</button>
   </section>`;
@@ -931,15 +998,38 @@ function pickJson(input) {
   const f = input.files[0]; if (!f) return;
   const r = new FileReader(); r.onload = () => loadFromText(r.result); r.readAsText(f, 'utf-8');
 }
+/* 從 vocab.html 連過來：#vocab=單字 → 開到該單字所在那天，並打開核心單字詳解 */
+function openVocabByHash() {
+  const m = location.hash.match(/^#vocab=(.+)$/); if (!m) return false;
+  const nz = s => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+  const q = nz(decodeURIComponent(m[1]));
+  for (const x of DATA) {
+    const i = (x.vocab || []).findIndex(v => nz(v.word) === q);
+    const inExtra = (x.extra_vocab || []).some(e => nz(e.text) === q);
+    if (i < 0 && !inExtra) continue;
+    SEC = 'learn'; cur = { w: x.week, d: x.day, nw: x.week, view: 'day', showTranscript: false };
+    VBACK = { w: x.week, d: x.day };
+    render();
+    if (i >= 0) dnOpenVocab(i);
+    return true;
+  }
+  return false;
+}
 async function boot() {
   try {
     const res = await fetch('daily.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     DATA = itemsOf(await res.json());
     await auLoad();
+  } catch (e) { return bootFail(e); }
+  try {
     cur.view = 'launch'; render();
     if (location.hash === '#maint') enterSec('maint'); else if (location.hash === '#learn') enterSec('learn');
-  } catch (e) {
+    else if (/^#vocab=/.test(location.hash)) openVocabByHash();
+  } catch (e) { console.error(e); main.innerHTML = `<div class="${card} p-8 text-center text-sm text-rose-600">畫面渲染失敗：${esc(e.message)}（請按 F12 看 Console）</div>`; }
+}
+function bootFail(e) {
+  {
     main.innerHTML = `<div class="${card} p-8 text-center">
       <h3 class="text-lg font-bold mb-2">請選取 daily.json</h3>
       <p class="text-sm text-slate-500 leading-relaxed mb-4">目前是直接雙擊開啟網頁（file://），瀏覽器不允許自動讀取 daily.json。<br>

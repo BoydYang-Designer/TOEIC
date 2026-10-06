@@ -1,7 +1,7 @@
 /* audio.js — Part 1／Part 2 共用音檔模組
    路徑：audio/p1/{id}-s01..s12.mp3；audio/p2/{id}-q.mp3 與 {id}-s01..s12.mp3（編號＝pool 順序，從 01 起，請勿打亂既有題目的 pool 順序）
    規則：整題（Part 2 含問句＋全部回答句）到齊才用 mp3，否則整題用機器發音。
-   哪些題目到齊由 audio/index.json（audio_scan.py 產生）決定，開頁時讀一次，播放時不再逐檔探測。讀不到清單（含雙擊開啟 file://）就全部用機器發音。 */
+   哪些題目到齊由 audio/index.json（Scan總表與音檔.py 產生）決定，開頁時讀一次，播放時不再逐檔探測。讀不到清單（含雙擊開啟 file://）就全部用機器發音。 */
 const AU = { idx: null, el: null, bad: {}, noLet: false, rate: 1, speed: 1 };
 /* 播放速度（Part 1／2 共用）：AU.speed＝使用者選的；AU.rate＝這次播放實際採用（模擬考固定 1，由各 Part 在開始播放時設定） */
 const AU_SPEEDS = [0.75, 1, 1.25];

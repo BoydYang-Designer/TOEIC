@@ -18,10 +18,14 @@
   Daily   audio/daily/w1d1.mp3（或題目的 audio 欄位）  （daily.json，整篇一個檔）
   字母    audio/A.mp3 … E.mp3（Part 1／2 共用，大寫檔名；Part 1 需 A–D、Part 2 需 A–C 到齊，才會在每個選項前先念字母）
 整題到齊才列入 complete；網頁只對 complete 的題目用 mp3。
+Timing 狀態：依 daily.json 每篇的 passage 與 timing 欄位，判斷 完成／部分／異常／未做，寫進 audio/index.json 的 timing 區塊
+  （首頁維護總覽直接讀，不必再下載整份 daily.json），並列出哪幾句沒對到。
+TSL 單字總表：比對 daily.json 的單字（vocab、extra_vocab 的單字與詞形），把「總表中已收錄的字」寫成小檔
+  vocab_index.json（網站根目錄）。vocab.html 只讀這個小檔，不必每次下載整份 daily.json。需要根目錄有 tsl.js。
 另外檢查：孤兒檔（不屬於任何題目，多半是打錯檔名）、檔名大小寫不符（GitHub Pages 區分大小寫）、0 KB 空檔、
 舊位置的 daily 檔（audio/w1d1.mp3 → 請搬到 audio/daily/）。
 """
-import json, os, re, time
+import json, os, re, time, unicodedata
 
 AUD = os.path.dirname(os.path.abspath(__file__))   # audio 資料夾（本檔所在）
 ROOT = os.path.dirname(AUD)                        # 網站根目錄（題庫 json 所在）
@@ -33,7 +37,8 @@ def items(fn):
     if not os.path.exists(p):
         print('找不到 %s，略過' % fn)
         return []
-    j = json.load(open(p, encoding='utf-8'))
+    with open(p, encoding='utf-8-sig') as fh:
+        j = json.load(fh)
     return j if isinstance(j, list) else j.get('items', [])
 
 
@@ -188,6 +193,73 @@ for part in ('p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'daily'):
     for o in out[part]['orphans']:
         warn.append('audio/%s/%s 不屬於任何題目（檔名打錯？）' % (part, o))
     out[part]['total'] = TOT.get(part, 0)
+# ===== Timing 狀態（寫進 audio/index.json 的 "timing"）=====
+#   切句規則與 daily_timestamps.py 的 split_sentences 相同（兩邊要一起改）。
+#   完成 ok＝每一句都有 timing；部分 partial＝有 timing 但有句子沒對到；
+#   異常 bad＝timing 的句子範圍對不上現在的文稿（文稿改過？）或時間順序不對；未做 none＝沒有 timing。
+_ABBR = {"mr", "ms", "mrs", "dr", "inc", "co", "ltd", "no", "vs", "st", "jr", "sr"}
+
+
+def split_sentences(text):
+    res, pos = [], 0
+
+    def add(base, a, b, line):
+        seg = line[a:b]
+        lead = len(seg) - len(seg.lstrip())
+        seg = seg.strip()
+        if seg:
+            res.append((base + a + lead, base + a + lead + len(seg)))
+    for line in text.split("\n"):
+        seg_start = 0
+        for m in re.finditer(r'(?<=[.!?])\s+(?=[A-Z"\'(])', line):
+            words = line[seg_start:m.start()].split()
+            last = words[-1] if words else ""
+            if last.rstrip(".").lower() in _ABBR or re.fullmatch(r"(?:[A-Za-z]\.){2,}", last):
+                continue
+            add(pos, seg_start, m.start(), line)
+            seg_start = m.end()
+        add(pos, seg_start, len(line), line)
+        pos += len(line) + 1
+    return res
+
+
+def timing_state(it):
+    passage = it.get('passage') or ''
+    tm = it.get('timing')
+    sents = split_sentences(passage)
+    if not isinstance(tm, list) or not tm:
+        return 'none', '尚未對時'
+    sset = set(sents)
+    got = []
+    for e in tm:
+        if not isinstance(e, dict) or not all(k in e for k in ('start', 'end', 'from', 'to')):
+            return 'bad', 'timing 格式不完整'
+        got.append((e['from'], e['to']))
+    if any(g not in sset for g in got):
+        return 'bad', 'timing 的句子範圍與現在的文稿對不上（文稿改過？請重新對時）'
+    if any(not (e['start'] < e['end']) for e in tm) or any(tm[i]['start'] < tm[i - 1]['start'] for i in range(1, len(tm))):
+        return 'bad', 'timing 時間順序異常'
+    gset = set(got)
+    miss = [i + 1 for i, s in enumerate(sents) if s not in gset]
+    if miss:
+        return 'partial', '只涵蓋 %d/%d 句，缺第 %s 句' % (len(sents) - len(miss), len(sents), '、'.join(map(str, miss)))
+    return 'ok', ''
+
+
+_t = {'total': 0, 'ok': 0, 'partial': 0, 'bad': 0, 'none': 0, 'todo': []}
+for it in items('daily.json'):
+    if not isinstance(it, dict) or 'week' not in it or 'day' not in it:
+        continue
+    s, why = timing_state(it)
+    _t['total'] += 1
+    _t[s] += 1
+    if s != 'ok':
+        _t['todo'].append({'id': 'w%sd%s' % (it['week'], it['day']), 'tag': it.get('tag', ''), 's': s, 'why': why})
+out['timing'] = _t
+print('timing：共 %d 篇，完成 %d，部分 %d，異常 %d，未做 %d' % (_t['total'], _t['ok'], _t['partial'], _t['bad'], _t['none']))
+for x in _t['todo']:
+    print('  %s %s：%s' % (x['id'], {'partial': '部分', 'bad': '異常', 'none': '未做'}[x['s']], x['why']))
+
 out['warn'] = warn   # 首頁「維護總覽」會顯示這些警告
 
 os.makedirs(AUD, exist_ok=True)
@@ -196,6 +268,48 @@ with open(os.path.join(AUD, 'index.json'), 'w', encoding='utf-8') as f:
 print('\n已寫入 audio/index.json')
 for w in warn:
     print('⚠', w)
+# ===== TSL 單字總表索引：vocab_index.json（網站根目錄）=====
+#   做法與 index.json 相同：先在本機掃描好，網頁只讀結果。
+#   比對對象：daily.json 每篇的 vocab[].word、extra_vocab 的單字（type=word）及其 forms[].w；
+#   拼字比對（小寫、去重音符號），不推測詞形變化。
+def norm(s):
+    s = unicodedata.normalize('NFD', str(s or '').lower())
+    return ''.join(c for c in s if unicodedata.category(c) != 'Mn').strip()
+
+tsl_path = os.path.join(ROOT, 'tsl.js')
+tsl = None
+if os.path.exists(tsl_path):
+    m = re.search(r'TSL_WORDS\s*=\s*\("(.*?)"\)\.split', open(tsl_path, encoding='utf-8').read(), re.S)
+    if m:
+        tsl = [norm(w) for w in m.group(1).split(',') if w.strip()]
+if not tsl:
+    print('\n找不到 tsl.js 或格式不符，略過 vocab_index.json（請把 tsl.js 放在網站根目錄）')
+else:
+    tset = set(tsl)
+    learned = {}
+
+    def add(word, w, d):
+        k = norm(word)
+        if k in tset and k not in learned:
+            learned[k] = [w, d]
+    for it in items('daily.json'):
+        if not isinstance(it, dict) or 'week' not in it or 'day' not in it:
+            continue
+        w, d = it['week'], it['day']
+        for v in it.get('vocab') or []:
+            if isinstance(v, dict):
+                add(v.get('word'), w, d)
+        for e in it.get('extra_vocab') or []:
+            if isinstance(e, dict) and e.get('type', 'word') == 'word':
+                add(e.get('text'), w, d)
+                for f in e.get('forms') or []:
+                    if isinstance(f, dict):
+                        add(f.get('w'), w, d)
+    vi = {'v': int(time.time()), 'total': len(tsl), 'have': len(learned), 'tsl': dict(sorted(learned.items()))}
+    with open(os.path.join(ROOT, 'vocab_index.json'), 'w', encoding='utf-8') as f:
+        json.dump(vi, f, ensure_ascii=False, separators=(',', ':'))
+    print('\nTSL 單字總表：已收錄 %d / %d 字，還缺 %d 字 → 已寫入 vocab_index.json' % (len(learned), len(tsl), len(tsl) - len(learned)))
+
 try:
     input('\n按 Enter 結束')
 except EOFError:

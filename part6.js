@@ -911,7 +911,7 @@ function adminNewH() {
   h += `<div class="${card} p-4 mb-3"><div class="flex items-center justify-between gap-2 mb-1"><p class="font-bold text-sm">1. 給 AI 的「寫文本」指令</p><button id="cp0" onclick="copyOut(0)" class="${btn} ${line} !py-1 text-xs shrink-0">複製</button></div>
     <p class="text-xs text-slate-500 mb-2">貼給 AI 即可（約 ${info.text.length.toLocaleString()} 字，已內含精簡規格與已用過的 tag／vocab／首句，不必附 part6.json）。AI 會直接給你一個 p6_${esc(info.ids[0])}_x${A.n}.json 檔案；若無法建檔，它會貼出 json 區塊，再自行存成該檔名。寫不出該難度時它會回傳 skip（不要合併）。</p>
     <pre class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-72 overflow-auto">${esc(info.text)}</pre></div>`;
-  h += `<div class="${card} p-4 mb-3"><p class="font-bold text-sm mb-1">2. 存檔與合併</p><p class="text-xs text-slate-500">把 AI 給你的 p6_ 開頭的 .json 下載後（檔名不用改），放到 json_merge.py 同一個資料夾，雙擊執行並勾選合併。合併後重新整理本頁，篇數就會更新。音檔請放進 audio/p6/（{id}.mp3，一篇一檔，朗讀答案填入的整篇），再執行 audio_scan.py；沒有音檔時網頁會用機器發音。</p></div>`;
+  h += `<div class="${card} p-4 mb-3"><p class="font-bold text-sm mb-1">2. 存檔與合併</p><p class="text-xs text-slate-500">把 AI 給你的 p6_ 開頭的 .json 下載後（檔名不用改），放到 json_merge.py 同一個資料夾，雙擊執行並勾選合併。合併後重新整理本頁，篇數就會更新。音檔請放進 audio/p6/（{id}.mp3，一篇一檔，朗讀答案填入的整篇），再執行 Scan總表與音檔.py；沒有音檔時網頁會用機器發音。</p></div>`;
   return h;
 }
 

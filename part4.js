@@ -858,7 +858,7 @@ function adminItemH() {
         <button id="ca-${esc(x.id)}" onclick="clip(find('${esc(x.id)}').script.map(l=>l.t).join(' '),'ca-${esc(x.id)}')" class="${btn} ${line} !py-1 text-xs">複製錄音稿</button>
       </span>
     </div>
-    <p class="text-xs text-slate-500 mb-1">整段獨白錄成一個檔，存成 audio/p4/<b class="font-mono">${esc(auName(x))}</b>（${gOf(x) === 'F' ? '女聲' : '男聲'}）。放好後執行 audio_scan.py。</p>
+    <p class="text-xs text-slate-500 mb-1">整段獨白錄成一個檔，存成 audio/p4/<b class="font-mono">${esc(auName(x))}</b>（${gOf(x) === 'F' ? '女聲' : '男聲'}）。放好後執行 Scan總表與音檔.py。</p>
     <p class="text-xs rounded bg-white dark:bg-slate-900 p-2 leading-relaxed">${esc(x.script.map(l => l.t).join(' '))}</p>
   </div>`;
   // 提報
@@ -895,7 +895,7 @@ function adminNewH() {
       <button id="cp" onclick="copyOut()" class="${btn} ${line} !py-1 text-xs">複製</button>
     </div>
     <pre class="text-xs whitespace-pre-wrap break-words rounded-lg bg-slate-100 dark:bg-slate-800 p-3 max-h-72 overflow-auto">${esc(tx)}</pre>
-    <p class="text-xs text-slate-500 mt-2">AI 回傳的檔案（p4_ 開頭）放到 json_merge.py 同資料夾，選「Part 4 獨白」合併；合併後到維護矩陣點該格即可複製錄音稿與檔名。音檔放 audio/p4/ 後執行 audio_scan.py。</p>
+    <p class="text-xs text-slate-500 mt-2">AI 回傳的檔案（p4_ 開頭）放到 json_merge.py 同資料夾，選「Part 4 獨白」合併；合併後到維護矩陣點該格即可複製錄音稿與檔名。音檔放 audio/p4/ 後執行 Scan總表與音檔.py。</p>
   </div>`;
   return h;
 }

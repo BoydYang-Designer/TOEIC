@@ -1,0 +1,57 @@
+{
+  "week": 1,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "submit",
+      "type": "word",
+      "ipa": "/səbˈmɪt/",
+      "pos": "v.",
+      "zh": "提交、呈交",
+      "note": "在這篇裡指把書面資料或報告正式交給某人，語氣比 send 正式，是公司公告常見的用字。後面常接要交的東西，再用 to 接收件人。",
+      "forms": [
+        { "w": "submission", "pos": "n.", "zh": "提交；提交的資料" },
+        { "w": "submitted", "pos": "adj.", "zh": "已提交的" }
+      ],
+      "col": "submit a report / submit an application / submit a form",
+      "examples": [
+        { "en": "Please submit your expense report by Friday afternoon.", "zh": "請在週五下午前提交你的費用報告。" },
+        { "en": "She submitted the application to the personnel department.", "zh": "她把申請書交給了人事部門。" }
+      ],
+      "confusable": [
+        { "word": "send", "diff": "send 只是寄出或傳送，比較日常；submit 強調正式交出去讓對方審閱或處理。" },
+        { "word": "hand in", "diff": "hand in 是口語說法，意思接近，但 submit 更適合公文與書面通知。" }
+      ],
+      "family": [
+        { "w": "submission", "pos": "n.", "zh": "提交" },
+        { "w": "deadline", "pos": "n.", "zh": "截止日期" },
+        { "w": "application", "pos": "n.", "zh": "申請書" }
+      ]
+    },
+    {
+      "text": "renovation",
+      "type": "word",
+      "ipa": "/ˌrɛnəˈveɪʃən/",
+      "pos": "n.",
+      "zh": "整修、翻新",
+      "note": "在這篇裡用複數 renovations，指會議室正在進行的整修工程，所以暫時不能使用。常和 due to、under 一起出現，是通知裡說明原因的常用字。",
+      "forms": [
+        { "w": "renovate", "pos": "v.", "zh": "整修、翻新" }
+      ],
+      "col": "under renovation / renovation work / a major renovation",
+      "examples": [
+        { "en": "The lobby is closed because of renovation work.", "zh": "大廳因為整修工程而關閉。" },
+        { "en": "The hotel will be under renovation for two months.", "zh": "這間飯店將整修兩個月。" }
+      ],
+      "confusable": [
+        { "word": "repair", "diff": "repair 是修理壞掉的東西；renovation 是把整個空間整修更新，讓它變新、變好。" },
+        { "word": "construction", "diff": "construction 指興建新建築或施工；renovation 是處理既有的建築或房間。" }
+      ],
+      "family": [
+        { "w": "renovate", "pos": "v.", "zh": "整修" },
+        { "w": "repair", "pos": "v.", "zh": "修理" },
+        { "w": "construction", "pos": "n.", "zh": "施工、建造" }
+      ]
+    }
+  ]
+}

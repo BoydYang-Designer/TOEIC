@@ -330,7 +330,7 @@ class Daily(Profile):
     backup_prefix = 'daily'
     name_re = re.compile(r'^w(\d+)d(\d+)', re.I)
     empty_hint = '資料夾內沒有找到其他 .json 檔。\n請按「新增檔案…」手動選取，例如 w1d3.json。'
-    done_note = '記得把對應的 mp3 放進 audio 資料夾（例如 audio/w1d3.mp3），並完成 timing 對時。（若合併的是 _extra 補丁，重新整理網頁即可看到詳解。）'
+    done_note = '記得把對應的 mp3 放進 audio 資料夾（例如 audio/daily/w1d3.mp3），並完成 timing 對時。（若合併的是 _extra 補丁，重新整理網頁即可看到詳解。）'
     XTYPES = ('word', 'phrase', 'sentence')
 
     @staticmethod
@@ -461,6 +461,22 @@ class Daily(Profile):
                 wa.append('「%s」缺少 ipa 或 pos' % t)
             if v['type'] == 'sentence' and not (v.get('structure') or v.get('grammar')):
                 wa.append('「%s」沒有 structure／grammar' % t)
+            if v['type'] in ('word', 'phrase') and not str(v.get('en') or '').strip():
+                wa.append('「%s」缺少 en（英文解說）' % t)
+            if v['type'] == 'word':
+                cs = v.get('collocations')
+                if not (isinstance(cs, list) and cs):
+                    wa.append('「%s」沒有 collocations（常用搭配＋例句）' % t)
+                elif any(not (isinstance(c, dict) and isinstance(c.get('example'), dict) and str(c['example'].get('en') or '').strip()) for c in cs):
+                    wa.append('「%s」有搭配沒有例句（collocations[].example.en）' % t)
+                fs = v.get('forms')
+                if isinstance(fs, list) and any(not (isinstance(f, dict) and f.get('ipa')) for f in fs):
+                    wa.append('「%s」forms 有項目缺 ipa（詞性變化需要音標）' % t)
+                if not (isinstance(fs, list) and fs):
+                    wa.append('「%s」沒有 forms（單複數、過去式等詞性變化）' % t)
+                fm = v.get('family')
+                if isinstance(fm, list) and any(not (isinstance(f, dict) and f.get('ipa') and isinstance(f.get('example'), dict) and str(f['example'].get('en') or '').strip()) for f in fm):
+                    wa.append('「%s」family 有項目缺 ipa 或例句' % t)
             for lk in ('forms', 'family', 'confusable', 'similar', 'grammar', 'key_words'):
                 if lk in v and not isinstance(v[lk], list):
                     er.append('「%s」%s 必須是陣列' % (t, lk))
@@ -793,7 +809,7 @@ class Part3(IdProfile):
     empty_hint = ('資料夾內沒有找到副檔。\n請把網頁「新增題目」產生的檔案（例如 p3_d1-002-m_x2.json）放進來，'
                   '或按「新增檔案…」手動選取。')
     done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p3/（{id}-s01.mp3…，一句對話一檔），'
-                 '再執行 audio_scan.py；沒有音檔時網頁會用機器發音。')
+                 '再執行 Scan總表與音檔.py；沒有音檔時網頁會用機器發音。')
 
     def is_candidate(self, fname):
         return fname.lower().startswith('p3_')
@@ -1005,7 +1021,7 @@ class Part4(Part3):
     empty_hint = ('資料夾內沒有找到副檔。\n請把網頁「新增題目」產生的檔案（例如 p4_d1-002-m_x2.json）放進來，'
                   '或按「新增檔案…」手動選取。')
     done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p4/（{id}.mp3，整段獨白錄一個檔），'
-                 '再執行 audio_scan.py；沒有音檔時網頁會用機器發音。')
+                 '再執行 Scan總表與音檔.py；沒有音檔時網頁會用機器發音。')
 
     def is_candidate(self, fname):
         return fname.lower().startswith('p4_')
@@ -1082,7 +1098,7 @@ class Part5(IdProfile):
     empty_hint = ('資料夾內沒有找到副檔。\n請把網頁「新增題目」產生的檔案（例如 p5_d1-002-m_x3.json）放進來，'
                   '或按「新增檔案…」手動選取。')
     done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p5/（{id}.mp3，一題一檔，朗讀答案填入的完整句），'
-                 '再執行 audio_scan.py；沒有音檔時網頁會用機器發音。')
+                 '再執行 Scan總表與音檔.py；沒有音檔時網頁會用機器發音。')
 
     def is_candidate(self, fname):
         return fname.lower().startswith('p5_')
@@ -1258,7 +1274,7 @@ class Part6(IdProfile):
     empty_hint = ('資料夾內沒有找到副檔。\n請把網頁「新增題目」產生的檔案（例如 p6_d1-002-m_x2.json）放進來，'
                   '或按「新增檔案…」手動選取。')
     done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p6/（{id}.mp3，一篇一檔，朗讀答案填入的整篇），'
-                 '再執行 audio_scan.py；沒有音檔時網頁會用機器發音。')
+                 '再執行 Scan總表與音檔.py；沒有音檔時網頁會用機器發音。')
 
     def is_candidate(self, fname):
         return fname.lower().startswith('p6_')
@@ -1552,7 +1568,7 @@ class Part7(IdProfile):
     empty_hint = ('資料夾內沒有找到副檔。\n請把網頁「新增題目」產生的檔案（例如 p7_d1-002-m_x2.json）放進來，'
                   '或按「新增檔案…」手動選取。')
     done_note = ('合併後重新整理網頁，題數就會更新。音檔請放進 audio/p7/（{id}-d{k}.mp3，一份文件一檔，k＝文件序號從 1 起；'
-                 'form／invoice／schedule／table 與 read:false 的文件不需要），再執行 audio_scan.py；沒有音檔時網頁會用機器發音。')
+                 'form／invoice／schedule／table 與 read:false 的文件不需要），再執行 Scan總表與音檔.py；沒有音檔時網頁會用機器發音。')
 
     def is_candidate(self, fname):
         return fname.lower().startswith('p7_')

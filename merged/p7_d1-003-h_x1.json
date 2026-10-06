@@ -1,0 +1,306 @@
+[
+ {
+  "id": "d1-003-h",
+  "domain": "d1",
+  "scene": "office",
+  "biz": "general",
+  "format": "single",
+  "tag": "辦公室搬遷時程更正通知",
+  "level": {
+   "score": 750,
+   "cefr": "B2",
+   "tier": "hard",
+   "why": "信件以更正舊通知的方式呈現，需整合日期、時間、座位範圍與但書；第 2 題要跨兩個時間點計算，第 3 題的依據分散在四處，干擾項沿用原文字詞。"
+  },
+  "docs": [
+   {
+    "kind": "email",
+    "label": "電子郵件",
+    "voice": "F",
+    "head": [
+     "To: All Sales Department Staff",
+     "From: Nadia Okafor, Office Operations",
+     "Date: Tuesday, October 14",
+     "Subject: Corrected Schedule for Sixth-Floor Move"
+    ],
+    "body": [
+     "Dear colleagues,",
+     "This message replaces my notice of October 7 about moving the sales department from the fourth floor to the sixth floor. Because the carpet installers on the sixth floor finished two days ahead of schedule, we are able to move earlier than planned, although several details have changed.",
+     "Moving day is now Thursday, October 16, instead of Friday, October 17. Movers will arrive at 7:30 a.m., so please label every box with your name and new desk number and leave it beside your desk by 4:00 p.m. on Wednesday. Boxes without a label will be moved last, and anything left inside a drawer will not be moved at all. IT will disconnect all phones and computers at 5:00 p.m. on Wednesday, and they will be working again on the sixth floor by 9:00 a.m. on Friday.",
+     "The earlier desk list, which began with desk 601, is no longer valid because the team has been divided into two sections. Desks 620 through 645, assigned to the staff who handle client calls, are in the east section near the windows. All other desks are in the west section. The updated list is posted on the sixth-floor bulletin board.",
+     "Parking passes for the fourth-floor lot remain valid until the end of the month. The freight elevator will be reserved for the movers from 7:30 a.m. to noon on Thursday. If you have any questions, please contact me at extension 5501 before noon on Wednesday.",
+     "Best regards,\nNadia Okafor\nOffice Operations"
+    ],
+    "zh": [
+     "各位同仁，",
+     "這封信取代我 10 月 7 日關於將業務部從四樓搬到六樓的通知。由於六樓的地毯安裝人員比預定時程提早兩天完工，我們得以比原訂更早搬遷，不過有幾項細節已經更動。",
+     "搬遷日現在改為 10 月 16 日星期四，而不是 10 月 17 日星期五。搬家工人上午 7 點 30 分抵達，因此請在星期三下午 4 點前，將每個箱子貼上標籤，寫上您的姓名與新座位編號，並放在座位旁。沒有標籤的箱子最後才搬，留在抽屜裡的東西則完全不會搬。資訊部門會在星期三下午 5 點中斷所有電話與電腦的連線，並預計在星期五上午 9 點前於六樓恢復運作。",
+     "先前的座位表（以 601 號座位開頭）已不再有效，因為團隊已被分成兩個區域。620 到 645 號座位分配給處理客戶來電的人員，位於靠窗的東區。其他座位都在西區。更新後的名單已張貼在六樓公布欄。",
+     "四樓停車場的停車證在本月底前仍然有效。貨運電梯在星期四上午 7 點 30 分到中午將保留給搬家工人使用。若有任何問題，請在星期三中午前以分機 5501 與我聯絡。",
+     "順頌商祺\nNadia Okafor\n辦公室營運部"
+    ]
+   }
+  ],
+  "questions": [
+   {
+    "n": 1,
+    "type": "purpose",
+    "stem": "Why did Nadia Okafor write the email?",
+    "stem_zh": "Nadia Okafor 為什麼寫這封電子郵件？",
+    "src": [
+     0
+    ],
+    "options": [
+     {
+      "t": "To ask staff to volunteer for the relocation",
+      "zh": "請員工自願協助搬遷",
+      "ok": false,
+      "why": "文中完全沒有徵求志工；員工只需自行打包並貼上標籤。",
+      "trap": "unmentioned"
+     },
+     {
+      "t": "To announce changes to an earlier relocation plan",
+      "zh": "宣布先前搬遷計畫的更動",
+      "ok": true,
+      "why": "正解：信中說這封信取代 10 月 7 日的通知，並更動搬遷日期、座位區域等細節。"
+     },
+     {
+      "t": "To explain why the carpet installation was delayed",
+      "zh": "說明地毯安裝為何延誤",
+      "ok": false,
+      "why": "與原文相反：地毯安裝比預定提早兩天完工，才讓搬遷提前。",
+      "trap": "opposite"
+     },
+     {
+      "t": "To assign new parking spaces on the sixth floor",
+      "zh": "分配六樓的新停車位",
+      "ok": false,
+      "why": "扭曲細節：信中只說四樓停車場的停車證仍有效，並沒有分配新車位。",
+      "trap": "distort"
+     }
+    ],
+    "evidence": [
+     {
+      "doc": 0,
+      "quote": "This message replaces my notice of October 7"
+     }
+    ],
+    "clue": {
+     "text": "This message replaces my notice of October 7",
+     "steps": [
+      "這是問寫信目的的總覽題，答案通常在第一段。",
+      "定位關鍵句 replaces my notice of October 7 與 several details have changed。",
+      "排除沒提到的徵求志工、與原文相反的地毯延誤，以及扭曲停車資訊的選項。",
+      "代入驗證：宣布更動先前的搬遷計畫，與全文的更正內容一致。"
+     ]
+    }
+   },
+   {
+    "n": 2,
+    "type": "detail",
+    "stem": "At most, how long will employees be without working phones and computers?",
+    "stem_zh": "員工最多會有多長時間沒有可用的電話與電腦？",
+    "src": [
+     0
+    ],
+    "options": [
+     {
+      "t": "About 16 hours",
+      "zh": "約 16 小時",
+      "ok": false,
+      "why": "只算了星期四下午 5 點到星期五上午 9 點；但中斷是從星期三下午 5 點開始。",
+      "trap": "distort"
+     },
+     {
+      "t": "About 24 hours",
+      "zh": "約 24 小時",
+      "ok": false,
+      "why": "只算到搬遷日當天（星期三下午 5 點到星期四下午 5 點），漏了星期四傍晚到星期五早上。",
+      "trap": "partial"
+     },
+     {
+      "t": "About 40 hours",
+      "zh": "約 40 小時",
+      "ok": true,
+      "why": "正解：星期三下午 5 點到星期五上午 9 點，24 小時加 16 小時共 40 小時。"
+     },
+     {
+      "t": "About 48 hours",
+      "zh": "約 48 小時",
+      "ok": false,
+      "why": "把恢復時間誤當成星期五下午 5 點；原文是上午 9 點前。",
+      "trap": "distort"
+     }
+    ],
+    "evidence": [
+     {
+      "doc": 0,
+      "quote": "IT will disconnect all phones and computers at 5:00 p.m. on Wednesday"
+     },
+     {
+      "doc": 0,
+      "quote": "working again on the sixth floor by 9:00 a.m. on Friday"
+     }
+    ],
+    "clue": {
+     "text": "IT will disconnect all phones and computers at 5:00 p.m. on Wednesday",
+     "steps": [
+      "這是需要計算的細節題，問最長的無法使用時間。",
+      "找出兩個時間點：星期三下午 5 點中斷、星期五上午 9 點前恢復。",
+      "排除只算一段（16 或 24 小時）以及把上午誤當下午的 48 小時。",
+      "代入驗證：到星期四下午 5 點為 24 小時，再到星期五上午 9 點多 16 小時，共 40 小時。"
+     ]
+    }
+   },
+   {
+    "n": 3,
+    "type": "notTrue",
+    "stem": "What is NOT stated about the move?",
+    "stem_zh": "關於這次搬遷，信中沒有提到下列哪一項？",
+    "src": [
+     0
+    ],
+    "options": [
+     {
+      "t": "Boxes lacking a label will be handled after the others.",
+      "zh": "沒有標籤的箱子會在其他箱子之後處理。",
+      "ok": false,
+      "why": "有提到：原文說 Boxes without a label will be moved last。",
+      "trap": "unmentioned"
+     },
+     {
+      "t": "Items kept inside a drawer will not be transported.",
+      "zh": "放在抽屜裡的物品不會被搬運。",
+      "ok": false,
+      "why": "有提到：原文說 anything left inside a drawer will not be moved at all。",
+      "trap": "unmentioned"
+     },
+     {
+      "t": "Parking passes for the old lot stay valid for the rest of the month.",
+      "zh": "舊停車場的停車證在本月剩餘時間仍有效。",
+      "ok": false,
+      "why": "有提到：原文說 Parking passes for the fourth-floor lot remain valid until the end of the month。",
+      "trap": "unmentioned"
+     },
+     {
+      "t": "Employees may use the freight elevator throughout the moving day.",
+      "zh": "員工在搬遷日整天都可使用貨運電梯。",
+      "ok": true,
+      "why": "正解：貨運電梯在星期四上午 7 點 30 分到中午保留給搬家工人，信中並未說員工整天可用。",
+      "trap": "overreach"
+     }
+    ],
+    "evidence": [
+     {
+      "doc": 0,
+      "quote": "Boxes without a label will be moved last"
+     },
+     {
+      "doc": 0,
+      "quote": "anything left inside a drawer will not be moved at all"
+     },
+     {
+      "doc": 0,
+      "quote": "Parking passes for the fourth-floor lot remain valid until the end of the month"
+     },
+     {
+      "doc": 0,
+      "quote": "The freight elevator will be reserved for the movers from 7:30 a.m. to noon on Thursday"
+     }
+    ],
+    "clue": {
+     "text": "The freight elevator will be reserved for the movers from 7:30 a.m. to noon on Thursday",
+     "steps": [
+      "這是 NOT／TRUE 題，要找信中沒有說到的一項。",
+      "分別定位標籤箱子、抽屜物品、停車證與貨運電梯的句子。",
+      "前三項都能在文中找到對應句，貨運電梯只保留給搬家工人到中午。",
+      "代入驗證：說員工整天可用的選項與原文不符，因此選它。"
+     ]
+    }
+   },
+   {
+    "n": 4,
+    "type": "inference",
+    "stem": "What is suggested about the employee assigned to desk 632?",
+    "stem_zh": "關於分配到 632 號座位的員工，信中暗示了什麼？",
+    "src": [
+     0
+    ],
+    "options": [
+     {
+      "t": "The employee works mostly with client calls.",
+      "zh": "該員工主要處理客戶來電。",
+      "ok": true,
+      "why": "正解：632 落在 620 到 645 號之間，而這些座位分配給處理客戶來電的人員。"
+     },
+     {
+      "t": "The employee will move after the labeled boxes.",
+      "zh": "該員工會在有標籤的箱子之後搬遷。",
+      "ok": false,
+      "why": "文中沒有提到員工的搬遷順序；順序只與箱子有無標籤有關。",
+      "trap": "unmentioned"
+     },
+     {
+      "t": "The employee previously sat at desk 601.",
+      "zh": "該員工先前坐在 601 號座位。",
+      "ok": false,
+      "why": "過度推論：601 只是舊座位表的起始號碼，且舊名單已失效，無法推出誰坐過那裡。",
+      "trap": "overreach"
+     },
+     {
+      "t": "The employee will sit in the west section.",
+      "zh": "該員工會坐在西區。",
+      "ok": false,
+      "why": "與原文相反：620 到 645 號座位在東區，西區是其他座位。",
+      "trap": "opposite"
+     }
+    ],
+    "evidence": [
+     {
+      "doc": 0,
+      "quote": "Desks 620 through 645, assigned to the staff who handle client calls"
+     }
+    ],
+    "clue": {
+     "text": "Desks 620 through 645, assigned to the staff who handle client calls",
+     "steps": [
+      "這是推論題，需要把座位號碼對應到文中的範圍。",
+      "定位 Desks 620 through 645 與 staff who handle client calls。",
+      "排除沒提到的搬遷順序、過度推論的 601 號舊座位，以及與東區相反的西區。",
+      "代入驗證：632 在範圍內，所以該員工屬於處理客戶來電的人員。"
+     ]
+    }
+   }
+  ],
+  "vocab": [
+   {
+    "word": "disconnect",
+    "ipa": "/ˌdɪskəˈnekt/",
+    "pos": "v.",
+    "col": "disconnect a phone / the network",
+    "zh": "中斷連線；拆開"
+   },
+   {
+    "word": "valid",
+    "ipa": "/ˈvælɪd/",
+    "pos": "adj.",
+    "col": "valid pass / ticket",
+    "zh": "有效的"
+   },
+   {
+    "word": "reserve",
+    "ipa": "/rɪˈzɜːrv/",
+    "pos": "v.",
+    "col": "reserve a room / an elevator",
+    "zh": "保留；預訂"
+   },
+   {
+    "word": "label",
+    "ipa": "/ˈleɪbəl/",
+    "pos": "v.",
+    "col": "label a box / a folder",
+    "zh": "貼上標籤"
+   }
+  ]
+ }
+]

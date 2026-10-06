@@ -214,6 +214,313 @@
         {"start": 14.38, "end": 18.56, "from": 209, "to": 288},
         {"start": 19.26, "end": 23.16, "from": 289, "to": 366},
         {"start": 23.92, "end": 30.04, "from": 367, "to": 480}
+      ],
+      "extra_vocab": [
+        {
+          "text": "submit",
+          "type": "word",
+          "ipa": "/səbˈmɪt/",
+          "pos": "v.",
+          "zh": "提交、呈交",
+          "en": "to give a document to someone so that they can look at it",
+          "note": "在這篇裡指把書面資料或報告正式交給某人，語氣比 send 正式，是公司公告常見的用字。後面常接要交的東西，再用 to 接收件人。",
+          "forms": [
+            {
+              "w": "submits",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "提交",
+              "ipa": "/səbˈmɪts/"
+            },
+            {
+              "w": "submitted",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "提交了",
+              "ipa": "/səbˈmɪtɪd/"
+            },
+            {
+              "w": "submitting",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在提交",
+              "ipa": "/səbˈmɪtɪŋ/"
+            },
+            {
+              "w": "submitted",
+              "label": "形容詞",
+              "pos": "adj.",
+              "zh": "已提交的",
+              "ipa": "/səbˈmɪtɪd/"
+            },
+            {
+              "w": "submission",
+              "label": "名詞（單數）",
+              "pos": "n.",
+              "zh": "提交；提交的資料",
+              "ipa": "/səbˈmɪʃən/"
+            },
+            {
+              "w": "submissions",
+              "label": "名詞（複數）",
+              "pos": "n.",
+              "zh": "提交的資料（複數）",
+              "ipa": "/səbˈmɪʃənz/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "submit a report",
+              "zh": "提交報告",
+              "example": {
+                "en": "Each manager must submit a report to the director monthly.",
+                "zh": "每位經理每個月都必須向主任提交一份報告。"
+              }
+            },
+            {
+              "phrase": "submit an application",
+              "zh": "提交申請",
+              "example": {
+                "en": "You can submit an application online before the end of May.",
+                "zh": "你可以在五月底前線上提交申請。"
+              }
+            },
+            {
+              "phrase": "submit a form",
+              "zh": "提交表格",
+              "example": {
+                "en": "Please submit the form to the front desk when you arrive.",
+                "zh": "抵達時請把表格交給櫃檯。"
+              }
+            },
+            {
+              "phrase": "submit a proposal",
+              "zh": "提交企劃書",
+              "example": {
+                "en": "Our team will submit a proposal to the client next week.",
+                "zh": "我們的團隊下週會向客戶提交一份企劃書。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "報帳",
+              "en": "Please submit your expense report by Friday afternoon.",
+              "zh": "請在週五下午前提交你的費用報告。"
+            },
+            {
+              "tag": "人事",
+              "en": "She submitted the application to the personnel department.",
+              "zh": "她把申請書交給了人事部門。"
+            },
+            {
+              "tag": "會議",
+              "en": "Employees must submit their updates before the meeting starts.",
+              "zh": "員工必須在會議開始前提交他們的最新進度。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "I submitted the revised schedule to Mr. Lee this morning.",
+              "zh": "我今天早上已把修改後的時程表交給李先生。"
+            },
+            {
+              "tag": "採購",
+              "en": "All purchase requests are submitted through the company website.",
+              "zh": "所有採購申請都透過公司網站提交。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "send",
+              "diff": "send 只是寄出或傳送，比較日常；submit 強調正式交出去讓對方審閱或處理。"
+            },
+            {
+              "word": "hand in",
+              "diff": "hand in 是口語說法，意思接近，但 submit 更適合公文與書面通知。"
+            }
+          ],
+          "family": [
+            {
+              "w": "submission",
+              "pos": "n.",
+              "zh": "提交",
+              "ipa": "/səbˈmɪʃən/",
+              "example": {
+                "en": "The deadline for submission is next Monday at noon.",
+                "zh": "提交的截止時間是下週一中午。"
+              }
+            },
+            {
+              "w": "deadline",
+              "pos": "n.",
+              "zh": "截止日期",
+              "ipa": "/ˈdɛdlaɪn/",
+              "example": {
+                "en": "We must finish the report before the deadline.",
+                "zh": "我們必須在截止日期前完成報告。"
+              }
+            },
+            {
+              "w": "application",
+              "pos": "n.",
+              "zh": "申請書",
+              "ipa": "/ˌæplɪˈkeɪʃən/",
+              "example": {
+                "en": "Your application will be reviewed within five working days.",
+                "zh": "你的申請會在五個工作天內審核。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "renovation",
+          "type": "word",
+          "ipa": "/ˌrɛnəˈveɪʃən/",
+          "pos": "n.",
+          "zh": "整修、翻新",
+          "en": "work done to make a building or room look new and better",
+          "note": "在這篇裡用複數 renovations，指會議室正在進行的整修工程，所以暫時不能使用。常和 due to、under 一起出現，是通知裡說明原因的常用字。",
+          "forms": [
+            {
+              "w": "renovations",
+              "label": "名詞（複數）",
+              "pos": "n.",
+              "zh": "整修工程（複數）",
+              "ipa": "/ˌrɛnəˈveɪʃənz/"
+            },
+            {
+              "w": "renovate",
+              "label": "動詞原形",
+              "pos": "v.",
+              "zh": "整修、翻新",
+              "ipa": "/ˈrɛnəveɪt/"
+            },
+            {
+              "w": "renovates",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "整修",
+              "ipa": "/ˈrɛnəveɪts/"
+            },
+            {
+              "w": "renovated",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "整修了",
+              "ipa": "/ˈrɛnəveɪtɪd/"
+            },
+            {
+              "w": "renovating",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在整修",
+              "ipa": "/ˈrɛnəveɪtɪŋ/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "under renovation",
+              "zh": "整修中",
+              "example": {
+                "en": "The second floor is under renovation until the end of June.",
+                "zh": "二樓整修到六月底。"
+              }
+            },
+            {
+              "phrase": "renovation work",
+              "zh": "整修工程",
+              "example": {
+                "en": "Renovation work starts early, so please park in the back lot.",
+                "zh": "整修工程一早就開始，所以請停在後面的停車場。"
+              }
+            },
+            {
+              "phrase": "a major renovation",
+              "zh": "大規模整修",
+              "example": {
+                "en": "The old factory needs a major renovation before it reopens.",
+                "zh": "這間舊工廠重新開放前需要大規模整修。"
+              }
+            },
+            {
+              "phrase": "closed for renovations",
+              "zh": "因整修而關閉",
+              "example": {
+                "en": "The cafeteria is closed for renovations this week.",
+                "zh": "自助餐廳這週因整修而關閉。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "公告",
+              "en": "The lobby is closed because of renovation work.",
+              "zh": "大廳因為整修工程而關閉。"
+            },
+            {
+              "tag": "出差",
+              "en": "The hotel will be under renovation for two months.",
+              "zh": "這間飯店將整修兩個月。"
+            },
+            {
+              "tag": "辦公室",
+              "en": "Our office moved to a new building during the renovation.",
+              "zh": "整修期間，我們的辦公室搬到了新大樓。"
+            },
+            {
+              "tag": "預算",
+              "en": "The renovation will cost about fifty thousand dollars in total.",
+              "zh": "這次整修總共大約要花五萬美元。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Thank you for your patience during the renovations.",
+              "zh": "感謝您在整修期間的耐心等候。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "repair",
+              "diff": "repair 是修理壞掉的東西；renovation 是把整個空間整修更新，讓它變新、變好。"
+            },
+            {
+              "word": "construction",
+              "diff": "construction 指興建新建築或施工；renovation 是處理既有的建築或房間。"
+            }
+          ],
+          "family": [
+            {
+              "w": "renovate",
+              "pos": "v.",
+              "zh": "整修",
+              "ipa": "/ˈrɛnəveɪt/",
+              "example": {
+                "en": "The company plans to renovate the main office next year.",
+                "zh": "公司計畫明年整修總辦公室。"
+              }
+            },
+            {
+              "w": "repair",
+              "pos": "v.",
+              "zh": "修理",
+              "ipa": "/rɪˈpɛr/",
+              "example": {
+                "en": "A technician will repair the printer this afternoon.",
+                "zh": "技術人員今天下午會修理印表機。"
+              }
+            },
+            {
+              "w": "construction",
+              "pos": "n.",
+              "zh": "施工、建造",
+              "ipa": "/kənˈstrʌkʃən/",
+              "example": {
+                "en": "Construction of the new warehouse begins in March.",
+                "zh": "新倉庫的施工將在三月開始。"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -329,6 +636,414 @@
         {"start": 12.04, "end": 19.86, "from": 170, "to": 304},
         {"start": 20.88, "end": 23.32, "from": 305, "to": 360},
         {"start": 23.96, "end": 25.4, "from": 361, "to": 396}
+      ],
+      "extra_vocab": [
+        {
+          "text": "postpone",
+          "type": "word",
+          "ipa": "/poʊstˈpoʊn/",
+          "pos": "v.",
+          "zh": "延後、延期",
+          "en": "to change something to a later time",
+          "note": "在這篇廣播裡指班機的起飛時間被改到比較晚的時間，用被動式 has been postponed。postpone 是把原定的時間往後挪，不是取消。",
+          "forms": [
+            {
+              "w": "postpones",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "延後",
+              "ipa": "/poʊstˈpoʊnz/"
+            },
+            {
+              "w": "postponed",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "延後了",
+              "ipa": "/poʊstˈpoʊnd/"
+            },
+            {
+              "w": "postponing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在延後",
+              "ipa": "/poʊstˈpoʊnɪŋ/"
+            },
+            {
+              "w": "postponement",
+              "label": "名詞（單數）",
+              "pos": "n.",
+              "zh": "延期",
+              "ipa": "/poʊstˈpoʊnmənt/"
+            },
+            {
+              "w": "postponements",
+              "label": "名詞（複數）",
+              "pos": "n.",
+              "zh": "延期（複數）",
+              "ipa": "/poʊstˈpoʊnmənts/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "postpone a meeting",
+              "zh": "延後會議",
+              "example": {
+                "en": "We had to postpone the meeting because the manager was ill.",
+                "zh": "因為經理生病，我們必須延後會議。"
+              }
+            },
+            {
+              "phrase": "postpone until",
+              "zh": "延到…（時間）",
+              "example": {
+                "en": "The product launch was postponed until the end of the year.",
+                "zh": "產品上市被延到年底。"
+              }
+            },
+            {
+              "phrase": "postpone a flight",
+              "zh": "延後航班",
+              "example": {
+                "en": "The airline postponed the flight because of a storm.",
+                "zh": "航空公司因為暴風雨而延後了航班。"
+              }
+            },
+            {
+              "phrase": "be postponed due to",
+              "zh": "因…而被延後",
+              "example": {
+                "en": "The training session was postponed due to a lack of staff.",
+                "zh": "訓練課程因人手不足而延後。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "機場",
+              "en": "Due to heavy fog, departure has been postponed by two hours.",
+              "zh": "由於濃霧，起飛時間已延後兩小時。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "I am sorry, but we need to postpone our appointment.",
+              "zh": "很抱歉，我們需要把約定的時間往後延。"
+            },
+            {
+              "tag": "活動",
+              "en": "The company picnic will be postponed if it rains.",
+              "zh": "如果下雨，公司野餐就會延期。"
+            },
+            {
+              "tag": "出差",
+              "en": "She decided to postpone her business trip to next month.",
+              "zh": "她決定把出差延到下個月。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "delay",
+              "diff": "delay 多半是意外造成的耽擱，事情還是照常進行只是變晚；postpone 是把事情正式改到之後的時間。"
+            },
+            {
+              "word": "cancel",
+              "diff": "cancel 是取消、不辦了；postpone 只是延後，之後還是會做。"
+            }
+          ],
+          "family": [
+            {
+              "w": "postponement",
+              "pos": "n.",
+              "zh": "延期",
+              "ipa": "/poʊstˈpoʊnmənt/",
+              "example": {
+                "en": "The postponement of the event surprised many customers.",
+                "zh": "活動延期讓許多顧客感到意外。"
+              }
+            },
+            {
+              "w": "delay",
+              "pos": "v.",
+              "zh": "延誤、耽擱",
+              "ipa": "/dɪˈleɪ/",
+              "example": {
+                "en": "Heavy traffic delayed the delivery by an hour.",
+                "zh": "交通壅塞讓貨品晚了一小時送達。"
+              }
+            },
+            {
+              "w": "reschedule",
+              "pos": "v.",
+              "zh": "重新安排時間",
+              "ipa": "/riˈskɛdʒuːl/",
+              "example": {
+                "en": "Could we reschedule the call for Thursday morning?",
+                "zh": "我們可以把電話會議改到週四早上嗎？"
+              }
+            },
+            {
+              "w": "cancel",
+              "pos": "v.",
+              "zh": "取消",
+              "ipa": "/ˈkænsəl/",
+              "example": {
+                "en": "Please cancel my reservation for tomorrow night.",
+                "zh": "請取消我明晚的預約。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "itinerary",
+          "type": "word",
+          "ipa": "/aɪˈtɪnəˌrɛri/",
+          "pos": "n.",
+          "zh": "行程表、旅行計畫",
+          "en": "a plan that shows where you will go and when",
+          "note": "在這篇廣播裡指旅客原本訂好的轉機與航班行程。rebook your itinerary 是請櫃檯人員重新安排這些班機，是機場與旅行社常見的說法。",
+          "forms": [
+            {
+              "w": "itineraries",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "行程表（複數）",
+              "ipa": "/aɪˈtɪnəˌrɛriz/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "a travel itinerary",
+              "zh": "旅遊行程表",
+              "example": {
+                "en": "Please send me your travel itinerary by e-mail.",
+                "zh": "請用電子郵件把你的旅遊行程表寄給我。"
+              }
+            },
+            {
+              "phrase": "change an itinerary",
+              "zh": "更改行程",
+              "example": {
+                "en": "You can change your itinerary online for a small fee.",
+                "zh": "你可以線上更改行程，需付一小筆費用。"
+              }
+            },
+            {
+              "phrase": "a detailed itinerary",
+              "zh": "詳細的行程表",
+              "example": {
+                "en": "The agency prepared a detailed itinerary for the tour group.",
+                "zh": "旅行社為旅行團準備了一份詳細的行程表。"
+              }
+            },
+            {
+              "phrase": "check an itinerary",
+              "zh": "確認行程",
+              "example": {
+                "en": "Please check your itinerary before you leave the office.",
+                "zh": "離開辦公室前，請先確認你的行程。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "機場",
+              "en": "Staff will rebook your itinerary free of charge.",
+              "zh": "工作人員會免費為您重新安排行程。"
+            },
+            {
+              "tag": "出差",
+              "en": "My itinerary includes two days in Seoul and one in Busan.",
+              "zh": "我的行程包括在首爾兩天、釜山一天。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "I have attached the final itinerary for the sales trip.",
+              "zh": "我已附上業務出差的最終行程表。"
+            },
+            {
+              "tag": "訪客接待",
+              "en": "The itinerary for the visiting clients starts with a factory tour.",
+              "zh": "來訪客戶的行程從參觀工廠開始。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "schedule",
+              "diff": "schedule 是時間表，可用在任何工作或活動；itinerary 專指旅行的路線與每天的安排。"
+            },
+            {
+              "word": "agenda",
+              "diff": "agenda 是會議要討論的項目清單；itinerary 是旅行要去哪裡、什麼時候去。"
+            }
+          ],
+          "family": [
+            {
+              "w": "schedule",
+              "pos": "n.",
+              "zh": "時間表、行程",
+              "ipa": "/ˈskɛdʒuːl/",
+              "example": {
+                "en": "The train schedule changes every spring.",
+                "zh": "火車時刻表每年春天都會調整。"
+              }
+            },
+            {
+              "w": "destination",
+              "pos": "n.",
+              "zh": "目的地",
+              "ipa": "/ˌdɛstɪˈneɪʃən/",
+              "example": {
+                "en": "Our final destination is the Singapore office.",
+                "zh": "我們的最終目的地是新加坡辦公室。"
+              }
+            },
+            {
+              "w": "reservation",
+              "pos": "n.",
+              "zh": "預訂",
+              "ipa": "/ˌrɛzərˈveɪʃən/",
+              "example": {
+                "en": "I made a reservation for a hotel near the airport.",
+                "zh": "我預訂了機場附近的一間飯店。"
+              }
+            },
+            {
+              "w": "agenda",
+              "pos": "n.",
+              "zh": "議程",
+              "ipa": "/əˈdʒɛndə/",
+              "example": {
+                "en": "The first item on the agenda is the budget.",
+                "zh": "議程的第一項是預算。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "voucher",
+          "type": "word",
+          "ipa": "/ˈvaʊtʃər/",
+          "pos": "n.",
+          "zh": "優待券、兌換券",
+          "en": "a piece of paper that you can use instead of money",
+          "note": "在這篇廣播裡，meal voucher 是航空公司發給延誤旅客的餐券，可以換一餐，不用自己付錢。voucher 不是現金，只能在指定的地方使用。",
+          "forms": [
+            {
+              "w": "vouchers",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "兌換券（複數）",
+              "ipa": "/ˈvaʊtʃərz/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "a meal voucher",
+              "zh": "餐券",
+              "example": {
+                "en": "Each employee received a meal voucher for the conference.",
+                "zh": "每位員工都收到會議用的餐券。"
+              }
+            },
+            {
+              "phrase": "a gift voucher",
+              "zh": "禮券",
+              "example": {
+                "en": "The store gave her a gift voucher as a thank-you.",
+                "zh": "商店送她一張禮券表示感謝。"
+              }
+            },
+            {
+              "phrase": "redeem a voucher",
+              "zh": "兌換優待券",
+              "example": {
+                "en": "You can redeem this voucher at any branch.",
+                "zh": "你可以在任何一間分店兌換這張優待券。"
+              }
+            },
+            {
+              "phrase": "a hotel voucher",
+              "zh": "住宿券",
+              "example": {
+                "en": "The airline offered a hotel voucher to stranded passengers.",
+                "zh": "航空公司提供住宿券給滯留的乘客。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "機場",
+              "en": "Meal vouchers are available at the information counter.",
+              "zh": "餐券可在詢問櫃檯領取。"
+            },
+            {
+              "tag": "零售",
+              "en": "Please show your voucher to the cashier before you pay.",
+              "zh": "付款前請向收銀員出示您的優待券。"
+            },
+            {
+              "tag": "客服",
+              "en": "We will send you a voucher for your next purchase.",
+              "zh": "我們會寄給您一張下次購物可用的優待券。"
+            },
+            {
+              "tag": "公司活動",
+              "en": "The voucher is valid for three months from today.",
+              "zh": "這張兌換券從今天起三個月內有效。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "coupon",
+              "diff": "coupon 多半是折價券，用來少付一點錢；voucher 常代表可以直接換一項服務或商品，例如一餐或一晚住宿。"
+            },
+            {
+              "word": "receipt",
+              "diff": "receipt 是付款後拿到的收據；voucher 是之後可以拿去換東西的憑證。"
+            }
+          ],
+          "family": [
+            {
+              "w": "coupon",
+              "pos": "n.",
+              "zh": "折價券",
+              "ipa": "/ˈkuːpɑːn/",
+              "example": {
+                "en": "Use this coupon to get ten percent off.",
+                "zh": "使用這張折價券可享九折。"
+              }
+            },
+            {
+              "w": "refund",
+              "pos": "n.",
+              "zh": "退款",
+              "ipa": "/ˈriːfʌnd/",
+              "example": {
+                "en": "Customers can ask for a full refund within 30 days.",
+                "zh": "顧客可以在三十天內要求全額退款。"
+              }
+            },
+            {
+              "w": "receipt",
+              "pos": "n.",
+              "zh": "收據",
+              "ipa": "/rɪˈsiːt/",
+              "example": {
+                "en": "Please keep your receipt in case you need to return it.",
+                "zh": "請保留收據，以備退貨時使用。"
+              }
+            },
+            {
+              "w": "compensation",
+              "pos": "n.",
+              "zh": "補償",
+              "ipa": "/ˌkɑːmpənˈseɪʃən/",
+              "example": {
+                "en": "The airline offered compensation for the long delay.",
+                "zh": "航空公司為長時間的延誤提供補償。"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -767,17 +1482,20 @@
       ],
       "timing": [
         {"start": 0.0, "end": 4.7, "from": 0, "to": 92},
-        {"start": 5.42, "end": 6.7, "from": 93, "to": 122},
-        {"start": 7.14, "end": 8.32, "from": 123, "to": 159},
-        {"start": 11.62, "end": 12.32, "from": 206, "to": 223},
+        {"start": 5.44, "end": 6.7, "from": 93, "to": 122},
+        {"start": 7.12, "end": 8.32, "from": 123, "to": 159},
+        {"start": 9.06, "end": 9.52, "from": 160, "to": 175},
+        {"start": 9.52, "end": 11.6, "from": 176, "to": 205},
+        {"start": 11.6, "end": 12.32, "from": 206, "to": 223},
         {"start": 12.7, "end": 13.34, "from": 224, "to": 242},
-        {"start": 14.0, "end": 18.36, "from": 243, "to": 330},
-        {"start": 19.08, "end": 19.96, "from": 331, "to": 361},
+        {"start": 14.0, "end": 18.34, "from": 243, "to": 330},
+        {"start": 19.06, "end": 19.96, "from": 331, "to": 361},
         {"start": 20.46, "end": 22.06, "from": 362, "to": 398},
+        {"start": 22.7, "end": 23.16, "from": 399, "to": 410},
         {"start": 23.16, "end": 25.22, "from": 411, "to": 450},
         {"start": 25.22, "end": 30.9, "from": 451, "to": 539},
         {"start": 31.48, "end": 33.38, "from": 540, "to": 585},
-        {"start": 34.04, "end": 36.06, "from": 586, "to": 636}
+        {"start": 34.04, "end": 36.08, "from": 586, "to": 636}
       ]
     },
     {
@@ -1134,19 +1852,22 @@
         }
       ],
       "timing": [
-        {"start": 0.0, "end": 3.96, "from": 0, "to": 71},
-        {"start": 4.56, "end": 8.26, "from": 72, "to": 143},
-        {"start": 8.82, "end": 10.72, "from": 145, "to": 184},
-        {"start": 11.32, "end": 16.34, "from": 185, "to": 280},
-        {"start": 17.08, "end": 25.22, "from": 281, "to": 427},
-        {"start": 25.22, "end": 33.82, "from": 429, "to": 568},
-        {"start": 34.36, "end": 37.68, "from": 569, "to": 635},
-        {"start": 38.48, "end": 42.64, "from": 636, "to": 715},
-        {"start": 43.36, "end": 47.0, "from": 717, "to": 800},
-        {"start": 49.34, "end": 54.52, "from": 801, "to": 902},
-        {"start": 55.22, "end": 58.24, "from": 903, "to": 963},
-        {"start": 58.92, "end": 62.08, "from": 965, "to": 1029},
-        {"start": 62.86, "end": 67.04, "from": 1030, "to": 1112}
+        {"start": 0.0, "end": 4.2, "from": 0, "to": 71},
+        {"start": 4.94, "end": 8.96, "from": 72, "to": 143},
+        {"start": 9.64, "end": 11.78, "from": 145, "to": 184},
+        {"start": 12.52, "end": 18.26, "from": 185, "to": 280},
+        {"start": 19.1, "end": 28.18, "from": 281, "to": 427},
+        {"start": 28.18, "end": 38.2, "from": 429, "to": 568},
+        {"start": 38.74, "end": 42.62, "from": 569, "to": 635},
+        {"start": 43.22, "end": 48.2, "from": 636, "to": 715},
+        {"start": 48.96, "end": 53.4, "from": 717, "to": 800},
+        {"start": 55.8, "end": 62.0, "from": 801, "to": 902},
+        {"start": 62.8, "end": 66.26, "from": 903, "to": 963},
+        {"start": 66.98, "end": 70.8, "from": 965, "to": 1029},
+        {"start": 71.58, "end": 76.48, "from": 1030, "to": 1112},
+        {"start": 77.42, "end": 79.26, "from": 1114, "to": 1150},
+        {"start": 80.08, "end": 82.08, "from": 1151, "to": 1189},
+        {"start": 82.9, "end": 84.6, "from": 1190, "to": 1224}
       ]
     },
     {
@@ -1434,13 +2155,15 @@
       ],
       "timing": [
         {"start": 0.0, "end": 5.16, "from": 0, "to": 103},
-        {"start": 6.12, "end": 8.58, "from": 104, "to": 155},
-        {"start": 10.14, "end": 16.28, "from": 174, "to": 280},
-        {"start": 17.64, "end": 24.74, "from": 281, "to": 411},
+        {"start": 6.1, "end": 8.58, "from": 104, "to": 155},
+        {"start": 9.06, "end": 9.54, "from": 156, "to": 173},
+        {"start": 10.12, "end": 16.28, "from": 174, "to": 280},
+        {"start": 17.62, "end": 24.74, "from": 281, "to": 411},
         {"start": 25.38, "end": 26.18, "from": 412, "to": 439},
         {"start": 26.18, "end": 29.3, "from": 440, "to": 491},
+        {"start": 29.92, "end": 30.18, "from": 492, "to": 503},
         {"start": 30.72, "end": 33.34, "from": 504, "to": 553},
-        {"start": 34.32, "end": 38.6, "from": 554, "to": 625}
+        {"start": 34.3, "end": 38.6, "from": 554, "to": 625}
       ]
     },
     {
@@ -2010,10 +2733,11 @@
       ],
       "timing": [
         {"start": 0.0, "end": 3.82, "from": 0, "to": 94},
-        {"start": 4.54, "end": 9.72, "from": 95, "to": 202},
+        {"start": 4.52, "end": 9.72, "from": 95, "to": 202},
         {"start": 10.28, "end": 12.18, "from": 204, "to": 254},
+        {"start": 12.18, "end": 13.72, "from": 256, "to": 277},
         {"start": 13.72, "end": 16.0, "from": 278, "to": 336},
-        {"start": 16.62, "end": 19.96, "from": 337, "to": 413},
+        {"start": 16.62, "end": 19.94, "from": 337, "to": 413},
         {"start": 20.94, "end": 23.18, "from": 414, "to": 470}
       ]
     },
@@ -3035,12 +3759,13 @@
       ],
       "timing": [
         {"start": 0.0, "end": 5.72, "from": 0, "to": 106},
-        {"start": 6.12, "end": 12.82, "from": 108, "to": 238},
+        {"start": 6.1, "end": 12.82, "from": 108, "to": 238},
         {"start": 13.44, "end": 14.26, "from": 240, "to": 264},
         {"start": 15.0, "end": 19.62, "from": 265, "to": 353},
-        {"start": 20.24, "end": 21.02, "from": 355, "to": 384},
-        {"start": 21.7, "end": 24.52, "from": 385, "to": 447},
-        {"start": 26.36, "end": 28.44, "from": 462, "to": 516}
+        {"start": 20.22, "end": 21.04, "from": 355, "to": 384},
+        {"start": 21.72, "end": 24.52, "from": 385, "to": 447},
+        {"start": 25.24, "end": 25.76, "from": 449, "to": 461},
+        {"start": 26.36, "end": 28.46, "from": 462, "to": 516}
       ]
     },
     {
