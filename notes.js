@@ -282,7 +282,7 @@ function dnMarkMenu(id) {
     <p class="text-lg font-bold break-words">${esc(m.text)}</p><p class="text-xs text-slate-500 mt-1 mb-3">${esc(dnArtLabel(m.qid))}　${merged ? '<span class="text-emerald-600">✔ 詳解已寫回</span>' : '待補詳解'}</p>
     <label class="block text-xs text-slate-500 mb-1">類型</label><div class="flex gap-1.5 mb-3">${['word', 'phrase', 'sentence'].map(t => `<button onclick="dnMkType('${t}')" id="dn-mt-${t}" data-on="${m.type === t ? 1 : 0}" class="text-xs rounded-lg px-3 py-1.5 cursor-pointer ${m.type === t ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${DNT[t]}</button>`).join('')}</div>
     <label class="block text-xs text-slate-500 mb-1">我的備註（給 AI 看，例如：不懂為什麼用 on）</label><textarea id="dn-mn" rows="3" class="${dnInp} mb-3">${esc(m.note || '')}</textarea>
-    <div class="flex flex-wrap gap-2 justify-between"><button onclick="dnDelMark('${m.id}')" class="${btn} text-rose-500">刪除</button><div class="flex gap-2">${merged ? `<button onclick="dnClose();dnOpenExtra('${m.qid}',this.dataset.t)" data-t="${esc(m.text)}" class="${btn} ${dnLine}">看詳解</button>` : ''}<button onclick="dnSaveMark()" class="${btn} ${dnPri}">儲存</button></div></div></div>`);
+    <div class="flex flex-wrap gap-2 justify-between">${merged ? '<span class="text-[11px] text-slate-400 self-center max-w-[14rem]">詳解已寫回 daily.json，無法在這裡刪除。</span>' : `<button onclick="dnDelMark('${m.id}')" class="${btn} text-rose-500">刪除</button>`}<div class="flex gap-2">${merged ? `<button onclick="dnClose();dnOpenExtra('${m.qid}',this.dataset.t)" data-t="${esc(m.text)}" class="${btn} ${dnLine}">看詳解</button>` : ''}<button onclick="dnSaveMark()" class="${btn} ${dnPri}">儲存</button></div></div></div>`);
 }
 function dnMkType(t) { ['word', 'phrase', 'sentence'].forEach(k => { const b = document.getElementById('dn-mt-' + k); if (!b) return; const on = k === t; b.dataset.on = on ? 1 : 0; b.className = 'text-xs rounded-lg px-3 py-1.5 cursor-pointer ' + (on ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'); }); }
 function dnSaveMark() {
@@ -294,14 +294,38 @@ function dnSaveMark() {
 function dnDelMark(id) { if (!confirm('確定刪除這筆入庫？')) return; S.marks = dnMarks().filter(m => m.id !== id); save(); dnClose(); render(); }
 function dnDelMark2(id) { if (!confirm('確定刪除這筆入庫？')) return; S.marks = dnMarks().filter(m => m.id !== id); save(); render(); }
 
+function dnMyCard(m) { // 我的入庫卡片：版型與核心多益單字一致，初步說明取自已寫回的 extra_vocab（zh／en／note）
+  const x = dnArt(m.qid), e = x && dnFindExtra(x, m.text), full = m.type === 'sentence';
+  const sp = e && e.ipa ? `<p class="text-xs text-slate-400">${esc(e.ipa)}</p>` : '';
+  const pos = e && e.pos ? `<span class="text-xs text-slate-500 italic ml-1">${esc(e.pos)}</span>` : '';
+  const body = e
+    ? `${e.zh ? `<p class="mt-2 text-sm font-semibold text-slate-700 dark:text-slate-300">${esc(e.zh)}</p>` : ''}${e.en ? `<p class="text-xs mt-1 text-slate-500 dark:text-slate-400">${esc(e.en)}</p>` : ''}${e.note ? `<p class="text-xs mt-1.5 text-slate-600 dark:text-slate-300 line-clamp-3">${esc(e.note)}</p>` : ''}`
+    : `<p class="mt-2 text-xs text-slate-400">尚無詳解，可到「📌 入庫彙整」產生提示詞請 AI 補。</p>${m.note ? `<p class="text-xs mt-1 text-slate-500 dark:text-slate-400">我的備註：${esc(m.note)}</p>` : ''}`;
+  return `<div class="${card} p-4 flex flex-col justify-between${full ? ' sm:col-span-2 md:col-span-3' : ''}">
+    <div>
+      <div class="flex items-start justify-between gap-2">
+        <div class="min-w-0">
+          <button onclick="dnOpenMark('${m.id}')" class="text-base font-bold text-left break-words underline decoration-dotted decoration-slate-400 underline-offset-4 hover:text-indigo-600 cursor-pointer">${esc(full && m.text.length > 80 ? m.text.slice(0, 80) + '…' : m.text)}</button>${pos}
+          <span class="ml-1 align-middle text-[10px] rounded px-1.5 py-0.5 ${DNTC[m.type]}">${DNT[m.type]}</span>${sp}
+        </div>
+        <button onclick="speak(this.dataset.w)" data-w="${esc(m.text)}" class="text-slate-400 hover:text-indigo-600 text-lg shrink-0">🔊</button>
+      </div>
+      ${body}
+    </div>
+    <div class="flex gap-2 mt-3">
+      ${e ? `<button onclick="dnOpenMark('${m.id}')" class="${btn} text-xs flex-1 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800">詳解 ›</button>` : ''}
+      ${e ? '' : `<button onclick="dnMarkMenu('${m.id}')" class="${btn} text-xs flex-1 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800">備註／類型／刪除</button>`}
+    </div>
+  </div>`;
+}
 /* 每日頁：「我的入庫」區塊 */
 function dnDaySec(x) {
   const id = idOf(x), ms = dnMarksOf(id), open = !!cur.myOpen;
   let h = `<div class="flex items-center justify-between ${open ? 'mb-3' : 'mb-8'} gap-2 flex-wrap"><button onclick="toggleSec('my')" class="font-bold text-lg cursor-pointer">${open ? '▾' : '▸'} 我的入庫（${ms.length}）</button>
-    <button onclick="dnNav('marks')" class="${btn} bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700">📌 全部入庫／產生提示詞</button></div>`;
+    <button onclick="dnToggleMhl()" class="${btn} ${cur.mhl ? 'bg-sky-100 text-slate-900 dark:bg-sky-400/30 dark:text-slate-100' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${cur.mhl ? '取消標示入庫' : '🔍 在英文文稿標示入庫'}</button></div>`;
   if (open) {
     h += ms.length
-      ? `<div class="flex flex-wrap gap-2 mb-8">${ms.map(m => `<button onclick="dnOpenMark('${m.id}')" class="text-sm rounded-lg px-3 py-1.5 cursor-pointer ${DNTC[m.type]}">${esc(m.text.length > 40 ? m.text.slice(0, 40) + '…' : m.text)}${dnMerged(m) ? ' ›' : ''}</button>`).join('')}</div><p class="-mt-6 mb-8 text-[11px] text-slate-400">有「›」的已有詳解，點了直接看；其他點了可加備註或刪除。</p>`
+      ? `<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 mb-8">${ms.map(dnMyCard).join('')}</div>`
       : `<p class="text-xs text-slate-400 mb-8">在英文文稿上選取不懂的字、片語或句子，按「＋ 入庫」就會收在這裡。</p>`;
   }
   return h;
@@ -421,6 +445,11 @@ function dnRenderMarks() {
   if (!ids.length) h += `<p class="text-sm text-slate-400 text-center py-10">${all.length ? '這個分類沒有項目。' : '還沒有入庫。到文章頁選取不懂的字、片語或句子，按「＋ 入庫」。'}</p>`;
   ids.forEach(qid => {
     const x = dnArt(qid), ms = dnMarksOf(qid).filter(vis), nSel = dnPromptItems(qid).length;
+    if (f === 'done') { // 「詳解已寫回」：只單純列出單字，不提供勾選／提示詞／補齊／編輯
+      h += `<section class="${card} p-4 mb-4"><div class="mb-2"><button onclick="dnGoArt('${qid}')" class="font-bold text-sm text-indigo-600 dark:text-indigo-400 underline cursor-pointer">${esc(dnArtLabel(qid))}</button>${x && x.level ? ` ${lvBadge(x)}` : ''}</div>
+        <div class="divide-y divide-slate-100 dark:divide-slate-800">${ms.map(m => `<div class="py-2 flex items-center gap-2"><span class="${dnChip} ${DNTC[m.type]}">${DNT[m.type]}</span><button onclick="vplay('${qid}', this.dataset.t, '', this.dataset.t)" data-t="${esc(m.text)}" class="min-w-0 flex-1 text-left text-sm font-bold break-words cursor-pointer hover:text-indigo-600" aria-label="發音">${esc(m.text)} <span class="text-slate-400 font-normal">🔊</span></button><button onclick="dnOpenExtra('${qid}',this.dataset.t)" data-t="${esc(m.text)}" class="${dnSm} shrink-0">詳解 ›</button></div>`).join('')}</div></section>`;
+      return;
+    }
     h += `<section class="${card} p-4 mb-4"><div class="flex flex-wrap items-center justify-between gap-2 mb-2"><div class="min-w-0"><button onclick="dnGoArt('${qid}')" class="font-bold text-sm text-indigo-600 dark:text-indigo-400 underline cursor-pointer">${esc(dnArtLabel(qid))}</button>${x && x.level ? ` ${lvBadge(x)}` : ''}</div>
       <div class="flex flex-wrap gap-1.5"><button onclick="auCopy(dnPrompt('${qid}'))" ${nSel ? '' : 'disabled'} class="${btn} ${dnPri} !py-1.5 text-xs disabled:opacity-40">複製 AI 提示詞（${nSel}）</button><button onclick="auCopy(dnListText('${qid}'))" ${nSel ? '' : 'disabled'} class="${btn} ${dnLine} !py-1.5 text-xs disabled:opacity-40">複製清單</button></div></div>
       ${dnFillRow(ms)}<div class="divide-y divide-slate-100 dark:divide-slate-800">${ms.map(m => {
@@ -428,7 +457,7 @@ function dnRenderMarks() {
         return `<div class="py-2 flex items-start gap-2"><input type="checkbox" ${dnChecked(m) ? 'checked' : ''} onchange="dnToggleChk('${m.id}')" class="mt-1.5 h-4 w-4 shrink-0 cursor-pointer" aria-label="選取">
           <div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-1.5"><span class="${dnChip} ${DNTC[m.type]}">${DNT[m.type]}</span><b class="text-sm break-words">${esc(m.text)}</b>${mg ? '<span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">✔ 已寫回</span>' : ''}${mg && dnGapsOf(m).length ? `<span class="text-[11px] text-amber-600 dark:text-amber-400">缺：${dnGapsOf(m).map(k => dnFillKeys[k]).join('、')}</span>` : ''}</div>
           ${m.type !== 'sentence' ? `<p class="text-xs text-slate-500 mt-0.5 break-words">${esc(m.ctx)}</p>` : ''}${m.note ? `<p class="text-xs text-amber-700 dark:text-amber-300 mt-0.5 break-words">備註：${esc(m.note)}</p>` : ''}</div>
-          <div class="flex flex-col gap-1 shrink-0">${mg ? `<button onclick="dnOpenExtra('${m.qid}',this.dataset.t)" data-t="${esc(m.text)}" class="${dnSm}">詳解</button>` : ''}<button onclick="dnMarkMenu('${m.id}')" class="${dnSm}">✎</button><button onclick="dnDelMark2('${m.id}')" class="text-xs text-rose-500 hover:underline cursor-pointer">刪除</button></div></div>`;
+          <div class="flex flex-col gap-1 shrink-0">${mg ? `<button onclick="dnOpenExtra('${m.qid}',this.dataset.t)" data-t="${esc(m.text)}" class="${dnSm}">詳解</button>` : ''}${mg ? '' : `<button onclick="dnMarkMenu('${m.id}')" class="${dnSm}">✎</button>`}${mg ? '' : `<button onclick="dnDelMark2('${m.id}')" class="text-xs text-rose-500 hover:underline cursor-pointer">刪除</button>`}</div></div>`;
       }).join('')}</div>
       <details class="mt-2"><summary class="text-xs text-slate-500 cursor-pointer">預覽提示詞</summary><textarea readonly rows="10" class="${dnInp} mt-2 font-mono text-xs">${esc(dnPrompt(qid))}</textarea></details></section>`;
   });
@@ -519,7 +548,14 @@ function dnRenderDetail() {
 }
 
 /* ======================= 掛進 daily.js 的小工具 ======================= */
-function dnAfterDay() { dnApplyMarks(); dnSyncBar(); }
+function dnToggleMhl() { cur.mhl = !cur.mhl; if (cur.mhl) cur.enOpen = true; render(); }
+(function () { // 入庫標示色：單字藍、片語紫、句子綠（與核心單字的黃色標示區分）
+  const s = document.createElement('style');
+  s.textContent = '#passage-text.mhl .mk{border-radius:3px;padding:0 2px;color:inherit}'
+    + '#passage-text.mhl .mk-word{background:rgba(56,189,248,.35)}#passage-text.mhl .mk-phrase{background:rgba(167,139,250,.35)}#passage-text.mhl .mk-sentence{background:rgba(52,211,153,.30)}';
+  document.head.appendChild(s);
+})();
+function dnAfterDay() { dnApplyMarks(); const el = document.getElementById('passage-text'); if (el) el.classList.toggle('mhl', !!cur.mhl); dnSyncBar(); }
 function dnSyncBar() { if (DN.sel && (cur.view !== 'day' || DN.sel.qid !== idOf(find(cur.w, cur.d) || {}))) DN.sel = null; dnBar(); }
 function dnWhyH(x, q, qi, ok) { // 解析：預設收合，點「看解析」展開
   const open = !!(cur.why && cur.why[qi]);

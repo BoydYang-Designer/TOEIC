@@ -1003,15 +1003,22 @@ function openVocabByHash() {
   const m = location.hash.match(/^#vocab=(.+)$/); if (!m) return false;
   const nz = s => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
   const q = nz(decodeURIComponent(m[1]));
-  for (const x of DATA) {
-    const i = (x.vocab || []).findIndex(v => nz(v.word) === q);
-    const inExtra = (x.extra_vocab || []).some(e => nz(e.text) === q);
-    if (i < 0 && !inExtra) continue;
+  // 寬鬆比對：入庫的是 annual、TSL 總表是 annually 這類「同字根、只差字尾」的情況（較長者以較短者開頭、最多差 3 字、較短者至少 5 字）
+  const near = (a, b) => { if (!a || !b || a === b) return false; const s = a.length <= b.length ? a : b, l = s === a ? b : a; return s.length >= 5 && l.startsWith(s) && l.length - s.length <= 3; };
+  const open = (x, i, e) => {
     SEC = 'learn'; cur = { w: x.week, d: x.day, nw: x.week, view: 'day', showTranscript: false };
     VBACK = { w: x.week, d: x.day };
     render();
-    if (i >= 0) dnOpenVocab(i);
+    if (i >= 0) dnOpenVocab(i);                       // 核心單字 → 開詳解
+    else if (e) dnOpenExtra(idOf(x), e.text || e.word); // 入庫單字（extra_vocab）→ 也開詳解
     return true;
+  };
+  for (const ok of [(w) => w === q, (w) => near(w, q)]) { // 先精確比對，找不到再用寬鬆比對
+    for (const x of DATA) {
+      const i = (x.vocab || []).findIndex(v => ok(nz(v.word)));
+      const e = (x.extra_vocab || []).find(e => ok(nz(e.text || e.word)));
+      if (i >= 0 || e) return open(x, i, i >= 0 ? null : e);
+    }
   }
   return false;
 }

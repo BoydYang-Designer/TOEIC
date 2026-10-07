@@ -1,0 +1,63 @@
+{
+  "week": 1,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "confirm",
+      "type": "word",
+      "ipa": "/kənˈfɜːrm/",
+      "pos": "v.",
+      "zh": "確認、確定",
+      "en": "to say or show that something is true or will happen",
+      "note": "在這篇文章裡，confirm your attendance 是請員工回覆，表示自己會參加會議。商務郵件中常用來要求對方回覆，讓主辦方掌握人數與安排。",
+      "forms": [
+        { "w": "confirms", "label": "第三人稱單數", "pos": "v.", "zh": "確認", "ipa": "/kənˈfɜːrmz/" },
+        { "w": "confirmed", "label": "過去式／過去分詞", "pos": "v.", "zh": "確認了、已確認的", "ipa": "/kənˈfɜːrmd/" },
+        { "w": "confirming", "label": "現在分詞", "pos": "v.", "zh": "正在確認", "ipa": "/kənˈfɜːrmɪŋ/" },
+        { "w": "confirmation", "label": "名詞", "pos": "n.", "zh": "確認、確認通知", "ipa": "/ˌkɑːnfərˈmeɪʃn/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "confirm a reservation",
+          "zh": "確認訂位／訂房",
+          "example": { "en": "Please call the hotel to confirm a reservation for Monday.", "zh": "請打電話給飯店，確認星期一的訂房。" }
+        },
+        {
+          "phrase": "confirm receipt of",
+          "zh": "確認收到…",
+          "example": { "en": "Please confirm receipt of this e-mail as soon as possible.", "zh": "請盡快回覆確認收到這封電子郵件。" }
+        },
+        {
+          "phrase": "confirm a time",
+          "zh": "確認時間",
+          "example": { "en": "Could you confirm a time for our next meeting?", "zh": "你可以確認下次會議的時間嗎？" }
+        }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "I am writing to confirm our appointment on Friday.", "zh": "我寫信是要確認我們星期五的約定。" },
+        { "tag": "會議", "en": "Please confirm whether you can attend the meeting.", "zh": "請確認你是否能參加這場會議。" },
+        { "tag": "出差", "en": "The travel agent confirmed my flight to Singapore.", "zh": "旅行社已確認我飛往新加坡的班機。" },
+        { "tag": "採購", "en": "The supplier will confirm the order by tomorrow.", "zh": "供應商明天前會確認這筆訂單。" }
+      ],
+      "confusable": [
+        { "word": "check", "diff": "check 是「查看、檢查」是否正確；confirm 是「確認並表示肯定」，通常要給對方明確回覆。" }
+      ],
+      "family": [
+        {
+          "w": "confirmation",
+          "pos": "n.",
+          "zh": "確認、確認通知",
+          "ipa": "/ˌkɑːnfərˈmeɪʃn/",
+          "example": { "en": "You will receive a confirmation e-mail after booking.", "zh": "訂位後你會收到一封確認電子郵件。" }
+        },
+        {
+          "w": "confirmed",
+          "pos": "adj.",
+          "zh": "已確認的",
+          "ipa": "/kənˈfɜːrmd/",
+          "example": { "en": "We have a confirmed seat on the morning flight.", "zh": "我們在早班飛機上有已確認的座位。" }
+        }
+      ]
+    }
+  ]
+}

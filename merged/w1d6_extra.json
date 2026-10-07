@@ -1,0 +1,39 @@
+{
+  "week": 1,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "annual",
+      "type": "word",
+      "ipa": "/ˈænjuəl/",
+      "pos": "adj.",
+      "zh": "每年的、年度的",
+      "en": "happening once every year, or relating to one year",
+      "note": "在這篇裡 annual audit 指每年一次的查帳，annual maintenance fee 則是每年收一次的維護費。annual 只放在名詞前面修飾，不能放在 be 動詞後面當補語。",
+      "forms": [
+        { "w": "annually", "label": "副詞", "pos": "adv.", "zh": "每年地、一年一次地", "ipa": "/ˈænjuəli/" }
+      ],
+      "collocations": [
+        { "phrase": "annual report", "zh": "年度報告", "example": { "en": "The annual report will be published in March.", "zh": "年度報告將在三月公布。" } },
+        { "phrase": "annual meeting", "zh": "年度會議、年會", "example": { "en": "Shareholders will vote at the annual meeting next month.", "zh": "股東將在下個月的年會上投票。" } },
+        { "phrase": "annual fee", "zh": "年費", "example": { "en": "The card has no annual fee for the first year.", "zh": "這張卡第一年不收年費。" } },
+        { "phrase": "annual budget", "zh": "年度預算", "example": { "en": "Each department must submit its annual budget by November.", "zh": "各部門必須在十一月前提交年度預算。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Please attach last year's sales figures to the annual summary.", "zh": "請把去年的銷售數字附在年度摘要裡。" },
+        { "tag": "人資", "en": "Employees receive an annual review of their work each spring.", "zh": "員工每年春天都會接受一次工作考核。" },
+        { "tag": "會議", "en": "Our annual sales have grown by ten percent since 2022.", "zh": "自 2022 年以來，我們的年度銷售額成長了百分之十。" }
+      ],
+      "confusable": [
+        { "word": "yearly", "diff": "兩者意思相近；annual 較正式，常用於報告、費用、會議，yearly 較口語，也可當副詞。" },
+        { "word": "anniversary", "diff": "anniversary 是名詞，指某件事發生後每年的紀念日；annual 是形容詞，指每年一次的。" }
+      ],
+      "family": [
+        { "w": "year", "pos": "n.", "zh": "年、年度", "ipa": "/jɪr/", "example": { "en": "We plan to open two new offices this year.", "zh": "我們計畫今年開設兩間新辦公室。" } },
+        { "w": "yearly", "pos": "adj.", "zh": "每年的", "ipa": "/ˈjɪrli/", "example": { "en": "The yearly fee can be paid in two parts.", "zh": "年費可以分兩次繳納。" } },
+        { "w": "anniversary", "pos": "n.", "zh": "週年紀念日", "ipa": "/ˌænəˈvɜːrsəri/", "example": { "en": "The company will celebrate its tenth anniversary in June.", "zh": "公司將在六月慶祝成立十週年。" } },
+        { "w": "quarterly", "pos": "adj.", "zh": "每季的", "ipa": "/ˈkwɔːrtərli/", "example": { "en": "The quarterly report shows a rise in profits.", "zh": "季度報告顯示獲利上升。" } }
+      ]
+    }
+  ]
+}

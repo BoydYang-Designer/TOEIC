@@ -28,6 +28,7 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 import traceback
 from datetime import datetime
@@ -2027,6 +2028,33 @@ class Part7(IdProfile):
 
 PROFILES = {'daily': Daily(), 'photo': Photo(), 'part2': Part2(), 'part3': Part3(), 'part4': Part4(), 'part5': Part5(), 'part6': Part6(), 'part7': Part7()}
 ORDER = ('daily', 'photo', 'part2', 'part3', 'part4', 'part5', 'part6', 'part7')
+
+# 合併完成後，詢問是否接著執行對應的「補錄音檔」腳本（題庫 → 腳本檔名；找不到該檔就不問）
+AUTO_SPEECH = {
+    'daily': 'daily-auto-speech.py',
+    'photo': 'part1-auto-speech.py',
+    'part2': 'part2-auto-speech.py',
+    'part3': 'part3-auto-speech.py',
+    'part4': 'part4-auto-speech.py',
+    'part5': 'part5-auto-speech.py',
+    'part6': 'part6-auto-speech.py',
+    'part7': 'part7-auto-speech.py',
+}
+
+
+def offer_auto_speech(root, key, messagebox):
+    name = AUTO_SPEECH.get(key)
+    path = os.path.join(BASE, name) if name else ''
+    if not name or not os.path.isfile(path):
+        return
+    if not messagebox.askyesno('下一步：補錄音檔',
+                               '要接著執行 %s 嗎？\n（會列出缺少的 mp3，讓你勾選後產生；做完它會再問要不要跑 Scan總表與音檔.py）' % name,
+                               parent=root):
+        return
+    try:
+        subprocess.Popen([sys.executable, path], cwd=BASE)
+    except Exception as ex:
+        messagebox.showerror('無法啟動', '%s\n\n%s' % (name, ex), parent=root)
 MAIN_NAMES = {p.main_name.lower() for p in PROFILES.values()}
 TITLE_OF = {k: v.title for k, v in PROFILES.items()}
 
@@ -2534,6 +2562,7 @@ def run_gui(start):
         msg += '\n\n' + p_.done_note
         refresh()
         messagebox.showinfo('合併完成', msg, parent=root)
+        offer_auto_speech(root, prof_var.get(), messagebox)
 
     open_default_main()
     refresh()

@@ -1,0 +1,145 @@
+{
+  "week": 1,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "shipment",
+      "type": "word",
+      "ipa": "/ˈʃɪpmənt/",
+      "pos": "n.",
+      "zh": "出貨、貨物、運送的貨品",
+      "en": "goods that are sent to a customer or a company",
+      "note": "在這篇裡指供應商要寄來的「這一批貨」，可數名詞。the shipment for Order 4582 就是訂單 4582 對應的那批貨。",
+      "forms": [
+        { "w": "shipments", "label": "複數", "pos": "n.", "zh": "貨物（複數）", "ipa": "/ˈʃɪpmənts/" }
+      ],
+      "collocations": [
+        { "phrase": "track a shipment", "zh": "追蹤貨物", "example": { "en": "You can track a shipment online with the order number.", "zh": "你可以用訂單編號在線上追蹤貨物。" } },
+        { "phrase": "a delayed shipment", "zh": "延誤的貨物", "example": { "en": "A delayed shipment can slow down the whole production schedule.", "zh": "貨物延誤可能拖慢整個生產進度。" } },
+        { "phrase": "incoming shipment", "zh": "即將到貨的貨物", "example": { "en": "The incoming shipment will be checked by the warehouse staff.", "zh": "即將到貨的貨物會由倉庫人員檢查。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Your shipment left our warehouse this morning and should arrive Friday.", "zh": "您的貨物今早已從我們的倉庫出貨，預計週五送達。" },
+        { "tag": "採購", "en": "We checked the shipment against the purchase order when it arrived.", "zh": "貨物到達時，我們對照採購單做了核對。" },
+        { "tag": "會議", "en": "The late shipment is the main reason for our production delay.", "zh": "貨物延遲是我們生產延誤的主要原因。" },
+        { "tag": "客服", "en": "Please send me the tracking number for my shipment.", "zh": "請把我那批貨的追蹤號碼寄給我。" }
+      ],
+      "confusable": [
+        { "word": "delivery", "diff": "delivery 強調「送達」的動作或時間；shipment 指「被運送的那批貨」本身，也可指出貨這件事。" }
+      ],
+      "family": [
+        { "w": "ship", "pos": "v.", "zh": "運送、出貨", "ipa": "/ʃɪp/", "example": { "en": "We will ship your order within two business days.", "zh": "我們會在兩個工作天內出貨您的訂單。" } },
+        { "w": "shipping", "pos": "n.", "zh": "運送、運費", "ipa": "/ˈʃɪpɪŋ/", "example": { "en": "Shipping is free for orders over one hundred dollars.", "zh": "訂單滿一百元免運費。" } }
+      ]
+    },
+    {
+      "text": "supplier",
+      "type": "word",
+      "ipa": "/səˈplaɪər/",
+      "pos": "n.",
+      "zh": "供應商、供貨廠商",
+      "en": "a company that sells goods or materials to other companies",
+      "note": "在這篇裡 Supplier GreenTech 把 supplier 當作身分說明放在公司名前，指提供材料的 GreenTech。結尾的 the supplier 也是指它。",
+      "forms": [
+        { "w": "suppliers", "label": "複數", "pos": "n.", "zh": "供應商（複數）", "ipa": "/səˈplaɪərz/" }
+      ],
+      "collocations": [
+        { "phrase": "reliable supplier", "zh": "可靠的供應商", "example": { "en": "We need a reliable supplier who delivers on time.", "zh": "我們需要一家準時交貨的可靠供應商。" } },
+        { "phrase": "contact the supplier", "zh": "聯絡供應商", "example": { "en": "Please contact the supplier if the parts are damaged.", "zh": "如果零件受損，請聯絡供應商。" } },
+        { "phrase": "change suppliers", "zh": "更換供應商", "example": { "en": "The company decided to change suppliers to lower its costs.", "zh": "公司決定更換供應商以降低成本。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "We have worked with this supplier for more than five years.", "zh": "我們與這家供應商合作已超過五年。" },
+        { "tag": "會議", "en": "The supplier promised to fix the problem by next week.", "zh": "供應商承諾下週前解決這個問題。" },
+        { "tag": "電子郵件", "en": "Please ask the supplier to confirm the new delivery date.", "zh": "請請供應商確認新的交貨日期。" }
+      ],
+      "confusable": [
+        { "word": "vendor", "diff": "vendor 常指賣東西給公司的賣方，也可指小販；supplier 更強調長期供應材料或產品。" }
+      ],
+      "family": [
+        { "w": "supply", "pos": "v.", "zh": "供應、提供", "ipa": "/səˈplaɪ/", "example": { "en": "This company supplies parts to several car makers.", "zh": "這家公司供應零件給數家汽車製造商。" } },
+        { "w": "supplies", "pos": "n.", "zh": "用品、補給品", "ipa": "/səˈplaɪz/", "example": { "en": "We need to order more office supplies this week.", "zh": "我們這週需要再訂購更多辦公用品。" } }
+      ]
+    },
+    {
+      "text": "out of stock",
+      "type": "phrase",
+      "zh": "缺貨、沒有庫存",
+      "en": "not available now because the store or warehouse has none left",
+      "note": "在這篇裡說明交貨延遲的原因：所需的其中一項材料目前缺貨，所以供應商無法如期出貨。通常和 be 動詞連用。",
+      "pattern": "A is / are out of stock",
+      "examples": [
+        { "tag": "電子郵件", "en": "Sorry, the blue model is currently out of stock.", "zh": "抱歉，藍色款目前缺貨。" },
+        { "tag": "採購", "en": "Three of the parts we need are out of stock.", "zh": "我們需要的零件中有三項缺貨。" },
+        { "tag": "客服", "en": "If an item is out of stock, please tell the customer.", "zh": "如果商品缺貨，請告知顧客。" }
+      ],
+      "similar": [
+        { "phrase": "sold out", "diff": "sold out 指已經賣光，常用於商品、票券；out of stock 更常用於庫存管理，可能之後會補貨。" },
+        { "phrase": "in stock", "diff": "意思相反，表示目前有現貨。" }
+      ],
+      "confusable": [
+        { "word": "out of order", "diff": "out of order 是機器壞掉、無法使用，和沒有庫存無關。" }
+      ]
+    },
+    {
+      "text": "assembly",
+      "type": "word",
+      "ipa": "/əˈsembli/",
+      "pos": "n.",
+      "zh": "組裝；集會",
+      "en": "the work of putting the parts of a product together",
+      "note": "在這篇裡指工廠把零件組合成產品的「組裝」作業。因為庫存夠用到 6 月 20 日，組裝可以持續進行。",
+      "forms": [
+        { "w": "assemblies", "label": "複數", "pos": "n.", "zh": "組裝件；集會（複數）", "ipa": "/əˈsemblɪz/" }
+      ],
+      "collocations": [
+        { "phrase": "assembly line", "zh": "組裝線、生產線", "example": { "en": "Workers on the assembly line check each unit carefully.", "zh": "組裝線上的工人會仔細檢查每一個成品。" } },
+        { "phrase": "assembly instructions", "zh": "組裝說明", "example": { "en": "The assembly instructions are included in the box.", "zh": "組裝說明書附在盒子裡。" } },
+        { "phrase": "final assembly", "zh": "最後組裝", "example": { "en": "Final assembly takes place at our plant in Taichung.", "zh": "最後組裝在我們台中的工廠進行。" } }
+      ],
+      "examples": [
+        { "tag": "工廠", "en": "The assembly of each unit takes about two hours.", "zh": "每台機器的組裝大約需要兩小時。" },
+        { "tag": "客服", "en": "Please read the instructions before you start the assembly.", "zh": "開始組裝之前，請先閱讀說明書。" },
+        { "tag": "公司活動", "en": "All staff must attend the assembly in the main hall.", "zh": "全體員工都必須參加在大廳舉行的集會。" }
+      ],
+      "confusable": [
+        { "word": "assemble", "diff": "assemble 是動詞（組裝；集合），assembly 是名詞（組裝作業；集會）。" }
+      ],
+      "family": [
+        { "w": "assemble", "pos": "v.", "zh": "組裝；集合", "ipa": "/əˈsembəl/", "example": { "en": "It takes two people to assemble this desk.", "zh": "組裝這張桌子需要兩個人。" } },
+        { "w": "assembled", "pos": "adj.", "zh": "已組裝好的", "ipa": "/əˈsembəld/", "example": { "en": "The assembled products are sent to the test room.", "zh": "組裝好的產品會被送到測試室。" } }
+      ]
+    },
+    {
+      "text": "inspect",
+      "type": "word",
+      "ipa": "/ɪnˈspekt/",
+      "pos": "v.",
+      "zh": "檢查、檢驗、查驗",
+      "en": "to look at something carefully to check its quality or condition",
+      "note": "在這篇裡指 GreenTech 在出貨前先檢查剩下的材料，確認沒有問題，以免再次延誤。後面接受詞 the remaining materials。",
+      "forms": [
+        { "w": "inspects", "label": "第三人稱單數", "pos": "v.", "zh": "檢查", "ipa": "/ɪnˈspekts/" },
+        { "w": "inspected", "label": "過去式／過去分詞", "pos": "v.", "zh": "檢查", "ipa": "/ɪnˈspektɪd/" },
+        { "w": "inspecting", "label": "現在分詞", "pos": "v.", "zh": "正在檢查", "ipa": "/ɪnˈspektɪŋ/" }
+      ],
+      "collocations": [
+        { "phrase": "inspect the goods", "zh": "檢驗貨品", "example": { "en": "Please inspect the goods as soon as they arrive.", "zh": "貨品一到，請立刻檢驗。" } },
+        { "phrase": "inspect something for damage", "zh": "檢查有無損壞", "example": { "en": "Our staff inspect every box for damage before shipping.", "zh": "我們的員工在出貨前會檢查每個箱子有無損壞。" } },
+        { "phrase": "inspect carefully", "zh": "仔細檢查", "example": { "en": "The manager inspected the new machine carefully.", "zh": "經理仔細檢查了這台新機器。" } }
+      ],
+      "examples": [
+        { "tag": "品管", "en": "We inspect all products before they leave the factory.", "zh": "所有產品在離開工廠前我們都會檢查。" },
+        { "tag": "會議", "en": "An officer will inspect our new warehouse next Monday.", "zh": "一位官員下週一會來查驗我們的新倉庫。" },
+        { "tag": "電子郵件", "en": "Could you inspect the samples and send me a short report?", "zh": "可以請你檢查樣品並寄給我簡短的報告嗎？" }
+      ],
+      "confusable": [
+        { "word": "check", "diff": "check 是一般的「查看、確認」，口語常用；inspect 更正式，強調仔細、有步驟地檢查品質或狀況。" }
+      ],
+      "family": [
+        { "w": "inspection", "pos": "n.", "zh": "檢查、檢驗", "ipa": "/ɪnˈspekʃən/", "example": { "en": "The factory passed the safety inspection last month.", "zh": "這家工廠上個月通過了安全檢查。" } },
+        { "w": "inspector", "pos": "n.", "zh": "檢查員、檢驗員", "ipa": "/ɪnˈspektər/", "example": { "en": "The inspector found a problem with the machine.", "zh": "檢查員發現這台機器有問題。" } }
+      ]
+    }
+  ]
+}

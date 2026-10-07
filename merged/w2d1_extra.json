@@ -1,0 +1,41 @@
+{
+  "week": 2,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "serviced",
+      "type": "word",
+      "ipa": "/ˈsɜːrvɪst/",
+      "pos": "v.",
+      "zh": "檢修、維修保養（service 的過去分詞）",
+      "en": "checked and repaired by a worker so that a machine works well",
+      "note": "在這篇裡是被動語態 is being serviced（正在被檢修），指技術人員正在處理列印機。這裡的 service 是動詞，不是「服務」的名詞，重點在檢查與修理機器。",
+      "forms": [
+        { "w": "services", "label": "第三人稱單數", "pos": "v.", "zh": "檢修、保養", "ipa": "/ˈsɜːrvɪsɪz/" },
+        { "w": "serviced", "label": "過去式／過去分詞", "pos": "v.", "zh": "檢修、保養", "ipa": "/ˈsɜːrvɪst/" },
+        { "w": "servicing", "label": "現在分詞", "pos": "v.", "zh": "正在檢修", "ipa": "/ˈsɜːrvɪsɪŋ/" },
+        { "w": "services", "label": "複數", "pos": "n.", "zh": "服務、業務（名詞複數）", "ipa": "/ˈsɜːrvɪsɪz/" }
+      ],
+      "collocations": [
+        { "phrase": "service the equipment", "zh": "檢修設備", "example": { "en": "A technician will service the equipment every six months.", "zh": "技術人員每六個月會檢修一次設備。" } },
+        { "phrase": "have something serviced", "zh": "請人檢修某物", "example": { "en": "We should have the air conditioner serviced before summer.", "zh": "我們應該在夏天前請人檢修冷氣。" } },
+        { "phrase": "regularly serviced", "zh": "定期檢修", "example": { "en": "All company vehicles must be regularly serviced to stay safe.", "zh": "所有公司車輛都必須定期檢修以維持安全。" } }
+      ],
+      "examples": [
+        { "tag": "通知", "en": "The elevator is being serviced, so please use the stairs today.", "zh": "電梯正在檢修，所以今天請走樓梯。" },
+        { "tag": "會議", "en": "Our machines were serviced last week, and they work well now.", "zh": "我們的機器上週檢修過，現在運作良好。" },
+        { "tag": "電子郵件", "en": "The copier will be serviced on Friday afternoon between two and four.", "zh": "影印機將於週五下午兩點到四點之間檢修。" }
+      ],
+      "confusable": [
+        { "word": "repair", "diff": "repair 是修理已經壞掉的東西；service 多指定期檢查、保養與調整，也包含處理小問題。" },
+        { "word": "serve", "diff": "serve 是「服務、供應（餐點）」；service 當動詞才是檢修機器，不要混淆。" }
+      ],
+      "family": [
+        { "w": "service", "pos": "n.", "zh": "服務；檢修", "ipa": "/ˈsɜːrvɪs/", "example": { "en": "The printer is due for service next week.", "zh": "這台印表機下週該檢修了。" } },
+        { "w": "maintenance", "pos": "n.", "zh": "維護、保養", "ipa": "/ˈmeɪntənəns/", "example": { "en": "Regular maintenance helps machines last longer.", "zh": "定期保養能讓機器用得更久。" } },
+        { "w": "technician", "pos": "n.", "zh": "技術人員", "ipa": "/tekˈnɪʃən/", "example": { "en": "The technician arrived early to check the system.", "zh": "技術人員提早到達來檢查系統。" } },
+        { "w": "repair", "pos": "v.", "zh": "修理", "ipa": "/rɪˈper/", "example": { "en": "Can you repair this printer by tomorrow morning?", "zh": "你能在明天早上前修好這台印表機嗎？" } }
+      ]
+    }
+  ]
+}
