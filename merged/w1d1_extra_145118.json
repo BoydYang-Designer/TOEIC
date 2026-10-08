@@ -1,0 +1,195 @@
+{
+  "week": 1,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "updates",
+      "type": "word",
+      "ipa": "/ˈʌpdeɪts/",
+      "pos": "n.",
+      "zh": "最新消息、進度報告",
+      "en": "new information about how something is going",
+      "note": "在這篇裡是複數名詞，指員工無法出席時，要事先交給 Ms. Chen 的「工作進度或近況報告」。重音在第一音節 UP-date；當動詞時重音在第二音節 up-DATE。",
+      "forms": [
+        {
+          "w": "update",
+          "label": "名詞單數",
+          "pos": "n.",
+          "zh": "最新消息、進度報告",
+          "ipa": "/ˈʌpdeɪt/"
+        },
+        {
+          "w": "update",
+          "label": "動詞原形",
+          "pos": "v.",
+          "zh": "更新、提供最新資訊",
+          "ipa": "/ʌpˈdeɪt/"
+        },
+        {
+          "w": "updates",
+          "label": "動詞第三人稱單數",
+          "pos": "v.",
+          "zh": "更新",
+          "ipa": "/ʌpˈdeɪts/"
+        },
+        {
+          "w": "updated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "更新了",
+          "ipa": "/ʌpˈdeɪtɪd/"
+        },
+        {
+          "w": "updating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在更新",
+          "ipa": "/ʌpˈdeɪtɪŋ/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "give an update",
+          "zh": "報告最新進度",
+          "example": {
+            "en": "Can you give us an update on the sales plan?",
+            "zh": "你可以向我們報告銷售計畫的最新進度嗎？"
+          }
+        },
+        {
+          "phrase": "weekly update",
+          "zh": "每週進度報告",
+          "example": {
+            "en": "Please send your weekly update to the manager every Friday.",
+            "zh": "請每週五把你的每週進度報告寄給經理。"
+          }
+        },
+        {
+          "phrase": "provide updates",
+          "zh": "提供最新資訊",
+          "example": {
+            "en": "The team will provide updates on the project each morning.",
+            "zh": "團隊每天早上會提供專案的最新資訊。"
+          }
+        },
+        {
+          "phrase": "update the schedule",
+          "zh": "更新時間表",
+          "example": {
+            "en": "Please update the schedule after the meeting time changes.",
+            "zh": "會議時間更改後，請更新時間表。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Each team member will share a short update at the meeting.",
+          "zh": "每位團隊成員會在會議上分享簡短的進度。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "I will send you an update as soon as I hear back.",
+          "zh": "我一收到回覆就會寄最新消息給你。"
+        },
+        {
+          "tag": "客服",
+          "en": "We will call you with updates about your order.",
+          "zh": "我們會打電話告知您訂單的最新情況。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "news",
+          "diff": "news 是不可數名詞，指一般新聞或消息；update 可數，指針對某件事的「最新進度」。"
+        },
+        {
+          "word": "report",
+          "diff": "report 通常是比較完整、正式的書面報告；update 多半較短，只說明最近有什麼變動。"
+        }
+      ],
+      "family": [
+        {
+          "w": "report",
+          "pos": "n.",
+          "zh": "報告",
+          "ipa": "/rɪˈpɔːrt/",
+          "example": {
+            "en": "Please finish the monthly report by Thursday.",
+            "zh": "請在週四前完成月報告。"
+          }
+        },
+        {
+          "w": "progress",
+          "pos": "n.",
+          "zh": "進度、進展",
+          "ipa": "/ˈprɑːɡres/",
+          "example": {
+            "en": "We are making good progress on the new project.",
+            "zh": "我們在新專案上進展順利。"
+          }
+        },
+        {
+          "w": "news",
+          "pos": "n.",
+          "zh": "消息",
+          "ipa": "/nuːz/",
+          "example": {
+            "en": "We have good news about the budget for next year.",
+            "zh": "我們有關於明年預算的好消息。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "in advance",
+      "type": "phrase",
+      "zh": "事先、提前",
+      "en": "before something happens or before a certain time",
+      "note": "在這篇裡放在句尾，修飾 submit：無法出席的人要「事先」把進度交給 Ms. Chen，也就是在會議開始前交出。常見於公司通知與預約，語氣正式但很日常。",
+      "pattern": "V + in advance；時間 + in advance（如 two days in advance）",
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Please send the agenda to everyone in advance.",
+          "zh": "請事先把議程寄給每個人。"
+        },
+        {
+          "tag": "訂位／預約",
+          "en": "You should book the meeting room in advance.",
+          "zh": "你應該事先預約會議室。"
+        },
+        {
+          "tag": "出差",
+          "en": "Tickets are cheaper if you buy them two weeks in advance.",
+          "zh": "如果提前兩週購買，機票會比較便宜。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Thank you in advance for your help with this matter.",
+          "zh": "先感謝您對這件事的協助。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "ahead of time",
+          "diff": "意思幾乎相同，ahead of time 較口語；in advance 較常見於正式通知與書面。"
+        },
+        {
+          "phrase": "beforehand",
+          "diff": "beforehand 也是「事先」，常放句尾；in advance 常和時間連用，如 two days in advance（提前兩天）。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "advanced",
+          "diff": "advanced 是形容詞「進階的」，常見錯誤是寫成 in advanced；「事先」要用 in advance，沒有 -d。"
+        },
+        {
+          "word": "in advance of",
+          "diff": "in advance of + 名詞 是較正式的「在…之前」；單獨的 in advance 後面不接名詞。"
+        }
+      ]
+    }
+  ]
+}
