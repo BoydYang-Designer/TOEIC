@@ -43,11 +43,12 @@
         <button id="lkc" type="button" class="rounded-lg px-3 py-2 text-sm border border-slate-300 dark:border-slate-700 shrink-0">複製全部</button>
       </div>
       <div id="lkl" class="space-y-2 pt-1"></div>
-      <p class="text-xs text-slate-400">紀錄存在這個瀏覽器（localStorage），手機與電腦不會自動同步；整合內容時按「複製全部」即可貼出。清除瀏覽器資料會一併刪除。</p>
+      <p class="text-xs text-slate-400">紀錄存在這個瀏覽器（localStorage）；點右下角「☁ 登入同步」用 Google 登入後，手機與電腦會共用同一份紀錄。整合內容時按「複製全部」即可貼出。</p>
     </div>
   </details>
 </div>
 
+<script src="cloud-sync.js"></script>
 <script src="timing.js"></script>
 <script>
 const KEY = 'toeicCoachV2'; // 與 Daily practice 共用，深淺色設定會同步
