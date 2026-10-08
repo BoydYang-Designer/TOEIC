@@ -16,16 +16,17 @@
   const isSync = k => typeof k === 'string' && /^toeic/i.test(k);
   const ls = window.localStorage;
   const rawGet = Storage.prototype.getItem, rawSet = Storage.prototype.setItem, rawRemove = Storage.prototype.removeItem;
+  const fmtT = t => t ? new Date(t).toLocaleString('zh-TW', { hour12: false }) : '未知';
   const isEmpty = v => v === null || v === '' || v === '{}' || v === '[]';
 
-  let meta = { base: {}, dirty: {} };
+  let meta = { base: {}, dirty: {}, mod: {}, last: 0, cloudLast: 0 };
   try { meta = Object.assign(meta, JSON.parse(rawGet.call(ls, META) || '{}')); } catch (e) {}
   const saveMeta = () => { try { rawSet.call(ls, META, JSON.stringify(meta)); } catch (e) {} };
 
   let applying = false, user = null, db = null, timer = null, busy = false, status = 'out';
 
   /* ---- 攔截 localStorage 寫入，標記為「待上傳」 ---- */
-  function markDirty(k) { meta.dirty[k] = 1; saveMeta(); schedule(); }
+  function markDirty(k) { meta.dirty[k] = 1; meta.mod[k] = Date.now(); saveMeta(); schedule(); }
   Storage.prototype.setItem = function (k, v) { rawSet.call(this, k, v); if (this === ls && !applying && isSync(k)) markDirty(k); };
   Storage.prototype.removeItem = function (k) { rawRemove.call(this, k); if (this === ls && !applying && isSync(k)) markDirty(k); };
 
@@ -66,7 +67,7 @@
         // 兩邊都有不同內容 → 衝突
         const merged = mergeById(local, cv);
         if (merged) { applying = true; rawSet.call(ls, key, merged); applying = false; push.push(key); pull.merged = true; }
-        else if (confirm('「' + key + '」雲端與本機內容不同。\n\n按「確定」＝使用雲端版本（本機被覆蓋）\n按「取消」＝使用本機版本（雲端被覆蓋）')) pull.push([key, cv, c.ts]);
+        else if (confirm('「' + key + '」雲端與本機內容不同。\n\n雲端最後存檔：' + fmtT(c.ts) + '\n本機最後修改：' + fmtT(meta.mod[key]) + '\n\n按「確定」＝使用雲端版本（本機被覆蓋）\n按「取消」＝使用本機版本（雲端被覆蓋）')) pull.push([key, cv, c.ts]);
         else push.push(key);
       });
 
@@ -81,6 +82,9 @@
       applying = true;
       pull.forEach(([k, v, ts]) => { rawSet.call(ls, k, v); meta.base[k] = ts; delete meta.dirty[k]; });
       applying = false;
+      let latest = 0; keys.forEach(k => { const c = cloud[k]; if (c && c.ts > latest) latest = c.ts; });
+      if (push.length) latest = now;
+      meta.last = Date.now(); meta.cloudLast = latest || meta.cloudLast;
       saveMeta(); setStatus('ok');
 
       if ((pull.length || pull.merged) && Date.now() - Number(sessionStorage.getItem('syncReload') || 0) > 8000) {
@@ -95,15 +99,19 @@
   function setStatus(s, msg) {
     status = s; if (!btn) return;
     btn.textContent = { out: '☁ 登入同步', sync: '☁ 同步中…', ok: '☁ ✔ 已同步', err: '☁ ⚠ 同步失敗', nocfg: '☁ 尚未設定' }[s];
-    btn.title = msg || (user ? user.email : '');
-    if (panel) panel.querySelector('#cs-who').textContent = user ? user.email : '';
+    btn.title = msg || (user ? user.email + '\n上次同步：' + fmtT(meta.last) : '');
+    if (panel) {
+      panel.querySelector('#cs-who').textContent = user ? user.email : '';
+      panel.querySelector('#cs-time').innerHTML = user ? '上次同步：' + fmtT(meta.last) + '<br>雲端最後存檔：' + fmtT(meta.cloudLast) : '';
+    }
   }
   function buildUI() {
     btn = document.createElement('button'); btn.type = 'button';
     btn.style.cssText = 'position:fixed;right:12px;bottom:12px;z-index:99999;padding:8px 14px;border-radius:999px;border:0;background:#4f46e5;color:#fff;font:600 13px system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.3);cursor:pointer';
     panel = document.createElement('div');
     panel.style.cssText = 'position:fixed;right:12px;bottom:56px;z-index:99999;display:none;padding:12px;border-radius:12px;background:#fff;color:#1e293b;font:13px system-ui,sans-serif;box-shadow:0 2px 12px rgba(0,0,0,.35)';
-    panel.innerHTML = '<div id="cs-who" style="margin-bottom:8px;word-break:break-all"></div>' +
+    panel.innerHTML = '<div id="cs-who" style="margin-bottom:4px;word-break:break-all"></div>' +
+      '<div id="cs-time" style="margin-bottom:8px;font-size:12px;color:#64748b;line-height:1.5"></div>' +
       '<button type="button" id="cs-now" style="margin-right:6px;padding:6px 10px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#1e293b">立即同步</button>' +
       '<button type="button" id="cs-out" style="padding:6px 10px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#be123c">登出</button>';
     document.body.append(panel, btn);
