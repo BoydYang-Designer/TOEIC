@@ -272,6 +272,9 @@ function renderLaunch() {
   <div class="grid grid-cols-2 gap-3 mt-4"><button onclick="dnFromLaunch('marks')" class="${btn} ${card} text-left">📌 入庫彙整 <span class="text-xs text-slate-500">${dnMarks().length}</span></button><button onclick="dnFromLaunch('reports')" class="${btn} ${card} text-left">⚑ 回報彙整 <span class="text-xs text-slate-500">待處理 ${dnOpenRpN()}</span></button></div>`;
 }
 
+/* 維護 → TSL 單字總表：點進去時預設篩成「還缺」（還沒生成詳解的字）；vocab.html 會讀這個設定，用完即清除 */
+function tslPreset() { try { sessionStorage.setItem('tslState', JSON.stringify({ F: { st: 'miss' }, open: [], y: 0 })); } catch (e) {} }
+
 /* ===== 維護總覽：週次 × 天數矩陣，格內顯示 mp3／timing 狀態 ===== */
 function renderMaint() {
   const xs = [...DATA].sort((a, b) => a.week - b.week || a.day - b.day), N = xs.length;
@@ -305,7 +308,8 @@ function renderMaint() {
   if (todo.length) {
     h += `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm mb-2">待處理（${todo.length}）</h3><div class="space-y-1">${todo.slice(0, 12).map(x => `<button onclick="openItem(${x.week},${x.day})" class="w-full text-left rounded-lg px-2 py-1.5 flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800"><b class="shrink-0">W${x.week}·D${x.day}</b><span class="truncate flex-1 text-slate-500">${esc(x.tag || '')}</span><span class="shrink-0 text-xs text-rose-600 dark:text-rose-400">${todoOf(x).join('、') || '確認 mp3 狀態'}</span></button>`).join('')}${todo.length > 12 ? `<p class="text-xs text-slate-400 px-2">…還有 ${todo.length - 12} 篇，請看「音檔／Timing 清單」</p>` : ''}</div></section>`;
   }
-  main.innerHTML = h + `<div class="grid sm:grid-cols-2 gap-3"><button onclick="openAudio()" class="${btn} border border-slate-300 dark:border-slate-700">🎧 音檔／Timing 清單</button><button onclick="openGen(${ne.w},${ne.d})" class="${btn} bg-indigo-600 text-white">＋ 新增下一篇（W${ne.w} · D${ne.d}）</button></div>`;
+  main.innerHTML = h + `<div class="grid sm:grid-cols-2 gap-3"><button onclick="openAudio()" class="${btn} border border-slate-300 dark:border-slate-700">🎧 音檔／Timing 清單</button><button onclick="openGen(${ne.w},${ne.d})" class="${btn} bg-indigo-600 text-white">＋ 新增下一篇（W${ne.w} · D${ne.d}）</button></div>
+  <a href="vocab.html" onclick="tslPreset()" class="${card} flex items-center gap-3 p-4 mt-3 hover:ring-2 hover:ring-indigo-400"><span class="text-3xl">📚</span><span class="flex-1 min-w-0"><span class="block font-bold">TSL 單字總表</span><span class="block text-xs text-slate-500 dark:text-slate-400">New TOEIC Service List 1250 字 · 看還缺哪些</span></span><span class="text-indigo-600 dark:text-indigo-400 text-xl shrink-0">→</span></a>`;
 }
 
 /* ===== 單篇維護：資料／mp3／timing ===== */
@@ -348,7 +352,7 @@ function dayNav(nw, M) {
     const click = x ? `onclick="${M ? 'openItem' : 'go'}(${nw},${d})"` : M ? `onclick="openGen(${nw},${d})"` : 'disabled';
     h += `<button ${click} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : M ? 'border border-dashed border-indigo-400' : 'opacity-40 cursor-not-allowed'}">
       <span class="text-sm">D${d} ${t}</span>
-      <span class="flex items-center gap-2 shrink-0">${!M && x && x.level ? `<span class="text-[11px] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}${st}</span></button>`;
+      <span class="flex items-center gap-2 shrink-0">${!M && x && x.level ? `<span class="text-[11px] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}${!M && x && skDone(x) ? '<span class="text-xs" title="完成語音練習">🎤</span>' : ''}${st}</span></button>`;
   });
   return h + '</nav>';
 }
@@ -409,7 +413,7 @@ function renderHome() {
       if (!x) { h += `<td class="p-1 ${bd}"><div class="h-12 rounded-lg flex items-center justify-center text-slate-300 dark:text-slate-700">—</div></td>`; return; }
       const cls = done ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
         : 'bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
-      h += `<td class="p-1 ${bd}"><button onclick="go(${w},${d})" class="w-full h-12 rounded-lg text-sm font-semibold cursor-pointer ${cls}">${done ? `✓<span class="block text-[10px] font-normal leading-3">${Math.round(a.score / x.questions.length * 100)}%</span>` : started ? '<span class="text-xs">進行中</span>' : '<span class="text-xs">開始</span>'}</button></td>`;
+      h += `<td class="p-1 ${bd}"><button onclick="go(${w},${d})" class="w-full h-12 rounded-lg text-sm font-semibold cursor-pointer ${cls}">${done ? `✓<span class="block text-[10px] font-normal leading-3">${Math.round(a.score / x.questions.length * 100)}%${skDone(x) ? ' 🎤' : ''}</span>` : started ? '<span class="text-xs">進行中</span>' : '<span class="text-xs">開始</span>'}</button></td>`;
     });
     h += '</tr>';
   });

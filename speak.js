@@ -49,7 +49,18 @@ const SK_IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform
 const skSR = () => window.SpeechRecognition || window.webkitSpeechRecognition;
 const skX = () => find(cur.w, cur.d);
 function skRec(id) { S.spk = S.spk || {}; return S.spk[id] || (S.spk[id] = { s: {}, w: 0 }); }
-function skBest(id, kind, i, pct) { const r = skRec(id); if (kind === 's') r.s[i] = Math.max(r.s[i] || 0, pct); else r.w = Math.max(r.w || 0, pct); save(); }
+const SK_PASS = 80; // 達標分數：整篇最佳 ≥80，或每個句子最佳都 ≥80，即視為完成語音練習
+function skDone(x) {
+  const r = (S.spk || {})[idOf(x)]; if (!r) return false;
+  if ((r.w || 0) >= SK_PASS) return true;
+  const n = skBuild(x).length;
+  return n > 0 && Object.values(r.s || {}).filter(v => v >= SK_PASS).length >= n;
+}
+function skBest(id, kind, i, pct) {
+  const r = skRec(id); if (kind === 's') r.s[i] = Math.max(r.s[i] || 0, pct); else r.w = Math.max(r.w || 0, pct);
+  const x = skX(); if (x && idOf(x) === id && !r.at && skDone(x)) r.at = Date.now(); // 記錄第一次完成的時間
+  save();
+}
 
 /* 句子清單：有效的 timing 為主；timing 沒涵蓋的文字用切句補上（無時間，聽原音改機器發音） */
 function skBuild(x) {
@@ -374,11 +385,11 @@ window.addEventListener('pagehide', () => skStopAll());
 function skSummary(x) {
   const r = (S.spk || {})[idOf(x)], n = skBuild(x).length;
   if (!r) return '尚未練習';
-  const ok = Object.values(r.s || {}).filter(v => v >= 80).length;
-  return `句子達標 ${ok}/${n}${r.w ? ' · 整篇最佳 ' + r.w + '%' : ''}`;
+  const ok = Object.values(r.s || {}).filter(v => v >= SK_PASS).length, done = skDone(x);
+  return (done ? '✅ 完成語音練習 · ' : '') + `句子達標 ${ok}/${n}${r.w ? ' · 整篇最佳 ' + r.w + '%' : ''}` + (done && r.at ? ' · ' + new Date(r.at).toLocaleDateString('zh-TW') : '');
 }
 function skEntryHtml(x) {
-  return `<div class="flex items-center justify-between mt-4 mb-8 gap-2"><button onclick="openSpeak()" class="font-bold text-lg cursor-pointer">▸ 語音練習</button><span class="text-sm text-slate-500">${skSummary(x)}</span></div>`;
+  return `<div class="flex items-center justify-between mt-4 mb-8 gap-2"><button onclick="openSpeak()" class="font-bold text-lg cursor-pointer">▸ 語音練習</button><span class="text-sm ${skDone(x) ? 'text-emerald-600 dark:text-emerald-400 font-semibold' : 'text-slate-500'}">${skSummary(x)}</span></div>`;
 }
 
 function skNotes(x) {
