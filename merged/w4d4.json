@@ -1,0 +1,125 @@
+{
+  "week": 4,
+  "day": 4,
+  "tag": "充電轉接器新供應商評選備忘錄",
+  "type": "Reading",
+  "level": {
+    "score": 725,
+    "range": "675-775",
+    "cefr": "B2",
+    "why": "備忘錄使用 following、although、provided that、contingent upon 等連接結構，搭配被動與分詞構句，並需整合三家候選廠商、報價差異、工程評估、保固條件、相容性要求與決標前提。干擾項取自文中出現過的條件與單位（註冊期限、異議期限、大阪夥伴），需精確區分。"
+  },
+  "passage": "MEMO | Procurement Department\nRe: Selection of a Supplier for Charging Adapters\n\nFollowing a referral from our distribution partner in Osaka, the procurement team has evaluated three candidates to supply the charging adapters that will be bundled with the new travel kit. Although Korvex Components submitted the lowest quotation, its adapters use generic internal parts, which, according to the engineering report, may reduce reliability under repeated use. By contrast, Halden Electric's units, priced eight percent higher, include a lifetime warranty on every plug, provided that the product is registered within thirty days of purchase.\n\nBecause the plugs must be compatible with outlets in all four target markets, the order will be awarded to Halden, contingent upon a successful sample test by March 14. Any objection should be submitted to the department head before Friday.",
+  "zh": "備忘錄｜採購部\n事由：充電轉接器供應商之選定\n\n經由我們在大阪的經銷夥伴引薦後，採購團隊已評估三家候選廠商，由其供應將與新款旅行組合一起搭售的充電轉接器。雖然科維克斯零件公司提出了最低的報價，但其轉接器使用通用的內部零件，根據工程報告，這可能會降低反覆使用下的可靠度。相較之下，哈爾登電機的產品價格高出百分之八，每一個插頭都附終身保固，前提是產品須在購買後三十天內完成註冊。\n\n由於插頭必須與四個目標市場的插座相容，這筆訂單將決標給哈爾登，但須以三月十四日前通過樣品測試為前提。如有任何異議，請於週五前向部門主管提出。",
+  "vocab": [
+    {"word": "referral", "ipa": "/rɪˈfɝːəl/", "pos": "n.", "col": "a referral from / referral program", "zh": "引薦、推薦"},
+    {"word": "generic", "ipa": "/dʒəˈnɛrɪk/", "pos": "adj.", "col": "generic parts / generic brand", "zh": "通用的、無品牌的"},
+    {"word": "lifetime", "ipa": "/ˈlaɪftaɪm/", "pos": "adj.", "col": "lifetime warranty / lifetime guarantee", "zh": "終身的"},
+    {"word": "plug", "ipa": "/plʌɡ/", "pos": "n.", "col": "power plug / plug adapter", "zh": "插頭"},
+    {"word": "compatible", "ipa": "/kəmˈpætəbl/", "pos": "adj.", "col": "compatible with / fully compatible", "zh": "相容的、可配合使用的"}
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the main purpose of the memo?",
+      "opts": [
+        "To explain why a particular supplier is recommended for an order",
+        "To compare the prices of three different travel kits",
+        "To announce a revised warranty policy for customers",
+        "To request approval for an increase in the department budget"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：備忘錄比較三家候選廠商，並說明訂單將決標給哈爾登的理由。",
+        "被比較的是三家廠商的轉接器，並非三種旅行組合。",
+        "終身保固是哈爾登產品的條件，而非公司對客戶修改的保固政策。",
+        "文中沒有提到預算增加或需要核准預算。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What must happen before the order is finalized?",
+      "opts": [
+        "The distribution partner in Osaka must approve the choice.",
+        "Customers must register the product within thirty days.",
+        "Halden's samples must pass a test by March 14.",
+        "Korvex Components must lower its quotation."
+      ],
+      "ans": 2,
+      "why": [
+        "大阪的夥伴只是提供引薦，文中沒有說需要他們核准。",
+        "三十天內註冊是保固生效的條件，並非決標前的要求。",
+        "正解：訂單將決標給哈爾登，但須以三月十四日前通過樣品測試為前提。",
+        "科維克斯雖然報價最低，但文中沒有要求它降價，而是因可靠度疑慮未被選用。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What is implied about Korvex Components' adapters?",
+      "opts": [
+        "They were recommended by the Osaka partner.",
+        "They are less expensive but possibly less durable.",
+        "They include a lifetime warranty.",
+        "They cannot be used in the target markets."
+      ],
+      "ans": 1,
+      "why": [
+        "引薦來自大阪夥伴，但文中沒有說是引薦科維克斯，且與此題推論無關。",
+        "正解：科維克斯報價最低，但使用通用內部零件，工程報告指出可能降低反覆使用下的可靠度。",
+        "終身保固是哈爾登的產品條件，並非科維克斯。",
+        "相容性是挑選時的要求，文中並未說科維克斯的產品無法在目標市場使用。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The supplier has agreed to ______ the defective units at no additional charge.",
+      "opts": [
+        "replacement",
+        "replaced",
+        "replacing",
+        "replace"
+      ],
+      "ans": 3,
+      "why": [
+        "replacement 是名詞，agree to 後面要接原形動詞作不定詞。",
+        "replaced 是過去式或過去分詞，不能接在不定詞 to 之後。",
+        "replacing 是動名詞，agreed to 作為不定詞時後面不接 -ing。",
+        "正解：agreed to 之後接原形動詞 replace，表示同意免費更換瑕疵品。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The shipment was delayed ______ a customs inspection at the port.",
+      "opts": [
+        "because of",
+        "because",
+        "although",
+        "even though"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：because of 是複合介系詞，後面接名詞片語 a customs inspection，表示原因。",
+        "because 是連接詞，後面要接完整子句，不能直接接名詞片語。",
+        "although 是連接詞，表示讓步，且後面也要接子句。",
+        "even though 同樣是連接詞，語意與結構都不符。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The purchasing department places great emphasis on supplier ______.",
+      "opts": [
+        "rely",
+        "reliable",
+        "reliability",
+        "reliably"
+      ],
+      "ans": 2,
+      "why": [
+        "rely 是動詞，介系詞 on 之後需要名詞，不能接動詞。",
+        "reliable 是形容詞，後面沒有名詞可以修飾，無法單獨作 on 的受詞。",
+        "正解：reliability 是名詞，作為介系詞 on 的受詞，supplier 修飾它，指「供應商的可靠度」。",
+        "reliably 是副詞，不能作介系詞的受詞。"
+      ]
+    }
+  ]
+}

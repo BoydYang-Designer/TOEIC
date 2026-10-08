@@ -1,0 +1,91 @@
+{
+  "week": 4,
+  "day": 3,
+  "tag": "面試當天流程與面試小組說明",
+  "type": "Listening",
+  "level": {
+    "score": 675,
+    "range": "625-725",
+    "cefr": "B2",
+    "why": "人資在面試當天對應徵者的口說說明，使用被動、未來完成式（will have thoroughly reviewed）與 unless、because 等連接詞，需整合面試時間與形式、題目類型、錄音注意事項及後續午餐會的資格。干擾項多取自文中出現過的人物與活動，需精確區分。"
+  },
+  "passage": "Good morning, and thank you for joining us for today's interviews. Each of you has been scheduled for a thirty-minute session with a panel of three managers, who will have thoroughly reviewed your applications beforehand. You will be asked to describe a project in which you automated a routine process, so please be prepared to explain the results. Because the session will be recorded for internal use only, please do not adjust the microphone on the table unless you are instructed to do so. Candidates who advance to the next round will be invited to a luncheon with the team tomorrow, which gives you a chance to ask about our workplace culture.",
+  "zh": "早安，感謝各位參加今天的面試。你們每位都已排定與三位主管組成的面試小組進行三十分鐘的面談，這些主管會在事前徹底審閱過各位的應徵資料。你們會被請求描述一項曾將例行流程自動化的專案，所以請準備好說明成果。由於面談會被錄音，僅供內部使用，除非有人指示，請不要調整桌上的麥克風。晉級下一輪的應徵者，明天將受邀與團隊共進午餐會，這能讓各位有機會詢問我們的職場文化。",
+  "vocab": [
+    {"word": "thoroughly", "ipa": "/ˈθɝoʊli/", "pos": "adv.", "col": "thoroughly review / thoroughly prepared", "zh": "徹底地、仔細地"},
+    {"word": "automate", "ipa": "/ˈɔːtəmeɪt/", "pos": "v.", "col": "automate a process / automate routine tasks", "zh": "使自動化"},
+    {"word": "instruct", "ipa": "/ɪnˈstrʌkt/", "pos": "v.", "col": "instruct staff / be instructed to", "zh": "指示、指導"},
+    {"word": "microphone", "ipa": "/ˈmaɪkrəfoʊn/", "pos": "n.", "col": "adjust the microphone / wireless microphone", "zh": "麥克風"},
+    {"word": "luncheon", "ipa": "/ˈlʌntʃən/", "pos": "n.", "col": "business luncheon / luncheon invitation", "zh": "午餐會、正式午宴"}
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What will the candidates be asked to do during the interview?",
+      "opts": [
+        "Review other applicants' résumés",
+        "Adjust the microphone on the table",
+        "Describe a project that improved a routine process",
+        "Present a plan for the team luncheon"
+      ],
+      "ans": 2,
+      "why": [
+        "文中是面試小組事前審閱應徵資料，並非要應徵者審閱其他人的履歷。",
+        "麥克風是在被指示之前請大家不要調整的物品，並非面試要求做的事。",
+        "正解：應徵者會被請求描述一項將例行流程自動化的專案，並說明成果。",
+        "午餐會是晉級者的後續活動，面試中並未要求準備相關計畫。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "Who will be invited to the luncheon tomorrow?",
+      "opts": [
+        "All candidates interviewed today",
+        "Candidates who move on to the next round",
+        "The three managers on the panel",
+        "Employees who recorded the interviews"
+      ],
+      "ans": 1,
+      "why": [
+        "午餐會並非邀請所有人，只有晉級者才會受邀。",
+        "正解：文中說 candidates who advance to the next round 才會被邀請參加明天的午餐會。",
+        "三位主管是面試小組成員，文中並未說他們是受邀對象，午餐會是應徵者與團隊的聚會。",
+        "文中沒有提到有員工負責錄音，錄音僅供內部使用。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Ms. Alvarez was ______ for the sales manager position after a strong second interview.",
+      "opts": [
+        "recommend",
+        "recommending",
+        "recommendation",
+        "recommended"
+      ],
+      "ans": 3,
+      "why": [
+        "recommend 是原形動詞，was 之後不能直接接原形。",
+        "recommending 是現在分詞，會變成進行式，語意是她在推薦別人，與句意不符。",
+        "recommendation 是名詞，無法與 was 和 for 構成通順的句意。",
+        "正解：was recommended for 是被動語態，表示她「被推薦擔任」該職位。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Applicants will be notified of the results ______ two weeks of the final interview.",
+      "opts": [
+        "within",
+        "during",
+        "while",
+        "between"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：within two weeks 表示「在兩週以內」，用來說明期限。",
+        "during 後面接特定事件或期間，不能搭配 two weeks of 表示期限。",
+        "while 是連接詞，後面要接子句，不能直接接 two weeks。",
+        "between 需搭配兩個對象（between A and B），句意與結構都不符。"
+      ]
+    }
+  ]
+}

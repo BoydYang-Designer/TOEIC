@@ -1,0 +1,110 @@
+{
+  "week": 4,
+  "day": 1,
+  "tag": "訪客登記與門禁流程修訂公告",
+  "type": "Reading",
+  "level": {
+    "score": 730,
+    "range": "680-780",
+    "cefr": "B2",
+    "why": "公告使用 which 非限定子句、although 插入分詞構句與過去完成被動（had not been consistently enforced），並需整合生效日、事前申請時限、實驗室樓層的授權條件與退卡規定。干擾項多取自文中出現過的人員與單位（接待櫃台、保全、被接待的員工），需精確區分。"
+  },
+  "passage": "NOTICE TO ALL EMPLOYEES: Revised Visitor Access Procedures\n\nEffective Monday, October 19, all visitors to the headquarters campus must be registered at the concierge desk in the main lobby, which will replace the self-service kiosks in use since March. Because several visitors were found in restricted areas last quarter, the security team concluded that the previous system, although convenient, had not been consistently enforced.\n\nUnder the revised procedure, employees expecting a guest must submit a request at least one business day in advance. Requests involving the laboratory floors will be processed only after written authorization has been obtained from the relevant department head. Visitors will be issued temporary badges, which must be returned at checkout, and any badge not returned will be reported to the host.\n\nContractors needing access for more than two days should contact Security directly, since extended access requires a separate review.",
+  "zh": "全體員工注意：訪客進出程序修訂\n\n自 10 月 19 日星期一起，所有到訪總部園區的訪客都必須在大廳的接待櫃台完成登記，該櫃台將取代自三月起使用的自助服務機台。由於上一季有數名訪客被發現出現在管制區域，保全團隊判定，先前的制度雖然方便，卻未被一致地落實執行。\n\n依照修訂後的程序，預期有訪客到訪的員工必須至少提前一個工作日提出申請。涉及實驗室樓層的申請，必須在取得相關部門主管的書面授權之後才會受理。訪客將領取臨時識別證，並須在離場時歸還，任何未歸還的識別證都會通報給接待該訪客的員工。\n\n需要進出超過兩天的承包商，應直接聯絡保全部門，因為延長進出權限需要另行審查。",
+  "vocab": [
+    {"word": "authorization", "ipa": "/ˌɔːθərəˈzeɪʃən/", "pos": "n.", "col": "written authorization / obtain authorization", "zh": "授權、許可"},
+    {"word": "campus", "ipa": "/ˈkæmpəs/", "pos": "n.", "col": "corporate campus / campus security", "zh": "園區、校園"},
+    {"word": "concierge", "ipa": "/ˌkɑːnsiˈɛrʒ/", "pos": "n.", "col": "concierge desk / hotel concierge", "zh": "接待服務員、服務台人員"},
+    {"word": "consistently", "ipa": "/kənˈsɪstəntli/", "pos": "adv.", "col": "consistently enforce / consistently high", "zh": "一致地、始終如一地"},
+    {"word": "checkout", "ipa": "/ˈtʃɛkaʊt/", "pos": "n.", "col": "at checkout / checkout time", "zh": "退房或離場手續、結帳"}
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the main purpose of the notice?",
+      "opts": [
+        "To introduce a new self-service kiosk system for visitors",
+        "To announce changes in how guests are registered and approved",
+        "To report a security incident that occurred on the laboratory floors",
+        "To explain how contractors can obtain permanent employee badges"
+      ],
+      "ans": 1,
+      "why": [
+        "自助服務機台是被接待櫃台「取代」的舊制度，並非新制度。",
+        "正解：公告說明訪客改在接待櫃台登記，並新增事前申請與授權規定，重點是訪客登記與核准方式的變更。",
+        "公告只提到上一季有訪客出現在管制區域，並未報告單一事件，也不是主旨。",
+        "承包商只在最後一句被提到，且是要求其聯絡保全，並未談到永久識別證。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What does the notice suggest about the previous visitor system?",
+      "opts": [
+        "It was introduced at the beginning of last quarter.",
+        "It was too inconvenient for most visitors to use.",
+        "It was not applied in a uniform manner.",
+        "It was replaced because of rising equipment costs."
+      ],
+      "ans": 2,
+      "why": [
+        "文中只說機台自三月起使用，並未說是上一季才開始；上一季是發現訪客闖入管制區的時間。",
+        "文中說舊制度 although convenient，也就是方便的，因此並非不便。",
+        "正解：had not been consistently enforced 表示舊制度沒有被一致地落實，即執行不統一。",
+        "文中沒有提到設備成本，更換的原因是安全管理上的缺失。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "Who must give written approval before a guest can visit the laboratory floors?",
+      "opts": [
+        "The concierge on duty",
+        "The security team",
+        "The employee hosting the visitor",
+        "The head of the relevant department"
+      ],
+      "ans": 3,
+      "why": [
+        "接待櫃台負責訪客登記，但文中並未說它負責簽核實驗室樓層的授權。",
+        "保全團隊是檢討舊制度並處理承包商長期進出的單位，並非核准實驗室訪客的人。",
+        "接待訪客的員工只負責提出申請，並在訪客未歸還識別證時被通報。",
+        "正解：實驗室樓層的申請須先取得 relevant department head 的書面授權才會受理。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "All visitors are required to ______ their badges to the front desk before leaving the premises.",
+      "opts": ["return", "returns", "returned", "returning"],
+      "ans": 0,
+      "why": [
+        "正解：be required to 之後接原形動詞，return 符合文法，意思是「歸還」。",
+        "returns 是第三人稱單數或名詞複數，不能接在 to 之後作不定詞。",
+        "returned 是過去式或過去分詞，不能放在不定詞 to 之後。",
+        "returning 是動名詞或現在分詞，be required to 後面不接 -ing 形式。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Access to the server room is granted ______ to employees who have completed the safety training.",
+      "opts": ["exclusive", "exclude", "exclusively", "exclusion"],
+      "ans": 2,
+      "why": [
+        "exclusive 是形容詞，不能修飾動詞 is granted，也不能放在 to 之前。",
+        "exclude 是動詞原形，句中已有動詞 is granted，不能再放一個動詞。",
+        "正解：exclusively 是副詞，修飾 is granted，表示「僅限於」完成訓練的員工。",
+        "exclusion 是名詞，放在此處無法修飾動詞，語意也不通。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Please submit your guest request ______ Friday at noon to ensure that the badge is ready on Monday.",
+      "opts": ["until", "by", "since", "while"],
+      "ans": 1,
+      "why": [
+        "until 表示動作持續到某時間點，而 submit 是一次性動作，不能搭配。",
+        "正解：by 表示「最遲在某時間點之前」，與 submit 這類一次性動作搭配，表示截止時間。",
+        "since 表示「自從」，用於說明起點，不能表示截止時間。",
+        "while 是連接詞，後面要接子句，不能直接接 Friday at noon。"
+      ]
+    }
+  ]
+}

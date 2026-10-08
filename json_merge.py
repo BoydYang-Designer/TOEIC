@@ -21,17 +21,26 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / par
   3. 選取要合併的副檔（可多選：Ctrl / Shift）→「合併」→ 確認 → 寫回主檔（寫入前自動備份到 backup 資料夾）。
 副檔可以是：單筆題目、題目陣列、或含 items 的物件；AI 貼出的 ```json 圍欄也能自動處理。
 選錯題庫時（例如把 part2 的檔案放在 daily 模式），會直接提示「這是哪個題庫的題目」。
+  4. 合併完會先問要不要執行自動語音（*-auto-speech.py）；選「否」可改成「手動錄製 mp3」：
+     視窗列出這次合併的題目還缺哪些 mp3，每個檔案可一鍵複製「文本」「檔名」「資料夾路徑」（也能直接開啟資料夾）。
+     自己錄好放進去 → 按「重新檢查」→ 整組齊了就打勾 → daily 文章會問要不要跑 daily_timestamps.py 對時，
+     其餘題庫會問要不要跑 Scan總表與音檔.py。視窗不用關，可以再跑一次；合併視窗下方「手動錄音清單…」可隨時再打開。
+     （需要 *-auto-speech.py、daily_timestamps.py、Scan總表與音檔.py 放在同一個資料夾或其 audio 子資料夾。）
 """
 import copy
 import difflib
+import importlib.util
 import json
 import os
+import queue
 import re
 import shutil
 import subprocess
 import sys
+import threading
 import traceback
 from datetime import datetime
+from pathlib import Path
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 ID_RE = re.compile(r'^d([1-7])-(\d{3})-([emh])$')
@@ -2042,19 +2051,415 @@ AUTO_SPEECH = {
 }
 
 
-def offer_auto_speech(root, key, messagebox):
-    name = AUTO_SPEECH.get(key)
-    path = os.path.join(BASE, name) if name else ''
-    if not name or not os.path.isfile(path):
-        return
-    if not messagebox.askyesno('下一步：補錄音檔',
-                               '要接著執行 %s 嗎？\n（會列出缺少的 mp3，讓你勾選後產生；做完它會再問要不要跑 Scan總表與音檔.py）' % name,
-                               parent=root):
-        return
+# ───────────────────────── 補錄音檔：自動語音／手動錄製 ─────────────────────────
+# 手動錄製的清單直接借用各題庫的 *-auto-speech.py 的 build_plan()：
+# 「錄哪段文字、檔名怎麼取、放哪個資料夾」只維護那一份，兩邊不會不一致。
+
+SCAN_NAME = 'Scan總表與音檔.py'
+TIMING_NAME = 'daily_timestamps.py'
+FEMALE_VOICES = ('Aria', 'Sonia', 'Natasha')
+_SPEECH = {}
+
+
+def find_script(name):
+    """在程式所在資料夾、audio 子資料夾、上一層找腳本；找不到回傳 None。"""
+    for d in (BASE, os.path.join(BASE, 'audio'), os.path.dirname(BASE)):
+        p = os.path.join(d, name)
+        if os.path.isfile(p):
+            return p
+    return None
+
+
+def speech_module(key):
+    """載入對應的 *-auto-speech.py（只借用它的 build_plan／write_manifest，不會執行它的主程式）。"""
+    if key not in _SPEECH:
+        name = AUTO_SPEECH.get(key, '')
+        path = find_script(name) if name else None
+        if not path:
+            raise FileNotFoundError('找不到 %s（請放在 json_merge.py 同一個資料夾，或它的 audio 子資料夾）' % name)
+        spec = importlib.util.spec_from_file_location('toeic_speech_' + key, path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        _SPEECH[key] = mod
+    return _SPEECH[key]
+
+
+def scope_names(key, keys):
+    """把這次合併的題目 key 轉成 build_plan 的群組名稱（daily 是 w1d3，其餘就是題目 id）。"""
+    out = set()
+    for k in keys:
+        if key == 'daily':
+            if isinstance(k, tuple) and len(k) == 2 and all(isinstance(x, int) for x in k):
+                out.add('w%dd%d' % k)
+        else:
+            out.add(str(k))
+    return out
+
+
+def in_scope(key, g, scope):
+    if scope is None:
+        return True
+    k = str(g.get('key', ''))
+    return k in scope or (key == 'daily' and k.split(':', 1)[0] in scope)
+
+
+def mp3_ok(p):
+    """與各 auto-speech 腳本的 ok_file 相同：存在且大於 1000 bytes 才算有。"""
     try:
-        subprocess.Popen([sys.executable, path], cwd=BASE)
-    except Exception as ex:
-        messagebox.showerror('無法啟動', '%s\n\n%s' % (name, ex), parent=root)
+        return os.path.isfile(p) and os.path.getsize(p) > 1000
+    except OSError:
+        return False
+
+
+def voice_hint(key, job):
+    def gender(v):
+        return '女聲' if any(n in str(v) for n in FEMALE_VOICES) else '男聲'
+
+    def short(v):
+        return str(v).split('-')[-1].replace('Neural', '')
+
+    parts = job.get('parts')
+    vs = []
+    for v in ([p[1] for p in parts] if parts else [job.get('voice')]):
+        if v and v not in vs:
+            vs.append(v)
+    txt = '、'.join('%s（%s）' % (gender(v), short(v)) for v in vs)
+    if key in ('part3', 'part7') and job.get('sp'):
+        txt = '%s｜%s' % (job['sp'], txt)
+    return txt
+
+
+def offer_audio(root, key, messagebox, folder, scope, state):
+    """合併完成後：先問要不要自動語音；不要的話再問要不要手動錄製 mp3。"""
+    name = AUTO_SPEECH.get(key)
+    path = find_script(name) if name else None
+    if path:
+        if messagebox.askyesno('下一步：補錄音檔',
+                               '要接著執行 %s 嗎？\n（自動語音：會列出缺少的 mp3，讓你勾選後產生；做完它會再問要不要跑 Scan總表與音檔.py）\n\n'
+                               '選「否」可以改成手動錄製 mp3。' % name, parent=root):
+            try:
+                subprocess.Popen([sys.executable, path], cwd=BASE)
+            except Exception as ex:
+                messagebox.showerror('無法啟動', '%s\n\n%s' % (name, ex), parent=root)
+            return
+    if not messagebox.askyesno('手動錄製 mp3',
+                               '要手動錄製 mp3 嗎？\n會列出這次合併的題目還缺哪些 mp3，每個檔案都可以一鍵複製「文本」、「檔名」與「要放的資料夾路徑」。\n'
+                               '錄好放進去後，回到清單打勾，就能接著執行對時／更新 index.json。', parent=root):
+        return
+    open_manual(root, key, folder, scope or None, state)
+
+
+def open_manual(root, key, folder, scope, state):
+    """手動錄製視窗（非強制回應：開著也能繼續用合併工具）。scope＝只看這些題目；None＝全部缺檔。"""
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+
+    old = state.get('rec_win')
+    if old:
+        try:
+            if old['win'].winfo_exists():
+                old['load'](key, folder, scope)
+                old['win'].deiconify()
+                old['win'].lift()
+                return
+        except tk.TclError:
+            pass
+
+    win = tk.Toplevel(root)
+    win.geometry('1060x780')
+    win.minsize(760, 560)
+    S = {'key': key, 'folder': folder, 'scope': scope, 'groups': [], 'done': set()}
+    only_var = tk.BooleanVar(value=scope is not None)
+    head_var = tk.StringVar()
+    q = queue.Queue()
+
+    ttk.Label(win, textvariable=head_var, foreground='#555').pack(anchor='w', padx=10, pady=(8, 0))
+    ttk.Label(win, foreground='#555', text='錄好 mp3 後，依「檔名」放進「資料夾」；放好按「重新檢查」，整組齊了就在最左邊的方框打勾。').pack(anchor='w', padx=10)
+    bar = ttk.Frame(win)
+    bar.pack(fill='x', padx=10, pady=(4, 2))
+    only_cb = ttk.Checkbutton(bar, text='只顯示這次合併的題目', variable=only_var, command=lambda: load())
+    only_cb.pack(side='left')
+
+    tf = ttk.Frame(win)
+    tf.pack(fill='x', padx=10)
+    cols = ('chk', 'id', 'miss', 'voice', 'sample')
+    tree = ttk.Treeview(tf, columns=cols, show='headings', selectmode='browse', height=7)
+    for c, t, w in zip(cols, ('勾', '題組', '缺/總', '聲音', '第一個缺檔的文字'), (40, 190, 80, 220, 460)):
+        tree.heading(c, text=t)
+        tree.column(c, width=w, anchor='center' if c in ('chk', 'miss') else 'w', stretch=(c == 'sample'))
+    tsb = ttk.Scrollbar(tf, orient='vertical', command=tree.yview)
+    tree.configure(yscrollcommand=tsb.set)
+    tree.pack(side='left', fill='x', expand=True)
+    tsb.pack(side='right', fill='y')
+
+    summary = ttk.Label(win, font=(None, 10, 'bold'))
+    summary.pack(anchor='w', padx=10, pady=(6, 0))
+
+    df = ttk.Frame(win)
+    df.pack(fill='both', expand=True, padx=10, pady=4)
+    canvas = tk.Canvas(df, highlightthickness=0)
+    dsb = ttk.Scrollbar(df, orient='vertical', command=canvas.yview)
+    canvas.configure(yscrollcommand=dsb.set)
+    canvas.pack(side='left', fill='both', expand=True)
+    dsb.pack(side='right', fill='y')
+    inner = ttk.Frame(canvas)
+    inner_id = canvas.create_window((0, 0), window=inner, anchor='nw')
+    wraps = []
+
+    def on_inner(_=None):
+        canvas.configure(scrollregion=canvas.bbox('all'))
+
+    def on_canvas(e):
+        canvas.itemconfigure(inner_id, width=e.width)
+        for lb in wraps:
+            try:
+                lb.configure(wraplength=max(260, e.width - 190))
+            except tk.TclError:
+                pass
+
+    inner.bind('<Configure>', on_inner)
+    canvas.bind('<Configure>', on_canvas)
+
+    def wheel(e):
+        canvas.yview_scroll(-1 if (e.delta > 0 or getattr(e, 'num', 0) == 4) else 1, 'units')
+
+    def bind_wheel(_=None):
+        canvas.bind_all('<MouseWheel>', wheel)
+        canvas.bind_all('<Button-4>', wheel)
+        canvas.bind_all('<Button-5>', wheel)
+
+    def unbind_wheel(_=None):
+        for ev in ('<MouseWheel>', '<Button-4>', '<Button-5>'):
+            canvas.unbind_all(ev)
+
+    df.bind('<Enter>', bind_wheel)
+    df.bind('<Leave>', unbind_wheel)
+
+    act = ttk.Frame(win)
+    act.pack(fill='x', padx=10, pady=(0, 4))
+    logbox = tk.Text(win, height=5, wrap='none', background='#101418', foreground='#d6e2ee')
+    logbox.pack(fill='x', padx=10, pady=(0, 10))
+
+    def log(m):
+        logbox.insert('end', m + '\n')
+        logbox.see('end')
+
+    def title_of(g):
+        return ('%s %s' % (g['kind'], g['key'])) if g.get('kind') else str(g['key'])
+
+    def n_left(g):
+        return sum(1 for j in g['jobs'] if not mp3_ok(j['path']))
+
+    def cur_group():
+        s = tree.selection()
+        return S['groups'][int(s[0])] if s else None
+
+    def update_summary():
+        miss = sum(n_left(g) for g in S['groups'])
+        summary.config(text='共 %d 組，還缺 %d 個 mp3；已打勾 %d 組' % (len(S['groups']), miss, len(S['done'])))
+
+    def repaint(sel=None):
+        if sel is None and tree.selection():
+            sel = tree.selection()[0]
+        tree.delete(*tree.get_children())
+        for i, g in enumerate(S['groups']):
+            n = n_left(g)
+            first = str(g['jobs'][0]['text']).replace('\n', ' ')
+            tree.insert('', 'end', iid=str(i), values=(
+                '☑' if str(i) in S['done'] else '☐', title_of(g), '齊了 ✔' if not n else '缺 %d/%d' % (n, len(g['jobs'])),
+                g.get('voice', ''), first[:80]))
+        if sel is not None and tree.exists(sel):
+            tree.selection_set(sel)
+        update_summary()
+
+    def copy_to(btn, txt):
+        win.clipboard_clear()
+        win.clipboard_append(txt)
+        win.update()
+        o = btn.cget('text')
+        btn.config(text='已複製 ✔')
+        win.after(1200, lambda: btn.winfo_exists() and btn.config(text=o))
+
+    def open_folder(path):
+        try:
+            os.makedirs(path, exist_ok=True)
+            if sys.platform.startswith('win'):
+                os.startfile(path)
+            elif sys.platform == 'darwin':
+                subprocess.Popen(['open', path])
+            else:
+                subprocess.Popen(['xdg-open', path])
+        except Exception as ex:
+            messagebox.showerror('無法開啟資料夾', str(ex), parent=win)
+
+    def show_detail(g):
+        for w in inner.winfo_children():
+            w.destroy()
+        del wraps[:]
+        if not g:
+            return
+        jobs = g['jobs']
+        for n, j in enumerate(jobs, 1):
+            ok = mp3_ok(j['path'])
+            box = ttk.LabelFrame(inner, text='  %d/%d　%s %s  ' % (n, len(jobs), '✔ 已有' if ok else '✖ 缺', j['name']))
+            box.pack(fill='x', pady=3, padx=2)
+            box.columnconfigure(1, weight=1)
+            hint = voice_hint(S['key'], j)
+            if hint:
+                ttk.Label(box, text='聲音參考', foreground='#555').grid(row=0, column=0, sticky='w', padx=6, pady=(4, 0))
+                ttk.Label(box, text=hint, foreground='#555').grid(row=0, column=1, columnspan=3, sticky='w', pady=(4, 0))
+            ttk.Label(box, text='文本').grid(row=1, column=0, sticky='nw', padx=6, pady=3)
+            lb = tk.Label(box, text=str(j['text']), justify='left', anchor='w', bg='#ffffff', fg='#111111',
+                          relief='solid', borderwidth=1, padx=6, pady=4, wraplength=700)
+            lb.grid(row=1, column=1, sticky='ew', pady=3)
+            wraps.append(lb)
+            b = ttk.Button(box, text='複製文本')
+            b.configure(command=lambda b=b, t=str(j['text']): copy_to(b, t))
+            b.grid(row=1, column=2, columnspan=2, padx=6, sticky='ne', pady=3)
+            ttk.Label(box, text='檔名').grid(row=2, column=0, sticky='w', padx=6, pady=3)
+            e1 = ttk.Entry(box)
+            e1.insert(0, j['name'])
+            e1.configure(state='readonly')
+            e1.grid(row=2, column=1, sticky='ew', pady=3)
+            b = ttk.Button(box, text='複製檔名')
+            b.configure(command=lambda b=b, t=j['name']: copy_to(b, t))
+            b.grid(row=2, column=2, columnspan=2, padx=6, pady=3)
+            folder_path = os.path.abspath(os.path.dirname(str(j['path'])))
+            ttk.Label(box, text='資料夾').grid(row=3, column=0, sticky='w', padx=6, pady=(3, 6))
+            e2 = ttk.Entry(box)
+            e2.insert(0, folder_path)
+            e2.configure(state='readonly')
+            e2.grid(row=3, column=1, sticky='ew', pady=(3, 6))
+            b = ttk.Button(box, text='複製路徑')
+            b.configure(command=lambda b=b, t=folder_path: copy_to(b, t))
+            b.grid(row=3, column=2, padx=(6, 0), pady=(3, 6))
+            ttk.Button(box, text='開啟資料夾', command=lambda p=folder_path: open_folder(p)).grid(row=3, column=3, padx=6, pady=(3, 6))
+        canvas.update_idletasks()
+        on_canvas(type('E', (), {'width': canvas.winfo_width()})())
+        canvas.yview_moveto(0)
+
+    def run_timing():
+        path = find_script(TIMING_NAME)
+        if not path:
+            messagebox.showerror('找不到對時程式', '找不到 %s，請放在 json_merge.py 同一個資料夾。' % TIMING_NAME, parent=win)
+            return
+        kw = {'creationflags': subprocess.CREATE_NEW_CONSOLE} if sys.platform.startswith('win') else {}
+        try:
+            subprocess.Popen([sys.executable, path], cwd=os.path.dirname(path), **kw)
+            log('已開啟 %s：在它的視窗選 mp3 與 daily.json。做完這個視窗不用關，需要時可再按「執行對時」重跑一次。' % TIMING_NAME)
+        except Exception as ex:
+            messagebox.showerror('無法啟動', '%s\n\n%s' % (TIMING_NAME, ex), parent=win)
+
+    def run_scan():
+        path = find_script(SCAN_NAME)
+        if not path:
+            messagebox.showerror('找不到程式', '找不到 %s，請放在 json_merge.py 同一個資料夾。' % SCAN_NAME, parent=win)
+            return
+        log('執行 %s …' % SCAN_NAME)
+
+        def work():
+            try:
+                r = subprocess.run([sys.executable, path], cwd=os.path.dirname(path), capture_output=True, text=True,
+                                   errors='replace', input='\n')
+                out = ((r.stdout or '') + (r.stderr or '')).strip() or '%s 已執行。' % SCAN_NAME
+            except Exception as ex:
+                out = '執行失敗：%s' % ex
+            q.put(out)
+
+        threading.Thread(target=work, daemon=True).start()
+
+    def after_done(g):
+        if S['key'] == 'daily':
+            if g.get('kind') == '文章':
+                if messagebox.askyesno('下一步：對時', '「%s」的 mp3 齊了。\n要現在執行 %s 對時嗎？\n（會開新視窗，請選 mp3 與 daily.json）\n\n之後也可以按下方「執行對時」再跑一次。' % (
+                        title_of(g), TIMING_NAME), parent=win):
+                    run_timing()
+            else:
+                try:
+                    speech_module('daily').write_manifest(Path(S['folder']), log)
+                except Exception as ex:
+                    log('✗ 更新詳解音檔清單失敗：%s' % ex)
+        elif messagebox.askyesno('下一步：更新 index.json', '「%s」的 mp3 齊了。\n要執行 %s 更新 index.json 嗎？\n（網頁之後按 Ctrl+F5 重新整理）' % (
+                title_of(g), SCAN_NAME), parent=win):
+            run_scan()
+
+    def toggle(iid):
+        g = S['groups'][int(iid)]
+        if iid in S['done']:
+            S['done'].discard(iid)
+            repaint(iid)
+            return
+        miss = [j for j in g['jobs'] if not mp3_ok(j['path'])]
+        if miss:
+            messagebox.showwarning('還有檔案沒放好', '「%s」還缺 %d 個 mp3：\n%s\n\n放進資料夾後，按「重新檢查」再打勾。' % (
+                title_of(g), len(miss), '\n'.join('• ' + j['name'] for j in miss[:8]) + ('\n…' if len(miss) > 8 else '')), parent=win)
+            repaint(iid)
+            show_detail(g)
+            return
+        S['done'].add(iid)
+        repaint(iid)
+        after_done(g)
+
+    def on_click(e):
+        if tree.identify_region(e.x, e.y) == 'cell' and tree.identify_column(e.x) == '#1':
+            iid = tree.identify_row(e.y)
+            if iid:
+                tree.selection_set(iid)
+                toggle(iid)
+                return 'break'
+
+    def recheck():
+        repaint()
+        show_detail(cur_group())
+        log('已重新檢查。')
+
+    def load(key_=None, folder_=None, scope_=None):
+        if key_ is not None:
+            S.update(key=key_, folder=folder_, scope=scope_)
+            only_var.set(scope_ is not None)
+        only_cb.configure(state='normal' if S['scope'] is not None else 'disabled')
+        win.title('手動錄製 mp3 ─ %s' % PROFILES[S['key']].title)
+        head_var.set('題庫：%s　　資料夾：%s' % (PROFILES[S['key']].title, os.path.join(S['folder'], 'audio')))
+        timing_btn.configure(state='normal' if S['key'] == 'daily' else 'disabled')
+        groups = []
+        try:
+            groups = speech_module(S['key']).build_plan(Path(S['folder']))
+        except Exception as ex:
+            messagebox.showerror('無法讀取待錄清單', '%s' % ex, parent=win)
+        sc = S['scope'] if (only_var.get() and S['scope'] is not None) else None
+        S['groups'] = [g for g in groups if g.get('jobs') and in_scope(S['key'], g, sc)]
+        S['done'] = set()
+        repaint()
+        show_detail(None)
+        if S['groups']:
+            tree.selection_set('0')
+        else:
+            log('✔ 沒有缺的 mp3。')
+
+    ttk.Button(act, text='重新檢查', command=recheck).pack(side='left')
+    ttk.Button(act, text='重新載入清單', command=lambda: load()).pack(side='left', padx=6)
+    ttk.Button(act, text='關閉', command=win.destroy).pack(side='right')
+    ttk.Button(act, text='執行 Scan總表與音檔.py', command=run_scan).pack(side='right', padx=6)
+    timing_btn = ttk.Button(act, text='執行對時（daily_timestamps.py）', command=run_timing)
+    timing_btn.pack(side='right')
+
+    tree.bind('<Button-1>', on_click)
+    tree.bind('<<TreeviewSelect>>', lambda e: show_detail(cur_group()))
+
+    def poll():
+        try:
+            while True:
+                log(q.get_nowait())
+        except queue.Empty:
+            pass
+        if win.winfo_exists():
+            win.after(150, poll)
+
+    state['rec_win'] = {'win': win, 'load': load}
+    load()
+    poll()
+
+
 MAIN_NAMES = {p.main_name.lower() for p in PROFILES.values()}
 TITLE_OF = {k: v.title for k, v in PROFILES.items()}
 
@@ -2257,7 +2662,7 @@ def run_gui(start):
     root.geometry('1120x720')
     root.minsize(760, 600)
 
-    st = {'prof': PROFILES[start], 'main': None, 'manual': [], 'rows': {}, 'infos': {}}
+    st = {'prof': PROFILES[start], 'main': None, 'manual': [], 'rows': {}, 'infos': {}, 'merged': {}}
     move_var = tk.BooleanVar(value=True)
     main_var = tk.StringVar()
     prof_var = tk.StringVar(value=start)
@@ -2316,6 +2721,18 @@ def run_gui(start):
     bot.pack(fill='x')
     ttk.Checkbutton(bot, text='合併成功後，把副檔移到 merged 資料夾', variable=move_var).pack(side='left')
     ttk.Button(bot, text='合併選取的檔案', command=lambda: do_merge()).pack(side='right')
+    ttk.Button(bot, text='手動錄音清單…', command=lambda: manual_clicked()).pack(side='right', padx=(0, 8))
+
+    def audio_folder():
+        """auto-speech 腳本讀的是「放 json 的資料夾」；主檔若在別處，就用主檔所在資料夾。"""
+        m = st['main']
+        if m and os.path.basename(m).lower() == P().main_name.lower():
+            return os.path.dirname(m)
+        return BASE
+
+    def manual_clicked():
+        k = prof_var.get()
+        open_manual(root, k, audio_folder(), st['merged'].get(k) or None, st)
 
     def set_detail(text):
         detail.configure(state='normal')
@@ -2562,7 +2979,9 @@ def run_gui(start):
         msg += '\n\n' + p_.done_note
         refresh()
         messagebox.showinfo('合併完成', msg, parent=root)
-        offer_auto_speech(root, prof_var.get(), messagebox)
+        names = scope_names(prof_var.get(), keep.keys())
+        st['merged'].setdefault(prof_var.get(), set()).update(names)
+        offer_audio(root, prof_var.get(), messagebox, audio_folder(), names, st)
 
     open_default_main()
     refresh()

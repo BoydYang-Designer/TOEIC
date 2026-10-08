@@ -20,16 +20,7 @@
 
   <main id="grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4"></main>
 
-  <details id="mt" class="mt-8 md:mt-12 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 p-3 md:p-4">
-    <summary class="cursor-pointer font-bold text-base md:text-lg select-none">🔧 維護總覽 <span class="text-sm font-normal text-slate-500 dark:text-slate-400">音檔・Timing 狀態</span> <span id="mtb" class="ml-1 text-xs font-normal"></span></summary>
-    <div id="mtc" class="mt-3"></div>
-    <details id="mp" class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3">
-      <summary class="cursor-pointer font-bold text-sm select-none">🗺 專案地圖 <span class="text-xs font-normal text-slate-500 dark:text-slate-400">頁面・資料・py 關聯（自動掃描）</span></summary>
-      <div id="mpc" class="mt-3 text-sm text-slate-500">載入中…</div>
-    </details>
-  </details>
-
-  <details id="lk" class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 p-3 md:p-4">
+  <details id="lk" class="mt-8 md:mt-12 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 p-3 md:p-4">
     <summary class="cursor-pointer font-bold text-base md:text-lg select-none">🔖 網址紀錄 <span class="text-sm font-normal text-slate-500 dark:text-slate-400">網站・影片・備註</span> <span id="lkn" class="text-sm font-normal text-slate-500 dark:text-slate-400"></span></summary>
     <div class="mt-3 space-y-2">
       <div class="flex gap-2">
@@ -45,6 +36,30 @@
       <div id="lkl" class="space-y-2 pt-1"></div>
       <p class="text-xs text-slate-400">紀錄存在這個瀏覽器（localStorage）；點右下角「☁ 登入同步」用 Google 登入後，手機與電腦會共用同一份紀錄。整合內容時按「複製全部」即可貼出。</p>
     </div>
+  </details>
+
+  <details id="vk" class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 p-3 md:p-4">
+    <summary class="cursor-pointer font-bold text-base md:text-lg select-none">📝 單字紀錄 <span class="text-sm font-normal text-slate-500 dark:text-slate-400">生字・意思・例句</span> <span id="vkn" class="text-sm font-normal text-slate-500 dark:text-slate-400"></span></summary>
+    <div class="mt-3 space-y-2">
+      <input id="vkw" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="單字或片語（例如 negotiate）" class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm">
+      <textarea id="vkm" rows="2" placeholder="意思／例句／備註（選填）" class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm"></textarea>
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="vka" type="button" class="rounded-lg px-4 py-2 text-sm font-medium bg-indigo-600 text-white">新增單字</button>
+        <input id="vkq" type="search" placeholder="搜尋單字或備註" class="flex-1 min-w-[8rem] rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm">
+        <button id="vkc" type="button" class="rounded-lg px-3 py-2 text-sm border border-slate-300 dark:border-slate-700 shrink-0">複製全部</button>
+      </div>
+      <div id="vkl" class="space-y-2 pt-1"></div>
+      <p class="text-xs text-slate-400">單字存在這個瀏覽器（localStorage）。整合內容時按「複製全部」即可貼出。</p>
+    </div>
+  </details>
+
+  <details id="mt" class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 p-3 md:p-4">
+    <summary class="cursor-pointer font-bold text-base md:text-lg select-none">🔧 維護總覽 <span class="text-sm font-normal text-slate-500 dark:text-slate-400">音檔・Timing 狀態</span> <span id="mtb" class="ml-1 text-xs font-normal"></span></summary>
+    <div id="mtc" class="mt-3"></div>
+    <details id="mp" class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3">
+      <summary class="cursor-pointer font-bold text-sm select-none">🗺 專案地圖 <span class="text-xs font-normal text-slate-500 dark:text-slate-400">頁面・資料・py 關聯（自動掃描）</span></summary>
+      <div id="mpc" class="mt-3 text-sm text-slate-500">載入中…</div>
+    </details>
   </details>
 </div>
 
@@ -268,6 +283,72 @@ async function mtLoad() {
     }
     else if (act === 'del') { if (confirm('刪除這筆紀錄？')) { L = L.filter(v => v.id !== id); opened.delete(id); save(); render(); } }
     else if (act === 'copy') { const ok = await copy(x.url); const o = b.textContent; b.textContent = ok ? '已複製 ✔' : '複製失敗'; setTimeout(() => b.textContent = o, 1500); }
+  });
+  render();
+})();
+/* ===== 單字紀錄：存 localStorage（鍵 toeicVocabV1，獨立於網址紀錄與作答紀錄） ===== */
+(function () {
+  const VK = 'toeicVocabV1';
+  let L = [];
+  try { L = JSON.parse(localStorage.getItem(VK) || '[]'); if (!Array.isArray(L)) L = []; } catch (e) { L = []; }
+  const opened = new Set(); let editing = null, q = '';
+  const $ = id => document.getElementById(id);
+  const save = () => { try { localStorage.setItem(VK, JSON.stringify(L)); } catch (e) { alert('儲存失敗（瀏覽器空間不足或無痕模式）'); } };
+  const fmt = t => new Date(t).toLocaleDateString('zh-TW');
+  const inp = 'w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm';
+  const btn = 'rounded-lg px-3 py-1.5 text-xs border border-slate-300 dark:border-slate-700';
+  async function copy(txt) {
+    try { await navigator.clipboard.writeText(txt); return true; } catch (e) {}
+    const a = document.createElement('textarea'); a.value = txt; a.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(a); a.select(); let ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {} a.remove(); return ok;
+  }
+  function render() {
+    const kw = q.trim().toLowerCase();
+    const list = L.filter(x => !kw || (x.word + ' ' + x.note).toLowerCase().includes(kw));
+    $('vkn').textContent = L.length ? '（' + L.length + '）' : '';
+    if (!list.length) { $('vkl').innerHTML = `<p class="text-sm text-slate-500 dark:text-slate-400 py-2">${L.length ? '沒有符合的單字。' : '還沒有單字。輸入單字與意思後按「新增單字」。'}</p>`; return; }
+    $('vkl').innerHTML = list.map(x => {
+      if (editing === x.id) return `<div class="rounded-xl border border-indigo-400 bg-white dark:bg-slate-900 p-3 space-y-2" data-id="${x.id}">
+        <input class="${inp}" data-f="word" value="${esc(x.word)}" autocapitalize="off" spellcheck="false">
+        <textarea class="${inp}" data-f="note" rows="3" placeholder="意思／例句／備註">${esc(x.note)}</textarea>
+        <div class="flex gap-2"><button type="button" data-act="save" class="rounded-lg px-3 py-1.5 text-xs bg-indigo-600 text-white">儲存</button><button type="button" data-act="cancel" class="${btn}">取消</button></div></div>`;
+      return `<details data-id="${x.id}" ${opened.has(x.id) ? 'open' : ''} class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3">
+        <summary class="cursor-pointer select-none"><span class="font-semibold text-sm">${esc(x.word)}</span> <span class="text-xs text-slate-400">${fmt(x.t)}</span>${x.note ? `<div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">${esc(x.note.split('\n')[0])}</div>` : ''}</summary>
+        <div class="mt-2 space-y-2">${x.note ? `<p class="text-sm whitespace-pre-wrap break-words">${esc(x.note)}</p>` : '<p class="text-xs text-slate-400">（沒有備註）</p>'}
+        <div class="flex flex-wrap gap-2"><button type="button" data-act="edit" class="${btn}">✎ 編輯</button><button type="button" data-act="copy" class="${btn}">複製單字</button><button type="button" data-act="del" class="${btn} text-rose-600 dark:text-rose-400">🗑 刪除</button></div></div></details>`;
+    }).join('');
+  }
+  function add() {
+    const w = $('vkw').value.trim(), n = $('vkm').value.trim();
+    if (!w) { $('vkw').focus(); return; }
+    if (L.some(x => x.word.toLowerCase() === w.toLowerCase()) && !confirm('這個單字已經記錄過了，還要再新增一筆嗎？')) return;
+    const id = 'v' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+    L.unshift({ id, word: w, note: n, t: Date.now() }); save();
+    $('vkw').value = ''; $('vkm').value = ''; opened.add(id); render(); $('vkw').focus();
+  }
+  $('vka').onclick = add;
+  $('vkw').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); add(); } });
+  $('vkq').addEventListener('input', e => { q = e.target.value; render(); });
+  $('vkc').onclick = async e => {
+    if (!L.length) return;
+    const txt = L.map((x, i) => (i + 1) + '. ' + x.word + (x.note ? '\n   ' + x.note.replace(/\n/g, '\n   ') : '')).join('\n');
+    const ok = await copy(txt), b = e.target, o = b.textContent; b.textContent = ok ? '已複製 ✔' : '複製失敗'; setTimeout(() => b.textContent = o, 1500);
+  };
+  $('vkl').addEventListener('toggle', e => { const id = e.target.dataset && e.target.dataset.id; if (id) e.target.open ? opened.add(id) : opened.delete(id); }, true);
+  $('vkl').addEventListener('click', async e => {
+    const b = e.target.closest('[data-act]'); if (!b) return;
+    const row = b.closest('[data-id]'), id = row.dataset.id, x = L.find(v => v.id === id); if (!x) return;
+    const act = b.dataset.act;
+    if (act === 'edit') { editing = id; render(); }
+    else if (act === 'cancel') { editing = null; render(); }
+    else if (act === 'save') {
+      const w = row.querySelector('[data-f=word]').value.trim();
+      if (!w) return;
+      x.word = w; x.note = row.querySelector('[data-f=note]').value.trim(); editing = null; save(); render();
+    }
+    else if (act === 'del') { if (confirm('刪除這個單字？')) { L = L.filter(v => v.id !== id); opened.delete(id); save(); render(); } }
+    else if (act === 'copy') { const ok = await copy(x.word); const o = b.textContent; b.textContent = ok ? '已複製 ✔' : '複製失敗'; setTimeout(() => b.textContent = o, 1500); }
   });
   render();
 })();
