@@ -1,0 +1,70 @@
+{
+  "week": 3,
+  "day": 2,
+  "extra_vocab": [
+    {
+      "text": "accommodate",
+      "type": "word",
+      "ipa": "/əˈkɑːmədeɪt/",
+      "pos": "v.",
+      "zh": "容納；滿足（需求）、配合",
+      "en": "to give someone what they need or have enough space for them",
+      "note": "在這篇裡是「滿足、照顧（特殊需求）」的意思：餐廳願意為兩位對堅果過敏的客人準備合適的餐點。語氣禮貌正式，常見於服務業與客服用語。",
+      "forms": [
+        { "w": "accommodates", "label": "第三人稱單數", "pos": "v.", "zh": "容納、配合", "ipa": "/əˈkɑːmədeɪts/" },
+        { "w": "accommodated", "label": "過去式／過去分詞", "pos": "v.", "zh": "容納了、配合了", "ipa": "/əˈkɑːmədeɪtɪd/" },
+        { "w": "accommodating", "label": "現在分詞", "pos": "v.", "zh": "正在容納、配合", "ipa": "/əˈkɑːmədeɪtɪŋ/" },
+        { "w": "accommodating", "label": "形容詞", "pos": "adj.", "zh": "樂於配合的、肯通融的", "ipa": "/əˈkɑːmədeɪtɪŋ/" },
+        { "w": "accommodation", "label": "名詞", "pos": "n.", "zh": "住宿；（空間或需求的）安排", "ipa": "/əˌkɑːməˈdeɪʃn/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "accommodate a request",
+          "zh": "答應、配合要求",
+          "example": { "en": "We will try to accommodate your request for a later date.", "zh": "我們會盡量配合您延後日期的要求。" }
+        },
+        {
+          "phrase": "accommodate special needs",
+          "zh": "滿足特殊需求",
+          "example": { "en": "The hotel can accommodate guests with special needs.", "zh": "這間飯店能照顧有特殊需求的客人。" }
+        },
+        {
+          "phrase": "accommodate a large group",
+          "zh": "容納大團體",
+          "example": { "en": "This room can accommodate a large group of up to fifty people.", "zh": "這個房間最多可容納五十人的大團體。" }
+        },
+        {
+          "phrase": "accommodate someone's schedule",
+          "zh": "配合某人的時間表",
+          "example": { "en": "We changed the meeting time to accommodate her schedule.", "zh": "我們更改了會議時間以配合她的行程。" }
+        }
+      ],
+      "examples": [
+        { "tag": "訂位／餐廳", "en": "Our restaurant can accommodate guests with food allergies.", "zh": "我們餐廳能照顧有食物過敏的客人。" },
+        { "tag": "會議", "en": "The conference room is too small to accommodate everyone.", "zh": "這間會議室太小，容納不下所有人。" },
+        { "tag": "電子郵件", "en": "We apologize that we cannot accommodate your request this time.", "zh": "很抱歉，這次我們無法配合您的要求。" },
+        { "tag": "出差", "en": "The hotel accommodated our team even though it was fully booked.", "zh": "雖然客滿，飯店還是為我們的團隊安排了房間。" }
+      ],
+      "confusable": [
+        { "word": "accommodation", "diff": "accommodation 是名詞，常指「住宿」；accommodate 是動詞，指「容納、配合」。兩者都是雙 c、雙 m，拼字要小心。" },
+        { "word": "adapt", "diff": "adapt 是自己調整以適應環境；accommodate 是提供空間或配合別人的需求。" }
+      ],
+      "family": [
+        {
+          "w": "accommodation",
+          "pos": "n.",
+          "zh": "住宿",
+          "ipa": "/əˌkɑːməˈdeɪʃn/",
+          "example": { "en": "The company will pay for your hotel accommodation.", "zh": "公司會支付你的飯店住宿費用。" }
+        },
+        {
+          "w": "accommodating",
+          "pos": "adj.",
+          "zh": "樂於配合的",
+          "ipa": "/əˈkɑːmədeɪtɪŋ/",
+          "example": { "en": "The staff were very accommodating about our schedule change.", "zh": "員工對我們更改行程非常願意配合。" }
+        }
+      ]
+    }
+  ]
+}

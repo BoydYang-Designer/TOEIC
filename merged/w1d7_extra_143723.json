@@ -1,0 +1,383 @@
+{
+  "week": 1,
+  "day": 7,
+  "extra_vocab": [
+    {
+      "text": "portal",
+      "type": "word",
+      "ipa": "/ˈpɔːrtl/",
+      "pos": "n.",
+      "zh": "入口網站、（客戶）入口平台",
+      "en": "a website where users log in to find information or use services",
+      "note": "在這篇裡 customer portal 指專為客戶設計的線上平台，客戶登入後可查訂單、下載發票、提出服務需求。它不只是介紹公司的網站，重點是「登入後可以辦事」。",
+      "forms": [
+        {
+          "w": "portals",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "入口網站（複數）",
+          "ipa": "/ˈpɔːrtlz/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "customer portal",
+          "zh": "客戶入口平台",
+          "example": {
+            "en": "The customer portal will open to all users next month.",
+            "zh": "客戶入口平台下個月會開放給所有使用者。"
+          }
+        },
+        {
+          "phrase": "employee portal",
+          "zh": "員工入口網站",
+          "example": {
+            "en": "You can request leave through the employee portal.",
+            "zh": "您可以透過員工入口網站申請請假。"
+          }
+        },
+        {
+          "phrase": "log in to the portal",
+          "zh": "登入入口網站",
+          "example": {
+            "en": "Please log in to the portal to see your account details.",
+            "zh": "請登入入口網站查看您的帳戶資料。"
+          }
+        },
+        {
+          "phrase": "portal account",
+          "zh": "入口網站帳號",
+          "example": {
+            "en": "Each client will receive a portal account by e-mail.",
+            "zh": "每位客戶都會收到寄到電子郵件的入口網站帳號。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "簡報",
+          "en": "The new portal will save our support team a lot of time.",
+          "zh": "新的入口平台會替客服團隊省下很多時間。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Details about your order are now available on our portal.",
+          "zh": "您的訂單詳情現在可在我們的入口平台上查看。"
+        },
+        {
+          "tag": "客服",
+          "en": "If you forget your password, use the reset link on the portal.",
+          "zh": "如果您忘記密碼，請使用入口平台上的重設連結。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "website",
+          "diff": "website 是一般網站，不一定需要登入；portal 通常要登入，提供個人化的資料與服務。"
+        },
+        {
+          "word": "platform",
+          "diff": "platform 範圍更廣，可指各種系統或服務基礎；portal 強調「使用者進入服務的入口」。"
+        }
+      ],
+      "family": [
+        {
+          "w": "access",
+          "pos": "n./v.",
+          "zh": "存取、使用權；取得",
+          "ipa": "/ˈækses/",
+          "example": {
+            "en": "Customers can access their invoices on the portal.",
+            "zh": "客戶可以在入口平台上取得自己的發票。"
+          }
+        },
+        {
+          "w": "login",
+          "pos": "n.",
+          "zh": "登入（帳號密碼）",
+          "ipa": "/ˈlɔːɡɪn/",
+          "example": {
+            "en": "Please enter your login and password to continue.",
+            "zh": "請輸入您的登入帳號和密碼以繼續。"
+          }
+        },
+        {
+          "w": "platform",
+          "pos": "n.",
+          "zh": "平台",
+          "ipa": "/ˈplætfɔːrm/",
+          "example": {
+            "en": "We chose a new platform for online customer service.",
+            "zh": "我們選了一個新的平台來提供線上客服。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "order status",
+      "type": "phrase",
+      "zh": "訂單狀態、訂單處理進度",
+      "en": "information about where an order is, such as processing or shipped",
+      "note": "在這篇裡是客戶打電話給客服最常問的事：想知道訂單目前處理到哪一步（處理中、已出貨等）。order 在這裡當形容詞，修飾 status。",
+      "pattern": "check / track / update + order status",
+      "examples": [
+        {
+          "tag": "客服",
+          "en": "You can check your order status on our Web site.",
+          "zh": "您可以在我們的網站上查詢訂單狀態。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "We will e-mail you whenever your order status changes.",
+          "zh": "每當您的訂單狀態有變動，我們都會寄電子郵件通知您。"
+        },
+        {
+          "tag": "電話",
+          "en": "I'm calling to ask about the status of my order.",
+          "zh": "我打電話來詢問我訂單的狀態。"
+        },
+        {
+          "tag": "會議",
+          "en": "The system shows the order status in real time.",
+          "zh": "系統會即時顯示訂單狀態。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "order tracking",
+          "diff": "order tracking 偏重「追蹤貨物位置」；order status 範圍較廣，包含處理中、已付款、已出貨等階段。"
+        },
+        {
+          "phrase": "shipping status",
+          "diff": "shipping status 只指出貨與運送階段；order status 涵蓋從下單到送達的整個過程。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "order number",
+          "diff": "order number 是訂單編號，用來查詢；order status 是查到的「狀態」結果。"
+        }
+      ]
+    },
+    {
+      "text": "online portal",
+      "type": "phrase",
+      "zh": "線上入口平台、線上服務平台",
+      "en": "a website where users log in to use services over the Internet",
+      "note": "在這篇裡是整份提案要推出的產品，客戶可全天候在上面追蹤出貨、下載發票、提出服務需求。online 強調「在網路上自助辦理」，可減少打電話給客服。",
+      "pattern": "launch / use / log in to an online portal",
+      "examples": [
+        {
+          "tag": "簡報",
+          "en": "We plan to launch an online portal early next year.",
+          "zh": "我們計畫在明年初推出線上入口平台。"
+        },
+        {
+          "tag": "客服",
+          "en": "Customers can pay their bills through the online portal.",
+          "zh": "客戶可以透過線上入口平台繳付帳單。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please register on the online portal to receive your documents.",
+          "zh": "請在線上入口平台註冊以接收您的文件。"
+        },
+        {
+          "tag": "人資",
+          "en": "Applicants must submit their forms through the online portal.",
+          "zh": "應徵者必須透過線上入口平台提交表格。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "customer portal",
+          "diff": "customer portal 指服務對象是客戶；online portal 只強調在網路上，使用者可以是客戶、員工或學生。"
+        },
+        {
+          "phrase": "mobile app",
+          "diff": "mobile app 是安裝在手機上的應用程式；online portal 通常在網頁瀏覽器中使用。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "online store",
+          "diff": "online store 是網路商店，目的是販售商品；online portal 是辦理服務與查詢資料的入口。"
+        }
+      ]
+    },
+    {
+      "text": "call volume",
+      "type": "phrase",
+      "zh": "來電量、電話數量",
+      "en": "the number of phone calls a company receives in a period of time",
+      "note": "在這篇裡 reduction in call volume 指入口平台上線後，客戶不必再打電話查詢，客服接到的電話會變少。這是客服中心與營運報告的常用詞。",
+      "pattern": "high / low call volume；reduce / increase call volume",
+      "examples": [
+        {
+          "tag": "簡報",
+          "en": "The new system should reduce our call volume by thirty percent.",
+          "zh": "新系統應該能讓我們的來電量減少百分之三十。"
+        },
+        {
+          "tag": "會議",
+          "en": "Call volume is usually highest on Monday mornings.",
+          "zh": "來電量通常在週一早上最高。"
+        },
+        {
+          "tag": "客服",
+          "en": "High call volume may cause longer waiting times today.",
+          "zh": "今天來電量大，可能造成等候時間較長。"
+        },
+        {
+          "tag": "人資",
+          "en": "We hired more staff because of the rise in call volume.",
+          "zh": "由於來電量增加，我們多聘了一些員工。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "number of calls",
+          "diff": "number of calls 是日常說法；call volume 較專業，常用於報告與客服中心管理。"
+        },
+        {
+          "phrase": "workload",
+          "diff": "workload 是整體工作量，不限於電話；call volume 只指電話數量。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "volume（音量）",
+          "diff": "volume 也有「音量」的意思，但在 call volume 裡是「數量」，指來電的多寡，不是聲音大小。"
+        }
+      ]
+    },
+    {
+      "text": "real-time",
+      "type": "word",
+      "ipa": "/ˌriːl ˈtaɪm/",
+      "pos": "adj.",
+      "zh": "即時的",
+      "en": "happening or shown at the same time as the event itself",
+      "note": "在這篇裡 real-time reports 指管理者能隨時看到最新的回應時間資料，不必等每週或每月彙整後才拿到報告。放在名詞前面當形容詞時要加連字號。",
+      "forms": [
+        {
+          "w": "real time",
+          "label": "名詞（不加連字號）",
+          "pos": "n.",
+          "zh": "即時",
+          "ipa": "/ˌriːl ˈtaɪm/"
+        },
+        {
+          "w": "in real time",
+          "label": "副詞片語",
+          "pos": "adv.",
+          "zh": "即時地",
+          "ipa": "/ɪn ˌriːl ˈtaɪm/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "real-time data",
+          "zh": "即時資料",
+          "example": {
+            "en": "The team uses real-time data to plan daily deliveries.",
+            "zh": "團隊使用即時資料來規劃每日的配送。"
+          }
+        },
+        {
+          "phrase": "real-time updates",
+          "zh": "即時更新",
+          "example": {
+            "en": "You will receive real-time updates about your shipment.",
+            "zh": "您會收到關於貨物的即時更新。"
+          }
+        },
+        {
+          "phrase": "real-time tracking",
+          "zh": "即時追蹤",
+          "example": {
+            "en": "Real-time tracking lets customers see where their order is.",
+            "zh": "即時追蹤讓客戶能看到訂單目前的位置。"
+          }
+        },
+        {
+          "phrase": "in real time",
+          "zh": "即時地",
+          "example": {
+            "en": "Sales figures are shown on the screen in real time.",
+            "zh": "銷售數字會即時顯示在螢幕上。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "簡報",
+          "en": "The dashboard gives us real-time information on customer requests.",
+          "zh": "這個儀表板提供我們客戶需求的即時資訊。"
+        },
+        {
+          "tag": "會議",
+          "en": "Managers can make faster decisions with real-time reports.",
+          "zh": "管理者有了即時報告，就能更快做決定。"
+        },
+        {
+          "tag": "客服",
+          "en": "Our app offers real-time chat with a support agent.",
+          "zh": "我們的應用程式提供與客服人員的即時對話。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "on time",
+          "diff": "on time 是「準時」，指不遲到；real-time 是「即時」，指資料與事件同步發生，兩者意思不同。"
+        },
+        {
+          "word": "live",
+          "diff": "live 常指現場直播或正在進行的節目；real-time 強調資料或資訊同步更新，不一定有影像。"
+        }
+      ],
+      "family": [
+        {
+          "w": "instant",
+          "pos": "adj.",
+          "zh": "立即的",
+          "ipa": "/ˈɪnstənt/",
+          "example": {
+            "en": "Customers expect an instant reply to their messages.",
+            "zh": "客戶期待訊息能立即獲得回覆。"
+          }
+        },
+        {
+          "w": "instantly",
+          "pos": "adv.",
+          "zh": "立刻地",
+          "ipa": "/ˈɪnstəntli/",
+          "example": {
+            "en": "The report is updated instantly after each sale.",
+            "zh": "每筆銷售後，報告會立刻更新。"
+          }
+        },
+        {
+          "w": "update",
+          "pos": "n./v.",
+          "zh": "更新",
+          "ipa": "/ˈʌpdeɪt/",
+          "example": {
+            "en": "Please update the sales figures before the meeting.",
+            "zh": "請在會議前更新銷售數字。"
+          }
+        },
+        {
+          "w": "live",
+          "pos": "adj.",
+          "zh": "現場的、直播的",
+          "ipa": "/laɪv/",
+          "example": {
+            "en": "The company will hold a live online presentation.",
+            "zh": "公司將舉辦一場線上直播簡報。"
+          }
+        }
+      ]
+    }
+  ]
+}

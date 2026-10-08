@@ -1,0 +1,75 @@
+{
+  "week": 2,
+  "day": 5,
+  "extra_vocab": [
+    {
+      "text": "accessory",
+      "type": "word",
+      "ipa": "/əkˈsesəri/",
+      "pos": "n.",
+      "zh": "配件、附件",
+      "en": "an extra item that you can add to a main product",
+      "note": "在這篇裡指主產品（無線喇叭）以外、可另外加購的物品，也就是攜帶盒。optional accessory 表示「選購配件」，客人可買可不買。",
+      "forms": [
+        { "w": "accessories", "label": "複數", "pos": "n.", "zh": "配件（複數）", "ipa": "/əkˈsesəriz/" },
+        { "w": "accessorize", "label": "動詞", "pos": "v.", "zh": "搭配配件", "ipa": "/əkˈsesəraɪz/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "optional accessory",
+          "zh": "選購配件",
+          "example": { "en": "The carrying case is an optional accessory for this speaker.", "zh": "攜帶盒是這款喇叭的選購配件。" }
+        },
+        {
+          "phrase": "accessory kit",
+          "zh": "配件組",
+          "example": { "en": "The accessory kit comes with a cable and a stand.", "zh": "配件組附有一條線材和一個支架。" }
+        },
+        {
+          "phrase": "phone accessories",
+          "zh": "手機配件",
+          "example": { "en": "Our store sells phone accessories at low prices.", "zh": "我們的店以低價販售手機配件。" }
+        },
+        {
+          "phrase": "sell accessories",
+          "zh": "販售配件",
+          "example": { "en": "Many shops sell accessories to earn extra profit.", "zh": "許多商店販售配件來賺取額外利潤。" }
+        }
+      ],
+      "examples": [
+        { "tag": "銷售會議", "en": "Customers often buy an accessory together with the main product.", "zh": "顧客常常把配件和主產品一起購買。" },
+        { "tag": "電子郵件", "en": "Please find the list of available accessories attached to this email.", "zh": "附件是可購買的配件清單，請查收。" },
+        { "tag": "採購", "en": "We need to order more accessories before the holiday season starts.", "zh": "我們需要在假期旺季開始前訂購更多配件。" },
+        { "tag": "客服", "en": "This accessory is sold separately and is not included in the box.", "zh": "這個配件需另購，並未附在盒子裡。" },
+        { "tag": "時尚（另一詞義）", "en": "She wore a simple scarf as her only accessory.", "zh": "她只戴了一條簡單的圍巾當作飾品。" }
+      ],
+      "confusable": [
+        { "word": "accessible", "diff": "字形相近，但 accessible 是形容詞，意思是「容易取得或到達的」，不是「配件」。" },
+        { "word": "component", "diff": "component 是產品本身的組成零件；accessory 是可另外加上的附加物品。" }
+      ],
+      "family": [
+        {
+          "w": "access",
+          "pos": "n.",
+          "zh": "進入、使用權",
+          "ipa": "/ˈækses/",
+          "example": { "en": "All staff have access to the online system.", "zh": "所有員工都能使用這個線上系統。" }
+        },
+        {
+          "w": "accessible",
+          "pos": "adj.",
+          "zh": "容易取得的、可使用的",
+          "ipa": "/əkˈsesəbl/",
+          "example": { "en": "The office is easily accessible by train.", "zh": "搭火車就能很容易到達這間辦公室。" }
+        },
+        {
+          "w": "accessory",
+          "pos": "adj.",
+          "zh": "附屬的",
+          "ipa": "/əkˈsesəri/",
+          "example": { "en": "We sell the speaker and its accessory parts.", "zh": "我們販售這款喇叭及其附屬零件。" }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "week": 1,
+  "day": 5,
+  "extra_vocab": [
+    {
+      "text": "replacement",
+      "type": "word",
+      "ipa": "/rɪˈpleɪsmənt/",
+      "pos": "n.",
+      "zh": "替換品、更換品；接替的人",
+      "en": "a new thing that you get to take the place of one that is broken or lost",
+      "note": "在這篇通話裡，replacement 指客服免費寄給顧客的新馬克杯，用來取代那個有裂痕的杯子。後面的 How long will the replacement take? 也是問這個新品多久會送到。",
+      "forms": [
+        { "w": "replacements", "label": "複數", "pos": "n.", "zh": "替換品（複數）", "ipa": "/rɪˈpleɪsmənts/" },
+        { "w": "replace", "label": "動詞原形", "pos": "v.", "zh": "取代、更換", "ipa": "/rɪˈpleɪs/" },
+        { "w": "replaces", "label": "第三人稱單數", "pos": "v.", "zh": "取代、更換", "ipa": "/rɪˈpleɪsɪz/" },
+        { "w": "replaced", "label": "過去式／過去分詞", "pos": "v.", "zh": "取代了、已更換", "ipa": "/rɪˈpleɪst/" },
+        { "w": "replacing", "label": "現在分詞", "pos": "v.", "zh": "正在更換", "ipa": "/rɪˈpleɪsɪŋ/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "send a replacement",
+          "zh": "寄送替換品",
+          "example": { "en": "We will send a replacement as soon as we get the broken item.", "zh": "收到損壞的商品後，我們會立刻寄出替換品。" }
+        },
+        {
+          "phrase": "replacement part",
+          "zh": "替換零件",
+          "example": { "en": "The technician ordered a replacement part for the copy machine.", "zh": "技術人員為影印機訂了一個替換零件。" }
+        },
+        {
+          "phrase": "free replacement",
+          "zh": "免費更換",
+          "example": { "en": "Customers are eligible for a free replacement within thirty days.", "zh": "顧客在三十天內可享有免費更換。" }
+        },
+        {
+          "phrase": "replacement cost",
+          "zh": "更換費用",
+          "example": { "en": "The replacement cost is higher than the price of a new model.", "zh": "更換費用比買一台新機型還貴。" }
+        }
+      ],
+      "examples": [
+        { "tag": "客服", "en": "If the mug is cracked, we can offer a replacement.", "zh": "如果馬克杯有裂痕，我們可以提供替換品。" },
+        { "tag": "保固", "en": "The warranty covers repair or replacement of faulty products.", "zh": "保固涵蓋有瑕疵產品的維修或更換。" },
+        { "tag": "採購", "en": "We need a replacement for the printer that stopped working.", "zh": "我們需要替換那台壞掉的印表機。" },
+        { "tag": "人資", "en": "The company is looking for a replacement for the sales manager.", "zh": "公司正在找人接替業務經理的職位。" }
+      ],
+      "confusable": [
+        { "word": "refund", "diff": "refund 是把錢退還給你；replacement 是給你一個新的東西來取代舊的，不一定退錢。" },
+        { "word": "substitute", "diff": "substitute 多指暫時的代替品或代班的人；replacement 是長期取代原本的東西或人。" }
+      ],
+      "family": [
+        {
+          "w": "replace",
+          "pos": "v.",
+          "zh": "取代、更換",
+          "ipa": "/rɪˈpleɪs/",
+          "example": { "en": "Please replace the old battery with a new one.", "zh": "請把舊電池換成新的。" }
+        },
+        {
+          "w": "refund",
+          "pos": "n.",
+          "zh": "退款",
+          "ipa": "/ˈriːfʌnd/",
+          "example": { "en": "You can ask for a full refund within two weeks.", "zh": "你可以在兩週內要求全額退款。" }
+        },
+        {
+          "w": "damaged",
+          "pos": "adj.",
+          "zh": "受損的",
+          "ipa": "/ˈdæmɪdʒd/",
+          "example": { "en": "The damaged box was returned to the supplier.", "zh": "受損的箱子被退回給供應商。" }
+        },
+        {
+          "w": "warranty",
+          "pos": "n.",
+          "zh": "保固",
+          "ipa": "/ˈwɔːrənti/",
+          "example": { "en": "This laptop comes with a two-year warranty.", "zh": "這台筆記型電腦附有兩年保固。" }
+        }
+      ]
+    }
+  ]
+}

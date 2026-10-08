@@ -21,7 +21,7 @@
 Timing 狀態：依 daily.json 每篇的 passage 與 timing 欄位，判斷 完成／部分／異常／未做，寫進 audio/index.json 的 timing 區塊
   （首頁維護總覽直接讀，不必再下載整份 daily.json），並列出哪幾句沒對到。
 網站檔案清單：把根目錄的檔案清單寫成 site_files.json，讓 index 的專案地圖找出沒被任何檔案提到的檔案。
-TSL 單字總表：比對 daily.json 的單字（vocab、extra_vocab 的單字與詞形），把「總表中已收錄的字」寫成小檔
+TSL 單字總表：比對 daily.json 的單字（vocab、extra_vocab 的單字與詞形），把「總表中已收錄的字」與「有沒有詳解」寫成小檔
   vocab_index.json（網站根目錄）。vocab.html 只讀這個小檔，不必每次下載整份 daily.json。需要根目錄有 tsl.js。
 另外檢查：孤兒檔（不屬於任何題目，多半是打錯檔名）、檔名大小寫不符（GitHub Pages 區分大小寫）、0 KB 空檔、
 舊位置的 daily 檔（audio/w1d1.mp3 → 請搬到 audio/daily/）。
@@ -287,26 +287,48 @@ if not tsl:
     print('\n找不到 tsl.js 或格式不符，略過 vocab_index.json（請把 tsl.js 放在網站根目錄）')
 else:
     tset = set(tsl)
+    # learned：字 → [週, 天, 詳解狀態]
+    #   詳解狀態 2＝有自己的 extra_vocab 詳解；1＝只出現在別的字詳解的 forms 裡（詳解含在那個字裡）；
+    #   0＝只有核心單字卡（vocab），還沒有生成詳解。
     learned = {}
+    # 任何一篇有詳解就算有（同一個字在別篇入庫時，網頁沿用同一份詳解）
+    all_items = [it for it in items('daily.json') if isinstance(it, dict) and 'week' in it and 'day' in it]
+    g_own, g_via = set(), set()
+    for it in all_items:
+        for e in it.get('extra_vocab') or []:
+            if isinstance(e, dict) and e.get('type', 'word') == 'word':
+                g_own.add(norm(e.get('text')))
+                for f in e.get('forms') or []:
+                    if isinstance(f, dict):
+                        g_via.add(norm(f.get('w')))
 
-    def add(word, w, d):
+    def add(word, w, d, s):
         k = norm(word)
-        if k in tset and k not in learned:
-            learned[k] = [w, d]
+        if k not in tset:
+            return
+        # 核心單字缺詳解（s=0）優先顯示，才不會被其他文章的 forms 蓋掉
+        if k not in learned or (s == 0 and learned[k][2] != 0):
+            learned[k] = [w, d, s]
     for it in items('daily.json'):
         if not isinstance(it, dict) or 'week' not in it or 'day' not in it:
             continue
         w, d = it['week'], it['day']
+        extras = [e for e in (it.get('extra_vocab') or []) if isinstance(e, dict) and e.get('type', 'word') == 'word']
+        own, via = g_own, g_via
         for v in it.get('vocab') or []:
             if isinstance(v, dict):
-                add(v.get('word'), w, d)
-        for e in it.get('extra_vocab') or []:
-            if isinstance(e, dict) and e.get('type', 'word') == 'word':
-                add(e.get('text'), w, d)
-                for f in e.get('forms') or []:
-                    if isinstance(f, dict):
-                        add(f.get('w'), w, d)
-    vi = {'v': int(time.time()), 'total': len(tsl), 'have': len(learned), 'tsl': dict(sorted(learned.items()))}
+                k = norm(v.get('word'))
+                add(v.get('word'), w, d, 2 if k in own else 1 if k in via else 0)
+        for e in extras:
+            add(e.get('text'), w, d, 2)
+            for f in e.get('forms') or []:
+                if isinstance(f, dict):
+                    add(f.get('w'), w, d, 1)
+    gap = sorted((v[0], v[1], k) for k, v in learned.items() if v[2] == 0)
+    vi = {'v': int(time.time()), 'total': len(tsl), 'have': len(learned), 'nodetail': len(gap), 'tsl': dict(sorted(learned.items()))}
+    print('\nTSL 已收錄但缺詳解：%d 字' % len(gap))
+    for w_, d_, k_ in gap:
+        print('  w%dd%d  %s' % (w_, d_, k_))
     with open(os.path.join(ROOT, 'vocab_index.json'), 'w', encoding='utf-8') as f:
         json.dump(vi, f, ensure_ascii=False, separators=(',', ':'))
     print('\nTSL 單字總表：已收錄 %d / %d 字，還缺 %d 字 → 已寫入 vocab_index.json' % (len(learned), len(tsl), len(tsl) - len(learned)))

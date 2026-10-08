@@ -2682,6 +2682,162 @@
           "from": 586,
           "to": 636
         }
+      ],
+      "extra_vocab": [
+        {
+          "text": "replacement",
+          "type": "word",
+          "ipa": "/rɪˈpleɪsmənt/",
+          "pos": "n.",
+          "zh": "替換品、更換品；接替的人",
+          "en": "a new thing that you get to take the place of one that is broken or lost",
+          "note": "在這篇通話裡，replacement 指客服免費寄給顧客的新馬克杯，用來取代那個有裂痕的杯子。後面的 How long will the replacement take? 也是問這個新品多久會送到。",
+          "forms": [
+            {
+              "w": "replacements",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "替換品（複數）",
+              "ipa": "/rɪˈpleɪsmənts/"
+            },
+            {
+              "w": "replace",
+              "label": "動詞原形",
+              "pos": "v.",
+              "zh": "取代、更換",
+              "ipa": "/rɪˈpleɪs/"
+            },
+            {
+              "w": "replaces",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "取代、更換",
+              "ipa": "/rɪˈpleɪsɪz/"
+            },
+            {
+              "w": "replaced",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "取代了、已更換",
+              "ipa": "/rɪˈpleɪst/"
+            },
+            {
+              "w": "replacing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在更換",
+              "ipa": "/rɪˈpleɪsɪŋ/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "send a replacement",
+              "zh": "寄送替換品",
+              "example": {
+                "en": "We will send a replacement as soon as we get the broken item.",
+                "zh": "收到損壞的商品後，我們會立刻寄出替換品。"
+              }
+            },
+            {
+              "phrase": "replacement part",
+              "zh": "替換零件",
+              "example": {
+                "en": "The technician ordered a replacement part for the copy machine.",
+                "zh": "技術人員為影印機訂了一個替換零件。"
+              }
+            },
+            {
+              "phrase": "free replacement",
+              "zh": "免費更換",
+              "example": {
+                "en": "Customers are eligible for a free replacement within thirty days.",
+                "zh": "顧客在三十天內可享有免費更換。"
+              }
+            },
+            {
+              "phrase": "replacement cost",
+              "zh": "更換費用",
+              "example": {
+                "en": "The replacement cost is higher than the price of a new model.",
+                "zh": "更換費用比買一台新機型還貴。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "客服",
+              "en": "If the mug is cracked, we can offer a replacement.",
+              "zh": "如果馬克杯有裂痕，我們可以提供替換品。"
+            },
+            {
+              "tag": "保固",
+              "en": "The warranty covers repair or replacement of faulty products.",
+              "zh": "保固涵蓋有瑕疵產品的維修或更換。"
+            },
+            {
+              "tag": "採購",
+              "en": "We need a replacement for the printer that stopped working.",
+              "zh": "我們需要替換那台壞掉的印表機。"
+            },
+            {
+              "tag": "人資",
+              "en": "The company is looking for a replacement for the sales manager.",
+              "zh": "公司正在找人接替業務經理的職位。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "refund",
+              "diff": "refund 是把錢退還給你；replacement 是給你一個新的東西來取代舊的，不一定退錢。"
+            },
+            {
+              "word": "substitute",
+              "diff": "substitute 多指暫時的代替品或代班的人；replacement 是長期取代原本的東西或人。"
+            }
+          ],
+          "family": [
+            {
+              "w": "replace",
+              "pos": "v.",
+              "zh": "取代、更換",
+              "ipa": "/rɪˈpleɪs/",
+              "example": {
+                "en": "Please replace the old battery with a new one.",
+                "zh": "請把舊電池換成新的。"
+              }
+            },
+            {
+              "w": "refund",
+              "pos": "n.",
+              "zh": "退款",
+              "ipa": "/ˈriːfʌnd/",
+              "example": {
+                "en": "You can ask for a full refund within two weeks.",
+                "zh": "你可以在兩週內要求全額退款。"
+              }
+            },
+            {
+              "w": "damaged",
+              "pos": "adj.",
+              "zh": "受損的",
+              "ipa": "/ˈdæmɪdʒd/",
+              "example": {
+                "en": "The damaged box was returned to the supplier.",
+                "zh": "受損的箱子被退回給供應商。"
+              }
+            },
+            {
+              "w": "warranty",
+              "pos": "n.",
+              "zh": "保固",
+              "ipa": "/ˈwɔːrənti/",
+              "example": {
+                "en": "This laptop comes with a two-year warranty.",
+                "zh": "這台筆記型電腦附有兩年保固。"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -3004,6 +3160,167 @@
               }
             }
           ]
+        },
+        {
+          "text": "audit",
+          "type": "word",
+          "ipa": "/ˈɔːdɪt/",
+          "pos": "n.",
+          "zh": "稽核、審計、查帳",
+          "en": "an official check of a company's records to make sure they are correct",
+          "note": "在這篇裡，annual audit 指公司每年一次的稽核，會計團隊要保留已簽署合約的副本，供稽核人員檢查。audit 也可以當動詞，意思是「稽核、查帳」。",
+          "forms": [
+            {
+              "w": "audits",
+              "label": "名詞（複數）",
+              "pos": "n.",
+              "zh": "稽核（複數）",
+              "ipa": "/ˈɔːdɪts/"
+            },
+            {
+              "w": "audit",
+              "label": "動詞原形",
+              "pos": "v.",
+              "zh": "稽核、查帳",
+              "ipa": "/ˈɔːdɪt/"
+            },
+            {
+              "w": "audits",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "稽核、查帳",
+              "ipa": "/ˈɔːdɪts/"
+            },
+            {
+              "w": "audited",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "稽核了、已稽核的",
+              "ipa": "/ˈɔːdɪtɪd/"
+            },
+            {
+              "w": "auditing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在稽核",
+              "ipa": "/ˈɔːdɪtɪŋ/"
+            },
+            {
+              "w": "auditor",
+              "label": "衍生名詞（人）",
+              "pos": "n.",
+              "zh": "稽核員、審計員",
+              "ipa": "/ˈɔːdɪtər/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "annual audit",
+              "zh": "年度稽核",
+              "example": {
+                "en": "All departments must prepare their records for the annual audit.",
+                "zh": "所有部門都必須為年度稽核準備好紀錄。"
+              }
+            },
+            {
+              "phrase": "conduct an audit",
+              "zh": "進行稽核",
+              "example": {
+                "en": "An outside firm will conduct an audit of our accounts.",
+                "zh": "一家外部公司將對我們的帳目進行稽核。"
+              }
+            },
+            {
+              "phrase": "internal audit",
+              "zh": "內部稽核",
+              "example": {
+                "en": "The internal audit found several errors in the expense reports.",
+                "zh": "內部稽核發現費用報告中有幾處錯誤。"
+              }
+            },
+            {
+              "phrase": "pass an audit",
+              "zh": "通過稽核",
+              "example": {
+                "en": "The factory passed the audit without any major problems.",
+                "zh": "這家工廠順利通過稽核，沒有重大問題。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "財務",
+              "en": "The finance team is getting ready for next month's audit.",
+              "zh": "財務團隊正在為下個月的稽核做準備。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please send me the signed contracts before the audit begins.",
+              "zh": "請在稽核開始前把已簽署的合約寄給我。"
+            },
+            {
+              "tag": "品管",
+              "en": "A quality audit showed that the supplier follows our standards.",
+              "zh": "品質稽核顯示供應商有遵守我們的標準。"
+            },
+            {
+              "tag": "會議",
+              "en": "The manager asked us to audit last year's travel expenses.",
+              "zh": "經理要我們查核去年的差旅費用。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "inspection",
+              "diff": "inspection 多指到現場檢查物品、設備或環境；audit 是檢查帳目、文件與制度是否正確。"
+            },
+            {
+              "word": "review",
+              "diff": "review 是一般的檢視或審閱，比較不正式；audit 是有固定流程的正式稽核。"
+            }
+          ],
+          "family": [
+            {
+              "w": "auditor",
+              "pos": "n.",
+              "zh": "稽核員、審計員",
+              "ipa": "/ˈɔːdɪtər/",
+              "example": {
+                "en": "The auditor asked to see all the payment records.",
+                "zh": "稽核員要求查看所有付款紀錄。"
+              }
+            },
+            {
+              "w": "accounting",
+              "pos": "n.",
+              "zh": "會計",
+              "ipa": "/əˈkaʊntɪŋ/",
+              "example": {
+                "en": "She works in the accounting department of a large bank.",
+                "zh": "她在一家大銀行的會計部門工作。"
+              }
+            },
+            {
+              "w": "inspection",
+              "pos": "n.",
+              "zh": "檢查、查驗",
+              "ipa": "/ɪnˈspekʃən/",
+              "example": {
+                "en": "The safety inspection will take place on Tuesday morning.",
+                "zh": "安全檢查將在星期二早上進行。"
+              }
+            },
+            {
+              "w": "compliance",
+              "pos": "n.",
+              "zh": "遵守、合規",
+              "ipa": "/kəmˈplaɪəns/",
+              "example": {
+                "en": "The audit checks our compliance with company policy.",
+                "zh": "這次稽核會檢查我們是否遵守公司政策。"
+              }
+            }
+          ]
         }
       ]
     },
@@ -3306,6 +3623,686 @@
           "end": 84.6,
           "from": 1190,
           "to": 1224
+        }
+      ],
+      "extra_vocab": [
+        {
+          "text": "allocate",
+          "type": "word",
+          "ipa": "/ˈæləkeɪt/",
+          "pos": "v.",
+          "zh": "分配、撥給",
+          "en": "to give a part of money, time, or resources to a certain person or use",
+          "note": "在這篇簡報裡，allocate the rest to staff training 是說預算大部分用在軟體開發，剩下的撥給員工訓練。常用句型是 allocate A to B（把 A 分配給 B），也可以用 allocate A for B（把 A 撥作 B 用途）。",
+          "forms": [
+            {
+              "w": "allocates",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "分配、撥給",
+              "ipa": "/ˈæləkeɪts/"
+            },
+            {
+              "w": "allocated",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "分配了、已撥給的",
+              "ipa": "/ˈæləkeɪtɪd/"
+            },
+            {
+              "w": "allocating",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在分配",
+              "ipa": "/ˈæləkeɪtɪŋ/"
+            },
+            {
+              "w": "allocation",
+              "label": "名詞（單數）",
+              "pos": "n.",
+              "zh": "分配、撥款",
+              "ipa": "/ˌæləˈkeɪʃən/"
+            },
+            {
+              "w": "allocations",
+              "label": "名詞（複數）",
+              "pos": "n.",
+              "zh": "分配額（複數）",
+              "ipa": "/ˌæləˈkeɪʃənz/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "allocate funds",
+              "zh": "撥款",
+              "example": {
+                "en": "The board agreed to allocate funds for a new training center.",
+                "zh": "董事會同意撥款興建新的訓練中心。"
+              }
+            },
+            {
+              "phrase": "allocate resources",
+              "zh": "分配資源",
+              "example": {
+                "en": "We need to allocate resources more carefully this quarter.",
+                "zh": "這一季我們需要更謹慎地分配資源。"
+              }
+            },
+            {
+              "phrase": "allocate time",
+              "zh": "安排時間",
+              "example": {
+                "en": "Please allocate time each week to update the project report.",
+                "zh": "請每週安排時間更新專案報告。"
+              }
+            },
+            {
+              "phrase": "be allocated to",
+              "zh": "被分配給…",
+              "example": {
+                "en": "Part of the budget was allocated to marketing.",
+                "zh": "一部分預算被分配給行銷部門。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "預算",
+              "en": "The finance department will allocate money to each team.",
+              "zh": "財務部門會把經費分配給各個團隊。"
+            },
+            {
+              "tag": "會議",
+              "en": "How should we allocate the remaining budget this year?",
+              "zh": "我們今年該如何分配剩下的預算？"
+            },
+            {
+              "tag": "人資",
+              "en": "Each new employee is allocated a desk and a laptop.",
+              "zh": "每位新進員工都會分配到一張桌子和一台筆記型電腦。"
+            },
+            {
+              "tag": "採購",
+              "en": "The company allocated extra space in the warehouse for the new stock.",
+              "zh": "公司在倉庫多撥出一塊空間放新進的貨。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "assign",
+              "diff": "assign 多指指派人去做某項工作或任務；allocate 多指分配金錢、時間、空間等資源。"
+            },
+            {
+              "word": "distribute",
+              "diff": "distribute 是把東西分發給很多人或地點，例如傳單、產品；allocate 是依計畫決定各部分的用途或份額。"
+            }
+          ],
+          "family": [
+            {
+              "w": "allocation",
+              "pos": "n.",
+              "zh": "分配、撥款",
+              "ipa": "/ˌæləˈkeɪʃən/",
+              "example": {
+                "en": "The allocation of funds will be decided on Friday.",
+                "zh": "經費的分配將在星期五決定。"
+              }
+            },
+            {
+              "w": "budget",
+              "pos": "n.",
+              "zh": "預算",
+              "ipa": "/ˈbʌdʒɪt/",
+              "example": {
+                "en": "Our budget for advertising is quite limited this year.",
+                "zh": "我們今年的廣告預算相當有限。"
+              }
+            },
+            {
+              "w": "resource",
+              "pos": "n.",
+              "zh": "資源",
+              "ipa": "/ˈriːsɔːrs/",
+              "example": {
+                "en": "Staff time is our most valuable resource.",
+                "zh": "員工的時間是我們最寶貴的資源。"
+              }
+            },
+            {
+              "w": "assign",
+              "pos": "v.",
+              "zh": "指派、分派",
+              "ipa": "/əˈsaɪn/",
+              "example": {
+                "en": "The manager assigned two engineers to the new project.",
+                "zh": "經理指派兩位工程師負責這個新專案。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "obtain",
+          "type": "word",
+          "ipa": "/əbˈteɪn/",
+          "pos": "v.",
+          "zh": "取得、獲得",
+          "en": "to get something, often by asking for it or by working for it",
+          "note": "在這篇簡報裡，obtain approval from the finance department 是說要先取得財務部門的核准，才能往下進行。obtain 比 get 正式，常用在 approval、permission、information 這類書面或商務的情境。",
+          "forms": [
+            {
+              "w": "obtains",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "取得",
+              "ipa": "/əbˈteɪnz/"
+            },
+            {
+              "w": "obtained",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "取得了、已取得的",
+              "ipa": "/əbˈteɪnd/"
+            },
+            {
+              "w": "obtaining",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在取得",
+              "ipa": "/əbˈteɪnɪŋ/"
+            },
+            {
+              "w": "obtainable",
+              "label": "形容詞",
+              "pos": "adj.",
+              "zh": "可取得的",
+              "ipa": "/əbˈteɪnəbəl/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "obtain approval",
+              "zh": "取得核准",
+              "example": {
+                "en": "You must obtain approval from your manager before booking the trip.",
+                "zh": "訂行程之前，你必須先取得主管的核准。"
+              }
+            },
+            {
+              "phrase": "obtain permission",
+              "zh": "取得許可",
+              "example": {
+                "en": "Visitors need to obtain permission before taking photos in the lab.",
+                "zh": "訪客在實驗室拍照前需要先取得許可。"
+              }
+            },
+            {
+              "phrase": "obtain information",
+              "zh": "取得資訊",
+              "example": {
+                "en": "You can obtain more information from our Web site.",
+                "zh": "你可以從我們的網站取得更多資訊。"
+              }
+            },
+            {
+              "phrase": "obtain a license",
+              "zh": "取得執照",
+              "example": {
+                "en": "The company hopes to obtain a license to sell its products overseas.",
+                "zh": "公司希望取得執照，把產品賣到海外。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "We still need to obtain the final figures from the sales team.",
+              "zh": "我們還需要從業務團隊拿到最終的數字。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "I am writing to ask how I can obtain a copy of the contract.",
+              "zh": "我寫信是想請問如何取得合約的副本。"
+            },
+            {
+              "tag": "採購",
+              "en": "It was hard to obtain enough materials during the shortage.",
+              "zh": "在短缺期間，很難取得足夠的材料。"
+            },
+            {
+              "tag": "出差",
+              "en": "Travelers should obtain a visa before they leave for the conference.",
+              "zh": "旅客在出發參加會議前應先取得簽證。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "get",
+              "diff": "get 是最口語、最常用的字；obtain 比較正式，多用在公文、電子郵件和簡報裡，常需要透過申請或努力才拿到。"
+            },
+            {
+              "word": "acquire",
+              "diff": "acquire 多指長時間累積取得，例如技能、經驗，或公司收購別家公司；obtain 多指一次性取得核准、資料、許可等。"
+            }
+          ],
+          "family": [
+            {
+              "w": "obtainable",
+              "pos": "adj.",
+              "zh": "可取得的",
+              "ipa": "/əbˈteɪnəbəl/",
+              "example": {
+                "en": "The parts are easily obtainable from local suppliers.",
+                "zh": "這些零件很容易從當地供應商那裡取得。"
+              }
+            },
+            {
+              "w": "approval",
+              "pos": "n.",
+              "zh": "核准、批准",
+              "ipa": "/əˈpruːvəl/",
+              "example": {
+                "en": "The plan is waiting for approval from the director.",
+                "zh": "這項計畫正在等待主任的核准。"
+              }
+            },
+            {
+              "w": "permission",
+              "pos": "n.",
+              "zh": "許可、准許",
+              "ipa": "/pərˈmɪʃən/",
+              "example": {
+                "en": "Employees need permission to work from home.",
+                "zh": "員工需要獲得許可才能在家工作。"
+              }
+            },
+            {
+              "w": "acquire",
+              "pos": "v.",
+              "zh": "取得、獲得；收購",
+              "ipa": "/əˈkwaɪər/",
+              "example": {
+                "en": "The firm plans to acquire a smaller competitor next year.",
+                "zh": "這家公司計畫明年收購一家規模較小的競爭對手。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "portal",
+          "type": "word",
+          "ipa": "/ˈpɔːrtl/",
+          "pos": "n.",
+          "zh": "入口網站、（客戶）入口平台",
+          "en": "a website where users log in to find information or use services",
+          "note": "在這篇裡 customer portal 指專為客戶設計的線上平台，客戶登入後可查訂單、下載發票、提出服務需求。它不只是介紹公司的網站，重點是「登入後可以辦事」。",
+          "forms": [
+            {
+              "w": "portals",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "入口網站（複數）",
+              "ipa": "/ˈpɔːrtlz/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "customer portal",
+              "zh": "客戶入口平台",
+              "example": {
+                "en": "The customer portal will open to all users next month.",
+                "zh": "客戶入口平台下個月會開放給所有使用者。"
+              }
+            },
+            {
+              "phrase": "employee portal",
+              "zh": "員工入口網站",
+              "example": {
+                "en": "You can request leave through the employee portal.",
+                "zh": "您可以透過員工入口網站申請請假。"
+              }
+            },
+            {
+              "phrase": "log in to the portal",
+              "zh": "登入入口網站",
+              "example": {
+                "en": "Please log in to the portal to see your account details.",
+                "zh": "請登入入口網站查看您的帳戶資料。"
+              }
+            },
+            {
+              "phrase": "portal account",
+              "zh": "入口網站帳號",
+              "example": {
+                "en": "Each client will receive a portal account by e-mail.",
+                "zh": "每位客戶都會收到寄到電子郵件的入口網站帳號。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "簡報",
+              "en": "The new portal will save our support team a lot of time.",
+              "zh": "新的入口平台會替客服團隊省下很多時間。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Details about your order are now available on our portal.",
+              "zh": "您的訂單詳情現在可在我們的入口平台上查看。"
+            },
+            {
+              "tag": "客服",
+              "en": "If you forget your password, use the reset link on the portal.",
+              "zh": "如果您忘記密碼，請使用入口平台上的重設連結。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "website",
+              "diff": "website 是一般網站，不一定需要登入；portal 通常要登入，提供個人化的資料與服務。"
+            },
+            {
+              "word": "platform",
+              "diff": "platform 範圍更廣，可指各種系統或服務基礎；portal 強調「使用者進入服務的入口」。"
+            }
+          ],
+          "family": [
+            {
+              "w": "access",
+              "pos": "n./v.",
+              "zh": "存取、使用權；取得",
+              "ipa": "/ˈækses/",
+              "example": {
+                "en": "Customers can access their invoices on the portal.",
+                "zh": "客戶可以在入口平台上取得自己的發票。"
+              }
+            },
+            {
+              "w": "login",
+              "pos": "n.",
+              "zh": "登入（帳號密碼）",
+              "ipa": "/ˈlɔːɡɪn/",
+              "example": {
+                "en": "Please enter your login and password to continue.",
+                "zh": "請輸入您的登入帳號和密碼以繼續。"
+              }
+            },
+            {
+              "w": "platform",
+              "pos": "n.",
+              "zh": "平台",
+              "ipa": "/ˈplætfɔːrm/",
+              "example": {
+                "en": "We chose a new platform for online customer service.",
+                "zh": "我們選了一個新的平台來提供線上客服。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "order status",
+          "type": "phrase",
+          "zh": "訂單狀態、訂單處理進度",
+          "en": "information about where an order is, such as processing or shipped",
+          "note": "在這篇裡是客戶打電話給客服最常問的事：想知道訂單目前處理到哪一步（處理中、已出貨等）。order 在這裡當形容詞，修飾 status。",
+          "pattern": "check / track / update + order status",
+          "examples": [
+            {
+              "tag": "客服",
+              "en": "You can check your order status on our Web site.",
+              "zh": "您可以在我們的網站上查詢訂單狀態。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We will e-mail you whenever your order status changes.",
+              "zh": "每當您的訂單狀態有變動，我們都會寄電子郵件通知您。"
+            },
+            {
+              "tag": "電話",
+              "en": "I'm calling to ask about the status of my order.",
+              "zh": "我打電話來詢問我訂單的狀態。"
+            },
+            {
+              "tag": "會議",
+              "en": "The system shows the order status in real time.",
+              "zh": "系統會即時顯示訂單狀態。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "order tracking",
+              "diff": "order tracking 偏重「追蹤貨物位置」；order status 範圍較廣，包含處理中、已付款、已出貨等階段。"
+            },
+            {
+              "phrase": "shipping status",
+              "diff": "shipping status 只指出貨與運送階段；order status 涵蓋從下單到送達的整個過程。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "order number",
+              "diff": "order number 是訂單編號，用來查詢；order status 是查到的「狀態」結果。"
+            }
+          ]
+        },
+        {
+          "text": "online portal",
+          "type": "phrase",
+          "zh": "線上入口平台、線上服務平台",
+          "en": "a website where users log in to use services over the Internet",
+          "note": "在這篇裡是整份提案要推出的產品，客戶可全天候在上面追蹤出貨、下載發票、提出服務需求。online 強調「在網路上自助辦理」，可減少打電話給客服。",
+          "pattern": "launch / use / log in to an online portal",
+          "examples": [
+            {
+              "tag": "簡報",
+              "en": "We plan to launch an online portal early next year.",
+              "zh": "我們計畫在明年初推出線上入口平台。"
+            },
+            {
+              "tag": "客服",
+              "en": "Customers can pay their bills through the online portal.",
+              "zh": "客戶可以透過線上入口平台繳付帳單。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please register on the online portal to receive your documents.",
+              "zh": "請在線上入口平台註冊以接收您的文件。"
+            },
+            {
+              "tag": "人資",
+              "en": "Applicants must submit their forms through the online portal.",
+              "zh": "應徵者必須透過線上入口平台提交表格。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "customer portal",
+              "diff": "customer portal 指服務對象是客戶；online portal 只強調在網路上，使用者可以是客戶、員工或學生。"
+            },
+            {
+              "phrase": "mobile app",
+              "diff": "mobile app 是安裝在手機上的應用程式；online portal 通常在網頁瀏覽器中使用。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "online store",
+              "diff": "online store 是網路商店，目的是販售商品；online portal 是辦理服務與查詢資料的入口。"
+            }
+          ]
+        },
+        {
+          "text": "call volume",
+          "type": "phrase",
+          "zh": "來電量、電話數量",
+          "en": "the number of phone calls a company receives in a period of time",
+          "note": "在這篇裡 reduction in call volume 指入口平台上線後，客戶不必再打電話查詢，客服接到的電話會變少。這是客服中心與營運報告的常用詞。",
+          "pattern": "high / low call volume；reduce / increase call volume",
+          "examples": [
+            {
+              "tag": "簡報",
+              "en": "The new system should reduce our call volume by thirty percent.",
+              "zh": "新系統應該能讓我們的來電量減少百分之三十。"
+            },
+            {
+              "tag": "會議",
+              "en": "Call volume is usually highest on Monday mornings.",
+              "zh": "來電量通常在週一早上最高。"
+            },
+            {
+              "tag": "客服",
+              "en": "High call volume may cause longer waiting times today.",
+              "zh": "今天來電量大，可能造成等候時間較長。"
+            },
+            {
+              "tag": "人資",
+              "en": "We hired more staff because of the rise in call volume.",
+              "zh": "由於來電量增加，我們多聘了一些員工。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "number of calls",
+              "diff": "number of calls 是日常說法；call volume 較專業，常用於報告與客服中心管理。"
+            },
+            {
+              "phrase": "workload",
+              "diff": "workload 是整體工作量，不限於電話；call volume 只指電話數量。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "volume（音量）",
+              "diff": "volume 也有「音量」的意思，但在 call volume 裡是「數量」，指來電的多寡，不是聲音大小。"
+            }
+          ]
+        },
+        {
+          "text": "real-time",
+          "type": "word",
+          "ipa": "/ˌriːl ˈtaɪm/",
+          "pos": "adj.",
+          "zh": "即時的",
+          "en": "happening or shown at the same time as the event itself",
+          "note": "在這篇裡 real-time reports 指管理者能隨時看到最新的回應時間資料，不必等每週或每月彙整後才拿到報告。放在名詞前面當形容詞時要加連字號。",
+          "forms": [
+            {
+              "w": "real time",
+              "label": "名詞（不加連字號）",
+              "pos": "n.",
+              "zh": "即時",
+              "ipa": "/ˌriːl ˈtaɪm/"
+            },
+            {
+              "w": "in real time",
+              "label": "副詞片語",
+              "pos": "adv.",
+              "zh": "即時地",
+              "ipa": "/ɪn ˌriːl ˈtaɪm/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "real-time data",
+              "zh": "即時資料",
+              "example": {
+                "en": "The team uses real-time data to plan daily deliveries.",
+                "zh": "團隊使用即時資料來規劃每日的配送。"
+              }
+            },
+            {
+              "phrase": "real-time updates",
+              "zh": "即時更新",
+              "example": {
+                "en": "You will receive real-time updates about your shipment.",
+                "zh": "您會收到關於貨物的即時更新。"
+              }
+            },
+            {
+              "phrase": "real-time tracking",
+              "zh": "即時追蹤",
+              "example": {
+                "en": "Real-time tracking lets customers see where their order is.",
+                "zh": "即時追蹤讓客戶能看到訂單目前的位置。"
+              }
+            },
+            {
+              "phrase": "in real time",
+              "zh": "即時地",
+              "example": {
+                "en": "Sales figures are shown on the screen in real time.",
+                "zh": "銷售數字會即時顯示在螢幕上。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "簡報",
+              "en": "The dashboard gives us real-time information on customer requests.",
+              "zh": "這個儀表板提供我們客戶需求的即時資訊。"
+            },
+            {
+              "tag": "會議",
+              "en": "Managers can make faster decisions with real-time reports.",
+              "zh": "管理者有了即時報告，就能更快做決定。"
+            },
+            {
+              "tag": "客服",
+              "en": "Our app offers real-time chat with a support agent.",
+              "zh": "我們的應用程式提供與客服人員的即時對話。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "on time",
+              "diff": "on time 是「準時」，指不遲到；real-time 是「即時」，指資料與事件同步發生，兩者意思不同。"
+            },
+            {
+              "word": "live",
+              "diff": "live 常指現場直播或正在進行的節目；real-time 強調資料或資訊同步更新，不一定有影像。"
+            }
+          ],
+          "family": [
+            {
+              "w": "instant",
+              "pos": "adj.",
+              "zh": "立即的",
+              "ipa": "/ˈɪnstənt/",
+              "example": {
+                "en": "Customers expect an instant reply to their messages.",
+                "zh": "客戶期待訊息能立即獲得回覆。"
+              }
+            },
+            {
+              "w": "instantly",
+              "pos": "adv.",
+              "zh": "立刻地",
+              "ipa": "/ˈɪnstəntli/",
+              "example": {
+                "en": "The report is updated instantly after each sale.",
+                "zh": "每筆銷售後，報告會立刻更新。"
+              }
+            },
+            {
+              "w": "update",
+              "pos": "n./v.",
+              "zh": "更新",
+              "ipa": "/ˈʌpdeɪt/",
+              "example": {
+                "en": "Please update the sales figures before the meeting.",
+                "zh": "請在會議前更新銷售數字。"
+              }
+            },
+            {
+              "w": "live",
+              "pos": "adj.",
+              "zh": "現場的、直播的",
+              "ipa": "/laɪv/",
+              "example": {
+                "en": "The company will hold a live online presentation.",
+                "zh": "公司將舉辦一場線上直播簡報。"
+              }
+            }
+          ]
         }
       ]
     },
@@ -3618,6 +4615,138 @@
               }
             }
           ]
+        },
+        {
+          "text": "urgent",
+          "type": "word",
+          "ipa": "/ˈɜːrdʒənt/",
+          "pos": "adj.",
+          "zh": "緊急的、急迫的",
+          "en": "needing to be done or dealt with right away",
+          "note": "在這篇裡修飾 documents，指「需要馬上列印、不能等」的文件。通知用 urgent documents 來和一般的大量列印工作做區分，暗示緊急的文件優先用二樓印表機。",
+          "forms": [
+            {
+              "w": "more urgent",
+              "label": "比較級",
+              "pos": "adj.",
+              "zh": "更緊急的",
+              "ipa": "/mɔːr ˈɜːrdʒənt/"
+            },
+            {
+              "w": "most urgent",
+              "label": "最高級",
+              "pos": "adj.",
+              "zh": "最緊急的",
+              "ipa": "/moʊst ˈɜːrdʒənt/"
+            },
+            {
+              "w": "urgently",
+              "label": "副詞",
+              "pos": "adv.",
+              "zh": "緊急地、迫切地",
+              "ipa": "/ˈɜːrdʒəntli/"
+            },
+            {
+              "w": "urgency",
+              "label": "名詞",
+              "pos": "n.",
+              "zh": "緊急、迫切",
+              "ipa": "/ˈɜːrdʒənsi/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "an urgent matter",
+              "zh": "緊急的事",
+              "example": {
+                "en": "I need to talk to you about an urgent matter.",
+                "zh": "我需要和你談一件緊急的事。"
+              }
+            },
+            {
+              "phrase": "an urgent request",
+              "zh": "緊急的要求",
+              "example": {
+                "en": "The client sent an urgent request for a new quote.",
+                "zh": "客戶寄來要求重新報價的緊急請求。"
+              }
+            },
+            {
+              "phrase": "urgent need",
+              "zh": "迫切的需要",
+              "example": {
+                "en": "There is an urgent need for more staff in this department.",
+                "zh": "這個部門迫切需要更多人手。"
+              }
+            },
+            {
+              "phrase": "urgent reply",
+              "zh": "緊急回覆",
+              "example": {
+                "en": "Please give us an urgent reply before noon today.",
+                "zh": "請在今天中午前緊急回覆我們。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "Please mark the message as urgent if it needs a quick answer.",
+              "zh": "如果需要快速回覆，請把郵件標示為緊急。"
+            },
+            {
+              "tag": "會議",
+              "en": "We have an urgent problem with the delivery schedule.",
+              "zh": "我們的交貨時程出現了緊急的問題。"
+            },
+            {
+              "tag": "客服",
+              "en": "Your complaint is urgent, so we will call you today.",
+              "zh": "您的投訴很緊急，所以我們今天會打電話給您。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "important",
+              "diff": "important 是「重要」，但不一定要馬上做；urgent 強調「時間很趕、不能等」。重要的事不一定緊急。"
+            },
+            {
+              "word": "emergency",
+              "diff": "emergency 是名詞，指突發的危急狀況；urgent 是形容詞，描述需要馬上處理的事。"
+            }
+          ],
+          "family": [
+            {
+              "w": "urgently",
+              "pos": "adv.",
+              "zh": "緊急地",
+              "ipa": "/ˈɜːrdʒəntli/",
+              "example": {
+                "en": "We urgently need a new supplier for this part.",
+                "zh": "我們急需這個零件的新供應商。"
+              }
+            },
+            {
+              "w": "urgency",
+              "pos": "n.",
+              "zh": "緊急、迫切",
+              "ipa": "/ˈɜːrdʒənsi/",
+              "example": {
+                "en": "The manager explained the urgency of the situation.",
+                "zh": "經理說明了這個情況的迫切性。"
+              }
+            },
+            {
+              "w": "urge",
+              "pos": "v.",
+              "zh": "力勸、敦促",
+              "ipa": "/ɜːrdʒ/",
+              "example": {
+                "en": "We urge all staff to finish the report today.",
+                "zh": "我們敦促所有員工今天完成報告。"
+              }
+            }
+          ]
         }
       ]
     },
@@ -3819,6 +4948,257 @@
           "from": 554,
           "to": 625
         }
+      ],
+      "extra_vocab": [
+        {
+          "text": "replacement",
+          "type": "word",
+          "ipa": "/rɪˈpleɪsmənt/",
+          "pos": "n.",
+          "zh": "替代品、替換物；接替者",
+          "en": "something or someone that takes the place of another",
+          "note": "在這篇裡放在 service 前面當形容詞用，replacement service 指原班列車改道後，用來「取代」它的替代班次。語氣中性，是交通公告常見用語。",
+          "forms": [
+            {
+              "w": "replacements",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "替代品（複數）",
+              "ipa": "/rɪˈpleɪsmənts/"
+            },
+            {
+              "w": "replace",
+              "label": "動詞原形",
+              "pos": "v.",
+              "zh": "取代、更換",
+              "ipa": "/rɪˈpleɪs/"
+            },
+            {
+              "w": "replaces",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "取代、更換",
+              "ipa": "/rɪˈpleɪsɪz/"
+            },
+            {
+              "w": "replaced",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "取代了、更換了",
+              "ipa": "/rɪˈpleɪst/"
+            },
+            {
+              "w": "replacing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在取代、更換",
+              "ipa": "/rɪˈpleɪsɪŋ/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "replacement part",
+              "zh": "替換零件",
+              "example": {
+                "en": "We will order a replacement part for the machine today.",
+                "zh": "我們今天會為這台機器訂購替換零件。"
+              }
+            },
+            {
+              "phrase": "replacement service",
+              "zh": "替代班次、替代服務",
+              "example": {
+                "en": "A replacement service will run until the repairs are finished.",
+                "zh": "在維修完成前，會有替代班次行駛。"
+              }
+            },
+            {
+              "phrase": "find a replacement",
+              "zh": "找人接替",
+              "example": {
+                "en": "We must find a replacement before she leaves the company.",
+                "zh": "在她離開公司前，我們必須找到接替的人。"
+              }
+            },
+            {
+              "phrase": "free replacement",
+              "zh": "免費更換",
+              "example": {
+                "en": "The store offered a free replacement for the broken item.",
+                "zh": "商店為這件損壞的商品提供免費更換。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "客服",
+              "en": "If the product is damaged, we will send a replacement.",
+              "zh": "如果商品損壞，我們會寄出替換品。"
+            },
+            {
+              "tag": "人資",
+              "en": "The company is looking for a replacement for the sales manager.",
+              "zh": "公司正在找人接替業務經理。"
+            },
+            {
+              "tag": "採購",
+              "en": "Please confirm the replacement order before the end of the week.",
+              "zh": "請在本週結束前確認替換訂單。"
+            },
+            {
+              "tag": "出差",
+              "en": "A replacement bus took passengers to the next station.",
+              "zh": "一輛替代巴士載乘客前往下一站。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "substitute",
+              "diff": "substitute 常指臨時、暫時的代替品或代班者；replacement 多指「正式取代」原來的東西或人。"
+            },
+            {
+              "word": "alternative",
+              "diff": "alternative 是「另一個可選的方案」，原本的仍可使用；replacement 是原本的不能用了，由新的取代。"
+            }
+          ],
+          "family": [
+            {
+              "w": "replace",
+              "pos": "v.",
+              "zh": "取代、更換",
+              "ipa": "/rɪˈpleɪs/",
+              "example": {
+                "en": "We need to replace the old printer next month.",
+                "zh": "我們下個月需要更換舊的印表機。"
+              }
+            },
+            {
+              "w": "replaceable",
+              "pos": "adj.",
+              "zh": "可替換的",
+              "ipa": "/rɪˈpleɪsəbl/",
+              "example": {
+                "en": "This part is replaceable, so repairs are easy.",
+                "zh": "這個零件可以更換，所以維修很容易。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "shuttle",
+          "type": "word",
+          "ipa": "/ˈʃʌtl/",
+          "pos": "n.",
+          "zh": "接駁車、短程往返班車",
+          "en": "a bus or van that travels between two places again and again",
+          "note": "在這篇裡 the hotel shuttle 是飯店提供、往返車站與飯店的接駁車。業務人員建議旅客直接搭計程車，因為等接駁車可能趕不上七點半的晚餐訂位。",
+          "forms": [
+            {
+              "w": "shuttles",
+              "label": "複數／第三人稱單數",
+              "pos": "n./v.",
+              "zh": "接駁車（複數）；往返接送",
+              "ipa": "/ˈʃʌtlz/"
+            },
+            {
+              "w": "shuttled",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "往返接送了",
+              "ipa": "/ˈʃʌtld/"
+            },
+            {
+              "w": "shuttling",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在往返接送",
+              "ipa": "/ˈʃʌtlɪŋ/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "airport shuttle",
+              "zh": "機場接駁車",
+              "example": {
+                "en": "The airport shuttle leaves every thirty minutes from Gate 2.",
+                "zh": "機場接駁車每三十分鐘從二號門出發。"
+              }
+            },
+            {
+              "phrase": "shuttle bus",
+              "zh": "接駁巴士",
+              "example": {
+                "en": "A shuttle bus takes visitors from the parking lot to the hall.",
+                "zh": "接駁巴士把訪客從停車場載到會場。"
+              }
+            },
+            {
+              "phrase": "shuttle service",
+              "zh": "接駁服務",
+              "example": {
+                "en": "The hotel offers a free shuttle service to the city center.",
+                "zh": "飯店提供前往市中心的免費接駁服務。"
+              }
+            },
+            {
+              "phrase": "take the shuttle",
+              "zh": "搭接駁車",
+              "example": {
+                "en": "Most guests take the shuttle to the convention center.",
+                "zh": "大部分賓客搭接駁車前往會議中心。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "出差",
+              "en": "Please wait at the main entrance for the hotel shuttle.",
+              "zh": "請在大門口等候飯店接駁車。"
+            },
+            {
+              "tag": "活動",
+              "en": "We arranged a shuttle for guests arriving at the station.",
+              "zh": "我們為抵達車站的賓客安排了接駁車。"
+            },
+            {
+              "tag": "動詞用法",
+              "en": "Vans shuttle employees between the office and the factory every hour.",
+              "zh": "廂型車每小時往返接送辦公室與工廠之間的員工。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "taxi",
+              "diff": "taxi 是隨叫隨到、依車資計費的車；shuttle 通常依固定路線與時間往返，常是免費或低價的接駁。"
+            },
+            {
+              "word": "commute",
+              "diff": "commute 是動詞或名詞，指通勤這件事；shuttle 是指接送的車輛本身（或往返接送這個動作）。"
+            }
+          ],
+          "family": [
+            {
+              "w": "transportation",
+              "pos": "n.",
+              "zh": "交通運輸",
+              "ipa": "/ˌtrænspərˈteɪʃn/",
+              "example": {
+                "en": "The company will pay for your transportation to the event.",
+                "zh": "公司會支付你前往活動的交通費。"
+              }
+            },
+            {
+              "w": "commute",
+              "pos": "v.",
+              "zh": "通勤",
+              "ipa": "/kəˈmjuːt/",
+              "example": {
+                "en": "Many employees commute to the office by train.",
+                "zh": "許多員工搭火車通勤到辦公室。"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -4013,6 +5393,397 @@
           "from": 658,
           "to": 722
         }
+      ],
+      "extra_vocab": [
+        {
+          "text": "vacancy",
+          "type": "word",
+          "ipa": "/ˈveɪkənsi/",
+          "pos": "n.",
+          "zh": "職缺；空房",
+          "en": "a job that is open and has no one in it yet",
+          "note": "在這篇裡指「職缺」，A vacancy is now available 是徵才公告的開場句，意思是公司現在有一個空缺可以應徵。這個字也常指飯店的空房，要看上下文判斷。",
+          "forms": [
+            {
+              "w": "vacancies",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "職缺（複數）",
+              "ipa": "/ˈveɪkənsiz/"
+            },
+            {
+              "w": "vacant",
+              "label": "形容詞",
+              "pos": "adj.",
+              "zh": "空缺的、空著的",
+              "ipa": "/ˈveɪkənt/"
+            },
+            {
+              "w": "vacate",
+              "label": "動詞",
+              "pos": "v.",
+              "zh": "騰出、離開（職位或場所）",
+              "ipa": "/ˈveɪkeɪt/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "fill a vacancy",
+              "zh": "補上職缺",
+              "example": {
+                "en": "We hope to fill the vacancy before the end of the month.",
+                "zh": "我們希望在月底前補上這個職缺。"
+              }
+            },
+            {
+              "phrase": "job vacancy",
+              "zh": "職缺",
+              "example": {
+                "en": "There are three job vacancies in the marketing department.",
+                "zh": "行銷部門有三個職缺。"
+              }
+            },
+            {
+              "phrase": "advertise a vacancy",
+              "zh": "刊登職缺廣告",
+              "example": {
+                "en": "The company will advertise the vacancy on its Web site.",
+                "zh": "公司會在網站上刊登這個職缺。"
+              }
+            },
+            {
+              "phrase": "no vacancy",
+              "zh": "客滿、無空房",
+              "example": {
+                "en": "The hotel has no vacancy this weekend because of the festival.",
+                "zh": "因為慶典，這間飯店這個週末客滿。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "人資",
+              "en": "A vacancy has opened up in the accounting team.",
+              "zh": "會計團隊出現了一個職缺。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "I am writing to ask about the vacancy you advertised.",
+              "zh": "我來信是想詢問您刊登的那個職缺。"
+            },
+            {
+              "tag": "飯店",
+              "en": "Please call the front desk to check if there is a vacancy.",
+              "zh": "請打電話到櫃檯確認是否有空房。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "position",
+              "diff": "position 是「職位」本身，不一定有空缺；vacancy 強調這個職位目前「沒人、可以應徵」。"
+            },
+            {
+              "word": "opening",
+              "diff": "opening 與 vacancy 都可指職缺，意思很接近；opening 較口語，vacancy 較正式。"
+            }
+          ],
+          "family": [
+            {
+              "w": "vacant",
+              "pos": "adj.",
+              "zh": "空缺的、空著的",
+              "ipa": "/ˈveɪkənt/",
+              "example": {
+                "en": "The manager's position has been vacant since March.",
+                "zh": "經理的職位從三月起就一直空缺。"
+              }
+            },
+            {
+              "w": "vacate",
+              "pos": "v.",
+              "zh": "騰出、退出",
+              "ipa": "/ˈveɪkeɪt/",
+              "example": {
+                "en": "Guests must vacate their rooms by eleven o'clock.",
+                "zh": "房客必須在十一點前退房。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "proficiency",
+          "type": "word",
+          "ipa": "/prəˈfɪʃənsi/",
+          "pos": "n.",
+          "zh": "熟練、精通",
+          "en": "the ability to do something well because of training or practice",
+          "note": "在這篇裡 strong proficiency in English 指英文能力要「相當熟練」，是徵才條件。proficiency 常搭配 in 加語言或技能，語氣正式，多見於履歷與招募公告。",
+          "forms": [
+            {
+              "w": "proficient",
+              "label": "形容詞",
+              "pos": "adj.",
+              "zh": "熟練的、精通的",
+              "ipa": "/prəˈfɪʃənt/"
+            },
+            {
+              "w": "proficiently",
+              "label": "副詞",
+              "pos": "adv.",
+              "zh": "熟練地",
+              "ipa": "/prəˈfɪʃəntli/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "language proficiency",
+              "zh": "語言能力",
+              "example": {
+                "en": "Language proficiency is important for this international position.",
+                "zh": "語言能力對這個國際職位很重要。"
+              }
+            },
+            {
+              "phrase": "proficiency in",
+              "zh": "在…方面的熟練度",
+              "example": {
+                "en": "The job requires proficiency in Excel and other software.",
+                "zh": "這份工作需要熟練使用 Excel 及其他軟體。"
+              }
+            },
+            {
+              "phrase": "proficiency test",
+              "zh": "能力測驗",
+              "example": {
+                "en": "All new staff must take an English proficiency test.",
+                "zh": "所有新進員工都必須參加英文能力測驗。"
+              }
+            },
+            {
+              "phrase": "level of proficiency",
+              "zh": "熟練程度",
+              "example": {
+                "en": "Please describe your level of proficiency on the form.",
+                "zh": "請在表格上說明您的熟練程度。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "徵才公告",
+              "en": "Applicants must show proficiency in at least two languages.",
+              "zh": "應徵者必須證明至少精通兩種語言。"
+            },
+            {
+              "tag": "履歷",
+              "en": "I have strong proficiency in sales software and data reports.",
+              "zh": "我對銷售軟體和數據報告相當熟練。"
+            },
+            {
+              "tag": "面試",
+              "en": "The interviewer asked about my proficiency in Spanish.",
+              "zh": "面試官問了我的西班牙文熟練度。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "skill",
+              "diff": "skill 是「技能」，可數；proficiency 是「熟練的程度」，不可數，強調做得有多好。"
+            },
+            {
+              "word": "fluency",
+              "diff": "fluency 專指語言說得流利順暢；proficiency 範圍更廣，可用在語言、軟體或其他技能。"
+            }
+          ],
+          "family": [
+            {
+              "w": "proficient",
+              "pos": "adj.",
+              "zh": "熟練的",
+              "ipa": "/prəˈfɪʃənt/",
+              "example": {
+                "en": "She is proficient in both Japanese and English.",
+                "zh": "她精通日文和英文。"
+              }
+            },
+            {
+              "w": "skill",
+              "pos": "n.",
+              "zh": "技能",
+              "ipa": "/skɪl/",
+              "example": {
+                "en": "Good communication skills are important in this job.",
+                "zh": "良好的溝通技巧在這份工作中很重要。"
+              }
+            },
+            {
+              "w": "fluent",
+              "pos": "adj.",
+              "zh": "流利的",
+              "ipa": "/ˈfluːənt/",
+              "example": {
+                "en": "He is fluent in Chinese and works with our partners.",
+                "zh": "他中文流利，負責和我們的夥伴合作。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "distributor",
+          "type": "word",
+          "ipa": "/dɪˈstrɪbjətər/",
+          "pos": "n.",
+          "zh": "經銷商、配銷商",
+          "en": "a company that buys products and sells them to stores or other businesses",
+          "note": "在這篇裡 regional distributors 是東南亞各地的經銷商，業務要和他們協調。distributor 位在製造商和零售商之間，負責把產品配送到各地市場。",
+          "forms": [
+            {
+              "w": "distributors",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "經銷商（複數）",
+              "ipa": "/dɪˈstrɪbjətərz/"
+            },
+            {
+              "w": "distribute",
+              "label": "動詞原形",
+              "pos": "v.",
+              "zh": "分銷、分發",
+              "ipa": "/dɪˈstrɪbjuːt/"
+            },
+            {
+              "w": "distributes",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "分銷、分發",
+              "ipa": "/dɪˈstrɪbjuːts/"
+            },
+            {
+              "w": "distributed",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "分銷了、分發了",
+              "ipa": "/dɪˈstrɪbjətɪd/"
+            },
+            {
+              "w": "distributing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在分銷、分發",
+              "ipa": "/dɪˈstrɪbjətɪŋ/"
+            },
+            {
+              "w": "distribution",
+              "label": "名詞",
+              "pos": "n.",
+              "zh": "配銷、分配",
+              "ipa": "/ˌdɪstrɪˈbjuːʃn/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "regional distributor",
+              "zh": "區域經銷商",
+              "example": {
+                "en": "Our regional distributor handles all orders in northern Europe.",
+                "zh": "我們的區域經銷商負責處理北歐的所有訂單。"
+              }
+            },
+            {
+              "phrase": "authorized distributor",
+              "zh": "授權經銷商",
+              "example": {
+                "en": "Please buy only from an authorized distributor of our brand.",
+                "zh": "請只向我們品牌的授權經銷商購買。"
+              }
+            },
+            {
+              "phrase": "exclusive distributor",
+              "zh": "獨家經銷商",
+              "example": {
+                "en": "They became the exclusive distributor of our products in Asia.",
+                "zh": "他們成為我們產品在亞洲的獨家經銷商。"
+              }
+            },
+            {
+              "phrase": "contact a distributor",
+              "zh": "聯絡經銷商",
+              "example": {
+                "en": "You can contact a distributor in your area for prices.",
+                "zh": "您可以聯絡所在地區的經銷商詢問價格。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "The distributor asked us to deliver the goods one week earlier.",
+              "zh": "經銷商要求我們提早一週交貨。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We are looking for a new distributor in Southeast Asia.",
+              "zh": "我們正在東南亞尋找新的經銷商。"
+            },
+            {
+              "tag": "銷售",
+              "en": "Our distributors sell the speakers to stores across the country.",
+              "zh": "我們的經銷商把喇叭賣給全國各地的商店。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "supplier",
+              "diff": "supplier 是供貨給你的一方（上游）；distributor 是幫你把貨賣到各市場的一方（下游）。"
+            },
+            {
+              "word": "retailer",
+              "diff": "retailer 是直接賣給一般消費者的零售商；distributor 通常把貨賣給零售商或其他企業。"
+            }
+          ],
+          "family": [
+            {
+              "w": "distribute",
+              "pos": "v.",
+              "zh": "分銷、分發",
+              "ipa": "/dɪˈstrɪbjuːt/",
+              "example": {
+                "en": "The company distributes its products to over twenty countries.",
+                "zh": "這家公司把產品分銷到二十多個國家。"
+              }
+            },
+            {
+              "w": "distribution",
+              "pos": "n.",
+              "zh": "配銷、分配",
+              "ipa": "/ˌdɪstrɪˈbjuːʃn/",
+              "example": {
+                "en": "A new distribution center will open next spring.",
+                "zh": "新的配送中心將在明年春天啟用。"
+              }
+            },
+            {
+              "w": "supplier",
+              "pos": "n.",
+              "zh": "供應商",
+              "ipa": "/səˈplaɪər/",
+              "example": {
+                "en": "Our supplier promised to deliver the parts on Friday.",
+                "zh": "我們的供應商答應週五交付零件。"
+              }
+            },
+            {
+              "w": "retailer",
+              "pos": "n.",
+              "zh": "零售商",
+              "ipa": "/ˈriːteɪlər/",
+              "example": {
+                "en": "The retailer ordered fifty more units this week.",
+                "zh": "零售商這週又多訂了五十台。"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -4194,6 +5965,131 @@
           "end": 46.36,
           "from": 633,
           "to": 735
+        }
+      ],
+      "extra_vocab": [
+        {
+          "text": "defect",
+          "type": "word",
+          "ipa": "/ˈdiːfekt/",
+          "pos": "n.",
+          "zh": "瑕疵、缺陷",
+          "en": "a problem that makes something not perfect or not work well",
+          "note": "在這篇裡 surface defects 指零件表面的瑕疵（如刮痕、不平整），品管團隊要在零件進入生產前檢查。defect 是製造與品管文件的核心字，常和 test、inspect、quality 一起出現。",
+          "forms": [
+            {
+              "w": "defects",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "瑕疵（複數）",
+              "ipa": "/ˈdiːfekts/"
+            },
+            {
+              "w": "defective",
+              "label": "形容詞",
+              "pos": "adj.",
+              "zh": "有瑕疵的、有缺陷的",
+              "ipa": "/dɪˈfektɪv/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "manufacturing defect",
+              "zh": "製造瑕疵",
+              "example": {
+                "en": "The company will repair any manufacturing defect for free.",
+                "zh": "公司會免費修理任何製造瑕疵。"
+              }
+            },
+            {
+              "phrase": "find a defect",
+              "zh": "發現瑕疵",
+              "example": {
+                "en": "The inspector found a defect in the second batch.",
+                "zh": "檢查員在第二批貨中發現了瑕疵。"
+              }
+            },
+            {
+              "phrase": "defect rate",
+              "zh": "瑕疵率",
+              "example": {
+                "en": "Our defect rate dropped to one percent this quarter.",
+                "zh": "我們這一季的瑕疵率降到了百分之一。"
+              }
+            },
+            {
+              "phrase": "free of defects",
+              "zh": "沒有瑕疵",
+              "example": {
+                "en": "All items are checked to make sure they are free of defects.",
+                "zh": "所有商品都經過檢查，確保沒有瑕疵。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "品管",
+              "en": "The team checks every product for defects before shipping.",
+              "zh": "團隊在出貨前會檢查每件產品是否有瑕疵。"
+            },
+            {
+              "tag": "客服",
+              "en": "If you notice a defect, please send us a photo.",
+              "zh": "如果您發現瑕疵，請寄一張照片給我們。"
+            },
+            {
+              "tag": "採購",
+              "en": "The supplier agreed to replace parts with visible defects.",
+              "zh": "供應商同意更換有明顯瑕疵的零件。"
+            },
+            {
+              "tag": "會議",
+              "en": "A small defect in the design caused the delay.",
+              "zh": "設計上的一個小缺陷造成了延誤。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "damage",
+              "diff": "damage 是東西後來「受損」（如運送中撞壞）；defect 是製造或設計時就存在的瑕疵。"
+            },
+            {
+              "word": "flaw",
+              "diff": "flaw 與 defect 意思相近，flaw 多指較小的缺點或不完美；defect 更常用於產品品質與製造的正式情境。"
+            }
+          ],
+          "family": [
+            {
+              "w": "defective",
+              "pos": "adj.",
+              "zh": "有瑕疵的",
+              "ipa": "/dɪˈfektɪv/",
+              "example": {
+                "en": "We returned the defective units to the supplier yesterday.",
+                "zh": "我們昨天把有瑕疵的商品退還給供應商。"
+              }
+            },
+            {
+              "w": "flaw",
+              "pos": "n.",
+              "zh": "缺點、瑕疵",
+              "ipa": "/flɔː/",
+              "example": {
+                "en": "The report pointed out a flaw in our plan.",
+                "zh": "報告指出了我們計畫中的一個缺點。"
+              }
+            },
+            {
+              "w": "damage",
+              "pos": "n.",
+              "zh": "損壞",
+              "ipa": "/ˈdæmɪdʒ/",
+              "example": {
+                "en": "The box arrived with some damage on one corner.",
+                "zh": "箱子送達時有一個角受損。"
+              }
+            }
+          ]
         }
       ]
     },
@@ -4388,6 +6284,136 @@
           "end": 39.42,
           "from": 672,
           "to": 768
+        }
+      ],
+      "extra_vocab": [
+        {
+          "text": "accessory",
+          "type": "word",
+          "ipa": "/əkˈsesəri/",
+          "pos": "n.",
+          "zh": "配件、附件",
+          "en": "an extra item that you can add to a main product",
+          "note": "在這篇裡指主產品（無線喇叭）以外、可另外加購的物品，也就是攜帶盒。optional accessory 表示「選購配件」，客人可買可不買。",
+          "forms": [
+            {
+              "w": "accessories",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "配件（複數）",
+              "ipa": "/əkˈsesəriz/"
+            },
+            {
+              "w": "accessorize",
+              "label": "動詞",
+              "pos": "v.",
+              "zh": "搭配配件",
+              "ipa": "/əkˈsesəraɪz/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "optional accessory",
+              "zh": "選購配件",
+              "example": {
+                "en": "The carrying case is an optional accessory for this speaker.",
+                "zh": "攜帶盒是這款喇叭的選購配件。"
+              }
+            },
+            {
+              "phrase": "accessory kit",
+              "zh": "配件組",
+              "example": {
+                "en": "The accessory kit comes with a cable and a stand.",
+                "zh": "配件組附有一條線材和一個支架。"
+              }
+            },
+            {
+              "phrase": "phone accessories",
+              "zh": "手機配件",
+              "example": {
+                "en": "Our store sells phone accessories at low prices.",
+                "zh": "我們的店以低價販售手機配件。"
+              }
+            },
+            {
+              "phrase": "sell accessories",
+              "zh": "販售配件",
+              "example": {
+                "en": "Many shops sell accessories to earn extra profit.",
+                "zh": "許多商店販售配件來賺取額外利潤。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "銷售會議",
+              "en": "Customers often buy an accessory together with the main product.",
+              "zh": "顧客常常把配件和主產品一起購買。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please find the list of available accessories attached to this email.",
+              "zh": "附件是可購買的配件清單，請查收。"
+            },
+            {
+              "tag": "採購",
+              "en": "We need to order more accessories before the holiday season starts.",
+              "zh": "我們需要在假期旺季開始前訂購更多配件。"
+            },
+            {
+              "tag": "客服",
+              "en": "This accessory is sold separately and is not included in the box.",
+              "zh": "這個配件需另購，並未附在盒子裡。"
+            },
+            {
+              "tag": "時尚（另一詞義）",
+              "en": "She wore a simple scarf as her only accessory.",
+              "zh": "她只戴了一條簡單的圍巾當作飾品。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "accessible",
+              "diff": "字形相近，但 accessible 是形容詞，意思是「容易取得或到達的」，不是「配件」。"
+            },
+            {
+              "word": "component",
+              "diff": "component 是產品本身的組成零件；accessory 是可另外加上的附加物品。"
+            }
+          ],
+          "family": [
+            {
+              "w": "access",
+              "pos": "n.",
+              "zh": "進入、使用權",
+              "ipa": "/ˈækses/",
+              "example": {
+                "en": "All staff have access to the online system.",
+                "zh": "所有員工都能使用這個線上系統。"
+              }
+            },
+            {
+              "w": "accessible",
+              "pos": "adj.",
+              "zh": "容易取得的、可使用的",
+              "ipa": "/əkˈsesəbl/",
+              "example": {
+                "en": "The office is easily accessible by train.",
+                "zh": "搭火車就能很容易到達這間辦公室。"
+              }
+            },
+            {
+              "w": "accessory",
+              "pos": "adj.",
+              "zh": "附屬的",
+              "ipa": "/əkˈsesəri/",
+              "example": {
+                "en": "We sell the speaker and its accessory parts.",
+                "zh": "我們販售這款喇叭及其附屬零件。"
+              }
+            }
+          ]
         }
       ]
     },
@@ -5157,6 +7183,142 @@
           "end": 30.14,
           "from": 566,
           "to": 601
+        }
+      ],
+      "extra_vocab": [
+        {
+          "text": "accommodate",
+          "type": "word",
+          "ipa": "/əˈkɑːmədeɪt/",
+          "pos": "v.",
+          "zh": "容納；滿足（需求）、配合",
+          "en": "to give someone what they need or have enough space for them",
+          "note": "在這篇裡是「滿足、照顧（特殊需求）」的意思：餐廳願意為兩位對堅果過敏的客人準備合適的餐點。語氣禮貌正式，常見於服務業與客服用語。",
+          "forms": [
+            {
+              "w": "accommodates",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "容納、配合",
+              "ipa": "/əˈkɑːmədeɪts/"
+            },
+            {
+              "w": "accommodated",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "容納了、配合了",
+              "ipa": "/əˈkɑːmədeɪtɪd/"
+            },
+            {
+              "w": "accommodating",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在容納、配合",
+              "ipa": "/əˈkɑːmədeɪtɪŋ/"
+            },
+            {
+              "w": "accommodating",
+              "label": "形容詞",
+              "pos": "adj.",
+              "zh": "樂於配合的、肯通融的",
+              "ipa": "/əˈkɑːmədeɪtɪŋ/"
+            },
+            {
+              "w": "accommodation",
+              "label": "名詞",
+              "pos": "n.",
+              "zh": "住宿；（空間或需求的）安排",
+              "ipa": "/əˌkɑːməˈdeɪʃn/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "accommodate a request",
+              "zh": "答應、配合要求",
+              "example": {
+                "en": "We will try to accommodate your request for a later date.",
+                "zh": "我們會盡量配合您延後日期的要求。"
+              }
+            },
+            {
+              "phrase": "accommodate special needs",
+              "zh": "滿足特殊需求",
+              "example": {
+                "en": "The hotel can accommodate guests with special needs.",
+                "zh": "這間飯店能照顧有特殊需求的客人。"
+              }
+            },
+            {
+              "phrase": "accommodate a large group",
+              "zh": "容納大團體",
+              "example": {
+                "en": "This room can accommodate a large group of up to fifty people.",
+                "zh": "這個房間最多可容納五十人的大團體。"
+              }
+            },
+            {
+              "phrase": "accommodate someone's schedule",
+              "zh": "配合某人的時間表",
+              "example": {
+                "en": "We changed the meeting time to accommodate her schedule.",
+                "zh": "我們更改了會議時間以配合她的行程。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "訂位／餐廳",
+              "en": "Our restaurant can accommodate guests with food allergies.",
+              "zh": "我們餐廳能照顧有食物過敏的客人。"
+            },
+            {
+              "tag": "會議",
+              "en": "The conference room is too small to accommodate everyone.",
+              "zh": "這間會議室太小，容納不下所有人。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We apologize that we cannot accommodate your request this time.",
+              "zh": "很抱歉，這次我們無法配合您的要求。"
+            },
+            {
+              "tag": "出差",
+              "en": "The hotel accommodated our team even though it was fully booked.",
+              "zh": "雖然客滿，飯店還是為我們的團隊安排了房間。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "accommodation",
+              "diff": "accommodation 是名詞，常指「住宿」；accommodate 是動詞，指「容納、配合」。兩者都是雙 c、雙 m，拼字要小心。"
+            },
+            {
+              "word": "adapt",
+              "diff": "adapt 是自己調整以適應環境；accommodate 是提供空間或配合別人的需求。"
+            }
+          ],
+          "family": [
+            {
+              "w": "accommodation",
+              "pos": "n.",
+              "zh": "住宿",
+              "ipa": "/əˌkɑːməˈdeɪʃn/",
+              "example": {
+                "en": "The company will pay for your hotel accommodation.",
+                "zh": "公司會支付你的飯店住宿費用。"
+              }
+            },
+            {
+              "w": "accommodating",
+              "pos": "adj.",
+              "zh": "樂於配合的",
+              "ipa": "/əˈkɑːmədeɪtɪŋ/",
+              "example": {
+                "en": "The staff were very accommodating about our schedule change.",
+                "zh": "員工對我們更改行程非常願意配合。"
+              }
+            }
+          ]
         }
       ]
     },

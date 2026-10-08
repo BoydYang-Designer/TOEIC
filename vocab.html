@@ -59,7 +59,8 @@ const bandOf = r => BANDS.find(b => r <= b.max);
 const ROWS = TSL_WORDS.map((w, i) => ({ w, n: norm(w), r: i + 1, b: bandOf(i + 1), d: TSL_CAT[i][0], d2: TSL_CAT[i][1] || '' })).sort((a, b) => a.n.localeCompare(b.n));
 const LETTERS = [...new Set(ROWS.map(x => x.n[0].toUpperCase()))];
 
-let LEARNED = new Map(); // norm word -> { w, d }
+let LEARNED = new Map(); // norm word -> { w, d, s }　s＝詳解狀態：2 有詳解、1 含在其他字詳解內、0 缺詳解、undefined 未知（舊版 index）
+const gap = x => { const h = LEARNED.get(x.n); return !!h && h.s === 0; };
 let SRC = '';
 let F = { st: 'all', bd: 0, dd: 'all', q: '' }, OPEN = new Set(), RESTORE_Y = null;
 
@@ -77,7 +78,7 @@ function seg(id, opts, key) {
 
 function paint() {
   const has = x => LEARNED.has(x.n);
-  const haveN = ROWS.filter(has).length;
+  const haveN = ROWS.filter(has).length, gapN = ROWS.filter(gap).length;
   const per = BANDS.map(b => {
     const all = ROWS.filter(x => x.b === b), got = all.filter(has);
     return `<div class="rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5">
@@ -86,21 +87,22 @@ function paint() {
       <div class="h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 mt-1.5 overflow-hidden"><div class="h-full bg-emerald-500" style="width:${Math.round(got.length / all.length * 100)}%"></div></div></div>`;
   }).join('');
   document.getElementById('sum').innerHTML = `
-    <div class="text-sm mb-2">已收錄 <b>${haveN}</b> / ${ROWS.length} 字（${Math.round(haveN / ROWS.length * 100)}%），還缺 <b class="text-rose-600 dark:text-rose-400">${ROWS.length - haveN}</b> 字</div>
+    <div class="text-sm mb-2">已收錄 <b>${haveN}</b> / ${ROWS.length} 字（${Math.round(haveN / ROWS.length * 100)}%），還缺 <b class="text-rose-600 dark:text-rose-400">${ROWS.length - haveN}</b> 字${gapN ? `；已收錄但<a href="daily.html#tsl" class="underline">缺詳解</a> <b class="text-amber-600 dark:text-amber-400">${gapN}</b> 字` : ''}</div>
     <div class="grid grid-cols-3 gap-2">${per}</div>`;
 
-  seg('fs', [['all', '全部'], ['have', '已收錄'], ['miss', '還缺']], 'st');
+  seg('fs', [['all', '全部'], ['have', '已收錄'], ['gap', '缺詳解'], ['miss', '還缺']], 'st');
   seg('fb', [[0, '全分數帶'], [1, '&lt;650'], [2, '650–749'], [3, '≥750']], 'bd');
 
   document.getElementById('fdw').innerHTML = [['all', '全部主題', ROWS.length, haveN], ...['1', '2', '3', '4', '5', '6', '7', 'G'].map(k => { const a = ROWS.filter(x => x.d === k); return [k, (k === 'G' ? '' : 'D' + k + ' ') + TSL_DNAME[k], a.length, a.filter(has).length]; })]
     .map(([k, t, n, g]) => `<button data-k="dd" data-v="${k}" class="rounded-lg border px-2.5 py-1.5 ${F.dd === k ? 'bg-indigo-600 text-white border-indigo-600' : 'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800'}">${t} <b>${g}</b>/${n}</button>`).join('')
-    + '<button data-copy="1" class="rounded-lg border border-emerald-500 text-emerald-700 dark:text-emerald-400 px-2.5 py-1.5 hover:bg-emerald-50 dark:hover:bg-emerald-950">複製目前篩選的「還缺」單字</button>';
+    + '<button data-copy="1" class="rounded-lg border border-emerald-500 text-emerald-700 dark:text-emerald-400 px-2.5 py-1.5 hover:bg-emerald-50 dark:hover:bg-emerald-950">複製目前篩選的「還缺」單字</button><button data-copy="gap" class="rounded-lg border border-amber-500 text-amber-700 dark:text-amber-400 px-2.5 py-1.5 hover:bg-amber-50 dark:hover:bg-amber-950">複製「缺詳解」單字</button>';
 
   const q = norm(F.q), searching = !!q;
   const pass = x => {
     const h = has(x);
     if (F.st === 'have' && !h) return false;
     if (F.st === 'miss' && h) return false;
+    if (F.st === 'gap' && !gap(x)) return false;
     if (F.bd && x.b.k !== +F.bd) return false;
     if (F.dd !== 'all' && x.d !== F.dd) return false;
     if (q && !x.n.includes(q)) return false;
@@ -122,6 +124,7 @@ function paint() {
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 p-3 pt-1">${shown.map(x => {
         const hit = LEARNED.get(x.n);
         const inner = `<span class="w-2 h-2 rounded-full shrink-0 ${x.b.dot}"></span><span class="font-semibold truncate">${esc(x.w)}</span><span class="ml-auto text-[10px] text-slate-400 shrink-0" title="主題：${TSL_DNAME[x.d]}${x.d2 ? '／次：D' + x.d2 + ' ' + TSL_DNAME[x.d2] : ''}">${x.d === 'G' ? 'G' : 'D' + x.d + (x.d2 ? '·' + x.d2 : '')}</span><span class="text-xs text-slate-400 shrink-0">${x.r}</span>`;
+        if (hit && hit.s === 0) return `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="W${hit.w}D${hit.d} · 已入庫但缺詳解，點開看單字卡" class="flex items-center gap-1.5 rounded-lg border border-amber-400 bg-amber-50 dark:bg-amber-950/30 hover:bg-amber-100 dark:hover:bg-amber-950 px-2.5 py-2 text-sm">${inner}<span class="text-[10px] text-amber-600 dark:text-amber-400 shrink-0">缺詳解</span></a>`;
         return hit
           ? `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="W${hit.w}D${hit.d} · 點開詳解" class="flex items-center gap-1.5 rounded-lg border border-indigo-300 dark:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950 px-2.5 py-2 text-sm">${inner}</a>`
           : `<div class="flex items-center gap-1.5 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 px-2.5 py-2 text-sm text-slate-400 dark:text-slate-500">${inner}</div>`;
@@ -143,7 +146,7 @@ document.addEventListener('click', e => {
   }
   const b = e.target.closest('button'); if (!b) return;
   if (b.dataset.copy) { /* 依目前篩選（狀態／分數帶／主題／搜尋）複製還缺的字，依官方詞頻排名，逗號分隔，可直接貼進 prompt */
-    const qq = norm(F.q), t = ROWS.filter(x => !LEARNED.has(x.n) && (!F.bd || x.b.k === +F.bd) && (F.dd === 'all' || x.d === F.dd) && (!qq || x.n.includes(qq))).sort((a, c) => a.r - c.r).map(x => x.w).join(', ');
+    const qq = norm(F.q), isGap = b.dataset.copy === 'gap', t = ROWS.filter(x => (isGap ? gap(x) : !LEARNED.has(x.n)) && (!F.bd || x.b.k === +F.bd) && (F.dd === 'all' || x.d === F.dd) && (!qq || x.n.includes(qq))).sort((a, c) => a.r - c.r).map(x => x.w).join(', ');
     const ok = () => { b.textContent = '✓ 已複製'; setTimeout(paint, 1200); };
     const fb = () => { const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (er) {} ta.remove(); ok(); };
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(ok, fb); else fb();
@@ -160,7 +163,7 @@ async function boot() {
   paint();
   const ix = await getJ('vocab_index.json');
   if (ix && ix.tsl) {
-    LEARNED = new Map(Object.entries(ix.tsl).map(([k, v]) => [k, { w: v[0], d: v[1] }]));
+    LEARNED = new Map(Object.entries(ix.tsl).map(([k, v]) => [k, { w: v[0], d: v[1], s: v[2] }]));
     SRC = `已收錄資料：vocab_index.json（掃描於 ${new Date(ix.v * 1000).toLocaleString('zh-TW', { hour12: false })}）。新增單字後請重新執行 Scan總表與音檔.py 並上傳。`;
   } else {
     const j = await getJ('daily.json');

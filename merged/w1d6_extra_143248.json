@@ -1,0 +1,85 @@
+{
+  "week": 1,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "audit",
+      "type": "word",
+      "ipa": "/ˈɔːdɪt/",
+      "pos": "n.",
+      "zh": "稽核、審計、查帳",
+      "en": "an official check of a company's records to make sure they are correct",
+      "note": "在這篇裡，annual audit 指公司每年一次的稽核，會計團隊要保留已簽署合約的副本，供稽核人員檢查。audit 也可以當動詞，意思是「稽核、查帳」。",
+      "forms": [
+        { "w": "audits", "label": "名詞（複數）", "pos": "n.", "zh": "稽核（複數）", "ipa": "/ˈɔːdɪts/" },
+        { "w": "audit", "label": "動詞原形", "pos": "v.", "zh": "稽核、查帳", "ipa": "/ˈɔːdɪt/" },
+        { "w": "audits", "label": "第三人稱單數", "pos": "v.", "zh": "稽核、查帳", "ipa": "/ˈɔːdɪts/" },
+        { "w": "audited", "label": "過去式／過去分詞", "pos": "v.", "zh": "稽核了、已稽核的", "ipa": "/ˈɔːdɪtɪd/" },
+        { "w": "auditing", "label": "現在分詞", "pos": "v.", "zh": "正在稽核", "ipa": "/ˈɔːdɪtɪŋ/" },
+        { "w": "auditor", "label": "衍生名詞（人）", "pos": "n.", "zh": "稽核員、審計員", "ipa": "/ˈɔːdɪtər/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "annual audit",
+          "zh": "年度稽核",
+          "example": { "en": "All departments must prepare their records for the annual audit.", "zh": "所有部門都必須為年度稽核準備好紀錄。" }
+        },
+        {
+          "phrase": "conduct an audit",
+          "zh": "進行稽核",
+          "example": { "en": "An outside firm will conduct an audit of our accounts.", "zh": "一家外部公司將對我們的帳目進行稽核。" }
+        },
+        {
+          "phrase": "internal audit",
+          "zh": "內部稽核",
+          "example": { "en": "The internal audit found several errors in the expense reports.", "zh": "內部稽核發現費用報告中有幾處錯誤。" }
+        },
+        {
+          "phrase": "pass an audit",
+          "zh": "通過稽核",
+          "example": { "en": "The factory passed the audit without any major problems.", "zh": "這家工廠順利通過稽核，沒有重大問題。" }
+        }
+      ],
+      "examples": [
+        { "tag": "財務", "en": "The finance team is getting ready for next month's audit.", "zh": "財務團隊正在為下個月的稽核做準備。" },
+        { "tag": "電子郵件", "en": "Please send me the signed contracts before the audit begins.", "zh": "請在稽核開始前把已簽署的合約寄給我。" },
+        { "tag": "品管", "en": "A quality audit showed that the supplier follows our standards.", "zh": "品質稽核顯示供應商有遵守我們的標準。" },
+        { "tag": "會議", "en": "The manager asked us to audit last year's travel expenses.", "zh": "經理要我們查核去年的差旅費用。" }
+      ],
+      "confusable": [
+        { "word": "inspection", "diff": "inspection 多指到現場檢查物品、設備或環境；audit 是檢查帳目、文件與制度是否正確。" },
+        { "word": "review", "diff": "review 是一般的檢視或審閱，比較不正式；audit 是有固定流程的正式稽核。" }
+      ],
+      "family": [
+        {
+          "w": "auditor",
+          "pos": "n.",
+          "zh": "稽核員、審計員",
+          "ipa": "/ˈɔːdɪtər/",
+          "example": { "en": "The auditor asked to see all the payment records.", "zh": "稽核員要求查看所有付款紀錄。" }
+        },
+        {
+          "w": "accounting",
+          "pos": "n.",
+          "zh": "會計",
+          "ipa": "/əˈkaʊntɪŋ/",
+          "example": { "en": "She works in the accounting department of a large bank.", "zh": "她在一家大銀行的會計部門工作。" }
+        },
+        {
+          "w": "inspection",
+          "pos": "n.",
+          "zh": "檢查、查驗",
+          "ipa": "/ɪnˈspekʃən/",
+          "example": { "en": "The safety inspection will take place on Tuesday morning.", "zh": "安全檢查將在星期二早上進行。" }
+        },
+        {
+          "w": "compliance",
+          "pos": "n.",
+          "zh": "遵守、合規",
+          "ipa": "/kəmˈplaɪəns/",
+          "example": { "en": "The audit checks our compliance with company policy.", "zh": "這次稽核會檢查我們是否遵守公司政策。" }
+        }
+      ]
+    }
+  ]
+}

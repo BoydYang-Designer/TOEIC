@@ -267,13 +267,13 @@ function renderLaunch() {
     <button onclick="enterSec('maint')" class="${card} ${hov} p-5 text-left cursor-pointer">
       <span class="text-3xl">🛠</span><h3 class="font-bold text-lg mt-2">維護</h3>
       <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">文章總覽、mp3 與 timing 完成狀態、新增文章</p>
-      <p class="mt-3 text-xs text-slate-500">文章 ${N} 篇　${mpMiss == null ? 'mp3 狀態未讀到' : `<span class="${mpMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">缺 mp3 ${mpMiss}</span>`}　<span class="${tmMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">timing 未完成 ${tmMiss}</span></p></button>
+      <p class="mt-3 text-xs text-slate-500">文章 ${N} 篇　${mpMiss == null ? 'mp3 狀態未讀到' : `<span class="${mpMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">缺 mp3 ${mpMiss}</span>`}　<span class="${tmMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">timing 未完成 ${tmMiss}</span>${tslBadge()}</p></button>
   </div>
   <div class="grid grid-cols-2 gap-3 mt-4"><button onclick="dnFromLaunch('marks')" class="${btn} ${card} text-left">📌 入庫彙整 <span class="text-xs text-slate-500">${dnMarks().length}</span></button><button onclick="dnFromLaunch('reports')" class="${btn} ${card} text-left">⚑ 回報彙整 <span class="text-xs text-slate-500">待處理 ${dnOpenRpN()}</span></button></div>`;
 }
 
 /* 維護 → TSL 單字總表：點進去時預設篩成「還缺」（還沒生成詳解的字）；vocab.html 會讀這個設定，用完即清除 */
-function tslPreset() { try { sessionStorage.setItem('tslState', JSON.stringify({ F: { st: 'miss' }, open: [], y: 0 })); } catch (e) {} }
+function tslPreset(st) { try { sessionStorage.setItem('tslState', JSON.stringify({ F: { st: st || 'miss' }, open: [], y: 0 })); } catch (e) {} }
 
 /* ===== 維護總覽：週次 × 天數矩陣，格內顯示 mp3／timing 狀態 ===== */
 function renderMaint() {
@@ -308,8 +308,63 @@ function renderMaint() {
   if (todo.length) {
     h += `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm mb-2">待處理（${todo.length}）</h3><div class="space-y-1">${todo.slice(0, 12).map(x => `<button onclick="openItem(${x.week},${x.day})" class="w-full text-left rounded-lg px-2 py-1.5 flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800"><b class="shrink-0">W${x.week}·D${x.day}</b><span class="truncate flex-1 text-slate-500">${esc(x.tag || '')}</span><span class="shrink-0 text-xs text-rose-600 dark:text-rose-400">${todoOf(x).join('、') || '確認 mp3 狀態'}</span></button>`).join('')}${todo.length > 12 ? `<p class="text-xs text-slate-400 px-2">…還有 ${todo.length - 12} 篇，請看「音檔／Timing 清單」</p>` : ''}</div></section>`;
   }
-  main.innerHTML = h + `<div class="grid sm:grid-cols-2 gap-3"><button onclick="openAudio()" class="${btn} border border-slate-300 dark:border-slate-700">🎧 音檔／Timing 清單</button><button onclick="openGen(${ne.w},${ne.d})" class="${btn} bg-indigo-600 text-white">＋ 新增下一篇（W${ne.w} · D${ne.d}）</button></div>
+  main.innerHTML = h + tslSection() + `<div class="grid sm:grid-cols-2 gap-3"><button onclick="openAudio()" class="${btn} border border-slate-300 dark:border-slate-700">🎧 音檔／Timing 清單</button><button onclick="openGen(${ne.w},${ne.d})" class="${btn} bg-indigo-600 text-white">＋ 新增下一篇（W${ne.w} · D${ne.d}）</button></div>
   <a href="vocab.html" onclick="tslPreset()" class="${card} flex items-center gap-3 p-4 mt-3 hover:ring-2 hover:ring-indigo-400"><span class="text-3xl">📚</span><span class="flex-1 min-w-0"><span class="block font-bold">TSL 單字總表</span><span class="block text-xs text-slate-500 dark:text-slate-400">New TOEIC Service List 1250 字 · 看還缺哪些</span></span><span class="text-indigo-600 dark:text-indigo-400 text-xl shrink-0">→</span></a>`;
+}
+
+/* ===== TSL 詳解缺口：核心單字（vocab）裡屬於 TSL、但還沒有 extra_vocab 詳解的字 =====
+   判斷：任何一篇文章的 extra_vocab 有該字（text），或它出現在該篇某個詳解的 forms 裡，就算有詳解（與 Scan總表與音檔.py 同一套）。 */
+function tslGaps() {
+  if (typeof TSL_WORDS === 'undefined') return null; // daily.html 沒載入 tsl.js
+  const rk = new Map(); TSL_WORDS.forEach((w, i) => { const k = tslNz(w); if (!rk.has(k)) rk.set(k, i + 1); });
+  const cov = new Set(); // 同一個字在別篇已有詳解就沿用，所以全部文章一起算
+  DATA.forEach(x => dnExtraOf(x).forEach(e => { cov.add(tslNz(e.text || e.word)); (e.forms || []).forEach(f => { if (f && f.w) cov.add(tslNz(f.w)); }); }));
+  const groups = []; let total = 0, ok = 0;
+  [...DATA].sort((a, b) => a.week - b.week || a.day - b.day).forEach(x => {
+    const miss = [];
+    (x.vocab || []).forEach((v, i) => {
+      const k = tslNz(v.word), r = rk.get(k); if (!r) return;
+      total++; if (cov.has(k)) ok++; else miss.push({ word: v.word, i, r });
+    });
+    if (miss.length) groups.push({ x, miss });
+  });
+  return { groups, total, ok, miss: total - ok };
+}
+function tslBadge() {
+  const g = tslGaps(); if (!g) return '';
+  return `　<span class="${g.miss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">TSL 缺詳解 ${g.miss}</span>`;
+}
+const tslGrp = qid => { const g = tslGaps(); return g && g.groups.find(o => idOf(o.x) === qid); };
+function tslEnsure(o) { o.miss.forEach(m => dnMarkVocab(o.x, o.x.vocab[m.i])); save(); return new Set(o.miss.map(m => dnKey(m.word))); }
+function tslFlash(b, t) { if (!b) return; const o = b.dataset.o || (b.dataset.o = b.textContent); b.textContent = t; setTimeout(() => { b.textContent = o; }, 1200); }
+function tslCopy(qid, b) { // 把這篇缺詳解的 TSL 字加進入庫，並複製只含這些字的 AI 提示詞
+  const o = tslGrp(qid); if (!o) return;
+  const only = tslEnsure(o);
+  auCopy(dnPrompt(qid, only)); tslFlash(b, '✓ 已複製');
+}
+function tslToMarks(qid) { const o = tslGrp(qid); if (!o) return; tslEnsure(o); DN.mf = 'todo'; dnNav('marks'); }
+function tslOpen(w, d, i) { cur.w = w; cur.d = d; dnOpenVocab(i); } // 看核心單字卡（沒有詳解時會顯示「尚未補充詳解」）
+function tslCopyWords(b) {
+  const g = tslGaps(); if (!g) return;
+  auCopy(g.groups.flatMap(o => o.miss).sort((a, c) => a.r - c.r).map(m => m.word).join(', ')); tslFlash(b, '✓ 已複製');
+}
+function tslSection() {
+  const sec = `${card} p-4 mb-4`, g = tslGaps();
+  if (!g) return `<section id="tsl-sec" class="${sec}"><h3 class="font-bold text-sm">📚 TSL 單字詳解</h3><p class="text-xs text-amber-600 mt-1">未載入 tsl.js（請在 daily.html 加入 &lt;script src="tsl.js"&gt;）。</p></section>`;
+  const sb = `${btn} border border-slate-300 dark:border-slate-700 !py-1 !px-2.5 text-xs`;
+  let h = `<section id="tsl-sec" class="${sec}"><div class="flex flex-wrap items-center justify-between gap-2"><h3 class="font-bold text-sm">📚 TSL 單字詳解</h3>
+    <div class="flex gap-2">${g.miss ? `<button onclick="tslCopyWords(this)" class="${sb}">複製缺詳解單字</button>` : ''}<a href="vocab.html" onclick="tslPreset('gap')" class="${sb}">TSL 總表 →</a></div></div>
+    <p class="mt-1 text-xs text-slate-500">文章核心單字中屬於 TSL 的字：共 <b>${g.total}</b> 個，已有詳解 <b class="text-emerald-600 dark:text-emerald-400">${g.ok}</b>，缺詳解 <b class="${g.miss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">${g.miss}</b>。</p>
+    <div class="h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 mt-2 overflow-hidden"><div class="h-full bg-emerald-500" style="width:${g.total ? Math.round(g.ok / g.total * 100) : 0}%"></div></div>`;
+  if (!g.miss) return h + `<p class="mt-3 text-sm text-emerald-600 dark:text-emerald-400">✔ 目前每個 TSL 核心單字都有詳解</p></section>`;
+  h += `<div class="mt-3 space-y-3">` + g.groups.map(o => {
+    const x = o.x, id = idOf(x);
+    return `<div class="rounded-lg border border-slate-200 dark:border-slate-800 p-3">
+      <div class="flex flex-wrap items-center justify-between gap-2"><button onclick="openItem(${x.week},${x.day})" class="text-sm font-bold text-indigo-600 dark:text-indigo-400 underline cursor-pointer">W${x.week} · D${x.day} ${esc(x.tag || '')}</button>
+        <div class="flex gap-1.5"><button onclick="tslCopy('${id}',this)" class="${btn} bg-indigo-600 text-white !py-1 !px-2.5 text-xs">複製 AI 提示詞（${o.miss.length}）</button><button onclick="tslToMarks('${id}')" class="${sb}">加入入庫彙整</button></div></div>
+      <div class="flex flex-wrap gap-1.5 mt-2">${o.miss.map(m => `<button onclick="tslOpen(${x.week},${x.day},${m.i})" title="TSL 詞頻排名 #${m.r}" class="text-xs rounded-full px-2.5 py-1 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 cursor-pointer">${esc(m.word)} <span class="opacity-60">#${m.r}</span></button>`).join('')}</div></div>`;
+  }).join('') + `</div><p class="mt-3 text-[11px] text-slate-400 leading-relaxed">流程：按「複製 AI 提示詞」（會順便把這些字加入入庫）貼給 AI → AI 回傳的 JSON 存成 w{週}d{天}_extra.json → json_merge.py 合併進 daily.json → 執行 Scan總表與音檔.py 並上傳 → 重新整理，這裡與 TSL 總表就會更新。</p></section>`;
+  return h;
 }
 
 /* ===== 單篇維護：資料／mp3／timing ===== */
@@ -1035,7 +1090,7 @@ async function boot() {
   } catch (e) { return bootFail(e); }
   try {
     cur.view = 'launch'; render();
-    if (location.hash === '#maint') enterSec('maint'); else if (location.hash === '#learn') enterSec('learn');
+    if (location.hash === '#tsl') { enterSec('maint'); setTimeout(() => { const e = document.getElementById('tsl-sec'); if (e) e.scrollIntoView({ block: 'start' }); }, 50); } else if (location.hash === '#maint') enterSec('maint'); else if (location.hash === '#learn') enterSec('learn');
     else if (/^#vocab=/.test(location.hash)) openVocabByHash();
   } catch (e) { console.error(e); main.innerHTML = `<div class="${card} p-8 text-center text-sm text-rose-600">畫面渲染失敗：${esc(e.message)}（請按 F12 看 Console）</div>`; }
 }

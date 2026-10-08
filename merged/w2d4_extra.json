@@ -1,0 +1,129 @@
+{
+  "week": 2,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "defect",
+      "type": "word",
+      "ipa": "/ˈdiːfekt/",
+      "pos": "n.",
+      "zh": "瑕疵、缺陷",
+      "en": "a problem that makes something not perfect or not work well",
+      "note": "在這篇裡 surface defects 指零件表面的瑕疵（如刮痕、不平整），品管團隊要在零件進入生產前檢查。defect 是製造與品管文件的核心字，常和 test、inspect、quality 一起出現。",
+      "forms": [
+        {
+          "w": "defects",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "瑕疵（複數）",
+          "ipa": "/ˈdiːfekts/"
+        },
+        {
+          "w": "defective",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "有瑕疵的、有缺陷的",
+          "ipa": "/dɪˈfektɪv/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "manufacturing defect",
+          "zh": "製造瑕疵",
+          "example": {
+            "en": "The company will repair any manufacturing defect for free.",
+            "zh": "公司會免費修理任何製造瑕疵。"
+          }
+        },
+        {
+          "phrase": "find a defect",
+          "zh": "發現瑕疵",
+          "example": {
+            "en": "The inspector found a defect in the second batch.",
+            "zh": "檢查員在第二批貨中發現了瑕疵。"
+          }
+        },
+        {
+          "phrase": "defect rate",
+          "zh": "瑕疵率",
+          "example": {
+            "en": "Our defect rate dropped to one percent this quarter.",
+            "zh": "我們這一季的瑕疵率降到了百分之一。"
+          }
+        },
+        {
+          "phrase": "free of defects",
+          "zh": "沒有瑕疵",
+          "example": {
+            "en": "All items are checked to make sure they are free of defects.",
+            "zh": "所有商品都經過檢查，確保沒有瑕疵。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "品管",
+          "en": "The team checks every product for defects before shipping.",
+          "zh": "團隊在出貨前會檢查每件產品是否有瑕疵。"
+        },
+        {
+          "tag": "客服",
+          "en": "If you notice a defect, please send us a photo.",
+          "zh": "如果您發現瑕疵，請寄一張照片給我們。"
+        },
+        {
+          "tag": "採購",
+          "en": "The supplier agreed to replace parts with visible defects.",
+          "zh": "供應商同意更換有明顯瑕疵的零件。"
+        },
+        {
+          "tag": "會議",
+          "en": "A small defect in the design caused the delay.",
+          "zh": "設計上的一個小缺陷造成了延誤。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "damage",
+          "diff": "damage 是東西後來「受損」（如運送中撞壞）；defect 是製造或設計時就存在的瑕疵。"
+        },
+        {
+          "word": "flaw",
+          "diff": "flaw 與 defect 意思相近，flaw 多指較小的缺點或不完美；defect 更常用於產品品質與製造的正式情境。"
+        }
+      ],
+      "family": [
+        {
+          "w": "defective",
+          "pos": "adj.",
+          "zh": "有瑕疵的",
+          "ipa": "/dɪˈfektɪv/",
+          "example": {
+            "en": "We returned the defective units to the supplier yesterday.",
+            "zh": "我們昨天把有瑕疵的商品退還給供應商。"
+          }
+        },
+        {
+          "w": "flaw",
+          "pos": "n.",
+          "zh": "缺點、瑕疵",
+          "ipa": "/flɔː/",
+          "example": {
+            "en": "The report pointed out a flaw in our plan.",
+            "zh": "報告指出了我們計畫中的一個缺點。"
+          }
+        },
+        {
+          "w": "damage",
+          "pos": "n.",
+          "zh": "損壞",
+          "ipa": "/ˈdæmɪdʒ/",
+          "example": {
+            "en": "The box arrived with some damage on one corner.",
+            "zh": "箱子送達時有一個角受損。"
+          }
+        }
+      ]
+    }
+  ]
+}

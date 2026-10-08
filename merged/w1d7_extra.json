@@ -1,0 +1,161 @@
+{
+  "week": 1,
+  "day": 7,
+  "extra_vocab": [
+    {
+      "text": "allocate",
+      "type": "word",
+      "ipa": "/ˈæləkeɪt/",
+      "pos": "v.",
+      "zh": "分配、撥給",
+      "en": "to give a part of money, time, or resources to a certain person or use",
+      "note": "在這篇簡報裡，allocate the rest to staff training 是說預算大部分用在軟體開發，剩下的撥給員工訓練。常用句型是 allocate A to B（把 A 分配給 B），也可以用 allocate A for B（把 A 撥作 B 用途）。",
+      "forms": [
+        { "w": "allocates", "label": "第三人稱單數", "pos": "v.", "zh": "分配、撥給", "ipa": "/ˈæləkeɪts/" },
+        { "w": "allocated", "label": "過去式／過去分詞", "pos": "v.", "zh": "分配了、已撥給的", "ipa": "/ˈæləkeɪtɪd/" },
+        { "w": "allocating", "label": "現在分詞", "pos": "v.", "zh": "正在分配", "ipa": "/ˈæləkeɪtɪŋ/" },
+        { "w": "allocation", "label": "名詞（單數）", "pos": "n.", "zh": "分配、撥款", "ipa": "/ˌæləˈkeɪʃən/" },
+        { "w": "allocations", "label": "名詞（複數）", "pos": "n.", "zh": "分配額（複數）", "ipa": "/ˌæləˈkeɪʃənz/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "allocate funds",
+          "zh": "撥款",
+          "example": { "en": "The board agreed to allocate funds for a new training center.", "zh": "董事會同意撥款興建新的訓練中心。" }
+        },
+        {
+          "phrase": "allocate resources",
+          "zh": "分配資源",
+          "example": { "en": "We need to allocate resources more carefully this quarter.", "zh": "這一季我們需要更謹慎地分配資源。" }
+        },
+        {
+          "phrase": "allocate time",
+          "zh": "安排時間",
+          "example": { "en": "Please allocate time each week to update the project report.", "zh": "請每週安排時間更新專案報告。" }
+        },
+        {
+          "phrase": "be allocated to",
+          "zh": "被分配給…",
+          "example": { "en": "Part of the budget was allocated to marketing.", "zh": "一部分預算被分配給行銷部門。" }
+        }
+      ],
+      "examples": [
+        { "tag": "預算", "en": "The finance department will allocate money to each team.", "zh": "財務部門會把經費分配給各個團隊。" },
+        { "tag": "會議", "en": "How should we allocate the remaining budget this year?", "zh": "我們今年該如何分配剩下的預算？" },
+        { "tag": "人資", "en": "Each new employee is allocated a desk and a laptop.", "zh": "每位新進員工都會分配到一張桌子和一台筆記型電腦。" },
+        { "tag": "採購", "en": "The company allocated extra space in the warehouse for the new stock.", "zh": "公司在倉庫多撥出一塊空間放新進的貨。" }
+      ],
+      "confusable": [
+        { "word": "assign", "diff": "assign 多指指派人去做某項工作或任務；allocate 多指分配金錢、時間、空間等資源。" },
+        { "word": "distribute", "diff": "distribute 是把東西分發給很多人或地點，例如傳單、產品；allocate 是依計畫決定各部分的用途或份額。" }
+      ],
+      "family": [
+        {
+          "w": "allocation",
+          "pos": "n.",
+          "zh": "分配、撥款",
+          "ipa": "/ˌæləˈkeɪʃən/",
+          "example": { "en": "The allocation of funds will be decided on Friday.", "zh": "經費的分配將在星期五決定。" }
+        },
+        {
+          "w": "budget",
+          "pos": "n.",
+          "zh": "預算",
+          "ipa": "/ˈbʌdʒɪt/",
+          "example": { "en": "Our budget for advertising is quite limited this year.", "zh": "我們今年的廣告預算相當有限。" }
+        },
+        {
+          "w": "resource",
+          "pos": "n.",
+          "zh": "資源",
+          "ipa": "/ˈriːsɔːrs/",
+          "example": { "en": "Staff time is our most valuable resource.", "zh": "員工的時間是我們最寶貴的資源。" }
+        },
+        {
+          "w": "assign",
+          "pos": "v.",
+          "zh": "指派、分派",
+          "ipa": "/əˈsaɪn/",
+          "example": { "en": "The manager assigned two engineers to the new project.", "zh": "經理指派兩位工程師負責這個新專案。" }
+        }
+      ]
+    },
+    {
+      "text": "obtain",
+      "type": "word",
+      "ipa": "/əbˈteɪn/",
+      "pos": "v.",
+      "zh": "取得、獲得",
+      "en": "to get something, often by asking for it or by working for it",
+      "note": "在這篇簡報裡，obtain approval from the finance department 是說要先取得財務部門的核准，才能往下進行。obtain 比 get 正式，常用在 approval、permission、information 這類書面或商務的情境。",
+      "forms": [
+        { "w": "obtains", "label": "第三人稱單數", "pos": "v.", "zh": "取得", "ipa": "/əbˈteɪnz/" },
+        { "w": "obtained", "label": "過去式／過去分詞", "pos": "v.", "zh": "取得了、已取得的", "ipa": "/əbˈteɪnd/" },
+        { "w": "obtaining", "label": "現在分詞", "pos": "v.", "zh": "正在取得", "ipa": "/əbˈteɪnɪŋ/" },
+        { "w": "obtainable", "label": "形容詞", "pos": "adj.", "zh": "可取得的", "ipa": "/əbˈteɪnəbəl/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "obtain approval",
+          "zh": "取得核准",
+          "example": { "en": "You must obtain approval from your manager before booking the trip.", "zh": "訂行程之前，你必須先取得主管的核准。" }
+        },
+        {
+          "phrase": "obtain permission",
+          "zh": "取得許可",
+          "example": { "en": "Visitors need to obtain permission before taking photos in the lab.", "zh": "訪客在實驗室拍照前需要先取得許可。" }
+        },
+        {
+          "phrase": "obtain information",
+          "zh": "取得資訊",
+          "example": { "en": "You can obtain more information from our Web site.", "zh": "你可以從我們的網站取得更多資訊。" }
+        },
+        {
+          "phrase": "obtain a license",
+          "zh": "取得執照",
+          "example": { "en": "The company hopes to obtain a license to sell its products overseas.", "zh": "公司希望取得執照，把產品賣到海外。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "We still need to obtain the final figures from the sales team.", "zh": "我們還需要從業務團隊拿到最終的數字。" },
+        { "tag": "電子郵件", "en": "I am writing to ask how I can obtain a copy of the contract.", "zh": "我寫信是想請問如何取得合約的副本。" },
+        { "tag": "採購", "en": "It was hard to obtain enough materials during the shortage.", "zh": "在短缺期間，很難取得足夠的材料。" },
+        { "tag": "出差", "en": "Travelers should obtain a visa before they leave for the conference.", "zh": "旅客在出發參加會議前應先取得簽證。" }
+      ],
+      "confusable": [
+        { "word": "get", "diff": "get 是最口語、最常用的字；obtain 比較正式，多用在公文、電子郵件和簡報裡，常需要透過申請或努力才拿到。" },
+        { "word": "acquire", "diff": "acquire 多指長時間累積取得，例如技能、經驗，或公司收購別家公司；obtain 多指一次性取得核准、資料、許可等。" }
+      ],
+      "family": [
+        {
+          "w": "obtainable",
+          "pos": "adj.",
+          "zh": "可取得的",
+          "ipa": "/əbˈteɪnəbəl/",
+          "example": { "en": "The parts are easily obtainable from local suppliers.", "zh": "這些零件很容易從當地供應商那裡取得。" }
+        },
+        {
+          "w": "approval",
+          "pos": "n.",
+          "zh": "核准、批准",
+          "ipa": "/əˈpruːvəl/",
+          "example": { "en": "The plan is waiting for approval from the director.", "zh": "這項計畫正在等待主任的核准。" }
+        },
+        {
+          "w": "permission",
+          "pos": "n.",
+          "zh": "許可、准許",
+          "ipa": "/pərˈmɪʃən/",
+          "example": { "en": "Employees need permission to work from home.", "zh": "員工需要獲得許可才能在家工作。" }
+        },
+        {
+          "w": "acquire",
+          "pos": "v.",
+          "zh": "取得、獲得；收購",
+          "ipa": "/əˈkwaɪər/",
+          "example": { "en": "The firm plans to acquire a smaller competitor next year.", "zh": "這家公司計畫明年收購一家規模較小的競爭對手。" }
+        }
+      ]
+    }
+  ]
+}

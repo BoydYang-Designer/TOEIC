@@ -157,8 +157,18 @@ function dnImportReports(input) {
 const dnMarks = () => S.marks || (S.marks = []);
 const dnMarksOf = qid => dnMarks().filter(m => m.qid === qid);
 const dnExtraOf = x => Array.isArray(x && x.extra_vocab) ? x.extra_vocab : [];
-const dnFindExtra = (x, text) => dnExtraOf(x).find(e => dnKey(e.text || e.word) === dnKey(text));
-const dnMerged = m => { const x = dnArt(m.qid); return !!(x && dnFindExtra(x, m.text)); };
+const dnFindExtra = (x, text) => dnExtraOf(x).find(e => dnKey(e.text || e.word) === dnKey(text)); // 只找本篇
+/* 同一個字在別篇已有詳解時，沿用那一份：先找本篇，再依週次找其他篇 */
+const dnArts = () => DATA.slice().sort((a, b) => a.week - b.week || a.day - b.day);
+const dnLabel = a => `W${a.week}·D${a.day}`;
+const dnExtraSrc = (x, text) => dnFindExtra(x, text) ? x : (dnArts().find(a => dnFindExtra(a, text)) || null);
+const dnFindExtraAny = (x, text) => { const s = x && dnExtraSrc(x, text); return s ? dnFindExtra(s, text) : undefined; };
+function dnElsewhere(qid, text) { // 同一個字在「其他篇」的入庫狀態：{ label, merged } 或 null
+  for (const a of dnArts()) if (idOf(a) !== qid && dnFindExtra(a, text)) return { label: dnLabel(a), merged: true };
+  const k = dnKey(text), o = dnMarks().filter(m => m.qid !== qid && dnKey(m.text) === k && dnArt(m.qid)).sort((a, b) => { const A = dnArt(a.qid), B = dnArt(b.qid); return A.week - B.week || A.day - B.day; })[0];
+  return o ? { label: dnLabel(dnArt(o.qid)), merged: false } : null;
+}
+const dnMerged = m => { const x = dnArt(m.qid); return !!(x && dnExtraSrc(x, m.text)); }; // 本篇或其他篇有詳解都算已寫回
 const dnOff = (root, node, off) => { const r = document.createRange(); r.selectNodeContents(root); r.setEnd(node, off); return r.toString().length; };
 const dnWordN = t => (String(t).match(/[A-Za-z0-9][A-Za-z0-9'’-]*/g) || []).length;
 function dnGuess(p, text, from, to) { // 1 字＝單字；2–6 字＝片語；整句或更長＝句子
@@ -200,12 +210,14 @@ function dnBar() {
   if (!DN.sel) { if (el) el.style.display = 'none'; return; }
   if (!el) { el = document.createElement('div'); el.id = 'dn-bar'; document.body.appendChild(el); }
   const S_ = DN.sel, dup = dnMarks().some(m => m.qid === S_.qid && dnKey(m.text) === dnKey(S_.text));
+  const el2 = dnElsewhere(S_.qid, S_.text);
+  const chip = el2 ? ` <span class="ml-1 text-[11px] rounded px-1.5 py-0.5 ${el2.merged ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300' : 'bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300'}">已在 ${el2.label} 入庫${el2.merged ? '，沿用詳解' : '（詳解待補）'}</span>` : '';
   el.style.display = '';
   el.className = 'fixed inset-x-2 bottom-[4.5rem] md:inset-x-auto md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-[30rem] z-50 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-xl p-2.5';
   const tb = t => `<button onmousedown="event.preventDefault()" onclick="dnSetType('${t}')" class="text-xs rounded-lg px-2.5 py-1.5 cursor-pointer ${S_.type === t ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${DNT[t]}</button>`;
-  el.innerHTML = `<p class="text-xs text-slate-500 truncate mb-1.5">已選：<b class="text-slate-800 dark:text-slate-200">${esc(S_.text)}</b></p>
+  el.innerHTML = `<p class="text-xs text-slate-500 truncate mb-1.5">已選：<b class="text-slate-800 dark:text-slate-200">${esc(S_.text)}</b>${chip}</p>
     <div class="flex items-center gap-1.5">${tb('word')}${tb('phrase')}${tb('sentence')}
-    <button onmousedown="event.preventDefault()" onclick="dnAddMark()" class="ml-auto text-sm rounded-lg px-3 py-1.5 cursor-pointer ${dup ? 'bg-slate-200 dark:bg-slate-700 text-slate-500' : dnPri}">${dup ? '已入庫' : '＋ 入庫'}</button>
+    <button onmousedown="event.preventDefault()" onclick="dnAddMark()" class="ml-auto text-sm rounded-lg px-3 py-1.5 cursor-pointer ${dup ? 'bg-slate-200 dark:bg-slate-700 text-slate-500' : dnPri}">${dup ? '已入庫' : (el2 && el2.merged ? '＋ 入庫（沿用詳解）' : '＋ 入庫')}</button>
     <button onmousedown="event.preventDefault()" onclick="dnSelClear()" class="text-slate-400 hover:text-slate-600 text-xl leading-none px-1.5 cursor-pointer" aria-label="關閉">×</button></div>`;
 }
 function dnToggleMk() { // 標註模式開關（與文稿卡片上的 Reading/Listening 標籤共用）
@@ -240,7 +252,7 @@ function dnAddMark() {
   const x = dnArt(s.qid), p = String(x ? x.passage : '');
   const now = Date.now();
   dnMarks().push({ id: dnId('m'), qid: s.qid, text: s.text, type: s.type, ctx: s.type === 'sentence' ? s.text : dnCtxOf(p, s.from, s.to, s.text), from: s.from, to: s.to, note: '', created: now, updated: now });
-  save(); dnSelClear(); dnToast(`已入庫（${DNT[s.type]}）`); render();
+  const el = dnElsewhere(s.qid, s.text); save(); dnSelClear(); dnToast(el && el.merged ? `已入庫，沿用 ${el.label} 的詳解` : `已入庫（${DNT[s.type]}）`); render();
 }
 /* 文稿上畫底線：事後在 DOM 上把對應的文字包起來（不影響排版、不影響 timing 句子的 span） */
 function dnLocate(p, m) {
@@ -277,12 +289,12 @@ document.getElementById('main').addEventListener('click', e => { // 在文稿上
 function dnMarkMenu(id) {
   const m = dnMarks().find(q => q.id === id); if (!m) return;
   DN.mk = id;
-  const merged = dnMerged(m);
+  const merged = dnMerged(m), own = !!dnFindExtra(dnArt(m.qid) || {}, m.text), srcA = merged ? dnExtraSrc(dnArt(m.qid), m.text) : null;
   dnModal(`<div class="${card} w-full max-w-lg p-4 md:p-5"><div class="flex items-center justify-between mb-3"><h2 class="font-bold">📌 入庫項目</h2><button onclick="dnClose()" class="text-slate-400 hover:text-slate-600 text-xl leading-none cursor-pointer" aria-label="關閉">×</button></div>
-    <p class="text-lg font-bold break-words">${esc(m.text)}</p><p class="text-xs text-slate-500 mt-1 mb-3">${esc(dnArtLabel(m.qid))}　${merged ? '<span class="text-emerald-600">✔ 詳解已寫回</span>' : '待補詳解'}</p>
+    <p class="text-lg font-bold break-words">${esc(m.text)}</p><p class="text-xs text-slate-500 mt-1 mb-3">${esc(dnArtLabel(m.qid))}　${merged ? `<span class="text-emerald-600">✔ 詳解已寫回${srcA && !own ? '（沿用 ' + dnLabel(srcA) + '）' : ''}</span>` : '待補詳解'}</p>
     <label class="block text-xs text-slate-500 mb-1">類型</label><div class="flex gap-1.5 mb-3">${['word', 'phrase', 'sentence'].map(t => `<button onclick="dnMkType('${t}')" id="dn-mt-${t}" data-on="${m.type === t ? 1 : 0}" class="text-xs rounded-lg px-3 py-1.5 cursor-pointer ${m.type === t ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${DNT[t]}</button>`).join('')}</div>
     <label class="block text-xs text-slate-500 mb-1">我的備註（給 AI 看，例如：不懂為什麼用 on）</label><textarea id="dn-mn" rows="3" class="${dnInp} mb-3">${esc(m.note || '')}</textarea>
-    <div class="flex flex-wrap gap-2 justify-between">${merged ? '<span class="text-[11px] text-slate-400 self-center max-w-[14rem]">詳解已寫回 daily.json，無法在這裡刪除。</span>' : `<button onclick="dnDelMark('${m.id}')" class="${btn} text-rose-500">刪除</button>`}<div class="flex gap-2">${merged ? `<button onclick="dnClose();dnOpenExtra('${m.qid}',this.dataset.t)" data-t="${esc(m.text)}" class="${btn} ${dnLine}">看詳解</button>` : ''}<button onclick="dnSaveMark()" class="${btn} ${dnPri}">儲存</button></div></div></div>`);
+    <div class="flex flex-wrap gap-2 justify-between">${own ? '<span class="text-[11px] text-slate-400 self-center max-w-[14rem]">詳解已寫回 daily.json，無法在這裡刪除。</span>' : `<button onclick="dnDelMark('${m.id}')" class="${btn} text-rose-500">刪除</button>`}<div class="flex gap-2">${merged ? `<button onclick="dnClose();dnOpenExtra('${m.qid}',this.dataset.t)" data-t="${esc(m.text)}" class="${btn} ${dnLine}">看詳解</button>` : ''}<button onclick="dnSaveMark()" class="${btn} ${dnPri}">儲存</button></div></div></div>`);
 }
 function dnMkType(t) { ['word', 'phrase', 'sentence'].forEach(k => { const b = document.getElementById('dn-mt-' + k); if (!b) return; const on = k === t; b.dataset.on = on ? 1 : 0; b.className = 'text-xs rounded-lg px-3 py-1.5 cursor-pointer ' + (on ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'); }); }
 function dnSaveMark() {
@@ -295,7 +307,7 @@ function dnDelMark(id) { if (!confirm('確定刪除這筆入庫？')) return; S.
 function dnDelMark2(id) { if (!confirm('確定刪除這筆入庫？')) return; S.marks = dnMarks().filter(m => m.id !== id); save(); render(); }
 
 function dnMyCard(m) { // 我的入庫卡片：版型與核心多益單字一致，初步說明取自已寫回的 extra_vocab（zh／en／note）
-  const x = dnArt(m.qid), e = x && dnFindExtra(x, m.text), full = m.type === 'sentence';
+  const x = dnArt(m.qid), e = x && dnFindExtraAny(x, m.text), full = m.type === 'sentence';
   const sp = e && e.ipa ? `<p class="text-xs text-slate-400">${esc(e.ipa)}</p>` : '';
   const pos = e && e.pos ? `<span class="text-xs text-slate-500 italic ml-1">${esc(e.pos)}</span>` : '';
   const body = e
@@ -361,17 +373,18 @@ const DNF = {
   forms: '補齊 forms（屈折變化與衍生詞；每一筆都要有 label、pos、zh、ipa；缺的單複數、過去式等也要補）',
   fam: '補齊 family（每一個都要有 ipa、pos、zh，以及至少 1 句 example）'
 };
-function dnPromptItems(qid) { // 要寫進提示詞的項目：新項目＝全寫；已寫回但缺內容的＝只補缺的
+function dnPromptItems(qid, only) { // only＝Set(單字小寫)：只取這些字的新項目（TSL 缺詳解用）；省略則依勾選 // 要寫進提示詞的項目：新項目＝全寫；已寫回但缺內容的＝只補缺的
   const out = [];
-  dnMarksOf(qid).filter(dnChecked).forEach(m => {
+  dnMarksOf(qid).filter(m => only ? only.has(dnKey(m.text)) : dnChecked(m)).forEach(m => {
     if (!dnMerged(m)) { out.push({ m, fill: null }); return; }
+    if (only) return;
     const g = dnGapsOf(m).filter(k => DN.fill[k]); if (g.length) out.push({ m, fill: g });
   });
   return out;
 }
-function dnPrompt(qid) {
+function dnPrompt(qid, only) {
   const x = dnArt(qid); if (!x) return '';
-  const its = dnPromptItems(qid), lv = x.level || {}, sc = lv.score || 600, hasFill = its.some(o => o.fill);
+  const its = dnPromptItems(qid, only), lv = x.level || {}, sc = lv.score || 600, hasFill = its.some(o => o.fill);
   const items = its.map(({ m, fill }, i) => {
     let t = `${i + 1}. ` + (fill ? '【補齊】' : '') + `type=${m.type}｜text="${m.text}"` + (m.type === 'sentence' ? '' : `｜所在句："${m.ctx}"`) + (m.note ? `｜我的備註：${m.note}` : '');
     if (fill) t += `\n   要補：${fill.map(k => DNF[k]).join('；')}\n   現有詳解（既有內容保留，只補缺的）：${JSON.stringify(dnFindExtra(x, m.text))}`;
@@ -498,15 +511,23 @@ function dnAddFromVocab(i) { // 核心單字沒有詳解時：一鍵入庫（之
   dnMarks().push({ id: dnId('m'), qid: id, text: v.word, type: /\s/.test(v.word) ? 'phrase' : 'word', ctx: mm ? dnCtxOf(p, from, to, v.word) : v.word, from: mm ? from : 0, to: mm ? to : 0, note: '', created: now, updated: now });
   save(); dnToast('已入庫，可到「📌 入庫彙整」產生提示詞'); render();
 }
+function dnMarkVocab(x, v) { // 核心單字 → 入庫（已存在就回傳舊的）；不重繪、不存檔，呼叫端自己 save()
+  const id = idOf(x), p = String(x.passage || ''), old = dnMarks().find(m => m.qid === id && dnKey(m.text) === dnKey(v.word));
+  if (old) return old;
+  const stem = /\s/.test(v.word) ? v.word : v.word.replace(/e$/i, ''), re = new RegExp('\\b' + stem.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[a-z]*', 'i'), mm = re.exec(p);
+  const from = mm ? mm.index : 0, to = mm ? mm.index + v.word.length : 0, now = Date.now();
+  const m = { id: dnId('m'), qid: id, text: v.word, type: /\s/.test(v.word) ? 'phrase' : 'word', ctx: mm ? dnCtxOf(p, from, to, v.word) : v.word, from: mm ? from : 0, to: mm ? to : 0, note: '', created: now, updated: now };
+  dnMarks().push(m); return m;
+}
 const dnV = o => typeof o === 'string' ? esc(o) : (o && typeof o === 'object' ? Object.values(o).filter(v => v != null && v !== '').map(v => esc(v)).join(' · ') : esc(o == null ? '' : o));
 const dnArr = v => Array.isArray(v) ? v : (v ? [v] : []);
 function dnDetailData() {
   const x = find(cur.w, cur.d), d = cur.det || {}; if (!x) return null;
   let base = null, text;
   if (d.kind === 'vocab') { base = x.vocab[d.i]; if (!base) return null; text = base.word; } else text = d.text;
-  const ex = dnFindExtra(x, text), m = dnMarksOf(idOf(x)).find(q => dnKey(q.text) === dnKey(text));
+  const ex = dnFindExtraAny(x, text), src = ex ? dnExtraSrc(x, text) : null, m = dnMarksOf(idOf(x)).find(q => dnKey(q.text) === dnKey(text));
   const e = Object.assign({}, base || {}, ex || {}); e.text = text; e.type = (ex && ex.type) || (base ? (/\s/.test(text) ? 'phrase' : 'word') : (m && m.type) || 'word');
-  return { x, e, base, ex, m, i: d.i };
+  return { x, e, base, ex, m, src, i: d.i };
 }
 function dnHiCtx(ctx, text) {
   const i = String(ctx).toLowerCase().indexOf(String(text).toLowerCase());
@@ -514,10 +535,16 @@ function dnHiCtx(ctx, text) {
 }
 const dnSpk = (x, e, suf, w) => `<button onclick="vplay('${idOf(x)}', this.dataset.t, '${suf}', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(w)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button>`;
 const dnExHtml = o => o && o.en ? `<p>${esc(o.en)}</p>${o.zh ? `<p class="text-xs text-slate-500">${esc(o.zh)}</p>` : ''}` : '';
+function dnCopyOne() { // 詳解頁：只為這個字複製 AI 提示詞（核心單字會順便入庫，提示詞需要所在句）
+  const D = dnDetailData(); if (!D) return;
+  const mk = D.m || (D.base && dnMarkVocab(D.x, D.base)); if (!mk) return;
+  save();
+  auCopy(dnPrompt(idOf(D.x), new Set([dnKey(mk.text)]))); dnToast('已複製這個字的提示詞，貼給 AI');
+}
 function dnRenderDetail() {
   const D = dnDetailData();
   if (!D) { main.innerHTML = `<div class="${card} p-8 text-center text-sm text-slate-500">找不到這個項目。<br><button onclick="up()" class="${btn} ${dnLine} mt-4">← 返回</button></div>`; return; }
-  const { x, e, ex, m } = D, T = e.type, sec = (t, body) => body ? `<section class="${card} p-4 md:p-5 mb-3"><h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">${t}</h3>${body}</section>` : '';
+  const { x, e, ex, m, src } = D, T = e.type, sec = (t, body) => body ? `<section class="${card} p-4 md:p-5 mb-3"><h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">${t}</h3>${body}</section>` : '';
   let ctx = m && m.ctx; if (!ctx && T !== 'sentence') { const p = String(x.passage || ''), i = p.toLowerCase().indexOf(String(e.text).toLowerCase()); if (i >= 0) ctx = dnCtxOf(p, i, i + e.text.length, e.text); }
   const list = (arr, fn) => arr.length ? `<ul class="space-y-1.5 text-sm">${arr.map(fn).join('')}</ul>` : '';
   const ex2 = dnArr(e.examples).map(o => typeof o === 'string' ? { en: o } : o);
@@ -527,8 +554,9 @@ function dnRenderDetail() {
     ${e.zh ? `<p class="text-base font-semibold mt-2">${esc(e.zh)}</p>` : ''}${e.en ? `<p class="text-sm text-slate-500 italic mt-1 leading-relaxed">${esc(e.en)}</p>` : ''}</div>${dnBackBtn()}</header>`;
   if (!ex) {
     h += `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 leading-relaxed">這個項目還沒有補充詳解（${D.base ? '目前只顯示核心單字卡的內容' : '待補'}）。${m ? '已在入庫，請到「📌 入庫彙整」複製 AI 提示詞，合併回 daily.json 後就會出現。' : '按下面的按鈕入庫，再到「📌 入庫彙整」產生 AI 提示詞。'}
-      <div class="mt-2">${m ? `<button onclick="dnNav('marks')" class="${dnSm}">前往 📌 入庫彙整</button>` : D.base ? `<button onclick="dnAddFromVocab(${D.i})" class="${dnSm}">＋ 入庫（請 AI 補詳解）</button>` : ''}</div></div>`;
+      <div class="mt-2 flex flex-wrap gap-2">${(m || D.base) ? `<button onclick="dnCopyOne()" class="text-xs rounded-lg px-2.5 py-1 ${dnPri} cursor-pointer">複製 AI 提示詞（這個字）</button>` : ''}${m ? `<button onclick="dnNav('marks')" class="${dnSm}">前往 📌 入庫彙整</button>` : D.base ? `<button onclick="dnAddFromVocab(${D.i})" class="${dnSm}">＋ 入庫（請 AI 補詳解）</button>` : ''}</div></div>`;
   }
+  if (ex && src && src !== x) h += `<p class="rounded-lg bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 text-xs px-3 py-2 mb-3">這個字已在 ${dnLabel(src)} 入庫並寫好詳解，這裡沿用同一份。「說明」寫的是當時那篇的用法。</p>`;
   h += sec('在文章裡', ctx ? `<div class="flex items-start gap-2"><p class="text-sm leading-relaxed flex-1">${dnHiCtx(ctx, e.text)}</p>${T === 'sentence' ? '' : `<button onclick="vplay('${idOf(x)}', this.dataset.t, '_ctx', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(ctx)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button>`}</div>` : '');
   h += sec('說明', e.note ? `<p class="text-sm leading-relaxed whitespace-pre-line">${esc(e.note)}</p>` : '');
   h += sec('句型結構', e.structure ? `<p class="text-sm leading-relaxed whitespace-pre-line">${esc(e.structure)}</p>` : '');
