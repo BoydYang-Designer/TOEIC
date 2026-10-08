@@ -1,0 +1,112 @@
+{
+  "week": 3,
+  "day": 2,
+  "extra_vocab": [
+    {
+      "text": "incur",
+      "type": "word",
+      "ipa": "/ɪnˈkɜːr/",
+      "pos": "v.",
+      "zh": "招致、產生（費用或損失）",
+      "en": "to have to pay a cost because of something you do",
+      "note": "在這篇留言中，incur a fee 指「因為在期限內取消而被收取費用」。incur 的主詞通常是行為或事件（cancellation），不是人，語氣正式，常見於合約與通知。",
+      "forms": [
+        { "w": "incurs", "label": "第三人稱單數", "pos": "v.", "zh": "招致（費用）", "ipa": "/ɪnˈkɜːrz/" },
+        { "w": "incurred", "label": "過去式／過去分詞", "pos": "v.", "zh": "招致了（費用）", "ipa": "/ɪnˈkɜːrd/" },
+        { "w": "incurring", "label": "現在分詞", "pos": "v.", "zh": "正在招致（費用）", "ipa": "/ɪnˈkɜːrɪŋ/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "incur a fee",
+          "zh": "被收取費用",
+          "example": { "en": "Late payments will incur a fee of ten dollars.", "zh": "逾期付款將被收取十美元的費用。" }
+        },
+        {
+          "phrase": "incur costs",
+          "zh": "產生成本",
+          "example": { "en": "The company incurred high costs during the move.", "zh": "公司在搬遷期間產生了高額成本。" }
+        },
+        {
+          "phrase": "incur a penalty",
+          "zh": "受到罰款",
+          "example": { "en": "Missing the deadline may incur a penalty.", "zh": "錯過截止日期可能會被罰款。" }
+        },
+        {
+          "phrase": "incur expenses",
+          "zh": "支出費用",
+          "example": { "en": "Employees must report any expenses incurred on business trips.", "zh": "員工必須申報出差時產生的任何費用。" }
+        }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Changes made after Monday will incur an extra charge.", "zh": "週一之後的更改將產生額外費用。" },
+        { "tag": "會議", "en": "We should avoid delays that could incur additional costs.", "zh": "我們應該避免可能產生額外成本的延誤。" },
+        { "tag": "出差", "en": "Any damage to the rental car will incur a repair fee.", "zh": "租用車輛的任何損壞都會被收取維修費。" },
+        { "tag": "財務", "en": "The firm incurred a small loss in the last quarter.", "zh": "這家公司上一季出現了小額虧損。" }
+      ],
+      "confusable": [
+        { "word": "occur", "diff": "occur /əˈkɜːr/ 是「發生」，不接受詞；incur 是「招致」，後面要接費用、損失等受詞。拼字與發音都很像，要小心。" },
+        { "word": "pay", "diff": "pay 是「付錢」的動作；incur 是「因而產生需要付的費用」，重點在費用的產生，不是付款本身。" }
+      ],
+      "family": [
+        { "w": "expense", "pos": "n.", "zh": "費用、開銷", "ipa": "/ɪkˈspens/", "example": { "en": "Travel expenses will be paid by the company.", "zh": "差旅費用將由公司支付。" } },
+        { "w": "penalty", "pos": "n.", "zh": "罰款、處罰", "ipa": "/ˈpenəlti/", "example": { "en": "There is a penalty for late delivery.", "zh": "延遲交貨會有罰款。" } },
+        { "w": "charge", "pos": "n.", "zh": "費用、收費", "ipa": "/tʃɑːrdʒ/", "example": { "en": "There is no charge for the first hour.", "zh": "第一個小時不收費。" } },
+        { "w": "fee", "pos": "n.", "zh": "費用（服務費、手續費）", "ipa": "/fiː/", "example": { "en": "The hotel adds a small service fee to every bill.", "zh": "飯店在每張帳單上加收少許服務費。" } }
+      ]
+    },
+    {
+      "text": "cancellation",
+      "type": "word",
+      "ipa": "/ˌkænsəˈleɪʃn/",
+      "pos": "n.",
+      "zh": "取消",
+      "en": "the act of deciding that something planned will not happen",
+      "note": "在這篇留言中，any cancellation made within forty-eight hours 指「在訂位前四十八小時內提出的取消」。cancellation 是可數名詞，常與 fee、policy、notice 搭配，出現在訂位、機票與合約通知中。",
+      "forms": [
+        { "w": "cancellations", "label": "複數", "pos": "n.", "zh": "取消（複數）", "ipa": "/ˌkænsəˈleɪʃnz/" },
+        { "w": "cancel", "label": "動詞原形", "pos": "v.", "zh": "取消", "ipa": "/ˈkænsl/" },
+        { "w": "cancels", "label": "第三人稱單數", "pos": "v.", "zh": "取消", "ipa": "/ˈkænslz/" },
+        { "w": "canceled", "label": "過去式／過去分詞（美式）", "pos": "v.", "zh": "取消了", "ipa": "/ˈkænsld/" },
+        { "w": "canceling", "label": "現在分詞（美式）", "pos": "v.", "zh": "正在取消", "ipa": "/ˈkænslɪŋ/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "cancellation fee",
+          "zh": "取消費",
+          "example": { "en": "The hotel charges a cancellation fee after noon.", "zh": "飯店在中午之後取消會收取取消費。" }
+        },
+        {
+          "phrase": "cancellation policy",
+          "zh": "取消規定",
+          "example": { "en": "Please read our cancellation policy before you book.", "zh": "預訂前請先閱讀我們的取消規定。" }
+        },
+        {
+          "phrase": "last-minute cancellation",
+          "zh": "臨時取消",
+          "example": { "en": "A last-minute cancellation left us with an empty table.", "zh": "臨時取消讓我們空出一張桌子。" }
+        },
+        {
+          "phrase": "cancellation notice",
+          "zh": "取消通知",
+          "example": { "en": "We sent a cancellation notice to all the guests.", "zh": "我們已向所有賓客寄出取消通知。" }
+        }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "We received your cancellation and have updated the schedule.", "zh": "我們已收到您的取消通知並更新了行程。" },
+        { "tag": "出差", "en": "Flight cancellations caused long delays at the airport.", "zh": "航班取消造成機場嚴重延誤。" },
+        { "tag": "會議", "en": "The cancellation of the meeting was announced this morning.", "zh": "會議取消的消息今天早上已經公布。" },
+        { "tag": "客服", "en": "Free cancellation is available up to two days before arrival.", "zh": "抵達前兩天以前都可以免費取消。" }
+      ],
+      "confusable": [
+        { "word": "postponement", "diff": "postponement 是「延期」，活動之後仍會舉行；cancellation 是「取消」，活動不再舉行。" },
+        { "word": "refund", "diff": "refund 是「退款」，是取消後可能拿回的錢；cancellation 指取消這個動作本身。" }
+      ],
+      "family": [
+        { "w": "cancel", "pos": "v.", "zh": "取消", "ipa": "/ˈkænsl/", "example": { "en": "I need to cancel my appointment for Friday.", "zh": "我需要取消週五的預約。" } },
+        { "w": "refund", "pos": "n.", "zh": "退款", "ipa": "/ˈriːfʌnd/", "example": { "en": "You will get a full refund if you cancel today.", "zh": "如果您今天取消，將獲得全額退款。" } },
+        { "w": "reservation", "pos": "n.", "zh": "預訂、訂位", "ipa": "/ˌrezərˈveɪʃn/", "example": { "en": "I would like to change my dinner reservation.", "zh": "我想更改我的晚餐訂位。" } },
+        { "w": "deposit", "pos": "n.", "zh": "訂金、押金", "ipa": "/dɪˈpɑːzɪt/", "example": { "en": "A deposit is required to hold the room.", "zh": "需要付訂金才能保留房間。" } }
+      ]
+    }
+  ]
+}

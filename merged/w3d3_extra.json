@@ -1,0 +1,141 @@
+{
+  "week": 3,
+  "day": 3,
+  "extra_vocab": [
+    {
+      "text": "reschedule",
+      "type": "word",
+      "ipa": "/riːˈskedʒuːl/",
+      "pos": "v.",
+      "zh": "重新安排時間、改期",
+      "en": "to change the time or date of something that was planned",
+      "note": "在這篇文章中，If you need to reschedule 的意思是「如果你需要改面試時間」，受詞被省略，因為從上下文就知道是指面試。reschedule 可以改到更晚或更早的時間，不一定是延後；通知中常搭配「提前多久聯絡」的要求。",
+      "forms": [
+        {
+          "w": "reschedules",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "重新安排時間",
+          "ipa": "/riːˈskedʒuːlz/"
+        },
+        {
+          "w": "rescheduled",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "已改期、被改期",
+          "ipa": "/riːˈskedʒuːld/"
+        },
+        {
+          "w": "rescheduling",
+          "label": "現在分詞／動名詞",
+          "pos": "v.",
+          "zh": "改期（動作）",
+          "ipa": "/riːˈskedʒuːlɪŋ/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "reschedule a meeting",
+          "zh": "重新安排會議時間",
+          "example": {
+            "en": "Can we reschedule the meeting for Thursday afternoon?",
+            "zh": "我們可以把會議改到星期四下午嗎？"
+          }
+        },
+        {
+          "phrase": "reschedule an appointment",
+          "zh": "重新預約、改約診或約會時間",
+          "example": {
+            "en": "I called the clinic to reschedule my appointment.",
+            "zh": "我打電話給診所，想改我的預約時間。"
+          }
+        },
+        {
+          "phrase": "reschedule an interview",
+          "zh": "重新安排面試",
+          "example": {
+            "en": "The company agreed to reschedule the interview for next week.",
+            "zh": "公司同意把面試改到下週。"
+          }
+        },
+        {
+          "phrase": "reschedule for",
+          "zh": "改到（某時間）",
+          "example": {
+            "en": "The training session was rescheduled for Monday morning.",
+            "zh": "培訓課程已改到星期一上午。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "I'm sorry, but I need to reschedule our call to tomorrow.",
+          "zh": "很抱歉，我需要把我們的通話改到明天。"
+        },
+        {
+          "tag": "出差",
+          "en": "Bad weather forced us to reschedule the client visit.",
+          "zh": "天氣不好，我們只好重新安排拜訪客戶的時間。"
+        },
+        {
+          "tag": "客服",
+          "en": "You can reschedule your delivery on our website at no cost.",
+          "zh": "您可以在我們的網站上免費更改送貨時間。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "postpone",
+          "diff": "postpone 專指「延後」到之後的時間，不一定已決定新時間；reschedule 是重新訂一個新時間，可以更晚也可以更早。"
+        },
+        {
+          "word": "cancel",
+          "diff": "cancel 是取消，活動不再舉行；reschedule 是活動仍會舉行，只是改時間。"
+        }
+      ],
+      "family": [
+        {
+          "w": "schedule",
+          "pos": "n.",
+          "zh": "時間表、行程",
+          "ipa": "/ˈskedʒuːl/",
+          "example": {
+            "en": "Please check the schedule before you book a room.",
+            "zh": "預訂會議室之前，請先看時間表。"
+          }
+        },
+        {
+          "w": "appointment",
+          "pos": "n.",
+          "zh": "約定、預約",
+          "ipa": "/əˈpɔɪntmənt/",
+          "example": {
+            "en": "I have an appointment with a client at noon.",
+            "zh": "我中午和客戶有約。"
+          }
+        },
+        {
+          "w": "postpone",
+          "pos": "v.",
+          "zh": "延後、延期",
+          "ipa": "/poʊstˈpoʊn/",
+          "example": {
+            "en": "We had to postpone the event because of the rain.",
+            "zh": "因為下雨，我們必須延後活動。"
+          }
+        },
+        {
+          "w": "cancel",
+          "pos": "v.",
+          "zh": "取消",
+          "ipa": "/ˈkænsəl/",
+          "example": {
+            "en": "Please cancel my reservation for Friday night.",
+            "zh": "請取消我星期五晚上的訂位。"
+          }
+        }
+      ]
+    }
+  ]
+}

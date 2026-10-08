@@ -1,0 +1,402 @@
+{
+  "week": 3,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "expire",
+      "type": "word",
+      "ipa": "/ɪkˈspaɪər/",
+      "pos": "v.",
+      "zh": "到期、期滿、失效",
+      "en": "to end because the time allowed has finished",
+      "note": "在這篇文章中，Our maintenance contract expires at the end of this month 表示維護合約本月底就到期，所以兩人要討論是否續約。expire 的主詞通常是合約、證件、優惠等有期限的東西，不用於人，且不接受詞。",
+      "forms": [
+        {
+          "w": "expires",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "到期",
+          "ipa": "/ɪkˈspaɪərz/"
+        },
+        {
+          "w": "expired",
+          "label": "過去式／過去分詞",
+          "pos": "v./adj.",
+          "zh": "已到期的、已過期的",
+          "ipa": "/ɪkˈspaɪərd/"
+        },
+        {
+          "w": "expiring",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "即將到期",
+          "ipa": "/ɪkˈspaɪərɪŋ/"
+        },
+        {
+          "w": "expiration",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "到期、屆滿",
+          "ipa": "/ˌekspəˈreɪʃən/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "expire on + 日期",
+          "zh": "在某日到期",
+          "example": {
+            "en": "Your membership will expire on December 31.",
+            "zh": "您的會員資格將在十二月三十一日到期。"
+          }
+        },
+        {
+          "phrase": "expiration date",
+          "zh": "到期日、有效期限",
+          "example": {
+            "en": "Please check the expiration date on your passport.",
+            "zh": "請確認您護照上的有效期限。"
+          }
+        },
+        {
+          "phrase": "about to expire",
+          "zh": "即將到期",
+          "example": {
+            "en": "The special offer is about to expire this Friday.",
+            "zh": "這項特別優惠將在本週五到期。"
+          }
+        },
+        {
+          "phrase": "expired contract",
+          "zh": "已到期的合約",
+          "example": {
+            "en": "An expired contract must be renewed before the service continues.",
+            "zh": "已到期的合約必須先續約，服務才能繼續。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "合約",
+          "en": "Our lease expires in June, so we need to start looking for a new office.",
+          "zh": "我們的租約六月到期，所以必須開始找新辦公室。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "This is a reminder that your software license will expire next week.",
+          "zh": "提醒您，您的軟體授權將在下週到期。"
+        },
+        {
+          "tag": "客服",
+          "en": "The coupon expired yesterday, but we can still offer a small discount.",
+          "zh": "這張優惠券昨天已到期，但我們仍可提供小額折扣。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "end",
+          "diff": "end 泛指結束，主詞可以是會議、活動、關係等；expire 專指有期限的東西（合約、證件、優惠）時間到而失效。"
+        },
+        {
+          "word": "terminate",
+          "diff": "terminate 指由某一方主動終止合約或關係，語氣正式；expire 是期限自然屆滿，不是任何一方主動結束。"
+        }
+      ],
+      "family": [
+        {
+          "w": "expiration",
+          "pos": "n.",
+          "zh": "到期、屆滿",
+          "ipa": "/ˌekspəˈreɪʃən/",
+          "example": {
+            "en": "The expiration of the contract is next month.",
+            "zh": "合約下個月屆滿。"
+          }
+        },
+        {
+          "w": "deadline",
+          "pos": "n.",
+          "zh": "截止日期",
+          "ipa": "/ˈdedlaɪn/",
+          "example": {
+            "en": "The deadline for the application is May 10.",
+            "zh": "申請截止日是五月十日。"
+          }
+        },
+        {
+          "w": "valid",
+          "pos": "adj.",
+          "zh": "有效的",
+          "ipa": "/ˈvælɪd/",
+          "example": {
+            "en": "This ticket is valid for three months.",
+            "zh": "這張票的有效期限是三個月。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "renew",
+      "type": "word",
+      "ipa": "/rɪˈnuː/",
+      "pos": "v.",
+      "zh": "續約、更新、展延",
+      "en": "to continue something for another period of time",
+      "note": "在這篇文章中，decide whether to renew it 的 it 指維護合約，意思是決定是否要續約一段新的期間。renew 常用於合約、會員、證照、訂閱，表示在到期前延長有效期限。",
+      "forms": [
+        {
+          "w": "renews",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "續約",
+          "ipa": "/rɪˈnuːz/"
+        },
+        {
+          "w": "renewed",
+          "label": "過去式／過去分詞",
+          "pos": "v./adj.",
+          "zh": "已續約的、更新過的",
+          "ipa": "/rɪˈnuːd/"
+        },
+        {
+          "w": "renewing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在續約",
+          "ipa": "/rɪˈnuːɪŋ/"
+        },
+        {
+          "w": "renewal",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "續約、更新",
+          "ipa": "/rɪˈnuːəl/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "renew a contract",
+          "zh": "續簽合約",
+          "example": {
+            "en": "We decided to renew the contract for another year.",
+            "zh": "我們決定再續簽合約一年。"
+          }
+        },
+        {
+          "phrase": "renew a membership",
+          "zh": "續辦會員資格",
+          "example": {
+            "en": "You can renew your membership online in just a few minutes.",
+            "zh": "您可以在線上幾分鐘內完成續辦會員。"
+          }
+        },
+        {
+          "phrase": "renew a license",
+          "zh": "更新執照或授權",
+          "example": {
+            "en": "All drivers must renew their licenses every five years.",
+            "zh": "所有駕駛人都必須每五年更新一次駕照。"
+          }
+        },
+        {
+          "phrase": "renewal notice",
+          "zh": "續約通知",
+          "example": {
+            "en": "The company sent a renewal notice two months before the deadline.",
+            "zh": "公司在截止日前兩個月寄出了續約通知。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "合約",
+          "en": "If you renew early, we can offer you a ten percent discount.",
+          "zh": "如果您提早續約，我們可以給您九折優惠。"
+        },
+        {
+          "tag": "客服",
+          "en": "I would like to renew my subscription before it ends.",
+          "zh": "我想在訂閱期限結束前續訂。"
+        },
+        {
+          "tag": "會議",
+          "en": "We will decide next week whether to renew the supplier agreement.",
+          "zh": "我們下週會決定是否續簽供應商協議。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "extend",
+          "diff": "extend 是把原有期限延長（extend the deadline），不一定重新簽約；renew 通常指簽新的一期，讓合約或資格重新開始計算。"
+        },
+        {
+          "word": "renovate",
+          "diff": "renovate 指整修建築或空間；renew 指延續合約、資格，或使某物恢復新的狀態，兩者意思不同。"
+        }
+      ],
+      "family": [
+        {
+          "w": "renewal",
+          "pos": "n.",
+          "zh": "續約、更新",
+          "ipa": "/rɪˈnuːəl/",
+          "example": {
+            "en": "The renewal fee is due by the end of the month.",
+            "zh": "續約費用須在月底前繳交。"
+          }
+        },
+        {
+          "w": "extend",
+          "pos": "v.",
+          "zh": "延長、延期",
+          "ipa": "/ɪkˈstend/",
+          "example": {
+            "en": "Can we extend the contract for six months?",
+            "zh": "我們可以把合約延長六個月嗎？"
+          }
+        },
+        {
+          "w": "subscription",
+          "pos": "n.",
+          "zh": "訂閱",
+          "ipa": "/səbˈskrɪpʃən/",
+          "example": {
+            "en": "My subscription to the magazine ends in July.",
+            "zh": "我對那份雜誌的訂閱在七月結束。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "waive",
+      "type": "word",
+      "ipa": "/weɪv/",
+      "pos": "v.",
+      "zh": "免除、放棄（費用或權利）",
+      "en": "to choose not to ask for a payment or follow a rule",
+      "note": "在這篇文章中，they might even waive the installation fee 表示廠商可能會免收安裝費，作為簽三年長約的優惠。waive 的受詞通常是費用、罰款或規定，主詞是有權決定的一方，如公司或廠商。",
+      "forms": [
+        {
+          "w": "waives",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "免除",
+          "ipa": "/weɪvz/"
+        },
+        {
+          "w": "waived",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "已免除、被免除",
+          "ipa": "/weɪvd/"
+        },
+        {
+          "w": "waiving",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在免除",
+          "ipa": "/ˈweɪvɪŋ/"
+        },
+        {
+          "w": "waiver",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "棄權書、豁免",
+          "ipa": "/ˈweɪvər/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "waive a fee",
+          "zh": "免收費用",
+          "example": {
+            "en": "The bank agreed to waive the late fee this time.",
+            "zh": "銀行同意這次免收逾期費。"
+          }
+        },
+        {
+          "phrase": "waive the requirement",
+          "zh": "免除要求",
+          "example": {
+            "en": "The manager waived the requirement for a deposit.",
+            "zh": "經理免除了需要繳交訂金的要求。"
+          }
+        },
+        {
+          "phrase": "waive a charge",
+          "zh": "免除收費",
+          "example": {
+            "en": "They will waive the delivery charge for orders over 100 dollars.",
+            "zh": "滿一百美元的訂單，他們會免收運費。"
+          }
+        },
+        {
+          "phrase": "fee waiver",
+          "zh": "費用豁免",
+          "example": {
+            "en": "Students can apply for a fee waiver on the website.",
+            "zh": "學生可以在網站上申請費用豁免。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "客服",
+          "en": "If you call today, we will waive the setup fee.",
+          "zh": "如果您今天來電，我們會免收設定費。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "We are happy to waive the penalty because this was our mistake.",
+          "zh": "這是我們的錯，所以我們很樂意免除罰款。"
+        },
+        {
+          "tag": "訂房",
+          "en": "The hotel waived the cancellation fee after the flight was canceled.",
+          "zh": "班機取消後，飯店免除了取消費。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "refund",
+          "diff": "refund 是把已付的錢退還；waive 是一開始就不收取費用，不涉及退款。"
+        },
+        {
+          "word": "cancel",
+          "diff": "cancel 是取消整件事（訂單、合約）；waive 只是免除其中某項費用或要求，合約仍然有效。"
+        }
+      ],
+      "family": [
+        {
+          "w": "waiver",
+          "pos": "n.",
+          "zh": "棄權書、豁免",
+          "ipa": "/ˈweɪvər/",
+          "example": {
+            "en": "Please sign the waiver before joining the program.",
+            "zh": "參加課程之前，請先簽署棄權書。"
+          }
+        },
+        {
+          "w": "exempt",
+          "pos": "adj.",
+          "zh": "被免除的",
+          "ipa": "/ɪɡˈzempt/",
+          "example": {
+            "en": "Some items are exempt from the delivery fee.",
+            "zh": "部分商品可免收運費。"
+          }
+        },
+        {
+          "w": "discount",
+          "pos": "n.",
+          "zh": "折扣",
+          "ipa": "/ˈdɪskaʊnt/",
+          "example": {
+            "en": "We offer a discount for early payment.",
+            "zh": "提早付款可享折扣。"
+          }
+        }
+      ]
+    }
+  ]
+}

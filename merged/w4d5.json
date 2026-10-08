@@ -1,0 +1,125 @@
+{
+  "week": 4,
+  "day": 5,
+  "tag": "新品運動襪行銷企劃書（素人體驗推廣）",
+  "type": "Reading",
+  "level": {
+    "score": 725,
+    "range": "675-775",
+    "cefr": "B2",
+    "why": "企劃書使用 following、Rather than、although 與 which 非限定子句，搭配被動與條件式預算釋出規則，需整合上次成效不佳的原因、新推廣對象、招募人數與期程、報酬安排及預算條件。干擾項取自文中出現過的做法與數字（購買廣告版位、六週測試、六月十二日報告），需精確區分。"
+  },
+  "passage": "CAMPAIGN BRIEF: Stridewell Performance Socks\n\nFollowing disappointing results from last spring's launch, the marketing team proposes shifting the campaign away from mass promotional messages, which many subscribers reportedly treated as spam, and toward community-based outreach among amateur runners. Rather than purchasing additional advertising space, Stridewell will invest in the recruitment of fifty local running club members, who will be asked to test the new socks for six weeks and to share honest reviews on social media.\n\nParticipants will keep the products at no charge, although they will not be paid for their posts. A preliminary report on engagement is due on June 12, and the remaining budget will be released only if the sign-up rate among subscribers rises by at least ten percent.",
+  "zh": "活動企劃書：Stridewell 高效能運動襪\n\n鑑於去年春季上市的成效不如預期，行銷團隊建議調整活動方向，不再大量發送促銷訊息（許多訂閱者據說將這些訊息當成垃圾郵件），改為在業餘跑者之間進行社群導向的推廣。Stridewell 不會再購買額外的廣告版位，而是投入資源招募五十位當地路跑社團成員，邀請他們試穿新款襪子六週，並在社群媒體上分享真實的使用心得。\n\n參與者可免費保留試用的產品，但不會因發文而獲得酬勞。關於參與度的初步報告須在 6 月 12 日提交，只有在訂閱者的註冊率至少成長百分之十的情況下，剩餘預算才會被釋出。",
+  "vocab": [
+    {"word": "runner", "ipa": "/ˈrʌnər/", "pos": "n.", "col": "amateur runner / marathon runner", "zh": "跑者、跑步者"},
+    {"word": "sock", "ipa": "/sɑːk/", "pos": "n.", "col": "a pair of socks / athletic sock", "zh": "襪子"},
+    {"word": "spam", "ipa": "/spæm/", "pos": "n.", "col": "spam filter / treat as spam", "zh": "垃圾郵件、垃圾訊息"},
+    {"word": "recruitment", "ipa": "/rɪˈkruːtmənt/", "pos": "n.", "col": "recruitment of staff / recruitment campaign", "zh": "招募"},
+    {"word": "subscriber", "ipa": "/səbˈskraɪbər/", "pos": "n.", "col": "newsletter subscriber / new subscriber", "zh": "訂閱者、訂戶"}
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What change does the marketing team propose?",
+      "opts": [
+        "Increasing the number of promotional messages sent to subscribers",
+        "Buying more advertising space in running magazines",
+        "Engaging amateur runners instead of relying on mass promotions",
+        "Redesigning the socks after negative customer reviews"
+      ],
+      "ans": 2,
+      "why": [
+        "提案是要減少大量促銷訊息，因為許多訂閱者把它們當成垃圾郵件，並非增加。",
+        "文中說 Rather than purchasing additional advertising space，也就是不再購買廣告版位。",
+        "正解：提案是從大量促銷訊息轉向在業餘跑者之間進行社群導向的推廣。",
+        "文中沒有提到要重新設計襪子，問題出在上次的推廣方式。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What is indicated about the participants?",
+      "opts": [
+        "They will keep the socks they test.",
+        "They will be paid for each social media post.",
+        "They will purchase the socks at a discount.",
+        "They will be hired as full-time employees."
+      ],
+      "ans": 0,
+      "why": [
+        "正解：Participants will keep the products at no charge，也就是免費保留試用的產品。",
+        "文中明確說他們不會因為發文而獲得酬勞。",
+        "參與者是免費保留產品，並不是以折扣價購買。",
+        "recruitment 指的是招募試用者，並非聘僱為正式員工。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "Under what condition will the remaining budget be released?",
+      "opts": [
+        "If the preliminary report is submitted by June 12",
+        "If the sign-up rate among subscribers increases by at least ten percent",
+        "If all fifty participants complete the six-week test",
+        "If the results match those of last spring's launch"
+      ],
+      "ans": 1,
+      "why": [
+        "六月十二日是初步報告的繳交期限，並非釋出預算的條件。",
+        "正解：只有在訂閱者的註冊率至少成長百分之十時，剩餘預算才會被釋出。",
+        "六週是試用期間，文中沒有說需要全部五十人完成才釋出預算。",
+        "上次春季上市的結果不理想，不可能以重現那樣的結果作為條件。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Sales representatives are responsible ______ handling customer inquiries within one business day.",
+      "opts": [
+        "of",
+        "at",
+        "on",
+        "for"
+      ],
+      "ans": 3,
+      "why": [
+        "be responsible of 不是正確搭配，應使用 for。",
+        "at 通常表示地點或時間點，不能與 responsible 搭配表示負責的事項。",
+        "on 與 responsible 的搭配不成立，語意也不通。",
+        "正解：be responsible for 表示「負責……」，後面接動名詞 handling。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The promotion is ______ to customers who have registered for the loyalty program.",
+      "opts": [
+        "avail",
+        "availably",
+        "available",
+        "availability"
+      ],
+      "ans": 2,
+      "why": [
+        "avail 是動詞，意為「有益於」，放在 is 之後無法構成句意。",
+        "availably 不是正確的字，也不能作為 be 動詞後的補語。",
+        "正解：available 是形容詞，與 is 搭配，available to 表示「可供……使用」。",
+        "availability 是名詞，與 is 搭配後語意不通。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Customer satisfaction scores have improved ______ since the new return policy was introduced.",
+      "opts": [
+        "significantly",
+        "significant",
+        "signify",
+        "significance"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：significantly 是副詞，修飾動詞 have improved，表示明顯進步。",
+        "significant 是形容詞，不能修飾動詞 improved。",
+        "signify 是動詞，句中已有動詞，不能再接一個動詞。",
+        "significance 是名詞，不能修飾動詞，語意也不通。"
+      ]
+    }
+  ]
+}

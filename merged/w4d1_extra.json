@@ -1,0 +1,624 @@
+{
+  "week": 4,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "authorization",
+      "type": "word",
+      "ipa": "/ˌɔːθərəˈzeɪʃən/",
+      "pos": "n.",
+      "zh": "授權、許可、批准",
+      "en": "official permission to do something",
+      "note": "在這篇文章中，written authorization 指相關部門主管的書面許可，必須先取得，實驗室樓層的訪客申請才會被受理。authorization 是不可數名詞，強調正式、有憑據的許可，常用於存取權限、付款與簽核流程。",
+      "forms": [
+        {
+          "w": "authorizations",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "授權（複數）",
+          "ipa": "/ˌɔːθərəˈzeɪʃənz/"
+        },
+        {
+          "w": "authorize",
+          "label": "動詞（原形）",
+          "pos": "v.",
+          "zh": "授權、批准",
+          "ipa": "/ˈɔːθəraɪz/"
+        },
+        {
+          "w": "authorized",
+          "label": "過去式／過去分詞",
+          "pos": "v./adj.",
+          "zh": "已授權的、獲准的",
+          "ipa": "/ˈɔːθəraɪzd/"
+        },
+        {
+          "w": "unauthorized",
+          "label": "反義形容詞",
+          "pos": "adj.",
+          "zh": "未經授權的",
+          "ipa": "/ʌnˈɔːθəraɪzd/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "written authorization",
+          "zh": "書面授權",
+          "example": {
+            "en": "You need written authorization to enter the storage area.",
+            "zh": "進入倉儲區需要書面授權。"
+          }
+        },
+        {
+          "phrase": "obtain authorization",
+          "zh": "取得授權",
+          "example": {
+            "en": "Please obtain authorization from your manager before ordering new equipment.",
+            "zh": "訂購新設備之前，請先取得主管的授權。"
+          }
+        },
+        {
+          "phrase": "without authorization",
+          "zh": "未經授權",
+          "example": {
+            "en": "Copying these files without authorization is not allowed.",
+            "zh": "未經授權不得複製這些檔案。"
+          }
+        },
+        {
+          "phrase": "authorization code",
+          "zh": "授權碼",
+          "example": {
+            "en": "Enter the authorization code to complete the payment.",
+            "zh": "請輸入授權碼以完成付款。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "Purchases above 5,000 dollars require authorization from the finance director.",
+          "zh": "超過五千美元的採購需要財務長的授權。"
+        },
+        {
+          "tag": "資訊安全",
+          "en": "The system will deny access if your authorization has expired.",
+          "zh": "如果您的授權已到期，系統會拒絕存取。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "I am writing to request authorization for the overseas trip.",
+          "zh": "我來信是想申請這趟海外出差的批准。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "permission",
+          "diff": "permission 是日常、一般的「允許」（ask for permission）；authorization 較正式，通常由有權限的人或部門核發，常有書面或系統記錄。"
+        },
+        {
+          "word": "approval",
+          "diff": "approval 是對計畫、預算或文件的「核准」；authorization 強調給予某人做某事的權限或資格。"
+        }
+      ],
+      "family": [
+        {
+          "w": "authorize",
+          "pos": "v.",
+          "zh": "授權、批准",
+          "ipa": "/ˈɔːθəraɪz/",
+          "example": {
+            "en": "Only the manager can authorize overtime pay.",
+            "zh": "只有經理可以批准加班費。"
+          }
+        },
+        {
+          "w": "authority",
+          "pos": "n.",
+          "zh": "權限、當局",
+          "ipa": "/əˈθɔːrəti/",
+          "example": {
+            "en": "She has the authority to sign contracts.",
+            "zh": "她有簽署合約的權限。"
+          }
+        },
+        {
+          "w": "permission",
+          "pos": "n.",
+          "zh": "允許、許可",
+          "ipa": "/pərˈmɪʃən/",
+          "example": {
+            "en": "You must ask permission before using the meeting room.",
+            "zh": "使用會議室之前必須先徵求許可。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "campus",
+      "type": "word",
+      "ipa": "/ˈkæmpəs/",
+      "pos": "n.",
+      "zh": "園區、校園",
+      "en": "the land and buildings that belong to a company or school",
+      "note": "在這篇文章中，the headquarters campus 指總部的整個園區，包含多棟建築與周邊場地，而不是單一棟大樓。campus 本來多指大學校園，現在也常用於大型企業或科技公司的辦公園區。",
+      "forms": [
+        {
+          "w": "campuses",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "園區、校園（複數）",
+          "ipa": "/ˈkæmpəsɪz/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "corporate campus",
+          "zh": "企業園區",
+          "example": {
+            "en": "The company opened a new corporate campus near the airport.",
+            "zh": "公司在機場附近開設了新的企業園區。"
+          }
+        },
+        {
+          "phrase": "on campus",
+          "zh": "在園區內、在校園內",
+          "example": {
+            "en": "Employees can find several restaurants on campus.",
+            "zh": "員工可以在園區內找到幾家餐廳。"
+          }
+        },
+        {
+          "phrase": "campus security",
+          "zh": "園區保全",
+          "example": {
+            "en": "Please call campus security if you see anything unusual.",
+            "zh": "如果看到任何異常情況，請聯絡園區保全。"
+          }
+        },
+        {
+          "phrase": "campus tour",
+          "zh": "園區導覽",
+          "example": {
+            "en": "New hires will join a campus tour on their first day.",
+            "zh": "新進員工第一天會參加園區導覽。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "Parking on campus will be limited during the renovation.",
+          "zh": "整修期間，園區內的停車位將受到限制。"
+        },
+        {
+          "tag": "招募",
+          "en": "The firm visits several university campuses each spring to recruit graduates.",
+          "zh": "這家公司每年春天會拜訪幾所大學校園，招募畢業生。"
+        },
+        {
+          "tag": "會議",
+          "en": "The sales team will move to the new building on the east campus.",
+          "zh": "業務團隊將搬到東園區的新大樓。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "premises",
+          "diff": "premises 指公司或店面使用的土地與建築物，且永遠用複數（on the premises）；campus 指大型、有多棟建築的園區或校園。"
+        },
+        {
+          "word": "headquarters",
+          "diff": "headquarters 指公司的總部，是機構的中心；campus 是占地範圍，總部可能位於一個 campus 之中。"
+        }
+      ],
+      "family": [
+        {
+          "w": "facility",
+          "pos": "n.",
+          "zh": "設施、場所",
+          "ipa": "/fəˈsɪləti/",
+          "example": {
+            "en": "The new training facility opens next month.",
+            "zh": "新的訓練設施下個月啟用。"
+          }
+        },
+        {
+          "w": "premises",
+          "pos": "n.",
+          "zh": "場所、房地",
+          "ipa": "/ˈpremɪsɪz/",
+          "example": {
+            "en": "Smoking is not allowed on the premises.",
+            "zh": "場所內禁止吸菸。"
+          }
+        },
+        {
+          "w": "headquarters",
+          "pos": "n.",
+          "zh": "總部",
+          "ipa": "/ˈhedkwɔːrtərz/",
+          "example": {
+            "en": "The headquarters is located in downtown Chicago.",
+            "zh": "總部位於芝加哥市中心。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "concierge",
+      "type": "word",
+      "ipa": "/ˌkɑːnsiˈerʒ/",
+      "pos": "n.",
+      "zh": "接待人員、服務台人員、禮賓員",
+      "en": "a person at a hotel or building who helps guests with information and services",
+      "note": "在這篇文章中，the concierge desk 是大廳裡負責訪客登記的人工服務台，取代原本的自助服務機台。concierge 原本多指飯店的禮賓人員，現在也用在辦公大樓或社區的接待與服務櫃台。",
+      "forms": [
+        {
+          "w": "concierges",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "禮賓人員（複數）",
+          "ipa": "/ˌkɑːnsiˈerʒɪz/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "concierge desk",
+          "zh": "禮賓櫃台、服務台",
+          "example": {
+            "en": "Please leave your package at the concierge desk.",
+            "zh": "請把您的包裹放在服務台。"
+          }
+        },
+        {
+          "phrase": "hotel concierge",
+          "zh": "飯店禮賓人員",
+          "example": {
+            "en": "The hotel concierge booked a table for our client dinner.",
+            "zh": "飯店禮賓人員為我們的客戶晚宴訂了位子。"
+          }
+        },
+        {
+          "phrase": "concierge service",
+          "zh": "禮賓服務",
+          "example": {
+            "en": "The building offers concierge service from eight to six.",
+            "zh": "這棟大樓從八點到六點提供禮賓服務。"
+          }
+        },
+        {
+          "phrase": "ask the concierge",
+          "zh": "請教禮賓人員",
+          "example": {
+            "en": "You can ask the concierge for directions to the station.",
+            "zh": "您可以請教服務人員前往車站的路線。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "出差",
+          "en": "The concierge arranged a taxi to the airport for us.",
+          "zh": "禮賓人員為我們安排了前往機場的計程車。"
+        },
+        {
+          "tag": "辦公大樓",
+          "en": "Visitors must sign in with the concierge before taking the elevator.",
+          "zh": "訪客搭電梯之前，必須先向服務台簽到。"
+        },
+        {
+          "tag": "活動",
+          "en": "Our concierge can recommend restaurants near the convention center.",
+          "zh": "我們的服務人員可以推薦會議中心附近的餐廳。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "receptionist",
+          "diff": "receptionist 主要負責接待來訪者、接電話與基本行政；concierge 更偏向提供資訊、訂位、叫車等服務，在公告中也可泛指訪客登記的服務台。"
+        },
+        {
+          "word": "security guard",
+          "diff": "security guard 負責安全與巡邏；concierge 主要協助與服務，通常不負責執法或巡查。"
+        }
+      ],
+      "family": [
+        {
+          "w": "receptionist",
+          "pos": "n.",
+          "zh": "接待員、櫃台人員",
+          "ipa": "/rɪˈsepʃənɪst/",
+          "example": {
+            "en": "The receptionist asked me to sign the visitor log.",
+            "zh": "接待員請我在訪客登記簿上簽名。"
+          }
+        },
+        {
+          "w": "reception",
+          "pos": "n.",
+          "zh": "接待處、櫃台",
+          "ipa": "/rɪˈsepʃən/",
+          "example": {
+            "en": "Please pick up your badge at reception.",
+            "zh": "請到櫃台領取您的識別證。"
+          }
+        },
+        {
+          "w": "assistance",
+          "pos": "n.",
+          "zh": "協助",
+          "ipa": "/əˈsɪstəns/",
+          "example": {
+            "en": "Guests may ask for assistance at the front desk.",
+            "zh": "賓客可在櫃台尋求協助。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "consistently",
+      "type": "word",
+      "ipa": "/kənˈsɪstəntli/",
+      "pos": "adv.",
+      "zh": "一致地、始終如一地",
+      "en": "in the same way every time",
+      "note": "在這篇文章中，had not been consistently enforced 表示舊制度並沒有被一致地執行，有時有人遵守、有時沒有，這正是出現問題的原因。consistently 多放在被動語態的 been 與過去分詞之間，也常用來描述績效或品質一直保持穩定。",
+      "forms": [
+        {
+          "w": "consistent",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "一致的、穩定的",
+          "ipa": "/kənˈsɪstənt/"
+        },
+        {
+          "w": "consistency",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "一致性、穩定性",
+          "ipa": "/kənˈsɪstənsi/"
+        },
+        {
+          "w": "inconsistent",
+          "label": "反義形容詞",
+          "pos": "adj.",
+          "zh": "不一致的、前後矛盾的",
+          "ipa": "/ˌɪnkənˈsɪstənt/"
+        },
+        {
+          "w": "inconsistently",
+          "label": "反義副詞",
+          "pos": "adv.",
+          "zh": "不一致地",
+          "ipa": "/ˌɪnkənˈsɪstəntli/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "consistently high",
+          "zh": "一直維持高水準",
+          "example": {
+            "en": "Customer satisfaction has been consistently high this year.",
+            "zh": "今年的顧客滿意度一直維持高水準。"
+          }
+        },
+        {
+          "phrase": "consistently apply",
+          "zh": "一致地套用",
+          "example": {
+            "en": "All managers must consistently apply the same rules.",
+            "zh": "所有主管都必須一致地適用相同的規定。"
+          }
+        },
+        {
+          "phrase": "consistently meet deadlines",
+          "zh": "始終如期完成",
+          "example": {
+            "en": "She consistently meets deadlines, even under pressure.",
+            "zh": "即使在壓力下，她也始終如期完成工作。"
+          }
+        },
+        {
+          "phrase": "consistently deliver",
+          "zh": "穩定地交出成果",
+          "example": {
+            "en": "Our supplier consistently delivers products of good quality.",
+            "zh": "我們的供應商始終穩定供應品質良好的產品。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "品管",
+          "en": "The inspection process must be carried out consistently at every plant.",
+          "zh": "每間工廠都必須一致地執行檢驗流程。"
+        },
+        {
+          "tag": "績效",
+          "en": "Sales have consistently grown over the past three quarters.",
+          "zh": "過去三季的銷售持續穩定成長。"
+        },
+        {
+          "tag": "會議",
+          "en": "If we do not enforce the policy consistently, employees will ignore it.",
+          "zh": "如果我們不一致地執行這項政策，員工就會忽視它。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "constantly",
+          "diff": "constantly 表示不斷地、一直發生（常帶有「太頻繁」的語氣）；consistently 強調每次都維持同樣的方式或水準。"
+        },
+        {
+          "word": "regularly",
+          "diff": "regularly 指按固定的時間間隔發生（每週、每月）；consistently 指表現或做法前後一致，不一定有固定間隔。"
+        }
+      ],
+      "family": [
+        {
+          "w": "consistent",
+          "pos": "adj.",
+          "zh": "一致的、穩定的",
+          "ipa": "/kənˈsɪstənt/",
+          "example": {
+            "en": "We need a consistent approach to customer complaints.",
+            "zh": "我們需要一致的方式來處理客訴。"
+          }
+        },
+        {
+          "w": "consistency",
+          "pos": "n.",
+          "zh": "一致性",
+          "ipa": "/kənˈsɪstənsi/",
+          "example": {
+            "en": "Consistency is important for product quality.",
+            "zh": "一致性對產品品質很重要。"
+          }
+        },
+        {
+          "w": "reliable",
+          "pos": "adj.",
+          "zh": "可靠的",
+          "ipa": "/rɪˈlaɪəbl/",
+          "example": {
+            "en": "We are looking for a reliable shipping partner.",
+            "zh": "我們正在尋找可靠的運輸夥伴。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "checkout",
+      "type": "word",
+      "ipa": "/ˈtʃekaʊt/",
+      "pos": "n.",
+      "zh": "退房手續、離場結帳（登出）、結帳",
+      "en": "the time or place where you finish and leave, or pay",
+      "note": "在這篇文章中，returned at checkout 指訪客離開時辦理離場手續的當下，必須歸還臨時識別證。checkout 在飯店是退房，在商店是結帳櫃台，在此文則是訪客離場的程序。要注意名詞 checkout 是一個字，動詞片語 check out 是兩個字。",
+      "forms": [
+        {
+          "w": "checkouts",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "結帳櫃台（複數）",
+          "ipa": "/ˈtʃekaʊts/"
+        },
+        {
+          "w": "check out",
+          "label": "動詞片語（原形）",
+          "pos": "phr. v.",
+          "zh": "退房、辦理離場；結帳",
+          "ipa": "/tʃek aʊt/"
+        },
+        {
+          "w": "checked out",
+          "label": "過去式／過去分詞",
+          "pos": "phr. v.",
+          "zh": "已退房、已辦理離場",
+          "ipa": "/tʃekt aʊt/"
+        },
+        {
+          "w": "checking out",
+          "label": "現在分詞",
+          "pos": "phr. v.",
+          "zh": "正在退房、辦理離場",
+          "ipa": "/ˈtʃekɪŋ aʊt/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "at checkout",
+          "zh": "在退房或結帳時",
+          "example": {
+            "en": "Please return your room key at checkout.",
+            "zh": "退房時請歸還您的房卡。"
+          }
+        },
+        {
+          "phrase": "checkout time",
+          "zh": "退房時間",
+          "example": {
+            "en": "Checkout time is eleven in the morning.",
+            "zh": "退房時間是上午十一點。"
+          }
+        },
+        {
+          "phrase": "checkout counter",
+          "zh": "結帳櫃台",
+          "example": {
+            "en": "Please bring your items to the checkout counter.",
+            "zh": "請把您的商品拿到結帳櫃台。"
+          }
+        },
+        {
+          "phrase": "late checkout",
+          "zh": "延後退房",
+          "example": {
+            "en": "We can arrange a late checkout for an extra fee.",
+            "zh": "我們可以加價安排延後退房。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "飯店",
+          "en": "Guests can leave their luggage at the front desk after checkout.",
+          "zh": "賓客退房後可將行李寄放在櫃台。"
+        },
+        {
+          "tag": "零售",
+          "en": "The online checkout accepts credit cards and mobile payments.",
+          "zh": "線上結帳可使用信用卡與行動支付。"
+        },
+        {
+          "tag": "公告",
+          "en": "All visitors must sign out at the desk during checkout.",
+          "zh": "所有訪客在離場時都必須在櫃台簽退。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "check-in",
+          "diff": "check-in 是抵達時辦理登記或報到；checkout 是離開時辦理退房、離場或結帳，兩者相對。"
+        },
+        {
+          "word": "check out（動詞片語）",
+          "diff": "check out 是兩個字的動詞片語，表示「辦理退房」或「查看」；checkout 是一個字的名詞，指退房或結帳這件事或地點。"
+        }
+      ],
+      "family": [
+        {
+          "w": "check-in",
+          "pos": "n.",
+          "zh": "報到、辦理入住",
+          "ipa": "/ˈtʃekɪn/",
+          "example": {
+            "en": "Check-in starts at three in the afternoon.",
+            "zh": "辦理入住從下午三點開始。"
+          }
+        },
+        {
+          "w": "departure",
+          "pos": "n.",
+          "zh": "離開、出發",
+          "ipa": "/dɪˈpɑːrtʃər/",
+          "example": {
+            "en": "Please confirm the time of your departure.",
+            "zh": "請確認您的出發時間。"
+          }
+        },
+        {
+          "w": "register",
+          "pos": "v.",
+          "zh": "登記、註冊",
+          "ipa": "/ˈredʒɪstər/",
+          "example": {
+            "en": "Visitors must register at the front desk.",
+            "zh": "訪客必須在櫃台登記。"
+          }
+        }
+      ]
+    }
+  ]
+}

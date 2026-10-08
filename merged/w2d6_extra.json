@@ -1,0 +1,240 @@
+{
+  "week": 2,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "overdue",
+      "type": "word",
+      "ipa": "/ˌoʊvərˈduː/",
+      "pos": "adj.",
+      "zh": "逾期的、過期未付的",
+      "en": "not paid or done by the date it was due",
+      "note": "在這篇文章中，two customer payments are still overdue 表示有兩筆客戶款項已經超過應付日期卻還沒收到。overdue 常用在付款、發票或帳款，語氣比單純的 late 更正式、更明確。",
+      "collocations": [
+        {
+          "phrase": "overdue payment",
+          "zh": "逾期款項",
+          "example": {
+            "en": "We sent a reminder about the overdue payment yesterday.",
+            "zh": "我們昨天已經寄出逾期款項的提醒。"
+          }
+        },
+        {
+          "phrase": "overdue invoice",
+          "zh": "逾期未付的發票",
+          "example": {
+            "en": "Please check the list of overdue invoices before Friday.",
+            "zh": "請在週五前確認逾期發票的清單。"
+          }
+        },
+        {
+          "phrase": "long overdue",
+          "zh": "早該進行的、遲遲未做的",
+          "example": {
+            "en": "This system update is long overdue.",
+            "zh": "這次系統更新早就該進行了。"
+          }
+        },
+        {
+          "phrase": "overdue account",
+          "zh": "逾期未繳的帳戶",
+          "example": {
+            "en": "The overdue account will be reviewed by the finance team.",
+            "zh": "這個逾期帳戶將由財務團隊審查。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "財務",
+          "en": "Several invoices are overdue, so cash is tight this month.",
+          "zh": "有幾張發票已逾期，所以這個月的現金很吃緊。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Your payment is now ten days overdue. Please pay as soon as possible.",
+          "zh": "您的款項已逾期十天，請盡快付款。"
+        },
+        {
+          "tag": "專案",
+          "en": "The report is two weeks overdue, and the client is asking for it.",
+          "zh": "這份報告已延遲兩週，客戶正在催。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "late",
+          "diff": "late 泛指晚到或晚做，適用於人、班機、會議等；overdue 專指已超過應付或應完成的期限，常用於付款、發票和報告。"
+        },
+        {
+          "word": "delayed",
+          "diff": "delayed 表示事情被延後或受阻（如 a delayed flight）；overdue 強調已經超過原訂的截止日期。"
+        }
+      ],
+      "family": [
+        {
+          "w": "due",
+          "pos": "adj.",
+          "zh": "到期的、應付的",
+          "ipa": "/duː/",
+          "example": {
+            "en": "The payment is due on Friday.",
+            "zh": "這筆款項在週五到期。"
+          }
+        },
+        {
+          "w": "deadline",
+          "pos": "n.",
+          "zh": "截止日期",
+          "ipa": "/ˈdedlaɪn/",
+          "example": {
+            "en": "Please meet the deadline for the monthly report.",
+            "zh": "請在截止日前完成月報告。"
+          }
+        },
+        {
+          "w": "payment",
+          "pos": "n.",
+          "zh": "付款、款項",
+          "ipa": "/ˈpeɪmənt/",
+          "example": {
+            "en": "We have not received your payment yet.",
+            "zh": "我們還沒收到您的款項。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "verify",
+      "type": "word",
+      "ipa": "/ˈverɪfaɪ/",
+      "pos": "v.",
+      "zh": "查證、核實",
+      "en": "to check that something is true or correct",
+      "note": "在這篇文章中，verify the payment status 是請助理先向客戶查明款項是否已付，再決定後續做法。verify 強調「查證事實是否正確」，常用在資料、身分、付款狀態等需要確認的地方。",
+      "forms": [
+        {
+          "w": "verifies",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "查證",
+          "ipa": "/ˈverɪfaɪz/"
+        },
+        {
+          "w": "verified",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "已查證、被核實",
+          "ipa": "/ˈverɪfaɪd/"
+        },
+        {
+          "w": "verifying",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在查證",
+          "ipa": "/ˈverɪfaɪɪŋ/"
+        },
+        {
+          "w": "verification",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "查證、驗證",
+          "ipa": "/ˌverɪfɪˈkeɪʃən/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "verify information",
+          "zh": "核實資訊",
+          "example": {
+            "en": "Please verify the information before sending the report.",
+            "zh": "寄出報告前，請先核實這些資訊。"
+          }
+        },
+        {
+          "phrase": "verify your identity",
+          "zh": "驗證您的身分",
+          "example": {
+            "en": "We need to verify your identity before changing the account.",
+            "zh": "變更帳戶之前，我們需要驗證您的身分。"
+          }
+        },
+        {
+          "phrase": "verify an address",
+          "zh": "確認地址是否正確",
+          "example": {
+            "en": "The clerk will verify the address on the order form.",
+            "zh": "店員會核對訂單上的地址。"
+          }
+        },
+        {
+          "phrase": "verify a payment",
+          "zh": "核實款項",
+          "example": {
+            "en": "The bank can verify a payment within one business day.",
+            "zh": "銀行可以在一個工作日內核實款項。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Could you verify the meeting time with the client?",
+          "zh": "你可以和客戶核對一下會議時間嗎？"
+        },
+        {
+          "tag": "採購",
+          "en": "We verify each delivery against the purchase order.",
+          "zh": "我們會將每次到貨與採購單核對。"
+        },
+        {
+          "tag": "客服",
+          "en": "The agent verified my account number before answering my question.",
+          "zh": "客服人員在回答我的問題前，先核對了我的帳號。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "confirm",
+          "diff": "confirm 常指「確認」某件事已確定或屬實，也可指確認預約；verify 強調「去查證」資訊是否正確，通常需要實際核對。"
+        },
+        {
+          "word": "check",
+          "diff": "check 是較口語、泛用的「檢查」；verify 更正式，指檢查後確定資訊正確。"
+        }
+      ],
+      "family": [
+        {
+          "w": "confirm",
+          "pos": "v.",
+          "zh": "確認",
+          "ipa": "/kənˈfɜːrm/",
+          "example": {
+            "en": "Please confirm your reservation by email.",
+            "zh": "請以電子郵件確認您的預約。"
+          }
+        },
+        {
+          "w": "check",
+          "pos": "v.",
+          "zh": "檢查、核對",
+          "ipa": "/tʃek/",
+          "example": {
+            "en": "I will check the numbers again this afternoon.",
+            "zh": "我今天下午會再核對一次數字。"
+          }
+        },
+        {
+          "w": "accurate",
+          "pos": "adj.",
+          "zh": "準確的",
+          "ipa": "/ˈækjərət/",
+          "example": {
+            "en": "The report must be accurate and on time.",
+            "zh": "報告必須準確且準時。"
+          }
+        }
+      ]
+    }
+  ]
+}

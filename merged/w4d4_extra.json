@@ -1,0 +1,318 @@
+{
+  "week": 4,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "referral",
+      "type": "word",
+      "ipa": "/rɪˈfɜːrəl/",
+      "pos": "n.",
+      "zh": "推薦、引薦、轉介",
+      "en": "the act of telling someone about a person or company that can help them",
+      "note": "在這篇文章裡，a referral from our distribution partner 指由大阪經銷夥伴「介紹」了一批候選供應商。referral 常用於商務上的推薦、引介，也可指推薦人或被推薦的對象。",
+      "forms": [
+        { "w": "referrals", "label": "複數", "pos": "n.", "zh": "推薦（複數）", "ipa": "/rɪˈfɜːrəlz/" },
+        { "w": "refer", "label": "原形（動詞）", "pos": "v.", "zh": "推薦、提及、轉介", "ipa": "/rɪˈfɜːr/" },
+        { "w": "refers", "label": "第三人稱單數", "pos": "v.", "zh": "推薦、提及", "ipa": "/rɪˈfɜːrz/" },
+        { "w": "referred", "label": "過去式／過去分詞", "pos": "v.", "zh": "推薦了、提及了", "ipa": "/rɪˈfɜːrd/" },
+        { "w": "referring", "label": "現在分詞", "pos": "v.", "zh": "正在推薦、提及", "ipa": "/rɪˈfɜːrɪŋ/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "referral program",
+          "zh": "推薦（介紹）計畫",
+          "example": { "en": "Our referral program gives customers a discount for each new client.", "zh": "我們的推薦計畫會為每位新客戶提供顧客折扣。" }
+        },
+        {
+          "phrase": "referral fee",
+          "zh": "引薦費、介紹費",
+          "example": { "en": "The agency charges a small referral fee for each introduction.", "zh": "這家仲介公司每介紹一位就收取少許引薦費。" }
+        },
+        {
+          "phrase": "a referral from",
+          "zh": "來自…的推薦",
+          "example": { "en": "We received a referral from an existing client last week.", "zh": "我們上週收到一位現有客戶的推薦。" }
+        },
+        {
+          "phrase": "by referral",
+          "zh": "經由推薦",
+          "example": { "en": "New members can join only by referral at this time.", "zh": "目前新會員只能透過推薦加入。" }
+        }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "We found the new supplier through a referral from a colleague.", "zh": "我們透過一位同事的推薦找到了新供應商。" },
+        { "tag": "人資", "en": "Many companies hire new staff through employee referrals.", "zh": "許多公司透過員工推薦來招聘新人。" },
+        { "tag": "行銷", "en": "Customer referrals help us find new clients without extra advertising.", "zh": "客戶推薦幫助我們不用額外打廣告就找到新客戶。" }
+      ],
+      "confusable": [
+        { "word": "reference", "diff": "reference 是「參考資料」或「推薦信、介紹人」；referral 指「把人或業務介紹給別人」這個動作或其結果。" },
+        { "word": "recommendation", "diff": "recommendation 是一般的「建議、推薦」；referral 多指把客戶、病人或供應商正式介紹給另一方。" }
+      ],
+      "family": [
+        {
+          "w": "refer",
+          "pos": "v.",
+          "zh": "推薦、轉介；提及",
+          "ipa": "/rɪˈfɜːr/",
+          "example": { "en": "Please refer to the attached file for more details.", "zh": "更多細節請參閱附件。" }
+        },
+        {
+          "w": "reference",
+          "pos": "n.",
+          "zh": "參考、推薦人",
+          "ipa": "/ˈrefrəns/",
+          "example": { "en": "The applicant listed two references on his résumé.", "zh": "應徵者在履歷上列了兩位推薦人。" }
+        },
+        {
+          "w": "recommend",
+          "pos": "v.",
+          "zh": "推薦、建議",
+          "ipa": "/ˌrekəˈmend/",
+          "example": { "en": "I recommend that we choose the second supplier.", "zh": "我建議我們選擇第二家供應商。" }
+        }
+      ]
+    },
+    {
+      "text": "generic",
+      "type": "word",
+      "ipa": "/dʒəˈnerɪk/",
+      "pos": "adj.",
+      "zh": "通用的、無品牌的、一般性的",
+      "en": "not special; without a brand name or a particular design",
+      "note": "在這篇文章裡，generic internal parts 指沒有特定品牌、非專屬設計的通用內部零件，言下之意是品質與可靠度較普通。generic 常帶有「沒有特色、不特別」的語感。",
+      "forms": [
+        { "w": "generically", "label": "副詞", "pos": "adv.", "zh": "一般性地、概括地", "ipa": "/dʒəˈnerɪkli/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "generic brand",
+          "zh": "無品牌（通用品牌）",
+          "example": { "en": "Some stores sell generic brand products at lower prices.", "zh": "有些商店以較低的價格販售無品牌商品。" }
+        },
+        {
+          "phrase": "generic drug",
+          "zh": "學名藥",
+          "example": { "en": "The hospital switched to a generic drug to save money.", "zh": "醫院改用學名藥以節省經費。" }
+        },
+        {
+          "phrase": "generic term",
+          "zh": "通稱、泛稱",
+          "example": { "en": "\"Software\" is a generic term for computer programs.", "zh": "「軟體」是電腦程式的通稱。" }
+        }
+      ],
+      "examples": [
+        { "tag": "行銷", "en": "The email sounded generic, so many readers ignored it.", "zh": "這封電子郵件聽起來很制式，所以許多讀者都忽略了它。" },
+        { "tag": "採購", "en": "Generic parts are cheaper, but they may not last as long.", "zh": "通用零件比較便宜，但可能用不了那麼久。" },
+        { "tag": "會議", "en": "Please avoid generic answers and give specific examples instead.", "zh": "請避免籠統的回答，改為提出具體的例子。" }
+      ],
+      "confusable": [
+        { "word": "general", "diff": "general 是「一般的、大致的、整體的」；generic 指「通用的、無特定品牌或特色的」，常用於商品與零件。" }
+      ],
+      "family": [
+        {
+          "w": "general",
+          "pos": "adj.",
+          "zh": "一般的、整體的",
+          "ipa": "/ˈdʒenrəl/",
+          "example": { "en": "The general manager will lead the meeting.", "zh": "總經理將主持這場會議。" }
+        },
+        {
+          "w": "generally",
+          "pos": "adv.",
+          "zh": "通常、大致上",
+          "ipa": "/ˈdʒenrəli/",
+          "example": { "en": "Orders are generally delivered within three days.", "zh": "訂單通常在三天內送達。" }
+        }
+      ]
+    },
+    {
+      "text": "lifetime",
+      "type": "word",
+      "ipa": "/ˈlaɪftaɪm/",
+      "pos": "n./adj.",
+      "zh": "一生、使用期限；終身的",
+      "en": "the whole time that a person lives or a product works",
+      "note": "在這篇文章裡，lifetime warranty 是「終身保固」，指只要產品還在使用期間內都提供保固。lifetime 放在名詞前當形容詞用，常見於保固、會員資格與獎項。",
+      "forms": [
+        { "w": "lifetimes", "label": "複數", "pos": "n.", "zh": "一生、使用期限（複數）", "ipa": "/ˈlaɪftaɪmz/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "lifetime warranty",
+          "zh": "終身保固",
+          "example": { "en": "Every chair we sell comes with a lifetime warranty.", "zh": "我們賣出的每張椅子都附終身保固。" }
+        },
+        {
+          "phrase": "lifetime membership",
+          "zh": "終身會員資格",
+          "example": { "en": "He bought a lifetime membership at the business club.", "zh": "他在商務俱樂部購買了終身會員資格。" }
+        },
+        {
+          "phrase": "lifetime guarantee",
+          "zh": "終身保證",
+          "example": { "en": "The tool carries a lifetime guarantee against defects.", "zh": "這項工具附有針對瑕疵的終身保證。" }
+        },
+        {
+          "phrase": "customer lifetime value",
+          "zh": "客戶終身價值",
+          "example": { "en": "We track customer lifetime value to plan our marketing budget.", "zh": "我們追蹤客戶終身價值來規劃行銷預算。" }
+        }
+      ],
+      "examples": [
+        { "tag": "產品", "en": "The battery has a lifetime of about five years.", "zh": "這顆電池的使用壽命約為五年。" },
+        { "tag": "設備", "en": "The machine's lifetime depends on how often it is used.", "zh": "這台機器的使用壽命取決於使用的頻率。" },
+        { "tag": "活動", "en": "She received a lifetime achievement award at the conference.", "zh": "她在研討會上獲頒終身成就獎。" }
+      ],
+      "confusable": [
+        { "word": "lifelong", "diff": "lifelong 是形容詞，指「一輩子的」（如 lifelong friend）；lifetime 可當名詞「一生」，也可當形容詞放在名詞前（如 lifetime warranty）。" }
+      ],
+      "family": [
+        {
+          "w": "life",
+          "pos": "n.",
+          "zh": "生命、壽命",
+          "ipa": "/laɪf/",
+          "example": { "en": "Regular cleaning can extend the life of the equipment.", "zh": "定期清潔可以延長設備的壽命。" }
+        },
+        {
+          "w": "lifelong",
+          "pos": "adj.",
+          "zh": "終身的、一輩子的",
+          "ipa": "/ˈlaɪflɔːŋ/",
+          "example": { "en": "Learning is a lifelong process for every employee.", "zh": "對每位員工來說，學習都是終身的過程。" }
+        }
+      ]
+    },
+    {
+      "text": "plug",
+      "type": "word",
+      "ipa": "/plʌɡ/",
+      "pos": "n./v.",
+      "zh": "插頭；插上（電源）",
+      "en": "the part that you put into a wall outlet to get electricity",
+      "note": "在這篇文章裡，plug 是名詞，指充電轉接器的「插頭」，所以 every plug 是每一個插頭（每件產品）。plug 也常當動詞，plug in 表示接上電源。",
+      "forms": [
+        { "w": "plugs", "label": "複數／第三人稱單數", "pos": "n./v.", "zh": "插頭（複數）；插上", "ipa": "/plʌɡz/" },
+        { "w": "plugged", "label": "過去式／過去分詞", "pos": "v.", "zh": "插上了", "ipa": "/plʌɡd/" },
+        { "w": "plugging", "label": "現在分詞", "pos": "v.", "zh": "正在插上", "ipa": "/ˈplʌɡɪŋ/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "power plug",
+          "zh": "電源插頭",
+          "example": { "en": "This power plug is designed for use in three countries.", "zh": "這款電源插頭是為三個國家的使用而設計的。" }
+        },
+        {
+          "phrase": "plug in",
+          "zh": "插上電源、接上",
+          "example": { "en": "Please plug in the printer and press the start button.", "zh": "請接上印表機的電源並按下開始鍵。" }
+        },
+        {
+          "phrase": "plug adapter",
+          "zh": "轉接插頭",
+          "example": { "en": "Bring a plug adapter if you travel to Portugal.", "zh": "如果你要去葡萄牙出差，請帶一個轉接插頭。" }
+        }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "Please plug the projector into the wall outlet before the meeting.", "zh": "請在會議開始前把投影機插到牆上的插座。" },
+        { "tag": "出差", "en": "You need a travel plug to charge your laptop in Europe.", "zh": "你在歐洲幫筆電充電需要一個旅行用插頭。" },
+        { "tag": "維修", "en": "Always pull out the plug before cleaning the machine.", "zh": "清潔機器前請務必先拔掉插頭。" }
+      ],
+      "confusable": [
+        { "word": "outlet", "diff": "outlet（美式）指牆上的「插座」，是插頭插進去的地方；plug 是「插頭」，是插進插座的那一端。" },
+        { "word": "socket", "diff": "socket 也是「插座」（英式較常用，也指燈座）；plug 是插入的「插頭」。" }
+      ],
+      "family": [
+        {
+          "w": "unplug",
+          "pos": "v.",
+          "zh": "拔掉插頭",
+          "ipa": "/ʌnˈplʌɡ/",
+          "example": { "en": "Please unplug the device before you leave the office.", "zh": "離開辦公室前請先拔掉這台裝置的插頭。" }
+        },
+        {
+          "w": "outlet",
+          "pos": "n.",
+          "zh": "插座",
+          "ipa": "/ˈaʊtlet/",
+          "example": { "en": "There is no outlet near my desk.", "zh": "我的辦公桌附近沒有插座。" }
+        },
+        {
+          "w": "socket",
+          "pos": "n.",
+          "zh": "插座、插孔",
+          "ipa": "/ˈsɑːkɪt/",
+          "example": { "en": "The socket in the meeting room does not work.", "zh": "會議室裡的插座壞了。" }
+        },
+        {
+          "w": "charger",
+          "pos": "n.",
+          "zh": "充電器",
+          "ipa": "/ˈtʃɑːrdʒər/",
+          "example": { "en": "I left my phone charger at the hotel.", "zh": "我把手機充電器忘在飯店了。" }
+        }
+      ]
+    },
+    {
+      "text": "compatible",
+      "type": "word",
+      "ipa": "/kəmˈpætəbəl/",
+      "pos": "adj.",
+      "zh": "相容的、能配合使用的",
+      "en": "able to work or be used together with something else",
+      "note": "在這篇文章裡，the plugs must be compatible with outlets 指插頭必須能配合四個目標市場的插座規格使用。compatible 後面通常接 with，常見於設備、軟體與規格的相容性。",
+      "forms": [
+        { "w": "compatibility", "label": "名詞", "pos": "n.", "zh": "相容性", "ipa": "/kəmˌpætəˈbɪləti/" },
+        { "w": "incompatible", "label": "反義形容詞", "pos": "adj.", "zh": "不相容的", "ipa": "/ˌɪnkəmˈpætəbəl/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "fully compatible",
+          "zh": "完全相容",
+          "example": { "en": "The new tablet is fully compatible with our current system.", "zh": "新的平板電腦與我們目前的系統完全相容。" }
+        },
+        {
+          "phrase": "compatible devices",
+          "zh": "相容的裝置",
+          "example": { "en": "The app can be installed on all compatible devices.", "zh": "這款應用程式可以安裝在所有相容的裝置上。" }
+        },
+        {
+          "phrase": "compatible with existing systems",
+          "zh": "與現有系統相容",
+          "example": { "en": "Please check that the new software is compatible with existing systems.", "zh": "請確認新軟體與現有系統相容。" }
+        }
+      ],
+      "examples": [
+        { "tag": "產品", "en": "Make sure the charger is compatible with your phone model.", "zh": "請確認這個充電器與你的手機型號相容。" },
+        { "tag": "規格", "en": "Our devices are compatible with most operating systems.", "zh": "我們的裝置與大多數作業系統相容。" },
+        { "tag": "人事", "en": "The two managers have compatible working styles.", "zh": "這兩位經理的工作風格很合得來。" }
+      ],
+      "confusable": [
+        { "word": "suitable", "diff": "suitable 是「適合的」，指適合某目的或場合；compatible 是「能一起運作、相容的」，強調兩者能配合。" }
+      ],
+      "family": [
+        {
+          "w": "compatibility",
+          "pos": "n.",
+          "zh": "相容性",
+          "ipa": "/kəmˌpætəˈbɪləti/",
+          "example": { "en": "We tested the compatibility of the software before launch.", "zh": "我們在上市前測試了軟體的相容性。" }
+        },
+        {
+          "w": "incompatible",
+          "pos": "adj.",
+          "zh": "不相容的",
+          "ipa": "/ˌɪnkəmˈpætəbəl/",
+          "example": { "en": "The old files are incompatible with the new program.", "zh": "舊檔案與新程式不相容。" }
+        },
+        {
+          "w": "adapter",
+          "pos": "n.",
+          "zh": "轉接器",
+          "ipa": "/əˈdæptər/",
+          "example": { "en": "An adapter lets you use the plug in other countries.", "zh": "轉接器讓你能在其他國家使用這個插頭。" }
+        }
+      ]
+    }
+  ]
+}

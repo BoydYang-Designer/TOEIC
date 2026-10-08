@@ -1,0 +1,76 @@
+{
+  "week": 3,
+  "day": 7,
+  "extra_vocab": [
+    {
+      "text": "steadily",
+      "type": "word",
+      "ipa": "/ˈstedəli/",
+      "pos": "adv.",
+      "zh": "穩定地、持續地",
+      "en": "in a regular way, without stopping or changing suddenly",
+      "note": "在這篇文章裡，has risen steadily 表示培訓成本「一路穩定上升、沒有停過」。語感是持續、有規律的變化，常用來描述數字或趨勢，比 suddenly（突然地）更強調過程平穩。",
+      "forms": [
+        { "w": "steady", "label": "原形（形容詞）", "pos": "adj.", "zh": "穩定的", "ipa": "/ˈstedi/" },
+        { "w": "steadier", "label": "形容詞比較級", "pos": "adj.", "zh": "更穩定的", "ipa": "/ˈstediər/" },
+        { "w": "steadiest", "label": "形容詞最高級", "pos": "adj.", "zh": "最穩定的", "ipa": "/ˈstediɪst/" },
+        { "w": "more steadily", "label": "副詞比較級", "pos": "adv.", "zh": "更穩定地", "ipa": "/mɔːr ˈstedəli/" },
+        { "w": "most steadily", "label": "副詞最高級", "pos": "adv.", "zh": "最穩定地", "ipa": "/moʊst ˈstedəli/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "rise steadily",
+          "zh": "穩定上升",
+          "example": { "en": "Prices have risen steadily over the past three years.", "zh": "過去三年來物價持續穩定上漲。" }
+        },
+        {
+          "phrase": "grow steadily",
+          "zh": "穩定成長",
+          "example": { "en": "Our profits grew steadily during the first half of the year.", "zh": "我們的利潤在上半年穩定成長。" }
+        },
+        {
+          "phrase": "improve steadily",
+          "zh": "穩定進步",
+          "example": { "en": "Customer satisfaction improved steadily after we changed the service process.", "zh": "調整服務流程後，客戶滿意度穩定提升。" }
+        },
+        {
+          "phrase": "decline steadily",
+          "zh": "持續下降",
+          "example": { "en": "Office costs declined steadily after we moved to a smaller building.", "zh": "搬到較小的大樓後，辦公室成本持續下降。" }
+        }
+      ],
+      "examples": [
+        { "tag": "工作", "en": "Our team worked steadily through the afternoon to meet the deadline.", "zh": "我們團隊整個下午持續不間斷地工作，以趕上截止期限。" },
+        { "tag": "電子郵件", "en": "Demand for our service has increased steadily since the launch.", "zh": "自推出以來，市場對我們服務的需求持續增加。" },
+        { "tag": "活動", "en": "The rain fell steadily all morning, so the outdoor event was moved indoors.", "zh": "雨整個早上下個不停，所以戶外活動改到室內舉行。" }
+      ],
+      "confusable": [
+        { "word": "gradually", "diff": "gradually 強調「慢慢地、一點一點地」改變；steadily 強調「持續、穩定、不中斷」。兩者有時可互換，但 steadily 更著重過程平穩。" },
+        { "word": "constantly", "diff": "constantly 是「經常、不斷重複」，多用於一再發生的事（常帶抱怨）；steadily 指穩定地朝同一方向變化。" }
+      ],
+      "family": [
+        {
+          "w": "steady",
+          "pos": "adj.",
+          "zh": "穩定的、持續的",
+          "ipa": "/ˈstedi/",
+          "example": { "en": "We have a steady flow of new customers every month.", "zh": "我們每個月都有穩定的新客戶。" }
+        },
+        {
+          "w": "stable",
+          "pos": "adj.",
+          "zh": "穩定的、不易變動的",
+          "ipa": "/ˈsteɪbəl/",
+          "example": { "en": "The company wants a stable income from its services.", "zh": "公司希望從服務中獲得穩定的收入。" }
+        },
+        {
+          "w": "stability",
+          "pos": "n.",
+          "zh": "穩定性",
+          "ipa": "/stəˈbɪləti/",
+          "example": { "en": "Job stability is important to many of our employees.", "zh": "工作穩定對許多員工來說很重要。" }
+        }
+      ]
+    }
+  ]
+}

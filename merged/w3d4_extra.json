@@ -1,0 +1,131 @@
+{
+  "week": 3,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "shortage",
+      "type": "word",
+      "ipa": "/ˈʃɔːrtɪdʒ/",
+      "pos": "n.",
+      "zh": "短缺、不足",
+      "en": "a situation in which there is not enough of something that people need",
+      "note": "在這篇文章中，a shortage of aluminum sheets 指鋁板供應不足，是公司被迫尋找替代材料的原因。shortage 常和 of 連用，後面接缺少的東西，多用於原料、人力、零件等供應鏈情境。",
+      "forms": [
+        {
+          "w": "shortages",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "短缺（複數）",
+          "ipa": "/ˈʃɔːrtɪdʒɪz/"
+        },
+        {
+          "w": "short",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "不足的、短的",
+          "ipa": "/ʃɔːrt/"
+        },
+        {
+          "w": "shortfall",
+          "label": "相關名詞",
+          "pos": "n.",
+          "zh": "不足額、缺口",
+          "ipa": "/ˈʃɔːrtfɔːl/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "a shortage of",
+          "zh": "……的短缺",
+          "example": {
+            "en": "A shortage of skilled workers has slowed down the project.",
+            "zh": "技術人員短缺拖慢了專案進度。"
+          }
+        },
+        {
+          "phrase": "labor shortage",
+          "zh": "人力短缺",
+          "example": {
+            "en": "The factory is facing a labor shortage this summer.",
+            "zh": "這間工廠今年夏天面臨人力短缺。"
+          }
+        },
+        {
+          "phrase": "supply shortage",
+          "zh": "供應短缺",
+          "example": {
+            "en": "A supply shortage delayed the delivery of the new phones.",
+            "zh": "供應短缺延誤了新手機的交貨。"
+          }
+        },
+        {
+          "phrase": "ease a shortage",
+          "zh": "緩解短缺",
+          "example": {
+            "en": "Extra shipments from Asia should ease the shortage by June.",
+            "zh": "來自亞洲的額外出貨應可在六月前緩解短缺。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "Because of a shortage of parts, we cannot meet the original deadline.",
+          "zh": "由於零件短缺，我們無法趕上原本的截止日。"
+        },
+        {
+          "tag": "人資",
+          "en": "The hospital reported a serious shortage of nurses last year.",
+          "zh": "那家醫院去年通報護理人員嚴重短缺。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "We apologize for the delay, which was caused by a temporary shortage.",
+          "zh": "我們為延誤致歉，這是暫時性短缺所造成的。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "lack",
+          "diff": "lack 可作名詞或動詞，表示缺少某種特質或條件（a lack of experience）；shortage 多指數量上的供應不足，尤其是物資或人力。"
+        },
+        {
+          "word": "scarcity",
+          "diff": "scarcity 強調稀少、難以取得，通常是長期現象；shortage 多指一時的供應不足，語氣較常見於商務情境。"
+        }
+      ],
+      "family": [
+        {
+          "w": "supply",
+          "pos": "n.",
+          "zh": "供給、供應",
+          "ipa": "/səˈplaɪ/",
+          "example": {
+            "en": "Our supply of raw materials is limited this month.",
+            "zh": "我們這個月的原料供應有限。"
+          }
+        },
+        {
+          "w": "demand",
+          "pos": "n.",
+          "zh": "需求",
+          "ipa": "/dɪˈmænd/",
+          "example": {
+            "en": "Demand for electric cars has grown steadily.",
+            "zh": "電動車的需求持續成長。"
+          }
+        },
+        {
+          "w": "insufficient",
+          "pos": "adj.",
+          "zh": "不足的",
+          "ipa": "/ˌɪnsəˈfɪʃənt/",
+          "example": {
+            "en": "The budget is insufficient for a new production line.",
+            "zh": "這筆預算不足以建置新的生產線。"
+          }
+        }
+      ]
+    }
+  ]
+}

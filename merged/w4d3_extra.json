@@ -1,0 +1,617 @@
+{
+  "week": 4,
+  "day": 3,
+  "extra_vocab": [
+    {
+      "text": "thoroughly",
+      "type": "word",
+      "ipa": "/ˈθɝːoʊli/",
+      "pos": "adv.",
+      "zh": "徹底地、仔細地、完全地",
+      "en": "in a very careful way, without missing any details",
+      "note": "在這篇文章中，thoroughly reviewed your applications 表示面試官在面試前已經仔細看完每位應徵者的資料，不會遺漏細節。thoroughly 強調做事「周全、徹底」，常放在過去分詞或動詞前面，如 thoroughly checked、thoroughly cleaned。",
+      "forms": [
+        {
+          "w": "thorough",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "徹底的、周密的",
+          "ipa": "/ˈθɝːoʊ/"
+        },
+        {
+          "w": "thoroughness",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "周密、徹底",
+          "ipa": "/ˈθɝːoʊnəs/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "thoroughly review",
+          "zh": "仔細審閱",
+          "example": {
+            "en": "Please thoroughly review the contract before you sign it.",
+            "zh": "簽署之前，請仔細審閱合約。"
+          }
+        },
+        {
+          "phrase": "thoroughly inspect",
+          "zh": "徹底檢查",
+          "example": {
+            "en": "Each machine is thoroughly inspected before it leaves the factory.",
+            "zh": "每台機器在出廠前都會經過徹底檢查。"
+          }
+        },
+        {
+          "phrase": "thoroughly prepared",
+          "zh": "準備周全",
+          "example": {
+            "en": "She was thoroughly prepared for the client presentation.",
+            "zh": "她為客戶簡報做了周全的準備。"
+          }
+        },
+        {
+          "phrase": "thoroughly clean",
+          "zh": "徹底清潔",
+          "example": {
+            "en": "The kitchen must be thoroughly cleaned every evening.",
+            "zh": "廚房每天晚上都必須徹底清潔。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "The team discussed the budget thoroughly before making a decision.",
+          "zh": "團隊在做決定之前，對預算做了徹底的討論。"
+        },
+        {
+          "tag": "品管",
+          "en": "All samples were thoroughly tested in our laboratory.",
+          "zh": "所有樣品都在我們的實驗室中經過徹底測試。"
+        },
+        {
+          "tag": "客服",
+          "en": "We apologize and will investigate the problem thoroughly.",
+          "zh": "我們深感抱歉，並將徹底調查這個問題。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "carefully",
+          "diff": "carefully 強調小心、謹慎地做；thoroughly 強調涵蓋所有細節、做得徹底，兩者可以同時成立。"
+        },
+        {
+          "word": "completely",
+          "diff": "completely 表示「完全地」，說明程度（completely finished）；thoroughly 說明做事的周全程度，常搭配檢查、閱讀、清潔等動作。"
+        }
+      ],
+      "family": [
+        {
+          "w": "thorough",
+          "pos": "adj.",
+          "zh": "徹底的、周密的",
+          "ipa": "/ˈθɝːoʊ/",
+          "example": {
+            "en": "The auditor made a thorough check of the accounts.",
+            "zh": "審計人員對帳目做了徹底的檢查。"
+          }
+        },
+        {
+          "w": "carefully",
+          "pos": "adv.",
+          "zh": "小心地、仔細地",
+          "ipa": "/ˈkerfəli/",
+          "example": {
+            "en": "Please read the instructions carefully.",
+            "zh": "請仔細閱讀說明。"
+          }
+        },
+        {
+          "w": "completely",
+          "pos": "adv.",
+          "zh": "完全地",
+          "ipa": "/kəmˈpliːtli/",
+          "example": {
+            "en": "The report is completely finished and ready to send.",
+            "zh": "報告已經完全完成，可以寄出了。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "automate",
+      "type": "word",
+      "ipa": "/ˈɔːtəmeɪt/",
+      "pos": "v.",
+      "zh": "使自動化",
+      "en": "to use machines or computers to do a job without people",
+      "note": "在這篇文章中，automated a routine process 指應徵者曾把一項重複性的例行工作改成由系統自動完成，這是面試官想了解的專案經驗。automate 的受詞通常是流程、工作或任務，常見於 IT、製造與行政自動化。",
+      "forms": [
+        {
+          "w": "automates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "使自動化",
+          "ipa": "/ˈɔːtəmeɪts/"
+        },
+        {
+          "w": "automated",
+          "label": "過去式／過去分詞",
+          "pos": "v./adj.",
+          "zh": "已自動化的、自動化的",
+          "ipa": "/ˈɔːtəmeɪtɪd/"
+        },
+        {
+          "w": "automating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在使自動化",
+          "ipa": "/ˈɔːtəmeɪtɪŋ/"
+        },
+        {
+          "w": "automation",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "自動化",
+          "ipa": "/ˌɔːtəˈmeɪʃən/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "automate a process",
+          "zh": "使流程自動化",
+          "example": {
+            "en": "We plan to automate the invoice process next year.",
+            "zh": "我們計畫明年讓發票流程自動化。"
+          }
+        },
+        {
+          "phrase": "automate tasks",
+          "zh": "使工作自動化",
+          "example": {
+            "en": "This software can automate repetitive tasks in the office.",
+            "zh": "這套軟體可以讓辦公室裡的重複性工作自動化。"
+          }
+        },
+        {
+          "phrase": "automate production",
+          "zh": "使生產自動化",
+          "example": {
+            "en": "The factory decided to automate production on the main line.",
+            "zh": "工廠決定讓主要生產線的製造自動化。"
+          }
+        },
+        {
+          "phrase": "automated system",
+          "zh": "自動化系統",
+          "example": {
+            "en": "An automated system sends a reminder to every customer.",
+            "zh": "自動化系統會寄提醒給每位客戶。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "面試",
+          "en": "I helped the finance team automate its monthly reporting.",
+          "zh": "我協助財務團隊將月報告自動化。"
+        },
+        {
+          "tag": "會議",
+          "en": "If we automate data entry, staff can focus on customer service.",
+          "zh": "如果我們讓資料輸入自動化，員工就能專心做客戶服務。"
+        },
+        {
+          "tag": "客服",
+          "en": "The call center automated its ticket assignment to shorten response times.",
+          "zh": "客服中心將案件分派自動化，以縮短回應時間。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "automatic",
+          "diff": "automatic 是形容詞，說明東西本身會自動運作（automatic doors）；automate 是動詞，指把原本人工的流程改成自動。"
+        },
+        {
+          "word": "computerize",
+          "diff": "computerize 指改用電腦處理；automate 指讓整個工作不需要人介入、自動完成，範圍不限於電腦。"
+        }
+      ],
+      "family": [
+        {
+          "w": "automation",
+          "pos": "n.",
+          "zh": "自動化",
+          "ipa": "/ˌɔːtəˈmeɪʃən/",
+          "example": {
+            "en": "Automation has reduced the time needed for each order.",
+            "zh": "自動化縮短了每筆訂單所需的時間。"
+          }
+        },
+        {
+          "w": "automatic",
+          "pos": "adj.",
+          "zh": "自動的",
+          "ipa": "/ˌɔːtəˈmætɪk/",
+          "example": {
+            "en": "The system sends an automatic reply to every email.",
+            "zh": "系統會對每封電子郵件發出自動回覆。"
+          }
+        },
+        {
+          "w": "manual",
+          "pos": "adj.",
+          "zh": "手動的、人工的",
+          "ipa": "/ˈmænjuəl/",
+          "example": {
+            "en": "Manual data entry takes too much time.",
+            "zh": "人工輸入資料花太多時間。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "instruct",
+      "type": "word",
+      "ipa": "/ɪnˈstrʌkt/",
+      "pos": "v.",
+      "zh": "指示、命令、指導",
+      "en": "to tell someone what to do, officially or clearly",
+      "note": "在這篇文章中，unless you are instructed to do so 表示除非面試官下指示，否則請不要調整麥克風，所以是「被指示去做」的被動用法。instruct 語氣正式，常用 instruct someone to + 動詞，或被動 be instructed to + 動詞。",
+      "forms": [
+        {
+          "w": "instructs",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "指示",
+          "ipa": "/ɪnˈstrʌkts/"
+        },
+        {
+          "w": "instructed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "已指示、被指示",
+          "ipa": "/ɪnˈstrʌktɪd/"
+        },
+        {
+          "w": "instructing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在指示",
+          "ipa": "/ɪnˈstrʌktɪŋ/"
+        },
+        {
+          "w": "instruction",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "指示、說明",
+          "ipa": "/ɪnˈstrʌkʃən/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "instruct someone to + V",
+          "zh": "指示某人做……",
+          "example": {
+            "en": "The manager instructed the staff to submit reports by noon.",
+            "zh": "經理指示員工在中午前提交報告。"
+          }
+        },
+        {
+          "phrase": "be instructed to + V",
+          "zh": "被指示要……",
+          "example": {
+            "en": "Visitors are instructed to wear their badges at all times.",
+            "zh": "訪客被要求隨時佩戴識別證。"
+          }
+        },
+        {
+          "phrase": "unless instructed otherwise",
+          "zh": "除非另有指示",
+          "example": {
+            "en": "Please leave the equipment as it is unless instructed otherwise.",
+            "zh": "除非另有指示，請維持設備現狀。"
+          }
+        },
+        {
+          "phrase": "instruct staff",
+          "zh": "指導員工",
+          "example": {
+            "en": "A trainer will instruct staff on the new safety rules.",
+            "zh": "講師會向員工說明新的安全規定。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "The director has instructed us to postpone the launch until May.",
+          "zh": "主管已指示我們把上市延到五月。"
+        },
+        {
+          "tag": "培訓",
+          "en": "New employees will be instructed on how to use the system.",
+          "zh": "新進員工將接受系統操作方式的指導。"
+        },
+        {
+          "tag": "法律",
+          "en": "The client instructed the lawyer to review the contract carefully.",
+          "zh": "客戶指示律師仔細審閱合約。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "teach",
+          "diff": "teach 指長時間教授知識或技能；instruct 指告訴對方該怎麼做，多為具體步驟或正式命令。"
+        },
+        {
+          "word": "order",
+          "diff": "order 語氣更強硬，帶有命令意味；instruct 較中性正式，常用在上司對下屬或主辦單位對參與者的指示。"
+        }
+      ],
+      "family": [
+        {
+          "w": "instruction",
+          "pos": "n.",
+          "zh": "指示、說明",
+          "ipa": "/ɪnˈstrʌkʃən/",
+          "example": {
+            "en": "Please follow the instructions on the screen.",
+            "zh": "請依照螢幕上的指示操作。"
+          }
+        },
+        {
+          "w": "instructor",
+          "pos": "n.",
+          "zh": "講師、教練",
+          "ipa": "/ɪnˈstrʌktər/",
+          "example": {
+            "en": "The instructor will lead the workshop on Friday.",
+            "zh": "講師將在週五帶領工作坊。"
+          }
+        },
+        {
+          "w": "guideline",
+          "pos": "n.",
+          "zh": "準則、指南",
+          "ipa": "/ˈɡaɪdlaɪn/",
+          "example": {
+            "en": "All staff must follow the company's safety guidelines.",
+            "zh": "所有員工都必須遵守公司的安全準則。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "microphone",
+      "type": "word",
+      "ipa": "/ˈmaɪkrəfoʊn/",
+      "pos": "n.",
+      "zh": "麥克風",
+      "en": "a device that records or makes a voice louder",
+      "note": "在這篇文章中，the microphone on the table 是用來錄下面談內容的麥克風，所以請應徵者不要自行調整。microphone 是正式說法，口語和會議中常縮寫成 mic。",
+      "forms": [
+        {
+          "w": "microphones",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "麥克風（複數）",
+          "ipa": "/ˈmaɪkrəfoʊnz/"
+        },
+        {
+          "w": "mic",
+          "label": "口語縮寫",
+          "pos": "n.",
+          "zh": "麥克風（口語）",
+          "ipa": "/maɪk/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "adjust the microphone",
+          "zh": "調整麥克風",
+          "example": {
+            "en": "Could you adjust the microphone so everyone can hear you?",
+            "zh": "你能調整一下麥克風，讓大家都聽得到你嗎？"
+          }
+        },
+        {
+          "phrase": "wireless microphone",
+          "zh": "無線麥克風",
+          "example": {
+            "en": "The speaker used a wireless microphone during the keynote.",
+            "zh": "講者在主題演講中使用無線麥克風。"
+          }
+        },
+        {
+          "phrase": "speak into the microphone",
+          "zh": "對著麥克風說話",
+          "example": {
+            "en": "Please speak into the microphone when you ask a question.",
+            "zh": "提問時請對著麥克風說話。"
+          }
+        },
+        {
+          "phrase": "turn on the microphone",
+          "zh": "打開麥克風",
+          "example": {
+            "en": "Remember to turn on the microphone before the online meeting starts.",
+            "zh": "線上會議開始前，記得打開麥克風。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "The microphone stopped working, so we moved to a smaller room.",
+          "zh": "麥克風壞了，所以我們換到比較小的房間。"
+        },
+        {
+          "tag": "活動",
+          "en": "Two microphones were placed in the aisles for audience questions.",
+          "zh": "走道上放了兩支麥克風，供觀眾提問使用。"
+        },
+        {
+          "tag": "線上會議",
+          "en": "Please mute your microphone when you are not speaking.",
+          "zh": "不發言時，請將麥克風靜音。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "speaker",
+          "diff": "speaker 是喇叭，負責把聲音播放出來；microphone 是收音裝置，負責把聲音錄進去或放大。"
+        },
+        {
+          "word": "headset",
+          "diff": "headset 是耳機加麥克風的組合；microphone 單指收音的裝置。"
+        }
+      ],
+      "family": [
+        {
+          "w": "speaker",
+          "pos": "n.",
+          "zh": "喇叭、講者",
+          "ipa": "/ˈspiːkər/",
+          "example": {
+            "en": "The speaker on the wall is too loud.",
+            "zh": "牆上的喇叭太大聲了。"
+          }
+        },
+        {
+          "w": "headset",
+          "pos": "n.",
+          "zh": "耳機麥克風",
+          "ipa": "/ˈhedset/",
+          "example": {
+            "en": "Customer service staff wear a headset all day.",
+            "zh": "客服人員整天都戴著耳機麥克風。"
+          }
+        },
+        {
+          "w": "volume",
+          "pos": "n.",
+          "zh": "音量",
+          "ipa": "/ˈvɑːljuːm/",
+          "example": {
+            "en": "Please lower the volume during the presentation.",
+            "zh": "簡報期間請把音量調小。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "luncheon",
+      "type": "word",
+      "ipa": "/ˈlʌntʃən/",
+      "pos": "n.",
+      "zh": "午餐會、正式午宴",
+      "en": "a formal lunch, often for a meeting or special event",
+      "note": "在這篇文章中，a luncheon with the team 是公司為晉級者安排的正式午餐聚會，讓應徵者與團隊交流、了解職場文化。luncheon 比 lunch 正式，常指有主題或目的的午餐活動，如商務午餐會、頒獎午宴。",
+      "forms": [
+        {
+          "w": "luncheons",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "午餐會（複數）",
+          "ipa": "/ˈlʌntʃənz/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "business luncheon",
+          "zh": "商務午餐會",
+          "example": {
+            "en": "The chamber of commerce hosts a business luncheon every month.",
+            "zh": "商會每個月都會舉辦商務午餐會。"
+          }
+        },
+        {
+          "phrase": "luncheon meeting",
+          "zh": "午餐會議",
+          "example": {
+            "en": "We scheduled a luncheon meeting with the new supplier.",
+            "zh": "我們和新供應商安排了一場午餐會議。"
+          }
+        },
+        {
+          "phrase": "award luncheon",
+          "zh": "頒獎午宴",
+          "example": {
+            "en": "The company will hold an award luncheon for top sales staff.",
+            "zh": "公司將為業績最佳的業務人員舉辦頒獎午宴。"
+          }
+        },
+        {
+          "phrase": "host a luncheon",
+          "zh": "舉辦午餐會",
+          "example": {
+            "en": "Our department will host a luncheon for visiting clients.",
+            "zh": "我們部門將為來訪的客戶舉辦午餐會。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "邀請",
+          "en": "You are invited to a luncheon at noon on Friday.",
+          "zh": "誠摯邀請您星期五中午參加午餐會。"
+        },
+        {
+          "tag": "活動",
+          "en": "Vegetarian meals will be available at the luncheon on request.",
+          "zh": "午餐會可依需求提供素食餐點。"
+        },
+        {
+          "tag": "人資",
+          "en": "The retirement luncheon will take place in the main dining room.",
+          "zh": "退休午宴將在主餐廳舉行。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "lunch",
+          "diff": "lunch 是日常的午餐，口語常用；luncheon 較正式，通常指有主題、有邀請的聚餐活動。"
+        },
+        {
+          "word": "banquet",
+          "diff": "banquet 是規模較大的正式宴會，常在晚上舉行；luncheon 專指中午舉行、規模較小的正式餐會。"
+        }
+      ],
+      "family": [
+        {
+          "w": "lunch",
+          "pos": "n.",
+          "zh": "午餐",
+          "ipa": "/lʌntʃ/",
+          "example": {
+            "en": "Let's discuss the plan over lunch tomorrow.",
+            "zh": "我們明天邊吃午餐邊討論這個計畫吧。"
+          }
+        },
+        {
+          "w": "banquet",
+          "pos": "n.",
+          "zh": "宴會",
+          "ipa": "/ˈbæŋkwɪt/",
+          "example": {
+            "en": "The annual banquet will be held in December.",
+            "zh": "年度宴會將在十二月舉行。"
+          }
+        },
+        {
+          "w": "catering",
+          "pos": "n.",
+          "zh": "外燴、餐飲供應",
+          "ipa": "/ˈkeɪtərɪŋ/",
+          "example": {
+            "en": "The catering for the event was arranged last week.",
+            "zh": "這場活動的餐飲上週就已安排好。"
+          }
+        }
+      ]
+    }
+  ]
+}
