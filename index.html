@@ -56,10 +56,7 @@
   <details id="mt" class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 p-3 md:p-4">
     <summary class="cursor-pointer font-bold text-base md:text-lg select-none">🔧 維護總覽 <span class="text-sm font-normal text-slate-500 dark:text-slate-400">音檔・Timing 狀態</span> <span id="mtb" class="ml-1 text-xs font-normal"></span></summary>
     <div id="mtc" class="mt-3"></div>
-    <details id="mp" class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3">
-      <summary class="cursor-pointer font-bold text-sm select-none">🗺 專案地圖 <span class="text-xs font-normal text-slate-500 dark:text-slate-400">頁面・資料・py 關聯（自動掃描）</span></summary>
-      <div id="mpc" class="mt-3 text-sm text-slate-500">載入中…</div>
-    </details>
+    <a href="map.html" class="mt-4 flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800">🗺 專案地圖 <span class="text-xs font-normal text-slate-500 dark:text-slate-400">頁面・資料・py 關聯（自動掃描）</span><span class="ml-auto text-slate-400">→</span></a>
   </details>
 </div>
 
@@ -201,16 +198,6 @@ async function mtLoad() {
   if (location.hash === '#mt') on = true;
   if (on) { d.open = true; if (location.hash === '#mt') setTimeout(() => d.scrollIntoView({ block: 'start' }), 0); }
   d.addEventListener('toggle', () => { try { sessionStorage.setItem('mtOpen', d.open ? '1' : '0'); } catch (e) {} });
-})();
-/* 專案地圖：第一次展開時才載入 map.js 並掃描 */
-(function () {
-  const d = document.getElementById('mp'), box = document.getElementById('mpc'); let busy = false;
-  d.addEventListener('toggle', () => {
-    if (!d.open || busy || window.TMap) return; busy = true;
-    const sc = document.createElement('script'); sc.src = 'map.js?t=' + Date.now();
-    sc.onload = () => TMap.mount(box); sc.onerror = () => { box.textContent = '讀不到 map.js'; busy = false; };
-    document.head.appendChild(sc);
-  });
 })();
 /* ===== 網址紀錄：存 localStorage（鍵 toeicLinksV1，獨立於作答紀錄） ===== */
 (function () {

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>專案地圖 · TOEIC Daily Coach</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class'}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
+<div class="max-w-6xl mx-auto p-3 md:p-8 pb-16">
+  <header class="mb-4">
+    <a href="index.html#mt" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline">← 回維護總覽</a>
+    <h1 class="text-2xl font-bold mt-1">🗺 專案地圖</h1>
+    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">頁面・資料・音檔・py 工具的關聯（自動掃描）。可看各 Part 用到哪些檔案，也可複製檔案清單給 AI。</p>
+  </header>
+  <div id="box" class="text-sm text-slate-500">載入中…</div>
+</div>
+
+<script>
+/* 沿用其他頁面的深色模式設定（只讀 dark，不寫入） */
+try { document.documentElement.classList.toggle('dark', !!JSON.parse(localStorage.getItem('toeicCoachV2') || '{}').dark); } catch (e) {}
+/* 載入 map.js（加時間戳避免讀到舊版）並開始掃描 */
+(function () {
+  const box = document.getElementById('box'), sc = document.createElement('script');
+  sc.src = 'map.js?t=' + Date.now();
+  sc.onload = () => TMap.mount(box);
+  sc.onerror = () => { box.textContent = '讀不到 map.js（請確認它和 map.html 在同一個資料夾）'; };
+  document.head.appendChild(sc);
+})();
+</script>
+</body>
+</html>

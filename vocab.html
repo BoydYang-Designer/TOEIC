@@ -8,18 +8,30 @@
 <script>tailwind.config={darkMode:'class'}</script>
 <link rel="stylesheet" href="style.css">
 <script src="cloud-sync.js"></script>
+<script>
+/* 字級：4 段（小／標準／大／特大），存在這台裝置（不跨裝置同步）。第一次使用時手機預設「大」 */
+var FONT_LV=[14,16,18,20],FONT_NM=['小','標準','大','特大'];
+function fontGet(){var v=parseInt(localStorage.getItem('dailyfont'));if(v>=0&&v<FONT_LV.length)return v;return window.matchMedia&&matchMedia('(max-width:767px)').matches?2:1}
+function fontApply(){document.documentElement.style.fontSize=FONT_LV[fontGet()]+'px'}
+function fontCycle(){var n=(fontGet()+1)%FONT_LV.length;try{localStorage.setItem('dailyfont',n)}catch(e){}fontApply();
+  if(typeof dnToast==='function')dnToast('字級：'+FONT_NM[n]);
+  document.querySelectorAll('[data-fontlbl]').forEach(function(e){e.textContent=FONT_NM[n]});
+  if(typeof render==='function')try{render()}catch(e){}}
+fontApply();
+</script>
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
 <div class="max-w-4xl mx-auto p-3 md:p-8 pb-16">
   <header class="mb-4">
     <a href="index.html" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline">← 回首頁</a>
-    <h1 class="text-2xl font-bold mt-1">📚 TSL 單字總表</h1>
+    <div class="flex items-center justify-between gap-2"><h1 class="text-2xl font-bold mt-1">📚 TSL 單字總表</h1><button onclick="fontCycle()" class="rounded-lg border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-sm shrink-0" aria-label="調整字級">Aa <span data-fontlbl class="text-xs text-slate-500"></span></button></div>
     <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">New TOEIC Service List 1.2 · 1250 字 · 可依 D1–D7 主題篩選 · 依字母分組，點字母展開；已收錄的字可點開詳解</p>
   </header>
 
   <div id="sum" class="mb-4"></div>
 
   <div class="flex flex-wrap items-center gap-2 mb-3 text-sm">
+    <div class="flex rounded-lg border border-slate-300 dark:border-slate-700 overflow-hidden" id="fsc"></div>
     <div class="flex rounded-lg border border-slate-300 dark:border-slate-700 overflow-hidden" id="fs"></div>
     <div class="flex rounded-lg border border-slate-300 dark:border-slate-700 overflow-hidden" id="fb"></div>
     <input id="q" type="search" placeholder="搜尋單字…" class="flex-1 min-w-[8rem] rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-1.5 text-sm">
@@ -59,10 +71,36 @@ const bandOf = r => BANDS.find(b => r <= b.max);
 const ROWS = TSL_WORDS.map((w, i) => ({ w, n: norm(w), r: i + 1, b: bandOf(i + 1), d: TSL_CAT[i][0], d2: TSL_CAT[i][1] || '' })).sort((a, b) => a.n.localeCompare(b.n));
 const LETTERS = [...new Set(ROWS.map(x => x.n[0].toUpperCase()))];
 
+let IX = null, OTHERS = [], OTH_LOADED = false;
+TSL_DNAME.N = '非 TSL';
+const TSLSET = new Set(TSL_WORDS.map(norm));
 let LEARNED = new Map(); // norm word -> { w, d, s }　s＝詳解狀態：2 有詳解、1 含在其他字詳解內、0 缺詳解、undefined 未知（舊版 index）
-const gap = x => { const h = LEARNED.get(x.n); return !!h && h.s === 0; };
+const gap = x => { if (x.o) return x.s === 0; const h = LEARNED.get(x.n); return !!h && h.s === 0; };
+const qidWD = q => { const m = /^w(\d+)d(\d+)$/.exec(q || ''); return m ? [+m[1], +m[2]] : [0, 0]; };
+/* 入庫但還沒寫回 daily.json 的字（存在這個瀏覽器的 S.marks）：TSL 單字 → 算「已收錄、缺詳解」 */
+function mergeMarks() {
+  (S.marks || []).forEach(m => {
+    const k = norm(m.text); if (!k || m.type !== 'word' || !TSLSET.has(k) || LEARNED.has(k)) return;
+    const [w, d] = qidWD(m.qid); LEARNED.set(k, { w, d, s: 0 });
+  });
+}
+/* 「我的入庫」要列的非 TSL 字／片語：優先讀 vocab_index.json 的 other，沒有才讀 daily.json 的 extra_vocab，再加上尚未寫回的入庫項目 */
+async function ensureOthers() {
+  if (OTH_LOADED) return; OTH_LOADED = true;
+  let list = [];
+  if (IX && Array.isArray(IX.other)) list = IX.other.map(a => ({ text: a[0], type: a[1], from: 'W' + a[2] + 'D' + a[3], s: a[4] }));
+  else { const j = await getJ('daily.json'); if (j) (Array.isArray(j) ? j : (j.items || [])).forEach(x => (x.extra_vocab || []).forEach(e => { const t = e.text || e.word; if (t) list.push({ text: t, type: e.type || 'word', from: 'W' + x.week + 'D' + x.day, s: 2 }); })); }
+  (S.marks || []).forEach(m => { if (m.text) { const [w, d] = qidWD(m.qid); list.push({ text: m.text, type: m.type || 'word', from: w ? 'W' + w + 'D' + d : '', s: 0, pend: 1 }); } });
+  const seen = new Set(); OTHERS = [];
+  list.forEach(o => {
+    const k = norm(o.text); if (!k || seen.has(k)) return;
+    if (TSLSET.has(k) && (o.type || 'word') === 'word') return; // TSL 的字已在上面的總表
+    seen.add(k); OTHERS.push({ o: 1, w: o.text, n: k, r: null, b: null, d: 'N', d2: '', type: o.type || 'word', s: o.s, from: o.from });
+  });
+}
+const typeTag = t => t === 'phrase' ? '片語' : t === 'sentence' ? '句子' : '字';
 let SRC = '';
-let F = { st: 'all', bd: 0, dd: 'all', q: '' }, OPEN = new Set(), RESTORE_Y = null;
+let F = { sc: 'all', st: 'all', bd: 0, dd: 'all', q: '' }, OPEN = new Set(), RESTORE_Y = null;
 
 /* 點進單字詳解前記住篩選、展開的字母與捲動位置，從詳解返回時還原 */
 try {
@@ -77,7 +115,9 @@ function seg(id, opts, key) {
 }
 
 function paint() {
-  const has = x => LEARNED.has(x.n);
+  const has = x => x.o || LEARNED.has(x.n);
+  const bank = F.sc === 'bank';
+  const BASE = bank ? ROWS.filter(has).concat(OTHERS) : ROWS;
   const haveN = ROWS.filter(has).length, gapN = ROWS.filter(gap).length;
   const per = BANDS.map(b => {
     const all = ROWS.filter(x => x.b === b), got = all.filter(has);
@@ -90,27 +130,29 @@ function paint() {
     <div class="text-sm mb-2">已收錄 <b>${haveN}</b> / ${ROWS.length} 字（${Math.round(haveN / ROWS.length * 100)}%），還缺 <b class="text-rose-600 dark:text-rose-400">${ROWS.length - haveN}</b> 字${gapN ? `；已收錄但<a href="daily.html#tsl" class="underline">缺詳解</a> <b class="text-amber-600 dark:text-amber-400">${gapN}</b> 字` : ''}</div>
     <div class="grid grid-cols-3 gap-2">${per}</div>`;
 
-  seg('fs', [['all', '全部'], ['have', '已收錄'], ['gap', '缺詳解'], ['miss', '還缺']], 'st');
-  seg('fb', [[0, '全分數帶'], [1, '&lt;650'], [2, '650–749'], [3, '≥750']], 'bd');
+  seg('fsc', [['all', '全部 TSL'], ['bank', '我的入庫']], 'sc');
+  seg('fs', bank ? [['all', '全部'], ['have', '有詳解'], ['gap', '缺詳解']] : [['all', '全部'], ['have', '已收錄'], ['gap', '缺詳解'], ['miss', '還缺']], 'st');
+  seg('fb', [[0, '全分數帶'], [1, '&lt;650'], [2, '650–749'], [3, '≥750']].concat(bank ? [[4, '無分數']] : []), 'bd');
 
-  document.getElementById('fdw').innerHTML = [['all', '全部主題', ROWS.length, haveN], ...['1', '2', '3', '4', '5', '6', '7', 'G'].map(k => { const a = ROWS.filter(x => x.d === k); return [k, (k === 'G' ? '' : 'D' + k + ' ') + TSL_DNAME[k], a.length, a.filter(has).length]; })]
-    .map(([k, t, n, g]) => `<button data-k="dd" data-v="${k}" class="rounded-lg border px-2.5 py-1.5 ${F.dd === k ? 'bg-indigo-600 text-white border-indigo-600' : 'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800'}">${t} <b>${g}</b>/${n}</button>`).join('')
-    + '<button data-copy="1" class="rounded-lg border border-emerald-500 text-emerald-700 dark:text-emerald-400 px-2.5 py-1.5 hover:bg-emerald-50 dark:hover:bg-emerald-950">複製目前篩選的「還缺」單字</button><button data-copy="gap" class="rounded-lg border border-amber-500 text-amber-700 dark:text-amber-400 px-2.5 py-1.5 hover:bg-amber-50 dark:hover:bg-amber-950">複製「缺詳解」單字</button>';
+  document.getElementById('fdw').innerHTML = [['all', '全部主題', bank ? BASE.length : ROWS.length, haveN], ...['1', '2', '3', '4', '5', '6', '7', 'G'].concat(bank ? ['N'] : []).map(k => { const a = BASE.filter(x => x.d === k); return [k, (k === 'G' || k === 'N' ? '' : 'D' + k + ' ') + TSL_DNAME[k], a.length, a.filter(has).length]; })]
+    .map(([k, t, n, g]) => `<button data-k="dd" data-v="${k}" class="rounded-lg border px-2.5 py-1.5 ${F.dd === k ? 'bg-indigo-600 text-white border-indigo-600' : 'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800'}">${t} <b>${bank ? n : g}</b>${bank ? '' : '/' + n}</button>`).join('')
+    + (bank ? '' : '<button data-copy="1" class="rounded-lg border border-emerald-500 text-emerald-700 dark:text-emerald-400 px-2.5 py-1.5 hover:bg-emerald-50 dark:hover:bg-emerald-950">複製目前篩選的「還缺」單字</button><button data-copy="gap" class="rounded-lg border border-amber-500 text-amber-700 dark:text-amber-400 px-2.5 py-1.5 hover:bg-amber-50 dark:hover:bg-amber-950">複製「缺詳解」單字</button>');
 
   const q = norm(F.q), searching = !!q;
   const pass = x => {
     const h = has(x);
-    if (F.st === 'have' && !h) return false;
+    if (F.st === 'have' && (bank ? gap(x) : !h)) return false;
     if (F.st === 'miss' && h) return false;
     if (F.st === 'gap' && !gap(x)) return false;
-    if (F.bd && x.b.k !== +F.bd) return false;
+    if (F.bd && (x.b ? x.b.k : 4) !== +F.bd) return false;
     if (F.dd !== 'all' && x.d !== F.dd) return false;
     if (q && !x.n.includes(q)) return false;
     return true;
   };
   let html = '';
-  LETTERS.forEach(L => {
-    const grp = ROWS.filter(x => x.n[0].toUpperCase() === L);
+  const LET = [...new Set(BASE.map(x => (x.n[0] || '#').toUpperCase()))].sort();
+  LET.forEach(L => {
+    const grp = BASE.filter(x => (x.n[0] || '#').toUpperCase() === L);
     const shown = grp.filter(pass);
     if (!shown.length) return;
     const got = grp.filter(has).length, pct = Math.round(got / grp.length * 100);
@@ -122,11 +164,11 @@ function paint() {
         <span class="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden max-w-[10rem] ml-auto"><span class="block h-full bg-emerald-500" style="width:${pct}%"></span></span>
       </summary>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 p-3 pt-1">${shown.map(x => {
-        const hit = LEARNED.get(x.n);
-        const inner = `<span class="w-2 h-2 rounded-full shrink-0 ${x.b.dot}"></span><span class="font-semibold truncate">${esc(x.w)}</span><span class="ml-auto text-[10px] text-slate-400 shrink-0" title="主題：${TSL_DNAME[x.d]}${x.d2 ? '／次：D' + x.d2 + ' ' + TSL_DNAME[x.d2] : ''}">${x.d === 'G' ? 'G' : 'D' + x.d + (x.d2 ? '·' + x.d2 : '')}</span><span class="text-xs text-slate-400 shrink-0">${x.r}</span>`;
-        if (hit && hit.s === 0) return `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="W${hit.w}D${hit.d} · 已入庫但缺詳解，點開看單字卡" class="flex items-center gap-1.5 rounded-lg border border-amber-400 bg-amber-50 dark:bg-amber-950/30 hover:bg-amber-100 dark:hover:bg-amber-950 px-2.5 py-2 text-sm">${inner}<span class="text-[10px] text-amber-600 dark:text-amber-400 shrink-0">缺詳解</span></a>`;
+        const hit = x.o ? { s: x.s, from: x.from } : LEARNED.get(x.n);
+        const inner = `<span class="w-2 h-2 rounded-full shrink-0 ${x.b ? x.b.dot : 'bg-slate-400'}"></span><span class="font-semibold truncate">${esc(x.w)}</span><span class="ml-auto text-[0.625rem] text-slate-400 shrink-0" title="主題：${TSL_DNAME[x.d]}${x.d2 ? '／次：D' + x.d2 + ' ' + TSL_DNAME[x.d2] : ''}">${x.o ? typeTag(x.type) : x.d === 'G' ? 'G' : 'D' + x.d + (x.d2 ? '·' + x.d2 : '')}</span><span class="text-xs text-slate-400 shrink-0">${x.r || '—'}</span>`;
+        if (hit && hit.s === 0) return `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="${hit.from || 'W' + hit.w + 'D' + hit.d} · 已入庫但缺詳解，點開看單字卡" class="flex items-center gap-1.5 rounded-lg border border-amber-400 bg-amber-50 dark:bg-amber-950/30 hover:bg-amber-100 dark:hover:bg-amber-950 px-2.5 py-2 text-sm">${inner}<span class="text-[0.625rem] text-amber-600 dark:text-amber-400 shrink-0">缺詳解</span></a>`;
         return hit
-          ? `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="W${hit.w}D${hit.d} · 點開詳解" class="flex items-center gap-1.5 rounded-lg border border-indigo-300 dark:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950 px-2.5 py-2 text-sm">${inner}</a>`
+          ? `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="${hit.from || 'W' + hit.w + 'D' + hit.d} · 點開詳解" class="flex items-center gap-1.5 rounded-lg border border-indigo-300 dark:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950 px-2.5 py-2 text-sm">${inner}</a>`
           : `<div class="flex items-center gap-1.5 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 px-2.5 py-2 text-sm text-slate-400 dark:text-slate-500">${inner}</div>`;
       }).join('')}</div></details>`;
   });
@@ -152,7 +194,13 @@ document.addEventListener('click', e => {
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(ok, fb); else fb();
     return;
   }
-  if (b.dataset.k) { F[b.dataset.k] = b.dataset.v; paint(); }
+  if (b.dataset.k) {
+    F[b.dataset.k] = b.dataset.v;
+    if (F.sc !== 'bank' && (F.dd === 'N' || F.bd === '4' || F.bd === 4)) { if (F.dd === 'N') F.dd = 'all'; if (+F.bd === 4) F.bd = 0; }
+    if (F.sc === 'bank' && F.st === 'miss') F.st = 'all';
+    paint();
+    if (F.sc === 'bank' && !OTH_LOADED) ensureOthers().then(paint);
+  }
   else if (b.dataset.all) { OPEN = b.dataset.all === '1' ? new Set(LETTERS) : new Set(); paint(); }
 });
 document.getElementById('q').addEventListener('input', e => { F.q = e.target.value; paint(); });
@@ -161,7 +209,7 @@ document.getElementById('q').addEventListener('input', e => { F.q = e.target.val
 const getJ = async u => { try { const r = await fetch(u, { cache: 'no-store' }); return r.ok ? await r.json() : null; } catch (e) { return null; } };
 async function boot() {
   paint();
-  const ix = await getJ('vocab_index.json');
+  const ix = IX = await getJ('vocab_index.json');
   if (ix && ix.tsl) {
     LEARNED = new Map(Object.entries(ix.tsl).map(([k, v]) => [k, { w: v[0], d: v[1], s: v[2] }]));
     SRC = `已收錄資料：vocab_index.json（掃描於 ${new Date(ix.v * 1000).toLocaleString('zh-TW', { hour12: false })}）。新增單字後請重新執行 Scan總表與音檔.py 並上傳。`;
@@ -179,6 +227,8 @@ async function boot() {
       SRC = '讀不到 vocab_index.json 與 daily.json（可能是直接雙擊開啟）。請從網站網址開啟；目前全部顯示為「還缺」。';
     }
   }
+  mergeMarks();
+  if (F.sc === 'bank') await ensureOthers();
   paint();
   if (RESTORE_Y != null) { window.scrollTo(0, RESTORE_Y); RESTORE_Y = null; }
 }

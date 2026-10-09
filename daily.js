@@ -52,9 +52,10 @@ function spSetSpeed(v) {
   else Sp.cps = 0;
   spUI();
 }
-const speak = text => { // 單字發音（一次性，不含控制列）
-  try { spStop(); const u = new SpeechSynthesisUtterance(text); setVoice(u); u.rate=0.9; speechSynthesis.speak(u); }
-  catch(e) { alert('您的瀏覽器不支援即時語音朗讀'); }
+const speak = (text, ext) => { // 單字發音（一次性，不含控制列）；ext＝呼叫端已建立的「結束脈動」函式
+  const done = ext || spkBtn();
+  try { spStop(); const u = new SpeechSynthesisUtterance(text); setVoice(u); u.rate=0.9; u.onend = u.onerror = done; speechSynthesis.speak(u); }
+  catch(e) { done(); alert('您的瀏覽器不支援即時語音朗讀'); }
 };
 const spSnap = i => { while (i > 0 && !/\s/.test(Sp.text[i-1])) i--; return i; };
 function spNow() {
@@ -84,6 +85,7 @@ function spRun(from) {
 function spAudioFail(au) { // 找不到／無法播放 mp3 → 自動改用瀏覽器語音合成
   if (Sp.au !== au) return;
   Sp.au = null; Sp.mode = 'tts'; spRun(0);
+  if (typeof dnToast === 'function') dnToast('mp3 讀不到，改用語音合成播放');
 }
 function spToggle(id, startAt) { // 播放／暫停／繼續；startAt = 從指定秒數開始（點句子時使用）
   if (Sp.id !== id) {
@@ -91,16 +93,20 @@ function spToggle(id, startAt) { // 播放／暫停／繼續；startAt = 從指�
     Sp.id = id; Sp.text = x.passage; Sp.cps = 0;
     const au = new Audio(audioSrc(x));
     try { au.defaultPlaybackRate = Sp.speed; au.playbackRate = Sp.speed; au.preservesPitch = true; au.webkitPreservesPitch = true; } catch(e) {}
-    Sp.au = au; Sp.mode = 'audio'; Sp.st = 'playing';
+    Sp.au = au; Sp.mode = 'audio'; Sp.st = 'loading'; // 先顯示「載入中」，真的出聲（playing 事件）才切成播放中
     if (startAt) { const go = () => { try { au.currentTime = startAt; } catch (e) {} }; au.addEventListener('loadedmetadata', go, { once: true }); }
     au.ontimeupdate = () => { if (Sp.au === au) spHl(id, au.currentTime); };
     au.onended = () => { if (Sp.au === au) { Sp.au = null; Sp.mode = ''; Sp.st = 'idle'; Sp.id = null; spClearHl(); spUI(); } };
     au.onerror = () => spAudioFail(au);
-    au.play().catch(e => { if (e.name !== 'NotAllowedError' && e.name !== 'AbortError') spAudioFail(au); });
+    au.onplaying = () => { if (Sp.au === au && Sp.st === 'loading') { Sp.st = 'playing'; spUI(); } };
+    au.play().catch(e => {
+      if (e.name === 'NotAllowedError') { if (Sp.au === au) { Sp.st = 'paused'; spUI(); if (typeof dnToast === 'function') dnToast('瀏覽器擋住自動播放，請再按一次 ▶'); } }
+      else if (e.name !== 'AbortError') spAudioFail(au);
+    });
     spUI(); return;
   }
   if (Sp.mode === 'audio') {
-    if (Sp.st === 'playing') { Sp.au.pause(); Sp.st = 'paused'; } else { Sp.au.play(); Sp.st = 'playing'; }
+    if (Sp.st === 'playing' || Sp.st === 'loading') { Sp.au.pause(); Sp.st = 'paused'; } else { Sp.au.play(); Sp.st = 'playing'; }
     spUI(); return;
   }
   if (Sp.st === 'playing') { spCps(); Sp.pos = spNow(); Sp.tok++; speechSynthesis.cancel(); Sp.st = 'paused'; spUI(); }
@@ -123,13 +129,14 @@ function spStop() {
   spUI();
 }
 function spHtml(id) {
-  const mine = Sp.id === id && Sp.st !== 'idle', playing = Sp.id === id && Sp.st === 'playing';
+  const mine = Sp.id === id && Sp.st !== 'idle', playing = Sp.id === id && Sp.st === 'playing', loading = Sp.id === id && Sp.st === 'loading';
   const b = 'rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300 disabled:opacity-40 disabled:cursor-not-allowed';
-  return `<button onclick="spToggle('${id}')" class="${b}">${playing ? '⏸ 暫停' : (mine ? '▶ 繼續' : '🔊 播放語音')}</button>
+  const on = 'rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-600 text-white';
+  return `<button onclick="spToggle('${id}')" class="${playing || loading ? on : b}${loading ? ' animate-pulse' : ''}">${loading ? '⏳ 載入中…' : playing ? '⏸ 暫停' : (mine ? '▶ 繼續' : '🔊 播放語音')}</button>
     <button onclick="spBack()" ${mine ? '' : 'disabled'} class="${b}" title="倒轉 5 秒">⏪ 5秒</button>
     <button onclick="spStop()" ${mine ? '' : 'disabled'} class="${b}" title="停止">⏹</button>
     <span class="inline-flex items-center gap-1"><span class="text-xs text-slate-400">語速</span>${SP_SPEEDS.map(v => `<button onclick="spSetSpeed(${v})" class="rounded-lg px-2.5 py-2 text-xs font-medium transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300'}">${v}×</button>`).join('')}</span>
-    ${mine ? `<span class="text-xs text-slate-400">${Sp.mode === 'audio' ? '音檔' : '語音合成'}</span>` : ''}`;
+    ${mine ? `<span class="text-xs ${playing ? 'text-indigo-600 dark:text-indigo-300 font-semibold' : 'text-slate-400'}">${playing ? '● ' : ''}${Sp.mode === 'audio' ? '音檔' : '語音合成'}${loading ? '（載入中）' : playing ? '播放中' : '（已暫停）'}</span>` : ''}`;
 }
 function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll('#passage-text .tsent.active').forEach(e => e.classList.remove('active')); }
 function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily.json 的 timing）
@@ -157,9 +164,9 @@ function spMini() { // 手機底部浮動播放列：捲到測驗區時仍可暫
   if (Sp.st === 'idle' || !Sp.id) { el.innerHTML = ''; return; }
   const b = 'rounded-lg px-4 py-2.5 text-sm font-medium cursor-pointer bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
   el.innerHTML = `<div class="mx-3 mb-3 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur p-2 flex items-center gap-2" style="margin-bottom:max(0.75rem,env(safe-area-inset-bottom))">
-    <span class="flex-1 min-w-0 truncate px-2 text-xs text-slate-500">${Sp.id.toUpperCase()} · ${Sp.mode === 'audio' ? '音檔' : '語音合成'}</span>
+    <span class="flex-1 min-w-0 truncate px-2 text-xs text-slate-500">${Sp.st === 'loading' ? '⏳ 載入中 · ' : Sp.st === 'playing' ? '● ' : '⏸ '}${Sp.id.toUpperCase()} · ${Sp.mode === 'audio' ? '音檔' : '語音合成'}</span>
     <button onclick="spBack()" class="${b}">⏪ 5秒</button>
-    <button onclick="spToggle(Sp.id)" class="${b}">${Sp.st === 'playing' ? '⏸' : '▶'}</button>
+    <button onclick="spToggle(Sp.id)" class="${b}${Sp.st === 'loading' ? ' animate-pulse' : ''}">${Sp.st === 'loading' ? '⏳' : Sp.st === 'playing' ? '⏸' : '▶'}</button>
     <button onclick="spStop()" class="${b}">⏹</button></div>`;
 }
 function spUI() { const el = document.getElementById('sp-ctl'); if (el) el.innerHTML = spHtml(el.dataset.id); spMini(); }
@@ -235,7 +242,7 @@ async function recheckAudio() { await auLoad(); render(); }
 /* ===== 狀態小標籤：mp3／timing ===== */
 const mp3State = x => AU.idx ? (dyHas(x) ? 'ok' : 'none') : 'unk';
 const chipCls = st => st === 'ok' ? TM_COLOR.ok : st === 'partial' ? TM_COLOR.partial : st === 'unk' ? TM_COLOR.none : TM_COLOR.bad;
-const chip = (txt, st, tip) => `<span ${tip ? `title="${esc(tip)}"` : ''} class="text-[11px] font-semibold rounded px-1.5 py-0.5 whitespace-nowrap ${chipCls(st)}">${txt}</span>`;
+const chip = (txt, st, tip) => `<span ${tip ? `title="${esc(tip)}"` : ''} class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 whitespace-nowrap ${chipCls(st)}">${txt}</span>`;
 function stChips(x) {
   const m = mp3State(x), t = tmInfo(x).state;
   return chip('♪' + (m === 'ok' ? '✔' : m === 'unk' ? '?' : '✖'), m, m === 'ok' ? '有 mp3' : m === 'unk' ? '尚未讀到 audio/index.json' : '缺 mp3')
@@ -292,14 +299,14 @@ function renderMaint() {
     <div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><button onclick="recheckAudio()" class="${btn} border border-slate-300 dark:border-slate-700 !py-0.5 !px-2 text-xs">重新讀取 audio/index.json</button><span class="text-slate-400">timing 看 daily.json 內的 timing 欄位；放好 mp3 並執行 daily_timestamps.py、重新整理後更新</span></div></div>
   <div class="${card} overflow-hidden mb-3"><div class="overflow-x-auto"><table class="border-separate border-spacing-0 text-center"><thead><tr>
     <th class="sticky left-0 z-10 w-14 min-w-[3.5rem] bg-white dark:bg-slate-900 border-b border-r border-slate-200 dark:border-slate-800"></th>
-    ${THEMES.map((t, i) => `<th class="min-w-[5.5rem] px-1 py-2 border-b border-slate-200 dark:border-slate-800"><span class="block text-sm font-bold">D${i + 1}</span><span class="block text-[10px] font-normal text-slate-500 truncate max-w-[5.5rem]">${t}</span></th>`).join('')}</tr></thead><tbody>`;
+    ${THEMES.map((t, i) => `<th class="min-w-[5.5rem] px-1 py-2 border-b border-slate-200 dark:border-slate-800"><span class="block text-sm font-bold">D${i + 1}</span><span class="block text-[0.625rem] font-normal text-slate-500 truncate max-w-[5.5rem]">${t}</span></th>`).join('')}</tr></thead><tbody>`;
   ws.forEach(w => {
     h += `<tr><th class="sticky left-0 z-10 px-2 py-2 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 border-b text-sm font-bold text-indigo-600 dark:text-indigo-400">W${w}</th>`;
     for (let d = 1; d <= 7; d++) {
       const x = find(w, d), bd = 'border-b border-slate-100 dark:border-slate-800';
       if (!x) { h += `<td class="p-1 ${bd}"><button onclick="openGen(${w},${d})" class="w-full h-14 rounded-lg border border-dashed border-indigo-400 text-indigo-600 dark:text-indigo-400 text-lg cursor-pointer">＋</button></td>`; continue; }
       const m = mp3State(x), t = tmInfo(x).state;
-      h += `<td class="p-1 ${bd}"><button onclick="openItem(${w},${d})" class="w-full h-14 rounded-lg text-xs font-semibold cursor-pointer ${cellCls(x)}" title="${esc(x.tag || '')}">${x.type === 'Listening' ? '🎧' : '📄'}<span class="block text-[11px] font-normal leading-4">♪${m === 'ok' ? '✔' : m === 'unk' ? '?' : '✖'} ⏱${t === 'ok' ? '✔' : t === 'partial' ? '△' : '✖'}</span></button></td>`;
+      h += `<td class="p-1 ${bd}"><button onclick="openItem(${w},${d})" class="w-full h-14 rounded-lg text-xs font-semibold cursor-pointer ${cellCls(x)}" title="${esc(x.tag || '')}">${x.type === 'Listening' ? '🎧' : '📄'}<span class="block text-[0.6875rem] font-normal leading-4">♪${m === 'ok' ? '✔' : m === 'unk' ? '?' : '✖'} ⏱${t === 'ok' ? '✔' : t === 'partial' ? '△' : '✖'}</span></button></td>`;
     }
     h += '</tr>';
   });
@@ -363,7 +370,7 @@ function tslSection() {
       <div class="flex flex-wrap items-center justify-between gap-2"><button onclick="openItem(${x.week},${x.day})" class="text-sm font-bold text-indigo-600 dark:text-indigo-400 underline cursor-pointer">W${x.week} · D${x.day} ${esc(x.tag || '')}</button>
         <div class="flex gap-1.5"><button onclick="tslCopy('${id}',this)" class="${btn} bg-indigo-600 text-white !py-1 !px-2.5 text-xs">複製 AI 提示詞（${o.miss.length}）</button><button onclick="tslToMarks('${id}')" class="${sb}">加入入庫彙整</button></div></div>
       <div class="flex flex-wrap gap-1.5 mt-2">${o.miss.map(m => `<button onclick="tslOpen(${x.week},${x.day},${m.i})" title="TSL 詞頻排名 #${m.r}" class="text-xs rounded-full px-2.5 py-1 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 cursor-pointer">${esc(m.word)} <span class="opacity-60">#${m.r}</span></button>`).join('')}</div></div>`;
-  }).join('') + `</div><p class="mt-3 text-[11px] text-slate-400 leading-relaxed">流程：按「複製 AI 提示詞」（會順便把這些字加入入庫）貼給 AI → AI 回傳的 JSON 存成 w{週}d{天}_extra.json → json_merge.py 合併進 daily.json → 執行 Scan總表與音檔.py 並上傳 → 重新整理，這裡與 TSL 總表就會更新。</p></section>`;
+  }).join('') + `</div><p class="mt-3 text-[0.6875rem] text-slate-400 leading-relaxed">流程：按「複製 AI 提示詞」（會順便把這些字加入入庫）貼給 AI → AI 回傳的 JSON 存成 w{週}d{天}_extra.json → json_merge.py 合併進 daily.json → 執行 Scan總表與音檔.py 並上傳 → 重新整理，這裡與 TSL 總表就會更新。</p></section>`;
   return h;
 }
 
@@ -407,7 +414,7 @@ function dayNav(nw, M) {
     const click = x ? `onclick="${M ? 'openItem' : 'go'}(${nw},${d})"` : M ? `onclick="openGen(${nw},${d})"` : 'disabled';
     h += `<button ${click} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : M ? 'border border-dashed border-indigo-400' : 'opacity-40 cursor-not-allowed'}">
       <span class="text-sm">D${d} ${t}</span>
-      <span class="flex items-center gap-2 shrink-0">${!M && x && x.level ? `<span class="text-[11px] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}${!M && x && skDone(x) ? '<span class="text-xs" title="完成語音練習">🎤</span>' : ''}${st}</span></button>`;
+      <span class="flex items-center gap-2 shrink-0">${!M && x && x.level ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}${!M && x && skDone(x) ? '<span class="text-xs" title="完成語音練習">🎤</span>' : ''}${st}</span></button>`;
   });
   return h + '</nav>';
 }
@@ -416,7 +423,7 @@ function renderSide() {
   const n = Object.keys(S.saved).length, nw = cur.nw ?? cur.w, v = cur.view, M = inMaint();
   const line = 'border border-slate-300 dark:border-slate-700';
   const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${cur.d}` : v === 'marks' ? '📌 入庫彙整' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
-  const dk = `<button onclick="toggleDark()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>`;
+  const dk = `<button onclick="fontCycle()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="調整字級">Aa</button><button onclick="toggleDark()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>`;
   const root = v === 'launch' || v === 'home' || v === 'maint';
   // ===== 手機：選單／學習首頁／維護總覽顯示標題列；其他頁顯示「← 返回」列 =====
   let h = `<div class="md:hidden">` + (root
@@ -432,6 +439,7 @@ function renderSide() {
   h += `<div class="hidden md:block">
   <div class="flex items-center justify-between mb-4 gap-2"><h1 class="text-lg font-bold">TOEIC Daily</h1>
     <a href="index.html" class="${btn} ${line}" aria-label="回到首頁">⌂ 首頁</a>
+    <button onclick="fontCycle()" class="${btn} ${line}" aria-label="調整字級">Aa</button>
     <button onclick="toggleDark()" class="${btn} ${line}">${S.dark ? '☀ 淺色' : '☾ 深色'}</button></div>
   <div class="grid grid-cols-3 gap-1 mb-4"><button onclick="showLaunch()" class="${btn} ${v === 'launch' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}" title="回到選單">☰</button>${tab('learn', '📖 學習')}${tab('maint', '🛠 維護')}</div>`;
   if (SEC === 'learn') {
@@ -456,7 +464,7 @@ function renderHome() {
       <span class="block text-xs text-indigo-100 truncate">${esc(last.tag || '')}</span></button>` : '';
   h += `<div class="${card} overflow-hidden"><div class="overflow-x-auto"><table class="border-separate border-spacing-0 text-center"><thead><tr>
     <th class="sticky left-0 z-10 w-36 min-w-[9rem] bg-white dark:bg-slate-900 border-b border-r border-slate-200 dark:border-slate-800"></th>
-    ${ws.map(w => `<th class="min-w-[4.5rem] px-1 py-2 border-b border-slate-200 dark:border-slate-800"><span class="block text-sm font-bold">W${w}</span><span class="block text-[11px] font-normal text-slate-500">${weekDone(w)}/7</span></th>`).join('')}
+    ${ws.map(w => `<th class="min-w-[4.5rem] px-1 py-2 border-b border-slate-200 dark:border-slate-800"><span class="block text-sm font-bold">W${w}</span><span class="block text-[0.6875rem] font-normal text-slate-500">${weekDone(w)}/7</span></th>`).join('')}
     </tr></thead><tbody>`;
   THEMES.forEach((t, i) => {
     const d = i + 1;
@@ -468,7 +476,7 @@ function renderHome() {
       if (!x) { h += `<td class="p-1 ${bd}"><div class="h-12 rounded-lg flex items-center justify-center text-slate-300 dark:text-slate-700">—</div></td>`; return; }
       const cls = done ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
         : 'bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
-      h += `<td class="p-1 ${bd}"><button onclick="go(${w},${d})" class="w-full h-12 rounded-lg text-sm font-semibold cursor-pointer ${cls}">${done ? `✓<span class="block text-[10px] font-normal leading-3">${Math.round(a.score / x.questions.length * 100)}%${skDone(x) ? ' 🎤' : ''}</span>` : started ? '<span class="text-xs">進行中</span>' : '<span class="text-xs">開始</span>'}</button></td>`;
+      h += `<td class="p-1 ${bd}"><button onclick="go(${w},${d})" class="w-full h-12 rounded-lg text-sm font-semibold cursor-pointer ${cls}">${done ? `✓<span class="block text-[0.625rem] font-normal leading-3">${Math.round(a.score / x.questions.length * 100)}%${skDone(x) ? ' 🎤' : ''}</span>` : started ? '<span class="text-xs">進行中</span>' : '<span class="text-xs">開始</span>'}</button></td>`;
     });
     h += '</tr>';
   });
@@ -494,7 +502,7 @@ function renderAudioAdmin() {
     <p class="text-xs text-slate-500 mt-2">mp3 放 audio/daily/，檔名 w{週}d{天}.mp3；放好後執行 Scan總表與音檔.py 與 daily_timestamps.py，再重新整理。</p></header>`;
   if (orph.length) h += `<div class="${card} p-3 mb-4 text-xs text-amber-600 dark:text-amber-400">⚠ audio/daily 內有不屬於任何文章的檔案（檔名打錯？）：${orph.map(esc).join('、')}</div>`;
   if (!list.length) return main.innerHTML = h + `<div class="${card} p-8 text-center text-sm text-slate-500">${xs.length ? '這個條件下沒有項目 ✔' : '目前沒有文章'}</div>`;
-  main.innerHTML = h + list.map(x => `<details class="${card} p-3 mb-2"><summary class="cursor-pointer flex flex-wrap items-center gap-2"><b class="text-sm">W${x.week} · D${x.day}</b>${stChips(x)}<code class="text-xs text-slate-500">${esc(audioPath(x).split('/').pop())}</code><span class="text-xs text-slate-500 truncate flex-1 min-w-0">${esc(x.tag || '')}</span>${x.level ? `<span class="text-[11px] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}</summary>
+  main.innerHTML = h + list.map(x => `<details class="${card} p-3 mb-2"><summary class="cursor-pointer flex flex-wrap items-center gap-2"><b class="text-sm">W${x.week} · D${x.day}</b>${stChips(x)}<code class="text-xs text-slate-500">${esc(audioPath(x).split('/').pop())}</code><span class="text-xs text-slate-500 truncate flex-1 min-w-0">${esc(x.tag || '')}</span>${x.level ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}</summary>
       <div class="mt-3 space-y-3">${dyPanel(x)}${timingPanel(x)}<button onclick="openItem(${x.week},${x.day})" class="${sb}">開啟這篇的維護頁</button></div></details>`).join('');
 }
 
@@ -548,7 +556,7 @@ function renderDay() {
     </div>`;
   } else {
     h += `<p id="passage-text" class="${cur.mk ? 'annot ' : ''}whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans">${passageHtml(x)}</p>
-      <p class="mt-3 text-[11px] text-slate-400">${cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。'}</p>`;
+      <p class="mt-3 text-[0.6875rem] text-slate-400">${cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。'}</p>`;
   }
 
   if (zhOpen) {
@@ -853,7 +861,7 @@ function tslHits() { // 每篇文章實際收錄了哪些 TSL 單字：[{x, list
 }
 function tslPanel(s) {
   const tp = tslPick(s), hs = tslHits();
-  if (!tp || !hs) return '<p class="text-[11px] text-amber-600 mb-2">未載入 tsl.js，提示詞沒有帶入 TSL 候選字（請在 daily.html 加入 &lt;script src="tsl.js"&gt;）。</p>';
+  if (!tp || !hs) return '<p class="text-[0.6875rem] text-amber-600 mb-2">未載入 tsl.js，提示詞沒有帶入 TSL 候選字（請在 daily.html 加入 &lt;script src="tsl.js"&gt;）。</p>';
   const chip = (t, c) => `<span class="inline-block rounded-full px-2 py-0.5 text-xs ${c}">${t}</span>`;
   const total = hs.reduce((n, h) => n + h.list.length, 0);
   return `<div class="rounded-lg border border-slate-200 dark:border-slate-800 p-3 mb-3 text-xs">
@@ -900,7 +908,7 @@ function dyPanel(x) {
   const first = (pass.split(/\n+/).map(t => t.trim()).find(Boolean)) || '';
   return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 p-3"><div class="flex flex-wrap items-center justify-between gap-2 mb-2"><p class="text-xs font-bold">🔊 音檔 ${has ? '1/1（完整，播放用 mp3）' : '0/1（缺，播放改用機器發音）'}${AU.idx ? '' : ' · 尚未讀到 audio/index.json'}</p>${has ? '' : cp(fn + ' | ' + spkParen(pass), '複製缺的（檔名 | 全文）')}</div>
     <div class="flex items-center gap-2 text-xs py-0.5"><span class="${has ? 'text-emerald-600' : 'text-rose-500'}">${has ? '✔' : '✖'}</span><code class="shrink-0">${esc(fn)}</code><span class="truncate flex-1 text-slate-500">${esc(first)}</span>${cp(fn, '檔名')}${cp(path, '路徑')}${cp(spkParen(pass), '全文')}</div>
-    <p class="text-[11px] text-slate-400 mt-1">放到 ${esc(path.slice(0, path.lastIndexOf('/') + 1))}，再執行 Scan總表與音檔.py 並重新整理本頁。</p></div>`;
+    <p class="text-[0.6875rem] text-slate-400 mt-1">放到 ${esc(path.slice(0, path.lastIndexOf('/') + 1))}，再執行 Scan總表與音檔.py 並重新整理本頁。</p></div>`;
 }
 const dyHead = '音檔總覽';
 
@@ -923,7 +931,7 @@ function renderGen() {
     const k = i + 1, x = find(w, k);
     const v = k === d ? s : genEff(w, k);
     const cls = k === d ? 'ring-2 ring-indigo-500 bg-indigo-50 dark:bg-indigo-950' : x ? 'bg-slate-100 dark:bg-slate-800' : 'border border-dashed border-slate-300 dark:border-slate-700 text-slate-400';
-    return `<div class="rounded-lg px-2 py-1.5 text-center min-w-[3.5rem] ${cls}"><div class="text-[11px] text-slate-500">D${k}</div><div class="text-sm font-semibold">${v}</div><div class="text-[10px] text-slate-400">${k === d ? '本篇' : x ? '已有' : '建議'}</div></div>`;
+    return `<div class="rounded-lg px-2 py-1.5 text-center min-w-[3.5rem] ${cls}"><div class="text-[0.6875rem] text-slate-500">D${k}</div><div class="text-sm font-semibold">${v}</div><div class="text-[0.625rem] text-slate-400">${k === d ? '本篇' : x ? '已有' : '建議'}</div></div>`;
   }).join('');
   main.innerHTML = `<header class="mb-6">
     <h2 class="text-xl md:text-2xl font-bold">＋ 新增文章 · Day ${d} ${THEMES[d - 1]}</h2>
@@ -1072,6 +1080,8 @@ function openVocabByHash() {
     else if (e) dnOpenExtra(idOf(x), e.text || e.word); // 入庫單字（extra_vocab）→ 也開詳解
     return true;
   };
+  const mk = dnMarks().find(m => nz(m.text) === q && dnArt(m.qid)); // 只入庫、還沒寫回的字：開到入庫所在篇的詳解（顯示「待補詳解」）
+  if (mk && !DATA.some(x => (x.vocab || []).some(v => nz(v.word) === q) || (x.extra_vocab || []).some(e => nz(e.text || e.word) === q))) { const x = dnArt(mk.qid); return open(x, -1, { text: mk.text }); }
   for (const ok of [(w) => w === q, (w) => near(w, q)]) { // 先精確比對，找不到再用寬鬆比對
     for (const x of DATA) {
       const i = (x.vocab || []).findIndex(v => ok(nz(v.word)));

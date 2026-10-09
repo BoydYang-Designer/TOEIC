@@ -8,6 +8,17 @@
 <script>tailwind.config={darkMode:'class'}</script>
 <link rel="stylesheet" href="style.css">
 <script src="cloud-sync.js"></script>
+<script>
+/* 字級：4 段（小／標準／大／特大），存在這台裝置（不跨裝置同步）。第一次使用時手機預設「大」 */
+var FONT_LV=[14,16,18,20],FONT_NM=['小','標準','大','特大'];
+function fontGet(){var v=parseInt(localStorage.getItem('dailyfont'));if(v>=0&&v<FONT_LV.length)return v;return window.matchMedia&&matchMedia('(max-width:767px)').matches?2:1}
+function fontApply(){document.documentElement.style.fontSize=FONT_LV[fontGet()]+'px'}
+function fontCycle(){var n=(fontGet()+1)%FONT_LV.length;try{localStorage.setItem('dailyfont',n)}catch(e){}fontApply();
+  if(typeof dnToast==='function')dnToast('字級：'+FONT_NM[n]);
+  document.querySelectorAll('[data-fontlbl]').forEach(function(e){e.textContent=FONT_NM[n]});
+  if(typeof render==='function')try{render()}catch(e){}}
+fontApply();
+</script>
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
 <div class="flex flex-col md:flex-row min-h-screen">

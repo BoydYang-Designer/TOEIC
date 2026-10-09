@@ -19,3 +19,14 @@ mark.hl{background:rgba(251,191,36,.24);color:inherit;padding:0;border-radius:2p
 .annot .tsent{cursor:text}
 .annot .tsent:hover{background:transparent}
 .dark .annot .tsent:hover{background:transparent}
+
+/* 播放回饋：按下有縮放、播放中脈動 */
+button{-webkit-tap-highlight-color:transparent}
+button:not(:disabled):active{transform:scale(.94)}
+@keyframes spkp{0%,100%{opacity:1}50%{opacity:.35}}
+.spk-on{color:#4f46e5!important;animation:spkp 1s ease-in-out infinite}
+.dark .spk-on{color:#a5b4fc!important}
+/* 手機輸入框至少 16px，iOS 才不會在點入時自動放大頁面 */
+@media (max-width:767px){input,textarea,select{font-size:max(16px,1rem)!important}}
+/* 詳解頁：可選取文字入庫 */
+#detail-text{-webkit-user-select:text;user-select:text}
