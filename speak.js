@@ -74,6 +74,7 @@ function skBuild(x) {
 function skInit(x) {
   skStopAll();
   SK.id = idOf(x); SK.sents = skBuild(x); SK.hasTiming = SK.sents.some(s => s.start != null);
+  skDrop('sent'); skDrop('whole');
   SK.i = 0; SK.res = {}; SK.wres = null; SK.mode = S.spkMode === 'whole' ? 'whole' : 'sent';
   SK.hide = false; SK.rate = 1; SK.err = ''; SK.hl = -1;
 }
@@ -202,6 +203,7 @@ function skStopPlay() {
   SK.tk++;
   if (SK.au) { SK.au.onended = SK.au.ontimeupdate = SK.au.onerror = null; try { SK.au.pause(); } catch (e) {} }
   if (SK.mine) { SK.mine.onended = SK.mine.onerror = null; try { SK.mine.pause(); } catch (e) {} SK.mine = null; }
+  if (SK.mineUrl) { try { URL.revokeObjectURL(SK.mineUrl); } catch (e) {} SK.mineUrl = null; }
   try { speechSynthesis.cancel(); } catch (e) {}
   SK.playing = null; SK.pk = null; SK.hl = -1;
 }
@@ -229,9 +231,20 @@ function skPlay(x, seg, key) {
     if (seg) { if (a.currentTime >= end) { a.pause(); done(); } }
     else skHl(a.currentTime);
   };
-  const seek = () => { if (tk !== SK.tk) return; try { a.currentTime = start; } catch (e) {} a.playbackRate = SK.rate; };
-  if (SK.src !== src) { SK.src = src; a.src = src; }
+  /* 開頭被吃字的修法：起點往前多留 0.15 秒；先靜音開始播（保留點擊手勢），跳到起點完成（seeked）後才取消靜音，避免 seek 未完成就出聲 */
+  const lead = seg ? Math.max(0, start - 0.15) : 0;
+  const unmute = () => { if (tk === SK.tk) a.muted = false; };
+  const seek = () => {
+    if (tk !== SK.tk) return;
+    a.playbackRate = SK.rate;
+    if (Math.abs(a.currentTime - lead) < 0.05) { unmute(); return; }
+    a.addEventListener('seeked', unmute, { once: true });
+    try { a.currentTime = lead; } catch (e) { unmute(); }
+    setTimeout(unmute, 1200);
+  };
+  if (SK.src !== src) { SK.src = src; a.preload = 'auto'; a.src = src; }
   a.defaultPlaybackRate = SK.rate; a.playbackRate = SK.rate;
+  a.muted = true;
   if (a.readyState >= 1) seek(); else a.addEventListener('loadedmetadata', seek, { once: true });
   a.play().catch(e => { if (tk === SK.tk && e.name !== 'AbortError' && e.name !== 'NotAllowedError') fail(); });
   skAfter();
@@ -267,6 +280,7 @@ async function skRecToggle() {
   if (SK.st === 'rec') { skRecStop(); return; }
   if (SK.st === 'proc') return;
   skStopPlay();
+  skCancelRec(); // 先把上一次可能殘留的辨識／錄音／麥克風串流全部關掉，避免麥克風被佔用而收不到聲音
   SK.err = ''; SK.final = ''; SK.interim = ''; SK.restart = 0; SK.stopping = false; SK.blob = null; SK.st = 'rec';
   const tk = ++SK.rtk;
   const SRc = skSR();
@@ -315,6 +329,7 @@ async function skMediaStart(tk) {
     mr.ondataavailable = e => { if (e.data && e.data.size) SK.chunks.push(e.data); };
     mr.onstop = () => {
       stream.getTracks().forEach(t => t.stop());
+      if (SK.stream === stream) SK.stream = null;
       SK.blob = SK.chunks.length ? new Blob(SK.chunks, { type: SK.mime }) : null; SK.chunks = [];
       if (SK.mrDone) SK.mrDone();
     };
@@ -342,10 +357,13 @@ function skCancelRec() {
 function skStopAll() { skStopPlay(); skCancelRec(); }
 function skFinish(tk) {
   if (tk !== SK.rtk || SK.st !== 'proc') return;
-  const x = skX(), heard = (SK.final + ' ' + SK.interim).trim(), url = SK.blob ? URL.createObjectURL(SK.blob) : null, sup = !!skSR();
+  const x = skX(), heard = (SK.final + ' ' + SK.interim).trim(), blob = SK.blob, mime = SK.mime, url = blob ? URL.createObjectURL(blob) : null, sup = !!skSR();
+  const sr0 = SK.sr, mr0 = SK.mr;
   SK.blob = null; SK.st = 'idle'; SK.sr = null; SK.mr = null; SK.srEnd = SK.mrDone = null;
+  if (sr0) { sr0.onresult = sr0.onend = sr0.onerror = null; try { sr0.abort(); } catch (e) {} } // 確實關掉辨識，釋放麥克風
+  if (mr0) { mr0.ondataavailable = null; mr0.onstop = null; try { if (mr0.state !== 'inactive') mr0.stop(); } catch (e) {} }
   if (SK.stream) { SK.stream.getTracks().forEach(t => t.stop()); SK.stream = null; }
-  const r = { url, heard, sup };
+  const r = { url, heard, sup, blob, mime };
   if (SK.mode === 'sent') {
     const i = SK.i, old = SK.res[i]; if (old && old.url) URL.revokeObjectURL(old.url);
     if (sup && heard) { const c = skCompare([SK.sents[i]], heard); r.pct = c.pct; r.words = c.sents[0].words; skBest(idOf(x), 's', i, c.pct); }
@@ -365,12 +383,55 @@ function skLevel(v) { // 切換評分寬嚴；已錄的結果依新標準重新�
   const w = SK.wres; if (w && w.sup && w.heard) { w.c = skCompare(SK.sents, w.heard); w.pct = w.c.pct; }
   skRender();
 }
-function skMode(m) { skStopAll(); SK.mode = m; S.spkMode = m; save(); skRender(); }
-function skGo(i) { skStopAll(); SK.i = Math.max(0, Math.min(SK.sents.length - 1, i)); SK.err = ''; skRender(); }
+/* 沒按「儲存」的錄音：換句、換模式、離開時自動丟掉（釋放 blob 記憶體） */
+function skDrop(m) {
+  if (m === 'sent') { Object.values(SK.res || {}).forEach(r => { if (r && r.url) try { URL.revokeObjectURL(r.url); } catch (e) {} }); SK.res = {}; }
+  else { if (SK.wres && SK.wres.url) try { URL.revokeObjectURL(SK.wres.url); } catch (e) {} SK.wres = null; }
+}
+/* ---- 儲存語音練習：IndexedDB（每句一格，鍵＝文章id:s句號；整篇＝文章id:w）；同一格再存＝覆蓋 ---- */
+let SK_DBP = null;
+const skDb = () => SK_DBP || (SK_DBP = new Promise((res, rej) => { const q = indexedDB.open('toeicSpkRec', 1); q.onupgradeneeded = () => q.result.createObjectStore('r'); q.onsuccess = () => res(q.result); q.onerror = () => rej(q.error); }));
+const skDbDo = (mode, fn) => skDb().then(db => new Promise((res, rej) => { const tx = db.transaction('r', mode), rq = fn(tx.objectStore('r')); tx.oncomplete = () => res(rq && rq.result); tx.onerror = tx.onabort = () => rej(tx.error); }));
+const skKey = () => SK.mode === 'sent' ? 's' + SK.i : 'w';
+const skSv = (id, k) => ((skRec(id).sv) || {})[k];
+function skSave() {
+  const x = skX(), r = SK.mode === 'sent' ? SK.res[SK.i] : SK.wres; if (!x || !r || !r.blob) return;
+  if (!window.indexedDB) { dnToast('此瀏覽器無法儲存錄音'); return; }
+  const id = idOf(x), k = skKey(), had = !!skSv(id, k), meta = { pct: r.pct || 0, t: Date.now() };
+  skDbDo('readwrite', s => s.put({ blob: r.blob, mime: r.mime, pct: meta.pct, heard: r.heard || '', t: meta.t }, id + ':' + k))
+    .then(() => { const rc = skRec(id); (rc.sv = rc.sv || {})[k] = meta; save(); dnToast(had ? '已覆蓋儲存' : '已儲存語音練習'); skAfter(); })
+    .catch(() => dnToast('儲存失敗'));
+}
+function skPlaySaved(k) {
+  if (SK.playing === 'saved' && SK.pk === k) { skStopPlay(); skRender(); return; }
+  skStopPlay(); const tk = SK.tk, id = SK.id;
+  SK.playing = 'saved'; SK.pk = k; skRender();
+  skDbDo('readonly', s => s.get(id + ':' + k)).then(rec => {
+    if (tk !== SK.tk) return;
+    if (!rec || !rec.blob) { skStopPlay(); dnToast('找不到這筆錄音（可能被瀏覽器清除了）'); skRender(); return; }
+    const url = URL.createObjectURL(rec.blob), a = new Audio(url); SK.mine = a; SK.mineUrl = url;
+    const end = () => { if (tk === SK.tk) { skStopPlay(); skRender(); } };
+    a.onended = a.onerror = end; a.play().catch(end);
+  }).catch(() => { if (tk === SK.tk) { skStopPlay(); skRender(); } });
+}
+function skDelSaved(k) {
+  if (!confirm('確定刪除已儲存的錄音？')) return;
+  const id = SK.id; skStopPlay();
+  skDbDo('readwrite', s => s.delete(id + ':' + k)).catch(() => {}).then(() => { const rc = skRec(id); if (rc.sv) delete rc.sv[k]; save(); skAfter(); });
+}
+function skSavedH() {
+  const x = skX(); if (!x) return '';
+  const k = skKey(), v = skSv(idOf(x), k); if (!v) return '';
+  const on = SK.playing === 'saved' && SK.pk === k;
+  return `<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 text-left"><p class="text-sm">💾 已儲存的錄音${v.pct ? ` <span class="rounded-full px-2 py-0.5 text-xs font-bold ${skPctCls(v.pct)}">${v.pct}%</span>` : ''} <span class="text-xs text-slate-500">${new Date(v.t).toLocaleString('zh-TW')}</span></p>
+    <div class="flex flex-wrap gap-2 mt-2"><button onclick="skPlaySaved('${k}')" class="${skCtl}">${on ? '⏹ 停止' : '▶ 聽已儲存的錄音'}</button><button onclick="skDelSaved('${k}')" class="${skCtl}">🗑 刪除</button></div></div>`;
+}
+function skMode(m) { skStopAll(); skDrop(SK.mode); SK.mode = m; S.spkMode = m; save(); skRender(); }
+function skGo(i) { skStopAll(); skDrop('sent'); SK.i = Math.max(0, Math.min(SK.sents.length - 1, i)); SK.err = ''; skRender(); }
 function skRate(r) { SK.rate = r; if (SK.au) SK.au.playbackRate = r; skRender(); }
 function skHide() { SK.hide = !SK.hide; skRender(); }
 function skRetry() { skStopAll(); if (SK.mode === 'sent') { const o = SK.res[SK.i]; if (o && o.url) URL.revokeObjectURL(o.url); delete SK.res[SK.i]; } else { if (SK.wres && SK.wres.url) URL.revokeObjectURL(SK.wres.url); SK.wres = null; } skRender(); }
-function skBack() { skStopAll(); cur.view = 'day'; render(); window.scrollTo({ top: 0 }); }
+function skBack() { skStopAll(); skDrop('sent'); skDrop('whole'); cur.view = 'day'; render(); window.scrollTo({ top: 0 }); }
 function openSpeak() { cur.view = 'speak'; push(); render(); window.scrollTo({ top: 0 }); }
 document.addEventListener('visibilitychange', () => { if (document.hidden) skStopAll(); });
 window.addEventListener('pagehide', () => skStopAll());
@@ -421,7 +482,7 @@ function skResultH(r, wordsH) { // r：本次結果；wordsH：已上色的字�
   return `<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 text-left"><div class="flex flex-wrap items-center gap-2 mb-2">${head}</div>
     ${wordsH ? `<p class="leading-relaxed">${wordsH}</p>` : ''}
     ${r.heard ? `<p class="text-xs text-slate-500 mt-2 break-words">辨識到：${esc(r.heard)}</p>` : ''}
-    <div class="flex flex-wrap gap-2 mt-3">${r.url ? `<button onclick="skPlayMine()" class="${skCtl}">${SK.playing === 'mine' ? '⏹ 停止回放' : '▶ 聽我的錄音'}</button>` : ''}<button onclick="skRetry()" class="${skCtl}">↻ 重來</button></div></div>`;
+    <div class="flex flex-wrap gap-2 mt-3">${r.url ? `<button onclick="skPlayMine()" class="${skCtl}">${SK.playing === 'mine' ? '⏹ 停止回放' : '▶ 聽我的錄音'}</button>` : ''}${r.blob ? `<button onclick="skSave()" class="${skCtl}">💾 ${skSv(SK.id, skKey()) ? '覆蓋儲存' : '儲存語音練習'}</button>` : ''}<button onclick="skRetry()" class="${skCtl}">↻ 重來</button></div></div>`;
 }
 
 function skSentH(x) {
@@ -443,7 +504,7 @@ function skSentH(x) {
       <button onclick="skRate(1)" class="${skSeg(SK.rate === 1)}">1x</button><button onclick="skRate(0.75)" class="${skSeg(SK.rate === 0.75)}">0.75x</button>
       <button onclick="skHide()" class="${skCtl}">${SK.hide ? '👁 顯示文字' : '🙈 遮住文字'}</button>
     </div></section>
-  <section class="${card} p-4 md:p-6 mb-4">${skMic()}${skResultH(r, '')}</section>
+  <section class="${card} p-4 md:p-6 mb-4">${skMic()}${skResultH(r, '')}${skSavedH()}</section>
   <div class="flex items-center justify-between gap-2 mb-4">
     <button onclick="skGo(${i - 1})" ${i ? '' : 'disabled'} class="${btn} border border-slate-300 dark:border-slate-700 disabled:opacity-40">← 上一句</button>
     ${i < N - 1 ? `<button onclick="skGo(${i + 1})" class="${btn} bg-indigo-600 text-white">下一句 →</button>` : `<button onclick="skMode('whole')" class="${btn} bg-indigo-600 text-white">挑戰整篇 →</button>`}
@@ -472,7 +533,7 @@ function skWholeH(x) {
       <button onclick="skHide()" class="${skCtl}">${SK.hide ? '👁 顯示文稿' : '🙈 遮住文稿'}</button>
     </div>
     <p class="mt-2 text-xs text-slate-400">點文稿裡的任一句，可單獨聽那一句。</p></section>
-  <section class="${card} p-4 md:p-6 mb-4">${skMic()}${skResultH(r, '')}
+  <section class="${card} p-4 md:p-6 mb-4">${skMic()}${skResultH(r, '')}${skSavedH()}
     ${weak.length ? `<div class="mt-4 text-left"><p class="text-sm font-semibold mb-2">需要加強的句子（&lt; 70%）</p><div class="space-y-1">${weak.map(q => `<button onclick="skMode('sent');skGo(${q.k})" class="w-full text-left rounded-lg border border-slate-200 dark:border-slate-800 px-3 py-2 text-sm flex items-center gap-2 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800"><span class="shrink-0 rounded px-1.5 py-0.5 text-xs font-bold ${skPctCls(q.p)}">${q.p}%</span><span class="truncate flex-1">${q.k + 1}. ${esc(SK.sents[q.k].t)}</span><span class="shrink-0 text-xs text-indigo-600 dark:text-indigo-300">練這句</span></button>`).join('')}</div></div>` : ''}
   </section>`;
 }
