@@ -1,0 +1,155 @@
+{
+  "week": 5,
+  "day": 2,
+  "tag": "醫療客戶巡迴拜訪的公務租車與山路行車須知",
+  "type": "Reading",
+  "level": {
+    "score": 750,
+    "range": "700-800",
+    "cefr": "B2",
+    "why": "電子郵件使用 Having compared 的完成式分詞構句、which 非限定子句、Because 原因子句、unless 條件子句與 Should 開頭的倒裝條件句，並需整合異地還車免費、里程不限但燃料與停車自付、週四七點前出發及道路封閉時的通報流程；干擾項多取自文中出現過的 drop-off fee、mileage 與紙本地圖等細節，需精確區分。"
+  },
+  "passage": "To: Regional Sales Team\nSubject: Rental Vehicles for the Healthcare Client Tour\n\nHaving compared several quotations, the travel office has reserved mid-size sedans for next week's tour of healthcare clients from an agency with a nationwide network of branches, which allows you to return a vehicle in any tour city without paying a drop-off fee. Mileage is unlimited, but drivers are responsible for fuel and for any parking charges incurred at client sites.\n\nBecause the mountain road between Asheville and Knoxville can become hazardous in heavy rain, we recommend leaving no later than 7:00 A.M. on Thursday unless the weather service advises otherwise. A paper map may prove handy if your navigation app loses its signal. Should the road be closed, please notify the travel office immediately so that your hotel booking can be adjusted accordingly.",
+  "zh": "收件人：區域業務團隊\n主旨：醫療保健客戶巡迴拜訪的租車安排\n\n比較過數份報價之後，差旅辦公室已向一家在全國設有分店網絡的租車公司，為下週拜訪醫療保健客戶的行程預訂了中型轎車，這讓您可以在巡迴行程中的任何城市還車，而不必支付異地還車費。里程數不限，但駕駛須自行負擔燃料費，以及在客戶地點產生的任何停車費用。\n\n由於阿什維爾與諾克斯維爾之間的山路在大雨中可能變得危險，我們建議週四最晚上午七點出發，除非氣象單位另有建議。若導航應用程式收不到訊號，紙本地圖可能會派上用場。萬一道路封閉，請立即通知差旅辦公室，以便相應調整您的飯店訂房。",
+  "vocab": [
+    {
+      "word": "nationwide",
+      "ipa": "/ˈneɪʃənwaɪd/",
+      "pos": "adj.",
+      "col": "nationwide network / nationwide delivery",
+      "zh": "全國性的、遍及全國的"
+    },
+    {
+      "word": "hazardous",
+      "ipa": "/ˈhæzərdəs/",
+      "pos": "adj.",
+      "col": "hazardous conditions / hazardous materials",
+      "zh": "危險的、有害的"
+    },
+    {
+      "word": "handy",
+      "ipa": "/ˈhændi/",
+      "pos": "adj.",
+      "col": "come in handy / handy tool",
+      "zh": "方便的、派得上用場的"
+    },
+    {
+      "word": "healthcare",
+      "ipa": "/ˈhelθker/",
+      "pos": "n.",
+      "col": "healthcare provider / healthcare industry",
+      "zh": "醫療保健"
+    },
+    {
+      "word": "mileage",
+      "ipa": "/ˈmaɪlɪdʒ/",
+      "pos": "n.",
+      "col": "unlimited mileage / mileage allowance",
+      "zh": "里程數、里程費用"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the main purpose of the email?",
+      "opts": [
+        "To compare the prices of several rental agencies",
+        "To announce a change to the tour schedule",
+        "To explain rental car arrangements and driving advice for a client tour",
+        "To ask employees to approve a travel budget"
+      ],
+      "ans": 2,
+      "why": [
+        "報價已由差旅辦公室比較完畢（Having compared several quotations），信件目的不是比較價格。",
+        "文中沒有提到行程表有變動，只說明租車與行車建議。",
+        "正解：信件交代租車安排（車型、還車、費用負擔）與山路行車建議，主旨是租車與行車的相關說明。",
+        "文中沒有要求員工核准預算，只是通知已完成的安排。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "According to the email, what are drivers responsible for paying?",
+      "opts": [
+        "Fuel and parking charges at client sites",
+        "A fee for returning the car in another city",
+        "Extra charges for each mile driven",
+        "Insurance for the mid-size sedans"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：drivers are responsible for fuel and for any parking charges incurred at client sites，即燃料費與客戶地點的停車費。",
+        "文中明說可在任一巡迴城市還車而不必付 drop-off fee，所以異地還車費不需支付。",
+        "文中說 Mileage is unlimited，里程不限，因此沒有按里程加收費用。",
+        "文中沒有提到保險費用，這是未被提及的資訊。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What should drivers do if the mountain road is closed?",
+      "opts": [
+        "Use a paper map to find another route to the client sites",
+        "Leave the hotel no later than 7:00 A.M. on Thursday",
+        "Return the vehicle to the nearest branch without paying a fee",
+        "Tell the travel office so their hotel booking can be adjusted"
+      ],
+      "ans": 3,
+      "why": [
+        "紙本地圖是用於導航應用程式沒有訊號時，並不是道路封閉時的指示。",
+        "7:00 A.M. 是建議出發時間，與道路封閉時該採取的行動無關。",
+        "免費還車是指在巡迴城市中還車，與道路封閉無關，文中也沒有這項指示。",
+        "正解：Should the road be closed 之後，要求立即通知差旅辦公室，以便調整飯店訂房。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Passengers ______ flights are canceled because of severe weather will be rebooked at no extra charge.",
+      "opts": [
+        "who",
+        "whose",
+        "which",
+        "whom"
+      ],
+      "ans": 1,
+      "why": [
+        "who 是主格關係代名詞，後面不能直接接 flights are canceled 這種含名詞的子句。",
+        "正解：whose 表示所有格，Passengers whose flights 意為「班機被取消的乘客」，文法與語意皆正確。",
+        "which 用於指物，不能修飾 passengers（指人）。",
+        "whom 是受格，後面通常接主詞加動詞，句型不符。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The restaurant's new menu has been ______ received by business travelers visiting the downtown area.",
+      "opts": [
+        "favorably",
+        "favorable",
+        "favor",
+        "favorite"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：favorably 是副詞，放在 has been 與 received 之間修飾過去分詞，表示「受到好評地被接受」。",
+        "favorable 是形容詞，不能修飾動詞形式 received。",
+        "favor 是名詞或動詞，放在此處詞性與語意都不通。",
+        "favorite 是名詞或形容詞，放在此處詞性與語意都不通。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Travelers should confirm their reservations at least 24 hours ______ departure.",
+      "opts": [
+        "ahead",
+        "while",
+        "prior to",
+        "since"
+      ],
+      "ans": 2,
+      "why": [
+        "ahead 後面需接 of 才能引導名詞，單獨使用不能直接接 departure。",
+        "while 是連接詞，後面要接子句，不能直接接名詞 departure。",
+        "正解：prior to 是介系詞片語，意為「在…之前」，at least 24 hours prior to departure 是常見用法。",
+        "since 表示「自從」，不能用來表示出發前的時間點。"
+      ]
+    }
+  ]
+}

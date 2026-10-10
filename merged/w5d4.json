@@ -1,0 +1,155 @@
+{
+  "week": 5,
+  "day": 4,
+  "tag": "陶瓷馬克杯運送損壞與包裝改善要求電子郵件",
+  "type": "Reading",
+  "level": {
+    "score": 750,
+    "range": "700-800",
+    "cefr": "B2",
+    "why": "電子郵件使用 Upon inspecting 的分詞構句、even though 讓步子句、帶有 which would explain 的非限定子句、probably because of 與 to the point of being 等結構，並需整合到貨日期、缺角比例、泡棉墊較薄的推測、濕度造成紙箱與圖案問題、週五前回覆及後續訂單的條件；干擾項多取自文中出現過的紙箱、港口濕度與圖案褪色等細節，需精確區分。"
+  },
+  "passage": "To: Marcus Webb, Packaging Solutions\nSubject: Damage to the Latest Shipment of Ceramic Mugs\n\nDear Mr. Webb,\n\nUpon inspecting the shipment delivered on Tuesday, our warehouse team found that nearly 8 percent of the mugs had arrived with chipped edges, even though the cartons showed no visible damage. After reviewing the packing records, we suspect that the foam pads separating each layer were thinner than those specified in our contract, which would explain why the mugs shifted during transport.\n\nIn addition, several cartons had absorbed moisture, probably because of the high humidity at the port, and the printed graphics on their sides had faded to the point of being unreadable.\n\nWe would therefore appreciate a written explanation by Friday, together with a revised packaging plan. Unless the problem is resolved, we will be unable to approve any further orders.",
+  "zh": "收件人：馬庫斯．韋布，包裝解決方案公司\n主旨：最新一批陶瓷馬克杯的損壞問題\n\n韋布先生您好：\n\n檢查週二送達的貨物時，我們的倉儲團隊發現，將近百分之八的馬克杯到貨時邊緣有缺角，即使紙箱外觀看不出任何明顯損壞。檢視包裝紀錄後，我們懷疑隔開每一層的泡棉墊比合約中指定的更薄，這可以解釋為何馬克杯在運輸過程中會移位。\n\n此外，有數個紙箱吸收了濕氣，可能是因為港口濕度很高，而且箱子側面印刷的圖案已褪色到無法辨識的程度。\n\n因此，我們希望您能在週五前提供書面說明，並附上修訂後的包裝計畫。除非問題得到解決，否則我們將無法核准任何後續訂單。",
+  "vocab": [
+    {
+      "word": "humidity",
+      "ipa": "/hjuːˈmɪdəti/",
+      "pos": "n.",
+      "col": "high humidity / humidity control",
+      "zh": "濕度"
+    },
+    {
+      "word": "pad",
+      "ipa": "/pæd/",
+      "pos": "n.",
+      "col": "foam pad / protective pad",
+      "zh": "墊子、襯墊"
+    },
+    {
+      "word": "graphics",
+      "ipa": "/ˈɡræfɪks/",
+      "pos": "n.",
+      "col": "printed graphics / computer graphics",
+      "zh": "圖案、圖像設計"
+    },
+    {
+      "word": "packaging",
+      "ipa": "/ˈpækɪdʒɪŋ/",
+      "pos": "n.",
+      "col": "packaging material / eco-friendly packaging",
+      "zh": "包裝、包裝材料"
+    },
+    {
+      "word": "moisture",
+      "ipa": "/ˈmɔɪstʃər/",
+      "pos": "n.",
+      "col": "absorb moisture / moisture-proof",
+      "zh": "濕氣、水分"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the main purpose of the email?",
+      "opts": [
+        "To cancel an existing contract with a packaging supplier",
+        "To confirm that a shipment arrived in good condition",
+        "To ask a supplier to explain damage and provide a revised plan",
+        "To request a lower price for future orders"
+      ],
+      "ans": 2,
+      "why": [
+        "信中只說在問題未解決時無法核准後續訂單，並未要求取消現有合約。",
+        "信中說明貨物有缺角，並非到貨狀況良好。",
+        "正解：寄件者要求供應商在週五前提供書面說明與修訂後的包裝計畫，目的是處理貨物損壞問題。",
+        "信中沒有提到要求降價，只要求說明與改善計畫。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What does the writer suspect caused the mugs to be chipped?",
+      "opts": [
+        "The cartons were damaged while being unloaded",
+        "The foam pads were thinner than the contract required",
+        "The mugs were exposed to humid conditions at the port",
+        "The printed graphics were applied incorrectly"
+      ],
+      "ans": 1,
+      "why": [
+        "文中說紙箱外觀沒有明顯損壞，並未提到卸貨時造成損壞。",
+        "正解：寄件者懷疑隔層的泡棉墊比合約規定的更薄，所以馬克杯在運輸時移位而缺角。",
+        "港口的高濕度造成的是紙箱吸收濕氣與圖案褪色，並不是馬克杯缺角的原因。",
+        "圖案褪色是濕氣造成的另一個問題，與馬克杯缺角無關。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What will happen if the problem is not resolved?",
+      "opts": [
+        "The mugs will be returned to the port at the supplier's expense",
+        "The contract will be canceled immediately",
+        "The warehouse team will inspect each carton again",
+        "The company will not approve additional orders"
+      ],
+      "ans": 3,
+      "why": [
+        "文中沒有提到退貨或費用由誰負擔。",
+        "文中只說無法核准後續訂單，並未說立即取消合約。",
+        "檢查是已經完成的動作，並不是問題未解決時會發生的結果。",
+        "正解：Unless the problem is resolved, we will be unable to approve any further orders，即不會核准後續訂單。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Had the supplier notified us earlier, we ______ the production schedule.",
+      "opts": [
+        "would have adjusted",
+        "would adjust",
+        "had adjusted",
+        "adjusted"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：Had + 主詞 + 過去分詞 是省略 if 的假設語氣（與過去事實相反），主要子句用 would have + 過去分詞。",
+        "would adjust 用於與現在事實相反的假設，時態與前句 Had notified 不一致。",
+        "had adjusted 是過去完成式，不能用在假設語氣的主要子句。",
+        "adjusted 是單純過去式，無法表達與過去事實相反的假設結果。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The warehouse uses a barcode system to ______ every item as it moves through the facility.",
+      "opts": [
+        "negotiate",
+        "postpone",
+        "track",
+        "reserve"
+      ],
+      "ans": 2,
+      "why": [
+        "negotiate 意為「協商」，不能搭配 item 表示追蹤物品。",
+        "postpone 意為「延後」，語意與條碼系統的用途不符。",
+        "正解：track 意為「追蹤」，用條碼系統追蹤每件貨品在設施內的移動，語意最通順。",
+        "reserve 意為「預訂、保留」，與條碼系統追蹤貨品的用途不符。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "All materials must be delivered in accordance ______ the specifications in the purchase order.",
+      "opts": [
+        "to",
+        "with",
+        "by",
+        "for"
+      ],
+      "ans": 1,
+      "why": [
+        "in accordance 的固定搭配介系詞不是 to。",
+        "正解：in accordance with 是固定用法，意為「依照、符合」，後面接規格或規定。",
+        "by 無法與 in accordance 組成固定搭配。",
+        "for 無法與 in accordance 組成固定搭配。"
+      ]
+    }
+  ]
+}

@@ -43,7 +43,7 @@ const SK = {
   final: '', interim: '', err: '',
   sr: null, mr: null, stream: null, chunks: [], blob: null, mime: '', srEnd: null, mrDone: null, timer: null,
   rtk: 0, restart: 0, stopping: false,
-  au: null, src: '', mine: null, playing: null, pk: null, tk: 0, hl: -1, bad: {}
+  au: null, src: '', ctx: null, node: null, iv: null, bufs: {}, mine: null, playing: null, pk: null, tk: 0, hl: -1, bad: {}
 };
 const SK_IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 const skSR = () => window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -74,7 +74,7 @@ function skBuild(x) {
 function skInit(x) {
   skStopAll();
   SK.id = idOf(x); SK.sents = skBuild(x); SK.hasTiming = SK.sents.some(s => s.start != null);
-  skDrop('sent'); skDrop('whole');
+  skDrop('sent'); skDrop('whole'); SK.bufs = {};
   SK.i = 0; SK.res = {}; SK.wres = null; SK.mode = S.spkMode === 'whole' ? 'whole' : 'sent';
   SK.hide = false; SK.rate = 1; SK.err = ''; SK.hl = -1;
 }
@@ -171,13 +171,13 @@ function skCompare(sents, heard) {
     if (c && !/\d/.test(c) && Hs.has(c) && !(Hs.has(T[j]) && Hs.has(T[j + 1]))) { T2.push(c); own2.push(own[j].concat(own[j + 1])); j++; } else { T2.push(T[j]); own2.push(own[j]); }
   }
   H.length = 0; H2.forEach(h => H.push(h)); T.length = 0; T2.forEach(t => T.push(t)); own.length = 0; own2.forEach(o => own.push(o));
-  const m = H.length, n = T.length, hit = new Array(n).fill(false);
+  const m = H.length, n = T.length, hit = new Array(n).fill(false), pairs = [];
   if (m && n) {
     const dp = Array.from({ length: m + 1 }, () => new Uint16Array(n + 1));
     for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) dp[i][j] = skEq(H[i - 1], T[j - 1], loose) ? dp[i - 1][j - 1] + 1 : Math.max(dp[i - 1][j], dp[i][j - 1]);
     let i = m, j = n;
     while (i > 0 && j > 0) {
-      if (skEq(H[i - 1], T[j - 1], loose)) { hit[j - 1] = true; i--; j--; }
+      if (skEq(H[i - 1], T[j - 1], loose)) { hit[j - 1] = true; pairs.push([i - 1, j - 1]); i--; j--; }
       else if (dp[i - 1][j] >= dp[i][j - 1]) i--; else j--;
     }
   }
@@ -191,7 +191,17 @@ function skCompare(sents, heard) {
     totAll += tot; okAll += ok;
     return { pct: tot ? Math.round(ok / tot * 100) : 100, words };
   });
-  return { pct: totAll ? Math.round(okAll / totAll * 100) : 0, sents: out };
+  /* 「你說的」逐字對照：ok＝念對；bad＝念錯或多念（紅字）；miss＝文稿有、你沒念到（顯示成 (字)）。
+     依 LCS 配對由左到右走一遍：兩個配對之間，先列出你多說／說錯的字，再列出漏掉的文稿字。 */
+  const diff = [], tShow = j => { const o = own[j] && own[j][0]; return o ? disp[o[0]][o[1]].w.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, '') || disp[o[0]][o[1]].w : T[j]; };
+  const walk = (hEnd, tEnd, hs, ts) => {
+    for (let a = hs; a < hEnd; a++) diff.push({ t: H[a], k: 'bad' });
+    for (let b = ts; b < tEnd; b++) if (!(loose && SK_SKIP.has(T[b]))) diff.push({ t: tShow(b), k: 'miss' });
+  };
+  let hp = 0, tp = 0;
+  pairs.reverse().forEach(([pi, pj]) => { walk(pi, pj, hp, tp); diff.push({ t: H[pi], k: 'ok' }); hp = pi + 1; tp = pj + 1; });
+  walk(m, n, hp, tp);
+  return { pct: totAll ? Math.round(okAll / totAll * 100) : 0, sents: out, diff };
 }
 const skPctCls = p => p >= 85 ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' : p >= 60 ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300' : 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300';
 const skMsg = p => p >= 90 ? '很標準 🎉' : p >= 75 ? '不錯，紅字的地方再留意' : p >= 50 ? '再練一次，先放慢速度' : '差異較多，先聽原音再跟著念';
@@ -200,7 +210,8 @@ const skWordsH = ws => ws.map(d => d.ok ? `<span class="text-emerald-600 dark:te
 /* ================= 播放原音（mp3 片段；沒有 mp3／timing 就用機器發音） ================= */
 const skMp3Ok = x => !SK.bad[idOf(x)] && (AU.idx ? dyHas(x) : true);
 function skStopPlay() {
-  SK.tk++;
+  SK.tk++; clearInterval(SK.iv);
+  if (SK.node) { const n = SK.node; SK.node = null; n.onended = null; try { n.stop(); } catch (e) {} try { n.disconnect(); } catch (e) {} }
   if (SK.au) { SK.au.onended = SK.au.ontimeupdate = SK.au.onerror = null; try { SK.au.pause(); } catch (e) {} }
   if (SK.mine) { SK.mine.onended = SK.mine.onerror = null; try { SK.mine.pause(); } catch (e) {} SK.mine = null; }
   if (SK.mineUrl) { try { URL.revokeObjectURL(SK.mineUrl); } catch (e) {} SK.mineUrl = null; }
@@ -223,31 +234,82 @@ function skPlay(x, seg, key) {
   };
   const canMp3 = skMp3Ok(x) && (!seg || seg.start != null);
   if (!canMp3) { tts(); skAfter(); return; }
-  const a = SK.au || (SK.au = new Audio()), src = audioSrc(x), start = seg ? seg.start : 0, end = seg ? seg.end + 0.15 : Infinity;
+  const src = audioSrc(x), tr = (seg && typeof key === 'number' && key >= 0) ? skTrim(idOf(x), key) : [0, 0];
+  /* 剪裁範圍：開頭多留 SK_LEAD 秒、結尾多留 SK_TAIL 秒，再加上這句的微調值（tr） */
+  const t0 = seg ? Math.max(0, seg.start - SK_LEAD + tr[0]) : 0, t1 = seg ? seg.end + SK_TAIL + tr[1] : Infinity;
   const fail = () => { if (tk !== SK.tk) return; SK.bad[idOf(x)] = 1; SK.playing = null; SK.pk = null; skPlay(x, seg, key); };
-  a.onerror = fail; a.onended = done;
-  a.ontimeupdate = () => {
+  /* 後備：用 <audio> 播放（慢速 0.75x、或瀏覽器不支援 Web Audio／解碼失敗時）。mp3 的 seek 本身不夠準，所以靜音等 seeked 才出聲，結尾用 20ms 輪詢而不是 timeupdate（約 250ms 一次，會多念到下一句） */
+  const playEl = () => {
     if (tk !== SK.tk) return;
-    if (seg) { if (a.currentTime >= end) { a.pause(); done(); } }
-    else skHl(a.currentTime);
+    const a = SK.au || (SK.au = new Audio());
+    a.onerror = fail; a.onended = done;
+    a.ontimeupdate = seg ? null : () => { if (tk === SK.tk) skHl(a.currentTime); };
+    clearInterval(SK.iv);
+    if (seg) SK.iv = setInterval(() => {
+      if (tk !== SK.tk) { clearInterval(SK.iv); return; }
+      if (!a.muted && a.currentTime >= t1) { clearInterval(SK.iv); a.pause(); done(); }
+    }, 20);
+    const unmute = () => { if (tk === SK.tk) a.muted = false; };
+    const seek = () => {
+      if (tk !== SK.tk) return;
+      a.playbackRate = SK.rate;
+      if (Math.abs(a.currentTime - t0) < 0.05) { unmute(); return; }
+      a.addEventListener('seeked', unmute, { once: true });
+      try { a.currentTime = t0; } catch (e) { unmute(); }
+      setTimeout(unmute, 1200);
+    };
+    if (SK.src !== src) { SK.src = src; a.preload = 'auto'; a.src = src; }
+    a.defaultPlaybackRate = SK.rate; a.playbackRate = SK.rate;
+    a.muted = true;
+    if (a.readyState >= 1) seek(); else a.addEventListener('loadedmetadata', seek, { once: true });
+    a.play().catch(e => { if (tk === SK.tk && e.name !== 'AbortError' && e.name !== 'NotAllowedError') fail(); });
   };
-  /* 開頭被吃字的修法：起點往前多留 0.15 秒；先靜音開始播（保留點擊手勢），跳到起點完成（seeked）後才取消靜音，避免 seek 未完成就出聲 */
-  const lead = seg ? Math.max(0, start - 0.15) : 0;
-  const unmute = () => { if (tk === SK.tk) a.muted = false; };
-  const seek = () => {
-    if (tk !== SK.tk) return;
-    a.playbackRate = SK.rate;
-    if (Math.abs(a.currentTime - lead) < 0.05) { unmute(); return; }
-    a.addEventListener('seeked', unmute, { once: true });
-    try { a.currentTime = lead; } catch (e) { unmute(); }
-    setTimeout(unmute, 1200);
-  };
-  if (SK.src !== src) { SK.src = src; a.preload = 'auto'; a.src = src; }
-  a.defaultPlaybackRate = SK.rate; a.playbackRate = SK.rate;
-  a.muted = true;
-  if (a.readyState >= 1) seek(); else a.addEventListener('loadedmetadata', seek, { once: true });
-  a.play().catch(e => { if (tk === SK.tk && e.name !== 'AbortError' && e.name !== 'NotAllowedError') fail(); });
+  /* 主要做法（一句、1x）：把 mp3 解碼成 AudioBuffer，用 Web Audio 從「精確的秒數」開始播、播到精確的秒數就停（取樣點等級，不受 mp3 seek 誤差影響） */
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (seg && SK.rate === 1 && AC) {
+    let ctx; try { ctx = SK.ctx || (SK.ctx = new AC()); ctx.resume(); } catch (e) { ctx = null; }
+    if (ctx) {
+      skBuf(ctx, src).then(buf => {
+        if (tk !== SK.tk) return;
+        const g = ctx.createGain(), s = ctx.createBufferSource(), now = ctx.currentTime;
+        const off = Math.max(0, Math.min(buf.duration - 0.05, t0)), dur = Math.max(0.2, Math.min(buf.duration - off, t1 - off));
+        s.buffer = buf; s.connect(g); g.connect(ctx.destination);
+        g.gain.setValueAtTime(0, now); g.gain.linearRampToValueAtTime(1, now + 0.012); // 極短淡入淡出，避免爆音
+        g.gain.setValueAtTime(1, now + Math.max(0.012, dur - 0.03)); g.gain.linearRampToValueAtTime(0, now + dur);
+        s.onended = () => { if (tk === SK.tk) { SK.node = null; try { s.disconnect(); g.disconnect(); } catch (e) {} done(); } };
+        SK.node = s; s.start(now, off, dur);
+      }).catch(() => { if (tk === SK.tk) playEl(); });
+      skAfter(); return;
+    }
+  }
+  playEl();
   skAfter();
+}
+const SK_LEAD = 0.1, SK_TAIL = 0.15;
+const skTrim = (id, i) => ((skRec(id).tr || {})[i]) || [0, 0];
+function skBuf(ctx, src) { // 解碼後的整篇音檔只留一份（換篇就丟掉，省記憶體）
+  if (!SK.bufs[src]) {
+    SK.bufs = {};
+    SK.bufs[src] = fetch(src).then(r => { if (!r.ok) throw new Error('http'); return r.arrayBuffer(); })
+      .then(ab => new Promise((res, rej) => { const p = ctx.decodeAudioData(ab, res, rej); if (p && p.then) p.then(res, rej); }))
+      .catch(e => { delete SK.bufs[src]; throw e; });
+  }
+  return SK.bufs[src];
+}
+function skTrimSet(k, d) { // k＝0 開頭／1 結尾／-1 重設；調完立刻重播這一句
+  const x = skX(), i = SK.i; if (!x) return;
+  const rc = skRec(idOf(x)); rc.tr = rc.tr || {};
+  if (k < 0) delete rc.tr[i];
+  else { const t = (rc.tr[i] || [0, 0]).slice(); t[k] = Math.round(Math.max(-1, Math.min(1, t[k] + d)) * 10) / 10; if (!t[0] && !t[1]) delete rc.tr[i]; else rc.tr[i] = t; }
+  save(); skStopPlay(); skPlayModel(i);
+}
+function skTrimH(id, i) {
+  const t = skTrim(id, i), f = v => (v > 0 ? '+' : '') + v.toFixed(1) + 's';
+  const b = (k, d, l) => `<button onclick="skTrimSet(${k},${d})" class="${skCtl} !px-2 !py-1 text-xs">${l}</button>`;
+  return `<div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 text-xs text-slate-500"><span>剪裁微調（聽起來吃字或多念時用）</span>
+    <span class="inline-flex items-center gap-1">開頭 ${b(0, -0.1, '早 0.1')}<b class="min-w-[2.5rem] text-center">${f(t[0])}</b>${b(0, 0.1, '晚 0.1')}</span>
+    <span class="inline-flex items-center gap-1">結尾 ${b(1, -0.1, '早 0.1')}<b class="min-w-[2.5rem] text-center">${f(t[1])}</b>${b(1, 0.1, '晚 0.1')}</span>
+    ${t[0] || t[1] ? `<button onclick="skTrimSet(-1,0)" class="${skCtl} !px-2 !py-1 text-xs">重設</button>` : ''}</div>`;
 }
 function skAfter() { if (cur.view === 'speak') skRender(); }
 function skPlayModel(i) { const x = skX(); if (x) skPlay(x, i >= 0 ? SK.sents[i] : null, i); }
@@ -280,6 +342,7 @@ async function skRecToggle() {
   if (SK.st === 'rec') { skRecStop(); return; }
   if (SK.st === 'proc') return;
   skStopPlay();
+  if (SK.ctx) { try { SK.ctx.suspend(); } catch (e) {} } // 錄音前先暫停播放用的 AudioContext，避免佔住音訊（iOS 會讓麥克風收不到聲）
   skCancelRec(); // 先把上一次可能殘留的辨識／錄音／麥克風串流全部關掉，避免麥克風被佔用而收不到聲音
   SK.err = ''; SK.final = ''; SK.interim = ''; SK.restart = 0; SK.stopping = false; SK.blob = null; SK.st = 'rec';
   const tk = ++SK.rtk;
@@ -366,7 +429,7 @@ function skFinish(tk) {
   const r = { url, heard, sup, blob, mime };
   if (SK.mode === 'sent') {
     const i = SK.i, old = SK.res[i]; if (old && old.url) URL.revokeObjectURL(old.url);
-    if (sup && heard) { const c = skCompare([SK.sents[i]], heard); r.pct = c.pct; r.words = c.sents[0].words; skBest(idOf(x), 's', i, c.pct); }
+    if (sup && heard) { const c = skCompare([SK.sents[i]], heard); r.pct = c.pct; r.words = c.sents[0].words; r.diff = c.diff; skBest(idOf(x), 's', i, c.pct); }
     SK.res[i] = r;
   } else {
     if (SK.wres && SK.wres.url) URL.revokeObjectURL(SK.wres.url);
@@ -379,7 +442,7 @@ function skFinish(tk) {
 /* ================= 操作 ================= */
 function skLevel(v) { // 切換評分寬嚴；已錄的結果依新標準重新計分（「最佳」紀錄不動）
   S.spkLevel = v; save();
-  Object.keys(SK.res || {}).forEach(i => { const r = SK.res[i]; if (r && r.sup && r.heard && SK.sents[i]) { const c = skCompare([SK.sents[i]], r.heard); r.pct = c.pct; r.words = c.sents[0].words; } });
+  Object.keys(SK.res || {}).forEach(i => { const r = SK.res[i]; if (r && r.sup && r.heard && SK.sents[i]) { const c = skCompare([SK.sents[i]], r.heard); r.pct = c.pct; r.words = c.sents[0].words; r.diff = c.diff; } });
   const w = SK.wres; if (w && w.sup && w.heard) { w.c = skCompare(SK.sents, w.heard); w.pct = w.c.pct; }
   skRender();
 }
@@ -431,7 +494,7 @@ function skGo(i) { skStopAll(); skDrop('sent'); SK.i = Math.max(0, Math.min(SK.s
 function skRate(r) { SK.rate = r; if (SK.au) SK.au.playbackRate = r; skRender(); }
 function skHide() { SK.hide = !SK.hide; skRender(); }
 function skRetry() { skStopAll(); if (SK.mode === 'sent') { const o = SK.res[SK.i]; if (o && o.url) URL.revokeObjectURL(o.url); delete SK.res[SK.i]; } else { if (SK.wres && SK.wres.url) URL.revokeObjectURL(SK.wres.url); SK.wres = null; } skRender(); }
-function skBack() { skStopAll(); skDrop('sent'); skDrop('whole'); cur.view = 'day'; render(); window.scrollTo({ top: 0 }); }
+function skBack() { skStopAll(); skDrop('sent'); skDrop('whole'); SK.bufs = {}; cur.view = 'day'; render(); window.scrollTo({ top: 0 }); }
 function openSpeak() { cur.view = 'speak'; push(); render(); window.scrollTo({ top: 0 }); }
 document.addEventListener('visibilitychange', () => { if (document.hidden) skStopAll(); });
 window.addEventListener('pagehide', () => skStopAll());
@@ -473,6 +536,14 @@ function skMic() {
     <p id="sk-heard" class="min-h-[1.25rem] text-xs text-slate-500 italic break-words max-w-full">${rec ? esc((SK.final + ' ' + SK.interim).trim()) : ''}</p>
     ${SK.err ? `<p class="text-xs text-rose-600 dark:text-rose-400">${esc(SK.err)}</p>` : ''}</div>`;
 }
+function skDiffH(r) { // 你說的文字：念錯／多念標紅，漏念的用 ( ) 顯示
+  const d = r.diff || (r.c && r.c.diff);
+  if (!d || !d.length) return `<p class="text-xs text-slate-500 mt-2 break-words">辨識到：${esc(r.heard)}</p>`;
+  const h = d.map(o => o.k === 'ok' ? esc(o.t) : o.k === 'bad'
+    ? `<span class="text-rose-600 dark:text-rose-400 font-bold underline decoration-wavy decoration-rose-400/70">${esc(o.t)}</span>`
+    : `<span class="text-amber-600 dark:text-amber-400">(${esc(o.t)})</span>`).join(' ');
+  return `<div class="mt-3"><p class="text-xs text-slate-500 mb-1">你說的（<span class="text-rose-600 dark:text-rose-400 font-bold">紅字</span>＝念錯或多念，<span class="text-amber-600 dark:text-amber-400">(括號)</span>＝漏念）</p><p class="text-sm leading-relaxed break-words">${h}</p></div>`;
+}
 function skResultH(r, wordsH) { // r：本次結果；wordsH：已上色的字詞 HTML（句子模式用）
   if (!r) return '';
   let head;
@@ -481,7 +552,7 @@ function skResultH(r, wordsH) { // r：本次結果；wordsH：已上色的字�
   else head = `<span class="rounded-full px-3 py-1 text-sm font-bold ${skPctCls(r.pct)}">${r.pct}%</span><span class="text-sm">${skMsg(r.pct)}</span>`;
   return `<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 text-left"><div class="flex flex-wrap items-center gap-2 mb-2">${head}</div>
     ${wordsH ? `<p class="leading-relaxed">${wordsH}</p>` : ''}
-    ${r.heard ? `<p class="text-xs text-slate-500 mt-2 break-words">辨識到：${esc(r.heard)}</p>` : ''}
+    ${r.heard ? skDiffH(r) : ''}
     <div class="flex flex-wrap gap-2 mt-3">${r.url ? `<button onclick="skPlayMine()" class="${skCtl}">${SK.playing === 'mine' ? '⏹ 停止回放' : '▶ 聽我的錄音'}</button>` : ''}${r.blob ? `<button onclick="skSave()" class="${skCtl}">💾 ${skSv(SK.id, skKey()) ? '覆蓋儲存' : '儲存語音練習'}</button>` : ''}<button onclick="skRetry()" class="${skCtl}">↻ 重來</button></div></div>`;
 }
 
@@ -503,7 +574,7 @@ function skSentH(x) {
       <button onclick="skPlayModel(${i})" class="${skCtl}">${playing ? '⏹ 停止' : '🔊 聽原音'}</button>
       <button onclick="skRate(1)" class="${skSeg(SK.rate === 1)}">1x</button><button onclick="skRate(0.75)" class="${skSeg(SK.rate === 0.75)}">0.75x</button>
       <button onclick="skHide()" class="${skCtl}">${SK.hide ? '👁 顯示文字' : '🙈 遮住文字'}</button>
-    </div></section>
+    </div>${s.start != null && skMp3Ok(x) ? skTrimH(id, i) : ''}</section>
   <section class="${card} p-4 md:p-6 mb-4">${skMic()}${skResultH(r, '')}${skSavedH()}</section>
   <div class="flex items-center justify-between gap-2 mb-4">
     <button onclick="skGo(${i - 1})" ${i ? '' : 'disabled'} class="${btn} border border-slate-300 dark:border-slate-700 disabled:opacity-40">← 上一句</button>

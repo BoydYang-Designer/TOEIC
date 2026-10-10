@@ -1,0 +1,71 @@
+{
+  "week": 1,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "against",
+      "type": "word",
+      "ipa": "/əˈɡenst/",
+      "pos": "prep.",
+      "zh": "對照、核對；反對；對抗；靠著",
+      "en": "next to something to compare it, or not in agreement with it",
+      "note": "在這句裡，check ... against ... 的意思是「拿甲和乙對照、核對」，也就是把到貨的貨品和訂購單逐項比對。這是採購與驗收情境中很常見的用法，against 在這裡不是「反對」的意思。",
+      "collocations": [
+        {
+          "phrase": "check against",
+          "zh": "與…核對",
+          "example": { "en": "Please check the invoice against the delivery note.", "zh": "請把發票和送貨單核對一下。" }
+        },
+        {
+          "phrase": "compare against",
+          "zh": "與…相比較",
+          "example": { "en": "We compare our sales against last year's results.", "zh": "我們把銷售成績和去年的結果相比較。" }
+        },
+        {
+          "phrase": "protect against",
+          "zh": "防範、保護以免受…",
+          "example": { "en": "The new system protects against unauthorized access.", "zh": "新系統可以防止未經授權的存取。" }
+        },
+        {
+          "phrase": "against company policy",
+          "zh": "違反公司政策",
+          "example": { "en": "Sharing your password is against company policy.", "zh": "分享你的密碼違反公司政策。" }
+        }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "The staff weighed each box against the amount on the order.", "zh": "員工把每個箱子的重量和訂單上的數量對照。" },
+        { "tag": "會議", "en": "Two managers voted against the plan to move the office.", "zh": "兩位經理投票反對搬遷辦公室的計畫。" },
+        { "tag": "電子郵件", "en": "Please measure your results against the goals we set.", "zh": "請拿你的成果和我們設定的目標相比。" },
+        { "tag": "辦公室", "en": "Please do not lean the boxes against the wall.", "zh": "請不要把箱子靠在牆上。" }
+      ],
+      "confusable": [
+        { "word": "for", "diff": "for 表示贊成或支持；against 表示反對。例如 vote for（投贊成票）、vote against（投反對票）。" },
+        { "word": "with", "diff": "compare with 是一般的「比較」；check against 強調拿一個標準或清單來核對是否相符。" },
+        { "word": "versus", "diff": "versus（縮寫 vs.）用在兩方對比或對抗，如 plan A versus plan B；against 是介系詞，可用在更多句型中。" }
+      ],
+      "family": [
+        {
+          "w": "check",
+          "pos": "v.",
+          "zh": "檢查、核對",
+          "ipa": "/tʃek/",
+          "example": { "en": "Please check the numbers before you send the report.", "zh": "送出報告之前，請先檢查數字。" }
+        },
+        {
+          "w": "compare",
+          "pos": "v.",
+          "zh": "比較",
+          "ipa": "/kəmˈper/",
+          "example": { "en": "We compared prices from three different suppliers.", "zh": "我們比較了三家不同供應商的價格。" }
+        },
+        {
+          "w": "protect",
+          "pos": "v.",
+          "zh": "保護",
+          "ipa": "/prəˈtekt/",
+          "example": { "en": "This cover will protect the machine from dust.", "zh": "這個保護套可以防止機器沾上灰塵。" }
+        }
+      ]
+    }
+  ]
+}

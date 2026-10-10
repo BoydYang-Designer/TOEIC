@@ -1,0 +1,155 @@
+{
+  "week": 5,
+  "day": 5,
+  "tag": "社區圖書館公益行銷活動的客服應對指引電子郵件",
+  "type": "Reading",
+  "level": {
+    "score": 750,
+    "range": "700-800",
+    "cefr": "B2",
+    "why": "電子郵件使用 Beginning 的分詞構句、a cause that 關係子句、Because 原因子句、which 非限定子句、現在完成被動（has been authorized）與 however 插入語，並需整合銷售額十分之一用於募款、部落客帶來詢問量增加、臨時人力、複述客戶問題、退款上報主管與週五培訓等資訊；干擾項多取自文中出現過的部落客、退款、臨時人員與培訓等細節，需精確區分。"
+  },
+  "passage": "To: Customer Service Team\nSubject: Guidelines for the Community Library Campaign\n\nBeginning next Monday, ten percent of every reusable bottle sold online will help us fundraise for the Riverside Community Library, a cause that our marketing team expects to attract considerable attention. Because several influential bloggers have already agreed to promote the campaign, the number of customer questions is likely to double during the first week, and temporary staff will be assigned to the phone lines accordingly.\n\nTo avoid misunderstandings, representatives are asked to paraphrase each customer's question before answering, which gives the customer a chance to correct any mistakes. Questions about refunds, however, should not be handled individually; they must be escalated to the supervisor on duty, who has been authorized to approve exceptions.\n\nA short training session will be held on Friday at three o'clock in the main conference room.",
+  "zh": "收件人：客服團隊\n主旨：社區圖書館公益活動的客服應對指引\n\n從下週一開始，線上售出的每一個環保水瓶，都會將百分之十用於協助我們為河濱社區圖書館募款，行銷團隊預期這項公益訴求會吸引相當多的關注。由於數位有影響力的部落客已同意協助宣傳這項活動，第一週的客戶詢問量很可能會增加一倍，因此將相應地安排臨時人員支援電話線路。\n\n為了避免誤解，請客服人員在回答之前先用自己的話複述每位客戶的問題，這能讓客戶有機會糾正任何誤會。不過，有關退款的問題不應由個別人員處理，必須呈報給值班主管，主管已獲授權可核准例外狀況。\n\n週五下午三點將在大會議室舉行一場簡短的培訓課程。",
+  "vocab": [
+    {
+      "word": "fundraise",
+      "ipa": "/ˈfʌndreɪz/",
+      "pos": "v.",
+      "col": "fundraise for charity / help fundraise",
+      "zh": "募款、籌募資金"
+    },
+    {
+      "word": "influential",
+      "ipa": "/ˌɪnfluˈenʃəl/",
+      "pos": "adj.",
+      "col": "influential figure / highly influential",
+      "zh": "有影響力的"
+    },
+    {
+      "word": "paraphrase",
+      "ipa": "/ˈpærəfreɪz/",
+      "pos": "v.",
+      "col": "paraphrase a question / paraphrase the message",
+      "zh": "換句話說、改述"
+    },
+    {
+      "word": "campaign",
+      "ipa": "/kæmˈpeɪn/",
+      "pos": "n.",
+      "col": "marketing campaign / launch a campaign",
+      "zh": "宣傳活動、行銷活動"
+    },
+    {
+      "word": "escalate",
+      "ipa": "/ˈeskəleɪt/",
+      "pos": "v.",
+      "col": "escalate an issue / escalate to a supervisor",
+      "zh": "上報、升級處理"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the main purpose of the email?",
+      "opts": [
+        "To announce the results of a library fundraising event",
+        "To invite bloggers to join a promotional campaign",
+        "To request more staff for the marketing department",
+        "To explain how to handle customer contacts during a campaign"
+      ],
+      "ans": 3,
+      "why": [
+        "信中是說活動即將開始，並非公布募款活動的成果。",
+        "部落客已經同意宣傳，信的對象是客服團隊，並不是邀請部落客。",
+        "臨時人員是信中提到的因應措施之一，但信的主旨不是向行銷部門要求增加人力。",
+        "正解：信中向客服團隊說明活動期間的應對方式，包括複述問題、退款上報與培訓時間。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "Why is the company expecting more customer questions than usual?",
+      "opts": [
+        "Several influential bloggers have agreed to promote the campaign.",
+        "A new refund policy will be introduced next week.",
+        "A new phone system will be installed in the service center.",
+        "The library will open a new branch on Monday."
+      ],
+      "ans": 0,
+      "why": [
+        "正解：因為數位有影響力的部落客同意宣傳活動，預期第一週詢問量可能增加一倍。",
+        "文中提到退款問題要上報主管，但沒有說退款政策將改變。",
+        "文中提到的是增派臨時人員支援電話線路，並未提到安裝新電話系統。",
+        "圖書館是募款的對象，文中沒有提到它將開設新分館。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What are representatives told to do with questions about refunds?",
+      "opts": [
+        "Handle them individually to save time",
+        "Paraphrase them for the supervisor on duty",
+        "Pass them on to the supervisor on duty",
+        "Answer them only after the training session"
+      ],
+      "ans": 2,
+      "why": [
+        "文中明說退款問題不應由個別人員處理（should not be handled individually）。",
+        "複述（paraphrase）是用來確認客戶問題的做法，並不是對主管複述退款問題。",
+        "正解：退款問題必須上報給值班主管（escalated to the supervisor on duty），由主管核准例外。",
+        "培訓課程是在週五舉行，文中沒有要求等到課後才回答退款問題。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The marketing team was highly ______ in launching the campaign on schedule.",
+      "opts": [
+        "success",
+        "successful",
+        "successfully",
+        "succeeded"
+      ],
+      "ans": 1,
+      "why": [
+        "success 是名詞，不能放在 be 動詞與 in 之間作補語並接 in 的用法。",
+        "正解：be successful in + V-ing 是固定用法，successful 為形容詞，表示「在…方面成功」。",
+        "successfully 是副詞，不能放在 was 之後作補語。",
+        "succeeded 是過去式或過去分詞，與 was 連用不符文法，語意也不通。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "______ the heavy rain, the outdoor promotion attracted hundreds of visitors.",
+      "opts": [
+        "Because of",
+        "Although",
+        "However",
+        "Despite"
+      ],
+      "ans": 3,
+      "why": [
+        "Because of 表示原因，「因為大雨而吸引了數百位訪客」語意不通。",
+        "Although 是連接詞，後面要接完整子句，不能直接接 the heavy rain。",
+        "However 是副詞，用來連接前後兩個句子，不能放在句首後直接接名詞。",
+        "正解：Despite 是介系詞，後接名詞 the heavy rain，表示「儘管下大雨」，語意與文法皆正確。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Customers who register for the loyalty program will receive ______ updates about upcoming sales.",
+      "opts": [
+        "regular",
+        "regularly",
+        "regularity",
+        "regulate"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：regular 是形容詞，修飾名詞 updates，表示「定期的更新通知」。",
+        "regularly 是副詞，不能直接修飾名詞 updates。",
+        "regularity 是名詞，放在 receive 與 updates 之間無法修飾名詞。",
+        "regulate 是動詞，放在此處詞性不符，語意也不通。"
+      ]
+    }
+  ]
+}

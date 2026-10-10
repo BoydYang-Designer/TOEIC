@@ -1,0 +1,162 @@
+{
+  "week": 5,
+  "day": 1,
+  "tag": "大樓通道維修封閉與臨時停車安排備忘錄",
+  "type": "Reading",
+  "level": {
+    "score": 755,
+    "range": "705-805",
+    "cefr": "B2",
+    "why": "備忘錄以 After 引導的被動與 linking 分詞構句、which 非限定子句、although 讓步子句與多個被動結構，並需整合通道封閉期間、北側入口、僅限 Lot C 的費用吸收、許可證擺放與聯絡時限等資訊；干擾項多取自文中出現過的停車區、入口與費用細節，需精確區分。"
+  },
+  "passage": "MEMO TO ALL STAFF: Temporary Changes to Building Access and Parking\n\nAfter water damage was discovered beneath the covered walkway linking the main office tower to the parking structure, the facilities department closed the passage, which is not expected to reopen for approximately three weeks. Until repairs are completed, employees arriving from the parking structure should use the north entrance, which has been staffed during peak hours to prevent congestion.\n\nBecause the lower levels of the structure will also be partly blocked, drivers are encouraged to park in Lot C, where ample space is available. The company will absorb the daily fee charged at that lot, although employees who park elsewhere will not be reimbursed. Temporary permits will be administered by the facilities office and must be displayed on the dashboard at all times.\n\nStaff who regularly carry heavy equipment between buildings should contact the facilities office urgently, preferably before Friday, so that alternative arrangements can be made.",
+  "zh": "全體員工注意：大樓進出與停車的臨時調整\n\n在主辦公大樓與停車場之間的有頂走道下方被發現有積水損壞後，設施部門已封閉該通道，預計大約三週內不會重新開放。在維修完成之前，從停車場進入的員工應使用北側入口，該入口在尖峰時段已派人駐守，以避免擁擠。\n\n由於停車場的低樓層也將部分封閉，我們鼓勵駕駛人改停 C 停車區，那裡有充足的空位。公司將吸收該停車區的每日費用，不過停在其他地方的員工將無法獲得報銷。臨時停車許可證將由設施辦公室負責核發，且必須隨時放置在儀表板上。\n\n經常在大樓之間搬運重型設備的員工，應盡快與設施辦公室聯絡，最好在週五之前，以便安排替代方案。",
+  "vocab": [
+    {
+      "word": "walkway",
+      "ipa": "/ˈwɔːkweɪ/",
+      "pos": "n.",
+      "col": "covered walkway / pedestrian walkway",
+      "zh": "走道、人行通道"
+    },
+    {
+      "word": "ample",
+      "ipa": "/ˈæmpəl/",
+      "pos": "adj.",
+      "col": "ample space / ample time",
+      "zh": "充足的、寬裕的"
+    },
+    {
+      "word": "absorb",
+      "ipa": "/əbˈzɔːrb/",
+      "pos": "v.",
+      "col": "absorb the cost / absorb the impact",
+      "zh": "吸收（成本）、承擔"
+    },
+    {
+      "word": "administer",
+      "ipa": "/ədˈmɪnɪstər/",
+      "pos": "v.",
+      "col": "administer a program / administer permits",
+      "zh": "管理、辦理、執行"
+    },
+    {
+      "word": "urgently",
+      "ipa": "/ˈɜːrdʒəntli/",
+      "pos": "adv.",
+      "col": "urgently need / respond urgently",
+      "zh": "緊急地、迫切地"
+    },
+    {
+      "word": "reimburse",
+      "ipa": "/ˌriːɪmˈbɜːrs/",
+      "pos": "v.",
+      "col": "reimburse expenses / reimburse employees",
+      "zh": "補償、核銷、報銷"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the main purpose of the memo?",
+      "opts": [
+        "To announce a permanent change in the company's parking policy",
+        "To explain temporary arrangements while a passage between buildings is repaired",
+        "To ask employees to volunteer for repair work on the parking structure",
+        "To report that a new parking structure will be built near the office tower"
+      ],
+      "ans": 1,
+      "why": [
+        "文中只說明維修期間的暫時安排（預計約三週），並未提到永久性的停車政策變更。",
+        "正解：備忘錄說明走道因積水損壞而封閉，並交代維修期間的入口、停車與許可證等臨時安排。",
+        "文中沒有徵求志願者；員工只被要求改走北側入口、改停 C 停車區或聯絡設施辦公室。",
+        "停車場是既有設施，文中只提到其低樓層將被部分封閉，並未提到要興建新的停車場。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "According to the memo, what will the company do about parking costs?",
+      "opts": [
+        "Pay for employees to use any nearby parking lot",
+        "Lower the price of permits for the lower levels of the structure",
+        "Provide a free shuttle from the north entrance to Lot C",
+        "Pay the daily fee only at Lot C"
+      ],
+      "ans": 3,
+      "why": [
+        "文中明說停在其他地方的員工不會獲得報銷，因此並非任何附近停車區都由公司負擔。",
+        "文中沒有提到調降許可證價格；低樓層只是被部分封閉，並非降價。",
+        "文中並未提到接駁車；北側入口是給從停車場進入的員工使用的入口。",
+        "正解：公司只吸收 Lot C 的每日費用（absorb the daily fee charged at that lot），在其他地方停車者不予報銷。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What can be inferred about the north entrance?",
+      "opts": [
+        "It is likely to be crowded at certain times of the day.",
+        "It has been closed until the repairs are completed.",
+        "It was used only by visitors before the walkway closed.",
+        "It is the only entrance that staff carrying equipment may use."
+      ],
+      "ans": 0,
+      "why": [
+        "正解：該入口在尖峰時段已派人駐守以避免擁擠（to prevent congestion），可推論尖峰時段可能會很擁擠。",
+        "北側入口是替代入口，開放給員工使用；被封閉的是走道。",
+        "文中沒有說明該入口之前的使用對象，無法推論只有訪客使用。",
+        "文中只要求搬運設備的員工聯絡設施辦公室，並未限制他們只能使用北側入口。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "______ the elevators are being serviced, staff on the upper floors should use the east stairwell.",
+      "opts": [
+        "Although",
+        "Despite",
+        "While",
+        "During"
+      ],
+      "ans": 2,
+      "why": [
+        "Although 表示讓步，「儘管電梯在維修，員工仍應走樓梯」語意不合邏輯。",
+        "Despite 是介系詞，後面要接名詞或動名詞，不能接完整子句。",
+        "正解：While 是連接詞，引導子句，表示「在電梯維修期間」，語意通順且文法正確。",
+        "During 是介系詞，後面要接名詞，不能直接接 the elevators are being serviced 這個子句。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Please report any ______ damaged equipment to the facilities office by the end of the day.",
+      "opts": [
+        "visible",
+        "visibility",
+        "vision",
+        "visibly"
+      ],
+      "ans": 3,
+      "why": [
+        "visible 是形容詞，不能修飾 damaged（形容詞用法的分詞）；此處需要副詞。",
+        "visibility 是名詞，不能放在 any 與 damaged 之間修飾 damaged。",
+        "vision 是名詞，語意與文法都不符。",
+        "正解：visibly 是副詞，修飾形容詞 damaged，表示「明顯受損的」設備。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The renovation, ______ was originally scheduled to end in May, has been extended by two weeks.",
+      "opts": [
+        "that",
+        "which",
+        "whose",
+        "what"
+      ],
+      "ans": 1,
+      "why": [
+        "逗號之後的非限定子句不能使用 that 作關係代名詞。",
+        "正解：which 在逗號後引導非限定關係子句，指前面的 the renovation，並在子句中作主詞。",
+        "whose 表示所有格，後面要接名詞，此處語意與結構都不通。",
+        "what 是名詞子句的連接詞，不能在逗號後修飾前面的名詞 renovation。"
+      ]
+    }
+  ]
+}

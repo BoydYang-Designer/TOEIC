@@ -1,0 +1,155 @@
+{
+  "week": 5,
+  "day": 6,
+  "tag": "第四季預算重新分配與外部稽核通知備忘錄",
+  "type": "Reading",
+  "level": {
+    "score": 725,
+    "range": "675-775",
+    "cefr": "B2",
+    "why": "備忘錄使用 Although 讓步子句、largely because 原因結構、被動語態、which 非限定子句、such as 插入語與 only if 條件句，並需整合營收下滑原因、預算轉移方向、稽核公司加入、十月三十日的文件期限與額外經費的條件；干擾項多取自文中出現過的合約、稽核、佐證文件與詳細說明理由等細節，需精確區分。"
+  },
+  "passage": "To: Department Heads\nSubject: Revised Budget Allocation for the Fourth Quarter\n\nAlthough revenue from advertisers fell by approximately 12 percent last quarter, largely because two major contracts were not renewed, the finance committee has decided against reducing the overall budget. Instead, funds originally reserved for print advertising will be redirected toward the advancement of our digital platform, which is expected to attract a broader range of advertisers over time.\n\nTo ensure that the revised figures are reviewed objectively, an auditing firm of international renown has been brought aboard and will examine all departmental expenses by the end of November. Department heads are therefore requested to submit supporting documents, such as invoices and signed contracts, no later than October 30. Requests for additional funding will be considered only if they are accompanied by a detailed justification.",
+  "zh": "收件人：各部門主管\n主旨：第四季預算分配修訂\n\n雖然上一季來自廣告主的營收下滑了約百分之十二，主要是因為兩份大型合約未續約，但財務委員會仍決定不縮減整體預算。取而代之的是，原本預留給平面廣告的資金將轉用於推進我們數位平台的發展，預期這將隨時間吸引更廣泛的廣告主。\n\n為確保修訂後的數字能被客觀審查，我們已邀請一家享有國際聲譽的稽核公司加入，並將在十一月底前檢視各部門的所有支出。因此，請各部門主管最晚在十月三十日前，提交發票與已簽署合約等佐證文件。額外經費的申請，只有在附上詳細說明理由時才會被考慮。",
+  "vocab": [
+    {
+      "word": "advertiser",
+      "ipa": "/ˈædvərtaɪzər/",
+      "pos": "n.",
+      "col": "major advertiser / advertiser contract",
+      "zh": "廣告主、刊登廣告的客戶"
+    },
+    {
+      "word": "advancement",
+      "ipa": "/ədˈvænsmənt/",
+      "pos": "n.",
+      "col": "career advancement / technological advancement",
+      "zh": "進步、發展、晉升"
+    },
+    {
+      "word": "renown",
+      "ipa": "/rɪˈnaʊn/",
+      "pos": "n.",
+      "col": "of international renown / gain renown",
+      "zh": "名聲、聲望"
+    },
+    {
+      "word": "aboard",
+      "ipa": "/əˈbɔːrd/",
+      "pos": "adv.",
+      "col": "bring aboard / welcome aboard",
+      "zh": "加入團隊或專案；在船（車、機）上"
+    },
+    {
+      "word": "justification",
+      "ipa": "/ˌdʒʌstəfɪˈkeɪʃən/",
+      "pos": "n.",
+      "col": "detailed justification / budget justification",
+      "zh": "正當理由、說明依據"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the main purpose of the memo?",
+      "opts": [
+        "To announce that the overall budget will be reduced",
+        "To describe a budget change and the steps departments must take",
+        "To report the findings of an external audit",
+        "To introduce a new contract with an advertiser"
+      ],
+      "ans": 1,
+      "why": [
+        "文中明說財務委員會決定不縮減整體預算（decided against reducing the overall budget）。",
+        "正解：備忘錄說明預算由平面廣告轉向數位平台，並要求各部門主管提交佐證文件。",
+        "稽核公司才剛加入，將在十一月底前檢視支出，文中尚無稽核結果。",
+        "文中提到的是兩份合約未續約，並沒有介紹新的廣告主合約。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "Why did revenue from advertisers decline last quarter?",
+      "opts": [
+        "A print publication was discontinued",
+        "The finance committee reduced the budget",
+        "The audit found errors in expense reports",
+        "Two major contracts were not renewed"
+      ],
+      "ans": 3,
+      "why": [
+        "文中提到的是預算會轉移，並未說明有平面刊物停刊。",
+        "財委會是決定不縮減整體預算，且預算調整是營收下滑之後的決定，並非原因。",
+        "稽核尚未開始，也沒有發現任何費用報告的錯誤。",
+        "正解：營收下滑主要是因為兩份大型合約未續約（two major contracts were not renewed）。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What are department heads asked to do by October 30?",
+      "opts": [
+        "Submit supporting documents for their expenses",
+        "Provide a justification for every funding request",
+        "Meet with the auditing firm",
+        "Sign renewed contracts with advertisers"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：各部門主管須在十月三十日前提交發票、已簽署合約等佐證文件。",
+        "詳細說明理由只有在申請額外經費時才需要，並非十月三十日前每位主管都要做的事。",
+        "稽核公司會在十一月底前檢視支出，文中沒有要求主管與其會面。",
+        "文中說的是兩份合約未續約，並沒有要求主管簽署續約。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The contract will automatically ______ for another year unless either party gives written notice.",
+      "opts": [
+        "renewal",
+        "renewing",
+        "renew",
+        "renewed"
+      ],
+      "ans": 2,
+      "why": [
+        "renewal 是名詞，不能放在助動詞 will 之後作動詞。",
+        "renewing 是現在分詞或動名詞，不能直接接在 will 之後。",
+        "正解：will 之後要接原形動詞，renew 表示「續約」，符合文法與語意。",
+        "renewed 是過去式或過去分詞，不能接在 will 之後。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The accounting department is responsible ______ preparing the annual financial statements.",
+      "opts": [
+        "of",
+        "for",
+        "to",
+        "by"
+      ],
+      "ans": 1,
+      "why": [
+        "be responsible of 不是正確搭配，應使用 responsible for。",
+        "正解：be responsible for + V-ing 是固定用法，表示「負責做…」。",
+        "responsible to 是「對某人負責」，後面接人，不能接 preparing。",
+        "by 無法與 responsible 組成此處的固定搭配。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The company has set aside funds to ______ any unexpected costs during the construction period.",
+      "opts": [
+        "cover",
+        "depart",
+        "expire",
+        "benefit"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：cover 在此意為「支付、涵蓋」，cover costs 是常見搭配，表示以資金支付費用。",
+        "depart 意為「出發、離開」，不能搭配 costs。",
+        "expire 意為「到期」，是不及物動詞，不能直接接 costs。",
+        "benefit 雖可作動詞，但語意是「使受益」，與支付意外費用不符。"
+      ]
+    }
+  ]
+}
