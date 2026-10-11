@@ -1,13 +1,15 @@
 /* 7 大主題輪動常數 */
 const THEMES = [
   '辦公室與商務溝通',
-  '差旅、交通與餐飲',
+  '差旅、交通、餐飲與休閒',
   '求職、人資與職涯',
   '採購、製造與供應鏈',
   '行銷、銷售與客服',
   '財務、合約與商業管理',
   '會議、簡報與提案'
 ];
+/* 各 D 的子題材輪替清單（與 daily.json 的 _spec.subtopics 保持一致） */
+const SUBTOPICS = {"D1": ["郵件與備忘錄", "公告與公司規定", "設備與設施維修", "電話與語音留言", "辦公資訊系統與用品", "訪客與安全門禁"], "D2": ["航班與機場", "訂房與住宿", "交通異動與租車", "餐廳訂位與宴請", "出差行程與參展", "休閒娛樂與旅遊", "天氣與行程"], "D3": ["徵才廣告", "履歷與面試", "升遷與績效", "薪資與福利", "培訓與工作坊", "健康與醫療保險"], "D4": ["訂貨與採購", "運送與物流", "貿易與報關", "庫存與發票", "材料與品質檢驗", "供應商評選", "製造與生產線"], "D5": ["廣告與促銷", "客訴與退換貨", "市場調查與客戶回饋", "展覽與活動", "公益與社區行銷", "零售與電商"], "D6": ["合約條款", "預算與成本", "銀行與帳單", "稽核與報告", "投資與經濟趨勢", "保險與稅務", "房地產與租賃"], "D7": ["專案提案", "成果報告", "新產品簡報", "環保與永續提案", "社區與都市發展", "公司政策說明"]};
 
 /* 題庫資料 */
 
@@ -216,6 +218,7 @@ function up() { // 往上一層
   const v = cur.view, m = isMobile();
   if (v === 'launch') return;
   if (dnUp()) { if (vFrom()) backToVocab(); return; } // 入庫彙整／回報彙整／詳解頁：回到上一層並還原捲動位置（從 vocab.html 進來則直接回總表）
+  if ((v === 'day' || v === 'mitem') && tFrom()) return backToMatrix();
   if (v === 'day' && vFrom()) return backToVocab();
   if (v === 'speak') { cur.view = 'day'; render(); return; }
   if (SEC === 'maint') { if (v === 'maint') return showLaunch(); cur.view = 'maint'; cur.nw = cur.w; render(); window.scrollTo({ top: 0 }); return; }
@@ -235,7 +238,7 @@ function enterSec(s) {
   render(); window.scrollTo({ top: 0 });
 }
 function openAudio() { SEC = 'maint'; cur = Object.assign({}, cur, { view: 'audio' }); push(); render(); window.scrollTo({ top: 0 }); }
-function openItem(w, d) { SEC = 'maint'; cur = { w, d, nw: w, view: 'mitem' }; push(); render(); window.scrollTo({ top: 0 }); }
+function openItem(w, d) { TBACK = TKEEP; TKEEP = null; SEC = 'maint'; cur = { w, d, nw: w, view: 'mitem' }; push(); render(); window.scrollTo({ top: 0 }); }
 function goSpeak(w, d) { SEC = 'learn'; cur = { w, d, nw: w, view: 'speak' }; S.last = { w, d }; save(); push(); render(); window.scrollTo({ top: 0 }); }
 async function recheckAudio() { await auLoad(); render(); }
 
@@ -259,6 +262,141 @@ function todoOf(x) { // 這篇還缺什麼
 }
 function nextEmpty() { const mw = Math.max(4, ...DATA.map(x => x.week)); for (let w = 1; w <= mw + 1; w++) for (let d = 1; d <= 7; d++) if (!find(w, d)) return { w, d }; return { w: mw + 1, d: 1 }; }
 
+/* ===== 題材總覽：每個 D 的小主題（SUBTOPICS）× 已用過的文章；一眼看出覆蓋進度與缺口 ===== */
+const stAbbr = t => String(t || '').split(/與|、/)[0].slice(0, 4); // 週次表格子用的縮寫，例如「公告與公司規定」→「公告」
+function topicUse() { // { D1: { 子題材: [x, ...] }, ... }；daily.json 內出現、但不在清單內的子題材歸入「其他」
+  const U = {};
+  Object.keys(SUBTOPICS).forEach(k => { U[k] = {}; SUBTOPICS[k].forEach(t => { U[k][t] = []; }); });
+  [...DATA].sort((a, b) => a.week - b.week || a.day - b.day).forEach(x => {
+    const k = 'D' + x.day; if (!U[k]) U[k] = {};
+    const t = x.subtopic || '（未標子題材）'; (U[k][t] = U[k][t] || []).push(x);
+  });
+  return U;
+}
+const topicCover = () => { const U = topicUse(); let t = 0, u = 0; Object.keys(SUBTOPICS).forEach(k => SUBTOPICS[k].forEach(n => { t++; if (U[k][n].length) u++; })); return `已涵蓋 ${u} / ${t}`; };
+/* ===== 統一矩陣：週次（列）× D1–D7（欄），三種模式共用同一套骨架 =====
+   progress（學習：完成度）｜ media（維護：mp3／timing）｜ topics（題材：子題材與覆蓋）
+   模式＝目前的 cur.view：home→progress、maint→media、topics→topics（不另存狀態，up()／dnUp() 照舊運作）
+   新增模式：在 MX 加一個條目（label／weeks／cell／empty／head／top／legend／extra） */
+let TBACK = null; // 從矩陣點進文章時記住來源（哪個模式、捲動位置），「返回」就回到原處
+const tFrom = () => !!TBACK && TBACK.w == cur.w && TBACK.d == cur.d && (cur.view === 'day' || cur.view === 'mitem');
+const tLabel = () => TBACK && TBACK.v === 'topics' ? '回題材總覽' : TBACK && TBACK.v === 'maint' ? '回維護總覽' : '回週次表';
+let TKEEP = null; // openFromMatrix → go／openItem 之間暫存，讓文章第一次繪製時就能顯示「← 回…」連結
+function openFromMatrix(w, d) { TKEEP = { w, d, y: window.scrollY, v: cur.view }; (inMaint() ? openItem : go)(w, d); }
+function backToMatrix() { const t = TBACK; TBACK = null; cur.view = t.v; cur.nw = cur.w; render(); window.scrollTo({ top: t.y }); }
+function openTopics() { cur.view = 'topics'; push(); render(); window.scrollTo({ top: 0 }); }
+const MX_VIEW = { progress: 'home', media: 'maint', topics: 'topics' };
+function openMatrix() { cur.view = 'home'; push(); render(); window.scrollTo({ top: 0 }); } // 桌機學習區側欄的「▦ 總表」
+function mxSet(m) { cur.view = MX_VIEW[m]; render(); }
+const mxMode = () => cur.view === 'topics' ? 'topics' : inMaint() ? 'media' : 'progress';
+const mxWeeks = () => Math.max(4, ...DATA.map(x => x.week));
+const mxTitle = x => (x.subtopic ? x.subtopic + '｜' : '') + (x.tag || '');
+const mxMedia = () => { // 維護模式用的統計
+  const xs = [...DATA].sort((a, b) => a.week - b.week || a.day - b.day), tm = { ok: 0, partial: 0, bad: 0, none: 0 };
+  xs.forEach(x => tm[tmInfo(x).state]++);
+  return { xs, N: xs.length, mpOk: xs.filter(x => mp3State(x) === 'ok').length, tm, todo: xs.filter(x => !itemOk(x)), ne: nextEmpty() };
+};
+function topicSections() { // 題材模式：每個 D 的小主題清單（✔ 已用／未用）
+  const U = topicUse();
+  return `<div class="space-y-3">` + THEMES.map((name, i) => {
+    const k = 'D' + (i + 1), names = Object.keys(U[k] || {}), n = names.filter(t => U[k][t].length && SUBTOPICS[k].includes(t)).length;
+    return `<section class="${card} p-4"><div class="flex items-baseline justify-between gap-2 mb-2"><h3 class="font-bold text-sm"><span class="text-indigo-600 dark:text-indigo-400">D${i + 1}</span> ${name}</h3><span class="text-xs text-slate-500 shrink-0">${n} / ${SUBTOPICS[k].length}</span></div><ul class="divide-y divide-slate-100 dark:divide-slate-800">`
+      + names.map(t => {
+        const xs = U[k][t], ok = xs.length > 0, odd = !SUBTOPICS[k].includes(t);
+        return `<li class="py-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm"><span class="shrink-0 w-4 text-center ${ok ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-300 dark:text-slate-600'}">${ok ? '✔' : '○'}</span>
+        <span class="${ok ? '' : 'text-slate-500'}">${esc(t)}${odd ? ' <span class="text-xs text-amber-600 dark:text-amber-400">（不在清單內）</span>' : ''}</span>
+        ${ok ? xs.map(x => `<button onclick="openFromMatrix(${x.week},${x.day})" title="${esc(x.tag || '')}" class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 hover:ring-1 hover:ring-indigo-400 cursor-pointer">w${x.week}d${x.day}</button>`).join('')
+        : '<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300">未用</span>'}</li>`;
+      }).join('') + '</ul></section>';
+  }).join('') + '</div>';
+}
+const MX = {
+  progress: {
+    label: '📖 進度', weeks: mxWeeks,
+    rowSub: w => `${weekDone(w)}/7`,
+    cell(x) {
+      const a = S.ans[idOf(x)], done = a && a.done, started = a && a.sel.some(v => v !== null);
+      return { title: mxTitle(x), cls: 'text-sm font-semibold ' + (done ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300' : 'bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300'),
+        html: (done ? `✓<span class="block text-[0.625rem] font-normal leading-3">${Math.round(a.score / x.questions.length * 100)}%${skDone(x) ? ' 🎤' : ''}</span>` : started ? '<span class="text-xs">進行中</span>' : '<span class="text-xs">開始</span>')
+          + (x.subtopic ? `<span class="block text-[0.5625rem] font-normal leading-3 opacity-70 truncate px-0.5">${esc(stAbbr(x.subtopic))}</span>` : '') };
+    },
+    top() {
+      const last = S.last && find(S.last.w, S.last.d);
+      return last ? `<button onclick="go(${last.week},${last.day})" class="w-full mb-4 rounded-xl px-4 py-3 text-left bg-indigo-600 text-white cursor-pointer">
+      <span class="block text-xs text-indigo-100">▶ 繼續上次</span>
+      <span class="block font-semibold">W${last.week} · D${last.day} ${THEMES[last.day - 1]}</span>
+      <span class="block text-xs text-indigo-100 truncate">${esc(last.tag || '')}</span></button>` : '';
+    },
+    legend: () => '點格子進入當天內容 · 左右滑動可查看更多天；格子下方小字是子題材'
+  },
+  media: {
+    label: '🎧 音檔', weeks: () => mxWeeks() + 1, // 多一列給「＋ 新增」
+    cell(x) {
+      const m = mp3State(x), t = tmInfo(x).state;
+      return { title: mxTitle(x), cls: 'text-xs font-semibold ' + (itemOk(x) ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300' : ((m === 'none' && t !== 'ok') || t === 'bad') ? 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300' : 'bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300'),
+        html: `${x.type === 'Listening' ? '🎧' : '📄'}<span class="block text-[0.6875rem] font-normal leading-4">♪${m === 'ok' ? '✔' : m === 'unk' ? '?' : '✖'} ⏱${t === 'ok' ? '✔' : t === 'partial' ? '△' : '✖'}</span>` };
+    },
+    empty: (w, d) => ({ onclick: `openGen(${w},${d})`, cls: 'border border-dashed border-indigo-400 text-indigo-600 dark:text-indigo-400 text-lg', html: '＋' }),
+    head: () => '🛠 維護總覽',
+    top() {
+      const { N, mpOk, tm } = mxMedia();
+      return `<div class="${card} p-4 mb-4 text-sm"><div class="flex flex-wrap gap-x-6 gap-y-1">
+    <span>文章 <b>${N}</b> 篇</span>
+    <span>mp3：${AU.idx ? `<b class="text-emerald-600 dark:text-emerald-400">${mpOk}</b> / ${N}${mpOk < N ? ` <span class="text-rose-600 dark:text-rose-400">（缺 ${N - mpOk}）</span>` : ' ✔'}` : '<span class="text-amber-600 dark:text-amber-400">尚未讀到 audio/index.json</span>'}</span>
+    <span>timing 完成：<b class="text-emerald-600 dark:text-emerald-400">${tm.ok}</b> / ${N}</span></div>
+    ${tm.ok < N ? `<p class="mt-1 text-xs text-slate-500">未完成的 timing：未做 <b>${tm.none}</b>　部分 <b>${tm.partial}</b>　異常 <b>${tm.bad}</b></p>` : ''}
+    <div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><button onclick="recheckAudio()" class="${btn} border border-slate-300 dark:border-slate-700 !py-0.5 !px-2 text-xs">重新讀取 audio/index.json</button><span class="text-slate-400">timing 看 daily.json 內的 timing 欄位；放好 mp3 並執行 daily_timestamps.py、重新整理後更新</span></div></div>`;
+    },
+    legend: () => '格子：♪＝有沒有 mp3，⏱＝timing（✔ 完成、△ 只涵蓋部分句子、✖ 未做或異常）。綠＝都完成，黃＝其中一項未完成，紅＝都沒有或 timing 異常。點格子看細節；「＋」是還沒建置的天數。',
+    extra() {
+      const { todo, ne } = mxMedia();
+      let h = `<div class="grid sm:grid-cols-3 gap-3 mb-5">
+    <button onclick="dnNav('marks')" class="${btn} ${card} text-left">📌 入庫彙整 <span class="block text-xs text-slate-500 mt-0.5">${dnMarks().length} 個字</span></button>
+    <button onclick="dnNav('reports')" class="${btn} ${card} text-left">⚑ 回報彙整 <span class="block text-xs mt-0.5 ${dnOpenRpN() ? 'text-rose-600 dark:text-rose-400' : 'text-slate-500'}">待處理 ${dnOpenRpN()}</span></button>
+    <button onclick="mxSet('topics')" class="${btn} ${card} text-left">🗂 題材總覽 <span class="block text-xs text-slate-500 mt-0.5">${topicCover()}</span></button></div>`;
+      if (todo.length) {
+        h += `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm mb-2">待處理（${todo.length}）</h3><div class="space-y-1">${todo.slice(0, 12).map(x => `<button onclick="openItem(${x.week},${x.day})" class="w-full text-left rounded-lg px-2 py-1.5 flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800"><b class="shrink-0">W${x.week}·D${x.day}</b><span class="truncate flex-1 text-slate-500">${esc(x.tag || '')}</span><span class="shrink-0 text-xs text-rose-600 dark:text-rose-400">${todoOf(x).join('、') || '確認 mp3 狀態'}</span></button>`).join('')}${todo.length > 12 ? `<p class="text-xs text-slate-400 px-2">…還有 ${todo.length - 12} 篇，請看「音檔／Timing 清單」</p>` : ''}</div></section>`;
+      }
+      return h + tslSection() + `<div class="grid sm:grid-cols-2 gap-3"><button onclick="openAudio()" class="${btn} border border-slate-300 dark:border-slate-700">🎧 音檔／Timing 清單</button><button onclick="openGen(${ne.w},${ne.d})" class="${btn} bg-indigo-600 text-white">＋ 新增下一篇（W${ne.w} · D${ne.d}）</button></div>
+  <a href="vocab.html" onclick="tslPreset()" class="${card} flex items-center gap-3 p-4 mt-3 hover:ring-2 hover:ring-indigo-400"><span class="text-3xl">📚</span><span class="flex-1 min-w-0"><span class="block font-bold">TSL 單字總表</span><span class="block text-xs text-slate-500 dark:text-slate-400">New TOEIC Service List 1250 字 · 看還缺哪些</span></span><span class="text-indigo-600 dark:text-indigo-400 text-xl shrink-0">→</span></a>`;
+    }
+  },
+  topics: {
+    label: '🗂 題材', weeks: mxWeeks,
+    cell(x, w, d, ctx) { // 同一個 D 之前已用過的子題材標琥珀色
+      const seen = ctx.seen = ctx.seen || {}, k = d + '|' + x.subtopic, dup = !!seen[k]; seen[k] = 1;
+      return { title: mxTitle(x) + (dup ? '（此 D 已用過）' : ''), cls: 'text-[0.6875rem] leading-4 font-medium ' + (dup ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300' : 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300'),
+        html: `<span class="line-clamp-2">${esc(x.subtopic || '未標')}</span>` };
+    },
+    head: () => '🗂 題材總覽',
+    top() {
+      const U = topicUse(); let total = 0, used = 0;
+      Object.keys(SUBTOPICS).forEach(k => SUBTOPICS[k].forEach(t => { total++; if (U[k][t].length) used++; }));
+      return `<p class="mb-3 text-sm text-slate-500 dark:text-slate-400">已涵蓋 <b class="text-emerald-600 dark:text-emerald-400">${used}</b> / ${total} 個小主題，還有 <b class="${total - used ? 'text-amber-600 dark:text-amber-400' : 'text-emerald-600 dark:text-emerald-400'}">${total - used}</b> 個未用。點文章編號可直接開啟。</p>`;
+    },
+    legend: () => '每格是該篇的子題材；<span class="text-amber-600 dark:text-amber-400">琥珀色</span>＝同一個 D 之前已用過。滑鼠停留看完整標題。',
+    extra: topicSections
+  }
+};
+function renderMatrix() {
+  const mode = mxMode(), C = MX[mode], NW = C.weeks(), ctx = {}, modes = inMaint() ? ['media', 'topics'] : ['progress', 'topics'];
+  const bd = 'border-b border-slate-100 dark:border-slate-800', edge = 'border-slate-200 dark:border-slate-800';
+  let h = C.head ? `<header class="mb-3"><h2 class="text-xl md:text-2xl font-bold">${C.head()}</h2></header>` : '';
+  h += `<div class="flex gap-1 mb-3">${modes.map(m => `<button onclick="mxSet('${m}')" class="${btn} !py-1.5 text-xs ${m === mode ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${MX[m].label}</button>`).join('')}</div>` + (C.top ? C.top() : '');
+  h += `<div class="${card} overflow-hidden mb-2"><div class="overflow-x-auto"><table class="border-separate border-spacing-0 text-center"><thead><tr><th class="sticky left-0 z-10 w-14 min-w-[3.5rem] bg-white dark:bg-slate-900 border-b border-r ${edge}"></th>${THEMES.map((t, i) => `<th title="${esc(t)}" class="min-w-[5.5rem] px-1 py-2 border-b ${edge}"><span class="block text-sm font-bold">D${i + 1}</span><span class="block text-[0.625rem] font-normal text-slate-500 truncate max-w-[5.5rem]">${t}</span></th>`).join('')}</tr></thead><tbody>`;
+  for (let w = 1; w <= NW; w++) {
+    h += `<tr><th class="sticky left-0 z-10 px-2 py-2 bg-white dark:bg-slate-900 border-r border-b ${edge} text-sm font-bold text-indigo-600 dark:text-indigo-400">W${w}${C.rowSub ? `<span class="block text-[0.6875rem] font-normal text-slate-500">${C.rowSub(w)}</span>` : ''}</th>`;
+    for (let d = 1; d <= 7; d++) {
+      const x = find(w, d), e = !x && C.empty && C.empty(w, d);
+      if (x) { const c = C.cell(x, w, d, ctx); h += `<td class="p-1 ${bd}"><button onclick="openFromMatrix(${w},${d})" title="${esc(c.title)}" class="w-full h-14 px-1 rounded-lg cursor-pointer overflow-hidden ${c.cls}">${c.html}</button></td>`; }
+      else if (e) h += `<td class="p-1 ${bd}"><button onclick="${e.onclick}" class="w-full h-14 rounded-lg cursor-pointer ${e.cls}">${e.html}</button></td>`;
+      else h += `<td class="p-1 ${bd}"><div class="h-14 rounded-lg flex items-center justify-center text-slate-300 dark:text-slate-700">—</div></td>`;
+    }
+    h += '</tr>';
+  }
+  main.innerHTML = h + `</tbody></table></div></div><p class="text-xs text-slate-400 mb-5">${C.legend()}</p>` + (C.extra ? C.extra() : '');
+}
+
 /* ===== 選單 ===== */
 function renderLaunch() {
   const N = DATA.length, done = DATA.filter(x => S.ans[idOf(x)] && S.ans[idOf(x)].done).length;
@@ -273,52 +411,15 @@ function renderLaunch() {
       <p class="mt-3 text-xs text-slate-500">已完成測驗 ${done} / ${N} 天${last ? `<br>上次：W${last.week} · D${last.day} ${esc(last.tag || '')}` : ''}</p></button>
     <button onclick="enterSec('maint')" class="${card} ${hov} p-5 text-left cursor-pointer">
       <span class="text-3xl">🛠</span><h3 class="font-bold text-lg mt-2">維護</h3>
-      <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">文章總覽、mp3 與 timing 完成狀態、新增文章</p>
-      <p class="mt-3 text-xs text-slate-500">文章 ${N} 篇　${mpMiss == null ? 'mp3 狀態未讀到' : `<span class="${mpMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">缺 mp3 ${mpMiss}</span>`}　<span class="${tmMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">timing 未完成 ${tmMiss}</span>${tslBadge()}</p></button>
-  </div>
-  <div class="grid grid-cols-2 gap-3 mt-4"><button onclick="dnFromLaunch('marks')" class="${btn} ${card} text-left">📌 入庫彙整 <span class="text-xs text-slate-500">${dnMarks().length}</span></button><button onclick="dnFromLaunch('reports')" class="${btn} ${card} text-left">⚑ 回報彙整 <span class="text-xs text-slate-500">待處理 ${dnOpenRpN()}</span></button></div>`;
+      <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">文章總覽、mp3 與 timing、新增文章、入庫／回報彙整、題材總覽</p>
+      <p class="mt-3 text-xs text-slate-500">文章 ${N} 篇　${mpMiss == null ? 'mp3 狀態未讀到' : `<span class="${mpMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">缺 mp3 ${mpMiss}</span>`}　<span class="${tmMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">timing 未完成 ${tmMiss}</span>${tslBadge()}<br>入庫 ${dnMarks().length}　<span class="${dnOpenRpN() ? 'text-rose-600 dark:text-rose-400' : ''}">回報待處理 ${dnOpenRpN()}</span>　題材${topicCover()}</p></button>
+  </div>`;
 }
 
 /* 維護 → TSL 單字總表：點進去時預設篩成「還缺」（還沒生成詳解的字）；vocab.html 會讀這個設定，用完即清除 */
 function tslPreset(st) { try { sessionStorage.setItem('tslState', JSON.stringify({ F: { st: st || 'miss' }, open: [], y: 0 })); } catch (e) {} }
 
 /* ===== 維護總覽：週次 × 天數矩陣，格內顯示 mp3／timing 狀態 ===== */
-function renderMaint() {
-  const xs = [...DATA].sort((a, b) => a.week - b.week || a.day - b.day), N = xs.length;
-  const mpOk = xs.filter(x => mp3State(x) === 'ok').length, tm = { ok: 0, partial: 0, bad: 0, none: 0 };
-  xs.forEach(x => tm[tmInfo(x).state]++);
-  const NW = Math.max(4, ...DATA.map(x => x.week)) + 1, ws = Array.from({ length: NW }, (_, i) => i + 1);
-  const todo = xs.filter(x => !itemOk(x)), ne = nextEmpty();
-  const cellCls = x => { const m = mp3State(x), t = tmInfo(x).state; return itemOk(x) ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300' : ((m === 'none' && t !== 'ok') || t === 'bad') ? 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300' : 'bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300'; };
-  let h = `<header class="mb-4"><h2 class="text-xl md:text-2xl font-bold">🛠 維護總覽</h2></header>
-  <div class="${card} p-4 mb-4 text-sm"><div class="flex flex-wrap gap-x-6 gap-y-1">
-    <span>文章 <b>${N}</b> 篇</span>
-    <span>mp3：${AU.idx ? `<b class="text-emerald-600 dark:text-emerald-400">${mpOk}</b> / ${N}${mpOk < N ? ` <span class="text-rose-600 dark:text-rose-400">（缺 ${N - mpOk}）</span>` : ' ✔'}` : '<span class="text-amber-600 dark:text-amber-400">尚未讀到 audio/index.json</span>'}</span>
-    <span>timing 完成：<b class="text-emerald-600 dark:text-emerald-400">${tm.ok}</b> / ${N}</span></div>
-    ${tm.ok < N ? `<p class="mt-1 text-xs text-slate-500">未完成的 timing：未做 <b>${tm.none}</b>　部分 <b>${tm.partial}</b>　異常 <b>${tm.bad}</b></p>` : ''}
-    <div class="flex flex-wrap items-center gap-2 mt-2 text-xs"><button onclick="recheckAudio()" class="${btn} border border-slate-300 dark:border-slate-700 !py-0.5 !px-2 text-xs">重新讀取 audio/index.json</button><span class="text-slate-400">timing 看 daily.json 內的 timing 欄位；放好 mp3 並執行 daily_timestamps.py、重新整理後更新</span></div></div>
-  <div class="${card} overflow-hidden mb-3"><div class="overflow-x-auto"><table class="border-separate border-spacing-0 text-center"><thead><tr>
-    <th class="sticky left-0 z-10 w-14 min-w-[3.5rem] bg-white dark:bg-slate-900 border-b border-r border-slate-200 dark:border-slate-800"></th>
-    ${THEMES.map((t, i) => `<th class="min-w-[5.5rem] px-1 py-2 border-b border-slate-200 dark:border-slate-800"><span class="block text-sm font-bold">D${i + 1}</span><span class="block text-[0.625rem] font-normal text-slate-500 truncate max-w-[5.5rem]">${t}</span></th>`).join('')}</tr></thead><tbody>`;
-  ws.forEach(w => {
-    h += `<tr><th class="sticky left-0 z-10 px-2 py-2 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 border-b text-sm font-bold text-indigo-600 dark:text-indigo-400">W${w}</th>`;
-    for (let d = 1; d <= 7; d++) {
-      const x = find(w, d), bd = 'border-b border-slate-100 dark:border-slate-800';
-      if (!x) { h += `<td class="p-1 ${bd}"><button onclick="openGen(${w},${d})" class="w-full h-14 rounded-lg border border-dashed border-indigo-400 text-indigo-600 dark:text-indigo-400 text-lg cursor-pointer">＋</button></td>`; continue; }
-      const m = mp3State(x), t = tmInfo(x).state;
-      h += `<td class="p-1 ${bd}"><button onclick="openItem(${w},${d})" class="w-full h-14 rounded-lg text-xs font-semibold cursor-pointer ${cellCls(x)}" title="${esc(x.tag || '')}">${x.type === 'Listening' ? '🎧' : '📄'}<span class="block text-[0.6875rem] font-normal leading-4">♪${m === 'ok' ? '✔' : m === 'unk' ? '?' : '✖'} ⏱${t === 'ok' ? '✔' : t === 'partial' ? '△' : '✖'}</span></button></td>`;
-    }
-    h += '</tr>';
-  });
-  h += `</tbody></table></div></div>
-  <p class="text-xs text-slate-400 mb-5">格子：♪＝有沒有 mp3，⏱＝timing（✔ 完成、△ 只涵蓋部分句子、✖ 未做或異常）。綠＝都完成，黃＝其中一項未完成，紅＝都沒有或 timing 異常。點格子看細節；「＋」是還沒建置的天數。</p>`;
-  if (todo.length) {
-    h += `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm mb-2">待處理（${todo.length}）</h3><div class="space-y-1">${todo.slice(0, 12).map(x => `<button onclick="openItem(${x.week},${x.day})" class="w-full text-left rounded-lg px-2 py-1.5 flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800"><b class="shrink-0">W${x.week}·D${x.day}</b><span class="truncate flex-1 text-slate-500">${esc(x.tag || '')}</span><span class="shrink-0 text-xs text-rose-600 dark:text-rose-400">${todoOf(x).join('、') || '確認 mp3 狀態'}</span></button>`).join('')}${todo.length > 12 ? `<p class="text-xs text-slate-400 px-2">…還有 ${todo.length - 12} 篇，請看「音檔／Timing 清單」</p>` : ''}</div></section>`;
-  }
-  main.innerHTML = h + tslSection() + `<div class="grid sm:grid-cols-2 gap-3"><button onclick="openAudio()" class="${btn} border border-slate-300 dark:border-slate-700">🎧 音檔／Timing 清單</button><button onclick="openGen(${ne.w},${ne.d})" class="${btn} bg-indigo-600 text-white">＋ 新增下一篇（W${ne.w} · D${ne.d}）</button></div>
-  <a href="vocab.html" onclick="tslPreset()" class="${card} flex items-center gap-3 p-4 mt-3 hover:ring-2 hover:ring-indigo-400"><span class="text-3xl">📚</span><span class="flex-1 min-w-0"><span class="block font-bold">TSL 單字總表</span><span class="block text-xs text-slate-500 dark:text-slate-400">New TOEIC Service List 1250 字 · 看還缺哪些</span></span><span class="text-indigo-600 dark:text-indigo-400 text-xl shrink-0">→</span></a>`;
-}
-
 /* ===== TSL 詳解缺口：核心單字（vocab）裡屬於 TSL、但還沒有 extra_vocab 詳解的字 =====
    判斷：任何一篇文章的 extra_vocab 有該字（text），或它出現在該篇某個詳解的 forms 裡，就算有詳解（與 Scan總表與音檔.py 同一套）。 */
 function tslGaps() {
@@ -391,7 +492,7 @@ function renderMaintItem() {
   if (!x) { main.innerHTML = `<div class="${card} p-12 text-center text-slate-500"><h3 class="text-lg font-bold mb-2">此日內容尚未建置</h3><button onclick="openGen(${cur.w},${cur.d})" class="${btn} mt-4 bg-indigo-600 text-white">＋ 產生 AI 提示詞</button></div>`; return; }
   const id = idOf(x), words = (String(x.passage || '').match(/[A-Za-z0-9']+/g) || []).length, pp = Array.isArray(x.presentation_phrases) ? x.presentation_phrases.length : 0;
   const todo = todoOf(x), sec = `${card} p-4 md:p-6 mb-4`, bb = `${btn} border border-slate-300 dark:border-slate-700 !py-1.5 text-xs`;
-  main.innerHTML = `<header class="mb-5"><h2 class="text-xl md:text-2xl font-bold">🛠 W${x.week} · D${x.day} ${esc(x.tag || '')}</h2>
+  main.innerHTML = `<header class="mb-5">${tFrom() ? `<button onclick="goBack()" class="block text-xs text-indigo-600 dark:text-indigo-400 hover:underline mb-1 cursor-pointer">← ${tLabel()}</button>` : ''}<h2 class="text-xl md:text-2xl font-bold">🛠 W${x.week} · D${x.day} ${esc(x.tag || '')}</h2>
     <div class="flex flex-wrap items-center gap-2 mt-2"><span class="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">${x.type}</span>${lvBadge(x)}${stChips(x)}</div>
     <p class="mt-2 text-sm ${todo.length ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">${todo.length ? '待處理：' + todo.join('、') : '✔ mp3 與 timing 都完成'}</p></header>
   <section class="${sec}"><h3 class="font-bold text-sm mb-2">📄 資料 · ${id}</h3><p class="text-sm text-slate-600 dark:text-slate-400">daily.json ✔　英文 ${words} 字　單字 ${x.vocab.length} 個　題目 ${x.questions.length} 題${pp ? `　簡報句型 ${pp} 句` : ''}</p></section>
@@ -413,7 +514,7 @@ function dayNav(nw, M) {
     const on = M ? (cur.view === 'mitem' || cur.view === 'gen') && cur.w == nw && cur.d == d : (cur.view === 'day' || cur.view === 'speak' || cur.view === 'detail') && cur.w == nw && cur.d == d;
     const click = x ? `onclick="${M ? 'openItem' : 'go'}(${nw},${d})"` : M ? `onclick="openGen(${nw},${d})"` : 'disabled';
     h += `<button ${click} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : M ? 'border border-dashed border-indigo-400' : 'opacity-40 cursor-not-allowed'}">
-      <span class="text-sm">D${d} ${t}</span>
+      <span class="text-sm min-w-0">D${d} ${t}${x && x.subtopic ? `<span class="block text-[0.6875rem] text-slate-500 dark:text-slate-400 truncate">${esc(x.subtopic)}</span>` : ''}</span>
       <span class="flex items-center gap-2 shrink-0">${!M && x && x.level ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}${!M && x && skDone(x) ? '<span class="text-xs" title="完成語音練習">🎤</span>' : ''}${st}</span></button>`;
   });
   return h + '</nav>';
@@ -422,7 +523,7 @@ function dayNav(nw, M) {
 function renderSide() {
   const n = Object.keys(S.saved).length, nw = cur.nw ?? cur.w, v = cur.view, M = inMaint();
   const line = 'border border-slate-300 dark:border-slate-700';
-  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${cur.d}` : v === 'marks' ? '📌 入庫彙整' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
+  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${cur.d}` : v === 'topics' ? '🗂 題材總覽' : v === 'marks' ? '📌 入庫彙整' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
   const dk = `<button onclick="fontCycle()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="調整字級">Aa</button><button onclick="toggleDark()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>`;
   const root = v === 'launch' || v === 'home' || v === 'maint';
   // ===== 手機：選單／學習首頁／維護總覽顯示標題列；其他頁顯示「← 返回」列 =====
@@ -430,6 +531,7 @@ function renderSide() {
     ? `<div class="flex items-center justify-between gap-2"><h1 class="text-base font-bold">${v === 'launch' ? 'TOEIC Daily' : v === 'maint' ? '🛠 維護' : '📖 學習'}</h1>
         <div class="flex gap-2">
           ${v === 'launch' ? `<a href="index.html" class="${btn} ${line} !py-1.5" aria-label="回到首頁">⌂ 首頁</a>` : `<button onclick="showLaunch()" class="${btn} ${line} !py-1.5">☰ 選單</button>`}
+          ${v === 'maint' ? `<button onclick="openTopics()" class="${btn} ${line} !py-1.5" aria-label="題材總覽">🗂</button>` : ''}
           ${v === 'home' ? `<button onclick="openBook()" class="${btn} ${line} !py-1.5" aria-label="生詞本／錯題本">★ ${n}</button>` : ''}
           ${v === 'maint' ? `<button onclick="openAudio()" class="${btn} ${line} !py-1.5" aria-label="音檔／Timing 清單">🎧${AU.idx ? DATA.filter(x => !itemOk(x)).length : ''}</button>` : ''}
           ${dk}</div></div>`
@@ -443,45 +545,16 @@ function renderSide() {
     <button onclick="toggleDark()" class="${btn} ${line}">${S.dark ? '☀ 淺色' : '☾ 深色'}</button></div>
   <div class="grid grid-cols-3 gap-1 mb-4"><button onclick="showLaunch()" class="${btn} ${v === 'launch' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}" title="回到選單">☰</button>${tab('learn', '📖 學習')}${tab('maint', '🛠 維護')}</div>`;
   if (SEC === 'learn') {
-    h += dayNav(nw, false) + `<button onclick="openBook()" class="${btn} w-full mt-4 ${line} ${v === 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>` + dnSideBtns();
+    h += `<button onclick="openMatrix()" class="${btn} w-full mb-3 ${line} ${v === 'home' || v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">▦ 總表（進度／題材）</button>` + dayNav(nw, false) + `<button onclick="openBook()" class="${btn} w-full mt-4 ${line} ${v === 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>` ;
   } else if (SEC === 'maint') {
     const act = (c) => c ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : '';
     h += `<button onclick="up2Maint()" class="${btn} w-full mb-2 ${line} ${act(v === 'maint')}">📋 維護總覽</button>
-      <button onclick="openAudio()" class="${btn} w-full mb-4 ${line} ${act(v === 'audio')}">🎧 音檔／Timing 清單（${AU.idx ? '未完成 ' + DATA.filter(x => !itemOk(x)).length : '未讀到 mp3 清單'}）</button>` + dnSideBtns()
+      <button onclick="openAudio()" class="${btn} w-full mb-4 ${line} ${act(v === 'audio')}">🎧 音檔／Timing 清單（${AU.idx ? '未完成 ' + DATA.filter(x => !itemOk(x)).length : '未讀到 mp3 清單'}）</button>` + dnSideBtns() + `<button onclick="openTopics()" class="${btn} w-full mt-2 ${line} ${v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">🗂 題材總覽（${topicCover().replace('已涵蓋 ', '')}）</button>`
       + dayNav(nw, true) + `<p class="text-xs text-slate-500 mt-3 leading-relaxed">${THEMES.some((t, i) => !find(nw, i + 1)) ? '點標示「＋ 新增」的空缺日期，產生給 AI 的提示詞' : `W${nw} 已全部建置，請切換其他週次`}</p>`;
   } else h += `<p class="text-xs text-slate-500 leading-relaxed">請在右側選擇「學習」或「維護」。</p>`;
   side.innerHTML = h + '</div>';
 }
 function up2Maint() { cur.view = 'maint'; cur.nw = cur.w; render(); window.scrollTo({ top: 0 }); }
-
-/* 手機學習首頁：D1–D7 垂直（左，含主題標題）× W 週次水平（可左右捲動）；點交叉格直接進入內文 */
-function renderHome() {
-  const NW = Math.max(4, ...DATA.map(x => x.week)), ws = Array.from({ length: NW }, (_, i) => i + 1);
-  const last = S.last && find(S.last.w, S.last.d);
-  let h = last ? `<button onclick="go(${last.week},${last.day})" class="w-full mb-4 rounded-xl px-4 py-3 text-left bg-indigo-600 text-white cursor-pointer">
-      <span class="block text-xs text-indigo-100">▶ 繼續上次</span>
-      <span class="block font-semibold">W${last.week} · D${last.day} ${THEMES[last.day - 1]}</span>
-      <span class="block text-xs text-indigo-100 truncate">${esc(last.tag || '')}</span></button>` : '';
-  h += `<div class="${card} overflow-hidden"><div class="overflow-x-auto"><table class="border-separate border-spacing-0 text-center"><thead><tr>
-    <th class="sticky left-0 z-10 w-36 min-w-[9rem] bg-white dark:bg-slate-900 border-b border-r border-slate-200 dark:border-slate-800"></th>
-    ${ws.map(w => `<th class="min-w-[4.5rem] px-1 py-2 border-b border-slate-200 dark:border-slate-800"><span class="block text-sm font-bold">W${w}</span><span class="block text-[0.6875rem] font-normal text-slate-500">${weekDone(w)}/7</span></th>`).join('')}
-    </tr></thead><tbody>`;
-  THEMES.forEach((t, i) => {
-    const d = i + 1;
-    h += `<tr><th class="sticky left-0 z-10 w-36 min-w-[9rem] px-3 py-2 text-left bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 ${d < 7 ? 'border-b' : ''} font-normal">
-      <span class="text-sm font-bold text-indigo-600 dark:text-indigo-400">D${d}</span> <span class="text-xs leading-4">${t}</span></th>`;
-    ws.forEach(w => {
-      const x = find(w, d), a = x && S.ans[idOf(x)], done = a && a.done, started = a && a.sel.some(v => v !== null);
-      const bd = d < 7 ? 'border-b border-slate-100 dark:border-slate-800' : '';
-      if (!x) { h += `<td class="p-1 ${bd}"><div class="h-12 rounded-lg flex items-center justify-center text-slate-300 dark:text-slate-700">—</div></td>`; return; }
-      const cls = done ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
-        : 'bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
-      h += `<td class="p-1 ${bd}"><button onclick="go(${w},${d})" class="w-full h-12 rounded-lg text-sm font-semibold cursor-pointer ${cls}">${done ? `✓<span class="block text-[0.625rem] font-normal leading-3">${Math.round(a.score / x.questions.length * 100)}%${skDone(x) ? ' 🎤' : ''}</span>` : started ? '<span class="text-xs">進行中</span>' : '<span class="text-xs">開始</span>'}</button></td>`;
-    });
-    h += '</tr>';
-  });
-  main.innerHTML = h + `</tbody></table></div></div><p class="mt-3 text-xs text-slate-500 text-center">點格子進入當天內容 · 左右滑動可查看更多週次</p>`;
-}
 
 /* ===== 音檔／Timing 清單（維護） ===== */
 function setAudF(f) { cur.audF = f; render(); }
@@ -525,10 +598,12 @@ function renderDay() {
   const vOpen = !!cur.vocabOpen, qOpen = !!cur.quizOpen; // 預設收合
 
   let h = `<header class="mb-6">
+    ${tFrom() ? `<button onclick="goBack()" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline mb-1 cursor-pointer">← ${tLabel()}</button>` : ''}
     <div class="flex items-center gap-2">
       <h2 class="text-xl md:text-2xl font-bold">Day ${x.day} ${THEMES[x.day-1]}</h2>
     </div>
     <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${x.week} · ${x.tag}</span>
+    ${x.subtopic ? `<span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300 font-medium" title="子題材">🏷 ${esc(x.subtopic)}</span>` : ''}
     ${lvBadge(x) ? ` ${lvBadge(x).replace('inline-block', 'inline-block mt-2')}` : ''}
     ${x.level && x.level.why ? `<p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">難度：${esc(x.level.why)}（範圍 ${esc(x.level.range || '')}，為預估值）</p>` : ''}
     <div class="mt-3 flex flex-wrap gap-2">${dnRpBtn(id, '', 'other')}</div>
@@ -896,6 +971,8 @@ function genPrompt() {
       '・請從中挑 4–5 個（至少 3 個）最符合本篇主題與情境的單字，自然地寫進 passage 並放進 vocab；不適合的不要硬塞，沒用到的會留給之後的文章。',
       '・vocab 總數仍依 _spec（3–6 個）；若清單以外還有更適合的商務字彙，可補足但不得與既有 items 重複。', '');
   }
+  { const pool = SUBTOPICS['D' + d] || [], used = DATA.filter(x => x.day == d && x.subtopic).map(x => x.subtopic), fresh = pool.filter(t => !used.includes(t)), lastW = DATA.filter(x => x.day == d && x.week < w && x.subtopic).sort((a, b) => b.week - a.week)[0];
+    if (pool.length) L.push('【子題材】', `・本日（D${d}）可選子題材：${pool.join('、')}`, fresh.length ? `・尚未用過：${fresh.join('、')}；請優先從中挑一個。` : '・清單都用過了，請循環使用，並避免與前一週相同。', lastW ? `・上一週同日（w${lastW.week}d${d}）的子題材是「${lastW.subtopic}」，請不要重複。` : '', '・請在輸出 JSON 的 tag 後面加 "subtopic" 欄位，填所選子題材（須與清單文字完全一致）。', ''); }
   if (g.note.trim()) L.push('【補充要求】', g.note.trim(), '');
   L.push('【輸出】', '・只輸出 JSON，放在單一 json 程式碼區塊內，單篇輸出單一物件；格式與自我檢查依 _spec 的 how_to_use.output 與 rules.self_check。', '・不要輸出整份 daily.json、不要輸出 timing 欄位；tag、情境與 vocab 單字不得與既有 items 重複。');
   return L.join('\n');
@@ -988,22 +1065,22 @@ function renderGen() {
 
 function render() {
   render.m = isMobile();
-  if (cur.view === 'home' && !render.m) cur.view = 'day'; // 桌機沒有手機週次表，直接顯示內文
   if (!SEC && cur.view !== 'launch') cur.view = 'launch';
   const key = cur.view + cur.w + cur.d;
   if (render.k !== undefined && render.k !== key) { spStop(); skStopAll(); } // 切換頁面即停止語音／錄音
   render.k = key;
+  if (!['day', 'mitem', 'speak', 'detail', 'topics'].includes(cur.view)) TBACK = null;
   Sp.hlIdx = -2;
   document.documentElement.classList.toggle('dark', S.dark);
   renderSide();
-  const V = { launch: renderLaunch, home: renderHome, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMaint, mitem: renderMaintItem, marks: dnRenderMarks, reports: dnRenderReports, detail: dnRenderDetail };
+  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, marks: dnRenderMarks, reports: dnRenderReports, detail: dnRenderDetail };
   (V[cur.view] || renderDay)();
   if (Sp.mode === 'audio' && Sp.au && Sp.id) spHl(Sp.id, Sp.au.currentTime);
   dnSyncBar();
 }
 
 function go(w, d) {
-  SEC = 'learn'; cur = { w, d, nw: w, view: 'day', showTranscript: false };
+  TBACK = TKEEP; TKEEP = null; SEC = 'learn'; cur = { w, d, nw: w, view: 'day', showTranscript: false };
   S.last = { w, d }; save();
   push(); render();
   window.scrollTo({ top: 0, behavior: 'smooth' });

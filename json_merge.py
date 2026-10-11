@@ -21,11 +21,11 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / par
   3. 選取要合併的副檔（可多選：Ctrl / Shift）→「合併」→ 確認 → 寫回主檔（寫入前自動備份到 backup 資料夾）。
 副檔可以是：單筆題目、題目陣列、或含 items 的物件；AI 貼出的 ```json 圍欄也能自動處理。
 選錯題庫時（例如把 part2 的檔案放在 daily 模式），會直接提示「這是哪個題庫的題目」。
-  4. 合併完會先問要不要執行自動語音（*-auto-speech.py）；選「否」可改成「手動錄製 mp3」：
+  4. 合併完會先問要不要執行自動語音（auto-speech.py）；選「否」可改成「手動錄製 mp3」：
      視窗列出這次合併的題目還缺哪些 mp3，每個檔案可一鍵複製「文本」「檔名」「資料夾路徑」（也能直接開啟資料夾）。
      自己錄好放進去 → 按「重新檢查」→ 整組齊了就打勾 → daily 文章會問要不要跑 daily_timestamps.py 對時，
      其餘題庫會問要不要跑 Scan總表與音檔.py。視窗不用關，可以再跑一次；合併視窗下方「手動錄音清單…」可隨時再打開。
-     （需要 *-auto-speech.py、daily_timestamps.py、Scan總表與音檔.py 放在同一個資料夾或其 audio 子資料夾。）
+     （需要 auto-speech.py、daily_timestamps.py、Scan總表與音檔.py 放在同一個資料夾或其 audio 子資料夾。）
 """
 import copy
 import difflib
@@ -304,6 +304,14 @@ class Profile(object):
     def sort_items(self, items):
         pass
 
+    def merge_prepare(self, new_by_key):
+        """合併前（finalize 之前）取得需要的資訊，回傳值會原封不動交給 merge_finish。"""
+        return None
+
+    def merge_finish(self, out, token):
+        """所有題目合併完、排序前呼叫；回傳要顯示給使用者看的說明（list[str]）。"""
+        return []
+
 
 class IdProfile(Profile):
     """photo、part2：以 id 為鍵。"""
@@ -418,7 +426,22 @@ class Daily(Profile):
             items.sort(key=lambda x: (x['week'], x['day']))
 
     def make_ctx(self, items, data):
-        return {'passages': {self.key(x): str(x.get('passage') or '') for x in items if isinstance(x, dict)}}
+        sp = (data.get('_spec') or {}).get('subtopics') if isinstance(data, dict) else None
+        return {'passages': {self.key(x): str(x.get('passage') or '') for x in items if isinstance(x, dict)}, 'subtopics': sp or {},
+                'extras': extra_owners(items)}
+
+    def merge_prepare(self, new_by_key):
+        """這次補丁寫進哪一篇的哪些字：{字: (week, day)}。補丁內容是完整的一筆，同字重複時以它為準。"""
+        fresh = {}
+        for k, e in new_by_key.items():
+            if self.is_patch(e):
+                for v in e.get('extra_vocab') or []:
+                    if isinstance(v, dict) and self.xkey(v):
+                        fresh[self.xkey(v)] = k
+        return fresh
+
+    def merge_finish(self, out, token):
+        return unify_extra(out, token)
 
     def extra_detail(self, e):
         if self.is_patch(e):
@@ -458,6 +481,9 @@ class Daily(Profile):
             if k in seen:
                 er.append('「%s」在這個檔案裡重複' % t)
             seen.add(k)
+            owner = (ctx.get('extras') or {}).get(k)
+            if owner and owner != key:
+                wa.append('「%s」已在 W%dD%d 有詳解（同一個字全題庫只留一份）：合併時會更新那一份，不會在 W%dD%d 另外新增' % (t, owner[0], owner[1], key[0], key[1]))
             if not str(v.get('zh') or '').strip():
                 er.append('「%s」缺少 zh' % t)
             if passage and t.lower() not in passage:
@@ -507,6 +533,12 @@ class Daily(Profile):
             er.append('day 必須介於 1–7')
         if not str(e.get('tag') or '').strip():
             er.append('缺少 tag')
+        if not str(e.get('subtopic') or '').strip():
+            wa.append('缺少 subtopic（子題材），建議補上以便題材輪替')
+        else:
+            pool = ((ctx.get('subtopics') or {}).get('D%s' % e.get('day')))
+            if pool and e['subtopic'] not in pool:
+                wa.append('subtopic「%s」不在 D%s 的子題材清單內' % (e['subtopic'], e.get('day')))
         if e.get('type') not in ('Reading', 'Listening'):
             er.append("type 必須是 'Reading' 或 'Listening'")
         for k in ('passage', 'zh'):
@@ -2035,10 +2067,139 @@ class Part7(IdProfile):
         return er, wa
 
 
+# ───────────────────────── 詳解（extra_vocab）全題庫同一個字只留一筆 ─────────────────────────
+# 規則：同一個字（text 忽略大小寫與多餘空白）不管在哪幾篇入庫，全題庫只有一筆詳解，放在「最早（週、天）有這個字」的那一篇。
+# 網頁端本來就是這樣找（本篇沒有就找最早有的那篇）；這裡讓資料也維持同樣的唯一性。
+_XID_FIELDS = {'examples': ('en',), 'collocations': ('phrase', 'p'), 'forms': ('w',), 'family': ('w',), 'derived': ('w',),
+               'confusable': ('word', 'phrase'), 'similar': ('phrase', 'word'), 'grammar': ('point',), 'key_words': ('w',)}
+
+
+def _xid(field, o):
+    """清單項目的身分（用來判斷兩筆是不是同一項）。forms 的同一個字可有不同 label（update 名詞／動詞），所以一起算。"""
+    if isinstance(o, dict):
+        keys = _XID_FIELDS.get(field, ('w', 'word', 'phrase', 'en'))
+        parts = [re.sub(r'\s+', ' ', str(next((o[k] for k in keys if o.get(k)), '')).strip().lower())]
+        if field == 'forms':
+            parts.append(str(o.get('label') or '').strip())
+        sid = '|'.join(parts)
+        return sid if sid.strip('|') else json.dumps(o, sort_keys=True, ensure_ascii=False)
+    return re.sub(r'\s+', ' ', str(o).strip().lower())
+
+
+def _union_record(base, other, other_label):
+    """以 base 為底，把 other 多出來的內容併進來：清單（例句、搭配、衍生字…）依身分去重後補在後面；
+    純文字欄位 base 有就用 base 的；兩邊說明 note 不同時，把 other 的附在後面並標出來源篇。"""
+    out = copy.deepcopy(base)
+    for k, v in other.items():
+        if isinstance(v, list):
+            cur = out.get(k)
+            if not isinstance(cur, list):
+                if k not in out:
+                    out[k] = copy.deepcopy(v)
+                continue
+            seen = {_xid(k, o) for o in cur}
+            for o in v:
+                if _xid(k, o) not in seen:
+                    cur.append(copy.deepcopy(o))
+                    seen.add(_xid(k, o))
+        elif k not in out or out[k] in ('', None):
+            out[k] = copy.deepcopy(v)
+        elif k == 'note' and str(v).strip() and str(v).strip() != str(out[k]).strip():
+            out[k] = str(out[k]).rstrip() + '\n【%s】' % other_label + str(v).strip()
+    return out
+
+
+def _arts_sorted(items):
+    return sorted((x for x in items if isinstance(x, dict) and isinstance(x.get('week'), int) and isinstance(x.get('day'), int)),
+                  key=lambda x: (x['week'], x['day']))
+
+
+def extra_owners(items):
+    """{字: (week, day)}：每個字的詳解目前放在哪一篇（最早那篇）。"""
+    owners = {}
+    for a in _arts_sorted(items):
+        for v in a.get('extra_vocab') or []:
+            if isinstance(v, dict) and Daily.xkey(v):
+                owners.setdefault(Daily.xkey(v), (a['week'], a['day']))
+    return owners
+
+
+def unify_extra(items, fresh=None):
+    """讓每個字全題庫只留一筆詳解，放在最早有這個字的那一篇。回傳說明文字（list）。
+    fresh＝{字: (week, day)}：這次補丁剛寫進的字，以補丁內容為準（補丁本來就是完整的一筆，含舊內容），搬到最早那一篇。
+    沒有 fresh 的重複（舊資料）：以最早那篇為底，把其他篇多出來的例句／搭配／衍生字等併進來，說明 note 不同時附在後面。"""
+    fresh = fresh or {}
+    holders = {}
+    for a in _arts_sorted(items):
+        for v in a.get('extra_vocab') or []:
+            if isinstance(v, dict) and Daily.xkey(v):
+                holders.setdefault(Daily.xkey(v), []).append((a, v))
+    lab = lambda a: 'W%dD%d' % (a['week'], a['day'])
+    notes, drop = [], {}
+    for k, hs in holders.items():
+        if len(hs) < 2:
+            continue
+        canon_a, canon_v = hs[0]
+        src = next((h for h in hs if (h[0]['week'], h[0]['day']) == fresh.get(k)), None) if k in fresh else None
+        if src:
+            new = copy.deepcopy(src[1])
+            rest = [h for h in hs if h is not src and h is not hs[0]]   # 補丁取代最早那筆；其餘舊重複才併入
+            how = '以這次補丁的內容為準'
+        else:
+            new = copy.deepcopy(canon_v)
+            rest = hs[1:]
+            how = '把各篇的內容併成一筆'
+        for a, v in rest:
+            new = _union_record(new, v, lab(a))
+        idx = next(i for i, o in enumerate(canon_a['extra_vocab']) if o is canon_v)
+        canon_a['extra_vocab'][idx] = new
+        for a, v in hs[1:]:
+            drop.setdefault(id(a), (a, set()))[1].add(id(v))
+        notes.append('「%s」原本在 %s 各有一筆 → %s，統一放在 %s' % (
+            canon_v.get('text'), '、'.join(sorted({lab(a) for a, _ in hs}, key=lambda s: tuple(map(int, re.findall(r'\d+', s))))), how, lab(canon_a)))
+    for a, ids in drop.values():
+        left = [o for o in a['extra_vocab'] if id(o) not in ids]
+        if left:
+            a['extra_vocab'] = left
+        else:
+            del a['extra_vocab']
+    return notes
+
+
+def cli_unify():
+    """python json_merge.py unify：整理現有的 daily.json，把重複的詳解統一成一筆（會先備份）。"""
+    path = os.path.join(BASE, 'daily.json')
+    if not os.path.isfile(path):
+        print('找不到 %s' % path)
+        return
+    data, err = read_json(path)
+    items, err2 = split_main(data) if not err else (None, err)
+    if err or err2:
+        print('主檔無法使用：%s' % (err or err2))
+        return
+    # 先在複本上試跑，確認有重複才備份、寫入
+    probe = copy.deepcopy(items)
+    notes = unify_extra(probe)
+    if not notes:
+        print('沒有重複的詳解，不需要整理。')
+        return
+    bak = backup_main(path, 'daily')
+    unify_extra(items)
+    write_main(path, data)
+    print('已整理 %d 個重複的字（備份：%s）：' % (len(notes), os.path.relpath(bak, BASE)))
+    for n in notes:
+        print('  • ' + n)
+
+
 PROFILES = {'daily': Daily(), 'photo': Photo(), 'part2': Part2(), 'part3': Part3(), 'part4': Part4(), 'part5': Part5(), 'part6': Part6(), 'part7': Part7()}
 ORDER = ('daily', 'photo', 'part2', 'part3', 'part4', 'part5', 'part6', 'part7')
 
-# 合併完成後，詢問是否接著執行對應的「補錄音檔」腳本（題庫 → 腳本檔名；找不到該檔就不問）
+# 合併完成後，詢問是否接著執行「補錄音檔」腳本（找不到該檔就不問）。
+# 現在 8 個題庫共用同一支 auto-speech.py，用題庫代號指定（photo＝Part 1）。
+AUTO_SPEECH_FILE = 'auto-speech.py'
+SPEECH_PART = {'daily': 'daily', 'photo': 'part1', 'part2': 'part2', 'part3': 'part3',
+               'part4': 'part4', 'part5': 'part5', 'part6': 'part6', 'part7': 'part7'}
+# 舊版（每個題庫一支 *-auto-speech.py）：找不到 auto-speech.py 時才會退回使用，全部換完後可以刪掉這張表。
 AUTO_SPEECH = {
     'daily': 'daily-auto-speech.py',
     'photo': 'part1-auto-speech.py',
@@ -2052,7 +2213,7 @@ AUTO_SPEECH = {
 
 
 # ───────────────────────── 補錄音檔：自動語音／手動錄製 ─────────────────────────
-# 手動錄製的清單直接借用各題庫的 *-auto-speech.py 的 build_plan()：
+# 手動錄製的清單直接借用 auto-speech.py（舊版：各題庫的 *-auto-speech.py）的 build_plan()：
 # 「錄哪段文字、檔名怎麼取、放哪個資料夾」只維護那一份，兩邊不會不一致。
 
 SCAN_NAME = 'Scan總表與音檔.py'
@@ -2070,17 +2231,41 @@ def find_script(name):
     return None
 
 
+class _MergedSpeech(object):
+    """把共用的 auto-speech.py 包成「單一題庫」的樣子，介面與舊版各題庫腳本相同（build_plan／write_manifest）。"""
+
+    def __init__(self, mod, part):
+        self.mod, self.part = mod, part
+
+    def build_plan(self, root):
+        return self.mod.build_plan(self.part, root)
+
+    def write_manifest(self, root, log=print):
+        return self.mod.write_manifest(root, log)
+
+
+def _load_script(modname, path):
+    spec = importlib.util.spec_from_file_location(modname, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
 def speech_module(key):
-    """載入對應的 *-auto-speech.py（只借用它的 build_plan／write_manifest，不會執行它的主程式）。"""
+    """載入 auto-speech.py（只借用它的 build_plan／write_manifest，不會執行它的主程式）。
+    找不到時退回舊版各題庫的 *-auto-speech.py。"""
     if key not in _SPEECH:
-        name = AUTO_SPEECH.get(key, '')
-        path = find_script(name) if name else None
-        if not path:
-            raise FileNotFoundError('找不到 %s（請放在 json_merge.py 同一個資料夾，或它的 audio 子資料夾）' % name)
-        spec = importlib.util.spec_from_file_location('toeic_speech_' + key, path)
-        mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(mod)
-        _SPEECH[key] = mod
+        merged = find_script(AUTO_SPEECH_FILE)
+        if merged:
+            if '*' not in _SPEECH:
+                _SPEECH['*'] = _load_script('toeic_speech_all', merged)
+            _SPEECH[key] = _MergedSpeech(_SPEECH['*'], SPEECH_PART[key])
+        else:
+            name = AUTO_SPEECH.get(key, '')
+            path = find_script(name) if name else None
+            if not path:
+                raise FileNotFoundError('找不到 %s（請放在 json_merge.py 同一個資料夾，或它的 audio 子資料夾）' % AUTO_SPEECH_FILE)
+            _SPEECH[key] = _load_script('toeic_speech_' + key, path)
     return _SPEECH[key]
 
 
@@ -2131,14 +2316,15 @@ def voice_hint(key, job):
 
 def offer_audio(root, key, messagebox, folder, scope, state):
     """合併完成後：先問要不要自動語音；不要的話再問要不要手動錄製 mp3。"""
-    name = AUTO_SPEECH.get(key)
-    path = find_script(name) if name else None
+    merged = find_script(AUTO_SPEECH_FILE)
+    name = AUTO_SPEECH_FILE if merged else AUTO_SPEECH.get(key)
+    path = merged or (find_script(name) if name else None)
     if path:
         if messagebox.askyesno('下一步：補錄音檔',
                                '要接著執行 %s 嗎？\n（自動語音：會列出缺少的 mp3，讓你勾選後產生；做完它會再問要不要跑 Scan總表與音檔.py）\n\n'
                                '選「否」可以改成手動錄製 mp3。' % name, parent=root):
             try:
-                subprocess.Popen([sys.executable, path], cwd=BASE)
+                subprocess.Popen([sys.executable, path] + ([SPEECH_PART[key]] if merged else []), cwd=BASE)
             except Exception as ex:
                 messagebox.showerror('無法啟動', '%s\n\n%s' % (name, ex), parent=root)
             return
@@ -2600,16 +2786,22 @@ def move_to_merged(path):
     return dst
 
 
+LAST_MERGE_NOTES = []
+
+
 def apply_merge(P, main_path, data, items, keep):
     """備份 → 合併 → 排序 → 寫回主檔。回傳備份檔路徑。"""
     bak = backup_main(main_path, P.backup_prefix)
+    global LAST_MERGE_NOTES
     new_by_key = {k: v[0] for k, v in keep.items()}
     old_by_key = {P.key(x): x for x in items if isinstance(x, dict)}
+    token = P.merge_prepare(new_by_key)
     out = [x for x in items if not (isinstance(x, dict) and P.key(x) in new_by_key)]
     for k in sorted(new_by_key, key=P.key_sort):
         e = new_by_key[k]
         P.finalize(e, old_by_key.get(k))
         out.append(e)
+    LAST_MERGE_NOTES = P.merge_finish(out, token) or []
     P.sort_items(out)
     if isinstance(data, list):
         data = out
@@ -2722,6 +2914,7 @@ def run_gui(start):
     ttk.Checkbutton(bot, text='合併成功後，把副檔移到 merged 資料夾', variable=move_var).pack(side='left')
     ttk.Button(bot, text='合併選取的檔案', command=lambda: do_merge()).pack(side='right')
     ttk.Button(bot, text='手動錄音清單…', command=lambda: manual_clicked()).pack(side='right', padx=(0, 8))
+    ttk.Button(bot, text='整理重複詳解', command=lambda: do_unify()).pack(side='right', padx=(0, 8))
 
     def audio_folder():
         """auto-speech 腳本讀的是「放 json 的資料夾」；主檔若在別處，就用主檔所在資料夾。"""
@@ -2751,6 +2944,33 @@ def run_gui(start):
         if err:
             return None, None, err
         return data, items, None
+
+    def do_unify():
+        """把主檔裡同一個字重複的詳解（extra_vocab）統一成一筆，放在最早有這個字的那一篇（會先備份）。"""
+        if prof_var.get() != 'daily':
+            messagebox.showinfo('整理重複詳解', '這個功能只用在「每日文章（daily.json）」，請先在上方切換題庫。', parent=root)
+            return
+        if not st['main']:
+            messagebox.showwarning('尚未選擇主檔', '請先按「更換主檔…」選擇 daily.json。', parent=root)
+            return
+        data, items, err = load_main()
+        if err:
+            messagebox.showerror('主檔無法使用', err, parent=root)
+            return
+        notes = unify_extra(copy.deepcopy(items))   # 先在複本上試跑
+        if not notes:
+            messagebox.showinfo('整理重複詳解', '沒有重複的詳解，不需要整理。', parent=root)
+            return
+        if not messagebox.askokcancel('整理重複詳解', '將把下列重複的字統一成一筆（會先備份主檔）：\n\n' + '\n'.join('• ' + n for n in notes), parent=root):
+            return
+        try:
+            bak = backup_main(st['main'], 'daily')
+            unify_extra(items)
+            write_main(st['main'], data)
+        except Exception as ex:
+            messagebox.showerror('寫入失敗', '主檔沒有被修改。\n\n%s' % ex, parent=root)
+            return
+        messagebox.showinfo('整理完成', '已整理 %d 個重複的字。\n備份：%s\n\n重新整理網頁即可。' % (len(notes), os.path.relpath(bak, BASE)), parent=root)
 
     def set_main(p):
         st['main'] = p
@@ -2977,6 +3197,8 @@ def run_gui(start):
         if moved:
             msg += '\n已移到 merged：' + '、'.join(moved)
         msg += '\n\n' + p_.done_note
+        if LAST_MERGE_NOTES:
+            msg += '\n\n【同一個字只留一份詳解】\n' + '\n'.join('• ' + n for n in LAST_MERGE_NOTES)
         refresh()
         messagebox.showinfo('合併完成', msg, parent=root)
         names = scope_names(prof_var.get(), keep.keys())
@@ -2990,12 +3212,19 @@ def run_gui(start):
 
 def main():
     start = auto_profile()
+    if len(sys.argv) > 1 and sys.argv[1].lower() in ('unify', '--unify'):
+        cli_unify()
+        try:
+            input('按 Enter 結束…')
+        except EOFError:
+            pass
+        return
     if len(sys.argv) > 1:
         a = sys.argv[1].lower().replace('.json', '').replace('_merge', '').replace('_jsonmerge', '')
         if a in PROFILES:
             start = a
         else:
-            print('用法：python json_merge.py [daily|photo|part2|part3|part4|part5|part6|part7]', file=sys.stderr)
+            print('用法：python json_merge.py [daily|photo|part2|part3|part4|part5|part6|part7|unify]', file=sys.stderr)
     try:
         run_gui(start)
     except Exception:
