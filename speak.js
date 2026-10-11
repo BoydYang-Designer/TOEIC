@@ -69,7 +69,37 @@ function skBuild(x) {
   const gap = (a, b) => splitSent(p, a, b).forEach(s => segs.push(s));
   base.forEach(t => { if (t.from > pos) gap(pos, t.from); segs.push({ from: t.from, to: t.to, start: t.start, end: t.end }); pos = t.to; });
   if (pos < p.length) gap(pos, p.length);
-  return segs.map(s => Object.assign(s, { t: p.slice(s.from, s.to).trim() })).filter(s => /[A-Za-z0-9]/.test(s.t));
+  return skMerge(p, segs.map(s => Object.assign(s, { t: p.slice(s.from, s.to).trim() })).filter(s => /[A-Za-z0-9]/.test(s.t)));
+}
+/* 太短的句子（少於 SK_MIN 個字）不單獨測驗，併到相鄰的一句；併完最多 SK_MAX 個字，避免一句太長。
+   優先併到同一段落、字數較少的那一邊；兩邊都會超過上限就維持單獨一句。
+   注意：句子編號會因此改變（已存的「各句最佳」「剪裁微調」「儲存的錄音」是依編號記的）。 */
+/* 對話開頭的說話者標籤（Customer: ／ Agent: ／ Woman 1: ／ Mr. Lee: ）：畫面照常顯示，但評分、字數、機器發音都不算 */
+const SK_LAB = /^\s*[A-Z][A-Za-z0-9.'’-]*(?:\s+[A-Za-z0-9.'’-]+){0,2}\s*:(?:\s+|$)/;
+const skStrip = t => String(t).split('\n').map(l => l.replace(SK_LAB, '')).join('\n');
+const SK_MIN = 5, SK_MAX = 28;
+const skWc = t => (skStrip(t).match(/\S*[A-Za-z0-9]\S*/g) || []).length;
+function skMerge(p, L) {
+  L = L.slice();
+  const join = (a, b) => {
+    const o = { from: a.from, to: b.to, t: p.slice(a.from, b.to).trim() };
+    if (a.start != null && b.start != null) { o.start = a.start; o.end = b.end; } // 兩句都有 timing 才保留原音；否則整句改用機器發音
+    return o;
+  };
+  let i = 0;
+  while (i < L.length) {
+    const s = L[i], n = skWc(s.t);
+    if (L.length < 2 || n >= SK_MIN) { i++; continue; }
+    const c = [];
+    if (i + 1 < L.length) c.push({ at: i, len: n + skWc(L[i + 1].t), para: /\n\s*\n/.test(p.slice(s.to, L[i + 1].from)) });
+    if (i > 0) c.push({ at: i - 1, len: n + skWc(L[i - 1].t), para: /\n\s*\n/.test(p.slice(L[i - 1].to, s.from)) });
+    const ok = c.filter(q => q.len <= SK_MAX).sort((a, b) => (a.para - b.para) || (a.len - b.len));
+    if (!ok.length) { i++; continue; }
+    const k = ok[0].at;
+    L.splice(k, 2, join(L[k], L[k + 1]));
+    i = Math.min(i, k); // 併完再檢查一次（可能還是太短）
+  }
+  return L;
 }
 function skInit(x) {
   skStopAll();
@@ -151,14 +181,33 @@ function skEq(h, t, loose) {
   if (sh === st && sh.length >= 3) return true;
   return Math.min(h.length, t.length) >= 5 && skLev(h, t) <= 1;
 }
+function skDigRun(arr, own) { // 相鄰的純數字字合併；own（可省略）跟著合併
+  const A = [], O = [], D = t => /^\d+$/.test(t);
+  arr.forEach((t, i) => {
+    if (A.length && D(t) && D(A[A.length - 1])) { A[A.length - 1] += t; if (own) O[O.length - 1] = O[O.length - 1].concat(own[i]); }
+    else { A.push(t); if (own) O.push(own[i]); }
+  });
+  return [A, O];
+}
 /* sents：[{t}]；heard：辨識到的整段文字。回傳 {pct, sents:[{pct, words:[{w, ok}]}]} */
 function skCompare(sents, heard) {
   const loose = skLoose();
   const H = skToks(heard), T = [], own = [];
-  const disp = sents.map(s => (String(s.t).match(/\S+/g) || []).map(w => ({ w, k: skRaw(w) })));
+  const disp = sents.map(s => { // 說話者標籤的字 k＝[]：不參與比對，也不扣分
+    const out = [];
+    String(s.t).split('\n').forEach(line => {
+      const lab = (SK_LAB.exec(line) || [''])[0];
+      (lab.match(/\S+/g) || []).forEach(w => out.push({ w, k: [] }));
+      (line.slice(lab.length).match(/\S+/g) || []).forEach(w => out.push({ w, k: skRaw(w) }));
+    });
+    return out;
+  });
   const R = [], RO = []; // 文稿的每個原始字，以及它屬於哪一句的哪個字（英文數字詞要跨字合併，如 twenty five → 25）
   disp.forEach((ws, si) => ws.forEach((d, wi) => d.k.forEach(k => { R.push(k); RO.push([si, wi]); })));
   skNumMergeIx(R).forEach(o => { T.push(o.t); own.push(o.ix.map(i => RO[i])); });
+  /* 連續的數字合併成一個字：1234 ＝ 1 2 3 4（one two three four）＝ 12 34（twelve thirty four）＝ 1,234；電話、房號、時間也一樣 */
+  { const c = skDigRun(T, own), h = skDigRun(H);
+    T.length = 0; c[0].forEach(t => T.push(t)); own.length = 0; c[1].forEach(o => own.push(o)); H.length = 0; h[0].forEach(t => H.push(t)); }
   /* 複合字：念出來／辨識出來可能是 email、e mail、e-mail；check-in、check in、checkin ——相鄰兩字黏起來剛好等於另一邊的某個字就視為同一個字 */
   const Ts = new Set(T), H2 = [];
   for (let i = 0; i < H.length; i++) {
@@ -227,7 +276,7 @@ function skPlay(x, seg, key) {
   const done = () => { if (tk !== SK.tk) return; SK.playing = null; SK.pk = null; SK.hl = -1; skAfter(); };
   const tts = () => {
     try {
-      const u = new SpeechSynthesisUtterance(seg ? seg.t : String(x.passage || ''));
+      const u = new SpeechSynthesisUtterance(skStrip(seg ? seg.t : String(x.passage || '')));
       setVoice(u); u.rate = 0.9 * SK.rate; u.onend = done; u.onerror = done;
       speechSynthesis.speak(u);
     } catch (e) { alert('您的瀏覽器不支援即時語音朗讀'); done(); }
