@@ -1,0 +1,474 @@
+{
+  "week": 1,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "audit",
+      "type": "word",
+      "ipa": "/ˈɔːdɪt/",
+      "pos": "n.",
+      "zh": "稽核、審計、查帳",
+      "en": "an official check of a company's records to make sure they are correct",
+      "note": "在這篇裡，annual audit 指公司每年一次的稽核，會計團隊要保留已簽署合約的副本，供稽核人員檢查。audit 也可以當動詞，意思是「稽核、查帳」。",
+      "forms": [
+        {
+          "w": "audits",
+          "label": "名詞（複數）",
+          "pos": "n.",
+          "zh": "稽核（複數）",
+          "ipa": "/ˈɔːdɪts/"
+        },
+        {
+          "w": "audit",
+          "label": "動詞原形",
+          "pos": "v.",
+          "zh": "稽核、查帳",
+          "ipa": "/ˈɔːdɪt/"
+        },
+        {
+          "w": "audits",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "稽核、查帳",
+          "ipa": "/ˈɔːdɪts/"
+        },
+        {
+          "w": "audited",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "稽核了、已稽核的",
+          "ipa": "/ˈɔːdɪtɪd/"
+        },
+        {
+          "w": "auditing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在稽核",
+          "ipa": "/ˈɔːdɪtɪŋ/"
+        },
+        {
+          "w": "auditor",
+          "label": "衍生名詞（人）",
+          "pos": "n.",
+          "zh": "稽核員、審計員",
+          "ipa": "/ˈɔːdɪtər/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "annual audit",
+          "zh": "年度稽核",
+          "example": {
+            "en": "All departments must prepare their records for the annual audit.",
+            "zh": "所有部門都必須為年度稽核準備好紀錄。"
+          }
+        },
+        {
+          "phrase": "conduct an audit",
+          "zh": "進行稽核",
+          "example": {
+            "en": "An outside firm will conduct an audit of our accounts.",
+            "zh": "一家外部公司將對我們的帳目進行稽核。"
+          }
+        },
+        {
+          "phrase": "internal audit",
+          "zh": "內部稽核",
+          "example": {
+            "en": "The internal audit found several errors in the expense reports.",
+            "zh": "內部稽核發現費用報告中有幾處錯誤。"
+          }
+        },
+        {
+          "phrase": "pass an audit",
+          "zh": "通過稽核",
+          "example": {
+            "en": "The factory passed the audit without any major problems.",
+            "zh": "這家工廠順利通過稽核，沒有重大問題。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "財務",
+          "en": "The finance team is getting ready for next month's audit.",
+          "zh": "財務團隊正在為下個月的稽核做準備。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please send me the signed contracts before the audit begins.",
+          "zh": "請在稽核開始前把已簽署的合約寄給我。"
+        },
+        {
+          "tag": "品管",
+          "en": "A quality audit showed that the supplier follows our standards.",
+          "zh": "品質稽核顯示供應商有遵守我們的標準。"
+        },
+        {
+          "tag": "會議",
+          "en": "The manager asked us to audit last year's travel expenses.",
+          "zh": "經理要我們查核去年的差旅費用。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "inspection",
+          "diff": "inspection 多指到現場檢查物品、設備或環境；audit 是檢查帳目、文件與制度是否正確。"
+        },
+        {
+          "word": "review",
+          "diff": "review 是一般的檢視或審閱，比較不正式；audit 是有固定流程的正式稽核。"
+        }
+      ],
+      "family": [
+        {
+          "w": "auditor",
+          "pos": "n.",
+          "zh": "稽核員、審計員",
+          "ipa": "/ˈɔːdɪtər/",
+          "example": {
+            "en": "The auditor asked to see all the payment records.",
+            "zh": "稽核員要求查看所有付款紀錄。"
+          }
+        },
+        {
+          "w": "accounting",
+          "pos": "n.",
+          "zh": "會計",
+          "ipa": "/əˈkaʊntɪŋ/",
+          "example": {
+            "en": "She works in the accounting department of a large bank.",
+            "zh": "她在一家大銀行的會計部門工作。"
+          }
+        },
+        {
+          "w": "inspection",
+          "pos": "n.",
+          "zh": "檢查、查驗",
+          "ipa": "/ɪnˈspekʃən/",
+          "example": {
+            "en": "The safety inspection will take place on Tuesday morning.",
+            "zh": "安全檢查將在星期二早上進行。"
+          }
+        },
+        {
+          "w": "compliance",
+          "pos": "n.",
+          "zh": "遵守、合規",
+          "ipa": "/kəmˈplaɪəns/",
+          "example": {
+            "en": "The audit checks our compliance with company policy.",
+            "zh": "這次稽核會檢查我們是否遵守公司政策。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "auditor",
+          "pos": "n.",
+          "zh": "稽核員、審計員",
+          "ipa": "/ˈɔːdɪtər/",
+          "link": "audit + -or，做事的人，像 actor、visitor；負責稽核的人"
+        }
+      ]
+    },
+    {
+      "text": "billed",
+      "type": "word",
+      "ipa": "/bɪld/",
+      "pos": "v.",
+      "zh": "被開帳單、被收費",
+      "en": "sent a bill to someone to ask for payment",
+      "note": "在這篇文章裡是被動語態 will be billed，意思是「（這筆費用）將另外開帳單請款」。bill 當動詞時，常見句型是 bill + 人 + for + 費用，或被動 be billed。",
+      "forms": [
+        {
+          "w": "bill",
+          "label": "原形",
+          "pos": "v.",
+          "zh": "開帳單、收費",
+          "ipa": "/bɪl/"
+        },
+        {
+          "w": "bills",
+          "label": "第三人稱單數／複數",
+          "pos": "v./n.",
+          "zh": "開帳單；帳單",
+          "ipa": "/bɪlz/"
+        },
+        {
+          "w": "billed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "開帳單、收費",
+          "ipa": "/bɪld/"
+        },
+        {
+          "w": "billing",
+          "label": "現在分詞／名詞",
+          "pos": "v./n.",
+          "zh": "開帳單；帳務",
+          "ipa": "/ˈbɪlɪŋ/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "bill someone for",
+          "zh": "向某人請款…",
+          "example": {
+            "en": "The company will bill us for the extra service.",
+            "zh": "公司會就額外服務向我們請款。"
+          }
+        },
+        {
+          "phrase": "billed monthly",
+          "zh": "按月計費",
+          "example": {
+            "en": "Customers are billed monthly for their internet service.",
+            "zh": "客戶的網路服務按月計費。"
+          }
+        },
+        {
+          "phrase": "billing department",
+          "zh": "帳務部門",
+          "example": {
+            "en": "Please contact the billing department about this mistake.",
+            "zh": "關於這個錯誤，請聯絡帳務部門。"
+          }
+        },
+        {
+          "phrase": "billing address",
+          "zh": "帳單地址",
+          "example": {
+            "en": "Please enter your billing address at checkout.",
+            "zh": "結帳時請輸入您的帳單地址。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "You were billed twice for the same order last week.",
+          "zh": "你上週同一筆訂單被收了兩次費用。"
+        },
+        {
+          "tag": "客服",
+          "en": "The hotel billed my credit card for the wrong amount.",
+          "zh": "飯店用我的信用卡扣了錯誤的金額。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "charge",
+          "diff": "charge 是「收費、扣款」；bill 強調「寄出帳單請對方付款」，不一定馬上扣款。"
+        },
+        {
+          "word": "invoice",
+          "diff": "invoice 作動詞是「開立發票／請款單」，多用於公司之間；bill 較一般，也可對個人。"
+        }
+      ],
+      "family": [
+        {
+          "w": "bill",
+          "pos": "n.",
+          "zh": "帳單",
+          "ipa": "/bɪl/",
+          "example": {
+            "en": "The electricity bill is higher this month.",
+            "zh": "這個月的電費帳單比較高。"
+          }
+        },
+        {
+          "w": "billing",
+          "pos": "n.",
+          "zh": "帳務、開帳單",
+          "ipa": "/ˈbɪlɪŋ/",
+          "example": {
+            "en": "The billing system will be updated tonight.",
+            "zh": "帳務系統將於今晚更新。"
+          }
+        },
+        {
+          "w": "invoice",
+          "pos": "n.",
+          "zh": "發票、請款單",
+          "ipa": "/ˈɪnvɔɪs/",
+          "example": {
+            "en": "We will send the invoice by email.",
+            "zh": "我們會用電子郵件寄出請款單。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "billing",
+          "pos": "n.",
+          "zh": "帳務、開帳單作業",
+          "ipa": "/ˈbɪlɪŋ/",
+          "link": "bill + -ing，把「開帳單」這件事變成名詞，像 meeting、building"
+        },
+        {
+          "w": "overbill",
+          "pos": "v.",
+          "zh": "多收費、多開帳單",
+          "ipa": "/ˌoʊvərˈbɪl/",
+          "link": "over-（過多）+ bill，開出過多的帳單，像 overtime、overload"
+        }
+      ]
+    },
+    {
+      "text": "termination",
+      "type": "word",
+      "ipa": "/ˌtɜːrməˈneɪʃən/",
+      "pos": "n.",
+      "zh": "終止、解約；解僱",
+      "en": "the act of ending something, such as a contract or a job",
+      "note": "在這篇文章裡是合約用語，early termination 指「提前終止合約」，也就是未滿期限就取消服務，因此會有額外費用。多益合約與人事情境中常見，語氣正式。",
+      "forms": [
+        {
+          "w": "terminations",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "終止（複數）",
+          "ipa": "/ˌtɜːrməˈneɪʃənz/"
+        },
+        {
+          "w": "terminate",
+          "label": "原形",
+          "pos": "v.",
+          "zh": "終止、解除",
+          "ipa": "/ˈtɜːrməneɪt/"
+        },
+        {
+          "w": "terminates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "終止、解除",
+          "ipa": "/ˈtɜːrməneɪts/"
+        },
+        {
+          "w": "terminated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "終止、解除",
+          "ipa": "/ˈtɜːrməneɪtɪd/"
+        },
+        {
+          "w": "terminating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "終止、解除",
+          "ipa": "/ˈtɜːrməneɪtɪŋ/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "termination of a contract",
+          "zh": "合約終止",
+          "example": {
+            "en": "Either side may request termination of the contract in writing.",
+            "zh": "任何一方都可以書面要求終止合約。"
+          }
+        },
+        {
+          "phrase": "termination notice",
+          "zh": "終止通知",
+          "example": {
+            "en": "We must send a termination notice thirty days in advance.",
+            "zh": "我們必須提前三十天寄出終止通知。"
+          }
+        },
+        {
+          "phrase": "termination fee",
+          "zh": "解約費",
+          "example": {
+            "en": "A termination fee applies if you cancel in the first year.",
+            "zh": "若您在第一年內取消，需支付解約費。"
+          }
+        },
+        {
+          "phrase": "termination of employment",
+          "zh": "終止僱用",
+          "example": {
+            "en": "The termination of employment will take effect on March 1.",
+            "zh": "終止僱用將於三月一日生效。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "合約",
+          "en": "Early termination may cause extra costs for both companies.",
+          "zh": "提前終止可能讓兩家公司都產生額外費用。"
+        },
+        {
+          "tag": "人事",
+          "en": "The employee received a letter about the termination of his job.",
+          "zh": "那位員工收到一封關於終止他工作的信。"
+        },
+        {
+          "tag": "動詞用法",
+          "en": "The company decided to terminate the agreement with the supplier.",
+          "zh": "公司決定終止與供應商的協議。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "cancellation",
+          "diff": "cancellation 是取消訂單、預約或服務；termination 多指終止合約或僱用關係，較正式。"
+        },
+        {
+          "word": "expiration",
+          "diff": "expiration 是「到期」，時間到了自然結束；termination 是主動提前結束，或依條款終止。"
+        }
+      ],
+      "family": [
+        {
+          "w": "terminate",
+          "pos": "v.",
+          "zh": "終止、解除",
+          "ipa": "/ˈtɜːrməneɪt/",
+          "example": {
+            "en": "You may terminate the service at any time.",
+            "zh": "您可以隨時終止這項服務。"
+          }
+        },
+        {
+          "w": "cancel",
+          "pos": "v.",
+          "zh": "取消",
+          "ipa": "/ˈkænsəl/",
+          "example": {
+            "en": "Please cancel my order before it ships.",
+            "zh": "請在出貨前取消我的訂單。"
+          }
+        },
+        {
+          "w": "expire",
+          "pos": "v.",
+          "zh": "到期、失效",
+          "ipa": "/ɪkˈspaɪər/",
+          "example": {
+            "en": "Our contract will expire at the end of June.",
+            "zh": "我們的合約將在六月底到期。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "terminate",
+          "pos": "v.",
+          "zh": "終止、解除",
+          "ipa": "/ˈtɜːrməneɪt/",
+          "link": "最基礎的詞幹；terminate + -ion 變成名詞「終止」，像 educate → education、locate → location"
+        },
+        {
+          "w": "terminal",
+          "pos": "n.",
+          "zh": "終點站、航廈",
+          "ipa": "/ˈtɜːrmɪnl/",
+          "link": "termin（終點）+ -al，指路線的終點，像 airport terminal（機場航廈）"
+        }
+      ]
+    }
+  ]
+}

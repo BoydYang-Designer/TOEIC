@@ -22,6 +22,10 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
   part6  audio/p6/{id}.mp3（朗讀答案填入的整篇）
   part7  audio/p7/{id}-d{k}.mp3（每份需朗讀的文件一檔）
   daily  audio/daily/w1d1.mp3 ＋ audio/daily/vocab/（詳解項目；做完會重建 vocab/index.json）
+         詳解項目的檔名後綴：（無）本身、_ctx 所在句、_e 例句、_cp／_c 搭配與其例句、_f 詞性變化、_m／_mx 相關字與例句、
+         _d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句
+         ※ 單字類（單字本身、原形、屈折變化、同字族、相關字、搭配片語、多詞性／多義的單字）改放共用庫
+           audio/daily/words/{單字}.mp3，同一個字只錄一次；例句與所在句仍放 vocab/ 逐篇存放
 
 參數：--cli 強制使用文字模式（沒有 tkinter 時會自動使用）；--dry 只列清單不產生；--manifest 只重建 daily 的 vocab/index.json。
 """
@@ -76,6 +80,8 @@ MAKE_COLLOC = True            # 常用搭配的片語與例句（collocations[].
 MAKE_FORMS = True             # 詞性變化的字（forms[].w）
 MAKE_FAMILY = True            # 相關字（family[].w）與它的例句
 MAKE_DERIVED = True           # 衍生字（derived[].w）
+MAKE_POS = True               # 多詞性（pos_uses）：每個詞性的單字發音 _pw{k}.mp3 ＋ 例句 _p{k}.mp3
+MAKE_SENSE = True             # 多義（senses）：每個意思的單字發音 _sw{k}.mp3 ＋ 例句 _s{k}.mp3
 PASSAGE_RATE = "-5%"          # 文章語速
 VOCAB_RATE = "-10%"           # 單字／句子語速（單字慢一點比較聽得清楚）
 PASSAGE_VOICES = VOICES       # 文章：依 id 固定挑一個聲音
@@ -84,6 +90,7 @@ VOCAB_VOICE = "en-US-AriaNeural"   # 詳解項目固定同一個聲音
 
 HERE = Path(__file__).resolve().parent
 VOCAB_SUB = Path("audio") / "daily" / "vocab"
+WORDS_SUB = Path("audio") / "daily" / "words"   # 共用單字發音庫：{單字}.mp3，同一個字只錄一次（單字類；例句與所在句仍在 vocab/ 逐篇存放）
 
 
 # ------------------------------- 共用小工具 -------------------------------
@@ -476,7 +483,9 @@ def collect_entries(root, items):
                 typ = v.get("type") or ("phrase" if re.search(r"\s", t) else "word")
                 ents[(qid, norm(t))] = dict(qid=qid, text=t, type=typ, ctx=None, examples=v.get("examples") or [],
                                             collocations=v.get("collocations") or [], forms=v.get("forms") or [],
-                                            family=v.get("family") or [], derived=v.get("derived") or [])
+                                            family=v.get("family") or [], derived=v.get("derived") or [],
+                                            pos_uses=v.get("pos_uses") or [], senses=v.get("senses") or [],
+                                            lemma=str(v.get("lemma") or "").strip())
     for f in sorted(root.glob("daily-marks*.json")):
         try:
             j = json.loads(f.read_text(encoding="utf-8-sig"))
@@ -488,7 +497,7 @@ def collect_entries(root, items):
             t = str(m["text"]).strip()
             k = (m["qid"], norm(t))
             e = ents.setdefault(k, dict(qid=m["qid"], text=t, type=m.get("type") or "word", ctx=None, examples=[],
-                                        collocations=[], forms=[], family=[], derived=[]))
+                                        collocations=[], forms=[], family=[], derived=[], pos_uses=[], senses=[], lemma=""))
             if m.get("ctx"):
                 e["ctx"] = str(m["ctx"]).strip()
     out = []
@@ -516,13 +525,18 @@ def plan_daily(root: Path):
                 voice = PASSAGE_VOICES[zlib.crc32(qid.encode("utf-8")) % len(PASSAGE_VOICES)]
                 groups.append(dict(key=qid, kind="文章", total=1, voice=voice, jobs=[
                     dict(name=path.name, text=p, voice=voice, rate=PASSAGE_RATE, path=path)]))
-    if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED:
+    if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED or MAKE_POS or MAKE_SENSE:
         vdir = root / VOCAB_SUB
+        wdir = root / WORDS_SUB
+        seen = set()   # 這次已排進清單的共用單字檔，同一個字不重複排
+        shared = lambda t: f"@{slug(t)}.mp3"   # 「@」開頭＝共用發音庫 words/ 的檔
         for e in collect_entries(root, items):
             base = f"{e['qid']}-{slug(e['text'])}"
             want = []
             if MAKE_VOCAB:
-                want.append((f"{base}.mp3", speak_text(e["text"])))
+                want.append((f"{base}.mp3" if e["type"] == "sentence" else shared(e["text"]), speak_text(e["text"])))
+            if MAKE_VOCAB and e.get("lemma") and norm(e["lemma"]) != norm(e["text"]):
+                want.append((shared(e["lemma"]), speak_text(e["lemma"])))  # 原形的發音
             if MAKE_CTX and e["type"] != "sentence" and e["ctx"]:
                 want.append((f"{base}_ctx.mp3", e["ctx"]))
             if MAKE_EXAMPLES:
@@ -534,7 +548,7 @@ def plan_daily(root: Path):
                 for k, c in enumerate(e["collocations"], 1):
                     ph = c if isinstance(c, str) else ((c or {}).get("phrase") or (c or {}).get("p"))
                     if isinstance(ph, str) and ph.strip():
-                        want.append((f"{base}_cp{k}.mp3", speak_text(ph)))
+                        want.append((shared(ph), speak_text(ph)))
                     en = ((c or {}).get("example") or {}).get("en") if isinstance(c, dict) else None
                     if isinstance(en, str) and en.strip():
                         want.append((f"{base}_c{k}.mp3", en.strip()))
@@ -542,13 +556,13 @@ def plan_daily(root: Path):
                 for k, f in enumerate(e["forms"], 1):
                     w = f.get("w") if isinstance(f, dict) else None
                     if isinstance(w, str) and w.strip():
-                        want.append((f"{base}_f{k}.mp3", speak_text(w)))
+                        want.append((shared(w), speak_text(w)))
             if MAKE_FAMILY:
                 for k, g in enumerate(e["family"], 1):
                     if not isinstance(g, dict):
                         continue
                     if isinstance(g.get("w"), str) and g["w"].strip():
-                        want.append((f"{base}_m{k}.mp3", speak_text(g["w"])))
+                        want.append((shared(g["w"]), speak_text(g["w"])))
                     en = (g.get("example") or {}).get("en") if isinstance(g.get("example"), dict) else None
                     if isinstance(en, str) and en.strip():
                         want.append((f"{base}_mx{k}.mp3", en.strip()))
@@ -556,9 +570,30 @@ def plan_daily(root: Path):
                 for k, d in enumerate(e["derived"], 1):
                     w = d.get("w") if isinstance(d, dict) else None
                     if isinstance(w, str) and w.strip():
-                        want.append((f"{base}_d{k}.mp3", speak_text(w)))
-            jobs = [dict(name=n, text=t, voice=VOCAB_VOICE, rate=VOCAB_RATE, path=vdir / n)
-                    for n, t in want if not ok_file(vdir / n)]
+                        want.append((shared(w), speak_text(w)))
+            for on, key, wsuf, esuf in ((MAKE_POS, "pos_uses", "pw", "p"), (MAKE_SENSE, "senses", "sw", "s")):
+                if not on:
+                    continue
+                for k, o in enumerate(e[key], 1):  # 每一筆：單字發音（_pw／_sw）＋ 例句（_p／_s）；網頁 notes.js 的 🔊 用同一套檔名
+                    if not isinstance(o, dict):
+                        continue
+                    ww = o.get("w") or e.get("lemma") or e["text"]
+                    want.append((shared(ww), speak_text(ww)))  # 變化形（billed）的詳解以原形（bill）為準
+                    en = (o.get("example") or {}).get("en") if isinstance(o.get("example"), dict) else None
+                    if isinstance(en, str) and en.strip():
+                        want.append((f"{base}_{esuf}{k}.mp3", en.strip()))
+            jobs = []
+            for n, t in want:
+                if n.startswith("@"):   # 單字類：共用庫；已存在、或這次已排進別的項目就不重複
+                    p = wdir / n[1:]
+                    if ok_file(p) or p in seen:
+                        continue
+                    seen.add(p)
+                else:                   # 例句、所在句、句子：逐篇存放
+                    p = vdir / n
+                    if ok_file(p):
+                        continue
+                jobs.append(dict(name=p.name, text=t, voice=VOCAB_VOICE, rate=VOCAB_RATE, path=p))
             if jobs:
                 kind = {"word": "單字", "phrase": "片語", "sentence": "句子"}.get(e["type"], "單字")
                 groups.append(dict(key=f"{e['qid']}:{e['text']}", kind=kind, total=len(want), voice=VOCAB_VOICE, jobs=jobs))
@@ -572,6 +607,11 @@ def write_manifest(root: Path, log=print):
     files = sorted(f.name for f in d.glob("*.mp3") if ok_file(f))
     (d / "index.json").write_text(json.dumps(dict(v=int(time.time()), files=files), ensure_ascii=False, indent=1), encoding="utf-8")
     log(f"已更新 {d / 'index.json'}（{len(files)} 個檔）")
+    w = root / WORDS_SUB
+    w.mkdir(parents=True, exist_ok=True)
+    wfiles = sorted(f.name for f in w.glob("*.mp3") if ok_file(f))
+    (w / "index.json").write_text(json.dumps(dict(v=int(time.time()), files=wfiles), ensure_ascii=False, indent=1), encoding="utf-8")
+    log(f"已更新 {w / 'index.json'}（共用單字發音 {len(wfiles)} 個檔）")
 
 
 # =============================== 題庫表（介面文字與行為差異） ===============================

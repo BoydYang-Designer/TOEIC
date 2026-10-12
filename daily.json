@@ -734,6 +734,7 @@
         {
           "text": "updates",
           "type": "word",
+          "lemma": "update",
           "ipa": "/ˈʌpdeɪts/",
           "pos": "n.",
           "zh": "最新消息、進度報告",
@@ -869,7 +870,50 @@
               }
             }
           ],
-          "derived": []
+          "derived": [],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˈʌpdeɪt/",
+              "zh": "最新消息、進度報告",
+              "in_passage": true,
+              "example": {
+                "en": "Please send me a short update before the meeting starts.",
+                "zh": "請在會議開始前寄給我一份簡短的進度報告。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/ʌpˈdeɪt/",
+              "zh": "更新；向…提供最新資訊",
+              "example": {
+                "en": "I will update the team once the contract is signed.",
+                "zh": "合約一簽好，我就會向團隊說明最新狀況。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "進度報告、最新消息",
+              "en": "a short report on the latest progress of a task or project",
+              "in_passage": true,
+              "example": {
+                "en": "Each manager gave a quick update on his department's work.",
+                "zh": "每位經理都簡短報告了自己部門的工作進度。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "（軟體或系統的）更新版本",
+              "en": "a new version of a program that fixes problems or adds features",
+              "distinguish": "前後文出現 software、system、install、download 等字時，指程式版本；談人或工作的近況時，指進度報告。",
+              "example": {
+                "en": "The software update will be installed on all computers tonight.",
+                "zh": "這次的軟體更新今晚會安裝到所有電腦上。"
+              }
+            }
+          ]
         },
         {
           "text": "in advance",
@@ -2262,6 +2306,52 @@
                 "zh": "醫師建議他多喝水。"
               }
             }
+          ],
+          "derived": [
+            {
+              "w": "consult",
+              "pos": "v.",
+              "zh": "諮詢、請教",
+              "ipa": "/kənˈsʌlt/",
+              "link": "最基礎的詞幹；consult + -ation，把「請教」這個動作變成名詞，像 information、invitation"
+            },
+            {
+              "w": "consultant",
+              "pos": "n.",
+              "zh": "顧問",
+              "ipa": "/kənˈsʌltənt/",
+              "link": "consult + -ant，做事的人，像 assistant、applicant"
+            },
+            {
+              "w": "consultancy",
+              "pos": "n.",
+              "zh": "顧問公司、顧問業務",
+              "ipa": "/kənˈsʌltənsi/",
+              "link": "consultant 去掉 t 加 -cy，變成「顧問這一行或公司」，像 agency"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "（向專家的）諮詢、診療",
+              "en": "a meeting with an expert to get advice",
+              "in_passage": true,
+              "example": {
+                "en": "The doctor will answer your questions during the consultation.",
+                "zh": "醫師會在諮詢過程中回答你的問題。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "商議、討論",
+              "en": "a discussion between people before they make a decision",
+              "distinguish": "常見 in / after consultation with…，指決策前與相關人員的討論，不是向專家請教。",
+              "example": {
+                "en": "The decision was made after consultation with all department heads.",
+                "zh": "這項決定是與所有部門主管商議後做出的。"
+              }
+            }
           ]
         },
         {
@@ -2359,6 +2449,7 @@
         {
           "text": "qualified",
           "type": "word",
+          "lemma": "qualify",
           "ipa": "/ˈkwɑːləfaɪd/",
           "pos": "adj.",
           "zh": "合格的、有資格的、勝任的",
@@ -2529,7 +2620,174 @@
                 "zh": "兼職員工不符合這項計畫的資格。"
               }
             }
-          ]
+          ],
+          "derived": [
+            {
+              "w": "qualification",
+              "pos": "n.",
+              "zh": "資格、資歷",
+              "ipa": "/ˌkwɑːləfəˈkeɪʃən/",
+              "link": "qualify 去掉 y 加 -ication，變成名詞，像 application、certification"
+            },
+            {
+              "w": "unqualified",
+              "pos": "adj.",
+              "zh": "不合格的、不夠資格的",
+              "ipa": "/ʌnˈkwɑːləfaɪd/",
+              "link": "un-（不）+ qualified，像 unhappy、unable"
+            },
+            {
+              "w": "overqualified",
+              "pos": "adj.",
+              "zh": "資歷過高的",
+              "ipa": "/ˌoʊvərˈkwɑːləfaɪd/",
+              "link": "over-（過度）+ qualified，資歷太好、超過職務需要，像 overtime"
+            },
+            {
+              "w": "disqualify",
+              "pos": "v.",
+              "zh": "取消資格",
+              "ipa": "/dɪsˈkwɑːləfaɪ/",
+              "link": "dis-（相反、取消）+ qualify，像 disagree、dislike"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "adj.",
+              "w": "qualified",
+              "ipa": "/ˈkwɑːləfaɪd/",
+              "zh": "合格的、有資格的",
+              "in_passage": true,
+              "example": {
+                "en": "The company hired a qualified accountant to review the records.",
+                "zh": "公司聘請了一位合格的會計師來查核紀錄。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/ˈkwɑːləfaɪ/",
+              "zh": "取得資格、符合資格",
+              "example": {
+                "en": "Employees qualify for the bonus after one full year of service.",
+                "zh": "員工服務滿一年後就符合領取獎金的資格。"
+              }
+            }
+          ],
+          "senses": []
+        },
+        {
+          "text": "portal",
+          "type": "word",
+          "ipa": "/ˈpɔːrtl/",
+          "pos": "n.",
+          "zh": "入口網站、（客戶）入口平台",
+          "en": "a website where users log in to find information or use services",
+          "note": "在這篇裡 customer portal 指專為客戶設計的線上平台，客戶登入後可查訂單、下載發票、提出服務需求。它不只是介紹公司的網站，重點是「登入後可以辦事」。",
+          "forms": [
+            {
+              "w": "portals",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "入口網站（複數）",
+              "ipa": "/ˈpɔːrtlz/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "customer portal",
+              "zh": "客戶入口平台",
+              "example": {
+                "en": "The customer portal will open to all users next month.",
+                "zh": "客戶入口平台下個月會開放給所有使用者。"
+              }
+            },
+            {
+              "phrase": "employee portal",
+              "zh": "員工入口網站",
+              "example": {
+                "en": "You can request leave through the employee portal.",
+                "zh": "您可以透過員工入口網站申請請假。"
+              }
+            },
+            {
+              "phrase": "log in to the portal",
+              "zh": "登入入口網站",
+              "example": {
+                "en": "Please log in to the portal to see your account details.",
+                "zh": "請登入入口網站查看您的帳戶資料。"
+              }
+            },
+            {
+              "phrase": "portal account",
+              "zh": "入口網站帳號",
+              "example": {
+                "en": "Each client will receive a portal account by e-mail.",
+                "zh": "每位客戶都會收到寄到電子郵件的入口網站帳號。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "簡報",
+              "en": "The new portal will save our support team a lot of time.",
+              "zh": "新的入口平台會替客服團隊省下很多時間。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Details about your order are now available on our portal.",
+              "zh": "您的訂單詳情現在可在我們的入口平台上查看。"
+            },
+            {
+              "tag": "客服",
+              "en": "If you forget your password, use the reset link on the portal.",
+              "zh": "如果您忘記密碼，請使用入口平台上的重設連結。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "website",
+              "diff": "website 是一般網站，不一定需要登入；portal 通常要登入，提供個人化的資料與服務。"
+            },
+            {
+              "word": "platform",
+              "diff": "platform 範圍更廣，可指各種系統或服務基礎；portal 強調「使用者進入服務的入口」。"
+            }
+          ],
+          "family": [
+            {
+              "w": "access",
+              "pos": "n./v.",
+              "zh": "存取、使用權；取得",
+              "ipa": "/ˈækses/",
+              "example": {
+                "en": "Customers can access their invoices on the portal.",
+                "zh": "客戶可以在入口平台上取得自己的發票。"
+              }
+            },
+            {
+              "w": "login",
+              "pos": "n.",
+              "zh": "登入（帳號密碼）",
+              "ipa": "/ˈlɔːɡɪn/",
+              "example": {
+                "en": "Please enter your login and password to continue.",
+                "zh": "請輸入您的登入帳號和密碼以繼續。"
+              }
+            },
+            {
+              "w": "platform",
+              "pos": "n.",
+              "zh": "平台",
+              "ipa": "/ˈplætfɔːrm/",
+              "example": {
+                "en": "We chose a new platform for online customer service.",
+                "zh": "我們選了一個新的平台來提供線上客服。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": []
         }
       ]
     },
@@ -3247,11 +3505,56 @@
                 "zh": "這個保護套可以防止機器沾上灰塵。"
               }
             }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "prep.",
+              "zh": "對照、核對",
+              "en": "used to compare one thing with another to see if they match",
+              "in_passage": true,
+              "example": {
+                "en": "The auditor compared each entry against the bank statement.",
+                "zh": "稽核員把每一筆帳目與銀行對帳單對照。"
+              }
+            },
+            {
+              "pos": "prep.",
+              "zh": "反對",
+              "en": "not agreeing with a person, plan, or idea",
+              "distinguish": "與 for（贊成）相對，常搭配 vote、be、argue。",
+              "example": {
+                "en": "Most staff were against the plan to cut lunch breaks.",
+                "zh": "大多數員工反對縮短午休時間的計畫。"
+              }
+            },
+            {
+              "pos": "prep.",
+              "zh": "違反、與…相抵觸",
+              "en": "not following a rule or the law",
+              "distinguish": "常見 against the rules / the law / policy，後面接規定或法律。",
+              "example": {
+                "en": "Using personal e-mail for client data is against our security rules.",
+                "zh": "用私人電子郵件處理客戶資料違反我們的安全規定。"
+              }
+            },
+            {
+              "pos": "prep.",
+              "zh": "防範、以免受…",
+              "en": "so that something bad does not happen",
+              "distinguish": "常接在 protect、insure、guard 等動詞後面。",
+              "example": {
+                "en": "Employees should insure the equipment against theft and fire.",
+                "zh": "員工應為設備投保以防範竊盜和火災。"
+              }
+            }
           ]
         },
         {
           "text": "remaining",
           "type": "word",
+          "lemma": "remain",
           "ipa": "/rɪˈmeɪnɪŋ/",
           "pos": "adj.",
           "zh": "剩下的、其餘的",
@@ -3371,6 +3674,79 @@
               "example": {
                 "en": "We will deliver the remainder next week.",
                 "zh": "我們下週會交付剩下的部分。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "remainder",
+              "pos": "n.",
+              "zh": "剩餘的部分",
+              "ipa": "/rɪˈmeɪndər/",
+              "link": "remain（剩下）+ -der，變成名詞「剩下的那一部分」，意思接近 the rest"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "adj.",
+              "w": "remaining",
+              "ipa": "/rɪˈmeɪnɪŋ/",
+              "zh": "剩下的、其餘的",
+              "in_passage": true,
+              "example": {
+                "en": "The remaining funds will be used for staff training.",
+                "zh": "剩下的經費將用於員工訓練。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/rɪˈmeɪn/",
+              "zh": "仍然是、剩下、留下",
+              "example": {
+                "en": "All prices remain the same until the end of June.",
+                "zh": "所有價格到六月底前維持不變。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "adj.",
+              "zh": "剩下的、其餘的",
+              "en": "still left after other things have been used, done, or taken",
+              "in_passage": true,
+              "example": {
+                "en": "Please pay the remaining amount before the delivery date.",
+                "zh": "請在交貨日前付清其餘的金額。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "仍然是、保持（某狀態）",
+              "en": "to stay in the same state or condition",
+              "distinguish": "後面接形容詞或過去分詞，如 remain open、remain seated。",
+              "example": {
+                "en": "Please remain seated until the presentation is over.",
+                "zh": "簡報結束前請保持坐著。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "剩下、尚待完成",
+              "en": "to be left after other parts are gone or finished",
+              "distinguish": "主詞是剩下的東西或工作，如 Only three tasks remain。",
+              "example": {
+                "en": "Only three tasks remain on the project schedule.",
+                "zh": "專案時程表上只剩下三項工作。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "留在原地",
+              "en": "to stay in a place and not leave",
+              "distinguish": "後面接地點，如 remain in the lobby。",
+              "example": {
+                "en": "Visitors must remain in the lobby until a guide arrives.",
+                "zh": "訪客必須待在大廳，直到嚮導到來。"
               }
             }
           ]
@@ -3805,6 +4181,55 @@
                 "zh": "這個零件可以更換，所以維修很容易。"
               }
             }
+          ],
+          "derived": [
+            {
+              "w": "replace",
+              "pos": "v.",
+              "zh": "取代、更換",
+              "ipa": "/rɪˈpleɪs/",
+              "link": "最基礎的詞幹；re-（再）+ place（放），把新的放回原位；replace + -ment 變成名詞「替換品」，像 payment、agreement"
+            },
+            {
+              "w": "replaceable",
+              "pos": "adj.",
+              "zh": "可替換的",
+              "ipa": "/rɪˈpleɪsəbl/",
+              "link": "replace + -able，可以被…的，像 readable、available"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "替換品、更換品",
+              "en": "a new thing that takes the place of one that is broken or lost",
+              "in_passage": true,
+              "example": {
+                "en": "The supplier will ship a replacement for the faulty printer today.",
+                "zh": "供應商今天會寄出替換那台故障印表機的新品。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "接替的人",
+              "en": "a person who takes over another person's job",
+              "distinguish": "談人事、離職、徵才時，指接任者。",
+              "example": {
+                "en": "We are interviewing candidates as a replacement for our accountant.",
+                "zh": "我們正在面試應徵者，要接替我們的會計。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "更換、替換（動作）",
+              "en": "the act of putting a new thing in place of an old one",
+              "distinguish": "常接 of + 舊物，如 the replacement of the old servers，指「換」這個動作。",
+              "example": {
+                "en": "The replacement of the old servers will take two days.",
+                "zh": "更換舊伺服器需要兩天的時間。"
+              }
+            }
           ]
         },
         {
@@ -3932,6 +4357,55 @@
                 "zh": "促銷品在活動中發送出去。"
               }
             }
+          ],
+          "derived": [
+            {
+              "w": "promote",
+              "pos": "v.",
+              "zh": "促銷；晉升",
+              "ipa": "/prəˈmoʊt/",
+              "link": "最基礎的詞幹；promote + -ion，把「促銷、升遷」變成名詞，像 donate → donation"
+            },
+            {
+              "w": "promotional",
+              "pos": "adj.",
+              "zh": "促銷的、宣傳的",
+              "ipa": "/prəˈmoʊʃənəl/",
+              "link": "promotion + -al，變成形容詞，像 additional、traditional"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "促銷活動",
+              "en": "a special offer or activity to help sell a product",
+              "in_passage": true,
+              "example": {
+                "en": "The holiday promotion offers free shipping on all online orders.",
+                "zh": "假期促銷活動提供所有線上訂單免運費。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "升遷、晉升",
+              "en": "a move to a higher job in a company",
+              "distinguish": "前後文談員工、職稱、薪水時指升遷；談商品、折扣時指促銷。",
+              "example": {
+                "en": "Ms. Wu earned a promotion to regional sales manager this month.",
+                "zh": "吳小姐這個月升任區域業務經理。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "宣傳、推廣",
+              "en": "the work of making people know about a product or event",
+              "distinguish": "常見 the promotion of + 產品或活動，指推廣這件事。",
+              "example": {
+                "en": "The company spent a large budget on the promotion of its new brand.",
+                "zh": "公司花了一大筆預算宣傳它的新品牌。"
+              }
+            }
           ]
         },
         {
@@ -4039,7 +4513,30 @@
                 "zh": "小心不要打破玻璃製品。"
               }
             }
-          ]
+          ],
+          "derived": [],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/kræk/",
+              "zh": "裂縫、裂痕",
+              "in_passage": true,
+              "example": {
+                "en": "The inspector found a small crack in the main water pipe.",
+                "zh": "檢查員在主水管上發現一道小裂縫。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/kræk/",
+              "zh": "裂開、使破裂",
+              "example": {
+                "en": "The plastic cover may crack if it gets too hot.",
+                "zh": "塑膠外蓋太熱時可能會裂開。"
+              }
+            }
+          ],
+          "senses": []
         },
         {
           "text": "label",
@@ -4141,11 +4638,71 @@
                 "zh": "包裹上的標示必須容易閱讀。"
               }
             }
+          ],
+          "derived": [
+            {
+              "w": "mislabel",
+              "pos": "v.",
+              "zh": "貼錯標籤、標示錯誤",
+              "ipa": "/ˌmɪsˈleɪbəl/",
+              "link": "mis-（錯誤）+ label，貼錯標籤，像 misunderstand、mistake"
+            },
+            {
+              "w": "relabel",
+              "pos": "v.",
+              "zh": "重新貼標籤",
+              "ipa": "/ˌriːˈleɪbəl/",
+              "link": "re-（再次）+ label，重新貼標，像 rewrite、return"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˈleɪbəl/",
+              "zh": "標籤、貼紙",
+              "in_passage": true,
+              "example": {
+                "en": "The product label lists all ingredients and the expiration date.",
+                "zh": "產品標籤列出所有成分和有效期限。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/ˈleɪbəl/",
+              "zh": "貼標籤、標示",
+              "example": {
+                "en": "Staff must label each sample with the date and name.",
+                "zh": "員工必須在每個樣品上標示日期和姓名。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "標籤、貼紙",
+              "en": "a piece of paper or plastic on a product or package with information on it",
+              "in_passage": true,
+              "example": {
+                "en": "Please check the label for washing and storage instructions.",
+                "zh": "請查看標籤上的清洗與保存說明。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "品牌、廠牌",
+              "en": "a brand name used on products",
+              "distinguish": "常見 private label、own label，指商品的品牌，而不是貼在上面的紙。",
+              "example": {
+                "en": "The store sells its own label of coffee at a lower price.",
+                "zh": "這家店以較低的價格販售自有品牌的咖啡。"
+              }
+            }
           ]
         },
         {
           "text": "authorized",
           "type": "word",
+          "lemma": "authorize",
           "ipa": "/ˈɔːθəraɪzd/",
           "pos": "adj.",
           "zh": "經授權的、官方認可的",
@@ -4267,11 +4824,96 @@
                 "zh": "不得未經授權使用此系統。"
               }
             }
+          ],
+          "derived": [
+            {
+              "w": "author",
+              "pos": "n.",
+              "zh": "作者",
+              "ipa": "/ˈɔːθər/",
+              "link": "最基礎的詞幹；作者對自己的作品有最高的權力，author + -ize（使成為）→ authorize，給人權力"
+            },
+            {
+              "w": "authority",
+              "pos": "n.",
+              "zh": "權力；主管機關",
+              "ipa": "/əˈθɔːrəti/",
+              "link": "author + -ity，名詞字尾，像 security、activity；表示「有權力的人或單位」"
+            },
+            {
+              "w": "authorization",
+              "pos": "n.",
+              "zh": "授權、許可",
+              "ipa": "/ˌɔːθərəˈzeɪʃən/",
+              "link": "authorize + -ation，把「授權」這個動作變成名詞，像 organize → organization"
+            },
+            {
+              "w": "unauthorized",
+              "pos": "adj.",
+              "zh": "未經授權的",
+              "ipa": "/ʌnˈɔːθəraɪzd/",
+              "link": "un-（不）+ authorized，像 unhappy、unable"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "adj.",
+              "w": "authorized",
+              "ipa": "/ˈɔːθəraɪzd/",
+              "zh": "經授權的、官方認可的",
+              "in_passage": true,
+              "example": {
+                "en": "Only authorized drivers may use the company vehicles.",
+                "zh": "只有經授權的駕駛才可以使用公司車輛。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/ˈɔːθəraɪz/",
+              "zh": "授權、批准",
+              "example": {
+                "en": "The director must authorize any spending over one thousand dollars.",
+                "zh": "任何超過一千美元的支出都必須由主任批准。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "adj.",
+              "zh": "經授權的、官方認可的",
+              "en": "having official permission to do something or to be used",
+              "in_passage": true,
+              "example": {
+                "en": "The authorized signer must sign every purchase contract.",
+                "zh": "經授權的簽署人必須簽署每一份採購合約。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "授權（某人做某事）",
+              "en": "to give someone the official power to do something",
+              "distinguish": "句型是 authorize + 人 + to V。",
+              "example": {
+                "en": "The manager authorized her assistant to sign the delivery forms.",
+                "zh": "經理授權她的助理簽署送貨單。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "批准（某件事）",
+              "en": "to officially approve something",
+              "distinguish": "受詞是款項、計畫、購買等事物，如 authorize a payment。",
+              "example": {
+                "en": "The finance team authorized the payment this morning.",
+                "zh": "財務團隊今天早上批准了這筆付款。"
+              }
+            }
           ]
         },
         {
           "text": "damaged",
           "type": "word",
+          "lemma": "damage",
           "ipa": "/ˈdæmɪdʒd/",
           "pos": "adj.",
           "zh": "受損的、損壞的",
@@ -4397,6 +5039,78 @@
               "example": {
                 "en": "The rest of the order arrived undamaged.",
                 "zh": "訂單的其餘部分完好無損地送達。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "undamaged",
+              "pos": "adj.",
+              "zh": "未受損的、完好的",
+              "ipa": "/ʌnˈdæmɪdʒd/",
+              "link": "un-（不）+ damaged，沒有受損，像 unhappy、unable"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "adj.",
+              "w": "damaged",
+              "ipa": "/ˈdæmɪdʒd/",
+              "zh": "受損的、損壞的",
+              "in_passage": true,
+              "example": {
+                "en": "Customers can return damaged items within thirty days of purchase.",
+                "zh": "顧客可在購買後三十天內退回受損商品。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˈdæmɪdʒ/",
+              "zh": "損壞、損害",
+              "example": {
+                "en": "The insurance report describes the damage to the delivery truck.",
+                "zh": "保險報告描述了送貨卡車的損壞情形。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/ˈdæmɪdʒ/",
+              "zh": "損壞、使受損",
+              "example": {
+                "en": "Heavy rain damaged several boxes stored near the loading door.",
+                "zh": "大雨損壞了存放在裝貨門附近的幾個箱子。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "adj.",
+              "zh": "受損的、損壞的",
+              "en": "broken or harmed so that it cannot work or look normal",
+              "in_passage": true,
+              "example": {
+                "en": "Please report any damaged packages to the shipping desk.",
+                "zh": "請向出貨櫃台通報任何受損的包裹。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "損壞、損害",
+              "en": "harm that is done to something",
+              "distinguish": "不可數，常見 damage to、cause damage、water damage。",
+              "example": {
+                "en": "The fire caused serious damage to the storage building.",
+                "zh": "這場火災對儲存倉庫造成嚴重損害。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "損害賠償金",
+              "en": "money that a person or company must pay for harm they caused",
+              "distinguish": "用複數 damages，常搭配 pay、claim、award，與不可數的 damage 不同。",
+              "example": {
+                "en": "The supplier agreed to pay damages for the late delivery.",
+                "zh": "供應商同意為延遲交貨支付損害賠償金。"
               }
             }
           ]
@@ -4884,6 +5598,15 @@
                 "zh": "這次稽核會檢查我們是否遵守公司政策。"
               }
             }
+          ],
+          "derived": [
+            {
+              "w": "auditor",
+              "pos": "n.",
+              "zh": "稽核員、審計員",
+              "ipa": "/ˈɔːdɪtər/",
+              "link": "audit + -or，做事的人，像 actor、visitor；負責稽核的人"
+            }
           ]
         },
         {
@@ -5183,6 +5906,22 @@
                 "zh": "我們會用電子郵件寄出請款單。"
               }
             }
+          ],
+          "derived": [
+            {
+              "w": "billing",
+              "pos": "n.",
+              "zh": "帳務、開帳單作業",
+              "ipa": "/ˈbɪlɪŋ/",
+              "link": "bill + -ing，把「開帳單」這件事變成名詞，像 meeting、building"
+            },
+            {
+              "w": "overbill",
+              "pos": "v.",
+              "zh": "多收費、多開帳單",
+              "ipa": "/ˌoʊvərˈbɪl/",
+              "link": "over-（過多）+ bill，開出過多的帳單，像 overtime、overload"
+            }
           ]
         },
         {
@@ -5363,7 +6102,584 @@
                 "zh": "我們的合約將在六月底到期。"
               }
             }
+          ],
+          "derived": [
+            {
+              "w": "terminate",
+              "pos": "v.",
+              "zh": "終止、解除",
+              "ipa": "/ˈtɜːrməneɪt/",
+              "link": "最基礎的詞幹；terminate + -ion 變成名詞「終止」，像 educate → education、locate → location"
+            },
+            {
+              "w": "terminal",
+              "pos": "n.",
+              "zh": "終點站、航廈",
+              "ipa": "/ˈtɜːrmɪnl/",
+              "link": "termin（終點）+ -al，指路線的終點，像 airport terminal（機場航廈）"
+            }
           ]
+        },
+        {
+          "text": "clause",
+          "type": "word",
+          "ipa": "/klɔːz/",
+          "pos": "n.",
+          "zh": "（合約、法律的）條款；（文法）子句",
+          "en": "one part of a contract or law that gives a rule or condition",
+          "note": "在這篇指合約裡的一條「條款」。the clause concerning early termination 就是專門談提前終止合約的那一條，簽約前要特別看清楚。",
+          "forms": [
+            {
+              "w": "clauses",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "條款（複數）",
+              "ipa": "/ˈklɔːzɪz/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "termination clause",
+              "zh": "終止條款",
+              "example": {
+                "en": "The termination clause requires thirty days' written notice.",
+                "zh": "終止條款要求提前三十天以書面通知。"
+              }
+            },
+            {
+              "phrase": "add a clause",
+              "zh": "加入一項條款",
+              "example": {
+                "en": "Our lawyer asked us to add a clause about late fees.",
+                "zh": "我們的律師要求我們加入一項關於逾期費用的條款。"
+              }
+            },
+            {
+              "phrase": "include a clause",
+              "zh": "包含一項條款",
+              "example": {
+                "en": "The contract includes a clause that protects customer data.",
+                "zh": "這份合約包含一項保護客戶資料的條款。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "合約",
+              "en": "The last clause says either side can end the contract.",
+              "zh": "最後一條條款說明任何一方都可以終止合約。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please see the clause on page three for payment rules.",
+              "zh": "付款規定請參閱第三頁的條款。"
+            },
+            {
+              "tag": "英文文法",
+              "en": "A clause has a subject and a verb.",
+              "zh": "子句包含一個主詞和一個動詞。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "term",
+              "diff": "term 常指合約中的「條件、條款內容」（terms and conditions），可複數泛指；clause 是合約中一條一條的「條文」。"
+            },
+            {
+              "word": "phrase",
+              "diff": "文法上 phrase 是沒有「主詞＋動詞」的詞組；clause 則有主詞和動詞。"
+            }
+          ],
+          "family": [
+            {
+              "w": "provision",
+              "pos": "n.",
+              "zh": "規定、條款",
+              "ipa": "/prəˈvɪʒən/",
+              "example": {
+                "en": "This provision applies to all new employees.",
+                "zh": "這項規定適用於所有新進員工。"
+              }
+            },
+            {
+              "w": "term",
+              "pos": "n.",
+              "zh": "條件、條款",
+              "ipa": "/tɜːrm/",
+              "example": {
+                "en": "Please read the terms before you sign.",
+                "zh": "簽名前請先閱讀條款。"
+              }
+            },
+            {
+              "w": "condition",
+              "pos": "n.",
+              "zh": "條件",
+              "ipa": "/kənˈdɪʃən/",
+              "example": {
+                "en": "One condition of the offer is a signed contract.",
+                "zh": "這項提案的條件之一是簽妥合約。"
+              }
+            },
+            {
+              "w": "agreement",
+              "pos": "n.",
+              "zh": "協議",
+              "ipa": "/əˈɡriːmənt/",
+              "example": {
+                "en": "Both companies signed the agreement last week.",
+                "zh": "兩家公司上週簽署了這份協議。"
+              }
+            }
+          ],
+          "derived": []
+        },
+        {
+          "text": "balance",
+          "type": "word",
+          "ipa": "/ˈbæləns/",
+          "pos": "n.",
+          "zh": "餘額、尾款；平衡（動詞：使平衡）",
+          "en": "the money that is still left to pay or still in an account",
+          "note": "在這篇指付款後「剩下的尾款」。the remaining balance 就是頭期款 40% 付完後，剩下要在安裝後三十天內付清的金額。",
+          "forms": [
+            {
+              "w": "balances",
+              "label": "複數／第三人稱單數",
+              "pos": "n./v.",
+              "zh": "餘額（複數）；使平衡",
+              "ipa": "/ˈbælənsɪz/"
+            },
+            {
+              "w": "balanced",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "使平衡",
+              "ipa": "/ˈbælənst/"
+            },
+            {
+              "w": "balancing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在使平衡",
+              "ipa": "/ˈbælənsɪŋ/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "remaining balance",
+              "zh": "剩餘金額、尾款",
+              "example": {
+                "en": "The remaining balance is due at the end of the month.",
+                "zh": "剩餘款項須在月底前付清。"
+              }
+            },
+            {
+              "phrase": "pay the balance",
+              "zh": "付清尾款",
+              "example": {
+                "en": "Please pay the balance before the machine is shipped.",
+                "zh": "請在機器出貨前付清尾款。"
+              }
+            },
+            {
+              "phrase": "account balance",
+              "zh": "帳戶餘額",
+              "example": {
+                "en": "Check your account balance before you place the order.",
+                "zh": "下訂單前請先確認你的帳戶餘額。"
+              }
+            },
+            {
+              "phrase": "balance due",
+              "zh": "應付餘額",
+              "example": {
+                "en": "The balance due on this invoice is two thousand dollars.",
+                "zh": "這張發票的應付餘額是兩千美元。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "付款",
+              "en": "We will send you a bill for the balance next week.",
+              "zh": "我們下週會寄給你尾款的帳單。"
+            },
+            {
+              "tag": "銀行",
+              "en": "Your balance is shown at the top of the statement.",
+              "zh": "你的餘額顯示在對帳單的最上方。"
+            },
+            {
+              "tag": "會議（動詞）",
+              "en": "We must balance cost and quality in this project.",
+              "zh": "我們在這個專案中必須兼顧成本與品質。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "remainder",
+              "diff": "remainder 泛指「剩下的部分」（時間、物品都可以）；balance 在財務上特指「帳戶餘額或尚未付清的金額」。"
+            }
+          ],
+          "family": [
+            {
+              "w": "deposit",
+              "pos": "n.",
+              "zh": "訂金、存款",
+              "ipa": "/dɪˈpɑːzɪt/",
+              "example": {
+                "en": "We paid a deposit to reserve the meeting room.",
+                "zh": "我們付了訂金來預訂會議室。"
+              }
+            },
+            {
+              "w": "payment",
+              "pos": "n.",
+              "zh": "付款",
+              "ipa": "/ˈpeɪmənt/",
+              "example": {
+                "en": "The first payment is due when the contract is signed.",
+                "zh": "第一筆款項在簽約時到期。"
+              }
+            },
+            {
+              "w": "installment",
+              "pos": "n.",
+              "zh": "分期付款的一期",
+              "ipa": "/ɪnˈstɔːlmənt/",
+              "example": {
+                "en": "You can pay the fee in three installments.",
+                "zh": "你可以分三期付這筆費用。"
+              }
+            },
+            {
+              "w": "invoice",
+              "pos": "n.",
+              "zh": "發票、請款單",
+              "ipa": "/ˈɪnvɔɪs/",
+              "example": {
+                "en": "The invoice shows the total amount and the due date.",
+                "zh": "請款單上列有總金額和到期日。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "unbalanced",
+              "pos": "adj.",
+              "zh": "不平衡的",
+              "ipa": "/ʌnˈbælənst/",
+              "link": "un-（不）+ balanced，不平衡的，像 unhappy、unable 的 un-"
+            },
+            {
+              "w": "imbalance",
+              "pos": "n.",
+              "zh": "失衡、不平衡",
+              "ipa": "/ɪmˈbæləns/",
+              "link": "im-（不）+ balance，變成「不平衡」的名詞，像 impossible 的 im-"
+            }
+          ]
+        },
+        {
+          "text": "contract",
+          "type": "word",
+          "ipa": "/ˈkɑːntrækt/",
+          "pos": "n.",
+          "zh": "合約、契約（動詞 /kənˈtrækt/：簽約承包；收縮）",
+          "en": "a written agreement between people or companies that the law can enforce",
+          "note": "在這篇是名詞，作主旨的標題字：Updated Software Contract 是「更新後的軟體合約」。後面 Under the contract 與 signed contract 都是同一個字。",
+          "forms": [
+            {
+              "w": "contracts",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "合約（複數）",
+              "ipa": "/ˈkɑːntrækts/"
+            },
+            {
+              "w": "contracts",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "簽約承包",
+              "ipa": "/kənˈtrækts/"
+            },
+            {
+              "w": "contracted",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "簽約承包",
+              "ipa": "/kənˈtræktɪd/"
+            },
+            {
+              "w": "contracting",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在簽約承包",
+              "ipa": "/kənˈtræktɪŋ/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "sign a contract",
+              "zh": "簽合約",
+              "example": {
+                "en": "All managers must sign a contract before work begins.",
+                "zh": "所有經理必須在開工前簽署合約。"
+              }
+            },
+            {
+              "phrase": "renew a contract",
+              "zh": "續約",
+              "example": {
+                "en": "We plan to renew the contract next spring.",
+                "zh": "我們打算明年春天續約。"
+              }
+            },
+            {
+              "phrase": "terminate a contract",
+              "zh": "終止合約",
+              "example": {
+                "en": "Either side may terminate the contract with written notice.",
+                "zh": "任何一方都可以書面通知終止合約。"
+              }
+            },
+            {
+              "phrase": "under the contract",
+              "zh": "依據合約",
+              "example": {
+                "en": "Under the contract, the supplier must deliver on time.",
+                "zh": "依據合約，供應商必須準時交貨。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "Please send the signed contract back to me today.",
+              "zh": "請今天把簽好的合約寄回給我。"
+            },
+            {
+              "tag": "採購",
+              "en": "The supplier offered us a one-year contract.",
+              "zh": "供應商向我們提出一年期的合約。"
+            },
+            {
+              "tag": "人資",
+              "en": "Her contract ends in March, so she must decide soon.",
+              "zh": "她的合約三月到期，所以她得盡快決定。"
+            },
+            {
+              "tag": "動詞用法",
+              "en": "The company contracts with a local firm for cleaning.",
+              "zh": "這家公司與一家當地公司簽約負責清潔。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "contact",
+              "diff": "拼法很像：contact /ˈkɑːntækt/ 是「聯絡、接觸」；contract 是「合約」，中間多一個 r。"
+            },
+            {
+              "word": "agreement",
+              "diff": "agreement 是較廣的「協議」，不一定有法律效力；contract 是正式、有法律約束力的合約。"
+            }
+          ],
+          "family": [
+            {
+              "w": "agreement",
+              "pos": "n.",
+              "zh": "協議",
+              "ipa": "/əˈɡriːmənt/",
+              "example": {
+                "en": "We reached an agreement on the delivery date.",
+                "zh": "我們在交貨日期上達成了協議。"
+              }
+            },
+            {
+              "w": "deal",
+              "pos": "n.",
+              "zh": "交易、協議",
+              "ipa": "/diːl/",
+              "example": {
+                "en": "The two firms made a deal on prices.",
+                "zh": "兩家公司就價格達成了交易。"
+              }
+            },
+            {
+              "w": "term",
+              "pos": "n.",
+              "zh": "條件、條款",
+              "ipa": "/tɜːrm/",
+              "example": {
+                "en": "The terms of the contract are clear.",
+                "zh": "合約的條款很清楚。"
+              }
+            },
+            {
+              "w": "proposal",
+              "pos": "n.",
+              "zh": "提案",
+              "ipa": "/prəˈpoʊzəl/",
+              "example": {
+                "en": "We sent a proposal to the client on Monday.",
+                "zh": "我們週一把提案寄給了客戶。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "contractor",
+              "pos": "n.",
+              "zh": "承包商、承包人",
+              "ipa": "/ˈkɑːntræktər/",
+              "link": "contract + -or，做事的人，像 actor、visitor；簽約承包工作的人或公司"
+            },
+            {
+              "w": "contractual",
+              "pos": "adj.",
+              "zh": "合約的、合約規定的",
+              "ipa": "/kənˈtræktʃuəl/",
+              "link": "contract + -ual，變成形容詞，字尾像 annual（文章裡也出現過）"
+            }
+          ]
+        },
+        {
+          "text": "budget",
+          "type": "word",
+          "ipa": "/ˈbʌdʒɪt/",
+          "pos": "n.",
+          "zh": "預算（動詞：編列預算；形容詞：低價的）",
+          "en": "the amount of money a person or company plans to spend",
+          "note": "在這篇指公司為新軟體編列的「預算」。approved the budget 表示財務部已核准這筆預算，後面的合約付款才能進行。",
+          "forms": [
+            {
+              "w": "budgets",
+              "label": "複數／第三人稱單數",
+              "pos": "n./v.",
+              "zh": "預算（複數）；編列預算",
+              "ipa": "/ˈbʌdʒɪts/"
+            },
+            {
+              "w": "budgeted",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "編列預算",
+              "ipa": "/ˈbʌdʒɪtɪd/"
+            },
+            {
+              "w": "budgeting",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在編列預算",
+              "ipa": "/ˈbʌdʒɪtɪŋ/"
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "approve a budget",
+              "zh": "核准預算",
+              "example": {
+                "en": "The board will approve the budget on Friday.",
+                "zh": "董事會將在週五核准預算。"
+              }
+            },
+            {
+              "phrase": "over budget",
+              "zh": "超出預算",
+              "example": {
+                "en": "The project went over budget by ten percent.",
+                "zh": "這個專案超出預算百分之十。"
+              }
+            },
+            {
+              "phrase": "within budget",
+              "zh": "在預算內",
+              "example": {
+                "en": "Please keep the event within budget.",
+                "zh": "請讓活動維持在預算範圍內。"
+              }
+            },
+            {
+              "phrase": "budget cut",
+              "zh": "預算刪減",
+              "example": {
+                "en": "The budget cut forced us to delay hiring.",
+                "zh": "預算刪減迫使我們延後招聘。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "The budget for next year will be discussed on Monday.",
+              "zh": "明年的預算將在週一討論。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please send your budget request to finance by Friday.",
+              "zh": "請在週五前把你的預算申請寄給財務部。"
+            },
+            {
+              "tag": "形容詞",
+              "en": "We booked a budget hotel near the airport.",
+              "zh": "我們訂了機場附近一間平價旅館。"
+            },
+            {
+              "tag": "動詞用法",
+              "en": "We need to budget carefully for travel this year.",
+              "zh": "我們今年必須謹慎編列差旅預算。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "cost",
+              "diff": "budget 是「預計可以花的額度」；cost 是「實際花掉的費用」。"
+            }
+          ],
+          "family": [
+            {
+              "w": "cost",
+              "pos": "n.",
+              "zh": "成本、費用",
+              "ipa": "/kɔːst/",
+              "example": {
+                "en": "The cost of the new system is very high.",
+                "zh": "新系統的成本非常高。"
+              }
+            },
+            {
+              "w": "expense",
+              "pos": "n.",
+              "zh": "開支、費用",
+              "ipa": "/ɪkˈspens/",
+              "example": {
+                "en": "Travel expenses must be reported every month.",
+                "zh": "差旅費用必須每個月申報。"
+              }
+            },
+            {
+              "w": "fund",
+              "pos": "n.",
+              "zh": "資金、基金",
+              "ipa": "/fʌnd/",
+              "example": {
+                "en": "We need more funds to finish the project.",
+                "zh": "我們需要更多資金來完成這個專案。"
+              }
+            },
+            {
+              "w": "forecast",
+              "pos": "n.",
+              "zh": "預測",
+              "ipa": "/ˈfɔːrkæst/",
+              "example": {
+                "en": "The sales forecast helps us plan the budget.",
+                "zh": "銷售預測幫助我們規劃預算。"
+              }
+            }
+          ],
+          "derived": []
         }
       ]
     },
@@ -5822,6 +7138,22 @@
                 "zh": "經理指派兩位工程師負責這個新專案。"
               }
             }
+          ],
+          "derived": [
+            {
+              "w": "allocation",
+              "pos": "n.",
+              "zh": "分配、撥款",
+              "ipa": "/ˌæləˈkeɪʃən/",
+              "link": "allocate + -ion，把「分配」這個動作變成名詞，像 educate → education、locate → location"
+            },
+            {
+              "w": "reallocate",
+              "pos": "v.",
+              "zh": "重新分配",
+              "ipa": "/ˌriːˈæləkeɪt/",
+              "link": "re-（再次）+ allocate，重新分配，像 rewrite、return"
+            }
           ]
         },
         {
@@ -5969,116 +7301,21 @@
                 "zh": "這家公司計畫明年收購一家規模較小的競爭對手。"
               }
             }
-          ]
-        },
-        {
-          "text": "portal",
-          "type": "word",
-          "ipa": "/ˈpɔːrtl/",
-          "pos": "n.",
-          "zh": "入口網站、（客戶）入口平台",
-          "en": "a website where users log in to find information or use services",
-          "note": "在這篇裡 customer portal 指專為客戶設計的線上平台，客戶登入後可查訂單、下載發票、提出服務需求。它不只是介紹公司的網站，重點是「登入後可以辦事」。",
-          "forms": [
-            {
-              "w": "portals",
-              "label": "複數",
-              "pos": "n.",
-              "zh": "入口網站（複數）",
-              "ipa": "/ˈpɔːrtlz/"
-            }
           ],
-          "collocations": [
+          "derived": [
             {
-              "phrase": "customer portal",
-              "zh": "客戶入口平台",
-              "example": {
-                "en": "The customer portal will open to all users next month.",
-                "zh": "客戶入口平台下個月會開放給所有使用者。"
-              }
+              "w": "obtainable",
+              "pos": "adj.",
+              "zh": "可取得的",
+              "ipa": "/əbˈteɪnəbəl/",
+              "link": "obtain + -able，可以被…的，像 readable、available"
             },
             {
-              "phrase": "employee portal",
-              "zh": "員工入口網站",
-              "example": {
-                "en": "You can request leave through the employee portal.",
-                "zh": "您可以透過員工入口網站申請請假。"
-              }
-            },
-            {
-              "phrase": "log in to the portal",
-              "zh": "登入入口網站",
-              "example": {
-                "en": "Please log in to the portal to see your account details.",
-                "zh": "請登入入口網站查看您的帳戶資料。"
-              }
-            },
-            {
-              "phrase": "portal account",
-              "zh": "入口網站帳號",
-              "example": {
-                "en": "Each client will receive a portal account by e-mail.",
-                "zh": "每位客戶都會收到寄到電子郵件的入口網站帳號。"
-              }
-            }
-          ],
-          "examples": [
-            {
-              "tag": "簡報",
-              "en": "The new portal will save our support team a lot of time.",
-              "zh": "新的入口平台會替客服團隊省下很多時間。"
-            },
-            {
-              "tag": "電子郵件",
-              "en": "Details about your order are now available on our portal.",
-              "zh": "您的訂單詳情現在可在我們的入口平台上查看。"
-            },
-            {
-              "tag": "客服",
-              "en": "If you forget your password, use the reset link on the portal.",
-              "zh": "如果您忘記密碼，請使用入口平台上的重設連結。"
-            }
-          ],
-          "confusable": [
-            {
-              "word": "website",
-              "diff": "website 是一般網站，不一定需要登入；portal 通常要登入，提供個人化的資料與服務。"
-            },
-            {
-              "word": "platform",
-              "diff": "platform 範圍更廣，可指各種系統或服務基礎；portal 強調「使用者進入服務的入口」。"
-            }
-          ],
-          "family": [
-            {
-              "w": "access",
-              "pos": "n./v.",
-              "zh": "存取、使用權；取得",
-              "ipa": "/ˈækses/",
-              "example": {
-                "en": "Customers can access their invoices on the portal.",
-                "zh": "客戶可以在入口平台上取得自己的發票。"
-              }
-            },
-            {
-              "w": "login",
-              "pos": "n.",
-              "zh": "登入（帳號密碼）",
-              "ipa": "/ˈlɔːɡɪn/",
-              "example": {
-                "en": "Please enter your login and password to continue.",
-                "zh": "請輸入您的登入帳號和密碼以繼續。"
-              }
-            },
-            {
-              "w": "platform",
-              "pos": "n.",
-              "zh": "平台",
-              "ipa": "/ˈplætfɔːrm/",
-              "example": {
-                "en": "We chose a new platform for online customer service.",
-                "zh": "我們選了一個新的平台來提供線上客服。"
-              }
+              "w": "unobtainable",
+              "pos": "adj.",
+              "zh": "無法取得的",
+              "ipa": "/ˌʌnəbˈteɪnəbəl/",
+              "link": "un-（不）+ obtainable，像 unhappy、unable"
             }
           ]
         },
@@ -6346,7 +7583,8 @@
                 "zh": "公司將舉辦一場線上直播簡報。"
               }
             }
-          ]
+          ],
+          "derived": []
         },
         {
           "text": "track",
@@ -6470,6 +7708,22 @@
                 "en": "Please report your progress to the team on Friday.",
                 "zh": "請在週五向團隊報告你的進度。"
               }
+            }
+          ],
+          "derived": [
+            {
+              "w": "tracker",
+              "pos": "n.",
+              "zh": "追蹤器、追蹤工具",
+              "ipa": "/ˈtrækər/",
+              "link": "track + -er，做事的東西或人，像 printer、computer、worker"
+            },
+            {
+              "w": "tracking",
+              "pos": "n.",
+              "zh": "追蹤、追蹤系統",
+              "ipa": "/ˈtrækɪŋ/",
+              "link": "track + -ing，把「追蹤」這件事變成名詞，像 meeting、building"
             }
           ]
         },
@@ -6609,6 +7863,15 @@
                 "en": "Sales decreased slightly in the second quarter.",
                 "zh": "第二季的銷售額略微下降。"
               }
+            }
+          ],
+          "derived": [
+            {
+              "w": "reduce",
+              "pos": "v.",
+              "zh": "減少、降低",
+              "ipa": "/rɪˈduːs/",
+              "link": "最基礎的詞幹；reduce 把字尾 e 換成 -tion 變成名詞「減少」，像 produce → production、introduce → introduction"
             }
           ]
         }

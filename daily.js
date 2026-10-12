@@ -420,13 +420,20 @@ function renderLaunch() {
 function tslPreset(st) { try { sessionStorage.setItem('tslState', JSON.stringify({ F: { st: st || 'miss' }, open: [], y: 0 })); } catch (e) {} }
 
 /* ===== 維護總覽：週次 × 天數矩陣，格內顯示 mp3／timing 狀態 ===== */
+/* ===== 核心單字卡：顯示「多詞性／多義」摘要（資料來自該字的 extra_vocab 詳解：pos_uses／senses；有 2 筆以上才顯示）===== */
+function dyMulti(x, v) {
+  const e = typeof dnFindExtraAny === 'function' ? dnFindExtraAny(x, v.word) : null; if (!e) return '';
+  const pu = (Array.isArray(e.pos_uses) ? e.pos_uses : []).filter(o => o && o.pos && o.zh), sn = (Array.isArray(e.senses) ? e.senses : []).filter(o => o && o.zh);
+  const line = (t, arr) => arr.length > 1 ? `<p class="text-xs mt-1 text-amber-700 dark:text-amber-300"><b>${t}</b>：${arr.map(o => `${o.pos ? `<i>${esc(o.pos)}</i> ` : ''}${esc(o.zh)}${o.in_passage ? '（本篇）' : ''}`).join('　／　')}</p>` : '';
+  return line('多詞性', pu) + line('多義', sn);
+}
 /* ===== TSL 詳解缺口：核心單字（vocab）裡屬於 TSL、但還沒有 extra_vocab 詳解的字 =====
-   判斷：任何一篇文章的 extra_vocab 有該字（text），或它出現在該篇某個詳解的 forms 裡，就算有詳解（與 Scan總表與音檔.py 同一套）。 */
+   判斷：任何一篇文章的 extra_vocab 有該字（text），或它出現在該篇某個詳解的 forms／derived 裡，就算有詳解（與 Scan總表與音檔.py 同一套）。 */
 function tslGaps() {
   if (typeof TSL_WORDS === 'undefined') return null; // daily.html 沒載入 tsl.js
   const rk = new Map(); TSL_WORDS.forEach((w, i) => { const k = tslNz(w); if (!rk.has(k)) rk.set(k, i + 1); });
   const cov = new Set(); // 同一個字在別篇已有詳解就沿用，所以全部文章一起算
-  DATA.forEach(x => dnExtraOf(x).forEach(e => { cov.add(tslNz(e.text || e.word)); (e.forms || []).forEach(f => { if (f && f.w) cov.add(tslNz(f.w)); }); }));
+  DATA.forEach(x => dnExtraOf(x).forEach(e => { cov.add(tslNz(e.text || e.word)); (e.forms || []).concat(e.derived || []).forEach(f => { if (f && f.w) cov.add(tslNz(f.w)); }); }));
   const groups = []; let total = 0, ok = 0;
   [...DATA].sort((a, b) => a.week - b.week || a.day - b.day).forEach(x => {
     const miss = [];
@@ -656,10 +663,10 @@ function renderDay() {
             <span class="text-xs text-slate-500 italic ml-1">${esc(v.pos)}</span>
             <p class="text-xs text-slate-400">${esc(v.ipa)}</p>
           </div>
-          <button onclick="speak(this.dataset.w)" data-w="${esc(v.word)}" class="text-slate-400 hover:text-indigo-600 text-lg">🔊</button>
+          <button onclick="vplay('${id}', this.dataset.w, '', this.dataset.w)" data-w="${esc(v.word)}" class="text-slate-400 hover:text-indigo-600 text-lg">🔊</button>
         </div>
         <p class="mt-2 text-sm font-semibold text-slate-700 dark:text-slate-300">${esc(v.zh)}</p>
-        <p class="text-xs mt-1 text-slate-500 dark:text-slate-400">搭配詞：${esc(v.col)}</p>
+        <p class="text-xs mt-1 text-slate-500 dark:text-slate-400">搭配詞：${esc(v.col)}</p>${dyMulti(x, v)}
       </div>
       <button onclick="dnOpenVocab(${i})" class="${btn} mt-3 text-xs w-full border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800">詳解 ›</button>
       <button onclick="toggleSave('${k}')" class="${btn} mt-2 text-xs w-full border border-slate-200 dark:border-slate-800 ${S.saved[k] ? 'bg-amber-50 border-amber-300 text-amber-700 dark:bg-amber-950 dark:text-amber-300' : 'hover:bg-slate-50 dark:hover:bg-slate-800'}">
@@ -778,7 +785,7 @@ function renderBook() {
           <div class="flex items-center gap-2">
             <b class="text-base">${esc(w.word)}</b>
             <span class="text-xs text-slate-400">${esc(w.pos)} ${esc(w.ipa)}</span>
-            <button onclick="speak(this.dataset.w)" data-w="${esc(w.word)}" class="text-sm">🔊</button>
+            <button onclick="vplay('${idOf(x)}', this.dataset.w, '', this.dataset.w)" data-w="${esc(w.word)}" class="text-sm">🔊</button>
           </div>
           <p class="text-sm font-medium mt-1">${esc(w.zh)}</p>
           <p class="text-xs text-slate-500 mt-1">搭配詞：${esc(w.col)}</p>
