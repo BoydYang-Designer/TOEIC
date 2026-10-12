@@ -42,7 +42,7 @@ function dnNav(view) { // 往下一層：記住目前頁面與捲動位置，「
 const dnSideBtns = () => `<button onclick="dnNav('marks')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'marks' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">📌 入庫彙整（${dnMarks().length}）</button><button onclick="dnNav('reports')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'reports' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">⚑ 回報彙整（待處理 ${dnOpenRpN()}）</button>`;
 function dnFromLaunch(view) { SEC = 'learn'; cur.stk = [{ v: 'launch', y: 0 }]; cur.view = view; push(); render(); window.scrollTo({ top: 0 }); }
 function dnUp() { // 供 daily.js 的 up() 呼叫；回傳 true 表示已處理
-  const v = cur.view; if (v !== 'marks' && v !== 'reports' && v !== 'detail') return false;
+  const v = cur.view; if (v !== 'marks' && v !== 'reports' && v !== 'detail' && v !== 'bank') return false;
   const p = cur.stk && cur.stk.pop();
   cur.view = p ? p.v : (inMaint() ? 'maint' : (find(cur.w, cur.d) ? 'day' : 'home'));
   if (cur.view === 'launch') SEC = null;
@@ -389,12 +389,19 @@ function dnDaySec(x) {
   let h = `<div class="flex items-center justify-between ${open ? 'mb-3' : 'mb-8'} gap-2 flex-wrap"><button onclick="toggleSec('my')" class="font-bold text-lg cursor-pointer">${open ? '▾' : '▸'} 我的入庫（${ms.length}）</button>
     <button onclick="dnToggleMhl()" class="${btn} ${cur.mhl ? 'bg-sky-100 text-slate-900 dark:bg-sky-400/30 dark:text-slate-100' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${cur.mhl ? '取消標示入庫' : '🔍 在英文文稿標示入庫'}</button></div>`;
   if (open) {
-    h += ms.length
-      ? `<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 mb-8">${ms.map(dnMyCard).join('')}</div>`
-      : `<p class="text-xs text-slate-400 mb-8">在英文文稿上選取不懂的字、片語或句子，按「＋ 入庫」就會收在這裡。</p>`;
+    const ty = cur.myType || 'all', cnt = t => t === 'all' ? ms.length : ms.filter(m => m.type === t).length;
+    const list = ty === 'all' ? ms : ms.filter(m => m.type === ty);
+    const tab = ([t, n]) => `<button onclick="dnMyType('${t}')" class="${btn} !py-1 !px-3 text-xs ${ty === t ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}${cnt(t) ? '' : ' opacity-50'}">${n} <span class="opacity-70">${cnt(t)}</span></button>`;
+    if (ms.length) h += `<div class="flex flex-wrap gap-2 mb-3">${[['all', '全部'], ['word', '單字'], ['phrase', '片語'], ['sentence', '句子']].map(tab).join('')}</div>`;
+    h += !ms.length
+      ? `<p class="text-xs text-slate-400 mb-8">在英文文稿上選取不懂的字、片語或句子，按「＋ 入庫」就會收在這裡。</p>`
+      : list.length
+        ? `<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 mb-8">${list.map(dnMyCard).join('')}</div>`
+        : `<p class="text-xs text-slate-400 mb-8">這個分類還沒有項目。</p>`;
   }
   return h;
 }
+function dnMyType(t) { cur.myType = t; render(); }
 function dnOpenMark(id) { const m = dnMarks().find(q => q.id === id); if (!m) return; if (dnMerged(m)) dnOpenExtra(m.qid, m.text); else dnMarkMenu(id); }
 
 /* ======================= 入庫彙整頁（含 AI 提示詞） ======================= */
@@ -593,18 +600,54 @@ function dnPrompt(qid, only) {
 function dnListText(qid) {
   return dnMarksOf(qid).filter(dnChecked).map(m => `[${DNT[m.type]}] ${m.text}` + (m.type === 'sentence' ? '' : `  —  ${m.ctx}`) + (m.note ? `  （備註：${m.note}）` : '')).join('\n');
 }
+/* ===== 核心多益單字的缺口（還沒入庫的）：none＝完全沒有詳解、gap＝有詳解但缺內容。已入庫的字交給下面一般清單處理，不重複列 ===== */
+function dnCoreGaps(kind) {
+  const seen = new Set(), out = [];
+  dnArts().forEach(x => {
+    const id = idOf(x), list = [];
+    (x.vocab || []).forEach((v, i) => {
+      const t = String((v && v.word) || '').trim(), k = dnKey(t); if (!t || seen.has(k)) return; seen.add(k);
+      if (dnMarks().some(m => dnKey(m.text) === k)) return;
+      const has = !!dnExtraSrc(x, t); if (kind === 'none' ? has : !has) return;
+      const gaps = has ? dnGapsOf({ id: '~', qid: id, text: t, type: /\s/.test(t) ? 'phrase' : 'word' }) : [];
+      if (kind === 'gap' && !gaps.length) return;
+      list.push({ v, t, i, gaps });
+    });
+    if (list.length) out.push({ x, id, list });
+  });
+  return out;
+}
+const dnCoreN = g => g.reduce((s, o) => s + o.list.length, 0);
+function dnCoreAdd(qid, kind, copy) { // 把這篇的核心單字缺口加入入庫；copy＝順便複製只含這些字的 AI 提示詞
+  const o = dnCoreGaps(kind).find(q => q.id === qid); if (!o) return;
+  const only = new Set(); o.list.forEach(it => { dnMarkVocab(o.x, it.v); only.add(dnKey(it.t)); });
+  save();
+  if (copy) { auCopy(dnPrompt(qid, only)); dnToast('已入庫並複製提示詞，貼給 AI'); } else dnToast(`已加入入庫 ${o.list.length} 個字`);
+  render();
+}
+function dnCoreSec(kind) {
+  const g = dnCoreGaps(kind); if (!g.length) return '';
+  const none = kind === 'none', bs = `${btn} ${dnLine} !py-1 !px-2.5 text-xs`;
+  return `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm">${none ? '核心多益單字：還沒有詳解' : '核心多益單字：詳解不完整'} <span class="text-xs font-normal text-slate-400">${dnCoreN(g)}</span></h3>
+    <p class="text-xs text-slate-500 mt-1 leading-relaxed">${none ? '這些字在文章的核心單字裡，但還沒有詳解、也還沒入庫。按「加入入庫並複製提示詞」會把它們入庫，並複製只含這些字的 AI 提示詞。' : '這些字有詳解但缺內容（括號是缺的項目）。按「加入入庫」後，到下方該篇勾選「補齊內容」再複製提示詞。'}</p>`
+    + g.map(o => `<div class="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800"><div class="flex flex-wrap items-center justify-between gap-2"><button onclick="dnGoArt('${o.id}')" class="font-bold text-sm text-indigo-600 dark:text-indigo-400 underline cursor-pointer">${esc(dnArtLabel(o.id))}</button>
+      <div class="flex flex-wrap gap-1.5">${none ? `<button onclick="dnCoreAdd('${o.id}','none',true)" class="${btn} ${dnPri} !py-1 !px-2.5 text-xs">加入入庫並複製提示詞（${o.list.length}）</button>` : ''}<button onclick="dnCoreAdd('${o.id}','${kind}',false)" class="${bs}">加入入庫</button></div></div>
+      <div class="flex flex-wrap gap-1.5 mt-2">${o.list.map(it => `<button onclick="tslOpen(${o.x.week},${o.x.day},${it.i})" class="text-xs rounded-full px-2.5 py-1 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 cursor-pointer">${esc(it.t)}${it.gaps.length ? `（${it.gaps.map(k => dnFillKeys[k] || k).join('、')}）` : ''}</button>`).join('')}</div></div>`).join('')
+    + `</section>`;
+}
 function dnRenderMarks() {
   const all = dnMarks(), pri = all.filter(dnIsPrimary), done = pri.filter(dnMerged).length, todo = pri.length - done; // 同一個字只算一次
-  const f = DN.mf, vis = m => f === 'all' || (f === 'gap' ? dnMerged(m) && dnGapsOf(m).length > 0 : f === 'done' ? dnMerged(m) : !dnMerged(m));
+  const cNone = dnCoreN(dnCoreGaps('none')), cGap = dnCoreN(dnCoreGaps('gap')), f = DN.mf, vis = m => f === 'all' || (f === 'gap' ? dnMerged(m) && dnGapsOf(m).length > 0 : f === 'done' ? dnMerged(m) : !dnMerged(m));
   const ids = Array.from(new Set(all.filter(vis).map(m => m.qid))).sort((a, b) => { const A = dnArt(a), B = dnArt(b); return A && B ? (A.week - B.week) || (A.day - B.day) : a < b ? -1 : 1; });
   const fb = (v, label, n) => `<button onclick="dnSetMf('${v}')" class="${btn} !py-1.5 !px-3 text-xs ${f === v ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${label} <span class="opacity-70">${n}</span></button>`;
   let h = `<header class="mb-4 flex items-center justify-between gap-2"><h2 class="text-xl md:text-2xl font-bold">📌 入庫彙整</h2>${dnBackBtn()}</header>
-    <div class="${card} p-4 mb-4"><div class="flex flex-wrap gap-2">${fb('todo', '待補詳解', todo)}${fb('done', '詳解已寫回', done)}${fb('gap', '未完整詳解', all.filter(m => dnMerged(m) && dnGapsOf(m).length).length)}${fb('all', '全部', pri.length)}</div>
+    <div class="${card} p-4 mb-4"><div class="flex flex-wrap gap-2">${fb('todo', '待補詳解', todo + cNone)}${fb('done', '詳解已寫回', done)}${fb('gap', '未完整詳解', all.filter(m => dnMerged(m) && dnGapsOf(m).length).length + cGap)}${fb('all', '全部', pri.length)}</div>
     <div class="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-slate-200 dark:border-slate-800"><span class="text-xs text-slate-500">排列</span><button onclick="dnSetMg('art')" class="${btn} !py-1.5 !px-3 text-xs ${DN.mg !== 'abc' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">依文章</button><button onclick="dnSetMg('abc')" class="${btn} !py-1.5 !px-3 text-xs ${DN.mg === 'abc' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">A–Z（全域）</button></div>
     <div class="flex flex-wrap gap-2 mt-3 pt-3 border-t border-slate-200 dark:border-slate-800"><button onclick="dnExportMarks()" class="${btn} ${dnLine} !py-1.5 text-xs">匯出入庫 JSON</button>
     <label class="${btn} ${dnLine} !py-1.5 text-xs cursor-pointer">匯入合併 JSON<input type="file" accept=".json,application/json" class="hidden" onchange="dnImportMarks(this)"></label></div>
     <p class="text-xs text-slate-500 mt-3 leading-relaxed"><b>流程：</b>① 在文稿選字入庫 → ② 這裡按「複製 AI 提示詞」貼給 AI → ③ AI 回傳的 JSON 存成 <code>w{週}d{天}_extra.json</code>，放在 daily.json 同資料夾 → ④ 執行 json_merge.py（選「每日文章」）合併 → ⑤ 重新整理網頁，該項目就會顯示「詳解已寫回」，點進去看詳解。<br><b>未完整詳解：</b>已寫回、但缺英文解說／搭配例句／詞性變化發音／相關字音標例句／衍生字／易混淆例句的項目。勾選後，在該區「補齊內容」選擇要補哪些，提示詞會連同現有詳解交給 AI，合併時會整筆取代舊的。<br>入庫只存在這個瀏覽器；在手機入庫、電腦合併時，用上面的「匯出／匯入」搬過去。</p></div>`;
-  if (!ids.length) h += `<p class="text-sm text-slate-400 text-center py-10">${all.length ? '這個分類沒有項目。' : '還沒有入庫。到文章頁選取不懂的字、片語或句子，按「＋ 入庫」。'}</p>`;
+  const coreSec = f === 'todo' ? dnCoreSec('none') : f === 'gap' ? dnCoreSec('gap') : ''; h += coreSec;
+  if (!ids.length && !coreSec) h += `<p class="text-sm text-slate-400 text-center py-10">${all.length ? '這個分類沒有項目。' : '還沒有入庫。到文章頁選取不懂的字、片語或句子，按「＋ 入庫」。'}</p>`;
   if (DN.mg === 'abc') { // 全域 A–Z：不分週次，來源只用小字標示
     const list = all.filter(vis).filter(dnIsPrimary).slice().sort((a, b) => dnKey(a.text).localeCompare(dnKey(b.text))), g = {};
     list.forEach(m => { const c = (dnKey(m.text).replace(/[^a-z]/g, '')[0] || '#').toUpperCase(); (g[c] = g[c] || []).push(m); });
@@ -748,6 +791,120 @@ function dnRenderDetail() {
   h += sec('相關字（語意相近）', list(dnArr(e.family), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${o.w ? dnSpk(xs, e, '_m' + (i + 1), o.w) : ''}<div><b>${esc(o.w || '')}</b> <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''} ${o.pos ? `<i>${esc(o.pos)}</i>` : ''}</span>${o.zh ? `　${esc(o.zh)}` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_mx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}</li>`));
   h += `<div class="flex flex-wrap gap-2 mt-4"><button onclick="up()" class="${btn} ${dnLine}">← 返回</button>${dnRpBtn(idOf(x), '', 'vocab')}</div>`;
   main.innerHTML = `<div id="detail-text">${h}</div><p class="mt-3 text-[0.6875rem] text-slate-400">💡 選取例句或說明裡的英文字、片語或句子，下方會跳出「＋ 入庫」；入庫的字不分週次，全域共用。</p>`;
+}
+
+
+/* ======================= 📚 入庫總覽（學習用：只看、不管理）=======================
+   資料來源：各篇 extra_vocab（已寫回詳解）＋ 入庫清單中還沒有詳解的項目（待補）。同一個字全題庫只算一筆。
+   分頁：單字｜多義單字（senses 或 pos_uses 至少 2 筆）｜片語｜句子｜待補詳解
+   單字、片語、多義單字：A–Z；句子：依文章或依句型模板（pattern）；待補：依文章。 */
+DN.bk = { tab: 'word', q: '', sm: 'art', open: {} }; // open：A–Z 各字母區塊的展開狀態（預設全部收合）
+function dnBankItems(core) { // core＝true：再把「文章核心多益單字裡還沒有詳解、也還沒入庫」的字併進待補詳解
+  const map = new Map();
+  dnArts().forEach(a => dnExtraOf(a).forEach(e => {
+    const t = String(e.text || e.word || '').trim(); if (!t) return;
+    const k = dnKey(t); if (map.has(k)) return;
+    map.set(k, { text: t, e, qid: idOf(a), merged: true, type: e.type || (/\s/.test(t) ? 'phrase' : 'word'), mark: null });
+  }));
+  dnMarks().filter(dnIsPrimary).forEach(m => {
+    const k = dnKey(m.text); if (map.has(k) || !dnArt(m.qid)) return;
+    map.set(k, { text: m.text, e: null, qid: m.qid, merged: false, type: m.type || 'word', mark: m });
+  });
+  if (core) dnArts().forEach(a => (a.vocab || []).forEach(v => {
+    const t = String((v && v.word) || '').trim(), k = dnKey(t); if (!t || map.has(k)) return;
+    map.set(k, { text: t, e: null, qid: idOf(a), merged: false, type: /\s/.test(t) ? 'phrase' : 'word', mark: null, core: true });
+  }));
+  return Array.from(map.values());
+}
+const dnBankKind = it => it.type === 'sentence' ? 'sent' : it.type === 'phrase' ? 'phrase' : 'word';
+function dnMulti(e) { // 多義（同詞性不同意思）與多詞性
+  const f = a => dnArr(a).filter(o => o && typeof o === 'object');
+  const se = f(e && e.senses), us = f(e && e.pos_uses);
+  return { se, us, multi: se.length >= 2 || us.length >= 2 };
+}
+function dnBankTab(it, tab) {
+  const k = dnBankKind(it);
+  if (tab === 'todo') return !it.merged;
+  if (!it.merged) return false;
+  if (tab === 'word') return k === 'word';
+  if (tab === 'multi') return k === 'word' && dnMulti(it.e).multi;
+  if (tab === 'phrase') return k === 'phrase';
+  return k === 'sent';
+}
+function dnBankHay(it) {
+  const e = it.e || {}, m = dnMulti(e);
+  return [it.text, e.zh, e.pattern, it.mark && it.mark.ctx, it.mark && it.mark.note].concat(m.se.map(o => o.zh), m.us.map(o => o.zh)).filter(Boolean).join(' ').toLowerCase();
+}
+function dnBankRow(it) {
+  const e = it.e || {}, k = dnBankKind(it), mu = dnMulti(e), T = esc(it.text), tag = 'text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300';
+  const spk = `<button onclick="vplay('${it.qid}', this.dataset.t, '', this.dataset.t)" data-t="${T}" class="text-slate-400 hover:text-indigo-600 shrink-0 mt-0.5" aria-label="發音">🔊</button>`;
+  let body;
+  if (!it.merged) {
+    const m = it.mark || {};
+    body = `<div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-1.5"><span class="${dnChip} ${DNTC[it.type] || DNTC.word}">${DNT[it.type] || '單字'}</span><b class="text-sm break-words">${T}</b>${it.core ? '<span class="' + dnChip + '">核心單字</span>' : ''}</div>${it.type !== 'sentence' && m.ctx ? `<p class="text-xs text-slate-500 mt-0.5 break-words">${esc(m.ctx)}</p>` : ''}${m.note ? `<p class="text-xs text-amber-700 dark:text-amber-300 mt-0.5 break-words">備註：${esc(m.note)}</p>` : ''}</div><button onclick="dnBankCopy('${it.qid}', this.dataset.t, this)" data-t="${T}" class="${btn} ${dnLine} !py-1 !px-2 text-xs shrink-0">複製提示詞</button>`;
+  } else if (k === 'sent') {
+    body = `<div class="min-w-0 flex-1 cursor-pointer" onclick="dnBankOpen(this)" data-q="${it.qid}" data-t="${T}"><p class="text-sm leading-relaxed">${T}</p>${e.zh ? `<p class="text-xs text-slate-500 mt-0.5">${esc(e.zh)}</p>` : ''}${e.pattern && DN.bk.sm !== 'pat' ? `<p class="text-xs text-indigo-600 dark:text-indigo-400 mt-0.5">🧩 ${esc(e.pattern)}</p>` : ''}</div>`;
+  } else {
+    const chips = k === 'word' ? `${mu.se.length >= 2 ? `<span class="${tag}">多義</span>` : ''}${mu.us.length >= 2 ? `<span class="${tag}">多詞性</span>` : ''}` : '';
+    const lines = DN.bk.tab === 'multi' ? `${mu.us.length >= 2 ? `<p class="text-xs text-slate-600 dark:text-slate-300 mt-1"><b>詞性</b>　${mu.us.map(o => `${o.pos ? `<i>${esc(o.pos)}</i> ` : ''}${esc(o.zh || '')}`).join('；')}</p>` : ''}${mu.se.length >= 2 ? `<p class="text-xs text-slate-600 dark:text-slate-300 mt-1"><b>意思</b>　${mu.se.map(o => `${o.pos ? `<i>${esc(o.pos)}</i> ` : ''}${esc(o.zh || '')}`).join('；')}</p>` : ''}` : '';
+    body = `<div class="min-w-0 flex-1 cursor-pointer" onclick="dnBankOpen(this)" data-q="${it.qid}" data-t="${T}"><div class="flex flex-wrap items-baseline gap-x-1.5"><b class="text-sm break-words">${T}</b>${e.ipa ? `<span class="text-xs text-slate-500">${esc(e.ipa)}</span>` : ''}${k === 'word' && e.pos ? `<i class="text-xs text-slate-500">${esc(e.pos)}</i>` : ''}${e.zh ? `<span class="text-sm">${esc(e.zh)}</span>` : ''}${chips}</div>${lines}</div>`;
+  }
+  return `<div class="py-2 flex items-start gap-2">${spk}${body}${it.merged ? '<span class="text-slate-300 dark:text-slate-600 shrink-0 mt-0.5">›</span>' : ''}</div>`;
+}
+const dnBankArtOrder = (a, b) => { const A = dnArt(a.qid), B = dnArt(b.qid); return A && B ? (A.week - B.week) || (A.day - B.day) : 0; };
+function dnBankFold(key, on) { if (!DN.bk.q) DN.bk.open[key] = !!on; } // 搜尋中是強制展開，不記錄
+function dnBankGroup(title, rows, id, fold) {
+  const body = `<div class="divide-y divide-slate-100 dark:divide-slate-800">${rows.map(dnBankRow).join('')}</div>`;
+  if (fold) { // 可收合（A–Z）：預設收合；搜尋時自動展開，才看得到結果
+    const key = DN.bk.tab + ':' + fold, op = !!DN.bk.q || !!DN.bk.open[key];
+    return `<details ${id ? `id="${id}"` : ''} ${op ? 'open' : ''} ontoggle="dnBankFold('${key}',this.open)" class="${card} p-3 mb-3 scroll-mt-20 group"><summary class="cursor-pointer select-none list-none flex items-center gap-2 text-sm font-bold [&::-webkit-details-marker]:hidden"><span class="inline-block text-[0.625rem] text-slate-400 transition-transform group-open:rotate-90">▶</span><span>${title}</span><span class="text-xs font-normal text-slate-400">${rows.length}</span></summary><div class="mt-1">${body}</div></details>`;
+  }
+  return `<section class="${card} p-3 mb-3"><h3 ${id ? `id="${id}"` : ''} class="text-sm font-bold mb-1 scroll-mt-20">${title} <span class="text-xs font-normal text-slate-400">${rows.length}</span></h3><div class="divide-y divide-slate-100 dark:divide-slate-800">${rows.map(dnBankRow).join('')}</div></section>`;
+}
+function dnBankList() {
+  const B = DN.bk, all = dnBankItems(true), q = dnKey(B.q);
+  const arr = all.filter(it => dnBankTab(it, B.tab) && (!q || dnBankHay(it).includes(q)));
+  if (!arr.length) return `<p class="text-sm text-slate-400 text-center py-10">${!all.length ? '還沒有入庫。到文章頁選取不懂的字、片語或句子，按「＋ 入庫」。' : q ? '沒有符合搜尋的項目。' : '這個分類目前沒有項目。'}</p>`;
+  const artTitle = qid => `<button onclick="dnGoArt('${qid}')" class="text-indigo-600 dark:text-indigo-400 underline cursor-pointer">${esc(dnArtLabel(qid))}</button>`;
+  if (B.tab === 'todo' || (B.tab === 'sent' && B.sm !== 'pat')) { // 依文章
+    const g = {}; arr.slice().sort((a, b) => dnBankArtOrder(a, b) || dnKey(a.text).localeCompare(dnKey(b.text))).forEach(it => (g[it.qid] = g[it.qid] || []).push(it));
+    return Object.keys(g).map(qid => dnBankGroup(artTitle(qid), g[qid])).join('');
+  }
+  if (B.tab === 'sent') { // 依句型模板：沒有 pattern 的放「未分類」
+    const g = {}, label = {};
+    arr.slice().sort(dnBankArtOrder).forEach(it => { const p = String((it.e && it.e.pattern) || '').trim(), k = p ? dnKey(p) : ''; (g[k] = g[k] || []).push(it); if (p) label[k] = label[k] || p; });
+    const keys = Object.keys(g).sort((a, b) => (a === '') - (b === '') || a.localeCompare(b));
+    return keys.map(k => dnBankGroup(k ? `🧩 ${esc(label[k])}` : '未分類（還沒有句型模板，可到「入庫彙整」補齊）', g[k])).join('');
+  }
+  const g = {}; arr.slice().sort((a, b) => dnKey(a.text).localeCompare(dnKey(b.text))).forEach(it => { const c = (dnKey(it.text).replace(/[^a-z]/g, '')[0] || '#').toUpperCase(); (g[c] = g[c] || []).push(it); });
+  const ks = Object.keys(g).sort(), jid = c => 'bk-' + (c === '#' ? 'sym' : c);
+  return `<div class="flex flex-wrap gap-1 mb-3">${ks.map(c => `<button onclick="dnBankJump('${jid(c)}')" class="${btn} bg-slate-100 dark:bg-slate-800 !py-1 !px-2.5 text-xs">${c}</button>`).join('')}<span class="flex-1"></span><button onclick="dnBankAll(true)" class="${btn} ${dnLine} !py-1 !px-2.5 text-xs">全部展開</button><button onclick="dnBankAll(false)" class="${btn} ${dnLine} !py-1 !px-2.5 text-xs">全部收合</button></div>` + ks.map(c => dnBankGroup(c, g[c], jid(c), c)).join('');
+}
+function dnBankJump(id) { const el = document.getElementById(id); if (!el) return; if (el.tagName === 'DETAILS') el.open = true; el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } // 跳到字母時自動展開該區
+function dnBankAll(on) { document.querySelectorAll('#bank-list details').forEach(d => { d.open = on; }); }
+function dnBankQ(v) { DN.bk.q = v; const el = document.getElementById('bank-list'); if (el) el.innerHTML = dnBankList(); } // 只更新清單，輸入框不重繪（才不會每打一個字就失去焦點）
+function dnBankTabSet(t) { DN.bk.tab = t; render(); window.scrollTo({ top: 0 }); }
+function dnBankSm(v) { DN.bk.sm = v; render(); }
+function dnBankCopy(qid, text, b) { // 待補詳解：只為這個字複製 AI 提示詞（核心單字會順便入庫，提示詞需要所在句）
+  const x = dnArt(qid); if (!x) return;
+  let m = dnMarksOf(qid).find(q => dnKey(q.text) === dnKey(text));
+  if (!m) { const v = (x.vocab || []).find(v => dnKey(v.word) === dnKey(text)); if (!v) return; m = dnMarkVocab(x, v); save(); }
+  auCopy(dnPrompt(qid, new Set([dnKey(m.text)]))); dnToast('已複製這個字的提示詞，貼給 AI');
+}
+function dnBankOpen(el) { dnOpenExtra(el.dataset.q, el.dataset.t); }
+const dnBankBtn = () => `<button onclick="dnNav('bank')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'bank' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">📚 入庫總覽（${dnBankItems().length}）</button>`;
+function dnRenderBank() {
+  const B = DN.bk, all = dnBankItems(true), cnt = t => all.filter(it => dnBankTab(it, t)).length;
+  const tabs = [['word', '單字'], ['multi', '多義單字'], ['phrase', '片語'], ['sent', '句子'], ['todo', '待補詳解']];
+  const tb = ([t, n]) => `<button onclick="dnBankTabSet('${t}')" class="${btn} !py-1.5 !px-3 text-xs ${B.tab === t ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${n} <span class="opacity-70">${cnt(t)}</span></button>`;
+  const sm = (v, n) => `<button onclick="dnBankSm('${v}')" class="${btn} !py-1 !px-3 text-xs ${B.sm === v ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${n}</button>`;
+  main.innerHTML = `<header class="mb-4 flex items-center justify-between gap-2"><h2 class="text-xl md:text-2xl font-bold">📚 入庫總覽</h2>${dnBackBtn()}</header>
+    <div class="${card} p-3 mb-4"><div class="flex flex-wrap gap-2">${tabs.map(tb).join('')}</div>
+    <input id="bank-q" type="search" value="${esc(B.q)}" placeholder="搜尋英文或中文…" oninput="dnBankQ(this.value)" class="${dnInp} mt-3 w-full">
+    ${B.tab === 'sent' ? `<div class="flex flex-wrap items-center gap-2 mt-3"><span class="text-xs text-slate-500">排列</span>${sm('art', '依文章')}${sm('pat', '依句型模板')}</div>` : ''}
+    ${B.tab === 'multi' ? '<p class="text-xs text-slate-500 mt-3 leading-relaxed">「詞性」是同一個拼法的不同詞性用法，「意思」是同詞性裡的不同意思；點一列看完整詳解。</p>' : ''}
+    ${B.tab === 'todo' ? `<p class="text-xs text-slate-500 mt-3 leading-relaxed">這些是還沒有詳解的項目：你入庫的，加上文章核心多益單字裡還沒補詳解的（標「核心單字」）。每列可直接「複製提示詞」；也可到 <button onclick="dnNav('marks')" class="underline text-indigo-600 dark:text-indigo-400 cursor-pointer">📌 入庫彙整</button> 複製 AI 提示詞，合併回 daily.json 後就會出現在這裡的其他分頁。</p>` : ''}</div>
+    <div id="bank-list">${dnBankList()}</div>`;
 }
 
 /* ======================= 掛進 daily.js 的小工具 ======================= */

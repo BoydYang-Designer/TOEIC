@@ -1,0 +1,236 @@
+{
+  "week": 1,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "early termination",
+      "type": "phrase",
+      "zh": "提前終止（合約或服務）",
+      "en": "ending a contract or service before the planned end date",
+      "note": "在這篇文章裡指合約中的「提前終止」條款：如果部門在最初十二個月結束前取消服務，就會被加收費用。這是合約與租約中很常見的用語，語氣正式，常和 clause、fee、penalty 一起出現。",
+      "pattern": "early termination of + 合約／服務；early termination clause／fee／penalty",
+      "grammar_note": "early termination 在這裡是不可數名詞，不加 a 也不加 s；後面要接「終止的對象」時用 of（early termination of the contract），不用 for。",
+      "examples": [
+        {
+          "tag": "合約",
+          "en": "Early termination of the lease will result in a penalty.",
+          "zh": "提前終止租約將會產生違約金。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please check whether early termination carries any extra fee.",
+          "zh": "請確認提前終止是否需要支付額外費用。"
+        },
+        {
+          "tag": "會議",
+          "en": "The early termination clause protects the vendor from sudden losses.",
+          "zh": "提前終止條款可以保護廠商免於突然的損失。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "early cancellation",
+          "diff": "意思幾乎相同；cancellation 較口語，常指訂單、預約或服務，termination 較正式，常指合約或僱用關係。",
+          "example": {
+            "en": "Early cancellation of the service requires thirty days' written notice.",
+            "zh": "提前取消這項服務必須在三十天前以書面通知。"
+          }
+        },
+        {
+          "phrase": "terminate early",
+          "diff": "terminate early 是動詞用法，主詞通常是簽約的一方；early termination 是名詞，用來指這件事或這條條款。",
+          "example": {
+            "en": "Either side may terminate early by giving thirty days' written notice.",
+            "zh": "任何一方都可以提前三十天書面通知而提前終止。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "expiration",
+          "diff": "expiration 是合約期限屆滿、自然結束；early termination 是還沒到期就提前結束。",
+          "example": {
+            "en": "The contract's expiration date is December 31, so no fee applies.",
+            "zh": "合約的到期日是十二月三十一日，所以不收取費用。"
+          }
+        },
+        {
+          "word": "early renewal",
+          "diff": "early renewal 是提前「續約」，合約會延續下去；early termination 是提前「結束」合約，兩者方向相反。",
+          "example": {
+            "en": "Early renewal of the contract gives you a five percent discount.",
+            "zh": "提前續約可享有百分之五的折扣。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "Under the contract, the company will pay 40 percent of the total fee when the agreement is signed and the remaining balance within thirty days after installation.",
+      "type": "sentence",
+      "zh": "依照合約規定，公司將在協議簽署時支付總費用的百分之四十，其餘尾款則在安裝完成後三十天內付清。",
+      "note": "正式的合約付款條款說明，語氣客觀中性，用來清楚交代「何時付多少」的時程，讓區域經理了解預算如何分期支出。",
+      "chunks": [
+        {
+          "en": "Under the contract,",
+          "zh": "依照合約規定"
+        },
+        {
+          "en": "the company will pay",
+          "zh": "公司將支付"
+        },
+        {
+          "en": "40 percent of the total fee",
+          "zh": "總費用的百分之四十"
+        },
+        {
+          "en": "when the agreement is signed",
+          "zh": "在協議簽署時"
+        },
+        {
+          "en": "and the remaining balance",
+          "zh": "以及其餘的尾款"
+        },
+        {
+          "en": "within thirty days after installation.",
+          "zh": "在安裝後三十天內"
+        }
+      ],
+      "structure": "Under + 文件, 主詞 + will pay + 比例 + of + 總額 + when + 子句 ＋ and ＋ 餘額（省略 will pay）＋ within + 期間 + after + 事件",
+      "grammar": [
+        {
+          "point": "Under the contract",
+          "explain": "under 在這裡表示「依據、按照（合約、規定、法律）」，不是「在…下面」。常見搭配：under the terms of、under the agreement、under company policy。"
+        },
+        {
+          "point": "and 後面省略重複的動詞",
+          "explain": "and the remaining balance 後面省略了 will pay（the company will pay … and (will pay) the remaining balance …），兩筆款項共用同一個動詞，讀長句時要先補回來。"
+        },
+        {
+          "point": "within ＋ 期間 ＋ after ＋ 事件",
+          "explain": "within thirty days 是「三十天以內」，after installation 說明從哪個時間點開始算。合起來是「安裝之後的三十天內」，不是剛好第三十天。"
+        }
+      ],
+      "pattern": "Under + 文件, 主詞 + will pay + 比例 + when + 事件 + and + 餘額 + within + 期間 + after + 事件",
+      "paraphrase": [
+        {
+          "en": "According to the contract, the company must pay 40 percent of the total fee at signing and the rest within thirty days of installation.",
+          "zh": "根據合約，公司必須在簽約時支付總費用的百分之四十，其餘則在安裝後三十天內付清。"
+        },
+        {
+          "en": "As stated in the agreement, 40 percent of the fee is due at signing, and the balance is due within thirty days after installation.",
+          "zh": "如協議所述，費用的百分之四十在簽約時到期，尾款則在安裝後三十天內到期。"
+        }
+      ],
+      "examples": [
+        {
+          "en": "Under the agreement, we will pay half now and the rest within ten days.",
+          "zh": "依照協議，我們現在先付一半，其餘在十天內付清。"
+        },
+        {
+          "en": "Under the plan, the client pays 30 percent upfront and the balance after delivery.",
+          "zh": "依照這個方案，客戶先付百分之三十，尾款在交貨後支付。"
+        }
+      ],
+      "key_words": [
+        {
+          "w": "Under the contract",
+          "zh": "依照合約規定"
+        },
+        {
+          "w": "agreement",
+          "ipa": "/əˈɡriːmənt/",
+          "pos": "n.",
+          "zh": "協議、合約"
+        },
+        {
+          "w": "remaining balance",
+          "zh": "剩餘的尾款"
+        },
+        {
+          "w": "installation",
+          "ipa": "/ˌɪnstəˈleɪʃən/",
+          "pos": "n.",
+          "zh": "安裝"
+        }
+      ]
+    },
+    {
+      "text": "In particular, check the clause concerning early termination",
+      "type": "sentence",
+      "zh": "尤其請仔細檢查關於提前終止的條款。",
+      "note": "緊接在「請仔細審閱合約」之後，從整份合約中點出最需要留意的一項；語氣客氣但明確，是對區域經理的重點提醒。",
+      "chunks": [
+        {
+          "en": "In particular,",
+          "zh": "尤其是"
+        },
+        {
+          "en": "check",
+          "zh": "請檢查"
+        },
+        {
+          "en": "the clause",
+          "zh": "那一條條款"
+        },
+        {
+          "en": "concerning early termination",
+          "zh": "關於提前終止的"
+        }
+      ],
+      "structure": "In particular, + V（祈使句）＋ the + N（條款）＋ concerning + N（主題）",
+      "grammar": [
+        {
+          "point": "祈使句省略主詞",
+          "explain": "check the clause… 是祈使句，主詞 you 被省略，直接用原形動詞開頭，用於指示或提醒。前面的 In particular 先把注意力從「整份合約」縮小到其中一項。"
+        },
+        {
+          "point": "concerning ＋ 名詞（= about）",
+          "explain": "concerning 當介系詞，意思是「關於」，放在名詞後面修飾它：the clause concerning early termination 就是「關於提前終止的那條條款」。比 about 正式，常見於合約與公文。"
+        }
+      ],
+      "pattern": "In particular, + V + the + N + concerning + 主題",
+      "paraphrase": [
+        {
+          "en": "Please pay special attention to the clause about early termination.",
+          "zh": "請特別留意關於提前終止的條款。"
+        },
+        {
+          "en": "Above all, make sure you read the section on ending the contract early.",
+          "zh": "最重要的是，請務必讀一下關於提前結束合約的那一段。"
+        }
+      ],
+      "examples": [
+        {
+          "en": "In particular, review the section regarding payment terms.",
+          "zh": "尤其請審閱關於付款條件的那一段。"
+        },
+        {
+          "en": "In particular, confirm the details concerning the delivery schedule.",
+          "zh": "尤其請確認關於交貨時程的細節。"
+        }
+      ],
+      "key_words": [
+        {
+          "w": "In particular",
+          "zh": "尤其、特別是"
+        },
+        {
+          "w": "clause",
+          "ipa": "/klɔːz/",
+          "pos": "n.",
+          "zh": "（合約的）條款"
+        },
+        {
+          "w": "concerning",
+          "ipa": "/kənˈsɜːrnɪŋ/",
+          "pos": "prep.",
+          "zh": "關於"
+        },
+        {
+          "w": "early termination",
+          "zh": "提前終止"
+        }
+      ]
+    }
+  ]
+}

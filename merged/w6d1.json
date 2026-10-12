@@ -1,0 +1,156 @@
+{
+  "week": 6,
+  "day": 1,
+  "tag": "新線上用品申請系統上線通知",
+  "subtopic": "辦公資訊系統與用品",
+  "type": "Reading",
+  "level": {
+    "score": 730,
+    "range": "680-780",
+    "cefr": "B2",
+    "why": "以關係子句、被動語態與 because／since 引導的原因子句組成較長句子，並出現 familiarize、documentation 等較抽象的系統用語；需整合「先閱讀文件、再申請、核准後送達」等多處資訊，但整體結構清楚，比上週稍易。"
+  },
+  "passage": "To: All Staff\nFrom: Information Technology Department\nSubject: New Supply Request System\n\nStarting next month, all office supply and equipment requests must be submitted through the company's new online system, which replaces the paper forms that have been used until now. Because the system was designed to be used without special training, most employees should find it easy to navigate. However, we ask everyone to familiarize themselves with the user documentation, which is available on the intranet, before sending a first request.\n\nWhen filling out a request, please be descriptive about the item you need, since vague entries are likely to delay approval. Requests approved by a supervisor will be delivered within three business days. Employees who experience problems may call the IT hotline, which is staffed from 8 A.M. to 6 P.M. on weekdays. The new system received exceptional reviews from the staff who tested it during the trial period, and we are confident that the change will go smoothly.",
+  "zh": "收件人：全體員工\n寄件人：資訊科技部\n主旨：新的用品申請系統\n\n從下個月起，所有辦公用品與設備的申請都必須透過公司新的線上系統提交，這個系統將取代目前一直使用的紙本表單。由於這套系統設計成不需要特別訓練就能使用，大多數員工應該會覺得操作起來很容易。不過，我們請每位同仁在送出第一筆申請之前，先熟悉內部網站上提供的使用者文件。\n\n填寫申請時，請具體描述您需要的物品，因為含糊的填寫內容很可能會延誤核准。經主管核准的申請將在三個工作天內送達。遇到問題的員工可以撥打資訊部門的服務專線，專線在平日上午八點至下午六點有人接聽。新系統在試用期間獲得參與測試的員工極佳的評價，我們有信心這次的轉換會順利進行。",
+  "vocab": [
+    {
+      "word": "familiarize",
+      "ipa": "/fəˈmɪljəraɪz/",
+      "pos": "v.",
+      "col": "familiarize oneself with / familiarize staff",
+      "zh": "使熟悉"
+    },
+    {
+      "word": "documentation",
+      "ipa": "/ˌdɑːkjumenˈteɪʃn/",
+      "pos": "n.",
+      "col": "user documentation / technical documentation",
+      "zh": "文件、說明資料"
+    },
+    {
+      "word": "descriptive",
+      "ipa": "/dɪˈskrɪptɪv/",
+      "pos": "adj.",
+      "col": "descriptive title / be descriptive",
+      "zh": "描述性的、具體描述的"
+    },
+    {
+      "word": "hotline",
+      "ipa": "/ˈhɑːtlaɪn/",
+      "pos": "n.",
+      "col": "call the hotline / support hotline",
+      "zh": "服務專線、熱線"
+    },
+    {
+      "word": "exceptional",
+      "ipa": "/ɪkˈsepʃənl/",
+      "pos": "adj.",
+      "col": "exceptional service / exceptional reviews",
+      "zh": "傑出的、極佳的"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the main purpose of the memo?",
+      "opts": [
+        "To invite employees to a training session",
+        "To announce a new way of requesting office supplies",
+        "To report a problem with the old paper forms",
+        "To introduce the members of the IT team"
+      ],
+      "ans": 1,
+      "why": [
+        "錯誤：文中只請員工自行閱讀使用者文件，並沒有提到任何訓練課程。",
+        "正解：備忘錄通知下個月起所有用品與設備申請都改用新的線上系統。",
+        "錯誤：文中說線上系統取代紙本表單，但沒有說紙本表單出了問題。",
+        "錯誤：文中提到 IT 部門與服務專線，但沒有介紹團隊成員。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What are employees asked to do before they send their first request?",
+      "opts": [
+        "Get approval from a supervisor",
+        "Call the IT hotline",
+        "Attend the trial period",
+        "Read the user documentation"
+      ],
+      "ans": 3,
+      "why": [
+        "錯誤：主管核准是在員工送出申請之後才發生，不是送出前要做的事。",
+        "錯誤：服務專線是遇到問題時才撥打，並非第一次申請前的要求。",
+        "錯誤：試用期是新系統已經完成的測試階段，並不是要求員工參加的事項。",
+        "正解：文中請每位同仁在送出第一筆申請前，先熟悉內部網站上的使用者文件。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What is indicated about the new system?",
+      "opts": [
+        "It has already been tested by some staff members.",
+        "It will replace the IT hotline.",
+        "It requires special training before use.",
+        "It can only be used by supervisors."
+      ],
+      "ans": 0,
+      "why": [
+        "正解：文中提到部分員工在試用期間測試過新系統，並給予極佳評價。",
+        "錯誤：服務專線仍然提供給遇到問題的員工，並沒有被取代。",
+        "錯誤：文中說系統設計成不需要特別訓練就能使用。",
+        "錯誤：一般員工負責提出申請，主管只負責核准，並非只有主管能使用。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "______ the new software is easy to use, some employees may still need help at first.",
+      "opts": [
+        "Despite",
+        "Whether",
+        "Although",
+        "Unless"
+      ],
+      "ans": 2,
+      "why": [
+        "錯誤：Despite 是介系詞，後面要接名詞或動名詞，不能接完整子句。",
+        "錯誤：Whether 引導「是否」的名詞子句或讓步子句，需搭配 or not，語意不符。",
+        "正解：Although 引導讓步子句，表示「雖然容易使用，但仍可能需要協助」。",
+        "錯誤：Unless 表示「除非」，不符合前後句的轉折關係。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The IT department will provide ______ assistance to anyone who has trouble logging in.",
+      "opts": [
+        "technician",
+        "technical",
+        "technique",
+        "technically"
+      ],
+      "ans": 1,
+      "why": [
+        "錯誤：technician 是名詞（技術人員），不能直接修飾 assistance。",
+        "正解：空格需要形容詞修飾名詞 assistance，technical assistance 意為「技術協助」。",
+        "錯誤：technique 是名詞（技巧、技術），不能當形容詞使用。",
+        "錯誤：technically 是副詞，不能修飾名詞。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "All data stored on the old server must be ______ to the new system by Friday.",
+      "opts": [
+        "transfer",
+        "transfers",
+        "transferring",
+        "transferred"
+      ],
+      "ans": 3,
+      "why": [
+        "錯誤：must be 之後要接過去分詞表示被動，不能用原形動詞。",
+        "錯誤：transfers 是第三人稱單數形式，無法接在 must be 之後。",
+        "錯誤：transferring 是現在分詞，會變成進行式，語意是「正在轉移」，而資料是被轉移的對象。",
+        "正解：資料是「被轉移」，用被動語態 must be transferred。"
+      ]
+    }
+  ]
+}

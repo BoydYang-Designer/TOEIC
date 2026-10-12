@@ -1,0 +1,152 @@
+{
+  "week": 1,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "concerning",
+      "type": "word",
+      "lemma": "concern",
+      "ipa": "/kənˈsɜːrnɪŋ/",
+      "pos": "prep.",
+      "zh": "關於、有關",
+      "en": "about; related to something",
+      "note": "在這篇文章裡 concerning 是介系詞，意思等於 about，用來說明 clause 的內容：「有關提前終止的條款」。比 about 正式，常見於合約、公告與公文。",
+      "grammar_note": "concerning 當介系詞時，後面直接接名詞，不需要再加 about 或 of；也常放在名詞後面修飾它，如 the clause concerning early termination。",
+      "forms": [
+        { "w": "concerns", "label": "第三人稱單數／名詞複數", "pos": "v.", "zh": "與…有關；使擔心", "ipa": "/kənˈsɜːrnz/" },
+        { "w": "concerned", "label": "過去式／過去分詞", "pos": "v.", "zh": "與…有關；使擔心", "ipa": "/kənˈsɜːrnd/" }
+      ],
+      "collocations": [
+        {
+          "phrase": "information concerning",
+          "zh": "有關…的資訊",
+          "example": { "en": "Please send us all information concerning the damaged shipment.", "zh": "請把所有有關受損貨物的資訊寄給我們。" }
+        },
+        {
+          "phrase": "policy concerning",
+          "zh": "有關…的政策",
+          "example": { "en": "The company has a new policy concerning business travel.", "zh": "公司有一項有關出差的新政策。" }
+        },
+        {
+          "phrase": "concerning the matter",
+          "zh": "關於這件事",
+          "example": { "en": "I will call you tomorrow concerning the matter we discussed.", "zh": "關於我們討論過的那件事，我明天會打電話給你。" }
+        }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "I have a few questions concerning the delivery schedule.", "zh": "我有幾個關於交貨時程的問題。" },
+        { "tag": "合約", "en": "Please read the section concerning payment terms before you sign.", "zh": "簽約前請先閱讀有關付款條款的部分。" },
+        { "tag": "會議", "en": "We will discuss the new rules concerning overtime pay at noon.", "zh": "我們中午會討論有關加班費的新規定。" },
+        { "tag": "公告", "en": "Employees with questions concerning the move should contact the HR office.", "zh": "對搬遷有疑問的員工請聯絡人事部門。" },
+        { "tag": "報告（形容詞）", "en": "The latest sales figures for the Asian market are concerning.", "zh": "亞洲市場最新的銷售數字令人擔憂。" }
+      ],
+      "confusable": [
+        {
+          "word": "concerned",
+          "diff": "concerned 是形容詞，指「擔心的」或「有關的」；concerning 是介系詞，意思是「關於」。",
+          "usage": "concerning 後面直接接名詞（concerning the clause）；concerned 常用 be concerned about，或放在名詞後面如 the people concerned。",
+          "example": { "en": "The manager is concerned about the rising cost of materials.", "zh": "經理對原料成本上升感到擔心。" }
+        },
+        {
+          "word": "considering",
+          "diff": "considering 也是介系詞，但意思是「考慮到」，不是「關於」。",
+          "example": { "en": "Considering the high cost, we decided to wait until next year.", "zh": "考慮到成本很高，我們決定等到明年。" }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "regarding",
+          "diff": "和 concerning 幾乎同義，常出現在電子郵件開頭，語氣一樣正式。",
+          "example": { "en": "I am writing regarding the invoice you sent last week.", "zh": "我寫信是想詢問你上週寄來的請款單。" }
+        },
+        {
+          "phrase": "about",
+          "diff": "最口語、最通用，正式文件裡常用 concerning 或 regarding 取代。",
+          "example": { "en": "We have several questions about the new contract terms.", "zh": "我們對新的合約條款有幾個問題。" }
+        },
+        {
+          "phrase": "with regard to",
+          "diff": "比 concerning 更正式，通常放在句首，後面接名詞。",
+          "example": { "en": "With regard to payment, please contact the finance department.", "zh": "關於付款，請聯絡財務部門。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "regarding",
+          "pos": "prep.",
+          "zh": "關於",
+          "ipa": "/rɪˈɡɑːrdɪŋ/",
+          "example": { "en": "Regarding your request, we will reply by Friday.", "zh": "關於你的要求，我們會在星期五前回覆。" }
+        },
+        {
+          "w": "relevant",
+          "pos": "adj.",
+          "zh": "有關的",
+          "ipa": "/ˈreləvənt/",
+          "example": { "en": "Please attach all relevant documents to your application.", "zh": "請把所有相關文件附在申請書上。" }
+        },
+        {
+          "w": "matter",
+          "pos": "n.",
+          "zh": "事情、事項",
+          "ipa": "/ˈmætɚ/",
+          "example": { "en": "This matter should be handled by the legal team.", "zh": "這件事應該由法務團隊處理。" }
+        },
+        {
+          "w": "issue",
+          "pos": "n.",
+          "zh": "議題、問題",
+          "ipa": "/ˈɪʃuː/",
+          "example": { "en": "We need to solve this payment issue before the audit.", "zh": "我們必須在稽核前解決這個付款問題。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "w": "concerning",
+          "pos": "prep.",
+          "ipa": "/kənˈsɜːrnɪŋ/",
+          "zh": "關於",
+          "in_passage": true,
+          "example": { "en": "Please check the clause concerning early termination fees.", "zh": "請檢查有關提前終止費用的條款。" }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/kənˈsɜːrn/",
+          "zh": "與…有關；使擔心",
+          "example": { "en": "The new rule concerns all department managers in our region.", "zh": "這項新規定與我們區域的所有部門經理有關。" }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/kənˈsɜːrn/",
+          "zh": "擔憂；關心的事",
+          "example": { "en": "Safety is our main concern during the installation.", "zh": "安裝期間，安全是我們最關心的事。" }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "與…有關、關於",
+          "en": "to be about something or to involve it",
+          "in_passage": true,
+          "distinguish": "concerning 是 concern 的 -ing 形，在文章裡當介系詞用，意思就是「關於」。",
+          "example": { "en": "This email concerns the changes to your service contract.", "zh": "這封電子郵件是關於你服務合約的變更。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "使擔心",
+          "en": "to make someone worry",
+          "distinguish": "主詞通常是事情，受詞是人，如 The delay concerns us。",
+          "example": { "en": "The late payment concerns the finance manager very much.", "zh": "這筆逾期付款讓財務經理非常擔心。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "擔憂、關心的事",
+          "en": "a worry, or something that is important to you",
+          "distinguish": "當名詞時常和 have、raise、express 一起用。",
+          "example": { "en": "Several customers raised concerns about the late delivery.", "zh": "幾位客戶對延遲交貨表達了擔憂。" }
+        }
+      ]
+    }
+  ]
+}

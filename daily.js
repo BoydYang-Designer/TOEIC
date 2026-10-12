@@ -206,7 +206,7 @@ function setNavWeek(w) { cur.nw = w; cur.view === 'home' ? render() : renderSide
 function openBook() { cur.view = 'book'; push(); render(); window.scrollTo({ top: 0 }); }
 
 /* ===== 頁面架構：選單（launch）→ 學習（learn）／維護（maint） =====
-   cur.view：launch 選單｜home 手機週次表｜day 內文｜speak 語音練習｜book 生詞本
+   cur.view：launch 選單｜home 手機週次表｜day 內文｜speak 語音練習｜book 生詞本｜bank 入庫總覽
             maint 維護總覽｜mitem 單篇維護｜gen 新增文章｜audio 音檔／Timing 清單 */
 let SEC = null; // null＝選單；'learn'＝學習；'maint'＝維護
 const inMaint = () => SEC === 'maint';
@@ -532,7 +532,7 @@ function dayNav(nw, M) {
 function renderSide() {
   const n = Object.keys(S.saved).length, nw = cur.nw ?? cur.w, v = cur.view, M = inMaint();
   const line = 'border border-slate-300 dark:border-slate-700';
-  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${cur.d}` : v === 'topics' ? '🗂 題材總覽' : v === 'marks' ? '📌 入庫彙整' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
+  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${cur.d}` : v === 'topics' ? '🗂 題材總覽' : v === 'marks' ? '📌 入庫彙整' : v === 'bank' ? '📚 入庫總覽' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
   const dk = `<button onclick="fontCycle()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="調整字級">Aa</button><button onclick="toggleDark()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>`;
   const root = v === 'launch' || v === 'home' || v === 'maint';
   // ===== 手機：選單／學習首頁／維護總覽顯示標題列；其他頁顯示「← 返回」列 =====
@@ -542,6 +542,7 @@ function renderSide() {
           ${v === 'launch' ? `<a href="index.html" class="${btn} ${line} !py-1.5" aria-label="回到首頁">⌂ 首頁</a>` : `<button onclick="showLaunch()" class="${btn} ${line} !py-1.5">☰ 選單</button>`}
           ${v === 'maint' ? `<button onclick="openTopics()" class="${btn} ${line} !py-1.5" aria-label="題材總覽">🗂</button>` : ''}
           ${v === 'home' ? `<button onclick="openBook()" class="${btn} ${line} !py-1.5" aria-label="生詞本／錯題本">★ ${n}</button>` : ''}
+          ${v === 'home' ? `<button onclick="dnNav('bank')" class="${btn} ${line} !py-1.5" aria-label="入庫總覽">📚</button>` : ''}
           ${v === 'maint' ? `<button onclick="openAudio()" class="${btn} ${line} !py-1.5" aria-label="音檔／Timing 清單">🎧${AU.idx ? DATA.filter(x => !itemOk(x)).length : ''}</button>` : ''}
           ${dk}</div></div>`
     : `<div class="flex items-center gap-2"><button onclick="backHome()" class="${btn} ${line} !py-1.5 shrink-0">← 返回</button><span class="flex-1 min-w-0 truncate text-sm font-semibold">${label}</span>${dk}</div>`) + `</div>`;
@@ -554,7 +555,7 @@ function renderSide() {
     <button onclick="toggleDark()" class="${btn} ${line}">${S.dark ? '☀ 淺色' : '☾ 深色'}</button></div>
   <div class="grid grid-cols-3 gap-1 mb-4"><button onclick="showLaunch()" class="${btn} ${v === 'launch' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}" title="回到選單">☰</button>${tab('learn', '📖 學習')}${tab('maint', '🛠 維護')}</div>`;
   if (SEC === 'learn') {
-    h += `<button onclick="openMatrix()" class="${btn} w-full mb-3 ${line} ${v === 'home' || v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">▦ 總表（進度／題材）</button>` + dayNav(nw, false) + `<button onclick="openBook()" class="${btn} w-full mt-4 ${line} ${v === 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>` ;
+    h += `<button onclick="openMatrix()" class="${btn} w-full mb-3 ${line} ${v === 'home' || v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">▦ 總表（進度／題材）</button>` + dayNav(nw, false) + `<button onclick="openBook()" class="${btn} w-full mt-4 ${line} ${v === 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>` + dnBankBtn();
   } else if (SEC === 'maint') {
     const act = (c) => c ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : '';
     h += `<button onclick="up2Maint()" class="${btn} w-full mb-2 ${line} ${act(v === 'maint')}">📋 維護總覽</button>
@@ -1107,7 +1108,7 @@ function render() {
   Sp.hlIdx = -2;
   document.documentElement.classList.toggle('dark', S.dark);
   renderSide();
-  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, marks: dnRenderMarks, reports: dnRenderReports, detail: dnRenderDetail };
+  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail };
   (V[cur.view] || renderDay)();
   if (Sp.mode === 'audio' && Sp.au && Sp.id) spHl(Sp.id, Sp.au.currentTime);
   dnSyncBar();
