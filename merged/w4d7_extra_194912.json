@@ -1,0 +1,47 @@
+{
+  "week": 4,
+  "day": 7,
+  "extra_vocab": [
+    {
+      "text": "prototype",
+      "type": "word",
+      "ipa": "/ˈproʊtətaɪp/",
+      "pos": "n.",
+      "zh": "原型、試作品",
+      "en": "the first model of a product, made to test the design",
+      "note": "在這篇簡報裡，prototype 指推車的第一件試作樣品，用來證明新設計能同時解決「太重」與「不耐用」兩個問題。產品提案中說「Our prototype…」是很常見的開場方式。",
+      "grammar_note": "prototype 是可數名詞，單數前一定要加 a 或 the（或 our 等所有格），例如 a prototype、our prototype。",
+      "forms": [
+        { "w": "prototypes", "label": "複數", "pos": "n.", "zh": "原型（複數）", "ipa": "/ˈproʊtətaɪps/" }
+      ],
+      "collocations": [
+        { "phrase": "build a prototype", "zh": "製作原型", "example": { "en": "The engineers need two weeks to build a prototype of the new chair.", "zh": "工程師需要兩週時間製作新椅子的原型。" } },
+        { "phrase": "test a prototype", "zh": "測試原型", "example": { "en": "We will test a prototype with real customers before approving production.", "zh": "我們會先讓真實顧客測試原型，再核准量產。" } },
+        { "phrase": "working prototype", "zh": "可運作的原型", "example": { "en": "Investors asked to see a working prototype before they signed the agreement.", "zh": "投資人在簽約前要求看可運作的原型。" } },
+        { "phrase": "prototype testing", "zh": "原型測試", "example": { "en": "Prototype testing showed that the handle broke under heavy use.", "zh": "原型測試顯示把手在重度使用下會斷裂。" } }
+      ],
+      "examples": [
+        { "tag": "簡報", "en": "Our prototype weighs less than any model currently on the market.", "zh": "我們的原型比目前市面上任何機型都輕。" },
+        { "tag": "會議", "en": "The design team will present the first prototype at Monday's meeting.", "zh": "設計團隊將在週一的會議中展示第一件原型。" },
+        { "tag": "電子郵件", "en": "Please send me photos of the prototype by the end of the day.", "zh": "請在今天下班前把原型的照片寄給我。" }
+      ],
+      "confusable": [
+        { "word": "protocol", "diff": "protocol 是「通訊協定／標準作業程序」，開頭拼法相似，但和產品試作品無關。", "example": { "en": "All staff must follow the safety protocol when entering the factory.", "zh": "所有員工進入工廠時都必須遵守安全規範。" } }
+      ],
+      "similar": [
+        { "word": "sample", "diff": "sample 通常是從已完成的產品或供應商拿到的樣品；prototype 是還在開發階段的試作品。", "example": { "en": "The supplier sent us a sample of the new fabric yesterday.", "zh": "供應商昨天寄給我們新布料的樣品。" } },
+        { "word": "model", "diff": "model 可以指模型或產品款式，不一定是試作品，語意比 prototype 廣。", "example": { "en": "This model is lighter than last year's version, but it costs more.", "zh": "這個款式比去年的版本輕，但價格比較高。" } }
+      ],
+      "family": [
+        { "w": "design", "pos": "n.", "zh": "設計", "ipa": "/dɪˈzaɪn/", "example": { "en": "The design of the new handle is simple and comfortable.", "zh": "新把手的設計簡單又舒適。" } },
+        { "w": "launch", "pos": "n.", "zh": "上市、發表", "ipa": "/lɔːntʃ/", "example": { "en": "The launch of the product is scheduled for early June.", "zh": "產品預定在六月初上市。" } },
+        { "w": "specification", "pos": "n.", "zh": "規格", "ipa": "/ˌspesɪfɪˈkeɪʃn/", "example": { "en": "Each part must meet the specification in the contract.", "zh": "每個零件都必須符合合約中的規格。" } }
+      ],
+      "derived": [
+        { "w": "prototyping", "ipa": "/ˈproʊtətaɪpɪŋ/", "pos": "n.", "zh": "原型製作", "link": "prototype + -ing，把「做原型」這個過程變成名詞，像 marketing、planning" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

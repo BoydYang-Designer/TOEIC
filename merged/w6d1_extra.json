@@ -1,0 +1,214 @@
+{
+  "week": 6,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "familiarize",
+      "type": "word",
+      "ipa": "/fəˈmɪljəraɪz/",
+      "pos": "v.",
+      "zh": "使熟悉",
+      "en": "to learn about something so that you know it well",
+      "note": "在這篇通知裡，familiarize themselves with the user documentation 是客氣但明確的要求：送出第一份申請前，請先讀過使用說明。語氣正式，常見於公司公告。",
+      "grammar_note": "常用 familiarize + oneself／某人 + with + 事物；with 不能省，不說 familiarize the system。",
+      "forms": [
+        { "w": "familiarizes", "label": "第三人稱單數", "pos": "v.", "zh": "使熟悉", "ipa": "/fəˈmɪljəraɪzɪz/" },
+        { "w": "familiarized", "label": "過去式／過去分詞", "pos": "v.", "zh": "使熟悉", "ipa": "/fəˈmɪljəraɪzd/" },
+        { "w": "familiarizing", "label": "現在分詞", "pos": "v.", "zh": "使熟悉中", "ipa": "/fəˈmɪljəraɪzɪŋ/" }
+      ],
+      "collocations": [
+        { "phrase": "familiarize yourself with", "zh": "讓自己熟悉…", "example": { "en": "Please familiarize yourself with the safety rules before your first shift.", "zh": "第一次上班前，請先熟悉安全規定。" } },
+        { "phrase": "familiarize new employees with", "zh": "讓新員工熟悉…", "example": { "en": "The tour will familiarize new employees with the layout of the office.", "zh": "這次導覽會讓新員工熟悉辦公室的配置。" } },
+        { "phrase": "familiarize staff with", "zh": "讓員工熟悉…", "example": { "en": "We held a workshop to familiarize staff with the new software.", "zh": "我們舉辦了工作坊，讓員工熟悉新軟體。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Managers should familiarize themselves with the updated travel policy.", "zh": "主管應該先熟悉更新後的差旅政策。" },
+        { "tag": "培訓", "en": "The first session will familiarize trainees with our main products.", "zh": "第一堂課會讓受訓者熟悉我們的主要產品。" }
+      ],
+      "confusable": [
+        { "word": "memorize", "diff": "memorize 是「背下來」；familiarize 是「讓…熟悉、了解」，不需要背誦。", "example": { "en": "You do not need to memorize the manual; just keep it nearby.", "zh": "你不需要背下手冊，只要放在手邊就好。" } }
+      ],
+      "similar": [
+        { "phrase": "get to know", "diff": "get to know 較口語，可用於人或事物；familiarize 較正式，常用於公告與說明。", "example": { "en": "It takes a few weeks to get to know the new system.", "zh": "要花幾個星期才能熟悉這個新系統。" } },
+        { "phrase": "become acquainted with", "diff": "become acquainted with 更正式、更書面，常用於初次接觸某人或某事。", "example": { "en": "New staff will become acquainted with each department during orientation.", "zh": "新員工會在新人訓練中認識各個部門。" } }
+      ],
+      "family": [
+        { "w": "orientation", "pos": "n.", "zh": "新人訓練、講習", "ipa": "/ˌɔːriənˈteɪʃn/", "example": { "en": "Orientation for new employees starts at nine on Monday.", "zh": "新進員工的訓練在週一九點開始。" } },
+        { "w": "guideline", "pos": "n.", "zh": "指導方針", "ipa": "/ˈɡaɪdlaɪn/", "example": { "en": "Please follow the guidelines when you fill out the form.", "zh": "填寫表格時請遵照指引。" } },
+        { "w": "manual", "pos": "n.", "zh": "使用手冊", "ipa": "/ˈmænjuəl/", "example": { "en": "The manual explains how to install the printer.", "zh": "這本手冊說明如何安裝印表機。" } }
+      ],
+      "derived": [
+        { "w": "familiar", "ipa": "/fəˈmɪljɚ/", "pos": "adj.", "zh": "熟悉的", "link": "familiar 是詞幹；familiar + -ize，「使變得…」，像 modern → modernize、organize" },
+        { "w": "unfamiliar", "ipa": "/ˌʌnfəˈmɪljɚ/", "pos": "adj.", "zh": "不熟悉的", "link": "un-（不）+ familiar，像 unhappy、unclear" },
+        { "w": "familiarity", "ipa": "/fəˌmɪliˈærəti/", "pos": "n.", "zh": "熟悉、熟練", "link": "familiar + -ity，變成名詞，像 able → ability" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "documentation",
+      "type": "word",
+      "ipa": "/ˌdɑːkjumenˈteɪʃn/",
+      "pos": "n.",
+      "zh": "說明文件、文件資料",
+      "en": "papers or files that explain how something works or prove something",
+      "note": "在這篇通知裡，user documentation 是放在公司內部網站上的系統使用說明，要大家在第一次申請前先閱讀。",
+      "grammar_note": "documentation 是不可數名詞，不加 s，也不說 a documentation；要說「一份文件」用 a document。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "user documentation", "zh": "使用者說明文件", "example": { "en": "The user documentation includes screenshots for every step.", "zh": "使用者說明文件裡，每個步驟都有螢幕截圖。" } },
+        { "phrase": "technical documentation", "zh": "技術文件", "example": { "en": "Our engineers are updating the technical documentation this week.", "zh": "我們的工程師本週正在更新技術文件。" } },
+        { "phrase": "supporting documentation", "zh": "佐證文件", "example": { "en": "Please attach supporting documentation to every expense report.", "zh": "每份費用報告都請附上佐證文件。" } },
+        { "phrase": "provide documentation", "zh": "提供文件", "example": { "en": "Suppliers must provide documentation proving the origin of the goods.", "zh": "供應商必須提供證明貨物產地的文件。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "The full documentation is available on the company intranet.", "zh": "完整的說明文件可在公司內部網站上取得。" },
+        { "tag": "稽核", "en": "Without proper documentation, the claim cannot be approved.", "zh": "沒有適當的文件，這項申請無法核准。" }
+      ],
+      "confusable": [
+        { "word": "document", "diff": "document 是可數的「一份文件」；documentation 是不可數的「文件資料總稱」。", "usage": "document 可以加 a 或 s（a document、documents）；documentation 不可數，不能加 s。", "example": { "en": "Please sign this document and return it by Friday.", "zh": "請簽署這份文件並在週五前交回。" } }
+      ],
+      "similar": [
+        { "word": "paperwork", "diff": "paperwork 指行政上要填寫、處理的文書工作，語氣較口語；documentation 偏向說明或證明用的文件。", "example": { "en": "The paperwork for the new contract took three days.", "zh": "新合約的文書作業花了三天。" } },
+        { "word": "manual", "diff": "manual 是一本具體的「使用手冊」；documentation 是更廣泛的說明資料總稱。", "example": { "en": "The manual comes in the box with the printer.", "zh": "手冊會和印表機一起放在盒子裡。" } }
+      ],
+      "family": [
+        { "w": "instruction", "pos": "n.", "zh": "說明、指示", "ipa": "/ɪnˈstrʌkʃn/", "example": { "en": "Follow the instructions on the screen to log in.", "zh": "請依照螢幕上的說明登入。" } },
+        { "w": "file", "pos": "n.", "zh": "檔案", "ipa": "/faɪl/", "example": { "en": "Please save the file in the shared folder.", "zh": "請把檔案存到共用資料夾。" } },
+        { "w": "record", "pos": "n.", "zh": "紀錄", "ipa": "/ˈrekɚd/", "example": { "en": "We keep a record of every request for three years.", "zh": "我們會把每一筆申請保存三年的紀錄。" } }
+      ],
+      "derived": [
+        { "w": "document", "ipa": "/ˈdɑːkjumənt/", "pos": "n.", "zh": "文件", "link": "document 是詞幹；document + -ation，把動作變成名詞，像 organize → organization" },
+        { "w": "documentary", "ipa": "/ˌdɑːkjuˈmentri/", "pos": "n.", "zh": "紀錄片", "link": "document + -ary，和文件、事實紀錄有關的東西，像 library、dictionary" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "descriptive",
+      "type": "word",
+      "ipa": "/dɪˈskrɪptɪv/",
+      "pos": "adj.",
+      "zh": "描述性的、描寫詳細的",
+      "en": "giving details that show what something is like",
+      "note": "在這篇通知裡，be descriptive about the item you need 是請員工填申請時把所需物品寫清楚（規格、數量等），因為含糊的內容會拖慢核准。",
+      "grammar_note": "「對…描述得詳細」用 be descriptive about + N；形容詞，不加 -ly 當副詞用（副詞是 descriptively）。",
+      "forms": [
+        { "w": "more descriptive", "label": "比較級", "pos": "adj.", "zh": "更詳細描述的", "ipa": "/mɔːr dɪˈskrɪptɪv/" },
+        { "w": "most descriptive", "label": "最高級", "pos": "adj.", "zh": "最詳細描述的", "ipa": "/moʊst dɪˈskrɪptɪv/" }
+      ],
+      "collocations": [
+        { "phrase": "be descriptive about", "zh": "對…描述詳細", "example": { "en": "Please be descriptive about the problem when you contact support.", "zh": "聯絡客服時，請詳細描述問題。" } },
+        { "phrase": "descriptive title", "zh": "能說明內容的標題", "example": { "en": "Give each file a descriptive title so it is easy to find.", "zh": "每個檔案都請取一個能說明內容的標題，方便尋找。" } },
+        { "phrase": "descriptive language", "zh": "描述性的語言", "example": { "en": "The brochure uses descriptive language to attract new visitors.", "zh": "這本手冊用描述性的文字吸引新的訪客。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "A more descriptive subject line would help readers open the message.", "zh": "更具說明性的主旨會讓讀者更願意打開信件。" },
+        { "tag": "採購", "en": "The order form asks for a descriptive name for each item.", "zh": "訂購單要求每個品項都寫上說明清楚的名稱。" }
+      ],
+      "confusable": [
+        { "word": "destructive", "diff": "destructive 是「破壞性的」，拼法和 descriptive 很像，但意思完全不同。", "example": { "en": "The storm was highly destructive to the coastal warehouses.", "zh": "這場風暴對沿海的倉庫造成嚴重破壞。" } }
+      ],
+      "similar": [
+        { "word": "detailed", "diff": "detailed 強調資訊「很詳細」；descriptive 強調用文字把事物「描述出來」。", "example": { "en": "Please send a detailed report on the delay.", "zh": "請寄一份關於延誤的詳細報告。" } },
+        { "word": "specific", "diff": "specific 強調「明確、具體」，不含糊；descriptive 強調描述得豐富。", "example": { "en": "Be specific about the date and time you need.", "zh": "請明確寫出你需要的日期與時間。" } }
+      ],
+      "family": [
+        { "w": "detail", "pos": "n.", "zh": "細節", "ipa": "/ˈdiːteɪl/", "example": { "en": "Please include every detail of the request.", "zh": "請在申請中寫入所有細節。" } },
+        { "w": "accurate", "pos": "adj.", "zh": "準確的", "ipa": "/ˈækjərət/", "example": { "en": "An accurate description will speed up the approval.", "zh": "準確的描述會加快核准速度。" } },
+        { "w": "vague", "pos": "adj.", "zh": "含糊的", "ipa": "/veɪɡ/", "example": { "en": "His answer was too vague to be useful.", "zh": "他的回答太含糊，派不上用場。" } }
+      ],
+      "derived": [
+        { "w": "describe", "ipa": "/dɪˈskraɪb/", "pos": "v.", "zh": "描述、形容", "link": "describe 是詞幹，「把…寫出來、說出來」" },
+        { "w": "description", "ipa": "/dɪˈskrɪpʃn/", "pos": "n.", "zh": "描述、說明", "link": "describe 的 -be 變成 -ption，像 subscribe → subscription" },
+        { "w": "descriptively", "ipa": "/dɪˈskrɪptɪvli/", "pos": "adv.", "zh": "描述性地、詳細地", "link": "descriptive + -ly，形容詞加 -ly 變副詞，像 quickly" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "hotline",
+      "type": "word",
+      "ipa": "/ˈhɑːtlaɪn/",
+      "pos": "n.",
+      "zh": "服務專線、熱線",
+      "en": "a phone number people can call to get help or information quickly",
+      "note": "在這篇通知裡，the IT hotline 是資訊部門提供的專線，遇到系統問題的員工可在平日 8 點到 18 點撥打。",
+      "forms": [
+        { "w": "hotlines", "label": "複數", "pos": "n.", "zh": "專線（複數）", "ipa": "/ˈhɑːtlaɪnz/" }
+      ],
+      "collocations": [
+        { "phrase": "call the hotline", "zh": "撥打專線", "example": { "en": "If the system freezes, call the hotline for immediate help.", "zh": "如果系統當掉，請撥打專線尋求立即協助。" } },
+        { "phrase": "customer service hotline", "zh": "客服專線", "example": { "en": "The customer service hotline is open until nine at night.", "zh": "客服專線開放到晚上九點。" } },
+        { "phrase": "hotline number", "zh": "專線號碼", "example": { "en": "The hotline number is printed on the back of the card.", "zh": "專線號碼印在卡片背面。" } },
+        { "phrase": "24-hour hotline", "zh": "二十四小時專線", "example": { "en": "We set up a 24-hour hotline for emergency repairs.", "zh": "我們設立了二十四小時專線處理緊急維修。" } }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "Staff can report any problem to the hotline on weekdays.", "zh": "員工平日可向專線回報任何問題。" },
+        { "tag": "客服", "en": "The hotline received over two hundred calls on the first day.", "zh": "專線在第一天就接到超過兩百通電話。" }
+      ],
+      "confusable": [
+        { "word": "headline", "diff": "headline 是「新聞標題」，字尾也是 -line，但和電話專線無關。", "example": { "en": "The company's new product made the headline of the business section.", "zh": "公司的新產品登上了財經版的頭條。" } }
+      ],
+      "similar": [
+        { "word": "helpline", "diff": "helpline 強調提供協助與諮詢；hotline 強調能快速直接聯絡，常用於緊急或專門服務。", "example": { "en": "Our helpline answers questions about the new payment process.", "zh": "我們的服務專線回答有關新付款流程的問題。" } },
+        { "phrase": "help desk", "diff": "help desk 通常是公司內部的支援窗口（也可以是櫃台）；hotline 指專門的電話號碼。", "example": { "en": "Please contact the help desk if you forget your password.", "zh": "如果忘記密碼，請聯絡支援窗口。" } }
+      ],
+      "family": [
+        { "w": "support", "pos": "n.", "zh": "支援、客服", "ipa": "/səˈpɔːrt/", "example": { "en": "Technical support is available from eight to six.", "zh": "技術支援的服務時間是八點到六點。" } },
+        { "w": "inquiry", "pos": "n.", "zh": "詢問", "ipa": "/ɪnˈkwaɪri/", "example": { "en": "We answer every inquiry within one business day.", "zh": "我們會在一個工作天內回覆每一則詢問。" } },
+        { "w": "operator", "pos": "n.", "zh": "接線員", "ipa": "/ˈɑːpəreɪtɚ/", "example": { "en": "The operator will connect you to the right department.", "zh": "接線員會幫您轉接到正確的部門。" } },
+        { "w": "extension", "pos": "n.", "zh": "分機", "ipa": "/ɪkˈstenʃn/", "example": { "en": "Please dial extension 305 to reach the IT team.", "zh": "請撥分機 305 找資訊團隊。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "exceptional",
+      "type": "word",
+      "ipa": "/ɪkˈsepʃənl/",
+      "pos": "adj.",
+      "zh": "傑出的、特別好的；例外的",
+      "en": "much better than usual",
+      "note": "在這篇通知裡，exceptional reviews 是「極佳的評價」，指試用期間測試的員工給新系統很高的評分，用來說服大家放心使用。",
+      "forms": [
+        { "w": "more exceptional", "label": "比較級", "pos": "adj.", "zh": "更傑出的", "ipa": "/mɔːr ɪkˈsepʃənl/" },
+        { "w": "most exceptional", "label": "最高級", "pos": "adj.", "zh": "最傑出的", "ipa": "/moʊst ɪkˈsepʃənl/" },
+        { "w": "exceptionally", "label": "副詞形式", "pos": "adv.", "zh": "格外地、非常", "ipa": "/ɪkˈsepʃənəli/" }
+      ],
+      "collocations": [
+        { "phrase": "exceptional quality", "zh": "特別優良的品質", "example": { "en": "Our suppliers are known for products of exceptional quality.", "zh": "我們的供應商以品質特別優良的產品聞名。" } },
+        { "phrase": "exceptional service", "zh": "傑出的服務", "example": { "en": "The hotel was praised for its exceptional service.", "zh": "這間飯店因傑出的服務而受到稱讚。" } },
+        { "phrase": "exceptional circumstances", "zh": "特殊情況", "example": { "en": "Refunds are given only under exceptional circumstances.", "zh": "只有在特殊情況下才會退款。" } },
+        { "phrase": "exceptional performance", "zh": "傑出的表現", "example": { "en": "She received a bonus for her exceptional performance this year.", "zh": "她因今年的傑出表現獲得獎金。" } }
+      ],
+      "examples": [
+        { "tag": "績效", "en": "The team delivered exceptional results during the busy season.", "zh": "團隊在旺季交出了傑出的成績。" },
+        { "tag": "客戶往來", "en": "Customers gave the new app exceptional feedback in the survey.", "zh": "顧客在問卷中給了新應用程式極佳的回饋。" }
+      ],
+      "confusable": [
+        { "word": "excessive", "diff": "excessive 是「過多的、過度的」，字形有點像，但帶負面意味，不是「傑出」。", "example": { "en": "Excessive packaging increased our shipping costs this quarter.", "zh": "過度的包裝使我們本季的運費增加。" } }
+      ],
+      "similar": [
+        { "word": "outstanding", "diff": "outstanding 強調「突出、出眾」，常用於評價與表現；exceptional 另有「例外、特殊」的意思。", "example": { "en": "The outstanding sales results surprised the whole department.", "zh": "出色的銷售成績讓整個部門都很驚訝。" } },
+        { "word": "excellent", "diff": "excellent 是一般的「很棒」，口語常用；exceptional 比 excellent 更強調「超乎尋常」。", "example": { "en": "The restaurant has excellent food and friendly staff.", "zh": "這家餐廳有很棒的食物和友善的員工。" } }
+      ],
+      "family": [
+        { "w": "quality", "pos": "n.", "zh": "品質", "ipa": "/ˈkwɑːləti/", "example": { "en": "We never compromise on the quality of our products.", "zh": "我們對產品的品質絕不妥協。" } },
+        { "w": "performance", "pos": "n.", "zh": "表現、績效", "ipa": "/pɚˈfɔːrməns/", "example": { "en": "The performance of the new system exceeded our expectations.", "zh": "新系統的表現超出了我們的預期。" } },
+        { "w": "review", "pos": "n.", "zh": "評價、評論", "ipa": "/rɪˈvjuː/", "example": { "en": "The product received a positive review in the magazine.", "zh": "這項產品在雜誌上獲得正面評價。" } },
+        { "w": "feedback", "pos": "n.", "zh": "回饋意見", "ipa": "/ˈfiːdbæk/", "example": { "en": "We welcome your feedback on the trial version.", "zh": "歡迎您對試用版提出回饋意見。" } }
+      ],
+      "derived": [
+        { "w": "except", "ipa": "/ɪkˈsept/", "pos": "prep.", "zh": "除了…之外", "link": "except 是詞幹，「把…拿出來」；是 exception 與 exceptional 的基礎" },
+        { "w": "exception", "ipa": "/ɪkˈsepʃn/", "pos": "n.", "zh": "例外", "link": "except + -ion，變成名詞，像 act → action" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "傑出的、特別好的", "en": "much better than usual", "in_passage": true, "example": { "en": "The staff received exceptional training before the system launched.", "zh": "員工在系統上線前接受了極為出色的訓練。" } },
+        { "pos": "adj.", "zh": "例外的、特殊的", "en": "not usual; happening only in special cases", "distinguish": "看到 circumstances、case、only 等字，多半是「例外的、特殊的」，不是讚美。", "example": { "en": "Late requests are accepted only in exceptional cases.", "zh": "只有在特殊情況下才會接受逾期的申請。" } }
+      ]
+    }
+  ]
+}
