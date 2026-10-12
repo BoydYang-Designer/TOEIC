@@ -507,19 +507,19 @@ const DNF = {
   skw: '補齊 key_words（重點字詞）：每一筆都要有 w、zh；w 是單字時還要有 ipa（美式）與 pos；w 是片語時不用 ipa、pos；既有的項目保留並補齊缺的；真的沒有值得註記的字就輸出空陣列 []；其他欄位一律原樣保留',
   sim: '補齊 similar（近義片語）：每一筆都保留原有的 phrase（單字用 word）與 diff，並各加一句 example { en, zh }：例句必須真的用到該近義片語、8–15 字、商務情境、同程度，且要讓人看得出它和本片語的差異；缺的筆數也要補；其他欄位一律原樣保留'
 };
-function dnPromptItems(qid, only) { // only＝Set(單字小寫)：只取這些字的新項目（TSL 缺詳解用）；省略則依勾選 // 要寫進提示詞的項目：新項目＝全寫；已寫回但缺內容的＝只補缺的
+function dnPromptItems(qid, only, fillAll) { // fillAll＝true：連已寫回但缺內容的也一併補（核心單字直接複製用） // only＝Set(單字小寫)：只取這些字的新項目（TSL 缺詳解用）；省略則依勾選 // 要寫進提示詞的項目：新項目＝全寫；已寫回但缺內容的＝只補缺的
   const out = [];
   dnMarksOf(qid).filter(m => only ? only.has(dnKey(m.text)) : dnChecked(m)).forEach(m => {
     if (!only && !dnIsPrimary(m)) return; // 同字在更早的篇已入庫：共用同一份，不重複寫提示詞
     if (!dnMerged(m)) { out.push({ m, fill: null }); return; }
-    if (only) return;
-    const g = dnGapsOf(m).filter(k => DN.fill[k]); if (g.length) out.push({ m, fill: g });
+    if (only && !fillAll) return;
+    const g = dnGapsOf(m).filter(k => fillAll || DN.fill[k]); if (g.length) out.push({ m, fill: g });
   });
   return out;
 }
-function dnPrompt(qid, only) {
+function dnPrompt(qid, only, fillAll) {
   const x = dnArt(qid); if (!x) return '';
-  const its = dnPromptItems(qid, only), lv = x.level || {}, sc = lv.score || 600, hasFill = its.some(o => o.fill);
+  const its = dnPromptItems(qid, only, fillAll), lv = x.level || {}, sc = lv.score || 600, hasFill = its.some(o => o.fill);
   const items = its.map(({ m, fill }, i) => {
     let t = `${i + 1}. ` + (fill ? '【補齊】' : '') + `type=${m.type}｜text="${m.text}"` + (m.type === 'sentence' ? '' : `｜所在句："${m.ctx}"`) + (m.note ? `｜我的備註：${m.note}` : '');
     if (fill) t += `\n   要補：${fill.map(k => DNF[k]).join('；')}\n   現有詳解（既有內容保留，只補缺的）：${JSON.stringify(dnFindExtraAny(x, m.text))}`;
@@ -618,20 +618,27 @@ function dnCoreGaps(kind) {
   return out;
 }
 const dnCoreN = g => g.reduce((s, o) => s + o.list.length, 0);
-function dnCoreAdd(qid, kind, copy) { // 把這篇的核心單字缺口加入入庫；copy＝順便複製只含這些字的 AI 提示詞
+function dnTempPrompt(qid, vocabs, fillAll) { // 核心單字：不入庫，直接產生提示詞（暫時掛上去、產生完就移除、不存檔）
+  const x = dnArt(qid); if (!x) return '';
+  const added = [], only = new Set();
+  vocabs.forEach(v => { const had = dnMarks().some(m => m.qid === qid && dnKey(m.text) === dnKey(v.word)), m = dnMarkVocab(x, v); if (!had) added.push(m); only.add(dnKey(v.word)); });
+  try { return dnPrompt(qid, only, fillAll); } finally { S.marks = dnMarks().filter(m => !added.includes(m)); }
+}
+function dnCoreCopy(qid, kind) { // 這篇的核心單字缺口：不用入庫，直接複製 AI 提示詞
   const o = dnCoreGaps(kind).find(q => q.id === qid); if (!o) return;
-  const only = new Set(); o.list.forEach(it => { dnMarkVocab(o.x, it.v); only.add(dnKey(it.t)); });
-  save();
-  if (copy) { auCopy(dnPrompt(qid, only)); dnToast('已入庫並複製提示詞，貼給 AI'); } else dnToast(`已加入入庫 ${o.list.length} 個字`);
-  render();
+  auCopy(dnTempPrompt(qid, o.list.map(it => it.v), kind === 'gap')); dnToast(`已複製 ${o.list.length} 個字的提示詞，貼給 AI`);
+}
+function dnCoreAdd(qid, kind) { // 想收進入庫清單時才用
+  const o = dnCoreGaps(kind).find(q => q.id === qid); if (!o) return;
+  o.list.forEach(it => dnMarkVocab(o.x, it.v)); save(); dnToast(`已加入入庫 ${o.list.length} 個字`); render();
 }
 function dnCoreSec(kind) {
   const g = dnCoreGaps(kind); if (!g.length) return '';
   const none = kind === 'none', bs = `${btn} ${dnLine} !py-1 !px-2.5 text-xs`;
   return `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm">${none ? '核心多益單字：還沒有詳解' : '核心多益單字：詳解不完整'} <span class="text-xs font-normal text-slate-400">${dnCoreN(g)}</span></h3>
-    <p class="text-xs text-slate-500 mt-1 leading-relaxed">${none ? '這些字在文章的核心單字裡，但還沒有詳解、也還沒入庫。按「加入入庫並複製提示詞」會把它們入庫，並複製只含這些字的 AI 提示詞。' : '這些字有詳解但缺內容（括號是缺的項目）。按「加入入庫」後，到下方該篇勾選「補齊內容」再複製提示詞。'}</p>`
+    <p class="text-xs text-slate-500 mt-1 leading-relaxed">${none ? '這些字在文章的核心單字裡，但還沒有詳解、也還沒入庫。不用入庫，直接按「複製 AI 提示詞」就會產生只含這些字的提示詞。' : '這些字有詳解但缺內容（括號是缺的項目）。按「複製 AI 提示詞」會連同現有詳解，只補缺的項目。'}</p>`
     + g.map(o => `<div class="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800"><div class="flex flex-wrap items-center justify-between gap-2"><button onclick="dnGoArt('${o.id}')" class="font-bold text-sm text-indigo-600 dark:text-indigo-400 underline cursor-pointer">${esc(dnArtLabel(o.id))}</button>
-      <div class="flex flex-wrap gap-1.5">${none ? `<button onclick="dnCoreAdd('${o.id}','none',true)" class="${btn} ${dnPri} !py-1 !px-2.5 text-xs">加入入庫並複製提示詞（${o.list.length}）</button>` : ''}<button onclick="dnCoreAdd('${o.id}','${kind}',false)" class="${bs}">加入入庫</button></div></div>
+      <div class="flex flex-wrap gap-1.5"><button onclick="dnCoreCopy('${o.id}','${kind}')" class="${btn} ${dnPri} !py-1 !px-2.5 text-xs">複製 AI 提示詞（${o.list.length}）</button><button onclick="dnCoreAdd('${o.id}','${kind}')" class="${bs}">加入入庫</button></div></div>
       <div class="flex flex-wrap gap-1.5 mt-2">${o.list.map(it => `<button onclick="tslOpen(${o.x.week},${o.x.day},${it.i})" class="text-xs rounded-full px-2.5 py-1 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 cursor-pointer">${esc(it.t)}${it.gaps.length ? `（${it.gaps.map(k => dnFillKeys[k] || k).join('、')}）` : ''}</button>`).join('')}</div></div>`).join('')
     + `</section>`;
 }
@@ -745,9 +752,10 @@ const dnSpk = (x, e, suf, w) => `<button onclick="vplay('${idOf(x)}', this.datas
 const dnExHtml = o => o && o.en ? `<p>${esc(o.en)}</p>${o.zh ? `<p class="text-xs text-slate-500">${esc(o.zh)}</p>` : ''}` : '';
 function dnCopyOne() { // 詳解頁：只為這個字複製 AI 提示詞（核心單字會順便入庫，提示詞需要所在句）
   const D = dnDetailData(); if (!D) return;
-  const mk = D.m || (D.base && dnMarkVocab(D.x, D.base)); if (!mk) return;
-  save();
-  auCopy(dnPrompt(idOf(D.x), new Set([dnKey(mk.text)]))); dnToast('已複製這個字的提示詞，貼給 AI');
+  if (D.m) { save(); auCopy(dnPrompt(idOf(D.x), new Set([dnKey(D.m.text)]))); }
+  else if (D.base) auCopy(dnTempPrompt(idOf(D.x), [D.base], false));
+  else return;
+  dnToast('已複製這個字的提示詞，貼給 AI');
 }
 function dnRenderDetail() {
   const D = dnDetailData();
@@ -888,7 +896,7 @@ function dnBankSm(v) { DN.bk.sm = v; render(); }
 function dnBankCopy(qid, text, b) { // 待補詳解：只為這個字複製 AI 提示詞（核心單字會順便入庫，提示詞需要所在句）
   const x = dnArt(qid); if (!x) return;
   let m = dnMarksOf(qid).find(q => dnKey(q.text) === dnKey(text));
-  if (!m) { const v = (x.vocab || []).find(v => dnKey(v.word) === dnKey(text)); if (!v) return; m = dnMarkVocab(x, v); save(); }
+  if (!m) { const v = (x.vocab || []).find(v => dnKey(v.word) === dnKey(text)); if (!v) return; auCopy(dnTempPrompt(qid, [v], false)); dnToast('已複製這個字的提示詞，貼給 AI'); return; } // 核心單字：不入庫
   auCopy(dnPrompt(qid, new Set([dnKey(m.text)]))); dnToast('已複製這個字的提示詞，貼給 AI');
 }
 function dnBankOpen(el) { dnOpenExtra(el.dataset.q, el.dataset.t); }

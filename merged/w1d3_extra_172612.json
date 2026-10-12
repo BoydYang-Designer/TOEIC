@@ -1,0 +1,168 @@
+{
+  "week": 1,
+  "day": 3,
+  "extra_vocab": [
+    {
+      "text": "appointment",
+      "type": "word",
+      "ipa": "/əˈpɔɪntmənt/",
+      "pos": "n.",
+      "zh": "預約、約定的時間",
+      "en": "a time that you have arranged to meet someone or use a service",
+      "note": "在這篇文章裡，appointment 指健檢的預約時段，select an available appointment 就是從還有名額的時段中挑一個。醫療、人資與客戶往來的通知都很常用這個字。",
+      "grammar_note": "appointment 是可數名詞；「和某人約時間」用 an appointment with + 人，「為了某事預約」用 an appointment for + 事。",
+      "forms": [
+        {
+          "w": "appointments",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "預約（複數）",
+          "ipa": "/əˈpɔɪntmənts/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "make an appointment",
+          "zh": "預約",
+          "example": {
+            "en": "You can make an appointment online or by phone.",
+            "zh": "你可以線上或用電話預約。"
+          }
+        },
+        {
+          "phrase": "cancel an appointment",
+          "zh": "取消預約",
+          "example": {
+            "en": "Please cancel an appointment at least one day in advance.",
+            "zh": "如要取消預約，請至少提前一天。"
+          }
+        },
+        {
+          "phrase": "by appointment only",
+          "zh": "僅限預約",
+          "example": {
+            "en": "The showroom is open by appointment only on Sundays.",
+            "zh": "展示間星期日僅限預約參觀。"
+          }
+        },
+        {
+          "phrase": "appointment with",
+          "zh": "和…的約定",
+          "example": {
+            "en": "I have an appointment with the client at three o'clock.",
+            "zh": "我三點和客戶有個約。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "醫療",
+          "en": "I have a dental appointment on Thursday morning.",
+          "zh": "我星期四早上有牙醫的預約。"
+        },
+        {
+          "tag": "櫃檯",
+          "en": "Do you have an appointment with Ms. Taylor today?",
+          "zh": "你今天和泰勒女士有約嗎？"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Thank you for confirming your appointment for next Monday.",
+          "zh": "謝謝你確認下週一的預約。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "apartment",
+          "diff": "兩個字拼法和發音很像，但 apartment 是「公寓」，appointment 是「預約」。",
+          "example": {
+            "en": "The company rents an apartment for visiting staff near the office.",
+            "zh": "公司在辦公室附近租了一間公寓給來訪的員工住。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "reservation",
+          "diff": "reservation 多用在餐廳、飯店、機位的預訂；appointment 多用在看醫生或與人見面的約定。",
+          "example": {
+            "en": "I made a reservation for six people at seven o'clock.",
+            "zh": "我預訂了七點六個人的位子。"
+          }
+        },
+        {
+          "phrase": "time slot",
+          "diff": "time slot 指一段可選的時間；appointment 是已經選定、約好的那一次。",
+          "example": {
+            "en": "Only two time slots are still open on Friday afternoon.",
+            "zh": "星期五下午只剩兩個時段還有空。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "schedule",
+          "pos": "n.",
+          "zh": "行程表、時間表",
+          "ipa": "/ˈskedʒuːl/",
+          "example": {
+            "en": "Please check the schedule before you choose a time.",
+            "zh": "選時間之前請先看一下時間表。"
+          }
+        },
+        {
+          "w": "available",
+          "pos": "adj.",
+          "zh": "有空的、可取得的",
+          "ipa": "/əˈveɪləbl/",
+          "example": {
+            "en": "Is the manager available for a short meeting today?",
+            "zh": "經理今天有空開個簡短的會嗎？"
+          }
+        },
+        {
+          "w": "register",
+          "pos": "v.",
+          "zh": "登記、報名",
+          "ipa": "/ˈredʒɪstɚ/",
+          "example": {
+            "en": "Employees must register online before the end of the week.",
+            "zh": "員工必須在本週結束前線上登記。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "appoint",
+          "ipa": "/əˈpɔɪnt/",
+          "pos": "v.",
+          "zh": "任命、指定",
+          "link": "appointment 去掉 -ment 就是動詞 appoint；像 move → movement、pay → payment，加 -ment 變成名詞"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "預約、約定的時間",
+          "en": "a time that you have arranged to meet someone or use a service",
+          "in_passage": true,
+          "example": {
+            "en": "I have an appointment with Dr. Lin at ten o'clock.",
+            "zh": "我十點和林醫師有預約。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "任命、職務的指派",
+          "en": "the act of choosing someone for a job or position",
+          "distinguish": "後面常接 of + 人，或 as + 職位，是人事任命，不是約時間見面。",
+          "example": {
+            "en": "The company announced the appointment of a new sales manager.",
+            "zh": "公司宣布任命一位新的業務經理。"
+          }
+        }
+      ]
+    }
+  ]
+}

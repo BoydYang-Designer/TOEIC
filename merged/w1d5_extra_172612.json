@@ -1,0 +1,81 @@
+{
+  "week": 1,
+  "day": 5,
+  "extra_vocab": [
+    {
+      "text": "at no cost",
+      "type": "phrase",
+      "zh": "免費、不收費",
+      "en": "without paying any money",
+      "note": "在這篇裡，客服說因為這個馬克杯屬於春季促銷，所以可以免費寄出替代品。at no cost 比 free 正式，是客服與公告裡常見的客氣說法。",
+      "pattern": "provide／send／offer + N + at no cost (to + 人)",
+      "grammar_note": "at no cost 多放在句尾，後面可接 to + 人，如 at no cost to you；加 extra 變成 at no extra cost，表示不另外加價。",
+      "examples": [
+        {
+          "tag": "客服",
+          "en": "We will repair the printer at no cost during the warranty period.",
+          "zh": "保固期間，我們會免費修理這台印表機。"
+        },
+        {
+          "tag": "培訓",
+          "en": "Employees can attend the training workshop at no cost to them.",
+          "zh": "員工可以免費參加這場培訓工作坊。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "This offer lets members upgrade their plan at no cost.",
+          "zh": "這項優惠讓會員可以免費升級方案。"
+        },
+        {
+          "tag": "住宿",
+          "en": "Hotel guests may use the fitness center at no cost.",
+          "zh": "飯店住客可以免費使用健身中心。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "free of charge",
+          "diff": "意思相同，更常出現在公告、收據與服務條款；後面通常不接 to + 人。",
+          "example": {
+            "en": "Parking is available free of charge for all registered guests.",
+            "zh": "所有登記的賓客都可以免費停車。"
+          }
+        },
+        {
+          "phrase": "for free",
+          "diff": "比較口語，常用在日常對話或網站說明，語氣沒那麼正式。",
+          "example": {
+            "en": "Customers can download the user guide for free from our website.",
+            "zh": "客戶可以從我們的網站免費下載使用手冊。"
+          }
+        },
+        {
+          "phrase": "complimentary",
+          "diff": "是形容詞，放在名詞前，指飯店、航空或活動中招待的免費服務；at no cost 是副詞片語。",
+          "example": {
+            "en": "Guests receive a complimentary breakfast with every room booking.",
+            "zh": "每筆訂房都附贈住客一份免費早餐。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "at cost",
+          "diff": "at cost 是「以成本價」出售，還是要付錢；at no cost 才是完全免費。",
+          "example": {
+            "en": "We sell the old stock at cost to clear the warehouse.",
+            "zh": "我們以成本價出售舊庫存，好清空倉庫。"
+          }
+        },
+        {
+          "phrase": "at low cost",
+          "diff": "at low cost 是「低成本、價格便宜」，仍然需要付費；at no cost 是完全不用付錢。",
+          "example": {
+            "en": "The new system lets us store files at low cost.",
+            "zh": "新系統讓我們能以低成本儲存檔案。"
+          }
+        }
+      ]
+    }
+  ]
+}
