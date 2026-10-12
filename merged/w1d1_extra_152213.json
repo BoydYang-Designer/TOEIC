@@ -1,0 +1,72 @@
+{
+  "week": 1,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "in advance",
+      "type": "phrase",
+      "zh": "事先、提前",
+      "en": "before something happens or before a certain time",
+      "note": "在這篇裡放在句尾，修飾 submit：無法出席的人要「事先」把進度交給 Ms. Chen，也就是在會議開始前交出。常見於公司通知與預約，語氣正式但很日常。",
+      "pattern": "V + in advance；時間 + in advance（如 two days in advance）",
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Please send the agenda to everyone in advance.",
+          "zh": "請事先把議程寄給每個人。"
+        },
+        {
+          "tag": "訂位／預約",
+          "en": "You should book the meeting room in advance.",
+          "zh": "你應該事先預約會議室。"
+        },
+        {
+          "tag": "出差",
+          "en": "Tickets are cheaper if you buy them two weeks in advance.",
+          "zh": "如果提前兩週購買，機票會比較便宜。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Thank you in advance for your help with this matter.",
+          "zh": "先感謝您對這件事的協助。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "ahead of time",
+          "diff": "意思幾乎相同，ahead of time 較口語；in advance 較常見於正式通知與書面。",
+          "example": {
+            "en": "Please send me the slides ahead of time for review.",
+            "zh": "請事先把投影片寄給我審閱。"
+          }
+        },
+        {
+          "phrase": "beforehand",
+          "diff": "beforehand 也是「事先」，常放句尾；in advance 常和時間連用，如 two days in advance（提前兩天）。",
+          "example": {
+            "en": "Please read the report beforehand so we can discuss it quickly.",
+            "zh": "請事先讀過報告，這樣我們才能很快討論完。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "advanced",
+          "diff": "advanced 是形容詞「進階的」，常見錯誤是寫成 in advanced；「事先」要用 in advance，沒有 -d。",
+          "example": {
+            "en": "This advanced course is designed for experienced managers.",
+            "zh": "這門進階課程是為有經驗的經理設計的。"
+          }
+        },
+        {
+          "word": "in advance of",
+          "diff": "in advance of + 名詞 是較正式的「在…之前」；單獨的 in advance 後面不接名詞。",
+          "example": {
+            "en": "Please arrive in advance of the meeting to set up.",
+            "zh": "請在會議開始之前抵達以便布置。"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "week": 2,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "updated specifications",
+      "type": "phrase",
+      "zh": "更新後的規格",
+      "en": "the newest list of details about what a product must be or do",
+      "note": "在這篇文章裡指採購方上週四寄給供應商的「最新版規格」，供應商要依此生產零件，並在訂單定案前附在採購單上。specifications 常縮寫為 specs，用複數形，表示一組詳細要求（尺寸、材質、數量等）。",
+      "pattern": "according to + the updated specifications",
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "The parts were made according to the updated specifications.",
+          "zh": "這些零件是依照更新後的規格製造的。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please review the updated specifications and reply by Tuesday.",
+          "zh": "請查看更新後的規格，並在週二前回覆。"
+        },
+        {
+          "tag": "品管",
+          "en": "Any item that does not meet the updated specifications will be rejected.",
+          "zh": "任何不符合更新後規格的品項都會被退回。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "revised specifications",
+          "diff": "revised 強調內容被修改過；updated 強調已換成最新版本，兩者常可互換。",
+          "example": {
+            "en": "The supplier received the revised specifications on Monday morning.",
+            "zh": "供應商週一早上收到了修訂後的規格。"
+          }
+        },
+        {
+          "phrase": "technical requirements",
+          "diff": "technical requirements 是「技術要求」，範圍較廣；specifications 是列出明確數據與細節的規格書。",
+          "example": {
+            "en": "The technical requirements include size, weight, and material type.",
+            "zh": "技術要求包含尺寸、重量與材質種類。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "specification / specific",
+          "diff": "specification 是名詞「規格」；specific 是形容詞「具體的、特定的」，拼法相近但詞性不同。",
+          "example": {
+            "en": "The specification lists specific sizes for every metal part.",
+            "zh": "這份規格書列出了每個金屬零件的具體尺寸。"
+          }
+        }
+      ]
+    }
+  ]
+}

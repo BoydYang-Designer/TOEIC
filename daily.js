@@ -140,7 +140,7 @@ function spHtml(id) {
     <span class="inline-flex items-center gap-1"><span class="text-xs text-slate-400">語速</span>${SP_SPEEDS.map(v => `<button onclick="spSetSpeed(${v})" class="rounded-lg px-2.5 py-2 text-xs font-medium transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300'}">${v}×</button>`).join('')}</span>
     ${mine ? `<span class="text-xs ${playing ? 'text-indigo-600 dark:text-indigo-300 font-semibold' : 'text-slate-400'}">${playing ? '● ' : ''}${Sp.mode === 'audio' ? '音檔' : '語音合成'}${loading ? '（載入中）' : playing ? '播放中' : '（已暫停）'}</span>` : ''}`;
 }
-function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll('#passage-text .tsent.active').forEach(e => e.classList.remove('active')); }
+function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll('#passage-text .tsent.active, #zh-text .zsent.active').forEach(e => e.classList.remove('active')); }
 function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily.json 的 timing）
   const x = DATA.find(d => idOf(d) === id); if (!x || !x.timing) return;
   let idx = -1;
@@ -149,8 +149,10 @@ function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily
   if (idx === Sp.hlIdx) return;
   Sp.hlIdx = idx;
   document.querySelectorAll('#passage-text .tsent').forEach(el => el.classList.toggle('active', +el.dataset.i === idx));
+  document.querySelectorAll('#zh-text .zsent').forEach(el => el.classList.toggle('active', +el.dataset.z === idx)); // 中文翻譯：和英文同一句一起亮
   const el = idx >= 0 && document.querySelector(`#passage-text .tsent[data-i="${idx}"]`);
-  if (el) el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  const zel = idx >= 0 && document.querySelector(`#zh-text .zsent[data-z="${idx}"]`);
+  if (el) el.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); else if (zel) zel.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); // 英文收合時改捲中文
 }
 function spSeek(id, i) { // 點文稿句子：跳到該句播放
   const x = DATA.find(d => idOf(d) === id), t = x.timing[i].start;
@@ -644,7 +646,7 @@ function renderDay() {
   if (zhOpen) {
     h += `<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
       <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">全文繁體中文翻譯</p>
-      <p class="whitespace-pre-line leading-relaxed text-sm text-slate-600 dark:text-slate-400">${esc(x.zh)}</p>
+      <p id="zh-text" class="whitespace-pre-line leading-relaxed text-sm text-slate-600 dark:text-slate-400">${zhHtml(x)}</p>
     </div>`;
   }
   h += `</section>`;
@@ -840,6 +842,31 @@ function speakPhrase(i) { // 句型發音（省略號不念）
 }
 function toggleSec(k) { cur[k + 'Open'] = !cur[k + 'Open']; render(); } // k = 'vocab' | 'phrases' | 'quiz'
 function toggleHl() { cur.hl = !cur.hl; if (cur.hl) cur.enOpen = true; render(); }
+const tmOk = x => { const tm = x.timing, p = String(x.passage || ''); return Array.isArray(tm) && tm.length > 0 && tm.every((t, i) => t.from < t.to && t.to <= p.length && (i === 0 || t.from >= tm[i-1].to)); };
+(function () { const st = document.createElement('style'); st.textContent = '#zh-text .zsent{cursor:pointer;border-radius:3px}#zh-text .zsent.active{background:rgba(250,204,21,.35)}'; document.head.appendChild(st); })();
+function zhHtml(x) { // 中文翻譯：切成句子，對應到英文 timing 的句子；播放時中英文同一句一起亮，點中文句也能跳到該句
+  const zh = String(x.zh || '');
+  if (!tmOk(x)) return esc(zh);
+  const toks = zh.match(/[^。！？!?\n]*[。！？!?]+[」』”’）)"']*|[^。！？!?\n]+|\n+/g) || [];
+  const si = []; toks.forEach((t, k) => { if (/\S/.test(t)) si.push(k); });
+  const n = si.length, tm = x.timing, m = tm.length;
+  if (!n) return esc(zh);
+  const map = new Array(n);
+  if (n === m) { for (let j = 0; j < n; j++) map[j] = j; } // 中英句數相同：一句對一句
+  else { // 句數不同（翻譯合併或拆句）：依字數比例對應到最近的英文句
+    const pl = String(x.passage).length || 1, lens = si.map(k => toks[k].replace(/\s/g, '').length), tot = lens.reduce((a, b) => a + b, 0) || 1;
+    let acc = 0;
+    for (let j = 0; j < n; j++) {
+      const c = (acc + lens[j] / 2) / tot; acc += lens[j];
+      let best = 0, bd = Infinity;
+      tm.forEach((t, i) => { const a = t.from / pl, b = t.to / pl, d = c < a ? a - c : c > b ? c - b : 0; if (d < bd) { bd = d; best = i; } });
+      map[j] = j ? Math.max(map[j - 1], best) : best;
+    }
+  }
+  const id = idOf(x); let out = '', j = 0;
+  toks.forEach(t => { if (/\S/.test(t)) { out += `<span class="zsent" data-z="${map[j]}" onclick="spSeek('${id}',${map[j]})">${esc(t)}</span>`; j++; } else out += esc(t); });
+  return out;
+}
 function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切成可點擊、可高亮的句子
   let re = null;
   if (cur.hl) {

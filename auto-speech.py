@@ -10,7 +10,7 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
 
   1. 讀題庫 json，檢查 audio/ 底下對應的 mp3 是否存在（存在且大於 1000 bytes 才算有）
   2. 視窗列出有缺的項目，勾選這次要做的（可一次勾前 N 題、依前綴勾 d1 / d2-001、依難度勾 -e / -m / -h）
-  3. 按「開始產生」，用 Edge 神經網路語音（edge-tts）錄製並存到正確位置
+  3. 按「開始產生」，用 Azure Speech（REST + SSML）錄製並存到正確位置
   4. 做完清單會自動更新，下次再勾下一批；全部做完可執行 Scan總表與音檔.py 更新 index.json
 
 各題庫的檔名規則（必須和網頁與 Scan總表與音檔.py 一致，所以只在 CFG／各 plan_* 函式裡維護一份）：
@@ -22,39 +22,70 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
   part6  audio/p6/{id}.mp3（朗讀答案填入的整篇）
   part7  audio/p7/{id}-d{k}.mp3（每份需朗讀的文件一檔）
   daily  audio/daily/w1d1.mp3 ＋ audio/daily/vocab/（詳解項目；做完會重建 vocab/index.json）
-         詳解項目的檔名後綴：（無）本身、_ctx 所在句、_e 例句、_cp／_c 搭配與其例句、_f 詞性變化、_m／_mx 相關字與例句、
-         _d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句
+         詳解項目的檔名後綴：（無）本身、_ctx 所在句、_e 例句、_cp／_c 搭配與其例句、_f 詞性變化、_m／_mx 相關字與例句、_cf 易混淆例句（易混淆的字本身走共用庫 words/）、
+         _sm／_sx 近義片語與例句、_en 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句
          ※ 單字類（單字本身、原形、屈折變化、同字族、相關字、搭配片語、多詞性／多義的單字）改放共用庫
            audio/daily/words/{單字}.mp3，同一個字只錄一次；例句與所在句仍放 vocab/ 逐篇存放
 
+引擎切換：預設用 DEFAULT_ENGINE；命令列加 --azure 或 --edge 可臨時改；視窗模式的「引擎」下拉選單也能切換。
+  azure＝Azure Speech（動用 $200 點數）；edge-tts＝微軟 Edge 免費語音（2026-10-10 起因微軟改版常回 403，修好前請用 azure）。
+  --usage 顯示 Azure 點數到期日與本腳本累計用量（記在 azure-usage.json，只是估算，實際以入口網站為準）。
+
+Azure 設定：金鑰與區域只從 Windows 環境變數讀取（絕不寫進程式或專案資料夾）：
+  setx SPEECH_KEY "你的金鑰"      setx SPEECH_REGION "eastasia"（小寫、無空格），設定後重開終端機／重新登入
+  python auto-speech.py --check-azure   檢查金鑰、區域、8 個聲音是否可用（只合成 5 個字元）
+
 參數：--cli 強制使用文字模式（沒有 tkinter 時會自動使用）；--dry 只列清單不產生；--manifest 只重建 daily 的 vocab/index.json。
+
+版本紀錄：每個產生成功的 mp3 會記到 voices-log.json（放在題庫 json 同一層：聲音、語速、引擎、日期）。
+  --redo      除了缺檔，也把「紀錄的聲音／語速和目前設定不同」的檔列入重錄
+  --redo-all  再加上「沒有紀錄的舊檔」（這支程式加入紀錄功能之前做的檔）
+  視窗模式裡也有「重錄範圍」下拉選單；列表中 ↻ 代表重錄（檔案已存在，會被新版覆蓋）。
 """
 import asyncio
 import importlib
 import json
+import os
 import queue
+import random
 import re
 import subprocess
 import sys
 import threading
 import time
+import urllib.error
+import urllib.request
 import zlib
+from xml.sax.saxutils import escape as xml_escape
+from datetime import datetime
 from pathlib import Path
 
 # ============================== 設定區（只要改這裡）==============================
-CONCURRENCY = 4               # 同時產生幾個檔案
+CONCURRENCY = 4               # 同時產生幾個檔案（S0 可放心；若資源是 F0 免費層，請改 1～2，並留意 429 限流）
 # 順序必須「女、男、女、男…」交替（偶數位＝女聲、奇數位＝男聲）
 VOICES = [
-    "en-US-AriaNeural",
-    "en-US-GuyNeural",
-    "en-GB-SoniaNeural",
-    "en-GB-RyanNeural",
-    "en-AU-NatashaNeural",
-    "en-AU-WilliamNeural",
+    "en-US-AvaMultilingualNeural",      # 女（美）
+    "en-US-AndrewMultilingualNeural",   # 男（美）
+    "en-US-EmmaMultilingualNeural",     # 女（美）
+    "en-US-BrianMultilingualNeural",    # 男（美）
+    "en-GB-SoniaNeural",                # 女（英）
+    "en-GB-RyanNeural",                 # 男（英）
+    "en-AU-NatashaNeural",              # 女（澳）
+    "en-AU-WilliamNeural",              # 男（澳）
 ]
-LETTER_VOICE = "en-US-AriaNeural"
+LETTER_VOICE = "en-US-AvaMultilingualNeural"
 LETTERS = "ABCDE"             # 選項字母檔：audio/A.mp3 ~ audio/E.mp3（缺才補；Part 1／2 共用）
 MAKE_LETTERS = True
+DEFAULT_ENGINE = "azure"      # 預設引擎："azure"（用點數）或 "edge-tts"（免費，目前常 403）
+AZURE_CREDIT_USD = 200.0      # 免費帳戶點數總額
+AZURE_CREDIT_END = "2026-11-09"   # 點數到期日 "YYYY-MM-DD"（入口網站：成本管理 + 帳單 → 點數 可查；通常是註冊日 + 30 天）
+USAGE_NAME = "azure-usage.json"   # 本腳本累計的 Azure 字元用量（放在題庫 json 同一層，不含金鑰）
+ENGINE = DEFAULT_ENGINE       # 版本紀錄用：換引擎時改這個名字，舊檔就會被視為「舊版」可重錄（edge-tts 舊檔用 --redo 可重錄）
+AZURE_FORMAT = "audio-24khz-48kbitrate-mono-mp3"   # 輸出格式（和原本 edge-tts 的 24kHz/48kbps 相同）
+AZURE_RETRIES = 5             # 每個檔最多嘗試幾次（429／5xx／網路錯誤才重試）
+PAUSE_MS = 300                # Part 7 多人聊天：不同人說話之間停幾毫秒
+PRICE_USD_PER_M_CHARS = 15.0  # 只用來「估算」費用（標準 Neural 每百萬字元）；請對照 Azure 定價頁自行修改
+LOG_NAME = "voices-log.json"  # 版本紀錄檔（和題庫 json 放同一層）：記每個 mp3 用過的聲音／語速／日期
 
 # 各題庫：file＝題庫 json；sub＝audio 底下的資料夾；rate＝語速（"-10%" 更慢、"+0%" 正常）；
 #        timeout＝單一檔案最久等幾秒（None＝不限）；secs＝每個檔約幾秒（只用來估算時間）
@@ -80,12 +111,17 @@ MAKE_COLLOC = True            # 常用搭配的片語與例句（collocations[].
 MAKE_FORMS = True             # 詞性變化的字（forms[].w）
 MAKE_FAMILY = True            # 相關字（family[].w）與它的例句
 MAKE_DERIVED = True           # 衍生字（derived[].w）
+MAKE_CONFUSABLE = True        # 易混淆的例句（confusable[].example.en）_cf{k}.mp3
+MAKE_SIMILAR = True           # 近義片語（similar）：片語／單字本身發音（共用庫）＋ 例句 _sx{k}.mp3
+MAKE_EN = True                # 英文解說（en）整句 _en.mp3（逐篇存放）
+MAKE_PARA = True              # 句子的同義改寫（paraphrase[].en）_pr{k}.mp3（逐篇存放）
+MAKE_KEYWORDS = True          # 句子詳解的「句中值得注意的字」（key_words[].w），走共用庫
 MAKE_POS = True               # 多詞性（pos_uses）：每個詞性的單字發音 _pw{k}.mp3 ＋ 例句 _p{k}.mp3
 MAKE_SENSE = True             # 多義（senses）：每個意思的單字發音 _sw{k}.mp3 ＋ 例句 _s{k}.mp3
 PASSAGE_RATE = "-5%"          # 文章語速
 VOCAB_RATE = "-10%"           # 單字／句子語速（單字慢一點比較聽得清楚）
 PASSAGE_VOICES = VOICES       # 文章：依 id 固定挑一個聲音
-VOCAB_VOICE = "en-US-AriaNeural"   # 詳解項目固定同一個聲音
+VOCAB_VOICE = "en-US-AvaMultilingualNeural"   # 詳解項目固定同一個聲音
 # ================================================================================
 
 HERE = Path(__file__).resolve().parent
@@ -96,6 +132,63 @@ WORDS_SUB = Path("audio") / "daily" / "words"   # 共用單字發音庫：{單�
 # ------------------------------- 共用小工具 -------------------------------
 def ok_file(p: Path) -> bool:
     return p.exists() and p.stat().st_size > 1000
+
+
+# ------------------------------- 版本紀錄（voices-log.json） -------------------------------
+# STATE["redo"]：0＝只補缺的檔；1＝再加上「紀錄的聲音／語速／引擎和目前設定不同」的檔；2＝再加上「沒有紀錄的舊檔」
+STATE = dict(root=None, log={}, redo=0, dirty=0)
+
+
+def log_path(root) -> Path:
+    return Path(root) / LOG_NAME
+
+
+def begin(root):
+    """讀取版本紀錄（每個 plan_* 開頭呼叫）。"""
+    root = Path(root)
+    STATE["root"] = root
+    try:
+        j = json.loads(log_path(root).read_text(encoding="utf-8-sig"))
+        STATE["log"] = j.get("files") or {} if isinstance(j, dict) else {}
+    except (OSError, ValueError):
+        STATE["log"] = {}
+    STATE["dirty"] = 0
+
+
+def rel_key(path):
+    try:
+        return Path(path).relative_to(STATE["root"]).as_posix()
+    except (ValueError, TypeError):
+        return Path(path).as_posix()
+
+
+def need(path, sig, rate):
+    """回傳 None＝不用做；"new"＝缺檔；"redo"＝檔案在，但版本和目前設定不同（依 STATE["redo"] 決定要不要列入）。
+    sig＝聲音（Part 7 多人聊天為各段聲音用 | 相連）。"""
+    if not ok_file(path):
+        return "new"
+    if STATE["redo"] <= 0:
+        return None
+    rec = STATE["log"].get(rel_key(path))
+    if rec is None:
+        return "redo" if STATE["redo"] >= 2 else None
+    same = rec.get("engine") == ENGINE and rec.get("voice") == sig and (rec.get("rate") or "") == (rate or "")
+    return None if same else "redo"
+
+
+def record(path, sig, rate):
+    STATE["log"][rel_key(path)] = dict(voice=sig, rate=rate or "", engine=ENGINE,
+                                       date=datetime.now().strftime("%Y-%m-%d %H:%M"))
+    STATE["dirty"] += 1
+
+
+def save_log(root=None):
+    root = Path(root or STATE["root"])
+    tmp = root / (LOG_NAME + ".tmp")
+    data = dict(v=1, files=dict(sorted(STATE["log"].items())))
+    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+    tmp.replace(log_path(root))
+    STATE["dirty"] = 0
 
 
 def short(v):
@@ -119,14 +212,16 @@ def gender_voice(iid, g):
     return pool[zlib.crc32(iid.encode("utf-8")) % len(pool)]
 
 
-def letters_group(audio: Path):
+def letters_group(audio: Path, rate):
     if not MAKE_LETTERS:
         return None
     jobs = []
     for ch in LETTERS:
         path = audio / f"{ch}.mp3"
-        if not ok_file(path):
-            jobs.append(dict(item="letters", name=f"{ch}.mp3", text=f"{ch}.", voice=LETTER_VOICE, path=path))
+        r = need(path, LETTER_VOICE, rate)
+        if r:
+            jobs.append(dict(item="letters", name=f"{ch}.mp3", text=f"{ch}.", voice=LETTER_VOICE, rate=rate,
+                             path=path, redo=(r == "redo")))
     if jobs:
         return dict(key="letters", total=len(LETTERS), voice=LETTER_VOICE, jobs=jobs)
     return None
@@ -140,6 +235,7 @@ def clip(text, n=70):
 def plan_part1(root: Path):
     """一題的 pool 句子用同一個聲音（依題目 id 固定挑一個），模擬 TOEIC 多種口音。"""
     C = CFG["part1"]
+    begin(root)
     items = load_items(root, C["file"])
     audio = root / "audio"
     groups = []
@@ -152,11 +248,12 @@ def plan_part1(root: Path):
         for i, p in enumerate(it["pool"], 1):
             name = C["name"].format(id=iid, n=i)
             path = audio / C["sub"] / name
-            if not ok_file(path):
-                jobs.append(dict(item=iid, name=name, text=p["t"], voice=voice, path=path))
+            r = need(path, voice, C["rate"])
+            if r:
+                jobs.append(dict(item=iid, name=name, text=p["t"], voice=voice, path=path, redo=(r == "redo")))
         if jobs:
             groups.append(dict(key=iid, total=len(it["pool"]), voice=voice, jobs=jobs))
-    g = letters_group(audio)
+    g = letters_group(audio, C["rate"])
     if g:
         groups.append(g)
     return groups
@@ -173,6 +270,7 @@ def pick_voices_p2(iid):
 
 def plan_part2(root: Path):
     C = CFG["part2"]
+    begin(root)
     items = load_items(root, C["file"])
     audio = root / "audio"
     groups = []
@@ -184,16 +282,18 @@ def plan_part2(root: Path):
         jobs = []
         name = C["name_q"].format(id=iid)
         path = audio / C["sub"] / name
-        if not ok_file(path):
-            jobs.append(dict(item=iid, name=name, text=it["q"]["t"], voice=qv, path=path))
+        r = need(path, qv, C["rate"])
+        if r:
+            jobs.append(dict(item=iid, name=name, text=it["q"]["t"], voice=qv, path=path, redo=(r == "redo")))
         for i, p in enumerate(it["pool"], 1):
             name = C["name"].format(id=iid, n=i)
             path = audio / C["sub"] / name
-            if not ok_file(path):
-                jobs.append(dict(item=iid, name=name, text=p["t"], voice=av, path=path))
+            r = need(path, av, C["rate"])
+            if r:
+                jobs.append(dict(item=iid, name=name, text=p["t"], voice=av, path=path, redo=(r == "redo")))
         if jobs:
             groups.append(dict(key=iid, total=len(it["pool"]) + 1, voice=f"問 {short(qv)} / 答 {short(av)}", jobs=jobs))
-    g = letters_group(audio)
+    g = letters_group(audio, C["rate"])
     if g:
         groups.append(g)
     return groups
@@ -216,6 +316,7 @@ def pick_voices_p3(it):
 
 def plan_part3(root: Path):
     C = CFG["part3"]
+    begin(root)
     items = load_items(root, C["file"])
     audio = root / "audio"
     groups = []
@@ -229,9 +330,11 @@ def plan_part3(root: Path):
         for i, line in enumerate(it["dialogue"], 1):
             name = C["name"].format(id=iid, n=i)
             path = audio / C["sub"] / name
-            if not ok_file(path):
-                jobs.append(dict(item=iid, name=name, text=line["t"], voice=vmap.get(line.get("sp"), fallback),
-                                 path=path, sp=line.get("sp", "?")))
+            v = vmap.get(line.get("sp"), fallback)
+            r = need(path, v, C["rate"])
+            if r:
+                jobs.append(dict(item=iid, name=name, text=line["t"], voice=v,
+                                 path=path, sp=line.get("sp", "?"), redo=(r == "redo")))
         if jobs:
             vtxt = " / ".join(f"{sp} {short(v)}" for sp, v in vmap.items())
             groups.append(dict(key=iid, total=len(it["dialogue"]), voice=vtxt, jobs=jobs))
@@ -246,6 +349,7 @@ def say_text_p4(it):
 
 def plan_part4(root: Path):
     C = CFG["part4"]
+    begin(root)
     items = load_items(root, C["file"])
     audio = root / "audio"
     groups = []
@@ -259,9 +363,10 @@ def plan_part4(root: Path):
         v = gender_voice(iid, g)
         name = C["name"].format(id=iid)
         path = audio / C["sub"] / name
-        if not ok_file(path):
+        r = need(path, v, C["rate"])
+        if r:
             text = say_text_p4(it)
-            job = dict(item=iid, name=name, text=text, voice=v, path=path, sp=g)
+            job = dict(item=iid, name=name, text=text, voice=v, path=path, sp=g, redo=(r == "redo"))
             groups.append(dict(key=iid, total=1, voice=f"{g} {short(v)}", jobs=[job],
                                sample=f"（{len(it['script'])} 句，{len(text)} 字）{clip(text)}"))
     return groups
@@ -278,6 +383,7 @@ def say_text_p5(it):
 def plan_part5(root: Path):
     C = CFG["part5"]
     BLANK = C["blank"]
+    begin(root)
     items = load_items(root, C["file"])
     audio = root / "audio"
     groups = []
@@ -291,8 +397,9 @@ def plan_part5(root: Path):
         v = gender_voice(iid, g)
         name = C["name"].format(id=iid)
         path = audio / C["sub"] / name
-        if not ok_file(path):
-            job = dict(item=iid, name=name, text=say_text_p5(it), voice=v, path=path, sp=g)
+        r = need(path, v, C["rate"])
+        if r:
+            job = dict(item=iid, name=name, text=say_text_p5(it), voice=v, path=path, sp=g, redo=(r == "redo"))
             groups.append(dict(key=iid, total=1, voice=f"{g} {short(v)}", jobs=[job]))
     return groups
 
@@ -311,6 +418,7 @@ def say_text_p6(it):
 
 def plan_part6(root: Path):
     C = CFG["part6"]
+    begin(root)
     items = load_items(root, C["file"])
     audio = root / "audio"
     groups = []
@@ -322,9 +430,10 @@ def plan_part6(root: Path):
         v = gender_voice(iid, g)
         name = C["name"].format(id=iid)
         path = audio / C["sub"] / name
-        if not ok_file(path):
+        r = need(path, v, C["rate"])
+        if r:
             text = say_text_p6(it)
-            job = dict(item=iid, name=name, text=text, voice=v, path=path, sp=g)
+            job = dict(item=iid, name=name, text=text, voice=v, path=path, sp=g, redo=(r == "redo"))
             groups.append(dict(key=iid, total=1, voice=f"{g} {short(v)}", jobs=[job],
                                sample=f"（{len(text.split())} 字）{clip(text)}"))
     return groups
@@ -371,6 +480,7 @@ def doc_parts(d, key):
 
 def plan_part7(root: Path):
     C = CFG["part7"]
+    begin(root)
     items = load_items(root, C["file"])
     audio = root / "audio"
     groups = []
@@ -386,13 +496,15 @@ def plan_part7(root: Path):
             key = f"{iid}-d{k}"
             name = C["name"].format(key=key)
             path = audio / C["sub"] / name
-            if ok_file(path):
-                continue
             parts, vd = doc_parts(d, key)
             if not parts or not any(t for t, _ in parts):
                 continue
+            r = need(path, "|".join(v for _, v in parts), C["rate"])
+            if not r:
+                continue
             text = " ".join(t for t, _ in parts)
-            jobs.append(dict(item=iid, name=name, text=text, voice=parts[0][1], parts=parts, path=path, sp=d.get("kind", "")))
+            jobs.append(dict(item=iid, name=name, text=text, voice=parts[0][1], parts=parts, path=path,
+                             sp=d.get("kind", ""), redo=(r == "redo")))
             vdesc.append(f"d{k} {vd}")
         if jobs:
             groups.append(dict(key=iid, total=total, voice=" | ".join(vdesc), jobs=jobs,
@@ -484,6 +596,8 @@ def collect_entries(root, items):
                 ents[(qid, norm(t))] = dict(qid=qid, text=t, type=typ, ctx=None, examples=v.get("examples") or [],
                                             collocations=v.get("collocations") or [], forms=v.get("forms") or [],
                                             family=v.get("family") or [], derived=v.get("derived") or [],
+                                            confusable=v.get("confusable") or [], similar=v.get("similar") or [],
+                                            en=str(v.get("en") or "").strip(), key_words=v.get("key_words") or [], paraphrase=v.get("paraphrase") or [],
                                             pos_uses=v.get("pos_uses") or [], senses=v.get("senses") or [],
                                             lemma=str(v.get("lemma") or "").strip())
     for f in sorted(root.glob("daily-marks*.json")):
@@ -497,7 +611,7 @@ def collect_entries(root, items):
             t = str(m["text"]).strip()
             k = (m["qid"], norm(t))
             e = ents.setdefault(k, dict(qid=m["qid"], text=t, type=m.get("type") or "word", ctx=None, examples=[],
-                                        collocations=[], forms=[], family=[], derived=[], pos_uses=[], senses=[], lemma=""))
+                                        collocations=[], forms=[], family=[], derived=[], confusable=[], pos_uses=[], senses=[], lemma="", en="", key_words=[], paraphrase=[]))
             if m.get("ctx"):
                 e["ctx"] = str(m["ctx"]).strip()
     out = []
@@ -511,6 +625,7 @@ def collect_entries(root, items):
 
 def plan_daily(root: Path):
     """回傳 groups：list of dict(key, kind, total, voice, jobs[])，只包含有缺檔的項目。"""
+    begin(root)
     items = load_daily_items(root)
     audio = root / "audio"
     groups = []
@@ -521,11 +636,12 @@ def plan_daily(root: Path):
             if not p:
                 continue
             path = (root / x["audio"]) if x.get("audio") else audio / "daily" / f"{qid}.mp3"
-            if not ok_file(path):
-                voice = PASSAGE_VOICES[zlib.crc32(qid.encode("utf-8")) % len(PASSAGE_VOICES)]
+            voice = PASSAGE_VOICES[zlib.crc32(qid.encode("utf-8")) % len(PASSAGE_VOICES)]
+            r = need(path, voice, PASSAGE_RATE)
+            if r:
                 groups.append(dict(key=qid, kind="文章", total=1, voice=voice, jobs=[
-                    dict(name=path.name, text=p, voice=voice, rate=PASSAGE_RATE, path=path)]))
-    if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED or MAKE_POS or MAKE_SENSE:
+                    dict(name=path.name, text=p, voice=voice, rate=PASSAGE_RATE, path=path, redo=(r == "redo"))]))
+    if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED or MAKE_CONFUSABLE or MAKE_SIMILAR or MAKE_EN or MAKE_PARA or MAKE_KEYWORDS or MAKE_POS or MAKE_SENSE:
         vdir = root / VOCAB_SUB
         wdir = root / WORDS_SUB
         seen = set()   # 這次已排進清單的共用單字檔，同一個字不重複排
@@ -571,6 +687,36 @@ def plan_daily(root: Path):
                     w = d.get("w") if isinstance(d, dict) else None
                     if isinstance(w, str) and w.strip():
                         want.append((shared(w), speak_text(w)))
+            if MAKE_CONFUSABLE:
+                for k, c in enumerate(e.get("confusable") or [], 1):  # 易混淆：該字／片語本身發音（共用庫）＋ 例句 _cf{k}，與 notes.js 的 🔊 一致
+                    cw = (c.get("word") or c.get("phrase")) if isinstance(c, dict) else None
+                    if isinstance(cw, str) and cw.strip():
+                        want.append((shared(cw), speak_text(cw)))
+                    en = (c.get("example") or {}).get("en") if isinstance(c, dict) and isinstance(c.get("example"), dict) else None
+                    if isinstance(en, str) and en.strip():
+                        want.append((f"{base}_cf{k}.mp3", en.strip()))
+            if MAKE_EN and e.get("en"):   # 英文解說整句：逐篇存放，檔名 _en，與 notes.js 的 🔊 一致
+                want.append((f"{base}_en.mp3", str(e["en"]).strip()))
+            if MAKE_PARA:                 # 句子的同義改寫：逐篇存放，檔名 _pr{k}，與 notes.js 的 🔊 一致
+                for k, o in enumerate(e.get("paraphrase") or [], 1):
+                    en = o.get("en") if isinstance(o, dict) else (o if isinstance(o, str) else None)
+                    if isinstance(en, str) and en.strip():
+                        want.append((f"{base}_pr{k}.mp3", en.strip()))
+            if MAKE_KEYWORDS:             # 句中值得注意的字：單字走共用庫
+                for k, o in enumerate(e.get("key_words") or [], 1):
+                    kw = o.get("w") if isinstance(o, dict) else None
+                    if isinstance(kw, str) and kw.strip():
+                        want.append((shared(kw), speak_text(kw)))
+            if MAKE_SIMILAR:
+                for k, c in enumerate(e.get("similar") or [], 1):  # 近義片語：本身發音（共用庫）＋ 例句 _sx{k}，與 notes.js 的 🔊 一致
+                    if not isinstance(c, dict):
+                        continue
+                    sw = c.get("phrase") or c.get("word")
+                    if isinstance(sw, str) and sw.strip():
+                        want.append((shared(sw), speak_text(sw)))
+                    en = (c.get("example") or {}).get("en") if isinstance(c.get("example"), dict) else None
+                    if isinstance(en, str) and en.strip():
+                        want.append((f"{base}_sx{k}.mp3", en.strip()))
             for on, key, wsuf, esuf in ((MAKE_POS, "pos_uses", "pw", "p"), (MAKE_SENSE, "senses", "sw", "s")):
                 if not on:
                     continue
@@ -586,14 +732,16 @@ def plan_daily(root: Path):
             for n, t in want:
                 if n.startswith("@"):   # 單字類：共用庫；已存在、或這次已排進別的項目就不重複
                     p = wdir / n[1:]
-                    if ok_file(p) or p in seen:
+                    r = need(p, VOCAB_VOICE, VOCAB_RATE)
+                    if not r or p in seen:
                         continue
                     seen.add(p)
                 else:                   # 例句、所在句、句子：逐篇存放
                     p = vdir / n
-                    if ok_file(p):
+                    r = need(p, VOCAB_VOICE, VOCAB_RATE)
+                    if not r:
                         continue
-                jobs.append(dict(name=p.name, text=t, voice=VOCAB_VOICE, rate=VOCAB_RATE, path=p))
+                jobs.append(dict(name=p.name, text=t, voice=VOCAB_VOICE, rate=VOCAB_RATE, path=p, redo=(r == "redo")))
             if jobs:
                 kind = {"word": "單字", "phrase": "片語", "sentence": "句子"}.get(e["type"], "單字")
                 groups.append(dict(key=f"{e['qid']}:{e['text']}", kind=kind, total=len(want), voice=VOCAB_VOICE, jobs=jobs))
@@ -697,7 +845,47 @@ def find_root(spec=None):
     return None
 
 
-# ------------------------------- 語音產生 -------------------------------
+# ------------------------------- Azure 點數用量（估算） -------------------------------
+USAGE = dict(session=0)
+
+
+def usage_path(root) -> Path:
+    return Path(root) / USAGE_NAME
+
+
+def load_usage(root):
+    try:
+        j = json.loads(usage_path(root).read_text(encoding="utf-8-sig"))
+        return j if isinstance(j, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def save_usage(root):
+    if not USAGE["session"]:
+        return
+    j = load_usage(root)
+    j["chars"] = int(j.get("chars", 0)) + USAGE["session"]
+    j["updated"] = datetime.now().strftime("%Y-%m-%d %H:%M")
+    usage_path(root).write_text(json.dumps(j, ensure_ascii=False, indent=1), encoding="utf-8")
+    USAGE["session"] = 0
+
+
+def credit_line(root):
+    chars = int(load_usage(root).get("chars", 0))
+    used = chars / 1e6 * PRICE_USD_PER_M_CHARS
+    when = "點數到期日未設定（請填 AZURE_CREDIT_END）"
+    if AZURE_CREDIT_END:
+        try:
+            left = (datetime.strptime(AZURE_CREDIT_END, "%Y-%m-%d").date() - datetime.now().date()).days
+            when = f"點數到期 {AZURE_CREDIT_END}（" + (f"還剩 {left} 天" if left >= 0 else f"已過期 {-left} 天，Azure 可能已停用") + "）"
+        except ValueError:
+            when = "AZURE_CREDIT_END 格式應為 YYYY-MM-DD"
+    return (f"Azure：{when}；本腳本累計約 {chars:,} 字元 ≈ US${used:.2f} ／ US${AZURE_CREDIT_USD:.0f}"
+            f"（{used / AZURE_CREDIT_USD * 100:.1f}%，僅估算，實際請看入口網站「成本管理」）")
+
+
+# ------------------------------- edge-tts（微軟免費語音；2026-10-10 起常回 403） -------------------------------
 def have_edge_tts():
     try:
         importlib.invalidate_caches()
@@ -707,15 +895,16 @@ def have_edge_tts():
         return False
 
 
-async def synth(job, spec, sem, st, log, edge_tts):
+async def synth_edge(job, spec, sem, st, log, edge_tts):
     async with sem:
         if st["stop"].is_set():
             st["skipped"] += 1
             return
         job["path"].parent.mkdir(parents=True, exist_ok=True)
         tmp = job["path"].with_suffix(".tmp")
-        parts = job.get("parts") or [(job["text"], job["voice"])]   # [(文字, 聲音), ...]；多段會依序接成一個 mp3
+        parts = job.get("parts") or [(job["text"], job["voice"])]
         rate = job.get("rate") or spec.cfg["rate"]
+        sig = "|".join(v for _, v in parts)
         timeout = spec.cfg["timeout"]
         err = None
         for _ in range(3):
@@ -736,9 +925,12 @@ async def synth(job, spec, sem, st, log, edge_tts):
                 if tmp.exists() and tmp.stat().st_size > 1000:
                     tmp.replace(job["path"])
                     st["ok"] += 1
-                    log(f"✓ {job['name']}  {spec.log_text(job)}")
+                    record(job["path"], sig, rate)
+                    if STATE["dirty"] >= 20:
+                        save_log()
+                    log(f"{'↻' if job.get('redo') else '✓'} {job['name']}  {spec.log_text(job)}")
                     return
-            except Exception as e:  # 網路不穩就重試
+            except Exception as e:
                 err = f"{type(e).__name__} {e}".strip()
             finally:
                 for pt in tmps:
@@ -755,15 +947,148 @@ async def synth(job, spec, sem, st, log, edge_tts):
             pass
 
 
-def generate(jobs, spec, log, progress, stop):
+# ------------------------------- 語音產生（Azure Speech REST + SSML） -------------------------------
+class AzureFatal(Exception):
+    """金鑰／區域／聲音設定錯誤：重試沒有用，整批停止。"""
+
+
+def azure_conf():
+    """從環境變數讀金鑰與區域。回傳 (key, region, 錯誤訊息或 None)。不會把金鑰印出來。"""
+    key = os.environ.get("SPEECH_KEY", "").strip()
+    region = os.environ.get("SPEECH_REGION", "").strip().lower().replace(" ", "")
+    miss = [n for n, v in (("SPEECH_KEY", key), ("SPEECH_REGION", region)) if not v]
+    if miss:
+        return key, region, ("找不到環境變數 " + "、".join(miss) + "。請在命令提示字元執行：setx SPEECH_KEY \"金鑰\" 和 "
+                             "setx SPEECH_REGION \"區域\"，然後關掉所有終端機／編輯器重開（雙擊執行則請登出再登入）。")
+    if not re.fullmatch(r"[a-z0-9]+", region):
+        return key, region, "SPEECH_REGION 格式不對，應為小寫英數字（例如 eastasia、japaneast），不是「East Asia」。"
+    return key, region, None
+
+
+def tts_url(region):
+    return f"https://{region}.tts.speech.microsoft.com/cognitiveservices/v1"
+
+
+def prosody_open(rate):
+    r = (rate or "").strip()
+    return (f'<prosody rate="{xml_escape(r)}">', "</prosody>") if r and r not in ("+0%", "0%") else ("", "")
+
+
+def clean_text(t):
+    t = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", t)   # XML 不允許的控制字元
+    return xml_escape(re.sub(r"\s+", " ", t).strip())
+
+
+def build_ssml(parts, rate):
+    """parts＝[(文字, 聲音), ...]。多段用同一份 SSML 的多個 <voice>，一次請求就得到接好的 mp3。"""
+    po, pc = prosody_open(rate)
+    brk = f'<break time="{PAUSE_MS}ms"/>' if len(parts) > 1 else ""
+    body = []
+    for i, (text, voice) in enumerate(parts):
+        t = clean_text(text)
+        if not t:
+            raise ValueError("文字是空的")
+        body.append(f'<voice name="{xml_escape(voice)}">{po}{t}{pc}{brk if i < len(parts) - 1 else ""}</voice>')
+    return "<speak version='1.0' xml:lang='en-US'>" + "".join(body) + "</speak>"
+
+
+def job_chars(job):
+    parts = job.get("parts") or [(job["text"], job["voice"])]
+    return sum(len(clean_text(t)) for t, _ in parts)
+
+
+def azure_request(key, region, ssml, timeout):
+    """同步呼叫一次；成功回傳 mp3 bytes；失敗丟 urllib.error.HTTPError／URLError。"""
+    req = urllib.request.Request(
+        tts_url(region), data=ssml.encode("utf-8"), method="POST",
+        headers={"Ocp-Apim-Subscription-Key": key, "Content-Type": "application/ssml+xml",
+                 "X-Microsoft-OutputFormat": AZURE_FORMAT, "User-Agent": "toeic-auto-speech"})
+    with urllib.request.urlopen(req, timeout=timeout or 60) as r:
+        return r.read()
+
+
+async def azure_synth(parts, rate, timeout, conf):
+    """含重試／限流（429 依 Retry-After 等待、5xx 與網路錯誤指數退避）。401／403／404／400 不重試。"""
+    key, region = conf
+    ssml = build_ssml(parts, rate)
+    last = None
+    for attempt in range(AZURE_RETRIES):
+        try:
+            return await asyncio.to_thread(azure_request, key, region, ssml, timeout)
+        except urllib.error.HTTPError as e:
+            code = e.code
+            detail = ""
+            try:
+                detail = e.read().decode("utf-8", "replace")[:120]
+            except Exception:
+                pass
+            if code in (401, 403):
+                raise AzureFatal(f"HTTP {code}：金鑰無效、區域和金鑰不符，或此訂用帳戶已停用／額度用完。{detail}")
+            if code == 404:
+                raise AzureFatal("HTTP 404：端點不存在，請確認 SPEECH_REGION 和資源所在區域一致。")
+            if code in (400, 415):
+                raise ValueError(f"HTTP {code}：請求被拒絕（SSML 或聲音名稱有問題）{detail}")
+            if code == 429 or code >= 500:
+                wait = 0.0
+                try:
+                    wait = float(e.headers.get("Retry-After") or 0)
+                except (TypeError, ValueError):
+                    pass
+                wait = max(wait, min(2 ** attempt, 30)) + random.uniform(0, 1)
+                last = f"HTTP {code}"
+                await asyncio.sleep(wait)
+                continue
+            raise RuntimeError(f"HTTP {code} {detail}")
+        except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+            last = f"{type(e).__name__} {e}".strip()
+            await asyncio.sleep(min(2 ** attempt, 30) + random.uniform(0, 1))
+    raise RuntimeError(f"重試 {AZURE_RETRIES} 次仍失敗（{last}）")
+
+
+async def synth(job, spec, sem, st, log, conf):
+    async with sem:
+        if st["stop"].is_set():
+            st["skipped"] += 1
+            return
+        job["path"].parent.mkdir(parents=True, exist_ok=True)
+        tmp = job["path"].with_suffix(".tmp")
+        parts = job.get("parts") or [(job["text"], job["voice"])]   # [(文字, 聲音), ...]；多段在同一份 SSML 內依序朗讀
+        rate = job.get("rate") or spec.cfg["rate"]
+        sig = "|".join(v for _, v in parts)             # 版本紀錄用的聲音簽名（和 plan 裡的 need() 一致）
+        timeout = spec.cfg["timeout"]
+        try:
+            data = await azure_synth(parts, rate, timeout, conf)
+            if len(data) <= 1000:
+                raise RuntimeError("產生的檔案太小")
+            tmp.write_bytes(data)
+            tmp.replace(job["path"])
+            st["ok"] += 1
+            USAGE["session"] += job_chars(job)
+            record(job["path"], sig, rate)
+            if STATE["dirty"] >= 20:                     # 每 20 筆存一次，中途當掉也不會全部遺失
+                save_log()
+            log(f"{'↻' if job.get('redo') else '✓'} {job['name']}  {spec.log_text(job)}")
+        except AzureFatal as e:
+            st["bad"] += 1
+            log(f"✗ 失敗 {job['name']}  ({e})")
+            if not st.get("fatal"):
+                st["fatal"] = True
+                log("✗ 這類錯誤重試沒有用，已停止其餘檔案。請修正設定後再執行（可先跑 --check-azure）。")
+                st["stop"].set()
+        except Exception as e:
+            st["bad"] += 1
+            log(f"✗ 失敗 {job['name']}  ({type(e).__name__} {e})".strip())
+        finally:
+            try:
+                tmp.unlink()
+            except OSError:
+                pass
+
+
+def generate(jobs, spec, log, progress, stop, root=None):
     """同步執行（給文字模式或背景執行緒呼叫）。回傳 (成功, 失敗, 略過)"""
-    if not have_edge_tts():
-        log("正在安裝 edge-tts …")
-        r = subprocess.run([sys.executable, "-m", "pip", "install", "edge-tts"], capture_output=True, text=True)
-        if r.returncode != 0 or not have_edge_tts():
-            log("✗ 安裝 edge-tts 失敗，請手動執行：pip install edge-tts")
-            return 0, len(jobs), 0
-    import edge_tts
+    if root is not None:
+        STATE["root"] = Path(root)
     st = dict(ok=0, bad=0, skipped=0, stop=stop)
     total = len(jobs)
 
@@ -771,12 +1096,83 @@ def generate(jobs, spec, log, progress, stop):
         log(m)
         progress(st["ok"] + st["bad"], total)
 
-    async def go():
-        sem = asyncio.Semaphore(CONCURRENCY)
-        await asyncio.gather(*(synth(j, spec, sem, st, lg, edge_tts) for j in jobs))
+    if ENGINE == "azure":
+        key, region, err = azure_conf()
+        if err:
+            log("✗ " + err)
+            return 0, len(jobs), 0
+        chars = sum(job_chars(j) for j in jobs)
+        USAGE["session"] = 0
+        log(f"引擎：Azure Speech　區域 {region}；本次 {total} 個檔、約 {chars:,} 字元"
+            f"（估算約 US${chars / 1e6 * PRICE_USD_PER_M_CHARS:.3f}）")
+        log(credit_line(STATE["root"]))
 
-    asyncio.run(go())
+        async def go():
+            sem = asyncio.Semaphore(CONCURRENCY)
+            await asyncio.gather(*(synth(j, spec, sem, st, lg, (key, region)) for j in jobs))
+    else:
+        if not have_edge_tts():
+            log("正在安裝 edge-tts …")
+            r = subprocess.run([sys.executable, "-m", "pip", "install", "edge-tts"], capture_output=True, text=True)
+            if r.returncode != 0 or not have_edge_tts():
+                log("✗ 安裝 edge-tts 失敗，請手動執行：pip install edge-tts")
+                return 0, len(jobs), 0
+        import edge_tts
+        log("引擎：edge-tts（免費）。注意：2026-10-10 起微軟改版，常見 HTTP 403 失敗，與本程式無關。")
+
+        async def go():
+            sem = asyncio.Semaphore(CONCURRENCY)
+            await asyncio.gather(*(synth_edge(j, spec, sem, st, lg, edge_tts) for j in jobs))
+
+    try:
+        asyncio.run(go())
+    finally:
+        if STATE["dirty"] and STATE["root"]:
+            try:
+                save_log()
+            except OSError as e:
+                log(f"✗ 無法寫入版本紀錄 {LOG_NAME}：{e}")
+        if ENGINE == "azure" and STATE["root"]:
+            try:
+                save_usage(STATE["root"])
+                log(credit_line(STATE["root"]))
+            except OSError as e:
+                log(f"✗ 無法寫入用量紀錄 {USAGE_NAME}：{e}")
     return st["ok"], st["bad"], st["skipped"]
+
+
+def check_azure():
+    """--check-azure：驗證金鑰／區域，列出 8 個聲音是否存在，並實際合成一次很短的句子。"""
+    key, region, err = azure_conf()
+    if err:
+        print("✗", err)
+        return 1
+    print(f"區域：{region}　金鑰：已讀到（長度 {len(key)}，不顯示內容）")
+    try:
+        req = urllib.request.Request(f"https://{region}.tts.speech.microsoft.com/cognitiveservices/voices/list",
+                                     headers={"Ocp-Apim-Subscription-Key": key})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            have = {v["ShortName"] for v in json.loads(r.read().decode("utf-8"))}
+    except urllib.error.HTTPError as e:
+        print(f"✗ 讀取聲音清單失敗：HTTP {e.code}（401／403＝金鑰或區域不對；404＝區域名稱錯）")
+        return 1
+    except Exception as e:
+        print(f"✗ 連線失敗：{type(e).__name__} {e}")
+        return 1
+    bad = 0
+    for v in dict.fromkeys(VOICES + [LETTER_VOICE, VOCAB_VOICE]):
+        ok = v in have
+        bad += (not ok)
+        print(f"  {'✓' if ok else '✗'} {v}")
+    try:
+        data = azure_request(key, region, build_ssml([("Hello.", VOICES[0])], "-5%"), 30)
+        print(f"✓ 合成測試成功（{len(data):,} bytes，約 6 個字元）")
+    except Exception as e:
+        print(f"✗ 合成測試失敗：{type(e).__name__} {e}")
+        return 1
+    print(credit_line(find_root() or HERE))
+    print("全部可用。" if not bad else f"有 {bad} 個聲音在 {region} 不可用，請改用別的聲音或區域。")
+    return 1 if bad else 0
 
 
 def run_scan(root: Path, log):
@@ -800,22 +1196,25 @@ def run_gui(root: Path, spec: Spec):
     S = dict(groups=[], checked=set(), running=False, stop=threading.Event(), result=None)
     q = queue.Queue()
     unit = spec.unit
+    kind_btns = {}   # Daily 的「文章／詳解」切換鈕：{True: 文章鈕, False: 詳解鈕}
 
     ttk.Label(win, text=spec.folder_note(root), foreground="#555").pack(anchor="w", padx=10, pady=(8, 2))
 
     bar = ttk.Frame(win)
     bar.pack(fill="x", padx=10, pady=4)
+    bar2 = ttk.Frame(win)
+    bar2.pack(fill="x", padx=10, pady=(0, 4))
     n_var, pre_var = tk.StringVar(value="10"), tk.StringVar()
 
     tree_f = ttk.Frame(win)
     tree_f.pack(fill="both", expand=True, padx=10)
     if spec.daily:
         cols = ("chk", "key", "kind", "miss", "sample")
-        heads, widths = ("勾", spec.id_hdr, "類型", "缺/總", "內容"), (40, 200, 60, 70, 560)
+        heads, widths = ("勾", spec.id_hdr, "類型", "缺/總", "內容"), (40, 200, 60, 90, 560)
         centered = ("chk", "kind", "miss")
     else:
         cols = ("chk", "id", "miss", "voice", "sample")
-        heads, widths = ("勾", spec.id_hdr, "缺/總", "聲音", spec.sample_hdr), (40, 110, 70, spec.voice_w, spec.sample_w)
+        heads, widths = ("勾", spec.id_hdr, "缺/總", "聲音", spec.sample_hdr), (40, 110, 90, spec.voice_w, spec.sample_w)
         centered = ("chk", "miss")
     tree = ttk.Treeview(tree_f, columns=cols, show="headings", selectmode="browse", height=12)
     for c, t, w in zip(cols, heads, widths):
@@ -851,12 +1250,17 @@ def run_gui(root: Path, spec: Spec):
         g = [S["groups"][int(i)] for i in S["checked"]]
         n = sum(len(x["jobs"]) for x in g)
         total = sum(len(x["jobs"]) for x in S["groups"])
-        summary.config(text=f"已勾選 {len(g)} {unit}，共 {n} 個檔，預估約 {spec.est_minutes(n) if n else 0} 分鐘　（全部缺 {total} 個檔）")
+        rn = sum(1 for x in g for j in x["jobs"] if j.get("redo"))
+        rt = sum(1 for x in S["groups"] for j in x["jobs"] if j.get("redo"))
+        summary.config(text=f"已勾選 {len(g)} {unit}，共 {n} 個檔" + (f"（其中 {rn} 個重錄）" if rn else "")
+                       + f"，預估約 {spec.est_minutes(n) if n else 0} 分鐘　（全部 {total} 個檔" + (f"，含重錄 {rt} 個" if rt else "") + "）")
         start_btn.config(state="normal" if (n and not S["running"]) else "disabled")
+        refresh_kind_btns()
 
     def row_values(i, g):
         chk = "☑" if str(i) in S["checked"] else "☐"
-        miss = f"{len(g['jobs'])}/{g['total']}"
+        rn = sum(1 for j in g["jobs"] if j.get("redo"))
+        miss = f"{len(g['jobs'])}/{g['total']}" + (f" ↻{rn}" if rn else "")
         if spec.daily:
             return (chk, g["key"], g["kind"], miss, sample_of(g))
         return (chk, g["key"], miss, g["voice"], sample_of(g))
@@ -898,13 +1302,13 @@ def run_gui(root: Path, spec: Spec):
         if spec.daily:
             detail.insert("end", f"{g['key']}　聲音 {g['voice']}\n")
             for j in g["jobs"]:
-                detail.insert("end", f"  {j['name']:<34} {j['text'][:70].replace(chr(10), ' ')}\n")
+                detail.insert("end", f" {'↻' if j.get('redo') else ' '}{j['name']:<34} {j['text'][:70].replace(chr(10), ' ')}\n")
             return
         folder = (root / "audio") if g["key"] == "letters" else (root / "audio" / spec.sub)
         detail.insert("end", f"{g['key']}　聲音 {g['voice']}　存到 {folder}\n")
         for j in g["jobs"]:
             body = f"{j['sp']}: {j['text']}" if (spec.detail_sp and "sp" in j) else j["text"]
-            detail.insert("end", f"  {j['name']:<22} {body}\n")
+            detail.insert("end", f" {'↻' if j.get('redo') else ' '}{j['name']:<22} {body}\n")
 
     def space(_e):
         sel = tree.selection()
@@ -927,14 +1331,35 @@ def run_gui(root: Path, spec: Spec):
         if p:
             set_checked(i for i, g in enumerate(S["groups"]) if match_key(g["key"], p))
 
-    def by_kind(passage):
-        set_checked(i for i, g in enumerate(S["groups"]) if (g["kind"] == "文章") == passage)
+    def kind_ids(passage):
+        return {str(i) for i, g in enumerate(S["groups"]) if (g["kind"] == "文章") == passage}
+
+    def toggle_kind(passage):
+        """該類（文章／詳解）已經全勾 → 全部取消；否則 → 全部勾選。不影響另一類的勾選狀態。"""
+        ids = kind_ids(passage)
+        if not ids:
+            return
+        if ids <= S["checked"]:
+            S["checked"] -= ids
+        else:
+            S["checked"] |= ids
+        repaint()
+
+    def refresh_kind_btns():
+        for passage, btn in kind_btns.items():
+            ids = kind_ids(passage)
+            name = "文章" if passage else "詳解"
+            on = bool(ids) and ids <= S["checked"]
+            btn.config(text=(f"☑ 取消全部{name}" if on else f"☐ 勾選全部{name}"),
+                       state="normal" if ids else "disabled")
 
     ttk.Button(bar, text="全選", command=lambda: set_checked(range(len(S["groups"])))).pack(side="left")
     ttk.Button(bar, text="全不選", command=lambda: set_checked([])).pack(side="left", padx=4)
     if spec.daily:
-        ttk.Button(bar, text="只勾文章", command=lambda: by_kind(True)).pack(side="left")
-        ttk.Button(bar, text="只勾詳解", command=lambda: by_kind(False)).pack(side="left", padx=4)
+        kind_btns[True] = ttk.Button(bar, text="☐ 勾選全部文章", command=lambda: toggle_kind(True))
+        kind_btns[True].pack(side="left")
+        kind_btns[False] = ttk.Button(bar, text="☐ 勾選全部詳解", command=lambda: toggle_kind(False))
+        kind_btns[False].pack(side="left", padx=4)
     else:
         ttk.Button(bar, text="反選", command=lambda: set_checked(i for i in range(len(S["groups"])) if str(i) not in S["checked"])).pack(side="left")
     ttk.Separator(bar, orient="vertical").pack(side="left", fill="y", padx=10)
@@ -959,12 +1384,14 @@ def run_gui(root: Path, spec: Spec):
         start_btn.config(state="disabled")
         stop_btn.config(state="normal")
         switch_btn.config(state="disabled")
+        redo_cb.config(state="disabled")
+        eng_cb.config(state="disabled")
         prog.config(maximum=len(jobs), value=0)
         log(f"—— 開始產生 {len(jobs)} 個檔案（需要網路）——")
 
         def work():
             try:
-                res = generate(jobs, spec, lambda m: q.put(("log", m)), lambda d, t: q.put(("prog", d)), S["stop"])
+                res = generate(jobs, spec, lambda m: q.put(("log", m)), lambda d, t: q.put(("prog", d)), S["stop"], root)
             except Exception as e:
                 q.put(("log", f"✗ 發生錯誤：{e}"))
                 res = (0, len(jobs), 0)
@@ -977,6 +1404,8 @@ def run_gui(root: Path, spec: Spec):
         S["running"] = False
         stop_btn.config(state="disabled")
         switch_btn.config(state="normal")
+        redo_cb.config(state="readonly")
+        eng_cb.config(state="readonly")
         log(f"—— 完成：成功 {ok}，失敗 {bad}" + (f"，已取消 {skipped}" if skipped else "") + " ——")
         if spec.daily:
             write_manifest(root, log)
@@ -1020,7 +1449,41 @@ def run_gui(root: Path, spec: Spec):
     if spec.daily:
         ttk.Button(act, text="重建 vocab/index.json", command=lambda: write_manifest(root, log)).pack(side="right", padx=4)
 
+    REDO_CHOICES = ["只補缺的檔", "補缺 ＋ 聲音／語速和目前設定不同的檔", "補缺 ＋ 不同的檔 ＋ 沒有紀錄的舊檔"]
+    redo_var = tk.StringVar(value=REDO_CHOICES[STATE["redo"]])
+    ttk.Label(bar2, text="重錄範圍：").pack(side="left")
+    redo_cb = ttk.Combobox(bar2, textvariable=redo_var, values=REDO_CHOICES, state="readonly", width=40)
+    redo_cb.pack(side="left")
+    ttk.Label(bar2, text=f"　版本紀錄：{LOG_NAME}（↻＝檔案已存在，會被新版覆蓋）", foreground="#555").pack(side="left")
+
+    def on_redo(_e=None):
+        if S["running"]:
+            redo_var.set(REDO_CHOICES[STATE["redo"]])
+            return
+        STATE["redo"] = REDO_CHOICES.index(redo_var.get())
+        reload_plan()
+
+    redo_cb.bind("<<ComboboxSelected>>", on_redo)
+
+    ENG_CHOICES = ["Azure Speech（動用點數）", "edge-tts（免費，目前常 403）"]
+    eng_var = tk.StringVar(value=ENG_CHOICES[0 if ENGINE == "azure" else 1])
+    ttk.Label(bar2, text="　引擎：").pack(side="left")
+    eng_cb = ttk.Combobox(bar2, textvariable=eng_var, values=ENG_CHOICES, state="readonly", width=26)
+    eng_cb.pack(side="left")
+
+    def on_eng(_e=None):
+        global ENGINE
+        if S["running"]:
+            eng_var.set(ENG_CHOICES[0 if ENGINE == "azure" else 1])
+            return
+        ENGINE = "azure" if eng_var.get() == ENG_CHOICES[0] else "edge-tts"
+        log(f"引擎改為：{ENGINE}" + ("　" + credit_line(root) if ENGINE == "azure" else ""))
+        reload_plan()
+
+    eng_cb.bind("<<ComboboxSelected>>", on_eng)
+
     reload_plan()
+    log(f"目前引擎：{ENGINE}" + ("　" + credit_line(root) if ENGINE == "azure" else ""))
     if not S["groups"]:
         log("✔ 所有音檔都齊了，沒有需要產生的檔案。")
     poll()
@@ -1100,9 +1563,13 @@ def run_cli(root: Path, spec: Spec, dry: bool):
         return
     total = sum(len(g["jobs"]) for g in groups)
     unit = spec.unit
+    all_chars = sum(job_chars(j) for g in groups for j in g["jobs"])
     print("=" * 78)
     print(f"題庫       : {spec.title}")
     print(f"專案資料夾 : {root}")
+    print(f"引擎       : {ENGINE}" + ("　" + credit_line(root) if ENGINE == "azure" else ""))
+    print(f"版本紀錄   : {log_path(root)}　重錄範圍 {STATE['redo']}（0＝只補缺／1＝含版本不同／2＝再含無紀錄舊檔），"
+          f"其中重錄 {sum(1 for g in groups for j in g['jobs'] if j.get('redo'))} 個")
     if spec.daily:
         print(f"文章存放   : {root / 'audio' / 'daily'}\n詳解存放   : {root / VOCAB_SUB}\n缺 {total} 個檔")
     else:
@@ -1110,6 +1577,7 @@ def run_cli(root: Path, spec: Spec, dry: bool):
         if spec.letters:
             print(f"字母存放   : {root / 'audio'}")
         print(f"語速 {spec.cfg['rate']}　缺 {total} 個檔")
+    print(f"字元估算   : 全部缺的檔共約 {all_chars:,} 字元（約 US${all_chars / 1e6 * PRICE_USD_PER_M_CHARS:.3f}，僅供估算）")
     print("=" * 78)
     for n, g in enumerate(groups, 1):
         if spec.daily:
@@ -1140,7 +1608,7 @@ def run_cli(root: Path, spec: Spec, dry: bool):
                 print(f"   {j['path']}   {body}")
     if input("確定開始？(Y/n) ").strip().lower() in ("n", "no"):
         return
-    ok, bad, _ = generate(jobs, spec, print, lambda d, t: None, threading.Event())
+    ok, bad, _ = generate(jobs, spec, print, lambda d, t: None, threading.Event(), root)
     print(f"\n完成：成功 {ok}，失敗 {bad}。")
     if spec.daily:
         write_manifest(root)
@@ -1165,7 +1633,21 @@ def pick_part_cli(root: Path):
 def main():
     args = sys.argv[1:]
     flags = {a for a in args if a.startswith("--")}
+    global ENGINE
+    if "--edge" in flags:
+        ENGINE = "edge-tts"
+    elif "--azure" in flags:
+        ENGINE = "azure"
+    if "--check-azure" in flags:
+        sys.exit(check_azure())
+    if "--usage" in flags:
+        print(credit_line(find_root() or HERE))
+        return
     pos = [a for a in args if not a.startswith("--")]
+    if "--redo-all" in flags:
+        STATE["redo"] = 2
+    elif "--redo" in flags:
+        STATE["redo"] = 1
     spec = None
     if pos:
         key = resolve_part(pos[0])

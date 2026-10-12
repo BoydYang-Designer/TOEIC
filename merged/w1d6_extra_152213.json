@@ -1,0 +1,112 @@
+{
+  "week": 1,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "annual maintenance",
+      "type": "phrase",
+      "zh": "年度維護（費用）",
+      "en": "regular care and repair of equipment or software that is done or paid for each year",
+      "note": "在這篇文章裡 annual maintenance fee 指軟體合約的「年度維護費」，與一次性的初期費用分開，每年一月另外請款。maintenance 是名詞，這裡作為 fee 的修飾詞。",
+      "pattern": "annual maintenance + fee / contract / check",
+      "examples": [
+        {
+          "tag": "合約",
+          "en": "The annual maintenance contract covers repairs and software updates.",
+          "zh": "年度維護合約涵蓋維修與軟體更新。"
+        },
+        {
+          "tag": "設備",
+          "en": "The elevator needs an annual maintenance check by a licensed company.",
+          "zh": "電梯需要由有執照的公司進行年度維護檢查。"
+        },
+        {
+          "tag": "預算",
+          "en": "We have included annual maintenance costs in next year's budget.",
+          "zh": "我們已把年度維護費用編入明年的預算。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "regular maintenance",
+          "diff": "regular maintenance 是「定期維護」，不限一年一次；annual maintenance 指每年一次。",
+          "example": {
+            "en": "Regular maintenance of the machines happens every three months.",
+            "zh": "機器的定期維護每三個月進行一次。"
+          }
+        },
+        {
+          "phrase": "yearly maintenance",
+          "diff": "意思相同；annual 較正式，常用於合約與公文。",
+          "example": {
+            "en": "The yearly maintenance contract is renewed each January.",
+            "zh": "年度維護合約每年一月續約。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "annual / annually",
+          "diff": "annual 是形容詞（annual fee）；annually 是副詞（paid annually），放在動詞後。",
+          "example": {
+            "en": "The annual fee must be paid annually, not monthly.",
+            "zh": "這筆年費必須按年支付，而不是按月。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "In particular",
+      "type": "phrase",
+      "zh": "尤其、特別是",
+      "en": "especially; used to point to one important thing in a larger group",
+      "note": "在這篇文章裡放在句首，用來從「請仔細檢閱合約」這個大範圍中，點出最需要注意的一項（提前終止條款）。語感是「其中特別要留意的是…」，後面常接逗號。",
+      "pattern": "In particular, + 句子 ／ 名詞 + in particular",
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Sales improved last quarter, in particular in the online market.",
+          "zh": "上一季銷售成長，尤其是在網路市場。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please read the safety rules. In particular, note the new exit plan.",
+          "zh": "請閱讀安全規定，特別要留意新的逃生路線。"
+        },
+        {
+          "tag": "客服",
+          "en": "Customers liked the service, and the fast delivery in particular.",
+          "zh": "顧客喜歡這項服務，尤其喜歡快速送貨。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "especially",
+          "diff": "especially 是副詞，可放在句中修飾；in particular 常放句首或句尾，語氣較正式、較強調。",
+          "example": {
+            "en": "Sales rose last quarter, especially in the online market.",
+            "zh": "上一季銷售上升，尤其是網路市場。"
+          }
+        },
+        {
+          "phrase": "specifically",
+          "diff": "specifically 強調「明確指出某一項」；in particular 強調「特別重要的一項」。",
+          "example": {
+            "en": "The manager specifically asked us to check the safety rules.",
+            "zh": "經理明確要求我們檢查安全規定。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "particularly",
+          "diff": "particularly 是副詞，放在形容詞或動詞前（particularly useful）；in particular 是片語，通常獨立使用。",
+          "example": {
+            "en": "The new software is particularly useful for small warehouses.",
+            "zh": "這套新軟體對小型倉庫特別有用。"
+          }
+        }
+      ]
+    }
+  ]
+}

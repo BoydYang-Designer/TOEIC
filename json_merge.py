@@ -497,6 +497,22 @@ class Daily(Profile):
                 wa.append('「%s」缺少 ipa 或 pos' % t)
             if v['type'] == 'sentence' and not (v.get('structure') or v.get('grammar')):
                 wa.append('「%s」沒有 structure／grammar' % t)
+            if v['type'] == 'sentence':
+                ch = v.get('chunks')
+                if not (isinstance(ch, list) and ch and all(isinstance(c, dict) and str(c.get('en') or '').strip() and str(c.get('zh') or '').strip() for c in ch)):
+                    wa.append('「%s」沒有 chunks（意群斷句，每筆需 en 與 zh）' % t)
+                elif re.sub(r'[^a-z0-9]', '', ''.join(str(c['en']) for c in ch).lower()) != re.sub(r'[^a-z0-9]', '', t.lower()):
+                    wa.append('「%s」chunks 的 en 接起來和整句不一致（不可增減或改寫任何字）' % t)
+                pr = v.get('paraphrase')
+                if not (isinstance(pr, list) and pr and all(isinstance(c, dict) and str(c.get('en') or '').strip() for c in pr)):
+                    wa.append('「%s」沒有 paraphrase（同義改寫，每筆需 en）' % t)
+                if not str(v.get('pattern') or '').strip():
+                    wa.append('「%s」沒有 pattern（句型模板）' % t)
+                kw = v.get('key_words')
+                if not isinstance(kw, list):
+                    wa.append('「%s」沒有 key_words（重點字詞；沒有請寫 []）' % t)
+                elif any(not (isinstance(k, dict) and k.get('w') and k.get('zh') and (' ' in str(k['w']).strip() or (k.get('ipa') and k.get('pos')))) for k in kw):
+                    wa.append('「%s」key_words 有項目缺 w／zh，或單字缺 ipa／pos' % t)
             if v['type'] in ('word', 'phrase') and not str(v.get('en') or '').strip():
                 wa.append('「%s」缺少 en（英文解說）' % t)
             if v['type'] == 'word':
@@ -508,12 +524,34 @@ class Daily(Profile):
                 fs = v.get('forms')
                 if isinstance(fs, list) and any(not (isinstance(f, dict) and f.get('ipa')) for f in fs):
                     wa.append('「%s」forms 有項目缺 ipa（詞性變化需要音標）' % t)
-                if not (isinstance(fs, list) and fs):
-                    wa.append('「%s」沒有 forms（單複數、過去式等詞性變化）' % t)
+                if not isinstance(fs, list):
+                    wa.append('「%s」沒有 forms（單複數、過去式等詞性變化；沒有請寫 []）' % t)
                 fm = v.get('family')
                 if isinstance(fm, list) and any(not (isinstance(f, dict) and f.get('ipa') and isinstance(f.get('example'), dict) and str(f['example'].get('en') or '').strip()) for f in fm):
                     wa.append('「%s」family 有項目缺 ipa 或例句' % t)
-            for lk in ('forms', 'family', 'confusable', 'similar', 'grammar', 'key_words'):
+                ds = v.get('derived')
+                if not isinstance(ds, list):
+                    wa.append('「%s」沒有 derived（同字族；真的沒有請寫 []）' % t)
+                elif any(not (isinstance(f, dict) and f.get('w') and f.get('zh') and f.get('link')) for f in ds):
+                    wa.append('「%s」derived 有項目缺 w／zh／link（記憶連結）' % t)
+                for fk, lab in (('pos_uses', '多詞性'), ('senses', '多義')):
+                    pv = v.get(fk)
+                    if not isinstance(pv, list):
+                        wa.append('「%s」沒有 %s（%s；只有一種請寫 []）' % (t, fk, lab))
+                    elif any(not (isinstance(f, dict) and f.get('pos') and f.get('zh') and isinstance(f.get('example'), dict) and str(f['example'].get('en') or '').strip()) for f in pv):
+                        wa.append('「%s」%s 有項目缺 pos／zh／例句（example.en）' % (t, fk))
+            gn = v.get('grammar_note')
+            if gn is not None and not (isinstance(gn, str) and gn.strip()):
+                er.append('「%s」grammar_note 必須是非空字串（沒有就省略此欄位）' % t)
+            if isinstance(v.get('confusable'), list) and any(isinstance(c, dict) and 'usage' in c and not (isinstance(c['usage'], str) and c['usage'].strip()) for c in v['confusable']):
+                er.append('「%s」confusable[].usage 必須是非空字串（沒有就省略）' % t)
+            cf = v.get('confusable')
+            if v.get('type') != 'sentence' and isinstance(cf, list) and any(not (isinstance(c, dict) and isinstance(c.get('example'), dict) and str(c['example'].get('en') or '').strip()) for c in cf):
+                wa.append('「%s」confusable 有項目缺例句（confusable[].example.en）' % t)
+            sm = v.get('similar')
+            if v.get('type') != 'sentence' and isinstance(sm, list) and any(not (isinstance(c, dict) and isinstance(c.get('example'), dict) and str(c['example'].get('en') or '').strip()) for c in sm):
+                wa.append('「%s」similar 有項目缺例句（similar[].example.en）' % t)
+            for lk in ('forms', 'family', 'derived', 'pos_uses', 'senses', 'confusable', 'similar', 'grammar', 'key_words', 'chunks', 'paraphrase'):
                 if lk in v and not isinstance(v[lk], list):
                     er.append('「%s」%s 必須是陣列' % (t, lk))
         return er, wa
@@ -2081,6 +2119,10 @@ def _xid(field, o):
         parts = [re.sub(r'\s+', ' ', str(next((o[k] for k in keys if o.get(k)), '')).strip().lower())]
         if field == 'forms':
             parts.append(str(o.get('label') or '').strip())
+        if field == 'pos_uses':   # 多詞性：同一個詞性（＋該筆的拼法 w）算同一項
+            parts = [str(o.get('pos') or '').strip().lower(), re.sub(r'\s+', ' ', str(o.get('w') or '').strip().lower())]
+        if field == 'senses':     # 多義：詞性＋中文意思算同一項
+            parts = [str(o.get('pos') or '').strip().lower(), re.sub(r'\s+', ' ', str(o.get('zh') or '').strip())]
         sid = '|'.join(parts)
         return sid if sid.strip('|') else json.dumps(o, sort_keys=True, ensure_ascii=False)
     return re.sub(r'\s+', ' ', str(o).strip().lower())

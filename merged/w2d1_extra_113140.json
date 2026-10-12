@@ -1,0 +1,712 @@
+{
+  "week": 2,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "urgent",
+      "type": "word",
+      "ipa": "/ˈɜːrdʒənt/",
+      "pos": "adj.",
+      "zh": "緊急的、急迫的",
+      "en": "needing to be done or dealt with right away",
+      "note": "在這篇裡修飾 documents，指「需要馬上列印、不能等」的文件。通知用 urgent documents 來和一般的大量列印工作做區分，暗示緊急的文件優先用二樓印表機。",
+      "forms": [
+        {
+          "w": "more urgent",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更緊急的",
+          "ipa": "/mɔːr ˈɜːrdʒənt/"
+        },
+        {
+          "w": "most urgent",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最緊急的",
+          "ipa": "/moʊst ˈɜːrdʒənt/"
+        },
+        {
+          "w": "urgently",
+          "label": "副詞",
+          "pos": "adv.",
+          "zh": "緊急地、迫切地",
+          "ipa": "/ˈɜːrdʒəntli/"
+        },
+        {
+          "w": "urgency",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "緊急、迫切",
+          "ipa": "/ˈɜːrdʒənsi/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "an urgent matter",
+          "zh": "緊急的事",
+          "example": {
+            "en": "I need to talk to you about an urgent matter.",
+            "zh": "我需要和你談一件緊急的事。"
+          }
+        },
+        {
+          "phrase": "an urgent request",
+          "zh": "緊急的要求",
+          "example": {
+            "en": "The client sent an urgent request for a new quote.",
+            "zh": "客戶寄來要求重新報價的緊急請求。"
+          }
+        },
+        {
+          "phrase": "urgent need",
+          "zh": "迫切的需要",
+          "example": {
+            "en": "There is an urgent need for more staff in this department.",
+            "zh": "這個部門迫切需要更多人手。"
+          }
+        },
+        {
+          "phrase": "urgent reply",
+          "zh": "緊急回覆",
+          "example": {
+            "en": "Please give us an urgent reply before noon today.",
+            "zh": "請在今天中午前緊急回覆我們。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Please mark the message as urgent if it needs a quick answer.",
+          "zh": "如果需要快速回覆，請把郵件標示為緊急。"
+        },
+        {
+          "tag": "會議",
+          "en": "We have an urgent problem with the delivery schedule.",
+          "zh": "我們的交貨時程出現了緊急的問題。"
+        },
+        {
+          "tag": "客服",
+          "en": "Your complaint is urgent, so we will call you today.",
+          "zh": "您的投訴很緊急，所以我們今天會打電話給您。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "important",
+          "diff": "important 是「重要」，但不一定要馬上做；urgent 強調「時間很趕、不能等」。重要的事不一定緊急。"
+        },
+        {
+          "word": "emergency",
+          "diff": "emergency 是名詞，指突發的危急狀況；urgent 是形容詞，描述需要馬上處理的事。"
+        }
+      ],
+      "family": [
+        {
+          "w": "urgently",
+          "pos": "adv.",
+          "zh": "緊急地",
+          "ipa": "/ˈɜːrdʒəntli/",
+          "example": {
+            "en": "We urgently need a new supplier for this part.",
+            "zh": "我們急需這個零件的新供應商。"
+          }
+        },
+        {
+          "w": "urgency",
+          "pos": "n.",
+          "zh": "緊急、迫切",
+          "ipa": "/ˈɜːrdʒənsi/",
+          "example": {
+            "en": "The manager explained the urgency of the situation.",
+            "zh": "經理說明了這個情況的迫切性。"
+          }
+        },
+        {
+          "w": "urge",
+          "pos": "v.",
+          "zh": "力勸、敦促",
+          "ipa": "/ɜːrdʒ/",
+          "example": {
+            "en": "We urge all staff to finish the report today.",
+            "zh": "我們敦促所有員工今天完成報告。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "urge",
+          "ipa": "/ɜːrdʒ/",
+          "pos": "v.",
+          "zh": "力勸、敦促",
+          "link": "最基礎的詞幹，意思是催促別人去做；urge + -ent 變成形容詞 urgent，像 present、different"
+        },
+        {
+          "w": "urgency",
+          "ipa": "/ˈɜːrdʒənsi/",
+          "pos": "n.",
+          "zh": "緊急、迫切",
+          "link": "urgent 去掉 t 加 -cy，變成名詞「緊急性」，像 emergency、agency"
+        },
+        {
+          "w": "urgently",
+          "ipa": "/ˈɜːrdʒəntli/",
+          "pos": "adv.",
+          "zh": "緊急地、迫切地",
+          "link": "urgent + -ly，變成副詞，像 quickly、carefully"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "capacity",
+      "type": "word",
+      "ipa": "/kəˈpæsəti/",
+      "pos": "n.",
+      "zh": "容量；產能；處理能力",
+      "en": "the amount that something can hold or do",
+      "note": "在這篇文章裡指二樓印表機的「列印處理能力」（limited color-printing capacity），也就是一次能處理的彩色列印量有限，所以大量彩色列印要改送櫃檯。多益常見於設備、倉儲、場地與生產情境。",
+      "forms": [
+        {
+          "w": "capacities",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "容量、能力（複數）",
+          "ipa": "/kəˈpæsətiz/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "production capacity",
+          "zh": "生產能力、產能",
+          "example": {
+            "en": "The new factory will double our production capacity next year.",
+            "zh": "新工廠將在明年使我們的產能加倍。"
+          }
+        },
+        {
+          "phrase": "at full capacity",
+          "zh": "滿載運作",
+          "example": {
+            "en": "The warehouse is already operating at full capacity.",
+            "zh": "這座倉庫已經在滿載運作了。"
+          }
+        },
+        {
+          "phrase": "seating capacity",
+          "zh": "座位容量",
+          "example": {
+            "en": "The seating capacity of the hall is about 300 people.",
+            "zh": "這間禮堂的座位容量約為三百人。"
+          }
+        },
+        {
+          "phrase": "storage capacity",
+          "zh": "儲存容量",
+          "example": {
+            "en": "We need more storage capacity for our customer files.",
+            "zh": "我們的客戶檔案需要更多儲存容量。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "設備",
+          "en": "This machine has the capacity to print 500 pages an hour.",
+          "zh": "這台機器每小時有能力列印五百頁。"
+        },
+        {
+          "tag": "會議",
+          "en": "The meeting room has a capacity of twelve people.",
+          "zh": "這間會議室的容量是十二人。"
+        },
+        {
+          "tag": "人事",
+          "en": "She has the capacity to manage a large team.",
+          "zh": "她有能力管理一個大型團隊。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "ability",
+          "diff": "ability 指人的能力；capacity 多指物品、場地或系統能容納或處理的量，也可指人的潛力。"
+        },
+        {
+          "word": "volume",
+          "diff": "volume 是實際的「量」（call volume）；capacity 是最多能容納或處理的「上限」。"
+        }
+      ],
+      "family": [
+        {
+          "w": "capable",
+          "pos": "adj.",
+          "zh": "有能力的",
+          "ipa": "/ˈkeɪpəbəl/",
+          "example": {
+            "en": "This printer is capable of printing in color.",
+            "zh": "這台印表機能夠彩色列印。"
+          }
+        },
+        {
+          "w": "limit",
+          "pos": "n.",
+          "zh": "限制、上限",
+          "ipa": "/ˈlɪmɪt/",
+          "example": {
+            "en": "There is a limit on how many files you can upload.",
+            "zh": "你能上傳的檔案數量有上限。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "capable",
+          "ipa": "/ˈkeɪpəbəl/",
+          "pos": "adj.",
+          "zh": "有能力的",
+          "link": "cap-（容納、能做到）+ -able，能夠…的，像 available、comfortable"
+        },
+        {
+          "w": "capability",
+          "ipa": "/ˌkeɪpəˈbɪləti/",
+          "pos": "n.",
+          "zh": "能力、功能",
+          "link": "capable 去掉 le 加 -ility，變成名詞「能力」，像 ability、possibility"
+        },
+        {
+          "w": "incapable",
+          "ipa": "/ɪnˈkeɪpəbəl/",
+          "pos": "adj.",
+          "zh": "無能力的、不能的",
+          "link": "in-（不）+ capable，像 incorrect、incomplete"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "處理能力、產能",
+          "en": "the amount that a machine or a factory can handle or make",
+          "in_passage": true,
+          "example": {
+            "en": "The server's capacity is too small for so many users.",
+            "zh": "這台伺服器的處理能力不足以應付這麼多使用者。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "容量、可容納的人數或數量",
+          "en": "the amount that a space or a container can hold",
+          "distinguish": "指場地、倉庫、容器能裝多少，常接 of + 數字。",
+          "example": {
+            "en": "The parking lot has a capacity of two hundred cars.",
+            "zh": "這座停車場可容納兩百輛車。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "身分、職務",
+          "en": "the job or role that someone has",
+          "distinguish": "固定用法 in one's capacity as…，意思是「以…的身分」，與數量無關。",
+          "example": {
+            "en": "She attended the event in her capacity as company representative.",
+            "zh": "她以公司代表的身分出席這場活動。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "processed",
+      "type": "word",
+      "ipa": "/ˈprɑːsest/",
+      "pos": "v.",
+      "zh": "被處理、被辦理",
+      "en": "dealt with in the usual way, step by step, to finish a task",
+      "note": "在這篇文章裡是被動語態 will be processed，意思是「（大量彩色列印）由行政團隊處理」。process 當動詞時，常指依標準流程處理訂單、申請、付款或文件。",
+      "forms": [
+        {
+          "w": "process",
+          "label": "原形",
+          "pos": "v./n.",
+          "zh": "處理；流程",
+          "ipa": "/ˈprɑːses/"
+        },
+        {
+          "w": "processes",
+          "label": "第三人稱單數／複數",
+          "pos": "v./n.",
+          "zh": "處理；流程",
+          "ipa": "/ˈprɑːsesɪz/"
+        },
+        {
+          "w": "processed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "處理",
+          "ipa": "/ˈprɑːsest/"
+        },
+        {
+          "w": "processing",
+          "label": "現在分詞／名詞",
+          "pos": "v./n.",
+          "zh": "處理；處理作業",
+          "ipa": "/ˈprɑːsesɪŋ/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "process an order",
+          "zh": "處理訂單",
+          "example": {
+            "en": "It usually takes two days to process an order.",
+            "zh": "處理一筆訂單通常需要兩天。"
+          }
+        },
+        {
+          "phrase": "process a refund",
+          "zh": "辦理退款",
+          "example": {
+            "en": "We will process your refund within five business days.",
+            "zh": "我們會在五個工作天內為您辦理退款。"
+          }
+        },
+        {
+          "phrase": "process a payment",
+          "zh": "處理付款",
+          "example": {
+            "en": "The system could not process a payment from this card.",
+            "zh": "系統無法處理這張卡的付款。"
+          }
+        },
+        {
+          "phrase": "processing time",
+          "zh": "處理時間",
+          "example": {
+            "en": "The processing time for visa requests is about ten days.",
+            "zh": "簽證申請的處理時間約為十天。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "客服",
+          "en": "Your request has been processed, and a reply will follow soon.",
+          "zh": "您的申請已處理完畢，回覆將很快寄出。"
+        },
+        {
+          "tag": "人事",
+          "en": "All job applications are processed by the personnel office.",
+          "zh": "所有求職申請都由人事室處理。"
+        },
+        {
+          "tag": "製造",
+          "en": "The factory processes fresh fruit into juice every day.",
+          "zh": "這間工廠每天把新鮮水果加工成果汁。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "handle",
+          "diff": "handle 是一般性的「處理、應付」；process 強調依固定步驟或流程辦理。"
+        },
+        {
+          "word": "deal with",
+          "diff": "deal with 常指處理問題或人；process 多用於訂單、文件、付款等例行作業。"
+        }
+      ],
+      "family": [
+        {
+          "w": "process",
+          "pos": "n.",
+          "zh": "流程、過程",
+          "ipa": "/ˈprɑːses/",
+          "example": {
+            "en": "The hiring process takes about three weeks.",
+            "zh": "招聘流程大約需要三週。"
+          }
+        },
+        {
+          "w": "processing",
+          "pos": "n.",
+          "zh": "處理作業",
+          "ipa": "/ˈprɑːsesɪŋ/",
+          "example": {
+            "en": "Order processing may take longer during the holidays.",
+            "zh": "假期期間訂單處理可能需要更久。"
+          }
+        },
+        {
+          "w": "procedure",
+          "pos": "n.",
+          "zh": "程序、步驟",
+          "ipa": "/prəˈsiːdʒər/",
+          "example": {
+            "en": "Please follow the safety procedure when you enter the lab.",
+            "zh": "進入實驗室時，請遵守安全程序。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "processor",
+          "ipa": "/ˈprɑːsesər/",
+          "pos": "n.",
+          "zh": "處理器、加工業者",
+          "link": "process + -or，做事的人或機器，像 actor、visitor；常見 word processor"
+        },
+        {
+          "w": "unprocessed",
+          "ipa": "/ˌʌnˈprɑːsest/",
+          "pos": "adj.",
+          "zh": "未處理的、未加工的",
+          "link": "un-（不）+ processed，像 unhappy、unable"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/ˈprɑːses/",
+          "zh": "處理、辦理",
+          "in_passage": true,
+          "example": {
+            "en": "Our staff can process your application within three working days.",
+            "zh": "我們的員工能在三個工作天內處理您的申請。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈprɑːses/",
+          "zh": "流程、過程",
+          "example": {
+            "en": "The approval process takes about two weeks to finish.",
+            "zh": "核准流程大約需要兩週才能完成。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ˈprɑːsest/",
+          "zh": "加工過的",
+          "w": "processed",
+          "example": {
+            "en": "Processed foods must show a list of ingredients on the label.",
+            "zh": "加工食品必須在標籤上列出成分。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "處理、辦理（申請、付款、文件）",
+          "en": "to deal with a request or a payment in the usual steps",
+          "in_passage": true,
+          "example": {
+            "en": "The bank needs two days to process a large payment.",
+            "zh": "銀行需要兩天來處理一筆大額付款。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "加工",
+          "en": "to change raw materials into a finished product",
+          "distinguish": "對象是食物、原料等實物時，指加工製造。",
+          "example": {
+            "en": "The plant processes milk into cheese and butter.",
+            "zh": "這間工廠把牛奶加工成起司和奶油。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "運算處理（資料）",
+          "en": "to use a computer to work with information",
+          "distinguish": "主語是電腦或系統，受詞是 data、records 等資料。",
+          "example": {
+            "en": "The computer can process large amounts of data very quickly.",
+            "zh": "這台電腦能非常快速地處理大量資料。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "restored",
+      "type": "word",
+      "ipa": "/rɪˈstɔːrd/",
+      "pos": "v.",
+      "zh": "被恢復、被修復",
+      "en": "brought back to its normal state or working order",
+      "note": "在這篇文章裡是現在完成式被動 has been restored，意思是「印表機已恢復正常運作」。商務通知中常用於說明電力、網路、系統或服務恢復正常。",
+      "forms": [
+        {
+          "w": "restore",
+          "label": "原形",
+          "pos": "v.",
+          "zh": "恢復、修復",
+          "ipa": "/rɪˈstɔːr/"
+        },
+        {
+          "w": "restores",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "恢復、修復",
+          "ipa": "/rɪˈstɔːrz/"
+        },
+        {
+          "w": "restored",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "恢復、修復",
+          "ipa": "/rɪˈstɔːrd/"
+        },
+        {
+          "w": "restoring",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "恢復、修復",
+          "ipa": "/rɪˈstɔːrɪŋ/"
+        },
+        {
+          "w": "restoration",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "恢復、修復",
+          "ipa": "/ˌrestəˈreɪʃən/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "restore power",
+          "zh": "恢復電力",
+          "example": {
+            "en": "Workers are trying to restore power to the building.",
+            "zh": "工人正努力讓這棟大樓恢復供電。"
+          }
+        },
+        {
+          "phrase": "restore service",
+          "zh": "恢復服務",
+          "example": {
+            "en": "The company worked all night to restore service to customers.",
+            "zh": "公司徹夜工作，讓客戶的服務恢復。"
+          }
+        },
+        {
+          "phrase": "restore a file",
+          "zh": "還原檔案",
+          "example": {
+            "en": "The technician helped me restore a file I deleted.",
+            "zh": "技術人員幫我還原了一個被我刪除的檔案。"
+          }
+        },
+        {
+          "phrase": "restore order",
+          "zh": "恢復秩序",
+          "example": {
+            "en": "Security staff quickly restored order in the crowded lobby.",
+            "zh": "保全人員迅速讓擁擠的大廳恢復秩序。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Internet access was restored at 2:00 P.M. today.",
+          "zh": "網路連線已於今天下午兩點恢復。"
+        },
+        {
+          "tag": "維修",
+          "en": "The old theater will be restored and opened next spring.",
+          "zh": "這間老戲院將被修復，並於明年春天開放。"
+        },
+        {
+          "tag": "客服",
+          "en": "Please restart the device to restore the original settings.",
+          "zh": "請重新啟動裝置以恢復原始設定。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "repair",
+          "diff": "repair 是「修理壞掉的東西」；restore 強調讓東西或狀態「回到原本的樣子」，如供電、服務、舊建築。"
+        },
+        {
+          "word": "return",
+          "diff": "return 是歸還或回到某處；restore 是讓狀態或功能恢復。"
+        }
+      ],
+      "family": [
+        {
+          "w": "restoration",
+          "pos": "n.",
+          "zh": "恢復、修復",
+          "ipa": "/ˌrestəˈreɪʃən/",
+          "example": {
+            "en": "The restoration of the system took about two hours.",
+            "zh": "系統的恢復大約花了兩個小時。"
+          }
+        },
+        {
+          "w": "repair",
+          "pos": "v.",
+          "zh": "修理",
+          "ipa": "/rɪˈper/",
+          "example": {
+            "en": "The technician will repair the copy machine today.",
+            "zh": "技術人員今天會修理影印機。"
+          }
+        },
+        {
+          "w": "recover",
+          "pos": "v.",
+          "zh": "恢復、找回",
+          "ipa": "/rɪˈkʌvər/",
+          "example": {
+            "en": "We were able to recover all the lost data.",
+            "zh": "我們成功找回了所有遺失的資料。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "restoration",
+          "ipa": "/ˌrestəˈreɪʃən/",
+          "pos": "n.",
+          "zh": "恢復、修復",
+          "link": "restore + -ation，把「恢復」這個動作變成名詞，像 prepare → preparation、explore → exploration"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "恢復（正常運作）",
+          "en": "to bring back normal working order",
+          "in_passage": true,
+          "example": {
+            "en": "Technicians restored the network connection within ten minutes.",
+            "zh": "技術人員在十分鐘內恢復了網路連線。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "修復（舊建築或物品）",
+          "en": "to repair something old so that it looks as it did before",
+          "distinguish": "對象是舊建築、老家具等，強調修得像原來的樣子。",
+          "example": {
+            "en": "Experts spent two years restoring the historic hotel lobby.",
+            "zh": "專家花了兩年修復這座歷史悠久的飯店大廳。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "還原（資料、設定）",
+          "en": "to put saved information or settings back",
+          "distinguish": "對象是檔案、備份或設定，常見 restore from a backup。",
+          "example": {
+            "en": "You can restore your files from the backup copy.",
+            "zh": "你可以從備份檔還原你的檔案。"
+          }
+        }
+      ]
+    }
+  ]
+}
