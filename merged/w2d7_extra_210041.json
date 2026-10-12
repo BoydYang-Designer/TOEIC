@@ -1,0 +1,310 @@
+{
+  "week": 2,
+  "day": 7,
+  "extra_vocab": [
+    {
+      "text": "response times",
+      "type": "phrase",
+      "zh": "回應時間",
+      "en": "how long it takes to answer a request or a message",
+      "note": "在這篇文章裡指客服回覆顧客所花的時間，用複數表示整體或各類請求的回應時間。這是簡報提出問題的起點：回應時間變長了。",
+      "pattern": "response times + have increased／decreased／improved",
+      "grammar_note": "response 在這裡當名詞修飾 times，用單數；不要寫成 responses times。談整體水準時也可以用單數 response time。",
+      "examples": [
+        { "tag": "會議", "en": "Our average response times dropped after we hired two more agents.", "zh": "我們多聘兩位客服後，平均回應時間縮短了。" },
+        { "tag": "電子郵件", "en": "We aim to keep response times under one business day for all emails.", "zh": "我們的目標是所有郵件的回覆時間都在一個工作天內。" },
+        { "tag": "客服", "en": "Slow response times often make customers feel that we do not care.", "zh": "回應太慢常讓顧客覺得我們不在乎。" },
+        { "tag": "報告", "en": "The report compares response times between the day shift and the night shift.", "zh": "報告比較了日班與夜班的回應時間。" }
+      ],
+      "similar": [
+        { "phrase": "turnaround time", "diff": "指從接下工作到完成交付的時間，不只是第一次回覆，範圍比 response time 大。", "example": { "en": "The turnaround time for repair requests is usually three working days.", "zh": "維修申請的處理時間通常是三個工作天。" } },
+        { "phrase": "waiting time", "diff": "從顧客角度說「等了多久」，response time 則是從公司角度說「回應有多快」。", "example": { "en": "The long waiting time on the phone made many customers hang up.", "zh": "電話等候時間太長，讓許多顧客掛斷。" } }
+      ],
+      "confusable": [
+        { "phrase": "response rate", "diff": "response rate 是「回覆率」（有多少比例的人回應），response times 是「回應花了多久」。", "example": { "en": "The survey had a low response rate, so we sent a reminder.", "zh": "問卷回覆率很低，所以我們寄了提醒。" } }
+      ]
+    },
+    {
+      "text": "To address this issue",
+      "type": "phrase",
+      "zh": "為了處理這個問題",
+      "en": "to start working on a problem so that it can be solved",
+      "note": "在這篇裡用來從「回應時間變長」的問題轉進提案，語氣正式，很適合放在簡報的轉折處。",
+      "pattern": "To address + 問題, + S + propose／will + V",
+      "grammar_note": "To + V 放句首表示目的，逗號後面的主詞必須是「要去處理問題的人」（we）。address 在這裡是及物動詞，後面直接接問題，不加 to。",
+      "examples": [
+        { "tag": "會議", "en": "To address this issue, we will add two more staff to the help desk.", "zh": "為了處理這個問題，我們會在服務台增加兩名人員。" },
+        { "tag": "電子郵件", "en": "To address your concern, I have asked the shipping team to check the order.", "zh": "為了處理您的疑慮，我已請出貨團隊查核這筆訂單。" },
+        { "tag": "報告", "en": "To address the delay, the company changed its supplier last month.", "zh": "為了處理延遲問題，公司上個月更換了供應商。" },
+        { "tag": "簡報", "en": "To address rising costs, we propose moving the training online.", "zh": "為了因應成本上升，我們建議把訓練改成線上進行。" }
+      ],
+      "similar": [
+        { "phrase": "To solve this problem", "diff": "solve 強調徹底解決；address 強調開始著手處理，語氣比較正式。", "example": { "en": "To solve this problem, we need a faster way to track orders.", "zh": "要解決這個問題，我們需要更快的訂單追蹤方式。" } },
+        { "phrase": "To deal with this issue", "diff": "deal with 是處理、應付，比 address 口語一些。", "example": { "en": "To deal with this issue, the manager held a short meeting.", "zh": "為了處理這個問題，經理開了一場簡短的會議。" } }
+      ]
+    },
+    {
+      "text": "inquiries",
+      "type": "word",
+      "lemma": "inquiry",
+      "ipa": "/ɪnˈkwaɪriz/",
+      "pos": "n.",
+      "zh": "詢問、查詢（複數）",
+      "en": "questions that people ask to get information",
+      "note": "在這篇文章裡指顧客寄來或打來詢問的各種問題，平台會先把這些詢問分類，再分給適合的客服團隊。",
+      "grammar_note": "inquiry 是可數名詞，複數是 inquiries（y 變 ies）；常用 inquiry about／into 或 inquiry from + 人。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "customer inquiries", "zh": "顧客詢問", "example": { "en": "Customer inquiries increase sharply during the holiday season.", "zh": "假期期間顧客詢問會大幅增加。" } },
+        { "phrase": "respond to inquiries", "zh": "回覆詢問", "example": { "en": "Our team responds to inquiries within twenty-four hours.", "zh": "我們的團隊會在二十四小時內回覆詢問。" } },
+        { "phrase": "make an inquiry about", "zh": "詢問有關…", "example": { "en": "I would like to make an inquiry about your delivery options.", "zh": "我想詢問有關貴公司配送方式的事。" } },
+        { "phrase": "inquiry form", "zh": "詢問表單", "example": { "en": "Please fill out the inquiry form on our website.", "zh": "請填寫我們網站上的詢問表單。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Thank you for your inquiry about our new pricing plans.", "zh": "感謝您詢問我們的新價格方案。" },
+        { "tag": "採購", "en": "We received several inquiries from suppliers about the revised order.", "zh": "我們收到幾家供應商詢問修訂後訂單的信件。" },
+        { "tag": "客服", "en": "All phone inquiries will be forwarded to the support team.", "zh": "所有電話詢問都會轉給客服團隊。" },
+        { "tag": "簡報", "en": "The system sorts inquiries by topic and urgency.", "zh": "系統會依主題與緊急程度分類詢問。" }
+      ],
+      "confusable": [
+        { "word": "enquiry", "diff": "英式拼法，意思與 inquiry 相同；美式商務文件較常用 inquiry。", "example": { "en": "Please send any enquiries to our London office.", "zh": "任何詢問請寄到我們的倫敦辦公室。" } },
+        { "word": "inquire", "diff": "inquire 是動詞（詢問），inquiry 是名詞（詢問這件事）。", "usage": "inquire 是動詞，常接 about 或 into，不直接接受詞；inquiry 是名詞，前面可加 an 或 the。", "example": { "en": "I am writing to inquire about the status of my order.", "zh": "我來信是想詢問我訂單的處理進度。" } }
+      ],
+      "similar": [
+        { "word": "queries", "diff": "query 比較口語，也常指資料庫或系統的查詢；inquiry 較正式。", "example": { "en": "The help desk answers common queries in the online chat.", "zh": "服務台在線上聊天室回答常見問題。" } }
+      ],
+      "family": [
+        { "w": "request", "pos": "n.", "zh": "請求、要求", "ipa": "/rɪˈkwest/", "example": { "en": "We have received a request for a price quote.", "zh": "我們收到一份報價的請求。" } },
+        { "w": "complaint", "pos": "n.", "zh": "抱怨、投訴", "ipa": "/kəmˈpleɪnt/", "example": { "en": "The manager answered each complaint within one day.", "zh": "經理在一天內回覆每一件投訴。" } },
+        { "w": "reply", "pos": "n.", "zh": "回覆", "ipa": "/rɪˈplaɪ/", "example": { "en": "We will send a reply by Friday afternoon.", "zh": "我們會在星期五下午前寄出回覆。" } }
+      ],
+      "derived": [
+        { "w": "inquire", "pos": "v.", "zh": "詢問", "ipa": "/ɪnˈkwaɪr/", "link": "inquire + -y，把「詢問」變成名詞，像 deliver → delivery、recover → recovery" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "詢問、查詢", "en": "a question that asks for information", "in_passage": true, "example": { "en": "We answer every customer inquiry on the same business day.", "zh": "我們在當天工作日內回覆每一件顧客詢問。" } },
+        { "pos": "n.", "zh": "正式調查", "en": "an official study to find out what happened", "distinguish": "後面常接 into，且主詞多為政府、公司或委員會；詢問客服的問題則多接 about。", "example": { "en": "The company launched an inquiry into the safety problem.", "zh": "公司針對這起安全問題展開調查。" } }
+      ]
+    },
+    {
+      "text": "assign",
+      "type": "word",
+      "ipa": "/əˈsaɪn/",
+      "pos": "v.",
+      "zh": "分派、指派",
+      "en": "to give a person a job or a task",
+      "note": "在這篇文章裡指平台會自動把顧客詢問分派給適合的客服團隊。automatically assign 表示不需要人工一件一件分配。",
+      "grammar_note": "常用句型是 assign + 事物 + to + 人／單位，也可以說 assign + 人 + 事物；被動語態是 be assigned to。",
+      "forms": [
+        { "w": "assigns", "label": "第三人稱單數", "pos": "v.", "zh": "分派", "ipa": "/əˈsaɪnz/" },
+        { "w": "assigned", "label": "過去式／過去分詞", "pos": "v.", "zh": "分派（過去）", "ipa": "/əˈsaɪnd/" },
+        { "w": "assigning", "label": "現在分詞", "pos": "v.", "zh": "正在分派", "ipa": "/əˈsaɪnɪŋ/" }
+      ],
+      "collocations": [
+        { "phrase": "assign tasks to", "zh": "把任務分派給", "example": { "en": "The manager assigns tasks to each team member every Monday.", "zh": "經理每週一把任務分派給每位組員。" } },
+        { "phrase": "be assigned to", "zh": "被分派到", "example": { "en": "Two new employees were assigned to the sales department.", "zh": "兩位新員工被分派到業務部。" } },
+        { "phrase": "assign someone to a project", "zh": "指派某人負責專案", "example": { "en": "We will assign Mr. Lee to the new client project.", "zh": "我們會指派李先生負責新客戶的專案。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Who will assign the new project to our team?", "zh": "誰會把這個新專案分派給我們團隊？" },
+        { "tag": "電子郵件", "en": "I have assigned this ticket to Ms. Chen in accounting.", "zh": "我已把這張工單分派給會計部的陳小姐。" },
+        { "tag": "人事", "en": "The company assigned him to the Taipei office last year.", "zh": "公司去年把他派到台北辦公室。" },
+        { "tag": "系統", "en": "The system assigns each order a unique number.", "zh": "系統會給每筆訂單一個專屬編號。" }
+      ],
+      "confusable": [
+        { "word": "sign", "diff": "sign 是簽名，發音 /saɪn/，assign 的字根雖然像，意思卻是分派。", "example": { "en": "Please sign the contract and return it by Friday.", "zh": "請簽署合約並在星期五前寄回。" } },
+        { "word": "assist", "diff": "assist 是協助、幫忙；assign 是把工作分給人。", "example": { "en": "Two engineers will assist the customer during setup.", "zh": "兩位工程師會在設定時協助顧客。" } }
+      ],
+      "similar": [
+        { "word": "allocate", "diff": "allocate 多用在分配預算、時間等資源；assign 多用在把人與任務連起來。", "example": { "en": "We will allocate more budget to the training program.", "zh": "我們會把更多預算分配給訓練計畫。" } },
+        { "word": "delegate", "diff": "delegate 是把責任或權限交給別人，語氣較正式；assign 比較一般。", "example": { "en": "She delegated the weekly report to her assistant.", "zh": "她把每週報告交給她的助理負責。" } }
+      ],
+      "family": [
+        { "w": "appoint", "pos": "v.", "zh": "任命", "ipa": "/əˈpɔɪnt/", "example": { "en": "The board appointed a new director last month.", "zh": "董事會上個月任命了一位新主管。" } },
+        { "w": "distribute", "pos": "v.", "zh": "分發、分配", "ipa": "/dɪˈstrɪbjuːt/", "example": { "en": "Please distribute the agenda before the meeting starts.", "zh": "請在會議開始前分發議程。" } }
+      ],
+      "derived": [
+        { "w": "assignment", "pos": "n.", "zh": "任務、作業", "ipa": "/əˈsaɪnmənt/", "link": "assign + -ment，把「分派」變成名詞，像 payment、agreement" },
+        { "w": "reassign", "pos": "v.", "zh": "重新分派", "ipa": "/ˌriːəˈsaɪn/", "link": "re- 再一次 + assign，像 rewrite、restart" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "分派（工作、案件給某人或單位）", "en": "to give a task or a case to a person or a team", "in_passage": true, "example": { "en": "Calls are assigned to the first available agent.", "zh": "來電會分派給第一位有空的客服人員。" } },
+        { "pos": "v.", "zh": "指派（某人到某職位或地點）", "en": "to send someone to work in a place or on a team", "distinguish": "後面接人，再接 to + 地點或職位，重點是「人被派去哪裡」。", "example": { "en": "The firm will assign two engineers to the new factory.", "zh": "公司會派兩位工程師到新工廠。" } },
+        { "pos": "v.", "zh": "指定（編號、時間、價值）", "en": "to give a number, a time, or a value to something", "distinguish": "受詞是東西而不是人，常接 number、code、priority 等字。", "example": { "en": "Please assign a code to each product before shipping.", "zh": "出貨前請為每項產品指定一個代碼。" } }
+      ]
+    },
+    {
+      "text": "be identified",
+      "type": "phrase",
+      "zh": "被找出、被辨認出",
+      "en": "to be found or recognized as something",
+      "note": "在這篇文章裡是被動語態：重點是問題「被發現」，而不是誰發現的。計畫書與報告常用這種寫法，語氣客觀、正式。",
+      "pattern": "N + will／can + be identified + before／by ...",
+      "grammar_note": "identify 是及物動詞，被動時用 be + identified，主詞是被找出的事物（problems）。情態動詞後要用原形 be，所以是 can be identified，不是 can identified。",
+      "examples": [
+        { "tag": "會議", "en": "Risks should be identified early so the team can prepare.", "zh": "風險應該及早找出，讓團隊能做好準備。" },
+        { "tag": "報告", "en": "The cause of the delay was identified by the quality team.", "zh": "延遲的原因是由品管團隊找出的。" },
+        { "tag": "電子郵件", "en": "Several errors were identified in the draft contract.", "zh": "合約草稿中發現了幾處錯誤。" },
+        { "tag": "人事", "en": "Employees who need extra training can be identified through the survey.", "zh": "需要額外訓練的員工可以透過問卷找出來。" }
+      ],
+      "similar": [
+        { "phrase": "be found", "diff": "比較口語、範圍較廣；be identified 帶有「確認是什麼」的意思。", "example": { "en": "The error was found during the final check.", "zh": "這個錯誤是在最後檢查時發現的。" } },
+        { "phrase": "be spotted", "diff": "指一眼看到，比較口語，常用在小錯誤或突然注意到的事。", "example": { "en": "A mistake was spotted in the sales figures yesterday.", "zh": "昨天在銷售數字裡發現了一個錯誤。" } },
+        { "phrase": "be detected", "diff": "偵測出，常用在機器或系統發現問題，語氣較技術性。", "example": { "en": "Errors are detected automatically by the new software.", "zh": "錯誤會由新軟體自動偵測出來。" } }
+      ],
+      "confusable": [
+        { "phrase": "be identical to", "diff": "identical 是形容詞，意思是「完全相同」，跟「被找出」沒有關係。", "usage": "identified 是動詞 identify 的過去分詞（被找出）；identical 是形容詞，後面接 to 或 with。", "example": { "en": "The new design is identical to the one we approved.", "zh": "新設計和我們核准的那一款完全相同。" } }
+      ]
+    },
+    {
+      "text": "identified",
+      "type": "word",
+      "lemma": "identify",
+      "ipa": "/aɪˈdentɪfaɪd/",
+      "pos": "v.",
+      "zh": "找出、辨認出（過去分詞）",
+      "en": "to find out or recognize what or who something is",
+      "note": "在這篇文章裡是被動語態 can be identified，意思是問題在試行期間「被找出來」，這樣才能在全面導入前先處理。",
+      "grammar_note": "identify 的過去式與過去分詞是 identified（y 變 ied）；-ing 形是 identifying。identify + 事物是「找出」，不要加 with。",
+      "forms": [
+        { "w": "identifies", "label": "第三人稱單數", "pos": "v.", "zh": "找出", "ipa": "/aɪˈdentɪfaɪz/" },
+        { "w": "identifying", "label": "現在分詞", "pos": "v.", "zh": "正在找出", "ipa": "/aɪˈdentɪfaɪɪŋ/" }
+      ],
+      "collocations": [
+        { "phrase": "identify a problem", "zh": "找出問題", "example": { "en": "We need to identify the problem before we choose a solution.", "zh": "選擇解決方法之前，我們得先找出問題。" } },
+        { "phrase": "identify the cause", "zh": "找出原因", "example": { "en": "The engineers are trying to identify the cause of the delay.", "zh": "工程師們正試著找出延遲的原因。" } },
+        { "phrase": "identify potential customers", "zh": "找出潛在顧客", "example": { "en": "This survey helps us identify potential customers in new markets.", "zh": "這份問卷幫助我們在新市場找出潛在顧客。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The team identified three areas where costs can be reduced.", "zh": "團隊找出了三個可以降低成本的領域。" },
+        { "tag": "電子郵件", "en": "Please identify the items that are missing from the shipment.", "zh": "請指出貨物中缺少的品項。" },
+        { "tag": "人事", "en": "Managers identified two employees for the leadership program.", "zh": "主管們挑出兩位員工參加領導力計畫。" },
+        { "tag": "報告", "en": "Customers identified delivery speed as their main concern.", "zh": "顧客指出送貨速度是他們最在意的事。" }
+      ],
+      "confusable": [
+        { "word": "identical", "diff": "identical 是形容詞，意思是「完全相同的」；identified 是動詞變化形。", "usage": "identical 後面接 to 或 with；identified 是動詞 identify 的過去式或過去分詞。", "example": { "en": "The two invoices are identical, so one is a duplicate.", "zh": "這兩張發票完全一樣，所以有一張是重複的。" } },
+        { "word": "identity", "diff": "identity 是名詞，指一個人或一個東西的身分。", "example": { "en": "Please show a photo ID to confirm your identity.", "zh": "請出示附照片的證件以確認您的身分。" } }
+      ],
+      "similar": [
+        { "word": "discover", "diff": "discover 強調發現原本不知道的事；identify 強調確認它是什麼。", "example": { "en": "We discovered a mistake in the sales report.", "zh": "我們在銷售報告裡發現一個錯誤。" } },
+        { "word": "recognize", "diff": "recognize 是認出原本就見過或知道的人事物；identify 是確認未知的是什麼。", "example": { "en": "I recognized her voice as soon as she called.", "zh": "她一打電話來，我就認出她的聲音。" } }
+      ],
+      "family": [
+        { "w": "detect", "pos": "v.", "zh": "偵測、察覺", "ipa": "/dɪˈtekt/", "example": { "en": "The software can detect errors in the data automatically.", "zh": "這套軟體可以自動偵測資料中的錯誤。" } },
+        { "w": "locate", "pos": "v.", "zh": "找出位置", "ipa": "/ˈloʊkeɪt/", "example": { "en": "Can you locate the missing file for me?", "zh": "你可以幫我找出不見的檔案嗎？" } },
+        { "w": "determine", "pos": "v.", "zh": "判定、查明", "ipa": "/dɪˈtɜːrmɪn/", "example": { "en": "We must determine who will lead the project.", "zh": "我們必須決定由誰來帶領這個專案。" } }
+      ],
+      "derived": [
+        { "w": "identification", "pos": "n.", "zh": "身分證明、辨識", "ipa": "/aɪˌdentɪfɪˈkeɪʃn/", "link": "identify 去掉 y 加 -ication，變成名詞，像 notify → notification" },
+        { "w": "identifiable", "pos": "adj.", "zh": "可辨認的", "ipa": "/aɪˈdentɪfaɪəbl/", "link": "identify + -able，可以…的，像 readable、available" },
+        { "w": "unidentified", "pos": "adj.", "zh": "身分不明的", "ipa": "/ˌʌnaɪˈdentɪfaɪd/", "link": "un- 不 + identified，像 unknown、unfinished" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "找出、發現（問題、原因）", "en": "to find something and know what it is", "in_passage": true, "example": { "en": "The audit identified several weak points in our process.", "zh": "這次稽核找出我們流程中的幾個弱點。" } },
+        { "pos": "v.", "zh": "辨認出（人或物是誰、是什麼）", "en": "to say who a person is or what a thing is", "distinguish": "受詞是人或物品，重點是「認出是誰／是什麼」，而不是找出問題。", "example": { "en": "Staff can identify visitors by the badges they wear.", "zh": "員工可以靠訪客配戴的識別證認出他們。" } }
+      ]
+    },
+    {
+      "text": "estimated",
+      "type": "word",
+      "lemma": "estimate",
+      "ipa": "/ˈestɪmeɪtɪd/",
+      "pos": "v.",
+      "zh": "估計、預估（過去分詞）",
+      "en": "to guess a number or an amount by using what you know",
+      "note": "在這篇文章裡是被動語態 is estimated at，表示八萬美元只是初步估算，之後還可能調整，所以語氣比較保留。",
+      "grammar_note": "be estimated at + 金額或數字，at 後面接數字，不用 to 或 for；也可以說 be estimated to V（據估計會…）。",
+      "forms": [
+        { "w": "estimates", "label": "第三人稱單數", "pos": "v.", "zh": "估計", "ipa": "/ˈestɪmeɪts/" },
+        { "w": "estimates", "label": "複數", "pos": "n.", "zh": "估計值、報價單（複數）", "ipa": "/ˈestɪməts/" },
+        { "w": "estimating", "label": "現在分詞", "pos": "v.", "zh": "正在估計", "ipa": "/ˈestɪmeɪtɪŋ/" }
+      ],
+      "collocations": [
+        { "phrase": "be estimated at", "zh": "估計為（某金額）", "example": { "en": "The total repair bill is estimated at five thousand dollars.", "zh": "維修費用總額估計為五千美元。" } },
+        { "phrase": "estimated cost", "zh": "預估成本", "example": { "en": "The estimated cost of the project is lower than last year.", "zh": "這個專案的預估成本比去年低。" } },
+        { "phrase": "estimated time of arrival", "zh": "預計抵達時間", "example": { "en": "The estimated time of arrival is four thirty this afternoon.", "zh": "預計抵達時間是今天下午四點半。" } },
+        { "phrase": "rough estimate", "zh": "粗略估計", "example": { "en": "Can you give me a rough estimate of the delivery time?", "zh": "你可以給我一個大概的送達時間嗎？" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Sales are estimated to grow by ten percent next year.", "zh": "銷售額估計明年會成長百分之十。" },
+        { "tag": "電子郵件", "en": "The estimated delivery date is October 20, but it may change.", "zh": "預估送達日是十月二十日，但可能會有變動。" },
+        { "tag": "採購", "en": "We estimated the cost of new equipment before asking for approval.", "zh": "我們在申請核准前先估算了新設備的成本。" },
+        { "tag": "報告", "en": "About two hundred employees are estimated to attend the training.", "zh": "估計約有兩百名員工會參加訓練。" }
+      ],
+      "confusable": [
+        { "word": "evaluate", "diff": "evaluate 是評斷好壞或價值；estimate 是粗略算出數量或成本。", "example": { "en": "We will evaluate the pilot results before making a decision.", "zh": "我們會先評估試行結果再做決定。" } }
+      ],
+      "similar": [
+        { "word": "projected", "diff": "比 estimated 正式，常指依資料推算出的未來數字；estimated 現在或未來的數字都可以用。", "example": { "en": "Projected sales for next quarter are higher than expected.", "zh": "下一季的預計銷售額比預期還高。" } },
+        { "word": "expected", "diff": "表示預期或期待，不一定經過計算；estimated 通常有粗略算過。", "example": { "en": "The expected cost is close to our original budget.", "zh": "預期的成本和我們原本的預算很接近。" } }
+      ],
+      "family": [
+        { "w": "forecast", "pos": "n.", "zh": "預測", "ipa": "/ˈfɔːrkæst/", "example": { "en": "The sales forecast looks good for the next quarter.", "zh": "下一季的銷售預測看起來不錯。" } },
+        { "w": "quote", "pos": "n.", "zh": "報價", "ipa": "/kwoʊt/", "example": { "en": "Please send us a quote for fifty office chairs.", "zh": "請寄給我們五十張辦公椅的報價。" } },
+        { "w": "calculate", "pos": "v.", "zh": "計算", "ipa": "/ˈkælkjuleɪt/", "example": { "en": "Please calculate the total cost including tax and shipping.", "zh": "請計算含稅與運費的總成本。" } }
+      ],
+      "derived": [
+        { "w": "estimation", "pos": "n.", "zh": "估計、判斷", "ipa": "/ˌestɪˈmeɪʃn/", "link": "estimate 去掉 e 加 -ion，變成名詞，像 educate → education" },
+        { "w": "overestimate", "pos": "v.", "zh": "高估", "ipa": "/ˌoʊvərˈestɪmeɪt/", "link": "over- 過度 + estimate，像 overwork、overcharge" },
+        { "w": "underestimate", "pos": "v.", "zh": "低估", "ipa": "/ˌʌndərˈestɪmeɪt/", "link": "under- 不足 + estimate，像 underpay、undercharge" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/ˈestɪmeɪt/", "zh": "估計、預估", "in_passage": true, "example": { "en": "We estimate that the repairs will take two weeks.", "zh": "我們估計維修需要兩個星期。" } },
+        { "pos": "n.", "ipa": "/ˈestɪmət/", "zh": "估價、估計值", "example": { "en": "The contractor sent us an estimate for the office work.", "zh": "承包商寄給我們辦公室工程的估價。" } },
+        { "pos": "adj.", "w": "estimated", "ipa": "/ˈestɪmeɪtɪd/", "zh": "預估的", "example": { "en": "The estimated budget still needs approval from the finance team.", "zh": "這筆預估預算還需要財務團隊核准。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "估計（數量、金額）", "en": "to guess a number or an amount by using what you know", "in_passage": true, "example": { "en": "Analysts estimate the market will double in five years.", "zh": "分析師估計這個市場五年內會成長一倍。" } },
+        { "pos": "n.", "zh": "報價單", "en": "a document that shows the likely price of a job", "distinguish": "可數名詞，常與 give、get、ask for 搭配，指廠商給的報價。", "example": { "en": "We asked three suppliers for an estimate before choosing one.", "zh": "我們向三家供應商索取報價後才選定一家。" } },
+        { "pos": "n.", "zh": "估計數字", "en": "a number that is close to the real amount", "distinguish": "指一個大概的數字，常搭配 rough、best、conservative 等字。", "example": { "en": "Our best estimate is that sales will rise slightly.", "zh": "我們最好的估計是銷售額會小幅上升。" } }
+      ]
+    },
+    {
+      "text": "staff time",
+      "type": "phrase",
+      "zh": "人力時間、員工投入的工時",
+      "en": "the time that employees spend working on a task",
+      "note": "在這篇文章裡指試行初期員工需要花額外時間學習與處理新系統，這是成本的一種，但不是用金錢計算。",
+      "pattern": "N + require／take + staff time",
+      "grammar_note": "staff 是集合名詞，在 staff time 裡不加 s（不寫 staffs time）；staff time 是不可數，不說 a staff time。",
+      "examples": [
+        { "tag": "會議", "en": "This new report takes a lot of staff time every week.", "zh": "這份新報告每週要花很多人力時間。" },
+        { "tag": "預算", "en": "We need to include staff time in the project budget.", "zh": "我們需要把人力時間算進專案預算。" },
+        { "tag": "電子郵件", "en": "To save staff time, please use the online request form.", "zh": "為了節省人力時間，請使用線上申請表單。" },
+        { "tag": "報告", "en": "The upgrade will reduce the staff time spent on data entry.", "zh": "這次升級會減少花在資料輸入的人力時間。" }
+      ],
+      "similar": [
+        { "phrase": "working hours", "diff": "working hours 指上班的時段（如九點到五點）；staff time 指完成某事所花的人力時間。", "example": { "en": "Our working hours are from nine to five on weekdays.", "zh": "我們的上班時間是平日九點到五點。" } },
+        { "phrase": "manpower", "diff": "manpower 強調人手的多寡與能力；staff time 強調員工實際花掉的時間。", "example": { "en": "We do not have enough manpower to finish the work this week.", "zh": "我們人手不足，這週無法完成工作。" } }
+      ],
+      "confusable": [
+        { "word": "stuff", "diff": "staff /stæf/ 是員工；stuff /stʌf/ 是東西，兩個字拼法和發音都很像。", "example": { "en": "Please keep your stuff in the locker, not at your desk.", "zh": "請把你的東西放在置物櫃，不要放在桌上。" } }
+      ]
+    },
+    {
+      "text": "agreed performance targets",
+      "type": "phrase",
+      "zh": "事先同意的績效目標",
+      "en": "goals for how well something should work that people have already accepted",
+      "note": "在這篇文章裡是試行成功與否的判斷標準：達到這些目標，才會向高層報告並討論全面導入。agreed 表示目標在事前已經說好。",
+      "pattern": "meet／exceed／miss + the agreed + N",
+      "grammar_note": "agreed 在這裡是形容詞，放在名詞前面，不要寫成 agree targets。達成目標常用 meet，不用 get。",
+      "examples": [
+        { "tag": "會議", "en": "We will review the agreed targets again at the end of June.", "zh": "我們會在六月底再次檢視已同意的目標。" },
+        { "tag": "電子郵件", "en": "Please confirm that the agreed targets are still correct.", "zh": "請確認已同意的目標仍然正確。" },
+        { "tag": "績效", "en": "The sales team exceeded the agreed targets for the third quarter.", "zh": "業務團隊超越了第三季已同意的目標。" },
+        { "tag": "合約", "en": "Payment depends on whether the supplier meets the agreed delivery dates.", "zh": "付款取決於供應商是否達成約定的交貨日期。" }
+      ],
+      "similar": [
+        { "phrase": "approved targets", "diff": "approved 表示經上級批准；agreed 表示相關人員事前談好、同意。", "example": { "en": "The approved targets were sent to every department head.", "zh": "核准的目標已寄給每位部門主管。" } },
+        { "phrase": "agreed-upon goals", "diff": "意思幾乎相同，agreed-upon 更強調雙方協議，語氣稍正式。", "example": { "en": "Both sides signed a plan with agreed-upon goals.", "zh": "雙方簽署了一份載有共同同意目標的計畫。" } }
+      ],
+      "confusable": [
+        { "word": "agreeable", "diff": "agreeable 是令人愉快的、願意接受的；agreed 是已經同意的。", "usage": "agreed 表示事情已談定；agreeable 形容人或條件讓人樂意接受，不表示「已同意」。", "example": { "en": "The supplier found our terms agreeable and signed the contract.", "zh": "供應商覺得我們的條件可以接受，便簽了合約。" } }
+      ]
+    }
+  ]
+}
