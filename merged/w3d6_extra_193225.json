@@ -1,0 +1,105 @@
+{
+  "week": 3,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "term",
+      "type": "word",
+      "ipa": "/tɜːrm/",
+      "pos": "n.",
+      "zh": "期間、期限",
+      "en": "a fixed length of time, such as the length of a contract",
+      "note": "在這篇文章裡，a longer term 是「較長的合約期間」。男子認為只要簽比較久的合約，廠商可能願意降低費率。",
+      "grammar_note": "指合約「期間」時用單數（a three-year term）；指「條款、條件」時一定用複數 terms（the terms of the contract）。",
+      "forms": [
+        { "w": "terms", "label": "複數", "pos": "n.", "zh": "條款、條件（複數）", "ipa": "/tɜːrmz/" }
+      ],
+      "collocations": [
+        { "phrase": "long-term", "zh": "長期的", "example": { "en": "We are looking for a long-term partner for this project.", "zh": "我們在為這個專案尋找長期的合作夥伴。" } },
+        { "phrase": "short-term", "zh": "短期的", "example": { "en": "A short-term contract gives us more flexibility.", "zh": "短期合約讓我們更有彈性。" } },
+        { "phrase": "terms and conditions", "zh": "條款與條件", "example": { "en": "Please read the terms and conditions before you sign.", "zh": "簽名前請先閱讀條款與條件。" } },
+        { "phrase": "in terms of", "zh": "就…而言", "example": { "en": "In terms of price, this vendor is the best choice.", "zh": "就價格而言，這家廠商是最佳選擇。" } }
+      ],
+      "examples": [
+        { "tag": "合約", "en": "The term of this agreement is two years.", "zh": "這份協議的期間是兩年。" },
+        { "tag": "會議", "en": "We should review the terms before we renew.", "zh": "續約之前，我們應該先檢視條款。" }
+      ],
+      "confusable": [
+        {
+          "word": "team",
+          "diff": "team 是「團隊」，拼法和 term 只差一個字母，要小心看清楚。",
+          "example": { "en": "The legal team will review the contract terms.", "zh": "法務團隊會審查合約條款。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "period",
+          "diff": "period 是一般的「一段期間」；term 特指合約、任期或學期等有固定長度的期間。",
+          "example": { "en": "The trial period lasts for thirty days.", "zh": "試用期為期三十天。" }
+        },
+        {
+          "word": "duration",
+          "diff": "duration 較正式，指「持續多久」；term 強調有固定起訖的期限。",
+          "example": { "en": "The duration of the service is twelve months.", "zh": "這項服務的期間為十二個月。" }
+        }
+      ],
+      "family": [
+        { "w": "contract", "pos": "n.", "zh": "合約", "ipa": "/ˈkɑːntrækt/", "example": { "en": "The contract will expire at the end of June.", "zh": "這份合約會在六月底到期。" } },
+        { "w": "renewal", "pos": "n.", "zh": "續約、更新", "ipa": "/rɪˈnuːəl/", "example": { "en": "The renewal notice was sent last week.", "zh": "續約通知上週已寄出。" } },
+        { "w": "duration", "pos": "n.", "zh": "持續時間", "ipa": "/dʊˈreɪʃən/", "example": { "en": "The duration of the training is three days.", "zh": "訓練的時間為三天。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "期間、期限", "en": "a fixed length of time", "in_passage": true, "example": { "en": "The term of the lease is three years.", "zh": "租約的期間是三年。" } },
+        { "pos": "n.", "zh": "條款、條件（terms）", "en": "the rules and conditions of an agreement", "distinguish": "一定用複數 terms，常搭配 contract、agreement、payment。", "example": { "en": "The payment terms are thirty days from the invoice date.", "zh": "付款條件是發票日起三十天。" } },
+        { "pos": "n.", "zh": "術語、用語", "en": "a word or phrase used for a special subject", "distinguish": "常和 technical、legal 連用，指專業術語。", "example": { "en": "Please explain this technical term to the client.", "zh": "請向客戶說明這個技術術語。" } }
+      ]
+    },
+    {
+      "text": "penalty",
+      "type": "word",
+      "ipa": "/ˈpenəlti/",
+      "pos": "n.",
+      "zh": "罰款、違約金",
+      "en": "money you must pay when you break a rule or agreement",
+      "note": "在這篇文章裡，carry a penalty 是「附帶罰款」：男子請女子查看提早解約會不會被罰款或收違約金。這是續約或解約討論中很實際的問題。",
+      "grammar_note": "常用 penalty for + 名詞或 V-ing（a penalty for late payment）；「被罰」常說 pay a penalty、incur a penalty，或事情 carry a penalty。",
+      "forms": [
+        { "w": "penalties", "label": "複數", "pos": "n.", "zh": "罰款（複數）", "ipa": "/ˈpenəltiz/" }
+      ],
+      "collocations": [
+        { "phrase": "pay a penalty", "zh": "支付罰款", "example": { "en": "We had to pay a penalty for the late delivery.", "zh": "我們必須為延遲交貨支付罰款。" } },
+        { "phrase": "late penalty", "zh": "逾期罰款", "example": { "en": "A late penalty of five percent applies after the due date.", "zh": "逾期後會加收百分之五的罰款。" } },
+        { "phrase": "early termination penalty", "zh": "提前解約違約金", "example": { "en": "The contract includes an early termination penalty of $2,000.", "zh": "合約包含兩千美元的提前解約違約金。" } },
+        { "phrase": "without penalty", "zh": "不會被罰", "example": { "en": "You can cancel the booking without penalty before Friday.", "zh": "星期五前取消預訂不會被罰。" } }
+      ],
+      "examples": [
+        { "tag": "合約", "en": "Breaking this agreement may result in a heavy penalty.", "zh": "違反這份協議可能會被處以重罰。" },
+        { "tag": "電子郵件", "en": "Please note that late payments will incur a penalty.", "zh": "請注意，逾期付款會被收取罰款。" }
+      ],
+      "similar": [
+        {
+          "word": "fine",
+          "diff": "fine 常是政府或主管機關開出的「罰金」；penalty 範圍較廣，也包含合約中的違約金。",
+          "example": { "en": "The company paid a fine for breaking the safety law.", "zh": "公司因違反安全法規而繳了罰金。" }
+        },
+        {
+          "word": "surcharge",
+          "diff": "surcharge 是「額外加收的費用」，不一定是處罰；penalty 帶有「違規被罰」的意思。",
+          "example": { "en": "A fuel surcharge was added to the bill.", "zh": "帳單上加收了燃料附加費。" }
+        }
+      ],
+      "family": [
+        { "w": "fee", "pos": "n.", "zh": "費用", "ipa": "/fiː/", "example": { "en": "A cancellation fee applies after the deadline.", "zh": "截止日之後取消要收取取消費。" } },
+        { "w": "charge", "pos": "n.", "zh": "收費", "ipa": "/tʃɑːrdʒ/", "example": { "en": "There is no charge for the first repair.", "zh": "第一次維修免費。" } },
+        { "w": "deposit", "pos": "n.", "zh": "訂金", "ipa": "/dɪˈpɑːzɪt/", "example": { "en": "The deposit will be returned after the contract ends.", "zh": "訂金會在合約結束後退還。" } }
+      ],
+      "derived": [
+        { "w": "penalize", "pos": "v.", "zh": "處罰、使受罰", "ipa": "/ˈpiːnəlaɪz/", "link": "penal- 表示「處罰」，加 -ize 變動詞，像 organize、realize" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
