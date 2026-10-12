@@ -1,0 +1,815 @@
+{
+  "week": 5,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "walkway",
+      "type": "word",
+      "ipa": "/ˈwɔːkweɪ/",
+      "pos": "n.",
+      "zh": "通道、走道",
+      "en": "a path for people to walk along, often with a roof",
+      "note": "在這篇裡，walkway 指連接辦公大樓與停車場的有頂通道，因為漏水損壞而暫時封閉。公告中常用 closed、blocked 來說明通道不能使用。",
+      "forms": [
+        {
+          "w": "walkways",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "通道（複數）",
+          "ipa": "/ˈwɔːkweɪz/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "covered walkway",
+          "zh": "有頂的通道",
+          "example": {
+            "en": "Use the covered walkway when it rains to stay dry.",
+            "zh": "下雨時請走有頂的通道，才不會淋濕。"
+          }
+        },
+        {
+          "phrase": "pedestrian walkway",
+          "zh": "行人通道",
+          "example": {
+            "en": "A pedestrian walkway was built beside the new parking lot.",
+            "zh": "新停車場旁邊蓋了一條行人通道。"
+          }
+        },
+        {
+          "phrase": "block the walkway",
+          "zh": "擋住通道",
+          "example": {
+            "en": "Please do not block the walkway with delivery carts.",
+            "zh": "請不要用送貨推車擋住通道。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "The walkway between the two buildings will be closed for repairs.",
+          "zh": "兩棟大樓之間的通道將因維修而封閉。"
+        },
+        {
+          "tag": "安全",
+          "en": "Please keep the walkway clear of boxes and other equipment.",
+          "zh": "請讓通道保持暢通，不要堆放箱子和其他設備。"
+        },
+        {
+          "tag": "辦公室",
+          "en": "Employees can reach the cafeteria through the covered walkway.",
+          "zh": "員工可以經由有頂的通道前往自助餐廳。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "sidewalk",
+          "diff": "sidewalk 是街道旁的人行道；walkway 是建築物之間或園區內的通道。",
+          "example": {
+            "en": "Visitors should stay on the sidewalk outside the main entrance.",
+            "zh": "訪客請留在主要入口外面的人行道上。"
+          }
+        },
+        {
+          "word": "crosswalk",
+          "diff": "兩個字都是複合字，但 crosswalk 是馬路上的斑馬線，walkway 是建築物之間的通道。",
+          "example": {
+            "en": "The crosswalk in front of the office has new safety lights.",
+            "zh": "辦公室前的斑馬線裝了新的安全燈。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "corridor",
+          "diff": "corridor 指建築物內部的長走廊；walkway 可以在室外，也可以有頂棚。",
+          "example": {
+            "en": "The corridor on the third floor leads to the meeting rooms.",
+            "zh": "三樓的走廊通往各個會議室。"
+          }
+        },
+        {
+          "word": "passage",
+          "diff": "passage 通常比較窄，可指室內外通道，語氣中性；文章裡的 passage 就是同一個意思。",
+          "example": {
+            "en": "The narrow passage behind the lobby is for staff only.",
+            "zh": "大廳後方的狹窄通道僅限員工使用。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "path",
+          "pos": "n.",
+          "zh": "小路、路徑",
+          "ipa": "/pæθ/",
+          "example": {
+            "en": "A short path leads from the gate to the main entrance.",
+            "zh": "一條短路從大門通往主要入口。"
+          }
+        },
+        {
+          "w": "entrance",
+          "pos": "n.",
+          "zh": "入口",
+          "ipa": "/ˈentrəns/",
+          "example": {
+            "en": "The north entrance opens at seven o'clock every morning.",
+            "zh": "北側入口每天早上七點開放。"
+          }
+        },
+        {
+          "w": "stairway",
+          "pos": "n.",
+          "zh": "樓梯間",
+          "ipa": "/ˈsterweɪ/",
+          "example": {
+            "en": "Please use the stairway if the elevator is out of service.",
+            "zh": "電梯停用時，請使用樓梯間。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "ample",
+      "type": "word",
+      "ipa": "/ˈæmpl/",
+      "pos": "adj.",
+      "zh": "充足的、綽綽有餘的",
+      "en": "more than enough",
+      "note": "在這篇裡，ample space 指 C 停車場的車位很充裕，足夠停放，語氣正面，常用來保證「不用擔心不夠」。",
+      "grammar_note": "ample 通常修飾不可數名詞或複數名詞，如 ample space、ample opportunities；本身已有「很夠」的意思，不加 very，要加強可用 more than ample。",
+      "forms": [
+        {
+          "w": "ampler",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更充足的",
+          "ipa": "/ˈæmplɚ/"
+        },
+        {
+          "w": "amplest",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最充足的",
+          "ipa": "/ˈæmplɪst/"
+        },
+        {
+          "w": "amply",
+          "label": "副詞",
+          "pos": "adv.",
+          "zh": "充分地",
+          "ipa": "/ˈæmpli/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "ample space",
+          "zh": "充裕的空間",
+          "example": {
+            "en": "The new warehouse has ample space for all our stock.",
+            "zh": "新倉庫有充裕的空間可放所有庫存。"
+          }
+        },
+        {
+          "phrase": "ample time",
+          "zh": "充足的時間",
+          "example": {
+            "en": "Please arrive early to leave ample time for security checks.",
+            "zh": "請提早抵達，留下充足的時間做安檢。"
+          }
+        },
+        {
+          "phrase": "ample opportunity",
+          "zh": "充分的機會",
+          "example": {
+            "en": "Staff will have ample opportunity to ask questions after the talk.",
+            "zh": "演講後，員工有充分的機會提問。"
+          }
+        },
+        {
+          "phrase": "ample parking",
+          "zh": "充足的停車位",
+          "example": {
+            "en": "The hotel offers ample parking for guests and visitors.",
+            "zh": "飯店為住客與訪客提供充足的停車位。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "We have ample time to review the budget before noon.",
+          "zh": "中午前我們有充足的時間檢視預算。"
+        },
+        {
+          "tag": "採購",
+          "en": "The supplier keeps ample stock, so orders ship quickly.",
+          "zh": "供應商庫存充足，所以訂單出貨很快。"
+        },
+        {
+          "tag": "出差",
+          "en": "The conference center provides ample seating for all guests.",
+          "zh": "會議中心為所有賓客提供充足的座位。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "example",
+          "diff": "拼法與發音相近，但 example 是名詞「例子」，ample 是形容詞「充足的」。",
+          "usage": "ample 是形容詞，放在名詞前；example 是名詞，常見 for example。",
+          "example": {
+            "en": "Please give an example of a successful marketing plan.",
+            "zh": "請舉一個成功行銷計畫的例子。"
+          }
+        },
+        {
+          "word": "sample",
+          "diff": "拼法相近，但 sample 是名詞「樣品」，ample 是形容詞「充足的」。",
+          "usage": "sample 是名詞（也可當動詞「試用」），ample 只能當形容詞。",
+          "example": {
+            "en": "The supplier will send a free sample of the new fabric.",
+            "zh": "供應商會寄來新布料的免費樣品。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "sufficient",
+          "diff": "sufficient 較正式，強調剛好夠用；ample 強調綽綽有餘。",
+          "example": {
+            "en": "The budget is sufficient to cover all travel costs.",
+            "zh": "這筆預算足以支付所有差旅費用。"
+          }
+        },
+        {
+          "phrase": "plenty of",
+          "diff": "plenty of 較口語，後面直接接名詞；ample 是形容詞，放在名詞前。",
+          "example": {
+            "en": "There is plenty of room in the conference hall.",
+            "zh": "會議廳裡有很多空間。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "spacious",
+          "pos": "adj.",
+          "zh": "寬敞的",
+          "ipa": "/ˈspeɪʃəs/",
+          "example": {
+            "en": "The spacious meeting room can hold fifty people.",
+            "zh": "這間寬敞的會議室可容納五十人。"
+          }
+        },
+        {
+          "w": "adequate",
+          "pos": "adj.",
+          "zh": "足夠的、適當的",
+          "ipa": "/ˈædɪkwət/",
+          "example": {
+            "en": "We have adequate funds to start the project next month.",
+            "zh": "我們有足夠的資金，下個月就能開始這個專案。"
+          }
+        },
+        {
+          "w": "generous",
+          "pos": "adj.",
+          "zh": "大方的、豐盛的",
+          "ipa": "/ˈdʒenərəs/",
+          "example": {
+            "en": "The company offers a generous benefits package to new staff.",
+            "zh": "公司提供新進員工豐厚的福利方案。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "amplify",
+          "ipa": "/ˈæmplɪfaɪ/",
+          "pos": "v.",
+          "zh": "放大、增強",
+          "link": "ample + -ify（使成為），像 simplify、clarify，使變大、變強"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "absorb",
+      "type": "word",
+      "ipa": "/əbˈzɔːrb/",
+      "pos": "v.",
+      "zh": "吸收；承擔（費用）",
+      "en": "to take something in; here, to pay a cost so that someone else does not have to",
+      "note": "在這篇裡，absorb the daily fee 是公司負擔每日停車費，員工不用自己付。這是 absorb 在商務上很常見的意思：自行吸收成本，不轉嫁給別人。",
+      "grammar_note": "absorb 當「吸收、承擔」是及物動詞，後面直接接受詞，如 absorb the cost；「全神貫注於」要用被動 be absorbed in。",
+      "forms": [
+        {
+          "w": "absorbs",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "吸收",
+          "ipa": "/əbˈzɔːrbz/"
+        },
+        {
+          "w": "absorbed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "吸收了",
+          "ipa": "/əbˈzɔːrbd/"
+        },
+        {
+          "w": "absorbing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在吸收",
+          "ipa": "/əbˈzɔːrbɪŋ/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "absorb the cost",
+          "zh": "吸收成本、負擔費用",
+          "example": {
+            "en": "The company will absorb the cost of the extra training.",
+            "zh": "公司將負擔額外培訓的費用。"
+          }
+        },
+        {
+          "phrase": "absorb the impact",
+          "zh": "吸收衝擊",
+          "example": {
+            "en": "Thick padding helps absorb the impact during shipping.",
+            "zh": "厚墊料能在運送過程中吸收衝擊。"
+          }
+        },
+        {
+          "phrase": "absorb information",
+          "zh": "吸收資訊",
+          "example": {
+            "en": "Interns absorb information quickly when they shadow experienced staff.",
+            "zh": "實習生跟著資深員工做事時，吸收資訊很快。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "The supplier agreed to absorb the price increase this quarter.",
+          "zh": "供應商同意本季自行吸收漲價的部分。"
+        },
+        {
+          "tag": "客服",
+          "en": "The store will absorb the repair fee for damaged items.",
+          "zh": "商店會負擔受損商品的維修費。"
+        },
+        {
+          "tag": "培訓",
+          "en": "Trainees absorb new skills faster with hands-on practice.",
+          "zh": "學員透過實際操作能更快吸收新技能。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "observe",
+          "diff": "拼法與字首相近，但 observe 是「觀察、遵守」，absorb 是「吸收、承擔」。",
+          "example": {
+            "en": "All staff must observe the safety rules in the warehouse.",
+            "zh": "所有員工都必須遵守倉庫的安全規定。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "bear the cost",
+          "diff": "bear 較中性，指承擔責任由誰負擔；absorb 強調自行吸收，不轉嫁給別人。",
+          "example": {
+            "en": "The client will bear the cost of any design changes.",
+            "zh": "客戶將負擔任何設計變更的費用。"
+          }
+        },
+        {
+          "phrase": "cover the cost",
+          "diff": "cover 是「支付」費用，不一定帶有損失的意味。",
+          "example": {
+            "en": "The grant will cover the cost of the new equipment.",
+            "zh": "這筆補助金會支付新設備的費用。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "cost",
+          "pos": "n.",
+          "zh": "成本、費用",
+          "ipa": "/kɔːst/",
+          "example": {
+            "en": "The total cost of the project is lower than expected.",
+            "zh": "這個專案的總成本比預期低。"
+          }
+        },
+        {
+          "w": "fee",
+          "pos": "n.",
+          "zh": "費用、手續費",
+          "ipa": "/fiː/",
+          "example": {
+            "en": "There is no extra fee for changing your reservation.",
+            "zh": "更改訂位不需另外收費。"
+          }
+        },
+        {
+          "w": "expense",
+          "pos": "n.",
+          "zh": "開銷、支出",
+          "ipa": "/ɪkˈspens/",
+          "example": {
+            "en": "Travel expenses must be approved by your manager first.",
+            "zh": "差旅開銷必須先經主管核准。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "absorbent",
+          "ipa": "/əbˈzɔːrbənt/",
+          "pos": "adj.",
+          "zh": "吸水的、易吸收的",
+          "link": "absorb + -ent（具有…性質的），能吸收的"
+        },
+        {
+          "w": "absorption",
+          "ipa": "/əbˈzɔːrpʃn/",
+          "pos": "n.",
+          "zh": "吸收",
+          "link": "absorb 的 b 變成 p，再加 -tion，像 subscribe → subscription"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "承擔、吸收（費用、損失）",
+          "en": "to pay a cost so that someone else does not have to",
+          "in_passage": true,
+          "example": {
+            "en": "We will absorb the shipping cost for all online orders.",
+            "zh": "所有網路訂單的運費由我們負擔。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "吸收（液體、熱、衝擊）",
+          "en": "to take in a liquid, heat, or force",
+          "distinguish": "受詞是水、熱或力量等物質時，是物理上的「吸收」。",
+          "example": {
+            "en": "These mats absorb water and keep the entrance floor dry.",
+            "zh": "這些地墊會吸水，讓入口地板保持乾燥。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "吸收、理解（資訊）",
+          "en": "to learn and understand new information",
+          "distinguish": "受詞是資訊或知識時，指學習、消化。",
+          "example": {
+            "en": "New employees must absorb a lot of information in the first week.",
+            "zh": "新進員工第一週必須吸收大量資訊。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "administer",
+      "type": "word",
+      "ipa": "/ədˈmɪnɪstɚ/",
+      "pos": "v.",
+      "zh": "管理、執行；發放",
+      "en": "to manage or carry out a program, rule, or system",
+      "note": "在這篇裡，permits will be administered by the facilities office，指臨時停車證由總務處負責發放與管理。用被動語態強調「由誰負責」，語氣正式。",
+      "grammar_note": "administer 的受詞通常是制度、計畫、測驗或藥物，不是人；管理員工要用 manage。被動常寫成 be administered by + 單位。",
+      "forms": [
+        {
+          "w": "administers",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "管理",
+          "ipa": "/ədˈmɪnɪstɚz/"
+        },
+        {
+          "w": "administered",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "管理了",
+          "ipa": "/ədˈmɪnɪstɚd/"
+        },
+        {
+          "w": "administering",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在管理",
+          "ipa": "/ədˈmɪnɪstɚɪŋ/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "administer a program",
+          "zh": "管理、執行計畫",
+          "example": {
+            "en": "The local office administers a program for small businesses.",
+            "zh": "當地辦公室負責執行一項小型企業的計畫。"
+          }
+        },
+        {
+          "phrase": "administer a test",
+          "zh": "施行測驗",
+          "example": {
+            "en": "Interviewers will administer a short test to each applicant.",
+            "zh": "面試官會對每位應徵者施行一份簡短測驗。"
+          }
+        },
+        {
+          "phrase": "administer funds",
+          "zh": "管理資金",
+          "example": {
+            "en": "A committee will administer the funds for the new project.",
+            "zh": "一個委員會將管理新專案的資金。"
+          }
+        },
+        {
+          "phrase": "administer medication",
+          "zh": "給藥",
+          "example": {
+            "en": "Only trained staff may administer medication to patients.",
+            "zh": "只有受過訓練的人員才能給病患用藥。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "人資",
+          "en": "Our payroll team administers salaries for all regional offices.",
+          "zh": "我們的薪資團隊負責處理所有區域辦公室的薪資。"
+        },
+        {
+          "tag": "政策",
+          "en": "The new refund policy is administered by customer service.",
+          "zh": "新的退款政策由客服部門負責執行。"
+        },
+        {
+          "tag": "公告",
+          "en": "Entry permits are administered by the security desk.",
+          "zh": "入場許可證由保全櫃檯負責管理。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "manage",
+          "diff": "manage 更通用，可以管人也可以管事；administer 偏重制度、計畫與程序的執行。",
+          "example": {
+            "en": "She manages the daily operations of the branch office.",
+            "zh": "她負責管理分公司的日常營運。"
+          }
+        },
+        {
+          "word": "oversee",
+          "diff": "oversee 強調從上而下監督、掌握全局；administer 強調實際負責執行與管理。",
+          "example": {
+            "en": "A senior director will oversee the new hiring process.",
+            "zh": "一位資深主管將監督新的招募流程。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "permit",
+          "pos": "n.",
+          "zh": "許可證",
+          "ipa": "/ˈpɜːrmɪt/",
+          "example": {
+            "en": "You need a permit to park in the staff lot.",
+            "zh": "你需要許可證才能停在員工停車場。"
+          }
+        },
+        {
+          "w": "supervise",
+          "pos": "v.",
+          "zh": "監督、指導",
+          "ipa": "/ˈsuːpɚvaɪz/",
+          "example": {
+            "en": "Two managers supervise the entire inventory count.",
+            "zh": "兩位經理負責監督整個庫存盤點。"
+          }
+        },
+        {
+          "w": "procedure",
+          "pos": "n.",
+          "zh": "程序、流程",
+          "ipa": "/prəˈsiːdʒɚ/",
+          "example": {
+            "en": "Please follow the standard procedure for filing complaints.",
+            "zh": "請依標準程序提出客訴。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "administration",
+          "ipa": "/ədˌmɪnɪˈstreɪʃn/",
+          "pos": "n.",
+          "zh": "行政、管理",
+          "link": "administer + -ation，把「管理」變成名詞，像 organize → organization"
+        },
+        {
+          "w": "administrator",
+          "ipa": "/ədˈmɪnɪstreɪtɚ/",
+          "pos": "n.",
+          "zh": "管理員、行政人員",
+          "link": "administrat- + -or，做事的人，像 operator、creator"
+        },
+        {
+          "w": "administrative",
+          "ipa": "/ədˈmɪnɪstreɪtɪv/",
+          "pos": "adj.",
+          "zh": "行政的",
+          "link": "administrat- + -ive（形容詞），像 creative、active"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "管理、辦理（制度、計畫）",
+          "en": "to manage or be in charge of a system or program",
+          "in_passage": true,
+          "example": {
+            "en": "The HR department administers the company's training program.",
+            "zh": "人資部門負責執行公司的培訓計畫。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "施行（測驗、藥物）",
+          "en": "to give a test or a medicine to someone",
+          "distinguish": "受詞是測驗或藥物，對象是人時，指「給予」。",
+          "example": {
+            "en": "A nurse will administer the flu vaccine to staff.",
+            "zh": "護理師會為員工施打流感疫苗。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "reimburse",
+      "type": "word",
+      "ipa": "/ˌriːɪmˈbɜːrs/",
+      "pos": "v.",
+      "zh": "償還、核銷（費用）",
+      "en": "to pay someone back for money they spent",
+      "note": "在這篇裡，not be reimbursed 是指員工在其他停車場自行停車的費用，公司不會補貼。reimburse 是報帳、核銷的常用字，語氣正式。",
+      "grammar_note": "reimburse 的句型是 reimburse + 人 + for + 費用（不是 reimburse + 費用 + to + 人）；被動為 be reimbursed for + 費用。",
+      "forms": [
+        {
+          "w": "reimburses",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "償還",
+          "ipa": "/ˌriːɪmˈbɜːrsɪz/"
+        },
+        {
+          "w": "reimbursed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "償還了",
+          "ipa": "/ˌriːɪmˈbɜːrst/"
+        },
+        {
+          "w": "reimbursing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在償還",
+          "ipa": "/ˌriːɪmˈbɜːrsɪŋ/"
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "reimburse expenses",
+          "zh": "核銷費用",
+          "example": {
+            "en": "The company will reimburse all reasonable travel expenses.",
+            "zh": "公司會核銷所有合理的差旅費用。"
+          }
+        },
+        {
+          "phrase": "be reimbursed for",
+          "zh": "就…獲得補償",
+          "example": {
+            "en": "Employees can be reimbursed for meals during business trips.",
+            "zh": "員工出差期間的餐費可以申請核銷。"
+          }
+        },
+        {
+          "phrase": "reimburse in full",
+          "zh": "全額償還",
+          "example": {
+            "en": "We will reimburse you in full if the item is faulty.",
+            "zh": "如果商品有瑕疵，我們會全額退還給你。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "報帳",
+          "en": "Please attach receipts so we can reimburse you quickly.",
+          "zh": "請附上收據，我們才能快速為你核銷。"
+        },
+        {
+          "tag": "出差",
+          "en": "The firm reimbursed me for my flight to Chicago.",
+          "zh": "公司已補償我飛往芝加哥的機票費用。"
+        },
+        {
+          "tag": "福利",
+          "en": "The program reimburses staff for approved training courses.",
+          "zh": "這項方案會補助員工經核准的培訓課程費用。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "compensate",
+          "diff": "compensate 是補償損失或損害，也可指給薪酬；reimburse 是把你先墊的錢還給你。",
+          "example": {
+            "en": "The airline will compensate passengers for the long flight delay.",
+            "zh": "航空公司會就航班長時間延誤補償乘客。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "refund",
+          "diff": "refund 通常是顧客買東西後拿回錢；reimburse 是公司把員工先墊的費用還給員工。",
+          "example": {
+            "en": "Customers can request a refund within thirty days of purchase.",
+            "zh": "顧客可在購買後三十天內申請退款。"
+          }
+        },
+        {
+          "phrase": "pay back",
+          "diff": "pay back 較口語，可用在朋友或同事之間；reimburse 較正式，用在公司報帳。",
+          "example": {
+            "en": "I will pay you back for the taxi on Friday.",
+            "zh": "星期五我會把計程車費還給你。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "expense",
+          "pos": "n.",
+          "zh": "開銷、支出",
+          "ipa": "/ɪkˈspens/",
+          "example": {
+            "en": "All business expenses must be reported by the fifth.",
+            "zh": "所有業務開銷必須在五號前申報。"
+          }
+        },
+        {
+          "w": "receipt",
+          "pos": "n.",
+          "zh": "收據",
+          "ipa": "/rɪˈsiːt/",
+          "example": {
+            "en": "Keep every receipt when you travel for work.",
+            "zh": "出差時請保留每一張收據。"
+          }
+        },
+        {
+          "w": "claim",
+          "pos": "n.",
+          "zh": "申請、請款",
+          "ipa": "/kleɪm/",
+          "example": {
+            "en": "Submit your expense claim before the end of the month.",
+            "zh": "請在月底前提交你的費用申請。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "reimbursement",
+          "ipa": "/ˌriːɪmˈbɜːrsmənt/",
+          "pos": "n.",
+          "zh": "償還、核銷的款項",
+          "link": "reimburse + -ment，把動作變成名詞，像 payment、agreement"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
