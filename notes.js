@@ -818,9 +818,9 @@ function dnBankItems(core) { // core＝true：再把「文章核心多益單字�
     const k = dnKey(m.text); if (map.has(k) || !dnArt(m.qid)) return;
     map.set(k, { text: m.text, e: null, qid: m.qid, merged: false, type: m.type || 'word', mark: m });
   });
-  if (core) dnArts().forEach(a => (a.vocab || []).forEach(v => {
+  if (core) dnArts().forEach(a => (a.vocab || []).forEach((v, i) => { // 核心單字：沒有詳解的也列進來（單字／片語分頁顯示卡片上的基本資料，待補詳解分頁顯示提示詞按鈕）
     const t = String((v && v.word) || '').trim(), k = dnKey(t); if (!t || map.has(k)) return;
-    map.set(k, { text: t, e: null, qid: idOf(a), merged: false, type: /\s/.test(t) ? 'phrase' : 'word', mark: null, core: true });
+    map.set(k, { text: t, e: null, qid: idOf(a), merged: false, type: /\s/.test(t) ? 'phrase' : 'word', mark: null, core: true, base: v, w: a.week, d: a.day, i });
   }));
   return Array.from(map.values());
 }
@@ -833,21 +833,24 @@ function dnMulti(e) { // 多義（同詞性不同意思）與多詞性
 function dnBankTab(it, tab) {
   const k = dnBankKind(it);
   if (tab === 'todo') return !it.merged;
-  if (!it.merged) return false;
+  if (!it.merged) return !!it.core && ((tab === 'word' && k === 'word') || (tab === 'phrase' && k === 'phrase')); // 核心單字即使沒有詳解，也列在單字／片語分頁
   if (tab === 'word') return k === 'word';
   if (tab === 'multi') return k === 'word' && dnMulti(it.e).multi;
   if (tab === 'phrase') return k === 'phrase';
   return k === 'sent';
 }
 function dnBankHay(it) {
-  const e = it.e || {}, m = dnMulti(e);
+  const e = it.e || it.base || {}, m = dnMulti(it.e);
   return [it.text, e.zh, e.pattern, it.mark && it.mark.ctx, it.mark && it.mark.note].concat(m.se.map(o => o.zh), m.us.map(o => o.zh)).filter(Boolean).join(' ').toLowerCase();
 }
 function dnBankRow(it) {
   const e = it.e || {}, k = dnBankKind(it), mu = dnMulti(e), T = esc(it.text), tag = 'text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300';
   const spk = `<button onclick="vplay('${it.qid}', this.dataset.t, '', this.dataset.t)" data-t="${T}" class="text-slate-400 hover:text-indigo-600 shrink-0 mt-0.5" aria-label="發音">🔊</button>`;
   let body;
-  if (!it.merged) {
+  if (!it.merged && it.core && DN.bk.tab !== 'todo') { // 單字／片語分頁裡「還沒有詳解的核心單字」：顯示卡片上的基本資料，點開看核心單字卡
+    const b = it.base || {};
+    body = `<div class="min-w-0 flex-1 cursor-pointer" onclick="tslOpen(${it.w},${it.d},${it.i})"><div class="flex flex-wrap items-baseline gap-x-1.5"><b class="text-sm break-words">${T}</b>${b.ipa ? `<span class="text-xs text-slate-500">${esc(b.ipa)}</span>` : ''}${b.pos ? `<i class="text-xs text-slate-500">${esc(b.pos)}</i>` : ''}${b.zh ? `<span class="text-sm">${esc(b.zh)}</span>` : ''}<span class="${dnChip}">核心單字</span><span class="${tag}">待補詳解</span></div></div>`;
+  } else if (!it.merged) {
     const m = it.mark || {};
     body = `<div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-1.5"><span class="${dnChip} ${DNTC[it.type] || DNTC.word}">${DNT[it.type] || '單字'}</span><b class="text-sm break-words">${T}</b>${it.core ? '<span class="' + dnChip + '">核心單字</span>' : ''}</div>${it.type !== 'sentence' && m.ctx ? `<p class="text-xs text-slate-500 mt-0.5 break-words">${esc(m.ctx)}</p>` : ''}${m.note ? `<p class="text-xs text-amber-700 dark:text-amber-300 mt-0.5 break-words">備註：${esc(m.note)}</p>` : ''}</div><button onclick="dnBankCopy('${it.qid}', this.dataset.t, this)" data-t="${T}" class="${btn} ${dnLine} !py-1 !px-2 text-xs shrink-0">複製提示詞</button>`;
   } else if (k === 'sent') {
@@ -857,7 +860,7 @@ function dnBankRow(it) {
     const lines = DN.bk.tab === 'multi' ? `${mu.us.length >= 2 ? `<p class="text-xs text-slate-600 dark:text-slate-300 mt-1"><b>詞性</b>　${mu.us.map(o => `${o.pos ? `<i>${esc(o.pos)}</i> ` : ''}${esc(o.zh || '')}`).join('；')}</p>` : ''}${mu.se.length >= 2 ? `<p class="text-xs text-slate-600 dark:text-slate-300 mt-1"><b>意思</b>　${mu.se.map(o => `${o.pos ? `<i>${esc(o.pos)}</i> ` : ''}${esc(o.zh || '')}`).join('；')}</p>` : ''}` : '';
     body = `<div class="min-w-0 flex-1 cursor-pointer" onclick="dnBankOpen(this)" data-q="${it.qid}" data-t="${T}"><div class="flex flex-wrap items-baseline gap-x-1.5"><b class="text-sm break-words">${T}</b>${e.ipa ? `<span class="text-xs text-slate-500">${esc(e.ipa)}</span>` : ''}${k === 'word' && e.pos ? `<i class="text-xs text-slate-500">${esc(e.pos)}</i>` : ''}${e.zh ? `<span class="text-sm">${esc(e.zh)}</span>` : ''}${chips}</div>${lines}</div>`;
   }
-  return `<div class="py-2 flex items-start gap-2">${spk}${body}${it.merged ? '<span class="text-slate-300 dark:text-slate-600 shrink-0 mt-0.5">›</span>' : ''}</div>`;
+  return `<div class="py-2 flex items-start gap-2">${spk}${body}${it.merged || (it.core && DN.bk.tab !== 'todo') ? '<span class="text-slate-300 dark:text-slate-600 shrink-0 mt-0.5">›</span>' : ''}</div>`;
 }
 const dnBankArtOrder = (a, b) => { const A = dnArt(a.qid), B = dnArt(b.qid); return A && B ? (A.week - B.week) || (A.day - B.day) : 0; };
 function dnBankFold(key, on) { if (!DN.bk.q) DN.bk.open[key] = !!on; } // 搜尋中是強制展開，不記錄
@@ -900,7 +903,7 @@ function dnBankCopy(qid, text, b) { // 待補詳解：只為這個字複製 AI �
   auCopy(dnPrompt(qid, new Set([dnKey(m.text)]))); dnToast('已複製這個字的提示詞，貼給 AI');
 }
 function dnBankOpen(el) { dnOpenExtra(el.dataset.q, el.dataset.t); }
-const dnBankBtn = () => `<button onclick="dnNav('bank')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'bank' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">📚 入庫總覽（${dnBankItems().length}）</button>`;
+const dnBankBtn = () => `<button onclick="dnNav('bank')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'bank' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">📚 入庫總覽（${dnBankItems(true).length}）</button>`;
 function dnRenderBank() {
   const B = DN.bk, all = dnBankItems(true), cnt = t => all.filter(it => dnBankTab(it, t)).length;
   const tabs = [['word', '單字'], ['multi', '多義單字'], ['phrase', '片語'], ['sent', '句子'], ['todo', '待補詳解']];
