@@ -18,7 +18,7 @@
 
 const NW_KEY = 'toeicNewWordsV1';
 const NW_OWN_NOTE = '使用者要求：請當成獨立入庫項目寫完整詳解，lemma 用它自己，不要併進其他字的詳解';
-const NW_POOL = 6; // 每篇新文章最多優先帶入幾個新單字
+const NW_POOL = 5; // 每篇新文章最多優先帶入幾個新單字
 let NW = null, NW_TM = null, NW_REC = null;
 const nwList = () => { if (NW) return NW; try { NW = JSON.parse(localStorage.getItem(NW_KEY) || '[]'); } catch (e) { NW = []; } if (!Array.isArray(NW)) NW = []; return NW; };
 const nwSave = () => { try { localStorage.setItem(NW_KEY, JSON.stringify(nwList())); } catch (e) {} };
@@ -188,7 +188,7 @@ function nwPending() { return nwList().map(n => ({ n, s: nwStatus(n) })).filter(
 function nwPoolKeys() { return new Set(nwPending().map(o => tslNz(o.n.text))); } // 供 tslUnused 排除：已列為新單字的字，不要再當 TSL 候選字重複出現
 function nwGenLines() {
   const ps = nwPending(); if (!ps.length) return [];
-  const L = ['【我的新單字（優先採用）】', `・以下是使用者自己遇到、想學的新單字／片語（${ps.length} 個，依加入順序）。請「優先」把它們自然地寫進本篇 passage，優先順序高於下方的 TSL 候選單字：`];
+  const L = ['【我的新單字（優先採用）】', `・以下是使用者自己遇到、想學的新單字／片語（${ps.length} 個，依加入順序）。原則上請用 2–5 個自然地寫進本篇 passage（不是硬性規定，可依文章情境增加或減少），優先順序高於下方的 TSL 候選單字，目標是與 TSL 候選字大約各占一半：`];
   ps.forEach(({ n, s }, i) => L.push(`  ${i + 1}. ${n.text}（${n.type === 'phrase' ? '片語' : '單字'}｜${s.tsl ? 'TSL 核心單字 #' + s.tsl.r : '非 TSL 核心單字'}）` + (nwHasNote(n) ? `｜備註：${String(n.note).trim().replace(/\s+/g, ' ')}` : '') + (n.own ? '｜獨立詳解：請當成獨立項目，lemma 用它自己，不併進其他字' : '')));
   L.push('・情境真的放不進本篇主題的字可以跳過，不要硬塞（沒用到的會留給之後的文章）；單字可用原形或自然的屈折變化，片語要照原樣出現在 passage 裡。',
     '・標「TSL 核心單字」的字：除了寫進 passage，也要放進 vocab（算在 vocab 總數 3–6 個之內，並優先於 TSL 候選單字）。',

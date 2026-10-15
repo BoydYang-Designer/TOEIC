@@ -935,7 +935,7 @@ function genType(t) { genSet('type', t === 'auto' ? null : t); render(); }
 function genNote(v) { genSet('note', v.trim() ? v : null); const el = document.getElementById('gen-prompt'); if (el) el.value = genPrompt(); }
 function genLen(s) { const t = Math.max(0, Math.min(1, (s - 600) / 250)); return t < 0.34 ? '偏短' : t < 0.67 ? '中等' : '偏長'; }
 /* ===== TSL 候選單字：從 tsl.js（依詞頻排名）挑出「還沒收錄」的字，並依本篇難度取不同區段，放進新增文章的提示詞 ===== */
-const TSL_POOL = 10;        // 每篇提供幾個候選字（建議 8–10；AI 從中挑 4–5 個放進 vocab，其餘留給之後的文章）
+const TSL_POOL = 24;        // 每篇提供幾個候選字（範圍放寬讓 AI 依主題挑；AI 原則上用 2–5 個，與「我的新單字」大約各占一半，其餘留給之後的文章）
 const tslNz = s => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim(); // 自備，不依賴其他函式內的 nz
 const TSL_BY_LEVEL = true;  // true＝依難度取區段（分數低取前段＝較常見、分數高取後段＝較少見）；false＝一律取最前面
 function tslUsed() { // 已收錄 = 既有文章的 vocab.word 與 extra_vocab.text（含 -s/-es/-d/-ed/-ing 變化形）
@@ -983,7 +983,7 @@ function tslPanel(s) {
   return `<div class="rounded-lg border border-slate-200 dark:border-slate-800 p-3 mb-3 text-xs">
     <p class="font-bold mb-1">本篇候選 TSL 單字（${s} 分，詞頻排名 #${tp.r1}–#${tp.r2}）</p>
     <div class="flex flex-wrap gap-1 mb-1">${tp.words.map(w => chip(esc(w), 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300')).join('')}</div>
-    <p class="text-slate-500 mb-2">AI 會從這些字挑 4–5 個；合併進 daily.json 後，被挑中的就會出現在下方「已收錄」。TSL 尚未收錄 <b>${tp.left}</b> / ${TSL_WORDS.length} 字。</p>
+    <p class="text-slate-500 mb-2">AI 原則上會從這些字用 2–5 個（可視情況增減，與新單字大約各占一半）；合併進 daily.json 後，被挑中的就會出現在下方「已收錄」。TSL 尚未收錄 <b>${tp.left}</b> / ${TSL_WORDS.length} 字。</p>
     <details><summary class="cursor-pointer font-bold">已收錄的 TSL 單字：${total} 個（${hs.length} 篇）</summary>
       <div class="mt-2 space-y-1.5">${hs.map(h => `<div><span class="text-slate-500">w${h.x.week}d${h.x.day}</span> ${h.list.map(i => chip(`${esc(i.word)} <span class="opacity-60">#${i.r}</span>`, 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300')).join(' ')}</div>`).join('')}</div>
     </details></div>`;
@@ -1010,7 +1010,8 @@ function genPrompt() {
   const tp = tslPick(s);
   if (tp && tp.words.length) {
     L.push('【TSL 候選單字】', `・以下是 TSL（New TOEIC Service List）中「尚未收錄」、且程度符合本篇難度（約 ${s} 分）的單字（詞頻排名 #${tp.r1}–#${tp.r2}，數字越大越少見）：${tp.words.join(', ')}`,
-      '・請從中挑 4–5 個（至少 3 個）最符合本篇主題與情境的單字，自然地寫進 passage 並放進 vocab；不適合的不要硬塞，沒用到的會留給之後的文章。',
+      '・請從中挑「原則上 2–5 個」最符合本篇主題與情境的單字，自然地寫進 passage 並放進 vocab；這只是原則、不是硬性規定，可依文章情境與長度增加或減少；不適合的不要硬塞，沒用到的會留給之後的文章。',
+      '・本篇的新單字與 TSL 候選字大約各占一半（各約 2–5 個）；若「我的新單字」不足，TSL 候選字可多用幾個，反之亦然。',
       '・vocab 總數仍依 _spec（3–6 個）；若清單以外還有更適合的商務字彙，可補足但不得與既有 items 重複。', '');
   }
   { const pool = SUBTOPICS['D' + d] || [], used = DATA.filter(x => x.day == d && x.subtopic).map(x => x.subtopic), fresh = pool.filter(t => !used.includes(t)), lastW = DATA.filter(x => x.day == d && x.week < w && x.subtopic).sort((a, b) => b.week - a.week)[0];

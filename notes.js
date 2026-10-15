@@ -518,7 +518,10 @@ function dnMgCopy(onlySel) { // onlySel＝true：只處理「依文章」模式�
   else if (onlySel) { const n = dnArtSelInfo(); dnToast(`已複製 ${n.nArt} 篇文章、${n.nItems} 個字的提示詞，貼給 AI`); }
 }
 /* ---- 「依文章」模式：跨文章多選（例如只選 W1·D1 與 W1·D3），一鍵複製多篇的提示詞；每篇各一份、各自輸出一個 w?d?_extra.json ---- */
-DN.artSel = DN.artSel || {};
+DN.artSel = DN.artSel || {}; DN.artOpen = DN.artOpen || {}; // artOpen：「依文章」模式每篇是否展開（預設收合）
+function dnToggleOpen(qid) { DN.artOpen[qid] = !DN.artOpen[qid]; render(); }
+function dnArtOpenAll(v) { (DN.artIds || []).forEach(q => { DN.artOpen[q] = v; }); render(); }
+const dnOpenBtn = (qid, open) => `<button onclick="dnToggleOpen('${qid}')" class="text-xs text-slate-400 hover:text-slate-600 mr-2 w-3 align-middle cursor-pointer" aria-label="展開／收合">${open ? '▼' : '▶'}</button>`;
 function dnArtSelInfo() { return dnWithVisOnly(vis => { const q = dnMgQids(vis).filter(id => DN.artSel[id]); return { nArt: q.length, nItems: q.reduce((n, id) => n + dnPromptItems(id).length, 0) }; }); }
 function dnToggleArt(qid, v) { DN.artSel[qid] = v; render(); }
 function dnArtSelAll(v) { dnWithVisOnly(vis => dnMgQids(vis)).forEach(id => { DN.artSel[id] = v; }); render(); }
@@ -701,6 +704,7 @@ function dnRenderMarks() {
   const all = dnMarks(), pri = all.filter(dnIsPrimary), done = pri.filter(dnMerged).length, todo = pri.length - done; // 同一個字只算一次
   const cNone = dnCoreN(dnCoreGaps('none')), cGap = dnCoreN(dnCoreGaps('gap')), f = DN.mf, vis = m => f === 'all' || (f === 'gap' ? dnMerged(m) && dnGapsOf(m).length > 0 : f === 'done' ? dnMerged(m) : !dnMerged(m));
   const ids = Array.from(new Set(all.filter(vis).map(m => m.qid))).sort((a, b) => { const A = dnArt(a), B = dnArt(b); return A && B ? (A.week - B.week) || (A.day - B.day) : a < b ? -1 : 1; });
+  DN.artIds = ids;
   const fb = (v, label, n) => `<button onclick="dnSetMf('${v}')" class="${btn} !py-1.5 !px-3 text-xs ${f === v ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${label} <span class="opacity-70">${n}</span></button>`;
   let h = `<header class="mb-4 flex items-center justify-between gap-2"><h2 class="text-xl md:text-2xl font-bold">📌 入庫彙整</h2>${dnBackBtn()}</header>
     <div class="${card} p-4 mb-4"><div class="flex flex-wrap gap-2">${fb('todo', '待補詳解', todo + cNone)}${fb('done', '詳解已寫回', done)}${fb('gap', '未完整詳解', all.filter(m => dnMerged(m) && dnGapsOf(m).length).length + cGap)}${fb('all', '全部', pri.length)}</div>
@@ -728,27 +732,27 @@ function dnRenderMarks() {
     if (list.length) h += `<p class="text-xs text-slate-400 mb-4">勾選的字若來自多篇文章，會依文章分成多份提示詞（每篇各產生一個 w?d?_extra.json），請依序貼給 AI。</p>`;
     main.innerHTML = h; return;
   }
-  if (f !== 'done' && ids.length > 1) { // 跨文章多選工具列
-    const si = dnArtSelInfo(), bs2 = `${btn} ${dnLine} !py-1 !px-3 text-xs`;
-    h += `<div class="${card} p-3 mb-3"><div class="flex flex-wrap items-center gap-2"><button onclick="dnMgCopy(true)" ${si.nArt ? '' : 'disabled'} class="${btn} ${dnPri} !py-1.5 text-xs disabled:opacity-40">複製所選文章的 AI 提示詞（${si.nArt} 篇・${si.nItems} 項${dnCapTag(si.nItems)}）</button><button onclick="dnArtSelAll(true)" class="${bs2}">全選文章</button><button onclick="dnArtSelAll(false)" class="${bs2}">全不選</button></div><p class="text-xs text-slate-500 mt-2 leading-relaxed">勾選各篇標題左邊的方框，就能一次複製多篇；每篇各產生一份獨立的提示詞（各自輸出一個 w?d?_extra.json），貼給 AI 即可。</p></div>`;
+  if (ids.length > 1) { // 跨文章工具列：展開／收合全部；非「詳解已寫回」另有多選複製
+    const si = f !== 'done' ? dnArtSelInfo() : null, bs2 = `${btn} ${dnLine} !py-1 !px-3 text-xs`;
+    h += `<div class="${card} p-3 mb-3"><div class="flex flex-wrap items-center gap-2">${si ? `<button onclick="dnMgCopy(true)" ${si.nArt ? '' : 'disabled'} class="${btn} ${dnPri} !py-1.5 text-xs disabled:opacity-40">複製所選文章的 AI 提示詞（${si.nArt} 篇・${si.nItems} 項${dnCapTag(si.nItems)}）</button><button onclick="dnArtSelAll(true)" class="${bs2}">全選文章</button><button onclick="dnArtSelAll(false)" class="${bs2}">全不選</button>` : ''}<span class="${si ? 'ml-auto ' : ''}flex gap-2"><button onclick="dnArtOpenAll(true)" class="${bs2}">全部展開</button><button onclick="dnArtOpenAll(false)" class="${bs2}">全部收合</button></span></div>${si ? `<p class="text-xs text-slate-500 mt-2 leading-relaxed">勾選各篇標題左邊的方框，就能一次複製多篇；每篇各產生一份獨立的提示詞（各自輸出一個 w?d?_extra.json），貼給 AI 即可。文章預設收合，點標題左邊的 ▶ 展開。</p>` : ''}</div>`;
   }
   ids.forEach(qid => {
-    const x = dnArt(qid), ms = dnMarksOf(qid).filter(vis), nSel = dnPromptItems(qid).length;
+    const x = dnArt(qid), ms = dnMarksOf(qid).filter(vis), nSel = dnPromptItems(qid).length, open = !!DN.artOpen[qid];
     if (f === 'done') { // 「詳解已寫回」：只單純列出單字，不提供勾選／提示詞／補齊／編輯
-      h += `<section class="${card} p-4 mb-4"><div class="mb-2"><button onclick="dnGoArt('${qid}')" class="font-bold text-sm text-indigo-600 dark:text-indigo-400 underline cursor-pointer">${esc(dnArtLabel(qid))}</button>${x && x.level ? ` ${lvBadge(x)}` : ''}</div>
-        <div class="divide-y divide-slate-100 dark:divide-slate-800">${ms.map(m => `<div class="py-2 flex items-center gap-2"><span class="${dnChip} ${DNTC[m.type]}">${DNT[m.type]}</span><button onclick="vplay('${qid}', this.dataset.t, '', this.dataset.t)" data-t="${esc(m.text)}" class="min-w-0 flex-1 text-left text-sm font-bold break-words cursor-pointer hover:text-indigo-600" aria-label="發音">${esc(m.text)} <span class="text-slate-400 font-normal">🔊</span></button><button onclick="dnOpenExtra('${qid}',this.dataset.t)" data-t="${esc(m.text)}" class="${dnSm} shrink-0">詳解 ›</button></div>`).join('')}</div></section>`;
+      h += `<section class="${card} p-4 mb-4"><div class="${open ? 'mb-2' : ''}">${dnOpenBtn(qid, open)}<button onclick="dnGoArt('${qid}')" class="font-bold text-sm text-indigo-600 dark:text-indigo-400 underline cursor-pointer">${esc(dnArtLabel(qid))}</button>${x && x.level ? ` ${lvBadge(x)}` : ''} <span class="text-xs text-slate-400 ml-1">${ms.length} 個</span></div>
+        ${open ? `<div class="divide-y divide-slate-100 dark:divide-slate-800">${ms.map(m => `<div class="py-2 flex items-center gap-2"><span class="${dnChip} ${DNTC[m.type]}">${DNT[m.type]}</span><button onclick="vplay('${qid}', this.dataset.t, '', this.dataset.t)" data-t="${esc(m.text)}" class="min-w-0 flex-1 text-left text-sm font-bold break-words cursor-pointer hover:text-indigo-600" aria-label="發音">${esc(m.text)} <span class="text-slate-400 font-normal">🔊</span></button><button onclick="dnOpenExtra('${qid}',this.dataset.t)" data-t="${esc(m.text)}" class="${dnSm} shrink-0">詳解 ›</button></div>`).join('')}</div>` : ''}</section>`;
       return;
     }
-    h += `<section class="${card} p-4 mb-4"><div class="flex flex-wrap items-center justify-between gap-2 mb-2"><div class="min-w-0"><input type="checkbox" ${DN.artSel[qid] && nSel ? 'checked' : ''} ${nSel ? '' : 'disabled'} onchange="dnToggleArt('${qid}',this.checked)" class="h-4 w-4 mr-2 align-middle cursor-pointer disabled:opacity-30" aria-label="選取這篇文章，一次複製多篇"><button onclick="dnGoArt('${qid}')" class="font-bold text-sm text-indigo-600 dark:text-indigo-400 underline cursor-pointer">${esc(dnArtLabel(qid))}</button>${x && x.level ? ` ${lvBadge(x)}` : ''}</div>
+    h += `<section class="${card} p-4 mb-4"><div class="flex flex-wrap items-center justify-between gap-2 ${open ? 'mb-2' : ''}"><div class="min-w-0">${dnOpenBtn(qid, open)}<input type="checkbox" ${DN.artSel[qid] && nSel ? 'checked' : ''} ${nSel ? '' : 'disabled'} onchange="dnToggleArt('${qid}',this.checked)" class="h-4 w-4 mr-2 align-middle cursor-pointer disabled:opacity-30" aria-label="選取這篇文章，一次複製多篇"><button onclick="dnGoArt('${qid}')" class="font-bold text-sm text-indigo-600 dark:text-indigo-400 underline cursor-pointer">${esc(dnArtLabel(qid))}</button>${x && x.level ? ` ${lvBadge(x)}` : ''} <span class="text-xs text-slate-400 ml-1">${ms.length} 個</span></div>
       <div class="flex flex-wrap gap-1.5"><button onclick="dnCopyArt('${qid}')" ${nSel ? '' : 'disabled'} class="${btn} ${dnPri} !py-1.5 text-xs disabled:opacity-40">複製 AI 提示詞（${nSel}${dnCapTag(nSel)}）</button><button onclick="auCopy(dnListText('${qid}'))" ${nSel ? '' : 'disabled'} class="${btn} ${dnLine} !py-1.5 text-xs disabled:opacity-40">複製清單</button></div></div>
-      ${dnFillRow(ms)}<div class="divide-y divide-slate-100 dark:divide-slate-800">${ms.map(m => {
+      ${open ? `${dnFillRow(ms)}<div class="divide-y divide-slate-100 dark:divide-slate-800">${ms.map(m => {
         const mg = dnMerged(m);
         return `<div class="py-2 flex items-start gap-2"><input type="checkbox" ${dnIsPrimary(m) && dnChecked(m) ? 'checked' : ''} ${dnIsPrimary(m) ? '' : 'disabled'} onchange="dnToggleChk('${m.id}')" class="mt-1.5 h-4 w-4 shrink-0 ${dnIsPrimary(m) ? 'cursor-pointer' : 'opacity-30'}" aria-label="選取">
           <div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-1.5"><span class="${dnChip} ${DNTC[m.type]}">${DNT[m.type]}</span><b class="text-sm break-words">${esc(m.text)}</b>${mg ? '<span class="text-[0.6875rem] text-emerald-600 dark:text-emerald-400 font-semibold">✔ 已寫回</span>' : ''}${dnIsPrimary(m) ? '' : `<span class="text-[0.6875rem] text-sky-600 dark:text-sky-400">↔ 與 ${dnLabel(dnArt(dnPrimaryOf(m).qid))} 共用同一份</span>`}${mg && dnGapsOf(m).length ? `<span class="text-[0.6875rem] text-amber-600 dark:text-amber-400">缺：${dnGapsOf(m).map(k => dnFillKeys[k]).join('、')}</span>` : ''}</div>
           ${m.type !== 'sentence' ? `<p class="text-xs text-slate-500 mt-0.5 break-words">${esc(m.ctx)}</p>` : ''}${m.note ? `<p class="text-xs text-amber-700 dark:text-amber-300 mt-0.5 break-words">備註：${esc(m.note)}</p>` : ''}</div>
           <div class="flex flex-col gap-1 shrink-0">${mg ? `<button onclick="dnOpenExtra('${m.qid}',this.dataset.t)" data-t="${esc(m.text)}" class="${dnSm}">詳解</button>` : ''}${mg ? '' : `<button onclick="dnMarkMenu('${m.id}')" class="${dnSm}">✎</button>`}${mg ? '' : `<button onclick="dnDelMark2('${m.id}')" class="text-xs text-rose-500 hover:underline cursor-pointer">刪除</button>`}</div></div>`;
       }).join('')}</div>
-      <details class="mt-2"><summary class="text-xs text-slate-500 cursor-pointer">預覽提示詞</summary><textarea readonly rows="10" class="${dnInp} mt-2 font-mono text-xs">${esc(dnPrompt(qid))}</textarea></details></section>`;
+      <details class="mt-2"><summary class="text-xs text-slate-500 cursor-pointer">預覽提示詞</summary><textarea readonly rows="10" class="${dnInp} mt-2 font-mono text-xs">${esc(dnPrompt(qid))}</textarea></details>` : ''}</section>`;
   });
   main.innerHTML = h;
 }
