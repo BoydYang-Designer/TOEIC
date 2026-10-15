@@ -22,7 +22,7 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
   part6  audio/p6/{id}.mp3（朗讀答案填入的整篇）
   part7  audio/p7/{id}-d{k}.mp3（每份需朗讀的文件一檔）
   daily  audio/daily/w1d1.mp3 ＋ audio/daily/vocab/（詳解項目；做完會重建 vocab/index.json）
-         詳解項目的檔名後綴：（無）本身、_ctx 所在句、_e 例句、_cp／_c 搭配與其例句、_f 詞性變化、_m／_mx 相關字與例句、_cf 易混淆例句（易混淆的字本身走共用庫 words/）、
+         詳解項目的檔名後綴：（無）本身、_ctx 所在句、_e 例句、_cp／_c 搭配與其例句、_f 屈折變化的字、_fx 屈折變化的例句、_m／_mx 相關字與例句、_cf 易混淆例句（易混淆的字本身走共用庫 words/）、
          _sm／_sx 近義片語與例句、_en 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句
          ※ 單字類（單字本身、原形、屈折變化、同字族、相關字、搭配片語、多詞性／多義的單字）改放共用庫
            audio/daily/words/{單字}.mp3，同一個字只錄一次；例句與所在句仍放 vocab/ 逐篇存放
@@ -108,7 +108,7 @@ MAKE_VOCAB = True             # 詳解項目本身（單字／片語／句子）
 MAKE_CTX = True               # 含該字的那一句
 MAKE_EXAMPLES = True          # 詳解頁的例句
 MAKE_COLLOC = True            # 常用搭配的片語與例句（collocations[].phrase／example）
-MAKE_FORMS = True             # 詞性變化的字（forms[].w）
+MAKE_FORMS = True             # 屈折變化的字（forms[].w，共用庫）＋ 它的例句（forms[].example.en）_fx{k}.mp3（逐篇存放）
 MAKE_FAMILY = True            # 相關字（family[].w）與它的例句
 MAKE_DERIVED = True           # 衍生字（derived[].w）
 MAKE_CONFUSABLE = True        # 易混淆的例句（confusable[].example.en）_cf{k}.mp3
@@ -673,6 +673,9 @@ def plan_daily(root: Path):
                     w = f.get("w") if isinstance(f, dict) else None
                     if isinstance(w, str) and w.strip():
                         want.append((shared(w), speak_text(w)))
+                    en = (f.get("example") or {}).get("en") if isinstance(f, dict) and isinstance(f.get("example"), dict) else None
+                    if isinstance(en, str) and en.strip():   # 屈折變化的例句：檔名 _fx{k}，與 notes.js 詳解頁的 🔊 一致
+                        want.append((f"{base}_fx{k}.mp3", en.strip()))
             if MAKE_FAMILY:
                 for k, g in enumerate(e["family"], 1):
                     if not isinstance(g, dict):

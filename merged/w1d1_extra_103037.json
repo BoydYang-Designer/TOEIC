@@ -1,0 +1,580 @@
+{
+  "week": 1,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "confirm",
+      "type": "word",
+      "ipa": "/kənˈfɜːrm/",
+      "pos": "v.",
+      "zh": "確認、確定",
+      "en": "to say or show that something is true or will happen",
+      "note": "在這篇文章裡，confirm your attendance 是請員工回覆，表示自己會參加會議。商務郵件中常用來要求對方回覆，讓主辦方掌握人數與安排。",
+      "forms": [
+        {
+          "w": "confirms",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "確認",
+          "ipa": "/kənˈfɜːrmz/",
+          "example": {
+            "en": "The system confirms your booking and sends a receipt by e-mail.",
+            "zh": "系統會確認你的預約，並用電子郵件寄出收據。"
+          }
+        },
+        {
+          "w": "confirmed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "確認了、已確認的",
+          "ipa": "/kənˈfɜːrmd/",
+          "example": {
+            "en": "Mr. Park confirmed that he will join the call on Tuesday.",
+            "zh": "朴先生已確認他會參加星期二的電話會議。"
+          }
+        },
+        {
+          "w": "confirming",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在確認",
+          "ipa": "/kənˈfɜːrmɪŋ/",
+          "example": {
+            "en": "I am confirming the delivery time with the warehouse manager now.",
+            "zh": "我現在正在和倉庫經理確認送貨時間。"
+          }
+        },
+        {
+          "w": "confirmation",
+          "label": "名詞",
+          "pos": "n.",
+          "zh": "確認、確認通知",
+          "ipa": "/ˌkɑːnfərˈmeɪʃn/",
+          "example": {
+            "en": "Please keep the confirmation number until your payment is processed.",
+            "zh": "在付款處理完成之前，請保留確認編號。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "confirm a reservation",
+          "zh": "確認訂位／訂房",
+          "example": {
+            "en": "Please call the hotel to confirm a reservation for Monday.",
+            "zh": "請打電話給飯店，確認星期一的訂房。"
+          }
+        },
+        {
+          "phrase": "confirm receipt of",
+          "zh": "確認收到…",
+          "example": {
+            "en": "Please confirm receipt of this e-mail as soon as possible.",
+            "zh": "請盡快回覆確認收到這封電子郵件。"
+          }
+        },
+        {
+          "phrase": "confirm a time",
+          "zh": "確認時間",
+          "example": {
+            "en": "Could you confirm a time for our next meeting?",
+            "zh": "你可以確認下次會議的時間嗎？"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "I am writing to confirm our appointment on Friday.",
+          "zh": "我寫信是要確認我們星期五的約定。"
+        },
+        {
+          "tag": "會議",
+          "en": "Please confirm whether you can attend the meeting.",
+          "zh": "請確認你是否能參加這場會議。"
+        },
+        {
+          "tag": "出差",
+          "en": "The travel agent confirmed my flight to Singapore.",
+          "zh": "旅行社已確認我飛往新加坡的班機。"
+        },
+        {
+          "tag": "採購",
+          "en": "The supplier will confirm the order by tomorrow.",
+          "zh": "供應商明天前會確認這筆訂單。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "check",
+          "diff": "check 是「查看、檢查」是否正確；confirm 是「確認並表示肯定」，通常要給對方明確回覆。",
+          "example": {
+            "en": "I will check the report first and then confirm the date.",
+            "zh": "我會先檢查報告，再確認日期。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "confirmation",
+          "pos": "n.",
+          "zh": "確認、確認通知",
+          "ipa": "/ˌkɑːnfərˈmeɪʃn/",
+          "example": {
+            "en": "You will receive a confirmation e-mail after booking.",
+            "zh": "訂位後你會收到一封確認電子郵件。"
+          }
+        },
+        {
+          "w": "confirmed",
+          "pos": "adj.",
+          "zh": "已確認的",
+          "ipa": "/kənˈfɜːrmd/",
+          "example": {
+            "en": "We have a confirmed seat on the morning flight.",
+            "zh": "我們在早班飛機上有已確認的座位。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "reconfirm",
+          "ipa": "/ˌriːkənˈfɜːrm/",
+          "pos": "v.",
+          "zh": "再確認",
+          "link": "re-（再次）+ confirm，像 redo、rewrite，再確認一次"
+        },
+        {
+          "w": "unconfirmed",
+          "ipa": "/ˌʌnkənˈfɜːrmd/",
+          "pos": "adj.",
+          "zh": "未經確認的",
+          "link": "un-（不）+ confirmed，像 unhappy、unable，還沒確認的"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "確認（安排、預約、出席）",
+          "en": "to tell someone that a plan or arrangement is definite",
+          "in_passage": true,
+          "example": {
+            "en": "The hotel confirmed our booking for three nights in May.",
+            "zh": "飯店已確認我們五月三晚的訂房。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "證實（事實、消息）",
+          "en": "to show that something is true",
+          "distinguish": "受詞是事實、結果或消息時，意思是「證實」，不是確認安排。",
+          "example": {
+            "en": "The test results confirmed that the new design is safe.",
+            "zh": "測試結果證實新設計是安全的。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "submit",
+      "type": "word",
+      "ipa": "/səbˈmɪt/",
+      "pos": "v.",
+      "zh": "提交、呈交",
+      "en": "to give a document to someone so that they can look at it",
+      "note": "在這篇裡指把書面資料或報告正式交給某人，語氣比 send 正式，是公司公告常見的用字。後面常接要交的東西，再用 to 接收件人。",
+      "forms": [
+        {
+          "w": "submits",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "提交",
+          "ipa": "/səbˈmɪts/",
+          "example": {
+            "en": "Each team leader submits a weekly sales summary to the director.",
+            "zh": "每位組長每週都會向主任提交一份銷售摘要。"
+          }
+        },
+        {
+          "w": "submitted",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "提交了",
+          "ipa": "/səbˈmɪtɪd/",
+          "example": {
+            "en": "Ms. Wong submitted her travel expenses to the finance office yesterday.",
+            "zh": "王小姐昨天把她的差旅費用交給了財務辦公室。"
+          }
+        },
+        {
+          "w": "submitting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在提交",
+          "ipa": "/səbˈmɪtɪŋ/",
+          "example": {
+            "en": "Thank you for submitting the signed contract so quickly.",
+            "zh": "謝謝你這麼快就提交了簽好的合約。"
+          }
+        },
+        {
+          "w": "submitted",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "已提交的",
+          "ipa": "/səbˈmɪtɪd/",
+          "example": {
+            "en": "All submitted forms will be checked by the HR department.",
+            "zh": "所有已提交的表格都會由人資部門審核。"
+          }
+        },
+        {
+          "w": "submission",
+          "label": "名詞（單數）",
+          "pos": "n.",
+          "zh": "提交；提交的資料",
+          "ipa": "/səbˈmɪʃən/",
+          "example": {
+            "en": "Your submission must include a short summary and two photos.",
+            "zh": "你提交的資料必須包含簡短的摘要和兩張照片。"
+          }
+        },
+        {
+          "w": "submissions",
+          "label": "名詞（複數）",
+          "pos": "n.",
+          "zh": "提交的資料（複數）",
+          "ipa": "/səbˈmɪʃənz/",
+          "example": {
+            "en": "We received over fifty submissions before the deadline closed.",
+            "zh": "截止前我們收到了五十多份提交的資料。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "submit a report",
+          "zh": "提交報告",
+          "example": {
+            "en": "Each manager must submit a report to the director monthly.",
+            "zh": "每位經理每個月都必須向主任提交一份報告。"
+          }
+        },
+        {
+          "phrase": "submit an application",
+          "zh": "提交申請",
+          "example": {
+            "en": "You can submit an application online before the end of May.",
+            "zh": "你可以在五月底前線上提交申請。"
+          }
+        },
+        {
+          "phrase": "submit a form",
+          "zh": "提交表格",
+          "example": {
+            "en": "Please submit the form to the front desk when you arrive.",
+            "zh": "抵達時請把表格交給櫃檯。"
+          }
+        },
+        {
+          "phrase": "submit a proposal",
+          "zh": "提交企劃書",
+          "example": {
+            "en": "Our team will submit a proposal to the client next week.",
+            "zh": "我們的團隊下週會向客戶提交一份企劃書。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "報帳",
+          "en": "Please submit your expense report by Friday afternoon.",
+          "zh": "請在週五下午前提交你的費用報告。"
+        },
+        {
+          "tag": "人事",
+          "en": "She submitted the application to the personnel department.",
+          "zh": "她把申請書交給了人事部門。"
+        },
+        {
+          "tag": "會議",
+          "en": "Employees must submit their updates before the meeting starts.",
+          "zh": "員工必須在會議開始前提交他們的最新進度。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "I submitted the revised schedule to Mr. Lee this morning.",
+          "zh": "我今天早上已把修改後的時程表交給李先生。"
+        },
+        {
+          "tag": "採購",
+          "en": "All purchase requests are submitted through the company website.",
+          "zh": "所有採購申請都透過公司網站提交。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "send",
+          "diff": "send 只是寄出或傳送，比較日常；submit 強調正式交出去讓對方審閱或處理。",
+          "example": {
+            "en": "I will send you a copy first, then submit the form to HR.",
+            "zh": "我會先寄一份副本給你，再把表格正式交給人資部。"
+          }
+        },
+        {
+          "word": "hand in",
+          "diff": "hand in 是口語說法，意思接近，但 submit 更適合公文與書面通知。",
+          "example": {
+            "en": "Just hand in the form at the desk when you arrive.",
+            "zh": "到時候把表格交到櫃檯就好。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "submission",
+          "pos": "n.",
+          "zh": "提交",
+          "ipa": "/səbˈmɪʃən/",
+          "example": {
+            "en": "The deadline for submission is next Monday at noon.",
+            "zh": "提交的截止時間是下週一中午。"
+          }
+        },
+        {
+          "w": "deadline",
+          "pos": "n.",
+          "zh": "截止日期",
+          "ipa": "/ˈdɛdlaɪn/",
+          "example": {
+            "en": "We must finish the report before the deadline.",
+            "zh": "我們必須在截止日期前完成報告。"
+          }
+        },
+        {
+          "w": "application",
+          "pos": "n.",
+          "zh": "申請書",
+          "ipa": "/ˌæplɪˈkeɪʃən/",
+          "example": {
+            "en": "Your application will be reviewed within five working days.",
+            "zh": "你的申請會在五個工作天內審核。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "resubmit",
+          "ipa": "/ˌriːsəbˈmɪt/",
+          "pos": "v.",
+          "zh": "重新提交",
+          "link": "re-（再次）+ submit，像 redo、rewrite，重新提交一次"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "提交（文件、資料）",
+          "en": "to give a document to someone officially so they can review it",
+          "in_passage": true,
+          "example": {
+            "en": "Please submit your travel receipts to the finance team today.",
+            "zh": "請今天把你的差旅收據交給財務團隊。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "接受、服從（規定或決定）",
+          "en": "to accept a rule or decision, usually because you must",
+          "distinguish": "這個意思後面直接接 to + 規定或人（submit to），不是交出文件。",
+          "example": {
+            "en": "All visitors must submit to a security check at the gate.",
+            "zh": "所有訪客都必須在大門接受安全檢查。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "renovation",
+      "type": "word",
+      "ipa": "/ˌrɛnəˈveɪʃən/",
+      "pos": "n.",
+      "zh": "整修、翻新",
+      "en": "work done to make a building or room look new and better",
+      "note": "在這篇裡用複數 renovations，指會議室正在進行的整修工程，所以暫時不能使用。常和 due to、under 一起出現，是通知裡說明原因的常用字。",
+      "forms": [
+        {
+          "w": "renovations",
+          "label": "名詞（複數）",
+          "pos": "n.",
+          "zh": "整修工程（複數）",
+          "ipa": "/ˌrɛnəˈveɪʃənz/",
+          "example": {
+            "en": "The hotel has planned several renovations for the lobby and restaurant.",
+            "zh": "這間飯店已規劃多項大廳與餐廳的整修工程。"
+          }
+        },
+        {
+          "w": "renovate",
+          "label": "動詞原形",
+          "pos": "v.",
+          "zh": "整修、翻新",
+          "ipa": "/ˈrɛnəveɪt/",
+          "example": {
+            "en": "We plan to renovate the meeting rooms during the summer break.",
+            "zh": "我們計畫在暑假期間整修會議室。"
+          }
+        },
+        {
+          "w": "renovates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "整修",
+          "ipa": "/ˈrɛnəveɪts/",
+          "example": {
+            "en": "The city renovates old public buildings every few years.",
+            "zh": "市政府每隔幾年就會整修老舊的公共建築。"
+          }
+        },
+        {
+          "w": "renovated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "整修了",
+          "ipa": "/ˈrɛnəveɪtɪd/",
+          "example": {
+            "en": "The newly renovated conference room can seat forty people.",
+            "zh": "剛整修好的會議室可以容納四十人。"
+          }
+        },
+        {
+          "w": "renovating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在整修",
+          "ipa": "/ˈrɛnəveɪtɪŋ/",
+          "example": {
+            "en": "They are renovating the third floor, so please use the stairs.",
+            "zh": "他們正在整修三樓，所以請走樓梯。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "under renovation",
+          "zh": "整修中",
+          "example": {
+            "en": "The second floor is under renovation until the end of June.",
+            "zh": "二樓整修到六月底。"
+          }
+        },
+        {
+          "phrase": "renovation work",
+          "zh": "整修工程",
+          "example": {
+            "en": "Renovation work starts early, so please park in the back lot.",
+            "zh": "整修工程一早就開始，所以請停在後面的停車場。"
+          }
+        },
+        {
+          "phrase": "a major renovation",
+          "zh": "大規模整修",
+          "example": {
+            "en": "The old factory needs a major renovation before it reopens.",
+            "zh": "這間舊工廠重新開放前需要大規模整修。"
+          }
+        },
+        {
+          "phrase": "closed for renovations",
+          "zh": "因整修而關閉",
+          "example": {
+            "en": "The cafeteria is closed for renovations this week.",
+            "zh": "自助餐廳這週因整修而關閉。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "The lobby is closed because of renovation work.",
+          "zh": "大廳因為整修工程而關閉。"
+        },
+        {
+          "tag": "出差",
+          "en": "The hotel will be under renovation for two months.",
+          "zh": "這間飯店將整修兩個月。"
+        },
+        {
+          "tag": "辦公室",
+          "en": "Our office moved to a new building during the renovation.",
+          "zh": "整修期間，我們的辦公室搬到了新大樓。"
+        },
+        {
+          "tag": "預算",
+          "en": "The renovation will cost about fifty thousand dollars in total.",
+          "zh": "這次整修總共大約要花五萬美元。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Thank you for your patience during the renovations.",
+          "zh": "感謝您在整修期間的耐心等候。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "repair",
+          "diff": "repair 是修理壞掉的東西；renovation 是把整個空間整修更新，讓它變新、變好。",
+          "example": {
+            "en": "The technician came to repair the broken printer in the lobby.",
+            "zh": "技術人員來修理大廳裡壞掉的印表機。"
+          }
+        },
+        {
+          "word": "construction",
+          "diff": "construction 指興建新建築或施工；renovation 是處理既有的建築或房間。",
+          "example": {
+            "en": "Construction of the new office building will take about a year.",
+            "zh": "新辦公大樓的興建大約要花一年。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "renovate",
+          "pos": "v.",
+          "zh": "整修",
+          "ipa": "/ˈrɛnəveɪt/",
+          "example": {
+            "en": "The company plans to renovate the main office next year.",
+            "zh": "公司計畫明年整修總辦公室。"
+          }
+        },
+        {
+          "w": "repair",
+          "pos": "v.",
+          "zh": "修理",
+          "ipa": "/rɪˈpɛr/",
+          "example": {
+            "en": "A technician will repair the printer this afternoon.",
+            "zh": "技術人員今天下午會修理印表機。"
+          }
+        },
+        {
+          "w": "construction",
+          "pos": "n.",
+          "zh": "施工、建造",
+          "ipa": "/kənˈstrʌkʃən/",
+          "example": {
+            "en": "Construction of the new warehouse begins in March.",
+            "zh": "新倉庫的施工將在三月開始。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

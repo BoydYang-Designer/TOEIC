@@ -524,6 +524,8 @@ class Daily(Profile):
                 fs = v.get('forms')
                 if isinstance(fs, list) and any(not (isinstance(f, dict) and f.get('ipa')) for f in fs):
                     wa.append('「%s」forms 有項目缺 ipa（詞性變化需要音標）' % t)
+                if isinstance(fs, list) and any(not (isinstance(f, dict) and isinstance(f.get('example'), dict) and str(f['example'].get('en') or '').strip()) for f in fs):
+                    wa.append('「%s」forms 有項目缺例句（forms[].example.en；每個屈折變化都要有例句，缺的會列入網頁的「未完整詳解」）' % t)
                 if not isinstance(fs, list):
                     wa.append('「%s」沒有 forms（單複數、過去式等詞性變化；沒有請寫 []）' % t)
                 fm = v.get('family')
@@ -551,7 +553,10 @@ class Daily(Profile):
             sm = v.get('similar')
             if v.get('type') != 'sentence' and isinstance(sm, list) and any(not (isinstance(c, dict) and isinstance(c.get('example'), dict) and str(c['example'].get('en') or '').strip()) for c in sm):
                 wa.append('「%s」similar 有項目缺例句（similar[].example.en）' % t)
-            for lk in ('forms', 'family', 'derived', 'pos_uses', 'senses', 'confusable', 'similar', 'grammar', 'key_words', 'chunks', 'paraphrase'):
+            nd = v.get('nw_done')   # 新單字備註的處理結果（網頁靠它把新單字標成「已更新」）
+            if nd is not None and not (isinstance(nd, list) and nd and all(isinstance(o, dict) and str(o.get('id') or '').strip() and o.get('result') in ('added', 'covered', 'unclear') for o in nd)):
+                er.append('「%s」nw_done 必須是非空陣列，每一項需含 id 與 result（added／covered／unclear）' % t)
+            for lk in ('forms', 'family', 'derived', 'pos_uses', 'senses', 'confusable', 'similar', 'grammar', 'key_words', 'chunks', 'paraphrase', 'nw_done'):
                 if lk in v and not isinstance(v[lk], list):
                     er.append('「%s」%s 必須是陣列' % (t, lk))
         return er, wa
@@ -2109,7 +2114,7 @@ class Part7(IdProfile):
 # 規則：同一個字（text 忽略大小寫與多餘空白）不管在哪幾篇入庫，全題庫只有一筆詳解，放在「最早（週、天）有這個字」的那一篇。
 # 網頁端本來就是這樣找（本篇沒有就找最早有的那篇）；這裡讓資料也維持同樣的唯一性。
 _XID_FIELDS = {'examples': ('en',), 'collocations': ('phrase', 'p'), 'forms': ('w',), 'family': ('w',), 'derived': ('w',),
-               'confusable': ('word', 'phrase'), 'similar': ('phrase', 'word'), 'grammar': ('point',), 'key_words': ('w',)}
+               'confusable': ('word', 'phrase'), 'similar': ('phrase', 'word'), 'grammar': ('point',), 'key_words': ('w',), 'nw_done': ('id',)}
 
 
 def _xid(field, o):

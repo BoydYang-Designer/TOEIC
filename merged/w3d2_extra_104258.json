@@ -1,0 +1,780 @@
+{
+  "week": 3,
+  "day": 2,
+  "extra_vocab": [
+    {
+      "text": "nut allergies",
+      "type": "phrase",
+      "zh": "堅果過敏",
+      "en": "a health problem where nuts make a person sick",
+      "note": "在這篇留言裡指兩位賓客對堅果過敏，所以餐廳必須讓菜單避開堅果。with nut allergies 放在 guests 後面，說明是哪一種賓客；餐飲業很常在訂位時確認這類需求。",
+      "pattern": "人 + with + 食物 + allergies",
+      "grammar_note": "allergy 的後面接 to（an allergy to nuts）；nut 在 nut allergies 裡是形容詞，不加 s，複數的 s 加在 allergies。",
+      "examples": [
+        {
+          "tag": "餐飲",
+          "en": "Please tell the chef if any guest has a nut allergy.",
+          "zh": "如果有任何賓客對堅果過敏，請告訴主廚。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Several attendees listed nut allergies on the registration form.",
+          "zh": "幾位出席者在報名表上填寫了堅果過敏。"
+        },
+        {
+          "tag": "標示",
+          "en": "This dessert contains no nuts, so it is safe for people with nut allergies.",
+          "zh": "這道甜點不含堅果，所以對堅果過敏的人也能安心食用。"
+        },
+        {
+          "tag": "活動",
+          "en": "We chose a caterer that can handle nut allergies safely.",
+          "zh": "我們選了一家能安全處理堅果過敏的外燴業者。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "food allergies",
+          "diff": "food allergies 泛指各種食物過敏；nut allergies 只指堅果。",
+          "example": {
+            "en": "The menu clearly marks dishes that may cause food allergies.",
+            "zh": "菜單上清楚標示了可能引起食物過敏的菜色。"
+          }
+        },
+        {
+          "phrase": "dietary restrictions",
+          "diff": "dietary restrictions 範圍更廣，包含素食、宗教或健康因素的飲食限制，不一定是過敏。",
+          "example": {
+            "en": "Please let us know about any dietary restrictions before the event.",
+            "zh": "活動前請告知我們任何飲食限制。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "allergic",
+          "diff": "allergic 是形容詞，allergy 是名詞，兩者後面都接 to。",
+          "usage": "形容詞用 be allergic to nuts，名詞用 have an allergy to nuts 或 nut allergies，不要說 be allergy。",
+          "example": {
+            "en": "One of our guests is allergic to nuts, so please check the sauces.",
+            "zh": "我們的一位賓客對堅果過敏，所以請檢查一下醬料。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "Please be advised",
+      "type": "phrase",
+      "zh": "敬請注意、特此通知",
+      "en": "a formal way to begin telling someone important information",
+      "note": "在這篇留言裡，餐廳用它引出取消規定（48 小時內取消要收費）。語氣客氣但正式，提醒對方接下來的內容很重要，常見於公告、電子郵件與語音留言。",
+      "pattern": "Please be advised that + 子句",
+      "grammar_note": "be advised 是被動語態，後面接 that 子句；Please advise 是「請給我建議」，意思不同，不能互換。",
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "Please be advised that the office will close early on Friday.",
+          "zh": "敬請注意，辦公室星期五會提早關閉。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please be advised that all invoices must be paid within thirty days.",
+          "zh": "敬請注意，所有請款單都必須在三十天內付清。"
+        },
+        {
+          "tag": "客服",
+          "en": "Please be advised that prices may change without prior notice.",
+          "zh": "敬請注意，價格可能不另行通知而調整。"
+        },
+        {
+          "tag": "旅遊",
+          "en": "Please be advised that your flight may be delayed because of weather.",
+          "zh": "敬請注意，您的班機可能因天氣而延誤。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "Please note that",
+          "diff": "Please note that 更常見、語氣較輕；Please be advised that 更正式。",
+          "example": {
+            "en": "Please note that the meeting room is booked until noon.",
+            "zh": "請注意，會議室已被預約到中午。"
+          }
+        },
+        {
+          "phrase": "We would like to inform you that",
+          "diff": "語氣同樣正式，但主詞是 we，比較像寫信或公告的開頭。",
+          "example": {
+            "en": "We would like to inform you that the shipment has arrived.",
+            "zh": "我們要通知您，貨物已經到了。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "advice",
+          "diff": "advice 是名詞「建議」，advised 是動詞 advise 的過去分詞。",
+          "usage": "advice 是不可數名詞，不加 s，發音 /ədˈvaɪs/；advise 是動詞，發音 /ədˈvaɪz/。",
+          "example": {
+            "en": "I would like your advice before we sign the contract.",
+            "zh": "簽約之前，我想聽聽你的建議。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "gladly",
+      "type": "word",
+      "ipa": "/ˈɡlædli/",
+      "pos": "adv.",
+      "zh": "樂意地、欣然地",
+      "en": "in a happy and willing way",
+      "note": "在這篇留言裡，we will gladly accommodate 表示餐廳很樂意配合有過敏的賓客，語氣友善、有服務精神。gladly 放在 will 和動詞之間，是服務業常用的客氣說法。",
+      "grammar_note": "gladly 是副詞，通常放在助動詞與動詞之間（will gladly + V）；形容詞 glad 則用 be glad to + V。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "gladly accept",
+          "zh": "欣然接受",
+          "example": {
+            "en": "We would gladly accept your invitation to the opening event.",
+            "zh": "我們很樂意接受您參加開幕活動的邀請。"
+          }
+        },
+        {
+          "phrase": "gladly help",
+          "zh": "樂意幫忙",
+          "example": {
+            "en": "Our staff will gladly help you choose the right plan.",
+            "zh": "我們的員工很樂意幫您選擇合適的方案。"
+          }
+        },
+        {
+          "phrase": "gladly provide",
+          "zh": "樂意提供",
+          "example": {
+            "en": "The company will gladly provide references upon request.",
+            "zh": "公司樂意在需要時提供推薦人資料。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "客服",
+          "en": "Please call us anytime, and we will gladly answer your questions.",
+          "zh": "歡迎隨時來電，我們很樂意回答您的問題。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "I would gladly attend the seminar if my schedule allows.",
+          "zh": "如果行程允許，我很樂意參加這場研討會。"
+        },
+        {
+          "tag": "餐飲",
+          "en": "The chef gladly changed the menu for our vegetarian guest.",
+          "zh": "主廚欣然為我們的素食賓客更改了菜單。"
+        },
+        {
+          "tag": "會議",
+          "en": "She gladly took on the extra project last month.",
+          "zh": "她上個月欣然接下了額外的專案。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "glad",
+          "diff": "glad 是形容詞，gladly 是副詞，詞性不同。",
+          "usage": "glad 用在 be glad to + V 或 be glad that…；gladly 修飾動詞，如 will gladly help。",
+          "example": {
+            "en": "I am glad to confirm your booking for Friday evening.",
+            "zh": "我很高興確認您星期五晚上的訂位。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "happily",
+          "diff": "happily 也能表示樂意，但更常指「開心地」；gladly 更強調願意配合對方的要求。",
+          "example": {
+            "en": "The team happily agreed to move the meeting to Friday.",
+            "zh": "團隊欣然同意把會議改到星期五。"
+          }
+        },
+        {
+          "word": "willingly",
+          "diff": "willingly 強調出於自願、不勉強；gladly 多了高興的語氣。",
+          "example": {
+            "en": "The staff willingly worked overtime to finish the order.",
+            "zh": "員工自願加班完成這筆訂單。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "glad",
+          "pos": "adj.",
+          "zh": "高興的",
+          "ipa": "/ɡlæd/",
+          "example": {
+            "en": "We are glad to inform you that your order has shipped.",
+            "zh": "我們很高興通知您，您的訂單已經出貨。"
+          }
+        },
+        {
+          "w": "pleased",
+          "pos": "adj.",
+          "zh": "滿意的、高興的",
+          "ipa": "/pliːzd/",
+          "example": {
+            "en": "The client was pleased with the quick response from our team.",
+            "zh": "客戶對我們團隊的快速回應感到滿意。"
+          }
+        },
+        {
+          "w": "delighted",
+          "pos": "adj.",
+          "zh": "非常高興的",
+          "ipa": "/dɪˈlaɪtɪd/",
+          "example": {
+            "en": "We are delighted to welcome you to our new restaurant.",
+            "zh": "我們很高興歡迎您蒞臨我們的新餐廳。"
+          }
+        },
+        {
+          "w": "willing",
+          "pos": "adj.",
+          "zh": "願意的",
+          "ipa": "/ˈwɪlɪŋ/",
+          "example": {
+            "en": "Are you willing to work on the weekend for this project?",
+            "zh": "你願意為這個專案週末加班嗎？"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "guests",
+      "type": "word",
+      "lemma": "guest",
+      "ipa": "/ɡests/",
+      "pos": "n.",
+      "zh": "賓客、客人（複數）",
+      "en": "people who come to an event, a hotel, or a restaurant",
+      "note": "在這篇留言裡，your party has grown from eight to twelve guests 是指晚宴的人數從八位增加到十二位，所以要換到包廂。餐廳與飯店常用 guests 來計算人數。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "guest list",
+          "zh": "賓客名單",
+          "example": {
+            "en": "Please send me the final guest list by Thursday noon.",
+            "zh": "請在星期四中午前把最終的賓客名單寄給我。"
+          }
+        },
+        {
+          "phrase": "hotel guests",
+          "zh": "飯店房客",
+          "example": {
+            "en": "Hotel guests can use the fitness center free of charge.",
+            "zh": "飯店房客可以免費使用健身中心。"
+          }
+        },
+        {
+          "phrase": "guest speaker",
+          "zh": "特邀講者",
+          "example": {
+            "en": "A guest speaker from Tokyo will open the conference.",
+            "zh": "一位來自東京的特邀講者將為會議開場。"
+          }
+        },
+        {
+          "phrase": "invited guests",
+          "zh": "受邀賓客",
+          "example": {
+            "en": "Only invited guests may enter the VIP lounge.",
+            "zh": "只有受邀賓客可以進入貴賓休息室。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "餐廳",
+          "en": "We expect about forty guests at the client dinner on Friday.",
+          "zh": "我們預計星期五的客戶晚宴大約有四十位賓客。"
+        },
+        {
+          "tag": "飯店",
+          "en": "The hotel offers free breakfast to all guests.",
+          "zh": "這間飯店提供所有房客免費早餐。"
+        },
+        {
+          "tag": "活動",
+          "en": "Guests are asked to register at the front desk.",
+          "zh": "請賓客在櫃檯登記。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Thank you for informing us that two more guests will attend.",
+          "zh": "謝謝您通知我們還會有兩位賓客出席。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "customer",
+          "diff": "customer 是付錢購買商品或服務的顧客；guest 是被邀請或受招待的客人。",
+          "example": {
+            "en": "The store gave every customer a small gift with the purchase.",
+            "zh": "商店送給每位顧客一份小禮物作為購物贈品。"
+          }
+        },
+        {
+          "word": "visitor",
+          "diff": "visitor 是來訪的人，例如來公司拜訪；guest 強調被招待、住宿或用餐。",
+          "example": {
+            "en": "All visitors must sign in at the reception desk.",
+            "zh": "所有訪客都必須在接待櫃檯簽到。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "attendee",
+          "diff": "attendee 專指出席會議、研討會等活動的人；guest 則強調被邀請或受招待。",
+          "example": {
+            "en": "Each attendee will receive a name tag and a program.",
+            "zh": "每位出席者都會拿到名牌和節目表。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "host",
+          "pos": "n.",
+          "zh": "主人、主辦者",
+          "ipa": "/hoʊst/",
+          "example": {
+            "en": "Our host arranged a private dinner for the visiting clients.",
+            "zh": "我們的主辦人為來訪客戶安排了一場私人晚宴。"
+          }
+        },
+        {
+          "w": "hospitality",
+          "pos": "n.",
+          "zh": "款待、好客",
+          "ipa": "/ˌhɑːspɪˈtæləti/",
+          "example": {
+            "en": "The hotel is known for its warm hospitality.",
+            "zh": "這間飯店以親切的款待聞名。"
+          }
+        },
+        {
+          "w": "reservation",
+          "pos": "n.",
+          "zh": "預訂",
+          "ipa": "/ˌrezərˈveɪʃən/",
+          "example": {
+            "en": "I would like to change my reservation from eight to twelve people.",
+            "zh": "我想把訂位人數從八人改成十二人。"
+          }
+        },
+        {
+          "w": "invitation",
+          "pos": "n.",
+          "zh": "邀請、邀請函",
+          "ipa": "/ˌɪnvɪˈteɪʃən/",
+          "example": {
+            "en": "Please reply to the invitation by the end of this week.",
+            "zh": "請在本週結束前回覆這份邀請。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "（餐廳、活動的）賓客",
+          "en": "a person who is invited to an event or meal",
+          "in_passage": true,
+          "example": {
+            "en": "Each guest at the dinner received a small gift from the company.",
+            "zh": "晚宴上的每位賓客都收到公司送的小禮物。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "（飯店）房客",
+          "en": "a person who pays to stay in a hotel",
+          "distinguish": "出現在飯店、住宿的情境時，指住房的客人。",
+          "example": {
+            "en": "The hotel asks every guest to leave the room key at the desk.",
+            "zh": "飯店要求每位房客把房間鑰匙留在櫃檯。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "特邀來賓",
+          "en": "a special person who joins a show or an event",
+          "distinguish": "前面常有 special 或接 speaker，指被邀請來參與的嘉賓。",
+          "example": {
+            "en": "The special guest at the launch was a well-known chef.",
+            "zh": "這場發表會的特別來賓是一位知名主廚。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "contingent upon",
+      "type": "phrase",
+      "zh": "視…而定、以…為條件",
+      "en": "depending on something that must happen first",
+      "note": "在這篇留言裡，餐廳願意配合過敏賓客，但有一個條件：必須在週三中午前收到最終菜單。contingent upon 語氣很正式，常見於合約、通知與商務信件。",
+      "pattern": "主要子句, contingent upon + 名詞／所有格 + V-ing",
+      "grammar_note": "contingent upon（也可寫 contingent on）後面接名詞或 V-ing，不接完整子句；要接子句時改用 provided that 或 depends on whether。",
+      "examples": [
+        {
+          "tag": "合約",
+          "en": "The final payment is contingent upon the client's approval of the work.",
+          "zh": "最後一筆款項要視客戶是否核准工作成果而定。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Our offer is contingent upon receiving your signed contract by Monday.",
+          "zh": "我們的報價以在星期一前收到您簽署的合約為條件。"
+        },
+        {
+          "tag": "人事",
+          "en": "The promotion is contingent upon passing the annual performance review.",
+          "zh": "這次升遷取決於是否通過年度績效考核。"
+        },
+        {
+          "tag": "活動",
+          "en": "The outdoor event is contingent upon good weather on Saturday.",
+          "zh": "戶外活動要視星期六的天氣是否良好而定。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "depending on",
+          "diff": "depending on 較口語，後面也可接 whether 子句；contingent upon 更正式。",
+          "example": {
+            "en": "We will decide on the budget depending on next quarter's sales.",
+            "zh": "我們會視下一季的銷售狀況來決定預算。"
+          }
+        },
+        {
+          "phrase": "subject to",
+          "diff": "subject to 常見於合約，意思是「須經…」或「受…約束」，語氣同樣正式。",
+          "example": {
+            "en": "All orders are subject to availability and final approval.",
+            "zh": "所有訂單都須視供貨情況及最終核准而定。"
+          }
+        },
+        {
+          "phrase": "provided that",
+          "diff": "provided that 後面接完整子句，意思是「只要…就」。",
+          "example": {
+            "en": "We will ship the goods provided that payment is received.",
+            "zh": "只要收到款項，我們就會出貨。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "contingency",
+          "diff": "contingency 是名詞，指可能發生的意外或應變準備；contingent 是形容詞，意思是「視…而定」。",
+          "example": {
+            "en": "We set aside money as a contingency for unexpected costs.",
+            "zh": "我們預留一筆錢，以應付意外的費用。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "contingent upon our receiving the final menu selections no later than Wednesday noon.",
+      "type": "sentence",
+      "zh": "條件是我們必須在週三中午之前收到最終的菜單選擇。",
+      "note": "這是原句後半的附加條件，語氣正式客氣，提醒對方要在期限前送出餐點選擇，餐廳才能配合過敏的需求。",
+      "chunks": [
+        {
+          "en": "contingent upon",
+          "zh": "以…為條件"
+        },
+        {
+          "en": "our receiving",
+          "zh": "我們收到"
+        },
+        {
+          "en": "the final menu selections",
+          "zh": "最終的菜單選擇"
+        },
+        {
+          "en": "no later than",
+          "zh": "最遲在…之前"
+        },
+        {
+          "en": "Wednesday noon.",
+          "zh": "週三中午"
+        }
+      ],
+      "structure": "contingent upon + 所有格 + V-ing + 受詞 + no later than + 時間",
+      "grammar": [
+        {
+          "point": "contingent upon + 名詞／V-ing",
+          "explain": "contingent upon 是介系詞片語，後面接名詞或 V-ing，表示「以…為條件」，用來為前面的主要子句加上條件。"
+        },
+        {
+          "point": "所有格 + V-ing（our receiving）",
+          "explain": "V-ing 前面的 our 表示收到的人是「我們」，這是較正式的寫法；口語也可說 us receiving。"
+        },
+        {
+          "point": "no later than + 時間",
+          "explain": "表示最晚的期限，no later than Wednesday noon 就是「最晚週三中午」，含當時在內。"
+        }
+      ],
+      "pattern": "（主要子句）, contingent upon + 所有格 + V-ing + N + no later than + 時間",
+      "paraphrase": [
+        {
+          "en": "but only if we receive the final menu selections by noon on Wednesday.",
+          "zh": "但前提是我們在週三中午前收到最終的菜單選擇。"
+        },
+        {
+          "en": "provided that we receive the final menu selections by Wednesday at noon.",
+          "zh": "只要我們在週三中午前收到最終的菜單選擇。"
+        }
+      ],
+      "examples": [
+        {
+          "en": "The discount is contingent upon our receiving full payment no later than May 30.",
+          "zh": "這項折扣的條件是我們最晚在五月三十日前收到全額款項。"
+        },
+        {
+          "en": "Your reservation is contingent upon your confirming the guest count by Thursday.",
+          "zh": "您的訂位須以您在星期四前確認賓客人數為條件。"
+        }
+      ],
+      "key_words": [
+        {
+          "w": "contingent upon",
+          "zh": "以…為條件"
+        },
+        {
+          "w": "selections",
+          "ipa": "/sɪˈlekʃənz/",
+          "pos": "n.",
+          "zh": "選擇的項目"
+        },
+        {
+          "w": "no later than",
+          "zh": "最遲在…之前"
+        }
+      ]
+    },
+    {
+      "text": "occur",
+      "type": "word",
+      "ipa": "/əˈkɜːr/",
+      "pos": "v.",
+      "zh": "發生；（想法）浮現",
+      "en": "to happen",
+      "note": "這個字沒有直接出現在文章裡，但文章最後的 incur a fee（招致費用）拼法和發音都很像它，容易搞混。occur 是「發生」，incur 是「承擔（費用、損失）」，兩者要分清楚。",
+      "grammar_note": "occur 是不及物動詞，不能用被動，要說 The error occurred，不說 was occurred；變化時最後的 r 要重複，寫成 occurred、occurring。",
+      "forms": [
+        {
+          "w": "occurs",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "發生",
+          "ipa": "/əˈkɜːrz/",
+          "example": {
+            "en": "A short delay occurs whenever the system updates its database.",
+            "zh": "每次系統更新資料庫時，都會出現短暫的延遲。"
+          }
+        },
+        {
+          "w": "occurred",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "發生了",
+          "ipa": "/əˈkɜːrd/",
+          "example": {
+            "en": "The error occurred while the staff were entering the orders.",
+            "zh": "員工在輸入訂單時發生了錯誤。"
+          }
+        },
+        {
+          "w": "occurring",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在發生",
+          "ipa": "/əˈkɜːrɪŋ/",
+          "example": {
+            "en": "Please report any problems occurring during the installation.",
+            "zh": "安裝期間如有任何問題發生，請回報。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "problems occur",
+          "zh": "發生問題",
+          "example": {
+            "en": "If any problems occur, please contact the IT hotline.",
+            "zh": "如果發生任何問題，請聯絡資訊部門專線。"
+          }
+        },
+        {
+          "phrase": "occur frequently",
+          "zh": "經常發生",
+          "example": {
+            "en": "Mistakes occur frequently when data is entered by hand.",
+            "zh": "用手輸入資料時，錯誤經常發生。"
+          }
+        },
+        {
+          "phrase": "occur to someone",
+          "zh": "（想法）浮現在某人腦中",
+          "example": {
+            "en": "It never occurred to me that the invoice might be wrong.",
+            "zh": "我從沒想過這張請款單可能有錯。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "When did the system failure first occur during the test?",
+          "zh": "系統故障在測試中是什麼時候第一次發生的？"
+        },
+        {
+          "tag": "保險",
+          "en": "Coverage applies only to damage that occurs during transport.",
+          "zh": "保障範圍只適用於運送過程中發生的損壞。"
+        },
+        {
+          "tag": "報告",
+          "en": "Most accidents occur because workers skip the safety checks.",
+          "zh": "大多數意外是因為工人省略安全檢查才發生。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "incur",
+          "diff": "incur 是「招致、承擔」費用或損失；occur 是事情「發生」。",
+          "usage": "incur 是及物動詞，後面接費用、損失等受詞（incur a fee）；occur 是不及物動詞，後面不接受詞。",
+          "example": {
+            "en": "The company may incur extra costs if the order is changed.",
+            "zh": "如果訂單被更改，公司可能要承擔額外的費用。"
+          }
+        },
+        {
+          "word": "occupy",
+          "diff": "occupy 是「佔用、佔據」場所或時間，發音和拼法都與 occur 相近，但意思不同。",
+          "example": {
+            "en": "The sales team occupies the entire third floor of the building.",
+            "zh": "業務團隊佔用了大樓的整個三樓。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "happen",
+          "diff": "happen 較口語、最通用；occur 比較正式，常用於報告與通知。",
+          "example": {
+            "en": "What happened to the shipment that was due on Monday?",
+            "zh": "星期一應該到的那批貨出了什麼狀況？"
+          }
+        },
+        {
+          "phrase": "take place",
+          "diff": "take place 用於預定的活動或會議，不用於意外；occur 兩者都可以。",
+          "example": {
+            "en": "The annual meeting will take place in the main hall.",
+            "zh": "年度會議將在大廳舉行。"
+          }
+        },
+        {
+          "word": "arise",
+          "diff": "arise 強調問題或情況「出現」，常和 problem、issue 搭配。",
+          "example": {
+            "en": "Problems may arise if the schedule changes at the last minute.",
+            "zh": "如果時程在最後一刻更動，可能會出現問題。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "incident",
+          "pos": "n.",
+          "zh": "事件、意外",
+          "ipa": "/ˈɪnsɪdənt/",
+          "example": {
+            "en": "The incident was reported to the safety manager right away.",
+            "zh": "這起事件立刻被通報給安全經理。"
+          }
+        },
+        {
+          "w": "issue",
+          "pos": "n.",
+          "zh": "問題、議題",
+          "ipa": "/ˈɪʃuː/",
+          "example": {
+            "en": "We will look into the issue and call you back tomorrow.",
+            "zh": "我們會調查這個問題，明天回電給您。"
+          }
+        },
+        {
+          "w": "event",
+          "pos": "n.",
+          "zh": "活動、事件",
+          "ipa": "/ɪˈvent/",
+          "example": {
+            "en": "The company holds a networking event every spring.",
+            "zh": "公司每年春天都會舉辦一場交流活動。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "occurrence",
+          "ipa": "/əˈkɜːrəns/",
+          "pos": "n.",
+          "zh": "發生、事件",
+          "link": "occur + -rence（r 要多寫一個），變成名詞，像 prefer → preference、refer → reference"
+        },
+        {
+          "w": "reoccur",
+          "ipa": "/ˌriːəˈkɜːr/",
+          "pos": "v.",
+          "zh": "再次發生",
+          "link": "re-（再次）+ occur，像 rewrite、return，再發生一次"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "發生",
+          "en": "to happen, often without a plan",
+          "example": {
+            "en": "A power failure occurred during the final test of the machine.",
+            "zh": "機器最後測試時發生了停電。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "（想法）浮現",
+          "en": "to come into someone's mind",
+          "distinguish": "後面常接 to + 人，主詞多半是 it 或 an idea，不是事件發生。",
+          "example": {
+            "en": "It occurred to the manager that the deadline was too tight.",
+            "zh": "經理突然想到這個期限太趕了。"
+          }
+        }
+      ]
+    }
+  ]
+}

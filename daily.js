@@ -414,7 +414,11 @@ function renderLaunch() {
     <button onclick="enterSec('maint')" class="${card} ${hov} p-5 text-left cursor-pointer">
       <span class="text-3xl">🛠</span><h3 class="font-bold text-lg mt-2">維護</h3>
       <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">文章總覽、mp3 與 timing、新增文章、入庫／回報彙整、題材總覽</p>
-      <p class="mt-3 text-xs text-slate-500">文章 ${N} 篇　${mpMiss == null ? 'mp3 狀態未讀到' : `<span class="${mpMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">缺 mp3 ${mpMiss}</span>`}　<span class="${tmMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">timing 未完成 ${tmMiss}</span>${tslBadge()}<br>入庫 ${dnMarks().length}　<span class="${dnOpenRpN() ? 'text-rose-600 dark:text-rose-400' : ''}">回報待處理 ${dnOpenRpN()}</span>　題材${topicCover()}</p></button>
+      <p class="mt-3 text-xs text-slate-500">文章 ${N} 篇　${mpMiss == null ? 'mp3 狀態未讀到' : `<span class="${mpMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">缺 mp3 ${mpMiss}</span>`}　<span class="${tmMiss ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">timing 未完成 ${tmMiss}</span>${tslBadge()}<br>入庫 ${dnMarks().length}　新單字 ${nwList().length}　<span class="${dnOpenRpN() ? 'text-rose-600 dark:text-rose-400' : ''}">回報待處理 ${dnOpenRpN()}</span>　題材${topicCover()}</p></button>
+    <button onclick="dnFromLaunch('nw')" class="${card} ${hov} p-5 text-left cursor-pointer sm:col-span-2">
+      <span class="text-3xl">🆕</span><h3 class="font-bold text-lg mt-2">新單字</h3>
+      <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">隨時記下遇到的新單字（可語音輸入）；新增文章時優先排進文章，被採用後自動入庫，備註用來請 AI 補充詳解</p>
+      <p class="mt-3 text-xs text-slate-500">${(() => { const c = nwCounts(); return `共 ${c.all} 個　待採用 ${c.pending}　待補充詳解 ${c.todo}　<span class="${c.rem ? 'text-emerald-600 dark:text-emerald-400' : ''}">可移除 ${c.rem}</span>`; })()}</p></button>
   </div>`;
 }
 
@@ -532,7 +536,7 @@ function dayNav(nw, M) {
 function renderSide() {
   const n = Object.keys(S.saved).length, nw = cur.nw ?? cur.w, v = cur.view, M = inMaint();
   const line = 'border border-slate-300 dark:border-slate-700';
-  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${cur.d}` : v === 'topics' ? '🗂 題材總覽' : v === 'marks' ? '📌 入庫彙整' : v === 'bank' ? '📚 入庫總覽' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
+  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${cur.d}` : v === 'topics' ? '🗂 題材總覽' : v === 'marks' ? '📌 入庫彙整' : v === 'bank' ? '📚 入庫總覽' : v === 'nw' ? '🆕 新單字' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
   const dk = `<button onclick="fontCycle()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="調整字級">Aa</button><button onclick="toggleDark()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>`;
   const root = v === 'launch' || v === 'home' || v === 'maint';
   // ===== 手機：選單／學習首頁／維護總覽顯示標題列；其他頁顯示「← 返回」列 =====
@@ -544,6 +548,7 @@ function renderSide() {
           ${v === 'home' ? `<button onclick="openBook()" class="${btn} ${line} !py-1.5" aria-label="生詞本／錯題本">★ ${n}</button>` : ''}
           ${v === 'home' ? `<button onclick="dnNav('bank')" class="${btn} ${line} !py-1.5" aria-label="入庫總覽">📚</button>` : ''}
           ${v === 'maint' ? `<button onclick="openAudio()" class="${btn} ${line} !py-1.5" aria-label="音檔／Timing 清單">🎧${AU.idx ? DATA.filter(x => !itemOk(x)).length : ''}</button>` : ''}
+          ${v === 'home' || v === 'maint' ? nwMobBtn() : ''}
           ${dk}</div></div>`
     : `<div class="flex items-center gap-2"><button onclick="backHome()" class="${btn} ${line} !py-1.5 shrink-0">← 返回</button><span class="flex-1 min-w-0 truncate text-sm font-semibold">${label}</span>${dk}</div>`) + `</div>`;
   // ===== 桌機：完整側欄 =====
@@ -555,7 +560,7 @@ function renderSide() {
     <button onclick="toggleDark()" class="${btn} ${line}">${S.dark ? '☀ 淺色' : '☾ 深色'}</button></div>
   <div class="grid grid-cols-3 gap-1 mb-4"><button onclick="showLaunch()" class="${btn} ${v === 'launch' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}" title="回到選單">☰</button>${tab('learn', '📖 學習')}${tab('maint', '🛠 維護')}</div>`;
   if (SEC === 'learn') {
-    h += `<button onclick="openMatrix()" class="${btn} w-full mb-3 ${line} ${v === 'home' || v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">▦ 總表（進度／題材）</button>` + dayNav(nw, false) + `<button onclick="openBook()" class="${btn} w-full mt-4 ${line} ${v === 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>` + dnBankBtn();
+    h += `<button onclick="openMatrix()" class="${btn} w-full mb-3 ${line} ${v === 'home' || v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">▦ 總表（進度／題材）</button>` + dayNav(nw, false) + `<button onclick="openBook()" class="${btn} w-full mt-4 ${line} ${v === 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>` + dnBankBtn() + nwBtn();
   } else if (SEC === 'maint') {
     const act = (c) => c ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : '';
     h += `<button onclick="up2Maint()" class="${btn} w-full mb-2 ${line} ${act(v === 'maint')}">📋 維護總覽</button>
@@ -942,7 +947,8 @@ function tslUnused() {
   if (typeof TSL_WORDS === 'undefined') return null; // daily.html 沒載入 tsl.js
   const u = tslUsed();
   const hit = w => [w, w + 's', w + 'es', w + 'd', w + 'ed', w + 'ing', w.replace(/e$/, '') + 'ing', w.replace(/y$/, 'ies'), w.replace(/y$/, 'ied')].some(k => u.has(k));
-  return TSL_WORDS.filter(w => !hit(tslNz(w)));
+  const nwx = typeof nwPoolKeys === 'function' ? nwPoolKeys() : new Set(); // 已列為「我的新單字」的字不要再當 TSL 候選字
+  return TSL_WORDS.filter(w => !hit(tslNz(w)) && !nwx.has(tslNz(w)));
 }
 function tslPick(score) { // 未收錄清單依詞頻排名排列；600 分從最前面取、850 分以上從最後面取，中間按比例
   const all = tslUnused(); if (!all) return null;
@@ -1000,6 +1006,7 @@ function genPrompt() {
   const lt = genLater(w, d); if (lt) L.push(`・較晚的 w${lt.week}d${lt.day} 已有 ${lt.level.score} 分；本篇不要比它更難。`);
   L.push('・調整難度請主要靠句型（複合句、被動、分詞構句）、字彙的抽象程度、需整合的資訊量與干擾項；字數只是次要因素。', '');
   L.push(`【長度】在 _spec 的 passage_length 範圍內取「${genLen(s)}」。`, '');
+  if (typeof nwGenLines === 'function') L.push(...nwGenLines()); // 我的新單字（優先於 TSL 候選字）
   const tp = tslPick(s);
   if (tp && tp.words.length) {
     L.push('【TSL 候選單字】', `・以下是 TSL（New TOEIC Service List）中「尚未收錄」、且程度符合本篇難度（約 ${s} 分）的單字（詞頻排名 #${tp.r1}–#${tp.r2}，數字越大越少見）：${tp.words.join(', ')}`,
@@ -1092,7 +1099,7 @@ function renderGen() {
   <section class="${card} p-4 md:p-6">
     <h3 class="font-bold mb-1">④ 給 AI 的提示詞</h3>
     <p class="text-xs text-slate-500 mb-3 leading-relaxed">請連同 daily.json 一起提供給 AI（提示詞不含 JSON 內容）。</p>
-    ${tslPanel(s)}
+    ${nwGenPanel()}${tslPanel(s)}
     <textarea id="gen-prompt" readonly rows="16" class="${fld} w-full p-3 text-xs leading-relaxed font-mono">${esc(genPrompt())}</textarea>
     <button onclick="copyEl('gen-prompt',this)" class="${btn} mt-3 bg-indigo-600 text-white">複製提示詞</button>
   </section>`;
@@ -1108,7 +1115,7 @@ function render() {
   Sp.hlIdx = -2;
   document.documentElement.classList.toggle('dark', S.dark);
   renderSide();
-  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail };
+  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail, nw: nwRender };
   (V[cur.view] || renderDay)();
   if (Sp.mode === 'audio' && Sp.au && Sp.id) spHl(Sp.id, Sp.au.currentTime);
   dnSyncBar();
@@ -1211,8 +1218,8 @@ async function boot() {
     await auLoad();
   } catch (e) { return bootFail(e); }
   try {
-    cur.view = 'launch'; render();
-    if (location.hash === '#tsl') { enterSec('maint'); setTimeout(() => { const e = document.getElementById('tsl-sec'); if (e) e.scrollIntoView({ block: 'start' }); }, 50); } else if (location.hash === '#maint') enterSec('maint'); else if (location.hash === '#learn') enterSec('learn');
+    cur.view = 'launch'; render(); try { if (typeof nwMigrate === 'function') nwMigrate(); } catch (e) { console.error(e); }
+    if (location.hash === '#tsl') { enterSec('maint'); setTimeout(() => { const e = document.getElementById('tsl-sec'); if (e) e.scrollIntoView({ block: 'start' }); }, 50); } else if (location.hash === '#maint') enterSec('maint'); else if (location.hash === '#learn') enterSec('learn'); else if (location.hash === '#nw') dnFromLaunch('nw');
     else if (/^#vocab=/.test(location.hash)) openVocabByHash();
   } catch (e) { console.error(e); main.innerHTML = `<div class="${card} p-8 text-center text-sm text-rose-600">畫面渲染失敗：${esc(e.message)}（請按 F12 看 Console）</div>`; }
 }
