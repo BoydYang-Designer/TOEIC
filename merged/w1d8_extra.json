@@ -1,0 +1,223 @@
+{
+  "week": 1,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "walk you through",
+      "type": "phrase",
+      "zh": "帶你一步一步了解、向你逐項說明",
+      "en": "to explain something to someone step by step",
+      "note": "Boyd 用這個片語預告接下來會按順序介紹三款嬰兒推車和一款汽座的設計想法，語氣親切、不生硬，是簡報開場很常見的說法。",
+      "pattern": "walk + 人 + through + 內容",
+      "grammar_note": "人要放在 walk 和 through 中間（walk you through），不能寫成 walk through you；要說明的內容放在 through 後面，可以接名詞或 how 子句。",
+      "examples": [
+        { "tag": "會議", "en": "Let me walk you through the schedule for next week.", "zh": "讓我向你說明下週的行程。" },
+        { "tag": "簡報", "en": "She will walk us through the new sales plan.", "zh": "她會帶我們逐項了解新的銷售計畫。" },
+        { "tag": "培訓", "en": "Our manager walked me through the software on my first day.", "zh": "我上班第一天，主管帶我逐步熟悉這套軟體。" },
+        { "tag": "電子郵件", "en": "I can walk you through the steps if you have questions.", "zh": "如果你有問題，我可以一步一步向你說明。" }
+      ],
+      "similar": [
+        { "phrase": "take you through", "diff": "意思幾乎相同，語氣也一樣自然，可以直接替換。", "example": { "en": "I will take you through the main points of the report.", "zh": "我會帶你了解這份報告的重點。" } },
+        { "phrase": "guide you through", "diff": "強調「引導」，常用在操作步驟或流程，語氣稍微正式一點。", "example": { "en": "This video will guide you through the setup process.", "zh": "這支影片會引導你完成設定流程。" } },
+        { "phrase": "go over", "diff": "偏向把內容快速複習或檢查一遍，沒有「一步步帶領」的感覺。", "example": { "en": "Let's go over the budget before the meeting ends.", "zh": "會議結束前，我們再把預算檢視一遍。" } }
+      ],
+      "confusable": [
+        { "phrase": "go through", "diff": "go through 是自己逐一檢查或經歷某事，沒有「帶別人了解」的意思；walk you through 是你帶著對方一起看。", "example": { "en": "We need to go through all the documents before Friday.", "zh": "我們必須在星期五前把所有文件逐一檢查完。" } }
+      ]
+    },
+    {
+      "text": "highlight",
+      "type": "word",
+      "ipa": "/ˈhaɪlaɪt/",
+      "pos": "v.",
+      "zh": "強調、突顯",
+      "en": "to make people notice something important",
+      "note": "在這篇裡是動詞，Boyd 說會「強調」每款產品的主要特色。簡報裡常用來預告接下來要特別說明的重點。",
+      "forms": [
+        { "w": "highlights", "label": "第三人稱單數", "pos": "v.", "zh": "強調", "ipa": "/ˈhaɪlaɪts/", "example": { "en": "She highlights the key results at every team meeting.", "zh": "她在每次團隊會議都會強調關鍵成果。" } },
+        { "w": "highlighted", "label": "過去式／過去分詞", "pos": "v.", "zh": "強調了", "ipa": "/ˈhaɪlaɪtɪd/", "example": { "en": "The manager highlighted the risks in the new plan.", "zh": "經理強調了新計畫中的風險。" } },
+        { "w": "highlighting", "label": "現在分詞", "pos": "v.", "zh": "正在強調", "ipa": "/ˈhaɪlaɪtɪŋ/", "example": { "en": "He is highlighting the important dates in the schedule.", "zh": "他正在標出行程表上的重要日期。" } }
+      ],
+      "collocations": [
+        { "phrase": "highlight the importance of", "zh": "強調……的重要性", "example": { "en": "Our director will highlight the importance of safety training.", "zh": "我們的主任會強調安全訓練的重要性。" } },
+        { "phrase": "highlight key points", "zh": "強調重點", "example": { "en": "Please highlight key points in your presentation slides.", "zh": "請在你的簡報投影片中強調重點。" } },
+        { "phrase": "highlight a problem", "zh": "突顯出問題", "example": { "en": "The survey helped highlight a problem with our service.", "zh": "這份調查幫忙突顯了我們服務上的問題。" } }
+      ],
+      "examples": [
+        { "tag": "簡報", "en": "The report highlights the main reasons for the sales drop.", "zh": "這份報告強調了銷售下滑的主要原因。" },
+        { "tag": "會議", "en": "I'd like to highlight three points before we vote.", "zh": "投票之前，我想先強調三個重點。" },
+        { "tag": "電子郵件", "en": "Please highlight any changes in the revised contract.", "zh": "請標出修訂版合約中的所有變更。" }
+      ],
+      "similar": [
+        { "word": "emphasize", "diff": "意思相近，語氣稍正式；emphasize 偏向用言語強調看法，highlight 偏向讓重點被看見。", "example": { "en": "The CEO emphasized that quality comes before speed.", "zh": "執行長強調品質比速度重要。" } },
+        { "word": "point out", "diff": "指出某件事讓大家注意，語氣比 highlight 口語、較不強調「重要」。", "example": { "en": "She pointed out a mistake in the budget.", "zh": "她指出預算中有一個錯誤。" } }
+      ],
+      "family": [
+        { "w": "emphasize", "pos": "v.", "zh": "強調", "ipa": "/ˈemfəsaɪz/", "example": { "en": "We should emphasize the benefits to our customers.", "zh": "我們應該強調對客戶的好處。" } },
+        { "w": "stress", "pos": "v.", "zh": "強調", "ipa": "/stres/", "example": { "en": "The manager stressed the need to finish on time.", "zh": "經理強調必須準時完成。" } },
+        { "w": "mention", "pos": "v.", "zh": "提到", "ipa": "/ˈmenʃən/", "example": { "en": "He mentioned the new price during the call.", "zh": "他在電話中提到了新價格。" } }
+      ],
+      "derived": [
+        { "w": "highlighter", "pos": "n.", "zh": "螢光筆", "ipa": "/ˈhaɪlaɪtɚ/", "link": "highlight + -er，做事的工具或人，像 printer、teacher；螢光筆就是用來標出重點的筆" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/ˈhaɪlaɪt/", "zh": "強調、突顯", "in_passage": true, "example": { "en": "He highlighted the best features of the new product.", "zh": "他強調了這項新產品最棒的特色。" } },
+        { "pos": "n.", "ipa": "/ˈhaɪlaɪt/", "zh": "最精彩的部分、亮點", "example": { "en": "The highlight of the trip was the factory tour.", "zh": "這趟行程的亮點是參觀工廠。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "強調、突顯", "en": "to make people notice something important", "in_passage": true, "example": { "en": "The chart highlights how sales grew this year.", "zh": "這張圖表突顯了今年銷售如何成長。" } },
+        { "pos": "v.", "zh": "用螢光筆或顏色標記", "en": "to mark words with a bright color so they are easy to see", "distinguish": "句中出現文件、文字、顏色時，通常是這個「標記」的意思。", "example": { "en": "Highlight the deadlines in yellow so no one misses them.", "zh": "把截止日期用黃色標出來，這樣大家才不會漏掉。" } }
+      ]
+    },
+    {
+      "text": "demonstrate",
+      "type": "word",
+      "ipa": "/ˈdemənstreɪt/",
+      "pos": "v.",
+      "zh": "示範、展示",
+      "en": "to show how something works",
+      "note": "在這篇裡是「示範」的意思，Boyd 說會實際演示這些推車和汽座怎麼運作，讓聽眾看得更清楚。",
+      "grammar_note": "demonstrate 後面可以直接接名詞（demonstrate the product），也可以接 how 子句（demonstrate how it works）；how 子句裡用一般句子的順序，不要倒裝。",
+      "forms": [
+        { "w": "demonstrates", "label": "第三人稱單數", "pos": "v.", "zh": "示範", "ipa": "/ˈdemənstreɪts/", "example": { "en": "The video demonstrates how to fold the stroller.", "zh": "這支影片示範如何折疊推車。" } },
+        { "w": "demonstrated", "label": "過去式／過去分詞", "pos": "v.", "zh": "示範了", "ipa": "/ˈdemənstreɪtɪd/", "example": { "en": "Our engineer demonstrated the new machine to the clients.", "zh": "我們的工程師向客戶示範了這台新機器。" } },
+        { "w": "demonstrating", "label": "現在分詞", "pos": "v.", "zh": "正在示範", "ipa": "/ˈdemənstreɪtɪŋ/", "example": { "en": "She is demonstrating the app on the big screen.", "zh": "她正在大螢幕上示範這個應用程式。" } }
+      ],
+      "collocations": [
+        { "phrase": "demonstrate how to", "zh": "示範如何……", "example": { "en": "Next, I will demonstrate how to install the car seat.", "zh": "接下來，我會示範如何安裝汽座。" } },
+        { "phrase": "demonstrate a product", "zh": "展示產品", "example": { "en": "The sales team will demonstrate a product at the fair.", "zh": "業務團隊會在展覽上展示一項產品。" } },
+        { "phrase": "demonstrate the ability to", "zh": "展現出……的能力", "example": { "en": "The test will demonstrate the ability to work under pressure.", "zh": "這項測驗能展現在壓力下工作的能力。" } }
+      ],
+      "examples": [
+        { "tag": "簡報", "en": "I will demonstrate how the folding system works.", "zh": "我會示範這個折疊系統是如何運作的。" },
+        { "tag": "客戶拜訪", "en": "Can you demonstrate the new software for our team?", "zh": "你可以為我們團隊示範這套新軟體嗎？" },
+        { "tag": "報告", "en": "These results demonstrate that customers prefer the lighter model.", "zh": "這些結果顯示客戶比較喜歡較輕的款式。" }
+      ],
+      "similar": [
+        { "word": "show", "diff": "意思更廣、更口語，demonstrate 通常是有步驟地實際操作給人看。", "example": { "en": "Please show me how the system works.", "zh": "請讓我看看這個系統怎麼運作。" } },
+        { "word": "display", "diff": "偏向把東西擺出來給人看，不一定說明怎麼使用。", "example": { "en": "We will display our new products at the entrance.", "zh": "我們會在入口處陳列新產品。" } }
+      ],
+      "family": [
+        { "w": "show", "pos": "v.", "zh": "展示、顯示", "ipa": "/ʃoʊ/", "example": { "en": "The data shows that sales are growing slowly.", "zh": "數據顯示銷售正在緩慢成長。" } },
+        { "w": "prove", "pos": "v.", "zh": "證明", "ipa": "/pruːv/", "example": { "en": "The test results prove that the design is safe.", "zh": "測試結果證明這個設計是安全的。" } },
+        { "w": "explain", "pos": "v.", "zh": "解釋", "ipa": "/ɪkˈspleɪn/", "example": { "en": "Could you explain the main steps to the team?", "zh": "你可以向團隊解釋主要的步驟嗎？" } }
+      ],
+      "derived": [
+        { "w": "demonstration", "pos": "n.", "zh": "示範、展示", "ipa": "/ˌdemənˈstreɪʃən/", "link": "demonstrate + -ion，把動作變成名詞，像 prepare → preparation、present → presentation" },
+        { "w": "demonstrator", "pos": "n.", "zh": "示範者、展示員", "ipa": "/ˈdemənstreɪtɚ/", "link": "demonstrate + -or，做事的人，像 actor、visitor" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "示範、展示", "en": "to show how something works", "in_passage": true, "example": { "en": "He demonstrated how the car seat locks into place.", "zh": "他示範了汽座如何固定到定位。" } },
+        { "pos": "v.", "zh": "證明、顯示", "en": "to show that something is true", "distinguish": "主詞是資料、結果、報告，後面接 that 子句時，通常是「證明」的意思。", "example": { "en": "The survey demonstrates that customers want simpler designs.", "zh": "這份調查顯示客戶想要更簡單的設計。" } }
+      ]
+    },
+    {
+      "text": "feature",
+      "type": "word",
+      "ipa": "/ˈfiːtʃɚ/",
+      "pos": "n.",
+      "zh": "特色、功能",
+      "en": "an important or useful part of a product",
+      "note": "在這篇裡是名詞，key features 指產品最重要的特色與功能。Boyd 會把每款推車的賣點一項項說明。",
+      "forms": [
+        { "w": "features", "label": "複數", "pos": "n.", "zh": "特色（複數）", "ipa": "/ˈfiːtʃɚz/", "example": { "en": "The new phone has many useful features for travelers.", "zh": "這支新手機有許多對旅客很實用的功能。" } },
+        { "w": "features", "label": "第三人稱單數", "pos": "v.", "zh": "以……為特色", "ipa": "/ˈfiːtʃɚz/", "example": { "en": "The new model features a lighter frame.", "zh": "新款以更輕的車架為特色。" } },
+        { "w": "featured", "label": "過去式／過去分詞", "pos": "v.", "zh": "以……為特色、刊登", "ipa": "/ˈfiːtʃɚd/", "example": { "en": "Our product was featured in a popular business magazine.", "zh": "我們的產品被刊登在一本熱門的商業雜誌上。" } },
+        { "w": "featuring", "label": "現在分詞", "pos": "v.", "zh": "以……為特色", "ipa": "/ˈfiːtʃɚɪŋ/", "example": { "en": "We launched a new line featuring a simple design.", "zh": "我們推出了以簡約設計為特色的新系列。" } }
+      ],
+      "collocations": [
+        { "phrase": "key feature", "zh": "主要特色", "example": { "en": "Safety is the key feature of this car seat.", "zh": "安全是這款汽座的主要特色。" } },
+        { "phrase": "safety feature", "zh": "安全功能", "example": { "en": "Every model comes with a new safety feature.", "zh": "每個型號都配有新的安全功能。" } },
+        { "phrase": "new feature", "zh": "新功能", "example": { "en": "Customers love the new feature on our mobile app.", "zh": "客戶很喜歡我們手機應用程式上的新功能。" } },
+        { "phrase": "special feature", "zh": "特別的功能", "example": { "en": "The hotel room has a special feature for guests.", "zh": "這間飯店客房有為住客設計的特別功能。" } }
+      ],
+      "examples": [
+        { "tag": "簡報", "en": "I will explain each feature of the new stroller.", "zh": "我會說明這款新推車的每一項特色。" },
+        { "tag": "採購", "en": "Which features are most important to your customers?", "zh": "對你們的客戶來說，哪些功能最重要？" },
+        { "tag": "行銷", "en": "The ad focuses on the main feature of the product.", "zh": "這則廣告聚焦在產品的主要特色。" }
+      ],
+      "confusable": [
+        { "word": "function", "diff": "feature 是產品的特色或賣點；function 是某個部分或某項設計「實際的作用」。", "example": { "en": "The main function of this button is to lock the wheels.", "zh": "這個按鈕的主要作用是鎖住輪子。" } }
+      ],
+      "similar": [
+        { "word": "characteristic", "diff": "指事物本來就有的特性，比較中性、正式；feature 常用來強調吸引人的賣點。", "example": { "en": "Light weight is a key characteristic of this bag.", "zh": "重量輕是這個包包的主要特性。" } },
+        { "phrase": "selling point", "diff": "專指能吸引客人購買的優點，行銷語氣比 feature 更強。", "example": { "en": "Low price is the biggest selling point of our product.", "zh": "低價是我們產品最大的賣點。" } }
+      ],
+      "family": [
+        { "w": "function", "pos": "n.", "zh": "功能、作用", "ipa": "/ˈfʌŋkʃən/", "example": { "en": "This tool has several functions for office work.", "zh": "這項工具有數種辦公用途的功能。" } },
+        { "w": "benefit", "pos": "n.", "zh": "好處、優點", "ipa": "/ˈbenəfɪt/", "example": { "en": "The main benefit is that it saves time.", "zh": "主要的好處是能節省時間。" } },
+        { "w": "option", "pos": "n.", "zh": "選項", "ipa": "/ˈɑːpʃən/", "example": { "en": "Color is an option you can choose at checkout.", "zh": "顏色是你可以在結帳時選擇的選項。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈfiːtʃɚ/", "zh": "特色、功能", "in_passage": true, "example": { "en": "The folding system is the best feature of this stroller.", "zh": "折疊系統是這款推車最棒的特色。" } },
+        { "pos": "v.", "ipa": "/ˈfiːtʃɚ/", "zh": "以……為特色、由……主演或刊登", "example": { "en": "The new model will feature a larger battery.", "zh": "新型號將以更大的電池為特色。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "（產品的）特色、功能", "en": "an important or useful part of a product", "in_passage": true, "example": { "en": "The camera has a feature that fixes dark photos.", "zh": "這台相機有一項可以修正暗照片的功能。" } },
+        { "pos": "n.", "zh": "（報紙或雜誌的）專題報導", "en": "a long article about one subject in a newspaper or magazine", "distinguish": "出現在報紙、雜誌、新聞的語境時，通常是「專題報導」，不是產品功能。", "example": { "en": "The magazine ran a feature on our new office.", "zh": "這本雜誌刊登了一篇關於我們新辦公室的專題報導。" } }
+      ]
+    },
+    {
+      "text": "looking forward to",
+      "type": "phrase",
+      "zh": "期待、盼望",
+      "en": "to feel happy about something that will happen soon",
+      "note": "Boyd 在開場用這句表達對接下來分享與討論的期待，是簡報與商業信件裡很常見、客氣有禮的說法。",
+      "pattern": "look forward to + V-ing／N",
+      "grammar_note": "look forward to 裡的 to 是介系詞，後面要接名詞或 V-ing（looking forward to meeting you），不能接動詞原形。",
+      "examples": [
+        { "tag": "簡報", "en": "I'm looking forward to hearing your questions after the talk.", "zh": "我期待在演講結束後聽到你們的問題。" },
+        { "tag": "電子郵件", "en": "We look forward to working with your team next month.", "zh": "我們期待下個月與貴團隊合作。" },
+        { "tag": "結尾問候", "en": "I look forward to your reply.", "zh": "期待您的回覆。" },
+        { "tag": "出差", "en": "She is looking forward to the trip to Singapore.", "zh": "她很期待這趟新加坡之行。" }
+      ],
+      "similar": [
+        { "phrase": "can't wait to", "diff": "更口語、更興奮，後面接動詞原形，不太適合很正式的信件。", "example": { "en": "I can't wait to show you our new design.", "zh": "我迫不及待要讓你看我們的新設計。" } },
+        { "phrase": "be eager to", "diff": "強調很想做某件事，後面接動詞原形，語氣比 look forward to 更積極。", "example": { "en": "Our team is eager to start the new project.", "zh": "我們團隊很渴望開始這個新專案。" } }
+      ],
+      "confusable": [
+        { "phrase": "look for", "diff": "look for 是「尋找」某樣東西，和「期待」完全不同。", "example": { "en": "We are looking for a new supplier in Asia.", "zh": "我們正在亞洲尋找新的供應商。" } }
+      ]
+    },
+    {
+      "text": "feedback",
+      "type": "word",
+      "ipa": "/ˈfiːdbæk/",
+      "pos": "n.",
+      "zh": "意見回饋、反應",
+      "en": "comments about something that help make it better",
+      "note": "在這篇裡指聽眾對簡報與產品設計的意見。Boyd 希望聽到大家的想法與回饋，用來改進設計。",
+      "grammar_note": "feedback 是不可數名詞，不加 s，也不能說 a feedback；要說一則意見可用 a piece of feedback。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "give feedback", "zh": "提供意見回饋", "example": { "en": "Please give feedback on the draft by Friday.", "zh": "請在星期五前針對草稿提供意見。" } },
+        { "phrase": "positive feedback", "zh": "正面回饋", "example": { "en": "We received positive feedback from most of our customers.", "zh": "我們收到大多數客戶的正面回饋。" } },
+        { "phrase": "customer feedback", "zh": "客戶意見", "example": { "en": "Customer feedback helps us improve our service every year.", "zh": "客戶意見每年都幫助我們改善服務。" } },
+        { "phrase": "feedback on", "zh": "對……的意見", "example": { "en": "Do you have any feedback on the new schedule?", "zh": "你對新的時程有任何意見嗎？" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "We would like your feedback before we finish the design.", "zh": "在完成設計之前，我們想聽聽你的意見。" },
+        { "tag": "電子郵件", "en": "Thank you for your feedback on our proposal.", "zh": "謝謝您對我們提案的意見。" },
+        { "tag": "人資", "en": "My manager gives me useful feedback every month.", "zh": "我的主管每個月都給我實用的回饋。" }
+      ],
+      "confusable": [
+        { "word": "advice", "diff": "feedback 是對已經做出的成果給意見；advice 是在做決定之前給建議。", "usage": "兩個字都是不可數名詞，都不加 s，也都不能說 a feedback、an advice。", "example": { "en": "I need your advice before I choose a new supplier.", "zh": "在我選擇新供應商之前，我需要你的建議。" } }
+      ],
+      "similar": [
+        { "word": "comments", "diff": "comments 是一則一則的意見，可數；feedback 是整體的回饋，不可數。", "example": { "en": "Please send your comments about the report by Monday.", "zh": "請在星期一前寄出你對報告的意見。" } },
+        { "word": "input", "diff": "input 指大家提供的想法或資訊，語氣較中性；feedback 通常是對成果的反應。", "example": { "en": "We value your input on the new project.", "zh": "我們重視你對新專案的意見。" } }
+      ],
+      "family": [
+        { "w": "comment", "pos": "n.", "zh": "評論、意見", "ipa": "/ˈkɑːment/", "example": { "en": "She made a helpful comment about the schedule.", "zh": "她對時程提出了很有幫助的意見。" } },
+        { "w": "opinion", "pos": "n.", "zh": "看法", "ipa": "/əˈpɪnjən/", "example": { "en": "We would like to hear your opinion on the plan.", "zh": "我們想聽聽你對這個計畫的看法。" } },
+        { "w": "review", "pos": "n.", "zh": "評論、評價", "ipa": "/rɪˈvjuː/", "example": { "en": "The product received a good review online.", "zh": "這項產品在網路上得到好評。" } },
+        { "w": "suggestion", "pos": "n.", "zh": "建議", "ipa": "/səˈdʒestʃən/", "example": { "en": "Do you have any suggestions for the next meeting?", "zh": "你對下次會議有任何建議嗎？" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

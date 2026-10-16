@@ -958,6 +958,34 @@ function dnBankList() {
 }
 function dnBankJump(id) { const el = document.getElementById(id); if (!el) return; if (el.tagName === 'DETAILS') el.open = true; el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } // 跳到字母時自動展開該區
 function dnBankAll(on) { document.querySelectorAll('#bank-list details').forEach(d => { d.open = on; }); }
+/* ---------- 入庫總覽搜尋：語音輸入（🎤＋中／EN 切換，語言記在這台裝置）---------- */
+let BK_REC = null;
+function dnBankLang() { try { return localStorage.getItem('bankmiclang') === 'en-US' ? 'en-US' : 'zh-TW'; } catch (e) { return 'zh-TW'; } }
+function dnBankLangToggle() {
+  const n = dnBankLang() === 'en-US' ? 'zh-TW' : 'en-US';
+  try { localStorage.setItem('bankmiclang', n); } catch (e) {}
+  if (BK_REC) { try { BK_REC.stop(); } catch (e) {} }
+  document.querySelectorAll('[data-bklang]').forEach(b => { b.textContent = n === 'en-US' ? 'EN' : '中'; });
+  dnToast(n === 'en-US' ? '搜尋語音：English' : '搜尋語音：中文');
+}
+function dnBankMic(btnEl) { // 再按一次＝停止
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { dnToast('這個瀏覽器不支援語音輸入，可改用手機鍵盤上的麥克風'); return; }
+  if (BK_REC) { try { BK_REC.stop(); } catch (e) {} return; }
+  const el = document.getElementById('bank-q'); if (!el) return;
+  try { if (typeof spStop === 'function') spStop(); if (typeof skStopAll === 'function') skStopAll(); if (typeof NW_REC !== 'undefined' && NW_REC) NW_REC.stop(); speechSynthesis.cancel(); } catch (e) {}
+  const r = new SR();
+  r.lang = dnBankLang(); r.interimResults = true; r.continuous = false;
+  const rest = () => { BK_REC = null; if (btnEl) { btnEl.textContent = '🎤'; btnEl.classList.remove('animate-pulse', 'text-rose-600'); } };
+  r.onstart = () => { if (btnEl) { btnEl.textContent = '⏹'; btnEl.classList.add('animate-pulse', 'text-rose-600'); } };
+  r.onresult = ev => {
+    const t = String(ev.results[ev.results.length - 1][0].transcript || '').trim().replace(/[.,!?。，！？]+$/, '');
+    el.value = t; dnBankQ(t);
+  };
+  r.onerror = ev => { const m = { 'not-allowed': '麥克風權限被拒絕，請到瀏覽器設定允許', 'service-not-allowed': '麥克風權限被拒絕，請到瀏覽器設定允許', 'no-speech': '沒聽到聲音，再按一次麥克風', 'audio-capture': '找不到麥克風', 'network': '語音辨識需要網路' }[ev.error]; if (m) dnToast(m); };
+  r.onend = rest;
+  BK_REC = r; try { r.start(); } catch (e) { rest(); }
+}
 function dnBankQ(v) { DN.bk.q = v; const el = document.getElementById('bank-list'); if (el) el.innerHTML = dnBankList(); } // 只更新清單，輸入框不重繪（才不會每打一個字就失去焦點）
 function dnBankTabSet(t) { DN.bk.tab = t; render(); window.scrollTo({ top: 0 }); }
 function dnBankSm(v) { DN.bk.sm = v; render(); }
@@ -976,7 +1004,7 @@ function dnRenderBank() {
   const sm = (v, n) => `<button onclick="dnBankSm('${v}')" class="${btn} !py-1 !px-3 text-xs ${B.sm === v ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${n}</button>`;
   main.innerHTML = `<header class="mb-4 flex items-center justify-between gap-2"><h2 class="text-xl md:text-2xl font-bold">📚 入庫總覽</h2>${dnBackBtn()}</header>
     <div class="${card} p-3 mb-4"><div class="flex flex-wrap gap-2">${tabs.map(tb).join('')}</div>
-    <input id="bank-q" type="search" value="${esc(B.q)}" placeholder="搜尋英文或中文…" oninput="dnBankQ(this.value)" class="${dnInp} mt-3 w-full">
+    <div class="flex gap-2 mt-3"><input id="bank-q" type="search" value="${esc(B.q)}" placeholder="搜尋英文或中文…" oninput="dnBankQ(this.value)" class="${dnInp} flex-1 min-w-0">${(window.SpeechRecognition || window.webkitSpeechRecognition) ? `<button onclick="dnBankMic(this)" class="${btn} ${dnLine} !px-3 shrink-0" aria-label="語音搜尋">🎤</button><button onclick="dnBankLangToggle()" data-bklang class="${btn} ${dnLine} !px-3 !text-xs !font-semibold shrink-0" aria-label="切換語音語言（中／EN）">${dnBankLang() === 'en-US' ? 'EN' : '中'}</button>` : ''}</div>
     ${B.tab === 'sent' ? `<div class="flex flex-wrap items-center gap-2 mt-3"><span class="text-xs text-slate-500">排列</span>${sm('art', '依文章')}${sm('pat', '依句型模板')}</div>` : ''}
     ${B.tab === 'multi' ? '<p class="text-xs text-slate-500 mt-3 leading-relaxed">「詞性」是同一個拼法的不同詞性用法，「意思」是同詞性裡的不同意思；點一列看完整詳解。</p>' : ''}
     ${B.tab === 'todo' ? `<p class="text-xs text-slate-500 mt-3 leading-relaxed">這些是還沒有詳解的項目：你入庫的，加上文章核心多益單字裡還沒補詳解的（標「核心單字」）。每列可直接「複製提示詞」；也可到 <button onclick="dnNav('marks')" class="underline text-indigo-600 dark:text-indigo-400 cursor-pointer">📌 入庫彙整</button> 複製 AI 提示詞，合併回 daily.json 後就會出現在這裡的其他分頁。</p>` : ''}</div>

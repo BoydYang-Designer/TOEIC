@@ -3,6 +3,8 @@
 daily_timestamps.py — 為 TOEIC Daily Coach 的 mp3 產生「句子時間戳記」並寫入 daily.json
 
 使用方式：雙擊執行 → 選擇 mp3（可複選，檔名如 w1d1.mp3）→ 選擇 daily.json
+          也可由 json_merge.py 的「執行對時」帶參數開啟：daily_timestamps.py --json daily.json a.mp3 b.mp3
+          （有帶參數就不再跳出選檔視窗，直接處理）
 原理：用 faster-whisper 聽出每個字的時間，再與 daily.json 裡該天的 passage 對齊，
       只在對應那一天新增／更新 "timing" 欄位，其他資料一律不動。
 第一次執行會自動安裝 faster-whisper 並下載語音模型（約 150MB，需連網）。
@@ -192,12 +194,26 @@ def main():
     root = tk.Tk(); root.withdraw(); root.attributes("-topmost", True)
     here = os.path.dirname(os.path.abspath(__file__))
 
-    mp3s = filedialog.askopenfilenames(title="1/2 選擇 mp3 音檔（可複選）", initialdir=here,
-                                       filetypes=[("音檔", "*.mp3 *.wav *.m4a"), ("所有檔案", "*.*")])
-    if not mp3s: return print("已取消。")
-    jpath = filedialog.askopenfilename(title="2/2 選擇要寫入的 daily.json", initialdir=here,
-                                       filetypes=[("JSON", "*.json"), ("所有檔案", "*.*")])
-    if not jpath: return print("已取消。")
+    # 命令列參數：--json 路徑 + 一或多個 mp3（由 json_merge.py 帶入）；沒帶就照舊跳選檔視窗
+    argv, jpath, mp3s = sys.argv[1:], None, []
+    k = 0
+    while k < len(argv):
+        if argv[k] == "--json" and k + 1 < len(argv):
+            jpath = argv[k + 1]; k += 2
+        else:
+            mp3s.append(argv[k]); k += 1
+    mp3s = [p for p in mp3s if os.path.isfile(p)]
+    if jpath and not os.path.isfile(jpath):
+        print(f"找不到 {jpath}，改成手動選擇。"); jpath = None
+    if mp3s and jpath:
+        print(f"由參數帶入：{len(mp3s)} 個音檔 → {jpath}")
+    else:
+        mp3s = filedialog.askopenfilenames(title="1/2 選擇 mp3 音檔（可複選）", initialdir=here,
+                                           filetypes=[("音檔", "*.mp3 *.wav *.m4a"), ("所有檔案", "*.*")])
+        if not mp3s: return print("已取消。")
+        jpath = filedialog.askopenfilename(title="2/2 選擇要寫入的 daily.json", initialdir=here,
+                                           filetypes=[("JSON", "*.json"), ("所有檔案", "*.*")])
+        if not jpath: return print("已取消。")
 
     with open(jpath, encoding="utf-8-sig") as f:
         data = json.load(f)

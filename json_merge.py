@@ -572,11 +572,16 @@ class Daily(Profile):
         for k in ('week', 'day'):
             if not isinstance(e.get(k), int) or isinstance(e.get(k), bool):
                 er.append('%s 必須是整數' % k)
-        if isinstance(e.get('day'), int) and not 1 <= e['day'] <= 7:
-            er.append('day 必須介於 1–7')
+        if isinstance(e.get('day'), int) and not 1 <= e['day'] <= 8:
+            er.append('day 必須介於 1–8（D8＝我的專案）')
+        if e.get('project') is not None and not str(e.get('project')).strip():
+            er.append('project 若有填，不可是空字串')
         if not str(e.get('tag') or '').strip():
             er.append('缺少 tag')
-        if not str(e.get('subtopic') or '').strip():
+        if e.get('day') == 8:
+            if not str(e.get('project') or '').strip():
+                wa.append('D8 建議填 project（專案小標籤，例如 6H12專案），之後比較好查找')
+        elif not str(e.get('subtopic') or '').strip():
             wa.append('缺少 subtopic（子題材），建議補上以便題材輪替')
         else:
             pool = ((ctx.get('subtopics') or {}).get('D%s' % e.get('day')))
@@ -2571,15 +2576,35 @@ def open_manual(root, key, folder, scope, state):
         on_canvas(type('E', (), {'width': canvas.winfo_width()})())
         canvas.yview_moveto(0)
 
-    def run_timing():
+    def timing_args(groups):
+        """自動帶入：勾選的（沒勾就用目前選取的）「文章」組 → 已存在的 mp3，加上網站根目錄的 daily.json。"""
+        gs = groups if groups is not None else [S['groups'][int(i)] for i in sorted(S['done'], key=int) if int(i) < len(S['groups'])]
+        if not gs:
+            g = cur_group()
+            gs = [g] if g else []
+        mp3s = []
+        for g in gs:
+            if g.get('kind') != '文章':
+                continue
+            for j in g['jobs']:
+                if mp3_ok(j['path']) and str(j['path']) not in mp3s:
+                    mp3s.append(str(j['path']))
+        jp = os.path.join(S['folder'], 'daily.json')
+        return (['--json', jp] + mp3s) if (mp3s and os.path.isfile(jp)) else []
+
+    def run_timing(groups=None):
         path = find_script(TIMING_NAME)
         if not path:
             messagebox.showerror('找不到對時程式', '找不到 %s，請放在 json_merge.py 同一個資料夾。' % TIMING_NAME, parent=win)
             return
         kw = {'creationflags': subprocess.CREATE_NEW_CONSOLE} if sys.platform.startswith('win') else {}
         try:
-            subprocess.Popen([sys.executable, path], cwd=os.path.dirname(path), **kw)
-            log('已開啟 %s：在它的視窗選 mp3 與 daily.json。做完這個視窗不用關，需要時可再按「執行對時」重跑一次。' % TIMING_NAME)
+            args = timing_args(groups)
+            subprocess.Popen([sys.executable, path] + args, cwd=os.path.dirname(path), **kw)
+            if args:
+                log('已開啟 %s：自動帶入 %d 個 mp3 → %s（不用再選檔）。' % (TIMING_NAME, len(args) - 2, args[1]))
+            else:
+                log('已開啟 %s：沒有可自動帶入的 mp3（請先錄好放進資料夾並勾選／選取該組），請在它的視窗手動選 mp3 與 daily.json。' % TIMING_NAME)
         except Exception as ex:
             messagebox.showerror('無法啟動', '%s\n\n%s' % (TIMING_NAME, ex), parent=win)
 
@@ -2604,9 +2629,9 @@ def open_manual(root, key, folder, scope, state):
     def after_done(g):
         if S['key'] == 'daily':
             if g.get('kind') == '文章':
-                if messagebox.askyesno('下一步：對時', '「%s」的 mp3 齊了。\n要現在執行 %s 對時嗎？\n（會開新視窗，請選 mp3 與 daily.json）\n\n之後也可以按下方「執行對時」再跑一次。' % (
+                if messagebox.askyesno('下一步：對時', '「%s」的 mp3 齊了。\n要現在執行 %s 對時嗎？\n（會開新視窗，自動帶入這個 mp3 與 daily.json）\n\n之後也可以按下方「執行對時」再跑一次。' % (
                         title_of(g), TIMING_NAME), parent=win):
-                    run_timing()
+                    run_timing([g])
             else:
                 try:
                     speech_module('daily').write_manifest(Path(S['folder']), log)

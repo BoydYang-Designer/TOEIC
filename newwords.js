@@ -204,6 +204,17 @@ function nwGenPanel() {
 }
 
 /* ---------- 語音輸入（Web Speech API）---------- */
+/* 備註欄語音語言：中／EN 切換，記在這台裝置 */
+function nwLang() { try { return localStorage.getItem('nwmiclang') === 'en-US' ? 'en-US' : 'zh-TW'; } catch (e) { return 'zh-TW'; } }
+const nwLangLbl = () => nwLang() === 'en-US' ? 'EN' : '中';
+function nwLangToggle() {
+  const n = nwLang() === 'en-US' ? 'zh-TW' : 'en-US';
+  try { localStorage.setItem('nwmiclang', n); } catch (e) {}
+  try { if (typeof NW_REC !== 'undefined' && NW_REC) NW_REC.stop(); } catch (e) {}
+  document.querySelectorAll('[data-nwlang]').forEach(b => { b.textContent = nwLangLbl(); });
+  if (typeof dnToast === 'function') dnToast(n === 'en-US' ? '備註語音：English' : '備註語音：中文');
+}
+const nwNoteMic = (id, cls) => `<div class="flex flex-col gap-1.5 shrink-0"><button onclick="nwMic('${id}',nwLang(),this)" class="${cls}" aria-label="語音輸入">🎤</button><button onclick="nwLangToggle()" data-nwlang class="${cls} !text-xs !font-semibold" aria-label="切換語音語言（中／EN）">${nwLangLbl()}</button></div>`;
 const nwCleanWord = t => String(t || '').toLowerCase().replace(/[.,!?;:"“”()]+/g, ' ').replace(/\s+/g, ' ').trim();
 function nwMic(id, lang, btnEl) { // 再按一次＝停止
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -274,7 +285,7 @@ function nwEdit(id) {
   const n = nwList().find(q => q.id === id); if (!n) return; DN.nwEd = id;
   dnModal(`<div class="${card} w-full max-w-lg p-4 md:p-5"><div class="flex items-center justify-between mb-3"><h2 class="font-bold">🆕 編輯新單字</h2><button onclick="dnClose()" class="text-slate-400 hover:text-slate-600 text-xl leading-none cursor-pointer" aria-label="關閉">×</button></div>
     <label class="block text-xs text-slate-500 mb-1">單字／片語</label><div class="flex gap-2 mb-3"><input id="nw-ew" value="${esc(n.text)}" autocapitalize="none" autocomplete="off" spellcheck="false" class="${dnInp} flex-1"><button onclick="nwMic('nw-ew','en-US',this)" class="${btn} ${dnLine} !px-3" aria-label="語音輸入">🎤</button></div>
-    <label class="block text-xs text-slate-500 mb-1">備註（給 AI 補詳解用；改了備註會重新列入「待補充」）</label><div class="flex gap-2 items-start mb-3"><textarea id="nw-en" rows="3" class="${dnInp} flex-1">${esc(n.note || '')}</textarea><button onclick="nwMic('nw-en','zh-TW',this)" class="${btn} ${dnLine} !px-3" aria-label="語音輸入">🎤</button></div>
+    <label class="block text-xs text-slate-500 mb-1">備註（給 AI 補詳解用；改了備註會重新列入「待補充」）</label><div class="flex gap-2 items-start mb-3"><textarea id="nw-en" rows="3" class="${dnInp} flex-1">${esc(n.note || '')}</textarea>${nwNoteMic('nw-en', btn + ' ' + dnLine + ' !px-3')}</div>
     <div class="flex justify-between"><button onclick="nwDel('${n.id}')" class="${btn} text-rose-500">移除</button><button onclick="nwEditSave()" class="${btn} ${dnPri}">儲存</button></div></div>`);
 }
 function nwEditSave() {
@@ -361,8 +372,8 @@ function nwRender() {
       <div id="nw-alt" class="flex flex-wrap gap-1.5 mt-2"></div>
       <div id="nw-hint" class="text-xs mt-2 leading-relaxed"></div>
       <label class="block text-xs text-slate-500 mt-3 mb-1">備註（選填，主要給 AI 補詳解用；例如：不懂為什麼用 on、和 affect 有什麼不同）</label>
-      <div class="flex gap-2 items-start"><textarea id="nw-n" rows="2" oninput="nwDraftSync()" class="${dnInp} flex-1">${esc(D.n)}</textarea>${mic('nw-n', 'zh-TW')}</div>
-      <div class="flex items-center justify-between gap-2 mt-3"><span class="text-[0.6875rem] text-slate-400 leading-relaxed">${sr ? '🎤 單字欄聽英文、備註欄聽中文；再按一次停止。' : '這個瀏覽器沒有語音輸入，可用手機鍵盤上的麥克風。'}</span><button onclick="nwAdd()" class="${btn} ${dnPri} shrink-0">＋ 加入</button></div>
+      <div class="flex gap-2 items-start"><textarea id="nw-n" rows="2" oninput="nwDraftSync()" class="${dnInp} flex-1">${esc(D.n)}</textarea>${sr ? nwNoteMic('nw-n', btn + ' ' + dnLine + ' !px-3') : ''}</div>
+      <div class="flex items-center justify-between gap-2 mt-3"><span class="text-[0.6875rem] text-slate-400 leading-relaxed">${sr ? '🎤 單字欄聽英文；備註欄按「中／EN」切換語言（目前選的會記住）；再按一次 🎤 停止。' : '這個瀏覽器沒有語音輸入，可用手機鍵盤上的麥克風。'}</span><button onclick="nwAdd()" class="${btn} ${dnPri} shrink-0">＋ 加入</button></div>
     </div>
     <div id="nw-list">${nwListHtml()}</div>
     <p class="mt-4 text-[0.6875rem] text-slate-400 leading-relaxed"><b>流程：</b>① 加入新單字（備註選填）→ ② 新增文章時，「我的新單字」會優先帶進提示詞；TSL 核心單字放進核心單字，非核心單字寫進文章、合併後自動入庫 → ③ 被文章採用／已在庫後顯示「可移除」→ ④ 有備註的字，到「📌 入庫彙整」複製 AI 提示詞，AI 會判斷備註是否有誤字、原詳解是否已涵蓋，再補詳解；合併 daily.json 後顯示「已更新」。已在庫的字也能加入，備註會用來補充既有詳解。</p>`;
