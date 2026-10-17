@@ -547,7 +547,7 @@ function timingPanel(x) {
 }
 function renderMaintItem() {
   const x = find(cur.w, cur.d);
-  if (!x) { main.innerHTML = `<div class="${card} p-12 text-center text-slate-500"><h3 class="text-lg font-bold mb-2">此日內容尚未建置</h3><button onclick="openGen(${cur.w},${cur.d})" class="${btn} mt-4 bg-indigo-600 text-white">＋ 產生 AI 提示詞</button></div>`; return; }
+  if (!x) { main.innerHTML = emptySlot(cur.w, cur.d, false); return; }
   const id = idOf(x), words = (String(x.passage || '').match(/[A-Za-z0-9']+/g) || []).length, pp = Array.isArray(x.presentation_phrases) ? x.presentation_phrases.length : 0;
   const todo = todoOf(x), sec = `${card} p-4 md:p-6 mb-4`, bb = `${btn} border border-slate-300 dark:border-slate-700 !py-1.5 text-xs`;
   main.innerHTML = `<header class="mb-5">${tFrom() ? `<button onclick="goBack()" class="block text-xs text-indigo-600 dark:text-indigo-400 hover:underline mb-1 cursor-pointer">← ${tLabel()}</button>` : ''}<h2 class="text-xl md:text-2xl font-bold">🛠 W${x.week} · D${x.day} ${esc(x.tag || '')}</h2>
@@ -556,6 +556,7 @@ function renderMaintItem() {
   <section class="${sec}"><h3 class="font-bold text-sm mb-2">📄 資料 · ${id}</h3><p class="text-sm text-slate-600 dark:text-slate-400">daily.json ✔　英文 ${words} 字　單字 ${x.vocab.length} 個　題目 ${x.questions.length} 題${pp ? `　簡報句型 ${pp} 句` : ''}</p></section>
   <section class="${sec}"><h3 class="font-bold text-sm mb-3">🔊 音檔 · ${id}</h3>${dyPanel(x)}</section>
   <section class="${sec}"><h3 class="font-bold text-sm mb-3">⏱ Timing · ${id}</h3>${timingPanel(x)}</section>
+  ${trDelSec(x)}
   <div class="flex flex-wrap gap-2"><button onclick="go(${x.week},${x.day})" class="${bb}">前往學習內容</button><button onclick="goSpeak(${x.week},${x.day})" class="${bb}">試試語音練習</button><button onclick="openAudio()" class="${bb}">🎧 音檔／Timing 清單</button></div>`;
 }
 
@@ -582,7 +583,7 @@ function dayNav(nw, M) {
 function renderSide() {
   const n = Object.keys(S.saved).length, nw = cur.nw ?? cur.w, v = cur.view, M = inMaint();
   const line = 'border border-slate-300 dark:border-slate-700';
-  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${cur.d}` : v === 'topics' ? '🗂 題材總覽' : v === 'marks' ? '📌 入庫彙整' : v === 'bank' ? '📚 入庫總覽' : v === 'nw' ? '🆕 新單字' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
+  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${cur.d}` : v === 'topics' ? '🗂 題材總覽' : v === 'trash' ? '🗑 Trash' : v === 'marks' ? '📌 入庫彙整' : v === 'bank' ? '📚 入庫總覽' : v === 'nw' ? '🆕 新單字' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
   const dk = `<button onclick="fontCycle()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="調整字級">Aa</button><button onclick="toggleDark()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>`;
   const root = v === 'launch' || v === 'home' || v === 'maint';
   // ===== 手機：選單／學習首頁／維護總覽顯示標題列；其他頁顯示「← 返回」列 =====
@@ -594,6 +595,7 @@ function renderSide() {
           ${v === 'home' ? `<button onclick="openBook()" class="${btn} ${line} !py-1.5" aria-label="生詞本／錯題本">★ ${n}</button>` : ''}
           ${v === 'home' ? `<button onclick="dnNav('bank')" class="${btn} ${line} !py-1.5" aria-label="入庫總覽">📚</button>` : ''}
           ${v === 'maint' ? `<button onclick="openAudio()" class="${btn} ${line} !py-1.5" aria-label="音檔／Timing 清單">🎧${AU.idx ? DATA.filter(x => !itemOk(x)).length : ''}</button>` : ''}
+          ${v === 'maint' ? trMobBtn() : ''}
           ${v === 'home' || v === 'maint' ? nwMobBtn() : ''}
           ${dk}</div></div>`
     : `<div class="flex items-center gap-2"><button onclick="backHome()" class="${btn} ${line} !py-1.5 shrink-0">← 返回</button><span class="flex-1 min-w-0 truncate text-sm font-semibold">${label}</span>${dk}</div>`) + `</div>`;
@@ -610,7 +612,7 @@ function renderSide() {
   } else if (SEC === 'maint') {
     const act = (c) => c ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : '';
     h += `<button onclick="up2Maint()" class="${btn} w-full mb-2 ${line} ${act(v === 'maint')}">📋 維護總覽</button>
-      <button onclick="openAudio()" class="${btn} w-full mb-4 ${line} ${act(v === 'audio')}">🎧 音檔／Timing 清單（${AU.idx ? '未完成 ' + DATA.filter(x => !itemOk(x)).length : '未讀到 mp3 清單'}）</button>` + dnSideBtns() + `<button onclick="openTopics()" class="${btn} w-full mt-2 ${line} ${v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">🗂 題材總覽（${topicCover().replace('已涵蓋 ', '')}）</button>`
+      <button onclick="openAudio()" class="${btn} w-full mb-4 ${line} ${act(v === 'audio')}">🎧 音檔／Timing 清單（${AU.idx ? '未完成 ' + DATA.filter(x => !itemOk(x)).length : '未讀到 mp3 清單'}）</button>` + dnSideBtns() + trSideBtn(v) + `<button onclick="openTopics()" class="${btn} w-full mt-2 ${line} ${v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">🗂 題材總覽（${topicCover().replace('已涵蓋 ', '')}）</button>`
       + dayNav(nw, true) + `<p class="text-xs text-slate-500 mt-3 leading-relaxed">${THEMES.slice(0, CORE_DAYS).some((t, i) => !find(nw, i + 1)) ? '點標示「＋ 新增」的空缺日期，產生給 AI 的提示詞' : `W${nw} 已全部建置，請切換其他週次`}</p>`;
   } else h += `<p class="text-xs text-slate-500 leading-relaxed">請在右側選擇「學習」或「維護」。</p>`;
   side.innerHTML = h + '</div>';
@@ -643,11 +645,7 @@ function renderAudioAdmin() {
 function renderDay() {
   const x = find(cur.w, cur.d);
   if (!x) {
-    main.innerHTML = `<div class="${card} p-12 text-center text-slate-500">
-      <h3 class="text-lg font-bold mb-2">此日內容尚未建置</h3>
-      <p class="text-sm">請在 daily.json 新增 week:${cur.w}, day:${cur.d} 的資料。</p>
-      <button onclick="openGen(${cur.w},${cur.d})" class="${btn} mt-4 bg-indigo-600 text-white">＋ 產生 AI 提示詞</button>
-    </div>`;
+    main.innerHTML = emptySlot(cur.w, cur.d, true);
     return;
   }
 
@@ -1194,7 +1192,7 @@ function render() {
   Sp.hlIdx = -2;
   document.documentElement.classList.toggle('dark', S.dark);
   renderSide();
-  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail, nw: nwRender };
+  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, trash: renderTrash, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail, nw: nwRender };
   (V[cur.view] || renderDay)();
   if (Sp.mode === 'audio' && Sp.au && Sp.id) spHl(Sp.id, Sp.au.currentTime);
   dnSyncBar();
@@ -1254,6 +1252,73 @@ function toggleDark() {
 
 const side = document.getElementById('side'), main = document.getElementById('main');
 
+/* ===== Trash（刪除的文章）=====
+   網頁只負責「顯示」與「清理這台瀏覽器的學習紀錄」；移到 Trash、還原、永久刪除都由 daily_trash.py 處理（瀏覽器不能刪檔）。
+   資料來源：trash-index.json（daily_trash.py 每次變動後重建，只放描述資料）。 */
+const TR = { idx: null };
+async function trLoad() {
+  try { const r = await fetch('trash-index.json', { cache: 'no-store' }); const j = r.ok ? await r.json() : null; TR.idx = j && Array.isArray(j.items) ? j : null; }
+  catch (e) { TR.idx = null; }
+}
+async function trRecheck() { await trLoad(); render(); }
+const trItems = () => (TR.idx && TR.idx.items) || [];
+const trAt = (w, d) => trItems().filter(t => t.week == w && t.day == d); // 新的在前
+const trTime = s => { const t = Date.parse(s); return t ? new Date(t).toLocaleString('zh-TW', { hour12: false }) : '未知'; };
+function openTrash() { SEC = 'maint'; cur = Object.assign({}, cur, { view: 'trash' }); push(); render(); window.scrollTo({ top: 0 }); }
+const trSideBtn = v => `<button onclick="openTrash()" class="${btn} w-full mb-2 border border-slate-300 dark:border-slate-700 ${v === 'trash' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">🗑 Trash（${trItems().length}）</button>`;
+const trMobBtn = () => `<button onclick="openTrash()" class="${btn} border border-slate-300 dark:border-slate-700 !py-1.5" aria-label="Trash">🗑${trItems().length || ''}</button>`;
+
+/* 這台瀏覽器裡某一篇的學習紀錄：作答（S.ans）、語音練習（S.spk）、入庫（S.marks，qid＝文章 id） */
+function trRecs(id) {
+  const a = (S.ans || {})[id], sp = (S.spk || {})[id];
+  return { ans: !!(a && (a.done || (a.sel || []).some(v => v !== null))), spk: sp ? (Object.keys(sp.s || {}).length || (sp.w ? 1 : 0)) : 0, spkObj: !!sp, marks: dnMarks().filter(m => m.qid === id).length };
+}
+const trKeepKey = (w, d) => (trAt(w, d)[0] || {}).folder || ''; // 「保留」只對目前這一次刪除有效；之後再刪一次會重新詢問
+function trKeep(id, key) { S.trKeep = S.trKeep || {}; S.trKeep[id] = key; save(); render(); }
+function trClear(id) {
+  const r = trRecs(id);
+  if (!confirm(`清除這台裝置上 ${id} 的紀錄？\n\n作答${r.ans ? '（有）' : '（無）'}、語音練習 ${r.spk} 句、入庫 ${r.marks} 筆\n\n清除後無法復原（若有登入雲端同步，其他裝置的同一份紀錄也會在下次同步時被覆蓋）。`)) return;
+  if (S.ans) delete S.ans[id];
+  if (S.spk) delete S.spk[id];
+  dnMarks().filter(m => m.qid === id).forEach(m => { if (typeof nwOnMarkDel === 'function') nwOnMarkDel(m.id); });
+  S.marks = dnMarks().filter(m => m.qid !== id);
+  save(); dnToast('已清除 ' + id + ' 的紀錄'); render();
+}
+
+/* 空位頁：此日沒有文章。位置固定，不重新編號；Trash 有同位置舊版就提示可還原；還有學習紀錄就問保留或清除 */
+function emptySlot(w, d, note) {
+  const id = `w${w}d${d}`, T = trAt(w, d), r = trRecs(id), key = trKeepKey(w, d);
+  const has = r.ans || r.spk || r.marks || r.spkObj, kept = !!(S.trKeep && S.trKeep[id] === key && key !== '');
+  const box = 'mt-4 text-left rounded-lg border p-3 text-xs leading-relaxed';
+  const tb = T.length ? `<div class="${box} border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950 text-amber-800 dark:text-amber-200">🗑 Trash 裡有這天的舊版：<b>${esc(T[0].tag || '')}</b>（${trTime(T[0].deleted)} 刪除${T.length > 1 ? `，共 ${T.length} 版` : ''}）。<br>要還原：雙擊 <code>daily_trash.bat</code> →「2 Trash 管理」→ 輸入 <code>r</code> 加編號。<button onclick="openTrash()" class="underline ml-1 cursor-pointer">看 Trash 清單</button></div>` : '';
+  const rb = has && !kept ? `<div class="${box} border-rose-300 dark:border-rose-800 bg-rose-50 dark:bg-rose-950 text-rose-800 dark:text-rose-200">這台裝置上還留著 ${id} 的學習紀錄：作答${r.ans ? '有' : '無'}、語音練習 ${r.spk} 句、入庫 ${r.marks} 筆。<br>作答是依題號存的，如果之後在這一天做一篇<b>新文章</b>，舊作答會被套到新題目上；舊入庫也會留著指向不存在的文章。<div class="flex gap-2 mt-2"><button onclick="trKeep('${id}','${esc(key)}')" class="${btn} !py-1.5 text-xs border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200">保留</button><button onclick="trClear('${id}')" class="${btn} !py-1.5 text-xs bg-rose-600 text-white">清除這些紀錄</button></div></div>` : '';
+  return `<div class="${card} p-6 md:p-12 text-center text-slate-500"><h3 class="text-lg font-bold mb-2">此日內容尚未建置</h3>${note ? `<p class="text-sm">請在 daily.json 新增 week:${w}, day:${d} 的資料。</p>` : ''}<button onclick="openGen(${w},${d})" class="${btn} mt-4 bg-indigo-600 text-white">＋ 產生 AI 提示詞</button>${tb}${rb}</div>`;
+}
+
+/* 單篇維護頁的「刪除這篇」說明區（網頁不能刪檔，只提供做法與 id 複製） */
+const trDelSec = x => { const id = idOf(x); return `<section class="${card} p-4 md:p-6 mb-4"><h3 class="font-bold text-sm mb-2">🗑 刪除這篇 · ${id}</h3><p class="text-xs text-slate-500 leading-relaxed mb-3">網頁不能刪檔。要刪除請雙擊 <code>daily_trash.bat</code>，選「1 刪除文章」並輸入 <b>${id}</b>。文章與 mp3 會先移到 _trash，可以還原；該日會變成「此日內容尚未建置」，位置不變。</p><button onclick="auCopy('${id}')" class="${btn} border border-slate-300 dark:border-slate-700 !py-1.5 text-xs">複製 ${id}</button></section>`; };
+
+/* Trash 清單頁（唯讀） */
+function renderTrash() {
+  const T = trItems(), sec = `${card} p-4 mb-3`, bb = `${btn} border border-slate-300 dark:border-slate-700 !py-1 text-xs`;
+  let h = `<header class="mb-4"><h2 class="text-xl md:text-2xl font-bold">🗑 Trash</h2><p class="mt-1 text-sm text-slate-500">${T.length ? `共 ${T.length} 篇` : '目前是空的'}　${TR.idx ? `· 索引更新於 ${trTime(TR.idx.updated)}` : '· 讀不到 trash-index.json（還沒刪過文章，或尚未部署）'}</p>
+    <p class="mt-2 text-xs text-slate-500 leading-relaxed">這裡只能看。還原、永久刪除、清空，請雙擊 <code>daily_trash.bat</code> →「2 Trash 管理」。<button onclick="trRecheck()" class="${bb} ml-1">重新讀取 trash-index.json</button></p></header>`;
+  if (!T.length) { main.innerHTML = h; return; }
+  h += T.map(t => {
+    const id = t.id || `w${t.week}d${t.day}`, occ = find(t.week, t.day), r = trRecs(id), rec = r.ans || r.spk || r.marks;
+    const badge = occ ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400">此位置已有新文章，還原前須先處理</span>` : `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">可還原</span>`;
+    const mv = t.extra_moved || [], kp = t.extra_kept || [];
+    return `<section class="${sec}"><div class="flex flex-wrap items-center gap-2"><b class="text-sm">W${t.week} · D${t.day}</b><span class="text-sm">${esc(t.tag || '')}</span>${badge}${t.score ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${lvColor(t.score)}">${t.score}</span>` : ''}</div>
+      <p class="mt-1 text-xs text-slate-500">${trTime(t.deleted)} 刪除　英文 ${t.words || 0} 字　單字 ${t.n_vocab || 0}　題目 ${t.n_questions || 0}　mp3 ${t.has_mp3 ? '有' : '無'}</p>
+      ${t.note ? `<p class="mt-1 text-xs">備註：${esc(t.note)}</p>` : ''}
+      ${mv.length || kp.length ? `<p class="mt-1 text-xs text-slate-500">詳解：${mv.length ? `已轉移 ${mv.length} 個（${mv.map(m => esc(m.text) + '→' + esc(String(m.to).toUpperCase())).join('、')}）` : ''}${mv.length && kp.length ? '；' : ''}${kp.length ? `隨文章 ${kp.length} 個（${kp.map(esc).join('、')}）` : ''}</p>` : ''}
+      ${t.preview ? `<p class="mt-2 text-xs text-slate-400 italic leading-relaxed">${esc(t.preview)}${t.words > 25 ? '…' : ''}</p>` : ''}
+      ${rec && !occ ? `<p class="mt-2 text-xs text-rose-600 dark:text-rose-400">這台裝置還有 ${id} 的紀錄（作答${r.ans ? '有' : '無'}、語音 ${r.spk} 句、入庫 ${r.marks} 筆）。<button onclick="go(${t.week},${t.day})" class="underline cursor-pointer">到該日處理</button></p>` : ''}
+      <div class="mt-2 flex flex-wrap items-center gap-2"><code class="text-[0.6875rem] text-slate-500">_trash/${esc(t.folder || '')}</code><button onclick="auCopy('${esc(t.folder || '')}')" class="${bb}">複製資料夾名</button></div></section>`;
+  }).join('');
+  main.innerHTML = h;
+}
+
 /* 啟動：讀取 daily.json 後渲染；雙擊開啟（file://）時改用手動選取檔案 */
 function loadFromText(t) {
   try { DATA = itemsOf(JSON.parse(t)); showLaunch(); }
@@ -1295,6 +1360,7 @@ async function boot() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     DATA = itemsOf(await res.json());
     await auLoad();
+    await trLoad(); // trash-index.json（沒有就當作 Trash 是空的，不會報錯）
   } catch (e) { return bootFail(e); }
   try {
     cur.view = 'launch'; render(); try { if (typeof nwMigrate === 'function') nwMigrate(); } catch (e) { console.error(e); }
