@@ -278,10 +278,9 @@ function vplay(qid, text, suf, fallback) {
   suf = suf || '';
   /* vocab/ 檔名（不含文章 id，詳解搬家或文章刪除都不受影響）：
      _ctx 所在句、整句（無後綴）→ 依「句子內容」：{句子slug}.mp3（所在句與入庫的整句是同一句時共用一檔）
-     例句等（_c1／_e1／_fx1…）→ 依單字：{單字slug}{後綴}.mp3
-     舊檔名 {qid}-{單字slug}{後綴}.mp3 仍可讀（遷移完成、確認沒問題後可刪舊檔，再拿掉這一行） */
+     例句等（_c1／_e1／_fx1…）→ 依單字：{單字slug}{後綴}.mp3（qid 參數保留給呼叫端，已不參與檔名） */
   const wf = fallback && DN_WORD_SUF.test(suf) ? `${dnSlug(fallback)}.mp3` : ''; // 單字類：先找共用庫 words/，再找 vocab/，最後語音合成
-  const f = VA.files ? [suf === '_ctx' ? dnSlug(fallback) + '.mp3' : dnSlug(text) + suf + '.mp3', `${qid}-${dnSlug(text)}${suf}.mp3`].find(n => VA.files.has(n)) : '';
+  const nf = suf === '_ctx' ? dnSlug(fallback) + '.mp3' : dnSlug(text) + suf + '.mp3', f = VA.files && VA.files.has(nf) ? nf : '';
   try { if (dnAu) { dnAu.pause(); dnAu = null; } } catch (e) {}
   if (wf && VW.files && VW.files.has(wf)) {
     try { if (typeof spStop === 'function') spStop(); speechSynthesis.cancel(); } catch (e) {}
