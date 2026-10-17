@@ -22,10 +22,12 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
   part6  audio/p6/{id}.mp3（朗讀答案填入的整篇）
   part7  audio/p7/{id}-d{k}.mp3（每份需朗讀的文件一檔）
   daily  audio/daily/w1d1.mp3 ＋ audio/daily/vocab/（詳解項目；做完會重建 vocab/index.json）
-         詳解項目的檔名後綴：（無）本身、_ctx 所在句、_e 例句、_cp／_c 搭配與其例句、_f 屈折變化的字、_fx 屈折變化的例句、_m／_mx 相關字與例句、_cf 易混淆例句（易混淆的字本身走共用庫 words/）、
+         詳解項目的檔名（不含文章 id，詳解搬到別篇或文章被刪都不會變孤兒；舊的 {文章id}-… 檔名請先用 migrate_vocab_names.py 轉換）：
+          ‧ 跟著單字：{單字slug}{後綴}.mp3；‧ 跟著句子內容：入庫的整句與「所在句」＝{句子slug}.mp3（無後綴，同一句只錄一次）
+          詳解項目的檔名後綴：（無）整句或所在句、_e 例句、_cp／_c 搭配與其例句、_f 屈折變化的字、_fx 屈折變化的例句、_m／_mx 相關字與例句、_cf 易混淆例句（易混淆的字本身走共用庫 words/）、
          _sm／_sx 近義片語與例句、_en 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句
          ※ 單字類（單字本身、原形、屈折變化、同字族、相關字、搭配片語、多詞性／多義的單字）改放共用庫
-           audio/daily/words/{單字}.mp3，同一個字只錄一次；例句與所在句仍放 vocab/ 逐篇存放
+           audio/daily/words/{單字}.mp3，同一個字只錄一次；例句與句子放 vocab/（檔名不含文章 id）
 
 引擎切換：預設用 DEFAULT_ENGINE；命令列加 --azure 或 --edge 可臨時改；視窗模式的「引擎」下拉選單也能切換。
   azure＝Azure Speech（動用 $200 點數）；edge-tts＝微軟 Edge 免費語音（2026-10-10 起因微軟改版常回 403，修好前請用 azure）。
@@ -126,7 +128,7 @@ VOCAB_VOICE = "en-US-AvaMultilingualNeural"   # 詳解項目固定同一個聲�
 
 HERE = Path(__file__).resolve().parent
 VOCAB_SUB = Path("audio") / "daily" / "vocab"
-WORDS_SUB = Path("audio") / "daily" / "words"   # 共用單字發音庫：{單字}.mp3，同一個字只錄一次（單字類；例句與所在句仍在 vocab/ 逐篇存放）
+WORDS_SUB = Path("audio") / "daily" / "words"   # 共用單字發音庫：{單字}.mp3，同一個字只錄一次（單字類；例句與句子在 vocab/，檔名不含文章 id）
 
 
 # ------------------------------- 共用小工具 -------------------------------
@@ -644,17 +646,20 @@ def plan_daily(root: Path):
     if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED or MAKE_CONFUSABLE or MAKE_SIMILAR or MAKE_EN or MAKE_PARA or MAKE_KEYWORDS or MAKE_POS or MAKE_SENSE:
         vdir = root / VOCAB_SUB
         wdir = root / WORDS_SUB
-        seen = set()   # 這次已排進清單的共用單字檔，同一個字不重複排
+        seen = set()   # 這次已排進清單的檔（共用單字檔、vocab/ 檔），同一個檔不重複排
+        legacy = [f.name for f in vdir.glob("*.mp3") if re.match(r"w\d+d\d+-", f.name)] if vdir.is_dir() else []
+        if legacy:
+            print(f"⚠ vocab/ 還有 {len(legacy)} 個舊檔名（{legacy[0]} …）。請先執行 migrate_vocab_names.py，否則下面會把它們當成「缺檔」重錄一次。")
         shared = lambda t: f"@{slug(t)}.mp3"   # 「@」開頭＝共用發音庫 words/ 的檔
         for e in collect_entries(root, items):
-            base = f"{e['qid']}-{slug(e['text'])}"
+            base = slug(e["text"])   # 不含文章 id：例句等跟著單字；整句與所在句另用「句子本身」的 slug（見下）
             want = []
             if MAKE_VOCAB:
                 want.append((f"{base}.mp3" if e["type"] == "sentence" else shared(e["text"]), speak_text(e["text"])))
             if MAKE_VOCAB and e.get("lemma") and norm(e["lemma"]) != norm(e["text"]):
                 want.append((shared(e["lemma"]), speak_text(e["lemma"])))  # 原形的發音
             if MAKE_CTX and e["type"] != "sentence" and e["ctx"]:
-                want.append((f"{base}_ctx.mp3", e["ctx"]))
+                want.append((f"{slug(e['ctx'])}.mp3", e["ctx"]))   # 所在句：依句子內容命名（與入庫的整句共用同一檔）
             if MAKE_EXAMPLES:
                 for k, ex in enumerate(e["examples"], 1):
                     en = ex if isinstance(ex, str) else (ex or {}).get("en")
@@ -739,11 +744,12 @@ def plan_daily(root: Path):
                     if not r or p in seen:
                         continue
                     seen.add(p)
-                else:                   # 例句、所在句、句子：逐篇存放
+                else:                   # 例句、所在句、句子：放 vocab/；同一句（所在句／整句／兩個字同一句）只排一次
                     p = vdir / n
                     r = need(p, VOCAB_VOICE, VOCAB_RATE)
-                    if not r:
+                    if not r or p in seen:
                         continue
+                    seen.add(p)
                 jobs.append(dict(name=p.name, text=t, voice=VOCAB_VOICE, rate=VOCAB_RATE, path=p, redo=(r == "redo")))
             if jobs:
                 kind = {"word": "單字", "phrase": "片語", "sentence": "句子"}.get(e["type"], "單字")

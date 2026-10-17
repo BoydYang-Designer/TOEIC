@@ -26,6 +26,9 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / par
      自己錄好放進去 → 按「重新檢查」→ 整組齊了就打勾 → daily 文章會問要不要跑 daily_timestamps.py 對時，
      其餘題庫會問要不要跑 Scan總表與音檔.py。視窗不用關，可以再跑一次；合併視窗下方「手動錄音清單…」可隨時再打開。
      （需要 auto-speech.py、daily_timestamps.py、Scan總表與音檔.py 放在同一個資料夾或其 audio 子資料夾。）
+  5. 文稿比對（每日文章）：錄完音後又改了文稿（例如刪掉 "The man :" 才錄），按底部「文稿比對修改…」（或錄音視窗的「文稿比對（依音檔）」）：
+     用 whisper 聽 mp3，把「音檔真的有唸的字」當標準，與 daily.json 的 passage 逐字比對；每一處差異預設都不勾，
+     人工勾選要採用的 →「套用並重新對時」（自動備份；只改該篇的 passage 與 timing）→ 可接著執行 Scan總表與音檔.py。辨識結果會快取在 backup/asr_cache/。
 """
 import copy
 import difflib
@@ -2700,6 +2703,8 @@ def open_manual(root, key, folder, scope, state):
     ttk.Button(act, text='執行 Scan總表與音檔.py', command=run_scan).pack(side='right', padx=6)
     timing_btn = ttk.Button(act, text='執行對時（daily_timestamps.py）', command=run_timing)
     timing_btn.pack(side='right')
+    ttk.Button(act, text='文稿比對（依音檔）', command=lambda: open_review(
+        root, S['folder'], state, (str(cur_group()['key']).split(':', 1)[0] if (S['key'] == 'daily' and cur_group()) else None))).pack(side='right', padx=6)
 
     tree.bind('<Button-1>', on_click)
     tree.bind('<<TreeviewSelect>>', lambda e: show_detail(cur_group()))
@@ -2715,6 +2720,378 @@ def open_manual(root, key, folder, scope, state):
 
     state['rec_win'] = {'win': win, 'load': load}
     load()
+    poll()
+
+
+# ───────────────────────── 文稿比對：以音檔（whisper 聽出來的內容）為準，逐筆確認後修改 daily.json 的文稿 ─────────────────────────
+# 流程：選一篇已有 mp3 的文章 → 分析（聽音檔，結果會快取）→ 列出「文稿與音檔不一致」的每一處 →
+#       自己勾選要採用的 → 「套用並重新對時」（寫入前自動備份；只改該篇的 passage 與 timing，其他欄位不動）。
+_TIMING = {}
+
+
+def timing_module():
+    """載入 daily_timestamps.py（只借它的 diff_passage／apply_hunks／align／dump_json，不會執行它的主程式）。"""
+    if 'm' not in _TIMING:
+        p = find_script(TIMING_NAME)
+        if not p:
+            raise FileNotFoundError('找不到 %s（請放在 json_merge.py 同一個資料夾）' % TIMING_NAME)
+        _TIMING['m'] = _load_script('toeic_timing_review', p)
+    return _TIMING['m']
+
+
+def open_review(root, folder, state, preselect=None):
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+
+    old = state.get('review_win')
+    if old:
+        try:
+            if old['win'].winfo_exists():
+                old['win'].deiconify()
+                old['win'].lift()
+                if preselect:
+                    old['pick'](preselect)
+                return
+        except tk.TclError:
+            pass
+    try:
+        dt = timing_module()
+    except Exception as ex:
+        messagebox.showerror('找不到對時程式', str(ex), parent=root)
+        return
+    jp = os.path.join(folder, 'daily.json')
+    if not os.path.isfile(jp):
+        messagebox.showerror('找不到 daily.json', '請先把 daily.json 放在：\n%s' % folder, parent=root)
+        return
+
+    win = tk.Toplevel(root)
+    win.title('文稿比對修改（以音檔為準）')
+    win.geometry('1180x820')
+    win.minsize(860, 600)
+    S = {'ents': [], 'cur': None, 'words': None, 'hunks': [], 'checked': set(), 'passage': '', 'busy': False}
+    q = queue.Queue()
+    KZ = {'label': '說話者標籤', 'delete': '多出的字', 'insert': '音檔多的字', 'replace': '用字不同'}
+    CZ = {'sure': '確定', 'maybe': '請確認'}
+    show_label = tk.BooleanVar(value=True)
+    only_sure = tk.BooleanVar(value=False)
+    head = tk.StringVar()
+
+    def read_daily():
+        with open(jp, encoding='utf-8-sig') as f:
+            data = json.load(f)
+        items, err = Daily().get_entries(data)
+        if items is None:
+            raise ValueError(err)
+        return data, items
+
+    def mp3_of(e):
+        p = e.get('audio') or 'audio/daily/w%dd%d.mp3' % (e['week'], e['day'])
+        p = os.path.join(folder, p.replace('/', os.sep))
+        return p if mp3_ok(p) else None
+
+    def load_ents():
+        data, items = read_daily()
+        S['ents'] = []
+        for e in items:
+            if isinstance(e, dict) and isinstance(e.get('week'), int) and isinstance(e.get('day'), int) and e.get('passage'):
+                m = mp3_of(e)
+                if m:
+                    S['ents'].append({'id': 'w%dd%d' % (e['week'], e['day']), 'week': e['week'], 'day': e['day'], 'mp3': m,
+                                      'label': 'W%d D%d　%s' % (e['week'], e['day'], e.get('tag', ''))})
+        S['ents'].sort(key=lambda x: (x['week'], x['day']))
+        combo['values'] = [x['label'] for x in S['ents']]
+
+    # ── 版面 ──
+    ttk.Label(win, textvariable=head, foreground='#555').pack(anchor='w', padx=10, pady=(8, 0))
+    ttk.Label(win, foreground='#555', wraplength=1100, justify='left',
+              text='原理：用 whisper 聽 mp3，把「音檔裡真的有唸的字」當標準，和 daily.json 的英文文稿比對。\n'
+                   '下面每一列是一處不一致；預設都不勾，你確認後勾選要採用的，再按「套用並重新對時」。').pack(anchor='w', padx=10)
+    bar = ttk.Frame(win)
+    bar.pack(fill='x', padx=10, pady=6)
+    ttk.Label(bar, text='文章：').pack(side='left')
+    combo = ttk.Combobox(bar, state='readonly', width=48)
+    combo.pack(side='left')
+    btn_an = ttk.Button(bar, text='分析')
+    btn_an.pack(side='left', padx=6)
+    btn_re = ttk.Button(bar, text='重新聽音檔')
+    btn_re.pack(side='left')
+    status = ttk.Label(bar, foreground='#555')
+    status.pack(side='left', padx=10)
+
+    fb = ttk.Frame(win)
+    fb.pack(fill='x', padx=10)
+    ttk.Checkbutton(fb, text='顯示說話者標籤（如 The man:）', variable=show_label, command=lambda: repaint()).pack(side='left')
+    ttk.Checkbutton(fb, text='只看「確定」的', variable=only_sure, command=lambda: repaint()).pack(side='left', padx=10)
+    ttk.Button(fb, text='勾選所有「確定」的', command=lambda: mark(lambda h: h['conf'] == 'sure')).pack(side='right')
+    ttk.Button(fb, text='全不勾', command=lambda: mark(lambda h: False)).pack(side='right', padx=6)
+    ttk.Button(fb, text='全勾（目前列出的）', command=lambda: mark(lambda h: True)).pack(side='right')
+
+    tf = ttk.Frame(win)
+    tf.pack(fill='x', padx=10, pady=4)
+    cols = ('chk', 'kind', 'old', 'new', 'time', 'conf', 'note')
+    tree = ttk.Treeview(tf, columns=cols, show='headings', selectmode='browse', height=9)
+    for c, t, w in zip(cols, ('勾', '類型', '目前文稿', '音檔實際唸的', '音檔時間', '信心', '說明'), (36, 90, 210, 210, 110, 60, 420)):
+        tree.heading(c, text=t)
+        tree.column(c, width=w, anchor='center' if c in ('chk', 'conf', 'time') else 'w', stretch=(c == 'note'))
+    tsb = ttk.Scrollbar(tf, orient='vertical', command=tree.yview)
+    tree.configure(yscrollcommand=tsb.set)
+    tree.pack(side='left', fill='x', expand=True)
+    tsb.pack(side='right', fill='y')
+
+    pw = ttk.PanedWindow(win, orient='horizontal')
+    pw.pack(fill='both', expand=True, padx=10, pady=4)
+    lf = ttk.LabelFrame(pw, text='目前文稿（紅＝多出的字／標籤，綠＝音檔多的字插入處，黃＝用字不同）')
+    rf = ttk.LabelFrame(pw, text='套用已勾選的修改後')
+    pw.add(lf, weight=1)
+    pw.add(rf, weight=1)
+    left = tk.Text(lf, wrap='word', height=12, font=(None, 11))
+    right = tk.Text(rf, wrap='word', height=12, font=(None, 11))
+    for t_ in (left, right):
+        t_.pack(fill='both', expand=True, padx=4, pady=4)
+    left.tag_configure('delete', background='#ffd0d0')
+    left.tag_configure('label', background='#ffc2c2')
+    left.tag_configure('insert', background='#c8f0c8')
+    left.tag_configure('replace', background='#fff0a0')
+    left.tag_configure('cur', underline=True, font=(None, 11, 'bold'))
+
+    act = ttk.Frame(win)
+    act.pack(fill='x', padx=10, pady=(0, 4))
+    summary = ttk.Label(act, font=(None, 10, 'bold'))
+    summary.pack(side='left')
+    ttk.Button(act, text='關閉', command=win.destroy).pack(side='right')
+    btn_scan = ttk.Button(act, text='執行 Scan總表與音檔.py')
+    btn_scan.pack(side='right', padx=6)
+    btn_apply = ttk.Button(act, text='套用並重新對時')
+    btn_apply.pack(side='right')
+    logbox = tk.Text(win, height=5, wrap='none', background='#101418', foreground='#d6e2ee')
+    logbox.pack(fill='x', padx=10, pady=(0, 10))
+
+    def log(m):
+        logbox.insert('end', str(m) + '\n')
+        logbox.see('end')
+
+    # ── 顯示 ──
+    def visible():
+        return [h for h in S['hunks'] if (show_label.get() or h['kind'] != 'label') and (not only_sure.get() or h['conf'] == 'sure')]
+
+    def repaint(sel=None):
+        if sel is None and tree.selection():
+            sel = tree.selection()[0]
+        tree.delete(*tree.get_children())
+        for h in visible():
+            tree.insert('', 'end', iid=str(h['id']), values=(
+                '☑' if h['id'] in S['checked'] else '☐', KZ[h['kind']], h['old'].replace('\n', ' ⏎ ') or '（無）',
+                h['new'] or '（不唸）', '%.2f–%.2fs' % (h['t0'], h['t1']), CZ[h['conf']], h['note']))
+        if sel is not None and tree.exists(sel):
+            tree.selection_set(sel)
+        redraw()
+
+    def redraw(focus=None):
+        left.configure(state='normal')
+        left.delete('1.0', 'end')
+        left.insert('1.0', S['passage'])
+        for h in S['hunks']:
+            a, b = h['a'], h['b']
+            if h['kind'] == 'insert':
+                a, b = max(0, a - 1), a   # 插入處：標前一個字元
+                if not S['passage'][a:b].strip():
+                    a = b
+            if b > a:
+                left.tag_add(h['kind'], '1.0+%dc' % a, '1.0+%dc' % b)
+        if focus is not None:
+            h = next((x for x in S['hunks'] if x['id'] == focus), None)
+            if h:
+                a, b = h['a'], max(h['b'], h['a'] + 1)
+                left.tag_add('cur', '1.0+%dc' % a, '1.0+%dc' % b)
+                left.see('1.0+%dc' % a)
+        left.configure(state='disabled')
+        chosen = [h for h in S['hunks'] if h['id'] in S['checked']]
+        new = dt.apply_hunks(S['passage'], chosen) if chosen else S['passage']
+        right.configure(state='normal')
+        right.delete('1.0', 'end')
+        right.insert('1.0', new)
+        right.configure(state='disabled')
+        n = len(S['hunks'])
+        summary.config(text='共 %d 處差異，已勾 %d 處' % (n, len(chosen)) if S['cur'] else '請選擇文章並按「分析」')
+        btn_apply.configure(state='normal' if chosen and not S['busy'] else 'disabled')
+
+    def mark(pred):
+        vis = {h['id'] for h in visible()}
+        for h in S['hunks']:
+            if h['id'] in vis:
+                (S['checked'].add if pred(h) else S['checked'].discard)(h['id'])
+        repaint()
+
+    def on_click(e):
+        iid = tree.identify_row(e.y)
+        if not iid:
+            return
+        if tree.identify_region(e.x, e.y) == 'cell' and tree.identify_column(e.x) == '#1':
+            i = int(iid)
+            (S['checked'].discard if i in S['checked'] else S['checked'].add)(i)
+            tree.selection_set(iid)
+            repaint(iid)
+            return 'break'
+
+    def on_select(_=None):
+        s = tree.selection()
+        redraw(int(s[0]) if s else None)
+
+    tree.bind('<Button-1>', on_click)
+    tree.bind('<<TreeviewSelect>>', on_select)
+
+    # ── 分析（背景執行：第一次要載入模型、聽音檔，會比較久） ──
+    def set_busy(b, msg=''):
+        S['busy'] = b
+        for w in (btn_an, btn_re, combo):
+            w.configure(state='disabled' if b else ('readonly' if w is combo else 'normal'))
+        status.config(text=msg)
+        redraw()
+
+    def pick(ent_id):
+        for i, x in enumerate(S['ents']):
+            if x['id'] == ent_id:
+                combo.current(i)
+                return
+
+    def analyze(force=False):
+        i = combo.current()
+        if i < 0 or S['busy']:
+            return
+        ent = S['ents'][i]
+        S['cur'] = ent
+        data, items = read_daily()
+        e = next((x for x in items if isinstance(x, dict) and x.get('week') == ent['week'] and x.get('day') == ent['day']), None)
+        if e is None:
+            messagebox.showerror('找不到文章', 'daily.json 裡沒有 %s' % ent['label'], parent=win)
+            return
+        S['passage'] = str(e.get('passage') or '')
+        cache_dir = os.path.join(folder, 'backup', 'asr_cache')
+        if force:
+            try:
+                os.remove(os.path.join(cache_dir, os.path.splitext(os.path.basename(ent['mp3']))[0] + '.json'))
+            except OSError:
+                pass
+        head.set('主檔：%s　　音檔：%s　　模型：%s' % (jp, os.path.relpath(ent['mp3'], folder), dt.MODEL))
+        set_busy(True, '分析中…（第一次要載入語音模型並聽完音檔，請稍候）')
+
+        def work():
+            try:
+                words = dt.transcribe_cached(lambda: dt.load_model(dt.MODEL), ent['mp3'], cache_dir, log=lambda m: q.put(('log', m)))
+                hunks, skipped = dt.diff_passage(S['passage'], words)
+                q.put(('done', (ent['id'], words, hunks, skipped)))
+            except Exception as ex:
+                q.put(('err', '%s\n%s' % (ex, traceback.format_exc())))
+
+        threading.Thread(target=work, daemon=True).start()
+
+    def finish(res):
+        eid, words, hunks, skipped = res
+        S['words'], S['hunks'] = words, hunks
+        S['checked'] = set()
+        set_busy(False, '完成：%d 個字、%d 處差異' % (len(words), len(hunks)))
+        log('%s：音檔 %d 個字，找到 %d 處差異（另有 %d 處只是數字寫法不同，已略過）。' % (eid, len(words), len(hunks), skipped))
+        if not hunks:
+            log('✔ 文稿與音檔一致，不用修改。')
+        repaint()
+
+    # ── 套用 ──
+    def apply():
+        hs = [h for h in S['hunks'] if h['id'] in S['checked']]
+        if not hs or not S['cur']:
+            return
+        ent = S['cur']
+        data, items = read_daily()
+        e = next((x for x in items if isinstance(x, dict) and x.get('week') == ent['week'] and x.get('day') == ent['day']), None)
+        if e is None or str(e.get('passage') or '') != S['passage']:
+            messagebox.showwarning('文稿已被改過', 'daily.json 裡這篇的文稿和分析時不一樣（可能合併了新檔或手動改過）。\n請重新按「分析」再選。', parent=win)
+            return
+        new = dt.apply_hunks(S['passage'], hs)
+        timing, report, total = dt.align(new, S['words'], dt.CFG)
+        n_old, n_new = len(dt.split_sentences(S['passage'])), len(dt.split_sentences(new))
+        if not timing:
+            messagebox.showerror('無法對時', '改完後沒有任何句子對得上音檔，為了不弄壞原有的 timing，已取消。', parent=win)
+            return
+        lines = ['要修改 %s 的文稿：%d 處。' % (ent['label'], len(hs)),
+                 '重新對時：%d / %d 句有時間%s。' % (len(timing), total, '' if len(timing) == total else '（沒對到的會顯示「部分」）')]
+        if n_old != n_new:
+            lines.append('\n⚠ 句數從 %d 變成 %d：\n  • 語音練習「各句最佳分數／剪裁微調／已儲存錄音」是依句號記的，這篇可能會對不上。' % (n_old, n_new))
+        if e.get('zh'):
+            lines.append('\n⚠ 中文翻譯（zh）不會自動修改，請自行確認有沒有需要同步刪改的地方（例如被刪掉的說話者）。')
+        lines.append('\n寫入前會自動備份 daily.json。確定嗎？')
+        if not messagebox.askyesno('確認套用', '\n'.join(lines), parent=win):
+            return
+        bak = backup_main(jp, 'daily')
+        e['passage'] = new
+        e['timing'] = timing
+        tmp = jp + '.tmp'
+        with open(tmp, 'w', encoding='utf-8') as f:
+            f.write(dt.dump_json(data) + '\n')
+        os.replace(tmp, jp)
+        log('✔ 已寫入 %s（備份：%s）' % (os.path.basename(jp), os.path.relpath(bak, folder)))
+        log('\n'.join(report))
+        S['passage'] = new
+        hunks, skipped = dt.diff_passage(new, S['words'])
+        S['hunks'], S['checked'] = hunks, set()
+        status.config(text='已套用；剩下 %d 處差異' % len(hunks))
+        repaint()
+        log('建議接著按「執行 Scan總表與音檔.py」更新 index.json，網頁再按 Ctrl+F5。')
+
+    def run_scan_here():
+        path = find_script(SCAN_NAME)
+        if not path:
+            messagebox.showerror('找不到程式', '找不到 %s' % SCAN_NAME, parent=win)
+            return
+        log('執行 %s …' % SCAN_NAME)
+
+        def work():
+            try:
+                r = subprocess.run([sys.executable, path], cwd=os.path.dirname(path), capture_output=True, text=True,
+                                   errors='replace', input='\n')
+                out = ((r.stdout or '') + (r.stderr or '')).strip() or '%s 已執行。' % SCAN_NAME
+            except Exception as ex:
+                out = '執行失敗：%s' % ex
+            q.put(('log', out))
+
+        threading.Thread(target=work, daemon=True).start()
+
+    btn_an.configure(command=lambda: analyze(False))
+    btn_re.configure(command=lambda: analyze(True))
+    btn_apply.configure(command=apply)
+    btn_scan.configure(command=run_scan_here)
+
+    def poll():
+        try:
+            while True:
+                k, v = q.get_nowait()
+                if k == 'log':
+                    log(v)
+                elif k == 'done':
+                    finish(v)
+                elif k == 'err':
+                    set_busy(False, '分析失敗')
+                    log('✗ ' + v)
+                    messagebox.showerror('分析失敗', v.split('\n')[0], parent=win)
+        except queue.Empty:
+            pass
+        if win.winfo_exists():
+            win.after(150, poll)
+
+    state['review_win'] = {'win': win, 'pick': lambda i: pick(i)}
+    head.set('主檔：%s' % jp)
+    try:
+        load_ents()
+    except Exception as ex:
+        messagebox.showerror('讀取失敗', str(ex), parent=win)
+        win.destroy()
+        return
+    if not S['ents']:
+        log('daily.json 裡沒有「已有 mp3」的文章（mp3 放在 audio/daily/w1d1.mp3，或題目的 audio 欄位）。')
+    elif preselect:
+        pick(preselect)
+    if S['ents'] and combo.current() < 0:
+        combo.current(0)
+    redraw()
     poll()
 
 
@@ -2987,6 +3364,7 @@ def run_gui(start):
     ttk.Button(bot, text='合併選取的檔案', command=lambda: do_merge()).pack(side='right')
     ttk.Button(bot, text='手動錄音清單…', command=lambda: manual_clicked()).pack(side='right', padx=(0, 8))
     ttk.Button(bot, text='整理重複詳解', command=lambda: do_unify()).pack(side='right', padx=(0, 8))
+    ttk.Button(bot, text='文稿比對修改…', command=lambda: open_review(root, audio_folder(), st)).pack(side='right', padx=(0, 8))
 
     def audio_folder():
         """auto-speech 腳本讀的是「放 json 的資料夾」；主檔若在別處，就用主檔所在資料夾。"""

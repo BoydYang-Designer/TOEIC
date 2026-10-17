@@ -126,6 +126,18 @@ function spBack() { // 倒轉 5 秒：mp3 為精準倒轉，語音合成為估�
   const cps = spCps(), now = spNow();
   spRun(spSnap(Math.max(0, Math.round(now - cps*5))));
 }
+function spSkip(sec, keep) { // 前後跳 sec 秒（負數＝倒轉）。keep＝true：暫停中就維持暫停（鍵盤用）；mp3 精準，語音合成為估算
+  if (Sp.st === 'idle' || !Sp.id) return;
+  if (Sp.mode === 'audio' && Sp.au) {
+    const a = Sp.au, d = a.duration, t = a.currentTime + sec;
+    try { a.currentTime = Math.max(0, isFinite(d) ? Math.min(Math.max(0, d - 0.2), t) : t); } catch (e) {}
+    if (Sp.st === 'paused' && !keep) { a.play(); Sp.st = 'playing'; }
+    spUI(); return;
+  }
+  const to = spSnap(Math.max(0, Math.min(Math.max(0, Sp.text.length - 1), Math.round(spNow() + spCps() * sec))));
+  if (Sp.st === 'paused' && keep) { Sp.pos = to; spUI(); } else spRun(to);
+}
+function spFwd() { spSkip(5); } // 快轉 5 秒
 function spStop() {
   Sp.tok++; Sp.st = 'idle'; Sp.pos = 0; Sp.id = null; Sp.mode = ''; spClearHl();
   if (Sp.au) { Sp.au.onerror = null; Sp.au.onended = null; Sp.au.pause(); Sp.au = null; }
@@ -137,7 +149,8 @@ function spHtml(id) {
   const b = 'rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300 disabled:opacity-40 disabled:cursor-not-allowed';
   const on = 'rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-600 text-white';
   return `<button onclick="spToggle('${id}')" class="${playing || loading ? on : b}${loading ? ' animate-pulse' : ''}">${loading ? '⏳ 載入中…' : playing ? '⏸ 暫停' : (mine ? '▶ 繼續' : '🔊 播放語音')}</button>
-    <button onclick="spBack()" ${mine ? '' : 'disabled'} class="${b}" title="倒轉 5 秒">⏪ 5秒</button>
+    <button onclick="spBack()" ${mine ? '' : 'disabled'} class="${b}" title="倒轉 5 秒（鍵盤 ←）">⏪ 5秒</button>
+    <button onclick="spFwd()" ${mine ? '' : 'disabled'} class="${b}" title="快轉 5 秒（鍵盤 →）">5秒 ⏩</button>
     <button onclick="spStop()" ${mine ? '' : 'disabled'} class="${b}" title="停止">⏹</button>
     <span class="inline-flex items-center gap-1"><span class="text-xs text-slate-400">語速</span>${SP_SPEEDS.map(v => `<button onclick="spSetSpeed(${v})" class="rounded-lg px-2.5 py-2 text-xs font-medium transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300'}">${v}×</button>`).join('')}</span>
     ${mine ? `<span class="text-xs ${playing ? 'text-indigo-600 dark:text-indigo-300 font-semibold' : 'text-slate-400'}">${playing ? '● ' : ''}${Sp.mode === 'audio' ? '音檔' : '語音合成'}${loading ? '（載入中）' : playing ? '播放中' : '（已暫停）'}</span>` : ''}`;
@@ -172,12 +185,33 @@ function spMini() { // 手機底部浮動播放列：捲到測驗區時仍可暫
   el.innerHTML = `<div class="mx-3 mb-3 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur p-2 flex items-center gap-2" style="margin-bottom:max(0.75rem,env(safe-area-inset-bottom))">
     <span class="flex-1 min-w-0 truncate px-2 text-xs text-slate-500">${Sp.st === 'loading' ? '⏳ 載入中 · ' : Sp.st === 'playing' ? '● ' : '⏸ '}${Sp.id.toUpperCase()} · ${Sp.mode === 'audio' ? '音檔' : '語音合成'}</span>
     <button onclick="spBack()" class="${b}">⏪ 5秒</button>
+    <button onclick="spFwd()" class="${b}">5秒 ⏩</button>
     <button onclick="spToggle(Sp.id)" class="${b}${Sp.st === 'loading' ? ' animate-pulse' : ''}">${Sp.st === 'loading' ? '⏳' : Sp.st === 'playing' ? '⏸' : '▶'}</button>
     <button onclick="spStop()" class="${b}">⏹</button></div>`;
 }
 function spUI() { const el = document.getElementById('sp-ctl'); if (el) el.innerHTML = spHtml(el.dataset.id); spMini(); }
 document.addEventListener('visibilitychange', () => { if (document.hidden) spStop(); });
 window.addEventListener('pagehide', () => { try { speechSynthesis.cancel(); } catch(e) {} });
+/* 鍵盤（閱讀頁、正在播放／暫停中才生效）：空白鍵＝暫停／繼續，← 倒轉 5 秒，→ 快轉 5 秒。
+   沒在播放時不攔截，空白鍵照常捲動頁面；輸入框、發音練習視窗開著、按住 Ctrl／Alt／Shift 時也不處理。 */
+let kbSpace = false;
+document.addEventListener('keydown', e => {
+  if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+  const t = e.target, tag = t && t.tagName;
+  if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(tag))) return;
+  if (typeof cur === 'undefined' || cur.view !== 'day' || !Sp.id || Sp.st === 'idle') return;
+  if (document.getElementById('pron-ov')) return;
+  const k = e.key;
+  if (k === ' ' || k === 'Spacebar') { e.preventDefault(); kbSpace = true; spToggle(Sp.id); }
+  else if (k === 'ArrowLeft' || k === 'ArrowRight') {
+    e.preventDefault();
+    spSkip(k === 'ArrowLeft' ? -5 : 5, true);
+    if (typeof dnToast === 'function') dnToast(k === 'ArrowLeft' ? '⏪ 倒轉 5 秒' : '⏩ 快轉 5 秒');
+  }
+});
+document.addEventListener('keyup', e => { // 焦點在按鈕上時，空白鍵放開會再觸發一次「點擊」→ 擋掉，避免暫停後又立刻繼續
+  if (kbSpace && (e.key === ' ' || e.key === 'Spacebar')) { kbSpace = false; e.preventDefault(); }
+});
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 /* 多益等級標籤（資料來自 daily.json 的 level 欄位）：<650 綠、650–749 琥珀、≥750 玫瑰紅 */
@@ -659,7 +693,7 @@ function renderDay() {
     </div>`;
   } else {
     h += `<p id="passage-text" class="${cur.mk ? 'annot ' : ''}whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans">${passageHtml(x)}</p>
-      <p class="mt-3 text-[0.6875rem] text-slate-400">${cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。'}</p>`;
+      <p class="mt-3 text-[0.6875rem] text-slate-400">${cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔；播放中可按 空白鍵 暫停／繼續，← → 倒轉／快轉 5 秒。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。'}</p>`;
   }
 
   if (zhOpen) {

@@ -266,7 +266,7 @@ const VA = { files: null, v: '' };
 const VW = { files: null, v: '' }; // 共用單字發音庫：audio/daily/words/{單字}.mp3（同一個字不論出現在哪一篇、哪一欄，都只錄一次）
 fetch('audio/daily/words/index.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null)
   .then(j => { if (j && Array.isArray(j.files)) { VW.files = new Set(j.files); VW.v = j.v || ''; } }).catch(() => {});
-const DN_WORD_SUF = /^(?:_lm|_f\d+|_m\d+|_d\d+|_pw\d+|_sw\d+|_cp\d+|_cw\d+|_sm\d+|_kw\d+)?$/; // 這些後綴的 🔊 念的是「單字／片語本身」→ 走共用發音庫；例句、所在句仍是每篇各一檔
+const DN_WORD_SUF = /^(?:_lm|_f\d+|_m\d+|_d\d+|_pw\d+|_sw\d+|_cp\d+|_cw\d+|_sm\d+|_kw\d+)?$/; // 這些後綴的 🔊 念的是「單字／片語本身」→ 走共用發音庫；例句、所在句、整句放在 vocab/，檔名不含文章 id
 fetch('audio/daily/vocab/index.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null)
   .then(j => { if (j && Array.isArray(j.files)) { VA.files = new Set(j.files); VA.v = j.v || ''; } }).catch(() => {});
 const dnNorm = s => String(s == null ? '' : s).trim().toLowerCase().replace(/\s+/g, ' ');
@@ -275,7 +275,13 @@ function dnSlug(t) { const k = dnNorm(t), s = k.replace(/[^a-z0-9]+/g, '-').repl
 let dnAu = null;
 function vplay(qid, text, suf, fallback) {
   const done = spkBtn(); // 按下立刻脈動，播完／失敗才停
-  const f = `${qid}-${dnSlug(text)}${suf || ''}.mp3`, wf = fallback && DN_WORD_SUF.test(suf || '') ? `${dnSlug(fallback)}.mp3` : ''; // 單字類：先找共用庫 words/，再找舊的逐篇檔，最後語音合成
+  suf = suf || '';
+  /* vocab/ 檔名（不含文章 id，詳解搬家或文章刪除都不受影響）：
+     _ctx 所在句、整句（無後綴）→ 依「句子內容」：{句子slug}.mp3（所在句與入庫的整句是同一句時共用一檔）
+     例句等（_c1／_e1／_fx1…）→ 依單字：{單字slug}{後綴}.mp3
+     舊檔名 {qid}-{單字slug}{後綴}.mp3 仍可讀（遷移完成、確認沒問題後可刪舊檔，再拿掉這一行） */
+  const wf = fallback && DN_WORD_SUF.test(suf) ? `${dnSlug(fallback)}.mp3` : ''; // 單字類：先找共用庫 words/，再找 vocab/，最後語音合成
+  const f = VA.files ? [suf === '_ctx' ? dnSlug(fallback) + '.mp3' : dnSlug(text) + suf + '.mp3', `${qid}-${dnSlug(text)}${suf}.mp3`].find(n => VA.files.has(n)) : '';
   try { if (dnAu) { dnAu.pause(); dnAu = null; } } catch (e) {}
   if (wf && VW.files && VW.files.has(wf)) {
     try { if (typeof spStop === 'function') spStop(); speechSynthesis.cancel(); } catch (e) {}
@@ -283,7 +289,7 @@ function vplay(qid, text, suf, fallback) {
     a.onended = a.onpause = done;
     a.onerror = () => speak(fallback, done);
     a.play().catch(() => speak(fallback, done));
-  } else if (VA.files && VA.files.has(f)) {
+  } else if (f) {
     try { if (typeof spStop === 'function') spStop(); speechSynthesis.cancel(); } catch (e) {}
     const a = dnAu = new Audio('audio/daily/vocab/' + f + (VA.v ? '?v=' + VA.v : ''));
     a.onended = a.onpause = done;

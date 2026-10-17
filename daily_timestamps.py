@@ -30,7 +30,13 @@ def norm(w):
 
 
 DIG = "zero one two three four five six seven eight nine".split()
-SPEAKER = re.compile(r"[A-Za-z][A-Za-z.\-]*:")   # Customer: / Agent: / Man: … 說話者標籤
+SPEAKER = re.compile(r"[A-Za-z][A-Za-z.\-]*:")   # （舊）單字標籤，保留相容
+# 說話者標籤（行首；與網站 speak.js 的 SK_LAB 同規則）：Customer: / The man : / Woman 1: / Mr. Lee:
+LABEL = re.compile(r"^[ \t]*[A-Z][A-Za-z0-9.'’\-]*(?:[ \t]+[A-Za-z0-9.'’\-]+){0,2}[ \t]*[:：](?=\s|$)", re.M)
+
+
+def label_spans(text):
+    return [(m.start(), m.end()) for m in LABEL.finditer(text)]
 
 
 def expand_words(words):
@@ -75,11 +81,18 @@ def split_sentences(text):
 
 def align(passage, words, cfg):
     """words: [(start, end, text)]（whisper 逐字結果）→ (timing 清單, 報告, 統計)。cfg＝判斷標準（見上方 CFG）。"""
-    ptoks = [(m.start(), m.end(), norm(m.group())) for m in re.finditer(r"\S+", passage)]
-    ptoks = [t for t in ptoks if t[2]]
-    # 說話者標籤（行首的 Customer: / Agent:）音檔不會唸，不列入比對（句子範圍 from/to 不變）
-    ptoks = [t for t in ptoks
-             if not (SPEAKER.fullmatch(passage[t[0]:t[1]]) and (t[0] == 0 or passage[t[0] - 1] == "\n"))]
+    ptoks = []
+    for m in re.finditer(r"\S+", passage):
+        n = norm(m.group())
+        if not n:
+            continue
+        if n.isdigit():   # 64182 → six four one eight two（與 whisper 結果的 expand_words 對稱，數字才對得上）
+            ptoks += [(m.start(), m.end(), DIG[int(c)]) for c in n]
+        else:
+            ptoks.append((m.start(), m.end(), n))
+    # 說話者標籤（行首的 Customer: / The man : / Woman 1:）音檔不會唸，不列入比對（句子範圍 from/to 不變）
+    _ls = label_spans(passage)
+    ptoks = [t for t in ptoks if not any(a <= t[0] < b for a, b in _ls)]
     wtoks = expand_words(words)
     pw, ww = [t[2] for t in ptoks], [t[2] for t in wtoks]
     sm = difflib.SequenceMatcher(None, pw, ww, autojunk=False)
@@ -150,6 +163,216 @@ def align(passage, words, cfg):
             mark = "≈" if note.startswith("≈") else "✓"
             report.append(f"  {mark} {t['start']:6.2f}s – {t['end']:6.2f}s  {note}  {label}")
     return timing, report, len(sents)
+
+
+# ───────────────────────── 文稿比對：以音檔為準，找出文稿與錄音不一致的地方 ─────────────────────────
+# 用途：文稿定稿、錄完音後，又把文稿的字句刪掉或改掉（例如把 "The man :" 刪了再錄），
+#       這裡用 whisper 聽到的內容當「事實」，和 daily.json 的 passage 逐字比對，列出每一處差異，
+#       由人一筆一筆決定要不要改文稿（diff_passage → 畫面勾選 → apply_hunks → 重新對時 align）。
+ALIAS = {"mister": "mr", "missus": "mrs", "doctor": "dr", "okay": "ok", "ms": "ms", "miss": "ms"}
+_NUMW = set(DIG) | set((
+    "ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty "
+    "seventy eighty ninety hundred thousand million and oh point dollar dollars percent am pm first second third "
+    "fourth fifth sixth seventh eighth ninth tenth").split())
+
+
+def _canon(w):
+    return ALIAS.get(w, w)
+
+
+def _is_numberish(ws):
+    return bool(ws) and all(w.isdigit() or w in _NUMW for w in ws)
+
+
+def _expand_passage(passage):
+    """passage → [(a, b, 字)]；數字拆成英文數字（64182 → six four one eight two），每個字都對應原本那個詞的範圍。"""
+    ls = []
+    for m in re.finditer(r"\S+", passage):
+        n = norm(m.group())
+        if not n:
+            continue
+        if n.isdigit():
+            ls += [(m.start(), m.end(), DIG[int(c)]) for c in n]
+        else:
+            ls.append((m.start(), m.end(), _canon(n)))
+    return ls
+
+
+def _expand_asr(words):
+    """whisper 逐字 → [(start, end, 字, 原字)]；數字展開，原字只放在第一個。"""
+    out = []
+    for s, e, t in words:
+        raw = (t or "").strip()
+        n = norm(raw)
+        if not n:
+            continue
+        if n.isdigit():
+            step = (e - s) / len(n)
+            out += [(s + k * step, s + (k + 1) * step, DIG[int(c)], raw if k == 0 else "") for k, c in enumerate(n)]
+        else:
+            out.append((s, e, _canon(n), raw))
+    return out
+
+
+def _strip_edge(w):
+    return re.sub(r"^[^A-Za-z0-9]+|[^A-Za-z0-9]+$", "", w)
+
+
+def diff_passage(passage, words, fuzzy=0.70):
+    """回傳 (hunks, 略過的數字寫法差異數)。每個 hunk：
+       {id, kind: delete|insert|replace|label, a, b, old, new, t0, t1, conf: sure|maybe, note}
+       a/b＝這處差異在 passage 的字元範圍（insert 的 a==b＝插入位置）。"""
+    pt, wt = _expand_passage(passage), _expand_asr(words)
+    pw, ww = [t[2] for t in pt], [t[2] for t in wt]
+    sm = difflib.SequenceMatcher(None, pw, ww, autojunk=False)
+    lspans = label_spans(passage)
+    raw_ops = []     # (i1, i2, j1, j2)
+    skipped = 0
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == "equal":
+            continue
+        P, W = pw[i1:i2], ww[j1:j2]
+        if tag == "replace":
+            if "".join(P) == "".join(W):                      # check-in ↔ check in
+                continue
+            if _is_numberish(P) and _is_numberish(W):         # 25 ↔ twenty five：寫法不同，不是真的差異
+                skipped += 1
+                continue
+            if len(P) == len(W):                              # 一對一：聽成相近的字不算差異，只留真的不同的連續段
+                bad = [difflib.SequenceMatcher(None, a, b).ratio() < fuzzy for a, b in zip(P, W)]
+                k = 0
+                while k < len(P):
+                    if not bad[k]:
+                        k += 1
+                        continue
+                    m = k
+                    while m < len(P) and bad[m]:
+                        m += 1
+                    raw_ops.append((i1 + k, i1 + m, j1 + k, j1 + m))
+                    k = m
+                continue
+        if tag == "delete" and _is_numberish(P):
+            skipped += 1
+            continue
+        raw_ops.append((i1, i2, j1, j2))
+
+    hunks = []
+    for n, (i1, i2, j1, j2) in enumerate(raw_ops, 1):
+        # 音檔時間窗：前一個對到的字的結束 ～ 後一個對到的字的開始
+        prev_end = wt[j1 - 1][1] if j1 > 0 else 0.0
+        next_start = wt[j2][0] if j2 < len(wt) else (wt[-1][1] if wt else 0.0)
+        h = {"id": n, "t0": round(prev_end, 2), "t1": round(max(next_start, prev_end), 2), "conf": "maybe", "note": ""}
+        if i2 > i1:
+            a, b = pt[i1][0], pt[i2 - 1][1]
+            h["old"] = passage[a:b]
+        else:
+            # 純插入：放在前一個字之後（沒有前字就放在第一個字之前）
+            a = b = pt[i1 - 1][1] if i1 > 0 else (pt[0][0] if pt else 0)
+            h["old"] = ""
+        h["a"], h["b"] = a, b
+        raw_new = [t[3] for t in wt[j1:j2] if t[3]]
+        h["new"] = " ".join(_strip_edge(w) for w in raw_new if _strip_edge(w))
+        gap = h["t1"] - h["t0"]
+        if i2 > i1 and j2 == j1:
+            h["kind"] = "delete"
+            in_label = any(la <= a and b <= lb + 2 for la, lb in lspans) or any(la <= a < lb for la, lb in lspans)
+            if in_label:
+                h["kind"] = "label"
+            need = 0.15 + 0.12 * (i2 - i1)
+            if passage[:a].rstrip(" \t").endswith("\n") or not passage[:a].strip():
+                need += 0.8          # 行首的字（多半是說話者標籤）：前面本來就會有換人說話的停頓
+            if gap <= need:
+                h["conf"], h["note"] = "sure", "音檔這裡只有 %.1f 秒空檔，確實沒唸" % gap
+            else:
+                h["note"] = "音檔這裡有 %.1f 秒的聲音，可能是辨識漏聽，請聽一下再決定" % gap
+        elif i2 == i1:
+            h["kind"] = "insert"
+            at_edge = j1 == 0 or j2 >= len(wt)
+            h["conf"] = "maybe"
+            h["note"] = "音檔開頭／結尾多出來的字，常是辨識亂加（如 Thank you）" if at_edge else "音檔有唸、文稿沒有"
+        else:
+            h["kind"] = "replace"
+            h["note"] = "文稿與音檔用字不同（音檔 %.1f 秒）" % gap
+        hunks.append(h)
+    return hunks, skipped
+
+
+def _cut_span(text, a, b):
+    """刪掉 text[a:b]，順手清掉殘留的冒號、多餘空白，並把新的句首字母改大寫。回傳新字串。"""
+    m = re.match(r"[ \t]*[:：\-–—]+(?=\s|$)", text[b:])
+    if m:
+        b += m.end()
+    before, after = text[:a], text[b:]
+    at_line = before == "" or before.rstrip(" \t").endswith("\n") or before.rstrip(" \t") == ""
+    if at_line:
+        before = before.rstrip(" \t")
+        after = after.lstrip(" \t")
+    elif before.endswith((" ", "\t")) and after.startswith((" ", "\t")):
+        after = after.lstrip(" \t")
+    elif not before.endswith((" ", "\t")) and after.startswith((" ", "\t")) and after.lstrip(" \t")[:1] in ".,!?;:":
+        after = after.lstrip(" \t")
+    if before.endswith((" ", "\t")) and after.startswith("\n"):
+        before = before.rstrip(" \t")
+    if before.endswith("\n") and after.startswith("\n"):     # 整行刪空了 → 不留空行
+        after = after[1:]
+    # 句首大寫
+    pre = before.rstrip(" \t")
+    if pre == "" or pre.endswith(("\n", ".", "!", "?", '"', "”", "“")):
+        mm = re.match(r"^([\"“'(]*)([a-z])", after)
+        if mm:
+            after = after[:mm.start(2)] + after[mm.start(2)].upper() + after[mm.end(2):]
+    return before + after
+
+
+def apply_hunks(passage, hunks):
+    """把勾選的 hunks 套用到 passage，回傳新文稿。由後往前套，字元位置才不會跑掉。"""
+    text = passage
+    for h in sorted(hunks, key=lambda x: (x["a"], x["b"]), reverse=True):
+        a, b, kind = h["a"], h["b"], h["kind"]
+        if kind in ("delete", "label"):
+            text = _cut_span(text, a, b)
+        elif kind == "insert":
+            ins = h["new"]
+            if not ins:
+                continue
+            nxt = text[a:a + 1]
+            if a == 0 or (b == a and text[:a].strip() == ""):
+                text = ins + " " + text[a:]
+            else:
+                text = text[:a] + " " + ins + text[a:]
+        elif kind == "replace":
+            old = text[a:b]
+            lead = re.match(r"^[^A-Za-z0-9]*", old).group()
+            trail = re.search(r"[^A-Za-z0-9]*$", old).group()
+            body = h["new"]
+            if body:
+                if old[len(lead):len(lead) + 1].isupper() and body[:1].islower():
+                    body = body[0].upper() + body[1:]
+                text = text[:a] + lead + body + trail + text[b:]
+            else:
+                text = _cut_span(text, a, b)
+    return text
+
+
+def transcribe_cached(model_getter, mp3, cache_dir, prompt=None, log=print):
+    """辨識結果存成快取（backup/asr_cache/<檔名>.json）：同一個 mp3 沒改過就不用再聽一次。
+       model_getter＝呼叫後回傳 whisper 模型的函式（沒有快取時才會載入模型）。"""
+    os.makedirs(cache_dir, exist_ok=True)
+    st = os.stat(mp3)
+    key = {"model": MODEL, "size": st.st_size, "mtime": int(st.st_mtime)}
+    cp = os.path.join(cache_dir, os.path.splitext(os.path.basename(mp3))[0] + ".json")
+    try:
+        with open(cp, encoding="utf-8") as f:
+            c = json.load(f)
+        if c.get("key") == key and isinstance(c.get("words"), list):
+            log("使用快取的辨識結果：%s" % os.path.basename(cp))
+            return [tuple(w) for w in c["words"]]
+    except Exception:
+        pass
+    words = transcribe(model_getter(), mp3, prompt)
+    with open(cp, "w", encoding="utf-8") as f:
+        json.dump({"key": key, "words": words}, f, ensure_ascii=False)
+    return words
 
 
 def dump_json(data):
