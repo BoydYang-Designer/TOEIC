@@ -15,6 +15,10 @@
 
 【Trash 管理】還原（放回原本的 week／day，位置已有新文章就拒絕）、永久刪除單筆、清空全部（要輸入 DELETE）。
 
+【版本備份】json_merge.py 合併「文稿補丁」（w1d1_passage.json）時，會先把改之前的整筆資料與舊 mp3 複製到 _trash/w1d1-edit-時間/
+    （meta.kind＝'version'）。在 Trash 管理裡它標示「版本備份」；還原＝把舊文稿（passage、timing、edited、review_pending，
+    若當時句型被換掉也包含句型）與舊 mp3 放回現有那一篇，不是整篇還原；還原前會先把「目前」的版本也備份一份，所以還原可以再還原。
+
 【trash-index.json】每次變動後重建（網站根目錄）。只放描述資料，不含音檔，網頁的 Trash 清單頁讀它。
 【_trash/】內有 mp3，不可被發佈；第一次執行會確認 .gitignore 有 _trash/。
 """
@@ -186,26 +190,8 @@ def read_entry(jm, name):
 
 
 def rebuild_index(jm):
-    entries = []
-    for name in trash_folders():
-        meta, item = read_entry(jm, name)
-        if not meta:
-            continue
-        p = str(item.get('passage') or '')
-        lv = item.get('level') if isinstance(item.get('level'), dict) else {}
-        entries.append({
-            'folder': name, 'id': meta.get('id'), 'week': item.get('week'), 'day': item.get('day'),
-            'tag': item.get('tag'), 'subtopic': item.get('subtopic'), 'type': item.get('type'),
-            'score': lv.get('score'), 'deleted': meta.get('deleted'), 'note': meta.get('note') or '',
-            'has_mp3': nfiles(meta) > 0, 'n_files': nfiles(meta),
-            'words': len(re.findall(r"[A-Za-z0-9']+", p)),
-            'n_vocab': len(item.get('vocab') or []), 'n_questions': len(item.get('questions') or []),
-            'extra_moved': meta.get('extra_moved') or [], 'extra_kept': meta.get('extra_kept') or [],
-            'preview': p[:160],
-        })
-    entries.sort(key=lambda e: str(e.get('deleted') or ''), reverse=True)
-    write_json(INDEX, {'v': 1, 'updated': datetime.now().isoformat(timespec='seconds'), 'items': entries})
-    return entries
+    """重建 trash-index.json。實作放在 json_merge.py（文稿補丁的版本備份也用同一份），這裡只是呼叫。"""
+    return jm.trash_rebuild_index(BASE)
 
 
 def run_scan(jm):
@@ -409,8 +395,9 @@ def show_trash(jm):
         if not meta:
             print('  [%d] %s（meta／item 讀不到）' % (i, n))
         else:
-            print('  [%d] %s「%s」 刪除於 %s%s%s' % (i, lab((item.get('week'), item.get('day'))), item.get('tag') or '',
-                                                   str(meta.get('deleted') or '').replace('T', ' '),
+            ver = meta.get('kind') == 'version'
+            print('  [%d] %s%s「%s」 %s於 %s%s%s' % (i, '【版本備份】' if ver else '', lab((item.get('week'), item.get('day'))), item.get('tag') or '',
+                                                   '備份' if ver else '刪除', str(meta.get('deleted') or '').replace('T', ' '),
                                                    ('　含音檔 %d 個' % nfiles(meta)) if nfiles(meta) else '',
                                                    '　備註：' + meta['note'] if meta.get('note') else ''))
         out.append(n)
@@ -422,6 +409,8 @@ def restore(jm, name):
     if not meta:
         print('這筆的 meta.json／item.json 讀不到，無法還原。')
         return
+    if meta.get('kind') == 'version':
+        return restore_version(jm, name, meta, item)
     data, items = load_main(jm)
     if items is None:
         return
@@ -466,6 +455,48 @@ def restore(jm, name):
     offer_scan(jm)
 
 
+def restore_version(jm, name, meta, item):
+    """還原「文稿版本備份」：把舊文稿（與舊 timing、舊 mp3）放回現有那一篇。先備份目前的版本，所以可以再還原回來。"""
+    data, items = load_main(jm)
+    if items is None:
+        return
+    k = item_key(item)
+    cur = find_item(items, k)
+    if not cur:
+        print('✖ %s 現在不在 daily.json（可能已被刪除），無法還原文稿版本。\n  若要找回整篇，請還原刪除時留下的 Trash 項目。' % lab(k))
+        return
+    fields = [f for f in (meta.get('fields') or ['passage', 'timing', 'edited', 'review_pending'])]
+    words = lambda t: len(re.findall(r"[A-Za-z0-9']+", str(t or '')))
+    print('\n還原 %s 的舊版文稿：' % lab(k))
+    print('  目前：英文 %d 字，timing %d 段%s' % (words(cur.get('passage')), len(cur.get('timing') or []), '，待檢查（review_pending）' if cur.get('review_pending') else ''))
+    print('  舊版：英文 %d 字，timing %d 段，備份於 %s' % (words(item.get('passage')), len(item.get('timing') or []), str(meta.get('deleted') or '').replace('T', ' ')))
+    print('  會換回的欄位：%s' % '、'.join(fields))
+    print('  注意：補丁之後若用「修正補丁」改過翻譯、單字、題目，那些不會被還原（它們不在這份備份裡）。')
+    plan_files = [(os.path.join(TRASH, name, 'files', *rel.split('/')), safe_path(rel), rel) for rel in (meta.get('files') or [])]
+    plan_files = [(a, b, c) for a, b, c in plan_files if b and os.path.isfile(a)]
+    if plan_files:
+        print('  音檔：%s（現有同名檔會被取代；取代前已先備份在新的版本備份裡）' % '、'.join(c for _, _, c in plan_files))
+    if not yes('確認還原？'):
+        print('已取消。')
+        return
+    bak = jm.backup_main(MAIN, 'daily')
+    jm.version_backup(BASE, copy.deepcopy(cur), fields, '還原前的版本')   # 目前的版本（含目前的 mp3）也留一份
+    for f in fields:
+        if f in item:
+            cur[f] = copy.deepcopy(item[f])
+        else:
+            cur.pop(f, None)
+    jm.write_main(MAIN, data)
+    for src, dst, _ in plan_files:
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        shutil.copy2(src, dst)
+    shutil.rmtree(os.path.join(TRASH, name))
+    rebuild_index(jm)
+    print('✔ 已還原 %s 的舊文稿（daily.json 備份：%s）' % (lab(k), os.path.relpath(bak, BASE)))
+    print('  還原前的版本已另存在 Trash（版本備份）。')
+    offer_scan(jm)
+
+
 def purge(jm, name):
     meta, item = read_entry(jm, name)
     print('永久刪除 _trash/%s（資料與 mp3 都會消失，無法復原）。' % name)
@@ -503,8 +534,9 @@ def trash_menu(jm):
                 pick = names[0]                                   # 只有一筆：單打 r／x 就好
             elif arg.isdigit() and 1 <= int(arg) <= len(names):
                 pick = names[int(arg) - 1]                        # r 1
-            elif parse_id(arg):                                   # r w3d8（有多版時取最新的一版）
-                pick = next((n for n in names if n.startswith(sid(parse_id(arg)) + '-')), None)
+            elif parse_id(arg):                                   # r w3d8（有多版時取最新的一版；刪除的優先，版本備份請用編號）
+                hit = [n for n in names if n.startswith(sid(parse_id(arg)) + '-')]
+                pick = next((n for n in hit if '-edit-' not in n), hit[0] if hit else None)
         if not pick:
             ex = 'r' if len(names) == 1 else 'r 1'
             print('看不懂。請輸入像「%s」、「x 1」或「r %s」（編號或文章 id 都可以）。' % (ex, sid(parse_id(names[0].split('-')[0]) or (1, 1))))

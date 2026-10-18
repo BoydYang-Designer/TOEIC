@@ -30,3 +30,9 @@ button:not(:disabled):active{transform:scale(.94)}
 @media (max-width:767px){input,textarea,select{font-size:max(16px,1rem)!important}}
 /* 詳解頁：可選取文字入庫 */
 #detail-text{-webkit-user-select:text;user-select:text}
+/* 文稿草稿差異（維護頁「✏️ 文稿」） */
+ins.df-add{background:rgba(16,185,129,.22);text-decoration:none;border-radius:2px}
+del.df-del{background:rgba(244,63,94,.18);text-decoration:line-through;border-radius:2px}
+.dark ins.df-add{background:rgba(52,211,153,.25)}
+.dark del.df-del{background:rgba(251,113,133,.25)}
+.df-box{white-space:pre-wrap;word-break:break-word}

@@ -26,6 +26,15 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / par
      自己錄好放進去 → 按「重新檢查」→ 整組齊了就打勾 → daily 文章會問要不要跑 daily_timestamps.py 對時，
      其餘題庫會問要不要跑 Scan總表與音檔.py。視窗不用關，可以再跑一次；合併視窗下方「手動錄音清單…」可隨時再打開。
      （需要 auto-speech.py、daily_timestamps.py、Scan總表與音檔.py 放在同一個資料夾或其 audio 子資料夾。）
+  3b. 文稿補丁 w1d3_passage.json（網頁維護頁「✏️ 文稿」按「複製文稿修改」產生）：{week, day, passage, presentation_phrases?}
+     只換該篇的 passage；timing 清成 []；寫入 edited（日期）與 review_pending: true；有附句型（非空陣列）才整組取代句型。
+     合併前驗證切句（daily_timestamps.py 與網頁 timing.js 一致；有 node 才能真正比對），不一致就擋下不寫入。
+     舊 mp3 與改之前的整筆資料會先複製到 _trash/w1d3-edit-時間/（版本備份，meta.kind='version'），主檔寫成功後才移走舊 mp3。
+     之後接既有流程：自動語音／手動錄音 → daily_timestamps.py 對時 → Scan總表與音檔.py。
+  3c. 修正補丁 w1d3_fix.json（網頁維護頁「複製調整提示詞」給 AI，AI 回傳）：{week, day, fix:{zh, vocab:{upsert,remove}, extra_vocab:{upsert,remove},
+     questions, presentation_phrases, changes}}。空字串／空陣列／省略＝不改；questions、presentation_phrases 有內容就整組取代；
+     vocab、extra_vocab 依 word／text 做 upsert、remove；changes 只給人看。合併前把補丁套到舊文章上，用整篇驗證檢查結果；
+     成功後清除 review_pending（欄位全空的 fix 也一樣，只清旗標）。確認視窗會逐題顯示 questions 新舊對照。
   5. 文稿比對（每日文章）：錄完音後又改了文稿（例如刪掉 "The man :" 才錄），按底部「文稿比對修改…」（或錄音視窗的「文稿比對（依音檔）」）：
      用 whisper 聽 mp3，把「音檔真的有唸的字」當標準，與 daily.json 的 passage 逐字比對；每一處差異預設都不勾，
      人工勾選要採用的 →「套用並重新對時」（自動備份；只改該篇的 passage 與 timing）→ 可接著執行 Scan總表與音檔.py。辨識結果會快取在 backup/asr_cache/。
@@ -315,6 +324,19 @@ class Profile(object):
         """所有題目合併完、排序前呼叫；回傳要顯示給使用者看的說明（list[str]）。"""
         return []
 
+    # 寫檔前後的副作用（目前只有 daily 的文稿補丁會用到：把舊版備份進 _trash、移走舊 mp3）
+    def confirm_notes(self, batch, existing, root):
+        return []
+
+    def before_write(self, main_path, new_by_key, old_by_key):
+        return None
+
+    def after_write(self, state):
+        pass
+
+    def abort_write(self, state):
+        pass
+
 
 class IdProfile(Profile):
     """photo、part2：以 id 為鍵。"""
@@ -351,13 +373,90 @@ class Daily(Profile):
     backup_prefix = 'daily'
     name_re = re.compile(r'^w(\d+)d(\d+)', re.I)
     empty_hint = '資料夾內沒有找到其他 .json 檔。\n請按「新增檔案…」手動選取，例如 w1d3.json。'
-    done_note = '記得把對應的 mp3 放進 audio 資料夾（例如 audio/daily/w1d3.mp3），並完成 timing 對時。（若合併的是 _extra 補丁，重新整理網頁即可看到詳解。）'
+    done_note = '記得把對應的 mp3 放進 audio 資料夾（例如 audio/daily/w1d3.mp3），並完成 timing 對時。（若合併的是 _extra 或 _fix 補丁，重新整理網頁即可看到；文稿補丁需要重錄 mp3 並重新對時。）'
     XTYPES = ('word', 'phrase', 'sentence')
 
     @staticmethod
     def is_patch(e):
         """補丁：只有 week／day／extra_vocab，沒有文章本體。"""
-        return isinstance(e, dict) and 'extra_vocab' in e and not any(k in e for k in ('passage', 'questions', 'vocab', 'zh', 'tag'))
+        return isinstance(e, dict) and 'extra_vocab' in e and 'fix' not in e and not any(k in e for k in ('passage', 'questions', 'vocab', 'zh', 'tag'))
+
+    # ── P2／P3a：文稿補丁 與 修正（fix）補丁 ──────────────────────────────
+    # 文稿補丁  w1d1_passage.json：{week, day, passage, presentation_phrases?}（只有這四個鍵；句型空陣列或不附＝不改）
+    # 修正補丁  w1d1_fix.json    ：{week, day, fix:{zh, vocab:{upsert,remove}, extra_vocab:{upsert,remove}, questions, presentation_phrases, changes}}
+    #           （也接受把這些欄位平鋪在最外層、並加上 "fix": true 的寫法）
+    TEXT_PATCH_KEYS = ('week', 'day', 'passage', 'presentation_phrases')
+    FIX_FIELDS = ('zh', 'vocab', 'extra_vocab', 'questions', 'presentation_phrases', 'changes')
+
+    @staticmethod
+    def fix_body(e):
+        f = e.get('fix') if isinstance(e, dict) else None
+        if isinstance(f, dict):
+            return f
+        if f is True:
+            return {k: e[k] for k in Daily.FIX_FIELDS if k in e}
+        return None
+
+    @staticmethod
+    def is_fix(e):
+        if not isinstance(e, dict) or 'fix' not in e or Daily.fix_body(e) is None:
+            return False
+        allowed = {'week', 'day', 'fix'} | (set(Daily.FIX_FIELDS) if e.get('fix') is True else set())
+        return set(e) <= allowed
+
+    @staticmethod
+    def is_text_patch(e):
+        return isinstance(e, dict) and 'passage' in e and set(e) <= set(Daily.TEXT_PATCH_KEYS)
+
+    @staticmethod
+    def wkey(v):
+        return re.sub(r'\s+', ' ', str(v.get('word') if isinstance(v, dict) else v or '').strip().lower())
+
+    @staticmethod
+    def norm_passage(p):
+        return str(p).replace('\r\n', '\n').replace('\r', '\n')
+
+    def apply_text_patch(self, old, e):
+        """只換 passage；timing 清空；寫 edited（日期）與 review_pending；有附句型（非空）才整組取代句型。
+        文稿其實沒變（只是順便換簡報句型）時：timing、mp3、edited、review_pending 都不動，只換句型。"""
+        m = copy.deepcopy(old)
+        if self.norm_passage(e['passage']) != old.get('passage'):
+            m['passage'] = self.norm_passage(e['passage'])
+            m['timing'] = []
+            m['edited'] = datetime.now().strftime('%Y-%m-%d')
+            m['review_pending'] = True
+        pp = e.get('presentation_phrases')
+        if isinstance(pp, list) and pp:
+            m['presentation_phrases'] = copy.deepcopy(pp)
+        return m
+
+    def apply_fix(self, old, e):
+        """fix 補丁套用到舊文章（回傳新的一份，不改 old）。空欄位＝不改；一律清除 review_pending。"""
+        f, m = self.fix_body(e), copy.deepcopy(old)
+        if isinstance(f.get('zh'), str) and f['zh'].strip():
+            m['zh'] = f['zh']
+        for fld, kf in (('vocab', self.wkey), ('extra_vocab', self.xkey)):
+            ch = f.get(fld)
+            if not isinstance(ch, dict) or not (ch.get('upsert') or ch.get('remove')):
+                continue
+            cur = list(m.get(fld) or [])
+            rm = {kf(x) for x in (ch.get('remove') or [])}
+            cur = [o for o in cur if kf(o) not in rm]
+            for nv in ch.get('upsert') or []:
+                i = next((j for j, o in enumerate(cur) if kf(o) == kf(nv)), None)
+                if i is None:
+                    cur.append(copy.deepcopy(nv))
+                else:
+                    cur[i] = copy.deepcopy(nv)
+            if cur:
+                m[fld] = cur
+            else:
+                m.pop(fld, None)
+        for fld in ('questions', 'presentation_phrases'):
+            if isinstance(f.get(fld), list) and f[fld]:
+                m[fld] = copy.deepcopy(f[fld])
+        m.pop('review_pending', None)
+        return m
 
     @staticmethod
     def xkey(v):
@@ -395,8 +494,23 @@ class Daily(Profile):
     def is_auto(self, fname):
         return bool(self.name_re.match(fname))
 
+    def describe(self, e):
+        if isinstance(e, dict) and self.is_fix(e):
+            f = self.fix_body(e)
+            names = [k for k in ('zh', 'vocab', 'extra_vocab', 'questions', 'presentation_phrases') if f.get(k)]
+            return '修正補丁（%s）' % ('、'.join(names) if names else '只清除 review_pending')
+        if isinstance(e, dict) and self.is_text_patch(e):
+            return '文稿補丁（英文 %d 字%s）' % (len(re.findall(r"[A-Za-z0-9']+", str(e.get('passage') or ''))),
+                                          '，含簡報句型' if e.get('presentation_phrases') else '')
+        return str(e.get('tag', '')) if isinstance(e, dict) else ''
+
     def same_content(self, a, b):
         """不比對 timing（主檔的 timing 通常已對時、副檔是空的）。補丁：每一筆都已經在主檔且內容相同才算「相同」。"""
+        if self.is_text_patch(b):
+            pp = b.get('presentation_phrases')
+            return isinstance(a, dict) and self.norm_passage(b['passage']) == a.get('passage') and (not pp or pp == a.get('presentation_phrases'))
+        if self.is_fix(b):
+            return isinstance(a, dict) and self.apply_fix(a, b) == a
         if self.is_patch(b):
             old = {self.xkey(v): v for v in (a.get('extra_vocab') or []) if isinstance(v, dict)}
             return isinstance(a, dict) and all(self.xkey(v) in old and old[self.xkey(v)] == v for v in b['extra_vocab'])
@@ -404,6 +518,11 @@ class Daily(Profile):
         return isinstance(a, dict) and isinstance(b, dict) and strip(a) == strip(b)
 
     def finalize(self, e, old):
+        if self.is_fix(e) or self.is_text_patch(e):   # 文稿補丁／修正補丁：e 整個換成合併後的文章
+            merged = self.apply_fix(old, e) if self.is_fix(e) else self.apply_text_patch(old, e)
+            e.clear()
+            e.update(merged)
+            return
         if self.is_patch(e):   # 補丁：把 extra_vocab 併進舊文章（同 text 取代、其餘新增），e 整個換成合併後的文章
             merged = copy.deepcopy(old)
             cur = list(merged.get('extra_vocab') or [])
@@ -431,7 +550,7 @@ class Daily(Profile):
     def make_ctx(self, items, data):
         sp = (data.get('_spec') or {}).get('subtopics') if isinstance(data, dict) else None
         return {'passages': {self.key(x): str(x.get('passage') or '') for x in items if isinstance(x, dict)}, 'subtopics': sp or {},
-                'extras': extra_owners(items)}
+                'extras': extra_owners(items), 'olds': {self.key(x): x for x in items if isinstance(x, dict)}}
 
     def merge_prepare(self, new_by_key):
         """這次補丁寫進哪一篇的哪些字：{字: (week, day)}。補丁內容是完整的一筆，同字重複時以它為準。"""
@@ -441,18 +560,212 @@ class Daily(Profile):
                 for v in e.get('extra_vocab') or []:
                     if isinstance(v, dict) and self.xkey(v):
                         fresh[self.xkey(v)] = k
+            elif self.is_fix(e):
+                for v in ((self.fix_body(e).get('extra_vocab') or {}).get('upsert') or []):
+                    if isinstance(v, dict) and self.xkey(v):
+                        fresh[self.xkey(v)] = k
         return fresh
 
     def merge_finish(self, out, token):
         return unify_extra(out, token)
 
     def extra_detail(self, e):
+        if self.is_text_patch(e) or self.is_fix(e):
+            return ['     ' + self.describe(e)]
         if self.is_patch(e):
             xs = e.get('extra_vocab')
             return ['     補丁：extra_vocab %d 筆' % (len(xs) if isinstance(xs, list) else 0)]
         if isinstance(e, dict) and isinstance(e.get('questions'), list):
             return ['     題數 %d、單字 %d、type %s' % (len(e['questions']), len(e.get('vocab') or []), e.get('type'))]
         return []
+
+    def _patch_target(self, e, ctx, what):
+        """文稿補丁／修正補丁共用：week／day 要是整數，主檔要有那一篇。回傳 (errors, old)。"""
+        er = ['%s 必須是整數' % k for k in ('week', 'day') if not isinstance(e.get(k), int) or isinstance(e.get(k), bool)]
+        old = None if er else (ctx.get('olds') or {}).get(self.key(e))
+        if not er and old is None:
+            er.append('主檔沒有 W%dD%d，%s無處可合（請先合併該篇文章）' % (self.key(e) + (what,)))
+        return er, old
+
+    @staticmethod
+    def _dedupe(xs):
+        seen, out = set(), []
+        for x in xs:
+            if x not in seen:
+                seen.add(x)
+                out.append(x)
+        return out
+
+    def validate_text_patch(self, e, ctx):
+        """文稿補丁：先確認形狀，再把它套到舊文章上，用整篇驗證（Daily.validate）檢查合併後的結果，並檢查切句一致（風險 7）。"""
+        er, wa = [], []
+        e2, old = self._patch_target(e, ctx, '文稿補丁')
+        er += e2
+        p = e.get('passage')
+        if not isinstance(p, str) or not p.strip():
+            er.append('passage 必須是非空字串')
+        pp = e.get('presentation_phrases')
+        if pp is not None and not isinstance(pp, list):
+            er.append('presentation_phrases 必須是陣列（空陣列或不附＝不改）')
+        if er:
+            return er, wa
+        if '\r' in p:
+            wa.append('passage 含有換行字元 \\r（合併時會統一成 \\n）')
+        er2, wa2 = self.validate(self.apply_text_patch(old, e), dict(ctx, name=None, single=False))
+        er += er2
+        wa += [w for w in wa2 if not w.startswith('timing 是空的')]
+        e3, w3 = split_problems(self.norm_passage(p))
+        er += e3
+        wa += w3
+        if self.norm_passage(p) == old.get('passage') and not pp:
+            wa.append('文稿與主檔相同，沒有需要更新的內容')
+        elif pp is None and old.get('presentation_phrases'):
+            wa.append('這篇有簡報句型（%d 句），但補丁沒附 presentation_phrases：句型不會被改（文稿改了，建議之後用「調整提示詞」一起檢查）' % len(old['presentation_phrases']))
+        return self._dedupe(er), self._dedupe(wa)
+
+    def validate_fix(self, e, ctx):
+        """修正補丁：形狀 → 套到舊文章 → 整篇驗證合併後的結果；extra_vocab 的 upsert 逐項套用 _extra 補丁的同一套檢查。"""
+        er, wa = [], []
+        e2, old = self._patch_target(e, ctx, '修正補丁')
+        er += e2
+        f = self.fix_body(e)
+        if f is None:
+            er.append('fix 必須是物件（或寫成 "fix": true 並把欄位平鋪）')
+        if er:
+            return er, wa
+        for k in f:
+            if k not in self.FIX_FIELDS:
+                er.append('fix 裡不認得的欄位「%s」（可用：%s）' % (k, '、'.join(self.FIX_FIELDS)))
+        if 'zh' in f and not isinstance(f['zh'], str):
+            er.append('zh 必須是字串（不改請留空字串或省略）')
+        if 'changes' in f and not (isinstance(f['changes'], str) or (isinstance(f['changes'], list) and all(isinstance(c, str) for c in f['changes']))):
+            er.append('changes 必須是字串或字串陣列（只給人看，不會寫進主檔）')
+        for fld, label in (('vocab', 'word'), ('extra_vocab', 'text')):
+            ch = f.get(fld)
+            if ch is None:
+                continue
+            if not isinstance(ch, dict) or not set(ch) <= {'upsert', 'remove'}:
+                er.append('%s 必須是 {"upsert": [...], "remove": [...]}（不改請省略）' % fld)
+                continue
+            if not isinstance(ch.get('upsert') or [], list) or not all(isinstance(o, dict) for o in ch.get('upsert') or []):
+                er.append('%s.upsert 必須是物件陣列' % fld)
+            if not isinstance(ch.get('remove') or [], list) or not all(isinstance(o, str) and o.strip() for o in ch.get('remove') or []):
+                er.append('%s.remove 必須是「%s」字串陣列' % (fld, label))
+        for fld in ('questions', 'presentation_phrases'):
+            if fld in f and not isinstance(f[fld], list):
+                er.append('%s 必須是陣列（空陣列＝不改，有內容＝整組取代）' % fld)
+        if er:
+            return er, wa
+        # 同一個字不能同時 upsert 與 remove
+        for fld, kf in (('vocab', self.wkey), ('extra_vocab', self.xkey)):
+            ch = f.get(fld) or {}
+            both = {kf(o) for o in ch.get('upsert') or []} & {kf(o) for o in ch.get('remove') or []}
+            if both:
+                er.append('%s：「%s」同時出現在 upsert 與 remove' % (fld, '、'.join(sorted(both))))
+            have = {kf(o) for o in (old.get(fld) or []) if isinstance(o, dict)}
+            gone = [o for o in ch.get('remove') or [] if kf(o) not in have]
+            if gone:
+                wa.append('%s.remove 的「%s」在 W%dD%d 本來就沒有（略過）' % (fld, '、'.join(gone), old['week'], old['day']))
+        if er:
+            return er, wa
+        merged = self.apply_fix(old, e)
+        er2, wa2 = self.validate(merged, dict(ctx, name=None, single=False))
+        er += er2
+        wa += wa2
+        passage = str(old.get('passage') or '')
+        for v in (f.get('vocab') or {}).get('upsert') or []:   # 修正補丁裡的新單字一定要出現在文稿（一般驗證只警告，這裡擋下）
+            w = str(v.get('word') or '').strip()
+            stem = w if re.search(r'\s', w) else re.sub(r'e$', '', w, flags=re.I)
+            if w and not re.search(r'\b' + re.escape(stem), passage, re.I):
+                er.append('vocab.upsert 的「%s」沒有出現在目前的文稿，網頁無法標示（請改選文稿裡真的有的字）' % w)
+        ups = (f.get('extra_vocab') or {}).get('upsert') or []
+        if ups:
+            er3, wa3 = self.validate_patch({'week': old['week'], 'day': old['day'], 'extra_vocab': ups}, ctx)
+            er += er3
+            wa += wa3
+        if not any(f.get(k) for k in ('zh', 'questions', 'presentation_phrases')) \
+                and not any((f.get(k) or {}).get('upsert') or (f.get(k) or {}).get('remove') for k in ('vocab', 'extra_vocab')):
+            wa.append('所有欄位都是空的：合併後只會清除 review_pending，其他欄位不動')
+        return self._dedupe(er), self._dedupe(wa)
+
+    def confirm_notes(self, batch, existing, root):
+        """合併確認視窗要多顯示的說明（文稿補丁：mp3／timing 會怎樣；修正補丁：questions 新舊對照與 changes）。"""
+        out = []
+        for k in sorted(batch, key=self.key_sort):
+            e, old = batch[k], existing.get(k)
+            if not old:
+                continue
+            lab = self.fmt_key(k)
+            if self.is_text_patch(e) and self.norm_passage(e['passage']) == old.get('passage'):
+                out += ['', '【文稿補丁 %s】' % lab, '  • 文稿本身沒變，只換簡報句型（%d → %d 句）；timing 與 mp3 都不動。' % (
+                    len(old.get('presentation_phrases') or []), len(e.get('presentation_phrases') or []))]
+            elif self.is_text_patch(e):
+                ap = old.get('audio') or 'audio/daily/w%dd%d.mp3' % k
+                has = os.path.isfile(os.path.join(root, ap))
+                out += ['', '【文稿補丁 %s】' % lab,
+                        '  • timing 會清成空陣列（需重新對時）；加上 edited 日期與 review_pending。',
+                        ('  • 舊 mp3（%s）會移到 _trash（版本備份），文稿與錄音不再相符，之後要重錄；重錄前網頁改用機器發音。' % ap) if has
+                        else '  • 找不到舊 mp3（%s），沒有檔案需要移動。' % ap]
+                if e.get('presentation_phrases'):
+                    out.append('  • 簡報句型：整組取代（%d → %d 句）。' % (len(old.get('presentation_phrases') or []), len(e['presentation_phrases'])))
+            elif self.is_fix(e):
+                f = self.fix_body(e)
+                out += ['', '【修正補丁 %s】' % lab]
+                ch = f.get('changes')
+                if ch:
+                    out += ['  說明：' + x for x in ([ch] if isinstance(ch, str) else ch)][:8]
+                for fld, name in (('vocab', '核心單字'), ('extra_vocab', '詳解')):
+                    c = f.get(fld) or {}
+                    if c.get('upsert') or c.get('remove'):
+                        kf = self.wkey if fld == 'vocab' else self.xkey
+                        up = [str(o.get('word') or o.get('text')) for o in c.get('upsert') or []]
+                        out.append('  • %s：更新／新增 %s；移除 %s' % (name, '、'.join(up) or '—', '、'.join(c.get('remove') or []) or '—'))
+                if f.get('zh'):
+                    out.append('  • 中文翻譯：整篇取代')
+                if f.get('presentation_phrases'):
+                    out.append('  • 簡報句型：整組取代（%d → %d 句）' % (len(old.get('presentation_phrases') or []), len(f['presentation_phrases'])))
+                if f.get('questions'):
+                    out += ['  • 題目：整組取代（%d → %d 題），逐題對照：' % (len(old.get('questions') or []), len(f['questions']))]
+                    out += question_diff(old.get('questions') or [], f['questions'])
+                if old.get('review_pending'):
+                    out.append('  • 合併後清除 review_pending。')
+        return out[:70] + (['…（說明太長，其餘略）'] if len(out) > 70 else [])
+
+    def before_write(self, main_path, new_by_key, old_by_key):
+        """寫主檔之前：文稿補丁要把舊版（整筆資料＋舊 mp3）複製到 _trash 當「版本備份」。回傳要交給 after_write 的狀態。"""
+        root, jobs = os.path.dirname(os.path.abspath(main_path)), []
+        for k, e in new_by_key.items():
+            if self.is_text_patch(e) and old_by_key.get(k):
+                pp = ['presentation_phrases'] if e.get('presentation_phrases') else []
+                if self.norm_passage(e['passage']) != old_by_key[k].get('passage'):
+                    jobs.append(dict(version_backup(root, old_by_key[k], ['passage', 'timing', 'edited', 'review_pending'] + pp, os.path.basename(main_path)), text=True))
+                elif pp:   # 只換句型：備份舊句型，音檔不動
+                    jobs.append(dict(version_backup(root, old_by_key[k], pp, os.path.basename(main_path), audio=False), text=False))
+        return {'root': root, 'jobs': jobs} if jobs else None
+
+    def after_write(self, state):
+        if not state:
+            return
+        for j in state['jobs']:
+            for a in j['abs']:
+                try:
+                    os.remove(a)
+                except OSError as ex:
+                    LAST_MERGE_INFO.append('⚠ 已複製到 _trash，但舊音檔無法刪除（%s），請手動刪除：%s' % (ex, a))
+            LAST_MERGE_INFO.append('舊版已備份到 _trash/%s（版本備份%s）。要還原：雙擊 daily_trash.bat →「2 Trash 管理」。' % (
+                j['folder'], '，含 %d 個音檔' % len(j['abs']) if j['abs'] else '，沒有音檔'))
+        try:
+            trash_rebuild_index(state['root'])
+        except Exception as ex:
+            LAST_MERGE_INFO.append('⚠ 無法更新 trash-index.json（%s），請執行一次 daily_trash.bat 重建。' % ex)
+        if any(j.get('text') for j in state['jobs']):
+            LAST_MERGE_INFO.append('下一步：自動語音（或手動錄音）→ 對時（daily_timestamps.py）→ 執行 Scan總表與音檔.py；錄好之前學習頁用機器發音。文稿改了，可到網頁維護頁用「複製調整提示詞」檢查翻譯、單字、題目。')
+
+    def abort_write(self, state):
+        if not state:
+            return
+        for j in state['jobs']:
+            shutil.rmtree(os.path.join(state['root'], '_trash', j['folder']), ignore_errors=True)
 
     def validate_patch(self, e, ctx):
         er, wa = [], []
@@ -568,6 +881,10 @@ class Daily(Profile):
         er, wa = [], []
         if not isinstance(e, dict):
             return ['內容不是物件'], wa
+        if self.is_fix(e):
+            return self.validate_fix(e, ctx)
+        if self.is_text_patch(e):
+            return self.validate_text_patch(e, ctx)
         if self.is_patch(e):
             return self.validate_patch(e, ctx)
         filename, single = ctx.get('name'), ctx.get('single')
@@ -2221,6 +2538,179 @@ def unify_extra(items, fresh=None):
     return notes
 
 
+# ───────────────────────── 文稿補丁／修正補丁的共用函式（P2／P3a） ─────────────────────────
+
+_ODD_WS = re.compile('[\x1c-\x1f\x85\ufeff]')   # Python 的 \s／strip 與 JS 的 \s／trim 判斷不同的字元
+
+
+def js_split(passage):
+    """用 node 執行網頁的 timing.js 切句，回傳 [[from, to], ...]；沒有 node 或找不到 timing.js 回傳 None（無法比對）。"""
+    node, tj = shutil.which('node'), find_script('timing.js')
+    if not node or not tj:
+        return None
+    import tempfile
+    tmp = inp = None
+    try:
+        with open(tj, encoding='utf-8') as f:
+            src = f.read()
+        tmp = tempfile.NamedTemporaryFile('w', suffix='.js', delete=False, encoding='utf-8')
+        tmp.write(src + '\nconsole.log(JSON.stringify(splitSentences(JSON.parse(require("fs").readFileSync(process.argv[2], "utf8")))));\n')
+        tmp.close()
+        inp = tempfile.NamedTemporaryFile('w', suffix='.json', delete=False, encoding='utf-8')
+        json.dump(passage, inp)
+        inp.close()
+        r = subprocess.run([node, tmp.name, inp.name], capture_output=True, encoding='utf-8', timeout=30)
+        return json.loads(r.stdout) if r.returncode == 0 else None
+    except Exception:
+        return None
+    finally:
+        for t in (tmp, inp):
+            if t is not None:
+                try:
+                    os.unlink(t.name)
+                except OSError:
+                    pass
+
+
+def split_problems(passage):
+    """新文稿的切句檢查（風險 7）。回傳 (errors, warnings)。
+    ① 含 Python 與 JS 判斷不同的空白字元 → 擋下；② 有 node 時，daily_timestamps.py 與網頁 timing.js 各切一次，不一致 → 擋下；
+    ③ 沒有 node 就只做 ①，並提醒可執行 python test_split.py。"""
+    bad = sorted({'U+%04X' % ord(c) for c in _ODD_WS.findall(passage)})
+    if bad:
+        return ['文稿含有特殊字元（%s）：對時腳本（Python）與網頁 timing.js 對它們的空白判斷不同，切句會不一致。請把這些字元刪掉再做補丁' % '、'.join(bad)], []
+    try:
+        py = [list(r) for r in timing_module().split_sentences(passage)]
+    except Exception as ex:
+        return [], ['無法載入 daily_timestamps.py，沒有檢查切句是否一致（%s）' % ex]
+    js = js_split(passage)
+    if js is None:
+        return [], ['沒有檢查「對時腳本」與網頁 timing.js 的切句是否一致（這台電腦找不到 node）；想檢查可執行 python test_split.py --json']
+    if js != py:
+        diff = [(a, b) for a, b in zip(js, py) if a != b][:2] or [(js[len(py):][:1], py[len(js):][:1])]
+        return ['切句不一致：timing.js 切出 %d 句、daily_timestamps.py 切出 %d 句（第一處差異：JS %s／Python %s）。這樣對時後網頁會判成「timing 異常」，請調整文稿標點再做補丁' % (
+            len(js), len(py), diff[0][0], diff[0][1])], []
+    return [], []
+
+
+def question_diff(old, new, lim=60):
+    """修正補丁的 questions 新舊逐題對照（文字行）。"""
+    cut = lambda t: (str(t)[:lim] + '…') if len(str(t)) > lim else str(t)
+    out, same = [], []
+    for i in range(max(len(old), len(new))):
+        o = old[i] if i < len(old) else None
+        n = new[i] if i < len(new) else None
+        if not isinstance(o, dict) and not isinstance(n, dict):
+            continue
+        if o is None:
+            out.append('    Q%d 新增：%s' % (i + 1, cut(n.get('q'))))
+        elif n is None:
+            out.append('    Q%d 刪除：%s' % (i + 1, cut(o.get('q'))))
+        elif o == n:
+            same.append('Q%d' % (i + 1))
+        else:
+            out.append('    Q%d 修改' % (i + 1))
+            if o.get('q') != n.get('q'):
+                out += ['      舊：' + cut(o.get('q')), '      新：' + cut(n.get('q'))]
+            if o.get('opts') != n.get('opts'):
+                out.append('      選項有改')
+            if o.get('ans') != n.get('ans'):
+                out.append('      答案 %s → %s' % ('ABCD'[o['ans']] if isinstance(o.get('ans'), int) and 0 <= o['ans'] < 4 else '?',
+                                              'ABCD'[n['ans']] if isinstance(n.get('ans'), int) and 0 <= n['ans'] < 4 else '?'))
+            if o.get('why') != n.get('why'):
+                out.append('      解析有改')
+            if o.get('kind') != n.get('kind'):
+                out.append('      kind %s → %s' % (o.get('kind'), n.get('kind')))
+    if same:
+        out.append('    不變：' + '、'.join(same))
+    return out
+
+
+def _write_json_file(path, obj):
+    tmp = path + '.tmp'
+    with open(tmp, 'w', encoding='utf-8') as f:
+        json.dump(obj, f, ensure_ascii=False, indent=2)
+        f.write('\n')
+    os.replace(tmp, path)
+
+
+def _ensure_trash_ignored(root):
+    p = os.path.join(root, '.gitignore')
+    try:
+        text = open(p, encoding='utf-8').read() if os.path.isfile(p) else ''
+        if any(l.strip().rstrip('/') in ('_trash', '/_trash') for l in text.splitlines()):
+            return
+        with open(p, 'a', encoding='utf-8') as f:
+            f.write(('' if not text or text.endswith('\n') else '\n') + '_trash/\n')
+        LAST_MERGE_INFO.append('已在 .gitignore 加入 _trash/，避免備份的 mp3 被上傳。')
+    except Exception:
+        pass
+
+
+def version_backup(root, old, fields, note='', audio=True):
+    """文稿補丁的「版本備份」：把改之前的整筆資料與舊 mp3 複製到 _trash/w1d1-edit-時間/，格式與 daily_trash.py 的 Trash 相同（meta v:2），
+    但 meta.kind＝'version'，與「刪除」區分。回傳 {'folder': 資料夾名, 'abs': [之後要移除的原音檔絕對路徑]}。"""
+    root = os.path.abspath(root)
+    sid = 'w%dd%d' % (old['week'], old['day'])
+    base = '%s-edit-%s' % (sid, datetime.now().strftime('%Y%m%d-%H%M%S'))
+    name, n = base, 1
+    while os.path.exists(os.path.join(root, '_trash', name)):
+        n += 1
+        name = '%s-%d' % (base, n)
+    fdir = os.path.join(root, '_trash', name)
+    os.makedirs(fdir)
+    rels, absn = [], []
+    ap = os.path.normpath(os.path.join(root, old.get('audio') or 'audio/daily/%s.mp3' % sid))
+    if audio and ap.startswith(root + os.sep) and os.path.isfile(ap):
+        rel = os.path.relpath(ap, root).replace('\\', '/')
+        dst = os.path.join(fdir, 'files', *rel.split('/'))
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        shutil.copy2(ap, dst)
+        rels.append(rel)
+        absn.append(ap)
+    _write_json_file(os.path.join(fdir, 'item.json'), old)
+    _write_json_file(os.path.join(fdir, 'meta.json'), {
+        'v': 2, 'kind': 'version', 'id': sid, 'deleted': datetime.now().isoformat(timespec='seconds'),
+        'note': '文稿補丁前的版本' + (('（%s）' % note) if note else ''), 'fields': fields,
+        'files': rels, 'mp3': rels[0] if rels else None, 'extra_moved': [], 'extra_kept': []})
+    _ensure_trash_ignored(root)
+    return {'folder': name, 'abs': absn}
+
+
+def trash_nfiles(meta):
+    return len(meta.get('files') or []) if meta.get('files') is not None else (1 if meta.get('mp3') else 0)
+
+
+def trash_rebuild_index(root):
+    """重建 root/trash-index.json（daily_trash.py 與文稿補丁共用同一份實作）。每筆多了 kind：'delete'（刪除）或 'version'（文稿版本備份）。"""
+    root = os.path.abspath(root)
+    tdir, entries = os.path.join(root, '_trash'), []
+    for name in (sorted(os.listdir(tdir)) if os.path.isdir(tdir) else []):
+        f = os.path.join(tdir, name)
+        if not (os.path.isfile(os.path.join(f, 'meta.json')) and os.path.isfile(os.path.join(f, 'item.json'))):
+            continue
+        meta, e1 = read_json(os.path.join(f, 'meta.json'))
+        item, e2 = read_json(os.path.join(f, 'item.json'))
+        if e1 or e2 or not isinstance(meta, dict) or not isinstance(item, dict):
+            continue
+        p = str(item.get('passage') or '')
+        lv = item.get('level') if isinstance(item.get('level'), dict) else {}
+        entries.append({
+            'folder': name, 'id': meta.get('id'), 'kind': meta.get('kind') or 'delete', 'week': item.get('week'), 'day': item.get('day'),
+            'tag': item.get('tag'), 'subtopic': item.get('subtopic'), 'type': item.get('type'),
+            'score': lv.get('score'), 'deleted': meta.get('deleted'), 'note': meta.get('note') or '',
+            'fields': meta.get('fields') or [],
+            'has_mp3': trash_nfiles(meta) > 0, 'n_files': trash_nfiles(meta),
+            'words': len(re.findall(r"[A-Za-z0-9']+", p)),
+            'n_vocab': len(item.get('vocab') or []), 'n_questions': len(item.get('questions') or []),
+            'extra_moved': meta.get('extra_moved') or [], 'extra_kept': meta.get('extra_kept') or [],
+            'preview': p[:160],
+        })
+    entries.sort(key=lambda e: str(e.get('deleted') or ''), reverse=True)
+    _write_json_file(os.path.join(root, 'trash-index.json'), {'v': 2, 'updated': datetime.now().isoformat(timespec='seconds'), 'items': entries})
+    return entries
+
+
 def cli_unify():
     """python json_merge.py unify：整理現有的 daily.json，把重複的詳解統一成一筆（會先備份）。"""
     path = os.path.join(BASE, 'daily.json')
@@ -3236,14 +3726,17 @@ def move_to_merged(path):
 
 
 LAST_MERGE_NOTES = []
+LAST_MERGE_INFO = []
 
 
 def apply_merge(P, main_path, data, items, keep):
     """備份 → 合併 → 排序 → 寫回主檔。回傳備份檔路徑。"""
     bak = backup_main(main_path, P.backup_prefix)
     global LAST_MERGE_NOTES
+    del LAST_MERGE_INFO[:]
     new_by_key = {k: v[0] for k, v in keep.items()}
-    old_by_key = {P.key(x): x for x in items if isinstance(x, dict)}
+    old_by_key = {P.key(x): copy.deepcopy(x) for x in items if isinstance(x, dict)}   # 深拷貝：finalize 會就地改文章，版本備份要的是改之前的樣子
+    state = P.before_write(main_path, new_by_key, old_by_key)   # 先把舊版複製進 _trash（還沒動主檔，失敗不會丟資料）
     token = P.merge_prepare(new_by_key)
     out = [x for x in items if not (isinstance(x, dict) and P.key(x) in new_by_key)]
     for k in sorted(new_by_key, key=P.key_sort):
@@ -3256,7 +3749,12 @@ def apply_merge(P, main_path, data, items, keep):
         data = out
     else:
         data['items'] = out
-    write_main(main_path, data)
+    try:
+        write_main(main_path, data)
+    except Exception:
+        P.abort_write(state)
+        raise
+    P.after_write(state)   # 主檔寫成功之後，才移走舊音檔、更新 trash-index.json
     return bak
 
 
@@ -3607,6 +4105,7 @@ def run_gui(start):
             lines.append('（其中 %d 筆有提醒，可在詳細結果查看）' % plan['warned'])
         if plan['skipped']:
             lines += ['', '略過：'] + ['• %s：%s' % s for s in plan['skipped']]
+        lines += p_.confirm_notes({k: v[0] for k, v in plan['batch'].items()}, plan['existing'], os.path.dirname(os.path.abspath(st['main'])))
         lines += ['', '寫入前會自動備份到 backup 資料夾。']
 
         if plan['replace']:
@@ -3647,6 +4146,8 @@ def run_gui(start):
         if moved:
             msg += '\n已移到 merged：' + '、'.join(moved)
         msg += '\n\n' + p_.done_note
+        if LAST_MERGE_INFO:
+            msg += '\n\n' + '\n'.join('• ' + n for n in LAST_MERGE_INFO)
         if LAST_MERGE_NOTES:
             msg += '\n\n【同一個字只留一份詳解】\n' + '\n'.join('• ' + n for n in LAST_MERGE_NOTES)
         refresh()
