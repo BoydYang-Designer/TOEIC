@@ -4,9 +4,12 @@
    載入順序：放在 daily.js 之後（daily.html 已加）。
    做法：不改動既有每個 🔊 的產生程式，而是在畫面更新後，替每個 vplay(...)／speakPhrase(...) 按鈕補上 🎙；
          按下去開底部視窗：聽範例 → 錄音 → 辨識 → 逐字比對 → 分數。
+   回放：錄音時同步用 MediaRecorder 錄下聲音，評分後可按「聽我的錄音」回放；錄音只存在記憶體（blob URL），
+         關閉視窗／換字／重錄／切到背景／離開頁面時立即刪除，不會寫入 IndexedDB 或 localStorage。
    紀錄：S.pron[文字] = { b：最高分, n：練習次數, l：最近一次, t：時間 }（文字轉小寫、空白合併；同一個字不論在哪一篇都共用同一筆） */
 
-const PR = { text: '', key: '', src: null, st: 'idle', final: '', interim: '', alts: [], cands: null, err: '', sr: null, tk: 0, restart: 0, stopping: false, srEnd: null, timer: null, res: null, nb: false };
+const PR = { text: '', key: '', src: null, st: 'idle', final: '', interim: '', alts: [], cands: null, err: '', sr: null, tk: 0, restart: 0, stopping: false, srEnd: null, timer: null, res: null, nb: false,
+  mr: null, stream: null, chunks: [], mime: '', mrDone: null, url: null, au: null, pl: false }; // mr…pl：自己的錄音（只放記憶體，關閉視窗就刪）
 const prNorm = t => String(t == null ? '' : t).trim().toLowerCase().replace(/\s+/g, ' ');
 const prWc = t => (String(t).match(/\S*[A-Za-z0-9]\S*/g) || []).length;
 const prBest = k => ((S.pron || {})[k] || {}).b || 0;
@@ -83,6 +86,7 @@ function prClose() {
   prRefreshBadges();
 }
 function prListen() { // 聽範例：直接按原本那個 🔊（有 mp3 就播 mp3，沒有就語音合成）
+  if (PR.pl) { prMineStop(); prRender(); }
   try { speechSynthesis.cancel(); } catch (e) {}
   if (PR.src && PR.src.isConnected) PR.src.click(); else speak(PR.text);
 }
@@ -97,7 +101,8 @@ function prRender() {
   if (r) {
     if (r.none) res = '<p class="text-sm text-rose-600 dark:text-rose-400">沒有辨識到聲音，靠近麥克風再試一次。</p>';
     else res = `<div class="flex flex-wrap items-center gap-2 mb-2"><span class="rounded-full px-3 py-1 text-sm font-bold ${skPctCls(r.pct)}">${r.pct}%</span><span class="text-sm">${skMsg(r.pct)}</span>${PR.nb ? '<span class="text-sm font-bold text-amber-600 dark:text-amber-400">🏆 新的最高分！</span>' : ''}</div>
-      <p class="leading-relaxed">${skWordsH(r.words)}</p>${skDiffH({ heard: r.heard, diff: r.diff })}`;
+      <p class="leading-relaxed">${skWordsH(r.words)}</p>${r.pct >= 100 ? '' : skDiffH({ heard: r.heard, diff: r.diff })}`; // 100 分不顯示「你說的」對照與紅字／括號說明，有錯才出現
+    if (PR.url) res += `<div class="flex flex-wrap items-center gap-2 mt-3"><button onclick="prPlayMine()" class="${skCtl}">${PR.pl ? '⏹ 停止回放' : '▶ 聽我的錄音'}</button><span class="text-[0.6875rem] text-slate-400">錄音只暫存在這個視窗，關閉就刪除</span></div>`;
   }
   ov.innerHTML = `<div class="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/50" onclick="if(event.target===this)prClose()">
     <div class="w-full md:max-w-xl max-h-[92vh] overflow-y-auto rounded-t-2xl md:rounded-2xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 p-5 shadow-xl" style="padding-bottom:max(1.25rem,env(safe-area-inset-bottom))">
@@ -153,7 +158,49 @@ function prToggle() {
     if (PR.st === 'rec') { if (PR.restart++ < 3) { try { r.start(); return; } catch (e) {} } prStop(); }
   };
   try { r.start(); } catch (e) { PR.err = '無法啟動語音辨識，請再試一次。'; PR.st = 'idle'; PR.sr = null; prRender(); return; }
+  prMediaStart(tk);
   clearTimeout(PR.timer); PR.timer = setTimeout(() => { if (PR.st === 'rec' && tk === PR.tk) prStop(); }, few ? 15000 : 60000);
+  prRender();
+}
+/* ---------- 同步錄下自己的聲音（只存記憶體） ---------- */
+async function prMediaStart(tk) {
+  PR.mr = null; PR.chunks = [];
+  if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || typeof MediaRecorder === 'undefined') return;
+  let stream;
+  try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); } catch (e) { return; }
+  if (PR.st !== 'rec' || tk !== PR.tk) { stream.getTracks().forEach(t => t.stop()); return; }
+  PR.stream = stream;
+  const mt = ['audio/webm', 'audio/mp4'].find(t => MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(t)) || '';
+  try {
+    const mr = new MediaRecorder(stream, mt ? { mimeType: mt } : undefined);
+    PR.mr = mr; PR.mime = mr.mimeType || mt;
+    mr.ondataavailable = e => { if (e.data && e.data.size) PR.chunks.push(e.data); };
+    mr.onstop = () => {
+      stream.getTracks().forEach(t => t.stop());
+      if (PR.stream === stream) PR.stream = null;
+      if (tk === PR.tk && PR.chunks.length) {
+        if (PR.url) { try { URL.revokeObjectURL(PR.url); } catch (e) {} }
+        PR.url = URL.createObjectURL(new Blob(PR.chunks, { type: PR.mime }));
+      }
+      PR.chunks = []; PR.mr = null;
+      if (PR.mrDone) PR.mrDone();
+      if (tk === PR.tk && PR.st === 'idle' && PR.res) prRender(); // 辨識先結束、錄音檔稍後才好 → 補上回放鈕
+    };
+    mr.start();
+  } catch (e) { stream.getTracks().forEach(t => t.stop()); PR.stream = null; PR.mr = null; }
+}
+function prMineStop() { const a = PR.au; PR.au = null; PR.pl = false; if (a) { a.onended = a.onerror = null; try { a.pause(); } catch (e) {} } }
+function prMineDrop() { // 停止回放並刪掉錄音（revoke 後記憶體即釋放）
+  prMineStop();
+  if (PR.url) { try { URL.revokeObjectURL(PR.url); } catch (e) {} PR.url = null; }
+}
+function prPlayMine() {
+  if (!PR.url) return;
+  if (PR.pl) { prMineStop(); prRender(); return; }
+  try { speechSynthesis.cancel(); } catch (e) {} try { if (typeof dnAu !== 'undefined' && dnAu) dnAu.pause(); } catch (e) {}
+  const a = new Audio(PR.url); PR.au = a; PR.pl = true;
+  const end = () => { if (PR.au === a) { PR.au = null; PR.pl = false; prRender(); } };
+  a.onended = a.onerror = end; a.play().catch(end);
   prRender();
 }
 function prStop() {
@@ -161,7 +208,9 @@ function prStop() {
   PR.st = 'proc'; PR.stopping = true; clearTimeout(PR.timer);
   const tk = PR.tk;
   const w = new Promise(res => { PR.srEnd = res; try { PR.sr.stop(); } catch (e) { res(); } });
-  Promise.race([w, new Promise(r => setTimeout(r, 1500))]).then(() => { if (tk === PR.tk && PR.st === 'proc') prFinish(); });
+  const ws = [w];
+  if (PR.mr && PR.mr.state !== 'inactive') ws.push(new Promise(res => { PR.mrDone = res; try { PR.mr.stop(); } catch (e) { res(); } }));
+  Promise.race([Promise.all(ws), new Promise(r => setTimeout(r, 1500))]).then(() => { if (tk === PR.tk && PR.st === 'proc') prFinish(); });
   prRender();
 }
 function prCancel() {
@@ -169,6 +218,10 @@ function prCancel() {
   const r = PR.sr; PR.sr = null;
   if (r) { r.onresult = r.onend = r.onerror = null; try { r.abort(); } catch (e) {} }
   PR.srEnd = null; PR.st = 'idle';
+  const m = PR.mr; PR.mr = null; PR.mrDone = null; PR.chunks = [];
+  if (m) { m.ondataavailable = null; m.onstop = null; try { if (m.state !== 'inactive') m.stop(); } catch (e) {} }
+  if (PR.stream) { PR.stream.getTracks().forEach(t => t.stop()); PR.stream = null; }
+  prMineDrop(); // 換字、重錄、關閉視窗、切到背景：舊錄音一律刪掉
 }
 function prFinish() {
   const r = PR.sr; PR.sr = null; PR.srEnd = null; PR.st = 'idle';
@@ -196,4 +249,5 @@ document.addEventListener('keydown', e => {
   else if (e.key === 'Enter') { e.preventDefault(); prListen(); }
 }, true);
 document.addEventListener('keyup', e => { if (document.getElementById('pron-ov') && (e.key === ' ' || e.key === 'Spacebar')) e.preventDefault(); }, true);
-document.addEventListener('visibilitychange', () => { if (document.hidden && document.getElementById('pron-ov')) prCancel(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden && document.getElementById('pron-ov')) { prCancel(); prRender(); } });
+window.addEventListener('pagehide', () => { prCancel(); });
