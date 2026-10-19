@@ -1,0 +1,1136 @@
+{
+  "week": 2,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "attach",
+      "type": "word",
+      "ipa": "/əˈtætʃ/",
+      "pos": "v.",
+      "zh": "安裝、連接、附上",
+      "en": "to fix or join one thing to another",
+      "note": "在這篇文章裡，when attaching it to the stroller 指把座椅裝到推車上，是實體零件接合的用法。講者用 attach 說明傳統裝法需要小心對準兩側，再和 Magic Connect 做比較。",
+      "grammar_note": "attach 最常用 attach A to B，to 是介系詞，後面接名詞；被動時用 be attached to。",
+      "forms": [
+        {
+          "w": "attaches",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "安裝",
+          "ipa": "/əˈtætʃɪz/",
+          "example": {
+            "en": "The clerk attaches a label to every package before shipping.",
+            "zh": "店員在出貨前會在每個包裹上貼標籤。"
+          }
+        },
+        {
+          "w": "attached",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "附上了",
+          "ipa": "/əˈtætʃt/",
+          "example": {
+            "en": "I attached the updated schedule to this email for your review.",
+            "zh": "我已把更新後的時程表附在這封郵件中供你審閱。"
+          }
+        },
+        {
+          "w": "attached",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "附上的",
+          "ipa": "/əˈtætʃt/",
+          "example": {
+            "en": "Please see the attached file for the full price list.",
+            "zh": "完整價目表請見附加檔案。"
+          }
+        },
+        {
+          "w": "attaching",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在安裝",
+          "ipa": "/əˈtætʃɪŋ/",
+          "example": {
+            "en": "Attaching the wrong cable may damage the new printer.",
+            "zh": "接錯纜線可能會損壞這台新印表機。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "attach a file",
+          "zh": "附加檔案",
+          "example": {
+            "en": "Please attach a file when you send the application form.",
+            "zh": "寄出申請表時，請附加一個檔案。"
+          }
+        },
+        {
+          "phrase": "attach A to B",
+          "zh": "把 A 接到 B 上",
+          "example": {
+            "en": "Attach the label to the front of each box.",
+            "zh": "請把標籤貼在每個箱子的正面。"
+          }
+        },
+        {
+          "phrase": "attached document",
+          "zh": "附件文件",
+          "example": {
+            "en": "The attached document explains how to return a damaged item.",
+            "zh": "附件文件說明了如何退回受損的商品。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "I have attached the invoice, so please check the total.",
+          "zh": "我已附上發票，請確認總金額。"
+        },
+        {
+          "tag": "生產線",
+          "en": "Workers attach the handle to the cart on the second line.",
+          "zh": "工人在第二條生產線上把把手裝到推車上。"
+        },
+        {
+          "tag": "求職",
+          "en": "Applicants should attach a resume and a short cover letter.",
+          "zh": "應徵者應附上履歷與一封簡短的求職信。"
+        },
+        {
+          "tag": "品牌",
+          "en": "Many customers are attached to this brand because of its quality.",
+          "zh": "許多顧客因為品質而對這個品牌有感情。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "attack",
+          "diff": "attack 是「攻擊」，拼法只差一個字母，和「連接」無關。",
+          "example": {
+            "en": "The company said hackers tried to attack its website.",
+            "zh": "公司表示駭客試圖攻擊它的網站。"
+          }
+        },
+        {
+          "word": "attend",
+          "diff": "attend 是「參加、出席」，發音開頭相近，但意思不同。",
+          "example": {
+            "en": "Please attend the safety training in Room 305 on Friday.",
+            "zh": "請在星期五參加 305 室的安全訓練。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "connect",
+          "pos": "v.",
+          "zh": "連接",
+          "ipa": "/kəˈnekt/",
+          "example": {
+            "en": "Connect the printer to the network before the meeting starts.",
+            "zh": "會議開始前，請把印表機連上網路。"
+          }
+        },
+        {
+          "w": "fasten",
+          "pos": "v.",
+          "zh": "繫緊、固定",
+          "ipa": "/ˈfæsn/",
+          "example": {
+            "en": "Please fasten the cover with two small screws first.",
+            "zh": "請先用兩顆小螺絲把護蓋固定好。"
+          }
+        },
+        {
+          "w": "join",
+          "pos": "v.",
+          "zh": "接合、連結",
+          "ipa": "/dʒɔɪn/",
+          "example": {
+            "en": "Join the two parts together and press down firmly.",
+            "zh": "把兩個零件接在一起並用力壓緊。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "attachment",
+          "ipa": "/əˈtætʃmənt/",
+          "pos": "n.",
+          "zh": "附件、附屬配件",
+          "link": "attach + -ment，把動作變成名詞，像 agree → agreement"
+        },
+        {
+          "w": "detach",
+          "ipa": "/dɪˈtætʃ/",
+          "pos": "v.",
+          "zh": "拆下、分開",
+          "link": "de- 表示分開、取消，像 decrease；de + attach 就是 attach 的相反"
+        },
+        {
+          "w": "detachable",
+          "ipa": "/dɪˈtætʃəbl/",
+          "pos": "adj.",
+          "zh": "可拆卸的",
+          "link": "detach + -able，可以…的，像 comfortable"
+        },
+        {
+          "w": "reattach",
+          "ipa": "/ˌriːəˈtætʃ/",
+          "pos": "v.",
+          "zh": "重新安裝",
+          "link": "re- 表示再一次，像 rebuild；re + attach 就是重新接上"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "安裝、連接（實物）",
+          "en": "to join one thing to another thing",
+          "in_passage": true,
+          "example": {
+            "en": "Attach the strap to the bag before you ship it.",
+            "zh": "寄出前，請先把背帶裝到袋子上。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "附上（文件）",
+          "en": "to add a document to a message or form",
+          "distinguish": "受詞是檔案、文件或照片時，指附在郵件或表格後面。",
+          "example": {
+            "en": "Please attach your passport copy to the registration form.",
+            "zh": "請把護照影本附在報名表上。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "附帶（條件）",
+          "en": "to link a rule or condition to something",
+          "distinguish": "受詞是條件、限制或價值時，常用被動，指附帶某些規定。",
+          "example": {
+            "en": "The company attaches several conditions to this special discount offer.",
+            "zh": "公司在這項特價優惠上附帶了幾個條件。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "remove",
+      "type": "word",
+      "ipa": "/rɪˈmuːv/",
+      "pos": "v.",
+      "zh": "拆下、移除、取走",
+      "en": "to take something away from a place",
+      "note": "在這篇文章裡，To remove the seat 指把座椅從推車車架上拆下來。講者接著說明拆下的步驟，強調單手就能完成。",
+      "grammar_note": "remove A from B 是常見句型，from 是介系詞，表示把 A 從 B 拿走。",
+      "forms": [
+        {
+          "w": "removes",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "拆下",
+          "ipa": "/rɪˈmuːvz/",
+          "example": {
+            "en": "Pressing this button removes the seat from the frame in seconds.",
+            "zh": "按下這個按鈕，就能在幾秒內把座椅從車架上拆下。"
+          }
+        },
+        {
+          "w": "removed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "拆除了",
+          "ipa": "/rɪˈmuːvd/",
+          "example": {
+            "en": "The staff removed the old shelves before the renovation began.",
+            "zh": "員工在整修開始前把舊架子拆走了。"
+          }
+        },
+        {
+          "w": "removing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在拆下",
+          "ipa": "/rɪˈmuːvɪŋ/",
+          "example": {
+            "en": "Removing the cover will cancel the product warranty.",
+            "zh": "拆下護蓋會使產品保固失效。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "remove A from B",
+          "zh": "把 A 從 B 移除",
+          "example": {
+            "en": "Please remove the old files from the shared folder.",
+            "zh": "請把舊檔案從共用資料夾中移除。"
+          }
+        },
+        {
+          "phrase": "remove a stain",
+          "zh": "去除污漬",
+          "example": {
+            "en": "This cleaner can remove a stain from the carpet quickly.",
+            "zh": "這款清潔劑能快速去除地毯上的污漬。"
+          }
+        },
+        {
+          "phrase": "remove the cover",
+          "zh": "拆下護蓋",
+          "example": {
+            "en": "Remove the cover before you start cleaning the machine.",
+            "zh": "開始清潔機器前，請先拆下護蓋。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "倉儲",
+          "en": "Staff must remove damaged items from the shelves right away.",
+          "zh": "員工必須立刻把受損商品從貨架上撤下。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please remove my name from your mailing list today.",
+          "zh": "請今天就把我的名字從你們的寄送名單中刪除。"
+        },
+        {
+          "tag": "人事",
+          "en": "The company removed him from the project last month.",
+          "zh": "公司上個月把他從這個專案中調離。"
+        },
+        {
+          "tag": "安全",
+          "en": "Workers should remove their tools from the area after work.",
+          "zh": "工人下班後應把工具從該區域拿走。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "move",
+          "diff": "move 是「移動」到別處，remove 是把東西「拿走、拆掉」。",
+          "example": {
+            "en": "Please move the boxes to the new storage room.",
+            "zh": "請把箱子搬到新的儲藏室。"
+          }
+        },
+        {
+          "word": "replace",
+          "diff": "replace 是換上新的東西，remove 只是拿掉，不一定補新的。",
+          "example": {
+            "en": "The technician will replace the broken part tomorrow morning.",
+            "zh": "技術人員明天早上會更換損壞的零件。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "delete",
+          "pos": "v.",
+          "zh": "刪除",
+          "ipa": "/dɪˈliːt/",
+          "example": {
+            "en": "Please delete the old photos from the company tablet.",
+            "zh": "請把舊照片從公司平板上刪除。"
+          }
+        },
+        {
+          "w": "eliminate",
+          "pos": "v.",
+          "zh": "消除、淘汰",
+          "ipa": "/ɪˈlɪmɪneɪt/",
+          "example": {
+            "en": "We should eliminate unnecessary steps in this process.",
+            "zh": "我們應該消除這個流程中不必要的步驟。"
+          }
+        },
+        {
+          "w": "detach",
+          "pos": "v.",
+          "zh": "拆開、分離",
+          "ipa": "/dɪˈtætʃ/",
+          "example": {
+            "en": "Detach the lower part of the form and keep it.",
+            "zh": "請撕下表格的下半部並自行保留。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "removal",
+          "ipa": "/rɪˈmuːvl/",
+          "pos": "n.",
+          "zh": "移除、拆除",
+          "link": "remove + -al，把動作變成名詞，像 arrive → arrival"
+        },
+        {
+          "w": "removable",
+          "ipa": "/rɪˈmuːvəbl/",
+          "pos": "adj.",
+          "zh": "可拆卸的",
+          "link": "remove + -able，可以…的，像 comfortable"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "拆下、取走（實物）",
+          "en": "to take something away from where it is",
+          "in_passage": true,
+          "example": {
+            "en": "Please remove the battery before you ship the device.",
+            "zh": "寄出裝置前，請先取出電池。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "刪除、清除（資料）",
+          "en": "to delete information from a file or system",
+          "distinguish": "受詞是檔案、名字或資料時，指刪掉內容。",
+          "example": {
+            "en": "The system will remove old files after thirty days.",
+            "zh": "系統會在三十天後清除舊檔案。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "解除（職務）",
+          "en": "to make someone leave a job or position",
+          "distinguish": "受詞是人、後面接 from a position 時，指免除職務。",
+          "example": {
+            "en": "The board voted to remove the manager from his position.",
+            "zh": "董事會投票決定免除這位經理的職務。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "backrest",
+      "type": "word",
+      "ipa": "/ˈbækrest/",
+      "pos": "n.",
+      "zh": "椅背",
+      "en": "the part of a seat that supports your back",
+      "note": "在這篇文章裡，backrest tube 指座椅椅背的骨架管，拆下座椅時要轉動它頂端的按鈕。講者也用 rotate the backrest、fold the seat backrest 說明調整與摺疊椅背的步驟。",
+      "grammar_note": "backrest 是可數名詞，寫成一個字，單數前要加 a 或 the。",
+      "forms": [
+        {
+          "w": "backrests",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "椅背（複數）",
+          "ipa": "/ˈbækrests/",
+          "example": {
+            "en": "All the new chairs have adjustable backrests for better comfort.",
+            "zh": "所有新椅子都有可調整的椅背，坐起來更舒適。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "adjustable backrest",
+          "zh": "可調整的椅背",
+          "example": {
+            "en": "Choose an adjustable backrest if you sit for long hours.",
+            "zh": "如果你久坐，請選擇可調整椅背。"
+          }
+        },
+        {
+          "phrase": "padded backrest",
+          "zh": "有軟墊的椅背",
+          "example": {
+            "en": "The padded backrest makes long meetings more comfortable.",
+            "zh": "有軟墊的椅背讓冗長的會議更舒適。"
+          }
+        },
+        {
+          "phrase": "lower the backrest",
+          "zh": "放低椅背",
+          "example": {
+            "en": "Press this lever to lower the backrest to a flat position.",
+            "zh": "按下這個拉桿，就能把椅背放到平躺的位置。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "辦公家具",
+          "en": "Our office chairs come with a high backrest and soft cushion.",
+          "zh": "我們的辦公椅附有高椅背與柔軟的坐墊。"
+        },
+        {
+          "tag": "採購",
+          "en": "The supplier will replace the broken backrest at no cost.",
+          "zh": "供應商會免費更換損壞的椅背。"
+        },
+        {
+          "tag": "航班",
+          "en": "Please return your backrest to the upright position before landing.",
+          "zh": "降落前，請將您的椅背調回直立位置。"
+        },
+        {
+          "tag": "產品",
+          "en": "The backrest folds forward so the seat can be stored easily.",
+          "zh": "椅背可向前摺疊，讓座椅方便收納。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "footrest",
+          "diff": "footrest 是放腳的踏板，backrest 是支撐背部的椅背。",
+          "example": {
+            "en": "The footrest on this chair lifts up for a short break.",
+            "zh": "這張椅子的腳踏板可以抬起，方便短暫休息。"
+          }
+        },
+        {
+          "word": "armrest",
+          "diff": "armrest 是手臂靠的扶手，backrest 是靠背的部分。",
+          "example": {
+            "en": "Please keep your bag off the armrest during the flight.",
+            "zh": "飛行期間，請不要把包包放在扶手上。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "headrest",
+          "pos": "n.",
+          "zh": "頭枕",
+          "ipa": "/ˈhedrest/",
+          "example": {
+            "en": "Adjust the headrest so it fits your neck comfortably.",
+            "zh": "請調整頭枕，讓它舒適地貼合你的頸部。"
+          }
+        },
+        {
+          "w": "cushion",
+          "pos": "n.",
+          "zh": "坐墊、軟墊",
+          "ipa": "/ˈkʊʃn/",
+          "example": {
+            "en": "Add a cushion to the chair for extra comfort.",
+            "zh": "在椅子上加一個坐墊會更舒服。"
+          }
+        },
+        {
+          "w": "frame",
+          "pos": "n.",
+          "zh": "框架、車架",
+          "ipa": "/freɪm/",
+          "example": {
+            "en": "The metal frame holds the seat firmly in place.",
+            "zh": "金屬車架能把座椅牢牢固定在定位。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "upright",
+      "type": "word",
+      "ipa": "/ˈʌpraɪt/",
+      "pos": "adj.",
+      "zh": "直立的、豎直的",
+      "en": "standing straight up and not leaning or lying down",
+      "note": "在這篇文章裡，the upright position 指把椅背轉到垂直直立的位置。結尾的 stands upright on its own 則是副詞用法，表示推車摺疊後能自己站直。",
+      "grammar_note": "upright 當形容詞放在名詞前（an upright position），當副詞放在動詞後（stand upright、sit upright）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "upright position",
+          "zh": "直立的位置",
+          "example": {
+            "en": "Please keep your seat in the upright position during takeoff.",
+            "zh": "起飛期間，請將您的座椅保持在直立位置。"
+          }
+        },
+        {
+          "phrase": "stand upright",
+          "zh": "直立站著",
+          "example": {
+            "en": "The new cabinet can stand upright without any extra support.",
+            "zh": "這個新櫃子不需要額外支撐就能直立站著。"
+          }
+        },
+        {
+          "phrase": "sit upright",
+          "zh": "坐直",
+          "example": {
+            "en": "Sit upright to avoid back pain during long meetings.",
+            "zh": "開長會時要坐直，才能避免背痛。"
+          }
+        },
+        {
+          "phrase": "keep upright",
+          "zh": "保持直立",
+          "example": {
+            "en": "Please keep the boxes upright during shipping to prevent leaks.",
+            "zh": "運送期間請讓箱子保持直立，以免漏液。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "倉儲",
+          "en": "Store the bottles upright so that the liquid does not spill.",
+          "zh": "請把瓶子直立存放，以免液體灑出來。"
+        },
+        {
+          "tag": "產品",
+          "en": "This vacuum cleaner stands upright, so it takes little floor space.",
+          "zh": "這台吸塵器可以直立放置，所以佔地很小。"
+        },
+        {
+          "tag": "健康",
+          "en": "Doctors suggest sitting upright when you work at a desk.",
+          "zh": "醫師建議在書桌前工作時要坐直。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "upset",
+          "diff": "upset 是「心煩的、不高興的」，只是開頭 up- 相同，和直立無關。",
+          "example": {
+            "en": "The customer was upset about the late delivery.",
+            "zh": "顧客對延遲送貨感到不高興。"
+          }
+        },
+        {
+          "word": "upward",
+          "diff": "upward 指「向上的方向」，upright 指「直立的狀態」。",
+          "example": {
+            "en": "Sales showed an upward trend in the last quarter.",
+            "zh": "上一季的銷售呈現向上的趨勢。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "vertical",
+          "pos": "adj.",
+          "zh": "垂直的",
+          "ipa": "/ˈvɜːrtɪkl/",
+          "example": {
+            "en": "The poster should hang in a vertical position on the wall.",
+            "zh": "這張海報應該垂直掛在牆上。"
+          }
+        },
+        {
+          "w": "straight",
+          "pos": "adj.",
+          "zh": "筆直的",
+          "ipa": "/streɪt/",
+          "example": {
+            "en": "Please keep the line straight when you draw the chart.",
+            "zh": "畫圖表時，請把線條畫直。"
+          }
+        },
+        {
+          "w": "flat",
+          "pos": "adj.",
+          "zh": "平的、平放的",
+          "ipa": "/flæt/",
+          "example": {
+            "en": "Lay the box flat so that it fits on the shelf.",
+            "zh": "把箱子平放，這樣才放得進架子。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ˈʌpraɪt/",
+          "zh": "直立的",
+          "in_passage": true,
+          "example": {
+            "en": "The manual shows the product in an upright position.",
+            "zh": "說明書中展示的是產品直立的樣子。"
+          }
+        },
+        {
+          "pos": "adv.",
+          "ipa": "/ˈʌpraɪt/",
+          "zh": "直立地",
+          "in_passage": true,
+          "example": {
+            "en": "Please hold the tablet upright while you scan the code.",
+            "zh": "掃描代碼時，請把平板拿直。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "直立的",
+          "en": "standing straight up",
+          "in_passage": true,
+          "example": {
+            "en": "Keep the display in an upright position during the exhibition.",
+            "zh": "展覽期間，請讓展示架保持直立。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "zh": "正直的",
+          "en": "honest and fair in the way you act",
+          "distinguish": "形容人的品格時指正直誠實；形容物品或姿勢時指直立。",
+          "example": {
+            "en": "He is an upright manager who always tells the truth.",
+            "zh": "他是一位總是說實話的正直經理。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "crowded",
+      "type": "word",
+      "lemma": "crowd",
+      "ipa": "/ˈkraʊdɪd/",
+      "pos": "adj.",
+      "zh": "擁擠的",
+      "en": "full of people or things with little space left",
+      "note": "在這篇文章裡，especially in crowded spaces 指商場、街道等人多又擁擠的地方。講者說明橫向移動功能在這種狹窄的空間特別好用。",
+      "grammar_note": "crowded 常用 be crowded with + 人或物；表示「擁擠的」要用 crowded，不能寫成 a crowd street。",
+      "forms": [
+        {
+          "w": "crowds",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "人群（複數）",
+          "ipa": "/kraʊdz/",
+          "example": {
+            "en": "Large crowds gathered outside the store on opening day.",
+            "zh": "開幕當天，大批人潮聚集在店外。"
+          }
+        },
+        {
+          "w": "crowds",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "擠滿",
+          "ipa": "/kraʊdz/",
+          "example": {
+            "en": "Heavy traffic crowds the main road every morning.",
+            "zh": "每天早上，大量車流塞滿主要道路。"
+          }
+        },
+        {
+          "w": "crowding",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "擁擠、擠進",
+          "ipa": "/ˈkraʊdɪŋ/",
+          "example": {
+            "en": "Customers are crowding the entrance to get free samples.",
+            "zh": "顧客擠在入口處想拿免費試用品。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "crowded with",
+          "zh": "擠滿（人或物）",
+          "example": {
+            "en": "The conference hall was crowded with eager visitors.",
+            "zh": "會議廳裡擠滿了熱切的訪客。"
+          }
+        },
+        {
+          "phrase": "crowded streets",
+          "zh": "擁擠的街道",
+          "example": {
+            "en": "Crowded streets made it hard for the delivery van to move.",
+            "zh": "擁擠的街道讓送貨車很難前進。"
+          }
+        },
+        {
+          "phrase": "crowded schedule",
+          "zh": "排得很滿的行程",
+          "example": {
+            "en": "My crowded schedule leaves no time for lunch this week.",
+            "zh": "我這週行程太滿，連吃午餐的時間都沒有。"
+          }
+        },
+        {
+          "phrase": "get crowded",
+          "zh": "變得擁擠",
+          "example": {
+            "en": "The restaurant can get crowded on Friday evenings, so reserve early.",
+            "zh": "這家餐廳星期五晚上可能很擁擠，請提早訂位。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "餐廳",
+          "en": "The restaurant was too crowded, so we waited outside.",
+          "zh": "餐廳太擁擠，所以我們在外面等。"
+        },
+        {
+          "tag": "交通",
+          "en": "Avoid the crowded subway by leaving before eight o'clock.",
+          "zh": "八點前出發，就能避開擁擠的地鐵。"
+        },
+        {
+          "tag": "展覽",
+          "en": "The exhibition hall was crowded on the last day.",
+          "zh": "展覽館在最後一天非常擁擠。"
+        },
+        {
+          "tag": "辦公室",
+          "en": "Our crowded office has no space for extra desks.",
+          "zh": "我們擁擠的辦公室沒有空間再放多餘的桌子。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "cloudy",
+          "diff": "cloudy 是「多雲的」，拼法與 crowd 相近，但和人多擁擠無關。",
+          "example": {
+            "en": "It will be cloudy, so the outdoor event may be moved.",
+            "zh": "天氣會是多雲，所以戶外活動可能會改期。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "busy",
+          "pos": "adj.",
+          "zh": "繁忙的",
+          "ipa": "/ˈbɪzi/",
+          "example": {
+            "en": "The airport is busy because of the holiday season.",
+            "zh": "因為假期旺季，機場非常繁忙。"
+          }
+        },
+        {
+          "w": "packed",
+          "pos": "adj.",
+          "zh": "擠滿的",
+          "ipa": "/pækt/",
+          "example": {
+            "en": "The hall was packed with people waiting for the speech.",
+            "zh": "大廳裡擠滿了等著聽演講的人。"
+          }
+        },
+        {
+          "w": "congested",
+          "pos": "adj.",
+          "zh": "壅塞的",
+          "ipa": "/kənˈdʒestɪd/",
+          "example": {
+            "en": "The congested highway delayed our shipment by two hours.",
+            "zh": "壅塞的高速公路使我們的貨物延誤了兩個小時。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "overcrowded",
+          "ipa": "/ˌoʊvərˈkraʊdɪd/",
+          "pos": "adj.",
+          "zh": "過度擁擠的",
+          "link": "over- 表示太過，像 overtime；over + crowded 就是擠得太過頭"
+        },
+        {
+          "w": "overcrowding",
+          "ipa": "/ˌoʊvərˈkraʊdɪŋ/",
+          "pos": "n.",
+          "zh": "過度擁擠",
+          "link": "overcrowd + -ing，把「過度擁擠」這件事變成名詞，像 meeting"
+        },
+        {
+          "w": "uncrowded",
+          "ipa": "/ʌnˈkraʊdɪd/",
+          "pos": "adj.",
+          "zh": "不擁擠的",
+          "link": "un- 表示不，像 unclear、unusual；un + crowded 就是不擁擠"
+        }
+      ],
+      "pos_uses": [
+        {
+          "w": "crowded",
+          "pos": "adj.",
+          "ipa": "/ˈkraʊdɪd/",
+          "zh": "擁擠的",
+          "in_passage": true,
+          "example": {
+            "en": "Please avoid the crowded areas near the main entrance.",
+            "zh": "請避開主要入口附近的擁擠區域。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/kraʊd/",
+          "zh": "人群、觀眾",
+          "example": {
+            "en": "A large crowd waited outside for the product launch.",
+            "zh": "一大群人在外面等著產品發表會。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/kraʊd/",
+          "zh": "擁入、擠滿",
+          "example": {
+            "en": "Visitors began to crowd around the new display.",
+            "zh": "訪客開始圍擠在新展示品周圍。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "擠滿（某個地方）",
+          "en": "to fill a place so that there is little space left",
+          "in_passage": true,
+          "example": {
+            "en": "Shoppers crowded the mall on the first day of the sale.",
+            "zh": "特賣第一天，購物者擠滿了購物中心。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "擁入、聚集",
+          "en": "to move close together in a small space",
+          "distinguish": "後面常接 into、around，指人們擠進或圍在某處。",
+          "example": {
+            "en": "Everyone crowded into the small room to hear the news.",
+            "zh": "大家擠進小房間聽消息。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "fold",
+      "type": "word",
+      "ipa": "/foʊld/",
+      "pos": "v.",
+      "zh": "摺疊、收合",
+      "en": "to bend something so that one part covers another part",
+      "note": "在這篇文章裡，how to fold the stroller 指把推車收合成較小的體積。講者還提到座椅會 folds down under its own weight，也就是靠自身重量自動收合。",
+      "grammar_note": "fold 可以是及物（fold the stroller），也可以是不及物（The seat folds down）；表示「可摺疊的」可用 foldable 或 can be folded。",
+      "forms": [
+        {
+          "w": "folds",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "摺疊",
+          "ipa": "/foʊldz/",
+          "example": {
+            "en": "This table folds flat, so it fits in a small closet.",
+            "zh": "這張桌子可以摺平，所以放得進小衣櫃。"
+          }
+        },
+        {
+          "w": "folded",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "摺了",
+          "ipa": "/ˈfoʊldɪd/",
+          "example": {
+            "en": "She folded the brochures and put them in an envelope.",
+            "zh": "她把手冊摺好，放進信封裡。"
+          }
+        },
+        {
+          "w": "folded",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "摺疊起來的",
+          "ipa": "/ˈfoʊldɪd/",
+          "example": {
+            "en": "The folded stroller fits easily in the trunk of a car.",
+            "zh": "摺疊後的推車很容易放進汽車後車廂。"
+          }
+        },
+        {
+          "w": "folding",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在摺疊",
+          "ipa": "/ˈfoʊldɪŋ/",
+          "example": {
+            "en": "Folding the chairs takes less than a minute.",
+            "zh": "把椅子收起來不到一分鐘。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "fold up",
+          "zh": "摺起來、收起來",
+          "example": {
+            "en": "Please fold up the tables after the workshop ends.",
+            "zh": "工作坊結束後，請把桌子收起來。"
+          }
+        },
+        {
+          "phrase": "fold in half",
+          "zh": "對摺",
+          "example": {
+            "en": "Fold the sheet in half before you put it in the envelope.",
+            "zh": "把紙對摺後再放進信封。"
+          }
+        },
+        {
+          "phrase": "folding chair",
+          "zh": "折疊椅",
+          "example": {
+            "en": "We need ten more folding chairs for tomorrow's training session.",
+            "zh": "明天的訓練課程還需要十張折疊椅。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "辦公室",
+          "en": "Please fold the letter twice before putting it in the envelope.",
+          "zh": "把信放進信封前，請先摺兩次。"
+        },
+        {
+          "tag": "旅行",
+          "en": "This jacket folds into a small bag for easy travel.",
+          "zh": "這件外套可以摺進小袋子，方便旅行攜帶。"
+        },
+        {
+          "tag": "商業",
+          "en": "The company folded last year because of rising costs.",
+          "zh": "這家公司去年因為成本上升而倒閉了。"
+        },
+        {
+          "tag": "操作說明",
+          "en": "Fold the cover back, and then press the green button.",
+          "zh": "把護蓋向後摺，然後按下綠色按鈕。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "hold",
+          "diff": "hold 是「握住、拿著」，拼法與發音都像 fold，但沒有摺疊的意思。",
+          "example": {
+            "en": "Please hold the door open for the delivery staff.",
+            "zh": "請替送貨人員把門撐開。"
+          }
+        },
+        {
+          "word": "fall",
+          "diff": "fall 是「下降、掉落」，拼法與發音相近，意思不同。",
+          "example": {
+            "en": "Prices may fall if demand stays low this season.",
+            "zh": "如果這一季需求持續低迷，價格可能會下降。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "bend",
+          "pos": "v.",
+          "zh": "彎曲",
+          "ipa": "/bend/",
+          "example": {
+            "en": "Do not bend the cable too much when you store it.",
+            "zh": "收納纜線時，請不要過度彎折。"
+          }
+        },
+        {
+          "w": "wrap",
+          "pos": "v.",
+          "zh": "包裹",
+          "ipa": "/ræp/",
+          "example": {
+            "en": "Wrap each glass in paper before you pack the box.",
+            "zh": "裝箱前，請用紙把每個玻璃杯包好。"
+          }
+        },
+        {
+          "w": "pack",
+          "pos": "v.",
+          "zh": "打包",
+          "ipa": "/pæk/",
+          "example": {
+            "en": "Staff pack the folded shirts into boxes every afternoon.",
+            "zh": "員工每天下午把摺好的襯衫裝進箱子。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "unfold",
+          "ipa": "/ʌnˈfoʊld/",
+          "pos": "v.",
+          "zh": "展開、打開",
+          "link": "un- 表示相反，像 unlock、undo；un + fold 就是把摺好的打開"
+        },
+        {
+          "w": "foldable",
+          "ipa": "/ˈfoʊldəbl/",
+          "pos": "adj.",
+          "zh": "可摺疊的",
+          "link": "fold + -able，可以…的，像 comfortable"
+        },
+        {
+          "w": "folder",
+          "ipa": "/ˈfoʊldɚ/",
+          "pos": "n.",
+          "zh": "資料夾",
+          "link": "fold + -er，指摺起來用來裝文件的東西，像 printer"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/foʊld/",
+          "zh": "摺疊",
+          "in_passage": true,
+          "example": {
+            "en": "Please fold the banner carefully before you store it.",
+            "zh": "收起橫幅之前，請小心地把它摺好。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/foʊld/",
+          "zh": "摺痕、摺疊處",
+          "example": {
+            "en": "The poster has a deep fold across the middle.",
+            "zh": "這張海報中間有一道很深的摺痕。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "摺疊、收合",
+          "en": "to bend something so that it takes less space",
+          "in_passage": true,
+          "example": {
+            "en": "You can fold the stand and carry it in a bag.",
+            "zh": "你可以把支架收合後放進袋子裡帶走。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "（公司）倒閉",
+          "en": "if a business folds, it closes because it has no money",
+          "distinguish": "主詞是公司或店家時，指經營不善而倒閉。",
+          "example": {
+            "en": "The small shop folded after sales dropped sharply.",
+            "zh": "這家小店在銷售量大幅下滑後倒閉了。"
+          }
+        }
+      ]
+    }
+  ]
+}

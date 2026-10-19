@@ -262,7 +262,11 @@ function weekDone(w) { return THEMES.slice(0, CORE_DAYS).filter((t, i) => { cons
 /* 手機首頁：D1–D7 垂直（左，含主題標題）× W 週次水平（可左右捲動）；點交叉格直接進入內文 */
 window.addEventListener('popstate', () => { if (isMobile()) up(); });
 window.addEventListener('resize', () => { if (isMobile() !== render.m) render(); });
-function setNavWeek(w) { cur.nw = w; cur.view === 'home' ? render() : renderSide(); }
+function setNavWeek(w) {
+  /* 正在看某一天（例如 W1D3）時點側欄的週次（W2）→ 右邊直接換成同一天（W2D3）；那週沒有這一天的文章就只切換側欄的週次 */
+  if ((cur.view === 'day' || cur.view === 'mitem') && w != cur.w && find(w, cur.d)) { (cur.view === 'mitem' ? openItem : go)(w, cur.d); return; }
+  cur.nw = w; cur.view === 'home' ? render() : renderSide();
+}
 function openBook() { cur.view = 'book'; push(); render(); window.scrollTo({ top: 0 }); }
 
 /* ===== 頁面架構：選單（launch）→ 學習（learn）／維護（maint） =====
@@ -955,7 +959,7 @@ function renderDay() {
   const vOpen = !!cur.vocabOpen, qOpen = !!cur.quizOpen; // 預設收合
 
   let h = `<header class="mb-6">
-    ${tFrom() ? `<button onclick="goBack()" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline mb-1 cursor-pointer">← ${tLabel()}</button>` : ''}
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mb-1">${tFrom() ? `<button onclick="goBack()" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">← ${tLabel()}</button>` : ''}${nextBtnHtml(x)}</div>
     <div class="flex items-center gap-2">
       <h2 class="text-xl md:text-2xl font-bold">Day ${dShow(x)} ${THEMES[dTh(x.day)]}</h2>
     </div>
@@ -1496,6 +1500,23 @@ function render() {
   dnSyncBar();
 }
 
+/* 上一篇／下一篇：依 週→天 排序（跨週、含 D8 專案文章）；從總表進來時，保留「← 回…」連結 */
+function neighborOf(x, step) {
+  const xs = [...DATA].sort((a, b) => a.week - b.week || a.day - b.day);
+  const i = xs.findIndex(a => a.week == x.week && a.day == x.day);
+  return i >= 0 ? xs[i + step] || null : null;
+}
+function navBtnHtml(x, step) {
+  const n = neighborOf(x, step);
+  if (!n) return '';
+  return `<button onclick="goNext(${n.week},${n.day})" title="W${n.week} · D${dShow(n)} ${esc(n.tag || '')}" class="text-xs font-medium rounded-lg px-3 py-1 border border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 cursor-pointer">${step < 0 ? '← 上一篇' : '下一篇 →'}</button>`;
+}
+const nextBtnHtml = x => navBtnHtml(x, -1) + navBtnHtml(x, 1); // 上一篇 ＋ 下一篇
+function goNext(w, d) {
+  const t = TBACK;
+  TKEEP = t && tFrom() ? Object.assign({}, t, { w, d }) : null; // 讓換篇後仍然顯示「← 回週次表」
+  go(w, d);
+}
 function go(w, d) {
   TBACK = TKEEP; TKEEP = null; SEC = 'learn'; cur = { w, d, nw: w, view: 'day', showTranscript: false };
   S.last = { w, d }; save();
