@@ -1,25 +1,15 @@
 # -*- coding: utf-8 -*-
-"""daily_trash.py — Daily 文章「刪除（移到 Trash）」與 Trash 管理（雙擊 daily_trash.bat 使用）
+"""daily_trash.py — Daily 文章刪除與 Trash 清理（雙擊 daily_trash.bat 使用）
 
-放在網站根目錄（與 daily.json、json_merge.py 同一個資料夾）。
+放在網站根目錄（與 daily.json、json_merge.py 同一個資料夾）。雙擊後只有兩個功能：
 
-【刪除文章】把某一篇（例如 w1d1）從 daily.json 拿掉，整筆資料與 mp3 先移到 _trash/ 資料夾：
-    _trash/w1d1-YYYYMMDD-HHMMSS/item.json   整筆資料（含 timing、extra_vocab，原封不動）
-                                /w1d1.mp3   音檔（若有）
-                                /meta.json  刪除時間、備註、詳解轉移紀錄
-  · 刪之前一定先備份 daily.json（backup/）。
-  · 這篇擁有的「核心單字以外的詳解（extra_vocab）」：若別篇也有用到那個字，預設轉移到最早用到的那一篇，
-    再整理成全題庫只有一份（unify_extra）；沒有別篇用到的，跟著這篇進 Trash。可逐項取消轉移。
-  · 位置固定：刪掉後該日變成「此日內容尚未建置」，不重新編號。
-  · vocab／words 的音檔是依內容命名的，刪文章不去動它們。
+1＝刪除指定文章：把某一篇從 daily.json 拿掉，整筆資料先移到 _trash/（可選：音檔要不要一併刪除）。
+    · 刪之前會先備份 daily.json（backup/）。
+    · 這篇的額外詳解（extra_vocab）：別篇也用到的字自動轉移過去，沒人用到的跟著這篇進 Trash。
+    · 位置固定：刪掉後該日變成「此日內容尚未建置」，不重新編號。
+2＝永久刪除 Trash 文章：列出 _trash/ 裡的項目，勾選要永久刪除的（資料與音檔都會消失，無法復原）。
 
-【Trash 管理】還原（放回原本的 week／day，位置已有新文章就拒絕）、永久刪除單筆、清空全部（要輸入 DELETE）。
-
-【版本備份】json_merge.py 合併「文稿補丁」（w1d1_passage.json）時，會先把改之前的整筆資料與舊 mp3 複製到 _trash/w1d1-edit-時間/
-    （meta.kind＝'version'）。在 Trash 管理裡它標示「版本備份」；還原＝把舊文稿（passage、timing、edited、review_pending，
-    若當時句型被換掉也包含句型）與舊 mp3 放回現有那一篇，不是整篇還原；還原前會先把「目前」的版本也備份一份，所以還原可以再還原。
-
-【trash-index.json】每次變動後重建（網站根目錄）。只放描述資料，不含音檔，網頁的 Trash 清單頁讀它。
+【trash-index.json】每次變動後重建，網頁的 Trash 清單頁讀它。
 【_trash/】內有 mp3，不可被發佈；第一次執行會確認 .gitignore 有 _trash/。
 """
 import copy
@@ -135,7 +125,6 @@ def sorted_items(items):
                   key=lambda x: (x['week'], x['day']))
 
 
-# ───────────────────────── .gitignore ─────────────────────────
 def ensure_gitignore():
     p = os.path.join(BASE, '.gitignore')
     try:
@@ -149,7 +138,6 @@ def ensure_gitignore():
         print('⚠ 無法更新 .gitignore（%s）。請自行確認 _trash/ 不會被發佈。\n' % e)
 
 
-# ───────────────────────── 詳解轉移 ─────────────────────────
 def appears(jm, key, a):
     """這個字（詳解的 text）有沒有出現在 a 的核心單字或文稿（容許 s／es／ed／d／ing 字尾）。"""
     if any(jm.Daily.xkey({'text': v.get('word')}) == key for v in (a.get('vocab') or []) if isinstance(v, dict)):
@@ -175,7 +163,6 @@ def plan_extras(jm, items, x):
     return rows, dup
 
 
-# ───────────────────────── Trash 資料夾與索引 ─────────────────────────
 def trash_folders():
     if not os.path.isdir(TRASH):
         return []
@@ -220,7 +207,6 @@ def offer_scan(jm):
         print('記得之後執行 Scan總表與音檔.py，網頁才會更新音檔與單字清單。')
 
 
-# ───────────────────────── 刪除 ─────────────────────────
 def collect_files(x, k):
     """這篇相關的音檔：audio/ 底下「檔名以 w3d8 開頭」的檔案（後面不能直接接數字），加上題目 audio 欄位指定的檔。回傳相對路徑（/ 分隔）。"""
     pre, out = sid(k), []
@@ -240,15 +226,24 @@ def collect_files(x, k):
     return out
 
 
+
+# ───────────────────────── 功能 1：刪除指定文章 ─────────────────────────
 def pick_numbers(s, n):
     return {int(m) - 1 for m in re.findall(r'\d+', s) if 1 <= int(m) <= n}
+
+
+def list_articles(items):
+    print('\n目前的文章：')
+    for x in sorted_items(items):
+        print('  %-8s %s' % (sid(item_key(x)), x.get('tag') or ''))
 
 
 def delete_flow(jm):
     data, items = load_main(jm)
     if items is None:
         return
-    k = parse_id(ask('\n要刪除哪一篇？（例如 w1d1；直接 Enter 取消）：'))
+    list_articles(items)
+    k = parse_id(ask('\n要刪除哪一篇？（例如 w1d1、w1d8-6；Enter 取消）：'))
     if not k:
         print('已取消。')
         return
@@ -259,83 +254,37 @@ def delete_flow(jm):
 
     files = collect_files(x, k)
     rows, dup = plan_extras(jm, items, x)
-
-    print('\n═══ 影響報告：刪除 %s「%s」 ═══' % (lab(k), x.get('tag') or ''))
-    print('  資料：英文 %d 字、單字 %d 個、題目 %d 題、有 timing %s'
-          % (len(re.findall(r"[A-Za-z0-9']+", str(x.get('passage') or ''))), len(x.get('vocab') or []),
-             len(x.get('questions') or []), '是' if x.get('timing') else '否'))
-    print('  詳解（extra_vocab）：這篇擁有 %d 個字%s' % (len(rows), '（另有 %d 個字別篇才是擁有者，不受影響）' % dup if dup else ''))
-    for i, r in enumerate(rows, 1):
-        t = r['target']
-        print('    [%d] %-24s %s' % (i, r['v'].get('text') or r['v'].get('word'),
-                                    '→ 預設轉移到 %s（別篇也用到）' % lab(item_key(t)) if t else '→ 沒有別篇用到，預設跟著這篇進 Trash'))
-
-    # ── 詳解：先決定「別篇也用到」的要不要轉移，再決定其餘的要不要保留在 daily.json ──
-    cancel = set()
-    if any(r['target'] for r in rows):
-        s = ask('\n要「取消轉移」的編號（取消後它會跟著這篇進 Trash；空白或逗號分隔；Enter＝全部照預設）：')
-        cancel = {i for i in pick_numbers(s, len(rows)) if rows[i]['target']}
-    rest = [i for i, r in enumerate(rows) if not r['target'] or i in cancel]
-    keep, host = set(), None
-    if rest:
-        print('\n以下詳解沒有轉移，預設會跟著這篇進 Trash（還原時會一起回來）：')
-        for i in rest:
-            print('    [%d] %s' % (i + 1, rows[i]['v'].get('text') or rows[i]['v'].get('word')))
-        s = ask('要「保留在 daily.json」的編號（可輸入 all；Enter＝都不保留）：')
-        keep = set(rest) if s.lower() == 'all' else {i for i in pick_numbers(s, len(rows)) if i in rest}
-        if keep:
-            prev = [a for a in sorted_items(items) if a is not x and item_key(a) < k]
-            nxt = [a for a in sorted_items(items) if a is not x and item_key(a) > k]
-            dflt = (prev[-1] if prev else (nxt[0] if nxt else None))
-            if not dflt:
-                print('沒有其他文章可以放，保留不了，這些詳解會跟著進 Trash。')
-                keep = set()
-            else:
-                s = ask('保留的詳解要掛在哪一篇？（Enter＝%s，或輸入其他篇如 w3d6）：' % lab(item_key(dflt)))
-                hk = parse_id(s) if s else None
-                host = find_item(items, hk) if hk and hk != k else None
-                if s and not host:
-                    print('找不到 %s，改用 %s。' % (s, lab(item_key(dflt))))
-                host = host or dflt
-                print('  （提醒：這些字沒出現在 %s 的文章裡，網頁在那篇不會畫底線，詳解頁與單字總表照常可用。）' % lab(item_key(host)))
-
-    # ── 音檔：列出所有以 w3d8 開頭的檔，確認要移走哪些 ──
-    skip = set()
-    print('\n音檔：audio/ 底下檔名以「%s」開頭的檔案：' % sid(k))
+    print('\n═══ 刪除 %s「%s」 ═══' % (lab(k), x.get('tag') or ''))
+    print('  文章資料：單字 %d 個、題目 %d 題、詳解 %d 個' % (len(x.get('vocab') or []), len(x.get('questions') or []), len(rows)))
+    move_files = []
     if files:
-        for i, rel in enumerate(files, 1):
+        print('  音檔：')
+        for rel in files:
             ap = safe_path(rel)
-            print('    [%d] %s（%s）' % (i, rel, human(os.path.getsize(ap)) if ap and os.path.isfile(ap) else '?'))
-        s = ask('要「排除、不移走」的編號（Enter＝全部移到 Trash，之後可還原）：')
-        skip = pick_numbers(s, len(files))
+            print('    - %s（%s）' % (rel, human(os.path.getsize(ap)) if ap and os.path.isfile(ap) else '?'))
+        print('  （Y＝音檔一併移到 Trash；N＝只刪文章，音檔原地不動）')
+        if yes('音檔要一併刪除嗎？'):
+            move_files = files
     else:
-        print('    （找不到）')
-    move_files = [rel for i, rel in enumerate(files) if i not in skip]
-
-    note = ask('\n備註（可空白，例如刪除原因）：')
+        print('  音檔：找不到。')
+    note = ask('備註（可空白）：')
 
     print('\n═══ 最後確認 ═══')
-    print('  將從 daily.json 移除：%s「%s」' % (lab(k), x.get('tag') or ''))
-    print('  將移到 Trash 的音檔 %d 個%s' % (len(move_files), ''.join('\n    - ' + f for f in move_files)))
-    if skip:
-        print('  不動的音檔：' + '、'.join(files[i] for i in sorted(skip)))
-    n_move = sum(1 for i, r in enumerate(rows) if r['target'] and i not in cancel)
-    print('  詳解：轉移 %d 個、保留在 %s %d 個、跟著進 Trash %d 個'
-          % (n_move, lab(item_key(host)) if host else '—', len(keep), len(rows) - n_move - len(keep)))
+    print('  從 daily.json 移除：%s「%s」（資料移到 Trash，之後可在功能 2 永久刪除）' % (lab(k), x.get('tag') or ''))
+    print('  音檔：%s' % ('移到 Trash %d 個' % len(move_files) if move_files else '不動'))
     if not yes('確認執行？'):
         print('已取消，沒有改動任何檔案。')
         return
 
-    moved, kept = [], []
-    dest = {}
+    # 詳解：別篇也用到的字自動轉移過去；沒人用到的跟著這篇進 Trash
+    dest, moved, kept = {}, [], []
     for i, r in enumerate(rows):
-        t = r['target']
-        if t and i not in cancel:
-            dest[i] = t
-        elif i in keep:
-            dest[i] = host
         name = r['v'].get('text') or r['v'].get('word')
-        (moved.append({'text': name, 'to': sid(item_key(dest[i]))}) if i in dest else kept.append(name))
+        if r['target']:
+            dest[i] = r['target']
+            moved.append({'text': name, 'to': sid(item_key(r['target']))})
+        else:
+            kept.append(name)
 
     # 1) 備份主檔 → 2) 把完整資料與音檔「複製」進 Trash → 3) 寫主檔 → 4) 才移除原音檔（任何一步失敗都不會丟資料）
     bak = jm.backup_main(MAIN, 'daily')
@@ -351,7 +300,6 @@ def delete_flow(jm):
         'v': 2, 'id': sid(k), 'deleted': datetime.now().isoformat(timespec='seconds'), 'note': note,
         'files': move_files, 'mp3': move_files[0] if move_files else None, 'extra_moved': moved, 'extra_kept': kept,
         'backup': os.path.relpath(bak, BASE).replace('\\', '/')})
-
     for i, r in enumerate(rows):
         t = dest.get(i)
         if t:
@@ -370,186 +318,63 @@ def delete_flow(jm):
 
     print('\n✔ 已刪除 %s，資料夾：_trash/%s' % (lab(k), folder))
     print('  daily.json 備份：%s' % os.path.relpath(bak, BASE))
-    print('  已移到 Trash 的音檔：%d 個' % len(move_files))
     if moved:
-        print('  詳解留在 daily.json：%s' % '、'.join('%s→%s' % (m['text'], m['to'].upper()) for m in moved))
+        print('  詳解轉移到別篇：%s' % '、'.join('%s→%s' % (m['text'], m['to'].upper()) for m in moved))
     if kept:
-        print('  %d 個詳解跟著這篇進 Trash：%s' % (len(kept), '、'.join(map(str, kept))))
+        print('  %d 個詳解跟著這篇進 Trash' % len(kept))
     for n in notes:
         print('  • ' + n)
-    print('  提醒：這台瀏覽器裡 %s 的作答／錄音／入庫紀錄還在，重新整理網頁後，在該日的空位頁會看到「保留／清除」提示。' % lab(k))
     offer_scan(jm)
 
 
-# ───────────────────────── Trash 管理 ─────────────────────────
-def nfiles(meta):
-    return len(meta.get('files') or []) if meta.get('files') is not None else (1 if meta.get('mp3') else 0)
-
-
+# ───────────────────────── 功能 2：永久刪除 Trash 文章 ─────────────────────────
 def show_trash(jm):
     names = trash_folders()
     if not names:
-        print('\nTrash 是空的。')
+        print('\nTrash 是空的，沒有可以永久刪除的東西。')
         return []
-    print('\n═══ Trash（%d 筆，新的在前）═══' % len(names))
     rows = []
     for n in names:
         meta, item = read_entry(jm, n)
         rows.append((str(meta.get('deleted') if meta else ''), n, meta, item))
     rows.sort(reverse=True)
+    print('\n═══ Trash（%d 筆，新的在前）═══' % len(rows))
     out = []
     for i, (_, n, meta, item) in enumerate(rows, 1):
         if not meta:
             print('  [%d] %s（meta／item 讀不到）' % (i, n))
         else:
+            nf = len(meta.get('files') or []) if meta.get('files') is not None else (1 if meta.get('mp3') else 0)
             ver = meta.get('kind') == 'version'
-            print('  [%d] %s%s「%s」 %s於 %s%s%s' % (i, '【版本備份】' if ver else '', lab((item.get('week'), item.get('day'))), item.get('tag') or '',
+            print('  [%d] %s%s「%s」 %s於 %s%s' % (i, '【版本備份】' if ver else '', lab((item.get('week'), item.get('day'))), item.get('tag') or '',
                                                    '備份' if ver else '刪除', str(meta.get('deleted') or '').replace('T', ' '),
-                                                   ('　含音檔 %d 個' % nfiles(meta)) if nfiles(meta) else '',
-                                                   '　備註：' + meta['note'] if meta.get('note') else ''))
+                                                   ('　含音檔 %d 個' % nf) if nf else ''))
         out.append(n)
     return out
 
 
-def restore(jm, name):
-    meta, item = read_entry(jm, name)
-    if not meta:
-        print('這筆的 meta.json／item.json 讀不到，無法還原。')
+def purge_flow(jm):
+    names = show_trash(jm)
+    if not names:
         return
-    if meta.get('kind') == 'version':
-        return restore_version(jm, name, meta, item)
-    data, items = load_main(jm)
-    if items is None:
+    s = ask('\n要永久刪除的編號（可多個，空白或逗號分隔；all＝全部；Enter 返回）：')
+    if not s:
         return
-    k = item_key(item)
-    if find_item(items, k):
-        print('✖ %s 現在已經有文章了（%s），無法還原。\n  請先把現有那篇刪除（移到 Trash），或維持現狀。' % (lab(k), find_item(items, k).get('tag') or ''))
+    pick = set(range(len(names))) if s.lower() == 'all' else pick_numbers(s, len(names))
+    if not pick:
+        print('沒有選到任何項目。')
         return
-    # 音檔：新格式 meta['files']（相對路徑，存在 Trash 的 files/ 底下）；舊格式 meta['mp3']（直接放在資料夾內）
-    plan_files = []
-    if meta.get('files') is not None:
-        for rel in meta.get('files') or []:
-            plan_files.append((os.path.join(TRASH, name, 'files', *rel.split('/')), safe_path(rel), rel))
-    elif meta.get('mp3'):
-        plan_files.append((os.path.join(TRASH, name, os.path.basename(meta['mp3'])), safe_path(meta['mp3']), meta['mp3']))
-    ok_files, overwrite = [], None
-    for src, dst, rel in plan_files:
-        if not dst or not os.path.isfile(src):
-            print('⚠ Trash 裡找不到 %s，略過。' % rel)
-        elif os.path.isfile(dst):
-            if overwrite is None:
-                overwrite = yes('%s 等音檔已存在，要用 Trash 裡的版本覆蓋嗎？' % rel)
-            if overwrite:
-                ok_files.append((src, dst))
-        else:
-            ok_files.append((src, dst))
-    if not yes('確認還原 %s「%s」？' % (lab(k), item.get('tag') or '')):
+    chosen = [names[i] for i in sorted(pick)]
+    print('\n將永久刪除（資料與音檔都會消失，無法復原）：')
+    for n in chosen:
+        print('  ✗ _trash/%s' % n)
+    if not yes('確定？'):
         print('已取消。')
         return
-    bak = jm.backup_main(MAIN, 'daily')
-    items.append(item)
-    items.sort(key=lambda a: (a.get('week') if isinstance(a.get('week'), int) else 0, a.get('day') if isinstance(a.get('day'), int) else 0))
-    notes = jm.unify_extra(items)
-    jm.write_main(MAIN, data)
-    for src, dst in ok_files:
-        os.makedirs(os.path.dirname(dst), exist_ok=True)
-        shutil.copy2(src, dst)
-    shutil.rmtree(os.path.join(TRASH, name))
+    for n in chosen:
+        shutil.rmtree(os.path.join(TRASH, n), ignore_errors=True)
     rebuild_index(jm)
-    print('✔ 已還原 %s（daily.json 備份：%s）' % (lab(k), os.path.relpath(bak, BASE)))
-    for n in notes:
-        print('  • ' + n)
-    offer_scan(jm)
-
-
-def restore_version(jm, name, meta, item):
-    """還原「文稿版本備份」：把舊文稿（與舊 timing、舊 mp3）放回現有那一篇。先備份目前的版本，所以可以再還原回來。"""
-    data, items = load_main(jm)
-    if items is None:
-        return
-    k = item_key(item)
-    cur = find_item(items, k)
-    if not cur:
-        print('✖ %s 現在不在 daily.json（可能已被刪除），無法還原文稿版本。\n  若要找回整篇，請還原刪除時留下的 Trash 項目。' % lab(k))
-        return
-    fields = [f for f in (meta.get('fields') or ['passage', 'timing', 'edited', 'review_pending'])]
-    words = lambda t: len(re.findall(r"[A-Za-z0-9']+", str(t or '')))
-    print('\n還原 %s 的舊版文稿：' % lab(k))
-    print('  目前：英文 %d 字，timing %d 段%s' % (words(cur.get('passage')), len(cur.get('timing') or []), '，待檢查（review_pending）' if cur.get('review_pending') else ''))
-    print('  舊版：英文 %d 字，timing %d 段，備份於 %s' % (words(item.get('passage')), len(item.get('timing') or []), str(meta.get('deleted') or '').replace('T', ' ')))
-    print('  會換回的欄位：%s' % '、'.join(fields))
-    print('  注意：補丁之後若用「修正補丁」改過翻譯、單字、題目，那些不會被還原（它們不在這份備份裡）。')
-    plan_files = [(os.path.join(TRASH, name, 'files', *rel.split('/')), safe_path(rel), rel) for rel in (meta.get('files') or [])]
-    plan_files = [(a, b, c) for a, b, c in plan_files if b and os.path.isfile(a)]
-    if plan_files:
-        print('  音檔：%s（現有同名檔會被取代；取代前已先備份在新的版本備份裡）' % '、'.join(c for _, _, c in plan_files))
-    if not yes('確認還原？'):
-        print('已取消。')
-        return
-    bak = jm.backup_main(MAIN, 'daily')
-    jm.version_backup(BASE, copy.deepcopy(cur), fields, '還原前的版本')   # 目前的版本（含目前的 mp3）也留一份
-    for f in fields:
-        if f in item:
-            cur[f] = copy.deepcopy(item[f])
-        else:
-            cur.pop(f, None)
-    jm.write_main(MAIN, data)
-    for src, dst, _ in plan_files:
-        os.makedirs(os.path.dirname(dst), exist_ok=True)
-        shutil.copy2(src, dst)
-    shutil.rmtree(os.path.join(TRASH, name))
-    rebuild_index(jm)
-    print('✔ 已還原 %s 的舊文稿（daily.json 備份：%s）' % (lab(k), os.path.relpath(bak, BASE)))
-    print('  還原前的版本已另存在 Trash（版本備份）。')
-    offer_scan(jm)
-
-
-def purge(jm, name):
-    meta, item = read_entry(jm, name)
-    print('永久刪除 _trash/%s（資料與 mp3 都會消失，無法復原）。' % name)
-    if yes('確定？'):
-        shutil.rmtree(os.path.join(TRASH, name))
-        rebuild_index(jm)
-        print('✔ 已永久刪除。')
-    else:
-        print('已取消。')
-
-
-def trash_menu(jm):
-    while True:
-        names = show_trash(jm)
-        if not names:
-            rebuild_index(jm)
-            return
-        s = ask('\n輸入 r 編號（或 r w3d8）＝還原　x 編號＝永久刪除　clear＝清空全部　Enter＝回主選單：').lower()
-        if not s:
-            return
-        if s == 'clear':
-            if ask('這會永久刪除 Trash 內全部 %d 筆。請輸入 DELETE 確認：' % len(names)) == 'DELETE':
-                for n in names:
-                    shutil.rmtree(os.path.join(TRASH, n), ignore_errors=True)
-                rebuild_index(jm)
-                print('✔ 已清空 Trash。')
-            else:
-                print('已取消。')
-            continue
-        m = re.match(r'^([rx])\s*(.*)$', s)
-        pick = None
-        if m:
-            arg = m.group(2).strip()
-            if not arg and len(names) == 1:
-                pick = names[0]                                   # 只有一筆：單打 r／x 就好
-            elif arg.isdigit() and 1 <= int(arg) <= len(names):
-                pick = names[int(arg) - 1]                        # r 1
-            elif parse_id(arg):                                   # r w3d8（有多版時取最新的一版；刪除的優先，版本備份請用編號）
-                hit = [n for n in names if n.startswith(sid(parse_id(arg)) + '-')]
-                pick = next((n for n in hit if '-edit-' not in n), hit[0] if hit else None)
-        if not pick:
-            ex = 'r' if len(names) == 1 else 'r 1'
-            _m = re.match(r'^(w\d+d\d+(?:-\d+)?)-(?:\d{8}|edit)', names[0])
-            print('看不懂。請輸入像「%s」、「x 1」或「r %s」（編號或文章 id 都可以）。' % (ex, _m.group(1) if _m else 'w1d1'))
-            continue
-        (restore if m.group(1) == 'r' else purge)(jm, pick)
+    print('✔ 已永久刪除 %d 筆。若有上傳 GitHub，記得把更新後的 trash-index.json 一起上傳。' % len(chosen))
 
 
 def main():
@@ -558,11 +383,11 @@ def main():
     ensure_gitignore()
     rebuild_index(jm)
     while True:
-        s = ask('\n1＝刪除文章（移到 Trash）　2＝Trash 管理（還原／永久刪除）　Enter＝離開：')
+        s = ask('\n1＝刪除指定文章（可選音檔要不要一併刪除）　2＝永久刪除 Trash 文章　Enter＝離開：')
         if s == '1':
             delete_flow(jm)
         elif s == '2':
-            trash_menu(jm)
+            purge_flow(jm)
         elif not s:
             return
         else:
@@ -570,4 +395,14 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except (EOFError, KeyboardInterrupt):
+        pass
+    except Exception:
+        import traceback
+        traceback.print_exc()
+        try:
+            input('\n發生錯誤（上面是詳細訊息）。按 Enter 關閉視窗…')
+        except Exception:
+            pass
