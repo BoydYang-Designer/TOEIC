@@ -367,3 +367,11 @@ if __name__ == '__main__':
         main()
     except (EOFError, KeyboardInterrupt):
         pass
+    except Exception:   # 出錯時印出完整錯誤，不要讓視窗一閃而過
+        import traceback
+        traceback.print_exc()
+    finally:            # 雙擊執行時，結束前停住視窗，才看得到結果或錯誤
+        try:
+            input('\n按 Enter 關閉視窗…')
+        except Exception:
+            pass
