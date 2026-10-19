@@ -25,9 +25,30 @@ const KEY = 'toeicCoachV2';
 let S = { dark: false, ans: {}, saved: {}, gen: {} };
 try { S = Object.assign(S, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch(e){}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} };
+/* 一次性搬家：舊的 w{N}d8 → w1d8-{N}（作答、語音、入庫、回報、草稿、上次位置）。做過會記在 S.d8mig，不會重複 */
+const D8_RE = /^w(\d+)d8(?!\d|-\d)/;
+function d8Walk(v) {
+  if (Array.isArray(v)) return v.map(d8Walk);
+  if (v && typeof v === 'object') { const o = {}; Object.keys(v).forEach(k => { o[d8Key(k)] = d8Walk(v[k]); }); return o; }
+  return typeof v === 'string' && v.length <= 60 ? d8Key(v) : v;
+}
+function d8Key(s) { const m = D8_RE.exec(s); return m ? 'w1d8-' + m[1] + s.slice(m[0].length) : s; }
+(function d8Migrate() {
+  try {
+    if (S.d8mig) return;
+    const keep = S.dark; S = Object.assign({ dark: false, ans: {}, saved: {}, gen: {} }, d8Walk(S));
+    if (S.last && S.last.d == 8 && S.last.w > 1) S.last = { w: 1, d: 7 + Number(S.last.w) };
+    S.dark = keep; S.d8mig = 1; save();
+    const raw = localStorage.getItem('toeicDailyDrafts'); if (raw) localStorage.setItem('toeicDailyDrafts', JSON.stringify(d8Walk(JSON.parse(raw))));
+  } catch (e) {}
+})();
 
 let cur = { w: 1, d: 1, view: 'launch', showTranscript: false };
-const idOf = x => `w${x.week}d${x.day}`;
+/* D8＝專案：每一週的 D8 是一個專案（W1＝第 1 個專案、W2＝第 2 個…）。專案內第 1、2、3 篇存成 day 8、9、10…，id 是 w{週}d8-1、w{週}d8-2…（資料仍是整數 week/day，其他 js 不用改） */
+const d8n = x => x.day >= 8 ? x.day - 7 : 0;
+const dShow = x => d8n(x) ? '8-' + d8n(x) : x.day; // 顯示用的「天」：專案文章 8-1、8-2…，其他 1–7
+const dTh = d => Math.min(d, 8) - 1; // 主題索引：day 9 以上都屬於 D8 專案
+const idOf = x => `w${x.week}d${dShow(x)}`;
 const AUDIO_DIR = 'audio/daily/'; // daily 的 mp3 放這個資料夾（題目有 audio 欄位時以該欄位為準）
 const audioPath = x => x.audio || AUDIO_DIR + idOf(x) + '.mp3';
 const audioSrc = x => audioPath(x) + (AU.idx && AU.idx.v ? '?v=' + AU.idx.v : ''); // AU / auLoad / auCopy 來自 audio.js（audio/index.json 由 Scan總表與音檔.py 產生）
@@ -340,11 +361,11 @@ const mxMedia = () => { // 維護模式用的統計
   return { xs, N: xs.length, mpOk: xs.filter(x => mp3State(x) === 'ok').length, tm, todo: xs.filter(x => !itemOk(x) || x.review_pending), ne: nextEmpty() };
 };
 function projectSection(name, dn) { // D8（我的專案）：依 project 標籤分組列出
-  const xs = [...DATA].filter(x => x.day === dn).sort((a, b) => a.week - b.week), G = {};
+  const xs = [...DATA].filter(x => x.day >= dn).sort((a, b) => a.week - b.week || a.day - b.day), G = {};
   xs.forEach(x => { const p = x.project || '（未標專案）'; (G[p] = G[p] || []).push(x); });
   const names = Object.keys(G);
   return `<section class="${card} p-4"><div class="flex items-baseline justify-between gap-2 mb-2"><h3 class="font-bold text-sm"><span class="text-indigo-600 dark:text-indigo-400">D${dn}</span> ${name}</h3><span class="text-xs text-slate-500 shrink-0">${names.length} 個專案 · ${xs.length} 篇</span></div>`
-    + (names.length ? `<ul class="divide-y divide-slate-100 dark:divide-slate-800">` + names.map(p => `<li class="py-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm"><span class="font-medium">📁 ${esc(p)}</span>${G[p].map(x => `<button onclick="openFromMatrix(${x.week},${x.day})" title="${esc(x.tag || '')}" class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-300 hover:ring-1 hover:ring-sky-400 cursor-pointer">w${x.week}d${x.day}</button><span class="text-xs text-slate-500">${esc(x.tag || '')}</span>`).join('')}</li>`).join('') + '</ul>'
+    + (names.length ? `<ul class="divide-y divide-slate-100 dark:divide-slate-800">` + names.map(p => `<li class="py-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm"><span class="font-medium">📁 ${esc(p)}</span>${G[p].map(x => `<button onclick="openFromMatrix(${x.week},${x.day})" title="${esc(x.tag || '')}" class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-300 hover:ring-1 hover:ring-sky-400 cursor-pointer">w${x.week}d${dShow(x)}</button><span class="text-xs text-slate-500">${esc(x.tag || '')}</span>`).join('')}</li>`).join('') + '</ul>'
       : '<p class="text-xs text-slate-400">還沒有專案文章。到維護區點「＋ 新增」→ D8，類型選「按照文本」。</p>') + '</section>';
 }
 function topicSections() { // 題材模式：每個 D 的小主題清單（✔ 已用／未用）
@@ -357,7 +378,7 @@ function topicSections() { // 題材模式：每個 D 的小主題清單（✔ �
         const xs = U[k][t], ok = xs.length > 0, odd = !SUBTOPICS[k].includes(t);
         return `<li class="py-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm"><span class="shrink-0 w-4 text-center ${ok ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-300 dark:text-slate-600'}">${ok ? '✔' : '○'}</span>
         <span class="${ok ? '' : 'text-slate-500'}">${esc(t)}${odd ? ' <span class="text-xs text-amber-600 dark:text-amber-400">（不在清單內）</span>' : ''}</span>
-        ${ok ? xs.map(x => `<button onclick="openFromMatrix(${x.week},${x.day})" title="${esc(x.tag || '')}" class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 hover:ring-1 hover:ring-indigo-400 cursor-pointer">w${x.week}d${x.day}</button>`).join('')
+        ${ok ? xs.map(x => `<button onclick="openFromMatrix(${x.week},${x.day})" title="${esc(x.tag || '')}" class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 hover:ring-1 hover:ring-indigo-400 cursor-pointer">w${x.week}d${dShow(x)}</button>`).join('')
         : '<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300">未用</span>'}</li>`;
       }).join('') + '</ul></section>';
   }).join('') + '</div>';
@@ -376,7 +397,7 @@ const MX = {
       const last = S.last && find(S.last.w, S.last.d);
       return last ? `<button onclick="go(${last.week},${last.day})" class="w-full mb-4 rounded-xl px-4 py-3 text-left bg-indigo-600 text-white cursor-pointer">
       <span class="block text-xs text-indigo-100">▶ 繼續上次</span>
-      <span class="block font-semibold">W${last.week} · D${last.day} ${THEMES[last.day - 1]}</span>
+      <span class="block font-semibold">W${last.week} · D${dShow(last)} ${THEMES[dTh(last.day)]}</span>
       <span class="block text-xs text-indigo-100 truncate">${esc(last.tag || '')}</span></button>` : '';
     },
     legend: () => '點格子進入當天內容 · 左右滑動可查看更多天；格子下方小字是子題材'
@@ -407,7 +428,7 @@ const MX = {
     <button onclick="dnNav('reports')" class="${btn} ${card} text-left">⚑ 回報彙整 <span class="block text-xs mt-0.5 ${dnOpenRpN() ? 'text-rose-600 dark:text-rose-400' : 'text-slate-500'}">待處理 ${dnOpenRpN()}</span></button>
     <button onclick="mxSet('topics')" class="${btn} ${card} text-left">🗂 題材總覽 <span class="block text-xs text-slate-500 mt-0.5">${topicCover()}</span></button></div>`;
       if (todo.length) {
-        h += `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm mb-2">待處理（${todo.length}）</h3><div class="space-y-1">${todo.slice(0, 12).map(x => `<button onclick="openItem(${x.week},${x.day})" class="w-full text-left rounded-lg px-2 py-1.5 flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800"><b class="shrink-0">W${x.week}·D${x.day}</b><span class="truncate flex-1 text-slate-500">${esc(x.tag || '')}</span><span class="shrink-0 text-xs text-rose-600 dark:text-rose-400">${todoOf(x).join('、') || '確認 mp3 狀態'}</span></button>`).join('')}${todo.length > 12 ? `<p class="text-xs text-slate-400 px-2">…還有 ${todo.length - 12} 篇，請看「音檔／Timing 清單」</p>` : ''}</div></section>`;
+        h += `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm mb-2">待處理（${todo.length}）</h3><div class="space-y-1">${todo.slice(0, 12).map(x => `<button onclick="openItem(${x.week},${x.day})" class="w-full text-left rounded-lg px-2 py-1.5 flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800"><b class="shrink-0">W${x.week}·D${dShow(x)}</b><span class="truncate flex-1 text-slate-500">${esc(x.tag || '')}</span><span class="shrink-0 text-xs text-rose-600 dark:text-rose-400">${todoOf(x).join('、') || '確認 mp3 狀態'}</span></button>`).join('')}${todo.length > 12 ? `<p class="text-xs text-slate-400 px-2">…還有 ${todo.length - 12} 篇，請看「音檔／Timing 清單」</p>` : ''}</div></section>`;
       }
       return h + tslSection() + `<div class="grid sm:grid-cols-2 gap-3"><button onclick="openAudio()" class="${btn} border border-slate-300 dark:border-slate-700">🎧 音檔／Timing 清單</button><button onclick="openGen(${ne.w},${ne.d})" class="${btn} bg-indigo-600 text-white">＋ 新增下一篇（W${ne.w} · D${ne.d}）</button></div>
   <a href="vocab.html" onclick="tslPreset()" class="${card} flex items-center gap-3 p-4 mt-3 hover:ring-2 hover:ring-indigo-400"><span class="text-3xl">📚</span><span class="flex-1 min-w-0"><span class="block font-bold">TSL 單字總表</span><span class="block text-xs text-slate-500 dark:text-slate-400">New TOEIC Service List 1250 字 · 看還缺哪些</span></span><span class="text-indigo-600 dark:text-indigo-400 text-xl shrink-0">→</span></a>`;
@@ -460,7 +481,7 @@ function renderLaunch() {
     <button onclick="enterSec('learn')" class="${card} ${hov} p-5 text-left cursor-pointer">
       <span class="text-3xl">📖</span><h3 class="font-bold text-lg mt-2">學習</h3>
       <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">每日閱讀／聽力、核心單字、隨堂測驗、語音練習</p>
-      <p class="mt-3 text-xs text-slate-500">已完成測驗 ${done} / ${N} 天${last ? `<br>上次：W${last.week} · D${last.day} ${esc(last.tag || '')}` : ''}</p></button>
+      <p class="mt-3 text-xs text-slate-500">已完成測驗 ${done} / ${N} 天${last ? `<br>上次：W${last.week} · D${dShow(last)} ${esc(last.tag || '')}` : ''}</p></button>
     <button onclick="enterSec('maint')" class="${card} ${hov} p-5 text-left cursor-pointer">
       <span class="text-3xl">🛠</span><h3 class="font-bold text-lg mt-2">維護</h3>
       <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">文章總覽、mp3 與 timing、新增文章、入庫／回報彙整、題材總覽</p>
@@ -531,7 +552,7 @@ function tslSection() {
   h += `<div class="mt-3 space-y-3">` + g.groups.map(o => {
     const x = o.x, id = idOf(x);
     return `<div class="rounded-lg border border-slate-200 dark:border-slate-800 p-3">
-      <div class="flex flex-wrap items-center justify-between gap-2"><button onclick="openItem(${x.week},${x.day})" class="text-sm font-bold text-indigo-600 dark:text-indigo-400 underline cursor-pointer">W${x.week} · D${x.day} ${esc(x.tag || '')}</button>
+      <div class="flex flex-wrap items-center justify-between gap-2"><button onclick="openItem(${x.week},${x.day})" class="text-sm font-bold text-indigo-600 dark:text-indigo-400 underline cursor-pointer">W${x.week} · D${dShow(x)} ${esc(x.tag || '')}</button>
         <div class="flex gap-1.5"><button onclick="tslCopy('${id}',this)" class="${btn} bg-indigo-600 text-white !py-1 !px-2.5 text-xs">複製 AI 提示詞（${o.miss.length}）</button><button onclick="tslToMarks('${id}')" class="${sb}">加入入庫彙整</button></div></div>
       <div class="flex flex-wrap gap-1.5 mt-2">${o.miss.map(m => `<button onclick="tslOpen(${x.week},${x.day},${m.i})" title="TSL 詞頻排名 #${m.r}" class="text-xs rounded-full px-2.5 py-1 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 cursor-pointer">${esc(m.word)} <span class="opacity-60">#${m.r}</span></button>`).join('')}</div></div>`;
   }).join('') + `</div><p class="mt-3 text-[0.6875rem] text-slate-400 leading-relaxed">流程：按「複製 AI 提示詞」（會順便把這些字加入入庫）貼給 AI → AI 回傳的 JSON 存成 w{週}d{天}_extra.json → json_merge.py 合併進 daily.json → 執行 Scan總表與音檔.py 並上傳 → 重新整理，這裡與 TSL 總表就會更新。</p></section>`;
@@ -738,7 +759,7 @@ function dfPromptCtx(x) { // → { oldT, newT, oldPp, newPp }
 function dfPromptText(x) {
   const c = dfPromptCtx(x), id = idOf(x), L = [], jl = a => '[\n' + a.map(o => '  ' + JSON.stringify(o)).join(',\n') + '\n]';
   const pend = dfState(x) !== 'applied' && c.oldT != null && dfNorm(c.oldT) !== dfNorm(c.newT);
-  L.push(`請幫我檢查並調整 ${id}（Week ${x.week}、Day ${x.day}）的周邊內容：英文文稿已${pend ? '（即將）' : ''}修改，中文翻譯、核心單字、題目、詳解、簡報句型可能跟新文稿不一致。`,
+  L.push(`請幫我檢查並調整 ${id}（Week ${x.week}、Day ${dShow(x)}）的周邊內容：英文文稿已${pend ? '（即將）' : ''}修改，中文翻譯、核心單字、題目、詳解、簡報句型可能跟新文稿不一致。`,
     '文稿本身（passage）、timing、level、tag 由我處理，請不要改它們。' + (pend ? '我會先合併新文稿，再合併你回傳的修正，所以請以【新文稿】為準。' : ''), '');
   if (c.oldT != null) L.push('【舊文稿】', c.oldT, '');
   else L.push('【說明】沒有保留舊文稿，請直接拿【新文稿】逐項檢查現有內容是否仍正確。', '');
@@ -822,7 +843,7 @@ function renderMaintItem() {
   if (!x) { main.innerHTML = emptySlot(cur.w, cur.d, false); return; }
   const id = idOf(x), words = (String(x.passage || '').match(/[A-Za-z0-9']+/g) || []).length, pp = Array.isArray(x.presentation_phrases) ? x.presentation_phrases.length : 0;
   const todo = todoOf(x), sec = `${card} p-4 md:p-6 mb-4`, bb = `${btn} border border-slate-300 dark:border-slate-700 !py-1.5 text-xs`;
-  main.innerHTML = `<header class="mb-5">${tFrom() ? `<button onclick="goBack()" class="block text-xs text-indigo-600 dark:text-indigo-400 hover:underline mb-1 cursor-pointer">← ${tLabel()}</button>` : ''}<h2 class="text-xl md:text-2xl font-bold">🛠 W${x.week} · D${x.day} ${esc(x.tag || '')}</h2>
+  main.innerHTML = `<header class="mb-5">${tFrom() ? `<button onclick="goBack()" class="block text-xs text-indigo-600 dark:text-indigo-400 hover:underline mb-1 cursor-pointer">← ${tLabel()}</button>` : ''}<h2 class="text-xl md:text-2xl font-bold">🛠 W${x.week} · D${dShow(x)} ${esc(x.tag || '')}</h2>
     <div class="flex flex-wrap items-center gap-2 mt-2"><span class="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">${x.type}</span>${lvBadge(x)}${stChips(x)}</div>
     <p class="mt-2 text-sm ${todo.length ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">${todo.length ? '待處理：' + todo.join('、') : '✔ mp3 與 timing 都完成'}</p></header>
   ${qStaleBanner(x)}<section class="${sec}"><h3 class="font-bold text-sm mb-2">📄 資料 · ${id}</h3><p class="text-sm text-slate-600 dark:text-slate-400">daily.json ✔　英文 ${words} 字　單字 ${x.vocab.length} 個　題目 ${x.questions.length} 題${pp ? `　簡報句型 ${pp} 句` : ''}${x.edited ? `　文稿修改於 ${esc(x.edited)}${x.review_pending ? '（待檢查）' : ''}` : ''}</p></section>
@@ -838,8 +859,12 @@ function dayNav(nw, M) {
   const mw = Math.max(4, ...DATA.map(x => x.week)) + (M ? 1 : 0);
   let h = `<div class="grid grid-cols-4 gap-1 mb-4">${Array.from({ length: mw }, (_, i) => i + 1).map(w => `<button onclick="setNavWeek(${w})" class="${btn} ${nw == w ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">W${w}</button>`).join('')}</div>
   <p class="text-xs text-slate-500 mb-2 font-medium">Week ${nw} · 7 大主題輪動${THEMES.length > CORE_DAYS ? '＋專案' : ''}</p><nav class="space-y-1">`;
-  THEMES.forEach((t, i) => {
-    const d = i + 1, x = find(nw, d), a = x && S.ans[idOf(x)];
+  const rows = THEMES.map((t, i) => i + 1); // D8 之後若有 day 9、10…（W1 的 D8-2、D8-3…）也一併列出
+  const ex = DATA.filter(x => x.week == nw && x.day > THEMES.length).map(x => x.day).sort((a, b) => a - b);
+  ex.forEach(d => rows.push(d));
+  if (M && find(nw, THEMES.length)) rows.push((ex.length ? ex[ex.length - 1] : THEMES.length) + 1); // 維護：這個專案已有文章 → 多一列「＋ 新增」下一篇
+  rows.forEach(d => {
+    const t = THEMES[dTh(d)], x = find(nw, d), a = x && S.ans[idOf(x)];
     if (d > CORE_DAYS && !x && !M) return; // 學習區：沒有 D8 就不顯示這一列
     const st = !x ? (M ? '<span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 shrink-0">＋ 新增</span>' : '<span class="text-xs text-slate-400 shrink-0">即將推出</span>')
       : M ? `<span class="flex gap-1 shrink-0">${stChips(x)}</span>`
@@ -847,7 +872,7 @@ function dayNav(nw, M) {
     const on = M ? (cur.view === 'mitem' || cur.view === 'gen') && cur.w == nw && cur.d == d : (cur.view === 'day' || cur.view === 'speak' || cur.view === 'detail') && cur.w == nw && cur.d == d;
     const click = x ? `onclick="${M ? 'openItem' : 'go'}(${nw},${d})"` : M ? `onclick="openGen(${nw},${d})"` : 'disabled';
     h += `<button ${click} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : M ? 'border border-dashed border-indigo-400' : 'opacity-40 cursor-not-allowed'}">
-      <span class="text-sm min-w-0">D${d} ${t}${x && (x.project || x.subtopic) ? `<span class="block text-[0.6875rem] text-slate-500 dark:text-slate-400 truncate">${x.project ? '📁 ' : ''}${esc(x.project || x.subtopic)}</span>` : ''}</span>
+      <span class="text-sm min-w-0">D${dShow({ week: nw, day: d })} ${t}${x && (x.project || x.subtopic) ? `<span class="block text-[0.6875rem] text-slate-500 dark:text-slate-400 truncate">${x.project ? '📁 ' : ''}${esc(x.project || x.subtopic)}</span>` : ''}</span>
       <span class="flex items-center gap-2 shrink-0">${!M && x && x.level ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}${!M && x && skDone(x) ? '<span class="text-xs" title="完成語音練習">🎤</span>' : ''}${st}</span></button>`;
   });
   return h + '</nav>';
@@ -856,7 +881,7 @@ function dayNav(nw, M) {
 function renderSide() {
   const n = Object.keys(S.saved).length, nw = cur.nw ?? cur.w, v = cur.view, M = inMaint();
   const line = 'border border-slate-300 dark:border-slate-700';
-  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${cur.d}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${cur.d}` : v === 'topics' ? '🗂 題材總覽' : v === 'trash' ? '🗑 Trash' : v === 'marks' ? '📌 入庫彙整' : v === 'bank' ? '📚 入庫總覽' : v === 'nw' ? '🆕 新單字' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${cur.d}` : `W${cur.w} · D${cur.d} ${THEMES[cur.d - 1]}`;
+  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${dShow({ week: cur.w, day: cur.d })}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${dShow({ week: cur.w, day: cur.d })}` : v === 'topics' ? '🗂 題材總覽' : v === 'trash' ? '🗑 Trash' : v === 'marks' ? '📌 入庫彙整' : v === 'bank' ? '📚 入庫總覽' : v === 'nw' ? '🆕 新單字' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${dShow({ week: cur.w, day: cur.d })}` : `W${cur.w} · D${dShow({ week: cur.w, day: cur.d })} ${THEMES[dTh(cur.d)]}`;
   const dk = `<button onclick="fontCycle()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="調整字級">Aa</button><button onclick="toggleDark()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>`;
   const root = v === 'launch' || v === 'home' || v === 'maint';
   // ===== 手機：選單／學習首頁／維護總覽顯示標題列；其他頁顯示「← 返回」列 =====
@@ -911,7 +936,7 @@ function renderAudioAdmin() {
     <p class="text-xs text-slate-500 mt-2">mp3 放 audio/daily/，檔名 w{週}d{天}.mp3；放好後執行 Scan總表與音檔.py 與 daily_timestamps.py，再重新整理。</p></header>`;
   if (orph.length) h += `<div class="${card} p-3 mb-4 text-xs text-amber-600 dark:text-amber-400">⚠ audio/daily 內有不屬於任何文章的檔案（檔名打錯？）：${orph.map(esc).join('、')}</div>`;
   if (!list.length) return main.innerHTML = h + `<div class="${card} p-8 text-center text-sm text-slate-500">${xs.length ? '這個條件下沒有項目 ✔' : '目前沒有文章'}</div>`;
-  main.innerHTML = h + list.map(x => `<details class="${card} p-3 mb-2"><summary class="cursor-pointer flex flex-wrap items-center gap-2"><b class="text-sm">W${x.week} · D${x.day}</b>${stChips(x)}<code class="text-xs text-slate-500">${esc(audioPath(x).split('/').pop())}</code><span class="text-xs text-slate-500 truncate flex-1 min-w-0">${esc(x.tag || '')}</span>${x.level ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}</summary>
+  main.innerHTML = h + list.map(x => `<details class="${card} p-3 mb-2"><summary class="cursor-pointer flex flex-wrap items-center gap-2"><b class="text-sm">W${x.week} · D${dShow(x)}</b>${stChips(x)}<code class="text-xs text-slate-500">${esc(audioPath(x).split('/').pop())}</code><span class="text-xs text-slate-500 truncate flex-1 min-w-0">${esc(x.tag || '')}</span>${x.level ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}</summary>
       <div class="mt-3 space-y-3">${dyPanel(x)}${timingPanel(x)}<button onclick="openItem(${x.week},${x.day})" class="${sb}">開啟這篇的維護頁</button></div></details>`).join('');
 }
 
@@ -932,7 +957,7 @@ function renderDay() {
   let h = `<header class="mb-6">
     ${tFrom() ? `<button onclick="goBack()" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline mb-1 cursor-pointer">← ${tLabel()}</button>` : ''}
     <div class="flex items-center gap-2">
-      <h2 class="text-xl md:text-2xl font-bold">Day ${x.day} ${THEMES[x.day-1]}</h2>
+      <h2 class="text-xl md:text-2xl font-bold">Day ${dShow(x)} ${THEMES[dTh(x.day)]}</h2>
     </div>
     <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${x.week} · ${x.tag}</span>
     ${x.project ? `<span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300 font-medium" title="專案">📁 ${esc(x.project)}</span>` : ''}
@@ -1123,7 +1148,7 @@ function renderBook() {
       const z = x.questions[idx]; if (!z) return;
       q += `<div class="${card} p-4">
         <div class="flex justify-between items-center mb-2">
-          <span class="text-xs text-indigo-500 font-medium">Week ${x.week} Day ${x.day} · ${THEMES[x.day-1]}</span>
+          <span class="text-xs text-indigo-500 font-medium">Week ${x.week} Day ${dShow(x)} · ${THEMES[dTh(x.day)]}</span>
           ${rm}
         </div>
         <p class="font-medium text-sm my-1">${esc(z.q)}</p>
@@ -1223,7 +1248,7 @@ function genRefs(w, d) { // 同週最近一篇較早／較晚、已存在的文�
 }
 function genEff(w, d) { // 該篇的有效分數：已建置者用實際分數 → 已手動設定者 → 否則用建議值
   const x = find(w, d); if (x && x.level) return x.level.score;
-  const g = S.gen && S.gen[`w${w}d${d}`]; if (g && g.score != null) return g.score;
+  const g = S.gen && S.gen[idOf({ week: w, day: d })]; if (g && g.score != null) return g.score;
   return genSuggest(w, d).score;
 }
 function genSuggest(w, d) { // W2 以後：上一週同一天 + 25；W1 沒有上週：從 600 起、同週逐日上升（D7 約 +100，且至少比前一篇高 10）
@@ -1238,11 +1263,11 @@ function genLater(w, d) { // 較晚的週、同一天已建置的最近一篇
   return null;
 }
 function genG() {
-  const id = `w${cur.w}d${cur.d}`, g = (S.gen && S.gen[id]) || {}, sug = genSuggest(cur.w, cur.d);
+  const id = idOf({ week: cur.w, day: cur.d }), g = (S.gen && S.gen[id]) || {}, sug = genSuggest(cur.w, cur.d);
   return { id, sug, score: g.score != null ? g.score : sug.score, manual: g.score != null && g.score !== sug.score, type: g.type || (cur.d > CORE_DAYS ? 'text' : 'auto'), note: g.note || '', project: g.project || '' };
 }
 function genSet(k, v) {
-  S.gen = S.gen || {}; const g = S.gen[`w${cur.w}d${cur.d}`] = S.gen[`w${cur.w}d${cur.d}`] || {};
+  S.gen = S.gen || {}; const g = S.gen[idOf({ week: cur.w, day: cur.d })] = S.gen[idOf({ week: cur.w, day: cur.d })] || {};
   if (v == null || v === '') delete g[k]; else g[k] = v;
   save();
 }
@@ -1304,7 +1329,7 @@ function tslPanel(s) {
     <div class="flex flex-wrap gap-1 mb-1">${tp.words.map(w => chip(esc(w), 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300')).join('')}</div>
     <p class="text-slate-500 mb-2">AI 原則上會從這些字用 2–5 個（可視情況增減，與新單字大約各占一半）；合併進 daily.json 後，被挑中的就會出現在下方「已收錄」。TSL 尚未收錄 <b>${tp.left}</b> / ${TSL_WORDS.length} 字。</p>
     <details><summary class="cursor-pointer font-bold">已收錄的 TSL 單字：${total} 個（${hs.length} 篇）</summary>
-      <div class="mt-2 space-y-1.5">${hs.map(h => `<div><span class="text-slate-500">w${h.x.week}d${h.x.day}</span> ${h.list.map(i => chip(`${esc(i.word)} <span class="opacity-60">#${i.r}</span>`, 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300')).join(' ')}</div>`).join('')}</div>
+      <div class="mt-2 space-y-1.5">${hs.map(h => `<div><span class="text-slate-500">w${h.x.week}d${dShow(h.x)}</span> ${h.list.map(i => chip(`${esc(i.word)} <span class="opacity-60">#${i.r}</span>`, 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300')).join(' ')}</div>`).join('')}</div>
     </details></div>`;
 }
 function genPromptText(g) { // 按照文本：passage 由使用者提供，AI 只設計單字詳解、考題、常用句等周邊內容
@@ -1314,7 +1339,7 @@ function genPromptText(g) { // 按照文本：passage 由使用者提供，AI �
     '・本篇的英文文本由我提供，附在本提示詞最下方「【我的文本】」之後。',
     '・passage 欄位請「逐字照抄」我的文本（不改寫、不增刪、不潤飾、不更正；段落以 \\n\\n 分隔）。你不需要自己設計文章。',
     '・你只需要針對這份文本產生：tag、level、zh（全文繁體中文翻譯）、vocab（單字詳解）、questions（考題）、presentation_phrases（常用句）。', '');
-  L.push('【基本資訊】', `・Week ${w}、Day ${d}（主題：${THEMES[d - 1]}）` + (d > CORE_DAYS ? '；_spec 只寫到 D7，D8 為例外，請照填 day: 8，不需要 subtopic' : ''),
+  L.push('【基本資訊】', `・Week ${w}、Day ${dShow({ week: w, day: d })}（主題：${THEMES[dTh(d)]}）` + (d > CORE_DAYS ? `；_spec 只寫到 D7，D8 為專案：請照填 week: ${w}、day: ${d}（專案文章 day 8＝第 1 篇、9＝第 2 篇…，id 是 ${idOf({ week: w, day: d })}），不需要 subtopic` : ''),
     '・type：依文本性質判斷（書面文件、郵件、報告 → Reading；口說稿、對話、廣播 → Listening）');
   if (g.project) L.push(`・project：${g.project}（請在輸出 JSON 的 tag 後面加 "project" 欄位，值固定為此字串）`);
   L.push('');
@@ -1340,7 +1365,7 @@ function genPrompt() {
   const typ = g.type === 'auto' ? '由你依主題與 _spec 自行決定（Reading 或 Listening）' : g.type;
   const L = [];
   L.push(`請依我提供的 daily.json（內含 _spec 規格與既有 items）生成 ${g.id}。`, '');
-  L.push('【基本資訊】', `・Week ${w}、Day ${d}（主題：${THEMES[d - 1]}）`, `・type：${typ}`, '');
+  L.push('【基本資訊】', `・Week ${w}、Day ${dShow({ week: w, day: d })}（主題：${THEMES[dTh(d)]}）`, `・type：${typ}`, '');
   L.push('【難度】已指定難度，請直接生成，不需要再詢問難度。', `・目標：多益約 ${s} 分（CEFR ${c}）。`);
   L.push(`・level.score 填 ${s}、range 填 "${s - 50}-${s + 50}"、cefr 填 "${c}"` + (s % 50 ? '（本次分數不是 50 的倍數，優先於 _spec 中「50 的倍數」的規定）。' : '。'));
   if (w > 1) {
@@ -1401,7 +1426,7 @@ function renderGen() {
     return `<div class="rounded-lg px-2 py-1.5 text-center min-w-[3.5rem] ${cls}"><div class="text-[0.6875rem] text-slate-500">D${k}</div><div class="text-sm font-semibold">${v}</div><div class="text-[0.625rem] text-slate-400">${k === d ? '本篇' : x ? '已有' : '建議'}</div></div>`;
   }).join('');
   main.innerHTML = `<header class="mb-6">
-    <h2 class="text-xl md:text-2xl font-bold">＋ 新增文章 · Day ${d} ${THEMES[d - 1]}</h2>
+    <h2 class="text-xl md:text-2xl font-bold">＋ 新增文章 · Day ${dShow({ week: w, day: d })} ${THEMES[dTh(d)]}</h2>
     <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${w} · ${g.id}</span>
   </header>
 
@@ -1562,7 +1587,7 @@ function trClear(id) {
 
 /* 空位頁：此日沒有文章。位置固定，不重新編號；Trash 有同位置舊版就提示可還原；還有學習紀錄就問保留或清除 */
 function emptySlot(w, d, note) {
-  const id = `w${w}d${d}`, T = trAt(w, d), r = trRecs(id), key = trKeepKey(w, d);
+  const id = idOf({ week: w, day: d }), T = trAt(w, d), r = trRecs(id), key = trKeepKey(w, d);
   const has = r.ans || r.spk || r.marks || r.spkObj || r.saved, kept = !!(S.trKeep && S.trKeep[id] === key && key !== '');
   const box = 'mt-4 text-left rounded-lg border p-3 text-xs leading-relaxed';
   const tb = T.length ? `<div class="${box} border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950 text-amber-800 dark:text-amber-200">🗑 Trash 裡有這天的舊版：<b>${esc(T[0].tag || '')}</b>（${trTime(T[0].deleted)} 刪除${T.length > 1 ? `，共 ${T.length} 版` : ''}）。<br>要還原：雙擊 <code>daily_trash.bat</code> →「2 Trash 管理」→ 輸入 <code>r</code> 加編號。<button onclick="openTrash()" class="underline ml-1 cursor-pointer">看 Trash 清單</button></div>` : '';
@@ -1581,11 +1606,11 @@ function renderTrash() {
     <p class="mt-2 text-xs text-slate-500 leading-relaxed">這裡只能看。還原、永久刪除、清空，請雙擊 <code>daily_trash.bat</code> →「2 Trash 管理」。<button onclick="trRecheck()" class="${bb} ml-1">重新讀取 trash-index.json</button></p></header>`;
   if (!T.length) { main.innerHTML = h; return; }
   const one = t => {
-    const id = t.id || `w${t.week}d${t.day}`, occ = find(t.week, t.day), r = trRecs(id), rec = r.ans || r.spk || r.marks, ver = t.kind === 'version';
+    const id = t.id || `w${t.week}d${dShow(t)}`, occ = find(t.week, t.day), r = trRecs(id), rec = r.ans || r.spk || r.marks, ver = t.kind === 'version';
     const badge = ver ? (occ ? `<span class="${chipS} ${TM_COLOR.partial}">版本備份</span><span class="${chipS} ${TM_COLOR.ok}">可還原舊文稿</span>` : `<span class="${chipS} ${TM_COLOR.partial}">版本備份</span><span class="${chipS} ${TM_COLOR.none}">這一篇已不在 daily.json，無法還原</span>`)
       : occ ? `<span class="${chipS} bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400">此位置已有新文章，還原前須先處理</span>` : `<span class="${chipS} ${TM_COLOR.ok}">可還原</span>`;
     const mv = t.extra_moved || [], kp = t.extra_kept || [];
-    return `<section class="${sec}"><div class="flex flex-wrap items-center gap-2"><b class="text-sm">W${t.week} · D${t.day}</b><span class="text-sm">${esc(t.tag || '')}</span>${badge}${t.score ? `<span class="${chipS} ${lvColor(t.score)}">${t.score}</span>` : ''}</div>
+    return `<section class="${sec}"><div class="flex flex-wrap items-center gap-2"><b class="text-sm">W${t.week} · D${dShow(t)}</b><span class="text-sm">${esc(t.tag || '')}</span>${badge}${t.score ? `<span class="${chipS} ${lvColor(t.score)}">${t.score}</span>` : ''}</div>
       <p class="mt-1 text-xs text-slate-500">${trTime(t.deleted)} ${ver ? '備份（改文稿之前）' : '刪除'}　英文 ${t.words || 0} 字　單字 ${t.n_vocab || 0}　題目 ${t.n_questions || 0}　mp3 ${t.has_mp3 ? '有' + (t.n_files > 1 ? ' ' + t.n_files + ' 個' : '') : '無'}</p>
       ${ver && (t.fields || []).length ? `<p class="mt-1 text-xs text-slate-500">還原時會換回：${t.fields.map(esc).join('、')}${t.has_mp3 ? '，以及舊 mp3' : ''}。還原前會先備份目前的版本。</p>` : ''}
       ${t.note ? `<p class="mt-1 text-xs">備註：${esc(t.note)}</p>` : ''}

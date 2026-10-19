@@ -1,0 +1,1031 @@
+{
+  "week": 5,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "simplify",
+      "type": "word",
+      "ipa": "/ˈsɪmpləˌfaɪ/",
+      "pos": "v.",
+      "zh": "簡化；使變簡單",
+      "en": "to make something easier or less complicated",
+      "note": "文中說要 simplify the mechanism，指減少零件與步驟，讓機構更簡單。是簡報中說明設計改善好處時很常用的動詞。",
+      "forms": [
+        {
+          "w": "simplifies",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "簡化",
+          "ipa": "/ˈsɪmpləˌfaɪz/",
+          "example": {
+            "en": "This new template simplifies the way we report monthly sales.",
+            "zh": "這個新範本簡化了我們回報每月銷售的方式。"
+          }
+        },
+        {
+          "w": "simplified",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "簡化了",
+          "ipa": "/ˈsɪmpləˌfaɪd/",
+          "example": {
+            "en": "The team simplified the checkout process last quarter.",
+            "zh": "團隊上一季簡化了結帳流程。"
+          }
+        },
+        {
+          "w": "simplifying",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在簡化",
+          "ipa": "/ˈsɪmpləˌfaɪɪŋ/",
+          "example": {
+            "en": "We are simplifying our price list to avoid confusion.",
+            "zh": "我們正在簡化價目表以避免混淆。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "simplify the process",
+          "zh": "簡化流程",
+          "example": {
+            "en": "A shared calendar will simplify the process of booking meeting rooms.",
+            "zh": "共用行事曆會簡化預約會議室的流程。"
+          }
+        },
+        {
+          "phrase": "simplify the design",
+          "zh": "簡化設計",
+          "example": {
+            "en": "Engineers plan to simplify the design to reduce production costs.",
+            "zh": "工程師計畫簡化設計以降低生產成本。"
+          }
+        },
+        {
+          "phrase": "simplify the procedure",
+          "zh": "簡化程序",
+          "example": {
+            "en": "Please simplify the procedure so new staff can follow it easily.",
+            "zh": "請簡化程序，讓新進員工能輕鬆照著做。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Our goal is to simplify daily work for every department.",
+          "zh": "我們的目標是簡化每個部門的日常工作。"
+        },
+        {
+          "tag": "產品開發",
+          "en": "Using fewer parts would simplify assembly and lower our costs.",
+          "zh": "使用較少的零件會簡化組裝並降低我們的成本。"
+        },
+        {
+          "tag": "客服",
+          "en": "Can we simplify the refund form to help customers finish faster?",
+          "zh": "我們能簡化退款表單，幫客戶更快填完嗎？"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "simple",
+          "diff": "simple 是形容詞「簡單的」，simplify 是動詞「使變簡單」",
+          "usage": "simple 是形容詞（a simple design）；simplify 是動詞，後面接受詞（simplify the design）。",
+          "example": {
+            "en": "The instructions are simple, so anyone can follow them.",
+            "zh": "說明很簡單，所以任何人都能照做。"
+          }
+        },
+        {
+          "word": "simply",
+          "diff": "simply 是副詞，常表示「只是、僅僅」，不是「簡化」",
+          "example": {
+            "en": "We simply need your signature to finish the order.",
+            "zh": "我們只需要您的簽名就能完成訂單。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "streamline",
+          "diff": "streamline 偏重讓流程更順暢有效率；simplify 偏重讓事情不那麼複雜",
+          "example": {
+            "en": "We need to streamline the ordering process to save time.",
+            "zh": "我們需要精簡訂購流程以節省時間。"
+          }
+        },
+        {
+          "phrase": "make easier",
+          "diff": "make ... easier 是較口語的說法，意思和 simplify 接近",
+          "example": {
+            "en": "Online forms make it easier for clients to apply.",
+            "zh": "線上表單讓客戶更容易申請。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "reduce",
+          "pos": "v.",
+          "zh": "減少",
+          "ipa": "/rɪˈdus/",
+          "example": {
+            "en": "Simpler packaging can reduce our shipping costs by ten percent.",
+            "zh": "更簡單的包裝可以讓我們的運費減少百分之十。"
+          }
+        },
+        {
+          "w": "improve",
+          "pos": "v.",
+          "zh": "改善",
+          "ipa": "/ɪmˈpruv/",
+          "example": {
+            "en": "The update should improve the speed of the whole system.",
+            "zh": "這次更新應該能提升整個系統的速度。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "simple",
+          "ipa": "/ˈsɪmpəl/",
+          "pos": "adj.",
+          "zh": "簡單的",
+          "link": "simple 是詞幹；simplify = simple + -ify（使變成…），像 clarify（使清楚）"
+        },
+        {
+          "w": "simply",
+          "ipa": "/ˈsɪmpli/",
+          "pos": "adv.",
+          "zh": "簡單地；只是",
+          "link": "simple + -ly 變副詞，像 quickly、easily"
+        },
+        {
+          "w": "simplicity",
+          "ipa": "/sɪmˈplɪsəti/",
+          "pos": "n.",
+          "zh": "簡單；簡易",
+          "link": "simple 變名詞，表示「簡單的狀態」"
+        },
+        {
+          "w": "simplification",
+          "ipa": "/ˌsɪmpləfəˈkeɪʃən/",
+          "pos": "n.",
+          "zh": "簡化",
+          "link": "simplify 去 y 加 -ication，像 apply → application"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "reliability",
+      "type": "word",
+      "ipa": "/rɪˌlaɪəˈbɪləti/",
+      "pos": "n.",
+      "zh": "可靠度；可靠性",
+      "en": "how well a product works without problems over time",
+      "note": "文中說簡化機構後可能提升 reliability，指產品長期使用時較不容易出故障。多益常見於產品、設備與服務品質的說明。",
+      "grammar_note": "reliability 是不可數名詞，不加 s；形容詞是 reliable。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "improve reliability",
+          "zh": "提升可靠度",
+          "example": {
+            "en": "New testing methods will improve reliability across all our products.",
+            "zh": "新的測試方法會提升我們所有產品的可靠度。"
+          }
+        },
+        {
+          "phrase": "product reliability",
+          "zh": "產品可靠度",
+          "example": {
+            "en": "Customers often judge a brand by its product reliability.",
+            "zh": "客戶常以產品可靠度來評斷一個品牌。"
+          }
+        },
+        {
+          "phrase": "reliability test",
+          "zh": "可靠度測試",
+          "example": {
+            "en": "The reliability test runs for two weeks before final approval.",
+            "zh": "可靠度測試在最終核准前會進行兩週。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "產品說明",
+          "en": "The brochure highlights the machine's low cost and high reliability.",
+          "zh": "手冊強調這台機器成本低又可靠度高。"
+        },
+        {
+          "tag": "會議",
+          "en": "Our main concern is the long-term reliability of the new supplier.",
+          "zh": "我們主要的顧慮是新供應商的長期可靠度。"
+        },
+        {
+          "tag": "客服",
+          "en": "Many customers praised the reliability of our delivery service.",
+          "zh": "許多客戶稱讚我們配送服務的可靠度。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "liability",
+          "diff": "liability 是「法律責任；負債」，和「可靠」無關，拼法容易看錯",
+          "example": {
+            "en": "The contract limits our liability for late deliveries.",
+            "zh": "合約限制了我們對延遲交貨的責任。"
+          }
+        },
+        {
+          "word": "reliance",
+          "diff": "reliance 是「依賴」，reliability 是「可靠度」",
+          "example": {
+            "en": "Our heavy reliance on one supplier is quite risky.",
+            "zh": "我們對單一供應商的高度依賴相當有風險。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "dependability",
+          "diff": "dependability 語氣較口語，常指人或服務值得信賴；reliability 較常用於產品與系統",
+          "example": {
+            "en": "Customers value dependability more than a low price.",
+            "zh": "客戶重視可信賴度勝過低價。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "durability",
+          "pos": "n.",
+          "zh": "耐用度",
+          "ipa": "/ˌdʊrəˈbɪləti/",
+          "example": {
+            "en": "The test measures the durability of the plastic frame.",
+            "zh": "這項測試衡量塑膠框架的耐用度。"
+          }
+        },
+        {
+          "w": "performance",
+          "pos": "n.",
+          "zh": "性能；表現",
+          "ipa": "/pɚˈfɔrməns/",
+          "example": {
+            "en": "The new model's performance clearly exceeded our expectations.",
+            "zh": "新機型的性能明顯超出我們的預期。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "rely",
+          "ipa": "/rɪˈlaɪ/",
+          "pos": "v.",
+          "zh": "依賴；信賴",
+          "link": "rely 是詞幹，常說 rely on（依靠）"
+        },
+        {
+          "w": "reliable",
+          "ipa": "/rɪˈlaɪəbəl/",
+          "pos": "adj.",
+          "zh": "可靠的",
+          "link": "rely + -able（可…的），像 comfortable、available"
+        },
+        {
+          "w": "reliably",
+          "ipa": "/rɪˈlaɪəbli/",
+          "pos": "adv.",
+          "zh": "可靠地",
+          "link": "reliable 去 e 加 -y，變副詞"
+        },
+        {
+          "w": "unreliable",
+          "ipa": "/ˌʌnrɪˈlaɪəbəl/",
+          "pos": "adj.",
+          "zh": "不可靠的",
+          "link": "un-（不）+ reliable，像 unable、unusual"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "release",
+      "type": "word",
+      "ipa": "/rɪˈlis/",
+      "pos": "v.",
+      "zh": "解除；放開；釋放",
+      "en": "to let go of something that was held or locked",
+      "note": "文中 release the rear wheel swivel locks 指握把旋轉時自動「解除」後輪旋轉鎖，是機械說明常見的用法；與 engage（卡合）相反。",
+      "grammar_note": "release A from B 表示把 A 從 B 之中解除或釋放，例如 release the wheels from the lock。",
+      "forms": [
+        {
+          "w": "releases",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "解除",
+          "ipa": "/rɪˈlisɪz/",
+          "example": {
+            "en": "Pressing this lever releases the brake on both rear wheels.",
+            "zh": "按下這支拉桿會解除兩個後輪的煞車。"
+          }
+        },
+        {
+          "w": "released",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "發布了；解除了",
+          "ipa": "/rɪˈlist/",
+          "example": {
+            "en": "The company released its annual report on Monday morning.",
+            "zh": "公司在週一早上發布了年度報告。"
+          }
+        },
+        {
+          "w": "releasing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在釋放",
+          "ipa": "/rɪˈlisɪŋ/",
+          "example": {
+            "en": "Releasing the button will stop the machine at once.",
+            "zh": "放開按鈕會讓機器立刻停止。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "release the brake",
+          "zh": "鬆開煞車",
+          "example": {
+            "en": "Make sure you release the brake before moving the cart.",
+            "zh": "移動推車前請確認已鬆開煞車。"
+          }
+        },
+        {
+          "phrase": "release a new product",
+          "zh": "推出新產品",
+          "example": {
+            "en": "The firm plans to release a new product in March.",
+            "zh": "這家公司計畫在三月推出新產品。"
+          }
+        },
+        {
+          "phrase": "press release",
+          "zh": "新聞稿",
+          "example": {
+            "en": "Our team will draft a press release tomorrow.",
+            "zh": "我們的團隊明天會起草新聞稿。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "設備",
+          "en": "Slowly release the handle so the arm does not drop suddenly.",
+          "zh": "慢慢放開握把，手臂才不會突然掉下來。"
+        },
+        {
+          "tag": "新聞",
+          "en": "The bank will release its quarterly results next Friday.",
+          "zh": "銀行將在下週五公布季度業績。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "relieve",
+          "diff": "relieve 是「減輕、緩解」，發音和拼法都與 release 相近",
+          "example": {
+            "en": "The extra staff will relieve pressure on the sales team.",
+            "zh": "額外的人手會減輕業務團隊的壓力。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "unlock",
+          "diff": "unlock 專指打開「鎖」；release 範圍更廣，也可指放開、發表",
+          "example": {
+            "en": "Enter the code to unlock the storage cabinet.",
+            "zh": "輸入密碼即可打開儲物櫃。"
+          }
+        },
+        {
+          "word": "disengage",
+          "diff": "disengage 偏機械脫離、解除卡合，語氣較技術性",
+          "example": {
+            "en": "Pull the lever to disengage the gear before cleaning.",
+            "zh": "清潔前請拉動拉桿讓齒輪脫離。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "lock",
+          "pos": "v.",
+          "zh": "鎖住",
+          "ipa": "/lɑk/",
+          "example": {
+            "en": "Always lock the cabinet before leaving the office.",
+            "zh": "離開辦公室前請務必鎖上櫃子。"
+          }
+        },
+        {
+          "w": "launch",
+          "pos": "v.",
+          "zh": "推出；發表",
+          "ipa": "/lɔntʃ/",
+          "example": {
+            "en": "We will launch the product at the trade show.",
+            "zh": "我們將在展覽會上推出這項產品。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/rɪˈlis/",
+          "zh": "解除；發布",
+          "in_passage": true,
+          "example": {
+            "en": "We will release the updated schedule by this afternoon.",
+            "zh": "我們會在今天下午前發布更新後的時程表。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/rɪˈlis/",
+          "zh": "發布；新聞稿",
+          "example": {
+            "en": "The press release explains how the policy will change.",
+            "zh": "新聞稿說明了政策將如何改變。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "解除、鬆開",
+          "en": "to open or unlock something so it can move freely",
+          "in_passage": true,
+          "distinguish": "指鎖、煞車、握把等機械零件",
+          "example": {
+            "en": "Press the button to release the lock on the door.",
+            "zh": "按下按鈕即可解除門鎖。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "發表、推出",
+          "en": "to make a product or information available to the public",
+          "distinguish": "受詞是產品、報告、消息",
+          "example": {
+            "en": "The company will release the new software update next month.",
+            "zh": "公司下個月將推出新的軟體更新。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "撥出（款項）",
+          "en": "to allow money or items to be used",
+          "distinguish": "受詞是 funds、payment 等",
+          "example": {
+            "en": "Finance will release the funds once the contract is signed.",
+            "zh": "合約簽署後，財務部會撥出資金。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "engage",
+      "type": "word",
+      "ipa": "/ɪnˈɡeɪdʒ/",
+      "pos": "v.",
+      "zh": "（機械）卡合；啟動；從事",
+      "en": "to connect or lock into place",
+      "note": "文中 the swivel locks would automatically engage again 指後輪旋轉鎖會再次「卡合」鎖住，與前面的 release（解除）相對。engage 在多益還常見「參與」「吸引」「聘請」等意思。",
+      "grammar_note": "engage 當「卡合」時，可直接接受詞或當不及物動詞（The gear engages）；當「從事」時要用 engage in + 名詞或 V-ing。",
+      "forms": [
+        {
+          "w": "engages",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "卡合；從事",
+          "ipa": "/ɪnˈɡeɪdʒɪz/",
+          "example": {
+            "en": "The brake engages automatically when the user lets go.",
+            "zh": "使用者放手時，煞車會自動卡合。"
+          }
+        },
+        {
+          "w": "engaged",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "從事了；聘請了",
+          "ipa": "/ɪnˈɡeɪdʒd/",
+          "example": {
+            "en": "The two firms engaged in talks for several months.",
+            "zh": "兩家公司洽談了好幾個月。"
+          }
+        },
+        {
+          "w": "engaged",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "投入的；忙碌的",
+          "ipa": "/ɪnˈɡeɪdʒd/",
+          "example": {
+            "en": "Engaged employees usually stay with the company longer.",
+            "zh": "投入工作的員工通常會在公司待得更久。"
+          }
+        },
+        {
+          "w": "engaging",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在聘請；吸引",
+          "ipa": "/ɪnˈɡeɪdʒɪŋ/",
+          "example": {
+            "en": "She is engaging a new designer for the project.",
+            "zh": "她正在為這個專案聘請一位新設計師。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "engage the lock",
+          "zh": "啟動鎖定",
+          "example": {
+            "en": "Remember to engage the lock before moving the cart.",
+            "zh": "移動推車前記得啟動鎖定。"
+          }
+        },
+        {
+          "phrase": "engage in",
+          "zh": "從事；參與",
+          "example": {
+            "en": "Staff may not engage in personal business during work hours.",
+            "zh": "員工在工作時間內不得從事私人事務。"
+          }
+        },
+        {
+          "phrase": "engage customers",
+          "zh": "吸引客戶互動",
+          "example": {
+            "en": "Social media helps us engage customers between product launches.",
+            "zh": "社群媒體幫助我們在新品發表之間與客戶互動。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "設備",
+          "en": "The gear should engage smoothly without any noise.",
+          "zh": "齒輪應該順暢卡合，不發出任何噪音。"
+        },
+        {
+          "tag": "會議",
+          "en": "Managers must engage their teams in the planning process.",
+          "zh": "主管必須讓團隊參與規劃過程。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "involve",
+          "diff": "involve 是「涉及、包含」，沒有「卡合」或「聘請」的意思",
+          "example": {
+            "en": "The new project will involve three different departments.",
+            "zh": "這個新專案會牽涉三個不同部門。"
+          }
+        },
+        {
+          "word": "employ",
+          "diff": "employ 指僱用員工；engage 的「聘請」多指短期的顧問或專業人士",
+          "example": {
+            "en": "The factory employs about two hundred workers in total.",
+            "zh": "這間工廠總共僱用了大約兩百名員工。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "activate",
+          "diff": "activate 指啟動某項功能；engage 強調機件互相卡住、接合",
+          "example": {
+            "en": "Press the key twice to activate the alarm.",
+            "zh": "按兩下按鍵即可啟動警報。"
+          }
+        },
+        {
+          "phrase": "lock into place",
+          "diff": "lock into place 是較口語的片語，指固定到定位",
+          "example": {
+            "en": "The panel will lock into place with a click.",
+            "zh": "面板會發出喀聲並固定到位。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "operate",
+          "pos": "v.",
+          "zh": "運作；操作",
+          "ipa": "/ˈɑpəˌreɪt/",
+          "example": {
+            "en": "This machine operates on a simple spring system.",
+            "zh": "這台機器以簡單的彈簧系統運作。"
+          }
+        },
+        {
+          "w": "attach",
+          "pos": "v.",
+          "zh": "附上；裝上",
+          "ipa": "/əˈtætʃ/",
+          "example": {
+            "en": "Please attach the cover securely before first use.",
+            "zh": "初次使用前請把護蓋牢牢裝上。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "engagement",
+          "ipa": "/ɪnˈɡeɪdʒmənt/",
+          "pos": "n.",
+          "zh": "參與；約定",
+          "link": "engage + -ment（名詞字尾），像 payment、management"
+        },
+        {
+          "w": "disengage",
+          "ipa": "/ˌdɪsɪnˈɡeɪdʒ/",
+          "pos": "v.",
+          "zh": "脫開；解除",
+          "link": "dis-（相反）+ engage，像 disconnect、disagree"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "卡合；啟動（機械）",
+          "en": "to connect or lock into place",
+          "in_passage": true,
+          "distinguish": "主詞是鎖、齒輪、煞車等機件",
+          "example": {
+            "en": "The safety lock will engage once the door is fully closed.",
+            "zh": "門完全關上後，安全鎖就會卡合。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "從事、參與",
+          "en": "to take part in an activity",
+          "distinguish": "常寫成 engage in",
+          "example": {
+            "en": "The two companies engage in joint research every year.",
+            "zh": "這兩家公司每年都進行共同研究。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "吸引；使投入",
+          "en": "to get someone's attention and interest",
+          "distinguish": "受詞是人，表示抓住注意力",
+          "example": {
+            "en": "A short quiz can engage students during the training session.",
+            "zh": "一個簡短測驗可以讓學員在訓練課程中更投入。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "聘請",
+          "en": "to hire someone for a job",
+          "distinguish": "多指聘請顧問、律師等專業人士",
+          "example": {
+            "en": "We plan to engage a lawyer to review the contract.",
+            "zh": "我們打算聘請律師來審閱合約。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "cable",
+      "type": "word",
+      "ipa": "/ˈkeɪbəl/",
+      "pos": "n.",
+      "zh": "纜線；鋼索",
+      "en": "a strong thick wire or set of wires",
+      "note": "文中 control cable 指握把內連接按鈕與鎖定機構的控制鋼索；每多一個按鈕就多一條，是機構變複雜的原因，所以減少按鈕就能省下一條 cable。",
+      "forms": [
+        {
+          "w": "cables",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "纜線（複數）",
+          "ipa": "/ˈkeɪbəlz/",
+          "example": {
+            "en": "Each machine needs two separate cables for power and data.",
+            "zh": "每台機器需要兩條獨立的電源與資料纜線。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "control cable",
+          "zh": "控制鋼索",
+          "example": {
+            "en": "A broken control cable can stop the brake from working.",
+            "zh": "斷掉的控制鋼索會讓煞車無法作動。"
+          }
+        },
+        {
+          "phrase": "power cable",
+          "zh": "電源線",
+          "example": {
+            "en": "Please unplug the power cable before cleaning the device.",
+            "zh": "清潔裝置前請先拔掉電源線。"
+          }
+        },
+        {
+          "phrase": "network cable",
+          "zh": "網路線",
+          "example": {
+            "en": "IT staff replaced the network cable in the meeting room.",
+            "zh": "資訊人員更換了會議室的網路線。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子設備",
+          "en": "I need a longer cable to connect the monitor.",
+          "zh": "我需要一條更長的線來連接螢幕。"
+        },
+        {
+          "tag": "採購",
+          "en": "The order includes one cable and a spare charger.",
+          "zh": "這筆訂單包含一條纜線和一個備用充電器。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "cabinet",
+          "diff": "cabinet 是「櫃子」，拼法開頭相似",
+          "example": {
+            "en": "Store the spare parts in the cabinet near the printer.",
+            "zh": "備用零件請放在印表機旁的櫃子裡。"
+          }
+        },
+        {
+          "word": "capable",
+          "diff": "capable 是形容詞「有能力的」，發音開頭與 cable 相近",
+          "example": {
+            "en": "The new system is capable of handling large files.",
+            "zh": "新系統有能力處理大型檔案。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "wire",
+          "diff": "wire 多指較細的金屬線或電線；cable 通常較粗、較堅固，或由多條線組成",
+          "example": {
+            "en": "The technician replaced a damaged wire inside the panel.",
+            "zh": "技術人員更換了面板內一條受損的電線。"
+          }
+        },
+        {
+          "word": "cord",
+          "diff": "cord 多指連接家電的軟電線",
+          "example": {
+            "en": "The cord on this lamp is too short.",
+            "zh": "這盞燈的電線太短了。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "connector",
+          "pos": "n.",
+          "zh": "連接器",
+          "ipa": "/kəˈnɛktɚ/",
+          "example": {
+            "en": "This connector fits both old and new models.",
+            "zh": "這個連接器適用於新舊兩種型號。"
+          }
+        },
+        {
+          "w": "plug",
+          "pos": "n.",
+          "zh": "插頭",
+          "ipa": "/plʌɡ/",
+          "example": {
+            "en": "Make sure the plug is firmly in the socket.",
+            "zh": "請確認插頭已牢牢插進插座。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "cabling",
+          "ipa": "/ˈkeɪblɪŋ/",
+          "pos": "n.",
+          "zh": "佈線；線路",
+          "link": "cable + -ing，把整套纜線變成名詞，像 building、parking"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "鋼索；纜線",
+          "en": "a strong thick wire used to pull, hold, or control something",
+          "in_passage": true,
+          "distinguish": "指機械中的粗鋼索或控制索",
+          "example": {
+            "en": "A steel cable holds the sign above the entrance.",
+            "zh": "一條鋼索把招牌固定在入口上方。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "電纜；連接線",
+          "en": "a covered wire that carries power or data",
+          "distinguish": "電子設備的線材",
+          "example": {
+            "en": "Use a USB cable to transfer the files to your laptop.",
+            "zh": "請用 USB 連接線把檔案傳到你的筆電。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "有線電視",
+          "en": "a television service sent through cables",
+          "distinguish": "常見於 cable TV",
+          "example": {
+            "en": "The sports event will be shown on cable tonight.",
+            "zh": "這場體育賽事今晚會在有線電視播出。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "alternative",
+      "type": "word",
+      "ipa": "/ɔlˈtɝnətɪv/",
+      "pos": "adj.",
+      "zh": "替代的；另一種的",
+      "en": "different from the usual one and possible to choose instead",
+      "note": "文中 an alternative approach 指從專利角度的「另一種做法」。alternative 強調可選擇的其他方案，不一定要完全取代原本的設計。",
+      "grammar_note": "名詞用法常說 an alternative to + 名詞（…的替代方案），to 不能換成 of。",
+      "forms": [
+        {
+          "w": "alternatives",
+          "label": "複數（名詞用法）",
+          "pos": "n.",
+          "zh": "替代方案（複數）",
+          "ipa": "/ɔlˈtɝnətɪvz/",
+          "example": {
+            "en": "We reviewed three alternatives before choosing the final supplier.",
+            "zh": "我們在選定最終供應商前審視了三個替代方案。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "alternative approach",
+          "zh": "替代做法",
+          "example": {
+            "en": "Let's consider an alternative approach to the delivery schedule.",
+            "zh": "我們來考慮另一種安排交貨時程的做法。"
+          }
+        },
+        {
+          "phrase": "alternative plan",
+          "zh": "備用計畫",
+          "example": {
+            "en": "We have an alternative plan if the shipment is delayed.",
+            "zh": "如果貨物延誤，我們有備用計畫。"
+          }
+        },
+        {
+          "phrase": "no alternative",
+          "zh": "別無選擇",
+          "example": {
+            "en": "We have no alternative but to postpone the launch.",
+            "zh": "我們別無選擇，只能延後上市。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Do you have an alternative solution to this problem?",
+          "zh": "你有針對這個問題的替代解決方案嗎？"
+        },
+        {
+          "tag": "客服",
+          "en": "We offer an alternative model if this one is out of stock.",
+          "zh": "如果這款缺貨，我們提供另一款替代機型。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "alternate",
+          "diff": "alternate 是「輪流、隔一個」，alternative 才是「另一個可選的」",
+          "usage": "alternate 當動詞是「輪流」，當形容詞可指「交替的」；要說「替代方案」請用 alternative。",
+          "example": {
+            "en": "The two teams alternate weekends on the support desk.",
+            "zh": "兩個團隊輪流值週末的客服櫃檯。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "substitute",
+          "diff": "substitute 指直接取代原物的東西；alternative 指可選擇的另一種方案，不一定取代",
+          "example": {
+            "en": "Margarine can be a substitute for butter in this recipe.",
+            "zh": "在這個食譜中，人造奶油可以代替奶油。"
+          }
+        },
+        {
+          "word": "option",
+          "diff": "option 泛指可供選擇的選項，不一定與原方案「不同」",
+          "example": {
+            "en": "The second option costs less but takes longer.",
+            "zh": "第二個選項比較便宜，但需要更久。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "choice",
+          "pos": "n.",
+          "zh": "選擇",
+          "ipa": "/tʃɔɪs/",
+          "example": {
+            "en": "The client made a wise choice of venue.",
+            "zh": "客戶選了一個很明智的場地。"
+          }
+        },
+        {
+          "w": "replacement",
+          "pos": "n.",
+          "zh": "替換品；接替者",
+          "ipa": "/rɪˈpleɪsmənt/",
+          "example": {
+            "en": "We will send a replacement within two business days.",
+            "zh": "我們會在兩個工作天內寄出替換品。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "alternatively",
+          "ipa": "/ɔlˈtɝnətɪvli/",
+          "pos": "adv.",
+          "zh": "或者",
+          "link": "alternative + -ly 變副詞，用來提出另一個選項，像 quickly"
+        },
+        {
+          "w": "alternate",
+          "ipa": "/ˈɔltɝˌneɪt/",
+          "pos": "v.",
+          "zh": "輪流；交替",
+          "link": "alternate 是詞幹，加 -ive 變 alternative，像 active、creative"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ɔlˈtɝnətɪv/",
+          "zh": "替代的；另一種的",
+          "in_passage": true,
+          "example": {
+            "en": "The agency suggested an alternative route to avoid traffic delays.",
+            "zh": "旅行社建議走另一條路線以避開塞車。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ɔlˈtɝnətɪv/",
+          "zh": "替代方案；選擇",
+          "example": {
+            "en": "Riding the train is a cheaper alternative to driving.",
+            "zh": "搭火車是比開車更便宜的替代方式。"
+          }
+        }
+      ],
+      "senses": []
+    }
+  ]
+}

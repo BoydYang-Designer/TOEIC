@@ -1,0 +1,77 @@
+{
+  "week": 4,
+  "day": 8,
+  "tag": "專利風險詢問與迴避設計說明對話",
+  "project": "6H12-專利對答",
+  "type": "Listening",
+  "level": {
+    "score": 700,
+    "range": "650-750",
+    "cefr": "B2",
+    "why": "句型以簡單句與常見商務用語為主，但涉及專利、迴避設計與權責分工等較抽象的商務概念，且需要掌握說話者婉轉轉介他人回答的語氣，因此評為中高程度。"
+  },
+  "passage": "Client:\nWe're a little concerned about the sideways movement feature on Nimble. As we understand it, Wonderland already has patents related to this function. How are you addressing the potential patent risks?\nBoyd:\nYes, we understand your concern, and this is something we've already looked into.\n\nOur patent team has reviewed Wonderland's related patents, and our engineering team has developed a different mechanism to work around those patents.\n\nWe're also in the process of applying for a patent for our new mechanism.\n\nBased on our current review, we're quite confident in this approach.\n\nOf course, we'll continue to evaluate the patent risks as the design moves forward.\nClient:\nCould you explain a little more about how your new mechanism works around Wonderland's patents? What's different about your design?\nBoyd:\nOur patent and engineering teams have studied this in detail and developed a different mechanical solution.\n\nHowever, since this involves specific patent and engineering details, I think our patent and engineering teams would be in a better position to explain it.\n\nMy main responsibility is product design, so I'd prefer to focus on the overall concept and user experience.\n\nIf you'd like, we can arrange for our teams to provide a more detailed explanation.",
+  "zh": "客戶：\n我們對 Nimble 的側向移動功能有點擔心。就我們所了解，Wonderland 已經擁有與這項功能相關的專利。你們打算如何處理潛在的專利風險？\nBoyd：\n是的，我們理解您的疑慮，而且這件事我們已經研究過了。\n\n我們的專利團隊已審閱過 Wonderland 的相關專利，而我們的工程團隊也開發出一套不同的機構，以迴避那些專利。\n\n我們同時也正在為這套新機構申請專利。\n\n根據我們目前的審查結果，我們對這個做法相當有信心。\n\n當然，隨著設計持續推進，我們也會繼續評估專利風險。\n客戶：\n可以再多解釋一下，你們的新機構如何迴避 Wonderland 的專利嗎？你們的設計有什麼不同？\nBoyd：\n我們的專利與工程團隊已經詳細研究過這件事，並開發出一套不同的機械解決方案。\n\n不過，由於這涉及具體的專利與工程細節，我認為由我們的專利與工程團隊來說明會更合適。\n\n我主要負責的是產品設計，所以我比較想專注在整體概念與使用者體驗上。\n\n如果您願意，我們可以安排團隊提供更詳細的說明。",
+  "vocab": [
+    {"word": "patent", "ipa": "/ˈpætnt/", "pos": "n.", "col": "apply for a patent / patent infringement", "zh": "專利；專利權"},
+    {"word": "work around", "ipa": "/wɝːk əˈraʊnd/", "pos": "phr.", "col": "work around a problem / work around a restriction", "zh": "設法迴避；繞過（障礙或限制）"},
+    {"word": "review", "ipa": "/rɪˈvjuː/", "pos": "v.", "col": "review a contract / review the results", "zh": "審閱；檢討；審查"},
+    {"word": "evaluate", "ipa": "/ɪˈvæljueɪt/", "pos": "v.", "col": "evaluate the risks / evaluate performance", "zh": "評估；評價"},
+    {"word": "confident", "ipa": "/ˈkɑːnfɪdənt/", "pos": "adj.", "col": "feel confident about / confident in", "zh": "有信心的；確信的"},
+    {"word": "arrange", "ipa": "/əˈreɪndʒ/", "pos": "v.", "col": "arrange a meeting / arrange for", "zh": "安排；籌備"}
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the client mainly concerned about?",
+      "opts": ["The price of the Nimble stroller", "A possible patent conflict over the sideways movement feature", "A delay in the product's release schedule", "Wonderland's plan to enter a new market"],
+      "ans": 1,
+      "why": ["不正確：客戶完全沒有提到 Nimble 的價格。", "正解：客戶擔心 Wonderland 已擁有與側向移動功能相關的專利，因此詢問如何處理潛在的專利風險。", "不正確：對話中沒有討論產品上市時程是否延誤。", "不正確：Wonderland 被提到只是因為其專利，並未談到進入新市場的計畫。"]
+    },
+    {
+      "kind": "context",
+      "q": "What has Boyd's company done to deal with the patent issue?",
+      "opts": ["It removed the sideways movement feature from the design.", "It signed a licensing agreement with Wonderland.", "It postponed the design review until next quarter.", "It developed a different mechanism and has started applying for a patent for it."],
+      "ans": 3,
+      "why": ["不正確：Boyd 說的是以不同機構迴避專利，並沒有移除該功能。", "不正確：對話中沒有提到與 Wonderland 簽訂授權協議。", "不正確：Boyd 說會隨設計推進持續評估風險，並未提到延後審查。", "正解：Boyd 表示工程團隊開發了不同的機構來迴避專利，並且正在為新機構申請專利。"]
+    },
+    {
+      "kind": "context",
+      "q": "Why does Boyd suggest that other teams explain the new mechanism?",
+      "opts": ["Product design is his main responsibility, and the patent and engineering teams are better placed to explain the details.", "The design of the new mechanism has not been finished yet.", "He has not heard about Wonderland's patents before.", "The company does not allow anyone to discuss the design with clients."],
+      "ans": 0,
+      "why": ["正解：Boyd 表示他主要負責產品設計，具體的專利與工程細節由專利與工程團隊說明會更合適。", "不正確：Boyd 說團隊已經詳細研究並開發出不同的機械方案，並非尚未完成。", "不正確：Boyd 在第一段回答時就說明專利團隊已審閱過 Wonderland 的專利，他是知情的。", "不正確：Boyd 還提議安排團隊向客戶詳細說明，並沒有禁止討論的規定。"]
+    },
+    {
+      "kind": "part5",
+      "q": "Before the new stroller is released, the legal department must ______ every related patent to avoid any conflict.",
+      "opts": ["reviewing", "reviewed", "review", "reviews"],
+      "ans": 2,
+      "why": ["不正確：助動詞 must 後面須接原形動詞，不能接 -ing 形。", "不正確：must 後面不能接過去式或過去分詞。", "正解：must 後接原形動詞 review，意為「審閱」，符合句意。", "不正確：助動詞後的動詞不加 -s。"]
+    },
+    {
+      "kind": "part5",
+      "q": "The buyers were ______ about the delay and asked the supplier for a revised schedule.",
+      "opts": ["concerned", "concerning", "concern", "concernedly"],
+      "ans": 0,
+      "why": ["正解：be concerned about 表示「對……感到擔心」，主詞是人，應用過去分詞形容詞 concerned。", "不正確：concerning 是介系詞或表示「令人擔憂的」，不能用來描述人的感受。", "不正確：concern 是名詞或動詞，無法放在 were 之後作形容詞。", "不正確：concernedly 是副詞，無法作為 were 後的補語。"]
+    },
+    {
+      "kind": "part5",
+      "q": "If you would like to visit our factory next month, please contact the manager to ______ a convenient date.",
+      "opts": ["arrangement", "arranged", "arranging", "arrange"],
+      "ans": 3,
+      "why": ["不正確：arrangement 是名詞，前面的 to 後面應接動詞原形。", "不正確：to 後面不能接過去式動詞。", "不正確：to arranging 的形態不符合此處不定詞的用法。", "正解：to 後接原形動詞 arrange，意為「安排」一個方便的日期，語意通順。"]
+    }
+  ],
+  "presentation_phrases": [
+    {"phrase": "We understand your concern, and this is something we've already looked into.", "meaning": "我們理解您的疑慮，而且這件事我們已經研究過了。", "usage": "客戶提出疑慮時，先表示理解並說明已著手處理，用來建立信任。"},
+    {"phrase": "Our team has reviewed the related patents and developed a different mechanism to work around them.", "meaning": "我們的團隊已審閱相關專利，並開發出不同的機構來迴避它們。", "usage": "說明公司如何處理專利風險或迴避設計時使用。"},
+    {"phrase": "We're also in the process of applying for a patent for our new mechanism.", "meaning": "我們也正在為新機構申請專利。", "usage": "補充說明智慧財產權保護的進度，適合接在技術方案之後。"},
+    {"phrase": "Based on our current review, we're quite confident in this approach.", "meaning": "根據我們目前的審查結果，我們對這個做法相當有信心。", "usage": "表達有依據的信心，常用於回應客戶對風險的質疑。"},
+    {"phrase": "We'll continue to evaluate the risks as the design moves forward.", "meaning": "隨著設計推進，我們會持續評估風險。", "usage": "表示風險管理是持續進行的，避免把話說得太滿。"},
+    {"phrase": "I think our patent and engineering teams would be in a better position to explain it.", "meaning": "我認為由我們的專利與工程團隊來說明會更合適。", "usage": "遇到超出自己職責的細節問題時，禮貌地轉介給更適合的人員。"},
+    {"phrase": "My main responsibility is product design, so I'd prefer to focus on the overall concept.", "meaning": "我主要負責產品設計，所以我比較想專注在整體概念上。", "usage": "說明自己的職責範圍，並將話題帶回自己能回答的部分。"},
+    {"phrase": "If you'd like, we can arrange for our teams to provide a more detailed explanation.", "meaning": "如果您願意，我們可以安排團隊提供更詳細的說明。", "usage": "在無法當場回答時，提出後續安排作為解決方案，作為結尾使用。"}
+  ]
+}

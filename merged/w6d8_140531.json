@@ -1,0 +1,239 @@
+{
+  "week": 6,
+  "day": 8,
+  "tag": "簡報：握把中央位置機械擋塊與穩定性測試考量（專利方案二）",
+  "project": "6H12-專利方案2",
+  "type": "Listening",
+  "level": {
+    "score": 750,
+    "range": "700-800",
+    "cefr": "B2",
+    "why": "句子雖不冗長，但包含假設語氣、被動與分詞結構，並需整合機構設計、穩定性測試與四項優點等多處資訊；stability、implication、compliance 等字彙偏技術與法規，屬中高階難度。"
+  },
+  "passage": "There's one more important detail about this concept.\n\nWhen the handlebar rotates to the center position, I don't want it to lock completely in place.\n\nInstead, we would use a mechanical stop to prevent it from rotating too far forward. But the user could still rotate it back to the normal pushing position without pressing any button.\n\nIn this center position, the stroller would be designed to move forward, left, or right. Pulling it backward would not be supported in this mode, because the handlebar would not be locked in the center position.\n\nThere's a reason for this.\n\nIf the handlebar were fully locked in the center position while all four wheels were free to swivel, this could create additional challenges during stability testing.\n\nBy allowing the handlebar to return freely to the normal pushing position, we hope this alternative mechanism could help address some of those challenges.\n\nOf course, we would still need to review the safety implications and confirm the testing requirements with our engineering and compliance teams.\n\nSo, overall, I see three main benefits to this alternative design.\n\nFirst, it gives us another approach to explore regarding the patent concerns, subject to review by our patent team.\n\nSecond, it simplifies the user experience by reducing the number of buttons from three to two.\n\nThird, it simplifies the internal mechanism by eliminating one control cable and its related mechanism, which could also improve reliability.\n\nFrom a product design perspective, I think this is a direction worth exploring.\n\nIt's not just about addressing the patent concerns. It's also an opportunity to make Nimble simpler, potentially more reliable, and easier to use.\n\nI'd be interested to hear what you think about this direction.",
+  "zh": "關於這個概念，還有一個重要的細節。\n\n當握把旋轉到中央位置時，我不希望它被完全鎖死在原位。\n\n取而代之的是，我們會使用機械擋塊，防止它向前轉得太過頭。但使用者仍然可以在不按任何按鈕的情況下，把它轉回正常的推行位置。\n\n在這個中央位置，推車的設計是可以向前、向左或向右移動。在這種模式下不支援向後拉，因為握把並沒有被鎖定在中央位置。\n\n這麼做是有原因的。\n\n如果握把在中央位置被完全鎖死，而四個輪子又都能自由旋轉，那麼在穩定性測試時，可能會產生額外的挑戰。\n\n藉由讓握把能自由回到正常的推行位置，我們希望這個替代機構能幫助解決其中一些挑戰。\n\n當然，我們仍然需要審視安全方面的影響，並與工程團隊及法規遵循團隊確認測試要求。\n\n所以，整體來說，我看到這個替代設計有三大優點。\n\n第一，它提供了我們另一個可探討專利疑慮的方向，但須經專利團隊審閱。\n\n第二，它把按鈕數量從三個減少為兩個，簡化了使用者體驗。\n\n第三，它省去一條控制鋼索及其相關機構，進而簡化內部機構，這也可能提升可靠度。\n\n從產品設計的角度來看，我認為這是一個值得探索的方向。\n\n這不只是為了因應專利疑慮，也是讓 Nimble 變得更簡單、可能更可靠、也更好用的機會。\n\n我很想聽聽您對這個方向的看法。",
+  "vocab": [
+    {
+      "word": "stability",
+      "ipa": "/stəˈbɪləti/",
+      "pos": "n.",
+      "col": "stability test / structural stability",
+      "zh": "穩定性；穩固"
+    },
+    {
+      "word": "implication",
+      "ipa": "/ˌɪmplɪˈkeɪʃən/",
+      "pos": "n.",
+      "col": "safety implication / legal implication",
+      "zh": "影響；含意；可能的後果"
+    },
+    {
+      "word": "compliance",
+      "ipa": "/kəmˈplaɪəns/",
+      "pos": "n.",
+      "col": "compliance team / regulatory compliance",
+      "zh": "法規遵循；合規"
+    },
+    {
+      "word": "prevent",
+      "ipa": "/prɪˈvɛnt/",
+      "pos": "v.",
+      "col": "prevent damage / prevent accidents",
+      "zh": "防止；避免"
+    },
+    {
+      "word": "benefit",
+      "ipa": "/ˈbɛnəfɪt/",
+      "pos": "n.",
+      "col": "main benefit / key benefit",
+      "zh": "好處；優點；效益"
+    },
+    {
+      "word": "subject to",
+      "ipa": "/ˈsʌbdʒɪkt tu/",
+      "pos": "phr.",
+      "col": "subject to approval / subject to review",
+      "zh": "須經……；以……為前提"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the stroller designed to do when the handlebar is in the center position?",
+      "opts": [
+        "Move backward and forward only",
+        "Move in all four directions, including backward",
+        "Move forward, left, or right",
+        "Stay completely fixed in place"
+      ],
+      "ans": 2,
+      "why": [
+        "不正確：文中說明這個模式不支援向後拉，且並非只能前後移動。",
+        "不正確：說話者明確指出在這個模式下不支援向後拉，所以不是四個方向都可以。",
+        "正解：說話者說明在中央位置，推車的設計是可向前、向左或向右移動。",
+        "不正確：握把並未完全鎖死，推車也不是固定不動。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "How can the user return the handlebar to the normal pushing position?",
+      "opts": [
+        "By rotating it back without pressing any button",
+        "By pressing the height adjustment button",
+        "By pressing the rotation button twice",
+        "By removing the mechanical stop"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：說話者表示使用者仍可在不按任何按鈕的情況下，把握把轉回正常推行位置。",
+        "不正確：高度調整按鈕負責調整高度，與回到推行位置無關。",
+        "不正確：文中沒有提到要按兩次旋轉按鈕。",
+        "不正確：機械擋塊的作用是防止握把向前轉過頭，並非需要被移除。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "Which of the following is NOT mentioned as a benefit of the alternative design?",
+      "opts": [
+        "It offers another approach to the patent concerns.",
+        "It reduces the number of buttons from three to two.",
+        "It eliminates one control cable and its related mechanism.",
+        "It lowers the retail price of the stroller."
+      ],
+      "ans": 3,
+      "why": [
+        "不正確：第一項優點就是提供另一個因應專利疑慮的方向。",
+        "不正確：第二項優點是把按鈕從三個減為兩個。",
+        "不正確：第三項優點是省去一條控制鋼索及其相關機構。",
+        "正解：文中完全沒有提到降低零售價格，所以這不是被提及的優點。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What does the speaker say still needs to be done?",
+      "opts": [
+        "The safety tests have already been completed by the compliance team.",
+        "The safety implications need to be reviewed and testing requirements confirmed.",
+        "The patent team must redesign the mechanical stop.",
+        "The stability testing should be skipped for this design."
+      ],
+      "ans": 1,
+      "why": [
+        "不正確：說話者表示仍需要確認，並未說安全測試已完成。",
+        "正解：說話者說仍需審視安全方面的影響，並與工程及法規遵循團隊確認測試要求。",
+        "不正確：專利團隊是審閱專利相關細節，並非負責重新設計機械擋塊。",
+        "不正確：說話者希望及早考量穩定性測試的要求，並未說要略過。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The new stroller model must pass a strict ______ test before it can be sold in stores.",
+      "opts": [
+        "stable",
+        "stability",
+        "stably",
+        "stabilize"
+      ],
+      "ans": 1,
+      "why": [
+        "不正確：stable 是形容詞，此處 strict 之後、test 之前需要名詞形成複合名詞。",
+        "正解：stability test（穩定性測試）是名詞作修飾語的常見複合名詞，符合句意。",
+        "不正確：stably 是副詞，不能修飾名詞 test。",
+        "不正確：stabilize 是動詞，不能放在名詞 test 之前當修飾語。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "All new children's products must be manufactured in ______ with international safety standards.",
+      "opts": [
+        "comply",
+        "complied",
+        "complying",
+        "compliance"
+      ],
+      "ans": 3,
+      "why": [
+        "不正確：comply 是動詞，in 之後需要名詞。",
+        "不正確：complied 是過去式或過去分詞，不能接在介系詞 in 之後。",
+        "不正確：complying 是動名詞，但慣用語為 in compliance with，不用 in complying with。",
+        "正解：in compliance with 是固定搭配，表示「符合……規定」。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The guard rail was installed to ______ visitors from falling off the platform.",
+      "opts": [
+        "prevent",
+        "prevents",
+        "preventing",
+        "prevention"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：to 後面接原形動詞，prevent someone from V-ing 表示「防止某人……」。",
+        "不正確：prevents 是第三人稱單數形，不能接在不定詞 to 之後。",
+        "不正確：to 在此為不定詞符號，後面需接原形動詞，不是動名詞。",
+        "不正確：prevention 是名詞，不能在 to 之後直接帶出 visitors from falling 的結構。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The new training program offers several ______ to employees, including flexible working hours.",
+      "opts": [
+        "benefit",
+        "beneficial",
+        "benefits",
+        "benefited"
+      ],
+      "ans": 2,
+      "why": [
+        "不正確：several 之後需接複數名詞，單數 benefit 不符文法。",
+        "不正確：beneficial 是形容詞，several 之後需要名詞，且 offers 需要受詞。",
+        "正解：several 後接複數可數名詞 benefits，作為 offers 的受詞，表示「幾項福利」。",
+        "不正確：benefited 是動詞過去式或過去分詞，不能作為 offers 的受詞。"
+      ]
+    }
+  ],
+  "presentation_phrases": [
+    {
+      "phrase": "There's one more important detail about this concept.",
+      "meaning": "關於這個概念，還有一個重要的細節。",
+      "usage": "在主要說明之後補充關鍵資訊時使用，能提醒聽眾接下來的內容需要特別留意。"
+    },
+    {
+      "phrase": "There's a reason for this.",
+      "meaning": "這麼做是有原因的。",
+      "usage": "在說明一項設計或決策之前，用來預告後面會解釋理由，並吸引聽眾注意。"
+    },
+    {
+      "phrase": "This could create additional challenges during stability testing.",
+      "meaning": "這可能在穩定性測試時產生額外的挑戰。",
+      "usage": "用 could 謹慎說明潛在風險或問題，適合在解釋設計取捨時使用。"
+    },
+    {
+      "phrase": "We would still need to confirm the testing requirements with our engineering and compliance teams.",
+      "meaning": "我們仍需與工程及法規遵循團隊確認測試要求。",
+      "usage": "在提出構想後說明後續待辦與跨部門確認事項，避免給出過度肯定的結論。"
+    },
+    {
+      "phrase": "So, overall, I see three main benefits to this alternative design.",
+      "meaning": "所以，整體來說，我看到這個替代設計有三大優點。",
+      "usage": "先預告重點數量再逐項說明，方便聽眾跟上結構，常用於總結階段。"
+    },
+    {
+      "phrase": "First, ... Second, ... Third, ...",
+      "meaning": "第一……第二……第三……",
+      "usage": "逐條列出重點的序列句型，用 Third 帶出最後一項，讓聽眾知道清單即將結束。"
+    },
+    {
+      "phrase": "From a product design perspective, I think this is a direction worth exploring.",
+      "meaning": "從產品設計的角度來看，我認為這是一個值得探索的方向。",
+      "usage": "用 from ... perspective 指明評估角度，並以 worth exploring 溫和地建議對方繼續考慮。"
+    },
+    {
+      "phrase": "I'd be interested to hear what you think about this direction.",
+      "meaning": "我很想聽聽您對這個方向的看法。",
+      "usage": "放在簡報最後，邀請對方回饋並開啟討論，語氣客氣而開放。"
+    }
+  ]
+}

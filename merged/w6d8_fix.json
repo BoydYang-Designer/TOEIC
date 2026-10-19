@@ -1,0 +1,65 @@
+{
+  "week": 6,
+  "day": 8,
+  "fix": {
+    "zh": "關於這個概念，還有一個重要的細節。\n\n當握把旋轉到中央位置時，我不希望它被完全鎖死在原位。\n\n取而代之的是，我們會使用機械擋塊，防止它向前轉得太過頭。但使用者仍然可以在不按任何按鈕的情況下，把它轉回正常的推行位置。\n\n在這個中央位置，推車的設計是可以向前、向左或向右移動。在這種模式下不支援向後拉，因為握把並沒有被鎖定在中央位置。\n\n這麼做是有原因的。\n\n如果握把在中央位置被完全鎖死，而四個輪子又都能自由旋轉，那麼在穩定性測試時，可能會產生額外的挑戰。\n\n藉由讓握把能自由回到正常的推行位置，我們希望這個替代機構能幫助解決其中一些挑戰。\n\n當然，我們仍然需要審視安全方面的影響，並與工程團隊及法規遵循團隊確認測試要求。\n\n所以，整體來說，我看到這個替代設計有三大優點。\n\n第一，它提供了我們另一個可探討專利疑慮的方向，但須經專利團隊審閱。\n\n第二，它把按鈕數量從三個減少為兩個，簡化了使用者體驗。\n\n第三，它省去一條控制鋼索及其相關機構，進而簡化內部機構，這也可能提升可靠度。\n\n從產品設計的角度來看，我認為這是一個值得探索的方向。\n\n這不只是為了因應專利疑慮，也是讓 Nimble 變得更簡單、可能更可靠、也更好用的機會。\n\n我很想聽聽您對這個方向的看法。",
+    "vocab": {
+      "upsert": [],
+      "remove": []
+    },
+    "extra_vocab": {
+      "upsert": [],
+      "remove": []
+    },
+    "questions": [],
+    "presentation_phrases": [
+      {
+        "phrase": "There's one more important detail about this concept.",
+        "meaning": "關於這個概念，還有一個重要的細節。",
+        "usage": "在主要說明之後補充關鍵資訊時使用，能提醒聽眾接下來的內容需要特別留意。"
+      },
+      {
+        "phrase": "There's a reason for this.",
+        "meaning": "這麼做是有原因的。",
+        "usage": "在說明一項設計或決策之前，用來預告後面會解釋理由，並吸引聽眾注意。"
+      },
+      {
+        "phrase": "This could create additional challenges during stability testing.",
+        "meaning": "這可能在穩定性測試時產生額外的挑戰。",
+        "usage": "用 could 謹慎說明潛在風險或問題，適合在解釋設計取捨時使用。"
+      },
+      {
+        "phrase": "We would still need to confirm the testing requirements with our engineering and compliance teams.",
+        "meaning": "我們仍需與工程及法規遵循團隊確認測試要求。",
+        "usage": "在提出構想後說明後續待辦與跨部門確認事項，避免給出過度肯定的結論。"
+      },
+      {
+        "phrase": "So, overall, I see three main benefits to this alternative design.",
+        "meaning": "所以，整體來說，我看到這個替代設計有三大優點。",
+        "usage": "先預告重點數量再逐項說明，方便聽眾跟上結構，常用於總結階段。"
+      },
+      {
+        "phrase": "First, ... Second, ... Third, ...",
+        "meaning": "第一……第二……第三……",
+        "usage": "逐條列出重點的序列句型，用 Third 帶出最後一項，讓聽眾知道清單即將結束。"
+      },
+      {
+        "phrase": "From a product design perspective, I think this is a direction worth exploring.",
+        "meaning": "從產品設計的角度來看，我認為這是一個值得探索的方向。",
+        "usage": "用 from ... perspective 指明評估角度，並以 worth exploring 溫和地建議對方繼續考慮。"
+      },
+      {
+        "phrase": "I'd be interested to hear what you think about this direction.",
+        "meaning": "我很想聽聽您對這個方向的看法。",
+        "usage": "放在簡報最後，邀請對方回饋並開啟討論，語氣客氣而開放。"
+      }
+    ],
+    "changes": [
+      "zh：把「四大優點」改為「三大優點」，並刪除對應已移除英文句子的「第四，它讓我們有機會在設計流程早期就考量穩定性測試的要求。」，其餘段落不變。",
+      "presentation_phrases：「I see four main benefits」改為「three main benefits」，meaning 同步改為「三大優點」。",
+      "presentation_phrases：序列句型由「First, Second, Third, And fourth」改為「First, Second, Third」，meaning 與 usage 同步調整。其餘六句不變。",
+      "vocab：六個單字（stability、implication、compliance、prevent、benefit、subject to）仍都出現在新文稿中，不需更動；extra_vocab 沒有變動。",
+      "questions：四題 context 題與四題 part5 題皆未涉及被刪除的第四點，且「NOT mentioned as a benefit」題的正解（降低零售價格）在新文稿中仍然成立，因此不需修改。"
+    ]
+  }
+}

@@ -67,17 +67,24 @@ def yes(prompt):
 
 
 def parse_id(s):
-    """w1d1／W1D1／1 1／1-1 → (1, 1)；看不懂回傳 None。"""
-    m = re.match(r'^w?\s*(\d+)\s*[d,\-\s]\s*(\d+)$', str(s).strip().lower())
-    return (int(m.group(1)), int(m.group(2))) if m else None
+    """w1d1／W1D1／1 1／1-1 → (1, 1)；D8 專案文章：w1d8-3 → (1, 10)（day 8 是專案第 1 篇、9 是第 2 篇…），也可以直接打 w1d10。看不懂回傳 None。"""
+    m = re.match(r'^w?\s*(\d+)\s*[d,\-\s]\s*(\d+)(?:-(\d+))?$', str(s).strip().lower())
+    if not m:
+        return None
+    w, d = int(m.group(1)), int(m.group(2))
+    if m.group(3):
+        if d != 8 or int(m.group(3)) < 1:
+            return None
+        d = 7 + int(m.group(3))
+    return (w, d)
 
 
 def lab(k):
-    return 'W%dD%d' % k
+    return 'W%dD8-%d' % (k[0], k[1] - 7) if k[1] >= 8 else 'W%dD%d' % k
 
 
 def sid(k):
-    return 'w%dd%d' % k
+    return 'w%dd8-%d' % (k[0], k[1] - 7) if k[1] >= 8 else 'w%dd%d' % k
 
 
 def now_stamp():
@@ -539,7 +546,8 @@ def trash_menu(jm):
                 pick = next((n for n in hit if '-edit-' not in n), hit[0] if hit else None)
         if not pick:
             ex = 'r' if len(names) == 1 else 'r 1'
-            print('看不懂。請輸入像「%s」、「x 1」或「r %s」（編號或文章 id 都可以）。' % (ex, sid(parse_id(names[0].split('-')[0]) or (1, 1))))
+            _m = re.match(r'^(w\d+d\d+(?:-\d+)?)-(?:\d{8}|edit)', names[0])
+            print('看不懂。請輸入像「%s」、「x 1」或「r %s」（編號或文章 id 都可以）。' % (ex, _m.group(1) if _m else 'w1d1'))
             continue
         (restore if m.group(1) == 'r' else purge)(jm, pick)
 

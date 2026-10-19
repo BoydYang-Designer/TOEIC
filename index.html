@@ -122,7 +122,7 @@ function mtTimingData(D) {
   const r = { total: items.length, ok: 0, partial: 0, bad: 0, none: 0, todo: [] };
   items.forEach(x => {
     const s = tmInfo(x).state; r[s]++;
-    if (s !== 'ok') r.todo.push({ id: `w${x.week}d${x.day}`, tag: x.tag || '', s, why: tmWhy(x) });
+    if (s !== 'ok') r.todo.push({ id: `w${x.week}d${x.day >= 8 ? '8-' + (x.day - 7) : x.day}`, tag: x.tag || '', s, why: tmWhy(x) });
   });
   return r;
 }

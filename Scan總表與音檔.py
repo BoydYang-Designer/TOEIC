@@ -15,7 +15,7 @@
   Part 5  audio/p5/{id}.mp3                         （part5.json，一題一檔，朗讀答案填入的完整句；say 欄位若有則朗讀 say）
   Part 6  audio/p6/{id}.mp3                         （part6.json，一篇一檔，朗讀答案填入的整篇；say 欄位若有則朗讀 say）
   Part 7  audio/p7/{id}-d{k}.mp3                    （part7.json，每份需朗讀的文件一檔，k 從 1 起＝docs 順序；form/invoice/schedule/table 或 read:false 的文件不需要）
-  Daily   audio/daily/w1d1.mp3（或題目的 audio 欄位）  （daily.json，整篇一個檔）
+  Daily   audio/daily/w1d1.mp3、D8 專案 w1d8-1.mp3（或題目的 audio 欄位）  （daily.json，整篇一個檔）
   字母    audio/A.mp3 … E.mp3（Part 1／2 共用，大寫檔名；Part 1 需 A–D、Part 2 需 A–C 到齊，才會在每個選項前先念字母）
 整題到齊才列入 complete；網頁只對 complete 的題目用 mp3。
 Timing 狀態：依 daily.json 每篇的 passage 與 timing 欄位，判斷 完成／部分／異常／未做，寫進 audio/index.json 的 timing 區塊
@@ -31,6 +31,11 @@ import json, os, re, time, unicodedata
 ROOT = os.path.dirname(os.path.abspath(__file__))  # 網站根目錄（本檔所在，題庫 json 也在這）
 AUD = os.path.join(ROOT, 'audio')                  # audio 資料夾
 warn = []
+
+
+def did(week, day):
+    """文章 id：D8 是專案，day 8、9、10… ＝ 專案內第 1、2、3 篇 → w1d8-1、w1d8-2…；其他天 w1d3。"""
+    return 'w%sd8-%d' % (week, int(day) - 7) if int(day) >= 8 else 'w%sd%s' % (week, day)
 
 
 def items(fn):
@@ -168,7 +173,7 @@ DDIR = os.path.join(AUD, 'daily')
 dexp, dcustom = {}, {}
 for it in items('daily.json'):
     if isinstance(it, dict) and 'week' in it and 'day' in it:
-        i = 'w%sd%s' % (it['week'], it['day'])
+        i = did(it['week'], it['day'])
         a = it.get('audio')
         if a and os.path.normpath(os.path.join(ROOT, a)) != os.path.normpath(os.path.join(DDIR, i + '.mp3')):
             dcustom[i] = a                      # 自訂路徑，只檢查檔案存在
@@ -255,7 +260,7 @@ for it in items('daily.json'):
     _t['total'] += 1
     _t[s] += 1
     if s != 'ok':
-        _t['todo'].append({'id': 'w%sd%s' % (it['week'], it['day']), 'tag': it.get('tag', ''), 's': s, 'why': why})
+        _t['todo'].append({'id': did(it['week'], it['day']), 'tag': it.get('tag', ''), 's': s, 'why': why})
 out['timing'] = _t
 print('timing：共 %d 篇，完成 %d，部分 %d，異常 %d，未做 %d' % (_t['total'], _t['ok'], _t['partial'], _t['bad'], _t['none']))
 for x in _t['todo']:
@@ -328,7 +333,7 @@ else:
     vi = {'v': int(time.time()), 'total': len(tsl), 'have': len(learned), 'nodetail': len(gap), 'tsl': dict(sorted(learned.items()))}
     print('\nTSL 已收錄但缺詳解：%d 字' % len(gap))
     for w_, d_, k_ in gap:
-        print('  w%dd%d  %s' % (w_, d_, k_))
+        print('  %s  %s' % (did(w_, d_), k_))
     with open(os.path.join(ROOT, 'vocab_index.json'), 'w', encoding='utf-8') as f:
         json.dump(vi, f, ensure_ascii=False, separators=(',', ':'))
     print('\nTSL 單字總表：已收錄 %d / %d 字，還缺 %d 字 → 已寫入 vocab_index.json' % (len(learned), len(tsl), len(tsl) - len(learned)))

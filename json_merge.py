@@ -56,6 +56,15 @@ from pathlib import Path
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 ID_RE = re.compile(r'^d([1-7])-(\d{3})-([emh])$')
+
+
+def did(week, day):
+    """文章 id：D8 是專案，day 8、9、10… ＝ 專案內第 1、2、3 篇 → w1d8-1、w1d8-2…；其他天照舊 w1d3。"""
+    return 'w%dd8-%d' % (week, day - 7) if day >= 8 else 'w%dd%d' % (week, day)
+
+
+def dlab(day):
+    return 'D8-%d' % (day - 7) if day >= 8 else 'D%d' % day
 TIER = {'e': 'easy', 'm': 'medium', 'h': 'hard'}
 TIER_ZH = {'easy': '初級', 'medium': '中級', 'hard': '高級'}
 TIER_RANGE = {'easy': (500, 550), 'medium': (600, 650), 'hard': (700, 800)}
@@ -371,7 +380,7 @@ class Daily(Profile):
     title = '每日文章'
     main_name = 'daily.json'
     backup_prefix = 'daily'
-    name_re = re.compile(r'^w(\d+)d(\d+)', re.I)
+    name_re = re.compile(r'^w(\d+)d(\d+)(?:-(\d+))?', re.I)   # w1d3、w1d8-2（D8 專案：d8-N ＝ day 7+N）
     empty_hint = '資料夾內沒有找到其他 .json 檔。\n請按「新增檔案…」手動選取，例如 w1d3.json。'
     done_note = '記得把對應的 mp3 放進 audio 資料夾（例如 audio/daily/w1d3.mp3），並完成 timing 對時。（若合併的是 _extra 或 _fix 補丁，重新整理網頁即可看到；文稿補丁需要重錄 mp3 並重新對時。）'
     XTYPES = ('word', 'phrase', 'sentence')
@@ -467,7 +476,7 @@ class Daily(Profile):
 
     def label_of(self, e):
         if isinstance(e, dict) and isinstance(e.get('week'), int) and isinstance(e.get('day'), int):
-            return 'W%d D%d' % (e['week'], e['day'])
+            return 'W%d %s' % (e['week'], dlab(e['day']))
         return '（無 week/day）'
 
     def fmt_key(self, k):
@@ -892,19 +901,19 @@ class Daily(Profile):
         for k in ('week', 'day'):
             if not isinstance(e.get(k), int) or isinstance(e.get(k), bool):
                 er.append('%s 必須是整數' % k)
-        if isinstance(e.get('day'), int) and not 1 <= e['day'] <= 8:
-            er.append('day 必須介於 1–8（D8＝我的專案）')
+        if isinstance(e.get('day'), int) and not 1 <= e['day'] <= 99:
+            er.append('day 必須 ≥ 1（1–7 一般主題；8 以上＝D8 專案的第 1、2、3… 篇）')
         if e.get('project') is not None and not str(e.get('project')).strip():
             er.append('project 若有填，不可是空字串')
         if not str(e.get('tag') or '').strip():
             er.append('缺少 tag')
-        if e.get('day') == 8:
+        if isinstance(e.get('day'), int) and e['day'] >= 8:
             if not str(e.get('project') or '').strip():
                 wa.append('D8 建議填 project（專案小標籤，例如 6H12專案），之後比較好查找')
         elif not str(e.get('subtopic') or '').strip():
             wa.append('缺少 subtopic（子題材），建議補上以便題材輪替')
         else:
-            pool = ((ctx.get('subtopics') or {}).get('D%s' % e.get('day')))
+            pool = ((ctx.get('subtopics') or {}).get('D%s' % min(e.get('day'), 8)))
             if pool and e['subtopic'] not in pool:
                 wa.append('subtopic「%s」不在 D%s 的子題材清單內' % (e['subtopic'], e.get('day')))
         if e.get('type') not in ('Reading', 'Listening'):
@@ -915,8 +924,10 @@ class Daily(Profile):
 
         if filename and single:
             m = self.name_re.match(filename)
-            if m and (int(m.group(1)), int(m.group(2))) != self.key(e):
-                wa.append('檔名是 w%sd%s，但內容是 week %s／day %s' % (m.group(1), m.group(2), e.get('week'), e.get('day')))
+            if m:
+                fday = int(m.group(2)) + (int(m.group(3)) - 1 if m.group(3) and int(m.group(2)) == 8 else 0)
+                if (int(m.group(1)), fday) != self.key(e):
+                    wa.append('檔名是 %s，但內容是 week %s／day %s（%s）' % (m.group(0), e.get('week'), e.get('day'), did(e['week'], e['day']) if isinstance(e.get('week'), int) and isinstance(e.get('day'), int) else ''))
 
         lv = e.get('level')
         if not isinstance(lv, dict):
@@ -2651,7 +2662,7 @@ def version_backup(root, old, fields, note='', audio=True):
     """文稿補丁的「版本備份」：把改之前的整筆資料與舊 mp3 複製到 _trash/w1d1-edit-時間/，格式與 daily_trash.py 的 Trash 相同（meta v:2），
     但 meta.kind＝'version'，與「刪除」區分。回傳 {'folder': 資料夾名, 'abs': [之後要移除的原音檔絕對路徑]}。"""
     root = os.path.abspath(root)
-    sid = 'w%dd%d' % (old['week'], old['day'])
+    sid = did(old['week'], old['day'])
     base = '%s-edit-%s' % (sid, datetime.now().strftime('%Y%m%d-%H%M%S'))
     name, n = base, 1
     while os.path.exists(os.path.join(root, '_trash', name)):
@@ -3275,7 +3286,7 @@ def open_review(root, folder, state, preselect=None):
         return data, items
 
     def mp3_of(e):
-        p = e.get('audio') or 'audio/daily/w%dd%d.mp3' % (e['week'], e['day'])
+        p = e.get('audio') or 'audio/daily/%s.mp3' % did(e['week'], e['day'])
         p = os.path.join(folder, p.replace('/', os.sep))
         return p if mp3_ok(p) else None
 
@@ -3286,8 +3297,8 @@ def open_review(root, folder, state, preselect=None):
             if isinstance(e, dict) and isinstance(e.get('week'), int) and isinstance(e.get('day'), int) and e.get('passage'):
                 m = mp3_of(e)
                 if m:
-                    S['ents'].append({'id': 'w%dd%d' % (e['week'], e['day']), 'week': e['week'], 'day': e['day'], 'mp3': m,
-                                      'label': 'W%d D%d　%s' % (e['week'], e['day'], e.get('tag', ''))})
+                    S['ents'].append({'id': did(e['week'], e['day']), 'week': e['week'], 'day': e['day'], 'mp3': m,
+                                      'label': 'W%d %s　%s' % (e['week'], dlab(e['day']), e.get('tag', ''))})
         S['ents'].sort(key=lambda x: (x['week'], x['day']))
         combo['values'] = [x['label'] for x in S['ents']]
 
