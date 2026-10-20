@@ -32788,6 +32788,1209 @@
       ]
     },
     {
+      "week": 2,
+      "day": 9,
+      "tag": "簡報問答：Magic Connect 整合現有推車與汽座",
+      "project": "Magic connect - 2 問答",
+      "type": "Listening",
+      "level": {
+        "score": 700,
+        "range": "650-750",
+        "cefr": "B2",
+        "why": "以問答對話為主，句子長度中等，但包含 would 條件假設、however 轉折與 depend on 等結構；整合、相容性、專利與 IATA 標準等概念較抽象，且需整合兩種方案的優缺點，屬 B2 程度。"
+      },
+      "passage": "We really like this system. Do you think we could integrate Magic Connect into our existing stroller platform?\n\nI think so, yes. But first, we'd need to evaluate which stroller you'd like to integrate it into and see how we could make it work. Most of the changes are around the adapter area, so I think integration should be quite manageable. We'd need to take a closer look at your current design to confirm.\n\nIf we integrate Magic Connect into our existing stroller, would it still be compatible with our current car seats?\n\nUnfortunately, integrating Magic Connect would affect compatibility with existing car seats. We have two possible approaches to address this.\n\nThe first option would be to develop a separate adapter that connects the existing car seat to the Magic Connect system. However, this would reduce some of the benefits of the concept, because parents would still need to align and attach the adapter when installing the car seat.\n\nThe second option would be to develop a new car seat system, similar to our MiniBase car seat, that works with Magic Connect.\n\nFrom a design perspective, I think the second option would provide a better user experience. We would need to evaluate the technical feasibility, but the goal would be to let both the stroller seat and the compatible car seat attach directly to the stroller without a separate adapter. That would make the system simpler and remove the need for parents to handle, or worry about losing an extra adapter.\n\nIs Magic Connect patented, and could we use the technology in our own products?\n\nI'd need to confirm the current patent status with our team. Whether you could use it in your own products would depend on the patent situation and the terms of our collaboration, so I don't want to promise anything before we've checked.\n\nDoes the current Magic Connect meet IATA standards for air travel?\n\nWe’re currently working on a new version called Magic Connect Plus, which will meet IATA standards. The current Magic Connect doesn’t meet those standards yet.",
+      "zh": "我們很喜歡這個系統。您覺得我們有可能把 Magic Connect 整合到我們現有的嬰兒推車平台上嗎？\n\n我想可以，是的。不過首先，我們需要評估您想把它整合到哪一款推車上，並看看要如何讓它運作。大部分的改動都集中在轉接座的部分，所以我認為整合起來應該相當容易處理。我們需要再仔細檢視貴公司目前的設計才能確認。\n\n如果我們把 Magic Connect 整合到現有的推車上，它還能和我們目前的汽座相容嗎？\n\n很遺憾，整合 Magic Connect 會影響與現有汽座的相容性。我們有兩種可行的做法來處理這個問題。\n\n第一個選項是開發一個獨立的轉接座，把現有的汽座連接到 Magic Connect 系統。不過，這會削弱這個概念的部分優點，因為家長在安裝汽座時，仍然需要對準並裝上這個轉接座。\n\n第二個選項是開發一套新的汽座系統，類似我們的 MiniBase 汽座，並且能搭配 Magic Connect 使用。\n\n從設計的角度來看，我認為第二個選項能帶來更好的使用者體驗。我們需要評估技術上的可行性，但目標是讓推車座椅和相容的汽座都能直接裝在推車上，不需要另外的轉接座。這樣系統會更簡單，也不需要家長去拿取額外的轉接座，或擔心把它弄丟。\n\nMagic Connect 有申請專利嗎？我們能把這項技術用在自己的產品上嗎？\n\n我需要和我們的團隊確認目前的專利狀態。您能否把它用在自己的產品上，取決於專利狀況以及我們合作的條款，所以在查證之前，我不想承諾任何事情。\n\n目前的 Magic Connect 符合國際航空運輸協會（IATA）的航空旅行標準嗎？\n\n我們目前正在研發一個名為 Magic Connect Plus 的新版本，它將符合 IATA 標準。目前的 Magic Connect 還不符合這些標準。",
+      "vocab": [
+        {
+          "word": "integrate",
+          "ipa": "/ˈɪntɪɡreɪt/",
+          "pos": "v.",
+          "col": "integrate into / integrate with",
+          "zh": "整合、納入"
+        },
+        {
+          "word": "adapter",
+          "ipa": "/əˈdæptər/",
+          "pos": "n.",
+          "col": "power adapter / car seat adapter",
+          "zh": "轉接座、轉接器"
+        },
+        {
+          "word": "manageable",
+          "ipa": "/ˈmænɪdʒəbəl/",
+          "pos": "adj.",
+          "col": "manageable size / quite manageable",
+          "zh": "可處理的、容易應付的"
+        },
+        {
+          "word": "approach",
+          "ipa": "/əˈproʊtʃ/",
+          "pos": "n.",
+          "col": "a practical approach / take an approach",
+          "zh": "方法、做法"
+        },
+        {
+          "word": "affect",
+          "ipa": "/əˈfekt/",
+          "pos": "v.",
+          "col": "negatively affect / directly affect",
+          "zh": "影響"
+        },
+        {
+          "word": "collaboration",
+          "ipa": "/kəˌlæbəˈreɪʃən/",
+          "pos": "n.",
+          "col": "close collaboration / in collaboration with",
+          "zh": "合作"
+        }
+      ],
+      "questions": [
+        {
+          "kind": "context",
+          "q": "What is the main topic of the conversation?",
+          "opts": [
+            "A price increase for car seats",
+            "Whether Magic Connect can be used with the customer's existing stroller and car seats",
+            "A delivery schedule for a new stroller",
+            "How to fold a stroller with one hand"
+          ],
+          "ans": 1,
+          "why": [
+            "錯誤：對話中完全沒有提到汽座的價格或漲價。",
+            "正解：客戶詢問能否把 Magic Connect 整合到現有推車平台，並確認與現有汽座的相容性，整段對話都在討論這件事。",
+            "錯誤：對話沒有談到任何出貨或交貨時程。",
+            "錯誤：單手摺疊推車不是這段對話的主題，對話重點在整合與相容性。"
+          ]
+        },
+        {
+          "kind": "context",
+          "q": "According to the speaker, what is a drawback of the first option?",
+          "opts": [
+            "It would require a completely new car seat system",
+            "It would delay the release of Magic Connect Plus",
+            "It would cause the stroller to violate IATA standards",
+            "It would still require parents to align and attach an adapter"
+          ],
+          "ans": 3,
+          "why": [
+            "錯誤：需要開發全新汽座系統的是第二個選項，不是第一個。",
+            "錯誤：文中提到 Magic Connect Plus 是為了符合 IATA 標準，與第一個選項的缺點無關。",
+            "錯誤：IATA 標準是在另一個問題中提到，與第一個選項無關。",
+            "正解：講者說第一個選項會削弱部分優點，因為家長安裝汽座時仍需要對準並裝上轉接座。"
+          ]
+        },
+        {
+          "kind": "context",
+          "q": "Why does the speaker think the second option would provide a better user experience?",
+          "opts": [
+            "It would remove the need for parents to handle a separate adapter",
+            "It would allow the existing car seats to be used without any changes",
+            "It would not require any technical evaluation",
+            "It would lower the price of the stroller"
+          ],
+          "ans": 0,
+          "why": [
+            "正解：講者說第二個選項讓座椅與汽座直接裝在推車上，不需要另外的轉接座，家長也不必擔心弄丟。",
+            "錯誤：第二個選項是開發新的汽座系統，並非讓現有汽座不經修改直接使用。",
+            "錯誤：講者明確說仍需要評估技術上的可行性。",
+            "錯誤：全文沒有提到價格或降價。"
+          ]
+        },
+        {
+          "kind": "context",
+          "q": "Why does the speaker avoid promising that the customer can use the technology in its own products?",
+          "opts": [
+            "Magic Connect has already been sold to another company",
+            "The customer's team lacks the necessary technical skills",
+            "The patent status and the collaboration terms have not been confirmed yet",
+            "The technology can only be used by airlines"
+          ],
+          "ans": 2,
+          "why": [
+            "錯誤：文中沒有提到 Magic Connect 已賣給其他公司。",
+            "錯誤：講者並未評論客戶團隊的技術能力。",
+            "正解：講者說需要先與團隊確認目前的專利狀態，而能否使用也取決於專利狀況與合作條款，所以不想先承諾。",
+            "錯誤：文中沒有任何地方說這項技術只限航空公司使用，IATA 只是在談航空旅行標準。"
+          ]
+        },
+        {
+          "kind": "context",
+          "q": "What does the speaker say about IATA standards?",
+          "opts": [
+            "The current Magic Connect already meets them",
+            "A new version called Magic Connect Plus will meet them",
+            "They do not apply to strollers",
+            "The team has decided not to pursue them"
+          ],
+          "ans": 1,
+          "why": [
+            "錯誤：講者明確說目前的 Magic Connect 尚未符合這些標準。",
+            "正解：講者說正在研發名為 Magic Connect Plus 的新版本，它將符合 IATA 標準。",
+            "錯誤：講者並未說這些標準不適用於推車，而是說目前版本還不符合。",
+            "錯誤：講者說的是正在研發符合標準的新版本，並未表示放棄。"
+          ]
+        },
+        {
+          "kind": "part5",
+          "q": "The new phone charger is ______ with most mobile devices sold in Asia.",
+          "opts": [
+            "compatibility",
+            "compatibly",
+            "compatible",
+            "compatibles"
+          ],
+          "ans": 2,
+          "why": [
+            "錯誤：compatibility 是名詞，不能放在 be 動詞之後補充說明主詞並接 with。",
+            "錯誤：compatibly 是副詞，不能作 is 後面的補語。",
+            "正解：be compatible with 表示「與……相容」，此處需要形容詞作補語。",
+            "錯誤：compatibles 是名詞複數，文法與語意都不通。"
+          ]
+        },
+        {
+          "kind": "part5",
+          "q": "Please ______ your attendance by replying to this email before Friday.",
+          "opts": [
+            "confirmation",
+            "confirmative",
+            "confirmed",
+            "confirm"
+          ],
+          "ans": 3,
+          "why": [
+            "錯誤：confirmation 是名詞，無法接在 Please 之後作動詞使用。",
+            "錯誤：confirmative 是形容詞，不能作祈使句的動詞。",
+            "錯誤：祈使句需用原形動詞，confirmed 是過去式或過去分詞，不適用。",
+            "正解：Please 後面接原形動詞 confirm，表示「請確認您的出席」。"
+          ]
+        },
+        {
+          "kind": "part5",
+          "q": "The manager said the schedule change would ______ about fifty employees in the Taipei office.",
+          "opts": [
+            "affect",
+            "effect",
+            "affection",
+            "effective"
+          ],
+          "ans": 0,
+          "why": [
+            "正解：affect 是動詞，表示「影響」，與 would 連用並接受詞 employees。",
+            "錯誤：effect 通常是名詞「效果」，此處需要及物動詞。",
+            "錯誤：affection 是名詞「感情」，語意不符。",
+            "錯誤：effective 是形容詞「有效的」，不能接在 would 後面當動詞。"
+          ]
+        },
+        {
+          "kind": "part5",
+          "q": "The two firms signed an agreement to ______ on developing a new line of electric scooters.",
+          "opts": [
+            "collaborative",
+            "collaboration",
+            "collaborate",
+            "collaborator"
+          ],
+          "ans": 2,
+          "why": [
+            "錯誤：collaborative 是形容詞，不能接在 to 後面當動詞。",
+            "錯誤：collaboration 是名詞，不能放在 to 之後作不定詞動詞。",
+            "正解：agreement to 後面需要原形動詞，collaborate on 表示「就……合作」。",
+            "錯誤：collaborator 是名詞「合作者」，不能作動詞。"
+          ]
+        }
+      ],
+      "presentation_phrases": [
+        {
+          "phrase": "Do you think we could integrate ... into our existing ...?",
+          "meaning": "你覺得我們能把……整合到我們現有的……嗎？",
+          "usage": "客戶或合作夥伴詢問新技術或系統能否整合到現有產品或平台時使用。"
+        },
+        {
+          "phrase": "We'd need to take a closer look at ... to confirm.",
+          "meaning": "我們需要再仔細檢視……才能確認。",
+          "usage": "回答可行性問題時，說明還需要進一步檢視細節，避免過早下結論。"
+        },
+        {
+          "phrase": "We have two possible approaches to address this.",
+          "meaning": "我們有兩種可行的做法來處理這個問題。",
+          "usage": "提出問題後，引入兩個解決方案，作為說明選項的開場句。"
+        },
+        {
+          "phrase": "The first option would be to ... However, ...",
+          "meaning": "第一個選項是……不過，……",
+          "usage": "介紹第一個方案並立刻說明其缺點，便於客戶比較各選項。"
+        },
+        {
+          "phrase": "From a design perspective, I think ... would provide a better ...",
+          "meaning": "從設計的角度來看，我認為……能帶來更好的……",
+          "usage": "在多個方案中表達專業建議，並說明推薦的理由。"
+        },
+        {
+          "phrase": "That would make the system simpler and remove the need for ...",
+          "meaning": "這會讓系統更簡單，也不再需要……",
+          "usage": "說明某方案的優點，強調它能簡化流程或省去額外步驟。"
+        },
+        {
+          "phrase": "I'd need to confirm ... with our team, so I don't want to promise anything before we've checked.",
+          "meaning": "我需要和團隊確認……，所以在查證之前我不想承諾任何事。",
+          "usage": "遇到專利、合約等不確定的問題時，禮貌地保留回答，避免過度承諾。"
+        },
+        {
+          "phrase": "We're currently working on a new version that will meet ...",
+          "meaning": "我們目前正在研發一個將符合……的新版本。",
+          "usage": "回答產品現況尚未符合標準時，說明改進中的新版本，展現解決問題的方向。"
+        }
+      ],
+      "timing": [
+        {
+          "start": 0.0,
+          "end": 1.52,
+          "from": 0,
+          "to": 27
+        },
+        {
+          "start": 2.16,
+          "end": 5.64,
+          "from": 28,
+          "to": 110
+        },
+        {
+          "start": 6.34,
+          "end": 7.54,
+          "from": 112,
+          "to": 128
+        },
+        {
+          "start": 8.32,
+          "end": 14.4,
+          "from": 129,
+          "to": 243
+        },
+        {
+          "start": 15.28,
+          "end": 20.52,
+          "from": 244,
+          "to": 343
+        },
+        {
+          "start": 21.28,
+          "end": 24.18,
+          "from": 344,
+          "to": 410
+        },
+        {
+          "start": 24.88,
+          "end": 30.7,
+          "from": 412,
+          "to": 526
+        },
+        {
+          "start": 31.36,
+          "end": 36.74,
+          "from": 528,
+          "to": 620
+        },
+        {
+          "start": 37.46,
+          "end": 40.0,
+          "from": 621,
+          "to": 669
+        },
+        {
+          "start": 40.8,
+          "end": 47.08,
+          "from": 671,
+          "to": 791
+        },
+        {
+          "start": 47.88,
+          "end": 55.96,
+          "from": 792,
+          "to": 950
+        },
+        {
+          "start": 55.96,
+          "end": 63.56,
+          "from": 952,
+          "to": 1077
+        },
+        {
+          "start": 64.4,
+          "end": 69.12,
+          "from": 1079,
+          "to": 1171
+        },
+        {
+          "start": 69.96,
+          "end": 80.4,
+          "from": 1172,
+          "to": 1364
+        },
+        {
+          "start": 80.4,
+          "end": 87.5,
+          "from": 1365,
+          "to": 1482
+        },
+        {
+          "start": 88.34,
+          "end": 92.36,
+          "from": 1484,
+          "to": 1563
+        },
+        {
+          "start": 93.02,
+          "end": 95.88,
+          "from": 1565,
+          "to": 1625
+        },
+        {
+          "start": 96.58,
+          "end": 105.2,
+          "from": 1626,
+          "to": 1802
+        },
+        {
+          "start": 105.74,
+          "end": 109.44,
+          "from": 1804,
+          "to": 1870
+        },
+        {
+          "start": 109.44,
+          "end": 115.8,
+          "from": 1872,
+          "to": 1971
+        },
+        {
+          "start": 116.68,
+          "end": 119.36,
+          "from": 1972,
+          "to": 2031
+        }
+      ],
+      "extra_vocab": [
+        {
+          "text": "integrate",
+          "type": "word",
+          "ipa": "/ˈɪntɪɡreɪt/",
+          "pos": "v.",
+          "zh": "整合、融入",
+          "en": "to combine things so that they work together as one system",
+          "note": "在這篇文章裡，客戶問能不能把 Magic Connect 整合到現有的推車平台，integrate A into B 表示把 A 放進 B 並讓兩者一起運作，語氣是詢問可行性。",
+          "grammar_note": "integrate 常用 integrate A into B 或 integrate A with B，介系詞要跟著選；into 強調放進去，with 強調能一起運作。",
+          "forms": [
+            {
+              "w": "integrates",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "整合",
+              "ipa": "/ˈɪntɪɡreɪts/",
+              "example": {
+                "en": "This tool integrates easily with most accounting programs.",
+                "zh": "這個工具可以輕易與多數會計軟體整合。"
+              }
+            },
+            {
+              "w": "integrated",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "整合了",
+              "ipa": "/ˈɪntɪɡreɪtɪd/",
+              "example": {
+                "en": "The IT team integrated the two databases last weekend.",
+                "zh": "資訊團隊上週末整合了這兩個資料庫。"
+              }
+            },
+            {
+              "w": "integrated",
+              "label": "形容詞",
+              "pos": "adj.",
+              "zh": "整合的、一體化的",
+              "ipa": "/ˈɪntɪɡreɪtɪd/",
+              "example": {
+                "en": "We use an integrated system for orders and shipping.",
+                "zh": "我們使用訂單與出貨一體化的系統。"
+              }
+            },
+            {
+              "w": "integrating",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在整合",
+              "ipa": "/ˈɪntɪɡreɪtɪŋ/",
+              "example": {
+                "en": "We are integrating the payment function into our mobile app.",
+                "zh": "我們正在把付款功能整合到行動應用程式中。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "integrate into",
+              "zh": "整合到……裡",
+              "example": {
+                "en": "The designers integrated a new handle into the stroller frame.",
+                "zh": "設計師把新握把整合到推車車架裡。"
+              }
+            },
+            {
+              "phrase": "integrate with",
+              "zh": "與……整合",
+              "example": {
+                "en": "Our app can integrate with your existing booking system.",
+                "zh": "我們的應用程式可以與貴公司現有的訂位系統整合。"
+              }
+            },
+            {
+              "phrase": "fully integrated",
+              "zh": "完全整合的",
+              "example": {
+                "en": "We want a fully integrated system for sales and inventory.",
+                "zh": "我們想要銷售與庫存完全整合的系統。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "We plan to integrate the new software into our sales system.",
+              "zh": "我們計畫把新軟體整合到銷售系統中。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please let me know if the two platforms can integrate smoothly.",
+              "zh": "請告訴我這兩個平台是否能順利整合。"
+            },
+            {
+              "tag": "人資",
+              "en": "New employees will integrate into their teams during the first month.",
+              "zh": "新進員工會在第一個月融入各自的團隊。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "integrity",
+              "diff": "integrity 是「誠信、正直」，和「整合」無關，只是拼法開頭相近。",
+              "usage": "integrate 是動詞，integrity 是名詞，不能互換。",
+              "example": {
+                "en": "The company is known for its integrity and fair prices.",
+                "zh": "這家公司以誠信與公平的價格聞名。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "combine",
+              "diff": "combine 只是把東西合在一起，不一定強調能一起運作；integrate 強調整合後成為可運作的一體。",
+              "example": {
+                "en": "We will combine the two reports into one document.",
+                "zh": "我們會把兩份報告合併成一份文件。"
+              }
+            },
+            {
+              "word": "merge",
+              "diff": "merge 指兩個東西合併成一個，常用在公司或檔案；integrate 的各部分仍可保有功能。",
+              "example": {
+                "en": "The two departments will merge next year to save costs.",
+                "zh": "這兩個部門明年會合併以節省成本。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "combine",
+              "pos": "v.",
+              "zh": "結合",
+              "ipa": "/kəmˈbaɪn/",
+              "example": {
+                "en": "The new product combines low cost with high quality.",
+                "zh": "這項新產品結合了低成本與高品質。"
+              }
+            },
+            {
+              "w": "connect",
+              "pos": "v.",
+              "zh": "連接",
+              "ipa": "/kəˈnekt/",
+              "example": {
+                "en": "This cable connects the printer to the main computer.",
+                "zh": "這條線把印表機連接到主電腦。"
+              }
+            },
+            {
+              "w": "link",
+              "pos": "v.",
+              "zh": "連結、使相關聯",
+              "ipa": "/lɪŋk/",
+              "example": {
+                "en": "Please link your account to the new payment system.",
+                "zh": "請把您的帳戶連結到新的付款系統。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "integration",
+              "pos": "n.",
+              "zh": "整合",
+              "ipa": "/ˌɪntɪˈɡreɪʃən/",
+              "link": "integrate + -ion，動詞變成名詞，表示「整合這件事」，像 decide → decision"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "v.",
+              "zh": "整合",
+              "en": "to combine things so they work together as one system",
+              "in_passage": true,
+              "example": {
+                "en": "The engineers integrated the sensor into the main control panel.",
+                "zh": "工程師把感應器整合到主控制面板中。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "融入（團體或環境）",
+              "en": "to become part of a group or place",
+              "distinguish": "主詞是人，並接 into a team 或 community 時，是「融入」的意思。",
+              "example": {
+                "en": "Our new manager quickly integrated into the sales team.",
+                "zh": "我們的新經理很快就融入了業務團隊。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "adapter",
+          "type": "word",
+          "ipa": "/əˈdæptɚ/",
+          "pos": "n.",
+          "zh": "轉接座、轉接器",
+          "en": "a small part that connects two things that do not fit together directly",
+          "note": "在這篇文章裡，adapter 指把現有汽座接到推車上的轉接座。講者說這個零件需要另外對準與安裝，所以會削弱 Magic Connect 的方便性。",
+          "forms": [
+            {
+              "w": "adapters",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "轉接器（複數）",
+              "ipa": "/əˈdæptɚz/",
+              "example": {
+                "en": "We sell travel adapters for most countries at the airport store.",
+                "zh": "我們在機場店販售適用多數國家的旅行轉接器。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "power adapter",
+              "zh": "電源轉接器",
+              "example": {
+                "en": "I left my laptop power adapter in the meeting room.",
+                "zh": "我把筆電的電源轉接器忘在會議室了。"
+              }
+            },
+            {
+              "phrase": "travel adapter",
+              "zh": "旅行轉接插頭",
+              "example": {
+                "en": "Please bring a travel adapter for your business trip to London.",
+                "zh": "請為你去倫敦的出差帶一個旅行轉接插頭。"
+              }
+            },
+            {
+              "phrase": "car seat adapter",
+              "zh": "汽座轉接座",
+              "example": {
+                "en": "You need a car seat adapter to attach it to this frame.",
+                "zh": "你需要汽座轉接座才能把它裝到這個車架上。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "出差",
+              "en": "Do you have an adapter that fits the outlets in Japan?",
+              "zh": "你有適用日本插座的轉接器嗎？"
+            },
+            {
+              "tag": "辦公室",
+              "en": "The projector needs an adapter to connect to my laptop.",
+              "zh": "投影機需要轉接器才能連接我的筆電。"
+            },
+            {
+              "tag": "產品設計",
+              "en": "Removing the adapter makes the stroller easier to use.",
+              "zh": "拿掉轉接座會讓推車更好用。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "adopter",
+              "diff": "adopter 是「採用者」，指最先使用新技術或新產品的人，和轉接器無關。",
+              "example": {
+                "en": "Early adopters bought the new device on the first day.",
+                "zh": "早期採用者在第一天就買了這項新裝置。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "adaptor",
+              "diff": "adaptor 是 adapter 的另一種拼法，意思相同，英式英語較常見。",
+              "example": {
+                "en": "The hotel can lend you an adaptor for your charger.",
+                "zh": "飯店可以借你一個充電器用的轉接頭。"
+              }
+            },
+            {
+              "word": "converter",
+              "diff": "converter 多指改變電壓或格式的轉換器；adapter 只是讓兩個不合的接頭能連上。",
+              "example": {
+                "en": "This converter changes the voltage so the machine can run safely.",
+                "zh": "這個轉換器會改變電壓，讓機器能安全運作。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "plug",
+              "pos": "n.",
+              "zh": "插頭",
+              "ipa": "/plʌɡ/",
+              "example": {
+                "en": "The plug does not fit the socket in this office.",
+                "zh": "這個插頭和這間辦公室的插座不合。"
+              }
+            },
+            {
+              "w": "cable",
+              "pos": "n.",
+              "zh": "電纜、連接線",
+              "ipa": "/ˈkeɪbəl/",
+              "example": {
+                "en": "Please order a longer cable for the new monitor.",
+                "zh": "請為新螢幕訂購一條較長的連接線。"
+              }
+            },
+            {
+              "w": "connector",
+              "pos": "n.",
+              "zh": "連接器",
+              "ipa": "/kəˈnektɚ/",
+              "example": {
+                "en": "The connector on this part is damaged and must be replaced.",
+                "zh": "這個零件的連接器損壞了，必須更換。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "adapt",
+              "pos": "v.",
+              "zh": "適應、改裝",
+              "ipa": "/əˈdæpt/",
+              "link": "字根：adapt，動詞，表示「使適合、去適應」，adapter 是 adapt + -er，做這件事的東西，像 printer、charger"
+            },
+            {
+              "w": "adaptable",
+              "pos": "adj.",
+              "zh": "適應力強的",
+              "ipa": "/əˈdæptəbəl/",
+              "link": "adapt + -able，「能夠被適應的」，像 comfortable、available"
+            },
+            {
+              "w": "adaptation",
+              "pos": "n.",
+              "zh": "改編、適應",
+              "ipa": "/ˌædæpˈteɪʃən/",
+              "link": "adapt + -ation，動詞變名詞，像 organize → organization"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "manageable",
+          "type": "word",
+          "ipa": "/ˈmænɪdʒəbəl/",
+          "pos": "adj.",
+          "zh": "可處理的、容易應付的",
+          "en": "not too difficult or too large to deal with",
+          "note": "在這篇文章裡，講者說整合起來 quite manageable，意思是改動範圍不大、做得來。這是一種讓客戶安心的說法，但後面仍需要再確認設計。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "manageable size",
+              "zh": "容易處理的大小",
+              "example": {
+                "en": "We split the project into pieces of manageable size.",
+                "zh": "我們把專案分成大小容易處理的部分。"
+              }
+            },
+            {
+              "phrase": "manageable level",
+              "zh": "可控制的程度",
+              "example": {
+                "en": "The new process keeps our costs at a manageable level.",
+                "zh": "新流程讓我們的成本維持在可控制的程度。"
+              }
+            },
+            {
+              "phrase": "keep ... manageable",
+              "zh": "讓……保持可處理",
+              "example": {
+                "en": "Try to keep the meeting agenda short and manageable.",
+                "zh": "盡量讓會議議程保持簡短、容易掌握。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "專案",
+              "en": "The workload is heavy, but it should be manageable with two more staff.",
+              "zh": "工作量很大，但多兩位人手應該可以應付。"
+            },
+            {
+              "tag": "預算",
+              "en": "Our monthly expenses are high but still manageable.",
+              "zh": "我們每月的支出很高，但仍在可控制的範圍內。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "The changes to the schedule are small and quite manageable.",
+              "zh": "時程上的改動很小，相當容易處理。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "managerial",
+              "diff": "managerial 是「管理階層的」，用來形容職位或技能；manageable 是形容事情「能被處理」。",
+              "example": {
+                "en": "She has strong managerial skills and leads a large team.",
+                "zh": "她有很強的管理能力，帶領一個大型團隊。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "workable",
+              "diff": "workable 強調方法或計畫行得通；manageable 強調事情的份量不會太難應付。",
+              "example": {
+                "en": "We need a workable plan before the next meeting.",
+                "zh": "我們在下次會議前需要一個可行的計畫。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "reasonable",
+              "ipa": "/ˈriːzənəbəl/",
+              "pos": "adj.",
+              "zh": "合理的",
+              "example": {
+                "en": "The supplier offered us a reasonable price for the parts.",
+                "zh": "供應商為我們的零件開出合理的價格。"
+              }
+            },
+            {
+              "w": "realistic",
+              "ipa": "/ˌriːəˈlɪstɪk/",
+              "pos": "adj.",
+              "zh": "實際的、可實現的",
+              "example": {
+                "en": "We should set a realistic deadline for this project.",
+                "zh": "我們應該為這個專案訂一個實際可行的期限。"
+              }
+            },
+            {
+              "w": "affordable",
+              "ipa": "/əˈfɔːrdəbəl/",
+              "pos": "adj.",
+              "zh": "負擔得起的",
+              "example": {
+                "en": "The company wants an affordable plan for staff training.",
+                "zh": "公司想要一個負擔得起的員工培訓方案。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "manage",
+              "pos": "v.",
+              "zh": "管理、設法完成",
+              "ipa": "/ˈmænɪdʒ/",
+              "link": "字根：manage，動詞，manageable 是 manage + -able，「可以被處理的」，像 comfortable、available"
+            },
+            {
+              "w": "management",
+              "pos": "n.",
+              "zh": "管理、管理階層",
+              "ipa": "/ˈmænɪdʒmənt/",
+              "link": "manage + -ment，動詞變名詞，像 payment、shipment"
+            },
+            {
+              "w": "manager",
+              "pos": "n.",
+              "zh": "經理",
+              "ipa": "/ˈmænɪdʒɚ/",
+              "link": "manage + -er，做事的人，像 worker、teacher"
+            },
+            {
+              "w": "managerial",
+              "pos": "adj.",
+              "zh": "管理階層的",
+              "ipa": "/ˌmænəˈdʒɪriəl/",
+              "link": "manager + -ial，變成形容詞，表示「經理的、管理的」"
+            },
+            {
+              "w": "unmanageable",
+              "pos": "adj.",
+              "zh": "難以處理的",
+              "ipa": "/ʌnˈmænɪdʒəbəl/",
+              "link": "un- + manageable，加 un- 變成相反，像 unable、unhappy"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "affect",
+          "type": "word",
+          "ipa": "/əˈfekt/",
+          "pos": "v.",
+          "zh": "影響",
+          "en": "to cause a change in something",
+          "note": "在這篇文章裡，講者婉轉地說明整合 Magic Connect 會影響與現有汽座的相容性。affect 後面直接接受詞，語氣中性、偏負面，用來帶出接下來的兩個解決方案。",
+          "grammar_note": "affect 是及物動詞，後面直接接受詞，不加 on；名詞的「影響」是 effect，要說 have an effect on。",
+          "forms": [
+            {
+              "w": "affects",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "影響",
+              "ipa": "/əˈfekts/",
+              "example": {
+                "en": "Bad weather often affects flight schedules in the winter.",
+                "zh": "惡劣天氣常在冬天影響班機時刻表。"
+              }
+            },
+            {
+              "w": "affected",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "影響了",
+              "ipa": "/əˈfektɪd/",
+              "example": {
+                "en": "The delay affected the delivery date of our order.",
+                "zh": "延誤影響了我們訂單的交貨日期。"
+              }
+            },
+            {
+              "w": "affecting",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在影響",
+              "ipa": "/əˈfektɪŋ/",
+              "example": {
+                "en": "Rising prices are affecting our sales in several regions.",
+                "zh": "上漲的價格正在影響我們幾個地區的銷售。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "negatively affect",
+              "zh": "造成負面影響",
+              "example": {
+                "en": "Long working hours can negatively affect staff health.",
+                "zh": "長時間工作可能對員工健康造成負面影響。"
+              }
+            },
+            {
+              "phrase": "directly affect",
+              "zh": "直接影響",
+              "example": {
+                "en": "This change will directly affect all of our customers.",
+                "zh": "這項改變會直接影響我們所有的客戶。"
+              }
+            },
+            {
+              "phrase": "be affected by",
+              "zh": "受……影響",
+              "example": {
+                "en": "Our sales were affected by the new tax rules.",
+                "zh": "我們的銷售受到新稅法影響。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "公告",
+              "en": "The road closure will affect traffic around the office tomorrow.",
+              "zh": "封路明天會影響辦公室附近的交通。"
+            },
+            {
+              "tag": "會議",
+              "en": "How will the new policy affect our monthly budget?",
+              "zh": "新政策會如何影響我們的每月預算？"
+            },
+            {
+              "tag": "客服",
+              "en": "The system error did not affect any customer accounts.",
+              "zh": "系統錯誤沒有影響任何客戶帳戶。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "effect",
+              "diff": "effect 是「影響、效果」，affect 是動詞「影響」，發音相近很容易搞混。",
+              "usage": "affect 是動詞、effect 通常是名詞，如 have an effect on。",
+              "example": {
+                "en": "The new rule had a positive effect on sales.",
+                "zh": "新規定對銷售產生了正面效果。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "influence",
+              "diff": "influence 多指對想法、決定或行為的影響；affect 可指任何造成改變的影響。",
+              "example": {
+                "en": "Customer reviews strongly influence what people decide to buy.",
+                "zh": "顧客評價強烈影響人們決定購買什麼。"
+              }
+            },
+            {
+              "phrase": "have an impact on",
+              "diff": "have an impact on 語氣較強，常用在報告或簡報中描述重大影響。",
+              "example": {
+                "en": "The new tool will have an impact on our workflow.",
+                "zh": "這項新工具會對我們的工作流程造成影響。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "influence",
+              "pos": "v.",
+              "zh": "影響",
+              "ipa": "/ˈɪnfluəns/",
+              "example": {
+                "en": "Price can influence a customer's final decision to buy.",
+                "zh": "價格會影響顧客最後的購買決定。"
+              }
+            },
+            {
+              "w": "impact",
+              "pos": "n.",
+              "zh": "衝擊、影響",
+              "ipa": "/ˈɪmpækt/",
+              "example": {
+                "en": "The report shows the impact of the change on profits.",
+                "zh": "報告顯示這項改變對利潤的影響。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "unaffected",
+              "pos": "adj.",
+              "zh": "未受影響的",
+              "ipa": "/ˌʌnəˈfektɪd/",
+              "link": "un- + affected，加 un- 變成相反，像 unhappy、unable"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "collaboration",
+          "type": "word",
+          "ipa": "/kəˌlæbəˈreɪʃən/",
+          "pos": "n.",
+          "zh": "合作",
+          "en": "the act of working together with others to do something",
+          "note": "在這篇文章裡，the terms of our collaboration 指雙方合作的條款。講者用這個詞說明能否使用技術要看合作條件，是正式又客氣的商務用語。",
+          "grammar_note": "collaboration 後面常接 with + 對象，或 on + 事項，如 collaboration with a supplier on a new design。",
+          "forms": [
+            {
+              "w": "collaborations",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "合作案（複數）",
+              "ipa": "/kəˌlæbəˈreɪʃənz/",
+              "example": {
+                "en": "The company has several collaborations with universities in Taiwan.",
+                "zh": "這家公司與台灣的大學有數個合作案。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "in collaboration with",
+              "zh": "與……合作",
+              "example": {
+                "en": "This event was held in collaboration with a local charity.",
+                "zh": "這場活動是與當地慈善團體合作舉辦的。"
+              }
+            },
+            {
+              "phrase": "close collaboration",
+              "zh": "密切合作",
+              "example": {
+                "en": "The project needs close collaboration between design and sales.",
+                "zh": "這個專案需要設計與業務密切合作。"
+              }
+            },
+            {
+              "phrase": "collaboration between",
+              "zh": "……之間的合作",
+              "example": {
+                "en": "We welcome more collaboration between our two departments.",
+                "zh": "我們歡迎兩個部門之間有更多合作。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "Thank you for your collaboration on this important project.",
+              "zh": "感謝您在這個重要專案上的合作。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We would like to discuss a possible collaboration with your team.",
+              "zh": "我們想和貴團隊討論可能的合作。"
+            },
+            {
+              "tag": "簡報",
+              "en": "This product is the result of three years of collaboration.",
+              "zh": "這項產品是三年合作的成果。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "cooperation",
+              "diff": "cooperation 多指配合、協助；collaboration 強調雙方一起創作或共同完成某件事。",
+              "example": {
+                "en": "Thank you for your cooperation during the building repairs.",
+                "zh": "感謝您在大樓維修期間的配合。"
+              }
+            },
+            {
+              "word": "corporation",
+              "diff": "corporation 是「公司、企業」，只是拼法相近，和合作無關。",
+              "usage": "collaboration 是行為，corporation 是組織。",
+              "example": {
+                "en": "The corporation plans to open three new offices next year.",
+                "zh": "這家企業計畫明年開設三間新辦公室。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "partnership",
+              "diff": "partnership 指長期的合夥關係；collaboration 可以是一次性的合作專案。",
+              "example": {
+                "en": "We have a long partnership with this supplier in Vietnam.",
+                "zh": "我們與這家越南供應商有長期合作關係。"
+              }
+            },
+            {
+              "word": "teamwork",
+              "diff": "teamwork 指團隊內部的合作；collaboration 常指不同人或公司之間的合作。",
+              "example": {
+                "en": "Good teamwork helped us finish the project on time.",
+                "zh": "良好的團隊合作幫助我們準時完成專案。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "partnership",
+              "pos": "n.",
+              "zh": "合夥關係",
+              "ipa": "/ˈpɑːrtnɚʃɪp/",
+              "example": {
+                "en": "The two firms formed a partnership to sell the new product.",
+                "zh": "兩家公司合夥銷售這項新產品。"
+              }
+            },
+            {
+              "w": "teamwork",
+              "pos": "n.",
+              "zh": "團隊合作",
+              "ipa": "/ˈtiːmwɜːrk/",
+              "example": {
+                "en": "Strong teamwork is important in our customer service department.",
+                "zh": "強大的團隊合作在我們的客服部門很重要。"
+              }
+            },
+            {
+              "w": "partner",
+              "pos": "n.",
+              "zh": "合作夥伴",
+              "ipa": "/ˈpɑːrtnɚ/",
+              "example": {
+                "en": "Our partner will send the contract by Friday.",
+                "zh": "我們的合作夥伴會在星期五前寄出合約。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "collaborate",
+              "pos": "v.",
+              "zh": "合作",
+              "ipa": "/kəˈlæbəreɪt/",
+              "link": "字根：collaborate，動詞；collaboration 是 collaborate + -ion，動詞變名詞，像 decide → decision"
+            },
+            {
+              "w": "collaborative",
+              "pos": "adj.",
+              "zh": "合作的",
+              "ipa": "/kəˈlæbərətɪv/",
+              "link": "collaborate + -ive，變成形容詞，「合作性的」，像 active、creative"
+            },
+            {
+              "w": "collaborator",
+              "pos": "n.",
+              "zh": "合作者",
+              "ipa": "/kəˈlæbəreɪtɚ/",
+              "link": "collaborate + -or，做事的人，像 actor、visitor"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "合作",
+              "en": "the act of working together with others",
+              "in_passage": true,
+              "example": {
+                "en": "The project succeeded because of good collaboration between the two teams.",
+                "zh": "這個專案成功是因為兩個團隊良好的合作。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "合作成果、合作案",
+              "en": "a project or product made by people working together",
+              "distinguish": "前面有 a 或後面用複數時，指的是一個具體的合作案，而不是合作這件事。",
+              "example": {
+                "en": "This new stroller is a collaboration between two famous designers.",
+                "zh": "這款新推車是兩位知名設計師的合作作品。"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "week": 3,
       "day": 1,
       "tag": "空調故障與會議室改訂語音留言",

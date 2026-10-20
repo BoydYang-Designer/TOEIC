@@ -48,6 +48,8 @@ let cur = { w: 1, d: 1, view: 'launch', showTranscript: false };
 const d8n = x => x.day >= 8 ? x.day - 7 : 0;
 const dShow = x => d8n(x) ? '8-' + d8n(x) : x.day; // 顯示用的「天」：專案文章 8-1、8-2…，其他 1–7
 const dTh = d => Math.min(d, 8) - 1; // 主題索引：day 9 以上都屬於 D8 專案
+const projLabel = p => /專案$/.test(String(p).trim()) ? String(p).trim() : String(p).trim() + ' 專案'; // Nimble → Nimble 專案；已含「專案」的不重複加
+const thName = x => x && x.day > CORE_DAYS && x.project ? projLabel(x.project) : THEMES[dTh(x ? x.day : 1)]; // D8 有填專案名就用專案名當標題
 const idOf = x => `w${x.week}d${dShow(x)}`;
 const AUDIO_DIR = 'audio/daily/'; // daily 的 mp3 放這個資料夾（題目有 audio 欄位時以該欄位為準）
 const audioPath = x => x.audio || AUDIO_DIR + idOf(x) + '.mp3';
@@ -401,7 +403,7 @@ const MX = {
       const last = S.last && find(S.last.w, S.last.d);
       return last ? `<button onclick="go(${last.week},${last.day})" class="w-full mb-4 rounded-xl px-4 py-3 text-left bg-indigo-600 text-white cursor-pointer">
       <span class="block text-xs text-indigo-100">▶ 繼續上次</span>
-      <span class="block font-semibold">W${last.week} · D${dShow(last)} ${THEMES[dTh(last.day)]}</span>
+      <span class="block font-semibold">W${last.week} · D${dShow(last)} ${thName(last)}</span>
       <span class="block text-xs text-indigo-100 truncate">${esc(last.tag || '')}</span></button>` : '';
     },
     legend: () => '點格子進入當天內容 · 左右滑動可查看更多天；格子下方小字是子題材'
@@ -868,7 +870,7 @@ function dayNav(nw, M) {
   ex.forEach(d => rows.push(d));
   if (M && find(nw, THEMES.length)) rows.push((ex.length ? ex[ex.length - 1] : THEMES.length) + 1); // 維護：這個專案已有文章 → 多一列「＋ 新增」下一篇
   rows.forEach(d => {
-    const t = THEMES[dTh(d)], x = find(nw, d), a = x && S.ans[idOf(x)];
+    const x = find(nw, d), t = thName(x || { day: d }), a = x && S.ans[idOf(x)];
     if (d > CORE_DAYS && !x && !M) return; // 學習區：沒有 D8 就不顯示這一列
     const st = !x ? (M ? '<span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 shrink-0">＋ 新增</span>' : '<span class="text-xs text-slate-400 shrink-0">即將推出</span>')
       : M ? `<span class="flex gap-1 shrink-0">${stChips(x)}</span>`
@@ -876,7 +878,7 @@ function dayNav(nw, M) {
     const on = M ? (cur.view === 'mitem' || cur.view === 'gen') && cur.w == nw && cur.d == d : (cur.view === 'day' || cur.view === 'speak' || cur.view === 'detail') && cur.w == nw && cur.d == d;
     const click = x ? `onclick="${M ? 'openItem' : 'go'}(${nw},${d})"` : M ? `onclick="openGen(${nw},${d})"` : 'disabled';
     h += `<button ${click} class="w-full text-left rounded-lg px-3 py-2 flex items-center justify-between gap-2 ${on ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800'} ${x ? '' : M ? 'border border-dashed border-indigo-400' : 'opacity-40 cursor-not-allowed'}">
-      <span class="text-sm min-w-0">D${dShow({ week: nw, day: d })} ${t}${x && (x.project || x.subtopic) ? `<span class="block text-[0.6875rem] text-slate-500 dark:text-slate-400 truncate">${x.project ? '📁 ' : ''}${esc(x.project || x.subtopic)}</span>` : ''}</span>
+      <span class="text-sm min-w-0">D${dShow({ week: nw, day: d })} ${t}${x && ((x.project && d <= CORE_DAYS) || x.subtopic) ? `<span class="block text-[0.6875rem] text-slate-500 dark:text-slate-400 truncate">${x.project ? '📁 ' : ''}${esc(x.project || x.subtopic)}</span>` : ''}</span>
       <span class="flex items-center gap-2 shrink-0">${!M && x && x.level ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${lvColor(x.level.score)}">${x.level.score}</span>` : ''}${!M && x && skDone(x) ? '<span class="text-xs" title="完成語音練習">🎤</span>' : ''}${st}</span></button>`;
   });
   return h + '</nav>';
@@ -961,7 +963,7 @@ function renderDay() {
   let h = `<header class="mb-6">
     <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mb-1">${tFrom() ? `<button onclick="goBack()" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">← ${tLabel()}</button>` : ''}${nextBtnHtml(x)}</div>
     <div class="flex items-center gap-2">
-      <h2 class="text-xl md:text-2xl font-bold">Day ${dShow(x)} ${THEMES[dTh(x.day)]}</h2>
+      <h2 class="text-xl md:text-2xl font-bold">Day ${dShow(x)} ${thName(x)}</h2>
     </div>
     <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${x.week} · ${x.tag}</span>
     ${x.project ? `<span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300 font-medium" title="專案">📁 ${esc(x.project)}</span>` : ''}
@@ -1152,7 +1154,7 @@ function renderBook() {
       const z = x.questions[idx]; if (!z) return;
       q += `<div class="${card} p-4">
         <div class="flex justify-between items-center mb-2">
-          <span class="text-xs text-indigo-500 font-medium">Week ${x.week} Day ${dShow(x)} · ${THEMES[dTh(x.day)]}</span>
+          <span class="text-xs text-indigo-500 font-medium">Week ${x.week} Day ${dShow(x)} · ${thName(x)}</span>
           ${rm}
         </div>
         <p class="font-medium text-sm my-1">${esc(z.q)}</p>
@@ -1369,7 +1371,9 @@ function genPrompt() {
   const typ = g.type === 'auto' ? '由你依主題與 _spec 自行決定（Reading 或 Listening）' : g.type;
   const L = [];
   L.push(`請依我提供的 daily.json（內含 _spec 規格與既有 items）生成 ${g.id}。`, '');
-  L.push('【基本資訊】', `・Week ${w}、Day ${dShow({ week: w, day: d })}（主題：${THEMES[dTh(d)]}）`, `・type：${typ}`, '');
+  L.push('【基本資訊】', `・Week ${w}、Day ${dShow({ week: w, day: d })}（主題：${THEMES[dTh(d)]}）`, `・type：${typ}`);
+  if (g.project) L.push(`・project：${g.project}（請在輸出 JSON 的 tag 後面加 "project" 欄位，值固定為此字串）`);
+  L.push('');
   L.push('【難度】已指定難度，請直接生成，不需要再詢問難度。', `・目標：多益約 ${s} 分（CEFR ${c}）。`);
   L.push(`・level.score 填 ${s}、range 填 "${s - 50}-${s + 50}"、cefr 填 "${c}"` + (s % 50 ? '（本次分數不是 50 的倍數，優先於 _spec 中「50 的倍數」的規定）。' : '。'));
   if (w > 1) {
@@ -1471,7 +1475,7 @@ function renderGen() {
     <h3 class="font-bold mb-3">③ 類型與補充要求（選填）</h3>
     <div class="flex flex-wrap gap-2 mb-3">${seg('auto', '由 AI 決定')}${seg('text', '按照文本')}${seg('Reading', 'Reading 閱讀')}${seg('Listening', 'Listening 聽力')}</div>
     ${g.type === 'text' ? '<p class="text-xs text-slate-500 mb-3 leading-relaxed">AI 不會自己寫文章，也不會改動你的文本；只針對文本設計單字詳解、考題與常用句。複製提示詞後，把文本貼在提示詞最下方一起送出。</p>' : ''}
-    ${d > CORE_DAYS ? `<label class="block text-xs text-slate-500 mb-1">專案小標籤（會顯示在文章上，也可在「題材總覽」依專案查找）</label><input type="text" value="${esc(g.project)}" oninput="genProj(this.value)" placeholder="例如：6H12專案" class="${fld} w-full px-3 py-2 text-sm mb-3">` : ''}
+    ${d > CORE_DAYS ? `<label class="block text-xs text-slate-500 mb-1">專案小標籤（會顯示在文章上，也可在「題材總覽」依專案查找）</label><input type="text" value="${esc(g.project)}" oninput="genProj(this.value)" list="proj-list" placeholder="例如：6H12專案" class="${fld} w-full px-3 py-2 text-sm mb-3"><datalist id="proj-list">${[...new Set(DATA.map(x => x.project).filter(Boolean))].map(p => `<option value="${esc(p)}">`).join('')}</datalist>` : ''}
     <textarea rows="2" oninput="genNote(this.value)" placeholder="例如：題材請與航空公司客服有關、請多出現被動語態…" class="${fld} w-full p-3 text-sm">${esc(g.note)}</textarea>
   </section>
 
