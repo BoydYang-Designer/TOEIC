@@ -115,7 +115,7 @@ function spAudioFail(au) { // 找不到／無法播放 mp3 → 自動改用瀏�
   if (typeof dnToast === 'function') dnToast('mp3 讀不到，改用語音合成播放');
 }
 function spToggle(id, startAt) { // 播放／暫停／繼續；startAt = 從指定秒數開始（點句子時使用）
-  spFollowOn = true;
+  spFollowSet(true);
   if (Sp.id !== id) {
     spStop(); const x = DATA.find(d => idOf(d) === id);
     Sp.id = id; Sp.text = x.passage; Sp.cps = 0;
@@ -179,26 +179,59 @@ function spHtml(id) {
     <span class="inline-flex items-center gap-1"><span class="text-xs text-slate-400">語速</span>${SP_SPEEDS.map(v => `<button onclick="spSetSpeed(${v})" class="rounded-lg px-2.5 py-2 text-xs font-medium transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300'}">${v}×</button>`).join('')}</span>
     ${mine ? `<span class="text-xs ${playing ? 'text-indigo-600 dark:text-indigo-300 font-semibold' : 'text-slate-400'}">${playing ? '● ' : ''}${Sp.mode === 'audio' ? '音檔' : '語音合成'}${loading ? '（載入中）' : playing ? '播放中' : '（已暫停）'}</span>` : ''}`;
 }
-function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll('#passage-text .tsent.active, #zh-text .zsent.active').forEach(e => e.classList.remove('active')); }
-/* ===== 播放時畫面跟著高亮句子捲動 =====
-   - 句子已在「可視範圍」內就不動；快出界或被遮住才捲，並讓它停在可視範圍偏上約 30%，下一句看得到
+const SP_TS = '#passage-text .tsent, #pair-text .tsent', SP_ZS = '#zh-text .zsent, #pair-text .zsent'; // 英文句／中文句（單語模式或中英對照）
+function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll(SP_TS.replace(/\.tsent/g, '.tsent.active') + ', ' + SP_ZS.replace(/\.zsent/g, '.zsent.active')).forEach(e => e.classList.remove('active')); }
+/* ===== 播放時畫面跟著高亮句子「滑順追蹤」（桌機／手機通用）=====
+   - 每換一句，就用緩動動畫把畫面帶到「高亮句子停在可視範圍偏上 30%」的位置（像提詞機，下一句永遠看得到）
    - 可視範圍會扣掉手機上方 sticky 的 #side 與底部浮動播放列 #mini，句子不會被擋住
-   - 使用者自己滑動（滾輪／觸控）→ 暫停跟隨；按播放或點句子（spToggle／spSeek）→ 重新跟隨 */
-let spFollowOn = true;
-['wheel', 'touchmove'].forEach(ev => window.addEventListener(ev, () => { spFollowOn = false; }, { passive: true })); // 程式的 smooth 捲動不會觸發這兩個事件
+   - 使用者自己滑動（滾輪／觸控）→ 立刻停止動畫並暫停跟隨，出現「回到播放位置」按鈕；按播放、點句子或按該按鈕 → 重新跟隨
+   - 想調整手感：pos＝停留位置（0.3＝偏上 30%，0.5＝正中間）、tol＝偏離超過可視高度多少比例才再捲（越小越黏、越大越少動） */
+const SP_FOLLOW = { pos: 0.3, tol: 0.08 };
+let spFollowOn = true, spAnim = 0;
+function spFollowSet(v) { spFollowOn = v; if (!v) spAnimStop(); spJumpUpdate(); }
+['wheel', 'touchmove'].forEach(ev => window.addEventListener(ev, () => { if (spFollowOn) spFollowSet(false); }, { passive: true })); // 程式捲動不會觸發這兩個事件
+function spAnimStop() { if (spAnim) { cancelAnimationFrame(spAnim); spAnim = 0; } }
+function spScrollTo(y) { // 自製緩動捲動：連續多句時不會互相打斷，手機（iOS／Android）表現一致
+  spAnimStop();
+  const y0 = scrollY, max = Math.max(0, document.documentElement.scrollHeight - innerHeight);
+  y = Math.max(0, Math.min(max, y));
+  const d = y - y0; if (Math.abs(d) < 2) return;
+  const jump = v => { try { window.scrollTo({ top: v, left: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, v); } };
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { jump(y); return; }
+  const dur = Math.min(700, 260 + Math.abs(d) * 0.5), t0 = performance.now();
+  const ease = p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+  const step = now => { const p = Math.min(1, (now - t0) / dur); jump(y0 + d * ease(p)); spAnim = p < 1 ? requestAnimationFrame(step) : 0; };
+  spAnim = requestAnimationFrame(step);
+}
 function spFollow(el, zel) {
-  if (!spFollowOn) return;
+  if (!spFollowOn) { spJumpUpdate(); return; }
   const vis = e => e && e.getClientRects().length > 0;
-  const tgt = vis(el) ? el : vis(zel) ? zel : null; if (!tgt) return;
+  const hit = vis(el) ? el : vis(zel) ? zel : null; if (!hit) return;
+  const tgt = hit.closest('.pair-row') || hit; // 中英對照：整組（英文＋中文）一起保持在畫面內
   let top = 0, bot = innerHeight;
   const side = document.getElementById('side');
   if (side && getComputedStyle(side).position === 'sticky') { const sr = side.getBoundingClientRect(); if (sr.bottom > 0) top = Math.min(sr.bottom, innerHeight * 0.4); }
   const mini = document.getElementById('mini');
   if (mini && mini.firstElementChild && getComputedStyle(mini).display !== 'none') bot = Math.max(top + 80, mini.getBoundingClientRect().top);
-  const r = tgt.getBoundingClientRect(), pad = 12;
-  if (r.top >= top + pad && r.bottom <= bot - pad) return; // 已在可視範圍內
-  const y = scrollY + r.top - top - Math.max(pad, (bot - top) * 0.3);
-  window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  const h = bot - top, r = tgt.getBoundingClientRect(), pad = 12;
+  const want = top + Math.max(pad, h * SP_FOLLOW.pos);
+  const hidden = r.top < top + pad || r.bottom > bot - pad;            // 被擋住或出畫面：一定要捲
+  if (!hidden && r.top <= want + Math.max(24, h * SP_FOLLOW.tol)) return; // 在目標位置附近（或更上方的舒適區）就不動
+  spScrollTo(scrollY + r.top - want);
+}
+function spFollowNow() { spFollow(document.querySelector(SP_TS.replace(/\.tsent/g, '.tsent.active')), document.querySelector(SP_ZS.replace(/\.zsent/g, '.zsent.active'))); }
+function spJumpUpdate() { // 跟隨被暫停時，浮出「回到播放位置」按鈕（浮在手機底部播放列上方）
+  let b = document.getElementById('sp-jump');
+  const live = (Sp.st === 'playing' || Sp.st === 'paused') && document.querySelector(SP_TS.replace(/\.tsent/g, '.tsent.active') + ', ' + SP_ZS.replace(/\.zsent/g, '.zsent.active'));
+  if (spFollowOn || !live) { if (b) b.style.display = 'none'; return; }
+  if (!b) {
+    b = document.createElement('button'); b.id = 'sp-jump'; b.textContent = '⤓ 回到播放位置';
+    b.className = 'fixed right-3 z-40 rounded-full shadow-lg px-4 py-2 text-xs font-semibold bg-indigo-600 text-white cursor-pointer';
+    b.onclick = () => { spFollowSet(true); spFollowNow(); };
+    document.body.appendChild(b);
+  }
+  const mini = document.getElementById('mini'), mh = mini && mini.firstElementChild && getComputedStyle(mini).display !== 'none' ? mini.offsetHeight : 0;
+  b.style.bottom = (mh + 12) + 'px'; b.style.display = '';
 }
 function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily.json 的 timing）
   const x = DATA.find(d => idOf(d) === id); if (!x || !x.timing || !tmOk(x)) return;
@@ -207,14 +240,14 @@ function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily
   if (idx >= 0 && t > x.timing[idx].end + 1) idx = -1;
   if (idx === Sp.hlIdx) return;
   Sp.hlIdx = idx;
-  document.querySelectorAll('#passage-text .tsent').forEach(el => el.classList.toggle('active', +el.dataset.i === idx));
-  document.querySelectorAll('#zh-text .zsent').forEach(el => el.classList.toggle('active', +el.dataset.z === idx)); // 中文翻譯：和英文同一句一起亮
-  const el = idx >= 0 && document.querySelector(`#passage-text .tsent[data-i="${idx}"]`);
-  const zel = idx >= 0 && document.querySelector(`#zh-text .zsent[data-z="${idx}"]`);
+  document.querySelectorAll(SP_TS).forEach(el => el.classList.toggle('active', +el.dataset.i === idx));
+  document.querySelectorAll(SP_ZS).forEach(el => { const z = +el.dataset.z, z2 = el.dataset.z2 != null ? +el.dataset.z2 : z; el.classList.toggle('active', idx >= z && idx <= z2); }); // 中文翻譯：和英文同一句一起亮（一句中文對應多句英文時，整段期間都亮）
+  const el = idx >= 0 && document.querySelector(`#passage-text .tsent[data-i="${idx}"], #pair-text .tsent[data-i="${idx}"]`);
+  const zel = idx >= 0 && [...document.querySelectorAll(SP_ZS)].find(e => idx >= +e.dataset.z && idx <= (e.dataset.z2 != null ? +e.dataset.z2 : +e.dataset.z));
   spFollow(el, zel); // 畫面跟著高亮句子捲動（英文收合時改跟中文）
 }
 function spSeek(id, i) { // 點文稿句子：跳到該句播放
-  spFollowOn = true;
+  spFollowSet(true);
   const x = DATA.find(d => idOf(d) === id), t = x.timing[i].start;
   if (Sp.id === id && Sp.mode === 'tts') { spRun(x.timing[i].from); return; } // 語音合成：從該句的字元位置重播
   if (Sp.id === id && Sp.mode === 'audio' && Sp.au) {
@@ -234,7 +267,7 @@ function spMini() { // 手機底部浮動播放列：捲到測驗區時仍可暫
     <button onclick="spToggle(Sp.id)" class="${b}${Sp.st === 'loading' ? ' animate-pulse' : ''}">${Sp.st === 'loading' ? '⏳' : Sp.st === 'playing' ? '⏸' : '▶'}</button>
     <button onclick="spStop()" class="${b}">⏹</button></div>`;
 }
-function spUI() { const el = document.getElementById('sp-ctl'); if (el) el.innerHTML = spHtml(el.dataset.id); spMini(); }
+function spUI() { const el = document.getElementById('sp-ctl'); if (el) el.innerHTML = spHtml(el.dataset.id); spMini(); spJumpUpdate(); }
 document.addEventListener('visibilitychange', () => { if (document.hidden) spStop(); });
 window.addEventListener('pagehide', () => { try { speechSynthesis.cancel(); } catch(e) {} });
 /* 鍵盤（閱讀頁、正在播放／暫停中才生效）：空白鍵＝暫停／繼續，← 倒轉 5 秒，→ 快轉 5 秒。
@@ -980,6 +1013,7 @@ function renderDay() {
   const dflt = defOpen(x, r);
   const enOpen = cur.enOpen !== undefined ? cur.enOpen : dflt.en;
   const zhOpen = cur.zhOpen !== undefined ? cur.zhOpen : dflt.zh;
+  const txMode = textModeOf(x).eff; // 'en' | 'zh' | 'pair' | ''（收合）
   const vOpen = !!cur.vocabOpen, qOpen = !!cur.quizOpen; // 預設收合
 
   let h = `<header class="mb-6">
@@ -1005,26 +1039,29 @@ function renderDay() {
         ${isListening ? '<span class="text-xs text-indigo-600 dark:text-indigo-400">建議先聽聲音作答</span>' : ''}
       </div>
       <div class="flex flex-wrap items-center justify-end gap-2">
-        <button onclick="toggleText('en')" class="rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700">${enOpen ? '▾ 英文文稿' : '▸ 英文文稿'}</button>
-        <button onclick="toggleText('zh')" class="rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700">${zhOpen ? '▾ 中文文稿' : '▸ 中文文稿'}</button>
+        <div class="inline-flex rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700" role="group" aria-label="文稿顯示">${[['en', '英文'], ['zh', '中文'], ['pair', '中英對照']].map(([m, lb]) => `<button onclick="setTextMode('${m}')" aria-pressed="${txMode === m}" class="px-3 py-2 text-sm font-medium transition cursor-pointer ${txMode === m ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${lb}</button>`).join('')}</div>
         <div id="sp-ctl" data-id="${id}" class="flex items-center gap-2">${spHtml(id)}</div>
       </div>
     </div>`;
 
-  if (!enOpen) {
-    h += `<div class="p-8 text-center bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-dashed border-slate-300 dark:border-slate-700">
-      <p class="text-sm text-slate-500 mb-3">${isListening && !done ? '🎧 聽力練習模式中：點擊上方播放語音作答' : '英文文稿已收合'}</p>
-      <button onclick="toggleText('en')" class="text-xs text-indigo-600 dark:text-indigo-400 underline">顯示英文文稿</button>
-    </div>`;
-  } else {
-    h += `<p id="passage-text" class="${cur.mk ? 'annot ' : ''}whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans">${passageHtml(x)}</p>
-      <p class="mt-3 text-[0.6875rem] text-slate-400">${cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔；播放中可按 空白鍵 暫停／繼續，← → 倒轉／快轉 5 秒。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。'}</p>`;
-  }
-
-  if (zhOpen) {
-    h += `<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+  const hintTxt = cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔；播放中可按 空白鍵 暫停／繼續，← → 倒轉／快轉 5 秒。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。';
+  const enBlock = `<p id="passage-text" class="${cur.mk ? 'annot ' : ''}whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans">${passageHtml(x)}</p>
+      <p class="mt-3 text-[0.6875rem] text-slate-400">${hintTxt}</p>`;
+  const zhBlock = top => `<div class="${top ? 'mt-4 pt-4 border-t border-slate-200 dark:border-slate-800' : ''}">
       <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">全文繁體中文翻譯</p>
       <p id="zh-text" class="whitespace-pre-line leading-relaxed text-sm text-slate-600 dark:text-slate-400">${zhHtml(x)}</p>
+    </div>`;
+  if (txMode === 'en') h += enBlock;
+  else if (txMode === 'zh') h += zhBlock(false);
+  else if (txMode === 'pair') {
+    const pr = pairHtml(x);
+    h += pr
+      ? `<div id="pair-text">${pr}</div><p class="mt-4 text-[0.6875rem] text-slate-400">💡 中英對照：點英文或中文句子都會播放該句，播放時兩句一起亮並自動捲動追蹤。要標註入庫請切到「英文」。</p>`
+      : enBlock + (x.zh ? zhBlock(true) : '') + `<p class="mt-3 text-[0.6875rem] text-amber-600 dark:text-amber-400">這篇還沒有對時（timing）資料，所以中英對照暫以上下並列顯示，無法逐句追蹤。</p>`;
+  } else {
+    h += `<div class="p-8 text-center bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-dashed border-slate-300 dark:border-slate-700">
+      <p class="text-sm text-slate-500 mb-3">${isListening && !done ? '🎧 聽力練習模式中：點擊上方播放語音作答' : '文稿已收合'}</p>
+      <button onclick="setTextMode('en')" class="text-xs text-indigo-600 dark:text-indigo-400 underline">顯示英文文稿</button>
     </div>`;
   }
   h += `</section>`;
@@ -1220,33 +1257,94 @@ function speakPhrase(i) { // 句型發音（省略號不念）
   if (p) speak(p.phrase.replace(/\.{2,}|…/g, ' '));
 }
 function toggleSec(k) { cur[k + 'Open'] = !cur[k + 'Open']; render(); } // k = 'vocab' | 'phrases' | 'quiz'
-function toggleHl() { cur.hl = !cur.hl; if (cur.hl) cur.enOpen = true; render(); }
+function toggleHl() { cur.hl = !cur.hl; if (cur.hl) { const m = textModeOf(find(cur.w, cur.d)).raw; if (m === '' || m === 'zh') { cur.enOpen = true; cur.zhOpen = false; cur.pair = false; } } render(); } // 標示單字要看得到英文：對照／英文本來就有英文，收合或純中文則切到英文
 const tmOk = x => { const s = tmInfo(x).state; return s === 'ok' || s === 'partial'; }; // timing 異常（含與目前文稿的切句不符）時一律當作沒有 timing：不高亮、不報錯
-(function () { const st = document.createElement('style'); st.textContent = '#zh-text .zsent{cursor:pointer;border-radius:3px}#zh-text .zsent.active{background:rgba(250,204,21,.35)}'; document.head.appendChild(st); })();
-function zhHtml(x) { // 中文翻譯：切成句子，對應到英文 timing 的句子；播放時中英文同一句一起亮，點中文句也能跳到該句
-  const zh = String(x.zh || '');
-  if (!tmOk(x)) return esc(zh);
-  const toks = zh.match(/[^。！？!?\n]*[。！？!?]+[」』”’）)"']*|[^。！？!?\n]+|\n+/g) || [];
-  const si = []; toks.forEach((t, k) => { if (/\S/.test(t)) si.push(k); });
-  const n = si.length, tm = x.timing, m = tm.length;
-  if (!n) return esc(zh);
-  const map = new Array(n);
-  if (n === m) { for (let j = 0; j < n; j++) map[j] = j; } // 中英句數相同：一句對一句
-  else { // 句數不同（翻譯合併或拆句）：依字數比例對應到最近的英文句
-    const pl = String(x.passage).length || 1, lens = si.map(k => toks[k].replace(/\s/g, '').length), tot = lens.reduce((a, b) => a + b, 0) || 1;
-    let acc = 0;
-    for (let j = 0; j < n; j++) {
-      const c = (acc + lens[j] / 2) / tot; acc += lens[j];
-      let best = 0, bd = Infinity;
-      tm.forEach((t, i) => { const a = t.from / pl, b = t.to / pl, d = c < a ? a - c : c > b ? c - b : 0; if (d < bd) { bd = d; best = i; } });
-      map[j] = j ? Math.max(map[j - 1], best) : best;
+(function () { const st = document.createElement('style'); st.textContent = '.zhead{font-weight:600}#zh-text .zsent,#pair-text .zsent{cursor:pointer;border-radius:3px}#zh-text .zsent.active,#pair-text .zsent.active{background:rgba(250,204,21,.35)}'; document.head.appendChild(st); })();
+function zhAlign(A, B) { /* 句子對齊（Gale–Church 作法 ＋ 錨點）：A＝英文每句 {len 字數, tok 英文詞集合, lab 是否以「Name:」講者標籤開頭, q 是否以問號結尾}、B＝中文每句 {len, tok 中文裡出現的英數詞, lab, q}
+   → 每句中文對應的英文句範圍 {first[], last[]}。動態規劃找「總成本最低」的單調對應：
+   ① 每組中文字數應約等於英文字數 × 全文比例；1對1 最常見，合併／拆句要付額外成本
+   ② 錨點：中英都出現的數字／品牌名（如 Magic Connect、6418）扣成本，中文有而英文組沒有的加成本；講者標籤（顧客：／Customer:）有無要一致 */
+  const m = A.length, n = B.length, S2 = 4, INF = 1e18;
+  const sumA = A.reduce((s, v) => s + v.len, 0) || 1, sumB = B.reduce((s, v) => s + v.len, 0), c = sumB / sumA || 0.3;
+  const pa = [0], pb = [0]; A.forEach(v => pa.push(pa[pa.length - 1] + v.len)); B.forEach(v => pb.push(pb[pb.length - 1] + v.len));
+  const OPS = [[1, 1, .86], [1, 2, .05], [2, 1, .05], [1, 3, .01], [3, 1, .01], [1, 0, .01], [0, 1, .01]]; // [英文句數, 中文句數, 先驗機率]
+  const anchor = (i, ni, j, nj) => {
+    let s = 0;
+    if (ni > i && nj > j) {
+      if (A[i].lab === B[j].lab) { if (A[i].lab) s -= 1.5; } else s += 1.5; // 組頭的講者標籤要一致
+      if (A[ni - 1].q !== B[nj - 1].q) s += 1.8; // 組尾：疑問句要對疑問句（? ↔ ？）
+      const en = new Set(); for (let k = i; k < ni; k++) A[k].tok.forEach(w => en.add(w));
+      const zh = new Set(); for (let k = j; k < nj; k++) B[k].tok.forEach(w => zh.add(w));
+      zh.forEach(w => { s += en.has(w) ? -1.2 : 0.6; });
+    }
+    return s;
+  };
+  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(INF)), bk = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(null));
+  dp[0][0] = 0;
+  for (let i = 0; i <= m; i++) for (let j = 0; j <= n; j++) {
+    if (dp[i][j] >= INF) continue;
+    for (const [di, dj, pr] of OPS) {
+      const ni = i + di, nj = j + dj; if (ni > m || nj > n) continue;
+      const a = pa[ni] - pa[i], b = pb[nj] - pb[j], mu = a * c, v = Math.max(1, mu) * S2;
+      const cost = dp[i][j] + 0.5 * (b - mu) * (b - mu) / v + 0.5 * Math.log(v) - Math.log(pr) + anchor(i, ni, j, nj);
+      if (cost < dp[ni][nj]) { dp[ni][nj] = cost; bk[ni][nj] = [di, dj]; }
     }
   }
+  const first = new Array(n).fill(0), last = new Array(n).fill(0);
+  let i = m, j = n;
+  while ((i > 0 || j > 0) && bk[i][j]) {
+    const [di, dj] = bk[i][j], i0 = i - di, j0 = j - dj;
+    for (let k = j0; k < j; k++) { if (di === 0) first[k] = last[k] = Math.max(0, i0 - 1); else { first[k] = i0; last[k] = i - 1; } } // 沒有對應英文的中文句：掛在前一句英文
+    i = i0; j = j0;
+  }
+  return { first, last };
+}
+function zhPlan(x) { // 中文翻譯：切成句子，並對應到英文 timing 的句子；沒有 timing 或沒有中文句子時回傳 null
+  const zh = String(x.zh || '');
+  if (!tmOk(x)) return null;
+  const toks = zh.match(/[^。！？!?\n]*[。！？!?]+[」』”’）)"']*|[^。！？!?\n]+|\n+/g) || [];
+  const si = []; toks.forEach((t, k) => { if (/\S/.test(t)) si.push(k); });
+  const n = si.length, tm = x.timing;
+  if (!n) return null;
+  const p = String(x.passage || ''), cnt = s => s.replace(/\s/g, '').length, enT = tm.map(t => p.slice(t.from, t.to)), zhT = si.map(k => toks[k]);
+  /* 標題行（沒有句尾標點的短行，如「3. 摺疊」「結語」「Closing」）不是句子：先排除，只用「正文句子」對齊，標題再依位置掛上去 */
+  let hz = zhT.map(s => cnt(s) <= 30 && !/[。！？!?…][」』”’）)"'\]]*\s*$/.test(s));
+  let he = enT.map(s => cnt(s) <= 60 && !/[.!?…][)"'”’\]]*\s*$/.test(s.trim()));
+  let bc = [], be = []; hz.forEach((h, j) => { if (!h) bc.push(j); }); he.forEach((h, i) => { if (!h) be.push(i); });
+  if (!bc.length || !be.length) { hz = hz.map(() => false); he = he.map(() => false); bc = zhT.map((_, j) => j); be = enT.map((_, i) => i); }
+  const map = new Array(n).fill(0), map2 = new Array(n).fill(0), hm = new Array(n).fill(false); // map＝對應的第一個英文句、map2＝最後一個；hm＝標題已和英文標題配成一對
+  if (bc.length === be.length) bc.forEach((j, k) => { map[j] = map2[j] = be[k]; }); // 正文句數相同：一句對一句
+  else { // 句數不同（翻譯合併或拆句）：依每句字數做動態規劃對齊，允許 1對2、2對1、1對3、3對1
+    const wd = s => (s.toLowerCase().match(/[a-z][a-z0-9'’-]*|\d+(?:[.,:]\d+)*/g) || []).filter(w => w.length >= 2 || /\d/.test(w));
+    const al = zhAlign(
+      be.map(i => ({ len: cnt(enT[i]), tok: new Set(wd(enT[i])), lab: /^\s*[A-Z][A-Za-z.'’ -]{0,24}:\s/.test(enT[i]), q: /[?？][)"'”’」』）]*\s*$/.test(enT[i]) })),
+      bc.map(j => ({ len: cnt(zhT[j]), tok: new Set(wd(zhT[j])), lab: /^\s*[^\s。！？!?：:]{1,12}[：:]/.test(zhT[j]), q: /[?？][)"'”’」』）]*\s*$/.test(zhT[j]) })));
+    bc.forEach((j, k) => { map[j] = be[al.first[k]]; map2[j] = be[al.last[k]]; });
+  }
+  let ts = n; while (ts > 0 && hz[ts - 1]) ts--; // 結尾那一串標題（如 Sincerely, ／署名／部門）的起點
+  for (let j = 0; j < n; j++) { // 標題：掛到「下一個正文中文句」所在的英文句；英文緊接在前面若也有標題（如 Closing、Dear …,）就由近到遠一對一配起來
+    if (!hz[j]) continue;
+    if (j >= ts) { // 結尾的標題：和「最後一句正文英文」之後的英文標題依序配對，配不到的掛在最後一句
+      const lb = bc.length ? bc[bc.length - 1] : 0, lastE = map2[lb], ea = [];
+      for (let i = lastE + 1; i < tm.length && he[i]; i++) ea.push(i);
+      const r = j - ts; if (r < ea.length) { map[j] = map2[j] = ea[r]; hm[j] = true; } else map[j] = map2[j] = lastE;
+      continue;
+    }
+    let k = j + 1; while (k < n && hz[k]) k++;
+    const tE = map[k], eh = []; for (let i = tE - 1; i >= 0 && he[i]; i--) eh.push(i);
+    const r = k - 1 - j; // 0＝離正文最近的標題
+    if (r < eh.length) { map[j] = map2[j] = eh[r]; hm[j] = true; } else map[j] = map2[j] = tE;
+  }
+  for (let j = 1; j < n; j++) { map[j] = Math.max(map[j], map[j - 1]); map2[j] = Math.max(map2[j], map[j]); } // 保險：對應順序絕不倒退
+  return { toks, map, map2, head: hz, hm };
+}
+function zhHtml(x) { // 中文翻譯：播放時中英文同一句一起亮，點中文句也能跳到該句
+  const P = zhPlan(x); if (!P) return esc(String(x.zh || ''));
   const id = idOf(x); let out = '', j = 0;
-  toks.forEach(t => { if (/\S/.test(t)) { out += `<span class="zsent" data-z="${map[j]}" onclick="spSeek('${id}',${map[j]})">${esc(t)}</span>`; j++; } else out += esc(t); });
+  P.toks.forEach(t => { if (/\S/.test(t)) { out += `<span class="zsent${P.head[j] ? ' zhead' : ''}" data-z="${P.map[j]}" data-z2="${P.map2[j]}" onclick="spSeek('${id}',${P.map[j]})">${esc(t)}</span>`; j++; } else out += esc(t); });
   return out;
 }
-function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切成可點擊、可高亮的句子
+function passageChunker(x) { // 英文文字 → HTML（逃逸＋依「標示單字」開關標出核心單字）
   let re = null;
   if (cur.hl) {
     const ws = x.vocab.map(v => v.word.trim()).filter(Boolean)
@@ -1254,8 +1352,10 @@ function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切�
       .sort((a, b) => b.length - a.length);
     if (ws.length) re = new RegExp('\\b(' + ws.join('|') + ')[a-z]*', 'gi');
   }
-  const chunk = str => { const t = esc(str); return re ? t.replace(re, m => `<mark class="hl">${m}</mark>`) : t; };
-  const tm = x.timing, p = x.passage;
+  return str => { const t = esc(str); return re ? t.replace(re, m => `<mark class="hl">${m}</mark>`) : t; };
+}
+function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切成可點擊、可高亮的句子
+  const chunk = passageChunker(x), tm = x.timing, p = x.passage;
   if (!tmOk(x)) return chunk(p);
   let out = '', pos = 0;
   tm.forEach((t, i) => {
@@ -1265,6 +1365,37 @@ function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切�
   return out + chunk(p.slice(pos));
 }
 
+function pairHtml(x) { // 中英對照：一句英文、下面接對應的中文；每句都能點（跳播）、播放時一起亮並被追蹤。沒有 timing／中文時回傳 null
+  const P = zhPlan(x); if (!P) return null;
+  const id = idOf(x), chunk = passageChunker(x), tm = x.timing, p = String(x.passage || '');
+  const above = tm.map(() => []), under = tm.map(() => []); let j = 0;
+  P.toks.forEach(t => { if (/\S/.test(t)) { const g = { s: t.trim(), z: P.map[j], z2: P.map2[j], h: P.head[j] }; (g.h && !P.hm[j] ? above[g.z] : under[g.z2]).push(g); j++; } });
+  const sp = g => `<span class="zsent${g.h ? ' zhead' : ''}" data-z="${g.z}" data-z2="${g.z2}" onclick="spSeek('${id}',${g.z})">${esc(g.s)}</span>`;
+  let out = '', pos = 0;
+  tm.forEach((t, i) => {
+    const gap = p.slice(pos, t.from); pos = t.to;
+    const en = p.slice(t.from, t.to).trim();
+    const hd = above[i].map(g => `<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">${sp(g)}</p>`).join('');
+    const zh = under[i].map(sp).join(' ');
+    out += `<div class="pair-row ${i ? (hd || /\n\s*\n/.test(gap) ? 'mt-5' : 'mt-3') : ''}" data-i="${i}">${hd}<p class="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans${hd ? ' mt-1' : ''}"><span class="tsent" data-i="${i}" onclick="spSeek('${id}',${i})">${chunk(en)}</span></p>${zh ? `<p class="mt-0.5 text-sm leading-relaxed text-slate-600 dark:text-slate-400">${zh}</p>` : ''}</div>`;
+  });
+  return out;
+}
+/* 文稿顯示模式：'en' 英文 / 'zh' 中文 / 'pair' 中英對照 / '' 收合。沿用 cur.enOpen、cur.zhOpen（兩個都開＝對照），另加 cur.pair。
+   標註模式（✏️）只能標英文，所以標註中遇到對照就暫時只顯示英文（raw 是你選的、eff 是實際顯示的） */
+function textModeOf(x) {
+  const d = defOpen(x, x && S.ans[idOf(x)]);
+  const en = cur.enOpen !== undefined ? cur.enOpen : d.en, zh = cur.zhOpen !== undefined ? cur.zhOpen : d.zh;
+  const raw = cur.pair || (en && zh) ? 'pair' : en ? 'en' : zh ? 'zh' : '';
+  return { raw, eff: cur.mk && raw === 'pair' ? 'en' : raw };
+}
+function setTextMode(m) { // 再點一次目前的模式＝收合
+  const x = find(cur.w, cur.d), cm = textModeOf(x);
+  if (m === cm.eff && !(cur.mk && m === 'pair')) m = '';
+  cur.enOpen = m === 'en'; cur.zhOpen = m === 'zh'; cur.pair = m === 'pair';
+  if (cur.mk && m === 'pair' && typeof dnToast === 'function') dnToast('標註模式只顯示英文；離開標註（再按 ✏️）後就是中英對照');
+  render();
+}
 /* ===== 新增文章：產生檔名與給 AI 的提示詞 ===== */
 const cefrOf = s => s < 575 ? 'A2+' : s < 625 ? 'B1' : s < 675 ? 'B1+' : s < 775 ? 'B2' : s < 825 ? 'B2+' : 'C1';
 const clampSc = v => Math.max(400, Math.min(990, Math.round(v / 5) * 5));
