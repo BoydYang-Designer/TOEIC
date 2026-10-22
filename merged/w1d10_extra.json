@@ -1,0 +1,166 @@
+{
+  "week": 1,
+  "day": 10,
+  "extra_vocab": [
+    {
+      "text": "intended",
+      "type": "word",
+      "lemma": "intend",
+      "ipa": "/ɪnˈtendɪd/",
+      "pos": "v.",
+      "zh": "打算（過去分詞）；照預期的",
+      "en": "planned or wanted to happen in a certain way",
+      "note": "as intended 是「照原本預期、照設計」的意思。這句是說因為是原型機，一邊的後輪不像預期那麼順暢，語氣是先坦白說明小瑕疵，再提醒聽眾仍可看到功能。",
+      "grammar_note": "intend 後面通常接 to + 原形（intend to launch）；表示「專供…使用」要用被動 be intended for + N 或 be intended to + V。as intended 放在動詞或句尾，意思是「照原本預期」。",
+      "forms": [
+        {
+          "w": "intends",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "打算",
+          "ipa": "/ɪnˈtendz/",
+          "example": { "en": "The company intends to open two more stores this year.", "zh": "公司打算今年再開兩間店。" }
+        },
+        {
+          "w": "intending",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "打算",
+          "ipa": "/ɪnˈtendɪŋ/",
+          "example": { "en": "We are intending to hire three engineers next quarter.", "zh": "我們打算在下一季聘請三位工程師。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "intend to + V",
+          "zh": "打算做…",
+          "example": { "en": "I intend to finish the report before the meeting.", "zh": "我打算在會議前完成報告。" }
+        },
+        {
+          "phrase": "as intended",
+          "zh": "照預期地、照設計地",
+          "example": { "en": "Please check that the system runs as intended.", "zh": "請確認系統照預期運作。" }
+        },
+        {
+          "phrase": "be intended for",
+          "zh": "專供…使用",
+          "example": { "en": "This room is intended for client meetings only.", "zh": "這個房間僅供客戶會議使用。" }
+        },
+        {
+          "phrase": "intended purpose",
+          "zh": "原本的用途",
+          "example": { "en": "The tool should be used only for its intended purpose.", "zh": "這個工具應只用於原本的用途。" }
+        }
+      ],
+      "examples": [
+        { "tag": "產品測試", "en": "The new printer is working as intended after the update.", "zh": "更新之後，新印表機運作得如預期。" },
+        { "tag": "會議", "en": "We intend to launch the product in early spring.", "zh": "我們打算在早春推出這項產品。" },
+        { "tag": "公司文件", "en": "This guide is intended for new employees in the sales team.", "zh": "這份指南是給業務團隊的新進員工使用的。" }
+      ],
+      "confusable": [
+        {
+          "word": "attend",
+          "diff": "拼法與發音接近，但 attend 是「參加、出席」，intend 是「打算」。",
+          "example": { "en": "Over fifty guests will attend the product launch event.", "zh": "超過五十位賓客會參加產品發表活動。" }
+        },
+        {
+          "word": "pretend",
+          "diff": "拼法接近，但 pretend 是「假裝」，intend 是「打算」。",
+          "example": { "en": "Do not pretend you understand if the steps are unclear.", "zh": "如果步驟不清楚，不要假裝你懂了。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "plan",
+          "ipa": "/plæn/",
+          "pos": "v.",
+          "zh": "計劃",
+          "example": { "en": "We plan to visit the new factory next week.", "zh": "我們計劃下週參觀新工廠。" }
+        },
+        {
+          "w": "aim",
+          "ipa": "/eɪm/",
+          "pos": "v.",
+          "zh": "以…為目標",
+          "example": { "en": "The campaign aims to reach younger customers.", "zh": "這場宣傳活動以年輕客戶為目標。" }
+        },
+        {
+          "w": "purpose",
+          "ipa": "/ˈpɝːpəs/",
+          "pos": "n.",
+          "zh": "目的、用途",
+          "example": { "en": "What is the purpose of today's training session?", "zh": "今天訓練課程的目的是什麼？" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "intention",
+          "ipa": "/ɪnˈtenʃən/",
+          "pos": "n.",
+          "zh": "意圖、打算",
+          "link": "intend 去掉 -d 加 -tion，把「打算」變成名詞，像 invent → invention"
+        },
+        {
+          "w": "intentional",
+          "ipa": "/ɪnˈtenʃənəl/",
+          "pos": "adj.",
+          "zh": "故意的、有意的",
+          "link": "intention + -al，變成形容詞，像 national、traditional"
+        },
+        {
+          "w": "intentionally",
+          "ipa": "/ɪnˈtenʃənəli/",
+          "pos": "adv.",
+          "zh": "故意地",
+          "link": "intentional + -ly，變成副詞，像 usually、carefully"
+        },
+        {
+          "w": "unintended",
+          "ipa": "/ˌʌnɪnˈtendɪd/",
+          "pos": "adj.",
+          "zh": "非預期的",
+          "link": "un-（不）+ intended，相反意思，像 unhappy、unable"
+        },
+        {
+          "w": "unintentional",
+          "ipa": "/ˌʌnɪnˈtenʃənəl/",
+          "pos": "adj.",
+          "zh": "非故意的",
+          "link": "un-（不）+ intentional，意思相反"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/ɪnˈtend/",
+          "zh": "打算、想要",
+          "in_passage": true,
+          "example": { "en": "We intend to release the update next Monday.", "zh": "我們打算下星期一發布更新。" }
+        },
+        {
+          "w": "intended",
+          "pos": "adj.",
+          "ipa": "/ɪnˈtendɪd/",
+          "zh": "預期的、目標中的",
+          "example": { "en": "Who is the intended audience for this brochure?", "zh": "這本小冊子的目標讀者是誰？" }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "打算做",
+          "en": "to plan to do something",
+          "in_passage": true,
+          "example": { "en": "I intend to call the supplier this afternoon.", "zh": "我打算今天下午打電話給供應商。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "（被動）專為…而設計",
+          "en": "to make something for a certain use or person",
+          "distinguish": "主詞是物品或文件，用被動 be intended for / to，不是人在打算。",
+          "example": { "en": "These tools are intended to save workers time.", "zh": "這些工具是為了節省員工時間而設計的。" }
+        }
+      ]
+    }
+  ]
+}
