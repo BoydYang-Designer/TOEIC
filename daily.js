@@ -115,6 +115,7 @@ function spAudioFail(au) { // 找不到／無法播放 mp3 → 自動改用瀏�
   if (typeof dnToast === 'function') dnToast('mp3 讀不到，改用語音合成播放');
 }
 function spToggle(id, startAt) { // 播放／暫停／繼續；startAt = 從指定秒數開始（點句子時使用）
+  spFollowOn = true;
   if (Sp.id !== id) {
     spStop(); const x = DATA.find(d => idOf(d) === id);
     Sp.id = id; Sp.text = x.passage; Sp.cps = 0;
@@ -179,6 +180,26 @@ function spHtml(id) {
     ${mine ? `<span class="text-xs ${playing ? 'text-indigo-600 dark:text-indigo-300 font-semibold' : 'text-slate-400'}">${playing ? '● ' : ''}${Sp.mode === 'audio' ? '音檔' : '語音合成'}${loading ? '（載入中）' : playing ? '播放中' : '（已暫停）'}</span>` : ''}`;
 }
 function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll('#passage-text .tsent.active, #zh-text .zsent.active').forEach(e => e.classList.remove('active')); }
+/* ===== 播放時畫面跟著高亮句子捲動 =====
+   - 句子已在「可視範圍」內就不動；快出界或被遮住才捲，並讓它停在可視範圍偏上約 30%，下一句看得到
+   - 可視範圍會扣掉手機上方 sticky 的 #side 與底部浮動播放列 #mini，句子不會被擋住
+   - 使用者自己滑動（滾輪／觸控）→ 暫停跟隨；按播放或點句子（spToggle／spSeek）→ 重新跟隨 */
+let spFollowOn = true;
+['wheel', 'touchmove'].forEach(ev => window.addEventListener(ev, () => { spFollowOn = false; }, { passive: true })); // 程式的 smooth 捲動不會觸發這兩個事件
+function spFollow(el, zel) {
+  if (!spFollowOn) return;
+  const vis = e => e && e.getClientRects().length > 0;
+  const tgt = vis(el) ? el : vis(zel) ? zel : null; if (!tgt) return;
+  let top = 0, bot = innerHeight;
+  const side = document.getElementById('side');
+  if (side && getComputedStyle(side).position === 'sticky') { const sr = side.getBoundingClientRect(); if (sr.bottom > 0) top = Math.min(sr.bottom, innerHeight * 0.4); }
+  const mini = document.getElementById('mini');
+  if (mini && mini.firstElementChild && getComputedStyle(mini).display !== 'none') bot = Math.max(top + 80, mini.getBoundingClientRect().top);
+  const r = tgt.getBoundingClientRect(), pad = 12;
+  if (r.top >= top + pad && r.bottom <= bot - pad) return; // 已在可視範圍內
+  const y = scrollY + r.top - top - Math.max(pad, (bot - top) * 0.3);
+  window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+}
 function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily.json 的 timing）
   const x = DATA.find(d => idOf(d) === id); if (!x || !x.timing || !tmOk(x)) return;
   let idx = -1;
@@ -190,9 +211,10 @@ function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily
   document.querySelectorAll('#zh-text .zsent').forEach(el => el.classList.toggle('active', +el.dataset.z === idx)); // 中文翻譯：和英文同一句一起亮
   const el = idx >= 0 && document.querySelector(`#passage-text .tsent[data-i="${idx}"]`);
   const zel = idx >= 0 && document.querySelector(`#zh-text .zsent[data-z="${idx}"]`);
-  if (el) el.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); else if (zel) zel.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); // 英文收合時改捲中文
+  spFollow(el, zel); // 畫面跟著高亮句子捲動（英文收合時改跟中文）
 }
 function spSeek(id, i) { // 點文稿句子：跳到該句播放
+  spFollowOn = true;
   const x = DATA.find(d => idOf(d) === id), t = x.timing[i].start;
   if (Sp.id === id && Sp.mode === 'tts') { spRun(x.timing[i].from); return; } // 語音合成：從該句的字元位置重播
   if (Sp.id === id && Sp.mode === 'audio' && Sp.au) {
@@ -965,6 +987,7 @@ function renderDay() {
     <div class="flex items-center gap-2">
       <h2 class="text-xl md:text-2xl font-bold">Day ${dShow(x)} ${thName(x)}</h2>
     </div>
+    ${projChipsHtml(x)}
     <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${x.week} · ${x.tag}</span>
     ${x.project ? `<span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300 font-medium" title="專案">📁 ${esc(x.project)}</span>` : ''}
     ${x.subtopic ? `<span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300 font-medium" title="子題材">🏷 ${esc(x.subtopic)}</span>` : ''}
@@ -1505,6 +1528,20 @@ function render() {
 }
 
 /* 上一篇／下一篇：依 週→天 排序（跨週、含 D8 專案文章）；從總表進來時，保留「← 回…」連結 */
+/* D8 專案文章：標題下列出「同專案」所有篇（8-1、8-2、8-3…）的方塊，點了直接切換；目前這篇反白，已完成的加 ✓ */
+function projChipsHtml(x) {
+  if (!x || x.day <= CORE_DAYS) return '';
+  const pj = String(x.project || '').trim();
+  const sib = DATA.filter(y => y.day > CORE_DAYS && String(y.project || '').trim() === pj).sort((a, b) => a.week - b.week || a.day - b.day);
+  if (sib.length < 2) return '';
+  const oneWeek = sib.every(y => y.week === sib[0].week);
+  const chips = sib.map(y => {
+    const cur_ = y.week == x.week && y.day == x.day, a = S.ans[idOf(y)], done = a && a.done;
+    const cls = cur_ ? 'bg-sky-600 text-white border-sky-600' : 'border-sky-400 text-sky-700 dark:text-sky-300 hover:bg-sky-50 dark:hover:bg-sky-950 cursor-pointer';
+    return `<button ${cur_ ? 'disabled aria-current="true"' : `onclick="goNext(${y.week},${y.day})"`} title="${esc(y.tag || '')}" class="text-xs font-semibold rounded-lg px-3 py-1.5 border ${cls}">${oneWeek ? '' : 'W' + y.week + '·'}${dShow(y)}${done ? ' ✓' : ''}</button>`;
+  }).join('');
+  return `<div class="mt-3 flex flex-wrap items-center gap-2"><span class="text-xs text-slate-500 dark:text-slate-400 shrink-0">📁 ${esc(pj || '專案')} 共 ${sib.length} 篇</span>${chips}</div>`;
+}
 function neighborOf(x, step) {
   const xs = [...DATA].sort((a, b) => a.week - b.week || a.day - b.day);
   const i = xs.findIndex(a => a.week == x.week && a.day == x.day);
