@@ -353,6 +353,8 @@ function backHome() { goBack(); }
 function showHome() { up(); }
 function enterSec(s) {
   const from = cur.view, keep = { w: cur.w, d: cur.d };
+  if (s === 'learn' && from === 'mitem' && find(keep.w, keep.d)) return go(keep.w, keep.d); // 維護某篇 → 立刻變成該篇的學習
+  if (s === 'maint' && from === 'day' && find(keep.w, keep.d)) return openItem(keep.w, keep.d); // 學習某篇 → 立刻變成該篇的維護
   SEC = s;
   if (s === 'maint') cur = Object.assign(keep, { nw: keep.w, view: 'maint' });
   else if (isMobile()) cur = Object.assign(keep, { nw: keep.w, view: 'home' });
@@ -896,8 +898,24 @@ function timingPanel(x) {
   else if (t.state === 'bad') msg = `<p class="text-xs text-rose-600 dark:text-rose-400 mb-1">timing 資料有誤，建議重新對時：</p><ul class="text-xs text-slate-600 dark:text-slate-400 list-disc pl-4">${t.issues.slice(0, 8).map(s => `<li>${esc(s)}</li>`).join('')}${t.issues.length > 8 ? `<li>…另有 ${t.issues.length - 8} 項</li>` : ''}</ul>`;
   else if (t.state === 'partial') msg = `<p class="text-xs text-amber-600 dark:text-amber-400 mb-1">下面的文字沒有被任何一段 timing 涵蓋（句子漏掉或對時失敗）：</p><ul class="text-xs text-slate-600 dark:text-slate-400 list-disc pl-4">${t.gaps.slice(0, 6).map(s => `<li>${esc(s.length > 90 ? s.slice(0, 90) + '…' : s)}</li>`).join('')}</ul>`;
   else msg = '<p class="text-xs text-emerald-600 dark:text-emerald-400">每一段文字都有對應的時間 ✔</p>';
-  const rows = (t.state === 'ok' || t.state === 'partial') ? `<details class="mt-2"><summary class="text-xs cursor-pointer text-slate-500">逐句檢視並試聽（${tm.length} 段）</summary>${tm.map((s, i) => `<div class="flex items-center gap-2 text-xs py-0.5"><span class="shrink-0 w-5 text-slate-400">${i + 1}</span><code class="shrink-0">${(+s.start).toFixed(2)}–${(+s.end).toFixed(2)}s</code><span class="truncate flex-1 text-slate-500">${esc(p.slice(s.from, s.to))}</span><button onclick="skPlayTiming('${id}',${i})" class="${sb}">▶</button></div>`).join('')}</details>` : '';
+  const rows = (t.state === 'ok' || t.state === 'partial') ? `<details class="mt-2"><summary class="text-xs cursor-pointer text-slate-500">逐句檢視並試聽（${tm.length} 段）</summary>${tm.map((s, i) => `<div class="flex items-center gap-2 text-xs py-0.5 min-w-0"><span class="shrink-0 w-5 text-slate-400">${i + 1}</span><code class="shrink-0 whitespace-nowrap">${(+s.start).toFixed(2)}–${(+s.end).toFixed(2)}s</code><span class="truncate flex-1 min-w-0 text-slate-500">${esc(p.slice(s.from, s.to))}</span><button onclick="skPlayTiming('${id}',${i})" class="${sb}">▶</button></div>`).join('')}</details>` : '';
   return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 p-3"><div class="flex flex-wrap items-center gap-2 mb-2"><p class="text-xs font-bold">⏱ Timing</p>${tmBadge(x)}${t.n ? `<span class="text-xs text-slate-500">${t.n} 段${t.dur ? ` · 最後一段結束於 ${t.dur.toFixed(1)} 秒` : ''}</span>` : ''}</div>${msg}${rows}</div>`;
+}
+function openItemNext(w, d) { const tb = TBACK; TKEEP = tb && tFrom() ? Object.assign({}, tb, { w, d }) : null; openItem(w, d); }
+function mNavBtn(x, step) {
+  const n = neighborOf(x, step);
+  if (!n) return '';
+  return `<button onclick="openItemNext(${n.week},${n.day})" title="W${n.week} · D${dShow(n)} ${esc(n.tag || '')}" class="${btn} border border-indigo-400 text-indigo-600 dark:text-indigo-400 !py-1.5 text-xs">${step < 0 ? '← 上一篇' : '下一篇 →'}</button>`;
+}
+const mActions = x => `<button onclick="go(${x.week},${x.day})" class="${btn} bg-indigo-600 text-white !py-1.5 text-xs">📖 學習這篇</button>${mNavBtn(x, -1)}${mNavBtn(x, 1)}`;
+/* ===== 「現在要做什麼」：依這篇缺的東西，列出明確步驟＋可複製的診斷指令 ===== */
+function fixHint(x) {
+  const id = idOf(x), t = tmInfo(x), st = [];
+  if (mp3State(x) === 'none') st.push(`缺 mp3：把音檔命名為 <code class="break-all">${id}.mp3</code>，放進 <code>audio/daily/</code>，執行 <code>Scan總表與音檔.py</code>，再重新整理本頁。`);
+  if (t.state !== 'ok') st.push(`timing ${esc(TM_LABEL[t.state] || '未完成')}：先在專案資料夾執行下面那行指令，它會告訴你原因（mp3 不完整？對時漏掉？）以及該做的下一步。`);
+  if (!st.length) return '';
+  const cmd = 'python scan_index.py --diag ' + id;
+  return `<section class="${card} p-4 mb-4 border-amber-300 dark:border-amber-700"><h3 class="font-bold text-sm mb-2">👉 現在要做什麼</h3><ol class="list-decimal pl-5 text-sm space-y-1.5">${st.map(s => `<li>${s}</li>`).join('')}</ol>${t.state !== 'ok' ? `<div class="mt-3 flex flex-wrap items-center gap-2"><code class="text-xs rounded bg-slate-100 dark:bg-slate-800 px-2 py-1 break-all">${cmd}</code><button onclick="auCopy(this.dataset.t)" data-t="${cmd}" class="${btn} border border-slate-300 dark:border-slate-700 !py-1 !px-2 text-xs">複製指令</button></div>` : ''}</section>`;
 }
 function renderMaintItem() {
   const x = find(cur.w, cur.d);
@@ -906,13 +924,13 @@ function renderMaintItem() {
   const todo = todoOf(x), sec = `${card} p-4 md:p-6 mb-4`, bb = `${btn} border border-slate-300 dark:border-slate-700 !py-1.5 text-xs`;
   main.innerHTML = `<header class="mb-5">${tFrom() ? `<button onclick="goBack()" class="block text-xs text-indigo-600 dark:text-indigo-400 hover:underline mb-1 cursor-pointer">← ${tLabel()}</button>` : ''}<h2 class="text-xl md:text-2xl font-bold">🛠 W${x.week} · D${dShow(x)} ${esc(x.tag || '')}</h2>
     <div class="flex flex-wrap items-center gap-2 mt-2"><span class="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">${x.type}</span>${lvBadge(x)}${stChips(x)}</div>
-    <p class="mt-2 text-sm ${todo.length ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">${todo.length ? '待處理：' + todo.join('、') : '✔ mp3 與 timing 都完成'}</p></header>
-  ${qStaleBanner(x)}<section class="${sec}"><h3 class="font-bold text-sm mb-2">📄 資料 · ${id}</h3><p class="text-sm text-slate-600 dark:text-slate-400">daily.json ✔　英文 ${words} 字　單字 ${x.vocab.length} 個　題目 ${x.questions.length} 題${pp ? `　簡報句型 ${pp} 句` : ''}${x.edited ? `　文稿修改於 ${esc(x.edited)}${x.review_pending ? '（待檢查）' : ''}` : ''}</p></section>
+    <p class="mt-2 text-sm ${todo.length ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">${todo.length ? '待處理：' + todo.join('、') : '✔ mp3 與 timing 都完成'}</p><div class="flex flex-wrap gap-2 mt-3">${mActions(x)}</div></header>
+  ${qStaleBanner(x)}${fixHint(x)}<section class="${sec}"><h3 class="font-bold text-sm mb-2">📄 資料 · ${id}</h3><p class="text-sm text-slate-600 dark:text-slate-400">daily.json ✔　英文 ${words} 字　單字 ${x.vocab.length} 個　題目 ${x.questions.length} 題${pp ? `　簡報句型 ${pp} 句` : ''}${x.edited ? `　文稿修改於 ${esc(x.edited)}${x.review_pending ? '（待檢查）' : ''}` : ''}</p></section>
   <section class="${sec}"><h3 class="font-bold text-sm mb-3">🔊 音檔 · ${id}</h3>${dyPanel(x)}</section>
   <section class="${sec}"><h3 class="font-bold text-sm mb-3">⏱ Timing · ${id}</h3>${timingPanel(x)}</section>
   ${dfSection(x)}
   ${trDelSec(x)}
-  <div class="flex flex-wrap gap-2"><button onclick="go(${x.week},${x.day})" class="${bb}">前往學習內容</button><button onclick="goSpeak(${x.week},${x.day})" class="${bb}">試試語音練習</button><button onclick="openAudio()" class="${bb}">🎧 音檔／Timing 清單</button></div>`;
+  <div class="flex flex-wrap gap-2">${mNavBtn(x, -1)}${mNavBtn(x, 1)}<button onclick="go(${x.week},${x.day})" class="${bb}">📖 學習這篇</button><button onclick="goSpeak(${x.week},${x.day})" class="${bb}">試試語音練習</button><button onclick="openAudio()" class="${bb}">🎧 音檔／Timing 清單</button></div>`;
 }
 
 /* ===== 側欄：一週七天清單（學習顯示完成度；維護顯示 mp3／timing 狀態） ===== */
@@ -1561,7 +1579,7 @@ function dyPanel(x) {
   const cp = (t, label) => `<button onclick="auCopy(this.dataset.t)" data-t="${esc(t)}" class="${sb}">${label}</button>`;
   const first = (pass.split(/\n+/).map(t => t.trim()).find(Boolean)) || '';
   return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 p-3"><div class="flex flex-wrap items-center justify-between gap-2 mb-2"><p class="text-xs font-bold">🔊 音檔 ${has ? '1/1（完整，播放用 mp3）' : '0/1（缺，播放改用機器發音）'}${AU.idx ? '' : ' · 尚未讀到 audio/index.json'}</p>${has ? '' : cp(fn + ' | ' + spkParen(pass), '複製缺的（檔名 | 全文）')}</div>
-    <div class="flex items-center gap-2 text-xs py-0.5"><span class="${has ? 'text-emerald-600' : 'text-rose-500'}">${has ? '✔' : '✖'}</span><code class="shrink-0">${esc(fn)}</code><span class="truncate flex-1 text-slate-500">${esc(first)}</span>${cp(fn, '檔名')}${cp(path, '路徑')}${cp(spkParen(pass), '全文')}</div>
+    <div class="text-xs py-0.5 min-w-0"><div class="flex items-center gap-2 min-w-0"><span class="${has ? 'text-emerald-600' : 'text-rose-500'}">${has ? '✔' : '✖'}</span><code class="min-w-0 break-all">${esc(fn)}</code></div><p class="truncate text-slate-500 my-1">${esc(first)}</p><div class="flex flex-wrap gap-1.5">${cp(fn, '檔名')}${cp(path, '路徑')}${cp(spkParen(pass), '全文')}</div></div>
     <p class="text-[0.6875rem] text-slate-400 mt-1">放到 ${esc(path.slice(0, path.lastIndexOf('/') + 1))}，再執行 Scan總表與音檔.py 並重新整理本頁。</p></div>`;
 }
 const dyHead = '音檔總覽';

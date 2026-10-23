@@ -36,3 +36,12 @@ del.df-del{background:rgba(244,63,94,.18);text-decoration:line-through;border-ra
 .dark ins.df-add{background:rgba(52,211,153,.25)}
 .dark del.df-del{background:rgba(251,113,133,.25)}
 .df-box{white-space:pre-wrap;word-break:break-word}
+
+/* ===== 手機版面保險：內容太寬時換行／縮回，不讓整頁左右晃動 ===== */
+body{overflow-x:clip}
+#main{overflow-wrap:break-word}
+#main img,#main video,#main svg,#main textarea,#main input,#main select{max-width:100%}
+#main code{overflow-wrap:anywhere}
+#main details>summary{min-width:0}
+/* 按鈕／連結：取消 iOS 點兩下放大的延遲，點擊反應更跟手 */
+button,a,summary,label{touch-action:manipulation}

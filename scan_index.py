@@ -7,8 +7,11 @@
   python scan_index.py daily --full       這些範圍的程式碼全部完整輸出
   python scan_index.py --file daily.js:1200-1300     只要某檔的某幾行（可重複 --file，不加行數＝整個檔）
   python scan_index.py --grep "w\\d+d8"    全專案文字檔搜尋（正規表示式），列出命中的行
+  python scan_index.py --grep "day" --in json_merge.py,notes.js   只搜指定檔案（逗號分隔，每檔最多 400 行）
   python scan_index.py --rel              只看「腳本 ↔ 資料檔」關聯表（所有根目錄的 .py）
   python scan_index.py --list             列出所有範圍名稱
+  python scan_index.py --maint            維護總檢查：列出每篇文章缺什麼（mp3／timing），並告訴你下一步做什麼（直接印在畫面上）
+  python scan_index.py --diag w2d8-1      單篇診斷：mp3 長度、timing 涵蓋範圍、漏掉的句子、原因與處理方式 → scan_output/diag_*.md（可多篇：--diag w2d8-1,w1d3）
 
 輸出：scan_output/scan_<範圍>_<時間>.md → 整份貼給 AI，或直接上傳。
 安全：金鑰／token／密碼樣式的字串會自動換成 ***REDACTED***；SKIP 清單內的檔案完全不讀。
@@ -252,19 +255,23 @@ def tree():
     return '\n'.join(out)
 
 
-def grep(pattern):
+def grep(pattern, only=None):
+    """only＝只搜這幾個檔（檔名清單）；指定檔案時每個檔最多列 400 行，否則 80 行。"""
     rx = re.compile(pattern, re.I)
     out, n = [], 0
+    cap_n = 400 if only else 80
     for d, ds, fs in os.walk(ROOT):
         ds[:] = [x for x in ds if x not in SKIP_DIRS and not x.startswith('.')]
         for f in sorted(fs):
             p = os.path.join(d, f)
+            if only and rel(p) not in only:
+                continue
             if os.path.splitext(f)[1].lower() not in LANG or skipped(p) or os.path.getsize(p) > 3_000_000:
                 continue
             hits = [(i + 1, l) for i, l in enumerate(read(p).split('\n')) if rx.search(l)]
             if hits:
                 out.append('### `%s`（%d 行命中）' % (rel(p), len(hits)))
-                out.append(fence('', '\n'.join('%5d  %s' % (i, cap(l[:240])) for i, l in hits[:80])))
+                out.append(fence('', '\n'.join('%5d  %s' % (i, cap(l[:240])) for i, l in hits[:cap_n])))
                 n += len(hits)
     return '## 搜尋：`%s`　共 %d 行命中\n\n%s\n' % (pattern, n, '\n'.join(out) or '（沒有命中）')
 
@@ -274,12 +281,174 @@ def parse_file_arg(s):
     return (m.group(1), (int(m.group(2)), int(m.group(3)))) if m else (s, None)
 
 
+# ===== 維護診斷（--maint／--diag）：讀 daily.json、audio/daily/*.mp3，算出每篇缺什麼、該做什麼 =====
+def _daily_items():
+    p = os.path.join(ROOT, 'daily.json')
+    try:
+        with open(p, encoding='utf-8-sig') as f:
+            d = json.load(f)
+    except Exception as e:
+        print('讀不到 daily.json：%s' % e)
+        return []
+    return d if isinstance(d, list) else (d.get('items') or [])
+
+
+def _item_id(x):   # 與 daily.js 的 idOf 相同：day>=8 是 D8 專案文章 → w2d8-1、w2d8-2…
+    day = x.get('day', 0)
+    return 'w%sd%s' % (x.get('week'), '8-%d' % (day - 7) if day >= 8 else day)
+
+
+def mp3_seconds(path):
+    """mp3 長度（秒）。有裝 mutagen 就精確；否則讀第一個影格的位元率來估算。"""
+    try:
+        from mutagen.mp3 import MP3
+        return float(MP3(path).info.length), '精確'
+    except Exception:
+        pass
+    try:
+        with open(path, 'rb') as f:
+            b = f.read(300000)
+        i = 0
+        if b[:3] == b'ID3':
+            i = 10 + ((b[6] & 127) << 21 | (b[7] & 127) << 14 | (b[8] & 127) << 7 | (b[9] & 127))
+        br1 = [0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320]
+        br2 = [0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160]
+        while i + 4 < len(b):
+            if b[i] == 0xFF and (b[i + 1] & 0xE0) == 0xE0:
+                ver, layer, bi = (b[i + 1] >> 3) & 3, (b[i + 1] >> 1) & 3, (b[i + 2] >> 4) & 15
+                if ver != 1 and layer == 1 and 0 < bi < 15:
+                    kbps = (br1 if ver == 3 else br2)[bi]
+                    return os.path.getsize(path) * 8.0 / (kbps * 1000), '估算（依檔案大小）'
+            i += 1
+    except Exception:
+        pass
+    return None, ''
+
+
+def _sentences(p):
+    return [(m.start(), m.end()) for m in re.finditer(r'\S[^\n]*?(?:[.!?]+["\'’”)]*(?=\s|$)|(?=\n)|$)', p)]
+
+
+def analyze(x):
+    """回傳這篇的檢查結果 dict；problems＝[(問題, 處理方式)]。"""
+    iid, p = _item_id(x), str(x.get('passage') or '')
+    tm = [s for s in (x.get('timing') or []) if isinstance(s, dict)]
+    words = len(re.findall(r"[A-Za-z0-9'’]+", p))
+    path = x.get('audio') or 'audio/daily/%s.mp3' % iid
+    full = os.path.join(ROOT, path)
+    has = os.path.isfile(full)
+    dur, how = mp3_seconds(full) if has else (None, '')
+    expect = words / 2.6          # 一般朗讀約 2.6 字／秒
+    tend = max([float(s.get('end') or 0) for s in tm] or [0])
+    unc = []
+    for i, (a, b) in enumerate(_sentences(p), 1):
+        cov = sum(max(0, min(b, int(s.get('to') or 0)) - max(a, int(s.get('from') or 0))) for s in tm)
+        if cov < 0.5 * (b - a):
+            unc.append((i, p[a:b]))
+    pr = []
+    if not has:
+        pr.append(('沒有 mp3（找不到 %s）' % path, '把音檔命名成 %s.mp3，放進 audio/daily/，然後執行「Scan總表與音檔.py」' % iid))
+    elif dur and dur < 0.6 * expect:
+        pr.append(('mp3 可能不完整：只有 %.0f 秒，但 %d 字的文稿正常約需 %.0f 秒' % (dur, words, expect),
+                   '重新產生這篇的 mp3（要包含完整全文），放回 audio/daily/ → 執行「Scan總表與音檔.py」→ 再重新對時'))
+    if not tm:
+        pr.append(('還沒有 timing（對時）', '執行 daily_timestamps.py 對時（用法見診斷檔最後附的腳本說明）'))
+    elif unc and not (dur and dur < 0.6 * expect):   # mp3 本身不完整時，漏句只是結果，不重複列
+        if dur and tend < 0.9 * dur:
+            pr.append(('對時只對到 %.1f 秒，但 mp3 有 %.0f 秒；後面 %d 句沒對上（對時失敗）' % (tend, dur, len(unc)),
+                       '重新對時：執行 daily_timestamps.py（用法見診斷檔最後附的腳本說明）'))
+        else:
+            pr.append(('有 %d 句沒被 timing 涵蓋，但對時已涵蓋整段音檔 → 文稿與 mp3 內容可能不一致（文稿改過但 mp3 沒重做？）' % len(unc),
+                       '確認 mp3 念的是不是現在這份文稿；不一致就重新產生 mp3，再重新對時'))
+    return dict(id=iid, x=x, p=p, tm=tm, words=words, path=path, has=has, dur=dur, how=how, expect=expect,
+                tend=tend, unc=unc, problems=pr)
+
+
+def _script_head(name, n=45):
+    p = os.path.join(ROOT, name)
+    if not os.path.isfile(p):
+        return '### `%s`\n（找不到）\n' % name
+    return '### `%s`（開頭 %d 行，內含用法說明）\n%s\n' % (name, n, fence('python', '\n'.join(read(p).split('\n')[:n])))
+
+
+def do_maint():
+    items = sorted(_daily_items(), key=lambda x: (x.get('week', 0), x.get('day', 0)))
+    if not items:
+        return
+    rs = [analyze(x) for x in items]
+    bad = [r for r in rs if r['problems']]
+    lines = ['維護總檢查：共 %d 篇，完成 %d 篇，需要處理 %d 篇' % (len(rs), len(rs) - len(bad), len(bad)), '']
+    for r in bad:
+        lines.append('● %s　%s' % (r['id'], (r['x'].get('tag') or '')[:30]))
+        for q, a in r['problems']:
+            lines += ['    問題：' + q, '    做法：' + a]
+        lines.append('    想看細節：python scan_index.py --diag %s' % r['id'])
+        lines.append('')
+    if not bad:
+        lines.append('全部完成 ✔')
+    out = '\n'.join(lines)
+    print('\n' + out)
+    od = os.path.join(ROOT, 'scan_output')
+    os.makedirs(od, exist_ok=True)
+    name = 'maint_%s.md' % time.strftime('%Y%m%d_%H%M%S')
+    with open(os.path.join(od, name), 'w', encoding='utf-8') as f:
+        f.write('# 維護總檢查\n\n' + fence('', out) + '\n')
+    print('已存：scan_output/%s（要我協助就把這份貼給我）' % name)
+
+
+def do_diag(ids):
+    items = {_item_id(x): x for x in _daily_items()}
+    parts = ['# 單篇診斷：%s' % ', '.join(ids), '產生時間：%s' % time.strftime('%Y-%m-%d %H:%M:%S')]
+    for i in ids:
+        x = items.get(i)
+        if not x:
+            print('daily.json 裡沒有 %s（有的 id：%s）' % (i, '、'.join(sorted(items)[:40])))
+            parts += ['', '## %s：daily.json 裡找不到' % i]
+            continue
+        r = analyze(x)
+        parts += ['', '## %s　%s' % (r['id'], x.get('tag') or ''),
+                  '- 文稿 %d 字（正常朗讀約 %.0f 秒）　題目 %d 題' % (r['words'], r['expect'], len(x.get('questions') or [])),
+                  '- mp3：%s　長度：%s' % (r['path'] + ('（%.1f KB）' % (os.path.getsize(os.path.join(ROOT, r['path'])) / 1024) if r['has'] else '（不存在）'),
+                                        '%.1f 秒（%s）' % (r['dur'], r['how']) if r['dur'] else '未知'),
+                  '- timing：%d 段，最後結束於 %.1f 秒' % (len(r['tm']), r['tend']),
+                  '', '### 判斷']
+        if r['problems']:
+            for q, a in r['problems']:
+                parts += ['- 問題：' + q, '  做法：' + a]
+        else:
+            parts.append('- 沒發現問題 ✔')
+        sents = _sentences(r['p'])
+        miss = {n for n, _ in r['unc']}
+        parts += ['', '### 文稿逐句（✔＝有 timing 涵蓋　✖＝漏掉）']
+        parts.append(fence('', '\n'.join('%s %2d  %s' % ('✖' if n in miss else '✔', n, cap(r['p'][a:b])) for n, (a, b) in enumerate(sents, 1))))
+        parts += ['', '### timing 各段']
+        rows = ['%2d  %7.2f–%7.2fs  from=%s to=%s  %s' % (k, float(s.get('start') or 0), float(s.get('end') or 0), s.get('from'), s.get('to'),
+                                                          cap(r['p'][int(s.get('from') or 0):int(s.get('to') or 0)])[:80]) for k, s in enumerate(r['tm'], 1)]
+        parts.append(fence('', '\n'.join(rows) or '（沒有）'))
+        print('\n● %s　%s\n  文稿 %d 字／mp3 %s／timing %d 段（到 %.1f 秒）' % (
+            r['id'], x.get('tag') or '', r['words'], ('%.0f 秒' % r['dur']) if r['dur'] else ('有' if r['has'] else '沒有'), len(r['tm']), r['tend']))
+        for q, a in r['problems'] or [('沒發現問題 ✔', '')]:
+            print('  問題：' + q + ('\n  做法：' + a if a else ''))
+    parts += ['', '## 相關腳本說明（讓 AI 知道怎麼對時／掃描）', _script_head('daily_timestamps.py'), _script_head('Scan總表與音檔.py', 30)]
+    od = os.path.join(ROOT, 'scan_output')
+    os.makedirs(od, exist_ok=True)
+    name = 'diag_%s_%s.md' % ('-'.join(ids)[:40], time.strftime('%Y%m%d_%H%M%S'))
+    with open(os.path.join(od, name), 'w', encoding='utf-8') as f:
+        f.write('\n'.join(parts) + '\n')
+    print('\n已存：scan_output/%s（要我協助就把這份貼給我）' % name)
+
+
 def menu():
     names = list(MODULES)
     print('專案：%s\n\n要掃哪些範圍？' % ROOT)
     for i, n in enumerate(names, 1):
         print('  %2d. %-8s %s' % (i, n, MODULES[n]['title']))
-    s = input('\n輸入編號或名稱（可多個，用空白分開；a＝全部）：').strip()
+    print('   m. 維護診斷：列出每篇文章缺什麼、該做什麼（不產生 AI 用的程式碼文件）')
+    s = input('\n輸入編號或名稱（可多個，用空白分開；a＝全部；m＝維護診斷；或直接貼 --diag／--grep／--file 指令）：').strip()
+    if s.lower() == 'm':
+        return None
+    if s.startswith('--') or s.lower().startswith('python'):   # 把指令貼在這裡也可以（例如 --diag w2d8-1、--grep "d8"）
+        return ('ARGS', s)
     chosen = names if s.lower() == 'a' else [names[int(t) - 1] if t.isdigit() and 1 <= int(t) <= len(names) else t for t in s.split()]
     chosen = [c for c in chosen if c in MODULES]
     m = input('程式碼要多完整？  1＝骨架（小檔完整、大檔只列結構，較短）  2＝全部完整（預設 1）：').strip()
@@ -294,7 +463,7 @@ def main():
         for n, m in MODULES.items():
             print('%-8s %s' % (n, m['title']))
         return
-    task, extra, mode, mods, gp = '', [], 'outline', [], None
+    task, extra, mode, mods, gp, gin = '', [], 'outline', [], None, None
     i = 0
     while i < len(a):
         t = a[i]
@@ -306,19 +475,38 @@ def main():
             extra.append(a[i + 1]); i += 1
         elif t == '--grep' and i + 1 < len(a):
             gp = a[i + 1]; i += 1
+        elif t == '--in' and i + 1 < len(a):   # 搭配 --grep：只搜指定檔案（逗號分隔）
+            gin = [v.strip() for v in a[i + 1].split(',') if v.strip()]; i += 1
         elif t == '--task' and i + 1 < len(a):
             task = a[i + 1]; i += 1
         elif t == '--root':
             i += 1
         elif t == '--rel':
             pass
+        elif t == '--maint':
+            do_maint(); return
+        elif t == '--diag' and i + 1 < len(a):
+            ids = [v for v in re.split(r'[,\s]+', a[i + 1]) if v]
+            j = i + 2
+            while j < len(a) and not a[j].startswith('--'):   # 允許 --diag w2d8-1 w1d3 這種空白分隔
+                ids += [v for v in re.split(r'[,\s]+', a[j]) if v]; j += 1
+            do_diag(ids); return
         elif t in MODULES:
             mods.append(t)
         elif not t.startswith('--'):
             print('不認得的範圍：%s（--list 看有哪些）' % t); return
         i += 1
     if not (mods or extra or gp or '--rel' in a):
-        mods, mode, extra, task = menu()
+        r = menu()
+        if r is None:
+            do_maint()
+            return
+        if r[0] == 'ARGS':
+            import shlex
+            toks = [t for t in shlex.split(r[1]) if t.lower() not in ('python', 'py', 'scan_index.py')]
+            sys.argv = [sys.argv[0]] + toks
+            return main()
+        mods, mode, extra, task = r
     parts = ['# 專案掃描：%s' % (' '.join(mods + (['--file'] if extra else []) + (['--grep'] if gp else [])) or '—'),
              '產生時間：%s　專案：%s' % (time.strftime('%Y-%m-%d %H:%M:%S'), os.path.basename(ROOT))]
     if task:
@@ -346,7 +534,7 @@ def main():
             f, ln = parse_file_arg(s)
             parts.append(render_file(os.path.join(ROOT, f), 'full', ln))
     if gp:
-        parts += ['', grep(gp)]
+        parts += ['', grep(gp, gin)]
     parts += ['', '---', '（本文件由 scan_index.py 產生；API 金鑰類字串已遮蔽。AI 若需要別的檔案或行數，請給使用者一行指令，例如：',
               '`python scan_index.py --file daily.js:1200-1300`、`python scan_index.py part7 --full`、`python scan_index.py --grep "關鍵字"`；',
               '要新增掃描範圍就改 scan_index.py 的 MODULES 區塊並整份回傳。）']
