@@ -551,6 +551,8 @@ class Daily(Profile):
         e.setdefault('timing', [])
         if old and not e['timing'] and old.get('passage') == e.get('passage'):
             e['timing'] = old.get('timing', [])   # 文稿沒變 → 保留舊的對時資料
+        if old and 'prosody' not in e and old.get('prosody') and old.get('passage') == e.get('passage'):
+            e['prosody'] = old['prosody']   # 語調曲線是 mp3 的資料，文稿沒變就一起保留
 
     def sort_items(self, items):
         if all(isinstance(x, dict) and isinstance(x.get('week'), int) and isinstance(x.get('day'), int) for x in items):
@@ -2639,8 +2641,11 @@ def question_diff(old, new, lim=60):
 
 def _write_json_file(path, obj):
     tmp = path + '.tmp'
+    text = json.dumps(obj, ensure_ascii=False, indent=2)
+    # 語調曲線（prosody 的 f0／vol 數字陣列）壓成一行，不然一個數字一行，daily.json 會暴增好幾倍
+    text = re.sub(r'("(?:f0|vol)": )\[([^\]]*)\]', lambda m: m.group(1) + '[' + re.sub(r'\s+', '', m.group(2)) + ']', text)
     with open(tmp, 'w', encoding='utf-8') as f:
-        json.dump(obj, f, ensure_ascii=False, indent=2)
+        f.write(text)
         f.write('\n')
     os.replace(tmp, path)
 

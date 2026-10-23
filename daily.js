@@ -486,10 +486,11 @@ const MX = {
     legend: () => '格子：♪＝有沒有 mp3，⏱＝timing（✔ 完成、△ 只涵蓋部分句子、✖ 未做或異常）。綠＝都完成，黃＝其中一項未完成，紅＝都沒有或 timing 異常。點格子看細節；「＋」是還沒建置的天數。',
     extra() {
       const { todo, ne } = mxMedia();
-      let h = `<div class="grid sm:grid-cols-3 gap-3 mb-5">
+      let h = `<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
     <button onclick="dnNav('marks')" class="${btn} ${card} text-left">📌 入庫彙整 <span class="block text-xs text-slate-500 mt-0.5">${dnMarks().length} 個字</span></button>
     <button onclick="dnNav('reports')" class="${btn} ${card} text-left">⚑ 回報彙整 <span class="block text-xs mt-0.5 ${dnOpenRpN() ? 'text-rose-600 dark:text-rose-400' : 'text-slate-500'}">待處理 ${dnOpenRpN()}</span></button>
-    <button onclick="mxSet('topics')" class="${btn} ${card} text-left">🗂 題材總覽 <span class="block text-xs text-slate-500 mt-0.5">${topicCover()}</span></button></div>`;
+    <button onclick="mxSet('topics')" class="${btn} ${card} text-left">🗂 題材總覽 <span class="block text-xs text-slate-500 mt-0.5">${topicCover()}</span></button>
+    <button onclick="openDrafts()" class="${btn} ${card} text-left">📝 草稿彙整 <span class="block text-xs mt-0.5 ${dfPendingN() ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500'}">${dfAll().length} 份${dfPendingN() ? '，待更新 ' + dfPendingN() : ''}</span></button></div>`;
       if (todo.length) {
         h += `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm mb-2">待處理（${todo.length}）</h3><div class="space-y-1">${todo.slice(0, 12).map(x => `<button onclick="openItem(${x.week},${x.day})" class="w-full text-left rounded-lg px-2 py-1.5 flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800"><b class="shrink-0">W${x.week}·D${dShow(x)}</b><span class="truncate flex-1 text-slate-500">${esc(x.tag || '')}</span><span class="shrink-0 text-xs text-rose-600 dark:text-rose-400">${todoOf(x).join('、') || '確認 mp3 狀態'}</span></button>`).join('')}${todo.length > 12 ? `<p class="text-xs text-slate-400 px-2">…還有 ${todo.length - 12} 篇，請看「音檔／Timing 清單」</p>` : ''}</div></section>`;
       }
@@ -744,7 +745,7 @@ function dfWork(x) {
 function dfState(x) { // none｜draft｜applied（草稿已被套用進 daily.json）｜stale（存草稿之後，原文又被改過）
   const d = dfGet(idOf(x)); if (!d) return 'none';
   const p = String(x.passage || '');
-  if (d.text === p && (!d.pp || dfPpEq(d.pp, dfPpOf(x)))) return 'applied';
+  if (dfNorm(d.text) === dfNorm(p) && (!d.pp || dfPpEq(d.pp, dfPpOf(x)))) return 'applied';
   return d.base === dfHash(p) ? 'draft' : 'stale';
 }
 function dfCheck(x, W) {
@@ -796,7 +797,7 @@ function dfSave(quiet) {
   return true;
 }
 function dfReset() { const x = find(cur.w, cur.d); if (!x) return; if (!confirm('把輸入框還原成目前 daily.json 的原文？（已存的草稿不會被刪除）')) return; DFW = null; const id = idOf(x); const d = dfGet(id); if (d) { DFW = { id, text: String(x.passage || ''), pp: dfClone(dfPpOf(x)), touched: false }; } dfRepaint(); }
-function dfDrop() { const x = find(cur.w, cur.d); if (!x) return; if (!confirm('刪除這份草稿？（若已套用，之後就不能產生含「舊文稿對照」的調整提示詞）')) return; dfRemove(idOf(x)); DFW = null; dfRepaint(); }
+function dfDrop() { const x = find(cur.w, cur.d); if (!x) return; const st = dfState(x); if (!confirm(st === 'applied' ? '原文與草稿已經一樣，刪除這份草稿？\n（刪除後，就不能再產生含「舊文稿對照」的調整提示詞）' : '這份草稿和原文還有差異（尚未套用），確定要刪除？')) return; dfDropId(idOf(x)); dnToast('已刪除草稿'); dfRepaint(); }
 function dfCopyPatch() {
   const x = find(cur.w, cur.d); if (!x) return; const r = dfBuild(x);
   if (!r.o) { dnToast('還有錯誤，請先修正（看下方紅字）'); return; }
@@ -856,6 +857,82 @@ function dfPromptText(x) {
 function dfCopyPrompt() { const x = find(cur.w, cur.d); if (x) auCopy(dfPromptText(x)); }
 function dfPreview(el) { if (!el.open) return; const x = find(cur.w, cur.d), ta = el.querySelector('textarea'); if (x && ta) ta.value = dfPromptText(x); }
 
+/* ===== 草稿彙整（維護）：列出所有已存草稿；和原文有差異就列出差異與更新步驟；原文與草稿一樣（已套用）後就可以刪除 ===== */
+function dfDiffBody(x) { // 已存草稿 vs 目前 daily.json 原文
+  const d = dfGet(idOf(x)); if (!d) return '';
+  const op = String(x.passage || ''), dt = dfNorm(d.text), pd = d.pp ? dfPpDiff(dfPpOf(x), d.pp) : [];
+  let h = '';
+  if (dt !== dfNorm(op)) h += `<p class="text-xs font-semibold mb-1">文稿差異（<ins class="df-add">草稿多的</ins>／<del class="df-del">原文有、草稿沒有的</del>）</p><div class="df-box rounded-lg border border-slate-200 dark:border-slate-800 p-2 text-sm leading-relaxed">${dfDiffHtml(op, dt)}</div>`;
+  if (pd.length) h += `<div class="mt-2 text-xs"><p class="font-semibold mb-1">簡報句型差異</p>${pd.map(o => `<p class="${o.k[0] === '＋' ? 'text-emerald-700 dark:text-emerald-400' : o.k[0] === '－' ? 'text-rose-600 dark:text-rose-400' : 'text-amber-700 dark:text-amber-400'}">${o.k}　${esc(o.q.phrase)}${o.o ? `<span class="text-slate-500">　（${o.o.meaning !== o.q.meaning ? '意思改了' : ''}${o.o.meaning !== o.q.meaning && o.o.usage !== o.q.usage ? '、' : ''}${o.o.usage !== o.q.usage ? '用法改了' : ''}）</span>` : ''}</p>`).join('')}</div>`;
+  return h || '<p class="text-xs text-slate-500">文稿與句型都沒有差異。</p>';
+}
+function dfSteps(x) { // 怎麼把草稿更新進原文
+  return `<div class="mt-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 p-3"><p class="text-xs font-bold mb-1">怎麼更新？</p><ol class="list-decimal pl-5 text-xs leading-relaxed space-y-1 text-slate-600 dark:text-slate-400">
+    <li>按「複製文稿修改」（或「下載 ${dfFile(x, 'passage')}」），存成 <code>${dfFile(x, 'passage')}</code>，放在專案資料夾。</li>
+    <li>執行 <code>json_merge.py</code> 把它合併進 daily.json（合併時 timing 清空、舊 mp3 移到 Trash 的「版本備份」）。</li>
+    <li>文稿改了，翻譯／單字／題目可能要跟著調整：到該篇維護頁按「複製調整提示詞」貼給 AI，AI 回傳的 JSON 存成 <code>${dfFile(x, 'fix')}</code>，再用 json_merge.py 合併。</li>
+    <li>重新上傳 daily.json 並重新整理網頁（mp3 要重錄、重新對時另外處理）。</li>
+    <li>重新整理後，原文與草稿一樣 → 狀態變成「<b>草稿已套用</b>」，這時就可以按「刪除草稿」。</li></ol></div>`;
+}
+function dfSavedBox(x) { // 單篇維護頁：已存草稿與原文的差異
+  const st = dfState(x), d = dfGet(idOf(x)); if (!d) return '';
+  return `<div class="mb-3 rounded-lg border ${st === 'stale' ? 'border-rose-300 dark:border-rose-800' : 'border-amber-300 dark:border-amber-700'} p-3"><p class="text-xs font-bold mb-2">📝 已存草稿與目前原文的差異${st === 'stale' ? '<span class="font-normal text-rose-600 dark:text-rose-400">（原文在存草稿後又被改過）</span>' : ''}</p>${dfDiffBody(x)}${dfSteps(x)}</div>`;
+}
+function dfDraftPatch(x) { // 由「已存草稿」產生補丁（不必先開輸入框）
+  const d = dfGet(idOf(x)); if (!d) return null;
+  const o = { week: x.week, day: x.day, passage: dfNorm(d.text) };
+  if (d.pp) { const pp = dfPpKept(d.pp); if (pp.length && !dfPpEq(pp, dfPpOf(x))) o.presentation_phrases = pp; }
+  return o;
+}
+function dfDraftPatchOk(x) {
+  const o = dfDraftPatch(x); if (!o) return null;
+  if (!o.passage) { dnToast('草稿的文稿是空的，無法產生補丁'); return null; }
+  if (o.passage === dfNorm(x.passage) && !o.presentation_phrases) { dnToast('草稿與原文相同，不需要補丁'); return null; }
+  return o;
+}
+function dfCopyDraftPatch(id) { const x = DATA.find(a => idOf(a) === id), o = x && dfDraftPatchOk(x); if (o) auCopy(JSON.stringify(o, null, 2)); }
+function dfDownloadDraftPatch(id) { const x = DATA.find(a => idOf(a) === id), o = x && dfDraftPatchOk(x); if (o) dfDownload(dfFile(x, 'passage'), JSON.stringify(o, null, 2)); }
+function dfDropId(id) { dfRemove(id); if (DFW && DFW.id === id) DFW = null; }
+function dfDropOne(id) {
+  const x = DATA.find(a => idOf(a) === id), st = x ? dfState(x) : 'orphan';
+  if (st === 'applied' ? false : !confirm(st === 'orphan' ? `刪除 ${id} 的草稿？（找不到這篇文章）` : `${id} 的草稿還沒套用到 daily.json（和原文有差異），確定要刪除？`)) return;
+  dfDropId(id); dnToast('已刪除 ' + id + ' 的草稿'); render();
+}
+function dfDropApplied() {
+  const ids = dfAll().filter(d => { const x = DATA.find(a => idOf(a) === d.id); return x && dfState(x) === 'applied'; }).map(d => d.id);
+  if (!ids.length) return;
+  if (!confirm(`刪除 ${ids.length} 份「已套用」的草稿？\n\n${ids.join('、')}\n\n這些草稿的內容都已經和 daily.json 原文一樣。`)) return;
+  ids.forEach(dfDropId); dnToast('已刪除 ' + ids.length + ' 份已套用的草稿'); render();
+}
+function openDrafts() { SEC = 'maint'; cur = Object.assign({}, cur, { view: 'drafts' }); push(); render(); window.scrollTo({ top: 0 }); }
+const dfRows = () => dfAll().sort((a, b) => (b.t || 0) - (a.t || 0)).map(d => { const x = DATA.find(a => idOf(a) === d.id) || null; return { d, x, st: x ? dfState(x) : 'orphan' }; });
+const dfPendingN = () => dfRows().filter(r => r.st === 'draft' || r.st === 'stale').length;
+const dfSideBtn = v => `<button onclick="openDrafts()" class="${btn} w-full mb-2 border border-slate-300 dark:border-slate-700 ${v === 'drafts' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">📝 草稿彙整（${dfAll().length}${dfPendingN() ? '，待更新 ' + dfPendingN() : ''}）</button>`;
+const dfMobBtn = () => `<button onclick="openDrafts()" class="${btn} border border-slate-300 dark:border-slate-700 !py-1.5" aria-label="草稿彙整">📝${dfAll().length || ''}</button>`;
+function renderDrafts() {
+  const R = dfRows(), sb = `${btn} border border-slate-300 dark:border-slate-700 !py-1.5 text-xs`, pb = `${btn} bg-indigo-600 text-white !py-1.5 text-xs`, chipS = 'text-[0.6875rem] font-semibold rounded px-1.5 py-0.5';
+  const by = k => R.filter(r => r.st === k), todo = R.filter(r => r.st === 'draft' || r.st === 'stale'), applied = by('applied'), orphan = by('orphan');
+  let h = `<header class="mb-4"><h2 class="text-xl md:text-2xl font-bold">📝 草稿彙整</h2>
+    <p class="mt-1 text-sm text-slate-500">共 ${R.length} 份草稿：<span class="${todo.length ? 'text-amber-600 dark:text-amber-400' : ''}">待更新 ${todo.length}</span>　<span class="${applied.length ? 'text-emerald-600 dark:text-emerald-400' : ''}">已套用 ${applied.length}</span>${orphan.length ? `　<span class="text-rose-600 dark:text-rose-400">找不到文章 ${orphan.length}</span>` : ''}</p>
+    <p class="mt-2 text-xs text-slate-500 leading-relaxed">草稿只存在這台裝置。草稿和 daily.json 的原文有差異就列出差異與更新步驟；更新後原文與草稿一樣，就會標示「已套用」，這時可以刪除草稿。</p>
+    ${applied.length ? `<div class="mt-3"><button onclick="dfDropApplied()" class="${btn} bg-emerald-600 text-white !py-1.5 text-xs">刪除全部已套用的草稿（${applied.length}）</button></div>` : ''}</header>`;
+  if (!R.length) { main.innerHTML = h + `<div class="${card} p-8 text-center text-sm text-slate-500">目前沒有儲存的草稿。到單篇維護頁的「✏️ 文稿」編輯並按「儲存草稿」就會出現在這裡。</div>`; return; }
+  const head = r => `<div class="flex flex-wrap items-center gap-2"><b class="text-sm">${esc(r.d.id.toUpperCase())}</b><span class="text-sm truncate min-w-0 flex-1">${esc(r.x ? r.x.tag || '' : '')}</span><span class="text-xs text-slate-400">存於 ${trTime(r.d.t)}</span></div>`;
+  const cardOf = r => {
+    const { d, x, st } = r, id = d.id;
+    if (st === 'orphan') return `<section class="${card} p-4 mb-3">${head(r)}<p class="mt-2 text-xs text-rose-600 dark:text-rose-400">daily.json 裡找不到這篇文章（已刪除或位置改變），草稿已經沒有用途。</p><div class="mt-2"><button onclick="dfDropOne('${id}')" class="${sb} text-rose-500">刪除草稿</button></div></section>`;
+    if (st === 'applied') return `<section class="${card} p-4 mb-3 border-emerald-300 dark:border-emerald-800"><div class="flex flex-wrap items-center gap-2">${head(r).replace(/^<div[^>]*>|<\/div>$/g, '')}<span class="${chipS} ${TM_COLOR.ok}">草稿已套用</span></div><p class="mt-2 text-xs text-emerald-700 dark:text-emerald-300">✔ 原文與草稿一樣，這份草稿可以刪除了。</p><div class="mt-2 flex flex-wrap gap-2"><button onclick="dfDropOne('${id}')" class="${btn} bg-emerald-600 text-white !py-1.5 text-xs">刪除草稿</button><button onclick="openItem(${x.week},${x.day})" class="${sb}">開啟維護頁</button></div></section>`;
+    return `<section class="${card} p-4 mb-3 ${st === 'stale' ? 'border-rose-300 dark:border-rose-800' : 'border-amber-300 dark:border-amber-700'}"><div class="flex flex-wrap items-center gap-2">${head(r).replace(/^<div[^>]*>|<\/div>$/g, '')}<span class="${chipS} ${st === 'stale' ? TM_COLOR.bad : TM_COLOR.partial}">${st === 'stale' ? '原文已過期' : '尚未套用'}</span></div>
+      ${st === 'stale' ? '<p class="mt-2 text-xs text-rose-600 dark:text-rose-400">⚠ 存草稿之後，原文又被改過（可能已合併過別的補丁）。下面的差異是拿草稿和<b>目前</b>的原文比。</p>' : ''}
+      <div class="mt-3">${dfDiffBody(x)}</div>${dfSteps(x)}
+      <div class="mt-3 flex flex-wrap gap-2"><button onclick="dfCopyDraftPatch('${id}')" class="${pb}">複製文稿修改</button><button onclick="dfDownloadDraftPatch('${id}')" class="${sb}">下載 ${dfFile(x, 'passage')}</button><button onclick="openItem(${x.week},${x.day})" class="${sb}">開啟維護頁（調整提示詞）</button><button onclick="dfDropOne('${id}')" class="${sb} text-rose-500">刪除草稿</button></div></section>`;
+  };
+  if (todo.length) h += `<h3 class="font-bold text-sm mb-2">⏳ 待更新（${todo.length}）</h3>` + todo.map(cardOf).join('');
+  if (orphan.length) h += `<h3 class="font-bold text-sm mb-2 mt-5">❓ 找不到文章（${orphan.length}）</h3>` + orphan.map(cardOf).join('');
+  if (applied.length) h += `<h3 class="font-bold text-sm mb-2 mt-5">✔ 已套用（${applied.length}）</h3>` + applied.map(cardOf).join('');
+  main.innerHTML = h;
+}
+
 /* ---- 維護頁「✏️ 文稿」區 ---- */
 function dfLive(x) {
   const W = dfWork(x), c = dfCheck(x, W), op = String(x.passage || ''), p = dfNorm(W.text), chg = p !== dfNorm(op);
@@ -872,8 +949,9 @@ function dfSection(x) {
   const inp = 'w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5 text-sm';
   let h = `<section id="df-sec" class="${card} p-4 md:p-6 mb-4"><div class="flex flex-wrap items-center gap-2 mb-1"><h3 class="font-bold text-sm">✏️ 文稿 · ${id}</h3>${stTxt ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${st === 'applied' ? TM_COLOR.ok : st === 'stale' ? TM_COLOR.bad : TM_COLOR.partial}">${stTxt}</span>` : ''}${x.review_pending ? `<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${TM_COLOR.partial}">✎ 待檢查${x.edited ? '（' + esc(x.edited) + ' 改文稿）' : ''}</span>` : ''}</div>
     <p class="text-xs text-slate-500 leading-relaxed mb-3">草稿只存在這台裝置，<b>不會影響學習頁</b>。按「複製文稿修改」→ 存成 <code>${dfFile(x, 'passage')}</code> → 用 json_merge.py 合併後才生效（合併時 timing 清空、舊 mp3 移到 Trash 的「版本備份」）。</p>`;
-  if (st === 'applied') h += `<div class="mb-3 rounded-lg border border-emerald-300 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950 p-3 text-xs text-emerald-800 dark:text-emerald-200 leading-relaxed">✔ 這份草稿已套用（daily.json 的文稿與草稿相同）。重錄 mp3 並對時之前，學習頁用純文字文稿＋機器發音。文稿改了，翻譯、單字、題目可能要跟著調整 → 用下面的「調整提示詞」。</div>`;
+  if (st === 'applied') h += `<div class="mb-3 rounded-lg border border-emerald-300 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950 p-3 text-xs text-emerald-800 dark:text-emerald-200 leading-relaxed">✔ 這份草稿已套用（daily.json 的文稿與草稿相同）。重錄 mp3 並對時之前，學習頁用純文字文稿＋機器發音。文稿改了，翻譯、單字、題目可能要跟著調整 → 用下面的「調整提示詞」。<div class="mt-2"><button onclick="dfDrop()" class="${btn} !py-1.5 text-xs bg-emerald-600 text-white">原文與草稿相同，刪除這份草稿</button></div></div>`;
   if (st === 'stale') h += `<div class="mb-3 rounded-lg border border-rose-300 dark:border-rose-800 bg-rose-50 dark:bg-rose-950 p-3 text-xs text-rose-800 dark:text-rose-200 leading-relaxed">⚠ 你存草稿之後，這篇的原文又被改過（可能已經合併過別的補丁）。草稿還在，但差異是拿它和<b>目前</b>的原文比。要繼續就編輯後再存（會以目前原文為基準），或按「以目前原文重新開始」。<div class="mt-2"><button onclick="dfDrop()" class="${sb}">以目前原文重新開始</button></div></div>`;
+  if (st === 'draft' || st === 'stale') h += dfSavedBox(x);
   h += `<textarea id="df-ta" rows="12" oninput="dfInput(this.value)" spellcheck="false" class="${inp} leading-relaxed font-mono">${esc(W.text)}</textarea>${dfLive(x)}`;
   if (W.pp.length || x.day >= 7) {
     h += `<div class="mt-4"><div class="flex items-center justify-between gap-2 mb-2"><p class="text-xs font-bold">🎤 簡報句型（${dfPpKept(W.pp).length} 句）${W.touched ? '' : '<span class="font-normal text-slate-400">　沒動就不會寫進補丁</span>'}</p><button onclick="dfPpAdd()" class="${sb} !py-1">＋ 新增一句</button></div><div class="space-y-2">`
@@ -934,10 +1012,12 @@ function renderMaintItem() {
 }
 
 /* ===== 側欄：一週七天清單（學習顯示完成度；維護顯示 mp3／timing 狀態） ===== */
+let NAVOPEN = false; // 左欄「Week N · 7 大主題輪動」清單：預設收合，手動打開（打開後換頁、換週都維持打開，重新整理才會收回去）
+function toggleNav() { NAVOPEN = !NAVOPEN; renderSide(); }
 function dayNav(nw, M) {
   const mw = Math.max(4, ...DATA.map(x => x.week)) + (M ? 1 : 0);
   let h = `<div class="grid grid-cols-4 gap-1 mb-4">${Array.from({ length: mw }, (_, i) => i + 1).map(w => `<button onclick="setNavWeek(${w})" class="${btn} ${nw == w ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">W${w}</button>`).join('')}</div>
-  <p class="text-xs text-slate-500 mb-2 font-medium">Week ${nw} · 7 大主題輪動${THEMES.length > CORE_DAYS ? '＋專案' : ''}</p><nav class="space-y-1">`;
+  <button onclick="toggleNav()" aria-expanded="${NAVOPEN}" class="w-full flex items-center justify-between gap-2 text-left text-xs text-slate-500 mb-2 font-medium cursor-pointer hover:text-indigo-600 dark:hover:text-indigo-400"><span>${NAVOPEN ? '▾' : '▸'} Week ${nw} · 7 大主題輪動${THEMES.length > CORE_DAYS ? '＋專案' : ''}</span>${M ? '' : `<span class="shrink-0">${weekDone(nw)}/7</span>`}</button><nav class="space-y-1${NAVOPEN ? '' : ' hidden'}">`;
   const rows = THEMES.map((t, i) => i + 1); // D8 之後若有 day 9、10…（W1 的 D8-2、D8-3…）也一併列出
   const ex = DATA.filter(x => x.week == nw && x.day > THEMES.length).map(x => x.day).sort((a, b) => a - b);
   ex.forEach(d => rows.push(d));
@@ -960,7 +1040,7 @@ function dayNav(nw, M) {
 function renderSide() {
   const n = Object.keys(S.saved).length, nw = cur.nw ?? cur.w, v = cur.view, M = inMaint();
   const line = 'border border-slate-300 dark:border-slate-700';
-  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${dShow({ week: cur.w, day: cur.d })}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${dShow({ week: cur.w, day: cur.d })}` : v === 'topics' ? '🗂 題材總覽' : v === 'trash' ? '🗑 Trash' : v === 'marks' ? '📌 入庫彙整' : v === 'bank' ? '📚 入庫總覽' : v === 'nw' ? '🆕 新單字' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${dShow({ week: cur.w, day: cur.d })}` : `W${cur.w} · D${dShow({ week: cur.w, day: cur.d })} ${THEMES[dTh(cur.d)]}`;
+  const label = v === 'book' ? '★ 生詞本／錯題本' : v === 'gen' ? `＋ 新增 W${cur.w} · D${dShow({ week: cur.w, day: cur.d })}` : v === 'audio' ? '🎧 音檔／Timing 清單' : v === 'mitem' ? `🛠 W${cur.w} · D${dShow({ week: cur.w, day: cur.d })}` : v === 'topics' ? '🗂 題材總覽' : v === 'drafts' ? '📝 草稿彙整' : v === 'trash' ? '🗑 Trash' : v === 'marks' ? '📌 入庫彙整' : v === 'bank' ? '📚 入庫總覽' : v === 'nw' ? '🆕 新單字' : v === 'reports' ? '⚑ 回報彙整' : v === 'detail' ? '📖 詳解' : v === 'speak' ? `🎙 語音練習 W${cur.w} · D${dShow({ week: cur.w, day: cur.d })}` : `W${cur.w} · D${dShow({ week: cur.w, day: cur.d })} ${THEMES[dTh(cur.d)]}`;
   const dk = `<button onclick="fontCycle()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="調整字級">Aa</button><button onclick="toggleDark()" class="${btn} ${line} !py-1.5 shrink-0" aria-label="切換深淺色">${S.dark ? '☀' : '☾'}</button>`;
   const root = v === 'launch' || v === 'home' || v === 'maint';
   // ===== 手機：選單／學習首頁／維護總覽顯示標題列；其他頁顯示「← 返回」列 =====
@@ -972,7 +1052,7 @@ function renderSide() {
           ${v === 'home' ? `<button onclick="openBook()" class="${btn} ${line} !py-1.5" aria-label="生詞本／錯題本">★ ${n}</button>` : ''}
           ${v === 'home' ? `<button onclick="dnNav('bank')" class="${btn} ${line} !py-1.5" aria-label="入庫總覽">📚</button>` : ''}
           ${v === 'maint' ? `<button onclick="openAudio()" class="${btn} ${line} !py-1.5" aria-label="音檔／Timing 清單">🎧${AU.idx ? DATA.filter(x => !itemOk(x)).length : ''}</button>` : ''}
-          ${v === 'maint' ? trMobBtn() : ''}
+          ${v === 'maint' ? trMobBtn() + dfMobBtn() : ''}
           ${v === 'home' || v === 'maint' ? nwMobBtn() : ''}
           ${dk}</div></div>`
     : `<div class="flex items-center gap-2"><button onclick="backHome()" class="${btn} ${line} !py-1.5 shrink-0">← 返回</button><span class="flex-1 min-w-0 truncate text-sm font-semibold">${label}</span>${dk}</div>`) + `</div>`;
@@ -989,7 +1069,7 @@ function renderSide() {
   } else if (SEC === 'maint') {
     const act = (c) => c ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : '';
     h += `<button onclick="up2Maint()" class="${btn} w-full mb-2 ${line} ${act(v === 'maint')}">📋 維護總覽</button>
-      <button onclick="openAudio()" class="${btn} w-full mb-4 ${line} ${act(v === 'audio')}">🎧 音檔／Timing 清單（${AU.idx ? '未完成 ' + DATA.filter(x => !itemOk(x)).length : '未讀到 mp3 清單'}）</button>` + dnSideBtns() + trSideBtn(v) + `<button onclick="openTopics()" class="${btn} w-full mt-2 ${line} ${v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">🗂 題材總覽（${topicCover().replace('已涵蓋 ', '')}）</button>`
+      <button onclick="openAudio()" class="${btn} w-full mb-4 ${line} ${act(v === 'audio')}">🎧 音檔／Timing 清單（${AU.idx ? '未完成 ' + DATA.filter(x => !itemOk(x)).length : '未讀到 mp3 清單'}）</button>` + dnSideBtns() + trSideBtn(v) + dfSideBtn(v) + `<button onclick="openTopics()" class="${btn} w-full mt-2 ${line} ${v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">🗂 題材總覽（${topicCover().replace('已涵蓋 ', '')}）</button>`
       + dayNav(nw, true) + `<p class="text-xs text-slate-500 mt-3 leading-relaxed">${THEMES.slice(0, CORE_DAYS).some((t, i) => !find(nw, i + 1)) ? '點標示「＋ 新增」的空缺日期，產生給 AI 的提示詞' : `W${nw} 已全部建置，請切換其他週次`}</p>`;
   } else h += `<p class="text-xs text-slate-500 leading-relaxed">請在右側選擇「學習」或「維護」。</p>`;
   side.innerHTML = h + '</div>';
@@ -1442,7 +1522,12 @@ function genLater(w, d) { // 較晚的週、同一天已建置的最近一篇
 }
 function genG() {
   const id = idOf({ week: cur.w, day: cur.d }), g = (S.gen && S.gen[id]) || {}, sug = genSuggest(cur.w, cur.d);
-  return { id, sug, score: g.score != null ? g.score : sug.score, manual: g.score != null && g.score !== sug.score, type: g.type || (cur.d > CORE_DAYS ? 'text' : 'auto'), note: g.note || '', project: g.project || '' };
+  return { id, sug, score: g.score != null ? g.score : sug.score, manual: g.score != null && g.score !== sug.score, type: g.type || (cur.d > CORE_DAYS ? 'text' : 'auto'), note: g.note || '', project: g.project != null ? g.project : weekProject(cur.w, cur.d) };
+}
+function weekProject(w, d) { // 同一週的 D8 是同一個專案：新增第 2、3 篇時，預設帶入這週已經在用的專案名
+  if (d <= CORE_DAYS) return '';
+  const y = DATA.filter(a => a.week == w && a.day > CORE_DAYS && String(a.project || '').trim()).sort((a, b) => a.day - b.day)[0];
+  return y ? String(y.project).trim() : '';
 }
 function genSet(k, v) {
   S.gen = S.gen || {}; const g = S.gen[idOf({ week: cur.w, day: cur.d })] = S.gen[idOf({ week: cur.w, day: cur.d })] || {};
@@ -1670,7 +1755,7 @@ function render() {
   Sp.hlIdx = -2;
   document.documentElement.classList.toggle('dark', S.dark);
   renderSide();
-  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, trash: renderTrash, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail, nw: nwRender };
+  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, trash: renderTrash, drafts: renderDrafts, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail, nw: nwRender };
   (V[cur.view] || renderDay)();
   if (Sp.mode === 'audio' && Sp.au && Sp.id) spHl(Sp.id, Sp.au.currentTime);
   dnSyncBar();
@@ -1680,8 +1765,9 @@ function render() {
 /* D8 專案文章：標題下列出「同專案」所有篇（8-1、8-2、8-3…）的方塊，點了直接切換；目前這篇反白，已完成的加 ✓ */
 function projChipsHtml(x) {
   if (!x || x.day <= CORE_DAYS) return '';
-  const pj = String(x.project || '').trim();
-  const sib = DATA.filter(y => y.day > CORE_DAYS && String(y.project || '').trim() === pj).sort((a, b) => a.week - b.week || a.day - b.day);
+  /* 同一週的 D8（8-1、8-2、8-3…）就是同一個專案：不看專案名稱有沒有填、填得一不一樣，只要同週就列出來 */
+  const sib = DATA.filter(y => y.week == x.week && y.day > CORE_DAYS).sort((a, b) => a.week - b.week || a.day - b.day);
+  const pj = String(x.project || '').trim() || String((sib.find(y => String(y.project || '').trim()) || {}).project || '').trim();
   if (sib.length < 2) return '';
   const oneWeek = sib.every(y => y.week === sib[0].week);
   const chips = sib.map(y => {

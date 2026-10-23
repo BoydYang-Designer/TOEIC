@@ -7,13 +7,26 @@ daily_timestamps.py — 為 TOEIC Daily Coach 的 mp3 產生「句子時間戳�
           （有帶參數就不再跳出選檔視窗，直接處理）
 原理：用 faster-whisper 聽出每個字的時間，再與 daily.json 裡該天的 passage 對齊，
       只在對應那一天新增／更新 "timing" 欄位，其他資料一律不動。
+【逐字對時】timing 每一句多一個 "words"：[[字元起, 字元迄, 開始秒, 結束秒], ...]，語音練習的語調曲線靠它把每個字釘在曲線上。
+  舊資料（沒有 words）重新執行一次就會自動補上。
 第一次執行會自動安裝 faster-whisper 並下載語音模型（約 150MB，需連網）。
+
+【語調曲線】除了 timing，也會順便把整個 mp3 的「音高（F0）＋音量」算出來，寫進同一天的 "prosody" 欄位，
+  網頁「語音練習 → 一句一句」會畫成曲線給你看（高低起伏＝語調、底下的柱狀＝輕重）。
+  只用 numpy 計算，不需要另外安裝東西；4 分鐘的音檔約幾秒。
+  每個選到的 mp3 會自己判斷要做什麼：
+    ・還沒有 timing                → 聽寫對時（慢）＋算曲線
+    ・已有 timing、但沒有曲線／曲線是舊版 → 只補曲線，不重新聽寫（很快）← 補舊檔就是選舊的 mp3 再跑一次
+    ・mp3 檔案跟上次算曲線時不一樣（重錄過）→ 視為音檔換了，重新對時＋重算曲線
+    ・已經都有、也沒換過           → 略過
+  想強制全部重新對時：命令列加 --retime（或把下方 RETIME_EXISTING 改成 True）。
 
 【判斷標準】固定使用下方 CFG（不需要每次選）。想調整才改 CFG 的數字；語音練習的「寬／嚴」在網頁裡切換，跟這裡無關。
 """
 import sys, os, re, json, subprocess, difflib, traceback
 
 MODEL = "base.en"   # 想更準可改 "small.en"（較慢、模型較大）
+RETIME_EXISTING = False   # True＝已經有 timing 的檔案也一律重新聽寫對時（跟舊版一樣）；False＝有 timing 就只補曲線
 
 # 一句話要同時滿足這些條件才算「對到」並寫入 timing；沒過的句子會在報告顯示 ✗，維護總覽會顯示「部分」
 #   min_ratio：這句的字有多少比例在辨識結果裡找得到（舊版是 0.3，太鬆）
@@ -79,6 +92,50 @@ def split_sentences(text):
     return res
 
 
+def word_times(ptoks, idx, match, wtoks, start, end):
+    """這一句每個字的時間：[[字元起, 字元迄, 開始秒, 結束秒], ...]（字元位置＝passage 內的絕對位置）。
+    有對到的字用 whisper 聽到的時間；沒對到的字，在前後有時間的字之間依字母數平均分配。"""
+    n = len(idx)
+    ts = [None] * n
+    for k, i in enumerate(idx):
+        if i in match:
+            w = wtoks[match[i]]
+            ts[k] = [w[0], w[1]]
+    k = 0
+    while k < n:
+        if ts[k] is not None:
+            k += 1
+            continue
+        j = k
+        while j < n and ts[j] is None:
+            j += 1
+        t0 = ts[k - 1][1] if k > 0 else start
+        t1 = ts[j][0] if j < n else end
+        if t1 < t0:
+            t1 = t0
+        wts = [max(1, len(ptoks[idx[q]][2])) for q in range(k, j)]
+        tot, cur = float(sum(wts)), t0
+        for q, wt in zip(range(k, j), wts):
+            d = (t1 - t0) * wt / tot
+            ts[q] = [cur, cur + d]
+            cur += d
+        k = j
+    out = []
+    for k, i in enumerate(idx):          # 數字被展開成好幾個字時（64182），合併回同一個字
+        a, b = ptoks[i][0], ptoks[i][1]
+        if out and out[-1][0] == a and out[-1][1] == b:
+            out[-1][3] = max(out[-1][3], ts[k][1])
+        else:
+            out.append([a, b, ts[k][0], ts[k][1]])
+    prev = 0.0
+    for w in out:                        # 時間要由小到大，且每個字至少 0.05 秒
+        w[2] = max(w[2], prev)
+        w[3] = max(w[3], w[2] + 0.05)
+        prev = w[2]
+        w[2], w[3] = round(w[2], 2), round(w[3], 2)
+    return out
+
+
 def align(passage, words, cfg):
     """words: [(start, end, text)]（whisper 逐字結果）→ (timing 清單, 報告, 統計)。cfg＝判斷標準（見上方 CFG）。"""
     ptoks = []
@@ -130,7 +187,8 @@ def align(passage, words, cfg):
         if why:
             res.append([a, b, len(idx), label, None, why])
             continue
-        res.append([a, b, len(idx), label, {"start": start, "end": end, "from": a, "to": b}, f"對中 {ratio:3.0%}"])
+        res.append([a, b, len(idx), label, {"start": start, "end": end, "from": a, "to": b,
+                                             "words": word_times(ptoks, idx, match, wtoks, start, end)}, f"對中 {ratio:3.0%}"])
 
     # 補洞：連續幾句對不到、但前後句都對到時，依字數把中間的空檔分配給它們（推估值）
     if cfg.get("fill_gaps"):
@@ -375,12 +433,139 @@ def transcribe_cached(model_getter, mp3, cache_dir, prompt=None, log=print):
     return words
 
 
+# ───────────────────────── 語調曲線：音高（F0）＋音量，整個 mp3 一條線 ─────────────────────────
+# 寫進 daily.json 該天的 "prosody"：{"v":1,"hop":0.05,"src":<mp3 檔案大小>,"f0":[Hz…],"vol":[0–100…]}
+#   f0 ：每 hop 秒一個點，單位 Hz（整數），0＝沒有音高（無聲、氣音、停頓）
+#   vol：每 hop 秒一個點，0–100（以這個音檔最大聲的地方當 100，往下 50 dB 當 0）
+#   src：mp3 的檔案大小；mp3 換掉（重錄）後大小不同 → 下次執行會知道曲線過期，自動重算
+#   網頁依 timing 的 start/end 從這條線切出每一句，所以句子被合併、剪裁微調都不用重算。
+PROSODY_VER = 1
+P_SR, P_HOP, P_WIN = 16000, 800, 1024      # 取樣率；每 800 點（0.05 秒）一格；每格看 1024 點（64ms）
+P_FMIN, P_FMAX = 65.0, 420.0               # 找音高的範圍（男聲約 85–180、女聲約 165–255）
+P_VOICED = 0.38                            # 週期性要有多明顯才算「有音高」（0–1，越高越嚴格）
+P_GATE_DB = 40.0                           # 比最大聲的地方小聲超過這麼多 dB 的格子，一律當無聲
+
+
+def _p_decode(mp3):
+    """mp3 → 16kHz 單聲道 float 陣列。先用 faster-whisper 內建的解碼；它失敗（av 版本不合）就改用 av，再不行用 ffmpeg 指令。"""
+    import numpy as np
+    ensure_faster_whisper()
+    try:
+        from faster_whisper.audio import decode_audio
+        return decode_audio(mp3, sampling_rate=P_SR)
+    except Exception:
+        pass
+    try:
+        import av
+        rs = av.AudioResampler(format="s16", layout="mono", rate=P_SR)
+        chunks = []
+        with av.open(mp3, mode="r") as c:
+            for fr in c.decode(audio=0):
+                for o in rs.resample(fr):
+                    chunks.append(o.to_ndarray().reshape(-1))
+            for o in rs.resample(None):
+                chunks.append(o.to_ndarray().reshape(-1))
+        return np.concatenate(chunks).astype(np.float32) / 32768.0
+    except Exception:
+        pass
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", mp3, "-f", "s16le", "-ac", "1", "-ar", str(P_SR), "-"],
+                         check=True, stdout=subprocess.PIPE).stdout
+    return np.frombuffer(raw, dtype=np.int16).astype(np.float32) / 32768.0
+
+
+def analyze_prosody(mp3, log=print):
+    """讀 mp3 → 回傳 prosody 字典。只用 numpy（faster-whisper 已經裝了），不需要 librosa。"""
+    import numpy as np
+    y = np.asarray(_p_decode(mp3), dtype=np.float64)
+    n = max(1, int(np.ceil(len(y) / P_HOP)))
+    pad = np.zeros(len(y) + P_WIN)
+    pad[P_WIN // 2: P_WIN // 2 + len(y)] = y            # 第 k 格以 k*HOP 為中心
+    win = np.hanning(P_WIN)
+    # 視窗本身的自相關：用來修正「看越遠的 lag 重疊越少」造成的偏差
+    nf = 2 * P_WIN
+    rw = np.fft.irfft(np.abs(np.fft.rfft(win, nf)) ** 2)[:P_WIN]
+    rw = rw / rw[0]
+    lmin, lmax = int(P_SR / P_FMAX), int(P_SR / P_FMIN)
+    rms = np.zeros(n)
+    f0 = np.zeros(n)
+    strength = np.zeros(n)
+    frames = np.lib.stride_tricks.sliding_window_view(pad, P_WIN)[::P_HOP][:n]
+    rms[:len(frames)] = np.sqrt(np.mean(frames ** 2, axis=1))
+    db = 20 * np.log10(rms + 1e-9)
+    top = np.percentile(db[rms > 1e-6], 98) if np.any(rms > 1e-6) else 0.0
+    for k in range(len(frames)):
+        if db[k] < top - P_GATE_DB:
+            continue
+        x = frames[k] - frames[k].mean()
+        x = x * win
+        r0 = float(np.dot(x, x))
+        if r0 <= 1e-12:
+            continue
+        r = np.fft.irfft(np.abs(np.fft.rfft(x, nf)) ** 2)[:P_WIN]
+        r = r / r0 / np.maximum(rw, 1e-3)
+        seg = r[lmin - 1: lmax + 2]
+        # 區域最大值當候選；取「夠高又最短的週期」避免抓成低八度
+        pk = [i for i in range(1, len(seg) - 1) if seg[i] > seg[i - 1] and seg[i] >= seg[i + 1] and seg[i] > P_VOICED]
+        if not pk:
+            continue
+        best = max(seg[i] for i in pk)
+        i0 = next(i for i in pk if seg[i] >= 0.88 * best)
+        a, b, c = seg[i0 - 1], seg[i0], seg[i0 + 1]
+        den = a - 2 * b + c
+        off = 0.5 * (a - c) / den if abs(den) > 1e-12 else 0.0
+        lag = (lmin - 1) + i0 + off
+        if lag > 0:
+            f0[k] = P_SR / lag
+            strength[k] = b
+    f0 = _p_clean(f0)
+    v = np.clip(100 + (db - top) * 100.0 / 50.0, 0, 100)
+    v[rms < 1e-6] = 0
+    return {"v": PROSODY_VER, "hop": P_HOP / P_SR,
+            "src": os.path.getsize(mp3),
+            "f0": [int(round(x)) for x in f0], "vol": [int(round(x)) for x in v]}
+
+
+def _p_clean(f0):
+    """去掉單獨亂跳的點、修正突然差八度的點、再做 5 點中位數平滑（只在有音高的連續段內做）。"""
+    import numpy as np
+    f = f0.copy()
+    n = len(f)
+    i = 0
+    while i < n:                       # 一連串有音高的段落
+        if f[i] <= 0:
+            i += 1
+            continue
+        j = i
+        while j < n and f[j] > 0:
+            j += 1
+        if j - i < 3:                  # 太短（不到 0.15 秒）多半是雜訊
+            f[i:j] = 0
+        else:
+            seg = f[i:j].copy()
+            med = float(np.median(seg))
+            for t in range(len(seg)):  # 與整段中位數差八度 → 折回來
+                while seg[t] > med * 1.65 and seg[t] / 2 >= P_FMIN:
+                    seg[t] /= 2
+                while seg[t] < med / 1.65 and seg[t] * 2 <= P_FMAX:
+                    seg[t] *= 2
+            sm = seg.copy()
+            for t in range(len(seg)):
+                lo, hi = max(0, t - 2), min(len(seg), t + 3)
+                sm[t] = np.median(seg[lo:hi])
+            f[i:j] = sm
+        i = j
+    return f
+
+
 def dump_json(data):
     text = json.dumps(data, ensure_ascii=False, indent=2)
     # 讓每個 timing 物件維持單行，避免 JSON 檔變得很長
-    return re.sub(
+    text = re.sub(
         r'\{\s*"start": ([\d.]+),\s*"end": ([\d.]+),\s*"from": (\d+),\s*"to": (\d+)\s*\}',
         r'{"start": \1, "end": \2, "from": \3, "to": \4}', text)
+    # 語調曲線的數字陣列（f0／vol）也壓成一行，不然一個數字一行檔案會暴增
+    return re.sub(r'("(?:f0|vol)": )\[([^\]]*)\]',
+                  lambda m: m.group(1) + "[" + re.sub(r"\s+", "", m.group(2)) + "]", text)
 
 
 def ensure_faster_whisper():
@@ -411,18 +596,27 @@ def transcribe(model, mp3, prompt=None):
     return words
 
 
+def fresh_prosody(entry, mp3):
+    """這天已經有、而且是用目前這個 mp3 算的最新版曲線？"""
+    pr = entry.get("prosody")
+    return (isinstance(pr, dict) and pr.get("v") == PROSODY_VER and bool(pr.get("f0"))
+            and pr.get("src") == os.path.getsize(mp3))
+
+
 def main():
     import tkinter as tk
     from tkinter import filedialog, messagebox, simpledialog
     root = tk.Tk(); root.withdraw(); root.attributes("-topmost", True)
     here = os.path.dirname(os.path.abspath(__file__))
 
-    # 命令列參數：--json 路徑 + 一或多個 mp3（由 json_merge.py 帶入）；沒帶就照舊跳選檔視窗
-    argv, jpath, mp3s = sys.argv[1:], None, []
+    # 命令列參數：--json 路徑 + 一或多個 mp3（由 json_merge.py 帶入）；--retime＝已有 timing 也重新對時；沒帶 mp3 就照舊跳選檔視窗
+    argv, jpath, mp3s, retime = sys.argv[1:], None, [], RETIME_EXISTING
     k = 0
     while k < len(argv):
         if argv[k] == "--json" and k + 1 < len(argv):
             jpath = argv[k + 1]; k += 2
+        elif argv[k] == "--retime":
+            retime = True; k += 1
         else:
             mp3s.append(argv[k]); k += 1
     mp3s = [p for p in mp3s if os.path.isfile(p)]
@@ -431,7 +625,7 @@ def main():
     if mp3s and jpath:
         print(f"由參數帶入：{len(mp3s)} 個音檔 → {jpath}")
     else:
-        mp3s = filedialog.askopenfilenames(title="1/2 選擇 mp3 音檔（可複選）", initialdir=here,
+        mp3s = filedialog.askopenfilenames(title="1/2 選擇 mp3 音檔（可複選；舊檔也選，會自動補語調曲線）", initialdir=here,
                                            filetypes=[("音檔", "*.mp3 *.wav *.m4a"), ("所有檔案", "*.*")])
         if not mp3s: return print("已取消。")
         jpath = filedialog.askopenfilename(title="2/2 選擇要寫入的 daily.json", initialdir=here,
@@ -445,17 +639,19 @@ def main():
     if not isinstance(items, list):
         return messagebox.showerror("格式錯誤", "daily.json 需為陣列，或含 items 陣列的物件。")
 
-    print(f"共選了 {len(mp3s)} 個音檔｜模型：{MODEL}")
-    model = load_model(MODEL)
-    done, failed, partial = 0, [], []
+    print(f"共選了 {len(mp3s)} 個音檔｜模型：{MODEL}" + ("｜強制重新對時" if retime else ""))
+    model = None   # 要聽寫時才載入（只補曲線的檔案不需要模型）
+    n_time, n_curve, failed, partial, skipped = 0, 0, [], [], []
 
     for mp3 in sorted(mp3s):
         name = os.path.basename(mp3)
         print(f"\n===== {name} =====")
 
-        m = re.search(r"w(\d+)d(\d+)", name, re.I)
+        m = re.search(r"w(\d+)d(\d+)(?:-(\d+))?", name, re.I)
         if m:
             week, day = int(m.group(1)), int(m.group(2))
+            if day == 8 and m.group(3):          # D8 專案：w1d8-2 ＝ Week 1 Day 9（d8-N ＝ day 7+N，和 json_merge.py、網頁一致）
+                day = 7 + int(m.group(3))
         elif len(mp3s) == 1:
             # 只選一個檔案時，才跳出視窗讓你手動輸入
             week = simpledialog.askinteger("週次", "檔名不是 w1d1 格式，請輸入 Week（例如 5）：")
@@ -477,38 +673,90 @@ def main():
             continue
         print(f"目標：Week {week} Day {day}｜{entry.get('tag', '')}")
 
+        # 這個檔案要做什麼？
+        old = entry.get("prosody")
+        changed = isinstance(old, dict) and old.get("src") not in (None, os.path.getsize(mp3))   # 曲線是用別的 mp3 算的 → 音檔換過
+        no_words = bool(entry.get("timing")) and any(isinstance(t, dict) and not t.get("words") for t in entry["timing"]
+                                                   if t.get("end", 0) - t.get("start", 0) > 0.0)   # 舊版對時沒有逐字時間
+        need_time = retime or not entry.get("timing") or changed or no_words
+        need_curve = need_time or not fresh_prosody(entry, mp3)
+        if not need_curve:
+            print("✓ 已經有 timing 和語調曲線，略過（要重新對時請加 --retime）。")
+            skipped.append(name)
+            continue
+        if no_words and not retime and not changed:
+            print("※ 這一天的 timing 還沒有逐字時間（舊版對時），重新聽寫一次補上。")
+        if changed and not retime and entry.get("timing"):
+            print("※ 這個 mp3 跟上次算曲線時不一樣（重錄過？），重新對時並重算曲線。")
+
+        timing = None
+        if need_time:
+            try:
+                if model is None:
+                    model = load_model(MODEL)
+                timing, report, total = align(entry["passage"], transcribe(model, mp3), CFG)
+            except Exception as e:
+                traceback.print_exc()
+                print(f"✗ 處理時發生錯誤，略過。")
+                failed.append(f"{name}（錯誤：{e}）")
+                continue
+            print("對齊結果：")
+            print("\n".join(report))
+            if not timing:
+                print("✗ 沒有任何句子對得上，略過（請確認 mp3 內容與英文文稿一致）。")
+                failed.append(f"{name}（沒有句子對得上）")
+                continue
+        else:
+            print("已有 timing，只補語調曲線（不需要聽寫）。")
+
+        old_t = entry.get("timing") or []
+        if timing is not None and old_t and len(timing) < len(old_t) and not retime:
+            # 新結果比原本少很多句：多半是 mp3 和這一天的文稿不是同一篇。不覆蓋，原本的 timing 與曲線都保留
+            print(f"✗ 這次只對到 {len(timing)} 句，原本有 {len(old_t)} 句；為了不蓋掉原本的資料，略過這個檔案。")
+            print("  （檔名對應到 Week %d Day %d，請確認 mp3 檔名；真的要覆蓋請加 --retime）" % (week, day))
+            failed.append(f"{name}（只對到 {len(timing)}/{len(old_t)} 句，已保留原本的 timing；檔名是否對應到正確的那一天？）")
+            continue
+
         try:
-            timing, report, total = align(entry["passage"], transcribe(model, mp3), CFG)
+            print("計算語調曲線（音高＋音量）…")
+            pros = analyze_prosody(mp3)
+            voiced = sum(1 for v in pros["f0"] if v > 0)
+            print(f"  曲線 {len(pros['f0'])} 點（{len(pros['f0']) * pros['hop']:.1f} 秒），有音高的佔 {voiced / max(1, len(pros['f0'])):.0%}")
         except Exception as e:
             traceback.print_exc()
-            print(f"✗ 處理時發生錯誤，略過。")
-            failed.append(f"{name}（錯誤：{e}）")
-            continue
+            print("⚠ 語調曲線計算失敗（timing 仍會照常寫入）。")
+            failed.append(f"{name}（語調曲線失敗：{e}）")
+            pros = None
 
-        print("對齊結果：")
-        print("\n".join(report))
-        if not timing:
-            print("✗ 沒有任何句子對得上，略過（請確認 mp3 內容與英文文稿一致）。")
-            failed.append(f"{name}（沒有句子對得上）")
-            continue
+        if timing is not None:
+            entry["timing"] = timing
+            n_time += 1
+            print(f"✓ Week {week} Day {day}：{len(timing)} / {total} 個句子")
+            if len(timing) < total:
+                partial.append(f"{name}（{len(timing)}/{total}）")
+        if pros is not None:
+            entry["prosody"] = pros
+            n_curve += 1
+        elif timing is not None:
+            entry.pop("prosody", None)   # 音檔換了但曲線算不出來：不要留舊的
 
-        entry["timing"] = timing
-        done += 1
-        print(f"✓ Week {week} Day {day}：{len(timing)} / {total} 個句子")
-        if len(timing) < total:
-            partial.append(f"{name}（{len(timing)}/{total}）")
-
-    if done == 0:
-        msg = "所有檔案都處理失敗，未寫入任何資料。\n\n" + "\n".join(failed)
+    if n_time == 0 and n_curve == 0:
+        if failed:
+            msg = "所有檔案都處理失敗，未寫入任何資料。\n\n" + "\n".join(failed)
+            print("\n" + msg)
+            return messagebox.showerror("沒有可寫入的資料", msg)
+        msg = "選的檔案都已經有 timing 和語調曲線，沒有需要更新的。\n（要重新對時：命令列加 --retime）"
         print("\n" + msg)
-        return messagebox.showerror("沒有可寫入的資料", msg)
+        return messagebox.showinfo("沒有變更", msg)
 
     tmp = jpath + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         f.write(dump_json(data) + "\n")
     os.replace(tmp, jpath)
 
-    msg = f"完成！成功 {done} 個檔案（模型：{MODEL}）。"
+    msg = f"完成！對時 {n_time} 個、語調曲線 {n_curve} 個（模型：{MODEL}）。"
+    if skipped:
+        msg += f"\n略過 {len(skipped)} 個（已經完成）。"
     if partial:
         msg += "\n\n有漏句（維護總覽會顯示「部分」），可改用較大的模型（MODEL 改 small.en）或放寬 CFG 再跑一次：\n" + "\n".join(partial)
     if failed:
