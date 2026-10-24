@@ -259,6 +259,7 @@ function nwAdd() {
   nwDraftSync(); const t = nwNormText(DN.nwDraft.w), note = String(DN.nwDraft.n || '').trim();
   if (!t) { dnToast('請先輸入單字'); return; }
   if (!/[A-Za-z]/.test(t) || /[\u4e00-\u9fff]/.test(t)) { dnToast('請輸入英文單字或片語'); return; }
+  if (!note && dnBanked(t) && dnAskStudy(t)) return; // 已在庫、又沒有備註要補：問要不要進去學習（有備註就照舊加入，備註會用來請 AI 補詳解）
   if (t.length > 80) { dnToast('太長了，新單字請輸入單字或短片語（句子請在文稿上選取入庫）'); return; }
   const dup = nwList().filter(n => dnKey(n.text) === dnKey(t));
   if (dup.length && (!note || dup.some(n => String(n.note || '').trim() === note))) { dnToast('這個字已經在新單字清單裡'); return; }

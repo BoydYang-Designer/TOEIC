@@ -36,7 +36,7 @@ function dnModal(html) {
 }
 function dnClose() { DN.rp = null; DN.mk = null; dnModal(''); }
 function dnNav(view) { // 往下一層：記住目前頁面與捲動位置，「返回」時還原
-  cur.stk = cur.stk || []; cur.stk.push({ v: cur.view, y: window.scrollY });
+  cur.stk = cur.stk || []; cur.stk.push({ v: cur.view, y: window.scrollY, w: cur.w, d: cur.d });
   cur.view = view; push(); render(); window.scrollTo({ top: 0 });
 }
 const dnSideBtns = () => `<button onclick="dnNav('marks')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'marks' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">📌 入庫彙整（${dnMarks().length}）</button><button onclick="dnNav('reports')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'reports' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">⚑ 回報彙整（待處理 ${dnOpenRpN()}）</button>${typeof nwBtn === 'function' ? nwBtn() : ''}`;
@@ -44,7 +44,9 @@ function dnFromLaunch(view) { SEC = 'learn'; cur.stk = [{ v: 'launch', y: 0 }]; 
 function dnUp() { // 供 daily.js 的 up() 呼叫；回傳 true 表示已處理
   const v = cur.view; if (v !== 'marks' && v !== 'reports' && v !== 'detail' && v !== 'bank' && v !== 'nw') return false;
   const p = cur.stk && cur.stk.pop();
+  if (p && p.w != null && find(p.w, p.d)) { cur.w = p.w; cur.d = p.d; } // 返回時連「是哪一篇」一起還原（從別篇的詳解返回才不會跑到別篇）
   cur.view = p ? p.v : (inMaint() ? 'maint' : (find(cur.w, cur.d) ? 'day' : 'home'));
+  dnTrailSync();
   if (cur.view === 'launch') SEC = null;
   render(); window.scrollTo({ top: p ? p.y : 0 }); return true;
 }
@@ -301,12 +303,12 @@ function dnSelClear() { DN.sel = null; try { window.getSelection().removeAllRang
 function dnAddMark() {
   const s = DN.sel; if (!s) return;
   if (s.src === 'detail') { // 從詳解頁入庫：全域去重，不綁週次；qid 只當「發現於」與提示詞的文章脈絡
-    if (dnBanked(s.text)) { dnToast('這個已經在庫了'); return; }
+    if (dnBanked(s.text)) { if (!dnAskStudy(s.text)) dnToast('這個已經在庫了'); return; }
     const now = Date.now();
     dnMarks().push({ id: dnId('m'), qid: s.qid, text: s.text, type: s.type, ctx: s.type === 'sentence' ? s.text : (s.ctx || s.text), from: 0, to: 0, src: 'detail', head: s.head || '', note: '', created: now, updated: now });
     save(); dnSelClear(); dnToast(`已入庫（${DNT[s.type]}），到「📌 入庫彙整」補詳解`); render(); return;
   }
-  if (dnMarks().some(m => m.qid === s.qid && dnKey(m.text) === dnKey(s.text))) { dnToast('這個已經入庫了'); return; }
+  if (dnMarks().some(m => m.qid === s.qid && dnKey(m.text) === dnKey(s.text))) { if (!dnAskStudy(s.text)) dnToast('這個已經入庫了'); return; }
   const x = dnArt(s.qid), p = String(x ? x.passage : '');
   const now = Date.now();
   dnMarks().push({ id: dnId('m'), qid: s.qid, text: s.text, type: s.type, ctx: s.type === 'sentence' ? s.text : dnCtxOf(p, s.from, s.to, s.text), from: s.from, to: s.to, note: '', created: now, updated: now });
@@ -464,7 +466,7 @@ function dnOpenKw(el) { // 已在庫的重點字詞 → 開啟詳解（已有詳
 }
 function dnAddKw(el) { // 句子詳解頁：把重點字詞直接入庫（之後到「📌 入庫彙整」請 AI 補詳解）
   const q = el.dataset.q, w = el.dataset.w, head = el.dataset.h || ''; if (!q || !w) return;
-  if (dnBanked(w)) { dnToast('這個已經在庫了'); render(); return; }
+  if (dnBanked(w)) { if (!dnAskStudy(w)) { dnToast('這個已經在庫了'); render(); } return; }
   const now = Date.now(), t = dnWordN(w) <= 1 ? 'word' : 'phrase';
   dnMarks().push({ id: dnId('m'), qid: q, text: w, type: t, ctx: head || w, from: 0, to: 0, src: 'detail', head, note: '', created: now, updated: now });
   save(); dnToast(`已入庫（${DNT[t]}），到「📌 入庫彙整」補詳解`); render();
@@ -790,7 +792,7 @@ function dnOpenExtra(qid, text) { const x = dnArt(qid); if (!x) return; if (cur.
 function dnAddFromVocab(i) { // 核心單字沒有詳解時：一鍵入庫（之後用提示詞請 AI 補）
   const x = find(cur.w, cur.d), v = x && x.vocab[i]; if (!v) return;
   const id = idOf(x), p = String(x.passage || '');
-  if (dnMarks().some(m => m.qid === id && dnKey(m.text) === dnKey(v.word))) { dnToast('已經入庫了'); return; }
+  if (dnMarks().some(m => m.qid === id && dnKey(m.text) === dnKey(v.word))) { if (!dnAskStudy(v.word)) dnToast('已經入庫了'); return; }
   const stem = /\s/.test(v.word) ? v.word : v.word.replace(/e$/i, ''), re = new RegExp('\\b' + stem.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[a-z]*', 'i'), mm = re.exec(p);
   const from = mm ? mm.index : 0, to = mm ? mm.index + v.word.length : 0, now = Date.now();
   dnMarks().push({ id: dnId('m'), qid: id, text: v.word, type: /\s/.test(v.word) ? 'phrase' : 'word', ctx: mm ? dnCtxOf(p, from, to, v.word) : v.word, from: mm ? from : 0, to: mm ? to : 0, note: '', created: now, updated: now });
@@ -837,7 +839,7 @@ function dnRenderDetail() {
   let h = `<header class="mb-4 flex items-start justify-between gap-2"><div class="min-w-0"><div class="flex flex-wrap items-center gap-2"><span class="${dnChip} ${DNTC[T]}">${DNT[T]}</span><span class="text-xs text-slate-500">W${x.week} · D${x.day} ${esc(x.tag || '')}</span>${lvBadge(x)}</div>
     <h2 class="${T === 'sentence' ? 'text-lg leading-relaxed' : 'text-2xl'} font-bold mt-2 break-words">${esc(e.text)} <button onclick="vplay('${idOf(xs)}', this.dataset.w, '', this.dataset.w)" data-w="${esc(e.text)}" class="text-slate-400 hover:text-indigo-600 text-xl align-middle" aria-label="發音">🔊</button></h2>
     ${e.ipa || e.pos ? `<p class="text-sm text-slate-500 mt-1">${esc(e.ipa || '')} ${e.pos ? `<i>${esc(e.pos)}</i>` : ''}</p>` : ''}
-    ${e.zh ? `<p class="text-base font-semibold mt-2">${esc(e.zh)}</p>` : ''}${e.en ? `<p class="text-sm text-slate-500 italic mt-1 leading-relaxed">${esc(e.en)} ${dnSpk(xs, e, '_en', e.en)}</p>` : ''}</div>${dnBackBtn()}</header>`;
+    ${e.zh ? `<p class="text-base font-semibold mt-2">${esc(e.zh)}</p>` : ''}${e.en ? `<p class="text-sm text-slate-500 italic mt-1 leading-relaxed">${esc(e.en)} ${dnSpk(xs, e, '_en', e.en)}</p>` : ''}</div><div class="flex flex-col items-end gap-1.5 shrink-0">${dnBackBtn()}${dnTrailBackBtn()}</div></header>`;
   if (!ex) {
     h += `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 leading-relaxed">這個項目還沒有補充詳解（${D.base ? '目前只顯示核心單字卡的內容' : '待補'}）。${m ? '已在入庫，請到「📌 入庫彙整」複製 AI 提示詞，合併回 daily.json 後就會出現。' : '按下面的按鈕入庫，再到「📌 入庫彙整」產生 AI 提示詞。'}
       <div class="mt-2 flex flex-wrap gap-2">${(m || D.base) ? `<button onclick="dnCopyOne()" class="text-xs rounded-lg px-2.5 py-1 ${dnPri} cursor-pointer">複製 AI 提示詞（這個字）</button>` : ''}${m ? `<button onclick="dnNav('marks')" class="${dnSm}">前往 📌 入庫彙整</button>` : D.base ? `<button onclick="dnAddFromVocab(${D.i})" class="${dnSm}">＋ 入庫（請 AI 補詳解）</button>` : ''}</div></div>`;
@@ -1033,3 +1035,77 @@ function dnWhyH(x, q, qi, ok) { // 解析：預設收合，點「看解析」展
 }
 function dnToggleWhy(qi) { cur.why = cur.why || {}; cur.why[qi] = !cur.why[qi]; render(); }
 function dnAllWhy(on) { const x = find(cur.w, cur.d); cur.why = {}; if (on && x) x.questions.forEach((q, i) => { cur.why[i] = true; }); render(); }
+
+
+/* ======================= 學習軌跡：已入庫的字 → 進去學習 → 回到剛剛那一頁 =======================
+   · 在任何地方要入庫、但這個字已經在庫 → 跳出「要進入學習嗎？」；進入前先記下目前這一頁（頁面＋捲動位置）
+   · 一路進入下一個字、又下一個字，記錄會累積，顯示在畫面左邊（桌機側欄／手機頂端）；點任一筆就回到那一頁
+   · 存在 sessionStorage：重新整理還在，關掉分頁就清掉；最多 DN_TRAIL_MAX 筆，超過丟掉最舊的 */
+const DN_TRAIL_KEY = 'dnTrailV1', DN_TRAIL_MAX = 10;
+let DN_TRAIL = null;
+function dnTrail() {
+  if (!DN_TRAIL) { try { DN_TRAIL = JSON.parse(sessionStorage.getItem(DN_TRAIL_KEY) || '[]'); } catch (e) { DN_TRAIL = []; } if (!Array.isArray(DN_TRAIL)) DN_TRAIL = []; }
+  return DN_TRAIL;
+}
+function dnTrailSave() { try { sessionStorage.setItem(DN_TRAIL_KEY, JSON.stringify(dnTrail())); } catch (e) {} }
+function dnTrailLabel(c) {
+  const x = find(c.w, c.d), wd = `W${c.w}·D${typeof dShow === 'function' ? dShow({ week: c.w, day: c.d }) : c.d}`, v = c.view;
+  if (v === 'detail') { const d = c.det || {}, t = d.kind === 'vocab' ? (x && x.vocab && x.vocab[d.i] ? x.vocab[d.i].word : '') : d.text; return '📖 ' + (t || '詳解'); }
+  const N = { marks: '📌 入庫彙整', reports: '⚑ 回報彙整', nw: '🆕 新單字', bank: '📚 入庫總覽', book: '★ 生詞本／錯題本', speak: '🎙 語音練習 ' + wd, home: '▦ 總表', launch: '☰ 選單', maint: '🛠 維護', mitem: '🛠 ' + wd };
+  return N[v] || ('📄 ' + wd + (x && x.tag ? ' ' + x.tag : ''));
+}
+function dnTrailPush() { // 記下「目前這一頁」，之後可以回來
+  try {
+    const t = dnTrail();
+    t.push({ sec: SEC, cur: JSON.parse(JSON.stringify(cur)), y: window.scrollY, depth: (cur.stk || []).length });
+    while (t.length > DN_TRAIL_MAX) t.shift();
+    dnTrailSave();
+  } catch (e) { console.error(e); }
+}
+function dnTrailSync() { // 用「返回」退回到軌跡最後一筆那一頁時，那一筆就不用再留著
+  const t = dnTrail(), l = t[t.length - 1];
+  if (l && l.cur.view === cur.view && l.cur.w == cur.w && l.cur.d == cur.d && (cur.stk || []).length <= l.depth) { t.pop(); dnTrailSave(); }
+}
+function dnTrailGo(i) {
+  const t = dnTrail(), e = t[i]; if (!e) return;
+  if (e.cur.view !== 'launch' && !find(e.cur.w, e.cur.d) && e.cur.view !== 'marks' && e.cur.view !== 'reports' && e.cur.view !== 'nw' && e.cur.view !== 'bank' && e.cur.view !== 'book') { dnToast('這一頁已經不存在了'); DN_TRAIL = t.filter((_, k) => k !== i); dnTrailSave(); render(); return; }
+  DN_TRAIL = t.slice(0, i); dnTrailSave();
+  SEC = e.sec || 'learn'; cur = JSON.parse(JSON.stringify(e.cur)); cur.stk = cur.stk || [];
+  if (isMobile()) push();
+  render(); window.scrollTo({ top: e.y || 0 });
+}
+function dnTrailClear() { DN_TRAIL = []; dnTrailSave(); render(); }
+function dnTrailBackBtn() { // 詳解頁右上角：回到剛剛那一頁
+  const t = dnTrail(); if (!t.length) return '';
+  const i = t.length - 1;
+  return `<button onclick="dnTrailGo(${i})" class="text-xs rounded-lg px-2.5 py-1 ${dnPri} cursor-pointer max-w-[14rem] truncate" title="回到 ${esc(dnTrailLabel(t[i].cur))}">↩ 回到：${esc(dnTrailLabel(t[i].cur))}</button>`;
+}
+function dnTrailSide() { // 桌機側欄
+  const t = dnTrail(); if (!t.length) return '';
+  const row = (c, i) => `<button onclick="dnTrailGo(${i})" class="w-full text-left text-xs rounded-lg px-2 py-1.5 truncate border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer" title="${esc(dnTrailLabel(c))}"><span class="text-slate-400">${i + 1}.</span> ${esc(dnTrailLabel(c))}</button>`;
+  return `<div class="mb-4 rounded-xl border border-indigo-200 dark:border-indigo-900 bg-indigo-50/60 dark:bg-indigo-950/30 p-2"><div class="flex items-center justify-between mb-1.5"><span class="text-xs font-bold text-indigo-700 dark:text-indigo-300">🧭 學習軌跡</span><button onclick="dnTrailClear()" class="text-[0.6875rem] text-slate-400 hover:text-rose-600 cursor-pointer">清除</button></div><div class="space-y-1">${t.map((e, i) => row(e.cur, i)).join('')}<div class="text-xs rounded-lg px-2 py-1.5 truncate bg-indigo-600 text-white" title="${esc(dnTrailLabel(cur))}">📍 ${esc(dnTrailLabel(cur))}</div></div></div>`;
+}
+function dnTrailMob() { // 手機頂端：可左右滑動的小標籤
+  const t = dnTrail(); if (!t.length) return '';
+  return `<div class="md:hidden mt-2 flex items-center gap-1.5 overflow-x-auto pb-1 text-xs whitespace-nowrap"><span class="shrink-0 font-bold text-indigo-700 dark:text-indigo-300">🧭</span>${t.map((e, i) => `<button onclick="dnTrailGo(${i})" class="shrink-0 rounded-full px-2.5 py-1 border border-slate-300 dark:border-slate-700 max-w-[9rem] truncate">${esc(dnTrailLabel(e.cur))}</button>`).join('<span class="shrink-0 text-slate-400">›</span>')}<span class="shrink-0 text-slate-400">›</span><span class="shrink-0 rounded-full px-2.5 py-1 bg-indigo-600 text-white max-w-[9rem] truncate">📍 ${esc(dnTrailLabel(cur))}</span><button onclick="dnTrailClear()" class="shrink-0 text-slate-400 px-1" aria-label="清除軌跡">✕</button></div>`;
+}
+/* 已在庫的字 → 對應的學習頁（核心單字卡／詳解／待補詳解）；找不到回傳 null */
+function dnStudyTarget(text) {
+  const b = dnBanked(text); if (!b) return null;
+  if (b.where === 'extra') return () => dnOpenExtra(b.qid, text);
+  if (b.where === 'vocab') { const a = dnArt(b.qid), i = a ? (a.vocab || []).findIndex(v => dnKey(v.word) === dnKey(text)) : -1; return a && i >= 0 ? () => { cur.w = a.week; cur.d = a.day; dnOpenVocab(i); } : null; }
+  const m = dnMarks().find(q => dnKey(q.text) === dnKey(text)); return m && dnArt(m.qid) ? () => dnOpenExtra(m.qid, m.text) : null;
+}
+function dnAskStudy(text) { // 回傳 true＝已跳出詢問；false＝不在庫或找不到學習頁（呼叫端照舊顯示提示）
+  if (!dnStudyTarget(text)) return false;
+  const b = dnBanked(text), at = b.where === 'vocab' ? '文章核心單字' : b.where === 'extra' ? '已有詳解' : '在入庫清單';
+  dnModal(`<div class="${card} w-full max-w-sm p-4 md:p-5"><h2 class="font-bold mb-2">這個字已經入庫了</h2><p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed"><b>${esc(text)}</b>（${at}）。要進入這個字的學習頁嗎？學完可以回到現在這一頁。</p><div class="flex gap-2 mt-4 justify-end"><button onclick="dnClose()" class="${btn} ${dnLine} !py-1.5 text-sm">留在這裡</button><button data-t="${esc(text)}" onclick="dnStudyGo(this.dataset.t)" class="${btn} ${dnPri} !py-1.5 text-sm">進入學習</button></div></div>`);
+  return true;
+}
+function dnStudyGo(text) {
+  dnClose(); dnSelClear();
+  const D = cur.view === 'detail' ? dnDetailData() : null;
+  if (D && dnKey(D.e.text) === dnKey(text)) { dnToast('你正在這個字的學習頁'); return; }
+  const go2 = dnStudyTarget(text); if (!go2) { dnToast('找不到這個字的學習頁'); return; }
+  dnTrailPush(); go2();
+}
