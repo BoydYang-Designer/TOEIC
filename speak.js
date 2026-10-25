@@ -946,11 +946,21 @@ function skPermHelp() { // 權限被拒絕時，依這台裝置顯示怎麼打�
     : ['點網址列最左邊的圖示（🔒 或 ⚙）', '找到「麥克風」→ 改成「允許」，然後重新整理頁面', '若還是不行：Windows「設定 → 隱私權與安全性 → 麥克風」，把「麥克風存取」和「允許桌面應用程式存取」都打開'];
   return `<div class="mt-2 text-left"><p class="font-semibold mb-1">這台裝置打開麥克風的步驟：</p><ol class="list-decimal pl-5 space-y-0.5">${steps.map(t => `<li>${esc(t)}</li>`).join('')}</ol><p class="mt-1 opacity-80">網址必須是 https:// 或 localhost（用區網 IP 或直接雙擊開檔，瀏覽器會拒絕麥克風）。</p></div>`;
 }
+/* 🔄 重新載入頁面：iOS 的音訊／辨識卡死時，重置麥克風救不回來，只有整頁重新載入才會恢復。
+   已儲存的錄音、分數、學習紀錄都在手機裡不會丟；還沒按「儲存」的錄音會消失。重新載入後回到「學習」頁。 */
+function skReload() {
+  const un = Object.values(SK.res || {}).some(r => r && r.blob) || !!(SK.wres && SK.wres.blob);
+  if (!confirm('重新載入頁面？\n\n' + (un ? '還沒按「儲存」的錄音會消失。\n' : '') + '已儲存的錄音與分數不受影響。')) return;
+  skLog('手動重新載入頁面');
+  try { skStopAll(); skKeepFree(); save(); } catch (e) {}
+  try { history.replaceState(null, '', location.pathname + location.search + '#learn'); } catch (e) {}
+  location.reload();
+}
 function skResetH() { // 平常是不顯眼的小字；連續沒收到聲音或出錯時變成明顯的橘色按鈕
   const hot = SK.fail >= 2 || !!SK.err;
   return hot
-    ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 px-3 py-2 text-xs text-amber-800 dark:text-amber-300 text-center"><p class="mb-1.5">${SK.fail >= 2 ? '連續 ' + SK.fail + ' 次沒收到聲音，麥克風可能卡住了。' : '麥克風可能卡住了。'}</p>${/權限/.test(SK.err) ? skPermHelp() + '<div class="h-2"></div>' : ''}<button onclick="skReset()" class="${skCtl} !bg-amber-500 !text-white hover:!bg-amber-600">🔧 重置麥克風</button></div>`
-    : `<button onclick="skReset()" class="text-xs text-slate-400 underline underline-offset-2 cursor-pointer">🔧 麥克風沒反應？按此重置</button>`;
+    ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 px-3 py-2 text-xs text-amber-800 dark:text-amber-300 text-center"><p class="mb-1.5">${SK.fail >= 2 ? '連續 ' + SK.fail + ' 次沒收到聲音，麥克風可能卡住了。' : '麥克風可能卡住了。'}</p>${/權限/.test(SK.err) ? skPermHelp() + '<div class="h-2"></div>' : ''}<div class="flex flex-wrap items-center justify-center gap-2"><button onclick="skReset()" class="${skCtl} !bg-amber-500 !text-white hover:!bg-amber-600">🔧 重置麥克風</button><button onclick="skReload()" class="${skCtl} !bg-amber-500 !text-white hover:!bg-amber-600">🔄 重新載入頁面</button></div></div>`
+    : `<div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1"><button onclick="skReset()" class="text-xs text-slate-400 underline underline-offset-2 cursor-pointer">🔧 麥克風沒反應？按此重置</button><button onclick="skReload()" class="text-xs text-slate-400 underline underline-offset-2 cursor-pointer">🔄 重新載入頁面</button></div>`;
 }
 function skDiffH(r) { // 你說的文字：念錯／多念標紅，漏念的用 ( ) 顯示
   const d = r.diff || (r.c && r.c.diff);
