@@ -277,16 +277,32 @@ function skAudioSession(t) {
   try { const a = navigator.audioSession; if (!a) { if (!SK.asNo) { SK.asNo = 1; skLog('audioSession API 不存在'); } return; } if (a.type !== t) { skLog('audioSession ' + a.type + ' → ' + t); a.type = t; } } catch (e) { skLog('audioSession 失敗 ' + (e && e.message)); }
 }
 function skMineFree() {
-  const a = SK.mine; SK.mine = null;
-  if (a) {
-    a.onended = a.onerror = null;
-    try { a.pause(); } catch (e) {}
-    try { a.removeAttribute('src'); a.load(); } catch (e) {}
-    SK.mineRel = true; clearTimeout(SK.mineT);
-    SK.mineT = setTimeout(() => { skAudioSession('play-and-record'); SK.mineRel = false; skLog('我的錄音播放檔已完整關閉'); skAfter(); }, SK_MINE_REL);
-    skLog('釋放我的錄音播放檔');
-  }
+  const was = SK.playing === 'mine' || SK.playing === 'saved' || !!SK.mine;
+  if (SK.mine) { const a = SK.mine; SK.mine = null; a.onended = a.onerror = null; try { a.pause(); a.removeAttribute('src'); a.load(); } catch (e) {} }
   if (SK.mineUrl) { try { URL.revokeObjectURL(SK.mineUrl); } catch (e) {} SK.mineUrl = null; }
+  if (was) {
+    skCloseCtx(); // 播放用的 AudioContext 整個關掉，下一次錄音才不會被它佔住音訊通道
+    SK.mineRel = true; clearTimeout(SK.mineT);
+    SK.mineT = setTimeout(() => { if (!SK.playing) skAudioSession('play-and-record'); SK.mineRel = false; skLog('我的錄音播放已完整關閉'); skAfter(); }, SK_MINE_REL);
+    skLog('釋放我的錄音播放（AudioContext 已關閉）');
+  }
+}
+/* 播放自己的錄音：優先用 Web Audio（AudioBufferSourceNode，和「聽原音」同一條路，不經過 <audio> 元素）。
+   記錄顯示：用 <audio> 播過自己的錄音之後，語音辨識就永遠 audiostart 有、speechstart 沒有。
+   解碼失敗或不支援時 onFail 退回 <audio>；S.spkMineWA = 0 可關閉 Web Audio（對照測試用）。 */
+function skPlayBlob(blob, tk, onEnd, onFail) {
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (S.spkMineWA === 0 || !AC || !blob || !blob.size) { onFail(); return; }
+  let ctx; try { ctx = SK.ctx || (SK.ctx = new AC()); ctx.resume(); } catch (e) { onFail(); return; }
+  const rd = blob.arrayBuffer ? blob.arrayBuffer() : new Promise((res, rej) => { const f = new FileReader(); f.onload = () => res(f.result); f.onerror = rej; f.readAsArrayBuffer(blob); });
+  rd.then(ab => new Promise((res, rej) => { const p = ctx.decodeAudioData(ab, res, rej); if (p && p.then) p.then(res, rej); }))
+    .then(buf => {
+      if (tk !== SK.tk) return;
+      const src = ctx.createBufferSource(); src.buffer = buf; src.connect(ctx.destination);
+      src.onended = () => { if (tk === SK.tk && SK.node === src) { SK.node = null; try { src.disconnect(); } catch (e) {} onEnd(); } };
+      SK.node = src; src.start(0); skLog('Web Audio 播放中 ' + buf.duration.toFixed(1) + 's');
+    })
+    .catch(e => { skLog('Web Audio 播放失敗：' + (e && (e.message || e.name)) + '，改用 <audio>'); if (tk === SK.tk) onFail(); });
 }
 const skMineBusy = () => !!SK.mineRel || SK.playing === 'mine' || SK.playing === 'saved';
 function skStopPlay() {
@@ -415,12 +431,19 @@ function skPlayMine(sc) {
   skStopPlay();
   if (SK.mineRel) { skRender(); return; }
   skKeepFree(); skAudioSession('playback'); // 常駐麥克風還開著會讓播放變小聲，也會干擾之後的辨識
-  const tk = SK.tk, a = new Audio(r.url);
-  SK.mine = a; SK.playing = 'mine'; SK.pm = sc;
-  skLog('播放我的錄音 開始');
+  const tk = SK.tk;
+  SK.playing = 'mine'; SK.pm = sc;
   const end = () => { if (tk === SK.tk) { skStopPlay(); skRender(); } }; // 播完也走完整釋放流程
-  a.onended = () => { skLog('播放我的錄音 播完'); end(); }; a.onerror = () => { skLog('播放我的錄音 錯誤'); end(); };
-  a.play().catch(end);
+  const viaEl = () => { // 後備：<audio>
+    if (tk !== SK.tk) return;
+    if (!r.url) { end(); return; }
+    const a = new Audio(r.url); SK.mine = a;
+    skLog('播放我的錄音 開始（<audio>）');
+    a.onended = () => { skLog('播放我的錄音 播完'); end(); }; a.onerror = () => { skLog('播放我的錄音 錯誤'); end(); };
+    a.play().catch(end);
+  };
+  skLog('播放我的錄音 開始（Web Audio）');
+  skPlayBlob(r.blob, tk, () => { skLog('播放我的錄音 播完'); end(); }, viaEl);
   skRender();
 }
 
@@ -749,7 +772,7 @@ function skCloseCtx() { const c = SK.ctx; SK.ctx = null; if (c) { try { c.close(
    再試開一次麥克風確認可用；已錄的結果、分數、已儲存的錄音都不會動。 */
 async function skReset() {
   skLog('按了重置麥克風');
-  skStopAll(); skKeepFree(); skReleaseAudio(); SK.lastEnd = Date.now();
+  skAudioSession('auto'); skStopAll(); skKeepFree(); skReleaseAudio(); SK.lastEnd = Date.now();
   SK.bufs = {}; SK.rtk++; SK.st = 'idle'; SK.final = ''; SK.interim = ''; SK.err = ''; SK.fail = 0; SK.blob = null;
   try { speechSynthesis.cancel(); } catch (e) {}
   let msg = '已重置，請再按一次麥克風錄音';
@@ -824,10 +847,15 @@ function skPlaySaved(k) {
   skDbDo('readonly', s => s.get(id + ':' + k)).then(rec => {
     if (tk !== SK.tk) return;
     if (!rec || !rec.blob) { skStopPlay(); dnToast('找不到這筆錄音（可能被瀏覽器清除了）'); skRender(); return; }
-    const url = URL.createObjectURL(rec.blob), a = new Audio(url); SK.mine = a; SK.mineUrl = url;
-    skLog('播放已儲存的錄音 開始');
     const end = () => { if (tk === SK.tk) { skStopPlay(); skRender(); } };
-    a.onended = () => { skLog('播放已儲存的錄音 播完'); end(); }; a.onerror = () => { skLog('播放已儲存的錄音 錯誤'); end(); }; a.play().catch(end);
+    const viaEl = () => { // 後備：<audio>
+      if (tk !== SK.tk) return;
+      const url = URL.createObjectURL(rec.blob), a = new Audio(url); SK.mine = a; SK.mineUrl = url;
+      skLog('播放已儲存的錄音 開始（<audio>）');
+      a.onended = () => { skLog('播放已儲存的錄音 播完'); end(); }; a.onerror = () => { skLog('播放已儲存的錄音 錯誤'); end(); }; a.play().catch(end);
+    };
+    skLog('播放已儲存的錄音 開始（Web Audio）');
+    skPlayBlob(rec.blob, tk, () => { skLog('播放已儲存的錄音 播完'); end(); }, viaEl);
   }).catch(() => { if (tk === SK.tk) { skStopPlay(); skRender(); } });
 }
 function skDelSaved(k) {
