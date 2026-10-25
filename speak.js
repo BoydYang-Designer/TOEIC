@@ -488,7 +488,7 @@ const SKLOG = [];
 function skLogInfo() {
   const sa = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone;
   return ['UA: ' + navigator.userAgent, 'secure=' + window.isSecureContext + ' standalone=' + !!sa + ' SR=' + !!skSR() + ' MR=' + (typeof MediaRecorder !== 'undefined') + ' mobile=' + SK_MOB + ' ios=' + SK_IOS,
-    '錄音檔(spkMr)=' + (S.spkMr === 1 ? '開' : '關') + ' 等待(spkWait)=' + (typeof S.spkWait === 'number' ? S.spkWait + 'ms' : '自動') + ' 模式=' + SK.mode + (SK.inl ? '(就地)' : '') + ' 連續失敗=' + SK.fail + ' continuous=' + (S.spkCont !== 0 ? '開' : '關') + ' 辨識物件=' + (S.spkReuse === 1 ? '重用' : '每次新建'), '----'].join('\n');
+    '錄音檔(spkMr)=' + (S.spkMr === 1 ? '開' : '關') + ' 等待(spkWait)=' + (typeof S.spkWait === 'number' ? S.spkWait + 'ms' : '自動') + ' 模式=' + SK.mode + (SK.inl ? '(就地)' : '') + ' 連續失敗=' + SK.fail + ' continuous=' + (S.spkCont !== 0 ? '開' : '關') + ' 辨識物件=' + (S.spkReuse === 1 ? '重用' : '每次新建') + ' 常駐麥克風=' + (skKeepOn() ? '開' : '關') + (SK.keepSt ? '(持有中)' : ''), '----'].join('\n');
 }
 const skLogText = () => skLogInfo() + '\n' + SKLOG.slice(-160).join('\n');
 function skLog(m) {
@@ -513,6 +513,7 @@ function skLogH() {
   return `<div class="mt-6 rounded-lg border border-slate-300 dark:border-slate-700 p-3"><div class="flex flex-wrap items-center gap-2 mb-2"><button onclick="skLogCopy()" class="${skCtl}">📋 複製</button><button onclick="skLogClear()" class="${skCtl}">清除</button><button onclick="skDbg()" class="${skCtl}">收起</button></div>
     <div class="flex flex-wrap items-center gap-2 mb-2 text-xs"><span class="text-slate-500">兩次錄音間隔（測試用）</span>${wb(0)}${wb(350)}${wb(700)}${wb(1200)}</div>
     <div class="flex flex-wrap items-center gap-2 mb-2 text-xs"><span class="text-slate-500">continuous</span><button onclick="skCont(1)" class="${skSeg(S.spkCont !== 0)} !py-1">開</button><button onclick="skCont(0)" class="${skSeg(S.spkCont === 0)} !py-1">關</button><span class="text-slate-500 ml-2">辨識物件</span><button onclick="skReuse(0)" class="${skSeg(S.spkReuse !== 1)} !py-1">每次新建</button><button onclick="skReuse(1)" class="${skSeg(S.spkReuse === 1)} !py-1">重用</button></div>
+    <div class="flex flex-wrap items-center gap-2 mb-2 text-xs"><span class="text-slate-500">常駐麥克風</span><button onclick="skKeepSet(1)" class="${skSeg(skKeepOn())} !py-1">開</button><button onclick="skKeepSet(0)" class="${skSeg(!skKeepOn())} !py-1">關</button><span class="text-slate-400">開＝整個練習頁面只開一次麥克風，不關掉</span></div>
     <pre id="sk-log" class="text-[0.6875rem] leading-snug whitespace-pre-wrap break-all max-h-80 overflow-y-auto text-slate-600 dark:text-slate-300">${esc(skLogText())}</pre></div>`;
 }
 const SK_MOB = SK_IOS || /Android/i.test(navigator.userAgent);
@@ -551,6 +552,7 @@ function skSrNew(tk, fresh) { // 建一個新的語音辨識物件（每次重�
     skRecStop();
   };
   r.onend = () => {
+    r._ended = true;
     skLog('SR#' + id + ' end st=' + SK.st + ' stopping=' + SK.stopping + ' paused=' + SK.paused + (r === SK.sr ? '' : '（舊的）'));
     if (r !== SK.sr) return;
     if (SK.stopping) { if (SK.srEnd) SK.srEnd(); return; }
@@ -623,33 +625,61 @@ function skRecGo(tk) {
   SK.timer = setTimeout(() => { if (SK.st === 'rec' && tk === SK.rtk) skRecStop(); }, skWholeRec() ? 180000 : 45000);
   skRender();
 }
+/* ===== 常駐麥克風 =====
+   記錄顯示：iPhone 上只有「這個頁面第一次」錄音拿得到聲音；之後 getUserMedia 的 track 雖然是 live、沒靜音，錄到的卻是空的（blob=5B），
+   語音辨識也同時聽不到（有 audiostart、沒有 soundstart）。每次錄完就把 track stop() 掉，下一次再重新要麥克風，很可能就是壞掉的原因。
+   做法：整個語音練習頁面只向系統要一次麥克風，之後的錄音都重用同一條串流，離開頁面／切到背景才放掉。
+   代價：練習期間 iOS 狀態列會一直顯示麥克風使用中的橘點。 */
+const skKeepOn = () => !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) && (S.spkKeep === 1 || (S.spkKeep === undefined && SK_IOS));
+function skKeepFree() {
+  const k = SK.keepSt; SK.keepSt = null;
+  if (k) { k.getTracks().forEach(t => { t.onended = t.onmute = t.onunmute = null; try { t.stop(); } catch (e) {} }); skLog('常駐麥克風 已釋放'); }
+}
+function skKeepSet(v) { S.spkKeep = v; save(); skKeepFree(); skLog('設定 常駐麥克風=' + (v ? '開' : '關')); skRender(); }
+async function skKeepGet() {
+  const k = SK.keepSt, t0 = k && k.getAudioTracks()[0];
+  if (t0 && t0.readyState === 'live' && !t0.muted) return k;
+  if (k) skLog('常駐麥克風 失效（readyState=' + (t0 && t0.readyState) + ' muted=' + (t0 && t0.muted) + '），重新取得');
+  skKeepFree();
+  const st = await navigator.mediaDevices.getUserMedia({ audio: true }); SK.keepSt = st;
+  const t = st.getAudioTracks()[0];
+  skLog('常駐麥克風 取得 readyState=' + (t && t.readyState) + ' muted=' + (t && t.muted));
+  if (t) { t.onended = () => { skLog('常駐麥克風 track ended'); if (SK.keepSt === st) SK.keepSt = null; }; t.onmute = () => skLog('常駐麥克風 mute'); t.onunmute = () => skLog('常駐麥克風 unmute'); }
+  return st;
+}
+setInterval(() => { if (SK.keepSt && typeof cur !== 'undefined' && cur.view !== 'speak') skKeepFree(); }, 2000); // 離開語音練習頁面就放掉
 async function skMediaStart(tk) {
   SK.mr = null; SK.chunks = [];
-  if (!skUseMr()) return; // 手機預設不同時錄音檔，避免和語音辨識搶麥克風
-  if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || typeof MediaRecorder === 'undefined') return;
+  const keep = skKeepOn(), wantMr = skUseMr();
+  if (!keep && !wantMr) return; // 手機預設不同時錄音檔，避免和語音辨識搶麥克風
+  if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) return;
   let stream;
-  try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); skLog('getUserMedia 成功 track=' + (stream.getAudioTracks()[0] || {}).readyState + ' muted=' + (stream.getAudioTracks()[0] || {}).muted); }
-  catch (e) {
+  try {
+    if (keep) stream = await skKeepGet();
+    else { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); skLog('getUserMedia 成功 track=' + (stream.getAudioTracks()[0] || {}).readyState + ' muted=' + (stream.getAudioTracks()[0] || {}).muted); }
+  } catch (e) {
     skLog('getUserMedia 失敗 ' + (e && e.name) + ' ' + (e && e.message));
     SK.err = e && e.name === 'NotAllowedError' ? '麥克風權限被拒絕：請點網址列左邊的圖示（🔒 或 ⚙）→「麥克風」→ 允許，然後重新整理頁面。' : '取不到麥克風（可能被別的 App 佔用）。請按下方「🔧 重置麥克風」，再錄一次。';
     return;
   }
-  if (SK.st !== 'rec' || tk !== SK.rtk) { stream.getTracks().forEach(t => t.stop()); return; }
-  SK.stream = stream;
+  if (SK.st !== 'rec' || tk !== SK.rtk) { if (!keep) stream.getTracks().forEach(t => t.stop()); return; }
+  if (!wantMr || typeof MediaRecorder === 'undefined') return; // 只要常駐麥克風、不錄音檔
+  if (!keep) SK.stream = stream; // 常駐的串流不放進 SK.stream（錄完不能被 stop）
   const mt = ['audio/webm', 'audio/mp4'].find(t => MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(t)) || '';
   try {
     const mr = new MediaRecorder(stream, mt ? { mimeType: mt } : undefined);
     SK.mr = mr; SK.mime = mr.mimeType || mt;
     mr.ondataavailable = e => { if (e.data && e.data.size) SK.chunks.push(e.data); };
     mr.onstop = () => {
-      stream.getTracks().forEach(t => t.stop());
+      if (!keep) stream.getTracks().forEach(t => t.stop());
       if (SK.stream === stream) SK.stream = null;
       SK.blob = SK.chunks.length ? new Blob(SK.chunks, { type: SK.mime }) : null; SK.chunks = [];
       if (SK.mrDone) SK.mrDone();
     };
     mr.start();
-  } catch (e) { stream.getTracks().forEach(t => t.stop()); SK.mr = null; }
+  } catch (e) { if (!keep) stream.getTracks().forEach(t => t.stop()); SK.mr = null; }
 }
+
 /* 整篇：先念到這裡 → ⏸ 暫停（收掉辨識、錄音也暫停，已念的結果與顏色保留）→ ▶ 繼續（接著念下去，錄音檔接在後面） */
 function skPauseToggle() {
   if (SK.st !== 'rec' || !skWholeRec()) return;
@@ -692,7 +722,7 @@ function skCloseCtx() { const c = SK.ctx; SK.ctx = null; if (c) { try { c.close(
    再試開一次麥克風確認可用；已錄的結果、分數、已儲存的錄音都不會動。 */
 async function skReset() {
   skLog('按了重置麥克風');
-  skStopAll(); skReleaseAudio(); SK.lastEnd = Date.now();
+  skStopAll(); skKeepFree(); skReleaseAudio(); SK.lastEnd = Date.now();
   SK.bufs = {}; SK.rtk++; SK.st = 'idle'; SK.final = ''; SK.interim = ''; SK.err = ''; SK.fail = 0; SK.blob = null;
   try { speechSynthesis.cancel(); } catch (e) {}
   let msg = '已重置，請再按一次麥克風錄音';
@@ -712,7 +742,7 @@ function skFinish(tk) {
   const sr0 = SK.sr, mr0 = SK.mr; SK.lastEnd = Date.now(); clearTimeout(SK.wd);
   SK.lv = null; SK.paused = false; // 錄完：即時追蹤結束，改顯示完整評分
   SK.blob = null; SK.st = 'idle'; SK.sr = null; SK.mr = null; SK.srEnd = SK.mrDone = null;
-  if (sr0) { sr0.onresult = sr0.onend = sr0.onerror = null; try { sr0.abort(); } catch (e) {} } // 確實關掉辨識，釋放麥克風
+  if (sr0) { sr0.onresult = sr0.onend = sr0.onerror = null; if (!sr0._ended) { try { sr0.abort(); } catch (e) {} } } // 確實關掉辨識，釋放麥克風
   if (mr0) { mr0.ondataavailable = null; mr0.onstop = null; try { if (mr0.state !== 'inactive') mr0.stop(); } catch (e) {} }
   if (SK.stream) { SK.stream.getTracks().forEach(t => t.stop()); SK.stream = null; }
   skLog('完成 heard=' + heard.length + '字 blob=' + (blob ? blob.size + 'B' : '無'));
@@ -791,10 +821,10 @@ function skGo(i) { skStopAll(); skDrop('sent'); SK.i = Math.max(0, Math.min(SK.s
 function skRate(r) { SK.rate = r; if (SK.au) SK.au.playbackRate = r; skRender(); }
 function skHide() { SK.hide = !SK.hide; skRender(); }
 function skRetry(sc) { skStopAll(); sc = sc || (skIsSent() ? 's' : 'w'); if (sc === 's') { const o = SK.res[SK.i]; if (o && o.url) URL.revokeObjectURL(o.url); delete SK.res[SK.i]; } else { if (SK.wres && SK.wres.url) URL.revokeObjectURL(SK.wres.url); SK.wres = null; } skRender(); }
-function skBack() { skStopAll(); SK.inl = false; skDrop('sent'); skDrop('whole'); SK.bufs = {}; cur.view = 'day'; render(); window.scrollTo({ top: 0 }); }
+function skBack() { skStopAll(); skKeepFree(); SK.inl = false; skDrop('sent'); skDrop('whole'); SK.bufs = {}; cur.view = 'day'; render(); window.scrollTo({ top: 0 }); }
 function openSpeak() { cur.view = 'speak'; push(); render(); window.scrollTo({ top: 0 }); }
-document.addEventListener('visibilitychange', () => { skLog('visibility ' + (document.hidden ? 'hidden' : 'visible')); if (document.hidden) skStopAll(); });
-window.addEventListener('pagehide', () => skStopAll());
+document.addEventListener('visibilitychange', () => { skLog('visibility ' + (document.hidden ? 'hidden' : 'visible')); if (document.hidden) { skStopAll(); skKeepFree(); } });
+window.addEventListener('pagehide', () => { skStopAll(); skKeepFree(); });
 
 /* ================= 畫面 ================= */
 (function () { // .sks：整篇模式中可點、可高亮的句子
