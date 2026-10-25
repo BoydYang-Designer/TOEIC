@@ -268,12 +268,27 @@ const skWordsH = ws => ws.map(d => d.ok ? `<span class="text-emerald-600 dark:te
 
 /* ================= 播放原音（mp3 片段；沒有 mp3／timing 就用機器發音） ================= */
 const skMp3Ok = x => !SK.bad[idOf(x)] && (AU.idx ? dyHas(x) : true);
+/* 「我的錄音」播放用的 <audio>：停止時要真的釋放（pause＋移除 src＋load），否則 iOS／部分 Android 的音訊通道還被佔著，下一次麥克風就收不到聲。
+   釋放後還要等一小段時間（SK_MINE_REL）才允許再錄音／再播放；這段期間按鈕顯示「關閉中」且不能按。 */
+const SK_MINE_REL = 350;
+function skMineFree() {
+  const a = SK.mine; SK.mine = null;
+  if (a) {
+    a.onended = a.onerror = null;
+    try { a.pause(); } catch (e) {}
+    try { a.removeAttribute('src'); a.load(); } catch (e) {}
+    SK.mineRel = true; clearTimeout(SK.mineT);
+    SK.mineT = setTimeout(() => { SK.mineRel = false; skLog('我的錄音播放檔已完整關閉'); skAfter(); }, SK_MINE_REL);
+    skLog('釋放我的錄音播放檔');
+  }
+  if (SK.mineUrl) { try { URL.revokeObjectURL(SK.mineUrl); } catch (e) {} SK.mineUrl = null; }
+}
+const skMineBusy = () => !!SK.mineRel || SK.playing === 'mine' || SK.playing === 'saved';
 function skStopPlay() {
   SK.tk++; clearInterval(SK.iv);
   if (SK.node) { const n = SK.node; SK.node = null; n.onended = null; try { n.stop(); } catch (e) {} try { n.disconnect(); } catch (e) {} }
   if (SK.au) { SK.au.onended = SK.au.ontimeupdate = SK.au.onerror = null; try { SK.au.pause(); } catch (e) {} }
-  if (SK.mine) { SK.mine.onended = SK.mine.onerror = null; try { SK.mine.pause(); } catch (e) {} SK.mine = null; }
-  if (SK.mineUrl) { try { URL.revokeObjectURL(SK.mineUrl); } catch (e) {} SK.mineUrl = null; }
+  skMineFree();
   try { speechSynthesis.cancel(); } catch (e) {}
   SK.playing = null; SK.pk = null; SK.hl = -1; SK.phs = null;
 }
@@ -389,12 +404,15 @@ function skPlayMine(sc) {
   sc = sc || (skIsSent() ? 's' : 'w');
   const r = sc === 's' ? SK.res[SK.i] : SK.wres;
   if (!r || !r.url) return;
+  if (SK.mineRel) return; // 上一個播放檔還在關閉中
   if (SK.playing === 'mine' && SK.pm === sc) { skStopPlay(); skRender(); return; }
   skStopPlay();
+  if (SK.mineRel) { skRender(); return; }
   const tk = SK.tk, a = new Audio(r.url);
   SK.mine = a; SK.playing = 'mine'; SK.pm = sc;
-  const end = () => { if (tk === SK.tk) { SK.playing = null; SK.mine = null; skRender(); } };
-  a.onended = a.onerror = end;
+  skLog('播放我的錄音 開始');
+  const end = () => { if (tk === SK.tk) { skStopPlay(); skRender(); } }; // 播完也走完整釋放流程
+  a.onended = () => { skLog('播放我的錄音 播完'); end(); }; a.onerror = () => { skLog('播放我的錄音 錯誤'); end(); };
   a.play().catch(end);
   skRender();
 }
@@ -603,6 +621,7 @@ function skRecToggle() {
   skLog('點麥克風 st=' + SK.st);
   if (SK.st === 'rec') { skRecStop(); return; }
   if (SK.st === 'proc' || SK.st === 'prep') return;
+  if (skMineBusy()) { if (typeof dnToast === 'function') dnToast('請先按「結束播放」，等音檔關閉後再錄音'); return; }
   skReleaseAudio(); // 錄音前先把播放用的資源全部放掉（iOS／部分 Android 只要音訊通道還被佔著，麥克風就收不到聲）；下次播原音時會自動重開
   skCancelRec();    // 再把上一次可能殘留的辨識／錄音／麥克風串流全部關掉
   SK.err = ''; SK.final = ''; SK.interim = ''; SK.restart = 0; SK.rsT = []; SK.paused = false; SK.stopping = false; SK.blob = null; SK.wdN = 0;
@@ -788,15 +807,18 @@ function skSave(sc) {
     .catch(() => dnToast('儲存失敗'));
 }
 function skPlaySaved(k) {
+  if (SK.mineRel) return;
   if (SK.playing === 'saved' && SK.pk === k) { skStopPlay(); skRender(); return; }
-  skStopPlay(); const tk = SK.tk, id = SK.id;
+  skStopPlay(); if (SK.mineRel) { skRender(); return; }
+  const tk = SK.tk, id = SK.id;
   SK.playing = 'saved'; SK.pk = k; skRender();
   skDbDo('readonly', s => s.get(id + ':' + k)).then(rec => {
     if (tk !== SK.tk) return;
     if (!rec || !rec.blob) { skStopPlay(); dnToast('找不到這筆錄音（可能被瀏覽器清除了）'); skRender(); return; }
     const url = URL.createObjectURL(rec.blob), a = new Audio(url); SK.mine = a; SK.mineUrl = url;
+    skLog('播放已儲存的錄音 開始');
     const end = () => { if (tk === SK.tk) { skStopPlay(); skRender(); } };
-    a.onended = a.onerror = end; a.play().catch(end);
+    a.onended = () => { skLog('播放已儲存的錄音 播完'); end(); }; a.onerror = () => { skLog('播放已儲存的錄音 錯誤'); end(); }; a.play().catch(end);
   }).catch(() => { if (tk === SK.tk) { skStopPlay(); skRender(); } });
 }
 function skDelSaved(k) {
@@ -809,7 +831,7 @@ function skSavedH(sc) {
   const k = skKey(sc), v = skSv(idOf(x), k); if (!v) return '';
   const on = SK.playing === 'saved' && SK.pk === k;
   return `<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 text-left"><p class="text-sm">💾 已儲存的錄音${v.pct ? ` <span class="rounded-full px-2 py-0.5 text-xs font-bold ${skPctCls(v.pct)}">${v.pct}%</span>` : ''} <span class="text-xs text-slate-500">${new Date(v.t).toLocaleString('zh-TW')}</span></p>
-    <div class="flex flex-wrap gap-2 mt-2"><button onclick="skPlaySaved('${k}')" class="${skCtl}">${on ? '⏹ 停止' : '▶ 聽已儲存的錄音'}</button><button onclick="skDelSaved('${k}')" class="${skCtl}">🗑 刪除</button></div></div>`;
+    <div class="flex flex-wrap gap-2 mt-2"><button onclick="skPlaySaved('${k}')" ${SK.mineRel ? 'disabled' : ''} class="${skCtl} disabled:opacity-50">${SK.mineRel ? '⏳ 關閉音檔中…' : on ? '⏹ 結束播放' : '▶ 聽已儲存的錄音'}</button><button onclick="skDelSaved('${k}')" class="${skCtl}">🗑 刪除</button></div></div>`;
 }
 /* 整篇頁面裡的「就地逐句練習」：SK.inl＝true 時，mode 仍是 whole（整篇文稿和結果都留著），麥克風改成錄 SK.i 那一句 */
 function skIsSent() { return SK.mode === 'sent' || !!SK.inl; }
@@ -869,10 +891,10 @@ function skStickyInit() {
 }
 skStickyInit();
 function skMic() {
-  const rec = SK.st === 'rec', prep = SK.st === 'prep', proc = SK.st === 'proc' || prep;
+  const rec = SK.st === 'rec', prep = SK.st === 'prep', mp = !rec && skMineBusy(), proc = SK.st === 'proc' || prep || mp;
   const pz = rec && SK.paused, canPz = rec && skWholeRec() && !!(SK.sr || SK.mr);
   const c = pz ? 'bg-amber-500 text-white' : rec ? 'bg-rose-600 text-white animate-pulse' : proc ? 'bg-slate-300 dark:bg-slate-700 text-slate-500' : 'bg-indigo-600 hover:bg-indigo-700 text-white';
-  const lbl = pz ? '⏸ 已暫停：按「▶ 繼續」接著念，或按 ⏹ 結束評分' : rec ? '🔴 錄音中…念完再點一次停止' + (canPz ? '（想先停一下可按「⏸ 暫停」）' : '') : prep ? '⏳ 準備麥克風…' : proc ? '⏳ 辨識中…' : (skWholeRec() ? '點麥克風，念完整篇' : SK.inl ? '點麥克風，念出下面這一句（第 ' + (SK.i + 1) + ' 句）' : '點麥克風，念出這一句');
+  const lbl = pz ? '⏸ 已暫停：按「▶ 繼續」接著念，或按 ⏹ 結束評分' : rec ? '🔴 錄音中…念完再點一次停止' + (canPz ? '（想先停一下可按「⏸ 暫停」）' : '') : prep ? '⏳ 準備麥克風…' : mp ? (SK.mineRel ? '⏳ 正在關閉播放音檔…完成後即可錄音' : '🔊 播放錄音中：請先按「結束播放」才能錄音') : proc ? '⏳ 辨識中…' : (skWholeRec() ? '點麥克風，念完整篇' : SK.inl ? '點麥克風，念出下面這一句（第 ' + (SK.i + 1) + ' 句）' : '點麥克風，念出這一句');
   const pzBtn = canPz ? `<button onclick="skPauseToggle()" class="${skCtl} shrink-0 !px-2.5 !py-1.5">${SK.paused ? '▶ 繼續' : '⏸ 暫停'}</button>` : '';
   // 固定住的只有這一條精簡列（麥克風按鈕＋暫停＋一行狀態）；錯誤訊息和「重置麥克風」放在它下面，會跟著頁面捲動
   return `<section class="${card} sticky z-20 shadow-md px-3 py-2 mb-1" style="top:var(--sk-top,8px)"><div class="flex items-center gap-3"><button onclick="skRecToggle()" ${proc ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${c}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>${pzBtn}<div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
@@ -912,7 +934,7 @@ function skResultH(r, wordsH, sc) { // r：本次結果；wordsH：已上色的�
   return `<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 text-left"><div class="flex flex-wrap items-center gap-2 mb-2">${head}</div>
     ${wordsH ? `<p class="leading-relaxed">${wordsH}</p>` : ''}
     ${r.heard ? skDiffH(r) : ''}
-    <div class="flex flex-wrap gap-2 mt-3">${r.url ? `<button onclick="skPlayMine('${sc}')" class="${skCtl}">${SK.playing === 'mine' && SK.pm === sc ? '⏹ 停止回放' : '▶ 聽我的錄音'}</button>` : ''}${r.blob ? `<button onclick="skSave('${sc}')" class="${skCtl}">💾 ${skSv(SK.id, skKey(sc)) ? '覆蓋儲存' : '儲存語音練習'}</button>` : ''}<button onclick="skRetry('${sc}')" class="${skCtl}">↻ 重來</button></div></div>`;
+    <div class="flex flex-wrap gap-2 mt-3">${r.url ? `<button onclick="skPlayMine('${sc}')" ${SK.mineRel ? 'disabled' : ''} class="${skCtl} disabled:opacity-50">${SK.mineRel ? '⏳ 關閉音檔中…' : SK.playing === 'mine' && SK.pm === sc ? '⏹ 結束播放' : '▶ 聽我的錄音'}</button>` : ''}${r.blob ? `<button onclick="skSave('${sc}')" class="${skCtl}">💾 ${skSv(SK.id, skKey(sc)) ? '覆蓋儲存' : '儲存語音練習'}</button>` : ''}<button onclick="skRetry('${sc}')" class="${skCtl}">↻ 重來</button></div></div>`;
 }
 
 /* ================= 語調曲線（畫在句子上） =================
