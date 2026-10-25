@@ -488,9 +488,9 @@ const SKLOG = [];
 function skLogInfo() {
   const sa = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone;
   return ['UA: ' + navigator.userAgent, 'secure=' + window.isSecureContext + ' standalone=' + !!sa + ' SR=' + !!skSR() + ' MR=' + (typeof MediaRecorder !== 'undefined') + ' mobile=' + SK_MOB + ' ios=' + SK_IOS,
-    '錄音檔(spkMr)=' + (S.spkMr === 1 ? '開' : '關') + ' 等待(spkWait)=' + (typeof S.spkWait === 'number' ? S.spkWait + 'ms' : '自動') + ' 模式=' + SK.mode + (SK.inl ? '(就地)' : '') + ' 連續失敗=' + SK.fail, '----'].join('\n');
+    '錄音檔(spkMr)=' + (S.spkMr === 1 ? '開' : '關') + ' 等待(spkWait)=' + (typeof S.spkWait === 'number' ? S.spkWait + 'ms' : '自動') + ' 模式=' + SK.mode + (SK.inl ? '(就地)' : '') + ' 連續失敗=' + SK.fail + ' continuous=' + (S.spkCont !== 0 ? '開' : '關') + ' 辨識物件=' + (S.spkReuse === 1 ? '重用' : '每次新建'), '----'].join('\n');
 }
-const skLogText = () => skLogInfo() + '\n' + SKLOG.slice(-80).join('\n');
+const skLogText = () => skLogInfo() + '\n' + SKLOG.slice(-160).join('\n');
 function skLog(m) {
   const t = new Date(), p = (n, w) => String(n).padStart(w, '0');
   SKLOG.push(p(t.getMinutes(), 2) + ':' + p(t.getSeconds(), 2) + '.' + p(t.getMilliseconds(), 3) + ' ' + m);
@@ -500,6 +500,8 @@ function skLog(m) {
 function skDbg() { SK.dbg = !SK.dbg; skRender(); }
 function skLogClear() { SKLOG.length = 0; skLog('（已清除）'); }
 function skWaitSet(v) { S.spkWait = v; save(); skLog('設定等待時間 ' + v + 'ms'); skRender(); }
+function skCont(v) { S.spkCont = v; save(); skLog('設定 continuous=' + (v !== 0 ? '開' : '關')); skRender(); }
+function skReuse(v) { S.spkReuse = v; save(); SK.keep = null; skLog('設定 辨識物件=' + (v === 1 ? '重用' : '每次新建')); skRender(); }
 function skLogCopy() {
   const t = skLogText(), done = () => { if (typeof dnToast === 'function') dnToast('已複製記錄，貼給對方即可'); };
   const fb = () => { const a = document.createElement('textarea'); a.value = t; a.style.cssText = 'position:fixed;top:0;left:0;opacity:0'; document.body.appendChild(a); a.focus(); a.select(); try { document.execCommand('copy'); done(); } catch (e) {} a.remove(); };
@@ -510,6 +512,7 @@ function skLogH() {
   const w = typeof S.spkWait === 'number' ? S.spkWait : -1, wb = v => `<button onclick="skWaitSet(${v})" class="${skSeg(w === v)} !py-1">${v}ms</button>`;
   return `<div class="mt-6 rounded-lg border border-slate-300 dark:border-slate-700 p-3"><div class="flex flex-wrap items-center gap-2 mb-2"><button onclick="skLogCopy()" class="${skCtl}">📋 複製</button><button onclick="skLogClear()" class="${skCtl}">清除</button><button onclick="skDbg()" class="${skCtl}">收起</button></div>
     <div class="flex flex-wrap items-center gap-2 mb-2 text-xs"><span class="text-slate-500">兩次錄音間隔（測試用）</span>${wb(0)}${wb(350)}${wb(700)}${wb(1200)}</div>
+    <div class="flex flex-wrap items-center gap-2 mb-2 text-xs"><span class="text-slate-500">continuous</span><button onclick="skCont(1)" class="${skSeg(S.spkCont !== 0)} !py-1">開</button><button onclick="skCont(0)" class="${skSeg(S.spkCont === 0)} !py-1">關</button><span class="text-slate-500 ml-2">辨識物件</span><button onclick="skReuse(0)" class="${skSeg(S.spkReuse !== 1)} !py-1">每次新建</button><button onclick="skReuse(1)" class="${skSeg(S.spkReuse === 1)} !py-1">重用</button></div>
     <pre id="sk-log" class="text-[0.6875rem] leading-snug whitespace-pre-wrap break-all max-h-80 overflow-y-auto text-slate-600 dark:text-slate-300">${esc(skLogText())}</pre></div>`;
 }
 const SK_MOB = SK_IOS || /Android/i.test(navigator.userAgent);
@@ -522,12 +525,12 @@ function skReleaseAudio() {
   if (typeof spStop === 'function') { try { spStop(); } catch (e) {} }
   try { speechSynthesis.cancel(); } catch (e) {}
 }
-function skSrNew(tk) { // 建一個新的語音辨識物件（每次重啟都用新的，比重複 start 同一個穩）
+function skSrNew(tk, fresh) { // 建一個新的語音辨識物件（每次重啟都用新的，比重複 start 同一個穩）
   const SRc = skSR(); if (!SRc) return null;
-  const r = new SRc(); SK.sr = r;
-  r.lang = 'en-US'; r.continuous = true; r.interimResults = true; r.maxAlternatives = 1;
-  const id = (SK.srN = (SK.srN || 0) + 1), up = () => { if (r === SK.sr) SK.everUp = true; }; // 收到任何「有聽到聲音」的事件＝麥克風是通的
-  const ev = n => () => { skLog('SR#' + id + ' ' + n + (r === SK.sr ? '' : '（舊的）')); if (n === 'audiostart' || n === 'soundstart' || n === 'speechstart') up(); };
+  const r = (fresh && S.spkReuse === 1 && SK.keep) || new SRc(); SK.keep = r; SK.sr = r; SK.t0 = Date.now();
+  r.lang = 'en-US'; r.continuous = S.spkCont !== 0; r.interimResults = true; r.maxAlternatives = 1;
+  const id = (SK.srN = (SK.srN || 0) + 1), up = () => { if (r === SK.sr) SK.everUp = true; }; // 只有 soundstart／speechstart／result 才算「真的收到聲音」；audiostart 只代表辨識開了，麥克風死掉時它一樣會出現
+  const ev = n => () => { skLog('SR#' + id + ' ' + n + ' +' + (Date.now() - (SK.t0 || 0)) + 'ms' + (r === SK.sr ? '' : '（舊的）')); if (n === 'soundstart' || n === 'speechstart') up(); };
   ['start', 'audiostart', 'soundstart', 'speechstart', 'speechend', 'soundend', 'audioend', 'nomatch'].forEach(n => { r['on' + n] = ev(n); });
   skLog('SR#' + id + ' 建立');
   r.onresult = e => {
@@ -537,7 +540,7 @@ function skSrNew(tk) { // 建一個新的語音辨識物件（每次重啟都用
     for (let k = e.resultIndex; k < e.results.length; k++) { if (e.results[k].isFinal) fin += ' ' + e.results[k][0].transcript; else itm += ' ' + e.results[k][0].transcript; }
     if (fin.trim()) { SK.restart = 0; SK.final = (SK.final + ' ' + fin).trim(); }
     SK.interim = itm.trim();
-    skLog('SR#' + id + ' result ' + (fin.trim() ? 'final' : 'interim') + ' "' + (fin.trim() || itm.trim()).slice(0, 40) + '"');
+    if (fin.trim() || !r._li) { r._li = 1; skLog('SR#' + id + ' result ' + (fin.trim() ? 'final' : 'interim(第一筆)') + ' +' + (Date.now() - (SK.t0 || 0)) + 'ms "' + (fin.trim() || itm.trim()).slice(0, 40) + '"'); }
     const el = document.getElementById('sk-heard'); if (el) el.textContent = (SK.final + ' ' + SK.interim).trim() || '…';
     if (SK.lv) skLiveSched();
   };
@@ -571,14 +574,28 @@ function skSrRestart(tk, n) { // 重開辨識：用新物件；start 失敗（�
     catch (e) { skLog('重開 start() 失敗：' + (e && e.name) + ' ' + (e && e.message)); if (n < 8) skSrRestart(tk, n + 1); else { SK.err = '語音辨識沒辦法重新啟動，請按下方「🔧 重置麥克風」。'; skRecStop(); } }
   }, n ? 250 : 60);
 }
-function skSrWatch(tk, r) { // 看門狗：剛開始錄音 4.5 秒內，辨識一個聲音事件都沒有＝麥克風沒開起來，自動重開（最多 2 次）
+function skSrWatch(tk, r) { // 看門狗：開始 6 秒內沒有 soundstart／speechstart／result＝麥克風沒真正收到聲音（audiostart 不算），自動恢復（最多 2 次）
   clearTimeout(SK.wd); if (SK.everUp) return;
   SK.wd = setTimeout(() => {
     if (r !== SK.sr || tk !== SK.rtk || SK.st !== 'rec' || SK.paused || SK.stopping || SK.everUp) return;
-    skLog('看門狗：4.5 秒內沒有任何聲音事件（第 ' + ((SK.wdN || 0) + 1) + ' 次）');
-    if ((SK.wdN = (SK.wdN || 0) + 1) <= 2) { skSrRestart(tk, 0); return; }
+    const n = (SK.wdN = (SK.wdN || 0) + 1);
+    skLog('看門狗：6 秒內沒有 soundstart／speechstart／result（第 ' + n + ' 次）');
+    if (n <= 2) { skSrRecover(tk, n); return; }
     SK.err = '麥克風好像沒有收到聲音。請按下方「🔧 重置麥克風」，再錄一次。'; skRender();
-  }, 4500);
+  }, 6000);
+}
+async function skSrRecover(tk, n) { // 第 1 次：放掉舊辨識、隔一下再開新的；第 2 次：先短暫開關一次麥克風（重設 iOS 音訊工作階段）再開
+  const old = SK.sr; SK.sr = null;
+  if (old) { old.onresult = old.onend = old.onerror = old.onaudiostart = old.onsoundstart = old.onspeechstart = null; try { old.abort(); } catch (e) {} }
+  if (n >= 2 && !SK.stream && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    try { const st = await navigator.mediaDevices.getUserMedia({ audio: true }); skLog('預熱麥克風 成功'); st.getTracks().forEach(t => t.stop()); }
+    catch (e) { skLog('預熱麥克風 失敗 ' + (e && e.name) + ' ' + (e && e.message)); }
+  }
+  await new Promise(res => setTimeout(res, n >= 2 ? 500 : 300));
+  if (tk !== SK.rtk || SK.st !== 'rec' || SK.stopping || SK.paused) return;
+  const r = skSrNew(tk, false);
+  try { r.start(); skLog('恢復 start() 成功 n=' + n); skSrWatch(tk, r); }
+  catch (e) { skLog('恢復 start() 失敗 ' + (e && e.name) + ' ' + (e && e.message)); SK.err = '語音辨識沒有啟動成功。請按下方「🔧 重置麥克風」，再錄一次。'; skRender(); }
 }
 function skRecToggle() {
   skLog('點麥克風 st=' + SK.st);
@@ -598,7 +615,7 @@ function skRecGo(tk) {
   const SRc = skSR(); skLog('開始錄音 SR=' + !!SRc + ' 同時錄音檔=' + skUseMr());
   SK.lv = null; if (SRc && skWholeRec()) skLiveInit(); // 整篇＋有語音辨識：開啟即時追蹤
   if (SRc) {
-    const r = skSrNew(tk);
+    const r = skSrNew(tk, true);
     try { r.start(); skLog('r.start() 呼叫成功'); skSrWatch(tk, r); } catch (e) { skLog('r.start() 丟出 ' + (e && e.name) + ' ' + (e && e.message)); SK.sr = null; SK.err = '語音辨識沒有啟動成功。請按下方「🔧 重置麥克風」，再錄一次。'; }
   }
   skMediaStart(tk);
