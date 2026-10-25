@@ -271,6 +271,11 @@ const skMp3Ok = x => !SK.bad[idOf(x)] && (AU.idx ? dyHas(x) : true);
 /* 「我的錄音」播放用的 <audio>：停止時要真的釋放（pause＋移除 src＋load），否則 iOS／部分 Android 的音訊通道還被佔著，下一次麥克風就收不到聲。
    釋放後還要等一小段時間（SK_MINE_REL）才允許再錄音／再播放；這段期間按鈕顯示「關閉中」且不能按。 */
 const SK_MINE_REL = 350;
+/* iOS 音訊工作階段：錄音時是 play-and-record（聲音走聽筒、偏小），播放時要切成 playback（走喇叭、音量正常）。
+   播放完沒切回 play-and-record，或常駐麥克風串流還開著就播放，下一次語音辨識就會「開了但聽不到」。 */
+function skAudioSession(t) {
+  try { const a = navigator.audioSession; if (!a) { if (!SK.asNo) { SK.asNo = 1; skLog('audioSession API 不存在'); } return; } if (a.type !== t) { skLog('audioSession ' + a.type + ' → ' + t); a.type = t; } } catch (e) { skLog('audioSession 失敗 ' + (e && e.message)); }
+}
 function skMineFree() {
   const a = SK.mine; SK.mine = null;
   if (a) {
@@ -278,7 +283,7 @@ function skMineFree() {
     try { a.pause(); } catch (e) {}
     try { a.removeAttribute('src'); a.load(); } catch (e) {}
     SK.mineRel = true; clearTimeout(SK.mineT);
-    SK.mineT = setTimeout(() => { SK.mineRel = false; skLog('我的錄音播放檔已完整關閉'); skAfter(); }, SK_MINE_REL);
+    SK.mineT = setTimeout(() => { skAudioSession('play-and-record'); SK.mineRel = false; skLog('我的錄音播放檔已完整關閉'); skAfter(); }, SK_MINE_REL);
     skLog('釋放我的錄音播放檔');
   }
   if (SK.mineUrl) { try { URL.revokeObjectURL(SK.mineUrl); } catch (e) {} SK.mineUrl = null; }
@@ -297,6 +302,7 @@ function skPlay(x, seg, key) {
   if (SK.playing === 'model' && SK.pk === key) { skStopPlay(); skAfter(); return; }
   skStopPlay();
   const tk = SK.tk;
+  skKeepFree(); skAudioSession('playback');
   SK.playing = 'model'; SK.pk = key;
   const done = () => { if (tk !== SK.tk) return; SK.playing = null; SK.pk = null; SK.hl = -1; skAfter(); };
   const tts = () => {
@@ -408,6 +414,7 @@ function skPlayMine(sc) {
   if (SK.playing === 'mine' && SK.pm === sc) { skStopPlay(); skRender(); return; }
   skStopPlay();
   if (SK.mineRel) { skRender(); return; }
+  skKeepFree(); skAudioSession('playback'); // 常駐麥克風還開著會讓播放變小聲，也會干擾之後的辨識
   const tk = SK.tk, a = new Audio(r.url);
   SK.mine = a; SK.playing = 'mine'; SK.pm = sc;
   skLog('播放我的錄音 開始');
@@ -622,6 +629,7 @@ function skRecToggle() {
   if (SK.st === 'rec') { skRecStop(); return; }
   if (SK.st === 'proc' || SK.st === 'prep') return;
   if (skMineBusy()) { if (typeof dnToast === 'function') dnToast('請先按「結束播放」，等音檔關閉後再錄音'); return; }
+  skAudioSession('play-and-record');
   skReleaseAudio(); // 錄音前先把播放用的資源全部放掉（iOS／部分 Android 只要音訊通道還被佔著，麥克風就收不到聲）；下次播原音時會自動重開
   skCancelRec();    // 再把上一次可能殘留的辨識／錄音／麥克風串流全部關掉
   SK.err = ''; SK.final = ''; SK.interim = ''; SK.restart = 0; SK.rsT = []; SK.paused = false; SK.stopping = false; SK.blob = null; SK.wdN = 0;
@@ -810,6 +818,7 @@ function skPlaySaved(k) {
   if (SK.mineRel) return;
   if (SK.playing === 'saved' && SK.pk === k) { skStopPlay(); skRender(); return; }
   skStopPlay(); if (SK.mineRel) { skRender(); return; }
+  skKeepFree(); skAudioSession('playback');
   const tk = SK.tk, id = SK.id;
   SK.playing = 'saved'; SK.pk = k; skRender();
   skDbDo('readonly', s => s.get(id + ':' + k)).then(rec => {
