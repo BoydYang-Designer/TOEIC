@@ -170,13 +170,13 @@ function spStop() {
 }
 function spHtml(id) {
   const mine = Sp.id === id && Sp.st !== 'idle', playing = Sp.id === id && Sp.st === 'playing', loading = Sp.id === id && Sp.st === 'loading';
-  const b = 'rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300 disabled:opacity-40 disabled:cursor-not-allowed';
-  const on = 'rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-600 text-white';
+  const b = 'whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300 disabled:opacity-40 disabled:cursor-not-allowed';
+  const on = 'whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-600 text-white';
   return `<button onclick="spToggle('${id}')" class="${playing || loading ? on : b}${loading ? ' animate-pulse' : ''}">${loading ? '⏳ 載入中…' : playing ? '⏸ 暫停' : (mine ? '▶ 繼續' : '🔊 播放語音')}</button>
     <button onclick="spBack()" ${mine ? '' : 'disabled'} class="${b}" title="倒轉 5 秒（鍵盤 ←）">⏪ 5秒</button>
     <button onclick="spFwd()" ${mine ? '' : 'disabled'} class="${b}" title="快轉 5 秒（鍵盤 →）">5秒 ⏩</button>
     <button onclick="spStop()" ${mine ? '' : 'disabled'} class="${b}" title="停止">⏹</button>
-    <span class="inline-flex items-center gap-1"><span class="text-xs text-slate-400">語速</span>${SP_SPEEDS.map(v => `<button onclick="spSetSpeed(${v})" class="rounded-lg px-2.5 py-2 text-xs font-medium transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300'}">${v}×</button>`).join('')}</span>
+    <span class="flex md:inline-flex w-full md:w-auto items-center gap-1 whitespace-nowrap"><span class="text-xs text-slate-400">語速</span>${SP_SPEEDS.map(v => `<button onclick="spSetSpeed(${v})" class="shrink-0 rounded-lg px-2.5 py-2 text-xs font-medium transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300'}">${v}×</button>`).join('')}</span>
     ${mine ? `<span class="text-xs ${playing ? 'text-indigo-600 dark:text-indigo-300 font-semibold' : 'text-slate-400'}">${playing ? '● ' : ''}${Sp.mode === 'audio' ? '音檔' : '語音合成'}${loading ? '（載入中）' : playing ? '播放中' : '（已暫停）'}</span>` : ''}`;
 }
 const SP_TS = '#passage-text .tsent, #pair-text .tsent', SP_ZS = '#zh-text .zsent, #pair-text .zsent'; // 英文句／中文句（單語模式或中英對照）
@@ -259,7 +259,7 @@ function spSeek(id, i) { // 點文稿句子：跳到該句播放
 function spMini() { // 手機底部浮動播放列：捲到測驗區時仍可暫停／倒轉
   const el = document.getElementById('mini'); if (!el) return;
   if (Sp.st === 'idle' || !Sp.id) { el.innerHTML = ''; return; }
-  const b = 'rounded-lg px-4 py-2.5 text-sm font-medium cursor-pointer bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
+  const b = 'shrink-0 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium cursor-pointer bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
   el.innerHTML = `<div class="mx-3 mb-3 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur p-2 flex items-center gap-2" style="margin-bottom:max(0.75rem,env(safe-area-inset-bottom))">
     <span class="flex-1 min-w-0 truncate px-2 text-xs text-slate-500">${Sp.st === 'loading' ? '⏳ 載入中 · ' : Sp.st === 'playing' ? '● ' : '⏸ '}${Sp.id.toUpperCase()} · ${Sp.mode === 'audio' ? '音檔' : '語音合成'}</span>
     <button onclick="spBack()" class="${b}">⏪ 5秒</button>
@@ -1139,12 +1139,13 @@ function renderDay() {
       </div>
       <div class="flex flex-wrap items-center justify-end gap-2">
         <div class="inline-flex rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700" role="group" aria-label="文稿顯示">${[['en', '英文'], ['zh', '中文'], ['pair', '中英對照']].map(([m, lb]) => `<button onclick="setTextMode('${m}')" aria-pressed="${txMode === m}" class="px-3 py-2 text-sm font-medium transition cursor-pointer ${txMode === m ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${lb}</button>`).join('')}</div>
-        <div id="sp-ctl" data-id="${id}" class="flex items-center gap-2">${spHtml(id)}</div>
+        ${typeof rdBarH === 'function' ? rdBarH() : ''}
+        <div id="sp-ctl" data-id="${id}" class="flex flex-wrap items-center gap-2 w-full md:w-auto">${spHtml(id)}</div>
       </div>
     </div>`;
 
   const hintTxt = cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔；播放中可按 空白鍵 暫停／繼續，← → 倒轉／快轉 5 秒。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。';
-  const enBlock = `<p id="passage-text" class="${cur.mk ? 'annot ' : ''}whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans">${passageHtml(x)}</p>
+  const enBlock = `<p id="passage-text" class="${cur.mk ? 'annot ' : ''}${tmOk(x) ? '' : 'whitespace-pre-line '}leading-relaxed text-slate-700 dark:text-slate-300 font-sans">${passageHtml(x)}</p>
       <p class="mt-3 text-[0.6875rem] text-slate-400">${hintTxt}</p>`;
   const zhBlock = top => `<div class="${top ? 'mt-4 pt-4 border-t border-slate-200 dark:border-slate-800' : ''}">
       <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">全文繁體中文翻譯</p>
@@ -1458,7 +1459,7 @@ function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切�
   if (!tmOk(x)) return chunk(p);
   let out = '', pos = 0;
   tm.forEach((t, i) => {
-    out += chunk(p.slice(pos, t.from)) + `<span class="tsent" data-i="${i}" onclick="spSeek('${idOf(x)}',${i})">${chunk(p.slice(t.from, t.to))}</span>`;
+    out += chunk(p.slice(pos, t.from)) + `<span class="tsent${i && /\n\s*\n/.test(p.slice(pos, t.from)) ? ' tp' : ''}" data-i="${i}" onclick="spSeek('${idOf(x)}',${i})">${chunk(p.slice(t.from, t.to))}</span>`;
     pos = t.to;
   });
   return out + chunk(p.slice(pos));

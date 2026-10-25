@@ -45,3 +45,18 @@ body{overflow-x:clip}
 #main details>summary{min-width:0}
 /* 按鈕／連結：取消 iOS 點兩下放大的延遲，點擊反應更跟手 */
 button,a,summary,label{touch-action:manipulation}
+
+/* ===== 閱讀排版（Day 內文／語音練習「整篇」共用）=====
+   每一句獨立一行；同一段的句子靠得近，段落之間間距較大。字級用 --rd-fs（A−／A＋ 或雙指縮放調整，存在這台裝置） */
+#passage-text,#sk-whole{font-size:var(--rd-fs,1rem)}
+#pair-text .tsent{font-size:var(--rd-fs,1rem)}
+#zh-text,#pair-text .zsent{font-size:calc(var(--rd-fs,1rem)*.85)}
+#passage-text,#pair-text,#zh-text,#sk-whole{touch-action:pan-y}
+#passage-text .tsent{display:block;white-space:pre-line;margin-top:.45em}
+#passage-text .tsent:first-child{margin-top:0}
+#passage-text .tsent.tp{margin-top:1.3em}
+#sk-whole .sks{display:block;white-space:pre-line;margin-top:.45em}
+#sk-whole .sks.sks-0{margin-top:0}
+#sk-whole .sks.sks-p{margin-top:1.3em}
+/* 播放列按鈕不折行；手機上整列可換行，不超出畫面 */
+#sp-ctl button,#mini button{white-space:nowrap}
