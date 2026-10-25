@@ -474,49 +474,92 @@ function skLiveSched() {
 }
 
 /* ================= 錄音＋語音辨識 ================= */
-async function skRecToggle() {
+/* ---- 手機麥克風穩定化（重點說明）----
+   手機卡麥克風的三個主因：
+   ① 語音辨識（SpeechRecognition）和錄音（getUserMedia＋MediaRecorder）同時搶同一支麥克風，第二次之後常常有一邊收不到聲音。
+      → 手機預設只開語音辨識（SK_MOB && S.spkMr !== 1）；要錄音檔可在畫面上打開「錄音檔」，但手機可能不穩。
+   ② 上一次的辨識／錄音／播放（AudioContext、<audio>、TTS）還沒真正釋放，就馬上開下一次。
+      → 錄音前先把所有播放資源放掉，並且距離上次收麥克風至少隔一小段時間（SK_SETTLE）才開始。
+   ③ 辨識自動重啟時 start() 丟 InvalidStateError 被吞掉，畫面看起來在錄，其實辨識已經死了。
+      → 重啟改成「建新的辨識物件＋失敗會重試」，並加上「4.5 秒內一個聲音事件都沒有就自動重開」的看門狗。 */
+const SK_MOB = SK_IOS || /Android/i.test(navigator.userAgent);
+const skUseMr = () => !skSR() || !SK_MOB || S.spkMr === 1; // 是否同時用 MediaRecorder 錄音檔
+const skSettle = () => (SK.fail ? 700 : SK_MOB ? 350 : 0);  // 兩次麥克風之間至少隔幾毫秒
+function skReleaseAudio() { // 把所有會佔用音訊通道的東西都放掉（播放原音、Web Audio、<audio>、TTS、首頁播放器）
+  skStopPlay(); skCloseCtx();
+  if (SK.au) { try { SK.au.pause(); SK.au.removeAttribute('src'); SK.au.load(); } catch (e) {} SK.au = null; SK.src = ''; }
+  if (typeof spStop === 'function') { try { spStop(); } catch (e) {} }
+  try { speechSynthesis.cancel(); } catch (e) {}
+}
+function skSrNew(tk) { // 建一個新的語音辨識物件（每次重啟都用新的，比重複 start 同一個穩）
+  const SRc = skSR(); if (!SRc) return null;
+  const r = new SRc(); SK.sr = r;
+  r.lang = 'en-US'; r.continuous = true; r.interimResults = true; r.maxAlternatives = 1;
+  const up = () => { if (r === SK.sr) SK.everUp = true; }; // 收到任何「有聽到聲音」的事件＝麥克風是通的
+  r.onaudiostart = r.onsoundstart = r.onspeechstart = up;
+  r.onresult = e => {
+    if (r !== SK.sr) return;
+    SK.everUp = true; SK.rsT = []; // 有收到辨識結果＝還正常，重啟計數歸零
+    let fin = '', itm = '';
+    for (let k = e.resultIndex; k < e.results.length; k++) { if (e.results[k].isFinal) fin += ' ' + e.results[k][0].transcript; else itm += ' ' + e.results[k][0].transcript; }
+    if (fin.trim()) { SK.restart = 0; SK.final = (SK.final + ' ' + fin).trim(); }
+    SK.interim = itm.trim();
+    const el = document.getElementById('sk-heard'); if (el) el.textContent = (SK.final + ' ' + SK.interim).trim() || '…';
+    if (SK.lv) skLiveSched();
+  };
+  r.onerror = e => {
+    if (r !== SK.sr || e.error === 'no-speech' || e.error === 'aborted') return;
+    SK.err = ({ 'not-allowed': '麥克風權限被拒絕：請點網址列左邊的圖示（🔒 或 ⚙）→「麥克風」→ 允許，然後重新整理頁面。', 'service-not-allowed': '此瀏覽器不允許語音辨識服務。', 'audio-capture': '找不到麥克風，或被其他程式佔用。', network: '語音辨識需要網路連線。' })[e.error] || ('語音辨識錯誤（' + e.error + '），請再試一次。');
+    skRecStop();
+  };
+  r.onend = () => {
+    if (r !== SK.sr) return;
+    if (SK.stopping) { if (SK.srEnd) SK.srEnd(); return; }
+    if (SK.paused) { if (SK.interim) { SK.final = (SK.final + ' ' + SK.interim).trim(); SK.interim = ''; } return; } // 暫停中：辨識收掉就好，不要自動重啟
+    if (SK.st === 'rec') { // 非使用者停止（念到一半停頓、瀏覽器自己斷線）→ 自動接回去，直到使用者按停止
+      if (SK.interim) { SK.final = (SK.final + ' ' + SK.interim).trim(); SK.interim = ''; } // 斷線前還沒定稿的字先收進來，不要丟掉
+      const now = Date.now(); SK.rsT = (SK.rsT || []).filter(t => now - t < 8000); SK.rsT.push(now);
+      if (SK.rsT.length <= 6) { skSrRestart(tk, 0); return; } // 8 秒內連續斷 6 次以上才放棄（代表真的壞了：沒網路、麥克風被佔用）
+      skRecStop();
+    }
+  };
+  return r;
+}
+function skSrRestart(tk, n) { // 重開辨識：用新物件；start 失敗（上一個還沒完全結束）就等一下再試，不再默默放棄
+  setTimeout(() => {
+    if (tk !== SK.rtk || SK.st !== 'rec' || SK.stopping || SK.paused) return;
+    const old = SK.sr; if (old) { old.onresult = old.onend = old.onerror = old.onaudiostart = old.onsoundstart = old.onspeechstart = null; try { old.abort(); } catch (e) {} }
+    const r = skSrNew(tk);
+    try { r.start(); skSrWatch(tk, r); }
+    catch (e) { if (n < 8) skSrRestart(tk, n + 1); else { SK.err = '語音辨識沒辦法重新啟動，請按下方「🔧 重置麥克風」。'; skRecStop(); } }
+  }, n ? 250 : 60);
+}
+function skSrWatch(tk, r) { // 看門狗：剛開始錄音 4.5 秒內，辨識一個聲音事件都沒有＝麥克風沒開起來，自動重開（最多 2 次）
+  clearTimeout(SK.wd); if (SK.everUp) return;
+  SK.wd = setTimeout(() => {
+    if (r !== SK.sr || tk !== SK.rtk || SK.st !== 'rec' || SK.paused || SK.stopping || SK.everUp) return;
+    if ((SK.wdN = (SK.wdN || 0) + 1) <= 2) { skSrRestart(tk, 0); return; }
+    SK.err = '麥克風好像沒有收到聲音。請按下方「🔧 重置麥克風」，再錄一次。'; skRender();
+  }, 4500);
+}
+function skRecToggle() {
   if (SK.st === 'rec') { skRecStop(); return; }
-  if (SK.st === 'proc') return;
-  skStopPlay();
-  skCloseCtx(); // 錄音前把播放用的 AudioContext 整個關掉（只暫停的話，iOS／部分 Android 的音訊通道還是被佔住，錄幾次後麥克風就收不到聲）；下次播原音時會自動重開
-  skCancelRec(); // 先把上一次可能殘留的辨識／錄音／麥克風串流全部關掉，避免麥克風被佔用而收不到聲音
-  SK.err = ''; SK.final = ''; SK.interim = ''; SK.restart = 0; SK.rsT = []; SK.paused = false; SK.stopping = false; SK.blob = null; SK.st = 'rec';
-  const tk = ++SK.rtk;
+  if (SK.st === 'proc' || SK.st === 'prep') return;
+  skReleaseAudio(); // 錄音前先把播放用的資源全部放掉（iOS／部分 Android 只要音訊通道還被佔著，麥克風就收不到聲）；下次播原音時會自動重開
+  skCancelRec();    // 再把上一次可能殘留的辨識／錄音／麥克風串流全部關掉
+  SK.err = ''; SK.final = ''; SK.interim = ''; SK.restart = 0; SK.rsT = []; SK.paused = false; SK.stopping = false; SK.blob = null; SK.wdN = 0;
+  SK.st = 'prep'; skRender();
+  const tk = ++SK.rtk, wait = Math.max(0, skSettle() - (Date.now() - (SK.lastEnd || 0)));
+  if (wait) setTimeout(() => skRecGo(tk), wait); else skRecGo(tk); // 沒有要等就同步開始（保留使用者手勢，iOS 需要）
+}
+function skRecGo(tk) {
+  if (tk !== SK.rtk || SK.st !== 'prep') return;
+  SK.st = 'rec'; SK.everUp = false; SK.stopping = false;
   const SRc = skSR();
   SK.lv = null; if (SRc && skWholeRec()) skLiveInit(); // 整篇＋有語音辨識：開啟即時追蹤
   if (SRc) {
-    const r = new SRc(); SK.sr = r;
-    r.lang = 'en-US'; r.continuous = true; r.interimResults = true; r.maxAlternatives = 1;
-    r.onresult = e => {
-      if (r !== SK.sr) return;
-      SK.rsT = []; // 有收到辨識結果＝還正常，重啟計數歸零
-      let fin = '', itm = '';
-      for (let k = e.resultIndex; k < e.results.length; k++) { if (e.results[k].isFinal) fin += ' ' + e.results[k][0].transcript; else itm += ' ' + e.results[k][0].transcript; }
-      if (fin.trim()) { SK.restart = 0; SK.final = (SK.final + ' ' + fin).trim(); }
-      SK.interim = itm.trim();
-      const el = document.getElementById('sk-heard'); if (el) el.textContent = (SK.final + ' ' + SK.interim).trim() || '…';
-      if (SK.lv) skLiveSched();
-    };
-    r.onerror = e => {
-      if (r !== SK.sr || e.error === 'no-speech' || e.error === 'aborted') return;
-      SK.err = ({ 'not-allowed': '麥克風權限被拒絕：請點網址列左邊的圖示（🔒 或 ⚙）→「麥克風」→ 允許，然後重新整理頁面。', 'service-not-allowed': '此瀏覽器不允許語音辨識服務。', 'audio-capture': '找不到麥克風，或被其他程式佔用。', network: '語音辨識需要網路連線。' })[e.error] || ('語音辨識錯誤（' + e.error + '），請再試一次。');
-      skRecStop();
-    };
-    r.onend = () => {
-      if (r !== SK.sr) return;
-      if (SK.stopping) { if (SK.srEnd) SK.srEnd(); return; }
-      if (SK.paused) { if (SK.interim) { SK.final = (SK.final + ' ' + SK.interim).trim(); SK.interim = ''; } return; } // 暫停中：辨識收掉就好，不要自動重啟
-      if (SK.st === 'rec') { // 非使用者停止（念到一半停頓、瀏覽器自己斷線）→ 自動接回去，直到使用者按停止
-        if (SK.interim) { SK.final = (SK.final + ' ' + SK.interim).trim(); SK.interim = ''; } // 斷線前還沒定稿的字先收進來，不要丟掉
-        const now = Date.now(); SK.rsT = (SK.rsT || []).filter(t => now - t < 8000); SK.rsT.push(now);
-        if (SK.rsT.length <= 6) { // 8 秒內連續斷 6 次以上才放棄（代表真的壞了：沒網路、麥克風被佔用）
-          setTimeout(() => { if (r !== SK.sr || SK.st !== 'rec' || SK.stopping || SK.paused) return; try { r.start(); } catch (e) { if (!e || e.name !== 'InvalidStateError') skRecStop(); } }, 150);
-          return;
-        }
-        skRecStop();
-      }
-    };
-    try { r.start(); } catch (e) { SK.sr = null; SK.err = '語音辨識沒有啟動成功。請按下方「🔧 重置麥克風」，再錄一次。'; }
+    const r = skSrNew(tk);
+    try { r.start(); skSrWatch(tk, r); } catch (e) { SK.sr = null; SK.err = '語音辨識沒有啟動成功。請按下方「🔧 重置麥克風」，再錄一次。'; }
   }
   skMediaStart(tk);
   clearTimeout(SK.timer);
@@ -525,6 +568,7 @@ async function skRecToggle() {
 }
 async function skMediaStart(tk) {
   SK.mr = null; SK.chunks = [];
+  if (!skUseMr()) return; // 手機預設不同時錄音檔，避免和語音辨識搶麥克風
   if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || typeof MediaRecorder === 'undefined') return;
   let stream;
   try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
@@ -574,7 +618,8 @@ function skRecStop() {
   skRender();
 }
 function skCancelRec() {
-  SK.rtk++; clearTimeout(SK.timer); SK.stopping = true;
+  const had = !!(SK.sr || SK.mr || SK.stream);
+  SK.rtk++; clearTimeout(SK.timer); clearTimeout(SK.wd); SK.stopping = true; if (had) SK.lastEnd = Date.now();
   const r = SK.sr; SK.sr = null;
   if (r) { r.onresult = r.onend = r.onerror = null; try { r.abort(); } catch (e) {} }
   const m = SK.mr; SK.mr = null;
@@ -587,8 +632,7 @@ function skCloseCtx() { const c = SK.ctx; SK.ctx = null; if (c) { try { c.close(
 /* 🔧 重置麥克風：手機上錄幾次之後常常收不到聲音（麥克風／辨識／音訊通道卡住）。這裡把所有東西關乾淨，
    再試開一次麥克風確認可用；已錄的結果、分數、已儲存的錄音都不會動。 */
 async function skReset() {
-  skStopAll(); skCloseCtx();
-  if (SK.au) { try { SK.au.pause(); SK.au.removeAttribute('src'); SK.au.load(); } catch (e) {} SK.au = null; SK.src = ''; }
+  skStopAll(); skReleaseAudio(); SK.lastEnd = Date.now();
   SK.bufs = {}; SK.rtk++; SK.st = 'idle'; SK.final = ''; SK.interim = ''; SK.err = ''; SK.fail = 0; SK.blob = null;
   try { speechSynthesis.cancel(); } catch (e) {}
   let msg = '已重置，請再按一次麥克風錄音';
@@ -605,7 +649,7 @@ async function skReset() {
 function skFinish(tk) {
   if (tk !== SK.rtk || SK.st !== 'proc') return;
   const x = skX(), heard = (SK.final + ' ' + SK.interim).trim(), blob = SK.blob, mime = SK.mime, url = blob ? URL.createObjectURL(blob) : null, sup = !!skSR();
-  const sr0 = SK.sr, mr0 = SK.mr;
+  const sr0 = SK.sr, mr0 = SK.mr; SK.lastEnd = Date.now(); clearTimeout(SK.wd);
   SK.lv = null; SK.paused = false; // 錄完：即時追蹤結束，改顯示完整評分
   SK.blob = null; SK.st = 'idle'; SK.sr = null; SK.mr = null; SK.srEnd = SK.mrDone = null;
   if (sr0) { sr0.onresult = sr0.onend = sr0.onerror = null; try { sr0.abort(); } catch (e) {} } // 確實關掉辨識，釋放麥克風
@@ -734,10 +778,10 @@ function skStickyInit() {
 }
 skStickyInit();
 function skMic() {
-  const rec = SK.st === 'rec', proc = SK.st === 'proc';
+  const rec = SK.st === 'rec', prep = SK.st === 'prep', proc = SK.st === 'proc' || prep;
   const pz = rec && SK.paused, canPz = rec && skWholeRec() && !!(SK.sr || SK.mr);
   const c = pz ? 'bg-amber-500 text-white' : rec ? 'bg-rose-600 text-white animate-pulse' : proc ? 'bg-slate-300 dark:bg-slate-700 text-slate-500' : 'bg-indigo-600 hover:bg-indigo-700 text-white';
-  const lbl = pz ? '⏸ 已暫停：按「▶ 繼續」接著念，或按 ⏹ 結束評分' : rec ? '🔴 錄音中…念完再點一次停止（想先停一下可按「⏸ 暫停」）' : proc ? '⏳ 辨識中…' : (skWholeRec() ? '點麥克風，念完整篇' : SK.inl ? '點麥克風，念出下面這一句（第 ' + (SK.i + 1) + ' 句）' : '點麥克風，念出這一句');
+  const lbl = pz ? '⏸ 已暫停：按「▶ 繼續」接著念，或按 ⏹ 結束評分' : rec ? '🔴 錄音中…念完再點一次停止（想先停一下可按「⏸ 暫停」）' : prep ? '⏳ 準備麥克風…' : proc ? '⏳ 辨識中…' : (skWholeRec() ? '點麥克風，念完整篇' : SK.inl ? '點麥克風，念出下面這一句（第 ' + (SK.i + 1) + ' 句）' : '點麥克風，念出這一句');
   const pzBtn = canPz ? `<button onclick="skPauseToggle()" class="${skCtl} shrink-0 !px-2.5 !py-1.5">${SK.paused ? '▶ 繼續' : '⏸ 暫停'}</button>` : '';
   // 固定住的只有這一條精簡列（麥克風按鈕＋暫停＋一行狀態）；錯誤訊息和「重置麥克風」放在它下面，會跟著頁面捲動
   return `<section class="${card} sticky z-20 shadow-md px-3 py-2 mb-1" style="top:var(--sk-top,8px)"><div class="flex items-center gap-3"><button onclick="skRecToggle()" ${proc ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${c}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>${pzBtn}<div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
@@ -1121,6 +1165,12 @@ function skToneH(x, s, r) {
     <div class="flex flex-wrap gap-x-4 gap-y-1 text-[0.6875rem] text-slate-400 mt-2"><span>${skDot('#0d9488')}青綠線＝你的語調（粗體字＝你加重的字）</span><span>${skDot('#c4b5fd')}淺紫虛線＝原音（對照）</span>${miss.size ? `<span class="text-amber-500">橘色點線字＝原音有加重、你沒有</span>` : ''}</div>
     <p class="mt-2 text-sm leading-relaxed">${skToneAdvice(T, s)}</p></div>`;
 }
+function skMr(v) { S.spkMr = v; save(); skStopAll(); skRender(); }
+function skMrH() { // 只有手機＋瀏覽器有語音辨識才顯示
+  if (!(SK_MOB && skSR())) return '';
+  const on = S.spkMr === 1;
+  return `<div class="flex flex-wrap items-center gap-2 mb-4 text-xs"><span class="text-slate-500">錄音檔</span><button onclick="skMr(0)" class="${skSeg(!on)} !py-1">關（較穩）</button><button onclick="skMr(1)" class="${skSeg(on)} !py-1">開</button><span class="text-slate-400">${on ? '同時錄下你的聲音（可回放、儲存、語調比對），但手機的麥克風容易卡住' : '只做語音辨識，麥克風最穩定；沒有回放、儲存與語調比對'}</span></div>`;
+}
 function skCurveToggle() { S.spkCurve = S.spkCurve === 1 ? 0 : 1; save(); skRender(); }
 function skPhLoop() { // 播放時讓橘色游標跟著原音走，並把正在念的字亮起來
   cancelAnimationFrame(SK.raf);
@@ -1265,6 +1315,7 @@ function skRender() {
     ${skNotes(x)}
     <div class="flex gap-2 mb-3">${tab('sent', '一句一句')}${tab('whole', '整篇')}</div>
     <div class="flex flex-wrap items-center gap-2 mb-4 text-xs"><span class="text-slate-500">評分</span><button onclick="skLevel('loose')" class="${skSeg(skLoose())} !py-1">寬鬆</button><button onclick="skLevel('strict')" class="${skSeg(!skLoose())} !py-1">嚴格</button><span class="text-slate-400">${skLoose() ? '相近的字（單複數、時態）算對，漏念 a／the／to／of 不扣分' : '每個字都要念對'}</span></div>
+    ${skMrH()}
     ${SK.mode === 'sent' ? skSentH(x) : skWholeH(x) + (SK.inl ? `<div id="sk-inl" style="scroll-margin-top:calc(var(--sk-top,8px) + 5rem)">${skSentH(x, true)}</div>` : '')}
     <button onclick="skBack()" class="${btn} md:hidden w-full mt-6 border border-slate-300 dark:border-slate-700">← 返回內文</button>`;
   if (skWholeRec() && SK.lv) { skLiveAlign((SK.final + ' ' + SK.interim).trim()); skLiveSync(); }
