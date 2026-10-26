@@ -1455,12 +1455,11 @@ function passageChunker(x) { // 英文文字 → HTML（逃逸＋依「標示單
     ents.forEach(o => { if (!idx.has(o.k)) idx.set(o.k, o.i); });
     if (ents.length) re = new RegExp('\\b(' + ents.map(o => o.e).join('|') + ')[a-z]*', 'gi');
   }
-  return str => { const t = esc(str); return re ? t.replace(re, (m, g) => { const i = idx.get(String(g).toLowerCase()); return i == null ? `<mark class="hl">${m}</mark>` : `<mark class="hl" style="cursor:pointer" title="點一下看詳解" onclick="hlOpen(event,${i})">${m}</mark>`; }) : t; };
+  return str => { const t = esc(str); return re ? t.replace(re, (m, g) => { const i = idx.get(String(g).toLowerCase()); return i == null ? `<mark class="hl">${m}</mark>` : `<mark class="hl" data-vi="${i}" style="cursor:pointer" title="點一下看詳解" onclick="hlOpen(event,${i})">${m}</mark>`; }) : t; };
 }
-function hlOpen(ev, i) { // 文章裡標示的核心單字：點一下開詳解（標註模式要選字入庫，不開；有選取文字時也不開）
+function hlOpen(ev, i) { // 文章裡標示的核心單字：點一下開詳解（播放／標註模式都可以；有選取文字時不開，才不會干擾選字入庫）
   const sel = window.getSelection(); if (sel && !sel.isCollapsed) return;
-  if (ev) ev.stopPropagation(); // 不要同時觸發「點句子播放」
-  if (cur.mk) return;
+  if (ev) ev.stopPropagation(); // 不要同時觸發「點句子播放」（標註模式由 notes.js 的委派處理，點標示字同樣開詳解）
   if (typeof dnOpenVocab === 'function') dnOpenVocab(i);
 }
 function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切成可點擊、可高亮的句子
