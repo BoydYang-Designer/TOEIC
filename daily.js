@@ -170,14 +170,20 @@ function spStop() {
 }
 function spHtml(id) {
   const mine = Sp.id === id && Sp.st !== 'idle', playing = Sp.id === id && Sp.st === 'playing', loading = Sp.id === id && Sp.st === 'loading';
-  const b = 'whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300 disabled:opacity-40 disabled:cursor-not-allowed';
-  const on = 'whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-600 text-white';
-  return `<button onclick="spToggle('${id}')" class="${playing || loading ? on : b}${loading ? ' animate-pulse' : ''}">${loading ? '⏳ 載入中…' : playing ? '⏸ 暫停' : (mine ? '▶ 繼續' : '🔊 播放語音')}</button>
-    <button onclick="spBack()" ${mine ? '' : 'disabled'} class="${b}" title="倒轉 5 秒（鍵盤 ←）">⏪ 5秒</button>
-    <button onclick="spFwd()" ${mine ? '' : 'disabled'} class="${b}" title="快轉 5 秒（鍵盤 →）">5秒 ⏩</button>
-    <button onclick="spStop()" ${mine ? '' : 'disabled'} class="${b}" title="停止">⏹</button>
-    <span class="flex md:inline-flex w-full md:w-auto items-center gap-1 whitespace-nowrap"><span class="text-xs text-slate-400">語速</span>${SP_SPEEDS.map(v => `<button onclick="spSetSpeed(${v})" class="shrink-0 rounded-lg px-2.5 py-2 text-xs font-medium transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300'}">${v}×</button>`).join('')}</span>
-    ${mine ? `<span class="text-xs ${playing ? 'text-indigo-600 dark:text-indigo-300 font-semibold' : 'text-slate-400'}">${playing ? '● ' : ''}${Sp.mode === 'audio' ? '音檔' : '語音合成'}${loading ? '（載入中）' : playing ? '播放中' : '（已暫停）'}</span>` : ''}`;
+  const base = 'inline-flex items-center justify-center whitespace-nowrap rounded-xl h-12 text-sm font-semibold transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ';
+  const soft = base + 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300';
+  const on = base + 'bg-indigo-600 text-white';
+  const mini = (fn, ic, lb, dis, tip) => `<button onclick="${fn}" ${dis ? 'disabled' : ''} title="${tip}" aria-label="${tip}" class="${soft} flex-col w-14 shrink-0 leading-none gap-0.5"><span class="text-base">${ic}</span><span class="text-[0.6875rem] font-medium">${lb}</span></button>`;
+  const seg = v => `<button onclick="spSetSpeed(${v})" aria-pressed="${v === Sp.speed}" class="px-3 h-9 text-xs font-semibold transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${v}×</button>`;
+  const state = mine ? `<p class="text-xs ${playing ? 'text-indigo-600 dark:text-indigo-300 font-semibold' : 'text-slate-400'}">${playing ? '● ' : ''}${Sp.mode === 'audio' ? '音檔' : '語音合成'}${loading ? '（載入中）' : playing ? '播放中' : '（已暫停）'}</p>` : '';
+  return `<div class="flex items-stretch gap-2 w-full">
+      <button onclick="spToggle('${id}')" class="${playing || loading ? on : soft} flex-1 min-w-0 gap-2 px-3${loading ? ' animate-pulse' : ''}"><span class="text-lg leading-none">${loading ? '⏳' : playing ? '⏸' : '🔊'}</span><span>${loading ? '載入中…' : playing ? '暫停' : (mine ? '繼續' : '播放語音')}</span></button>
+      ${mini('spBack()', '⏪', '5秒', !mine, '倒轉 5 秒（鍵盤 ←）')}${mini('spFwd()', '⏩', '5秒', !mine, '快轉 5 秒（鍵盤 →）')}${mini('spStop()', '⏹', '停止', !mine, '停止')}
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 w-full mt-2.5">
+      <div class="flex items-center gap-2"><span class="text-xs text-slate-500">語速</span><div class="inline-flex rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700" role="group" aria-label="語速">${SP_SPEEDS.map(seg).join('')}</div></div>
+      ${typeof rdBarH === 'function' ? rdBarH() : ''}
+    </div>${state ? `<div class="mt-1.5">${state}</div>` : ''}`;
 }
 const SP_TS = '#passage-text .tsent, #pair-text .tsent', SP_ZS = '#zh-text .zsent, #pair-text .zsent'; // 英文句／中文句（單語模式或中英對照）
 function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll(SP_TS.replace(/\.tsent/g, '.tsent.active') + ', ' + SP_ZS.replace(/\.zsent/g, '.zsent.active')).forEach(e => e.classList.remove('active')); }
@@ -1132,16 +1138,13 @@ function renderDay() {
 
   <!-- 短文/聽力卡片 -->
   <section class="${card} p-4 md:p-6 mb-5 md:mb-6">
-    <div class="flex items-center justify-between mb-4 gap-2 flex-wrap">
-      <div class="flex items-center gap-2">
-        <button onclick="dnToggleMk()" aria-pressed="${!!cur.mk}" title="${cur.mk ? '點一下回到播放模式' : '點一下進入標註模式（選字不再播放音檔，並標示核心單字）'}" class="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded cursor-pointer transition ${cur.mk ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">✏️ ${x.type}${cur.mk ? ' · 標註中' : ''}</button>
-        ${isListening ? '<span class="text-xs text-indigo-600 dark:text-indigo-400">建議先聽聲音作答</span>' : ''}
-      </div>
-      <div class="flex flex-wrap items-center justify-end gap-2">
-        <div class="inline-flex rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700" role="group" aria-label="文稿顯示">${[['en', '英文'], ['zh', '中文'], ['pair', '中英對照']].map(([m, lb]) => `<button onclick="setTextMode('${m}')" aria-pressed="${txMode === m}" class="px-3 py-2 text-sm font-medium transition cursor-pointer ${txMode === m ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${lb}</button>`).join('')}</div>
-        ${typeof rdBarH === 'function' ? rdBarH() : ''}
-        <div id="sp-ctl" data-id="${id}" class="flex flex-wrap items-center gap-2 w-full md:w-auto">${spHtml(id)}</div>
-      </div>
+    <div class="flex items-center gap-2 flex-wrap mb-3">
+      <button onclick="dnToggleMk()" aria-pressed="${!!cur.mk}" title="${cur.mk ? '點一下回到播放模式' : '點一下進入標註模式（選字不再播放音檔，並標示核心單字）'}" class="text-xs font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-lg cursor-pointer transition ${cur.mk ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">✏️ ${x.type}${cur.mk ? ' · 標註中' : ''}</button>
+      ${isListening ? '<span class="text-xs text-indigo-600 dark:text-indigo-400">建議先聽聲音作答</span>' : ''}
+    </div>
+    <div class="rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 p-2.5 mb-4">
+      <div class="grid grid-cols-3 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 mb-2.5" role="group" aria-label="文稿顯示">${[['en', '英文'], ['zh', '中文'], ['pair', '中英對照']].map(([m, lb]) => `<button onclick="setTextMode('${m}')" aria-pressed="${txMode === m}" class="h-10 px-2 text-sm font-medium transition cursor-pointer ${txMode === m ? 'bg-indigo-600 text-white' : 'bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700'}">${lb}</button>`).join('')}</div>
+      <div id="sp-ctl" data-id="${id}">${spHtml(id)}</div>
     </div>`;
 
   const hintTxt = cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔；播放中可按 空白鍵 暫停／繼續，← → 倒轉／快轉 5 秒。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。';
