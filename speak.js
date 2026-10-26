@@ -648,7 +648,7 @@ function skRecToggle() {
   skLog('點麥克風 st=' + SK.st);
   if (SK.st === 'rec') { skRecStop(); return; }
   if (SK.st === 'proc' || SK.st === 'prep') return;
-  if (skMineBusy()) { if (typeof dnToast === 'function') dnToast('請先按「結束播放」，等音檔關閉後再錄音'); return; }
+  if (skMineBusy()) { if (typeof dnToast === 'function') dnToast('請先按 ⏹ 停止播放，等音檔關閉後再錄音'); return; }
   skAudioSession('play-and-record');
   skReleaseAudio(); // 錄音前先把播放用的資源全部放掉（iOS／部分 Android 只要音訊通道還被佔著，麥克風就收不到聲）；下次播原音時會自動重開
   skCancelRec();    // 再把上一次可能殘留的辨識／錄音／麥克風串流全部關掉
@@ -971,6 +971,8 @@ function skNotes(x) {
   if (!skMp3Ok(x)) n.push('找不到這篇的 mp3：「聽原音」使用機器發音。');
   return n.length ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-4 text-xs text-amber-800 dark:text-amber-300 space-y-1">${n.map(s => `<p>⚠ ${esc(s)}</p>`).join('')}</div>` : '';
 }
+/* 聽我的錄音：只留 icon，放在「聽原音」左邊（句子列與整篇列各一顆）；沒有錄音時不顯示 */
+const skMineBtn = (sc, r) => r && r.url ? `<button onclick="skPlayMine('${sc}')" ${SK.mineRel ? 'disabled' : ''} title="聽我的錄音" aria-label="聽我的錄音" class="${skCtl} disabled:opacity-50">${SK.mineRel ? '⏳' : SK.playing === 'mine' && SK.pm === sc ? '⏹' : '🎧'}</button>` : '';
 const skCtl = 'rounded-lg px-3 py-2 text-sm font-medium transition cursor-pointer bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300';
 const skSeg = (on) => `rounded-lg px-3 py-2 text-sm font-medium cursor-pointer ${on ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}`;
 /* 麥克風列固定在畫面上方（手機貼在 #side 下面、電腦貼在最上面），文字往下捲、辨識中畫面一直更新時，麥克風按鈕都不會跑掉。
@@ -990,7 +992,7 @@ function skMic() {
   const rec = SK.st === 'rec', prep = SK.st === 'prep', mp = !rec && skMineBusy(), proc = SK.st === 'proc' || prep || mp;
   const pz = rec && SK.paused, canPz = rec && skWholeRec() && !!(SK.sr || SK.mr);
   const c = pz ? 'bg-amber-500 text-white' : rec ? 'bg-rose-600 text-white animate-pulse' : proc ? 'bg-slate-300 dark:bg-slate-700 text-slate-500' : 'bg-indigo-600 hover:bg-indigo-700 text-white';
-  const lbl = pz ? '⏸ 已暫停：按「▶ 繼續」接著念，或按 ⏹ 結束評分' : rec ? '🔴 錄音中…念完再點一次停止' + (canPz ? '（想先停一下可按「⏸ 暫停」）' : '') : prep ? '⏳ 準備麥克風…' : mp ? (SK.mineRel ? '⏳ 正在關閉播放音檔…完成後即可錄音' : '🔊 播放錄音中：請先按「結束播放」才能錄音') : proc ? '⏳ 辨識中…' : (skWholeRec() ? '點麥克風，念完整篇' : SK.inl ? '點麥克風，念出下面這一句（第 ' + (SK.i + 1) + ' 句）' : '點麥克風，念出這一句');
+  const lbl = pz ? '⏸ 已暫停：按「▶ 繼續」接著念，或按 ⏹ 結束評分' : rec ? '🔴 錄音中…念完再點一次停止' + (canPz ? '（想先停一下可按「⏸ 暫停」）' : '') : prep ? '⏳ 準備麥克風…' : mp ? (SK.mineRel ? '⏳ 正在關閉播放音檔…完成後即可錄音' : '🔊 播放錄音中：請先按 ⏹ 停止播放才能錄音') : proc ? '⏳ 辨識中…' : (skWholeRec() ? '點麥克風，念完整篇' : SK.inl ? '點麥克風，念出下面這一句（第 ' + (SK.i + 1) + ' 句）' : '點麥克風，念出這一句');
   const pzBtn = canPz ? `<button onclick="skPauseToggle()" class="${skCtl} shrink-0 !px-2.5 !py-1.5">${SK.paused ? '▶ 繼續' : '⏸ 暫停'}</button>` : '';
   // 固定住的只有這一條精簡列（麥克風按鈕＋暫停＋一行狀態）；錯誤訊息和「重置麥克風」放在它下面，會跟著頁面捲動
   return `<section class="${card} sticky z-20 shadow-md px-3 py-2 mb-1" style="top:var(--sk-top,8px)"><div class="flex items-center gap-3"><button onclick="skRecToggle()" ${proc ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${c}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>${pzBtn}<div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
@@ -1030,7 +1032,7 @@ function skResultH(r, wordsH, sc) { // r：本次結果；wordsH：已上色的�
   return `<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 text-left"><div class="flex flex-wrap items-center gap-2 mb-2">${head}</div>
     ${wordsH ? `<p class="leading-relaxed">${wordsH}</p>` : ''}
     ${r.heard ? skDiffH(r) : ''}
-    <div class="flex flex-wrap gap-2 mt-3">${r.url ? `<button onclick="skPlayMine('${sc}')" ${SK.mineRel ? 'disabled' : ''} class="${skCtl} disabled:opacity-50">${SK.mineRel ? '⏳ 關閉音檔中…' : SK.playing === 'mine' && SK.pm === sc ? '⏹ 結束播放' : '▶ 聽我的錄音'}</button>` : ''}${r.blob ? `<button onclick="skSave('${sc}')" class="${skCtl}">💾 ${skSv(SK.id, skKey(sc)) ? '覆蓋儲存' : '儲存語音練習'}</button>` : ''}<button onclick="skRetry('${sc}')" class="${skCtl}">↻ 重來</button></div></div>`;
+    <div class="flex flex-wrap gap-2 mt-3">${r.blob ? `<button onclick="skSave('${sc}')" class="${skCtl}">💾 ${skSv(SK.id, skKey(sc)) ? '覆蓋儲存' : '儲存語音練習'}</button>` : ''}<button onclick="skRetry('${sc}')" class="${skCtl}">↻ 重來</button></div></div>`;
 }
 
 /* ================= 語調曲線（畫在句子上） =================
@@ -1451,9 +1453,9 @@ function skSentH(x, inl) {
     <div class="flex items-center justify-between mb-3 gap-2"><span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">就地練習 · 第 ${i + 1} / ${N} 句</span><span class="text-xs text-slate-500">${best ? '本句最佳 ' + best + '%' : ''}</span></div>
     ${shown}
     <div class="flex flex-wrap items-center gap-2 mt-4">
-      <button onclick="skPlayModel(${i})" class="${skCtl}">${playing ? '⏹ 停止' : '🔊 聽原音'}</button>
+      ${skMineBtn('s', r)}<button onclick="skPlayModel(${i})" title="聽原音" aria-label="聽原音" class="${skCtl}">${playing ? '⏹' : '🔊'}</button>
       <button onclick="skRate(1)" class="${skSeg(SK.rate === 1)}">1x</button><button onclick="skRate(0.75)" class="${skSeg(SK.rate === 0.75)}">0.75x</button>
-      <button onclick="skHide()" class="${skCtl}">${SK.hide ? '👁 顯示文字' : '🙈 遮住文字'}</button>
+      <button onclick="skHide()" title="${SK.hide ? '顯示文字' : '遮住文字'}" aria-label="${SK.hide ? '顯示文字' : '遮住文字'}" class="${skCtl}">${SK.hide ? '👁' : '🙈'}</button>
     </div>${res.trim() ? res : ''}
     <div class="flex flex-wrap items-center gap-2 mt-4">
       <button onclick="skInl(${i - 1})" ${i ? '' : 'disabled'} class="${skCtl} disabled:opacity-40">← 上一句</button>
@@ -1467,10 +1469,10 @@ function skSentH(x, inl) {
     <div class="flex items-center justify-between mb-3 gap-2"><span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">第 ${i + 1} / ${N} 句</span><span class="text-xs text-slate-500">${best ? '本句最佳 ' + best + '%' : ''}</span></div>
     ${shown}
     <div class="flex flex-wrap items-center gap-2 mt-4">
-      <button onclick="skPlayModel(${i})" class="${skCtl}">${playing ? '⏹ 停止' : '🔊 聽原音'}</button>
+      ${skMineBtn('s', r)}<button onclick="skPlayModel(${i})" title="聽原音" aria-label="聽原音" class="${skCtl}">${playing ? '⏹' : '🔊'}</button>
       <button onclick="skRate(1)" class="${skSeg(SK.rate === 1)}">1x</button><button onclick="skRate(0.75)" class="${skSeg(SK.rate === 0.75)}">0.75x</button>
-      <button onclick="skHide()" class="${skCtl}">${SK.hide ? '👁 顯示文字' : '🙈 遮住文字'}</button>
-      ${s.start != null ? `<button onclick="skCurveToggle()" class="${S.spkCurve === 1 ? skSeg(true) : skCtl}">📈 語調曲線${S.spkCurve === 1 ? '：開' : ''}</button>` : ''}
+      <button onclick="skHide()" title="${SK.hide ? '顯示文字' : '遮住文字'}" aria-label="${SK.hide ? '顯示文字' : '遮住文字'}" class="${skCtl}">${SK.hide ? '👁' : '🙈'}</button>
+      ${s.start != null ? `<button onclick="skCurveToggle()" title="語調曲線${S.spkCurve === 1 ? '（已開）' : ''}" aria-label="語調曲線" class="${S.spkCurve === 1 ? skSeg(true) : skCtl}">📈</button>` : ''}
     </div>${s.start != null && skMp3Ok(x) ? skTrimH(id, i) : ''}</section>
   ${res.trim() ? `<section class="${card} p-4 md:p-6 mb-4">${res}</section>` : ''}
   <div class="flex items-center justify-between gap-2 mb-4">
@@ -1503,9 +1505,9 @@ function skWholeH(x) {
     <div class="flex items-center justify-between mb-3 gap-2"><span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">整篇 · ${N} 句</span>${rdBarH()}<span class="text-xs text-slate-500">${best ? '整篇最佳 ' + best + '%' : ''}</span></div>
     <p id="sk-whole" class="leading-relaxed" style="position:relative">${txt}</p>
     <div class="flex flex-wrap items-center gap-2 mt-4">
-      <button onclick="skPlayModel(-1)" class="${skCtl}">${playing ? '⏹ 停止' : '🔊 聽整篇原音'}</button>
+      ${skMineBtn('w', r)}<button onclick="skPlayModel(-1)" title="聽整篇原音" aria-label="聽整篇原音" class="${skCtl}">${playing ? '⏹' : '🔊'}</button>
       <button onclick="skRate(1)" class="${skSeg(SK.rate === 1)}">1x</button><button onclick="skRate(0.75)" class="${skSeg(SK.rate === 0.75)}">0.75x</button>
-      <button onclick="skHide()" class="${skCtl}">${SK.hide ? '👁 顯示文稿' : '🙈 遮住文稿'}</button>
+      <button onclick="skHide()" title="${SK.hide ? '顯示文稿' : '遮住文稿'}" aria-label="${SK.hide ? '顯示文稿' : '遮住文稿'}" class="${skCtl}">${SK.hide ? '👁' : '🙈'}</button>
     </div>
     ${live ? '<p class="mt-3 text-xs text-slate-500 leading-loose"><span class="skl ok">綠底</span>＝念對　<span class="skl bad">紅底</span>＝漏念或念錯　<span class="skw skw-on">橘框</span>＝下一個要念的字　<span class="sks sk-cs">淡藍底</span>＝目前這一句（即時追蹤只是參考，念完後以完整評分為準）</p>' : '<p class="mt-2 text-xs text-slate-400">點文稿裡的任一句，可單獨聽那一句。</p>'}</section>
   ${resW.trim() ? `<section class="${card} p-4 md:p-6 mb-4">${resW}</section>` : ''}`;
