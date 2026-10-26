@@ -746,17 +746,25 @@ function skgTog() { // 🎯 導讀開關
 function skgHold() { swgStop(); if (SKG.run) { SKG.run = false; skgRefreshBtn(); } } // 錄音停止／暫停／取消、換頁：導讀停在原位
 function skgResume() { if (SKG.on && SKG.started && SKG.tl && SKG.t < SKG.tl[SKG.tl.length - 1].b) skgRun(true); }
 function skgOnRec() { if (SKG.on && SK.mode === 'whole' && !SK.inl) { SK.hide = false; skgRestart(); } else if (SWG.on && skIsSent()) swgStart(); } // 開始錄整篇：導讀從頭走（遮住文稿時先顯示出來）
-function skgBarH() { // 放在固定的麥克風列裡，頁面自動捲動時控制鈕也一直看得到
-  const rng = `<input id="skg-rng" type="range" min="0.5" max="2" step="0.05" value="${SKG.sp}" oninput="skgSp(this.value)" class="min-w-0 flex-1 accent-indigo-600" aria-label="導讀速度（往左變慢、往右變快）">`;
-  return `<div class="mt-2 pt-2 border-t border-slate-200 dark:border-slate-800"><div class="flex items-center gap-2">
-    <button id="skg-play" onclick="skgPlay()" class="${skCtl} shrink-0 !px-2.5 !py-1" aria-label="預演導讀">${SKG.run ? '⏸' : '▶'}</button><button onclick="skgRew()" class="${skCtl} shrink-0 !px-2.5 !py-1" aria-label="從頭導讀">⟲</button>
-    <span class="text-[0.6875rem] text-slate-500 shrink-0">慢</span>${rng}<span class="text-[0.6875rem] text-slate-500 shrink-0">快</span>
-    <b id="skg-lbl" class="text-xs w-11 text-center shrink-0">${SKG.sp.toFixed(2)}x</b><button id="skg-one" onclick="skgSp(1)" class="${skgOneCls()}">原速</button><button onclick="skgWd()" class="shrink-0 rounded-lg px-2.5 py-1 text-xs font-bold cursor-pointer ${SKG.wd ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}" aria-label="逐字導讀開關">🔤 逐字${SKG.wd ? '：開' : ''}</button></div>
+function skgBarH() { // 固定在上方的導讀區：開關永遠在；開啟後才多出預演／逐字／拉桿
+  const on = SKG.on, b = 'h-11 shrink-0 rounded-lg px-3 text-sm font-bold cursor-pointer inline-flex items-center justify-center ';
+  const tog = `<button onclick="skgTog()" title="導讀模式：畫面依原音語速自動捲動，一句一句帶你跟讀" aria-pressed="${on}" class="${b} ${on ? 'flex-1 bg-indigo-600 text-white' : 'flex-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">🎯 導讀${on ? '：開' : '：關'}</button>`;
+  if (!on) return `<div class="mt-2 pt-2 border-t border-slate-200 dark:border-slate-800"><div class="flex items-center gap-2">${tog}</div></div>`;
+  const rng = `<input id="skg-rng" type="range" min="0.5" max="2" step="0.05" value="${SKG.sp}" oninput="skgSp(this.value)" class="skg-rng min-w-0 flex-1" aria-label="導讀速度（往左變慢、往右變快）">`;
+  return `<div class="mt-2 pt-2 border-t border-slate-200 dark:border-slate-800">
+    <div class="flex items-center gap-2">${tog}
+      <button id="skg-play" onclick="skgPlay()" class="${skCtl} ${b} !py-0 w-12" aria-label="預演導讀">${SKG.run ? '⏸' : '▶'}</button>
+      <button onclick="skgRew()" class="${skCtl} ${b} !py-0 w-12" aria-label="從頭導讀">⟲</button>
+      <button onclick="skgWd()" aria-pressed="${SKG.wd}" aria-label="逐字導讀開關" class="${b} ${SKG.wd ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">🔤${SKG.wd ? ' 開' : ''}</button></div>
+    <div class="flex items-center gap-2 mt-1.5">
+      <span class="text-xs text-slate-500 shrink-0">慢</span>${rng}<span class="text-xs text-slate-500 shrink-0">快</span>
+      <b id="skg-lbl" class="text-sm w-12 text-center shrink-0">${SKG.sp.toFixed(2)}x</b>
+      <button id="skg-one" onclick="skgSp(1)" class="${skgOneCls()} !h-10 !px-3 !text-sm">原速</button></div>
     <div class="mt-1.5 h-1 rounded bg-slate-200 dark:bg-slate-800 overflow-hidden"><div id="skg-bar" class="h-full bg-indigo-500" style="width:0%"></div></div></div>`;
 }
 (function () { // 導讀用的樣式、手動捲動偵測
   const st = document.createElement('style');
-  st.textContent = '.sks{transition:background .2s,opacity .3s,box-shadow .2s}.sks.sk-g{background:rgba(99,102,241,.2);box-shadow:0 0 0 4px rgba(99,102,241,.2)}.dark .sks.sk-g{background:rgba(129,140,248,.3);box-shadow:0 0 0 4px rgba(129,140,248,.3)}.sks.sk-gd{opacity:.4}.skgw{border-radius:3px;transition:background .08s}.skgw.skgw-on{background:rgba(245,158,11,.55);box-shadow:0 0 0 2px rgba(245,158,11,.55)}.skgw.skgw-d{color:#6366f1}.dark .skgw.skgw-d{color:#a5b4fc}';
+  st.textContent = '.skg-rng{-webkit-appearance:none;appearance:none;height:2.75rem;background:transparent;margin:0;touch-action:pan-x;cursor:pointer}.skg-rng::-webkit-slider-runnable-track{height:10px;border-radius:9999px;background:rgba(99,102,241,.28)}.skg-rng::-moz-range-track{height:10px;border-radius:9999px;background:rgba(99,102,241,.28)}.skg-rng::-webkit-slider-thumb{-webkit-appearance:none;width:32px;height:32px;margin-top:-11px;border-radius:50%;background:#4f46e5;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)}.skg-rng::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#4f46e5;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)}.sks{transition:background .2s,opacity .3s,box-shadow .2s}.sks.sk-g{background:rgba(99,102,241,.2);box-shadow:0 0 0 4px rgba(99,102,241,.2)}.dark .sks.sk-g{background:rgba(129,140,248,.3);box-shadow:0 0 0 4px rgba(129,140,248,.3)}.sks.sk-gd{opacity:.4}.skgw{border-radius:3px;transition:background .08s}.skgw.skgw-on{background:rgba(245,158,11,.55);box-shadow:0 0 0 2px rgba(245,158,11,.55)}.skgw.skgw-d{color:#6366f1}.dark .skgw.skgw-d{color:#a5b4fc}';
   document.head.appendChild(st);
   const man = () => { SKG.man = Date.now(); };
   ['wheel', 'touchstart', 'touchmove', 'keydown', 'mousedown'].forEach(n => window.addEventListener(n, e => { if (SKG.run && !(e.target && e.target.closest && e.target.closest('#skg-rng'))) man(); }, { passive: true }));
@@ -1254,7 +1262,7 @@ function skMic() {
   const pzBtn = canPz ? `<button onclick="skPauseToggle()" class="${skCtl} shrink-0 !px-2.5 !py-1.5">${SK.paused ? '▶ 繼續' : '⏸ 暫停'}</button>` : '';
   // 固定住的只有這一條精簡列（麥克風按鈕＋暫停＋一行狀態）；錯誤訊息和「重置麥克風」放在它下面，會跟著頁面捲動
   return `<section class="${card} sticky z-20 shadow-md px-3 py-2 mb-1" style="top:var(--sk-top,8px)"><div class="flex items-center gap-3"><button onclick="skRecToggle()" ${proc ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${c}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>${pzBtn}<div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
-    <p id="sk-heard" class="text-xs text-slate-500 italic break-words line-clamp-2 empty:hidden">${rec ? esc((SK.final + ' ' + SK.interim).trim()) : ''}</p></div></div>${skWholeRec() && SKG.on ? skgBarH() : ''}</section>
+    <p id="sk-heard" class="text-xs text-slate-500 italic break-words line-clamp-2 empty:hidden">${rec ? esc((SK.final + ' ' + SK.interim).trim()) : ''}</p></div></div>${skWholeRec() ? skgBarH() : ''}</section>
   <div class="mb-4 flex flex-col items-center gap-2">${SK.err ? `<p class="text-xs text-rose-600 dark:text-rose-400 text-center">${esc(SK.err)}</p>` : ''}${skResetH()}</div>`;
 }
 /* 一句一句的播放區：錄音／聽原音／聽我的錄音三顆等寬大按鈕，下面一列放速度與開關 */
@@ -1311,7 +1319,7 @@ function skResultH(r, wordsH, sc) { // r：本次結果；wordsH：已上色的�
   return `<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 text-left"><div class="flex flex-wrap items-center gap-2 mb-2">${head}</div>
     ${wordsH ? `<p class="leading-relaxed">${wordsH}</p>` : ''}
     ${r.heard ? skDiffH(r) : ''}
-    <div class="flex flex-wrap gap-2 mt-3">${r.blob ? `<button onclick="skSave('${sc}')" class="${skCtl}">💾 ${skSv(SK.id, skKey(sc)) ? '覆蓋儲存' : '儲存語音練習'}</button>` : ''}<button onclick="skRetry('${sc}')" class="${skCtl}">↻ 重來</button></div></div>`;
+    <div class="flex flex-wrap gap-2 mt-3">${r.blob ? `<button onclick="skSave('${sc}')" class="${skCtl}">💾 ${skSv(SK.id, skKey(sc)) ? '覆蓋儲存' : '儲存語音練習'}</button>` : ''}${sc === 'w' ? '' : `<button onclick="skRetry('${sc}')" class="${skCtl}">↻ 重來</button>`}</div></div>`;
 }
 
 /* ================= 語調曲線（畫在句子上） =================
@@ -1751,6 +1759,21 @@ function skSentH(x, inl) {
   <p class="mt-2 text-xs text-slate-400">選取句子裡的字、片語或整句，按「＋ 入庫」可加入入庫彙整（底線＝已入庫，點底線可編輯）。數字依序是各句；綠＝最佳 ≥ 80%，黃＝練過但未達 80%，紅＝整篇念不好（再念到 ≥ 80% 就恢復綠色）。</p>`;
 }
 
+function skWholeTbH(r, playing) { // 整篇的上方工具列：四顆等寬按鈕＋原音速度，位置固定不跳動
+  const cell = (ic, lb) => `<span class="text-xl leading-none">${ic}</span><span class="text-[0.6875rem] mt-1">${lb}</span>`;
+  const has = !!(r && r.url), mineOn = SK.playing === 'mine' && SK.pm === 'w';
+  const seg = (v, lb) => `<button onclick="skRate(${v})" aria-pressed="${SK.rate === v}" class="flex-1 h-10 text-sm font-medium cursor-pointer ${SK.rate === v ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${lb}</button>`;
+  const hideOn = SK.hide;
+  return `<section class="${card} px-3 py-3 mb-3">
+    <div class="grid grid-cols-4 gap-2">
+      <button onclick="skPlayModel(-1)" aria-label="聽整篇原音" class="${SKP_SOFT}">${cell(playing ? '⏹' : '🔊', playing ? '停止' : '聽原音')}</button>
+      <button onclick="skPlayMine('w')" ${has && !SK.mineRel ? '' : 'disabled'} aria-label="聽我的錄音" class="${SKP_SOFT}">${cell(SK.mineRel ? '⏳' : mineOn ? '⏹' : '🎧', mineOn ? '停止' : '我的錄音')}</button>
+      <button onclick="skHide()" aria-pressed="${hideOn}" aria-label="${hideOn ? '顯示文稿' : '遮住文稿'}" class="${SKP_B} ${hideOn ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${cell(hideOn ? '👁' : '🙈', hideOn ? '顯示' : '遮住')}</button>
+      <button onclick="skRetry('w')" ${r ? '' : 'disabled'} aria-label="重來" class="${SKP_SOFT}">${cell('↻', '重來')}</button>
+    </div>
+    <div class="flex items-center gap-2 mt-2"><span class="text-xs text-slate-500 shrink-0">原音速度</span><div class="flex flex-1 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700" role="group">${seg(1, '1x')}${seg(0.75, '0.75x')}</div></div>
+  </section>`;
+}
 function skWholeH(x) {
   const N = SK.sents.length, r = SK.wres, best = skRec(idOf(x)).w || 0;
   if (!N) return `<div class="${card} p-8 text-center text-sm text-slate-500">這篇沒有可練習的內容。</div>`;
@@ -1768,16 +1791,10 @@ function skWholeH(x) {
   const playing = SK.playing === 'model' && SK.pk === -1;
   const resW = `${skResultH(r, '', 'w')}${skSavedH('w')}
     ${weak.length ? `<div class="mt-4 text-left"><p class="text-sm font-semibold mb-2">念得不夠好的句子（&lt; ${SK_PASS}%）· 共 ${weak.length} 句</p><div class="space-y-1.5">${weak.map(q => `<div class="rounded-lg border border-slate-200 dark:border-slate-800 px-3 py-2 text-sm flex items-start gap-2"><span class="shrink-0 rounded px-1.5 py-0.5 text-xs font-bold ${skPctCls(q.p)}">${q.p}%</span><span class="flex-1 leading-relaxed"><b class="text-slate-400 mr-1">${q.k + 1}.</b>${skWordsH(q.words)}</span></div>`).join('')}</div><p class="mt-1 text-xs text-slate-400">紅字＝漏念或念錯的字。</p>${SK.pend && SK.pend.length ? `<div class="mt-3 rounded-xl border border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-950/40 p-3"><p class="text-sm font-semibold mb-1">要去「一句一句」練習這 ${SK.pend.length} 句嗎？</p><p class="text-xs text-slate-500 mb-2">按「去練習」會把這些句子標成紅色（蓋掉原本的綠色）並存檔同步；按「先不要」則不會改動任何紀錄。</p><div class="flex flex-wrap gap-2"><button onclick="skWeakGo()" class="${btn} bg-indigo-600 text-white !py-1.5 text-xs">去練習</button><button onclick="skWeakNo()" class="${btn} border border-slate-300 dark:border-slate-700 !py-1.5 text-xs">先不要</button></div></div>` : ''}</div>` : ''}`;
-  return `${skMic()}
+  return `${skMic()}${skWholeTbH(r, playing)}
   <section class="${card} p-4 md:p-6 mb-4">
     <div class="flex items-center justify-between mb-3 gap-2"><span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">整篇 · ${N} 句</span>${rdBarH()}<span class="text-xs text-slate-500">${best ? '整篇最佳 ' + best + '%' : ''}</span></div>
     <p id="sk-whole" class="leading-relaxed" style="position:relative">${txt}</p>
-    <div class="flex flex-wrap items-center gap-2 mt-4">
-      ${skMineBtn('w', r)}<button onclick="skPlayModel(-1)" title="聽整篇原音" aria-label="聽整篇原音" class="${skCtl}">${playing ? '⏹' : '🔊'}</button>
-      <button onclick="skRate(1)" class="${skSeg(SK.rate === 1)}">1x</button><button onclick="skRate(0.75)" class="${skSeg(SK.rate === 0.75)}">0.75x</button>
-      <button onclick="skHide()" title="${SK.hide ? '顯示文稿' : '遮住文稿'}" aria-label="${SK.hide ? '顯示文稿' : '遮住文稿'}" class="${skCtl}">${SK.hide ? '👁' : '🙈'}</button>
-      <button onclick="skgTog()" title="導讀模式：畫面依原音語速自動捲動，一句一句帶你跟讀" class="${skSeg(SKG.on)}">🎯 導讀${SKG.on ? '：開' : ''}</button>
-    </div>
     ${live ? '<p class="mt-3 text-xs text-slate-500 leading-loose"><span class="skl ok">綠底</span>＝念對　<span class="skl bad">紅底</span>＝漏念或念錯　<span class="skw skw-on">橘框</span>＝下一個要念的字　<span class="sks sk-cs">淡藍底</span>＝目前這一句（即時追蹤只是參考，念完後以完整評分為準）</p>' : '<p class="mt-2 text-xs text-slate-400">點文稿裡的任一句，可單獨聽那一句。</p>'}</section>
   ${resW.trim() ? `<section class="${card} p-4 md:p-6 mb-4">${resW}</section>` : ''}`;
 }
@@ -1804,7 +1821,6 @@ function skRender() {
     <button onclick="skBack()" class="${btn} md:hidden w-full mt-6 border border-slate-300 dark:border-slate-700">← 返回內文</button>`;
   if (skWholeRec() && SK.lv) { skLiveAlign((SK.final + ' ' + SK.interim).trim()); skLiveSync(); }
   skgSync();
-  try { skApplyMarks(); } catch (e) {}
   if (skIsSent()) { if (S.spkCurve === 1) { skCurveLayout(); requestAnimationFrame(skCurveLayout); } skToneLayout(); requestAnimationFrame(skToneLayout); }
 }
 
