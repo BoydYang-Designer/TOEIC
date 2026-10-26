@@ -318,7 +318,7 @@ function skPlay(x, seg, key) {
   if (SK.playing === 'model' && SK.pk === key) { skStopPlay(); skAfter(); return; }
   skStopPlay();
   const tk = SK.tk;
-  skKeepFree(); skAudioSession('playback');
+  skPlayPrep();
   SK.playing = 'model'; SK.pk = key;
   const done = () => { if (tk !== SK.tk) return; SK.playing = null; SK.pk = null; SK.hl = -1; skAfter(); };
   const tts = () => {
@@ -430,7 +430,7 @@ function skPlayMine(sc) {
   if (SK.playing === 'mine' && SK.pm === sc) { skStopPlay(); skRender(); return; }
   skStopPlay();
   if (SK.mineRel) { skRender(); return; }
-  skKeepFree(); skAudioSession('playback'); // 常駐麥克風還開著會讓播放變小聲，也會干擾之後的辨識
+  skPlayPrep(); // 常駐麥克風還開著會讓播放變小聲，也會干擾之後的辨識
   const tk = SK.tk;
   SK.playing = 'mine'; SK.pm = sc;
   const end = () => { if (tk === SK.tk) { skStopPlay(); skRender(); } }; // 播完也走完整釋放流程
@@ -682,10 +682,20 @@ function skKeepFree() {
   const k = SK.keepSt; SK.keepSt = null;
   if (k) { k.getTracks().forEach(t => { t.onended = t.onmute = t.onunmute = null; try { t.stop(); } catch (e) {} }); skLog('常駐麥克風 已釋放'); }
 }
+/* 播放前的準備。實測記錄（iPhone、加到主畫面）：沒放掉過的那條麥克風串流一直正常；只要「放掉再重新 getUserMedia」，
+   新串流就是 live 但錄到全靜音（peak=0），語音辨識也同時聽不到。而聽任何音檔（原音或自己的錄音）原本都會放掉串流，所以才會聽完就壞。
+   做法：常駐麥克風開著時，播放期間不放掉串流，只把 track 暫時設成 enabled=false（靜音），也不切到 playback 工作階段（playback 會讓錄音被關掉）。
+   代價：播放聲音可能比較小、或走聽筒。S.spkKeepPlay = 0 可恢復舊做法（播放前放掉麥克風）。 */
+const skKeepThrough = () => skKeepOn() && S.spkKeepPlay !== 0;
+function skPlayPrep() {
+  const k = SK.keepSt;
+  if (k && skKeepThrough()) { k.getAudioTracks().forEach(t => { t.enabled = false; }); skLog('播放中：常駐麥克風保留不放掉（暫時靜音）'); return; }
+  skKeepFree(); skAudioSession('playback');
+}
 function skKeepSet(v) { S.spkKeep = v; save(); skKeepFree(); skLog('設定 常駐麥克風=' + (v ? '開' : '關')); skRender(); }
 async function skKeepGet() {
   const k = SK.keepSt, t0 = k && k.getAudioTracks()[0];
-  if (t0 && t0.readyState === 'live' && !t0.muted) return k;
+  if (t0 && t0.readyState === 'live' && !t0.muted) { k.getAudioTracks().forEach(t => { t.enabled = true; }); return k; } // 播放時只是暫時靜音（enabled=false），錄音前恢復
   if (k) skLog('常駐麥克風 失效（readyState=' + (t0 && t0.readyState) + ' muted=' + (t0 && t0.muted) + '），重新取得');
   skKeepFree();
   const st = await navigator.mediaDevices.getUserMedia({ audio: true }); SK.keepSt = st;
@@ -891,7 +901,7 @@ function skPlaySaved(k) {
   if (SK.mineRel) return;
   if (SK.playing === 'saved' && SK.pk === k) { skStopPlay(); skRender(); return; }
   skStopPlay(); if (SK.mineRel) { skRender(); return; }
-  skKeepFree(); skAudioSession('playback');
+  skPlayPrep();
   const tk = SK.tk, id = SK.id;
   SK.playing = 'saved'; SK.pk = k; skRender();
   skDbDo('readonly', s => s.get(id + ':' + k)).then(rec => {
