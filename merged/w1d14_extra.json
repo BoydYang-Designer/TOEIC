@@ -1,0 +1,159 @@
+{
+  "week": 1,
+  "day": 14,
+  "extra_vocab": [
+    {
+      "text": "soft-lock",
+      "type": "word",
+      "ipa": "/ˈsɔːft lɑːk/",
+      "pos": "n.",
+      "zh": "軟鎖定（輕度固定，施力即可克服）",
+      "en": "a light lock that holds a part in place but can be moved with some force",
+      "note": "在這篇裡 soft-lock 當名詞修飾 mechanism，指用來把握把暫時固定在中間位置的輕度機構。它不是完全鎖死，使用者用手施力就能轉回去，和 full lock（完全鎖定）相對。",
+      "grammar_note": "soft-lock 放在名詞前面當修飾語時用單數，連字號不能省略，例如 a soft-lock mechanism，不寫 soft-locks mechanism。",
+      "forms": [
+        {
+          "w": "soft-locks",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "軟鎖定（複數）",
+          "ipa": "/ˈsɔːft lɑːks/",
+          "example": {
+            "en": "Both soft-locks on the cart hold the frame in position.",
+            "zh": "推車上的兩個軟鎖定都能把車架固定在位置上。"
+          }
+        },
+        {
+          "w": "soft-locked",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "以軟鎖定固定",
+          "ipa": "/ˈsɔːft lɑːkt/",
+          "example": {
+            "en": "Once the handle is soft-locked, it will not swing back.",
+            "zh": "握把一旦被軟鎖定，就不會擺回去。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "soft-lock mechanism",
+          "zh": "軟鎖定機構",
+          "example": {
+            "en": "Our engineers are testing a new soft-lock mechanism for the folding frame.",
+            "zh": "我們的工程師正在測試折疊車架的新軟鎖定機構。"
+          }
+        },
+        {
+          "phrase": "add a soft-lock",
+          "zh": "加裝軟鎖定",
+          "example": {
+            "en": "Adding a soft-lock to the door would reduce accidental openings.",
+            "zh": "在門上加裝軟鎖定可以減少意外打開。"
+          }
+        },
+        {
+          "phrase": "release the soft-lock",
+          "zh": "解除軟鎖定",
+          "example": {
+            "en": "Pull the lever gently to release the soft-lock before folding.",
+            "zh": "折疊前請輕拉拉桿以解除軟鎖定。"
+          }
+        },
+        {
+          "phrase": "soft-lock feature",
+          "zh": "軟鎖定功能",
+          "example": {
+            "en": "The soft-lock feature makes the product easier to use with one hand.",
+            "zh": "軟鎖定功能讓產品單手使用更容易。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "We could add a soft-lock to keep the lid closed during transport.",
+          "zh": "我們可以加一個軟鎖定，讓蓋子在運送時保持關閉。"
+        },
+        {
+          "tag": "設計審查",
+          "en": "The soft-lock holds the handle in place, but users can still override it.",
+          "zh": "軟鎖定把握把固定在原位，但使用者仍然可以強制轉動它。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please review the soft-lock design and send me your comments by Friday.",
+          "zh": "請檢視軟鎖定的設計，並在週五前把意見寄給我。"
+        },
+        {
+          "tag": "品質測試",
+          "en": "The quality team asked whether a soft-lock counts as a full lock.",
+          "zh": "品質團隊問軟鎖定是否算是完全鎖定。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "block",
+          "diff": "block 是「擋住、阻礙」或「塊狀物」，lock 才是「鎖住」，拼法只差一個字母。",
+          "example": {
+            "en": "A block of wood stopped the wheel, but it was not a lock.",
+            "zh": "一塊木頭擋住了輪子，但那不是鎖。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "latch",
+          "diff": "latch 是門或蓋子上的扣鎖或門閂，通常一扣就固定；soft-lock 強調固定力道輕、可被施力克服。",
+          "example": {
+            "en": "The latch on the cabinet door broke during the delivery.",
+            "zh": "櫃門上的扣鎖在運送途中壞了。"
+          }
+        },
+        {
+          "phrase": "temporary lock",
+          "diff": "temporary lock 強調「暫時」鎖住，soft-lock 強調「力道輕、不是完全鎖死」。",
+          "example": {
+            "en": "We added a temporary lock to protect the display during shipping.",
+            "zh": "我們加了一個暫時鎖，在運送時保護展示品。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "lock",
+          "pos": "n.",
+          "zh": "鎖",
+          "ipa": "/lɑːk/",
+          "example": {
+            "en": "The lock keeps the wheels from turning while the cart is parked.",
+            "zh": "車子停放時，這個鎖能防止輪子轉動。"
+          }
+        },
+        {
+          "w": "latch",
+          "pos": "n.",
+          "zh": "扣鎖、門閂",
+          "ipa": "/lætʃ/",
+          "example": {
+            "en": "Make sure the latch is closed before you move the box.",
+            "zh": "搬動箱子前請確認扣鎖已經扣好。"
+          }
+        },
+        {
+          "w": "brake",
+          "pos": "n.",
+          "zh": "煞車",
+          "ipa": "/breɪk/",
+          "example": {
+            "en": "The brake keeps the stroller from rolling on a slope.",
+            "zh": "煞車能避免嬰兒車在斜坡上滑動。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
