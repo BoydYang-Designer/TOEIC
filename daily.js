@@ -1447,14 +1447,21 @@ function zhHtml(x) { // 中文翻譯：播放時中英文同一句一起亮，�
   return out;
 }
 function passageChunker(x) { // 英文文字 → HTML（逃逸＋依「標示單字」開關標出核心單字）
-  let re = null;
+  let re = null; const idx = new Map(); // idx：標示字（小寫字幹）→ 核心單字的序號，點標示字時用來開詳解
   if (cur.hl) {
-    const ws = x.vocab.map(v => v.word.trim()).filter(Boolean)
-      .map(w => { const e = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); return /\s/.test(w) ? e : e.replace(/e$/i, ''); })
-      .sort((a, b) => b.length - a.length);
-    if (ws.length) re = new RegExp('\\b(' + ws.join('|') + ')[a-z]*', 'gi');
+    const ents = x.vocab.map((v, i) => ({ w: String(v.word || '').trim(), i })).filter(o => o.w)
+      .map(o => { const st = /\s/.test(o.w) ? o.w : o.w.replace(/e$/i, ''); return { e: st.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), k: st.toLowerCase(), i: o.i }; })
+      .sort((a, b) => b.e.length - a.e.length);
+    ents.forEach(o => { if (!idx.has(o.k)) idx.set(o.k, o.i); });
+    if (ents.length) re = new RegExp('\\b(' + ents.map(o => o.e).join('|') + ')[a-z]*', 'gi');
   }
-  return str => { const t = esc(str); return re ? t.replace(re, m => `<mark class="hl">${m}</mark>`) : t; };
+  return str => { const t = esc(str); return re ? t.replace(re, (m, g) => { const i = idx.get(String(g).toLowerCase()); return i == null ? `<mark class="hl">${m}</mark>` : `<mark class="hl" style="cursor:pointer" title="點一下看詳解" onclick="hlOpen(event,${i})">${m}</mark>`; }) : t; };
+}
+function hlOpen(ev, i) { // 文章裡標示的核心單字：點一下開詳解（標註模式要選字入庫，不開；有選取文字時也不開）
+  const sel = window.getSelection(); if (sel && !sel.isCollapsed) return;
+  if (ev) ev.stopPropagation(); // 不要同時觸發「點句子播放」
+  if (cur.mk) return;
+  if (typeof dnOpenVocab === 'function') dnOpenVocab(i);
 }
 function passageHtml(x) { // 英文文稿：核心單字標示 + 依 timing 切成可點擊、可高亮的句子
   const chunk = passageChunker(x), tm = x.timing, p = x.passage;
