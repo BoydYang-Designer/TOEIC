@@ -221,6 +221,7 @@ function dnSelDetail() { // 詳解頁：選取例句／說明裡的英文字、�
 }
 function dnSelRead() {
   if (cur.view === 'detail') { dnSelDetail(); return; }
+  if (cur.view === 'speak') { if (typeof skSelRead === 'function') skSelRead(); return; } // 語音練習「一句一句」：選字入庫（speak.js）
   if (cur.view !== 'day' || !cur.mk) return;
   const el = document.getElementById('passage-text'); if (!el) return;
   const s = window.getSelection(); if (!s || !s.rangeCount || s.isCollapsed) return;

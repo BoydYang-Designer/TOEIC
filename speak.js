@@ -526,9 +526,9 @@ function skLiveSched() {
    讓你跟著念。導讀是無聲的（不放原音，不會和麥克風衝突）；拉桿 0.5x～2x（往左變慢、往右變快），「原速」鈕一鍵回到 1x。
    開啟後，按麥克風錄音會自動從頭開始導讀；錄音結束／暫停時導讀跟著停。也可以不錄音，直接按 ▶ 先預演。
    開關與速度存在這台裝置（localStorage，不跨裝置同步）。 */
-const SKG = { on: false, sp: 1, run: false, t: 0, tl: null, idx: -1, raf: 0, last: 0, man: 0, set: null, sy: 0, root: null, mk: -2, started: false };
-(function () { try { SKG.on = localStorage.getItem('dailyguide') === '1'; const v = parseFloat(localStorage.getItem('dailygsp')); if (v >= 0.5 && v <= 2) SKG.sp = v; } catch (e) {} })();
-const skgSave = () => { try { localStorage.setItem('dailyguide', SKG.on ? 1 : 0); localStorage.setItem('dailygsp', SKG.sp); } catch (e) {} };
+const SKG = { on: false, sp: 1, run: false, t: 0, tl: null, idx: -1, raf: 0, last: 0, man: 0, set: null, sy: 0, root: null, mk: -2, started: false, wd: false, wi: -2, wc: {} };
+(function () { try { SKG.on = localStorage.getItem('dailyguide') === '1'; const v = parseFloat(localStorage.getItem('dailygsp')); if (v >= 0.5 && v <= 2) SKG.sp = v; SKG.wd = localStorage.getItem('dailyguidew') === '1'; } catch (e) {} })();
+const skgSave = () => { try { localStorage.setItem('dailyguide', SKG.on ? 1 : 0); localStorage.setItem('dailygsp', SKG.sp); localStorage.setItem('dailyguidew', SKG.wd ? 1 : 0); } catch (e) {} };
 function skgTL() { // 每句 {a,b}（原音秒數）；沒有 timing 的句子接在前一句後面，長度依字數估算
   let end = 0; const tl = [];
   SK.sents.forEach((s, k) => {
@@ -540,18 +540,147 @@ function skgTL() { // 每句 {a,b}（原音秒數）；沒有 timing 的句子�
   });
   return tl;
 }
-function skgReset() { SKG.run = false; SKG.t = 0; SKG.tl = null; SKG.idx = -1; SKG.started = false; SKG.mk = -2; SKG.set = null; }
+/* ================= 一句一句的「逐字導讀」（可開關） =================
+   開：這一句的字會依原音節奏一個一個亮起來（橘框＝現在、靛字＝剛念過）。三種時機：
+   ① 聽原音 🔊 時；② 按錄音時自動從頭開始（無聲，不放原音）；③ 按 ▶ 預演（無聲）。速度跟著 1x／0.75x。
+   字時間優先用 timing 的 words，沒有就在這句的時間範圍內依字序平均分配。開關存在這台裝置（localStorage）。
+   語調曲線（📈）開著、文字遮住、或已出現評分結果時，不顯示逐字。 */
+const SWG = { on: true, run: false, t: 0, last: 0, raf: 0, p: null, k: -1, w: -2, root: null };
+(function () { try { SWG.on = localStorage.getItem('dailysgw') !== '0'; } catch (e) {} })();
+function swgStarts(x, s) {
+  const n = (s.t.match(/\S+/g) || []).length, a = s.start != null ? s.start : 0, b = s.end != null && s.end > a ? s.end : a + Math.max(1.2, skWc(s.t) / 2.6), st = new Array(n).fill(null);
+  let wt = null; try { wt = skSentWt(x, s); } catch (e) {}
+  if (wt) wt.forEach(w => { if (w[0] < n) st[w[0]] = w[1]; });
+  if (n && st[0] == null) st[0] = a;
+  const known = []; st.forEach((v, i) => { if (v != null) known.push(i); }); known.push(n);
+  for (let q = 0; q < known.length - 1; q++) {
+    const i0 = known[q], i1 = known[q + 1], t0 = st[i0], t1 = i1 === n ? Math.max(b, t0 + 0.3) : st[i1];
+    for (let i = i0 + 1; i < i1; i++) st[i] = t0 + (t1 - t0) * (i - i0) / (i1 - i0);
+  }
+  return { st, a, b };
+}
+function swgClear() { document.querySelectorAll('#sk-txt .skw-on,#sk-txt .skw-d').forEach(e => e.classList.remove('skw-on', 'skw-d')); SWG.w = -2; }
+function swgBtn() { const b = document.getElementById('swg-play'); if (b) b.textContent = SWG.run ? '⏸' : '▶'; }
+function swgStop() { const was = SWG.run; SWG.run = false; if (was) { swgClear(); swgBtn(); } }
+function swgStep(ts) {
+  SWG.raf = 0;
+  if (!SWG.run || !SWG.on || !skIsSent() || SK.i !== SWG.k || SK.playing === 'model') { SWG.run = false; swgClear(); swgBtn(); return; }
+  const dt = SWG.last ? Math.min(0.1, (ts - SWG.last) / 1000) : 0; SWG.last = ts; SWG.t += dt * (SK.rate || 1);
+  const p = SWG.p, root = document.getElementById('sk-txt');
+  if (root) {
+    let w = -1; for (let i = 0; i < p.st.length; i++) if (p.st[i] <= SWG.t) w = i; else break;
+    if (SWG.w !== w || SWG.root !== root) {
+      SWG.w = w; SWG.root = root;
+      root.querySelectorAll('.skw').forEach(e => { const i = +e.dataset.k; e.classList.toggle('skw-on', i === w); e.classList.toggle('skw-d', i < w); });
+    }
+  }
+  if (SWG.t >= p.b + 0.6) { SWG.run = false; swgClear(); swgBtn(); return; }
+  SWG.raf = requestAnimationFrame(swgStep);
+}
+function swgStart() { // 從頭開始（預備 1 秒）
+  if (!SWG.on || !skIsSent()) return; const x = skX(), s = SK.sents[SK.i]; if (!x || !s || SK.hide) return;
+  SWG.p = swgStarts(x, s); SWG.k = SK.i; SWG.t = SWG.p.a - 1; SWG.last = 0; SWG.w = -2; SWG.run = true;
+  if (!SWG.raf) SWG.raf = requestAnimationFrame(swgStep); swgBtn();
+}
+function swgPlay() { if (SWG.run) swgStop(); else swgStart(); }
+function swgTog() { SWG.on = !SWG.on; try { localStorage.setItem('dailysgw', SWG.on ? 1 : 0); } catch (e) {} swgStop(); skRender(); }
+const swgBtnsH = () => `<button onclick="swgTog()" title="逐字導讀：這一句的字依原音節奏一個一個亮起來（聽原音、錄音、預演時）" aria-label="逐字導讀開關" class="${skSeg(SWG.on)}">🔤 逐字${SWG.on ? '：開' : ''}</button>${SWG.on ? `<button id="swg-play" onclick="swgPlay()" title="無聲預演逐字導讀" aria-label="預演逐字導讀" class="${skCtl}">${SWG.run ? '⏸' : '▶'}</button>` : ''}`;
+/* ================= 一句一句練習：選字入庫（和 Day 內文的標註入庫同一套） =================
+   在句子上選取單字／片語／整句 → 下方跳出「＋ 入庫」列（notes.js 的 dnBar／dnAddMark），存進同一份 S.marks；
+   位置（from／to）換算成整篇文章裡的位置，所以入庫彙整、詳解、提示詞都跟在 Day 內文入庫的完全一樣。
+   已入庫的字在句子裡畫底線，點底線可改類型、加備註或刪除。 */
+function skSentBase(x, s) { // 這一句（s.t）在整篇 passage 裡的起點；對不上就用內容搜尋
+  const p = String(x.passage || ''), full = p.slice(s.from, s.to);
+  let base = s.from + (full.length - full.trimStart().length);
+  if (p.substr(base, s.t.length) !== s.t) base = p.indexOf(s.t, Math.max(0, s.from - 5));
+  return base;
+}
+function skSelRead() { // notes.js 的 dnSelRead 在語音練習頁會呼叫這個
+  if (!skIsSent() || typeof dnOff !== 'function') return;
+  const el = document.getElementById('sk-txt'); if (!el) return;
+  const sel = window.getSelection(); if (!sel || !sel.rangeCount || sel.isCollapsed) return;
+  const rg = sel.getRangeAt(0); if (!el.contains(rg.startContainer) || !el.contains(rg.endContainer)) return;
+  const x = skX(), s = SK.sents[SK.i]; if (!x || !s || el.textContent !== s.t) return;
+  const p = String(x.passage || ''), base = skSentBase(x, s); if (base < 0) return;
+  const end = base + s.t.length;
+  let a = base + dnOff(el, rg.startContainer, rg.startOffset), b = base + dnOff(el, rg.endContainer, rg.endOffset);
+  if (b < a) [a, b] = [b, a];
+  const wc = /[A-Za-z0-9'\u2019$%-]/;
+  while (a < b && /[\s,;:"\u201c\u201d()]/.test(p[a])) a++;
+  while (b > a && /[\s,;:"\u201c\u201d()]/.test(p[b - 1])) b--;
+  while (a > base && wc.test(p[a]) && wc.test(p[a - 1])) a--;      // 選到字的一半 → 往外補成整個字
+  while (b < end && wc.test(p[b - 1]) && wc.test(p[b])) b++;
+  let text = p.slice(a, b);
+  if (dnWordN(text) <= 6) { while (b > a && /[.!?]/.test(p[b - 1])) b--; text = p.slice(a, b); }
+  if (!text.trim() || !/[A-Za-z]/.test(text) || text.length > 400) return;
+  DN.sel = { qid: idOf(x), from: a, to: b, text, type: dnGuess(p, text, a, b) };
+  dnBar();
+}
+function skApplyMarks() { // 在句子文字上畫入庫底線（事後把對應文字包一層 span，不動排版）
+  if (!skIsSent() || typeof dnMarksOf !== 'function' || typeof dnLocate !== 'function' || S.spkCurve === 1) return;
+  const el = document.getElementById('sk-txt'), x = skX(), s = SK.sents[SK.i]; if (!el || !x || !s || el.textContent !== s.t) return;
+  const p = String(x.passage || ''), base = skSentBase(x, s); if (base < 0) return;
+  const len = s.t.length, ms = dnMarksOf(idOf(x)).filter(m => m.src !== 'detail').map(m => ({ m, loc: dnLocate(p, m) }))
+    .filter(o => o.loc && o.loc.from >= base && o.loc.to <= base + len && o.loc.to > o.loc.from);
+  ms.sort((A, B) => (B.loc.to - B.loc.from) - (A.loc.to - A.loc.from)).forEach(o => { // 長的先包，短的包在裡面
+    const from = o.loc.from - base, to = o.loc.to - base, tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = []; let pos = 0, n;
+    while ((n = tw.nextNode())) { nodes.push({ n, s: pos, e: pos + n.nodeValue.length }); pos += n.nodeValue.length; }
+    if (pos !== len) return;
+    nodes.forEach(q => {
+      const a = Math.max(from, q.s) - q.s, b = Math.min(to, q.e) - q.s; if (a >= b) return;
+      let mid = q.n; if (a > 0) mid = mid.splitText(a); if (b - a < mid.nodeValue.length) mid.splitText(b - a);
+      const sp = document.createElement('span'); sp.className = 'mk mk-' + o.m.type; sp.dataset.id = o.m.id;
+      mid.parentNode.insertBefore(sp, mid); sp.appendChild(mid);
+    });
+  });
+}
+(function () {
+  const st = document.createElement('style');
+  st.textContent = '#sk-txt{-webkit-user-select:text;user-select:text}#sk-txt .mk{cursor:pointer;border-bottom:2px solid rgba(99,102,241,.75);background:rgba(99,102,241,.1);border-radius:2px}#sk-txt .mk.mk-phrase{border-bottom-color:rgba(245,158,11,.85);background:rgba(245,158,11,.1)}#sk-txt .mk.mk-sentence{border-bottom-color:rgba(16,185,129,.85);background:rgba(16,185,129,.08)}';
+  document.head.appendChild(st);
+  document.getElementById('main').addEventListener('click', e => { // 點底線＝開啟該筆入庫（改類型／備註／刪除）
+    const m = e.target.closest && e.target.closest('#sk-txt .mk'); if (!m || typeof dnMarkMenu !== 'function') return;
+    const s = window.getSelection(); if (s && !s.isCollapsed) return;
+    dnMarkMenu(m.dataset.id);
+  });
+})();
+function skgReset() { SKG.wi = -2; SKG.wc = {}; SKG.run = false; SKG.t = 0; SKG.tl = null; SKG.idx = -1; SKG.started = false; SKG.mk = -2; SKG.set = null; }
 const skgAlive = () => SKG.on && typeof cur !== 'undefined' && cur.view === 'speak' && SK.mode === 'whole' && !SK.inl && !!document.getElementById('sk-whole') && !!document.querySelector('#sk-whole .sks');
 function skgEls() { const root = document.getElementById('sk-whole'); return root ? Array.from(root.querySelectorAll('.sks')) : []; }
+/* ---- 逐字導讀（選項）：目前念到的字亮起來。字時間優先用 timing 的 words（skSentWt），沒有就在該句的時間範圍內依字序平均分配 ---- */
+const skgWordsOn = () => SKG.on && SKG.wd;
+function skgWordsH(t) { // 句子文字：每個字包一個 span（空白原樣保留）
+  let n = 0; return String(t).split(/(\s+)/).map(p => /^\s*$/.test(p) ? p : `<span class="skgw" data-w="${n++}">${esc(p)}</span>`).join('');
+}
+function skgWStarts(k) { // 第 k 句每個字的開始秒（快取；換文稿 skgReset 會清掉）
+  if (SKG.wc[k]) return SKG.wc[k];
+  const s = SK.sents[k], tl = SKG.tl || (SKG.tl = skgTL()), a = tl[k].a, b = tl[k].b, n = (s.t.match(/\S+/g) || []).length, st = new Array(n).fill(null);
+  let wt = null; try { wt = skSentWt(find(cur.w, cur.d), s); } catch (e) {}
+  if (wt) wt.forEach(w => { if (w[0] < n) st[w[0]] = w[1]; });
+  if (st[0] == null) st[0] = a; // 沒有字時間：用句首
+  const known = []; st.forEach((v, i) => { if (v != null) known.push(i); }); known.push(n);
+  for (let q = 0; q < known.length - 1; q++) { // 兩個已知字之間：依字序平均分配
+    const i0 = known[q], i1 = known[q + 1], t0 = st[i0], t1 = i1 === n ? Math.max(b, t0 + 0.3) : st[i1];
+    for (let i = i0 + 1; i < i1; i++) st[i] = t0 + (t1 - t0) * (i - i0) / (i1 - i0);
+  }
+  return (SKG.wc[k] = st);
+}
+function skgWordMark(k, t, force) { // 亮起目前字；本句前面的字淡一點
+  if (!skgWordsOn()) return;
+  const el = skgEls()[k]; if (!el) return;
+  const st = skgWStarts(k); let w = -1; for (let i = 0; i < st.length; i++) if (st[i] <= t) w = i; else break;
+  if (!force && SKG.wi === k * 10000 + w) return; SKG.wi = k * 10000 + w;
+  el.querySelectorAll('.skgw').forEach(e => { const i = +e.dataset.w; e.classList.toggle('skgw-on', i === w); e.classList.toggle('skgw-d', i < w); });
+}
 function skgMark(force) { // 目前句＝亮；已念過的句子淡掉；還沒念到的維持原樣
   const els = skgEls(), root = els[0] || null;
   if (!force && SKG.mk === SKG.idx && SKG.root === root) return;
-  SKG.mk = SKG.idx; SKG.root = root;
+  SKG.mk = SKG.idx; SKG.root = root; SKG.wi = -2;
   els.forEach(el => { const i = +el.dataset.i; el.classList.toggle('sk-g', SKG.started && i === SKG.idx); el.classList.toggle('sk-gd', SKG.started && i < SKG.idx); });
 }
 function skgSync() { // skRender 重畫完呼叫：把導讀狀態（亮／淡）和控制列補回去
   if (!SKG.on) return;
-  skgMark(true);
+  skgMark(true); if (SKG.started && SKG.idx >= 0 && SKG.tl) skgWordMark(SKG.idx, SKG.t, true);
 }
 function skgStep(ts) {
   SKG.raf = 0;
@@ -561,7 +690,7 @@ function skgStep(ts) {
   SKG.t += dt * SKG.sp;
   let k = -1; for (let i = 0; i < tl.length; i++) if (tl[i].a <= SKG.t) k = i; else break;
   if (k < 0) k = 0; // 開始前的預備時間：先亮第一句
-  SKG.idx = k; skgMark();
+  SKG.idx = k; skgMark(); skgWordMark(k, SKG.t);
   const lastB = tl[tl.length - 1].b;
   const els = skgEls(), e0 = els[k]; if (!e0) { SKG.raf = requestAnimationFrame(skgStep); return; }
   // 連續捲動：「閱讀游標」在第 k 句頂端與第 k+1 句頂端之間，依時間比例滑動；畫面再用低通濾波追過去
@@ -607,25 +736,28 @@ function skgSp(v) { // 拉桿／原速鈕：不重畫整頁，才不會拉到一
   const b = document.getElementById('skg-one'); if (b) b.className = skgOneCls();
 }
 const skgOneCls = () => 'shrink-0 rounded-lg px-2.5 py-1 text-xs font-bold cursor-pointer ' + (SKG.sp === 1 ? 'bg-indigo-600 text-white' : 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300');
+function skgWd() { // 🔤 逐字導讀開關（要先開「導讀」才有作用）
+  SKG.wd = !SKG.wd; SKG.wi = -2; skgSave(); skRender();
+}
 function skgTog() { // 🎯 導讀開關
   SKG.on = !SKG.on; skgSave();
   if (!SKG.on) { skgRun(false); SKG.started = false; SKG.idx = -1; SKG.mk = -2; }
   skRender();
 }
-function skgHold() { if (SKG.run) { SKG.run = false; skgRefreshBtn(); } } // 錄音停止／暫停／取消、換頁：導讀停在原位
+function skgHold() { swgStop(); if (SKG.run) { SKG.run = false; skgRefreshBtn(); } } // 錄音停止／暫停／取消、換頁：導讀停在原位
 function skgResume() { if (SKG.on && SKG.started && SKG.tl && SKG.t < SKG.tl[SKG.tl.length - 1].b) skgRun(true); }
-function skgOnRec() { if (SKG.on && SK.mode === 'whole' && !SK.inl) { SK.hide = false; skgRestart(); } } // 開始錄整篇：導讀從頭走（遮住文稿時先顯示出來）
+function skgOnRec() { if (SKG.on && SK.mode === 'whole' && !SK.inl) { SK.hide = false; skgRestart(); } else if (SWG.on && skIsSent()) swgStart(); } // 開始錄整篇：導讀從頭走（遮住文稿時先顯示出來）
 function skgBarH() { // 放在固定的麥克風列裡，頁面自動捲動時控制鈕也一直看得到
   const rng = `<input id="skg-rng" type="range" min="0.5" max="2" step="0.05" value="${SKG.sp}" oninput="skgSp(this.value)" class="min-w-0 flex-1 accent-indigo-600" aria-label="導讀速度（往左變慢、往右變快）">`;
   return `<div class="mt-2 pt-2 border-t border-slate-200 dark:border-slate-800"><div class="flex items-center gap-2">
     <button id="skg-play" onclick="skgPlay()" class="${skCtl} shrink-0 !px-2.5 !py-1" aria-label="預演導讀">${SKG.run ? '⏸' : '▶'}</button><button onclick="skgRew()" class="${skCtl} shrink-0 !px-2.5 !py-1" aria-label="從頭導讀">⟲</button>
     <span class="text-[0.6875rem] text-slate-500 shrink-0">慢</span>${rng}<span class="text-[0.6875rem] text-slate-500 shrink-0">快</span>
-    <b id="skg-lbl" class="text-xs w-11 text-center shrink-0">${SKG.sp.toFixed(2)}x</b><button id="skg-one" onclick="skgSp(1)" class="${skgOneCls()}">原速</button></div>
+    <b id="skg-lbl" class="text-xs w-11 text-center shrink-0">${SKG.sp.toFixed(2)}x</b><button id="skg-one" onclick="skgSp(1)" class="${skgOneCls()}">原速</button><button onclick="skgWd()" class="shrink-0 rounded-lg px-2.5 py-1 text-xs font-bold cursor-pointer ${SKG.wd ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}" aria-label="逐字導讀開關">🔤 逐字${SKG.wd ? '：開' : ''}</button></div>
     <div class="mt-1.5 h-1 rounded bg-slate-200 dark:bg-slate-800 overflow-hidden"><div id="skg-bar" class="h-full bg-indigo-500" style="width:0%"></div></div></div>`;
 }
 (function () { // 導讀用的樣式、手動捲動偵測
   const st = document.createElement('style');
-  st.textContent = '.sks{transition:background .2s,opacity .3s,box-shadow .2s}.sks.sk-g{background:rgba(99,102,241,.2);box-shadow:0 0 0 4px rgba(99,102,241,.2)}.dark .sks.sk-g{background:rgba(129,140,248,.3);box-shadow:0 0 0 4px rgba(129,140,248,.3)}.sks.sk-gd{opacity:.4}';
+  st.textContent = '.sks{transition:background .2s,opacity .3s,box-shadow .2s}.sks.sk-g{background:rgba(99,102,241,.2);box-shadow:0 0 0 4px rgba(99,102,241,.2)}.dark .sks.sk-g{background:rgba(129,140,248,.3);box-shadow:0 0 0 4px rgba(129,140,248,.3)}.sks.sk-gd{opacity:.4}.skgw{border-radius:3px;transition:background .08s}.skgw.skgw-on{background:rgba(245,158,11,.55);box-shadow:0 0 0 2px rgba(245,158,11,.55)}.skgw.skgw-d{color:#6366f1}.dark .skgw.skgw-d{color:#a5b4fc}';
   document.head.appendChild(st);
   const man = () => { SKG.man = Date.now(); };
   ['wheel', 'touchstart', 'touchmove', 'keydown', 'mousedown'].forEach(n => window.addEventListener(n, e => { if (SKG.run && !(e.target && e.target.closest && e.target.closest('#skg-rng'))) man(); }, { passive: true }));
@@ -1061,7 +1193,7 @@ window.addEventListener('pagehide', () => { skStopAll(); skKeepFree(); });
 /* ================= 畫面 ================= */
 (function () { // .sks：整篇模式中可點、可高亮的句子
   const st = document.createElement('style');
-  st.textContent = '.sks{cursor:pointer;border-radius:4px;transition:background .15s}.sks:hover{background:rgba(99,102,241,.12)}.sks.sk-on{background:rgba(251,191,36,.45)}.skw{border-radius:4px;transition:background .08s,box-shadow .08s}.skw.skw-on{background:rgba(245,158,11,.30);box-shadow:0 0 0 2px rgba(245,158,11,.30)}.skl{border-radius:4px;transition:color .15s,background .15s}.skl.ok{color:#047857;background:rgba(16,185,129,.16)}.dark .skl.ok{color:#6ee7b7;background:rgba(16,185,129,.22)}.skl.bad{color:#e11d48;font-weight:700;background:rgba(244,63,94,.12);text-decoration:underline wavy rgba(251,113,133,.7)}.dark .skl.bad{color:#fb7185;background:rgba(244,63,94,.2)}.sks.sk-cs{background:rgba(56,189,248,.15);box-shadow:0 0 0 3px rgba(56,189,248,.15);-webkit-box-decoration-break:clone;box-decoration-break:clone}';
+  st.textContent = '.sks{cursor:pointer;border-radius:4px;transition:background .15s}.sks:hover{background:rgba(99,102,241,.12)}.sks.sk-on{background:rgba(251,191,36,.45)}.skw.skw-d{color:#6366f1}.dark .skw.skw-d{color:#a5b4fc}.skw{border-radius:4px;transition:background .08s,box-shadow .08s}.skw.skw-on{background:rgba(245,158,11,.30);box-shadow:0 0 0 2px rgba(245,158,11,.30)}.skl{border-radius:4px;transition:color .15s,background .15s}.skl.ok{color:#047857;background:rgba(16,185,129,.16)}.dark .skl.ok{color:#6ee7b7;background:rgba(16,185,129,.22)}.skl.bad{color:#e11d48;font-weight:700;background:rgba(244,63,94,.12);text-decoration:underline wavy rgba(251,113,133,.7)}.dark .skl.bad{color:#fb7185;background:rgba(244,63,94,.2)}.sks.sk-cs{background:rgba(56,189,248,.15);box-shadow:0 0 0 3px rgba(56,189,248,.15);-webkit-box-decoration-break:clone;box-decoration-break:clone}';
   document.head.appendChild(st);
 })();
 
@@ -1555,8 +1687,9 @@ function skSentH(x, inl) {
   const hidden = SK.hide && !r;
   const cOn = S.spkCurve === 1 && s.start != null && !!skPros(x); // 開曲線：行距拉開，每行下方放一條語調線；字級不變
   SK.sx = cOn && !hidden ? skStressSet(x, s) : new Set();
-  SK.wtw = !cOn && !hidden && !(r && r.words) && s.start != null ? skSentWt(x, s) : null; // 沒開曲線時，逐字亮起來用的字時間
-  const body = hidden ? '<span class="text-slate-400">（文字已遮住：先聽原音，再複誦）</span>' : (r && r.words ? skWordsH(r.words) : (SK.sx.size ? skStressH(s.t, SK.sx) : (SK.wtw ? skWordsPlain(s.t) : esc(s.t))));
+  SK.wtw = SWG.on && !cOn && !hidden && !(r && r.words) && s.start != null ? skSentWt(x, s) : null;
+  const swgPlain = SWG.on && !cOn && !hidden && !(r && r.words); // 逐字導讀開著：句子的每個字都包 span（沒有 timing 也行） // 沒開曲線時，逐字亮起來用的字時間
+  const body = hidden ? '<span class="text-slate-400">（文字已遮住：先聽原音，再複誦）</span>' : (r && r.words ? skWordsH(r.words) : (SK.sx.size ? skStressH(s.t, SK.sx) : (swgPlain ? skWordsPlain(s.t) : esc(s.t))));
   const playing = SK.playing === 'model' && SK.pk === i;
   const plain = `<p id="sk-txt" class="text-lg leading-relaxed" style="${cOn ? 'position:relative;z-index:1;line-height:4.4rem' : ''}">${body}</p>`;
   const shown = S.spkCurve === 1 && s.start != null ? skCurveSent(x, id, i, s, r, hidden, plain) : plain;
@@ -1569,7 +1702,7 @@ function skSentH(x, inl) {
     <div class="flex flex-wrap items-center gap-2 mt-4">
       ${skMineBtn('s', r)}<button onclick="skPlayModel(${i})" title="聽原音" aria-label="聽原音" class="${skCtl}">${playing ? '⏹' : '🔊'}</button>
       <button onclick="skRate(1)" class="${skSeg(SK.rate === 1)}">1x</button><button onclick="skRate(0.75)" class="${skSeg(SK.rate === 0.75)}">0.75x</button>
-      <button onclick="skHide()" title="${SK.hide ? '顯示文字' : '遮住文字'}" aria-label="${SK.hide ? '顯示文字' : '遮住文字'}" class="${skCtl}">${SK.hide ? '👁' : '🙈'}</button>
+      <button onclick="skHide()" title="${SK.hide ? '顯示文字' : '遮住文字'}" aria-label="${SK.hide ? '顯示文字' : '遮住文字'}" class="${skCtl}">${SK.hide ? '👁' : '🙈'}</button>${swgBtnsH()}
     </div>${res.trim() ? res : ''}
     <div class="flex flex-wrap items-center gap-2 mt-4">
       <button onclick="skInl(${i - 1})" ${i ? '' : 'disabled'} class="${skCtl} disabled:opacity-40">← 上一句</button>
@@ -1585,7 +1718,7 @@ function skSentH(x, inl) {
     <div class="flex flex-wrap items-center gap-2 mt-4">
       ${skMineBtn('s', r)}<button onclick="skPlayModel(${i})" title="聽原音" aria-label="聽原音" class="${skCtl}">${playing ? '⏹' : '🔊'}</button>
       <button onclick="skRate(1)" class="${skSeg(SK.rate === 1)}">1x</button><button onclick="skRate(0.75)" class="${skSeg(SK.rate === 0.75)}">0.75x</button>
-      <button onclick="skHide()" title="${SK.hide ? '顯示文字' : '遮住文字'}" aria-label="${SK.hide ? '顯示文字' : '遮住文字'}" class="${skCtl}">${SK.hide ? '👁' : '🙈'}</button>
+      <button onclick="skHide()" title="${SK.hide ? '顯示文字' : '遮住文字'}" aria-label="${SK.hide ? '顯示文字' : '遮住文字'}" class="${skCtl}">${SK.hide ? '👁' : '🙈'}</button>${swgBtnsH()}
       ${s.start != null ? `<button onclick="skCurveToggle()" title="語調曲線${S.spkCurve === 1 ? '（已開）' : ''}" aria-label="語調曲線" class="${S.spkCurve === 1 ? skSeg(true) : skCtl}">📈</button>` : ''}
     </div>${s.start != null && skMp3Ok(x) ? skTrimH(id, i) : ''}</section>
   ${res.trim() ? `<section class="${card} p-4 md:p-6 mb-4">${res}</section>` : ''}
@@ -1594,7 +1727,7 @@ function skSentH(x, inl) {
     ${i < N - 1 ? `<button onclick="skGo(${i + 1})" class="${btn} bg-indigo-600 text-white">下一句 →</button>` : `<button onclick="skMode('whole')" class="${btn} bg-indigo-600 text-white">挑戰整篇 →</button>`}
   </div>
   <div class="flex flex-wrap gap-1.5">${strip}</div>
-  <p class="mt-2 text-xs text-slate-400">數字依序是各句；綠＝最佳 ≥ 80%，黃＝練過但未達 80%，紅＝整篇念不好（再念到 ≥ 80% 就恢復綠色）。</p>`;
+  <p class="mt-2 text-xs text-slate-400">選取句子裡的字、片語或整句，按「＋ 入庫」可加入入庫彙整（底線＝已入庫，點底線可編輯）。數字依序是各句；綠＝最佳 ≥ 80%，黃＝練過但未達 80%，紅＝整篇念不好（再念到 ≥ 80% 就恢復綠色）。</p>`;
 }
 
 function skWholeH(x) {
@@ -1607,7 +1740,7 @@ function skWholeH(x) {
     txt += (k ? '' : '<span id="sk-lvh" aria-hidden="true" style="position:absolute;left:0;top:0;width:0;height:0;opacity:0;border-radius:6px;background:rgba(245,158,11,.32);box-shadow:0 0 0 2px rgba(245,158,11,.6);pointer-events:none;transition:transform .16s ease-out,width .16s ease-out,height .16s ease-out,opacity .15s"></span>') + '' + `<span class="sks${skPc(k)}" data-i="${k}">${SK.lv.disp[k].map((d, j) => `<span class="skl" data-s="${k}" data-w="${j}">${esc(d.w)}</span>`).join(' ')}</span>`;
   });
   else SK.sents.forEach((s, k) => {
-    const sep = '', inner = r && r.c ? skWordsH(r.c.sents[k].words) : esc(s.t);
+    const sep = '', inner = r && r.c ? skWordsH(r.c.sents[k].words) : (skgWordsOn() ? skgWordsH(s.t) : esc(s.t));
     txt += sep + `<span class="sks${skPc(k)}" data-i="${k}" onclick="skPlayModel(${k})" title="點一下聽這一句">${inner}</span>`;
   });
   const weak = r && r.c ? r.c.sents.map((q, k) => ({ k, p: q.pct, words: q.words })).filter(q => q.p < SK_PASS) : [];
@@ -1647,6 +1780,7 @@ function skRender() {
     <button onclick="skBack()" class="${btn} md:hidden w-full mt-6 border border-slate-300 dark:border-slate-700">← 返回內文</button>`;
   if (skWholeRec() && SK.lv) { skLiveAlign((SK.final + ' ' + SK.interim).trim()); skLiveSync(); }
   skgSync();
+  try { skApplyMarks(); } catch (e) {}
   if (skIsSent()) { if (S.spkCurve === 1) { skCurveLayout(); requestAnimationFrame(skCurveLayout); } skToneLayout(); requestAnimationFrame(skToneLayout); }
 }
 
