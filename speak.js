@@ -177,7 +177,7 @@ function skNumMergeIx(ws) { // 回傳 [{t, ix}]：t＝合併後的字，ix＝它
 const skNumMerge = ws => skNumMergeIx(ws).map(o => o.t);
 /* 評分寬嚴（S.spkLevel）：strict＝每個字都要一樣（預設）；loose＝相近的字（單複數、時態、差一個字母）算對，漏念 a／an／the／of／to 不扣分 */
 const SK_SKIP = new Set(['a', 'an', 'the', 'of', 'to']);
-const skLoose = () => S.spkLevel === 'loose';
+const skLoose = () => false; // 固定嚴格評分
 const skStem = w => w.replace(/(ing|ed|es|s|d)$/, '');
 function skLev(a, b) { // 編輯距離（只在 ≤1 時有意義，其餘回傳 2）
   if (Math.abs(a.length - b.length) > 1) return 2;
@@ -806,7 +806,7 @@ function skLogH() {
     <pre id="sk-log" class="text-[0.6875rem] leading-snug whitespace-pre-wrap break-all max-h-80 overflow-y-auto text-slate-600 dark:text-slate-300">${esc(skLogText())}</pre></div>`;
 }
 const SK_MOB = SK_IOS || /Android/i.test(navigator.userAgent);
-const skUseMr = () => !skSR() || !SK_MOB || S.spkMr === 1; // 是否同時用 MediaRecorder 錄音檔
+const skUseMr = () => true; // 是否同時用 MediaRecorder 錄音檔
 const skSettle = () => (typeof S.spkWait === 'number' ? S.spkWait : SK.fail ? 700 : SK_MOB ? 350 : 0);  // 兩次麥克風之間至少隔幾毫秒
 function skReleaseAudio() {
   skLog('release audio: ctx=' + (SK.ctx ? SK.ctx.state : '無') + ' au=' + (SK.au ? (SK.au.paused ? '暫停' : '播放中') : '無') + ' playing=' + SK.playing); // 把所有會佔用音訊通道的東西都放掉（播放原音、Web Audio、<audio>、TTS、首頁播放器）
@@ -1738,16 +1738,11 @@ function skSentH(x, inl) {
       <button onclick="skInlClose()" class="${skCtl} ml-auto">✕ 收起，回整篇</button>
     </div></section>`;
   }
-  return `${skWeakBar(id, i)}
+  return `${skWeakBar(id, i)}${skMic()}
   <section class="${card} p-4 md:p-6 mb-4">
     <div class="flex items-center justify-between mb-3 gap-2"><span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">第 ${i + 1} / ${N} 句</span><span class="text-xs text-slate-500">${best ? '本句最佳 ' + best + '%' : ''}</span></div>
     ${shown}
     ${skSentPlayer(s, i, r, true, s.start != null)}${s.start != null && skMp3Ok(x) ? skTrimH(id, i) : ''}</section>
-  ${skMic()}
-  <div class="flex items-center justify-between gap-2 mb-4">
-    <button onclick="skGo(${i - 1})" ${i ? '' : 'disabled'} class="${btn} border border-slate-300 dark:border-slate-700 disabled:opacity-40">← 上一句</button>
-    ${i < N - 1 ? `<button onclick="skGo(${i + 1})" class="${btn} bg-indigo-600 text-white">下一句 →</button>` : `<button onclick="skMode('whole')" class="${btn} bg-indigo-600 text-white">挑戰整篇 →</button>`}
-  </div>
   <div class="flex flex-wrap gap-1.5">${strip}</div>
   <p class="mt-2 text-xs text-slate-400">選取句子裡的字、片語或整句，按「＋ 入庫」可加入入庫彙整（底線＝已入庫，點底線可編輯）。數字依序是各句；綠＝最佳 ≥ 80%，黃＝練過但未達 80%，紅＝整篇念不好（再念到 ≥ 80% 就恢復綠色）。</p>`;
 }
@@ -1787,16 +1782,19 @@ function skRender() {
   const x = skX();
   if (!x) { main.innerHTML = `<div class="${card} p-8 text-center text-sm text-slate-500">找不到這篇文章。</div>`; return; }
   if (SK.id !== idOf(x)) skInit(x);
-  const tab = (m, label) => `<button onclick="skMode('${m}')" class="${skSeg(SK.mode === m)} flex-1 md:flex-none md:px-6">${label}</button>`;
+  const side = (fn, dis, lb, tip) => `<button onclick="${fn}" ${dis ? 'disabled' : ''} aria-label="${tip}" class="${skCtl} h-11 shrink-0 !px-4 disabled:opacity-40 disabled:cursor-not-allowed">${lb}</button>`;
+  const tab = (m, label) => `<button onclick="skMode('${m}')" class="${skSeg(SK.mode === m)} h-11 flex-1 min-w-0">${label}</button>`;
+  const xs = [...DATA].sort((a, b) => a.week - b.week || a.day - b.day), xi = xs.findIndex(a => idOf(a) === idOf(x)), pv = xs[xi - 1], nx = xs[xi + 1];
+  const sentTabs = SK.mode === 'sent' && !SK.inl, N0 = SK.sents.length;
+  const prevB = sentTabs ? side(`skGo(${SK.i - 1})`, SK.i <= 0, '‹ 上句', '上一句') : side(pv ? `goSpeak(${pv.week},${pv.day})` : '', !pv, '‹ 上篇', '上一篇');
+  const nextB = sentTabs ? side(`skGo(${SK.i + 1})`, SK.i >= N0 - 1, '下句 ›', '下一句') : side(nx ? `goSpeak(${nx.week},${nx.day})` : '', !nx, '下篇 ›', '下一篇');
   main.innerHTML = `<header class="mb-4">
       <div class="flex items-center justify-between gap-2"><h2 class="text-xl md:text-2xl font-bold">🎙 語音練習</h2>
         <button onclick="skBack()" class="${btn} border border-slate-300 dark:border-slate-700 !py-1.5 text-xs hidden md:block">← 回到 Day ${x.day} 內文</button></div>
       <span class="inline-block mt-2 text-xs rounded-full px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">Week ${x.week} · Day ${x.day} · ${esc(x.tag || '')}</span>
     </header>
     ${skNotes(x)}
-    <div class="flex gap-2 mb-3">${tab('sent', '一句一句')}${tab('whole', '整篇')}</div>
-    <div class="flex flex-wrap items-center gap-2 mb-4 text-xs"><span class="text-slate-500">評分</span><button onclick="skLevel('loose')" class="${skSeg(skLoose())} !py-1">寬鬆</button><button onclick="skLevel('strict')" class="${skSeg(!skLoose())} !py-1">嚴格</button><span class="text-slate-400">${skLoose() ? '相近的字（單複數、時態）算對，漏念 a／the／to／of 不扣分' : '每個字都要念對'}</span></div>
-    ${skMrH()}
+    <div class="flex items-center gap-2 mb-4">${prevB}${tab('sent', '句子')}${tab('whole', '整篇')}${nextB}</div>
     ${SK.mode === 'sent' ? skSentH(x) : skWholeH(x) + (SK.inl ? `<div id="sk-inl" style="scroll-margin-top:calc(var(--sk-top,8px) + 5rem)">${skSentH(x, true)}</div>` : '')}
     ${skLogH()}
     <button onclick="skBack()" class="${btn} md:hidden w-full mt-6 border border-slate-300 dark:border-slate-700">← 返回內文</button>`;
