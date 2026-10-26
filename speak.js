@@ -697,7 +697,12 @@ function skgStep(ts) {
   const t0 = top(e0), e1 = els[k + 1], t1 = e1 ? top(e1) : t0 + e0.getBoundingClientRect().height;
   const nextA = k + 1 < tl.length ? tl[k + 1].a : tl[k].b + 1;
   const p = Math.max(0, Math.min(1, (SKG.t - tl[k].a) / Math.max(0.2, nextA - tl[k].a)));
-  const target = Math.max(0, t0 + p * (t1 - t0) - window.innerHeight * 0.38);
+  // 上方留白：扣掉固定在上方的麥克風／導讀列（含手機的 #side）實際高度，再多留約 3 行，正在跑的字才不會被遮住
+  const stk = document.getElementById('sk-stk');
+  let topPad = 0; if (stk) { topPad = (parseFloat(getComputedStyle(stk).top) || 0) + stk.offsetHeight; }
+  const lh = parseFloat(getComputedStyle(e0).lineHeight) || 30;
+  const off = Math.max(window.innerHeight * 0.3, topPad + lh * 3);
+  const target = Math.max(0, t0 + p * (t1 - t0) - off);
   const now = Date.now();
   if (SKG.set != null && Math.abs(window.scrollY - SKG.set) > 4) SKG.man = now; // 有人（手指、滾輪、捲軸）自己捲了畫面
   if (now - SKG.man < 2500) { SKG.sy = window.scrollY; SKG.set = null; }      // 使用者手動捲動後暫停自動捲動 2.5 秒，再順順地接回去
@@ -1261,7 +1266,7 @@ function skMic() {
   }
   const pzBtn = canPz ? `<button onclick="skPauseToggle()" class="${skCtl} shrink-0 !px-2.5 !py-1.5">${SK.paused ? '▶ 繼續' : '⏸ 暫停'}</button>` : '';
   // 固定住的只有這一條精簡列（麥克風按鈕＋暫停＋一行狀態）；錯誤訊息和「重置麥克風」放在它下面，會跟著頁面捲動
-  return `<section class="${card} sticky z-20 shadow-md px-3 py-2 mb-1" style="top:var(--sk-top,8px)"><div class="flex items-center gap-3"><button onclick="skRecToggle()" ${proc ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${c}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>${pzBtn}<div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
+  return `<section id="sk-stk" class="${card} sticky z-20 shadow-md px-3 py-2 mb-1" style="top:var(--sk-top,8px)"><div class="flex items-center gap-3"><button onclick="skRecToggle()" ${proc ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${c}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>${pzBtn}<div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
     <p id="sk-heard" class="text-xs text-slate-500 italic break-words line-clamp-2 empty:hidden">${rec ? esc((SK.final + ' ' + SK.interim).trim()) : ''}</p></div></div>${skWholeRec() ? skgBarH() : ''}</section>
   <div class="mb-4 flex flex-col items-center gap-2">${SK.err ? `<p class="text-xs text-rose-600 dark:text-rose-400 text-center">${esc(SK.err)}</p>` : ''}${skResetH()}</div>`;
 }
