@@ -434,14 +434,11 @@ function skPlayMine(sc) {
   const tk = SK.tk;
   SK.playing = 'mine'; SK.pm = sc;
   const end = () => { if (tk === SK.tk) { skStopPlay(); skRender(); } }; // 播完也走完整釋放流程
-  const viaEl = () => { // 後備：<audio>
-    if (tk !== SK.tk) return;
-    if (!r.url) { end(); return; }
-    const a = new Audio(r.url); SK.mine = a;
-    skLog('播放我的錄音 開始（<audio>）');
-    a.onended = () => { skLog('播放我的錄音 播完'); end(); }; a.onerror = () => { skLog('播放我的錄音 錯誤'); end(); };
-    a.play().catch(end);
-  };
+  const viaEl = () => { // 不再退回 <audio>：用 <audio> 播過自己的錄音會讓之後的語音辨識聽不到聲音
+      if (tk !== SK.tk) return;
+      skLog('播放我的錄音 無法解碼，不改用 <audio>'); if (typeof dnToast === 'function') dnToast('這支錄音無法播放（可能是舊版格式），請重新錄一次');
+      end();
+    };
   skLog('播放我的錄音 開始（Web Audio）');
   skPlayBlob(r.blob, tk, () => { skLog('播放我的錄音 播完'); end(); }, viaEl);
   skRender();
@@ -698,6 +695,59 @@ async function skKeepGet() {
   return st;
 }
 setInterval(() => { if (SK.keepSt && typeof cur !== 'undefined' && cur.view !== 'speak') skKeepFree(); }, 2000); // 離開語音練習頁面就放掉
+/* ===== PCM 錄音（WAV）=====
+   MediaRecorder 在 iPhone 上錄出 audio/mp4，decodeAudioData 偶爾解不開，就會退回 <audio> 播放，而 <audio> 播過之後語音辨識就聽不到聲音。
+   這裡改成用 AudioContext＋ScriptProcessor 直接收 PCM，錄完存成 16-bit 單聲道 WAV（16kHz 左右），Web Audio 一定解得開，不再需要 <audio> 後備。
+   介面刻意做得跟 MediaRecorder 一樣（state／start／pause／resume／stop／ondataavailable／onstop），其他程式不用動。
+   S.spkPcm = 0 可關閉，退回 MediaRecorder（對照測試用）。 */
+const skPcmOk = () => !!((window.AudioContext || window.webkitAudioContext) && S.spkPcm !== 0);
+function SkPcmRec(stream) {
+  const AC = window.AudioContext || window.webkitAudioContext, self = this;
+  const ctx = new AC(); this.ctx = ctx; this.state = 'inactive'; this.mimeType = 'audio/wav'; this.ondataavailable = null; this.onstop = null; this.bufs = []; this.n = 0;
+  try {
+    this.src = ctx.createMediaStreamSource(stream);
+    this.proc = (ctx.createScriptProcessor || ctx.createJavaScriptNode).call(ctx, 4096, 1, 1);
+    this.mute = ctx.createGain(); this.mute.gain.value = 0; // 接到 destination 才會觸發 onaudioprocess；音量 0 不會有回音
+  } catch (e) { try { ctx.close(); } catch (e2) {} throw e; }
+  this.proc.onaudioprocess = e => { if (self.state !== 'recording') return; const d = e.inputBuffer.getChannelData(0); self.bufs.push(new Float32Array(d)); self.n += d.length; };
+}
+SkPcmRec.prototype.start = function () {
+  this.state = 'recording';
+  this.src.connect(this.proc); this.proc.connect(this.mute); this.mute.connect(this.ctx.destination);
+  try { this.ctx.resume(); } catch (e) {}
+  skLog('PCM 錄音開始 ctx=' + this.ctx.state + ' sampleRate=' + this.ctx.sampleRate);
+};
+SkPcmRec.prototype.pause = function () { if (this.state === 'recording') this.state = 'paused'; };
+SkPcmRec.prototype.resume = function () { if (this.state === 'paused') this.state = 'recording'; };
+SkPcmRec.prototype.stop = function () {
+  if (this.state === 'inactive') return;
+  this.state = 'inactive';
+  const sr = this.ctx.sampleRate, st = this.ctx.state;
+  this.proc.onaudioprocess = null;
+  try { this.src.disconnect(); } catch (e) {} try { this.proc.disconnect(); } catch (e) {} try { this.mute.disconnect(); } catch (e) {}
+  try { this.ctx.close(); } catch (e) {}
+  const bufs = this.bufs, n = this.n; this.bufs = []; this.n = 0;
+  skLog('PCM 錄音結束 ctx=' + st + ' samples=' + n);
+  const blob = skWav(bufs, n, sr);
+  if (blob && this.ondataavailable) this.ondataavailable({ data: blob });
+  if (this.onstop) this.onstop();
+};
+function skWav(bufs, n, sr) { // Float32 → 16-bit 單聲道 WAV；用整數倍平均降到約 16kHz（語音夠用，檔案小）
+  if (!n) return null;
+  const all = new Float32Array(n); let o = 0; bufs.forEach(b => { all.set(b, o); o += b.length; });
+  const k = Math.max(1, Math.round(sr / 16000)), rate = Math.round(sr / k), len = Math.floor(n / k);
+  const buf = new ArrayBuffer(44 + len * 2), v = new DataView(buf), w = (p, t) => { for (let i = 0; i < t.length; i++) v.setUint8(p + i, t.charCodeAt(i)); };
+  w(0, 'RIFF'); v.setUint32(4, 36 + len * 2, true); w(8, 'WAVE'); w(12, 'fmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, rate, true); v.setUint32(28, rate * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true); w(36, 'data'); v.setUint32(40, len * 2, true);
+  let peak = 0;
+  for (let i = 0; i < len; i++) {
+    let x = 0; for (let j = 0; j < k; j++) x += all[i * k + j]; x /= k;
+    if (Math.abs(x) > peak) peak = Math.abs(x);
+    x = Math.max(-1, Math.min(1, x)); v.setInt16(44 + i * 2, x < 0 ? x * 0x8000 : x * 0x7FFF, true);
+  }
+  skLog('WAV ' + (len / rate).toFixed(1) + 's rate=' + rate + ' peak=' + peak.toFixed(3) + (peak < 0.001 ? '（幾乎是靜音：麥克風沒收到聲音）' : ''));
+  return new Blob([buf], { type: 'audio/wav' });
+}
 async function skMediaStart(tk) {
   SK.mr = null; SK.chunks = [];
   const keep = skKeepOn(), wantMr = skUseMr();
@@ -713,11 +763,11 @@ async function skMediaStart(tk) {
     return;
   }
   if (SK.st !== 'rec' || tk !== SK.rtk) { if (!keep) stream.getTracks().forEach(t => t.stop()); return; }
-  if (!wantMr || typeof MediaRecorder === 'undefined') return; // 只要常駐麥克風、不錄音檔
+  if (!wantMr || (typeof MediaRecorder === 'undefined' && !skPcmOk())) return; // 只要常駐麥克風、不錄音檔
   if (!keep) SK.stream = stream; // 常駐的串流不放進 SK.stream（錄完不能被 stop）
-  const mt = ['audio/webm', 'audio/mp4'].find(t => MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(t)) || '';
+  const mt = typeof MediaRecorder === 'undefined' ? '' : (['audio/webm', 'audio/mp4'].find(t => MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(t)) || '');
   try {
-    const mr = new MediaRecorder(stream, mt ? { mimeType: mt } : undefined);
+    const mr = skPcmOk() ? new SkPcmRec(stream) : new MediaRecorder(stream, mt ? { mimeType: mt } : undefined);
     SK.mr = mr; SK.mime = mr.mimeType || mt;
     mr.ondataavailable = e => { if (e.data && e.data.size) SK.chunks.push(e.data); };
     mr.onstop = () => {
@@ -727,7 +777,7 @@ async function skMediaStart(tk) {
       if (SK.mrDone) SK.mrDone();
     };
     mr.start();
-  } catch (e) { if (!keep) stream.getTracks().forEach(t => t.stop()); SK.mr = null; }
+  } catch (e) { skLog('建立錄音器失敗 ' + (e && (e.name || e.message))); if (!keep) stream.getTracks().forEach(t => t.stop()); SK.mr = null; }
 }
 
 /* 整篇：先念到這裡 → ⏸ 暫停（收掉辨識、錄音也暫停，已念的結果與顏色保留）→ ▶ 繼續（接著念下去，錄音檔接在後面） */
@@ -848,11 +898,10 @@ function skPlaySaved(k) {
     if (tk !== SK.tk) return;
     if (!rec || !rec.blob) { skStopPlay(); dnToast('找不到這筆錄音（可能被瀏覽器清除了）'); skRender(); return; }
     const end = () => { if (tk === SK.tk) { skStopPlay(); skRender(); } };
-    const viaEl = () => { // 後備：<audio>
+    const viaEl = () => { // 不再退回 <audio>：用 <audio> 播過自己的錄音會讓之後的語音辨識聽不到聲音
       if (tk !== SK.tk) return;
-      const url = URL.createObjectURL(rec.blob), a = new Audio(url); SK.mine = a; SK.mineUrl = url;
-      skLog('播放已儲存的錄音 開始（<audio>）');
-      a.onended = () => { skLog('播放已儲存的錄音 播完'); end(); }; a.onerror = () => { skLog('播放已儲存的錄音 錯誤'); end(); }; a.play().catch(end);
+      skLog('播放已儲存的錄音 無法解碼，不改用 <audio>'); if (typeof dnToast === 'function') dnToast('這支錄音無法播放（可能是舊版格式），請重新錄一次');
+      end();
     };
     skLog('播放已儲存的錄音 開始（Web Audio）');
     skPlayBlob(rec.blob, tk, () => { skLog('播放已儲存的錄音 播完'); end(); }, viaEl);
