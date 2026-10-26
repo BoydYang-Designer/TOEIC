@@ -276,6 +276,8 @@ const SK_MINE_REL = 350;
 function skAudioSession(t) {
   try { const a = navigator.audioSession; if (!a) { if (!SK.asNo) { SK.asNo = 1; skLog('audioSession API 不存在'); } return; } if (a.type !== t) { skLog('audioSession ' + a.type + ' → ' + t); a.type = t; } } catch (e) { skLog('audioSession 失敗 ' + (e && e.message)); }
 }
+/* 頁面一載入就把音訊類別歸回 auto：重新整理頁面時，上一次留下的 playback／play-and-record 設定可能還在，會讓語音辨識聽不到聲音 */
+try { if (navigator.audioSession && navigator.audioSession.type !== 'auto') navigator.audioSession.type = 'auto'; } catch (e) {}
 function skMineFree() {
   const was = SK.playing === 'mine' || SK.playing === 'saved' || !!SK.mine;
   if (SK.mine) { const a = SK.mine; SK.mine = null; a.onended = a.onerror = null; try { a.pause(); a.removeAttribute('src'); a.load(); } catch (e) {} }
@@ -283,7 +285,7 @@ function skMineFree() {
   if (was) {
     skCloseCtx(); // 播放用的 AudioContext 整個關掉，下一次錄音才不會被它佔住音訊通道
     SK.mineRel = true; clearTimeout(SK.mineT);
-    SK.mineT = setTimeout(() => { if (!SK.playing) skAudioSession('play-and-record'); SK.mineRel = false; skLog('我的錄音播放已完整關閉'); skAfter(); }, SK_MINE_REL);
+    SK.mineT = setTimeout(() => { if (!SK.playing) skAudioSession('auto'); SK.mineRel = false; skLog('我的錄音播放已完整關閉'); skAfter(); }, SK_MINE_REL);
     skLog('釋放我的錄音播放（AudioContext 已關閉）');
   }
 }
