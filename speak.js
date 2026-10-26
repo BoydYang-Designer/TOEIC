@@ -704,7 +704,7 @@ async function skKeepGet() {
   if (t) { t.onended = () => { skLog('常駐麥克風 track ended'); if (SK.keepSt === st) SK.keepSt = null; }; t.onmute = () => skLog('常駐麥克風 mute'); t.onunmute = () => skLog('常駐麥克風 unmute'); }
   return st;
 }
-setInterval(() => { if (SK.keepSt && typeof cur !== 'undefined' && cur.view !== 'speak') skKeepFree(); }, 2000); // 離開語音練習頁面就放掉
+setInterval(() => { if (SK.keepSt && typeof cur !== 'undefined' && cur.view !== 'speak' && !document.getElementById('pron-ov')) skKeepFree(); }, 2000); // 離開語音練習頁面就放掉（詳解的「發音練習」視窗開著時不放，pron.js 共用這條常駐麥克風）
 /* ===== PCM 錄音（WAV）=====
    MediaRecorder 在 iPhone 上錄出 audio/mp4，decodeAudioData 偶爾解不開，就會退回 <audio> 播放，而 <audio> 播過之後語音辨識就聽不到聲音。
    這裡改成用 AudioContext＋ScriptProcessor 直接收 PCM，錄完存成 16-bit 單聲道 WAV（16kHz 左右），Web Audio 一定解得開，不再需要 <audio> 後備。

@@ -1352,9 +1352,11 @@ function toggleText(k) { // k = 'en' | 'zh'
   const x = find(cur.w, cur.d), d = defOpen(x, S.ans[idOf(x)]), key = k + 'Open';
   cur[key] = !(cur[key] !== undefined ? cur[key] : d[k]); render();
 }
-function speakPhrase(i) { // 句型發音（省略號不念）
+function speakPhrase(i) { // 句型發音：優先播 mp3（audio/daily/vocab/{句型slug}.mp3，與詳解同一套 vplay），沒有 mp3 就語音合成（省略號不念）
   const x = find(cur.w, cur.d), p = x && x.presentation_phrases && x.presentation_phrases[i];
-  if (p) speak(p.phrase.replace(/\.{2,}|…/g, ' '));
+  if (!p) return;
+  const t = String(p.phrase).replace(/\.{2,}|…/g, ' ').replace(/\s+/g, ' ').trim();
+  if (typeof vplay === 'function') vplay(idOf(x), t, '', t); else speak(t);
 }
 function toggleSec(k) { cur[k + 'Open'] = !cur[k + 'Open']; render(); } // k = 'vocab' | 'phrases' | 'quiz'
 function toggleHl() { cur.hl = !cur.hl; if (cur.hl) { const m = textModeOf(find(cur.w, cur.d)).raw; if (m === '' || m === 'zh') { cur.enOpen = true; cur.zhOpen = false; cur.pair = false; } } render(); } // 標示單字要看得到英文：對照／英文本來就有英文，收合或純中文則切到英文
