@@ -665,14 +665,17 @@ function skRecToggle() {
 }
 function skRecGo(tk) {
   if (tk !== SK.rtk || SK.st !== 'prep') return;
-  SK.st = 'rec'; SK.everUp = false; SK.stopping = false;
+  SK.st = 'rec'; SK.everUp = false; SK.stopping = false; SK.ready = false; // ready＝錄音檔的麥克風真的開好了（畫面才顯示「可以開口」）
   const SRc = skSR(); skLog('開始錄音 SR=' + !!SRc + ' 同時錄音檔=' + skUseMr());
   SK.lv = null; if (SRc && skWholeRec()) skLiveInit(); // 整篇＋有語音辨識：開啟即時追蹤
   if (SRc) {
     const r = skSrNew(tk, true);
     try { r.start(); skLog('r.start() 呼叫成功'); skSrWatch(tk, r); } catch (e) { skLog('r.start() 丟出 ' + (e && e.name) + ' ' + (e && e.message)); SK.sr = null; SK.err = '語音辨識沒有啟動成功。請按下方「🔧 重置麥克風」，再錄一次。'; }
   }
-  skMediaStart(tk);
+  /* 實測記錄：語音辨識 start 之後，getUserMedia 若在 ~15ms 內就拿到麥克風，兩邊都會收到靜音（blob=5B、沒有 soundstart）；
+     隔 ~120ms 以上才拿到的那次是正常的。所以這裡先放掉常駐串流，等辨識真的開始聽之後再開錄音檔的麥克風。 */
+  if (SRc) skKeepFree();
+  setTimeout(() => { if (tk === SK.rtk && SK.st === 'rec') skMediaStart(tk).catch(() => {}).then(() => { if (tk === SK.rtk && SK.st === 'rec') { SK.ready = true; skRender(); } }); }, SRc ? 350 : 0);
   clearTimeout(SK.timer);
   SK.timer = setTimeout(() => { if (SK.st === 'rec' && tk === SK.rtk) skRecStop(); }, skWholeRec() ? 180000 : 45000);
   skRender();
@@ -931,9 +934,9 @@ function skStickyInit() {
 skStickyInit();
 function skMic() {
   const rec = SK.st === 'rec', prep = SK.st === 'prep', mp = !rec && skMineBusy(), proc = SK.st === 'proc' || prep || mp;
-  const pz = rec && SK.paused, canPz = rec && skWholeRec() && !!(SK.sr || SK.mr);
-  const c = pz ? 'bg-amber-500 text-white' : rec ? 'bg-rose-600 text-white animate-pulse' : proc ? 'bg-slate-300 dark:bg-slate-700 text-slate-500' : 'bg-indigo-600 hover:bg-indigo-700 text-white';
-  const lbl = pz ? '⏸ 已暫停：按「▶ 繼續」接著念，或按 ⏹ 結束評分' : rec ? '🔴 錄音中…念完再點一次停止' + (canPz ? '（想先停一下可按「⏸ 暫停」）' : '') : prep ? '⏳ 準備麥克風…' : mp ? (SK.mineRel ? '⏳ 正在關閉播放音檔…完成後即可錄音' : '🔊 播放錄音中：請先按「結束播放」才能錄音') : proc ? '⏳ 辨識中…' : (skWholeRec() ? '點麥克風，念完整篇' : SK.inl ? '點麥克風，念出下面這一句（第 ' + (SK.i + 1) + ' 句）' : '點麥克風，念出這一句');
+  const pz = rec && SK.paused, wt = rec && !SK.ready && !SK.paused, canPz = rec && skWholeRec() && !!(SK.sr || SK.mr);
+  const c = pz || wt ? 'bg-amber-500 text-white' : rec ? 'bg-rose-600 text-white animate-pulse' : proc ? 'bg-slate-300 dark:bg-slate-700 text-slate-500' : 'bg-indigo-600 hover:bg-indigo-700 text-white';
+  const lbl = wt ? '⏳ 麥克風準備中…等按鈕變紅色再開口' : pz ? '⏸ 已暫停：按「▶ 繼續」接著念，或按 ⏹ 結束評分' : rec ? '🔴 錄音中…念完再點一次停止' + (canPz ? '（想先停一下可按「⏸ 暫停」）' : '') : prep ? '⏳ 準備麥克風…' : mp ? (SK.mineRel ? '⏳ 正在關閉播放音檔…完成後即可錄音' : '🔊 播放錄音中：請先按「結束播放」才能錄音') : proc ? '⏳ 辨識中…' : (skWholeRec() ? '點麥克風，念完整篇' : SK.inl ? '點麥克風，念出下面這一句（第 ' + (SK.i + 1) + ' 句）' : '點麥克風，念出這一句');
   const pzBtn = canPz ? `<button onclick="skPauseToggle()" class="${skCtl} shrink-0 !px-2.5 !py-1.5">${SK.paused ? '▶ 繼續' : '⏸ 暫停'}</button>` : '';
   // 固定住的只有這一條精簡列（麥克風按鈕＋暫停＋一行狀態）；錯誤訊息和「重置麥克風」放在它下面，會跟著頁面捲動
   return `<section class="${card} sticky z-20 shadow-md px-3 py-2 mb-1" style="top:var(--sk-top,8px)"><div class="flex items-center gap-3"><button onclick="skRecToggle()" ${proc ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${c}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>${pzBtn}<div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
