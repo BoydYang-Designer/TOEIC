@@ -405,8 +405,7 @@ function skTrimSet(k, d) { // k＝0 開頭／1 結尾／-1 重設；調完立刻
 function skTrimH(id, i) {
   const t = skTrim(id, i), f = v => (v > 0 ? '+' : '') + v.toFixed(1) + 's';
   const b = (k, d, l) => `<button onclick="skTrimSet(${k},${d})" class="${skCtl} !px-2 !py-1 text-xs">${l}</button>`;
-  return `<div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 text-xs text-slate-500"><span>剪裁微調（聽起來吃字或多念時用）</span>
-    <span class="inline-flex items-center gap-1">開頭 ${b(0, -0.1, '早 0.1')}<b class="min-w-[2.5rem] text-center">${f(t[0])}</b>${b(0, 0.1, '晚 0.1')}</span>
+  return `<div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 text-xs text-slate-500"><span class="inline-flex items-center gap-1">開頭 ${b(0, -0.1, '早 0.1')}<b class="min-w-[2.5rem] text-center">${f(t[0])}</b>${b(0, 0.1, '晚 0.1')}</span>
     <span class="inline-flex items-center gap-1">結尾 ${b(1, -0.1, '早 0.1')}<b class="min-w-[2.5rem] text-center">${f(t[1])}</b>${b(1, 0.1, '晚 0.1')}</span>
     ${t[0] || t[1] ? `<button onclick="skTrimSet(-1,0)" class="${skCtl} !px-2 !py-1 text-xs">重設</button>` : ''}</div>`;
 }
@@ -1261,7 +1260,7 @@ function skMic() {
 /* 一句一句的播放區：錄音／聽原音／聽我的錄音三顆等寬大按鈕，下面一列放速度與開關 */
 const SKP_B = 'flex flex-col items-center justify-center h-16 rounded-xl text-sm font-medium cursor-pointer transition disabled:opacity-40 disabled:cursor-not-allowed ';
 const SKP_SOFT = SKP_B + 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300';
-function skSentPlayer(s, i, r, withMic, withCurve) {
+function skSentPlayer(s, i, r, withMic, withCurve, part) { // part：'btns' 只回播放按鈕、'opts' 只回速度／開關列；省略＝兩者（舊排列）
   const m = skMicSt(), playing = SK.playing === 'model' && SK.pk === i, mineOn = SK.playing === 'mine' && SK.pm === 's', has = !!(r && r.url);
   const cell = (ic, lb) => `<span class="text-xl leading-none">${ic}</span><span class="text-[0.6875rem] mt-1">${lb}</span>`;
   const mic = withMic ? `<button onclick="skRecToggle()" ${m.proc ? 'disabled' : ''} aria-label="錄音" class="${SKP_B} font-semibold shadow-sm ${m.c}">${cell(m.rec ? '⏹' : '🎙', m.rec ? '停止錄音' : m.proc ? '請稍候' : '錄音')}</button>` : '';
@@ -1269,12 +1268,15 @@ function skSentPlayer(s, i, r, withMic, withCurve) {
   const mine = `<button onclick="skPlayMine('s')" ${has && !SK.mineRel ? '' : 'disabled'} aria-label="聽我的錄音" class="${SKP_SOFT}">${cell(SK.mineRel ? '⏳' : mineOn ? '⏹' : '🎧', mineOn ? '停止' : '我的錄音')}</button>`;
   const seg = (v, lb) => `<button onclick="skRate(${v})" aria-pressed="${SK.rate === v}" class="px-3 h-10 text-sm font-medium cursor-pointer ${SK.rate === v ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${lb}</button>`;
   const tg = (on, fn, lb, tip) => `<button onclick="${fn}" title="${tip}" aria-label="${tip}" aria-pressed="${on}" class="${skSeg(on)} !h-10 !py-0 !px-3.5 inline-flex items-center">${lb}</button>`;
-  return `<div class="grid ${withMic ? 'grid-cols-3' : 'grid-cols-2'} gap-2 mt-4">${model}${mine}${mic}</div>
-    <div class="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-slate-200 dark:border-slate-800">
+  const btns = `<div class="grid ${withMic ? 'grid-cols-3' : 'grid-cols-2'} gap-2 mt-4">${model}${mine}${mic}</div>`;
+  if (part === 'btns') return btns;
+  const opts = (cls) => `<div class="${cls}">
       <span class="text-xs text-slate-500">速度</span><div class="inline-flex rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700" role="group">${seg(1, '1x')}${seg(0.75, '0.75x')}</div>
       ${tg(SK.hide, 'skHide()', SK.hide ? '👁' : '🙈', SK.hide ? '顯示文字' : '遮住文字')}${swgBtnsH()}
       ${withCurve ? `<button onclick="skCurveToggle()" title="語調曲線" aria-label="語調曲線" aria-pressed="${S.spkCurve === 1}" class="${skSeg(S.spkCurve === 1)} !h-10 !py-0 !px-3.5 inline-flex items-center">📈</button>` : ''}
     </div>`;
+  if (part === 'opts') return opts('flex flex-wrap items-center gap-2');
+  return btns + opts('flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-slate-200 dark:border-slate-800');
 }
 function skPermHelp() { // 權限被拒絕時，依這台裝置顯示怎麼打開
   const ua = navigator.userAgent, ios = SK_IOS, and = /Android/i.test(ua), mac = /Macintosh/.test(ua) && !ios;
@@ -1738,12 +1740,14 @@ function skSentH(x, inl) {
       <button onclick="skInlClose()" class="${skCtl} ml-auto">✕ 收起，回整篇</button>
     </div></section>`;
   }
-  return `${skWeakBar(id, i)}${skMic()}
-  <section class="${card} p-4 md:p-6 mb-4">
+  return `${skWeakBar(id, i)}
+  <section class="${card} p-4 md:p-6 mb-3">
     <div class="flex items-center justify-between mb-3 gap-2"><span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">第 ${i + 1} / ${N} 句</span><span class="text-xs text-slate-500">${best ? '本句最佳 ' + best + '%' : ''}</span></div>
-    ${shown}
-    ${skSentPlayer(s, i, r, true, s.start != null)}${s.start != null && skMp3Ok(x) ? skTrimH(id, i) : ''}</section>
-  <div class="flex flex-wrap gap-1.5">${strip}</div>
+    ${skSentPlayer(s, i, r, true, s.start != null, 'opts')}${s.start != null && skMp3Ok(x) ? skTrimH(id, i) : ''}
+    <div class="mt-4">${shown}</div>
+    ${skSentPlayer(s, i, r, true, s.start != null, 'btns')}</section>
+  ${skMic()}
+  <div class="flex flex-wrap gap-1.5 mt-1">${strip}</div>
   <p class="mt-2 text-xs text-slate-400">選取句子裡的字、片語或整句，按「＋ 入庫」可加入入庫彙整（底線＝已入庫，點底線可編輯）。數字依序是各句；綠＝最佳 ≥ 80%，黃＝練過但未達 80%，紅＝整篇念不好（再念到 ≥ 80% 就恢復綠色）。</p>`;
 }
 
