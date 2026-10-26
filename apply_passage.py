@@ -2,9 +2,10 @@
 """apply_passage.py — 把網頁「下載 w1d8-3_passage.json」下載的文稿修改，直接套用進 daily.json。
 
 用法（放在專案根目錄，與 daily.json 同層）：
-    python apply_passage.py                 → 選單：列出找到的 *_passage.json（專案資料夾、下載資料夾），選一個
-    python apply_passage.py 檔案路徑         → 直接指定檔案（也可把檔案拖進視窗）
-    （選單裡輸入 F 會跳出檔案選擇視窗）
+    直接雙擊 apply_passage.py        → 跳出選檔視窗，選你下載的 *_passage.json 即可（預設開在「下載」資料夾）
+    python apply_passage.py          → 同上
+    python apply_passage.py 檔案路徑  → 直接指定檔案（也可把 json 檔拖曳到 apply_passage.py 上）
+    （選檔視窗被取消或開不起來時，會改用文字選單）
 
 做的事：
   1. 讀補丁 {week, day, passage, presentation_phrases?}，找到 daily.json 裡對應那一篇。
@@ -16,6 +17,7 @@
 """
 import json, sys, os, re, glob, shutil, time, copy, difflib
 sys.stdout.reconfigure(encoding='utf-8')
+os.chdir(os.path.dirname(os.path.abspath(__file__)))   # 雙擊執行時，工作資料夾＝這支腳本所在的資料夾
 F = 'daily.json'
 
 
@@ -29,26 +31,39 @@ def find_patches():
     return sorted(out, key=os.path.getmtime, reverse=True)
 
 
+def dialog_pick():
+    try:
+        import tkinter as tk
+        from tkinter import filedialog
+        ps = find_patches()
+        dl = os.path.join(os.path.expanduser('~'), 'Downloads')
+        init = os.path.dirname(ps[0]) if ps else (dl if os.path.isdir(dl) else os.getcwd())
+        r = tk.Tk(); r.withdraw(); r.attributes('-topmost', True)
+        p = filedialog.askopenfilename(parent=r, title='選擇下載的文稿修改檔（*_passage.json）', initialdir=init,
+                                       filetypes=[('文稿修改檔', '*_passage*.json'), ('JSON', '*.json'), ('全部', '*.*')])
+        r.destroy()
+        return p or None
+    except Exception as e:
+        print('（無法開啟選檔視窗：%s）' % e)
+        return None
+
+
 def pick_file():
     if len(sys.argv) > 1: return sys.argv[1].strip('"')
+    print('請在跳出的視窗選擇「*_passage.json」…（視窗可能在其他視窗後面）')
+    p = dialog_pick()
+    if p: return p
     ps = find_patches()[:15]
-    print('要套用哪一個文稿修改檔？\n')
+    print('\n沒有選檔。改用選單：\n')
     for i, p in enumerate(ps, 1):
         print('  %d. %s　(%s)' % (i, os.path.basename(p), time.strftime('%m/%d %H:%M', time.localtime(os.path.getmtime(p)))))
-    print('  F. 開啟檔案選擇視窗\n  Q. 離開')
+    print('  F. 再開一次選檔視窗\n  Q. 離開')
     while True:
         c = input('\n請輸入編號：').strip().strip('"')
         if c.lower() == 'q': sys.exit(0)
         if c.lower() == 'f':
-            try:
-                import tkinter as tk
-                from tkinter import filedialog
-                r = tk.Tk(); r.withdraw(); r.attributes('-topmost', True)
-                p = filedialog.askopenfilename(title='選擇 *_passage.json', filetypes=[('JSON', '*.json')])
-                r.destroy()
-                if p: return p
-            except Exception as e:
-                print('（無法開啟視窗：%s）' % e)
+            p = dialog_pick()
+            if p: return p
             continue
         if c.isdigit() and 1 <= int(c) <= len(ps): return ps[int(c) - 1]
         if os.path.isfile(c): return c
@@ -189,4 +204,11 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except SystemExit as e:                  # sys.exit('訊息') 的訊息也要讓你看得到
+        if isinstance(e.code, str): print('\n' + e.code)
+    except Exception as e:
+        import traceback; traceback.print_exc(); print('\n發生錯誤：%s（daily.json 沒有被改動，除非上面已顯示「完成」）' % e)
+    try: input('\n按 Enter 關閉視窗…')       # 雙擊執行時，避免視窗一閃就消失
+    except EOFError: pass
