@@ -1134,7 +1134,7 @@ function renderDay() {
   <section class="${card} p-4 md:p-6 mb-5 md:mb-6">
     <div class="flex items-center justify-between mb-4 gap-2 flex-wrap">
       <div class="flex items-center gap-2">
-        <button onclick="dnToggleMk()" aria-pressed="${!!cur.mk}" title="${cur.mk ? '點一下回到播放模式' : '點一下進入標註模式（選字不再播放音檔）'}" class="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded cursor-pointer transition ${cur.mk ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">✏️ ${x.type}${cur.mk ? ' · 標註中' : ''}</button>
+        <button onclick="dnToggleMk()" aria-pressed="${!!cur.mk}" title="${cur.mk ? '點一下回到播放模式' : '點一下進入標註模式（選字不再播放音檔，並標示核心單字）'}" class="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded cursor-pointer transition ${cur.mk ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">✏️ ${x.type}${cur.mk ? ' · 標註中' : ''}</button>
         ${isListening ? '<span class="text-xs text-indigo-600 dark:text-indigo-400">建議先聽聲音作答</span>' : ''}
       </div>
       <div class="flex flex-wrap items-center justify-end gap-2">
@@ -1359,7 +1359,7 @@ function speakPhrase(i) { // 句型發音：優先播 mp3（audio/daily/vocab/{�
   if (typeof vplay === 'function') vplay(idOf(x), t, '', t); else speak(t);
 }
 function toggleSec(k) { cur[k + 'Open'] = !cur[k + 'Open']; render(); } // k = 'vocab' | 'phrases' | 'quiz'
-function toggleHl() { cur.hl = !cur.hl; if (cur.hl) { const m = textModeOf(find(cur.w, cur.d)).raw; if (m === '' || m === 'zh') { cur.enOpen = true; cur.zhOpen = false; cur.pair = false; } } render(); } // 標示單字要看得到英文：對照／英文本來就有英文，收合或純中文則切到英文
+function toggleHl() { cur.hl = !cur.hl; cur.hlAuto = false; if (cur.hl) { const m = textModeOf(find(cur.w, cur.d)).raw; if (m === '' || m === 'zh') { cur.enOpen = true; cur.zhOpen = false; cur.pair = false; } } render(); } // 標示單字要看得到英文：對照／英文本來就有英文，收合或純中文則切到英文
 const tmOk = x => { const s = tmInfo(x).state; return s === 'ok' || s === 'partial'; }; // timing 異常（含與目前文稿的切句不符）時一律當作沒有 timing：不高亮、不報錯
 (function () { const st = document.createElement('style'); st.textContent = '.zhead{font-weight:600}#zh-text .zsent,#pair-text .zsent{cursor:pointer;border-radius:3px}#zh-text .zsent.active,#pair-text .zsent.active{background:rgba(250,204,21,.35)}'; document.head.appendChild(st); })();
 function zhAlign(A, B) { /* 句子對齊（Gale–Church 作法 ＋ 錨點）：A＝英文每句 {len 字數, tok 英文詞集合, lab 是否以「Name:」講者標籤開頭, q 是否以問號結尾}、B＝中文每句 {len, tok 中文裡出現的英數詞, lab, q}

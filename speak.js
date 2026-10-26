@@ -116,6 +116,7 @@ function skInit(x) {
   skDrop('sent'); skDrop('whole'); SK.bufs = {};
   SK.inl = false; SK.i = 0; SK.res = {}; SK.wres = null; SK.mode = S.spkMode === 'whole' ? 'whole' : 'sent';
   SK.hide = false; SK.rate = 1; SK.err = ''; SK.hl = -1; SK.weak = null; SK.pend = null;
+  skgReset();
 }
 const skPc = k => (k ? (skSepBefore(k) === '\n\n' ? ' sks-p' : '') : ' sks-0'); // 整篇：段落第一句／全文第一句的間距
 function skSepBefore(k) { // 兩句之間原文的分隔（換行保留）
@@ -519,6 +520,117 @@ function skLiveSched() {
   SK.lvRaf = requestAnimationFrame(() => { SK.lvRaf = 0; if (SK.lv && SK.st === 'rec') { skLiveAlign((SK.final + ' ' + SK.interim).trim()); skLiveSync(); } });
 }
 
+/* ================= 整篇「導讀模式」（取代逐字追蹤） =================
+   整篇錄音不再做一字一字的即時追蹤（SK.lv 不再建立）。改成可手動開啟的「導讀」：
+   依原音 mp3 的句子時間（timing；沒有 timing 的句子用字數估算）移動「目前這一句」，畫面像提詞機一樣順滑地連續捲動，
+   讓你跟著念。導讀是無聲的（不放原音，不會和麥克風衝突）；拉桿 0.5x～2x（往左變慢、往右變快），「原速」鈕一鍵回到 1x。
+   開啟後，按麥克風錄音會自動從頭開始導讀；錄音結束／暫停時導讀跟著停。也可以不錄音，直接按 ▶ 先預演。
+   開關與速度存在這台裝置（localStorage，不跨裝置同步）。 */
+const SKG = { on: false, sp: 1, run: false, t: 0, tl: null, idx: -1, raf: 0, last: 0, man: 0, set: null, sy: 0, root: null, mk: -2, started: false };
+(function () { try { SKG.on = localStorage.getItem('dailyguide') === '1'; const v = parseFloat(localStorage.getItem('dailygsp')); if (v >= 0.5 && v <= 2) SKG.sp = v; } catch (e) {} })();
+const skgSave = () => { try { localStorage.setItem('dailyguide', SKG.on ? 1 : 0); localStorage.setItem('dailygsp', SKG.sp); } catch (e) {} };
+function skgTL() { // 每句 {a,b}（原音秒數）；沒有 timing 的句子接在前一句後面，長度依字數估算
+  let end = 0; const tl = [];
+  SK.sents.forEach((s, k) => {
+    let a, b;
+    if (s.start != null) { a = s.start; b = s.end; } else { a = Math.max(end + (k ? 0.35 : 0.3), 0); b = a + Math.max(1.2, skWc(s.t) / 2.6); }
+    if (k && a < tl[k - 1].b) a = tl[k - 1].b;
+    if (!(b > a)) b = a + 0.5;
+    tl.push({ a, b }); end = b;
+  });
+  return tl;
+}
+function skgReset() { SKG.run = false; SKG.t = 0; SKG.tl = null; SKG.idx = -1; SKG.started = false; SKG.mk = -2; SKG.set = null; }
+const skgAlive = () => SKG.on && typeof cur !== 'undefined' && cur.view === 'speak' && SK.mode === 'whole' && !SK.inl && !!document.getElementById('sk-whole') && !!document.querySelector('#sk-whole .sks');
+function skgEls() { const root = document.getElementById('sk-whole'); return root ? Array.from(root.querySelectorAll('.sks')) : []; }
+function skgMark(force) { // 目前句＝亮；已念過的句子淡掉；還沒念到的維持原樣
+  const els = skgEls(), root = els[0] || null;
+  if (!force && SKG.mk === SKG.idx && SKG.root === root) return;
+  SKG.mk = SKG.idx; SKG.root = root;
+  els.forEach(el => { const i = +el.dataset.i; el.classList.toggle('sk-g', SKG.started && i === SKG.idx); el.classList.toggle('sk-gd', SKG.started && i < SKG.idx); });
+}
+function skgSync() { // skRender 重畫完呼叫：把導讀狀態（亮／淡）和控制列補回去
+  if (!SKG.on) return;
+  skgMark(true);
+}
+function skgStep(ts) {
+  SKG.raf = 0;
+  if (!SKG.run || !skgAlive()) { SKG.run = false; return; }
+  const dt = SKG.last ? Math.min(0.1, (ts - SKG.last) / 1000) : 0; SKG.last = ts;
+  const tl = SKG.tl || (SKG.tl = skgTL()); if (!tl.length) { SKG.run = false; return; }
+  SKG.t += dt * SKG.sp;
+  let k = -1; for (let i = 0; i < tl.length; i++) if (tl[i].a <= SKG.t) k = i; else break;
+  if (k < 0) k = 0; // 開始前的預備時間：先亮第一句
+  SKG.idx = k; skgMark();
+  const lastB = tl[tl.length - 1].b;
+  const els = skgEls(), e0 = els[k]; if (!e0) { SKG.raf = requestAnimationFrame(skgStep); return; }
+  // 連續捲動：「閱讀游標」在第 k 句頂端與第 k+1 句頂端之間，依時間比例滑動；畫面再用低通濾波追過去
+  const top = el => el.getBoundingClientRect().top + window.scrollY;
+  const t0 = top(e0), e1 = els[k + 1], t1 = e1 ? top(e1) : t0 + e0.getBoundingClientRect().height;
+  const nextA = k + 1 < tl.length ? tl[k + 1].a : tl[k].b + 1;
+  const p = Math.max(0, Math.min(1, (SKG.t - tl[k].a) / Math.max(0.2, nextA - tl[k].a)));
+  const target = Math.max(0, t0 + p * (t1 - t0) - window.innerHeight * 0.38);
+  const now = Date.now();
+  if (SKG.set != null && Math.abs(window.scrollY - SKG.set) > 4) SKG.man = now; // 有人（手指、滾輪、捲軸）自己捲了畫面
+  if (now - SKG.man < 2500) { SKG.sy = window.scrollY; SKG.set = null; }      // 使用者手動捲動後暫停自動捲動 2.5 秒，再順順地接回去
+  else {
+    if (!SKG.set) SKG.sy = window.scrollY;
+    SKG.sy += (target - SKG.sy) * (1 - Math.exp(-dt * 4));
+    SKG.set = SKG.sy; window.scrollTo(0, SKG.sy);
+  }
+  const bar = document.getElementById('skg-bar'); if (bar) bar.style.width = (Math.min(1, SKG.t / lastB) * 100).toFixed(1) + '%';
+  if (SKG.t >= lastB + 0.8) { SKG.run = false; skgRefreshBtn(); return; } // 念完最後一句
+  SKG.raf = requestAnimationFrame(skgStep);
+}
+function skgRun(on) {
+  if (on && !skgAlive()) return;
+  SKG.run = !!on; SKG.last = 0; SKG.set = null;
+  if (SKG.run && !SKG.raf) SKG.raf = requestAnimationFrame(skgStep);
+  skgRefreshBtn();
+}
+function skgRestart() { // 從頭開始（預備 1 秒）
+  const tl = SKG.tl = skgTL(); if (!tl.length) return;
+  SKG.t = tl[0].a - 1; SKG.idx = 0; SKG.started = true; SKG.man = 0; SKG.mk = -2;
+  skgMark(true); skgRun(true);
+}
+function skgRefreshBtn() { const b = document.getElementById('skg-play'); if (b) b.textContent = SKG.run ? '⏸' : '▶'; }
+function skgPlay() { // 預演：▶／⏸；念完後再按 ▶ 會從頭開始
+  if (SKG.run) { skgRun(false); return; }
+  const lastB = (SKG.tl || skgTL()).slice(-1)[0]; if (!SKG.started || (lastB && SKG.t >= lastB.b)) { skgRestart(); return; }
+  skgRun(true);
+}
+function skgRew() { skgRestart(); }
+function skgSp(v) { // 拉桿／原速鈕：不重畫整頁，才不會拉到一半拉桿被換掉
+  SKG.sp = Math.max(0.5, Math.min(2, Math.round(parseFloat(v) * 20) / 20 || 1)); skgSave();
+  const l = document.getElementById('skg-lbl'); if (l) l.textContent = SKG.sp.toFixed(2) + 'x';
+  const r = document.getElementById('skg-rng'); if (r && +r.value !== SKG.sp) r.value = SKG.sp;
+  const b = document.getElementById('skg-one'); if (b) b.className = skgOneCls();
+}
+const skgOneCls = () => 'shrink-0 rounded-lg px-2.5 py-1 text-xs font-bold cursor-pointer ' + (SKG.sp === 1 ? 'bg-indigo-600 text-white' : 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300');
+function skgTog() { // 🎯 導讀開關
+  SKG.on = !SKG.on; skgSave();
+  if (!SKG.on) { skgRun(false); SKG.started = false; SKG.idx = -1; SKG.mk = -2; }
+  skRender();
+}
+function skgHold() { if (SKG.run) { SKG.run = false; skgRefreshBtn(); } } // 錄音停止／暫停／取消、換頁：導讀停在原位
+function skgResume() { if (SKG.on && SKG.started && SKG.tl && SKG.t < SKG.tl[SKG.tl.length - 1].b) skgRun(true); }
+function skgOnRec() { if (SKG.on && SK.mode === 'whole' && !SK.inl) { SK.hide = false; skgRestart(); } } // 開始錄整篇：導讀從頭走（遮住文稿時先顯示出來）
+function skgBarH() { // 放在固定的麥克風列裡，頁面自動捲動時控制鈕也一直看得到
+  const rng = `<input id="skg-rng" type="range" min="0.5" max="2" step="0.05" value="${SKG.sp}" oninput="skgSp(this.value)" class="min-w-0 flex-1 accent-indigo-600" aria-label="導讀速度（往左變慢、往右變快）">`;
+  return `<div class="mt-2 pt-2 border-t border-slate-200 dark:border-slate-800"><div class="flex items-center gap-2">
+    <button id="skg-play" onclick="skgPlay()" class="${skCtl} shrink-0 !px-2.5 !py-1" aria-label="預演導讀">${SKG.run ? '⏸' : '▶'}</button><button onclick="skgRew()" class="${skCtl} shrink-0 !px-2.5 !py-1" aria-label="從頭導讀">⟲</button>
+    <span class="text-[0.6875rem] text-slate-500 shrink-0">慢</span>${rng}<span class="text-[0.6875rem] text-slate-500 shrink-0">快</span>
+    <b id="skg-lbl" class="text-xs w-11 text-center shrink-0">${SKG.sp.toFixed(2)}x</b><button id="skg-one" onclick="skgSp(1)" class="${skgOneCls()}">原速</button></div>
+    <div class="mt-1.5 h-1 rounded bg-slate-200 dark:bg-slate-800 overflow-hidden"><div id="skg-bar" class="h-full bg-indigo-500" style="width:0%"></div></div></div>`;
+}
+(function () { // 導讀用的樣式、手動捲動偵測
+  const st = document.createElement('style');
+  st.textContent = '.sks{transition:background .2s,opacity .3s,box-shadow .2s}.sks.sk-g{background:rgba(99,102,241,.2);box-shadow:0 0 0 4px rgba(99,102,241,.2)}.dark .sks.sk-g{background:rgba(129,140,248,.3);box-shadow:0 0 0 4px rgba(129,140,248,.3)}.sks.sk-gd{opacity:.4}';
+  document.head.appendChild(st);
+  const man = () => { SKG.man = Date.now(); };
+  ['wheel', 'touchstart', 'touchmove', 'keydown', 'mousedown'].forEach(n => window.addEventListener(n, e => { if (SKG.run && !(e.target && e.target.closest && e.target.closest('#skg-rng'))) man(); }, { passive: true }));
+})();
+
 /* ================= 錄音＋語音辨識 ================= */
 /* ---- 手機麥克風穩定化（重點說明）----
    手機卡麥克風的三個主因：
@@ -662,7 +774,7 @@ function skRecGo(tk) {
   if (tk !== SK.rtk || SK.st !== 'prep') return;
   SK.st = 'rec'; SK.everUp = false; SK.stopping = false;
   const SRc = skSR(); skLog('開始錄音 SR=' + !!SRc + ' 同時錄音檔=' + skUseMr());
-  SK.lv = null; if (SRc && skWholeRec()) skLiveInit(); // 整篇＋有語音辨識：開啟即時追蹤
+  SK.lv = null; skgOnRec(); // 整篇不再逐字追蹤（SK.lv 保持 null）；改由「導讀模式」（開啟時）依原音語速帶著畫面走
   if (SRc) {
     const r = skSrNew(tk, true);
     try { r.start(); skLog('r.start() 呼叫成功'); skSrWatch(tk, r); } catch (e) { skLog('r.start() 丟出 ' + (e && e.name) + ' ' + (e && e.message)); SK.sr = null; SK.err = '語音辨識沒有啟動成功。請按下方「🔧 重置麥克風」，再錄一次。'; }
@@ -794,11 +906,11 @@ async function skMediaStart(tk) {
 function skPauseToggle() {
   if (SK.st !== 'rec' || !skWholeRec()) return;
   if (!SK.paused) {
-    SK.paused = true; clearTimeout(SK.timer);
+    SK.paused = true; clearTimeout(SK.timer); skgHold();
     try { if (SK.mr && SK.mr.state === 'recording') SK.mr.pause(); } catch (e) {}
     try { if (SK.sr) SK.sr.stop(); } catch (e) {} // stop（不是 abort）：還沒定稿的字會先定稿再結束
   } else {
-    SK.paused = false; SK.restart = 0; SK.rsT = []; const tk = SK.rtk;
+    SK.paused = false; SK.restart = 0; SK.rsT = []; const tk = SK.rtk; skgResume();
     try { if (SK.mr && SK.mr.state === 'paused') SK.mr.resume(); } catch (e) {}
     const go = n => { if (SK.st !== 'rec' || SK.paused || tk !== SK.rtk || !SK.sr) return; try { SK.sr.start(); } catch (e) { if (n < 6) setTimeout(() => go(n + 1), 250); else { SK.err = '語音辨識沒辦法繼續，請按 ⏹ 結束後再試。'; skRender(); } } }; // 上一個辨識還沒完全結束時 start 會丟 InvalidStateError，等一下再試
     go(0);
@@ -809,6 +921,7 @@ function skPauseToggle() {
 function skRecStop() {
   skLog('停止錄音 st=' + SK.st);
   if (SK.st !== 'rec') return;
+  skgHold();
   SK.st = 'proc'; SK.stopping = true; clearTimeout(SK.timer);
   const tk = SK.rtk, waits = [];
   if (SK.sr && !SK.paused) waits.push(new Promise(res => { SK.srEnd = res; try { SK.sr.stop(); } catch (e) { res(); } }));
@@ -817,6 +930,7 @@ function skRecStop() {
   skRender();
 }
 function skCancelRec() {
+  skgHold();
   const had = !!(SK.sr || SK.mr || SK.stream); skLog('cancelRec had=' + had);
   SK.rtk++; clearTimeout(SK.timer); clearTimeout(SK.wd); SK.stopping = true; if (had) SK.lastEnd = Date.now();
   const r = SK.sr; SK.sr = null;
@@ -992,11 +1106,11 @@ function skMic() {
   const rec = SK.st === 'rec', prep = SK.st === 'prep', mp = !rec && skMineBusy(), proc = SK.st === 'proc' || prep || mp;
   const pz = rec && SK.paused, canPz = rec && skWholeRec() && !!(SK.sr || SK.mr);
   const c = pz ? 'bg-amber-500 text-white' : rec ? 'bg-rose-600 text-white animate-pulse' : proc ? 'bg-slate-300 dark:bg-slate-700 text-slate-500' : 'bg-indigo-600 hover:bg-indigo-700 text-white';
-  const lbl = pz ? '⏸ 已暫停：按「▶ 繼續」接著念，或按 ⏹ 結束評分' : rec ? '🔴 錄音中…念完再點一次停止' + (canPz ? '（想先停一下可按「⏸ 暫停」）' : '') : prep ? '⏳ 準備麥克風…' : mp ? (SK.mineRel ? '⏳ 正在關閉播放音檔…完成後即可錄音' : '🔊 播放錄音中：請先按 ⏹ 停止播放才能錄音') : proc ? '⏳ 辨識中…' : (skWholeRec() ? '點麥克風，念完整篇' : SK.inl ? '點麥克風，念出下面這一句（第 ' + (SK.i + 1) + ' 句）' : '點麥克風，念出這一句');
+  const lbl = pz ? '⏸ 已暫停：按「▶ 繼續」接著念，或按 ⏹ 結束評分' : rec ? '🔴 錄音中…念完再點一次停止' + (canPz ? '（想先停一下可按「⏸ 暫停」）' : '') : prep ? '⏳ 準備麥克風…' : mp ? (SK.mineRel ? '⏳ 正在關閉播放音檔…完成後即可錄音' : '🔊 播放錄音中：請先按 ⏹ 停止播放才能錄音') : proc ? '⏳ 辨識中…' : (skWholeRec() ? (SKG.on ? '點麥克風開始：畫面會依原音語速自動導讀，跟著念' : '點麥克風，念完整篇') : SK.inl ? '點麥克風，念出下面這一句（第 ' + (SK.i + 1) + ' 句）' : '點麥克風，念出這一句');
   const pzBtn = canPz ? `<button onclick="skPauseToggle()" class="${skCtl} shrink-0 !px-2.5 !py-1.5">${SK.paused ? '▶ 繼續' : '⏸ 暫停'}</button>` : '';
   // 固定住的只有這一條精簡列（麥克風按鈕＋暫停＋一行狀態）；錯誤訊息和「重置麥克風」放在它下面，會跟著頁面捲動
   return `<section class="${card} sticky z-20 shadow-md px-3 py-2 mb-1" style="top:var(--sk-top,8px)"><div class="flex items-center gap-3"><button onclick="skRecToggle()" ${proc ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${c}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>${pzBtn}<div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
-    <p id="sk-heard" class="text-xs text-slate-500 italic break-words line-clamp-2 empty:hidden">${rec ? esc((SK.final + ' ' + SK.interim).trim()) : ''}</p></div></div></section>
+    <p id="sk-heard" class="text-xs text-slate-500 italic break-words line-clamp-2 empty:hidden">${rec ? esc((SK.final + ' ' + SK.interim).trim()) : ''}</p></div></div>${skWholeRec() && SKG.on ? skgBarH() : ''}</section>
   <div class="mb-4 flex flex-col items-center gap-2">${SK.err ? `<p class="text-xs text-rose-600 dark:text-rose-400 text-center">${esc(SK.err)}</p>` : ''}${skResetH()}</div>`;
 }
 function skPermHelp() { // 權限被拒絕時，依這台裝置顯示怎麼打開
@@ -1508,6 +1622,7 @@ function skWholeH(x) {
       ${skMineBtn('w', r)}<button onclick="skPlayModel(-1)" title="聽整篇原音" aria-label="聽整篇原音" class="${skCtl}">${playing ? '⏹' : '🔊'}</button>
       <button onclick="skRate(1)" class="${skSeg(SK.rate === 1)}">1x</button><button onclick="skRate(0.75)" class="${skSeg(SK.rate === 0.75)}">0.75x</button>
       <button onclick="skHide()" title="${SK.hide ? '顯示文稿' : '遮住文稿'}" aria-label="${SK.hide ? '顯示文稿' : '遮住文稿'}" class="${skCtl}">${SK.hide ? '👁' : '🙈'}</button>
+      <button onclick="skgTog()" title="導讀模式：畫面依原音語速自動捲動，一句一句帶你跟讀" class="${skSeg(SKG.on)}">🎯 導讀${SKG.on ? '：開' : ''}</button>
     </div>
     ${live ? '<p class="mt-3 text-xs text-slate-500 leading-loose"><span class="skl ok">綠底</span>＝念對　<span class="skl bad">紅底</span>＝漏念或念錯　<span class="skw skw-on">橘框</span>＝下一個要念的字　<span class="sks sk-cs">淡藍底</span>＝目前這一句（即時追蹤只是參考，念完後以完整評分為準）</p>' : '<p class="mt-2 text-xs text-slate-400">點文稿裡的任一句，可單獨聽那一句。</p>'}</section>
   ${resW.trim() ? `<section class="${card} p-4 md:p-6 mb-4">${resW}</section>` : ''}`;
@@ -1531,6 +1646,7 @@ function skRender() {
     ${skLogH()}
     <button onclick="skBack()" class="${btn} md:hidden w-full mt-6 border border-slate-300 dark:border-slate-700">← 返回內文</button>`;
   if (skWholeRec() && SK.lv) { skLiveAlign((SK.final + ' ' + SK.interim).trim()); skLiveSync(); }
+  skgSync();
   if (skIsSent()) { if (S.spkCurve === 1) { skCurveLayout(); requestAnimationFrame(skCurveLayout); } skToneLayout(); requestAnimationFrame(skToneLayout); }
 }
 

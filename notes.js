@@ -259,8 +259,17 @@ function dnBar() {
 }
 function dnToggleMk() { // 標註模式開關（與文稿卡片上的 Reading/Listening 標籤共用）
   cur.mk = !cur.mk;
-  if (cur.mk) { cur.enOpen = true; if (typeof spClearHl === 'function') spClearHl(); }
-  else { DN.sel = null; try { window.getSelection().removeAllRanges(); } catch (e) {} dnBar(); }
+  if (cur.mk) {
+    if (!cur.hl) { // 進入標註模式：順便標示核心單字（要看得到英文：目前是收合或純中文就切到英文；中英對照在標註模式本來就只顯示英文）
+      const m = typeof textModeOf === 'function' ? textModeOf(find(cur.w, cur.d)).raw : '';
+      if (m === '' || m === 'zh') { cur.zhOpen = false; cur.pair = false; }
+      cur.hl = true; cur.hlAuto = true;
+    }
+    cur.enOpen = true; if (typeof spClearHl === 'function') spClearHl();
+  } else {
+    if (cur.hlAuto) cur.hl = false; cur.hlAuto = false; // 只關掉「自動打開」的標示；自己手動開的不動
+    DN.sel = null; try { window.getSelection().removeAllRanges(); } catch (e) {} dnBar();
+  }
   render();
 }
 /* ---------- 詳解／例句／含入庫字的句子：優先播 mp3（audio/daily/vocab/，由 daily-auto-speech.py 產生），沒有就用語音合成 ---------- */
