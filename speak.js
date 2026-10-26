@@ -409,7 +409,7 @@ function skTrimH(id, i) {
     <span class="inline-flex items-center gap-1">結尾 ${b(1, -0.1, '早 0.1')}<b class="min-w-[2.5rem] text-center">${f(t[1])}</b>${b(1, 0.1, '晚 0.1')}</span>
     ${t[0] || t[1] ? `<button onclick="skTrimSet(-1,0)" class="${skCtl} !px-2 !py-1 text-xs">重設</button>` : ''}</div>`;
 }
-function skAfter() { if (cur.view === 'speak') skRender(); }
+function skAfter() { if (cur.view === 'speak') skRender(); else if (cur.view === 'recs') skRecsRender(); }
 function skPlayModel(i) { const x = skX(); if (x) skPlay(x, i >= 0 ? SK.sents[i] : null, i); }
 function skPlayTiming(id, i) { // 維護頁：試聽 timing 的某一段
   const x = DATA.find(d => idOf(d) === id), t = x && x.timing && x.timing[i]; if (!t) return;
@@ -1564,3 +1564,91 @@ function rdBarH() {
   document.addEventListener('touchend', end, { passive: true }); document.addEventListener('touchcancel', end, { passive: true });
   ['gesturestart', 'gesturechange'].forEach(ev => document.addEventListener(ev, e => { if (hit(e)) e.preventDefault(); })); // iOS Safari：不要整頁縮放
 })();
+
+/* ================= 語音錄音管理（維護）=================
+   列出這台裝置 IndexedDB（toeicSpkRec）裡所有「已儲存的錄音」：哪一篇、哪一句、分數、日期、大小、格式，可試聽、勾選刪除。
+   「舊格式」＝以前 MediaRecorder 錄的 mp4／webm（iPhone 可能解不開）；新錄的是 WAV。
+   「檔案不在這台裝置」＝紀錄（S.spk.sv）還在，但檔案不在這台（例如從別台裝置同步來的），刪掉只會清除紀錄。 */
+const SKR = { rows: null, sel: new Set(), sort: 't', err: '' };
+function openRecs() { SEC = 'maint'; cur = Object.assign({}, cur, { view: 'recs' }); push(); SKR.rows = null; SKR.sel = new Set(); render(); window.scrollTo({ top: 0 }); }
+const skRecsSideBtn = v => `<button onclick="openRecs()" class="${btn} w-full mb-2 border border-slate-300 dark:border-slate-700 ${v === 'recs' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">🎙 語音錄音管理</button>`;
+const skRecsMobBtn = () => `<button onclick="openRecs()" class="${btn} border border-slate-300 dark:border-slate-700 !py-1.5" aria-label="語音錄音管理">🎙</button>`;
+function skRecsLoad() {
+  return skDb().then(db => new Promise((res, rej) => {
+    const out = [], tx = db.transaction('r', 'readonly'), q = tx.objectStore('r').openCursor();
+    q.onsuccess = () => { const c = q.result; if (!c) return; const v = c.value || {}; out.push({ key: String(c.key), db: true, size: v.blob ? v.blob.size : 0, mime: v.mime || (v.blob && v.blob.type) || '', pct: v.pct || 0, t: v.t || 0, heard: v.heard || '' }); c.continue(); }; // 只記資訊，不把錄音檔留在記憶體
+    tx.oncomplete = () => res(out); tx.onerror = tx.onabort = () => rej(tx.error);
+  })).then(rows => {
+    Object.keys(S.spk || {}).forEach(id => { const sv = (S.spk[id] || {}).sv || {}; Object.keys(sv).forEach(k => { const key = id + ':' + k; if (!rows.some(r => r.key === key)) rows.push({ key, db: false, size: 0, mime: '', pct: (sv[k] || {}).pct || 0, t: (sv[k] || {}).t || 0, heard: '' }); }); });
+    rows.forEach(r => { const i = r.key.lastIndexOf(':'); r.id = r.key.slice(0, i); r.k = r.key.slice(i + 1); });
+    return rows;
+  });
+}
+const skRecsKB = n => n >= 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.round(n / 1024) + ' KB';
+const skRecsOld = r => r.db && !/wav/i.test(r.mime);
+function skRecsRender() {
+  const head = `<header class="mb-4"><h2 class="text-xl md:text-2xl font-bold">🎙 語音錄音管理</h2><p class="mt-1 text-sm text-slate-500">這台裝置上所有「已儲存的語音練習錄音」。可以試聽，勾選後刪除。</p></header>`;
+  if (!window.indexedDB) { main.innerHTML = head + `<div class="${card} p-6 text-sm text-slate-500">此瀏覽器不支援錄音儲存。</div>`; return; }
+  if (!SKR.rows) {
+    main.innerHTML = head + `<div class="${card} p-6 text-sm text-slate-500">讀取中…</div>`;
+    skRecsLoad().then(rows => { SKR.rows = rows; SKR.err = ''; }).catch(e => { SKR.rows = []; SKR.err = '讀取失敗：' + (e && (e.message || e.name)); }).then(() => { if (cur.view === 'recs') skRecsRender(); });
+    return;
+  }
+  const rows = SKR.rows, total = rows.reduce((a, r) => a + r.size, 0), nOld = rows.filter(skRecsOld).length, nMiss = rows.filter(r => !r.db).length;
+  const G = {}; rows.forEach(r => (G[r.id] = G[r.id] || []).push(r));
+  const ord = r => r.k === 'w' ? -1 : (parseInt(r.k.slice(1), 10) || 0);
+  const gv = g => SKR.sort === 'size' ? -g.reduce((a, r) => a + r.size, 0) : SKR.sort === 'old' ? Math.min(...g.map(r => r.t || 0)) : -Math.max(...g.map(r => r.t || 0));
+  const ids = Object.keys(G).sort((a, b) => gv(G[a]) - gv(G[b]));
+  const chip = 'text-[0.6875rem] font-semibold rounded px-1.5 py-0.5';
+  const one = r => {
+    const on = SK.playing === 'saved' && SK.pk === r.key, lbl = r.k === 'w' ? '整篇' : '第 ' + ((parseInt(r.k.slice(1), 10) || 0) + 1) + ' 句';
+    const fm = !r.db ? `<span class="${chip} bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300">檔案不在這台裝置</span>` : skRecsOld(r) ? `<span class="${chip} bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">舊格式 ${esc((String(r.mime).replace(/^audio\//, '').split(';')[0]) || '?')}</span>` : `<span class="${chip} bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">WAV</span>`;
+    return `<div class="flex items-start gap-2 py-2 border-t border-slate-100 dark:border-slate-800 first:border-t-0">
+      <input type="checkbox" class="mt-1.5 shrink-0 w-4 h-4" ${SKR.sel.has(r.key) ? 'checked' : ''} onchange="skRecsTog('${esc(r.key)}', this.checked)" aria-label="選取">
+      <div class="flex-1 min-w-0 text-sm"><div class="flex flex-wrap items-center gap-x-2 gap-y-1"><b>${lbl}</b>${r.pct ? `<span class="rounded-full px-2 py-0.5 text-xs font-bold ${skPctCls(r.pct)}">${r.pct}%</span>` : ''}${fm}<span class="text-xs text-slate-500">${r.t ? new Date(r.t).toLocaleString('zh-TW', { hour12: false }) : '—'}　${r.db ? skRecsKB(r.size) : ''}</span></div>
+      ${r.heard ? `<p class="mt-0.5 text-xs text-slate-400 italic truncate">${esc(r.heard.slice(0, 80))}</p>` : ''}</div>
+      ${r.db ? `<button onclick="skRecsPlay('${esc(r.key)}')" ${SK.mineRel ? 'disabled' : ''} title="試聽" aria-label="試聽" class="${skCtl} !px-2.5 !py-1.5 shrink-0 disabled:opacity-50">${SK.mineRel ? '⏳' : on ? '⏹' : '▶'}</button>` : ''}
+      <button onclick="skRecsDel(['${esc(r.key)}'])" title="刪除" aria-label="刪除" class="${skCtl} !px-2.5 !py-1.5 shrink-0">🗑</button></div>`;
+  };
+  const grp = id => {
+    const g = G[id].slice().sort((a, b) => ord(a) - ord(b)), x = DATA.find(d => idOf(d) === id);
+    const title = x ? `W${x.week} · D${dShow(x)} ${esc(x.tag || '')}` : `${esc(id)} <span class="text-xs font-normal text-rose-500">（這篇文章已不在 daily.json）</span>`;
+    return `<section class="${card} p-4 mb-3"><div class="flex flex-wrap items-center justify-between gap-2 mb-1"><b class="text-sm">${title}</b><span class="text-xs text-slate-500">${g.length} 筆　${skRecsKB(g.reduce((a, r) => a + r.size, 0))}</span></div>${g.map(one).join('')}</section>`;
+  };
+  main.innerHTML = head + (SKR.err ? `<div class="${card} p-4 mb-3 text-sm text-rose-600">${esc(SKR.err)}</div>` : '') +
+    `<div class="${card} p-4 mb-3"><p class="text-sm">共 <b>${rows.length}</b> 筆，錄音檔約 <b>${skRecsKB(total)}</b>${nOld ? `　<span class="text-amber-600 dark:text-amber-400">舊格式 ${nOld} 筆</span>` : ''}${nMiss ? `　<span class="text-rose-600 dark:text-rose-400">檔案不在這台 ${nMiss} 筆</span>` : ''}<span id="skr-est" class="text-xs text-slate-400"></span></p>
+      <div class="flex flex-wrap items-center gap-2 mt-3 text-xs"><span class="text-slate-500">排序</span><button onclick="skRecsSort('t')" class="${skSeg(SKR.sort === 't')} !py-1">最新</button><button onclick="skRecsSort('old')" class="${skSeg(SKR.sort === 'old')} !py-1">最舊</button><button onclick="skRecsSort('size')" class="${skSeg(SKR.sort === 'size')} !py-1">最大</button></div>
+      <div class="flex flex-wrap items-center gap-2 mt-3"><button onclick="skRecsSel('all')" class="${skCtl} !py-1.5 text-xs">全選</button><button onclick="skRecsSel('old')" class="${skCtl} !py-1.5 text-xs">選舊格式</button><button onclick="skRecsSel('30')" class="${skCtl} !py-1.5 text-xs">選 30 天前</button><button onclick="skRecsSel('none')" class="${skCtl} !py-1.5 text-xs">取消選取</button>
+        <button id="skr-del" onclick="skRecsDel([...SKR.sel])" class="rounded-lg px-3 py-1.5 text-xs font-medium cursor-pointer bg-rose-600 text-white disabled:opacity-40 ml-auto">🗑 刪除選取（0）</button></div></div>` +
+    (rows.length ? ids.map(grp).join('') : `<div class="${card} p-8 text-center text-sm text-slate-500">目前沒有已儲存的錄音。</div>`);
+  skRecsSelUi();
+  if (navigator.storage && navigator.storage.estimate) navigator.storage.estimate().then(e => { const el = document.getElementById('skr-est'); if (el && e && e.usage != null) el.textContent = '　· 這個網站整體儲存用量 ' + skRecsKB(e.usage) + (e.quota ? ' / ' + skRecsKB(e.quota) : ''); }).catch(() => {});
+}
+function skRecsSelUi() { const b = document.getElementById('skr-del'); if (b) { b.textContent = '🗑 刪除選取（' + SKR.sel.size + '）'; b.disabled = !SKR.sel.size; } }
+function skRecsTog(key, on) { if (on) SKR.sel.add(key); else SKR.sel.delete(key); skRecsSelUi(); }
+function skRecsSort(m) { SKR.sort = m; skRecsRender(); }
+function skRecsSel(m) {
+  const rows = SKR.rows || [], cut = Date.now() - 30 * 86400000;
+  if (m === 'none') SKR.sel = new Set();
+  else SKR.sel = new Set(rows.filter(r => m === 'all' || (m === 'old' && skRecsOld(r)) || (m === '30' && r.t && r.t < cut)).map(r => r.key));
+  skRecsRender();
+}
+function skRecsDel(keys) {
+  keys = (keys || []).filter(Boolean); if (!keys.length) return;
+  if (!confirm('刪除 ' + keys.length + ' 筆已儲存的錄音？\n\n刪除後無法復原（只影響這台裝置的錄音檔；分數與練習進度不會動）。')) return;
+  skStopPlay();
+  skDbDo('readwrite', s => { keys.forEach(k => s.delete(k)); }).then(() => {
+    keys.forEach(key => { const i = key.lastIndexOf(':'), rc = S.spk && S.spk[key.slice(0, i)]; if (rc && rc.sv) delete rc.sv[key.slice(i + 1)]; SKR.sel.delete(key); });
+    save(); SKR.rows = (SKR.rows || []).filter(r => !keys.includes(r.key)); dnToast('已刪除 ' + keys.length + ' 筆'); skRecsRender();
+  }).catch(() => dnToast('刪除失敗'));
+}
+function skRecsPlay(key) {
+  if (SK.mineRel) return;
+  if (SK.playing === 'saved' && SK.pk === key) { skStopPlay(); skRecsRender(); return; }
+  skStopPlay(); if (SK.mineRel) { skRecsRender(); return; }
+  skPlayPrep();
+  const tk = SK.tk; SK.playing = 'saved'; SK.pk = key; skRecsRender();
+  const end = () => { if (tk === SK.tk) { skStopPlay(); if (cur.view === 'recs') skRecsRender(); } };
+  const bad = () => { if (tk !== SK.tk) return; dnToast('這筆錄音無法播放（可能是舊格式）'); end(); };
+  skDbDo('readonly', st => st.get(key)).then(rec => { if (tk !== SK.tk) return; if (!rec || !rec.blob) { dnToast('找不到這筆錄音檔'); end(); return; } skPlayBlob(rec.blob, tk, end, bad); }).catch(end);
+}
