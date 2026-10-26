@@ -119,6 +119,7 @@ MAKE_EN = True                # 英文解說（en）整句 _en.mp3（逐篇存�
 MAKE_PARA = True              # 句子的同義改寫（paraphrase[].en）_pr{k}.mp3（逐篇存放）
 MAKE_KEYWORDS = True          # 句子詳解的「句中值得注意的字」（key_words[].w），走共用庫
 MAKE_POS = True               # 多詞性（pos_uses）：每個詞性的單字發音 _pw{k}.mp3 ＋ 例句 _p{k}.mp3
+MAKE_PHRASES = True           # 簡報常用句型（presentation_phrases[].phrase）整句 {句型slug}.mp3（放 vocab/，與網頁 speakPhrase 一致；省略號不念）
 MAKE_SENSE = True             # 多義（senses）：每個意思的單字發音 _sw{k}.mp3 ＋ 例句 _s{k}.mp3
 PASSAGE_RATE = "-5%"          # 文章語速
 VOCAB_RATE = "-10%"           # 單字／句子語速（單字慢一點比較聽得清楚）
@@ -578,6 +579,12 @@ def speak_text(t):
     return re.sub(r"\.{2,}|…", " ", str(t)).strip()
 
 
+def art_id(x):
+    """文章 id，與網頁 / json_merge.did() 一致：day>=8 是 D8 專案 → w1d8-1、w1d8-2…；其他天 w1d3。"""
+    w, d = int(x["week"]), int(x["day"])
+    return f"w{w}d8-{d - 7}" if d >= 8 else f"w{w}d{d}"
+
+
 def load_daily_items(root):
     data = json.loads((root / CFG["daily"]["file"]).read_text(encoding="utf-8-sig"))
     items = data["items"] if isinstance(data, dict) else data
@@ -586,7 +593,7 @@ def load_daily_items(root):
 
 def collect_entries(root, items):
     """詳解項目：extra_vocab ＋ daily-marks*.json。回傳 list of dict(qid, text, type, ctx, examples)"""
-    arts = {f"w{x['week']}d{x['day']}": x for x in items}
+    arts = {art_id(x): x for x in items}
     ents = {}
     for qid, x in arts.items():
         for v in x.get("extra_vocab") or []:
@@ -633,7 +640,7 @@ def plan_daily(root: Path):
     groups = []
     if MAKE_PASSAGE:
         for x in items:
-            qid = f"w{x['week']}d{x['day']}"
+            qid = art_id(x)
             p = str(x.get("passage") or "").strip()
             if not p:
                 continue
@@ -643,7 +650,7 @@ def plan_daily(root: Path):
             if r:
                 groups.append(dict(key=qid, kind="文章", total=1, voice=voice, jobs=[
                     dict(name=path.name, text=p, voice=voice, rate=PASSAGE_RATE, path=path, redo=(r == "redo"))]))
-    if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED or MAKE_CONFUSABLE or MAKE_SIMILAR or MAKE_EN or MAKE_PARA or MAKE_KEYWORDS or MAKE_POS or MAKE_SENSE:
+    if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED or MAKE_CONFUSABLE or MAKE_SIMILAR or MAKE_EN or MAKE_PARA or MAKE_KEYWORDS or MAKE_POS or MAKE_SENSE or MAKE_PHRASES:
         vdir = root / VOCAB_SUB
         wdir = root / WORDS_SUB
         seen = set()   # 這次已排進清單的檔（共用單字檔、vocab/ 檔），同一個檔不重複排
@@ -754,6 +761,23 @@ def plan_daily(root: Path):
             if jobs:
                 kind = {"word": "單字", "phrase": "片語", "sentence": "句子"}.get(e["type"], "單字")
                 groups.append(dict(key=f"{e['qid']}:{e['text']}", kind=kind, total=len(want), voice=VOCAB_VOICE, jobs=jobs))
+        if MAKE_PHRASES:   # 簡報常用句型：每篇一組，整句 mp3 放 vocab/，檔名＝句型內容的 slug（同一句只錄一次）
+            for x in items:
+                pps = [p.get("phrase") for p in (x.get("presentation_phrases") or []) if isinstance(p, dict)]
+                jobs = []
+                for ph in pps:
+                    if not (isinstance(ph, str) and ph.strip()):
+                        continue
+                    t = speak_text(ph)
+                    t = re.sub(r"\s+", " ", t)
+                    p = vdir / f"{slug(t)}.mp3"
+                    r = need(p, VOCAB_VOICE, VOCAB_RATE)
+                    if not r or p in seen:
+                        continue
+                    seen.add(p)
+                    jobs.append(dict(name=p.name, text=t, voice=VOCAB_VOICE, rate=VOCAB_RATE, path=p, redo=(r == "redo")))
+                if jobs:
+                    groups.append(dict(key=f"{art_id(x)}:簡報句型", kind="句型", total=len(pps), voice=VOCAB_VOICE, jobs=jobs))
     return groups
 
 

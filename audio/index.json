@@ -1,5 +1,5 @@
 {
- "v": 1792752474,
+ "v": 1793002600,
  "letters": [
   "A",
   "B",
@@ -434,6 +434,7 @@
    "w1d8-5",
    "w1d8-6",
    "w1d8-7",
+   "w1d8-8",
    "w2d1",
    "w2d2",
    "w2d3",
@@ -474,36 +475,16 @@
    "w7d1"
   ],
   "partial": {},
-  "orphans": [
-   "w1d10.mp3",
-   "w1d11.mp3",
-   "w1d12.mp3",
-   "w1d13.mp3",
-   "w1d14.mp3",
-   "w1d8.mp3",
-   "w1d9.mp3",
-   "w2d8.mp3",
-   "w2d9.mp3"
-  ],
-  "total": 52
+  "orphans": [],
+  "total": 53
  },
  "timing": {
-  "total": 52,
-  "ok": 52,
+  "total": 53,
+  "ok": 53,
   "partial": 0,
   "bad": 0,
   "none": 0,
   "todo": []
  },
- "warn": [
-  "audio/daily/w1d10.mp3 不屬於任何題目（檔名打錯？）",
-  "audio/daily/w1d11.mp3 不屬於任何題目（檔名打錯？）",
-  "audio/daily/w1d12.mp3 不屬於任何題目（檔名打錯？）",
-  "audio/daily/w1d13.mp3 不屬於任何題目（檔名打錯？）",
-  "audio/daily/w1d14.mp3 不屬於任何題目（檔名打錯？）",
-  "audio/daily/w1d8.mp3 不屬於任何題目（檔名打錯？）",
-  "audio/daily/w1d9.mp3 不屬於任何題目（檔名打錯？）",
-  "audio/daily/w2d8.mp3 不屬於任何題目（檔名打錯？）",
-  "audio/daily/w2d9.mp3 不屬於任何題目（檔名打錯？）"
- ]
+ "warn": []
 }

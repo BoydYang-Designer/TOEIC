@@ -1,0 +1,245 @@
+{
+  "week": 1,
+  "day": 15,
+  "extra_vocab": [
+    {
+      "text": "magnet",
+      "type": "word",
+      "ipa": "/ˈmæɡnɪt/",
+      "pos": "n.",
+      "zh": "磁鐵",
+      "en": "a metal object that pulls iron toward it",
+      "note": "在這篇裡指用來取代彈簧、控制鎖定與解鎖的零件。文章中的 two magnets 是兩個磁鐵靠磁力互相作用。",
+      "forms": [
+        { "w": "magnets", "label": "複數", "pos": "n.", "zh": "磁鐵（複數）", "ipa": "/ˈmæɡnɪts/", "example": { "en": "Both magnets must be tested before the product leaves the factory.", "zh": "兩個磁鐵都必須在產品出廠前測試。" } }
+      ],
+      "collocations": [
+        { "phrase": "permanent magnet", "zh": "永久磁鐵", "example": { "en": "A permanent magnet keeps its force without any electric power.", "zh": "永久磁鐵不需要任何電力就能保有磁力。" } },
+        { "phrase": "strong magnet", "zh": "強力磁鐵", "example": { "en": "A strong magnet can damage some credit cards and watches.", "zh": "強力磁鐵可能損壞某些信用卡和手錶。" } },
+        { "phrase": "attach a magnet", "zh": "裝上磁鐵", "example": { "en": "Please attach a magnet to the end of the pin.", "zh": "請在銷的末端裝上一個磁鐵。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "We tested a small magnet to hold the cover in place.", "zh": "我們測試了一個小磁鐵來固定外蓋。" },
+        { "tag": "產品說明", "en": "The magnet in this latch is strong enough to hold the door.", "zh": "這個門扣裡的磁鐵強到足以固定住門。" },
+        { "tag": "行銷", "en": "The new shopping center became a magnet for young families.", "zh": "這間新購物中心成了吸引年輕家庭的地方。" }
+      ],
+      "confusable": [
+        { "word": "magnitude", "diff": "magnitude 是「大小、規模」，拼法和 magnet 很像，但和磁鐵無關。", "example": { "en": "The magnitude of the price change surprised the whole sales team.", "zh": "價格變動的幅度讓整個業務團隊很驚訝。" } }
+      ],
+      "family": [
+        { "w": "metal", "pos": "n.", "zh": "金屬", "ipa": "/ˈmetl/", "example": { "en": "The pin is made of metal, not plastic.", "zh": "這個銷是金屬做的，不是塑膠。" } },
+        { "w": "spring", "pos": "n.", "zh": "彈簧", "ipa": "/sprɪŋ/", "example": { "en": "The spring pushes the button back after each use.", "zh": "每次使用後，彈簧會把按鈕推回原位。" } },
+        { "w": "force", "pos": "n.", "zh": "力量", "ipa": "/fɔːrs/", "example": { "en": "The force of the magnet depends on its size.", "zh": "磁鐵的力量取決於它的大小。" } }
+      ],
+      "derived": [
+        { "w": "magnetic", "pos": "adj.", "zh": "有磁性的", "ipa": "/mæɡˈnetɪk/", "link": "magnet + -ic，變成「有…性質的」，像 electric、basic" },
+        { "w": "magnetism", "pos": "n.", "zh": "磁力、磁性", "ipa": "/ˈmæɡnətɪzəm/", "link": "magnet + -ism，表示「現象、特性」，像 tourism" },
+        { "w": "magnetically", "pos": "adv.", "zh": "以磁力方式", "ipa": "/mæɡˈnetɪkli/", "link": "magnetic + -ally，變成副詞，像 basically" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "磁鐵", "en": "a metal object that pulls iron toward it", "in_passage": true, "example": { "en": "The two magnets move the locking pin without touching it.", "zh": "這兩個磁鐵不用碰到鎖定銷就能讓它移動。" } },
+        { "pos": "n.", "zh": "有吸引力的人或地方", "en": "a person or place that attracts many people", "distinguish": "後面常接 for 或 to，指地點、公司等，不是真的磁鐵。", "example": { "en": "Our city is a magnet for international investors.", "zh": "我們的城市對國際投資人很有吸引力。" } }
+      ]
+    },
+    {
+      "text": "attract",
+      "type": "word",
+      "ipa": "/əˈtrækt/",
+      "pos": "v.",
+      "zh": "吸引",
+      "en": "to pull something toward you or make people want to come",
+      "note": "在這篇裡是物理上的「互相吸引」：兩個磁鐵的磁力讓它們靠近，和 repel（互相排斥）成對使用。",
+      "grammar_note": "attract 是及物動詞，後面直接接受詞，不加 to；「被…吸引」要用被動 be attracted to。",
+      "forms": [
+        { "w": "attracts", "label": "第三人稱單數", "pos": "v.", "zh": "吸引", "ipa": "/əˈtrækts/", "example": { "en": "This design attracts buyers because it is simple and light.", "zh": "這個設計吸引買家，因為它簡單又輕巧。" } },
+        { "w": "attracted", "label": "過去式／過去分詞", "pos": "v.", "zh": "吸引了", "ipa": "/əˈtræktɪd/", "example": { "en": "The trade show attracted over five hundred visitors last year.", "zh": "這場展覽去年吸引了超過五百位參觀者。" } },
+        { "w": "attracting", "label": "現在分詞", "pos": "v.", "zh": "正在吸引", "ipa": "/əˈtræktɪŋ/", "example": { "en": "We are attracting more clients through our new website.", "zh": "我們正透過新網站吸引更多客戶。" } }
+      ],
+      "collocations": [
+        { "phrase": "attract customers", "zh": "吸引顧客", "example": { "en": "Free samples can attract new customers to our booth.", "zh": "免費試用品可以吸引新顧客來到我們的攤位。" } },
+        { "phrase": "attract attention", "zh": "引起注意", "example": { "en": "The bright sign will attract attention from people walking by.", "zh": "這個亮眼的招牌會吸引路過的人注意。" } },
+        { "phrase": "attract investors", "zh": "吸引投資人", "example": { "en": "A clear business plan will help us attract more investors.", "zh": "清楚的商業計畫會幫助我們吸引更多投資人。" } }
+      ],
+      "examples": [
+        { "tag": "技術說明", "en": "Opposite poles attract each other, while the same poles repel.", "zh": "異極互相吸引，同極則互相排斥。" },
+        { "tag": "活動", "en": "The festival attracts thousands of visitors every year.", "zh": "這個節慶每年吸引數千名遊客。" },
+        { "tag": "人才招募", "en": "The company offers good benefits to attract skilled workers.", "zh": "公司提供良好福利來吸引技術人員。" }
+      ],
+      "confusable": [
+        { "word": "distract", "diff": "distract 是「使分心」，和 attract 只差開頭，意思完全不同。", "example": { "en": "Loud noise in the office can distract workers from their tasks.", "zh": "辦公室的大聲噪音會讓員工無法專心工作。" } },
+        { "word": "extract", "diff": "extract 是「取出、萃取」，指把東西從裡面拿出來。", "usage": "extract 常接 from：extract data from the system。", "example": { "en": "We extract the data from the system every Monday morning.", "zh": "我們每週一早上從系統取出資料。" } }
+      ],
+      "similar": [
+        { "phrase": "draw", "diff": "draw 比較口語，常接 in 或 to，語氣和 attract 相近但更簡單。", "example": { "en": "The sale is meant to draw more shoppers into the store.", "zh": "這次特賣是為了把更多顧客吸引進店裡。" } },
+        { "phrase": "appeal to", "diff": "appeal to 是「對…有吸引力」，主詞是東西，後面接人。", "example": { "en": "Our new model will appeal to younger drivers.", "zh": "我們的新車款會吸引年輕駕駛。" } }
+      ],
+      "family": [
+        { "w": "draw", "pos": "v.", "zh": "吸引、拉", "ipa": "/drɔː/", "example": { "en": "The new store draws many shoppers on weekends.", "zh": "這間新店在週末吸引許多顧客。" } },
+        { "w": "interest", "pos": "v.", "zh": "使感興趣", "ipa": "/ˈɪntrəst/", "example": { "en": "The new product design interested several large retailers last month.", "zh": "這個新產品設計上個月引起幾家大型零售商的興趣。" } },
+        { "w": "pull", "pos": "v.", "zh": "拉", "ipa": "/pʊl/", "example": { "en": "The magnet can pull the pin back quickly.", "zh": "磁鐵可以很快把銷拉回來。" } }
+      ],
+      "derived": [
+        { "w": "attraction", "pos": "n.", "zh": "吸引力；景點", "ipa": "/əˈtrækʃən/", "link": "attract + -ion，動作變名詞，像 action、decision" },
+        { "w": "attractive", "pos": "adj.", "zh": "有吸引力的", "ipa": "/əˈtræktɪv/", "link": "attract + -ive，變成「有…性質的」，像 active" },
+        { "w": "attractively", "pos": "adv.", "zh": "吸引人地", "ipa": "/əˈtræktɪvli/", "link": "attractive + -ly，變成副詞，像 quickly" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "（磁力、物理上）吸引", "en": "to pull something closer by a natural force", "in_passage": true, "example": { "en": "Magnets attract small pieces of iron but not plastic.", "zh": "磁鐵會吸引小塊的鐵，但不會吸引塑膠。" } },
+        { "pos": "v.", "zh": "（人、注意、投資）吸引", "en": "to make people interested or make them come", "distinguish": "主詞是產品、地點或做法，受詞是人或資金，不是物理拉力。", "example": { "en": "Good service attracts customers who return again and again.", "zh": "好的服務會吸引顧客一再回來。" } }
+      ]
+    },
+    {
+      "text": "repel",
+      "type": "word",
+      "ipa": "/rɪˈpel/",
+      "pos": "v.",
+      "zh": "排斥、使退開",
+      "en": "to push something away",
+      "note": "在這篇裡指兩個磁鐵因磁力互相推開，和 attract 成對出現，說明磁鐵如何讓鎖定銷來回移動。",
+      "forms": [
+        { "w": "repels", "label": "第三人稱單數", "pos": "v.", "zh": "排斥", "ipa": "/rɪˈpelz/", "example": { "en": "This cover repels dust and makes cleaning much easier.", "zh": "這個外蓋能防塵，讓清潔容易許多。" } },
+        { "w": "repelled", "label": "過去式／過去分詞", "pos": "v.", "zh": "排斥了", "ipa": "/rɪˈpeld/", "example": { "en": "The new coating repelled water during all of our tests.", "zh": "新的塗層在我們所有測試中都能防水。" } },
+        { "w": "repelling", "label": "現在分詞", "pos": "v.", "zh": "正在排斥", "ipa": "/rɪˈpelɪŋ/", "example": { "en": "Slow delivery is repelling customers from our online store.", "zh": "遲緩的送貨正讓顧客遠離我們的網路商店。" } }
+      ],
+      "collocations": [
+        { "phrase": "repel each other", "zh": "互相排斥", "example": { "en": "If you turn one magnet around, the two will repel each other.", "zh": "如果你把一個磁鐵轉過來，兩個就會互相排斥。" } },
+        { "phrase": "repel insects", "zh": "驅蟲", "example": { "en": "This lamp is designed to repel insects in the evening.", "zh": "這盞燈是設計來在傍晚驅趕蚊蟲的。" } }
+      ],
+      "examples": [
+        { "tag": "產品說明", "en": "This coating helps repel water and keeps the fabric dry.", "zh": "這個塗層能防水，讓布料保持乾燥。" },
+        { "tag": "技術說明", "en": "Engineers use this force to repel parts from each other.", "zh": "工程師利用這種力量讓零件互相推開。" },
+        { "tag": "銷售", "en": "Aggressive sales tactics can repel customers rather than win them over.", "zh": "強勢的銷售手法可能讓顧客反感，而不是爭取到他們。" }
+      ],
+      "confusable": [
+        { "word": "repeal", "diff": "repeal 是「廢除（法律、規定）」，拼法只差一個字母，和排斥無關。", "example": { "en": "The government voted to repeal the old trade rule.", "zh": "政府投票廢除了舊的貿易規定。" } },
+        { "word": "expel", "diff": "expel 是「開除、逐出」，指把人趕出組織或學校。", "usage": "expel 的對象通常是人，常接 from：expel someone from a group。", "example": { "en": "The company may expel members who break the rules.", "zh": "公司可能會把違反規定的成員除名。" } }
+      ],
+      "similar": [
+        { "phrase": "push away", "diff": "push away 是口語說法，指用力推開；repel 較正式，也用於磁力與防水。", "example": { "en": "The pole of one magnet will push away the other.", "zh": "一個磁鐵的磁極會把另一個推開。" } },
+        { "phrase": "drive away", "diff": "drive away 常用在把人或顧客「趕跑」，語氣比 repel 更強。", "example": { "en": "Poor service may drive away our most loyal customers.", "zh": "糟糕的服務可能趕走我們最忠實的顧客。" } }
+      ],
+      "family": [
+        { "w": "reject", "pos": "v.", "zh": "拒絕", "ipa": "/rɪˈdʒekt/", "example": { "en": "The committee decided to reject the first design.", "zh": "委員會決定否決第一版設計。" } },
+        { "w": "resist", "pos": "v.", "zh": "抵抗、耐", "ipa": "/rɪˈzɪst/", "example": { "en": "The new material can resist heat and water.", "zh": "這種新材料能耐熱也耐水。" } },
+        { "w": "push", "pos": "v.", "zh": "推", "ipa": "/pʊʃ/", "example": { "en": "Push this button to release the lock on the door.", "zh": "按下這個按鈕來解開門上的鎖。" } }
+      ],
+      "derived": [
+        { "w": "repellent", "pos": "adj.", "zh": "防…的；驅蟲劑", "ipa": "/rɪˈpelənt/", "link": "repel + -ent，變成「有排斥作用的（東西）」，像 different、student" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "（磁極）互相排斥", "en": "to push away from each other, like two magnets", "in_passage": true, "example": { "en": "Magnets repel each other when their matching poles meet.", "zh": "磁鐵的相同磁極相遇時會互相排斥。" } },
+        { "pos": "v.", "zh": "防（水、蟲）、擋住", "en": "to keep water, insects or dirt away", "distinguish": "受詞是水、蟲、灰塵等，常見於產品說明。", "example": { "en": "A special oil on the bag helps repel rain.", "zh": "袋子上的特殊油層有助於防雨。" } },
+        { "pos": "v.", "zh": "使人反感", "en": "to make people feel they do not want to come close", "distinguish": "受詞是人，常用來描述態度或做法讓人不想靠近。", "example": { "en": "His rude emails repelled several of our best clients.", "zh": "他無禮的電子郵件讓我們幾位最好的客戶反感。" } }
+      ]
+    },
+    {
+      "text": "arrangement",
+      "type": "word",
+      "ipa": "/əˈreɪndʒmənt/",
+      "pos": "n.",
+      "zh": "配置、排列；安排",
+      "en": "the way parts or things are put in order",
+      "note": "在這篇裡指零件的機械「配置」，a different mechanical arrangement 是用不同的零件排列方式達到相同功能。",
+      "grammar_note": "表示「安排、準備」時常用複數 arrangements，後面接 for + 名詞或 to + V，例如 make arrangements for the trip。",
+      "forms": [
+        { "w": "arrangements", "label": "複數", "pos": "n.", "zh": "安排、準備", "ipa": "/əˈreɪndʒmənts/", "example": { "en": "Final arrangements for the product launch will be sent by email.", "zh": "產品發表的最終安排會用電子郵件寄出。" } }
+      ],
+      "collocations": [
+        { "phrase": "make arrangements", "zh": "做安排", "example": { "en": "Please make arrangements for the client's hotel stay.", "zh": "請為客戶的飯店住宿做好安排。" } },
+        { "phrase": "travel arrangements", "zh": "旅行安排", "example": { "en": "Our assistant will handle all travel arrangements for the trip.", "zh": "我們的助理會處理這趟行程所有的旅行安排。" } },
+        { "phrase": "seating arrangement", "zh": "座位安排", "example": { "en": "The seating arrangement for the dinner has been changed.", "zh": "晚宴的座位安排已經更改了。" } }
+      ],
+      "examples": [
+        { "tag": "技術說明", "en": "This arrangement of parts reduces the size of the lock.", "zh": "這種零件配置縮小了鎖的尺寸。" },
+        { "tag": "付款", "en": "The two companies reached a flexible payment arrangement last week.", "zh": "兩家公司上週達成了彈性的付款安排。" },
+        { "tag": "產品設計", "en": "The arrangement of the buttons makes the device easy to use.", "zh": "按鈕的排列方式讓這個裝置很好操作。" }
+      ],
+      "confusable": [
+        { "word": "agreement", "diff": "agreement 是「協議、同意」，指雙方談好的內容；arrangement 偏重「安排、配置」。", "example": { "en": "Both sides signed the agreement before the end of the month.", "zh": "雙方在月底前簽署了協議。" } }
+      ],
+      "similar": [
+        { "phrase": "layout", "diff": "layout 指空間或頁面的「版面配置」，arrangement 範圍更廣，也可指安排。", "example": { "en": "The layout of the new office is open and bright.", "zh": "新辦公室的配置開放又明亮。" } },
+        { "phrase": "setup", "diff": "setup 指設備或系統的「設置、組態」，語氣較口語。", "example": { "en": "The setup of the machine takes about ten minutes.", "zh": "這台機器的設置大約要十分鐘。" } }
+      ],
+      "family": [
+        { "w": "plan", "pos": "n.", "zh": "計畫", "ipa": "/plæn/", "example": { "en": "We need a clear plan before the project starts.", "zh": "專案開始前我們需要一個清楚的計畫。" } },
+        { "w": "design", "pos": "n.", "zh": "設計", "ipa": "/dɪˈzaɪn/", "example": { "en": "The design of the lock is simple and safe.", "zh": "這個鎖的設計簡單又安全。" } },
+        { "w": "structure", "pos": "n.", "zh": "結構", "ipa": "/ˈstrʌktʃɚ/", "example": { "en": "The structure of the lock has only three parts.", "zh": "這個鎖的結構只有三個零件。" } }
+      ],
+      "derived": [
+        { "w": "arrange", "pos": "v.", "zh": "安排；排列", "ipa": "/əˈreɪndʒ/", "link": "動詞詞幹，加 -ment 變名詞 arrangement，像 pay → payment" },
+        { "w": "rearrange", "pos": "v.", "zh": "重新安排", "ipa": "/ˌriːəˈreɪndʒ/", "link": "re-（再一次）+ arrange，像 rewrite、return" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "配置、排列", "en": "the way parts or things are placed together", "in_passage": true, "example": { "en": "The arrangement of the gears lets the machine run quietly.", "zh": "齒輪的配置讓機器運轉得很安靜。" } },
+        { "pos": "n.", "zh": "安排、準備", "en": "a plan made in advance for something to happen", "distinguish": "通常用複數，後面接 for 活動或行程，指事前的準備。", "example": { "en": "All arrangements for the meeting were finished on Friday.", "zh": "會議的所有安排在星期五都已完成。" } },
+        { "pos": "n.", "zh": "協議、約定", "en": "an agreement between people or companies", "distinguish": "前面常有 under this 或 payment、work 等字，指雙方談定的做法。", "example": { "en": "Under this arrangement, we deliver goods every two weeks.", "zh": "依照這項約定，我們每兩週送一次貨。" } }
+      ]
+    },
+    {
+      "text": "principle",
+      "type": "word",
+      "ipa": "/ˈprɪnsəpəl/",
+      "pos": "n.",
+      "zh": "原理、原則",
+      "en": "a basic idea about how something works",
+      "note": "在這篇裡指機構運作的基本原理，the basic principle 就是前面說明的「用磁力控制鎖定銷」這個核心概念。",
+      "forms": [
+        { "w": "principles", "label": "複數", "pos": "n.", "zh": "原則（複數）", "ipa": "/ˈprɪnsəpəlz/", "example": { "en": "These three principles guide every decision our team makes.", "zh": "這三項原則指引我們團隊的每個決定。" } }
+      ],
+      "collocations": [
+        { "phrase": "basic principle", "zh": "基本原理", "example": { "en": "Please explain the basic principle of this new system.", "zh": "請說明這個新系統的基本原理。" } },
+        { "phrase": "in principle", "zh": "原則上、理論上", "example": { "en": "In principle, the plan is fine, but we need more details.", "zh": "原則上這個計畫可行，但我們需要更多細節。" } },
+        { "phrase": "guiding principle", "zh": "指導原則", "example": { "en": "Safety is our guiding principle in every product design.", "zh": "安全是我們每項產品設計的指導原則。" } }
+      ],
+      "examples": [
+        { "tag": "技術說明", "en": "Both machines work on the same basic principle.", "zh": "這兩台機器的運作基於相同的基本原理。" },
+        { "tag": "公司文化", "en": "Honesty is an important principle for everyone in our company.", "zh": "誠實是我們公司每個人都重視的原則。" },
+        { "tag": "客戶服務", "en": "Customer trust is the main principle behind our service.", "zh": "客戶信任是我們服務背後的主要原則。" }
+      ],
+      "confusable": [
+        { "word": "principal", "diff": "principal 發音和 principle 完全一樣，意思是「主要的」或「校長」。", "usage": "principle 是名詞（原理、原則）；principal 多為形容詞「主要的」，也可當名詞「校長」。", "example": { "en": "Our principal supplier is located near the main factory.", "zh": "我們的主要供應商就在主工廠附近。" } }
+      ],
+      "similar": [
+        { "phrase": "rule", "diff": "rule 是明確規定、要遵守的「規則」；principle 是背後的基本想法。", "example": { "en": "Every employee must follow the safety rule at all times.", "zh": "每位員工都必須隨時遵守安全規則。" } },
+        { "phrase": "concept", "diff": "concept 是「概念」，偏重想法本身；principle 偏重運作的原理。", "example": { "en": "The basic concept is easy to explain to new staff.", "zh": "這個基本概念很容易向新進員工說明。" } }
+      ],
+      "family": [
+        { "w": "theory", "pos": "n.", "zh": "理論", "ipa": "/ˈθiːəri/", "example": { "en": "The theory sounds good, but we must test it first.", "zh": "這個理論聽起來不錯，但我們必須先測試。" } },
+        { "w": "policy", "pos": "n.", "zh": "政策、規定", "ipa": "/ˈpɑːləsi/", "example": { "en": "Our refund policy is explained clearly on the website.", "zh": "我們的退款政策在網站上有清楚說明。" } },
+        { "w": "standard", "pos": "n.", "zh": "標準", "ipa": "/ˈstændɚd/", "example": { "en": "This product meets the highest safety standard in the industry.", "zh": "這個產品符合業界最高的安全標準。" } }
+      ],
+      "derived": [
+        { "w": "principled", "pos": "adj.", "zh": "有原則的", "ipa": "/ˈprɪnsəpəld/", "link": "principle + -d，變成「有…的」，像 skilled、talented" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "（運作的）原理", "en": "a basic idea about how something works", "in_passage": true, "example": { "en": "The principle of this heater is simple and safe.", "zh": "這台暖氣機的原理簡單又安全。" } },
+        { "pos": "n.", "zh": "（行為的）原則、信念", "en": "a rule or belief about what is right", "distinguish": "指人或公司遵守的信念，常見 as a matter of principle。", "example": { "en": "As a matter of principle, we never share customer data.", "zh": "基於原則，我們絕不分享客戶資料。" } }
+      ]
+    },
+    {
+      "text": "locking pin",
+      "type": "phrase",
+      "zh": "鎖定銷、鎖銷",
+      "en": "a small metal part that holds something in a fixed position",
+      "note": "在這篇裡是鎖定機構中的關鍵零件：傳統設計用纜線拉動、彈簧推回；新設計改由磁鐵控制它前後移動。",
+      "pattern": "locking + N（具鎖定功能的零件）",
+      "grammar_note": "locking 是 V-ing 當形容詞，表示「用來鎖定的」；locked pin 則是「被鎖住的銷」，兩者意思不同。",
+      "examples": [
+        { "tag": "技術說明", "en": "The locking pin holds the seat in position while the car moves.", "zh": "鎖定銷在車子行進時把座椅固定在位置上。" },
+        { "tag": "維修", "en": "Remove the locking pin before you replace the old part.", "zh": "更換舊零件前，請先取下鎖定銷。" },
+        { "tag": "組裝", "en": "Check that the locking pin is fully inserted into the hole.", "zh": "請確認鎖定銷已完全插入孔中。" },
+        { "tag": "品管", "en": "The inspector found a damaged locking pin on the third machine.", "zh": "檢驗員在第三台機器上發現一根受損的鎖定銷。" }
+      ],
+      "similar": [
+        { "phrase": "lock pin", "diff": "lock pin 是較簡短的說法，意思幾乎相同，locking pin 比較常見於技術說明。", "example": { "en": "Insert the lock pin into the hole to fix the panel.", "zh": "把鎖銷插入孔中來固定面板。" } },
+        { "phrase": "latch", "diff": "latch 是「門閂、扣鎖」，是整個扣住的裝置；locking pin 則是裡面的一根銷。", "example": { "en": "Close the latch so the cover stays shut during transport.", "zh": "請扣上門扣，讓外蓋在運送時保持關閉。" } }
+      ]
+    }
+  ]
+}
