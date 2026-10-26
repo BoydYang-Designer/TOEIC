@@ -567,7 +567,10 @@ function skLogH() {
     <pre id="sk-log" class="text-[0.6875rem] leading-snug whitespace-pre-wrap break-all max-h-80 overflow-y-auto text-slate-600 dark:text-slate-300">${esc(skLogText())}</pre></div>`;
 }
 const SK_MOB = SK_IOS || /Android/i.test(navigator.userAgent);
-const skUseMr = () => !skSR() || !SK_MOB || S.spkMr === 1; // 是否同時用 MediaRecorder 錄音檔
+const skUseMr = () => !skSR() || !SK_MOB || S.spkMr === 1; // 是否用 MediaRecorder 錄音檔
+/* 手機上麥克風只給一個人用：S.spkMr === 1（錄音回放模式）＝只錄音、不開語音辨識；否則（評分模式）＝只開語音辨識、不開錄音／常駐麥克風。
+   原因：iPhone 上辨識和錄音同時用麥克風，常常兩邊都收到靜音（blob=5B）。電腦版不受影響，仍然兩個一起開。 */
+const skUseSr = () => !!skSR() && !(SK_MOB && S.spkMr === 1);
 const skSettle = () => (typeof S.spkWait === 'number' ? S.spkWait : SK.fail ? 700 : SK_MOB ? 350 : 0);  // 兩次麥克風之間至少隔幾毫秒
 function skReleaseAudio() {
   skLog('release audio: ctx=' + (SK.ctx ? SK.ctx.state : '無') + ' au=' + (SK.au ? (SK.au.paused ? '暫停' : '播放中') : '無') + ' playing=' + SK.playing); // 把所有會佔用音訊通道的東西都放掉（播放原音、Web Audio、<audio>、TTS、首頁播放器）
@@ -666,7 +669,7 @@ function skRecToggle() {
 function skRecGo(tk) {
   if (tk !== SK.rtk || SK.st !== 'prep') return;
   SK.st = 'rec'; SK.everUp = false; SK.stopping = false; SK.ready = false; // ready＝錄音檔的麥克風真的開好了（畫面才顯示「可以開口」）
-  const SRc = skSR(); skLog('開始錄音 SR=' + !!SRc + ' 同時錄音檔=' + skUseMr());
+  const SRc = skUseSr() ? skSR() : null; skLog('開始錄音 SR=' + !!SRc + ' 同時錄音檔=' + skUseMr());
   SK.lv = null; if (SRc && skWholeRec()) skLiveInit(); // 整篇＋有語音辨識：開啟即時追蹤
   if (SRc) {
     const r = skSrNew(tk, true);
@@ -685,7 +688,7 @@ function skRecGo(tk) {
    語音辨識也同時聽不到（有 audiostart、沒有 soundstart）。每次錄完就把 track stop() 掉，下一次再重新要麥克風，很可能就是壞掉的原因。
    做法：整個語音練習頁面只向系統要一次麥克風，之後的錄音都重用同一條串流，離開頁面／切到背景才放掉。
    代價：練習期間 iOS 狀態列會一直顯示麥克風使用中的橘點。 */
-const skKeepOn = () => !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) && (S.spkKeep === 1 || (S.spkKeep === undefined && SK_IOS));
+const skKeepOn = () => !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) && skUseMr() && (S.spkKeep === 1 || (S.spkKeep === undefined && SK_IOS));
 function skKeepFree() {
   const k = SK.keepSt; SK.keepSt = null;
   if (k) { k.getTracks().forEach(t => { t.onended = t.onmute = t.onunmute = null; try { t.stop(); } catch (e) {} }); skLog('常駐麥克風 已釋放'); }
@@ -793,7 +796,7 @@ async function skReset() {
 }
 function skFinish(tk) {
   if (tk !== SK.rtk || SK.st !== 'proc') return;
-  const x = skX(), heard = (SK.final + ' ' + SK.interim).trim(), blob = SK.blob, mime = SK.mime, url = blob ? URL.createObjectURL(blob) : null, sup = !!skSR();
+  const x = skX(), heard = (SK.final + ' ' + SK.interim).trim(), blob = SK.blob, mime = SK.mime, url = blob ? URL.createObjectURL(blob) : null, sup = skUseSr();
   const sr0 = SK.sr, mr0 = SK.mr; SK.lastEnd = Date.now(); clearTimeout(SK.wd);
   SK.lv = null; SK.paused = false; // 錄完：即時追蹤結束，改顯示完整評分
   SK.blob = null; SK.st = 'idle'; SK.sr = null; SK.mr = null; SK.srEnd = SK.mrDone = null;
@@ -979,7 +982,7 @@ function skResultH(r, wordsH, sc) { // r：本次結果；wordsH：已上色的�
   if (!r) return '';
   sc = sc || (skIsSent() ? 's' : 'w');
   let head;
-  if (!r.sup) head = '<span class="text-sm">錄音完成。此瀏覽器沒有自動評分，請回放後對照原文。</span>';
+  if (!r.sup) head = '<span class="text-sm">' + (skSR() ? '錄音完成（錄音回放模式沒有自動評分）。請回放後對照原文；想要分數請切回「評分模式」。' : '錄音完成。此瀏覽器沒有自動評分，請回放後對照原文。') + '</span>';
   else if (!r.heard) head = '<span class="text-sm text-rose-600 dark:text-rose-400">沒有辨識到聲音，靠近麥克風再試一次。</span>';
   else head = `<span class="rounded-full px-3 py-1 text-sm font-bold ${skPctCls(r.pct)}">${r.pct}%</span><span class="text-sm">${skMsg(r.pct)}</span>`;
   if (S.spkCurve !== 1) { /* 沒開語調曲線：不顯示語調評分 */ } else if (r.toneBusy) head += '<span class="text-xs text-slate-400">語調分析中…</span>'; else if (r.tone) head += `<span class="rounded-full px-3 py-1 text-sm font-bold ${skPctCls(r.tone.score)}">語調 ${r.tone.score}%</span>`;
@@ -1334,7 +1337,7 @@ function skMr(v) { S.spkMr = v; save(); skStopAll(); skRender(); }
 function skMrH() { // 只有手機＋瀏覽器有語音辨識才顯示
   if (!(SK_MOB && skSR())) return '';
   const on = S.spkMr === 1;
-  return `<div class="flex flex-wrap items-center gap-2 mb-4 text-xs"><span class="text-slate-500">錄音檔</span><button onclick="skMr(0)" class="${skSeg(!on)} !py-1">關（較穩）</button><button onclick="skMr(1)" class="${skSeg(on)} !py-1">開</button><span class="text-slate-400">${on ? '同時錄下你的聲音（可回放、儲存、語調比對），但手機的麥克風容易卡住' : '只做語音辨識，麥克風最穩定；沒有回放、儲存與語調比對'}</span></div>`;
+  return `<div class="flex flex-wrap items-center gap-2 mb-4 text-xs"><span class="text-slate-500">模式</span><button onclick="skMr(0)" class="${skSeg(!on)} !py-1">評分模式</button><button onclick="skMr(1)" class="${skSeg(on)} !py-1">錄音回放模式</button><span class="text-slate-400">${on ? '只錄下你的聲音（可回放、儲存、語調比對），沒有自動評分' : '只做語音辨識，有分數與逐字對照，沒有回放與儲存'}</span></div>`;
 }
 function skCurveToggle() { S.spkCurve = S.spkCurve === 1 ? 0 : 1; save(); skRender(); }
 function skPhLoop() { // 播放時讓橘色游標跟著原音走，並把正在念的字亮起來
