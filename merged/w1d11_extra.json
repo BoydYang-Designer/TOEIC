@@ -1,0 +1,28 @@
+{
+  "week": 1,
+  "day": 11,
+  "extra_vocab": [
+    {
+      "text": "arrange for",
+      "type": "phrase",
+      "zh": "安排（某人或某事）；讓…去做",
+      "en": "to plan so that something will happen or someone will do something",
+      "note": "在這篇裡是客氣的提議：說話者自己不負責細節，所以願意「安排」專利與工程團隊來提供更詳細的說明。",
+      "pattern": "arrange for + 人／物 + to V",
+      "grammar_note": "arrange for 後面常接「受詞 + to V」，表示安排別人去做；arrange to V 則是主詞自己去做。",
+      "examples": [
+        { "tag": "會議", "en": "I can arrange for the engineers to join tomorrow's call.", "zh": "我可以安排工程師參加明天的電話會議。" },
+        { "tag": "出差", "en": "Our office will arrange for a car to pick you up.", "zh": "我們辦公室會安排一輛車去接你。" },
+        { "tag": "電子郵件", "en": "Please arrange for the samples to be sent by Friday.", "zh": "請安排在星期五前寄出樣品。" },
+        { "tag": "客戶服務", "en": "We can arrange for a refund within five working days.", "zh": "我們可以安排在五個工作天內退款。" }
+      ],
+      "similar": [
+        { "phrase": "set up", "diff": "set up 較口語，常直接接 a meeting、a call；arrange for 常接「人 + to V」。", "example": { "en": "Can you set up a meeting with the design team?", "zh": "你能和設計團隊安排一場會議嗎？" } },
+        { "phrase": "organize", "diff": "organize 偏重把活動或行程整個規劃好，後面直接接受詞。", "example": { "en": "She will organize a tour of the factory for our guests.", "zh": "她會為我們的賓客安排工廠參觀行程。" } }
+      ],
+      "confusable": [
+        { "phrase": "arrange", "diff": "單用 arrange 是「安排、排列」，直接接受詞；arrange for 重點是讓某人去做某事。", "usage": "arrange 直接接受詞：arrange a meeting；arrange for 後面接 N + to V：arrange for him to attend。", "example": { "en": "Please arrange a meeting with the supplier next week.", "zh": "請安排下週和供應商開會。" } }
+      ]
+    }
+  ]
+}

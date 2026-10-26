@@ -13,6 +13,30 @@ const PR = { text: '', key: '', src: null, st: 'idle', final: '', interim: '', a
   mr: null, stream: null, chunks: [], mime: '', mrDone: null, blob: null, ctx: null, node: null, pl: false, rel: false, relT: null, ptk: 0 }; // mr…ptk：自己的錄音（只放記憶體，關閉視窗就刪）；prep＝準備麥克風中、rel＝回放關閉中
 const prNorm = t => String(t == null ? '' : t).trim().toLowerCase().replace(/\s+/g, ' ');
 const prWc = t => (String(t).match(/\S*[A-Za-z0-9]\S*/g) || []).length;
+/* ---------- 音標：從資料裡找這個字的 ipa（核心單字、詳解、屈折變化、相關字、衍生字、多詞性、重點字詞） ---------- */
+let PR_IPA = null, PR_IPA_N = -1;
+function prIpaMap() { // 全部文章的 {單字(小寫): [音標…]}；資料筆數變了才重建
+  const D = (typeof DATA !== 'undefined' && Array.isArray(DATA)) ? DATA : [];
+  if (PR_IPA && PR_IPA_N === D.length) return PR_IPA;
+  const m = new Map(), add = (w, ipa) => {
+    w = prNorm(w); ipa = String(ipa || '').trim(); if (!w || !ipa) return;
+    const a = m.get(w) || []; if (!a.includes(ipa)) a.push(ipa); m.set(w, a);
+  };
+  D.forEach(x => {
+    (x.vocab || []).forEach(v => v && add(v.word, v.ipa));
+    (x.extra_vocab || []).forEach(e => {
+      if (!e || typeof e !== 'object') return;
+      add(e.text || e.word, e.ipa);
+      ['forms', 'family', 'derived', 'key_words'].forEach(k => (Array.isArray(e[k]) ? e[k] : []).forEach(o => o && typeof o === 'object' && add(o.w, o.ipa)));
+      (Array.isArray(e.pos_uses) ? e.pos_uses : []).forEach(o => o && typeof o === 'object' && add(o.w || e.lemma || e.text || e.word, o.ipa));
+    });
+  });
+  PR_IPA = m; PR_IPA_N = D.length; return m;
+}
+function prIpaOf(text) { // 找不到（片語、句子、還沒補音標的字）回傳空字串
+  if (prWc(text) > 1) return '';
+  try { return (prIpaMap().get(prNorm(text)) || []).slice(0, 3).join('　／　'); } catch (e) { return ''; }
+}
 const prBest = k => ((S.pron || {})[k] || {}).b || 0;
 
 /* ---------- 紀錄 ---------- */
@@ -134,7 +158,7 @@ function prRender() {
       <div class="flex items-center justify-between gap-2 mb-3"><h3 class="font-bold">🎙 發音練習</h3>
         <span class="text-xs text-slate-500">${rc.b ? `🏆 最高 <b class="rounded px-1.5 py-0.5 ${skPctCls(rc.b)}">${rc.b}%</b> · 練習 ${rc.n} 次` : '還沒練習過'}</span>
         <button onclick="prClose()" class="text-slate-400 hover:text-slate-600 text-2xl leading-none px-1 cursor-pointer" aria-label="關閉">×</button></div>
-      <p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>
+      <p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>${(() => { const ip = prIpaOf(PR.text); return ip ? `<p class="-mt-2 mb-3 text-base text-slate-500">${esc(ip)}</p>` : ''; })()}
       ${warn.length ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 space-y-1">${warn.map(w => `<p>⚠ ${esc(w)}</p>`).join('')}</div>` : ''}
       <div class="flex flex-wrap items-center gap-2 mb-3"><button onclick="prListen()" class="${skCtl}">🔊 聽範例</button>
         <span class="text-xs text-slate-500 ml-auto">評分</span><button onclick="prLevel('loose')" class="${skSeg(skLoose())} !py-1 text-xs">寬鬆</button><button onclick="prLevel('strict')" class="${skSeg(!skLoose())} !py-1 text-xs">嚴格</button></div>

@@ -1,0 +1,50 @@
+{
+  "week": 1,
+  "day": 12,
+  "extra_vocab": [
+    {
+      "text": "eliminate",
+      "type": "word",
+      "ipa": "/ɪˈlɪməneɪt/",
+      "pos": "v.",
+      "zh": "消除、去除",
+      "en": "to remove something completely",
+      "note": "在這篇裡指拿掉一條控制纜線，讓內部機構更簡單。語氣比 remove 更強，表示「完全不需要了」。",
+      "grammar_note": "eliminate 後面直接接受詞，不加介系詞；「不再需要…」常說 eliminate the need for + 名詞。",
+      "forms": [
+        { "w": "eliminates", "label": "第三人稱單數", "pos": "v.", "zh": "消除", "ipa": "/ɪˈlɪməneɪts/", "example": { "en": "This new tool eliminates most of the manual data entry.", "zh": "這個新工具省去了大部分的手動資料輸入。" } },
+        { "w": "eliminated", "label": "過去式／過去分詞", "pos": "v.", "zh": "消除了", "ipa": "/ɪˈlɪməneɪtɪd/", "example": { "en": "The update eliminated several errors in the billing system.", "zh": "這次更新消除了帳務系統中的幾個錯誤。" } },
+        { "w": "eliminating", "label": "現在分詞", "pos": "v.", "zh": "正在消除", "ipa": "/ɪˈlɪməneɪtɪŋ/", "example": { "en": "We are eliminating unnecessary steps from the approval process.", "zh": "我們正在刪除核准流程中不必要的步驟。" } }
+      ],
+      "collocations": [
+        { "phrase": "eliminate errors", "zh": "消除錯誤", "example": { "en": "Double checking helps us eliminate errors before shipping.", "zh": "再次檢查能幫助我們在出貨前消除錯誤。" } },
+        { "phrase": "eliminate the need for", "zh": "不再需要…", "example": { "en": "Online forms eliminate the need for paper documents.", "zh": "線上表單讓我們不再需要紙本文件。" } },
+        { "phrase": "eliminate waste", "zh": "減少浪費", "example": { "en": "The new layout will eliminate waste on the production line.", "zh": "新的配置會消除生產線上的浪費。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "We should eliminate one step to save time in the process.", "zh": "我們應該去掉一個步驟來節省流程時間。" },
+        { "tag": "成本控管", "en": "The company plans to eliminate extra costs by changing suppliers.", "zh": "公司打算換供應商來消除額外成本。" }
+      ],
+      "confusable": [
+        { "word": "illuminate", "diff": "illuminate 是「照亮」，拼法和發音和 eliminate 很像，但意思無關。", "example": { "en": "Bright lights illuminate the display area during the trade show.", "zh": "明亮的燈光在展覽期間照亮展示區。" } }
+      ],
+      "similar": [
+        { "word": "remove", "diff": "remove 只是把東西拿走，語氣較中性；eliminate 強調完全去除。", "example": { "en": "Please remove the old cable before you install the new one.", "zh": "安裝新纜線前，請先拆掉舊的。" } },
+        { "word": "get rid of", "diff": "get rid of 比較口語，意思是擺脫、丟掉。", "example": { "en": "We need to get rid of the old stock this month.", "zh": "我們這個月需要清掉舊庫存。" } }
+      ],
+      "family": [
+        { "w": "remove", "pos": "v.", "zh": "移除", "ipa": "/rɪˈmuːv/", "example": { "en": "Remove the cover before you check the cable.", "zh": "檢查纜線前，請先拆下外蓋。" } },
+        { "w": "reduce", "pos": "v.", "zh": "減少", "ipa": "/rɪˈduːs/", "example": { "en": "The new design will reduce the number of parts.", "zh": "新設計會減少零件的數量。" } },
+        { "w": "cut", "pos": "v.", "zh": "削減", "ipa": "/kʌt/", "example": { "en": "We plan to cut shipping costs by ten percent.", "zh": "我們打算把運費削減百分之十。" } }
+      ],
+      "derived": [
+        { "w": "elimination", "pos": "n.", "zh": "消除、去除", "ipa": "/ɪˌlɪməˈneɪʃən/", "link": "eliminate 去掉 -e 加 -ion，動作變名詞，像 decide → decision" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "消除、去掉", "en": "to remove something completely", "in_passage": true, "example": { "en": "The new system eliminates the need for a second approval.", "zh": "新系統讓我們不再需要第二次核准。" } },
+        { "pos": "v.", "zh": "淘汰（使出局）", "en": "to take someone or something out of a competition", "distinguish": "受詞是人、公司或提案，常用被動 be eliminated from。", "example": { "en": "Our proposal was eliminated from the bidding in the first round.", "zh": "我們的提案在第一輪就被淘汰出投標。" } }
+      ]
+    }
+  ]
+}

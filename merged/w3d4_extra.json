@@ -1,0 +1,47 @@
+{
+  "week": 3,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "scarcity",
+      "type": "word",
+      "ipa": "/ˈskersəti/",
+      "pos": "n.",
+      "zh": "缺乏、不足、稀少",
+      "en": "a situation when there is not enough of something",
+      "note": "這篇文章實際用的是 shortage（鋁板短缺），scarcity 是意思相近、較正式的說法，常用來描述原料或資源不夠。",
+      "grammar_note": "scarcity 後面常接 of + 名詞（scarcity of aluminum），通常當不可數名詞，不加 s。",
+      "forms": [
+        { "w": "scarcities", "label": "複數", "pos": "n.", "zh": "缺乏（複數）", "ipa": "/ˈskersətiz/", "example": { "en": "Scarcities of raw materials pushed prices up across the industry.", "zh": "原料的短缺讓整個產業的價格上漲。" } }
+      ],
+      "collocations": [
+        { "phrase": "scarcity of resources", "zh": "資源不足", "example": { "en": "The scarcity of resources forces us to plan carefully.", "zh": "資源不足迫使我們必須謹慎規劃。" } },
+        { "phrase": "scarcity of skilled workers", "zh": "技術人員短缺", "example": { "en": "A scarcity of skilled workers is slowing our hiring plans.", "zh": "技術人員短缺正在拖慢我們的招募計畫。" } },
+        { "phrase": "due to scarcity", "zh": "因為缺貨", "example": { "en": "Prices rose due to scarcity of aluminum in the market.", "zh": "由於市場上鋁的缺乏，價格上漲了。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "The scarcity of aluminum sheets has delayed our production schedule.", "zh": "鋁板的短缺延誤了我們的生產時程。" },
+        { "tag": "會議", "en": "Scarcity of parts is the biggest risk for this quarter.", "zh": "零件不足是本季最大的風險。" },
+        { "tag": "市場", "en": "Scarcity often pushes prices higher, so we should buy early.", "zh": "缺貨常讓價格上漲，所以我們應該提早採購。" }
+      ],
+      "confusable": [
+        { "word": "security", "diff": "security 是「安全、保全」，字尾和 scarcity 很像，但意思無關。", "example": { "en": "Security checks may delay deliveries at the border.", "zh": "安全檢查可能會延誤邊境的貨運。" } }
+      ],
+      "similar": [
+        { "word": "shortage", "diff": "shortage 是較常用的說法，指某物一時不夠；scarcity 較正式，偏向長期稀少。", "example": { "en": "A shortage of drivers is delaying our deliveries this week.", "zh": "司機不足正在延誤我們本週的送貨。" } },
+        { "word": "lack of", "diff": "lack of 是片語，後面接名詞，語氣較一般，表示缺少。", "example": { "en": "A lack of storage space is limiting our orders.", "zh": "儲存空間不足正限制我們的訂單量。" } }
+      ],
+      "family": [
+        { "w": "shortage", "pos": "n.", "zh": "短缺", "ipa": "/ˈʃɔːrtɪdʒ/", "example": { "en": "The shortage of materials may delay the launch.", "zh": "材料短缺可能會延後上市。" } },
+        { "w": "supply", "pos": "n.", "zh": "供應", "ipa": "/səˈplaɪ/", "example": { "en": "Our supply of aluminum is running low this month.", "zh": "我們這個月的鋁供應量愈來愈少。" } },
+        { "w": "demand", "pos": "n.", "zh": "需求", "ipa": "/dɪˈmænd/", "example": { "en": "Demand for the new model is higher than expected.", "zh": "新款的需求比預期更高。" } }
+      ],
+      "derived": [
+        { "w": "scarce", "pos": "adj.", "zh": "缺乏的、稀少的", "ipa": "/skers/", "link": "詞幹 scarce，加 -ity 變名詞 scarcity，像 able → ability" },
+        { "w": "scarcely", "pos": "adv.", "zh": "幾乎不", "ipa": "/ˈskersli/", "link": "scarce + -ly，變成副詞，像 hardly、rarely" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
