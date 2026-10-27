@@ -86108,127 +86108,6 @@
           ]
         },
         {
-          "text": "poles",
-          "type": "word",
-          "lemma": "pole",
-          "ipa": "/poʊlz/",
-          "pos": "n.",
-          "zh": "磁極（複數）",
-          "en": "the two ends of a magnet, where its force is strongest",
-          "note": "所在句的 their matching poles 指兩個磁鐵「相同的磁極」碰在一起，這時磁鐵會互相排斥。磁鐵有 N 極與 S 極兩個 poles，所以常用複數。",
-          "grammar_note": "磁鐵有兩個極，所以常用複數 poles；說單一個磁極時用 a pole 或 the pole of a magnet。",
-          "forms": [],
-          "collocations": [
-            {
-              "phrase": "opposite poles",
-              "zh": "相反的磁極（異極）",
-              "example": {
-                "en": "Opposite poles of two magnets pull each other together.",
-                "zh": "兩個磁鐵的異極會互相拉在一起。"
-              }
-            },
-            {
-              "phrase": "magnetic poles",
-              "zh": "磁極",
-              "example": {
-                "en": "Every magnet has two magnetic poles, north and south.",
-                "zh": "每個磁鐵都有兩個磁極，北極和南極。"
-              }
-            }
-          ],
-          "examples": [
-            {
-              "tag": "技術說明",
-              "en": "Turn the second magnet to change which poles face each other.",
-              "zh": "轉動第二個磁鐵，就能改變哪兩個磁極互相面對。"
-            },
-            {
-              "tag": "教育訓練",
-              "en": "The north and south poles of a magnet attract each other.",
-              "zh": "磁鐵的北極和南極會互相吸引。"
-            },
-            {
-              "tag": "活動",
-              "en": "The workers set up poles to hold the banner outside.",
-              "zh": "工人在外面立起桿子來掛布條。"
-            }
-          ],
-          "confusable": [
-            {
-              "word": "poll",
-              "diff": "poll /poʊl/ 是「民意調查」，發音和 pole 一樣，但意思不同。",
-              "example": {
-                "en": "The poll shows that most customers want faster delivery.",
-                "zh": "調查顯示大多數顧客希望更快送貨。"
-              }
-            }
-          ],
-          "family": [
-            {
-              "w": "magnet",
-              "pos": "n.",
-              "zh": "磁鐵",
-              "ipa": "/ˈmæɡnɪt/",
-              "example": {
-                "en": "The magnet on the door keeps it closed.",
-                "zh": "門上的磁鐵讓門保持關閉。"
-              }
-            },
-            {
-              "w": "field",
-              "pos": "n.",
-              "zh": "場",
-              "ipa": "/fiːld/",
-              "example": {
-                "en": "The magnetic field gets weaker with distance.",
-                "zh": "磁場會隨著距離變弱。"
-              }
-            }
-          ],
-          "derived": [
-            {
-              "w": "polar",
-              "pos": "adj.",
-              "zh": "極地的、極的",
-              "ipa": "/ˈpoʊlɚ/",
-              "link": "pole 去掉 e 加 -ar，變成形容詞「極的」，像 polar bear（北極熊）"
-            }
-          ],
-          "pos_uses": [],
-          "senses": [
-            {
-              "pos": "n.",
-              "zh": "磁極",
-              "en": "one of the two ends of a magnet",
-              "in_passage": true,
-              "example": {
-                "en": "Mark the north pole of each magnet before the test.",
-                "zh": "測試前，請標出每個磁鐵的北極。"
-              }
-            },
-            {
-              "pos": "n.",
-              "zh": "桿子、柱子",
-              "en": "a long thin piece of wood or metal",
-              "distinguish": "指實體的長桿，如 flag pole；沒有磁力的意思。",
-              "example": {
-                "en": "The flag pole outside our office is twelve meters tall.",
-                "zh": "我們辦公室外的旗桿有十二公尺高。"
-              }
-            },
-            {
-              "pos": "n.",
-              "zh": "（地球的）極點",
-              "en": "the farthest north or south point on Earth",
-              "distinguish": "常寫成 the North Pole、the South Pole，字首大寫。",
-              "example": {
-                "en": "Ships near the North Pole move slowly in winter.",
-                "zh": "冬天在北極附近的船隻行駛得很慢。"
-              }
-            }
-          ]
-        },
-        {
           "text": "matching poles",
           "type": "phrase",
           "zh": "相同的磁極（同極）",
@@ -86975,7 +86854,7 @@
           "pos": "n.",
           "zh": "磁極；桿子、柱子",
           "en": "one end of a magnet, or a long thin piece of metal or wood",
-          "note": "所在句的 The pole of one magnet 指一個磁鐵的其中一個磁極，會把另一個磁鐵推開。pole 還有「桿子」和「地球極點」等意思，要靠上下文判斷。",
+          "note": "所在句的 The pole of one magnet 指一個磁鐵的其中一個磁極，會把另一個磁鐵推開。pole 還有「桿子」和「地球極點」等意思，要靠上下文判斷。\n另一個所在句：所在句的 their matching poles 指兩個磁鐵「相同的磁極」碰在一起，這時磁鐵會互相排斥。磁鐵有 N 極與 S 極兩個 poles，所以常用複數。",
           "forms": [
             {
               "w": "poles",
@@ -87123,7 +87002,8 @@
                 "zh": "我們的航運團隊規劃了避開北極地區的航線。"
               }
             }
-          ]
+          ],
+          "grammar_note": "磁鐵有兩個極，所以常用複數 poles；說單一個磁極時用 a pole 或 the pole of a magnet。"
         },
         {
           "text": "drive away",

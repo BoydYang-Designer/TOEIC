@@ -879,14 +879,14 @@ function dnDetailData() {
   let base = null, text;
   if (d.kind === 'vocab') { base = x.vocab[d.i]; if (!base) return null; text = base.word; } else text = d.text;
   const ex = dnFindExtraAny(x, text), src = ex ? dnExtraSrc(x, text) : null, m = dnMarksOf(idOf(x)).find(q => dnKey(q.text) === dnKey(text));
-  const e = Object.assign({}, base || {}, ex || {}); e.text = text; e.type = (ex && ex.type) || (base ? (/\s/.test(text) ? 'phrase' : 'word') : (m && m.type) || 'word');
+  const e = Object.assign({}, base || {}, ex || {}); e.text = text; e.at = (ex && (ex.text || ex.word)) || text; e.type = (ex && ex.type) || (base ? (/\s/.test(text) ? 'phrase' : 'word') : (m && m.type) || 'word');
   return { x, e, base, ex, m, src, i: d.i };
 }
 function dnHiCtx(ctx, text) {
   const i = String(ctx).toLowerCase().indexOf(String(text).toLowerCase());
   return i < 0 ? esc(ctx) : esc(ctx.slice(0, i)) + `<b class="bg-amber-100 dark:bg-amber-400/20 rounded">${esc(ctx.slice(i, i + text.length))}</b>` + esc(ctx.slice(i + text.length));
 }
-const dnSpk = (x, e, suf, w) => `<button onclick="vplay('${idOf(x)}', this.dataset.t, '${suf}', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(w)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button>`;
+const dnSpk = (x, e, suf, w) => `<button onclick="vplay('${idOf(x)}', this.dataset.t, '${suf}', this.dataset.w)" data-t="${esc(e.at || e.text)}" data-w="${esc(w)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button>`;
 const dnExHtml = o => o && o.en ? `<p>${esc(o.en)}</p>${o.zh ? `<p class="text-xs text-slate-500">${esc(o.zh)}</p>` : ''}` : '';
 function dnCopyOne() { // 詳解頁：只為這個字複製 AI 提示詞（核心單字會順便入庫，提示詞需要所在句）
   const D = dnDetailData(); if (!D) return;
