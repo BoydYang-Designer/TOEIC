@@ -233,16 +233,16 @@ function prToggle() {
 function prGo(tk) {
   if (tk !== PR.tk || PR.st !== 'prep') return;
   PR.st = 'rec'; PR.everUp = false; PR.stopping = false;
-  const r = prSrNew(tk);
+  const r = prSrNew(tk, true);
   try { r.start(); skLog('PR r.start() 成功'); prSrWatch(tk, r); }
   catch (e) { skLog('PR r.start() 丟出 ' + (e && e.name) + ' ' + (e && e.message)); PR.sr = null; PR.st = 'idle'; PR.err = '語音辨識沒有啟動成功。請按下方「🔧 重置麥克風」，再錄一次。'; prRender(); return; }
   prMediaStart(tk);
   clearTimeout(PR.timer); PR.timer = setTimeout(() => { if (PR.st === 'rec' && tk === PR.tk) prStop(); }, prWc(PR.text) <= 3 ? 15000 : 60000);
   prRender();
 }
-function prSrNew(tk) { // 每次（含重啟）都建新的辨識物件，比重複 start 同一個穩
+function prSrNew(tk, fresh) { // 每次（含重啟）都建新的辨識物件，比重複 start 同一個穩
   const SRc = skSR(); if (!SRc) return null;
-  const r = new SRc(); PR.sr = r; PR.t0 = Date.now();
+  const r = (fresh && S.spkReuse === 1 && PR.keep) || new SRc(); r._ended = false; PR.keep = r; PR.sr = r; PR.t0 = Date.now(); // 和 speak.js 一樣：設定「辨識物件＝重用」時，每次錄音開頭重用同一個辨識物件（重啟／恢復仍用新的）
   r.lang = 'en-US'; r.continuous = S.spkCont !== 0; r.interimResults = true; r.maxAlternatives = 5;
   const id = (PR.srN = (PR.srN || 0) + 1), few = prWc(PR.text) <= 3;
   const ev = n => () => { skLog('PR SR#' + id + ' ' + n + ' +' + (Date.now() - PR.t0) + 'ms' + (r === PR.sr ? '' : '（舊的）')); if ((n === 'soundstart' || n === 'speechstart') && r === PR.sr) PR.everUp = true; }; // 只有 soundstart／speechstart／result 才算真的收到聲音；audiostart 只代表辨識開了
