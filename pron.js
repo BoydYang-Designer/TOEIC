@@ -97,6 +97,7 @@ function prInject(root) {
 
 /* ---------- 練習視窗 ---------- */
 function prOpen(text, src) {
+  prKeepTouch();
   prCancel(); prMineDrop();
   try { spStop(); } catch (e) {} try { skStopAll(); } catch (e) {}
   Object.assign(PR, { text, key: prNorm(text), src: src || null, st: 'idle', final: '', interim: '', alts: [], cands: null, err: '', res: null, nb: false, fail: 0 });
@@ -105,6 +106,7 @@ function prOpen(text, src) {
   prRender();
 }
 function prClose() {
+  prKeepTouch(); // 關視窗後仍保留常駐麥克風一段時間，下次開視窗才不用重新取得
   prCancel(); prMineDrop(); prRelease();
   const ov = document.getElementById('pron-ov'); if (ov) ov.remove();
   prRefreshBadges();
@@ -185,6 +187,26 @@ function prMrSet(v) { S.spkMr = v; save(); skLog('PR 設定 錄音檔(spkMr)=' +
    ④ iPhone 用常駐麥克風（skKeepGet）：視窗開著期間重用同一條串流，播放時只暫時靜音。
    ⑤ 🔧 重置麥克風：把辨識、錄音、麥克風、AudioContext 全部關掉重來。
    除錯記錄寫進 speak.js 的 skLog，視窗最下方「🐞 除錯記錄」可展開、複製。 */
+/* 常駐麥克風的保留期：iPhone 上「放掉麥克風再重新 getUserMedia」拿到的是全靜音的串流（speak.js 的實測記錄）。
+   speak.js 每 2 秒檢查一次，詳解視窗一關、又不在語音練習頁，就把常駐麥克風放掉——下次再開視窗練習就會錄到全靜音。
+   所以詳解視窗最後一次使用後 10 分鐘內都算「保留中」；下面包住 skKeepFree，只擋掉 speak.js 那個 2 秒檢查的情況（不在語音練習頁、詳解視窗已關、頁面可見），
+   其他呼叫（切到背景、離開語音練習、重置麥克風、錄音時串流失效重取）完全照 speak.js 原本的流程放掉。不需要改 speak.js。 */
+const PR_HOLD_MS = 10 * 60 * 1000;
+function prKeepHold() { return (PR.holdUntil || 0) > Date.now(); }
+function prKeepTouch() { PR.holdUntil = Date.now() + PR_HOLD_MS; }
+(function prKeepGuard() {
+  const wrap = () => {
+    if (typeof skKeepFree !== 'function' || skKeepFree._pr) return !!(typeof skKeepFree === 'function');
+    const orig = skKeepFree;
+    skKeepFree = function () {
+      if (prKeepHold() && typeof cur !== 'undefined' && cur.view !== 'speak' && !document.hidden && !document.getElementById('pron-ov')) return; // 就是 speak.js 2 秒檢查的條件
+      return orig.apply(this, arguments);
+    };
+    skKeepFree._pr = true;
+    return true;
+  };
+  try { if (!wrap()) window.addEventListener('load', () => { try { wrap(); } catch (e) {} }); } catch (e) {} // pron.js 比 speak.js 早載入時，等頁面載完再包
+})();
 const prSettle = () => (typeof S.spkWait === 'number' ? S.spkWait : PR.fail ? 700 : SK_MOB ? 350 : 0);
 function prToggle() {
   skLog('PR 點麥克風 st=' + PR.st);
@@ -193,7 +215,7 @@ function prToggle() {
   if (prPlaying() || SK.mineRel) { try { dnToast('請先按 ⏹ 停止回放，等音檔關閉後再錄音'); } catch (e) {} return; } // 同 speak.js skRecToggle：回放（含關閉中）時不接著錄音，不在同一個動作裡「關播放→開麥克風」
   const SRc = skSR();
   if (!SRc) { PR.err = '此瀏覽器不支援語音辨識。'; prRender(); return; }
-  prKeepLog('錄音前');
+  prKeepLog('錄音前'); prKeepTouch();
   skAudioSession('play-and-record');
   prRelease();
   prCancel(true);
@@ -389,7 +411,7 @@ function prFinish() {
 /* 🔧 重置麥克風：已錄的分數與紀錄都不會動 */
 async function prReset() {
   skLog('PR 按了重置麥克風');
-  prCancel(); skAudioSession('auto'); try { skKeepFree(); } catch (e) {} prRelease(); SK.lastEnd = Date.now();
+  PR.holdUntil = 0; prCancel(); skAudioSession('auto'); try { skKeepFree(); } catch (e) {} prRelease(); SK.lastEnd = Date.now();
   PR.fail = 0; PR.err = ''; PR.res = null; PR.final = PR.interim = ''; PR.alts = []; PR.cands = null; PR.st = 'idle';
   let msg = '已重置，請再按一次麥克風錄音';
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
