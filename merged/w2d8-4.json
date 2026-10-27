@@ -1,0 +1,205 @@
+{
+  "week": 2,
+  "day": 11,
+  "tag": "簡報問答：Magic Connect 後續步驟、原型測試與合作時程",
+  "project": "Magic connect",
+  "type": "Listening",
+  "level": {
+    "score": 650,
+    "range": "600-700",
+    "cefr": "B1+",
+    "why": "以問答對話為主，句子簡短直接，結構多為 once 子句與 would 句型；內容為後續步驟、原型與測試，詞彙以常見商務字彙為主，需整合雙方的計畫與立場，屬 B1+ 程度。"
+  },
+  "passage": "If we’re interested in moving forward, what would be the next step?\n\nI think the first step would be to understand what you’re looking for.\n\nAre you more interested in Magic Connect Plus, or would you prefer to use the current Magic Connect system with your existing stroller?\n\nWe’re currently building functional prototypes for Magic Connect Plus. As for the current Magic Connect, we’re planning to run stability tests after this meeting.\n\nBased on our current design review, everything looks feasible so far, but we’ll need to validate it through testing.\n\nOnce we have a better understanding of your needs, we can discuss the best way to move forward, including any necessary design changes and the development timeline.\n\nWould it be possible to see the prototypes or the test results once they’re available?\n\nYes, definitely. Once the prototypes are ready and we have the test results, we can arrange a follow-up meeting to walk you through them.\n\nThat would also give us a chance to discuss your feedback and see how we can move forward together.\n\nThanks for sharing your thoughts with us today. It’s been really helpful to understand what you’re looking for.\n\nWe’ll keep you updated on our testing and development progress. In the meantime, if you have any further thoughts or questions, please feel free to reach out.\n\nWe’re definitely interested. We just need a little more time to figure out which option would work best for us.\n\nOf course. Take your time. Once you’ve had a chance to discuss it internally, we can pick it up from there.\n\nThanks again for your time today. It was a great discussion, and we look forward to staying in touch.",
+  "zh": "如果我們有意繼續往下進行，下一步會是什麼？\n\n我認為第一步是先了解您們的需求。\n\n您們比較有興趣的是 Magic Connect Plus，還是比較想把目前的 Magic Connect 系統用在您們現有的推車上？\n\n我們目前正在製作 Magic Connect Plus 的功能性原型。至於目前的 Magic Connect，我們計畫在這場會議之後進行穩定性測試。\n\n根據我們目前的設計檢討，到目前為止一切看起來都可行，但我們需要透過測試來驗證。\n\n一旦我們更了解您們的需求，就可以討論最好的推進方式，包括任何必要的設計變更以及開發時程。\n\n原型或測試結果準備好之後，我們有可能看到嗎？\n\n當然可以。等原型完成、也拿到測試結果之後，我們可以安排一場後續會議，向您們逐一說明。\n\n這也會讓我們有機會討論您們的意見回饋，並看看如何一起往前推進。\n\n感謝您們今天與我們分享想法。能了解您們的需求真的很有幫助。\n\n我們會隨時向您們更新測試與開發的進度。在這段期間，如果您們還有任何想法或問題，歡迎隨時與我們聯絡。\n\n我們絕對有興趣。只是需要再多一點時間，來評估哪個方案最適合我們。\n\n當然，請慢慢來。等您們內部討論過後，我們再從那裡接續。\n\n再次感謝您們今天撥冗參加。這是一場很棒的討論，我們期待保持聯繫。",
+  "vocab": [
+    {
+      "word": "functional",
+      "ipa": "/ˈfʌŋkʃənəl/",
+      "pos": "adj.",
+      "col": "functional design / fully functional",
+      "zh": "功能性的、能正常運作的"
+    },
+    {
+      "word": "feasible",
+      "ipa": "/ˈfiːzəbəl/",
+      "pos": "adj.",
+      "col": "technically feasible / feasible plan",
+      "zh": "可行的"
+    },
+    {
+      "word": "validate",
+      "ipa": "/ˈvælɪdeɪt/",
+      "pos": "v.",
+      "col": "validate a design / validate the results",
+      "zh": "驗證、確認有效"
+    },
+    {
+      "word": "timeline",
+      "ipa": "/ˈtaɪmlaɪn/",
+      "pos": "n.",
+      "col": "development timeline / project timeline",
+      "zh": "時程、時間表"
+    },
+    {
+      "word": "follow-up",
+      "ipa": "/ˈfɑːloʊ ʌp/",
+      "pos": "adj.",
+      "col": "follow-up meeting / follow-up email",
+      "zh": "後續的、跟進的"
+    },
+    {
+      "word": "progress",
+      "ipa": "/ˈprɑːɡres/",
+      "pos": "n.",
+      "col": "make progress / progress report",
+      "zh": "進度、進展"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What does the speaker suggest as the first step?",
+      "opts": [
+        "Signing a development contract",
+        "Understanding what the customer is looking for",
+        "Testing the prototypes at the customer's factory",
+        "Lowering the price of the system"
+      ],
+      "ans": 1,
+      "why": [
+        "錯誤：文中沒有提到簽訂開發合約。",
+        "正解：講者說第一步是先了解客戶想要什麼，並詢問客戶對 Plus 版或現有系統哪個比較有興趣。",
+        "錯誤：文中沒有提到要到客戶的工廠測試原型。",
+        "錯誤：對話完全沒有談到降價。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What is planned to happen after this meeting?",
+      "opts": [
+        "A price negotiation with the customer",
+        "Delivery of the prototypes to the customer",
+        "The launch of Magic Connect Plus",
+        "Stability tests on the current Magic Connect"
+      ],
+      "ans": 3,
+      "why": [
+        "錯誤：文中沒有提到價格協商。",
+        "錯誤：講者只說原型完成後可以安排後續會議向客戶說明，並沒有說要交付原型。",
+        "錯誤：Magic Connect Plus 目前還在製作功能性原型，尚未上市。",
+        "正解：講者說對於目前的 Magic Connect，計畫在這場會議之後進行穩定性測試。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "How does the customer respond at the end of the conversation?",
+      "opts": [
+        "They need more time to decide which option suits them best",
+        "They have decided to choose Magic Connect Plus",
+        "They want to end the discussion",
+        "They will send their feedback tomorrow"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：客戶表示有興趣，但還需要多一點時間來評估哪個選項最適合他們。",
+        "錯誤：客戶並沒有決定要選 Plus 版。",
+        "錯誤：客戶明確表示有興趣，沒有想結束討論。",
+        "錯誤：客戶沒有說明天會寄出意見。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "We will keep you ______ on the progress of the project.",
+      "opts": [
+        "update",
+        "updating",
+        "updated",
+        "updates"
+      ],
+      "ans": 2,
+      "why": [
+        "錯誤：update 是原形動詞，keep you 後面需要過去分詞表示「被更新」。",
+        "錯誤：updating 是現在分詞，語意變成「你在更新」，不合句意。",
+        "正解：keep + 人 + updated 表示「讓某人隨時掌握最新消息」。",
+        "錯誤：updates 是名詞複數或第三人稱動詞，不能放在這裡。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The prototype must be tested ______ it goes into mass production.",
+      "opts": [
+        "while",
+        "before",
+        "unless",
+        "although"
+      ],
+      "ans": 1,
+      "why": [
+        "錯誤：while 表示「在……期間」，不符合先測試再量產的邏輯。",
+        "正解：before 表示「在……之前」，符合先測試、之後才量產的順序。",
+        "錯誤：unless 表示「除非」，語意不通。",
+        "錯誤：although 表示「雖然」，語意不通。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The test results will ______ whether the design is safe enough for customers.",
+      "opts": [
+        "determination",
+        "determined",
+        "determining",
+        "determine"
+      ],
+      "ans": 3,
+      "why": [
+        "錯誤：determination 是名詞，will 後面需要動詞原形。",
+        "錯誤：determined 是過去式或過去分詞，不能接在 will 後面。",
+        "錯誤：determining 是現在分詞，不能接在 will 後面。",
+        "正解：will 後面接原形動詞，determine whether 表示「決定、判定是否」。"
+      ]
+    }
+  ],
+  "presentation_phrases": [
+    {
+      "phrase": "If we’re interested in moving forward, what would be the next step?",
+      "meaning": "如果我們有意繼續往下進行，下一步會是什麼？",
+      "usage": "會議尾聲詢問後續流程時使用，語氣禮貌而不急迫。"
+    },
+    {
+      "phrase": "The first step would be to understand what you’re looking for.",
+      "meaning": "第一步是先了解您的需求。",
+      "usage": "回應對方詢問後續步驟時，先把重點放在確認需求。"
+    },
+    {
+      "phrase": "Are you more interested in A, or would you prefer B?",
+      "meaning": "您比較有興趣的是 A，還是比較想要 B？",
+      "usage": "提出兩個選項請對方選擇時使用，用來釐清方向。"
+    },
+    {
+      "phrase": "Everything looks feasible so far, but we’ll need to validate it through testing.",
+      "meaning": "到目前為止一切看起來可行，但我們需要透過測試來驗證。",
+      "usage": "說明目前進度並保留餘地，避免對尚未驗證的結果過度承諾。"
+    },
+    {
+      "phrase": "Would it be possible to see the prototypes once they’re available?",
+      "meaning": "原型準備好之後，有可能讓我們看看嗎？",
+      "usage": "客氣地請求查看樣品或資料，Would it be possible to 語氣委婉。"
+    },
+    {
+      "phrase": "We can arrange a follow-up meeting to walk you through them.",
+      "meaning": "我們可以安排後續會議，向您逐一說明。",
+      "usage": "承諾提供後續說明時使用，walk you through 表示一步步講解。"
+    },
+    {
+      "phrase": "We’ll keep you updated on our testing and development progress.",
+      "meaning": "我們會隨時向您更新測試與開發的進度。",
+      "usage": "結尾時承諾持續溝通，維持合作關係。"
+    },
+    {
+      "phrase": "Take your time. Once you’ve had a chance to discuss it internally, we can pick it up from there.",
+      "meaning": "請慢慢來。等您內部討論過後，我們再接續。",
+      "usage": "對方需要時間考慮時使用，表示不施壓並保留後續討論空間。"
+    }
+  ]
+}

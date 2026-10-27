@@ -1,0 +1,1013 @@
+{
+  "week": 2,
+  "day": 11,
+  "extra_vocab": [
+    {
+      "text": "functional",
+      "type": "word",
+      "ipa": "/ˈfʌŋkʃənəl/",
+      "pos": "adj.",
+      "zh": "功能性的、能正常運作的",
+      "en": "able to work in the way it is meant to",
+      "note": "在這篇文章裡，functional prototypes 指能實際操作、可以拿來測試的樣品，而不只是外觀模型。講者用它說明 Magic Connect Plus 目前已進入做出可運作原型的階段。",
+      "grammar_note": "functional 是形容詞，要放在名詞前（functional prototype）；名詞「功能」是 function，不能寫成 function prototype。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "fully functional",
+          "zh": "完全能運作的",
+          "example": {
+            "en": "The new sample is fully functional and ready for customer testing.",
+            "zh": "新樣品完全能運作，已可供客戶測試。"
+          }
+        },
+        {
+          "phrase": "functional design",
+          "zh": "重視功能的設計",
+          "example": {
+            "en": "We chose a functional design that is easy to clean.",
+            "zh": "我們選了一個容易清潔、重視功能的設計。"
+          }
+        },
+        {
+          "phrase": "functional requirements",
+          "zh": "功能需求",
+          "example": {
+            "en": "Please send us the functional requirements for the new system.",
+            "zh": "請把新系統的功能需求寄給我們。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "The engineers showed a functional model of the new product.",
+          "zh": "工程師展示了新產品能運作的模型。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please check whether the new scanner is functional before Friday.",
+          "zh": "請在星期五之前確認新的掃描機能正常運作。"
+        },
+        {
+          "tag": "採購",
+          "en": "We need office chairs that are both functional and comfortable.",
+          "zh": "我們需要既實用又舒適的辦公椅。"
+        },
+        {
+          "tag": "設備維修",
+          "en": "The technician made the old copier functional again within an hour.",
+          "zh": "技術人員在一小時內讓舊影印機恢復正常運作。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "working",
+          "diff": "working 常放在名詞前，口語、自然，表示「能運作的」；functional 更強調具備完整功能。",
+          "example": {
+            "en": "The company showed a working sample at the trade show.",
+            "zh": "公司在貿易展上展示了一個能運作的樣品。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "useful",
+          "pos": "adj.",
+          "zh": "有用的",
+          "ipa": "/ˈjuːsfəl/",
+          "example": {
+            "en": "This short manual is very useful for all new staff.",
+            "zh": "這本簡短的手冊對所有新進員工都很有用。"
+          }
+        },
+        {
+          "w": "practical",
+          "pos": "adj.",
+          "zh": "實際的、實用的",
+          "ipa": "/ˈpræktɪkəl/",
+          "example": {
+            "en": "We need a practical plan that fits our small budget.",
+            "zh": "我們需要一個符合小預算的實用計畫。"
+          }
+        },
+        {
+          "w": "reliable",
+          "pos": "adj.",
+          "zh": "可靠的",
+          "ipa": "/rɪˈlaɪəbəl/",
+          "example": {
+            "en": "A reliable machine saves time and money for the factory.",
+            "zh": "可靠的機器能為工廠節省時間與金錢。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "function",
+          "ipa": "/ˈfʌŋkʃən/",
+          "pos": "n.",
+          "zh": "功能、作用",
+          "link": "functional = function + -al，名詞變形容詞，像 national、personal"
+        },
+        {
+          "w": "functionally",
+          "ipa": "/ˈfʌŋkʃənəli/",
+          "pos": "adv.",
+          "zh": "在功能上",
+          "link": "functional + -ly，形容詞變副詞，像 quickly、carefully"
+        },
+        {
+          "w": "functionality",
+          "ipa": "/ˌfʌŋkʃəˈnæləti/",
+          "pos": "n.",
+          "zh": "功能性、功能",
+          "link": "functional + -ity，變成名詞，像 quality、ability"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "功能性的、能正常運作的",
+          "en": "able to work in the way it is meant to",
+          "in_passage": true,
+          "example": {
+            "en": "The team built a functional sample to test the lock.",
+            "zh": "團隊做了一個能運作的樣品來測試鎖扣。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "zh": "實用的",
+          "en": "made to be useful, not only nice to look at",
+          "distinguish": "形容設計或家具時，強調實用而不是外觀。",
+          "example": {
+            "en": "The office has simple, functional furniture and no extra decoration.",
+            "zh": "辦公室裡是簡單實用的家具，沒有多餘的裝飾。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "feasible",
+      "type": "word",
+      "ipa": "/ˈfiːzəbəl/",
+      "pos": "adj.",
+      "zh": "可行的、做得到的",
+      "en": "possible to do and likely to work",
+      "note": "在這篇文章裡，講者說 everything looks feasible so far，表示依目前的設計檢討，技術上看起來做得到。後面接 but we’ll need to validate it，語氣謹慎，沒有直接保證結果。",
+      "grammar_note": "feasible 用來形容計畫、方法或做法，主詞不能是人（✗ He is feasible）；常用句型是 It is feasible to + V。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "technically feasible",
+          "zh": "技術上可行",
+          "example": {
+            "en": "The new design is technically feasible, but it may cost more.",
+            "zh": "新設計在技術上可行，但成本可能比較高。"
+          }
+        },
+        {
+          "phrase": "financially feasible",
+          "zh": "財務上可行",
+          "example": {
+            "en": "The project is financially feasible if we reduce the staff costs.",
+            "zh": "如果我們降低人事成本，這個專案在財務上就可行。"
+          }
+        },
+        {
+          "phrase": "feasible plan",
+          "zh": "可行的計畫",
+          "example": {
+            "en": "Our team needs a feasible plan before the budget meeting.",
+            "zh": "我們的團隊在預算會議前需要一個可行的計畫。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "The engineers believe this schedule is feasible for the factory.",
+          "zh": "工程師認為這個時程對工廠來說是可行的。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please let me know if Friday is feasible for the delivery.",
+          "zh": "請告訴我星期五送貨是否可行。"
+        },
+        {
+          "tag": "採購",
+          "en": "A lower price may be feasible if you order more units.",
+          "zh": "如果您訂購更多數量，也許可以有更低的價格。"
+        },
+        {
+          "tag": "客服",
+          "en": "We will check whether a full refund is feasible in this case.",
+          "zh": "我們會確認這個案例是否能全額退款。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "possible",
+          "diff": "possible 只表示有可能發生；feasible 還包含實際做得到、條件與成本也允許。",
+          "example": {
+            "en": "It is possible that the shipment will arrive a day late.",
+            "zh": "貨物有可能會晚一天到。"
+          }
+        },
+        {
+          "word": "workable",
+          "diff": "workable 強調方法或計畫能在實務上行得通，語氣較口語。",
+          "example": {
+            "en": "We found a workable way to cut the delivery time.",
+            "zh": "我們找到了一個行得通的方法來縮短交貨時間。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "realistic",
+          "pos": "adj.",
+          "zh": "實際的、可實現的",
+          "ipa": "/ˌriːəˈlɪstɪk/",
+          "example": {
+            "en": "We should set a realistic goal for next quarter.",
+            "zh": "我們應該為下一季訂一個實際的目標。"
+          }
+        },
+        {
+          "w": "affordable",
+          "pos": "adj.",
+          "zh": "負擔得起的",
+          "ipa": "/əˈfɔːrdəbəl/",
+          "example": {
+            "en": "The company wants an affordable plan for staff training.",
+            "zh": "公司想要一個負擔得起的員工培訓方案。"
+          }
+        },
+        {
+          "w": "achievable",
+          "pos": "adj.",
+          "zh": "可達成的",
+          "ipa": "/əˈtʃiːvəbəl/",
+          "example": {
+            "en": "Our sales target is high but still achievable.",
+            "zh": "我們的銷售目標很高，但仍然可以達成。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "feasibility",
+          "ipa": "/ˌfiːzəˈbɪləti/",
+          "pos": "n.",
+          "zh": "可行性",
+          "link": "feasible 去掉 -le 加 -ility，變成名詞，像 able → ability"
+        },
+        {
+          "w": "feasibly",
+          "ipa": "/ˈfiːzəbli/",
+          "pos": "adv.",
+          "zh": "可行地、合理地",
+          "link": "feasible 的 -le 改成 -ly，變成副詞，像 possible → possibly"
+        },
+        {
+          "w": "unfeasible",
+          "ipa": "/ʌnˈfiːzəbəl/",
+          "pos": "adj.",
+          "zh": "不可行的",
+          "link": "un- 表示不，像 unable、unclear；un + feasible 就是不可行"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "validate",
+      "type": "word",
+      "ipa": "/ˈvælɪdeɪt/",
+      "pos": "v.",
+      "zh": "驗證、確認有效",
+      "en": "to check that something is correct or works as expected",
+      "note": "在這篇文章裡，validate it through testing 指透過測試確認設計真的行得通。它比 check 正式，常用在產品、資料或設計的確認上，也呼應前面 feasible 只是目前看起來可行。",
+      "grammar_note": "validate 是及物動詞，後面直接接受詞，不加 on 或 for；validate A through B 表示「透過 B 來驗證 A」。",
+      "forms": [
+        {
+          "w": "validates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "驗證",
+          "ipa": "/ˈvælɪdeɪts/",
+          "example": {
+            "en": "This test validates the design before we start production.",
+            "zh": "這項測試會在我們開始生產前驗證設計。"
+          }
+        },
+        {
+          "w": "validated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "驗證了",
+          "ipa": "/ˈvælɪdeɪtɪd/",
+          "example": {
+            "en": "The quality lab validated our test results last week.",
+            "zh": "品管實驗室上週驗證了我們的測試結果。"
+          }
+        },
+        {
+          "w": "validating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在驗證",
+          "ipa": "/ˈvælɪdeɪtɪŋ/",
+          "example": {
+            "en": "Validating the data takes about two days for our team.",
+            "zh": "驗證這些資料，我們團隊大約要花兩天。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "validate a design",
+          "zh": "驗證設計",
+          "example": {
+            "en": "We must validate a design before it goes to the factory.",
+            "zh": "設計送到工廠之前，我們必須先驗證。"
+          }
+        },
+        {
+          "phrase": "validate the results",
+          "zh": "驗證結果",
+          "example": {
+            "en": "A second team will validate the results next week.",
+            "zh": "第二個團隊下週會驗證這些結果。"
+          }
+        },
+        {
+          "phrase": "validate data",
+          "zh": "驗證資料",
+          "example": {
+            "en": "The system will validate data when customers submit the form.",
+            "zh": "客戶送出表單時，系統會驗證資料。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "We need more time to validate our assumptions about this market.",
+          "zh": "我們需要更多時間來驗證對這個市場的假設。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Could you validate the numbers in this report before Monday?",
+          "zh": "你能在星期一前確認這份報告裡的數字嗎？"
+        },
+        {
+          "tag": "品管",
+          "en": "Engineers validate every new part with a long durability test.",
+          "zh": "工程師會用長時間的耐用度測試驗證每個新零件。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "valid",
+          "diff": "valid 是形容詞「有效的」，validate 是動詞「驗證」，兩者拼法相近。",
+          "usage": "valid 是形容詞，常放在名詞前或 be 動詞後面；validate 是動詞，後面直接接受詞。",
+          "example": {
+            "en": "This coupon is valid until the end of the month.",
+            "zh": "這張優待券在月底前有效。"
+          }
+        },
+        {
+          "word": "evaluate",
+          "diff": "evaluate 是「評估、評價」好壞程度；validate 是確認是否正確或行得通。",
+          "example": {
+            "en": "We will evaluate three suppliers before making a final choice.",
+            "zh": "我們會先評估三家供應商，再做最後的選擇。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "verify",
+          "diff": "verify 是查證資料或事實是否正確；validate 常用在設計、方法或想法是否行得通。",
+          "example": {
+            "en": "Please verify your address before we ship the order.",
+            "zh": "在我們出貨之前，請先核對您的地址。"
+          }
+        },
+        {
+          "word": "confirm",
+          "diff": "confirm 是確認某件事屬實或已安排好，語氣較一般。",
+          "example": {
+            "en": "Please confirm the meeting time by email today.",
+            "zh": "請今天用電子郵件確認會議時間。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "approve",
+          "pos": "v.",
+          "zh": "核准、批准",
+          "ipa": "/əˈpruːv/",
+          "example": {
+            "en": "The manager will approve the new design on Monday.",
+            "zh": "經理星期一會核准新的設計。"
+          }
+        },
+        {
+          "w": "check",
+          "pos": "v.",
+          "zh": "檢查、確認",
+          "ipa": "/tʃek/",
+          "example": {
+            "en": "Please check the test results before the meeting.",
+            "zh": "開會之前，請先檢查測試結果。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "valid",
+          "ipa": "/ˈvælɪd/",
+          "pos": "adj.",
+          "zh": "有效的、合理的",
+          "link": "詞幹 valid；validate = valid + -ate，「使有效」，像 activate"
+        },
+        {
+          "w": "validation",
+          "ipa": "/ˌvælɪˈdeɪʃən/",
+          "pos": "n.",
+          "zh": "驗證、確認",
+          "link": "validate + -ion，動詞變名詞，像 decide → decision"
+        },
+        {
+          "w": "validity",
+          "ipa": "/vəˈlɪdəti/",
+          "pos": "n.",
+          "zh": "有效性",
+          "link": "valid + -ity，形容詞變名詞，像 able → ability"
+        },
+        {
+          "w": "invalid",
+          "ipa": "/ɪnˈvælɪd/",
+          "pos": "adj.",
+          "zh": "無效的",
+          "link": "in- 表示不，像 incorrect、inactive；in + valid 就是無效的"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "驗證、確認",
+          "en": "to check that something is correct or works well",
+          "in_passage": true,
+          "example": {
+            "en": "Customer tests helped us validate the idea of a lighter seat.",
+            "zh": "客戶測試幫助我們驗證了更輕座椅的構想。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "使（票、文件）生效",
+          "en": "to make a ticket or document officially accepted",
+          "distinguish": "受詞是票、停車券或證件時，指蓋章或登錄使其有效。",
+          "example": {
+            "en": "Please validate your parking ticket at the front desk.",
+            "zh": "請在櫃檯為您的停車券驗證。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "timeline",
+      "type": "word",
+      "ipa": "/ˈtaɪmlaɪn/",
+      "pos": "n.",
+      "zh": "時程表、時間軸",
+      "en": "a plan that shows when each step will happen",
+      "note": "在這篇文章裡，the development timeline 指新版本開發各階段的預定時程。講者說要先了解客戶需求，再一起討論時程，所以沒有先承諾任何時間。",
+      "forms": [
+        {
+          "w": "timelines",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "時程表（複數）",
+          "ipa": "/ˈtaɪmlaɪnz/",
+          "example": {
+            "en": "Our suppliers gave us two different timelines for the delivery.",
+            "zh": "我們的供應商給了我們兩個不同的交貨時程。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "project timeline",
+          "zh": "專案時程",
+          "example": {
+            "en": "The project timeline shows every step until the product launch.",
+            "zh": "專案時程列出到產品上市前的每個步驟。"
+          }
+        },
+        {
+          "phrase": "tight timeline",
+          "zh": "緊湊的時程",
+          "example": {
+            "en": "We have a tight timeline, so we cannot wait for approval.",
+            "zh": "我們的時程很緊，所以不能等核准。"
+          }
+        },
+        {
+          "phrase": "set a timeline",
+          "zh": "訂出時程",
+          "example": {
+            "en": "Let's set a timeline before we talk to the supplier.",
+            "zh": "在跟供應商談之前，我們先訂出時程。"
+          }
+        },
+        {
+          "phrase": "extend the timeline",
+          "zh": "延長時程",
+          "example": {
+            "en": "The delay forced us to extend the timeline by two weeks.",
+            "zh": "延誤迫使我們把時程延長兩週。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Please share the development timeline with the sales team today.",
+          "zh": "請今天把開發時程分享給業務團隊。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Could you send me a rough timeline for the repairs?",
+          "zh": "你可以寄給我維修的大致時程嗎？"
+        },
+        {
+          "tag": "客戶溝通",
+          "en": "Our client asked for a clear timeline before signing the contract.",
+          "zh": "我們的客戶要求在簽約前先提供清楚的時程。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "deadline",
+          "diff": "deadline 是單一的截止日期；timeline 是整段計畫的時間安排。",
+          "example": {
+            "en": "The deadline for the final report is next Friday.",
+            "zh": "最終報告的截止日期是下星期五。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "schedule",
+          "diff": "schedule 指有具體日期與時間的安排表；timeline 更偏整體階段與先後順序。",
+          "example": {
+            "en": "Please check the schedule before you book the meeting room.",
+            "zh": "預約會議室之前，請先確認行程表。"
+          }
+        },
+        {
+          "phrase": "time frame",
+          "diff": "time frame 指完成某件事所需的一段時間，不一定列出每個步驟。",
+          "example": {
+            "en": "We need a clear time frame for the whole project.",
+            "zh": "我們需要整個專案清楚的時間範圍。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "milestone",
+          "pos": "n.",
+          "zh": "里程碑、重要階段",
+          "ipa": "/ˈmaɪlstoʊn/",
+          "example": {
+            "en": "The first test is an important milestone for our project.",
+            "zh": "第一次測試是我們專案的重要里程碑。"
+          }
+        },
+        {
+          "w": "delay",
+          "pos": "n.",
+          "zh": "延遲、延誤",
+          "ipa": "/dɪˈleɪ/",
+          "example": {
+            "en": "A delay in shipping may affect the opening date.",
+            "zh": "出貨延誤可能會影響開幕日期。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "時程表",
+          "en": "a plan that shows when each step will happen",
+          "in_passage": true,
+          "example": {
+            "en": "The manager updated the timeline after the supplier changed the date.",
+            "zh": "供應商更改日期後，經理更新了時程表。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "時間軸（圖表）",
+          "en": "a line or chart that shows events in the order they happened",
+          "distinguish": "談報告或簡報中的圖表時，指按先後順序排列事件的時間軸。",
+          "example": {
+            "en": "The report includes a timeline of all major product changes.",
+            "zh": "報告中附有所有重大產品變更的時間軸。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "follow-up",
+      "type": "word",
+      "ipa": "/ˈfɑːloʊ ʌp/",
+      "pos": "adj.",
+      "zh": "後續的、跟進的",
+      "en": "coming after something earlier, as a next step",
+      "note": "在這篇文章裡，a follow-up meeting 指原型完成、拿到測試結果後，再安排的下一次會議。這裡 follow-up 是形容詞，放在 meeting 前面修飾。",
+      "grammar_note": "當形容詞或名詞時要寫連字號 follow-up；動詞片語則寫成 follow up（不加連字號），例如 follow up on an email。",
+      "forms": [
+        {
+          "w": "follow-ups",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "後續行動（複數）",
+          "ipa": "/ˈfɑːloʊ ʌps/",
+          "example": {
+            "en": "We sent three follow-ups to the client this month.",
+            "zh": "我們這個月寄了三次跟進信給客戶。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "follow-up meeting",
+          "zh": "後續會議",
+          "example": {
+            "en": "We will hold a follow-up meeting after the trial ends.",
+            "zh": "試用結束後，我們會再開一次後續會議。"
+          }
+        },
+        {
+          "phrase": "follow-up email",
+          "zh": "跟進郵件",
+          "example": {
+            "en": "I sent a follow-up email to confirm the new date.",
+            "zh": "我寄了一封跟進郵件來確認新的日期。"
+          }
+        },
+        {
+          "phrase": "follow-up call",
+          "zh": "後續電話",
+          "example": {
+            "en": "Please expect a follow-up call from our service team tomorrow.",
+            "zh": "請留意明天我們客服團隊的後續來電。"
+          }
+        },
+        {
+          "phrase": "follow-up question",
+          "zh": "後續問題",
+          "example": {
+            "en": "Do you have a follow-up question about the contract?",
+            "zh": "關於合約，您還有後續的問題嗎？"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Let's schedule a follow-up session to review the test results.",
+          "zh": "我們來安排一場後續會議，檢討測試結果。"
+        },
+        {
+          "tag": "客服",
+          "en": "Our service team will make a follow-up visit next week.",
+          "zh": "我們的客服團隊下週會再做一次後續訪視。"
+        },
+        {
+          "tag": "銷售",
+          "en": "A quick follow-up after the demo can help close the deal.",
+          "zh": "示範之後快速跟進，有助於談成交易。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "following",
+          "diff": "following 指「接下來的、下列的」；follow-up 指為了接續前一次的事而做的。",
+          "example": {
+            "en": "Please complete the following form before the interview begins.",
+            "zh": "面試開始之前，請填寫下列表格。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "next",
+          "diff": "next 只表示順序上的下一個；follow-up 強調是接續先前的事來跟進。",
+          "example": {
+            "en": "Our next meeting will be held on the third floor.",
+            "zh": "我們下一次的會議會在三樓舉行。"
+          }
+        },
+        {
+          "word": "further",
+          "diff": "further 表示「進一步的、額外的」，不一定接續上一次。",
+          "example": {
+            "en": "Please call us if you need any further information.",
+            "zh": "如果您需要進一步的資訊，請打電話給我們。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "update",
+          "pos": "n.",
+          "zh": "更新、最新消息",
+          "ipa": "/ˈʌpdeɪt/",
+          "example": {
+            "en": "Please send me an update on the repair work.",
+            "zh": "請把維修工作的最新進度寄給我。"
+          }
+        },
+        {
+          "w": "reminder",
+          "pos": "n.",
+          "zh": "提醒",
+          "ipa": "/rɪˈmaɪndər/",
+          "example": {
+            "en": "I sent everyone a reminder about tomorrow's training session.",
+            "zh": "我寄了提醒給大家，關於明天的訓練課程。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ˈfɑːloʊ ʌp/",
+          "zh": "後續的",
+          "in_passage": true,
+          "example": {
+            "en": "The follow-up report will list all repair costs.",
+            "zh": "後續報告會列出所有維修費用。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈfɑːloʊ ʌp/",
+          "zh": "後續行動、跟進",
+          "example": {
+            "en": "Thank you for your quick follow-up on my request.",
+            "zh": "謝謝您迅速跟進我的要求。"
+          }
+        },
+        {
+          "w": "follow up",
+          "pos": "v.",
+          "ipa": "/ˌfɑːloʊ ˈʌp/",
+          "zh": "追蹤、跟進",
+          "example": {
+            "en": "I will follow up with the supplier about the delay.",
+            "zh": "我會向供應商追蹤延誤的事。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "progress",
+      "type": "word",
+      "ipa": "/ˈprɑːɡres/",
+      "pos": "n.",
+      "zh": "進度、進展",
+      "en": "the way something moves forward or gets closer to being done",
+      "note": "在這篇文章裡，testing and development progress 指測試與開發目前進行到哪裡。講者說會持續向客戶 keep you updated，表示願意定期回報進度。",
+      "grammar_note": "progress 當名詞時是不可數名詞，不加 s，也不能說 a progress；要說 some progress、good progress。",
+      "forms": [
+        {
+          "w": "progresses",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "進展",
+          "ipa": "/prəˈɡresɪz/",
+          "example": {
+            "en": "The project progresses well when everyone shares information early.",
+            "zh": "當大家及早分享資訊，專案就能順利進展。"
+          }
+        },
+        {
+          "w": "progressed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "進展了",
+          "ipa": "/prəˈɡrest/",
+          "example": {
+            "en": "The work progressed quickly after the new staff joined.",
+            "zh": "新員工加入後，工作進展得很快。"
+          }
+        },
+        {
+          "w": "progressing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在進展",
+          "ipa": "/prəˈɡresɪŋ/",
+          "example": {
+            "en": "The repair work is progressing on schedule this week.",
+            "zh": "維修工作這週正按進度進行。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "make progress",
+          "zh": "有進展",
+          "example": {
+            "en": "We hope to make progress on the new design this week.",
+            "zh": "我們希望這週在新設計上能有進展。"
+          }
+        },
+        {
+          "phrase": "progress report",
+          "zh": "進度報告",
+          "example": {
+            "en": "Please submit your progress report by the end of Friday.",
+            "zh": "請在星期五結束前提交你的進度報告。"
+          }
+        },
+        {
+          "phrase": "in progress",
+          "zh": "進行中",
+          "example": {
+            "en": "The repairs are still in progress on the third floor.",
+            "zh": "三樓的維修仍在進行中。"
+          }
+        },
+        {
+          "phrase": "track progress",
+          "zh": "追蹤進度",
+          "example": {
+            "en": "This tool helps managers track progress across all projects.",
+            "zh": "這個工具幫助經理追蹤所有專案的進度。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Each team will give a short talk about its progress.",
+          "zh": "每個團隊都會簡短報告自己的進度。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Thank you for the update on your progress this week.",
+          "zh": "謝謝你更新這週的進度。"
+        },
+        {
+          "tag": "客服",
+          "en": "You can check the progress of your order online.",
+          "zh": "您可以在線上查詢訂單的處理進度。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "process",
+          "diff": "process 是「流程、過程」，progress 是「進度、進展」，兩者拼法相近。",
+          "example": {
+            "en": "The approval process takes about three working days.",
+            "zh": "核准流程大約需要三個工作天。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "improvement",
+          "diff": "improvement 強調變得更好；progress 強調朝目標往前進展。",
+          "example": {
+            "en": "We saw a clear improvement in the quality of our products.",
+            "zh": "我們看到產品品質有明顯的改善。"
+          }
+        },
+        {
+          "word": "development",
+          "diff": "development 指逐步發展、成長，語氣較中性；progress 帶有往前進展的意味。",
+          "example": {
+            "en": "Recent developments in the market changed our sales plan.",
+            "zh": "市場近期的發展改變了我們的銷售計畫。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "advance",
+          "pos": "v.",
+          "zh": "前進、推進",
+          "ipa": "/ədˈvæns/",
+          "example": {
+            "en": "The company plans to advance its research in Asia.",
+            "zh": "公司計畫在亞洲推進它的研究。"
+          }
+        },
+        {
+          "w": "growth",
+          "pos": "n.",
+          "zh": "成長",
+          "ipa": "/ɡroʊθ/",
+          "example": {
+            "en": "The company reported strong growth in the last quarter.",
+            "zh": "公司報告上一季有強勁的成長。"
+          }
+        },
+        {
+          "w": "status",
+          "pos": "n.",
+          "zh": "狀態、現況",
+          "ipa": "/ˈsteɪtəs/",
+          "example": {
+            "en": "Could you tell me the current status of my order?",
+            "zh": "你可以告訴我我的訂單目前的狀態嗎？"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "progressive",
+          "ipa": "/prəˈɡresɪv/",
+          "pos": "adj.",
+          "zh": "逐步的、進步的",
+          "link": "progress + -ive，形容詞，「向前進展的」，像 active、creative"
+        },
+        {
+          "w": "progression",
+          "ipa": "/prəˈɡreʃən/",
+          "pos": "n.",
+          "zh": "進展、推進",
+          "link": "progress + -ion，變成名詞，像 decide → decision"
+        },
+        {
+          "w": "progressively",
+          "ipa": "/prəˈɡresɪvli/",
+          "pos": "adv.",
+          "zh": "逐步地",
+          "link": "progressive + -ly，變成副詞，像 quickly、carefully"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈprɑːɡres/",
+          "zh": "進度、進展",
+          "in_passage": true,
+          "example": {
+            "en": "We are pleased with the progress of the new project.",
+            "zh": "我們對新專案的進展感到滿意。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/prəˈɡres/",
+          "zh": "進展、前進",
+          "example": {
+            "en": "The talks will progress once both sides agree on the price.",
+            "zh": "雙方同意價格後，談判就會有進展。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "進度、進展",
+          "en": "the way something moves forward to be done",
+          "in_passage": true,
+          "example": {
+            "en": "The team showed clear progress in cutting delivery times.",
+            "zh": "團隊在縮短交貨時間上展現了明顯的進展。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "進步（能力、技能）",
+          "en": "getting better at something",
+          "distinguish": "主詞是人，或談學習、技能時，指進步。",
+          "example": {
+            "en": "She has made great progress in her English since January.",
+            "zh": "她從一月以來英文進步很多。"
+          }
+        }
+      ]
+    }
+  ]
+}
