@@ -207,6 +207,9 @@ function prKeepTouch() { PR.holdUntil = Date.now() + PR_HOLD_MS; }
   };
   try { if (!wrap()) window.addEventListener('load', () => { try { wrap(); } catch (e) {} }); } catch (e) {} // pron.js 比 speak.js 早載入時，等頁面載完再包
 })();
+/* 發音練習視窗預設「每次錄音都重新取麥克風」：記錄顯示第 1 次（沒有常駐串流、辨識先開、麥克風後取）有聲音，
+   之後沿用常駐串流開辨識，辨識與 PCM 都是全靜音（peak=0）。S.prKeep=1 可改回常駐（對照測試用）。 */
+const prKeepOn = () => skKeepOn() && S.prKeep === 1;
 const prSettle = () => (typeof S.spkWait === 'number' ? S.spkWait : PR.fail ? 700 : SK_MOB ? 350 : 0);
 function prToggle() {
   skLog('PR 點麥克風 st=' + PR.st);
@@ -216,12 +219,14 @@ function prToggle() {
   const SRc = skSR();
   if (!SRc) { PR.err = '此瀏覽器不支援語音辨識。'; prRender(); return; }
   prKeepLog('錄音前'); prKeepTouch();
+  let freed = false;
+  if (!prKeepOn() && SK.keepSt && !(typeof cur !== 'undefined' && cur.view === 'speak')) { try { skKeepFree(); freed = true; SK.lastEnd = Date.now(); } catch (e) {} }
   skAudioSession('play-and-record');
   prRelease();
   prCancel(true);
   Object.assign(PR, { err: '', final: '', interim: '', alts: [], cands: null, res: null, nb: false, restart: 0, rsT: [], stopping: false, wdN: 0, blob: null, st: 'prep' });
   prRender();
-  const tk = ++PR.tk, wait = Math.max(prSettle() - (Date.now() - (SK.lastEnd || 0)), 0);
+  const tk = ++PR.tk, wait = Math.max(Math.max(prSettle(), prKeepOn() ? 0 : (freed ? 600 : 400)) - (Date.now() - (SK.lastEnd || 0)), 0);
   skLog('PR 準備錄音 等待 ' + wait + 'ms');
   if (wait) setTimeout(() => prGo(tk), wait); else prGo(tk); // 沒有要等就同步開始（保留使用者手勢，iOS 需要）
 }
@@ -312,7 +317,7 @@ async function prSrRecover(tk, n) { // 第 1 次：放掉舊辨識、隔一下�
 /* ---------- 同步錄下自己的聲音（只存記憶體；做法同 skMediaStart） ---------- */
 async function prMediaStart(tk) {
   PR.mr = null; PR.chunks = [];
-  const keep = skKeepOn(), wantMr = skUseMr();
+  const keep = prKeepOn(), wantMr = skUseMr();
   if (!keep && !wantMr) return; // 手機預設不同時錄音檔，避免和語音辨識搶麥克風
   if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) return;
   let stream;
@@ -420,6 +425,7 @@ function prFinish() {
   if (PR.stream) { PR.stream.getTracks().forEach(t => t.stop()); PR.stream = null; }
   const heard = (PR.final + ' ' + PR.interim).trim();
   PR.fail = heard ? 0 : PR.fail + 1; // 沒辨識到字連續 2 次 → 畫面提醒重置
+  if (!heard && !PR.err) { PR.holdUntil = 0; if (!(typeof cur !== 'undefined' && cur.view === 'speak')) { try { skKeepFree(); } catch (e) {} } SK.lastEnd = Date.now(); } // 這次是靜音：放掉可能已死的常駐串流，下次重新取
   skLog('PR 完成 heard=' + heard.length + '字 blob=' + (PR.blob ? PR.blob.size + 'B' : '無'));
   // 候選：只有一段時，辨識引擎給的前幾名候選都試，取最高分（單字常聽成同音字，第二、三名才是對的）
   let c = PR.alts.length === 1 ? PR.alts[0].slice() : [PR.final];
