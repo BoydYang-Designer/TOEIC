@@ -97,7 +97,7 @@ function prInject(root) {
 
 /* ---------- 練習視窗 ---------- */
 function prOpen(text, src) {
-  prKeepTouch();
+  prKeepTouch(); prKeepLog('開視窗');
   prCancel(); prMineDrop();
   try { spStop(); } catch (e) {} try { skStopAll(); } catch (e) {}
   Object.assign(PR, { text, key: prNorm(text), src: src || null, st: 'idle', final: '', interim: '', alts: [], cands: null, err: '', res: null, nb: false, fail: 0 });
@@ -106,7 +106,7 @@ function prOpen(text, src) {
   prRender();
 }
 function prClose() {
-  prKeepTouch(); // 關視窗後仍保留常駐麥克風一段時間，下次開視窗才不用重新取得
+  prKeepTouch(); prKeepLog('關視窗'); // 關視窗後仍保留常駐麥克風一段時間，下次開視窗才不用重新取得
   prCancel(); prMineDrop(); prRelease();
   const ov = document.getElementById('pron-ov'); if (ov) ov.remove();
   prRefreshBadges();
@@ -348,6 +348,26 @@ async function prMediaStart(tk) {
    原本 pron 另寫了一份（自己的 AudioContext 和關閉計時器），和語音練習的釋放流程是兩套；現在兩邊走同一條路，播放、關閉、等待 350ms、切回 play-and-record 都由 speak.js 負責。
    用 SK.playing==='mine'＋SK.pm==='pr' 表示「詳解視窗正在回放」；SK.mineRel＝上一個播放檔還在關閉中。 */
 const prPlaying = () => SK.playing === 'mine' && SK.pm === 'pr';
+function prKeepBrief() { try { const k = SK.keepSt, t = k && k.getAudioTracks()[0]; return t ? '麥克風 ' + t.readyState + (t.muted ? ' muted' : '') + (t.enabled ? '' : ' 暫時靜音') : '麥克風 無'; } catch (e) { return ''; } }
+/* 診斷：頁面上任何 <audio>／<video> 播放、暫停、結束、錯誤，以及語音合成，都寫進 🐞 記錄（附上當下常駐麥克風狀態）。
+   目的：找出「詳解視窗關掉、換頁之後再錄音卻全靜音」是不是被頁面其他音訊弄死的（這些播放原本不會留下任何記錄）。 */
+(function prAudioProbe() {
+  const lg = (msg) => { try { if (typeof skLog === 'function') skLog(msg); } catch (e) {} };
+  try {
+    ['play', 'pause', 'ended', 'error'].forEach(ev => document.addEventListener(ev, (e) => {
+      const t = e.target; let src = ''; try { src = String(t.currentSrc || t.src || '').split('/').pop().slice(-40); } catch (_) {}
+      lg('頁面音訊 ' + ev + ' <' + String(t.tagName || '').toLowerCase() + '> ' + src + ' ｜' + prKeepBrief());
+    }, true));
+  } catch (e) {}
+  try {
+    const ss = window.speechSynthesis;
+    if (ss && !ss._prProbe) {
+      const orig = ss.speak.bind(ss);
+      ss.speak = function (u) { lg('語音合成 speak ｜' + prKeepBrief()); return orig(u); };
+      ss._prProbe = true;
+    }
+  } catch (e) {}
+})();
 function prKeepLog(w) { // 除錯：常駐麥克風那條串流現在的狀態（回放後 track 若不是 live／被 mute，下一次錄音就會是死的）
   try { const k = SK.keepSt, t = k && k.getAudioTracks()[0]; skLog('PR ' + w + ' 常駐麥克風=' + (t ? 'readyState=' + t.readyState + ' muted=' + t.muted + ' enabled=' + t.enabled : '無') + ' ctx=' + (SK.ctx ? SK.ctx.state : '無') + ' mineRel=' + !!SK.mineRel); } catch (e) {}
 }
