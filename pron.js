@@ -113,6 +113,7 @@ function prClose() {
    詳解 mp3 的 <audio>（dnAu）也要真的釋放：pause 之後移除 src 並 load()，否則 iOS／部分 Android 的麥克風會收不到聲。
    先把 onerror／onended 清掉，避免移除 src 時觸發 vplay 的「失敗就改用語音合成」。 */
 function prRelease() {
+  try { prMineStop(); } catch (e) {} // 先停掉詳解視窗自己的回放（走 speak.js 的 skStopPlay／skMineFree，會關掉播放用 AudioContext），再放掉其他音訊資源
   try { skReleaseAudio(); } catch (e) {}
   try {
     if (typeof dnAu !== 'undefined' && dnAu) {
@@ -124,7 +125,7 @@ function prRelease() {
 }
 function prListen() { // 聽範例：直接按原本那個 🔊（有 mp3 就播 mp3，沒有就語音合成）
   if (PR.st !== 'idle') return; // 錄音中不播放，免得佔住音訊通道
-  if (PR.pl) prMineStop();
+  if (prPlaying() || SK.mineRel) { try { dnToast('請先按 ⏹ 停止回放，等音檔關閉後再播範例'); } catch (e) {} return; }
   try { speechSynthesis.cancel(); } catch (e) {}
   try { skPlayPrep(); } catch (e) {} // 播放前的準備（iOS 切到 playback、常駐麥克風暫時靜音）
   if (PR.src && PR.src.isConnected) PR.src.click(); else speak(PR.text);
@@ -135,16 +136,16 @@ function prRender() {
   const warn = [];
   if (!window.isSecureContext) warn.push('麥克風需要 https 或 localhost；直接雙擊（file://）開啟時無法錄音。');
   if (!skSR()) warn.push('此瀏覽器不支援語音辨識（建議用 Chrome／Edge／Safari）。');
-  const busy = prep || proc || PR.rel;
+  const busy = prep || proc || SK.mineRel || prPlaying(); // 回放中（含關閉中）不能錄音：和 speak.js 的 skMineBusy 一樣，要先按「停止回放」
   const micCls = rec ? 'bg-rose-600 text-white animate-pulse' : busy ? 'bg-slate-300 dark:bg-slate-700 text-slate-500' : 'bg-indigo-600 hover:bg-indigo-700 text-white';
-  const lbl = rec ? (long ? '🔴 錄音中…念完再點一次停止' : '🔴 請念出來…') : prep ? '⏳ 準備麥克風…' : PR.rel ? '⏳ 正在關閉播放音檔…完成後即可錄音' : PR.pl ? '🔊 播放錄音中（點麥克風可直接重錄）' : proc ? '⏳ 辨識中…' : '點麥克風開始（或按空白鍵）';
+  const lbl = rec ? (long ? '🔴 錄音中…念完再點一次停止' : '🔴 請念出來…') : prep ? '⏳ 準備麥克風…' : SK.mineRel ? '⏳ 正在關閉播放音檔…完成後即可錄音' : prPlaying() ? '🔊 播放錄音中…請先按「⏹ 停止回放」，音檔關閉後才能錄音' : proc ? '⏳ 辨識中…' : '點麥克風開始（或按空白鍵）';
   let res = '';
   if (r) {
     if (r.none) res = '<p class="text-sm text-rose-600 dark:text-rose-400">沒有辨識到聲音，靠近麥克風再試一次。</p>';
     else res = `<div class="flex flex-wrap items-center gap-2 mb-2"><span class="rounded-full px-3 py-1 text-sm font-bold ${skPctCls(r.pct)}">${r.pct}%</span><span class="text-sm">${skMsg(r.pct)}</span>${PR.nb ? '<span class="text-sm font-bold text-amber-600 dark:text-amber-400">🏆 新的最高分！</span>' : ''}</div>
       <p class="leading-relaxed">${skWordsH(r.words)}</p>${r.pct >= 100 ? '' : skDiffH({ heard: r.heard, diff: r.diff })}`; // 100 分不顯示「你說的」對照與紅字／括號說明，有錯才出現
   }
-  if (PR.blob) res += `<div class="flex flex-wrap items-center gap-2 mt-3"><button onclick="prPlayMine()" ${PR.rel ? 'disabled' : ''} class="${skCtl} ${PR.rel ? 'opacity-50' : ''}">${PR.rel ? '⏳ 關閉中…' : PR.pl ? '⏹ 停止回放' : '▶ 聽我的錄音'}</button><span class="text-[0.6875rem] text-slate-400">錄音只暫存在這個視窗，關閉就刪除</span></div>`;
+  if (PR.blob) res += `<div class="flex flex-wrap items-center gap-2 mt-3"><button onclick="prPlayMine()" ${SK.mineRel ? 'disabled' : ''} class="${skCtl} ${SK.mineRel ? 'opacity-50' : ''}">${SK.mineRel ? '⏳ 關閉中…' : prPlaying() ? '⏹ 停止回放' : '▶ 聽我的錄音'}</button><span class="text-[0.6875rem] text-slate-400">錄音只暫存在這個視窗，關閉就刪除</span></div>`;
   const hot = PR.fail >= 2 || !!PR.err; // 平常是不顯眼的小字；連續沒收到聲音或出錯時變成明顯的橘色按鈕（和語音練習一樣）
   const reset = hot
     ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 px-3 py-2 text-xs text-amber-800 dark:text-amber-300 text-center"><p class="mb-1.5">${PR.fail >= 2 ? '連續 ' + PR.fail + ' 次沒收到聲音，麥克風可能卡住了。' : '麥克風可能卡住了。'}</p>${/權限/.test(PR.err) ? skPermHelp() + '<div class="h-2"></div>' : ''}<button onclick="prReset()" class="${skCtl} !bg-amber-500 !text-white hover:!bg-amber-600">🔧 重置麥克風</button></div>`
@@ -188,17 +189,17 @@ const prSettle = () => (typeof S.spkWait === 'number' ? S.spkWait : PR.fail ? 70
 function prToggle() {
   skLog('PR 點麥克風 st=' + PR.st);
   if (PR.st === 'rec') { prStop(); return; }
-  if (PR.st === 'proc' || PR.st === 'prep' || PR.rel) return;
+  if (PR.st === 'proc' || PR.st === 'prep') return;
+  if (prPlaying() || SK.mineRel) { try { dnToast('請先按 ⏹ 停止回放，等音檔關閉後再錄音'); } catch (e) {} return; } // 同 speak.js skRecToggle：回放（含關閉中）時不接著錄音，不在同一個動作裡「關播放→開麥克風」
   const SRc = skSR();
   if (!SRc) { PR.err = '此瀏覽器不支援語音辨識。'; prRender(); return; }
-  const hadPlay = PR.pl;
-  prMineStop(); // 正在回放自己的錄音：先關掉（下面會等它完整釋放）
+  prKeepLog('錄音前');
   skAudioSession('play-and-record');
   prRelease();
   prCancel(true);
   Object.assign(PR, { err: '', final: '', interim: '', alts: [], cands: null, res: null, nb: false, restart: 0, rsT: [], stopping: false, wdN: 0, blob: null, st: 'prep' });
   prRender();
-  const tk = ++PR.tk, wait = Math.max(prSettle() - (Date.now() - (SK.lastEnd || 0)), hadPlay ? 350 : 0, 0);
+  const tk = ++PR.tk, wait = Math.max(prSettle() - (Date.now() - (SK.lastEnd || 0)), 0);
   skLog('PR 準備錄音 等待 ' + wait + 'ms');
   if (wait) setTimeout(() => prGo(tk), wait); else prGo(tk); // 沒有要等就同步開始（保留使用者手勢，iOS 需要）
 }
@@ -321,36 +322,31 @@ async function prMediaStart(tk) {
   } catch (e) { skLog('PR 建立錄音器失敗 ' + (e && (e.name || e.message))); if (!keep) stream.getTracks().forEach(t => t.stop()); PR.stream = null; PR.mr = null; }
 }
 /* ---------- 回放自己的錄音：用 Web Audio（不經過 <audio>，否則之後語音辨識會聽不到聲音），停止時整個 AudioContext 關掉 ---------- */
-function prMineStop() {
-  PR.ptk = (PR.ptk || 0) + 1;
-  const n = PR.node; PR.node = null; if (n) { n.onended = null; try { n.stop(); } catch (e) {} try { n.disconnect(); } catch (e) {} }
-  const c = PR.ctx; PR.ctx = null; if (c) { try { c.close(); } catch (e) {} }
-  const was = PR.pl; PR.pl = false;
-  if (was) { // 關閉後再等一小段時間才允許錄音／再播放
-    PR.rel = true; SK.lastEnd = Date.now(); clearTimeout(PR.relT);
-    PR.relT = setTimeout(() => { PR.rel = false; skAudioSession('play-and-record'); skLog('PR 回放已完整關閉'); prRender(); }, 350);
-  }
+/* 回放自己的錄音：直接用 speak.js 的那一套（skPlayBlob／skStopPlay／skMineFree／SK.mineRel），不再自己開 AudioContext 和計時器。
+   原本 pron 另寫了一份（自己的 AudioContext 和關閉計時器），和語音練習的釋放流程是兩套；現在兩邊走同一條路，播放、關閉、等待 350ms、切回 play-and-record 都由 speak.js 負責。
+   用 SK.playing==='mine'＋SK.pm==='pr' 表示「詳解視窗正在回放」；SK.mineRel＝上一個播放檔還在關閉中。 */
+const prPlaying = () => SK.playing === 'mine' && SK.pm === 'pr';
+function prKeepLog(w) { // 除錯：常駐麥克風那條串流現在的狀態（回放後 track 若不是 live／被 mute，下一次錄音就會是死的）
+  try { const k = SK.keepSt, t = k && k.getAudioTracks()[0]; skLog('PR ' + w + ' 常駐麥克風=' + (t ? 'readyState=' + t.readyState + ' muted=' + t.muted + ' enabled=' + t.enabled : '無') + ' ctx=' + (SK.ctx ? SK.ctx.state : '無') + ' mineRel=' + !!SK.mineRel); } catch (e) {}
+}
+function prMineStop() { // 停止回放（沒在回放就什麼都不做）；skStopPlay 會整個關掉播放用的 AudioContext，並進入 350ms 的「關閉中」
+  if (!prPlaying()) return;
+  skStopPlay(); SK.lastEnd = Date.now();
+  clearTimeout(PR.relT); PR.relT = setTimeout(() => { prKeepLog('回放關閉後'); prRender(); }, 350 + 60); // 比 speak.js 的 SK_MINE_REL 多一點，確定 mineRel 已清掉再重畫
 }
 function prMineDrop() { prMineStop(); PR.blob = null; } // 停止回放並刪掉錄音（記憶體即釋放）
 function prPlayMine() {
-  if (!PR.blob || PR.rel) return;
-  if (PR.pl) { prMineStop(); prRender(); return; }
-  const AC = window.AudioContext || window.webkitAudioContext;
-  if (!AC) { try { dnToast('這個瀏覽器無法回放錄音'); } catch (e) {} return; }
-  prRelease(); // 先放掉詳解 mp3／語音合成
-  try { skPlayPrep(); } catch (e) {}
-  const tk = PR.ptk = (PR.ptk || 0) + 1; PR.pl = true;
-  let ctx; try { ctx = PR.ctx = new AC(); ctx.resume(); } catch (e) { PR.pl = false; PR.ctx = null; return; }
-  const blob = PR.blob;
-  const rd = blob.arrayBuffer ? blob.arrayBuffer() : new Promise((res, rej) => { const f = new FileReader(); f.onload = () => res(f.result); f.onerror = rej; f.readAsArrayBuffer(blob); });
-  rd.then(ab => new Promise((res, rej) => { const p = ctx.decodeAudioData(ab, res, rej); if (p && p.then) p.then(res, rej); }))
-    .then(buf => {
-      if (tk !== PR.ptk) return;
-      const src = ctx.createBufferSource(); src.buffer = buf; src.connect(ctx.destination);
-      src.onended = () => { if (tk === PR.ptk && PR.node === src) { prMineStop(); prRender(); } };
-      PR.node = src; src.start(0); skLog('PR Web Audio 回放 ' + buf.duration.toFixed(1) + 's');
-    })
-    .catch(e => { skLog('PR 回放失敗 ' + (e && (e.message || e.name))); if (tk === PR.ptk) { prMineStop(); try { dnToast('這支錄音無法播放，請重新錄一次'); } catch (e2) {} prRender(); } });
+  if (!PR.blob || SK.mineRel) return;
+  if (prPlaying()) { prMineStop(); prRender(); return; }
+  prRelease(); // 先放掉詳解 mp3／語音合成（pron 才有的）
+  skStopPlay();
+  skPlayPrep(); // 和 skPlayMine 一樣：常駐麥克風只暫時靜音，不放掉
+  const tk = SK.tk;
+  SK.playing = 'mine'; SK.pm = 'pr';
+  const end = () => { if (tk === SK.tk) { prMineStop(); prRender(); } }; // 播完也走完整釋放流程
+  const fail = () => { if (tk !== SK.tk) return; skLog('PR 播放我的錄音 無法解碼'); try { dnToast('這支錄音無法播放，請重新錄一次'); } catch (e) {} end(); };
+  skLog('PR 播放我的錄音 開始（Web Audio）');
+  skPlayBlob(PR.blob, tk, () => { skLog('PR 播放我的錄音 播完'); end(); }, fail);
   prRender();
 }
 function prStop() {
