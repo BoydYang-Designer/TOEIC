@@ -150,9 +150,9 @@ function prRender() {
   if (PR.blob) res += `<div class="flex flex-wrap items-center gap-2 mt-3"><button onclick="prPlayMine()" ${SK.mineRel ? 'disabled' : ''} class="${skCtl} ${SK.mineRel ? 'opacity-50' : ''}">${SK.mineRel ? '⏳ 關閉中…' : prPlaying() ? '⏹ 停止回放' : '▶ 聽我的錄音'}</button><span class="text-[0.6875rem] text-slate-400">錄音只暫存在這個視窗，關閉就刪除</span></div>`;
   const hot = PR.fail >= 2 || !!PR.err; // 平常是不顯眼的小字；連續沒收到聲音或出錯時變成明顯的橘色按鈕（和語音練習一樣）
   const reset = hot
-    ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 px-3 py-2 text-xs text-amber-800 dark:text-amber-300 text-center"><p class="mb-1.5">${PR.fail >= 2 ? '連續 ' + PR.fail + ' 次沒收到聲音，麥克風可能卡住了。' : '麥克風可能卡住了。'}</p>${/權限/.test(PR.err) ? skPermHelp() + '<div class="h-2"></div>' : ''}<button onclick="prReset()" class="${skCtl} !bg-amber-500 !text-white hover:!bg-amber-600">🔧 重置麥克風</button>${PR.fail >= 2 ? `<button onclick="location.reload()" class="${skCtl} !bg-slate-600 !text-white ml-2">🔄 重新載入頁面</button><p class="mt-1.5">重置沒用的話，請按「重新載入頁面」；還是不行就把這個 App 從多工畫面上滑關掉再開。</p>` : ''}</div>`
-    : `<button onclick="prReset()" class="text-xs text-slate-400 underline underline-offset-2 cursor-pointer">🔧 麥克風沒反應？按此重置</button>`;
-  const mrRow = SK_MOB && skSR() ? `<div class="flex flex-wrap items-center justify-center gap-2 text-xs"><span class="text-slate-500">錄音檔（回放用）</span><button onclick="prMrSet(1)" class="${skSeg(S.spkMr === 1)} !py-1">開</button><button onclick="prMrSet(0)" class="${skSeg(S.spkMr !== 1)} !py-1">關</button><span class="text-slate-400">手機同時錄音檔可能不穩，預設關</span></div>` : '';
+    ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 px-3 py-2 text-xs text-amber-800 dark:text-amber-300 text-center"><p class="mb-1.5">${PR.fail >= 2 ? '連續 ' + PR.fail + ' 次沒收到聲音，麥克風可能卡住了。' : '麥克風可能卡住了。'}</p>${/權限/.test(PR.err) ? skPermHelp() + '<div class="h-2"></div>' : ''}<button onclick="location.reload()" class="${skCtl} !bg-amber-500 !text-white hover:!bg-amber-600">🔄 重新載入頁面</button><p class="mt-1.5">還是不行，請把 App 從多工畫面上滑關掉再開。</p></div>`
+    : '';
+  const mrRow = '';
   const dbg = PR.dbg
     ? `<div class="mt-4 rounded-lg border border-slate-300 dark:border-slate-700 p-3"><div class="flex flex-wrap items-center gap-2 mb-2"><button onclick="skLogCopy()" class="${skCtl}">📋 複製</button><button onclick="skLogClear()" class="${skCtl}">清除</button><button onclick="prDbg()" class="${skCtl}">收起</button></div><pre id="sk-log" class="text-[0.6875rem] leading-snug whitespace-pre-wrap break-all max-h-60 overflow-y-auto text-slate-600 dark:text-slate-300">${esc(skLogText())}</pre></div>`
     : `<div class="mt-3 text-center"><button onclick="prDbg()" class="text-xs text-slate-400 underline underline-offset-2 cursor-pointer">🐞 除錯記錄</button></div>`;
@@ -177,7 +177,6 @@ function prRender() {
 }
 function prLevel(v) { S.spkLevel = v; save(); if (PR.cands) prScore(false); prRender(); }
 function prDbg() { PR.dbg = !PR.dbg; prRender(); }
-function prMrSet(v) { S.spkMr = v; save(); skLog('PR 設定 錄音檔(spkMr)=' + (v ? '開' : '關')); prRender(); }
 
 /* ================= 錄音＋語音辨識 =================
    做法完全沿用語音練習（speak.js）的「手機麥克風穩定化」，共用它的函式與設定：
@@ -185,12 +184,12 @@ function prMrSet(v) { S.spkMr = v; save(); skLog('PR 設定 錄音檔(spkMr)=' +
    ② 錄音前先放掉所有播放資源（prRelease），並和上一次收麥克風隔至少 prSettle 毫秒。
    ③ 辨識斷線自動用「新物件」重開、失敗會重試；6 秒內沒有 soundstart／speechstart／result 就自動恢復（看門狗）。
    ④ iPhone 用常駐麥克風（skKeepGet）：視窗開著期間重用同一條串流，播放時只暫時靜音。
-   ⑤ 🔧 重置麥克風：把辨識、錄音、麥克風、AudioContext 全部關掉重來。
+   ⑤ 連續沒收到聲音時，視窗會出現「重新載入頁面」按鈕（原本的「重置麥克風」與「錄音檔」開關已拿掉）。
    除錯記錄寫進 speak.js 的 skLog，視窗最下方「🐞 除錯記錄」可展開、複製。 */
 /* 常駐麥克風的保留期：iPhone 上「放掉麥克風再重新 getUserMedia」拿到的是全靜音的串流（speak.js 的實測記錄）。
    speak.js 每 2 秒檢查一次，詳解視窗一關、又不在語音練習頁，就把常駐麥克風放掉——下次再開視窗練習就會錄到全靜音。
    所以詳解視窗最後一次使用後 10 分鐘內都算「保留中」；下面包住 skKeepFree，只擋掉 speak.js 那個 2 秒檢查的情況（不在語音練習頁、詳解視窗已關、頁面可見），
-   其他呼叫（切到背景、離開語音練習、重置麥克風、錄音時串流失效重取）完全照 speak.js 原本的流程放掉。不需要改 speak.js。 */
+   其他呼叫（切到背景、離開語音練習、錄音時串流失效重取）完全照 speak.js 原本的流程放掉。不需要改 speak.js。 */
 const PR_HOLD_MS = 10 * 60 * 1000;
 function prKeepHold() { return (PR.holdUntil || 0) > Date.now(); }
 function prKeepTouch() { PR.holdUntil = Date.now() + PR_HOLD_MS; }
@@ -235,14 +234,14 @@ function prGo(tk) {
   PR.st = 'rec'; PR.everUp = false; PR.stopping = false;
   const r = prSrNew(tk, true);
   try { r.start(); skLog('PR r.start() 成功'); prSrWatch(tk, r); }
-  catch (e) { skLog('PR r.start() 丟出 ' + (e && e.name) + ' ' + (e && e.message)); PR.sr = null; PR.st = 'idle'; PR.err = '語音辨識沒有啟動成功。請按下方「🔧 重置麥克風」，再錄一次。'; prRender(); return; }
+  catch (e) { skLog('PR r.start() 丟出 ' + (e && e.name) + ' ' + (e && e.message)); PR.sr = null; PR.st = 'idle'; PR.err = '語音辨識沒有啟動成功。請再錄一次；還是不行請按下方「🔄 重新載入頁面」。'; prRender(); return; }
   prMediaStart(tk);
   clearTimeout(PR.timer); PR.timer = setTimeout(() => { if (PR.st === 'rec' && tk === PR.tk) prStop(); }, prWc(PR.text) <= 3 ? 15000 : 60000);
   prRender();
 }
 function prSrNew(tk, fresh) { // 每次（含重啟）都建新的辨識物件，比重複 start 同一個穩
   const SRc = skSR(); if (!SRc) return null;
-  const r = (fresh && S.spkReuse === 1 && PR.keep) || new SRc(); r._ended = false; PR.keep = r; PR.sr = r; PR.t0 = Date.now(); // 和 speak.js 一樣：設定「辨識物件＝重用」時，每次錄音開頭重用同一個辨識物件（重啟／恢復仍用新的）
+  const r = (fresh && S.prReuse === 1 && PR.keep) || new SRc(); r._ended = false; PR.keep = r; PR.sr = r; PR.t0 = Date.now(); // 預設每次新建（實測：重用時第 2 次就靜音；新建時連續 3 次正常）。S.prReuse=1 才重用同一個辨識物件（對照測試用）
   r.lang = 'en-US'; r.continuous = S.spkCont !== 0; r.interimResults = true; r.maxAlternatives = 5;
   const id = (PR.srN = (PR.srN || 0) + 1), few = prWc(PR.text) <= 3;
   const ev = n => () => { skLog('PR SR#' + id + ' ' + n + ' +' + (Date.now() - PR.t0) + 'ms' + (r === PR.sr ? '' : '（舊的）')); if ((n === 'soundstart' || n === 'speechstart') && r === PR.sr) PR.everUp = true; }; // 只有 soundstart／speechstart／result 才算真的收到聲音；audiostart 只代表辨識開了
@@ -289,7 +288,7 @@ function prSrRestart(tk, n) { // start 失敗（上一個還沒完全結束）�
     prSrOff(PR.sr);
     const r = prSrNew(tk);
     try { r.start(); prSrWatch(tk, r); }
-    catch (e) { skLog('PR 重開 start() 失敗：' + (e && e.name)); if (n < 8) prSrRestart(tk, n + 1); else { PR.err = '語音辨識沒辦法重新啟動，請按下方「🔧 重置麥克風」。'; prStop(); } }
+    catch (e) { skLog('PR 重開 start() 失敗：' + (e && e.name)); if (n < 8) prSrRestart(tk, n + 1); else { PR.err = '語音辨識沒辦法重新啟動，請按下方「🔄 重新載入頁面」。'; prStop(); } }
   }, n ? 250 : 60);
 }
 function prSrWatch(tk, r) { // 看門狗：開始 6 秒內沒有 soundstart／speechstart／result＝麥克風沒真正收到聲音，自動恢復（最多 2 次）
@@ -299,7 +298,7 @@ function prSrWatch(tk, r) { // 看門狗：開始 6 秒內沒有 soundstart／sp
     const n = (PR.wdN = (PR.wdN || 0) + 1);
     skLog('PR 看門狗：6 秒內沒有 soundstart／speechstart／result（第 ' + n + ' 次）');
     if (n <= 2) { prSrRecover(tk, n); return; }
-    PR.fail++; PR.err = '麥克風好像沒有收到聲音。請按下方「🔧 重置麥克風」，再錄一次。'; prRender();
+    PR.fail++; PR.err = '麥克風好像沒有收到聲音。請再錄一次；還是不行請按下方「🔄 重新載入頁面」。'; prRender();
   }, 6000);
 }
 async function prSrRecover(tk, n) { // 第 1 次：放掉舊辨識、隔一下再開新的；第 2 次：先短暫開關一次麥克風（重設 iOS 音訊工作階段）再開
@@ -312,7 +311,7 @@ async function prSrRecover(tk, n) { // 第 1 次：放掉舊辨識、隔一下�
   if (tk !== PR.tk || PR.st !== 'rec' || PR.stopping) return;
   const r = prSrNew(tk);
   try { r.start(); skLog('PR 恢復 start() 成功 n=' + n); prSrWatch(tk, r); }
-  catch (e) { skLog('PR 恢復 start() 失敗 ' + (e && e.name)); PR.err = '語音辨識沒有啟動成功。請按下方「🔧 重置麥克風」，再錄一次。'; prRender(); }
+  catch (e) { skLog('PR 恢復 start() 失敗 ' + (e && e.name)); PR.err = '語音辨識沒有啟動成功。請再錄一次；還是不行請按下方「🔄 重新載入頁面」。'; prRender(); }
 }
 /* ---------- 同步錄下自己的聲音（只存記憶體；做法同 skMediaStart） ---------- */
 async function prMediaStart(tk) {
@@ -326,7 +325,7 @@ async function prMediaStart(tk) {
     else { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); skLog('PR getUserMedia 成功'); }
   } catch (e) {
     skLog('PR getUserMedia 失敗 ' + (e && e.name) + ' ' + (e && e.message));
-    PR.err = e && e.name === 'NotAllowedError' ? '麥克風權限被拒絕：請點網址列左邊的圖示（🔒 或 ⚙）→「麥克風」→ 允許，然後重新整理頁面。' : '取不到麥克風（可能被別的 App 佔用）。請按下方「🔧 重置麥克風」，再錄一次。';
+    PR.err = e && e.name === 'NotAllowedError' ? '麥克風權限被拒絕：請點網址列左邊的圖示（🔒 或 ⚙）→「麥克風」→ 允許，然後重新整理頁面。' : '取不到麥克風（可能被別的 App 佔用）。請再錄一次；還是不行請按下方「🔄 重新載入頁面」。';
     return;
   }
   if (PR.st !== 'rec' || tk !== PR.tk) { if (!keep) stream.getTracks().forEach(t => t.stop()); return; }
@@ -433,22 +432,6 @@ function prFinish() {
   PR.cands = c.map(s => String(s).trim()).filter(Boolean);
   if (!PR.cands.length && PR.err) { PR.res = null; prRender(); return; } // 出錯就只顯示錯誤，不要再多一行「沒辨識到聲音」
   prScore(true); prRender();
-}
-/* 🔧 重置麥克風：已錄的分數與紀錄都不會動 */
-async function prReset() {
-  skLog('PR 按了重置麥克風');
-  PR.holdUntil = 0; prCancel(); skAudioSession('auto'); try { skKeepFree(); } catch (e) {} prRelease(); SK.lastEnd = Date.now();
-  PR.fail = 0; PR.err = ''; PR.res = null; PR.final = PR.interim = ''; PR.alts = []; PR.cands = null; PR.st = 'idle';
-  let msg = '已重置，請再按一次麥克風錄音';
-  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    try { const st = await navigator.mediaDevices.getUserMedia({ audio: true }); st.getTracks().forEach(t => t.stop()); }
-    catch (e) {
-      msg = e && e.name === 'NotAllowedError' ? '麥克風權限被拒絕：請點網址列左邊的圖示（🔒 或 ⚙）→「麥克風」→ 允許，然後重新整理頁面。' : '已重置，但還是取不到麥克風：請先關掉通話、錄音、語音助理等佔用麥克風的 App，必要時把這個分頁關掉重開';
-      PR.err = msg;
-    }
-  }
-  try { dnToast(msg); } catch (e) {}
-  prRender();
 }
 function prScore(record) {
   if (!PR.cands || !PR.cands.length) { PR.res = { none: true }; return; }
