@@ -1,0 +1,77 @@
+{
+  "week": 1,
+  "day": 13,
+  "extra_vocab": [
+    {
+      "text": "profit",
+      "type": "word",
+      "ipa": "/ˈprɑːfɪt/",
+      "pos": "n.",
+      "zh": "利潤、獲利",
+      "en": "the money a business has left after paying all its costs",
+      "note": "所在句說明原料成本上升的後果之一是利潤下降，這裡 profit 指企業扣掉成本後的賺錢結果；與本篇「implications（影響、後果）」的用法互相呼應。",
+      "grammar_note": "make a profit 的 profit 是可數名詞（要加 a）；泛指獲利水準時不可數，如 Profit fell last quarter。",
+      "forms": [
+        { "w": "profits", "label": "複數／第三人稱單數", "pos": "n.", "zh": "利潤（各期、各項）", "ipa": "/ˈprɑːfɪts/", "example": { "en": "Quarterly profits rose by ten percent after we cut costs.", "zh": "削減成本之後，每季利潤成長了百分之十。" } },
+        { "w": "profited", "label": "過去式／過去分詞", "pos": "v.", "zh": "獲利、受益", "ipa": "/ˈprɑːfɪtɪd/", "example": { "en": "The company profited greatly from its new online store.", "zh": "這家公司從新的網路商店獲得了很大的利益。" } },
+        { "w": "profiting", "label": "現在分詞", "pos": "v.", "zh": "獲利、從中得利", "ipa": "/ˈprɑːfɪtɪŋ/", "example": { "en": "Several suppliers are profiting from the rise in demand.", "zh": "好幾家供應商正從需求上升中獲利。" } }
+      ],
+      "collocations": [
+        { "phrase": "make a profit", "zh": "獲利、賺錢", "example": { "en": "We expect to make a profit within the first year.", "zh": "我們預期在第一年內就能獲利。" } },
+        { "phrase": "profit margin", "zh": "利潤率", "example": { "en": "A cheaper cable would improve our profit margin on each unit.", "zh": "更便宜的拉索會提高我們每件產品的利潤率。" } },
+        { "phrase": "net profit", "zh": "淨利", "example": { "en": "Net profit dropped sharply because of higher shipping costs.", "zh": "因為運費上漲，淨利大幅下滑。" } },
+        { "phrase": "profit from", "zh": "從…獲利", "example": { "en": "Not every firm will profit from the new trade rules.", "zh": "並非每家公司都能從新的貿易規定中獲利。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Lower profit is one implication of the rising material costs.", "zh": "原料成本上漲的後果之一是利潤降低。" },
+        { "tag": "財報", "en": "The company reported a record profit for the third quarter.", "zh": "這家公司公布了第三季創紀錄的利潤。" },
+        { "tag": "電子郵件", "en": "Please send me the profit figures for each product line.", "zh": "請把每條產品線的利潤數字寄給我。" }
+      ],
+      "confusable": [
+        { "word": "prophet", "diff": "prophet 是「先知、預言者」，發音和 profit 完全相同，但拼法與意思都不同。", "example": { "en": "No analyst is a prophet, so forecasts can always change.", "zh": "沒有分析師是先知，所以預測隨時都可能改變。" } },
+        { "word": "benefit", "diff": "benefit 是「好處、效益」，不一定與金錢有關；profit 專指財務上的賺錢。", "example": { "en": "The new design brings a clear benefit to parents.", "zh": "新設計為家長帶來明顯的好處。" } }
+      ],
+      "similar": [
+        { "word": "earnings", "diff": "earnings 是「收益、盈餘」，常用在財報與股票場合；profit 更強調收入扣掉成本。", "example": { "en": "The firm will announce its annual earnings next Tuesday.", "zh": "這家公司將在下週二公布年度盈餘。" } },
+        { "word": "gain", "diff": "gain 是「獲得的增加」，可指金錢也可指其他好處；語氣比 profit 廣。", "example": { "en": "The sale produced a small gain for the company.", "zh": "這次出售為公司帶來了小額收益。" } }
+      ],
+      "family": [
+        { "w": "revenue", "pos": "n.", "zh": "營收、收入", "ipa": "/ˈrevənuː/", "example": { "en": "Revenue grew, but higher costs reduced our overall profit.", "zh": "營收成長了，但較高的成本拉低了整體利潤。" } },
+        { "w": "income", "pos": "n.", "zh": "所得、收入", "ipa": "/ˈɪnkʌm/", "example": { "en": "Online sales are now our main source of income.", "zh": "線上銷售現在是我們主要的收入來源。" } },
+        { "w": "loss", "pos": "n.", "zh": "虧損", "ipa": "/lɔːs/", "example": { "en": "The company reported a loss for the second quarter.", "zh": "這家公司公布了第二季的虧損。" } }
+      ],
+      "derived": [
+        { "w": "profitable", "pos": "adj.", "zh": "有利可圖的", "ipa": "/ˈprɑːfɪtəbəl/", "link": "profit + -able，可以賺錢的，像 comfortable、reasonable" },
+        { "w": "profitability", "pos": "n.", "zh": "獲利能力", "ipa": "/ˌprɑːfɪtəˈbɪləti/", "link": "profitable 去掉 -le 加 -ility，變名詞，像 ability、reliability" },
+        { "w": "unprofitable", "pos": "adj.", "zh": "不賺錢的", "ipa": "/ʌnˈprɑːfɪtəbəl/", "link": "un- 表示否定 + profitable，像 unhappy、unclear" },
+        { "w": "profitably", "pos": "adv.", "zh": "有利可圖地", "ipa": "/ˈprɑːfɪtəbli/", "link": "profitable 去掉 -le 加 -ly，變副詞，像 comfortably" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈprɑːfɪt/", "zh": "利潤、獲利", "in_passage": true, "example": { "en": "Our profit depends heavily on the price of raw materials.", "zh": "我們的利潤很大程度上取決於原料的價格。" } },
+        { "pos": "v.", "ipa": "/ˈprɑːfɪt/", "zh": "獲利、從…得到好處", "example": { "en": "Small firms may profit if the new rule lowers import taxes.", "zh": "如果新規定降低進口稅，小公司可能會受益。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "safety implications",
+      "type": "phrase",
+      "zh": "安全方面的影響、安全上的後果",
+      "en": "the safety problems or results that a change may lead to",
+      "note": "在這篇裡，簡報者說握把不鎖死的新設計在穩定性測試上可能有好處，但仍需和工程與法規團隊一起確認它對安全的影響。這是在提醒對方：構想雖好，仍要經過安全審查才能定案。",
+      "pattern": "review + the safety implications + of + N",
+      "grammar_note": "implications 通常用複數；「某事的影響」用 implications of + 事，「對某人或某事的影響」用 implications for + 對象。",
+      "examples": [
+        { "tag": "會議", "en": "We must consider the safety implications of using a thinner frame.", "zh": "我們必須考慮使用較薄框架在安全上的影響。" },
+        { "tag": "電子郵件", "en": "Please send me your report on the safety implications by Friday.", "zh": "請在星期五之前把你關於安全影響的報告寄給我。" },
+        { "tag": "審查", "en": "The test results show no serious safety implications for children.", "zh": "測試結果顯示對兒童沒有嚴重的安全影響。" }
+      ],
+      "similar": [
+        { "phrase": "safety concerns", "diff": "safety concerns 是人們「擔心的安全問題」，著重疑慮；safety implications 著重事情可能造成的結果。", "example": { "en": "Several customers raised safety concerns about the folding bar.", "zh": "有幾位客戶對折疊桿提出了安全疑慮。" } },
+        { "phrase": "safety impact", "diff": "safety impact 的語氣較直接，常用在評估報告中，指對安全造成的實際影響。", "example": { "en": "The safety impact of this change is still under review.", "zh": "這項變更對安全的影響仍在審查中。" } }
+      ],
+      "confusable": [
+        { "phrase": "safety implementation", "diff": "implementation 是「實施、執行」；implications 是「影響、後果」，兩個字拼法相近但意思不同。", "example": { "en": "Safety implementation will start in the factory next month.", "zh": "安全措施將在下個月於工廠開始實施。" } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "week": 1,
+  "day": 15,
+  "extra_vocab": [
+    {
+      "text": "wins",
+      "type": "word",
+      "lemma": "win",
+      "ipa": "/wɪnz/",
+      "pos": "v.",
+      "zh": "贏得、爭取到",
+      "en": "gets or earns something good, like a contract, a game, or support",
+      "note": "在這句裡 wins 是第三人稱單數動詞，和 over 組成 wins over（爭取到…的支持）。句中的 magnetic 是「有魅力的」，剛好呼應本篇的「磁鐵」主題。",
+      "grammar_note": "that 引導的關係子句裡，動詞要和先行詞 personality（單數）一致，所以用 wins，不是 win。",
+      "forms": [
+        { "w": "won", "label": "過去式／過去分詞", "pos": "v.", "zh": "贏了、爭取到了", "ipa": "/wʌn/", "example": { "en": "Our team won the contract after the final presentation.", "zh": "最後簡報之後，我們的團隊拿下了合約。" } },
+        { "w": "winning", "label": "現在分詞", "pos": "v.", "zh": "正在贏得", "ipa": "/ˈwɪnɪŋ/", "example": { "en": "We are winning more customers since we lowered our prices.", "zh": "自從我們降價之後，贏得了更多客戶。" } },
+        { "w": "winning", "label": "形容詞", "pos": "adj.", "zh": "獲勝的、成功的", "ipa": "/ˈwɪnɪŋ/", "example": { "en": "A winning bid usually offers the best price and service.", "zh": "得標的報價通常提供了最好的價格和服務。" } }
+      ],
+      "collocations": [
+        { "phrase": "win a contract", "zh": "贏得合約", "example": { "en": "Three companies are competing to win the contract.", "zh": "有三家公司正在競爭這份合約。" } },
+        { "phrase": "win an award", "zh": "獲獎", "example": { "en": "Our stroller could win an award at the trade fair.", "zh": "我們的推車有機會在貿易展上得獎。" } },
+        { "phrase": "win the trust of", "zh": "贏得…的信任", "example": { "en": "Honest service helps us win the trust of new customers.", "zh": "誠實的服務幫助我們贏得新客戶的信任。" } }
+      ],
+      "examples": [
+        { "tag": "簡報", "en": "Our lower price wins us many new orders every month.", "zh": "我們較低的價格讓我們每個月贏得許多新訂單。" },
+        { "tag": "業績", "en": "The sales team wins the quarterly award almost every year.", "zh": "這個業務團隊幾乎每年都拿下季度獎項。" },
+        { "tag": "會議", "en": "A clear demo often wins the support of cautious managers.", "zh": "清楚的示範常能爭取到謹慎主管的支持。" }
+      ],
+      "confusable": [
+        { "word": "winds", "diff": "winds 是 wind（風）的複數，發音是 /wɪndz/，拼法和 wins 只差一個 d。", "example": { "en": "Strong winds delayed the shipment by two days.", "zh": "強風使貨物延誤了兩天。" } }
+      ],
+      "similar": [
+        { "word": "earns", "diff": "earns 強調靠努力或表現「換來」信任、尊重或薪水；wins 強調在競爭中爭取到。", "example": { "en": "She earns the trust of every client she meets.", "zh": "她贏得了每位見過的客戶的信任。" } },
+        { "word": "gains", "diff": "gains 是「逐漸獲得」，語氣較中性，常接經驗、優勢、市占。", "example": { "en": "The company gains a larger market share each year.", "zh": "這家公司每年都獲得更大的市占率。" } }
+      ],
+      "family": [
+        { "w": "achieve", "pos": "v.", "zh": "達成", "ipa": "/əˈtʃiːv/", "example": { "en": "We hope to achieve our sales goal by December.", "zh": "我們希望在十二月前達成銷售目標。" } },
+        { "w": "award", "pos": "n.", "zh": "獎項", "ipa": "/əˈwɔːrd/", "example": { "en": "The design team received an award for safety.", "zh": "設計團隊因安全設計而獲獎。" } }
+      ],
+      "derived": [
+        { "w": "winner", "pos": "n.", "zh": "獲勝者、得獎者", "ipa": "/ˈwɪnɚ/", "link": "win + -er，做這件事的人，像 worker、teacher" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/wɪn/", "zh": "贏、爭取到", "in_passage": true, "example": { "en": "We hope to win the supplier contract next month.", "zh": "我們希望下個月能拿下供應商合約。" } },
+        { "pos": "n.", "ipa": "/wɪn/", "zh": "勝利、成功", "example": { "en": "The new client was a big win for our sales team.", "zh": "這位新客戶對我們的業務團隊是一大勝利。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "爭取到（支持、信任、客戶）", "en": "to get people to like you or agree with you", "in_passage": true, "example": { "en": "A fair price can win the support of local buyers.", "zh": "公平的價格可以爭取到當地買家的支持。" } },
+        { "pos": "v.", "zh": "贏得（比賽、競標、獎項）", "en": "to be the best in a game or a competition", "distinguish": "受詞是 support、trust、customer 時指爭取；受詞是 bid、game、prize 時指在比賽中勝出。", "example": { "en": "Our company won the bid to supply the airline.", "zh": "我們公司贏得了供應航空公司的標案。" } }
+      ]
+    },
+    {
+      "text": "wins over",
+      "type": "phrase",
+      "zh": "說服、爭取到…的支持",
+      "en": "makes someone like you or agree with you",
+      "note": "在這句裡指她的魅力能讓每位客戶都站在她這一邊。wins over 帶有「從懷疑變成支持」的語感，常用於業務或簡報情境。",
+      "pattern": "N + win(s) over + 人",
+      "grammar_note": "win over 是可分開的片語動詞：名詞可放中間或後面（win the client over / win over the client），代名詞一定放中間（win him over）。",
+      "examples": [
+        { "tag": "會議", "en": "A friendly attitude often wins over difficult customers.", "zh": "友善的態度常能爭取到難搞的客戶。" },
+        { "tag": "簡報", "en": "The clear demo won over the doubtful committee members.", "zh": "清楚的示範說服了心存疑慮的委員。" },
+        { "tag": "電子郵件", "en": "We hope this free trial will win them over.", "zh": "我們希望這次免費試用能爭取到他們的支持。" }
+      ],
+      "similar": [
+        { "phrase": "persuade", "diff": "persuade 是較中性的「說服」，常接 persuade 人 to V；win over 強調讓對方改變態度並喜歡你。", "example": { "en": "We tried to persuade the buyer to order more units.", "zh": "我們試著說服買家多訂一些數量。" } },
+        { "phrase": "convince", "diff": "convince 是讓人「相信」某件事，常接 that 子句或 of；win over 則是爭取對方站在你這邊。", "example": { "en": "The test results convinced us that the design is safe.", "zh": "測試結果讓我們相信這個設計是安全的。" } }
+      ],
+      "confusable": [
+        { "phrase": "win back", "diff": "win back 是「贏回」已經失去的客戶或市場，win over 是爭取原本不支持的人。", "example": { "en": "We want to win back customers who left last year.", "zh": "我們想贏回去年流失的客戶。" } }
+      ]
+    },
+    {
+      "text": "swipe",
+      "type": "word",
+      "ipa": "/swaɪp/",
+      "pos": "v.",
+      "zh": "刷（卡）、滑動",
+      "en": "to pass a card through a reader, or to move your finger across a screen",
+      "note": "在這句裡 swipe 是祈使句中的動詞，請人把磁卡在讀卡機上刷過去；magnetic card 也呼應本篇的磁鐵主題。",
+      "grammar_note": "swipe 的受詞是卡片：swipe a card through the reader，不要把讀卡機當成受詞。",
+      "forms": [
+        { "w": "swipes", "label": "第三人稱單數", "pos": "v.", "zh": "刷、滑", "ipa": "/swaɪps/", "example": { "en": "Each employee swipes a badge to enter the building.", "zh": "每位員工都刷識別證進入大樓。" } },
+        { "w": "swiped", "label": "過去式／過去分詞", "pos": "v.", "zh": "刷了、滑了", "ipa": "/swaɪpt/", "example": { "en": "The customer swiped his card, but the payment failed.", "zh": "客人刷了卡，但付款失敗了。" } },
+        { "w": "swiping", "label": "現在分詞", "pos": "v.", "zh": "正在刷、正在滑", "ipa": "/ˈswaɪpɪŋ/", "example": { "en": "Swiping the card too slowly may cause a reading error.", "zh": "刷卡太慢可能會造成讀取錯誤。" } }
+      ],
+      "collocations": [
+        { "phrase": "swipe a card", "zh": "刷卡", "example": { "en": "Please swipe a card at the entrance to record your time.", "zh": "請在入口處刷卡記錄你的時間。" } },
+        { "phrase": "swipe the screen", "zh": "滑動螢幕", "example": { "en": "Swipe the screen to see more product photos.", "zh": "滑動螢幕就能看到更多產品照片。" } },
+        { "phrase": "swipe to unlock", "zh": "滑動解鎖", "example": { "en": "Swipe to unlock the tablet before starting the demo.", "zh": "開始示範之前，請先滑動解鎖平板。" } }
+      ],
+      "examples": [
+        { "tag": "門禁", "en": "Please swipe your magnetic card at the door reader.", "zh": "請在門口讀卡機上刷你的磁卡。" },
+        { "tag": "付款", "en": "You can swipe or insert your card at the payment machine.", "zh": "你可以在刷卡機上刷卡或插卡。" }
+      ],
+      "confusable": [
+        { "word": "wipe", "diff": "wipe 是「擦拭」，拼法只差一個 s；swipe 是刷過或滑過。", "example": { "en": "Please wipe the screen before the customer arrives.", "zh": "客人到達之前，請先擦乾淨螢幕。" } },
+        { "word": "swap", "diff": "swap 是「交換、替換」，拼法相近但和刷卡動作無關。", "example": { "en": "Can we swap the meeting time with the call?", "zh": "我們可以把會議和電話會議的時間對調嗎？" } }
+      ],
+      "similar": [
+        { "word": "scan", "diff": "scan 是用機器「掃描」條碼或證件，通常不需要刷過讀卡槽。", "example": { "en": "Staff scan each ticket at the entrance gate.", "zh": "工作人員在入口閘門掃描每張票。" } },
+        { "word": "tap", "diff": "tap 是「輕觸」感應，多用於感應式付款或觸控；swipe 是劃過去。", "example": { "en": "Customers can tap their phones to pay for coffee.", "zh": "客人可以用手機輕觸感應來付咖啡錢。" } }
+      ],
+      "family": [
+        { "w": "badge", "pos": "n.", "zh": "識別證", "ipa": "/bædʒ/", "example": { "en": "Visitors must wear a badge inside the factory.", "zh": "訪客在工廠內必須配戴識別證。" } },
+        { "w": "access", "pos": "n.", "zh": "進入權限", "ipa": "/ˈækses/", "example": { "en": "Only managers have access to the storage room.", "zh": "只有主管能進入儲藏室。" } },
+        { "w": "reader", "pos": "n.", "zh": "讀取機", "ipa": "/ˈriːdɚ/", "example": { "en": "The card reader at the front desk is not working.", "zh": "櫃台的讀卡機壞了。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/swaɪp/", "zh": "刷（卡）、滑動", "in_passage": true, "example": { "en": "Swipe your card through the reader and wait for the light.", "zh": "把卡片從讀卡機刷過去，然後等燈亮。" } },
+        { "pos": "n.", "ipa": "/swaɪp/", "zh": "刷、滑動的動作", "example": { "en": "One quick swipe is enough to unlock the door.", "zh": "快速刷一下就足以開門。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "刷（磁卡）", "en": "to pass a card through a reader", "in_passage": true, "example": { "en": "Staff must swipe their cards when they leave the office.", "zh": "員工離開辦公室時必須刷卡。" } },
+        { "pos": "v.", "zh": "滑動（手機、平板螢幕）", "en": "to move your finger across a touch screen", "distinguish": "受詞是 card 時指刷卡；受詞是 screen、photo 或後面接 left / right 時指用手指滑動。", "example": { "en": "Swipe left to delete an item from the shopping list.", "zh": "向左滑動即可刪除購物清單上的項目。" } }
+      ]
+    },
+    {
+      "text": "trial period",
+      "type": "phrase",
+      "zh": "試用期",
+      "en": "a short time when someone or something is tested before a final decision",
+      "note": "在這句裡指新員工的試用期：公司在試用期結束後，才提供她正式的工作。商務上也可指產品或服務的試用階段。",
+      "pattern": "after / during + the trial period",
+      "grammar_note": "試用期「期間」用 during the trial period，「結束之後」用 after；表示長度時 month 用單數：a three-month trial period。",
+      "examples": [
+        { "tag": "人資", "en": "New employees must pass a three-month trial period.", "zh": "新進員工必須通過三個月的試用期。" },
+        { "tag": "軟體", "en": "The trial period for the software ends on Friday.", "zh": "這套軟體的試用期在星期五結束。" },
+        { "tag": "採購", "en": "We will test the machine during the trial period before buying.", "zh": "購買之前，我們會在試用期間先測試這台機器。" }
+      ],
+      "similar": [
+        { "phrase": "probation period", "diff": "probation period 多指新員工的「試用期」，語氣較正式；trial period 也可用於產品或服務。", "example": { "en": "She received a full contract after her probation period.", "zh": "試用期結束後，她拿到了正式合約。" } },
+        { "phrase": "free trial", "diff": "free trial 是「免費試用」，多用於產品或訂閱服務，強調不用付費。", "example": { "en": "Customers can start a free trial of the app today.", "zh": "客戶今天就可以開始免費試用這個應用程式。" } }
+      ],
+      "confusable": [
+        { "phrase": "grace period", "diff": "grace period 是「寬限期」，指逾期後仍可補繳或補辦的時間；trial period 是用來測試或觀察的時間。", "example": { "en": "We offer a ten-day grace period for late payments.", "zh": "對於逾期付款，我們提供十天的寬限期。" } }
+      ]
+    }
+  ]
+}

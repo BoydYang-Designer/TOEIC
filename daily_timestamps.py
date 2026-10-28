@@ -21,9 +21,17 @@ daily_timestamps.py — 為 TOEIC Daily Coach 的 mp3 產生「句子時間戳�
     ・已經都有、也沒換過           → 略過
   想強制全部重新對時：命令列加 --retime（或把下方 RETIME_EXISTING 改成 True）。
 
+【重音標註】同一次執行還會在每一句 timing 裡寫入兩個欄位，網頁「重音」開關用它顯示：
+  "stress"：這一句的「句子重音字」（內容字裡念得最突出的約 40%）。每個內容字看三件事：念得多響、念得多久（每音節）、聲調多高，
+            加權後取前幾名；網頁會把這些字顯示成大寫粗體。存的是字在 passage 裡的起始字元位置，句子被合併也不會錯。
+  "acc"   ：這一句每個多音節字的「單字重音」，平的整數對 [字元位置, 重音母音在字裡的第幾個字元, ...]；網頁在那個母音上方畫撇（´）。
+            單字重音來自發音字典 CMUdict（第一次執行會自動安裝 cmudict，需連網），不是聽 mp3；查不到或拼字對不上的字會列在報告，可手動補。
+  某一句想自己決定：在那一句的 timing 物件加 "lock": true，之後重跑就不會覆蓋它的 stress／acc。
+  已經有 timing 的舊資料：再選一次對應的 mp3 就會只補重音（不重新聽寫）。
+
 【判斷標準】固定使用下方 CFG（不需要每次選）。想調整才改 CFG 的數字；語音練習的「寬／嚴」在網頁裡切換，跟這裡無關。
 """
-import sys, os, re, json, subprocess, difflib, traceback
+import sys, os, re, json, subprocess, difflib, traceback, math
 
 MODEL = "base.en"   # 想更準可改 "small.en"（較慢、模型較大）
 RETIME_EXISTING = False   # True＝已經有 timing 的檔案也一律重新聽寫對時（跟舊版一樣）；False＝有 timing 就只補曲線
@@ -557,14 +565,174 @@ def _p_clean(f0):
     return f
 
 
+# ───────────────────────── 重音標註：句子重音（聽 mp3 的數據）＋ 單字重音（發音字典） ─────────────────────────
+# 寫進 daily.json 該天 timing 每一句的 "stress"（句子重音字的起始字元位置）與 "acc"（單字重音，平的 [位置, 字元, 位置, 字元…]）。
+STRESS_FRAC = 0.4                 # 內容字裡取前 40% 當句子重音（至少 1 個）
+W_VOL, W_DUR, W_F0 = 1.0, 1.0, 0.7   # 響度、每音節長度、音高 的權重（網頁錄音比對用同一套）
+STOP = set("a an the to of in on at by for from with and or but so that this these those is are was were be been am it its as if into than then there their they them he she we you your our us i me my his her will would can could shall should may might do does did has have had not no up out about over per via".split())
+_CMU = None
+
+
+def _cmu():
+    """載入 CMU 發音字典；第一次沒裝會自動 pip install cmudict。失敗回傳空字典（只是沒有單字重音撇，句子重音照常）。"""
+    global _CMU
+    if _CMU is None:
+        try:
+            try:
+                import cmudict  # noqa
+            except ImportError:
+                print("第一次使用：正在安裝 cmudict（單字重音字典，需要網路）…")
+                subprocess.check_call([sys.executable, "-m", "pip", "install", "cmudict"])
+                import cmudict  # noqa
+            _CMU = cmudict.dict()
+        except Exception as e:
+            print(f"⚠ 沒辦法載入 cmudict（{e}），這次不標單字重音撇。")
+            _CMU = {}
+    return _CMU
+
+
+def _is_content(tok):
+    n = re.sub(r"[^a-z0-9]", "", tok.lower())
+    return bool(n) and (any(c.isdigit() for c in n) or (n not in STOP and len(n) >= 3))
+
+
+def _syl_count(tok):
+    """音節數：優先查字典，查不到就數拼字的母音群（只用來算「每音節多久」）。"""
+    w = re.sub(r"[^a-z]", "", tok.lower())
+    pr = _cmu().get(w)
+    if pr:
+        return max(1, sum(1 for p in pr[0] if p[-1].isdigit()))
+    return max(1, len(re.findall(r"[aeiouy]+", w)))
+
+
+def _groups(w):
+    """拼字裡的母音群 [起, 迄]；字首的 y、qu 的 u 當子音。"""
+    def isv(k):
+        c = w[k]
+        if c in "aeiou":
+            return not (c == "u" and k > 0 and w[k - 1] == "q")
+        return c == "y" and k > 0
+    g, i, n = [], 0, len(w)
+    while i < n:
+        if isv(i):
+            j = i
+            while j + 1 < n and isv(j + 1):
+                j += 1
+            g.append([i, j + 1]); i = j + 1
+        else:
+            i += 1
+    return g
+
+
+def _silent_e(w, g):
+    """可能不發音的 e 群（依優先順序）：字尾 e、-ed／-es，其次中間的 magic e（side|ways、move|ment）。"""
+    n, out = len(w), []
+    for gi, (a, b) in enumerate(g):
+        if w[a:b] != "e" or gi == 0:
+            continue
+        if b == n and a > 0 and w[a - 1] not in "aeiouy":
+            out.append((0, gi))
+        elif b == n - 1 and w[b] in "ds" and a > 0 and w[a - 1] not in "aeiouy":
+            out.append((1, gi))
+    for gi, (a, b) in enumerate(g):
+        if w[a:b] != "e" or gi == 0 or any(c[1] == gi for c in out):
+            continue
+        if a > 0 and w[a - 1] not in "aeiouy" and b < n and w[b] not in "aeiouy" and g[gi - 1][1] == a - 1:
+            out.append((2, gi))
+    return [gi for _, gi in sorted(out)]
+
+
+def accent_index(token):
+    """單字重音：回傳 (重音母音在 token 裡的字元位置, 狀態)。狀態 ok／mono（單音節）／skip／notindict／mismatch。
+    做法：字典給「第幾個音節是主重音」，再把拼字切成母音群，去掉不發音的 e，母音群數＝音節數才對應；對不上就不標（避免標錯）。"""
+    low = token.lower()
+    letters = [(i, c) for i, c in enumerate(low) if c.isalpha() or c == "'"]
+    w = "".join(c for _, c in letters if c != "'")
+    if not w or not w.isalpha() or any(not (c.isalpha() or c == "'") and c not in ".,;:!?\"“”‘’()[]%$" for c in low):
+        return None, "skip"
+    D = _cmu()
+    prons = D.get(w) or (D.get(w[:-1]) if w.endswith("s") and len(w) > 3 else None)
+    if not prons:
+        return None, "notindict"
+    best = None
+    for ph in prons:                      # 發音有好幾種時，逐一試到母音群數對得上為止
+        vs = [p for p in ph if p[-1].isdigit()]
+        prim = [k for k, p in enumerate(vs) if p.endswith("1")]
+        if len(vs) < 2 or not prim:
+            continue
+        g = _groups(w)
+        cand = _silent_e(w, g)
+        while len(g) > len(vs) and cand:
+            gi = cand.pop(0)
+            g = [x for k, x in enumerate(g) if k != gi]
+            cand = [c - 1 if c > gi else c for c in cand]
+        if len(g) == len(vs):
+            best = (g, prim[0]); break
+    if best is None:
+        return None, ("mono" if all(sum(p[-1].isdigit() for p in ph) < 2 for ph in prons) else "mismatch")
+    g, p = best
+    return [i for i, c in letters if c != "'"][g[p][0]], "ok"
+
+
+def _zs(vals):
+    ok = [v for v in vals if v is not None]
+    if len(ok) < 2:
+        return [0.0] * len(vals)
+    m = sum(ok) / len(ok)
+    sd = math.sqrt(sum((v - m) ** 2 for v in ok) / len(ok))
+    return [0.0] * len(vals) if sd < 1e-9 else [0.0 if v is None else (v - m) / sd for v in vals]
+
+
+def annotate_stress(passage, timing, pros, log=print):
+    """為 timing 每一句（有逐字時間、沒有 "lock"）寫入 "stress" 與 "acc"。回傳統計。"""
+    hop, f0, vol = pros["hop"], pros["f0"], pros.get("vol") or []
+    st = {"sent": 0, "stressed": 0, "acc": 0, "bad": []}
+    for t in timing:
+        words = t.get("words")
+        if not words or t.get("lock"):
+            continue
+        a0, a1 = int(t["start"] / hop), int(math.ceil(t["end"] / hop))
+        voiced = sorted(h for h in f0[a0:a1 + 1] if h > 0)
+        med = voiced[len(voiced) // 2] if voiced else None
+        cand = []                                        # [字起點, 響度, 每音節秒數, 最高音高(半音)]
+        for w in words:
+            tok = passage[w[0]:w[1]]
+            if not _is_content(tok):
+                continue
+            fa, fb = max(0, int(w[2] / hop)), min(len(vol) - 1, int(math.ceil(w[3] / hop)))
+            v = max(vol[fa:fb + 1]) if fb >= fa and vol else None
+            fv = [h for h in f0[fa:fb + 1] if h > 0]
+            pk = 12 * math.log2(max(fv) / med) if fv and med else None
+            cand.append([w[0], v, (w[3] - w[2]) / _syl_count(tok), pk])
+        picks = []
+        if cand:
+            zv, zd, zp = _zs([c[1] for c in cand]), _zs([c[2] for c in cand]), _zs([c[3] for c in cand])
+            score = [W_VOL * zv[i] + W_DUR * zd[i] + W_F0 * zp[i] for i in range(len(cand))]
+            n = max(1, round(STRESS_FRAC * len(cand)))
+            order = sorted(range(len(cand)), key=lambda i: (-score[i], i))[:n]
+            picks = sorted(cand[i][0] for i in order)
+        acc = []
+        for w in words:
+            tok = passage[w[0]:w[1]]
+            idx, why = accent_index(tok)
+            if why == "ok":
+                acc += [w[0], idx]
+            elif why in ("notindict", "mismatch") and _is_content(tok):
+                st["bad"].append(re.sub(r"[^A-Za-z']", "", tok))
+        t["stress"], t["acc"] = picks, acc
+        st["sent"] += 1; st["stressed"] += len(picks); st["acc"] += len(acc) // 2
+    return st
+
+
+
 def dump_json(data):
     text = json.dumps(data, ensure_ascii=False, indent=2)
     # 讓每個 timing 物件維持單行，避免 JSON 檔變得很長
     text = re.sub(
         r'\{\s*"start": ([\d.]+),\s*"end": ([\d.]+),\s*"from": (\d+),\s*"to": (\d+)\s*\}',
         r'{"start": \1, "end": \2, "from": \3, "to": \4}', text)
-    # 語調曲線的數字陣列（f0／vol）也壓成一行，不然一個數字一行檔案會暴增
-    return re.sub(r'("(?:f0|vol)": )\[([^\]]*)\]',
+    # 語調曲線的數字陣列（f0／vol）與 stress／acc 也壓成一行，不然一個數字一行檔案會暴增
+    return re.sub(r'("(?:f0|vol|stress|acc)": )\[([^\]]*)\]',
                   lambda m: m.group(1) + "[" + re.sub(r"\s+", "", m.group(2)) + "]", text)
 
 
@@ -625,7 +793,7 @@ def main():
     if mp3s and jpath:
         print(f"由參數帶入：{len(mp3s)} 個音檔 → {jpath}")
     else:
-        mp3s = filedialog.askopenfilenames(title="1/2 選擇 mp3 音檔（可複選；舊檔也選，會自動補語調曲線）", initialdir=here,
+        mp3s = filedialog.askopenfilenames(title="1/2 選擇 mp3 音檔（可複選；舊檔也選，會自動補語調資料與重音標註）", initialdir=here,
                                            filetypes=[("音檔", "*.mp3 *.wav *.m4a"), ("所有檔案", "*.*")])
         if not mp3s: return print("已取消。")
         jpath = filedialog.askopenfilename(title="2/2 選擇要寫入的 daily.json", initialdir=here,
@@ -641,7 +809,7 @@ def main():
 
     print(f"共選了 {len(mp3s)} 個音檔｜模型：{MODEL}" + ("｜強制重新對時" if retime else ""))
     model = None   # 要聽寫時才載入（只補曲線的檔案不需要模型）
-    n_time, n_curve, failed, partial, skipped = 0, 0, [], [], []
+    n_time, n_curve, n_stress, failed, partial, skipped = 0, 0, 0, [], [], []
 
     for mp3 in sorted(mp3s):
         name = os.path.basename(mp3)
@@ -679,9 +847,10 @@ def main():
         no_words = bool(entry.get("timing")) and any(isinstance(t, dict) and not t.get("words") for t in entry["timing"]
                                                    if t.get("end", 0) - t.get("start", 0) > 0.0)   # 舊版對時沒有逐字時間
         need_time = retime or not entry.get("timing") or changed or no_words
-        need_curve = need_time or not fresh_prosody(entry, mp3)
+        need_stress = bool(entry.get("timing")) and any(isinstance(q, dict) and q.get("words") and "stress" not in q for q in entry["timing"])
+        need_curve = need_time or not fresh_prosody(entry, mp3) or need_stress
         if not need_curve:
-            print("✓ 已經有 timing 和語調曲線，略過（要重新對時請加 --retime）。")
+            print("✓ 已經有 timing、語調資料和重音標註，略過（要重新對時請加 --retime）。")
             skipped.append(name)
             continue
         if no_words and not retime and not changed:
@@ -707,7 +876,7 @@ def main():
                 failed.append(f"{name}（沒有句子對得上）")
                 continue
         else:
-            print("已有 timing，只補語調曲線（不需要聽寫）。")
+            print("已有 timing，只補語調資料／重音標註（不需要聽寫）。")
 
         old_t = entry.get("timing") or []
         if timing is not None and old_t and len(timing) < len(old_t) and not retime:
@@ -718,15 +887,33 @@ def main():
             continue
 
         try:
-            print("計算語調曲線（音高＋音量）…")
-            pros = analyze_prosody(mp3)
-            voiced = sum(1 for v in pros["f0"] if v > 0)
-            print(f"  曲線 {len(pros['f0'])} 點（{len(pros['f0']) * pros['hop']:.1f} 秒），有音高的佔 {voiced / max(1, len(pros['f0'])):.0%}")
+            if not need_time and fresh_prosody(entry, mp3):
+                pros = entry["prosody"]
+                print("語調資料已是最新，沿用。")
+            else:
+                print("計算語調資料（音高＋音量）…")
+                pros = analyze_prosody(mp3)
+                voiced = sum(1 for v in pros["f0"] if v > 0)
+                print(f"  共 {len(pros['f0'])} 點（{len(pros['f0']) * pros['hop']:.1f} 秒），有音高的佔 {voiced / max(1, len(pros['f0'])):.0%}")
         except Exception as e:
             traceback.print_exc()
-            print("⚠ 語調曲線計算失敗（timing 仍會照常寫入）。")
-            failed.append(f"{name}（語調曲線失敗：{e}）")
+            print("⚠ 語調資料計算失敗（timing 仍會照常寫入，但這次沒有重音標註）。")
+            failed.append(f"{name}（語調資料失敗：{e}）")
             pros = None
+
+        tm = timing if timing is not None else entry.get("timing")
+        if pros is not None and tm:
+            try:
+                ss = annotate_stress(entry["passage"], tm, pros)
+                n_stress += 1
+                print(f"重音標註：{ss['sent']} 句、句子重音 {ss['stressed']} 個字、單字重音 {ss['acc']} 個字")
+                if ss["bad"]:
+                    bad = sorted(set(w.lower() for w in ss["bad"]))
+                    print(f"  ⚠ 這些字查不到字典或拼字對不上，沒有標單字重音（可在該句的 acc 手動補）：{', '.join(bad)}")
+            except Exception as e:
+                traceback.print_exc()
+                print("⚠ 重音標註失敗（timing 與語調資料仍會寫入）。")
+                failed.append(f"{name}（重音標註失敗：{e}）")
 
         if timing is not None:
             entry["timing"] = timing
@@ -740,12 +927,12 @@ def main():
         elif timing is not None:
             entry.pop("prosody", None)   # 音檔換了但曲線算不出來：不要留舊的
 
-    if n_time == 0 and n_curve == 0:
+    if n_time == 0 and n_curve == 0 and n_stress == 0:
         if failed:
             msg = "所有檔案都處理失敗，未寫入任何資料。\n\n" + "\n".join(failed)
             print("\n" + msg)
             return messagebox.showerror("沒有可寫入的資料", msg)
-        msg = "選的檔案都已經有 timing 和語調曲線，沒有需要更新的。\n（要重新對時：命令列加 --retime）"
+        msg = "選的檔案都已經有 timing、語調資料和重音標註，沒有需要更新的。\n（要重新對時：命令列加 --retime）"
         print("\n" + msg)
         return messagebox.showinfo("沒有變更", msg)
 
@@ -754,7 +941,7 @@ def main():
         f.write(dump_json(data) + "\n")
     os.replace(tmp, jpath)
 
-    msg = f"完成！對時 {n_time} 個、語調曲線 {n_curve} 個（模型：{MODEL}）。"
+    msg = f"完成！對時 {n_time} 個、語調資料 {n_curve} 個、重音標註 {n_stress} 個（模型：{MODEL}）。"
     if skipped:
         msg += f"\n略過 {len(skipped)} 個（已經完成）。"
     if partial:

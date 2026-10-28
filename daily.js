@@ -1057,7 +1057,7 @@ function renderSide() {
           ${v === 'maint' ? trMobBtn() + dfMobBtn() + skRecsMobBtn() : ''}
           ${v === 'home' || v === 'maint' ? nwMobBtn() : ''}
           ${dk}</div></div>`
-    : `<div class="flex items-center gap-2"><button onclick="backHome()" class="${btn} ${line} !py-1.5 shrink-0">← 返回</button><span class="flex-1 min-w-0 truncate text-sm font-semibold">${label}</span>${dk}</div>`) + `</div>`;
+    : `<div class="flex items-center gap-2"><button onclick="backHome()" class="${btn} ${line} !py-1.5 shrink-0">← 返回</button><span class="flex-1 min-w-0 truncate text-sm font-semibold">${label}</span>${dk}</div>`) + `<div class="cs-slot flex justify-end mt-1.5 empty:hidden" data-bp="sm"></div></div>`; // cs-slot：雲端同步按鈕放在「Aa」下方靠右（cloud-sync.js 的 csPlace 會放進來）
   h += typeof dnTrailMob === 'function' ? dnTrailMob() : ''; // 學習軌跡（手機）
   // ===== 桌機：完整側欄 =====
   const tab = (s, t) => `<button onclick="enterSec('${s}')" class="${btn} ${SEC === s ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}">${t}</button>`;
@@ -1066,6 +1066,7 @@ function renderSide() {
     <a href="index.html" class="${btn} ${line}" aria-label="回到首頁">⌂ 首頁</a>
     <button onclick="fontCycle()" class="${btn} ${line}" aria-label="調整字級">Aa</button>
     <button onclick="toggleDark()" class="${btn} ${line}">${S.dark ? '☀ 淺色' : '☾ 深色'}</button></div>
+  <div class="cs-slot flex justify-end -mt-2 mb-3 empty:hidden" data-bp="md"></div>
   <div class="grid grid-cols-3 gap-1 mb-4"><button onclick="showLaunch()" class="${btn} ${v === 'launch' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}" title="回到選單">☰</button>${tab('learn', '📖 學習')}${tab('maint', '🛠 維護')}</div>` + (typeof dnTrailSide === 'function' ? dnTrailSide() : ''); // 學習軌跡（桌機）
   if (SEC === 'learn') {
     h += `<button onclick="openMatrix()" class="${btn} w-full mb-3 ${line} ${v === 'home' || v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">▦ 總表（進度／題材）</button>` + dayNav(nw, false) + `<button onclick="openBook()" class="${btn} w-full mt-4 ${line} ${v === 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>` + dnBankBtn() + nwBtn();
@@ -1076,6 +1077,7 @@ function renderSide() {
       + mtSide(v);
   } else h += `<p class="text-xs text-slate-500 leading-relaxed">請在右側選擇「學習」或「維護」。</p>`;
   side.innerHTML = h + '</div>';
+  if (window.csPlace) csPlace();
 }
 /* ===== 維護工具小方塊（側欄與維護總覽共用）：順序＝入庫彙整／新單字／音檔／回報／Trash／草稿／語音錄音管理／題材總覽；整組可收合，狀態記在這台裝置 ===== */
 let MTOPEN = (() => { try { return localStorage.getItem('maintTools') !== '0'; } catch (e) { return true; } })();

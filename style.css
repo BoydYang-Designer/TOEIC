@@ -99,3 +99,17 @@ body[data-view="detail"] #main button.pr-mic[data-lv="r"]{background:#ffe4e6;col
 body[data-view="detail"] #main ul.space-y-1\.5>li+li{margin-top:.8rem}
 body[data-view="detail"] #main ul:has(>li>.flex.items-start~.flex.items-start)>li+li{margin-top:1.1rem;padding-top:1.1rem;border-top:1px dashed rgba(148,163,184,.55)}
 body[data-view="detail"] #main li>.flex.items-start~.flex.items-start{margin-top:.25rem}
+
+/* ===== 重音顯示（語音練習「一句一句」的「重音」開關） =====
+   句子重音：整個字大寫粗體（text-transform 只改外觀，原文不動，選取入庫／錄音比對不受影響）。
+   單字重音：重音母音上方一個撇「´」，用 text-emphasis 畫在字的上方（不改文字，也不吃字寬，各種字型位置都一致）。
+   想改成點：把 .sk-ac 的 "´" 換成 dot；想把撇放大：改 .sk-ac 所在字級（撇是該字級的一半大）。 */
+.sk-ws{font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:#1e2a5a}
+.dark .sk-ws{color:#f1f5f9}
+.sk-ac{-webkit-text-emphasis:"´";text-emphasis:"´";-webkit-text-emphasis-position:over right;text-emphasis-position:over right;-webkit-text-emphasis-color:#4f46e5;text-emphasis-color:#4f46e5}
+.dark .sk-ac{-webkit-text-emphasis-color:#a5b4fc;text-emphasis-color:#a5b4fc}
+.sk-ws.sk-ok{color:#0f766e}
+.dark .sk-ws.sk-ok{color:#5eead4}
+.sk-ws.sk-miss{color:#d97706;text-decoration:underline dotted;text-underline-offset:6px}
+.dark .sk-ws.sk-miss{color:#fbbf24}
+.sk-extra{text-decoration:underline dotted #e11d48;text-decoration-thickness:2px;text-underline-offset:6px}

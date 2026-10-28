@@ -96,6 +96,24 @@
 
   /* ---- UI ---- */
   let btn, panel;
+  const FLOAT_CSS = 'position:fixed;right:12px;bottom:12px;z-index:99999;padding:8px 14px;border-radius:999px;border:0;background:#4f46e5;color:#fff;font:600 13px system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.3);cursor:pointer';
+  const SLOT_CSS = 'position:static;padding:5px 12px;border-radius:999px;border:0;background:#4f46e5;color:#fff;font:600 12px system-ui,sans-serif;white-space:nowrap;cursor:pointer';
+  /* 位置：頁面有 .cs-slot（daily.html 的側欄／標題列，字級「Aa」按鈕正下方、靠右）就放進去；沒有（其他頁面）維持右下角浮動。
+     側欄每次重畫都會清掉按鈕，所以 daily.js 的 renderSide 結尾會呼叫 csPlace() 把按鈕放回來。
+     data-bp：md＝桌機側欄（≥768px），sm＝手機標題列；兩個只會有一個用得到。 */
+  function place() {
+    if (!btn) return;
+    const bp = window.matchMedia && matchMedia('(min-width:768px)').matches ? 'md' : 'sm';
+    const slot = [...document.querySelectorAll('.cs-slot')].find(s => s.dataset.bp === bp);
+    if (slot) { if (btn.parentNode !== slot) slot.appendChild(btn); btn.style.cssText = SLOT_CSS; }
+    else { if (btn.parentNode !== document.body) document.body.appendChild(btn); btn.style.cssText = FLOAT_CSS; }
+  }
+  window.csPlace = place;
+  function placePanel() { // 面板跟著按鈕：按鈕在側欄時，面板開在按鈕下方；浮動時維持在按鈕上方
+    if (btn.parentNode === document.body) { panel.style.top = 'auto'; panel.style.bottom = '56px'; panel.style.right = '12px'; return; }
+    const r = btn.getBoundingClientRect();
+    panel.style.bottom = 'auto'; panel.style.top = (r.bottom + 6) + 'px'; panel.style.right = Math.max(8, innerWidth - r.right) + 'px';
+  }
   function setStatus(s, msg) {
     status = s; if (!btn) return;
     btn.textContent = { out: '☁ 登入同步', sync: '☁ 同步中…', ok: '☁ ✔ 已同步', err: '☁ ⚠ 同步失敗', nocfg: '☁ 尚未設定' }[s];
@@ -107,7 +125,7 @@
   }
   function buildUI() {
     btn = document.createElement('button'); btn.type = 'button';
-    btn.style.cssText = 'position:fixed;right:12px;bottom:12px;z-index:99999;padding:8px 14px;border-radius:999px;border:0;background:#4f46e5;color:#fff;font:600 13px system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.3);cursor:pointer';
+    btn.style.cssText = FLOAT_CSS;
     panel = document.createElement('div');
     panel.style.cssText = 'position:fixed;right:12px;bottom:56px;z-index:99999;display:none;padding:12px;border-radius:12px;background:#fff;color:#1e293b;font:13px system-ui,sans-serif;box-shadow:0 2px 12px rgba(0,0,0,.35)';
     panel.innerHTML = '<div id="cs-who" style="margin-bottom:4px;word-break:break-all"></div>' +
@@ -115,10 +133,12 @@
       '<button type="button" id="cs-now" style="margin-right:6px;padding:6px 10px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#1e293b">立即同步</button>' +
       '<button type="button" id="cs-out" style="padding:6px 10px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#be123c">登出</button>';
     document.body.append(panel, btn);
+    place();
+    if (window.matchMedia) { const mq = matchMedia('(min-width:768px)'); (mq.addEventListener ? mq.addEventListener('change', place) : mq.addListener(place)); }
     btn.onclick = () => {
       if (status === 'nocfg') { alert('請先在 cloud-sync.js 填入 Firebase 設定。'); return; }
       if (!user) { signIn(); return; }
-      panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+      placePanel(); panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
     };
     panel.querySelector('#cs-now').onclick = () => { panel.style.display = 'none'; sync(); };
     panel.querySelector('#cs-out').onclick = () => { panel.style.display = 'none'; firebase.auth().signOut(); };

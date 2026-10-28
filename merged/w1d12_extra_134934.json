@@ -1,0 +1,187 @@
+{
+  "week": 1,
+  "day": 12,
+  "extra_vocab": [
+    {
+      "text": "pressing",
+      "type": "word",
+      "lemma": "press",
+      "ipa": "/ˈpresɪŋ/",
+      "pos": "v.",
+      "zh": "按、壓",
+      "en": "using your finger to push down on something",
+      "note": "在這句裡 pressing 是介系詞 without 後面的動名詞（V-ing），意思是「不用再按另一顆按鈕」，呼應整篇想把三顆按鈕減為兩顆的構想。",
+      "grammar_note": "without 是介系詞，後面要接名詞或 V-ing（without pressing），不能接原形動詞。",
+      "forms": [
+        { "w": "presses", "label": "第三人稱單數", "pos": "v.", "zh": "按、壓", "ipa": "/ˈpresɪz/", "example": { "en": "Each time the user presses the button, the lock releases.", "zh": "使用者每次按下按鈕，鎖就會鬆開。" } },
+        { "w": "pressed", "label": "過去式／過去分詞", "pos": "v.", "zh": "按了、被按下", "ipa": "/prest/", "example": { "en": "Once the button is pressed, the rear wheels can swivel freely.", "zh": "按鈕一被按下，後輪就能自由旋轉。" } }
+      ],
+      "collocations": [
+        { "phrase": "press and hold", "zh": "按住不放", "example": { "en": "Press and hold the power button for five seconds to restart.", "zh": "按住電源鍵五秒即可重新啟動。" } },
+        { "phrase": "press release", "zh": "新聞稿", "example": { "en": "The company will issue a press release about the new stroller.", "zh": "公司將發布關於新推車的新聞稿。" } },
+        { "phrase": "pressing issue", "zh": "緊迫的問題", "example": { "en": "Cost control is a pressing issue for the whole department.", "zh": "成本控制是整個部門的迫切問題。" } }
+      ],
+      "examples": [
+        { "tag": "操作說明", "en": "You can turn on the device by pressing the green button.", "zh": "你可以按下綠色按鈕來開啟裝置。" },
+        { "tag": "使用手冊", "en": "Pressing the wrong key may delete your unsaved work.", "zh": "按錯鍵可能會刪除你尚未儲存的資料。" },
+        { "tag": "採購", "en": "We are pressing the supplier for a faster delivery date.", "zh": "我們正在催促供應商提供更快的交貨日期。" }
+      ],
+      "confusable": [
+        { "word": "impressing", "diff": "impress 是「給人好印象」，拼法裡含有 pressing，但和按壓無關。", "example": { "en": "The new demo is impressing our largest client.", "zh": "新的示範讓我們最大的客戶印象深刻。" } },
+        { "word": "pressuring", "diff": "pressure 當動詞是「對人施加壓力」，press 的施壓語氣較輕，也可指按壓動作。", "example": { "en": "The buyer keeps pressuring us to lower the price.", "zh": "買方一直向我們施壓要求降價。" } }
+      ],
+      "similar": [
+        { "word": "pushing", "diff": "push 是用力推向前或往下；press 是用手指按下按鈕、按鍵。", "example": { "en": "Stop pushing the stroller if the wheel feels stuck.", "zh": "如果輪子感覺卡住了，就別再硬推推車。" } },
+        { "word": "tapping", "diff": "tap 是輕點，常用於觸控螢幕；press 是往下按，多用於實體按鈕。", "example": { "en": "Customers order by tapping the screen at each table.", "zh": "客人在每張桌子的螢幕上點選來點餐。" } }
+      ],
+      "family": [
+        { "w": "click", "pos": "v.", "zh": "點擊", "ipa": "/klɪk/", "example": { "en": "Click the link below to confirm your order.", "zh": "請點擊下方連結確認您的訂單。" } },
+        { "w": "hold", "pos": "v.", "zh": "按住、握住", "ipa": "/hoʊld/", "example": { "en": "Hold the handle with both hands when you lift it.", "zh": "抬起時請用雙手握住把手。" } },
+        { "w": "switch", "pos": "n.", "zh": "開關", "ipa": "/swɪtʃ/", "example": { "en": "Please turn off the main switch before you leave.", "zh": "離開前請關掉總開關。" } }
+      ],
+      "derived": [
+        { "w": "pressure", "pos": "n.", "zh": "壓力", "ipa": "/ˈpreʃɚ/", "link": "press + -ure（動作的結果），按壓所產生的「壓力」，像 failure、closure" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/pres/", "zh": "按、壓", "in_passage": true, "example": { "en": "Press the red button to stop the machine at once.", "zh": "按下紅色按鈕即可立刻停止機器。" } },
+        { "pos": "n.", "ipa": "/pres/", "zh": "新聞界、媒體（the press）", "example": { "en": "We will share the news with the press next week.", "zh": "我們下週會把這個消息告知媒體。" } },
+        { "w": "pressing", "pos": "adj.", "ipa": "/ˈpresɪŋ/", "zh": "緊迫的", "example": { "en": "There is a pressing need for more engineers on this project.", "zh": "這個專案迫切需要更多工程師。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "按、壓（按鈕、按鍵）", "en": "to push a button or key down with your finger", "in_passage": true, "example": { "en": "Press the start button after you close the door.", "zh": "關上門之後請按下啟動鈕。" } },
+        { "pos": "v.", "zh": "催促、向…施壓", "en": "to ask someone strongly to do something", "distinguish": "後面接人，常搭配 for 或 to V（press someone for an answer）時，指催促；接按鈕、鍵時指按壓。", "example": { "en": "The manager pressed us for an answer before noon.", "zh": "經理要求我們在中午前給出答覆。" } }
+      ]
+    },
+    {
+      "text": "normal orientation",
+      "type": "phrase",
+      "zh": "正常方向、正常朝向",
+      "en": "the usual direction that something faces",
+      "note": "在這篇裡指把手轉回一般推行位置後，輪子被鎖回直行的方向。returning the wheels to their normal orientation 說明鎖定機構的作用。",
+      "pattern": "return + N + to + its / their normal orientation",
+      "grammar_note": "return A to B 表示「讓 A 回到 B 的狀態」，to 是介系詞，後面接名詞片語（their normal orientation）。",
+      "examples": [
+        { "tag": "說明", "en": "After cleaning, the display returns to its normal orientation.", "zh": "清潔之後，螢幕會回到正常的方向。" },
+        { "tag": "會議", "en": "Please check that the camera stays in its normal orientation.", "zh": "請確認相機維持在正常的朝向。" },
+        { "tag": "簡報", "en": "The seat can flip back to its normal orientation in one step.", "zh": "座椅一個動作就能翻回正常方向。" }
+      ],
+      "similar": [
+        { "phrase": "default position", "diff": "default position 是「預設位置」，常指機器或開關一開始的設定；normal orientation 強調朝向。", "example": { "en": "The switch returns to its default position after each use.", "zh": "開關每次使用後都會回到預設位置。" } }
+      ],
+      "confusable": [
+        { "phrase": "normal operation", "diff": "normal operation 是「正常運作」，指機器在運轉的狀態，不是方向或朝向。", "example": { "en": "The machine will resume normal operation after the update.", "zh": "更新之後，機器將恢復正常運作。" } }
+      ]
+    },
+    {
+      "text": "complicated",
+      "type": "word",
+      "ipa": "/ˈkɑːmplɪkeɪtɪd/",
+      "pos": "adj.",
+      "zh": "複雜的、麻煩的",
+      "en": "not simple, with many parts that are hard to understand",
+      "note": "這個所在句是 simplify 的字典定義：讓事情更容易、不那麼 complicated。對應本篇的主題——把三顆按鈕減為兩顆，讓機構與操作都更簡單。",
+      "grammar_note": "complicated 有三個音節以上，比較級要用 more / less complicated，不加 -er。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "complicated process", "zh": "複雜的流程", "example": { "en": "Getting approval was a complicated process that took two months.", "zh": "取得核准是個複雜的流程，花了兩個月。" } },
+        { "phrase": "too complicated", "zh": "太複雜", "example": { "en": "The ordering system is too complicated for new staff.", "zh": "這個訂購系統對新進員工來說太複雜了。" } },
+        { "phrase": "more complicated than expected", "zh": "比預期還複雜", "example": { "en": "The repair turned out to be more complicated than expected.", "zh": "這次維修結果比預期的還要複雜。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Our current design is complicated and hard to manufacture.", "zh": "我們目前的設計很複雜，也很難製造。" },
+        { "tag": "客服", "en": "The instructions were complicated, so many customers called support.", "zh": "說明書很複雜，所以很多客戶打電話給客服。" },
+        { "tag": "簡報", "en": "Let me make this less complicated with a simple chart.", "zh": "讓我用一張簡單的圖表把這件事說得簡單一點。" }
+      ],
+      "confusable": [
+        { "word": "completed", "diff": "completed 是「已完成的」，拼法與發音有點像，但和複雜無關。", "example": { "en": "The testing was completed before the end of June.", "zh": "測試在六月底之前就完成了。" } }
+      ],
+      "similar": [
+        { "word": "complex", "diff": "complex 指由許多部分組成，語氣中性；complicated 常帶「麻煩、不好處理」的感覺。", "example": { "en": "The project involves a complex network of suppliers.", "zh": "這個專案牽涉到一個複雜的供應商網絡。" } },
+        { "word": "tricky", "diff": "tricky 較口語，指「棘手、不好處理」，不一定有很多部分。", "example": { "en": "Setting the right price for this product is tricky.", "zh": "要為這項產品訂出合適的價格並不容易。" } }
+      ],
+      "family": [
+        { "w": "simple", "pos": "adj.", "zh": "簡單的", "ipa": "/ˈsɪmpəl/", "example": { "en": "We need a simple process that anyone can follow.", "zh": "我們需要一個任何人都能遵循的簡單流程。" } },
+        { "w": "confusing", "pos": "adj.", "zh": "令人困惑的", "ipa": "/kənˈfjuːzɪŋ/", "example": { "en": "Three similar buttons can be confusing for first-time users.", "zh": "三個相似的按鈕可能會讓第一次使用的人困惑。" } },
+        { "w": "difficult", "pos": "adj.", "zh": "困難的", "ipa": "/ˈdɪfɪkəlt/", "example": { "en": "It is difficult to fix the cable inside the tube.", "zh": "要修理管子裡面的拉索很困難。" } }
+      ],
+      "derived": [
+        { "w": "complicate", "pos": "v.", "zh": "使複雜化", "ipa": "/ˈkɑːmplɪkeɪt/", "link": "complicated 的詞幹動詞；-ate 表示「使成為」，像 activate、operate" },
+        { "w": "complication", "pos": "n.", "zh": "複雜因素、併發問題", "ipa": "/ˌkɑːmplɪˈkeɪʃən/", "link": "complicate + -ion，動作變名詞，像 information、decoration" },
+        { "w": "uncomplicated", "pos": "adj.", "zh": "簡單明瞭的", "ipa": "/ʌnˈkɑːmplɪkeɪtɪd/", "link": "un- 表示否定 + complicated，像 unhappy、unclear" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "（結構、流程）複雜的", "en": "having many parts that are hard to understand", "in_passage": true, "example": { "en": "A complicated mechanism needs more parts and more testing.", "zh": "複雜的機構需要更多零件和更多測試。" } },
+        { "pos": "adj.", "zh": "（情況、關係）棘手的", "en": "difficult to deal with because of many problems", "distinguish": "形容機器、流程時指結構複雜；形容 situation、issue、relationship 時指棘手難處理。", "example": { "en": "The contract talks became complicated after the price change.", "zh": "價格變動之後，合約談判變得棘手了。" } }
+      ]
+    },
+    {
+      "text": "exploring",
+      "type": "word",
+      "lemma": "explore",
+      "ipa": "/ɪkˈsplɔːrɪŋ/",
+      "pos": "v.",
+      "zh": "探討、研究、探索",
+      "en": "looking carefully at an idea or a place to learn more about it",
+      "note": "在這句裡 exploring 接在 worth 後面，意思是「值得進一步研究」。簡報者用它委婉地請對方考慮這個替代方案，語氣開放，不強迫。",
+      "grammar_note": "explore 是及物動詞，後面直接接受詞，不加 about：explore options，不寫 explore about options。",
+      "forms": [
+        { "w": "explores", "label": "第三人稱單數", "pos": "v.", "zh": "探討、研究", "ipa": "/ɪkˈsplɔːrz/", "example": { "en": "The report explores three ways to reduce assembly time.", "zh": "這份報告探討了三種縮短組裝時間的方法。" } },
+        { "w": "explored", "label": "過去式／過去分詞", "pos": "v.", "zh": "探討了、研究了", "ipa": "/ɪkˈsplɔːrd/", "example": { "en": "We explored several suppliers before choosing the lowest bidder.", "zh": "我們研究了幾家供應商，才選出出價最低的那家。" } }
+      ],
+      "collocations": [
+        { "phrase": "explore options", "zh": "研究各種選項", "example": { "en": "We should explore options before choosing a new supplier.", "zh": "在選擇新供應商之前，我們應該先研究各種選項。" } },
+        { "phrase": "explore new opportunities", "zh": "探索新機會", "example": { "en": "The team is exploring new opportunities in Southeast Asia.", "zh": "團隊正在東南亞探索新的商機。" } },
+        { "phrase": "explore the possibility of", "zh": "研究…的可能性", "example": { "en": "Let's explore the possibility of lowering the unit cost.", "zh": "我們來研究降低單位成本的可能性吧。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "We are exploring ways to cut the production cost.", "zh": "我們正在研究降低生產成本的方法。" },
+        { "tag": "電子郵件", "en": "I would like to spend more time exploring this idea with you.", "zh": "我想多花一點時間和你一起研究這個想法。" },
+        { "tag": "簡報", "en": "Exploring new markets can bring risks as well as profits.", "zh": "開拓新市場既可能帶來風險，也可能帶來利潤。" }
+      ],
+      "confusable": [
+        { "word": "explain", "diff": "explain 是「說明、解釋」，把已知的事講清楚；explore 是「探索、研究」，去找出新的可能。", "example": { "en": "Could you explain why the cable is no longer needed?", "zh": "你能說明為什麼不再需要這條拉索嗎？" } },
+        { "word": "exploit", "diff": "exploit 是「利用、開發」資源或機會，有時帶負面意思；explore 是先去探索、了解。", "example": { "en": "Our rival will exploit any weakness in our design.", "zh": "我們的對手會利用我們設計上的任何弱點。" } }
+      ],
+      "similar": [
+        { "word": "investigate", "diff": "investigate 是「調查」，多用於找出問題原因，語氣更正式、更深入。", "example": { "en": "The engineers will investigate why the wheel locks failed.", "zh": "工程師會調查輪子鎖為什麼失效。" } },
+        { "phrase": "look into", "diff": "look into 是較口語的說法，指「查看、研究一下」，沒有 explore 那麼廣。", "example": { "en": "I will look into the cost of a new cable.", "zh": "我會去查一下新拉索的成本。" } }
+      ],
+      "family": [
+        { "w": "research", "pos": "v.", "zh": "研究、調查", "ipa": "/rɪˈsɜːrtʃ/", "example": { "en": "We need to research the market before launching the product.", "zh": "推出產品之前，我們需要先研究市場。" } },
+        { "w": "examine", "pos": "v.", "zh": "檢查、審查", "ipa": "/ɪɡˈzæmɪn/", "example": { "en": "The team will examine each part of the new design.", "zh": "團隊會檢查新設計的每個部分。" } }
+      ],
+      "derived": [
+        { "w": "exploration", "pos": "n.", "zh": "探索、探討", "ipa": "/ˌekspləˈreɪʃən/", "link": "explore + -ation，動作變名詞，像 information、organization" },
+        { "w": "explorer", "pos": "n.", "zh": "探險家、探索者", "ipa": "/ɪkˈsplɔːrɚ/", "link": "explore + -er，做這件事的人，像 worker、teacher" },
+        { "w": "exploratory", "pos": "adj.", "zh": "探索性的、初步的", "ipa": "/ɪkˈsplɔːrətɔːri/", "link": "explore + -atory，表示「探索性質的」，常見於 exploratory meeting（初步會談）" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "探討、研究（想法、可能性）", "en": "to think about or study an idea carefully", "in_passage": true, "example": { "en": "We are exploring a cheaper way to build the handlebar.", "zh": "我們正在研究更便宜的把手製作方式。" } },
+        { "pos": "v.", "zh": "探索、開拓（地方、市場）", "en": "to travel in or look at a place to learn about it", "distinguish": "後面接 idea、option、possibility 時指研究；接 city、market、area 時指實地探索或開拓。", "example": { "en": "Our sales team will explore the Japanese market next year.", "zh": "我們的業務團隊明年會去開拓日本市場。" } }
+      ]
+    },
+    {
+      "text": "worth exploring",
+      "type": "phrase",
+      "zh": "值得探討、值得研究",
+      "en": "good enough to look at more closely",
+      "note": "在這篇裡用來結尾，語氣客氣而開放：簡報者不要求對方立刻接受，只是請對方考慮這個替代方案「值得進一步研究」。",
+      "pattern": "N + is / are + worth + V-ing",
+      "grammar_note": "worth 後面直接接 V-ing 或名詞，不加 to：worth exploring，不寫 worth to explore。",
+      "examples": [
+        { "tag": "會議", "en": "That new market is worth exploring next year.", "zh": "那個新市場明年值得去開拓。" },
+        { "tag": "預算", "en": "Reducing cable cost is worth exploring before we finalize the budget.", "zh": "在定案預算之前，降低拉索成本值得研究。" },
+        { "tag": "討論", "en": "Is this option worth exploring, or should we drop it?", "zh": "這個選項值得研究，還是我們該放棄它？" }
+      ],
+      "similar": [
+        { "phrase": "worth considering", "diff": "worth considering 是「值得考慮」，語氣較輕，只要求想一想；worth exploring 則是值得花時間深入研究。", "example": { "en": "Your suggestion is worth considering when we plan next quarter.", "zh": "規劃下一季時，你的建議值得考慮。" } },
+        { "phrase": "worth looking into", "diff": "worth looking into 較口語，指值得去查看、調查；後面的 into 是 look into 的一部分。", "example": { "en": "This supplier is worth looking into before we sign anything.", "zh": "簽約之前，這家供應商值得先查一查。" } }
+      ],
+      "confusable": [
+        { "phrase": "worthwhile", "diff": "worthwhile 是一個形容詞，意思是「值得花時間或精力的」，後面不能直接接受詞。", "usage": "worth 後面直接接 V-ing 或名詞（worth exploring）；worthwhile 可以單獨使用，或接 to V（It is worthwhile to explore）。", "example": { "en": "It is worthwhile to explore every option before we decide.", "zh": "做決定之前，把每個選項都研究一下是值得的。" } }
+      ]
+    }
+  ]
+}
