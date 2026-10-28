@@ -217,7 +217,7 @@ function prRender() {
     : '';
   const mrRow = '';
   const dbg = PR.dbg
-    ? `<div class="mt-4 rounded-lg border border-slate-300 dark:border-slate-700 p-3"><div class="flex flex-wrap items-center gap-2 mb-2"><button onclick="skLogCopy()" class="${skCtl}">📋 複製</button><button onclick="skLogClear()" class="${skCtl}">清除</button><button onclick="prDbg()" class="${skCtl}">收起</button></div><pre id="sk-log" class="text-[0.6875rem] leading-snug whitespace-pre-wrap break-all max-h-60 overflow-y-auto text-slate-600 dark:text-slate-300">${esc(skLogText())}</pre></div>`
+    ? `<div class="mt-4 rounded-lg border border-slate-300 dark:border-slate-700 p-3"><div class="flex flex-wrap items-center gap-2 mb-2"><button onclick="skLogCopy()" class="${skCtl}">📋 複製</button><button onclick="skLogClear()" class="${skCtl}">清除</button><button onclick="prDbg()" class="${skCtl}">收起</button></div><div class="flex flex-wrap items-center gap-2 mb-2 text-xs"><span class="text-slate-500">常駐麥克風</span><button onclick="prKeepSet(1)" class="${skSeg(prKeepOn())} !py-1">開</button><button onclick="prKeepSet(0)" class="${skSeg(!prKeepOn())} !py-1">關</button><span class="text-slate-400">開＝和語音練習一樣，整頁只開一次麥克風</span></div><pre id="sk-log" class="text-[0.6875rem] leading-snug whitespace-pre-wrap break-all max-h-60 overflow-y-auto text-slate-600 dark:text-slate-300">${esc(skLogText())}</pre></div>`
     : `<div class="mt-3 text-center"><button onclick="prDbg()" class="text-xs text-slate-400 underline underline-offset-2 cursor-pointer">🐞 除錯記錄</button></div>`;
   ov.innerHTML = `<div class="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/50" onclick="if(event.target===this)prClose()">
     <div class="w-full md:max-w-xl max-h-[92vh] overflow-y-auto rounded-t-2xl md:rounded-2xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 p-5 shadow-xl" style="padding-bottom:max(1.25rem,env(safe-area-inset-bottom))">
@@ -271,7 +271,8 @@ function prKeepTouch() { PR.holdUntil = Date.now() + PR_HOLD_MS; }
 })();
 /* 發音練習視窗預設「每次錄音都重新取麥克風」：記錄顯示第 1 次（沒有常駐串流、辨識先開、麥克風後取）有聲音，
    之後沿用常駐串流開辨識，辨識與 PCM 都是全靜音（peak=0）。S.prKeep=1 可改回常駐（對照測試用）。 */
-const prKeepOn = () => skKeepOn() && S.prKeep === 1;
+const prKeepOn = () => skKeepOn() && S.prKeep !== 0; // 和語音練習完全一樣：iPhone 預設用常駐麥克風（整頁只取一次、重用同一條串流）；S.prKeep = 0 可單獨關閉
+function prKeepSet(v) { S.prKeep = v; save(); try { skKeepFree(); } catch (e) {} skLog('PR 設定 常駐麥克風=' + (v ? '開' : '關')); prRender(); }
 const prSettle = () => (typeof S.spkWait === 'number' ? S.spkWait : PR.fail ? 700 : SK_MOB ? 350 : 0);
 function prToggle() {
   skLog('PR 點麥克風 st=' + PR.st);
