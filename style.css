@@ -77,3 +77,25 @@ body[data-view="detail"] #main li .flex.items-start.ml-6{margin-left:0}
 body[data-view="detail"] #main li .flex.items-start>button[onclick^="vplay("],body[data-view="detail"] #main li .flex.items-start>button.pr-mic{flex:none;margin-left:0}
 body[data-view="detail"] #main li .flex.items-start>.pr-badge{flex:none}
 body[data-view="detail"] #main li .flex.items-start>div{flex:1 1 0;min-width:0}
+/* 詳解頁：按鈕稍微縮小、清單文字稍微加大，兩者比例相配（按鈕 2.5rem ≈ 兩行文字高） */
+body[data-view="detail"] #main button[onclick^="vplay("],body[data-view="detail"] #main button.pr-mic{width:2.5rem;height:2.5rem;min-width:2.5rem;border-radius:.625rem}
+body[data-view="detail"] #main button[onclick^="vplay("]::before,body[data-view="detail"] #main button.pr-mic::before{width:1.3rem;height:1.3rem}
+body[data-view="detail"] #main ul.text-sm{font-size:1.0625rem;line-height:1.45}
+body[data-view="detail"] #main ul.text-sm .text-xs{font-size:.875rem;line-height:1.4}
+body[data-view="detail"] #main li .flex.items-start{gap:.3rem}
+/* 圖示與「要念的那一行」對齊：圖示靠上，文字第一行（單字／英文句子）與圖示中心同高 */
+body[data-view="detail"] #main li .flex.items-start{align-items:flex-start}
+body[data-view="detail"] #main li .flex.items-start>:is(button.pr-mic,.pr-badge)+div{padding-top:.48rem}
+/* 詳解頁：練習過的字，麥克風位置直接顯示最高分（顏色同分數帶：≥85 綠、≥60 黃、其餘紅）；小徽章隱藏 */
+body[data-view="detail"] #main .pr-badge{display:none}
+body[data-view="detail"] #main button.pr-mic[data-sc]::before{content:attr(data-sc);-webkit-mask:none;mask:none;background:none;width:auto;height:auto;font-size:1.0625rem;font-weight:800;line-height:1}
+body[data-view="detail"] #main button.pr-mic[data-lv="g"]{background:#d1fae5;color:#065f46}
+body[data-view="detail"] #main button.pr-mic[data-lv="y"]{background:#fef3c7;color:#92400e}
+body[data-view="detail"] #main button.pr-mic[data-lv="r"]{background:#ffe4e6;color:#9f1239}
+.dark body[data-view="detail"] #main button.pr-mic[data-lv="g"]{background:#022c22;color:#6ee7b7}
+.dark body[data-view="detail"] #main button.pr-mic[data-lv="y"]{background:#451a03;color:#fcd34d}
+.dark body[data-view="detail"] #main button.pr-mic[data-lv="r"]{background:#4c0519;color:#fda4af}
+/* 詳解頁：句與句之間拉開距離；「單字＋例句」成組的清單（多義、詞性、屈折變化…）組內靠近、組與組之間用虛線隔開 */
+body[data-view="detail"] #main ul.space-y-1\.5>li+li{margin-top:.8rem}
+body[data-view="detail"] #main ul:has(>li>.flex.items-start~.flex.items-start)>li+li{margin-top:1.1rem;padding-top:1.1rem;border-top:1px dashed rgba(148,163,184,.55)}
+body[data-view="detail"] #main li>.flex.items-start~.flex.items-start{margin-top:.25rem}

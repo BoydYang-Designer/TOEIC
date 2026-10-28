@@ -69,7 +69,12 @@ const prBadge = (key, extra) => { // 小徽章：最高分；沒練習過就不�
   const b = prBest(key);
   return `<span class="pr-badge ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ${b ? skPctCls(b) : 'hidden'}" data-k="${esc(key)}" title="最高分${extra || ''}">${b ? b : ''}</span>`;
 };
+function prMicMark(m, k) { // 詳解頁：練習過的字，麥克風位置改顯示最高分（CSS 依 data-sc／data-lv 呈現）
+  const b = prBest(k);
+  if (b) { m.dataset.sc = b; m.dataset.lv = b >= 85 ? 'g' : b >= 60 ? 'y' : 'r'; } else { delete m.dataset.sc; delete m.dataset.lv; }
+}
 function prRefreshBadges() {
+  document.querySelectorAll('button.pr-mic').forEach(m => prMicMark(m, prNorm(m.dataset.pt)));
   document.querySelectorAll('.pr-badge').forEach(el => {
     const b = prBest(el.dataset.k);
     el.className = 'pr-badge ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ' + (b ? skPctCls(b) : 'hidden');
@@ -99,6 +104,7 @@ function prInject(root) {
     m.dataset.pt = text;
     m.addEventListener('click', ev => { ev.stopPropagation(); prOpen(text, b); });
     b.after(m);
+    prMicMark(m, k);
     m.insertAdjacentHTML('afterend', prBadge(k));
   });
 }

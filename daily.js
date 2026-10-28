@@ -1004,7 +1004,7 @@ function renderMaintItem() {
   const todo = todoOf(x), sec = `${card} p-4 md:p-6 mb-4`, bb = `${btn} border border-slate-300 dark:border-slate-700 !py-1.5 text-xs`;
   main.innerHTML = `<header class="mb-5">${tFrom() ? `<button onclick="goBack()" class="block text-xs text-indigo-600 dark:text-indigo-400 hover:underline mb-1 cursor-pointer">← ${tLabel()}</button>` : ''}<h2 class="text-xl md:text-2xl font-bold">🛠 W${x.week} · D${dShow(x)} ${esc(x.tag || '')}</h2>
     <div class="flex flex-wrap items-center gap-2 mt-2"><span class="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">${x.type}</span>${lvBadge(x)}${stChips(x)}</div>
-    <p class="mt-2 text-sm ${todo.length ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">${todo.length ? '待處理：' + todo.join('、') : '✔ mp3 與 timing 都完成'}</p><div class="flex flex-wrap gap-2 mt-3">${mActions(x)}</div></header>
+    <p class="mt-2 text-sm ${todo.length ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}">${todo.length ? '待處理：' + todo.join('、') : '✔ mp3 與 timing 都完成'}</p>${projChipsHtml(x, true)}<div class="flex flex-wrap gap-2 mt-3">${mActions(x)}</div></header>
   ${qStaleBanner(x)}${fixHint(x)}<section class="${sec}"><h3 class="font-bold text-sm mb-2">📄 資料 · ${id}</h3><p class="text-sm text-slate-600 dark:text-slate-400">daily.json ✔　英文 ${words} 字　單字 ${x.vocab.length} 個　題目 ${x.questions.length} 題${pp ? `　簡報句型 ${pp} 句` : ''}${x.edited ? `　文稿修改於 ${esc(x.edited)}${x.review_pending ? '（待檢查）' : ''}` : ''}</p></section>
   <section class="${sec}"><h3 class="font-bold text-sm mb-3">🔊 音檔 · ${id}</h3>${dyPanel(x)}</section>
   <section class="${sec}"><h3 class="font-bold text-sm mb-3">⏱ Timing · ${id}</h3>${timingPanel(x)}</section>
@@ -1796,7 +1796,7 @@ function render() {
 
 /* 上一篇／下一篇：依 週→天 排序（跨週、含 D8 專案文章）；從總表進來時，保留「← 回…」連結 */
 /* D8 專案文章：標題下列出「同專案」所有篇（8-1、8-2、8-3…）的方塊，點了直接切換；目前這篇反白，已完成的加 ✓ */
-function projChipsHtml(x) {
+function projChipsHtml(x, maint) { // maint＝維護頁：點了開該篇的維護頁（openItem），不是學習頁
   if (!x || x.day <= CORE_DAYS) return '';
   /* 同一週的 D8（8-1、8-2、8-3…）就是同一個專案：不看專案名稱有沒有填、填得一不一樣，只要同週就列出來 */
   const sib = DATA.filter(y => y.week == x.week && y.day > CORE_DAYS).sort((a, b) => a.week - b.week || a.day - b.day);
@@ -1806,7 +1806,7 @@ function projChipsHtml(x) {
   const chips = sib.map(y => {
     const cur_ = y.week == x.week && y.day == x.day, a = S.ans[idOf(y)], done = a && a.done;
     const cls = cur_ ? 'bg-sky-600 text-white border-sky-600' : 'border-sky-400 text-sky-700 dark:text-sky-300 hover:bg-sky-50 dark:hover:bg-sky-950 cursor-pointer';
-    return `<button ${cur_ ? 'disabled aria-current="true"' : `onclick="goNext(${y.week},${y.day})"`} title="${esc(y.tag || '')}" class="text-xs font-semibold rounded-lg px-3 py-1.5 border ${cls}">${oneWeek ? '' : 'W' + y.week + '·'}${dShow(y)}${done ? ' ✓' : ''}</button>`;
+    return `<button ${cur_ ? 'disabled aria-current="true"' : `onclick="${maint ? 'openItemNext' : 'goNext'}(${y.week},${y.day})"`} title="${esc(y.tag || '')}" class="text-xs font-semibold rounded-lg px-3 py-1.5 border ${cls}">${oneWeek ? '' : 'W' + y.week + '·'}${dShow(y)}${done ? ' ✓' : ''}</button>`;
   }).join('');
   return `<div class="mt-3 flex flex-wrap items-center gap-2"><span class="text-xs text-slate-500 dark:text-slate-400 shrink-0">📁 ${esc(pj || '專案')} 共 ${sib.length} 篇</span>${chips}</div>`;
 }
