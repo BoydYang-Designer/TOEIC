@@ -987,7 +987,7 @@ function mNavBtn(x, step) {
   if (!n) return '';
   return `<button onclick="openItemNext(${n.week},${n.day})" title="W${n.week} · D${dShow(n)} ${esc(n.tag || '')}" class="${btn} border border-indigo-400 text-indigo-600 dark:text-indigo-400 !py-1.5 text-xs">${step < 0 ? '← 上一篇' : '下一篇 →'}</button>`;
 }
-const mActions = x => `<button onclick="go(${x.week},${x.day})" class="${btn} bg-indigo-600 text-white !py-1.5 text-xs">📖 學習這篇</button>${mNavBtn(x, -1)}${mNavBtn(x, 1)}`;
+const mActions = x => `<button onclick="go(${x.week},${x.day})" class="${btn} bg-indigo-600 text-white !py-1.5 text-xs">📖 學習這篇</button>${weekBtnHtml(x, -1, true)}${mNavBtn(x, -1)}${mNavBtn(x, 1)}${weekBtnHtml(x, 1, true)}`;
 /* ===== 「現在要做什麼」：依這篇缺的東西，列出明確步驟＋可複製的診斷指令 ===== */
 function fixHint(x) {
   const id = idOf(x), t = tmInfo(x), st = [];
@@ -1010,7 +1010,7 @@ function renderMaintItem() {
   <section class="${sec}"><h3 class="font-bold text-sm mb-3">⏱ Timing · ${id}</h3>${timingPanel(x)}</section>
   ${dfSection(x)}
   ${trDelSec(x)}
-  <div class="flex flex-wrap gap-2">${mNavBtn(x, -1)}${mNavBtn(x, 1)}<button onclick="go(${x.week},${x.day})" class="${bb}">📖 學習這篇</button><button onclick="goSpeak(${x.week},${x.day})" class="${bb}">試試語音練習</button><button onclick="openAudio()" class="${bb}">🎧 音檔／Timing 清單</button></div>`;
+  <div class="flex flex-wrap gap-2">${weekBtnHtml(x, -1, true)}${mNavBtn(x, -1)}${mNavBtn(x, 1)}${weekBtnHtml(x, 1, true)}<button onclick="go(${x.week},${x.day})" class="${bb}">📖 學習這篇</button><button onclick="goSpeak(${x.week},${x.day})" class="${bb}">試試語音練習</button><button onclick="openAudio()" class="${bb}">🎧 音檔／Timing 清單</button></div>`;
 }
 
 /* ===== 側欄：一週七天清單（學習顯示完成度；維護顯示 mp3／timing 狀態） ===== */
@@ -1820,12 +1820,26 @@ function neighborOf(x, step) {
   const i = xs.findIndex(a => a.week == x.week && a.day == x.day);
   return i >= 0 ? xs[i + step] || null : null;
 }
+/* 上一週／下一週：跳到相鄰那一週「同一天」的文章；那天沒有就跳該週第一篇（跨過沒有資料的週） */
+function weekNeighbor(x, step) {
+  const ws = [...new Set(DATA.map(a => a.week))].sort((a, b) => a - b);
+  const i = ws.indexOf(x.week), w = i >= 0 ? ws[i + step] : undefined;
+  if (w == null) return null;
+  return find(w, x.day) || DATA.filter(a => a.week == w).sort((a, b) => a.day - b.day)[0] || null;
+}
+function weekBtnHtml(x, step, maint) {
+  const n = weekNeighbor(x, step);
+  if (!n) return '';
+  const fn = maint ? 'openItemNext' : 'goNext', lb = step < 0 ? '↑ 上一週' : '↓ 下一週';
+  const cls = maint ? `${btn} border border-slate-400 text-slate-600 dark:text-slate-300 !py-1.5 text-xs` : 'text-xs font-medium rounded-lg px-3 py-1 border border-slate-400 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer';
+  return `<button onclick="${fn}(${n.week},${n.day})" title="W${n.week} · D${dShow(n)} ${esc(n.tag || '')}" class="${cls}">${lb}</button>`;
+}
 function navBtnHtml(x, step) {
   const n = neighborOf(x, step);
   if (!n) return '';
   return `<button onclick="goNext(${n.week},${n.day})" title="W${n.week} · D${dShow(n)} ${esc(n.tag || '')}" class="text-xs font-medium rounded-lg px-3 py-1 border border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 cursor-pointer">${step < 0 ? '← 上一篇' : '下一篇 →'}</button>`;
 }
-const nextBtnHtml = x => navBtnHtml(x, -1) + navBtnHtml(x, 1); // 上一篇 ＋ 下一篇
+const nextBtnHtml = x => weekBtnHtml(x, -1) + navBtnHtml(x, -1) + navBtnHtml(x, 1) + weekBtnHtml(x, 1); // 上一週 上一篇 下一篇 下一週
 function goNext(w, d) {
   const t = TBACK;
   TKEEP = t && tFrom() ? Object.assign({}, t, { w, d }) : null; // 讓換篇後仍然顯示「← 回週次表」
