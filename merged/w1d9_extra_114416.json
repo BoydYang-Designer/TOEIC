@@ -1,0 +1,50 @@
+{
+  "week": 1,
+  "day": 9,
+  "extra_vocab": [
+    {
+      "text": "Nimble",
+      "type": "word",
+      "ipa": "/ˈnɪmbəl/",
+      "pos": "adj.",
+      "zh": "靈活的、輕巧敏捷的",
+      "en": "able to move quickly and easily",
+      "note": "在這篇裡 Nimble 是嬰兒推車的產品名稱（所以大寫），借用 nimble「輕巧靈活」的意思，暗示這台推車好推、好轉彎，行動自由。",
+      "forms": [
+        { "w": "nimbler", "label": "比較級", "pos": "adj.", "zh": "更靈活的", "ipa": "/ˈnɪmblɚ/", "example": { "en": "Our new model is nimbler than the old one in tight spaces.", "zh": "我們的新款在狹窄空間裡比舊款更靈活。" } },
+        { "w": "nimblest", "label": "最高級", "pos": "adj.", "zh": "最靈活的", "ipa": "/ˈnɪmbləst/", "example": { "en": "This is the nimblest stroller our team has ever tested.", "zh": "這是我們團隊測試過最靈活的推車。" } },
+        { "w": "nimbly", "label": "副詞", "pos": "adv.", "zh": "靈活地、輕巧地", "ipa": "/ˈnɪmbli/", "example": { "en": "The wheels turn nimbly, even when the stroller carries a heavy bag.", "zh": "即使推車載著重重的袋子，輪子還是轉得很靈活。" } }
+      ],
+      "collocations": [
+        { "phrase": "nimble fingers", "zh": "靈巧的手指", "example": { "en": "Assembly workers need nimble fingers to place the tiny parts.", "zh": "組裝人員需要靈巧的手指來放置細小的零件。" } },
+        { "phrase": "nimble company", "zh": "反應靈活的公司", "example": { "en": "A nimble company can change its plan quickly when customers ask.", "zh": "反應靈活的公司能在客戶提出要求時迅速調整計畫。" } },
+        { "phrase": "stay nimble", "zh": "保持靈活", "example": { "en": "We must stay nimble as customer needs change every season.", "zh": "客戶需求每一季都在變，我們必須保持靈活。" } }
+      ],
+      "examples": [
+        { "tag": "簡報", "en": "Our new stroller is called Nimble because it moves so easily.", "zh": "我們的新推車叫 Nimble，因為它移動起來非常輕鬆。" },
+        { "tag": "會議", "en": "The team needs a nimble design that fits small city apartments.", "zh": "團隊需要一個適合都市小公寓的輕巧設計。" },
+        { "tag": "產品介紹", "en": "The folding bar makes the stroller light and nimble to carry.", "zh": "折疊桿讓推車攜帶起來輕便又靈巧。" }
+      ],
+      "confusable": [
+        { "word": "nibble", "diff": "nibble 是「小口地咬」，和 nimble 只有一個字母不同，意思完全不同。", "usage": "nimble 是形容詞，nibble 是動詞（也可當名詞，指小口點心）。", "example": { "en": "Please don't nibble on the samples before the customers arrive.", "zh": "客戶抵達前，請不要偷吃樣品。" } },
+        { "word": "humble", "diff": "humble 是「謙虛的、簡樸的」，結尾發音和 nimble 很像，但和動作快慢無關。", "example": { "en": "The CEO gave a humble speech and thanked every employee.", "zh": "執行長發表了謙虛的演說，並感謝每位員工。" } }
+      ],
+      "similar": [
+        { "word": "agile", "diff": "agile 也是「敏捷的」，更常用在團隊或工作方式，nimble 較常形容動作或產品輕巧。", "example": { "en": "Our agile team released the update in just two days.", "zh": "我們敏捷的團隊只花兩天就發布了更新。" } },
+        { "word": "flexible", "diff": "flexible 強調可以調整、不死板，不一定表示動作快或很輕巧。", "example": { "en": "We offer flexible working hours for parents with young children.", "zh": "我們為有幼兒的父母提供彈性工時。" } }
+      ],
+      "family": [
+        { "w": "quick", "pos": "adj.", "zh": "快速的", "ipa": "/kwɪk/", "example": { "en": "We need a quick answer before the meeting starts.", "zh": "我們需要在會議開始前得到快速的答覆。" } },
+        { "w": "light", "pos": "adj.", "zh": "輕的", "ipa": "/laɪt/", "example": { "en": "The new stroller is light enough to carry upstairs.", "zh": "這台新推車輕到可以直接扛上樓。" } }
+      ],
+      "derived": [
+        { "w": "nimbleness", "pos": "n.", "zh": "靈活、敏捷", "ipa": "/ˈnɪmbəlnəs/", "link": "nimble + -ness，變成名詞，表示「靈活的狀態」，像 kindness、happiness" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "動作輕巧靈活的", "en": "able to move quickly and easily", "in_passage": true, "example": { "en": "The nimble stroller turned easily around the crowded corner.", "zh": "這台靈活的推車輕鬆轉過擁擠的轉角。" } },
+        { "pos": "adj.", "zh": "（組織、想法）反應快、有彈性的", "en": "quick to understand or to change", "distinguish": "形容手或動作時指靈巧；形容公司、團隊或思考時指反應快、調整快。", "example": { "en": "Nimble thinking helped the sales team win the new contract.", "zh": "靈活的思考幫助業務團隊贏得了新合約。" } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "week": 1,
+  "day": 10,
+  "extra_vocab": [
+    {
+      "text": "rear-wheel swiveling",
+      "type": "phrase",
+      "zh": "後輪旋轉轉向",
+      "en": "the way the back wheels turn around to point in a new direction",
+      "note": "在這篇裡是 mechanism 的修飾語：按下按鈕後，後輪可以轉向，推車就能橫向移動。swiveling 是美式拼法，英式寫 swivelling。",
+      "pattern": "activate + the + rear-wheel swiveling + mechanism",
+      "grammar_note": "前面的名詞當形容詞用時通常用單數，所以寫 rear-wheel（用連字號），不寫 rear-wheels swiveling。",
+      "examples": [
+        { "tag": "會議", "en": "The rear-wheel swiveling lets the stroller slide sideways beside a table.", "zh": "後輪旋轉轉向讓推車可以橫向滑到桌子旁邊。" },
+        { "tag": "示範", "en": "Press the button to start the rear-wheel swiveling.", "zh": "按下按鈕即可啟動後輪旋轉轉向。" },
+        { "tag": "產品測試", "en": "Testers said the rear-wheel swiveling felt smooth on flat floors.", "zh": "測試人員表示後輪旋轉轉向在平坦地面上很順暢。" },
+        { "tag": "電子郵件", "en": "Please check the rear-wheel swiveling before the prototype goes to the client.", "zh": "在原型送給客戶之前，請先檢查後輪旋轉轉向。" }
+      ],
+      "similar": [
+        { "phrase": "rear-wheel steering", "diff": "steering 強調由人操控方向；swiveling 強調輪子本身轉向的動作。", "example": { "en": "Rear-wheel steering helps large trucks turn in narrow streets.", "zh": "後輪轉向系統幫助大型卡車在狹窄街道轉彎。" } }
+      ],
+      "confusable": [
+        { "phrase": "rear-wheel drive", "diff": "rear-wheel drive 是「後輪驅動」，指動力傳到後輪，不是輪子轉向。", "example": { "en": "This model has rear-wheel drive, so it handles well on hills.", "zh": "這款車採後輪驅動，所以在坡道上操控良好。" } }
+      ]
+    },
+    {
+      "text": "rotating handlebar",
+      "type": "phrase",
+      "zh": "可旋轉的把手",
+      "en": "a handle that can turn around to a new position",
+      "note": "在這篇裡是 Nimble 的第二個主要功能：按下按鈕後，把手可轉到推車中央，讓家長走在推車旁邊推。",
+      "pattern": "the + rotating + N（可轉動的＋零件）",
+      "examples": [
+        { "tag": "簡報", "en": "The rotating handlebar moves to the center when space is limited.", "zh": "空間有限時，可旋轉把手會移到中央。" },
+        { "tag": "示範", "en": "Press the button, then turn the rotating handlebar toward the middle.", "zh": "按下按鈕，然後把可旋轉把手轉向中間。" },
+        { "tag": "客戶討論", "en": "Would you like us to add a lock to the rotating handlebar?", "zh": "您希望我們在可旋轉把手上加一個鎖嗎？" },
+        { "tag": "使用者回饋", "en": "Parents liked the rotating handlebar because it gave them a clearer view.", "zh": "家長喜歡可旋轉把手，因為視野更清楚。" }
+      ],
+      "similar": [
+        { "phrase": "adjustable handlebar", "diff": "adjustable 只說明可以調整（高度、角度），不一定能轉到另一個位置。", "example": { "en": "The adjustable handlebar fits both tall and short parents.", "zh": "可調式把手適合高個子和矮個子的家長。" } },
+        { "phrase": "swiveling handlebar", "diff": "swiveling 強調繞著一個點轉動，是較偏機械的說法；rotating 較通用。", "example": { "en": "A swiveling handlebar can move from the back to the center.", "zh": "旋轉式把手可以從後方移到中央。" } }
+      ],
+      "confusable": [
+        { "phrase": "rotated handlebar", "diff": "rotated 表示把手「已經被轉過」，rotating 表示把手「能夠轉動」。", "usage": "rotating 是現在分詞，表主動、可轉動的功能；rotated 是過去分詞，表被動、已經完成的結果。", "example": { "en": "Check the rotated handlebar to make sure it is locked in place.", "zh": "請檢查已轉好的把手，確認它有鎖在定位。" } }
+      ]
+    }
+  ]
+}

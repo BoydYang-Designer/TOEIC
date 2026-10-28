@@ -23,9 +23,20 @@ mark.hl{background:rgba(251,191,36,.24);color:inherit;padding:0;border-radius:2p
 /* 播放回饋：按下有縮放、播放中脈動 */
 button{-webkit-tap-highlight-color:transparent}
 button:not(:disabled):active{transform:scale(.94)}
-@keyframes spkp{0%,100%{opacity:1}50%{opacity:.35}}
-.spk-on{color:#4f46e5!important;animation:spkp 1s ease-in-out infinite}
-.dark .spk-on{color:#a5b4fc!important}
+/* 播放中：只變色、不放大、不閃爍（靛藍底＋白色圖示） */
+.spk-on{background:rgba(79,70,229,.22)!important;color:#4f46e5!important;border-radius:.75rem}
+.dark .spk-on{background:rgba(129,140,248,.30)!important;color:#c7d2fe!important}
+/* 詳解頁：🔊／🎙 換成線條圖示，並加大成手指好按的觸控區（44px） */
+body[data-view="detail"] #main button[onclick^="vplay("],body[data-view="detail"] #main button.pr-mic{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;min-width:2.75rem;padding:0;font-size:0!important;line-height:0;border-radius:.75rem;vertical-align:middle;margin-left:.25rem;color:#4f46e5;background:rgba(79,70,229,.10);transition:background .15s,color .15s}
+body[data-view="detail"] #main button.pr-mic{color:#e11d48;background:rgba(225,29,72,.10)}
+body[data-view="detail"] #main button[onclick^="vplay("]::before,body[data-view="detail"] #main button.pr-mic::before{content:"";width:1.5rem;height:1.5rem;background:currentColor;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
+body[data-view="detail"] #main button[onclick^="vplay("]{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 5 6 9H3v6h3l5 4z' fill='black'/%3E%3Cpath d='M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13'/%3E%3C/svg%3E")}
+body[data-view="detail"] #main button.pr-mic{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='3' width='6' height='11' rx='3' fill='black'/%3E%3Cpath d='M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6'/%3E%3C/svg%3E")}
+body[data-view="detail"] #main button[onclick^="vplay("].spk-on{background:#4f46e5!important;color:#fff!important}
+.dark body[data-view="detail"] #main button[onclick^="vplay("]{color:#a5b4fc;background:rgba(129,140,248,.18)}
+.dark body[data-view="detail"] #main button.pr-mic{color:#fda4af;background:rgba(251,113,133,.18)}
+.dark body[data-view="detail"] #main button[onclick^="vplay("].spk-on{background:#6366f1!important;color:#fff!important}
+body[data-view="detail"] #main .pr-badge{font-size:.75rem}
 /* 手機輸入框至少 16px，iOS 才不會在點入時自動放大頁面 */
 @media (max-width:767px){input,textarea,select{font-size:max(16px,1rem)!important}}
 /* 詳解頁：可選取文字入庫 */
@@ -60,3 +71,9 @@ button,a,summary,label{touch-action:manipulation}
 #sk-whole .sks.sks-p{margin-top:1.3em}
 /* 播放列按鈕不折行；手機上整列可換行，不超出畫面 */
 #sp-ctl button,#mini button{white-space:nowrap}
+/* 詳解頁清單：每列「🔊 🎙 文字」三欄對齊——例句列不再縮排、圖示置中對齊文字、圖示不被壓縮 */
+body[data-view="detail"] #main li .flex.items-start{align-items:center;gap:.375rem}
+body[data-view="detail"] #main li .flex.items-start.ml-6{margin-left:0}
+body[data-view="detail"] #main li .flex.items-start>button[onclick^="vplay("],body[data-view="detail"] #main li .flex.items-start>button.pr-mic{flex:none;margin-left:0}
+body[data-view="detail"] #main li .flex.items-start>.pr-badge{flex:none}
+body[data-view="detail"] #main li .flex.items-start>div{flex:1 1 0;min-width:0}

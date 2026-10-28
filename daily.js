@@ -492,11 +492,7 @@ const MX = {
     legend: () => '格子：♪＝有沒有 mp3，⏱＝timing（✔ 完成、△ 只涵蓋部分句子、✖ 未做或異常）。綠＝都完成，黃＝其中一項未完成，紅＝都沒有或 timing 異常。點格子看細節；「＋」是還沒建置的天數。',
     extra() {
       const { todo, ne } = mxMedia();
-      let h = `<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
-    <button onclick="dnNav('marks')" class="${btn} ${card} text-left">📌 入庫彙整 <span class="block text-xs text-slate-500 mt-0.5">${dnMarks().length} 個字</span></button>
-    <button onclick="dnNav('reports')" class="${btn} ${card} text-left">⚑ 回報彙整 <span class="block text-xs mt-0.5 ${dnOpenRpN() ? 'text-rose-600 dark:text-rose-400' : 'text-slate-500'}">待處理 ${dnOpenRpN()}</span></button>
-    <button onclick="mxSet('topics')" class="${btn} ${card} text-left">🗂 題材總覽 <span class="block text-xs text-slate-500 mt-0.5">${topicCover()}</span></button>
-    <button onclick="openDrafts()" class="${btn} ${card} text-left">📝 草稿彙整 <span class="block text-xs mt-0.5 ${dfPendingN() ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500'}">${dfAll().length} 份${dfPendingN() ? '，待更新 ' + dfPendingN() : ''}</span></button></div>`;
+      let h = `<section class="mb-5"><button onclick="toggleMTools()" aria-expanded="${MTOPEN}" class="w-full flex items-center justify-between gap-2 text-left text-sm font-bold mb-2 cursor-pointer"><span>${MTOPEN ? '▾' : '▸'} 維護工具</span></button>${MTOPEN ? `<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">${mtItems().map(mtTile).join('')}</div>` : ''}</section>`;
       if (todo.length) {
         h += `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm mb-2">待處理（${todo.length}）</h3><div class="space-y-1">${todo.slice(0, 12).map(x => `<button onclick="openItem(${x.week},${x.day})" class="w-full text-left rounded-lg px-2 py-1.5 flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800"><b class="shrink-0">W${x.week}·D${dShow(x)}</b><span class="truncate flex-1 text-slate-500">${esc(x.tag || '')}</span><span class="shrink-0 text-xs text-rose-600 dark:text-rose-400">${todoOf(x).join('、') || '確認 mp3 狀態'}</span></button>`).join('')}${todo.length > 12 ? `<p class="text-xs text-slate-400 px-2">…還有 ${todo.length - 12} 篇，請看「音檔／Timing 清單」</p>` : ''}</div></section>`;
       }
@@ -1075,11 +1071,33 @@ function renderSide() {
     h += `<button onclick="openMatrix()" class="${btn} w-full mb-3 ${line} ${v === 'home' || v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">▦ 總表（進度／題材）</button>` + dayNav(nw, false) + `<button onclick="openBook()" class="${btn} w-full mt-4 ${line} ${v === 'book' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">★ 生詞本／錯題本（${n}）</button>` + dnBankBtn() + nwBtn();
   } else if (SEC === 'maint') {
     const act = (c) => c ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : '';
-    h += `<button onclick="up2Maint()" class="${btn} w-full mb-2 ${line} ${act(v === 'maint')}">📋 維護總覽</button>
-      <button onclick="openAudio()" class="${btn} w-full mb-4 ${line} ${act(v === 'audio')}">🎧 音檔／Timing 清單（${AU.idx ? '未完成 ' + DATA.filter(x => !itemOk(x)).length : '未讀到 mp3 清單'}）</button>` + dnSideBtns() + trSideBtn(v) + dfSideBtn(v) + skRecsSideBtn(v) + `<button onclick="openTopics()" class="${btn} w-full mt-2 ${line} ${v === 'topics' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">🗂 題材總覽（${topicCover().replace('已涵蓋 ', '')}）</button>`
-      + dayNav(nw, true) + `<p class="text-xs text-slate-500 mt-3 leading-relaxed">${THEMES.slice(0, CORE_DAYS).some((t, i) => !find(nw, i + 1)) ? '點標示「＋ 新增」的空缺日期，產生給 AI 的提示詞' : `W${nw} 已全部建置，請切換其他週次`}</p>`;
+    h += `<button onclick="up2Maint()" class="${btn} w-full mb-3 ${line} ${act(v === 'maint')}">📋 維護總覽</button>`
+      + dayNav(nw, true) + `<p class="text-xs text-slate-500 mt-3 leading-relaxed">${THEMES.slice(0, CORE_DAYS).some((t, i) => !find(nw, i + 1)) ? '點標示「＋ 新增」的空缺日期，產生給 AI 的提示詞' : `W${nw} 已全部建置，請切換其他週次`}</p>`
+      + mtSide(v);
   } else h += `<p class="text-xs text-slate-500 leading-relaxed">請在右側選擇「學習」或「維護」。</p>`;
   side.innerHTML = h + '</div>';
+}
+/* ===== 維護工具小方塊（側欄與維護總覽共用）：順序＝入庫彙整／新單字／音檔／回報／Trash／草稿／語音錄音管理／題材總覽；整組可收合，狀態記在這台裝置 ===== */
+let MTOPEN = (() => { try { return localStorage.getItem('maintTools') !== '0'; } catch (e) { return true; } })();
+function toggleMTools() { MTOPEN = !MTOPEN; try { localStorage.setItem('maintTools', MTOPEN ? '1' : '0'); } catch (e) {} renderSide(); if (cur.view === 'maint') render(); }
+function mtItems() {
+  const v = cur.view, warn = 'text-rose-600 dark:text-rose-400', amber = 'text-amber-600 dark:text-amber-400';
+  const nwN = typeof nwCounts === 'function' ? nwCounts().all : '';
+  const aud = AU.idx ? DATA.filter(x => !itemOk(x)).length : null;
+  return [
+    { on: "dnNav('marks')", on_: v === 'marks', t: '📌 入庫彙整', sub: dnMarks().length + ' 個字' },
+    { on: "dnNav('nw')", on_: v === 'nw', t: '🆕 新單字', sub: nwN + ' 個' },
+    { on: 'openAudio()', on_: v === 'audio', t: '🎧 音檔／Timing', sub: aud == null ? '未讀到 mp3 清單' : '未完成 ' + aud, cls: aud ? amber : '' },
+    { on: "dnNav('reports')", on_: v === 'reports', t: '⚑ 回報彙整', sub: '待處理 ' + dnOpenRpN(), cls: dnOpenRpN() ? warn : '' },
+    { on: 'openTrash()', on_: v === 'trash', t: '🗑 Trash', sub: trItems().length + ' 筆' },
+    { on: 'openDrafts()', on_: v === 'drafts', t: '📝 草稿彙整', sub: dfAll().length + ' 份' + (dfPendingN() ? '，待更新 ' + dfPendingN() : ''), cls: dfPendingN() ? amber : '' },
+    { on: 'openRecs()', on_: v === 'recs', t: '🎙 語音錄音管理', sub: '這台裝置的錄音' },
+    { on: 'openTopics()', on_: v === 'topics', t: '🗂 題材總覽', sub: topicCover().replace('已涵蓋 ', '') }
+  ];
+}
+const mtTile = o => `<button onclick="${o.on}" class="${btn} ${card} !px-3 !py-2.5 text-left leading-snug ${o.on_ ? 'ring-2 ring-indigo-400 bg-indigo-50 dark:bg-indigo-950' : 'hover:ring-1 hover:ring-indigo-300'}"><span class="block text-sm font-semibold">${o.t}</span><span class="block text-xs mt-0.5 ${o.cls || 'text-slate-500'}">${o.sub}</span></button>`;
+function mtSide(v) { // 桌機側欄：放在最下面，可收合
+  return `<div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800"><button onclick="toggleMTools()" aria-expanded="${MTOPEN}" class="w-full flex items-center justify-between gap-2 text-left text-xs text-slate-500 mb-2 font-medium cursor-pointer hover:text-indigo-600 dark:hover:text-indigo-400"><span>${MTOPEN ? '▾' : '▸'} 維護工具</span><span class="shrink-0">${mtItems().length}</span></button>${MTOPEN ? `<div class="grid grid-cols-2 gap-2">${mtItems().map(mtTile).join('')}</div>` : ''}</div>`;
 }
 function up2Maint() { cur.view = 'maint'; cur.nw = cur.w; render(); window.scrollTo({ top: 0 }); }
 
@@ -1767,6 +1785,7 @@ function render() {
   if (!['day', 'mitem', 'speak', 'detail', 'topics'].includes(cur.view)) TBACK = null;
   Sp.hlIdx = -2;
   document.documentElement.classList.toggle('dark', S.dark);
+  document.body.dataset.view = cur.view; // 供 CSS 依頁面調整（例如詳解頁的 🔊／🎙 加大）
   renderSide();
   const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, trash: renderTrash, recs: skRecsRender, drafts: renderDrafts, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail, nw: nwRender };
   (V[cur.view] || renderDay)();
