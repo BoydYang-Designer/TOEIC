@@ -1,0 +1,242 @@
+{
+  "week": 3,
+  "day": 13,
+  "extra_vocab": [
+    {
+      "text": "intuitive",
+      "type": "word",
+      "ipa": "/ɪnˈtuːɪtɪv/",
+      "pos": "adj.",
+      "zh": "直覺的、易懂易用的",
+      "en": "easy to understand and use without much help",
+      "note": "這裡形容取下汽車座椅的動作：不用看說明書，自然就會操作。強調簡單、好上手，是產品說明常用的讚美字。",
+      "grammar_note": "easy and intuitive to release 的 to 後面接原形動詞，說明「對做什麼事來說」很直覺，如 intuitive to use。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "intuitive design", "zh": "直覺式設計", "example": { "en": "Our team focused on intuitive design for the new product.", "zh": "我們的團隊專注於新產品的直覺式設計。" } },
+        { "phrase": "intuitive interface", "zh": "直覺式操作介面", "example": { "en": "The software has an intuitive interface, so training takes only an hour.", "zh": "這套軟體的介面很直覺，所以訓練只要一小時。" } },
+        { "phrase": "intuitive to use", "zh": "用起來很直覺", "example": { "en": "Most users find the new tool very intuitive to use.", "zh": "大多數使用者覺得這個新工具用起來很直覺。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The new app has an intuitive menu that anyone can learn quickly.", "zh": "這個新應用程式有直覺的選單，任何人都能很快學會。" },
+        { "tag": "電子郵件", "en": "Customers told us the website is intuitive and easy to use.", "zh": "顧客告訴我們，這個網站很直覺、很好用。" },
+        { "tag": "產品介紹", "en": "We want the buttons to be simple and intuitive for new users.", "zh": "我們希望按鈕對新使用者來說簡單又直覺。" },
+        { "tag": "訓練", "en": "Because the system is intuitive, staff need very little training.", "zh": "因為系統很直覺，員工只需要很少的訓練。" }
+      ],
+      "confusable": [
+        { "word": "instinctive", "diff": "instinctive 是「本能的」，指人不用想就有的反應；intuitive 常形容產品好懂好用。", "example": { "en": "Her instinctive reaction was to call the client right away.", "zh": "她的本能反應是立刻打電話給客戶。" } },
+        { "word": "intensive", "diff": "intensive 是「密集的」，拼法像但意思無關；intuitive 是「直覺、易懂的」。", "example": { "en": "The staff took an intensive training course last week.", "zh": "員工上週參加了一個密集的訓練課程。" } }
+      ],
+      "similar": [
+        { "phrase": "user-friendly", "diff": "user-friendly 專指產品對使用者很容易操作；intuitive 更強調不用教就懂。", "example": { "en": "The new system is user-friendly, so nobody needs a long manual.", "zh": "新系統很好用，所以沒有人需要長篇的說明書。" } },
+        { "phrase": "easy to understand", "diff": "easy to understand 是一般說法，可形容說明、文件；intuitive 多用在操作與設計。", "example": { "en": "The instructions are easy to understand for every new employee.", "zh": "這份說明對每位新進員工來說都很容易懂。" } }
+      ],
+      "family": [
+        { "w": "simple", "pos": "adj.", "zh": "簡單的", "ipa": "/ˈsɪmpəl/", "example": { "en": "We need a simple way to track every customer order.", "zh": "我們需要一個簡單的方法來追蹤每筆客戶訂單。" } },
+        { "w": "clear", "pos": "adj.", "zh": "清楚的", "ipa": "/klɪr/", "example": { "en": "The manager gave us clear instructions before the meeting.", "zh": "經理在會議前給了我們清楚的指示。" } }
+      ],
+      "derived": [
+        { "w": "intuition", "ipa": "/ˌɪntuˈɪʃən/", "pos": "n.", "zh": "直覺", "link": "intuit（憑直覺知道）+ -ion 變名詞，像 act → action" },
+        { "w": "intuitively", "ipa": "/ɪnˈtuːɪtɪvli/", "pos": "adv.", "zh": "憑直覺地、直覺上", "link": "intuitive + -ly 變副詞，像 quick → quickly" },
+        { "w": "unintuitive", "ipa": "/ˌʌnɪnˈtuːɪtɪv/", "pos": "adj.", "zh": "不直覺的、不好懂的", "link": "un-（不）+ intuitive，像 unhappy、unclear" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "易懂易用的", "en": "easy to understand and use without help", "in_passage": true, "example": { "en": "The remote control is intuitive, so nobody asked for help.", "zh": "這個遙控器很直覺，所以沒有人求助。" } },
+        { "pos": "adj.", "zh": "憑直覺的", "en": "based on a feeling rather than facts", "distinguish": "形容人的判斷或決定時是「憑直覺」；形容產品、介面時是「易用」。", "example": { "en": "She made an intuitive decision to wait for more information.", "zh": "她憑直覺決定再等更多資訊。" } }
+      ]
+    },
+    {
+      "text": "bulky",
+      "type": "word",
+      "ipa": "/ˈbʌlki/",
+      "pos": "adj.",
+      "zh": "體積大的、笨重的",
+      "en": "large and taking up a lot of space",
+      "note": "這裡的 bulky base 指占空間、不好攜帶的底座，和前面的 much smaller 形成對比。bulky 重點在「體積大」，不一定很重。",
+      "grammar_note": "名詞前有兩個並列的形容詞時，中間用逗號隔開（a separate, bulky base）；兩者可對調位置，意思不變。",
+      "forms": [
+        { "w": "bulkier", "label": "比較級", "pos": "adj.", "zh": "更笨重的", "ipa": "/ˈbʌlkiɚ/", "example": { "en": "The new model is bulkier than the old one.", "zh": "這個新型號比舊型號更笨重。" } },
+        { "w": "bulkiest", "label": "最高級", "pos": "adj.", "zh": "最笨重的", "ipa": "/ˈbʌlkiɪst/", "example": { "en": "That is the bulkiest item in our whole warehouse.", "zh": "那是我們整個倉庫裡體積最大的物品。" } }
+      ],
+      "collocations": [
+        { "phrase": "bulky item", "zh": "大型物品", "example": { "en": "There is an extra fee for bulky items on this delivery.", "zh": "這次配送的大型物品要加收額外費用。" } },
+        { "phrase": "bulky luggage", "zh": "體積大的行李", "example": { "en": "Passengers with bulky luggage must pay an extra fee at check-in.", "zh": "攜帶大型行李的乘客在報到時必須支付額外費用。" } },
+        { "phrase": "bulky packaging", "zh": "占空間的包裝", "example": { "en": "We changed to thinner boxes to reduce bulky packaging.", "zh": "我們改用較薄的盒子，以減少占空間的包裝。" } }
+      ],
+      "examples": [
+        { "tag": "出差", "en": "I left the bulky suitcase at the hotel during the meeting.", "zh": "開會時，我把笨重的行李箱留在飯店。" },
+        { "tag": "運送", "en": "Bulky items cost more to ship because they take up space.", "zh": "大型物品因為占空間，運費比較貴。" },
+        { "tag": "辦公室", "en": "This bulky printer is too big for our small office.", "zh": "這台笨重的印表機對我們的小辦公室來說太大了。" },
+        { "tag": "銷售", "en": "Customers prefer a smaller, lighter product to a bulky one.", "zh": "顧客比較喜歡又小又輕的產品，而不是笨重的。" }
+      ],
+      "confusable": [
+        { "word": "heavy", "diff": "heavy 是「重量重」；bulky 是「體積大、占空間」，不一定很重。", "example": { "en": "This box is heavy, but it is small enough to carry.", "zh": "這個箱子很重，但小到可以搬得動。" } },
+        { "word": "bulk", "diff": "bulk 是名詞，指「大量」或「大體積」；bulky 是形容詞，形容東西體積大。", "usage": "bulk 是名詞（in bulk = 大量地），bulky 是形容詞，後面要接名詞，不能混用。", "example": { "en": "We get a lower price when we buy paper in bulk.", "zh": "我們大量購買紙張時，可以拿到比較低的價格。" } }
+      ],
+      "similar": [
+        { "phrase": "oversized", "diff": "oversized 指「超出一般尺寸」，常用在規定與運費；bulky 重點是占空間、不好搬。", "example": { "en": "Oversized packages need a special label before shipping.", "zh": "超大包裹在運送前需要貼上特別標籤。" } },
+        { "phrase": "hard to carry", "diff": "hard to carry 是口語說法，說明「不好攜帶」的結果；bulky 直接形容東西的樣子。", "example": { "en": "The old equipment was hard to carry up the stairs.", "zh": "那台舊設備很難搬上樓梯。" } }
+      ],
+      "family": [
+        { "w": "large", "pos": "adj.", "zh": "大的", "ipa": "/lɑːrdʒ/", "example": { "en": "We need a large room for the training session.", "zh": "我們需要一間大房間來辦訓練課程。" } },
+        { "w": "heavy", "pos": "adj.", "zh": "重的", "ipa": "/ˈhɛvi/", "example": { "en": "The heavy boxes were moved by two workers.", "zh": "那些很重的箱子是由兩位工人搬的。" } },
+        { "w": "compact", "pos": "adj.", "zh": "小巧的、不占空間的", "ipa": "/kəmˈpækt/", "example": { "en": "This compact printer fits easily on your desk.", "zh": "這台小巧的印表機可以輕鬆放在你的桌上。" } }
+      ],
+      "derived": [
+        { "w": "bulk", "ipa": "/bʌlk/", "pos": "n.", "zh": "大量；大體積", "link": "bulky = bulk + -y（有很多…的），像 rain → rainy、sun → sunny" },
+        { "w": "bulkiness", "ipa": "/ˈbʌlkinəs/", "pos": "n.", "zh": "笨重、體積大", "link": "bulky 的 y 變 i 再加 -ness 變名詞，像 happy → happiness" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "connection",
+      "type": "word",
+      "ipa": "/kəˈnɛkʃən/",
+      "pos": "n.",
+      "zh": "連接、接合（處）",
+      "en": "the way two things are joined together",
+      "note": "這裡的 connection system 指嬰兒推車與汽車座椅之間的接合方式。文章說 Pocket Click 和 Magic Connect 用同一套接合設計，所以可以直接裝上去。",
+      "grammar_note": "connection 後面常接 between A and B 或 to / with + 名詞，如 a connection between the seat and the stroller。",
+      "forms": [
+        { "w": "connections", "label": "複數", "pos": "n.", "zh": "連接處、連線（複數）", "ipa": "/kəˈnɛkʃənz/", "example": { "en": "We tested all the connections before the machine was shipped.", "zh": "機器出貨前，我們測試了所有的接頭。" } }
+      ],
+      "collocations": [
+        { "phrase": "internet connection", "zh": "網路連線", "example": { "en": "Please check your internet connection before the video call starts.", "zh": "視訊通話開始前，請先檢查你的網路連線。" } },
+        { "phrase": "direct connection", "zh": "直接連接；直達", "example": { "en": "There is no direct connection between the two buildings.", "zh": "這兩棟大樓之間沒有直接相連。" } },
+        { "phrase": "in connection with", "zh": "與…有關", "example": { "en": "I am writing in connection with your order from last week.", "zh": "我寫這封信是關於你上週的訂單。" } }
+      ],
+      "examples": [
+        { "tag": "產品說明", "en": "The metal connection is strong, so the seat will not fall off.", "zh": "金屬接合處很牢固，所以座椅不會掉下來。" },
+        { "tag": "客服", "en": "A loose connection is the most common cause of this error.", "zh": "接頭鬆脫是這個錯誤最常見的原因。" },
+        { "tag": "會議", "en": "We need a stable connection for the video meeting tomorrow.", "zh": "明天的視訊會議我們需要穩定的連線。" }
+      ],
+      "confusable": [
+        { "word": "collection", "diff": "collection 是「收集、一系列商品」，拼法與發音都像 connection，但意思不同。", "example": { "en": "Our collection of travel bags is on sale this month.", "zh": "我們的旅行包系列這個月特價。" } },
+        { "word": "correction", "diff": "correction 是「更正、修改」，字尾相同容易看錯；connection 是「連接」。", "example": { "en": "Please send a correction if you find any mistakes in the report.", "zh": "如果你在報告中發現錯誤，請寄更正給我。" } }
+      ],
+      "similar": [
+        { "phrase": "link", "diff": "link 較口語，也可指兩件事之間的關係；connection 較常指實際的接合或連線。", "example": { "en": "We found a link between the new ad and higher sales.", "zh": "我們發現新廣告和銷售增加之間有關聯。" } },
+        { "phrase": "attachment", "diff": "attachment 指可裝上去的附件或電子郵件附檔；connection 指接合的方式或狀態。", "example": { "en": "Please open the attachment to see the new price list.", "zh": "請打開附件查看新的價目表。" } }
+      ],
+      "family": [
+        { "w": "join", "pos": "v.", "zh": "連接、加入", "ipa": "/dʒɔɪn/", "example": { "en": "Please join the two parts before you turn on the machine.", "zh": "開機之前，請先把兩個零件接在一起。" } },
+        { "w": "contact", "pos": "n.", "zh": "聯絡、接觸", "ipa": "/ˈkɑːntækt/", "example": { "en": "Please keep in contact with the supplier about the delivery.", "zh": "請就交貨的事和供應商保持聯絡。" } },
+        { "w": "network", "pos": "n.", "zh": "網路、人脈網", "ipa": "/ˈnɛtwɝːk/", "example": { "en": "The office network was down for about an hour.", "zh": "辦公室的網路中斷了大約一小時。" } }
+      ],
+      "derived": [
+        { "w": "connect", "ipa": "/kəˈnɛkt/", "pos": "v.", "zh": "連接", "link": "connection = connect + -ion，動作變名詞，像 act → action" },
+        { "w": "connector", "ipa": "/kəˈnɛktɚ/", "pos": "n.", "zh": "連接器、接頭", "link": "connect + -or，做連接這件事的東西，像 actor、visitor" },
+        { "w": "disconnect", "ipa": "/ˌdɪskəˈnɛkt/", "pos": "v.", "zh": "斷開、切斷連接", "link": "dis-（不、相反）+ connect，像 disagree、dislike" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "接合處、連接", "en": "the way two things are joined together", "in_passage": true, "example": { "en": "Check that the connection between the pipe and the tank is tight.", "zh": "請檢查水管和水箱之間的接合處是否緊密。" } },
+        { "pos": "n.", "zh": "網路或電話連線", "en": "a link to the internet or a phone line", "distinguish": "句中出現 internet、Wi-Fi、phone 等字時，多半是「連線」。", "example": { "en": "The hotel offers a free internet connection to all guests.", "zh": "這間飯店提供所有房客免費的網路連線。" } },
+        { "pos": "n.", "zh": "轉乘班次", "en": "a flight or train that takes you to another one", "distinguish": "出差或旅遊情境中，指轉機或轉車的班次。", "example": { "en": "I missed my connection in Seoul and arrived two hours late.", "zh": "我在首爾沒趕上轉機，晚了兩小時才到。" } },
+        { "pos": "n.", "zh": "人脈、關係", "en": "a person you know who can help you in business", "distinguish": "常用複數 connections，指商業上認識、能幫上忙的人。", "example": { "en": "She has strong connections with several suppliers in Taiwan.", "zh": "她和台灣的好幾家供應商有很好的關係。" } }
+      ]
+    },
+    {
+      "text": "weight",
+      "type": "word",
+      "ipa": "/weɪt/",
+      "pos": "n.",
+      "zh": "重量",
+      "en": "how heavy something is",
+      "note": "這裡指汽車座椅的重量。作者先承認它比較重，再說重點不只是減輕重量，而是提供更多使用上的彈性。",
+      "grammar_note": "weight 指重量或體重時是不可數名詞，不加 a 也不加 s（reduce weight）；指啞鈴等「重物」時才用 weights。",
+      "forms": [
+        { "w": "weights", "label": "複數", "pos": "n.", "zh": "重物、啞鈴（複數）", "ipa": "/weɪts/", "example": { "en": "The gym bought new weights for the staff exercise room.", "zh": "健身房為員工運動室買了新的啞鈴。" } }
+      ],
+      "collocations": [
+        { "phrase": "weight limit", "zh": "重量限制", "example": { "en": "The weight limit for carry-on bags is seven kilograms.", "zh": "隨身行李的重量限制是七公斤。" } },
+        { "phrase": "net weight", "zh": "淨重", "example": { "en": "The net weight is printed on the side of each box.", "zh": "淨重印在每個盒子的側面。" } },
+        { "phrase": "shipping weight", "zh": "運送重量", "example": { "en": "The shipping weight includes the box and all the packing material.", "zh": "運送重量包含箱子和所有的包裝材料。" } },
+        { "phrase": "lose weight", "zh": "減重", "example": { "en": "Many office workers join the gym to lose weight.", "zh": "許多上班族加入健身房來減重。" } }
+      ],
+      "examples": [
+        { "tag": "產品說明", "en": "The weight of the new laptop is only one kilogram.", "zh": "這台新筆電的重量只有一公斤。" },
+        { "tag": "出差", "en": "Please check the weight of your bag before you leave for the airport.", "zh": "出發去機場前，請先確認你的包包重量。" },
+        { "tag": "運送", "en": "We charge shipping fees based on the weight of each package.", "zh": "我們依每個包裹的重量收取運費。" }
+      ],
+      "confusable": [
+        { "word": "wait", "diff": "wait 和 weight 發音幾乎一樣，但 wait 是「等待」。", "usage": "wait 是動詞（等待），weight 是名詞（重量）；聽起來一樣，要靠句子判斷。", "example": { "en": "Please wait for the manager in the lobby.", "zh": "請在大廳等經理。" } },
+        { "word": "height", "diff": "height 是「高度」，拼法也有 -eigh- 的樣子；weight 是「重量」。", "example": { "en": "The height of the shelf is about two meters.", "zh": "這個架子的高度大約兩公尺。" } }
+      ],
+      "similar": [
+        { "phrase": "heaviness", "diff": "heaviness 較少用，指「很重的感覺」；weight 是可以用數字量出來的重量。", "example": { "en": "The heaviness of the box made it hard to lift.", "zh": "這個箱子太重，很難抬起來。" } },
+        { "phrase": "load", "diff": "load 指車子或機器所載、所承受的東西或量；weight 指單一物品的重量。", "example": { "en": "The truck can carry a load of two tons.", "zh": "這輛卡車可以載兩噸的貨。" } }
+      ],
+      "family": [
+        { "w": "size", "pos": "n.", "zh": "尺寸、大小", "ipa": "/saɪz/", "example": { "en": "Please tell us the size and weight of the package.", "zh": "請告訴我們包裹的尺寸和重量。" } },
+        { "w": "scale", "pos": "n.", "zh": "秤", "ipa": "/skeɪl/", "example": { "en": "Put the package on the scale to check its weight.", "zh": "把包裹放在秤上看看有多重。" } },
+        { "w": "measure", "pos": "v.", "zh": "測量", "ipa": "/ˈmɛʒɚ/", "example": { "en": "We measure each box before we put it on the truck.", "zh": "我們在把每個箱子放上卡車前都會先測量。" } }
+      ],
+      "derived": [
+        { "w": "weigh", "ipa": "/weɪ/", "pos": "v.", "zh": "秤重；重…", "link": "weigh 加 -t 變名詞 weight，像 high → height" },
+        { "w": "weightless", "ipa": "/ˈweɪtləs/", "pos": "adj.", "zh": "無重量的、很輕的", "link": "weight + -less（沒有），像 careless、useless" },
+        { "w": "overweight", "ipa": "/ˌoʊvɚˈweɪt/", "pos": "adj.", "zh": "超重的", "link": "over-（超過）+ weight，像 overtime、overbook" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "重量", "en": "how heavy something is", "in_passage": true, "example": { "en": "The weight of this box is about five kilograms.", "zh": "這個箱子的重量大約五公斤。" } },
+        { "pos": "n.", "zh": "體重", "en": "how heavy a person is", "distinguish": "句中主詞是人時，weight 就是「體重」。", "example": { "en": "He has lost some weight since he started cycling to work.", "zh": "自從開始騎車上班，他瘦了一些。" } },
+        { "pos": "n.", "zh": "份量、重要性", "en": "the importance or power of something", "distinguish": "常和 carry、add 一起用，指意見或證據有分量。", "example": { "en": "Her opinion carries a lot of weight in our department.", "zh": "她的意見在我們部門很有分量。" } }
+      ]
+    },
+    {
+      "text": "design",
+      "type": "word",
+      "ipa": "/dɪˈzaɪn/",
+      "pos": "n.",
+      "zh": "設計；款式",
+      "en": "the way something is planned and made to look and work",
+      "note": "這裡的 stroller designs 指不同廠牌或不同款式的嬰兒推車，用複數表示有很多種款式。整句是說 Pocket Click 能搭配各種推車，使用上更有彈性。",
+      "grammar_note": "design 指「款式」時是可數名詞，不同款式要用複數 designs（different stroller designs）；指「設計這門工作」時不可數（graphic design）。",
+      "forms": [
+        { "w": "designs", "label": "複數", "pos": "n.", "zh": "設計、款式（複數）", "ipa": "/dɪˈzaɪnz/", "example": { "en": "The company showed three new designs at the trade fair.", "zh": "這家公司在商展上展示了三款新設計。" } },
+        { "w": "designs", "label": "第三人稱單數", "pos": "v.", "zh": "設計", "ipa": "/dɪˈzaɪnz/", "example": { "en": "She designs packaging for several food companies in Taipei.", "zh": "她為台北好幾家食品公司設計包裝。" } },
+        { "w": "designed", "label": "過去式／過去分詞", "pos": "v.", "zh": "設計了；被設計", "ipa": "/dɪˈzaɪnd/", "example": { "en": "She designed the poster for our spring sale.", "zh": "她設計了我們春季特賣的海報。" } },
+        { "w": "designing", "label": "現在分詞", "pos": "v.", "zh": "正在設計", "ipa": "/dɪˈzaɪnɪŋ/", "example": { "en": "We are designing a smaller case for the new phone.", "zh": "我們正在為新手機設計一個更小的保護殼。" } }
+      ],
+      "collocations": [
+        { "phrase": "product design", "zh": "產品設計", "example": { "en": "She studied product design before joining our company.", "zh": "她在加入我們公司之前學過產品設計。" } },
+        { "phrase": "design team", "zh": "設計團隊", "example": { "en": "Our design team is working on a lighter model.", "zh": "我們的設計團隊正在開發更輕的型號。" } },
+        { "phrase": "design change", "zh": "設計變更", "example": { "en": "Any design change must be approved by the manager.", "zh": "任何設計變更都必須經過經理核准。" } }
+      ],
+      "examples": [
+        { "tag": "產品", "en": "Customers like the simple design of our new phone case.", "zh": "顧客喜歡我們新手機殼的簡單設計。" },
+        { "tag": "電子郵件", "en": "Please send me the final design by the end of today.", "zh": "請在今天結束前把最終設計寄給我。" },
+        { "tag": "展覽", "en": "The design of the booth attracted many visitors to the fair.", "zh": "這個攤位的設計吸引了許多參觀者來到展覽。" }
+      ],
+      "confusable": [
+        { "word": "designate", "diff": "designate 是「指定、任命」，開頭拼法很像 design；design 是「設計」。", "usage": "designate 是動詞，後面常接人或地點（designate a person to…）；design 可當名詞或動詞。", "example": { "en": "The manager will designate one person to lead the project.", "zh": "經理會指定一個人來帶領這個專案。" } },
+        { "word": "plan", "diff": "plan 是做事前的安排或計畫；design 是外型與功能的設計。", "example": { "en": "We need a plan before we begin the new project.", "zh": "在開始新專案之前，我們需要一個計畫。" } }
+      ],
+      "similar": [
+        { "phrase": "style", "diff": "style 指外觀風格或做法；design 還包括東西怎麼運作。", "example": { "en": "This coat comes in two styles and three colors.", "zh": "這件外套有兩種款式和三種顏色。" } },
+        { "phrase": "model", "diff": "model 是產品的型號；design 是設計出來的樣式或構想。", "example": { "en": "The newest model is lighter than last year's version.", "zh": "最新型號比去年的版本更輕。" } }
+      ],
+      "family": [
+        { "w": "feature", "pos": "n.", "zh": "特色、功能", "ipa": "/ˈfiːtʃɚ/", "example": { "en": "The new phone has a useful camera feature.", "zh": "這支新手機有一個好用的相機功能。" } },
+        { "w": "layout", "pos": "n.", "zh": "配置、版面", "ipa": "/ˈleɪaʊt/", "example": { "en": "The layout of the new office is open and bright.", "zh": "新辦公室的配置開放又明亮。" } },
+        { "w": "draft", "pos": "n.", "zh": "草稿", "ipa": "/dræft/", "example": { "en": "Please send me the first draft of the report.", "zh": "請把報告的初稿寄給我。" } }
+      ],
+      "derived": [
+        { "w": "designer", "ipa": "/dɪˈzaɪnɚ/", "pos": "n.", "zh": "設計師", "link": "design + -er，做這件事的人，像 worker、teacher" },
+        { "w": "redesign", "ipa": "/ˌriːdɪˈzaɪn/", "pos": "v.", "zh": "重新設計", "link": "re-（再一次）+ design，像 rewrite、restart" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/dɪˈzaɪn/", "zh": "設計；款式", "in_passage": true, "example": { "en": "The design of this chair is both simple and comfortable.", "zh": "這張椅子的設計既簡單又舒適。" } },
+        { "pos": "v.", "ipa": "/dɪˈzaɪn/", "zh": "設計", "example": { "en": "Our team will design a new logo for the company.", "zh": "我們的團隊會為公司設計一個新標誌。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "款式、設計樣式", "en": "a particular style or model of a product", "in_passage": true, "example": { "en": "This shop sells bags in many different designs.", "zh": "這家店販售許多不同款式的包包。" } },
+        { "pos": "n.", "zh": "設計圖、構想", "en": "a plan or drawing that shows how to make something", "distinguish": "句中出現 show、draw、approve 等字時，多半是「設計圖」。", "example": { "en": "The engineer showed us the design for the new factory.", "zh": "工程師給我們看了新工廠的設計圖。" } },
+        { "pos": "n.", "zh": "設計（學科或工作）", "en": "the work of planning how things will look", "distinguish": "不可數，常和 graphic、fashion 等字一起用。", "example": { "en": "He works in graphic design at a small company.", "zh": "他在一家小公司做平面設計。" } }
+      ]
+    }
+  ]
+}
