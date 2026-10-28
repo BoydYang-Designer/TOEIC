@@ -1782,6 +1782,7 @@ function render() {
   const key = cur.view + cur.w + cur.d;
   if (render.k !== undefined && render.k !== key) { spStop(); skStopAll(); } // 切換頁面即停止語音／錄音
   render.k = key;
+  render.wd = { w: cur.w, d: cur.d }; // 這次畫面顯示的是哪一篇（供 dnNav 記錄返回位置）
   if (!['day', 'mitem', 'speak', 'detail', 'topics'].includes(cur.view)) TBACK = null;
   Sp.hlIdx = -2;
   document.documentElement.classList.toggle('dark', S.dark);

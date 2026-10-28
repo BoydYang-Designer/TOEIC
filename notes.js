@@ -46,7 +46,8 @@ function dnModal(html) {
 }
 function dnClose() { DN.rp = null; DN.mk = null; dnModal(''); }
 function dnNav(view) { // 往下一層：記住目前頁面與捲動位置，「返回」時還原
-  cur.stk = cur.stk || []; cur.stk.push({ v: cur.view, y: window.scrollY, w: cur.w, d: cur.d });
+  const o = render.wd || cur; // 記「目前畫面上那一篇」（不是呼叫端剛改過的 cur.w/d），返回時才會回到原本的文章
+  cur.stk = cur.stk || []; cur.stk.push({ v: cur.view, y: window.scrollY, w: o.w, d: o.d });
   cur.view = view; push(); render(); window.scrollTo({ top: 0 });
 }
 const dnSideBtns = () => `<button onclick="dnNav('marks')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'marks' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">📌 入庫彙整（${dnMarks().length}）</button><button onclick="dnNav('reports')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'reports' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">⚑ 回報彙整（待處理 ${dnOpenRpN()}）</button>${typeof nwBtn === 'function' ? nwBtn() : ''}`;
