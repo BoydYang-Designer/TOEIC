@@ -1,0 +1,1187 @@
+{
+  "week": 3,
+  "day": 10,
+  "extra_vocab": [
+    {
+      "text": "secure",
+      "type": "word",
+      "ipa": "/sɪˈkjʊr/",
+      "pos": "v.",
+      "zh": "固定、使牢固",
+      "en": "to fix something firmly so it cannot move or come loose",
+      "note": "在文章裡指用 LATCH 接頭把迷你底座牢牢固定在汽座上。secure A to B 是產品說明常見的動作用語，強調「固定得穩」。",
+      "grammar_note": "secure A to B 表示把 A 固定在 B 上；secure 後面若接 contract、funding 等，意思就變成「取得、爭取到」，要看受詞判斷。",
+      "forms": [
+        {
+          "w": "secures",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "固定",
+          "ipa": "/sɪˈkjʊrz/",
+          "example": {
+            "en": "A strong lock secures the warehouse door at night.",
+            "zh": "一把堅固的鎖在夜間固定住倉庫的門。"
+          }
+        },
+        {
+          "w": "secured",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "固定了、被固定",
+          "ipa": "/sɪˈkjʊrd/",
+          "example": {
+            "en": "The workers secured the boxes with strong tape yesterday.",
+            "zh": "工人昨天用強力膠帶把箱子固定好了。"
+          }
+        },
+        {
+          "w": "securing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "固定",
+          "ipa": "/sɪˈkjʊrɪŋ/",
+          "example": {
+            "en": "Securing the load properly takes only a few minutes.",
+            "zh": "把貨物妥善固定只需要幾分鐘。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "secure funding",
+          "zh": "取得資金",
+          "example": {
+            "en": "The startup is trying to secure funding for its new product.",
+            "zh": "這家新創公司正努力為新產品取得資金。"
+          }
+        },
+        {
+          "phrase": "secure a contract",
+          "zh": "取得合約",
+          "example": {
+            "en": "She worked hard to secure a contract with the airline.",
+            "zh": "她努力爭取到與航空公司的合約。"
+          }
+        },
+        {
+          "phrase": "secure the building",
+          "zh": "保障建築物安全",
+          "example": {
+            "en": "Guards secure the building after all employees have left.",
+            "zh": "員工全部離開後，警衛會鎖好整棟建築。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "設施",
+          "en": "Please secure all windows before you leave the office.",
+          "zh": "離開辦公室前，請把所有窗戶關好。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please secure the budget approval before we sign the order.",
+          "zh": "簽訂訂單前，請先取得預算核准。"
+        },
+        {
+          "tag": "會議",
+          "en": "We hope to secure a larger order from this client.",
+          "zh": "我們希望從這位客戶那裡取得更大的訂單。"
+        },
+        {
+          "tag": "汽座",
+          "en": "Make sure you secure the car seat before you drive.",
+          "zh": "開車前請確認已經把汽座固定好。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "ensure",
+          "diff": "ensure 是「確保」，發音和 secure 相近，但不是把東西固定住。",
+          "example": {
+            "en": "Please ensure that all doors are locked at night.",
+            "zh": "請確保所有的門在夜間都已上鎖。"
+          }
+        },
+        {
+          "word": "insure",
+          "diff": "insure 是「投保」，發音也和 secure 相近。",
+          "example": {
+            "en": "We need to insure the equipment before shipping it overseas.",
+            "zh": "我們需要在把設備運往海外前先為它投保。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "fasten",
+          "diff": "fasten 強調扣緊、繫上（如安全帶）；secure 強調固定到穩固不動。",
+          "example": {
+            "en": "Please fasten your seat belt before the plane takes off.",
+            "zh": "飛機起飛前請繫好安全帶。"
+          }
+        },
+        {
+          "word": "attach",
+          "diff": "attach 只表示接上或附上，不一定牢固。",
+          "example": {
+            "en": "Please attach the receipt to the expense report.",
+            "zh": "請把收據附在費用報告上。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "lock",
+          "pos": "v.",
+          "zh": "鎖上",
+          "ipa": "/lɑːk/",
+          "example": {
+            "en": "Please lock the door when you leave the room.",
+            "zh": "離開房間時請把門鎖上。"
+          }
+        },
+        {
+          "w": "protect",
+          "pos": "v.",
+          "zh": "保護",
+          "ipa": "/prəˈtekt/",
+          "example": {
+            "en": "This case will protect your laptop during the trip.",
+            "zh": "這個保護殼會在旅途中保護你的筆電。"
+          }
+        },
+        {
+          "w": "safe",
+          "pos": "adj.",
+          "zh": "安全的",
+          "ipa": "/seɪf/",
+          "example": {
+            "en": "The new design is safe for babies of all ages.",
+            "zh": "這款新設計對各年齡的嬰兒都很安全。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "securely",
+          "ipa": "/sɪˈkjʊrli/",
+          "pos": "adv.",
+          "zh": "牢固地、安全地",
+          "link": "secure + -ly，變成副詞，像 quick → quickly"
+        },
+        {
+          "w": "security",
+          "ipa": "/sɪˈkjʊrəti/",
+          "pos": "n.",
+          "zh": "安全、保全",
+          "link": "secure + -ity，變成名詞，像 able → ability"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/sɪˈkjʊr/",
+          "zh": "固定、取得",
+          "in_passage": true,
+          "example": {
+            "en": "Please secure the shelf to the wall with two screws.",
+            "zh": "請用兩根螺絲把架子固定在牆上。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/sɪˈkjʊr/",
+          "zh": "安全的、穩固的",
+          "example": {
+            "en": "Use a secure password to protect your online account.",
+            "zh": "請使用安全的密碼來保護你的網路帳號。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "固定、使牢固",
+          "en": "to fix something firmly so it will not move",
+          "in_passage": true,
+          "example": {
+            "en": "Workers secure the cargo with strong straps before shipping.",
+            "zh": "工人在出貨前用堅固的帶子固定貨物。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "取得、爭取到",
+          "en": "to get something important after some effort",
+          "distinguish": "受詞是 contract、funding、order 等抽象的商業成果時，意思是「取得」。",
+          "example": {
+            "en": "The sales team hopes to secure a new contract this month.",
+            "zh": "業務團隊希望這個月能取得一份新合約。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "reach",
+      "type": "word",
+      "ipa": "/riːtʃ/",
+      "pos": "v.",
+      "zh": "伸手去拿、搆到",
+      "en": "to stretch your arm to touch or take something",
+      "note": "在文章裡出現兩次：reach across 指伸手到另一側，harder to reach 指另一側比較不容易搆到。講者用它說明兩個按鈕相連的好處。",
+      "grammar_note": "reach 當「到達」時是及物動詞，後面直接接地點，不加 to 或 at：reach the airport，不說 reach to the airport。",
+      "forms": [
+        {
+          "w": "reaches",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "到達",
+          "ipa": "/ˈriːtʃɪz/",
+          "example": {
+            "en": "The shuttle bus reaches the airport in thirty minutes.",
+            "zh": "接駁巴士三十分鐘就會抵達機場。"
+          }
+        },
+        {
+          "w": "reached",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "達到了",
+          "ipa": "/riːtʃt/",
+          "example": {
+            "en": "Our sales reached a new record last quarter.",
+            "zh": "我們的銷售額上一季創下新紀錄。"
+          }
+        },
+        {
+          "w": "reaching",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "伸手去拿",
+          "ipa": "/ˈriːtʃɪŋ/",
+          "example": {
+            "en": "She is reaching for the phone on the desk.",
+            "zh": "她正伸手去拿桌上的電話。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "reach an agreement",
+          "zh": "達成協議",
+          "example": {
+            "en": "Both sides hope to reach an agreement by Friday.",
+            "zh": "雙方希望在星期五之前達成協議。"
+          }
+        },
+        {
+          "phrase": "reach out to",
+          "zh": "主動聯絡",
+          "example": {
+            "en": "Please reach out to our support team if you need help.",
+            "zh": "如果需要協助，請主動聯絡我們的支援團隊。"
+          }
+        },
+        {
+          "phrase": "reach the target",
+          "zh": "達成目標",
+          "example": {
+            "en": "We hope to reach the target before the end of June.",
+            "zh": "我們希望在六月底前達成目標。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "出差",
+          "en": "We should reach the hotel before the rain starts.",
+          "zh": "我們應該在下雨之前抵達飯店。"
+        },
+        {
+          "tag": "行銷",
+          "en": "Social media helps us reach more young customers.",
+          "zh": "社群媒體幫助我們接觸到更多年輕客戶。"
+        },
+        {
+          "tag": "會議",
+          "en": "The two teams could not reach a decision on the budget.",
+          "zh": "兩個團隊無法就預算做出決定。"
+        },
+        {
+          "tag": "倉儲",
+          "en": "Workers need a ladder to reach the highest shelves.",
+          "zh": "工人需要梯子才能搆到最高的架子。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "arrive",
+          "diff": "arrive 是不及物動詞，後面要接 at／in；reach 是及物動詞，直接接地點。",
+          "example": {
+            "en": "Most guests arrive at the hotel before noon on Friday.",
+            "zh": "大多數旅客會在星期五中午前抵達飯店。"
+          }
+        },
+        {
+          "phrase": "get to",
+          "diff": "get to 較口語，意思同「到達」，不用於「達成協議」這類抽象用法。",
+          "example": {
+            "en": "We should get to the venue by nine.",
+            "zh": "我們應該在九點前到達會場。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "touch",
+          "pos": "v.",
+          "zh": "碰觸",
+          "ipa": "/tʌtʃ/",
+          "example": {
+            "en": "Please do not touch the screen with wet hands.",
+            "zh": "請不要用濕手觸碰螢幕。"
+          }
+        },
+        {
+          "w": "contact",
+          "pos": "v.",
+          "zh": "聯絡",
+          "ipa": "/ˈkɑːntækt/",
+          "example": {
+            "en": "Please contact the manager if the printer stops working.",
+            "zh": "如果印表機故障，請聯絡經理。"
+          }
+        },
+        {
+          "w": "stretch",
+          "pos": "v.",
+          "zh": "伸展",
+          "ipa": "/stretʃ/",
+          "example": {
+            "en": "Stretch your arms during long meetings to stay alert.",
+            "zh": "在冗長的會議中伸展手臂以保持清醒。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "reachable",
+          "ipa": "/ˈriːtʃəbl/",
+          "pos": "adj.",
+          "zh": "搆得到的、聯絡得上的",
+          "link": "reach + -able，能被…的，像 portable、comfortable"
+        },
+        {
+          "w": "unreachable",
+          "ipa": "/ʌnˈriːtʃəbl/",
+          "pos": "adj.",
+          "zh": "搆不到的、聯絡不上的",
+          "link": "un- 表示不，像 unlock、unable"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/riːtʃ/",
+          "zh": "伸手去拿、到達",
+          "in_passage": true,
+          "example": {
+            "en": "The top shelf is too high for me to reach.",
+            "zh": "最上層的架子太高了，我搆不到。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/riːtʃ/",
+          "zh": "可及範圍、能力範圍",
+          "example": {
+            "en": "Keep the first aid kit within reach of every worker.",
+            "zh": "請把急救箱放在每位工人伸手可及之處。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "伸手去拿、搆到",
+          "en": "to stretch out your arm to touch or take something",
+          "in_passage": true,
+          "example": {
+            "en": "Please reach for the top button on the control panel.",
+            "zh": "請伸手按控制面板最上方的按鈕。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "到達、抵達",
+          "en": "to get to a place",
+          "example": {
+            "en": "The package should reach your office by Thursday.",
+            "zh": "包裹應該會在星期四前送到你的辦公室。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "聯絡到（某人）",
+          "en": "to speak to someone by phone or email",
+          "distinguish": "受詞是人，且常和 by phone、at this number 一起出現。",
+          "example": {
+            "en": "You can reach me at this number after five.",
+            "zh": "五點後你可以用這個號碼聯絡到我。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "達到（數量、水準）",
+          "en": "to get to a certain amount or level",
+          "distinguish": "受詞是金額、數字或目標等抽象的量。",
+          "example": {
+            "en": "Online sales reached one million dollars this year.",
+            "zh": "今年網路銷售額達到了一百萬美元。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "angle",
+      "type": "word",
+      "ipa": "/ˈæŋɡl/",
+      "pos": "n.",
+      "zh": "角度",
+      "en": "the way something is tilted or turned",
+      "note": "在文章裡，adjust the angle of the base 指調整底座的傾斜角度，讓它更貼合車用座椅。講者也把按鈕命名為 Latch Angle Adjustment。",
+      "forms": [
+        {
+          "w": "angles",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "角度（複數）",
+          "ipa": "/ˈæŋɡlz/",
+          "example": {
+            "en": "The tablet stand has three adjustable angles for typing.",
+            "zh": "這個平板支架有三種可調整的打字角度。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "adjust the angle",
+          "zh": "調整角度",
+          "example": {
+            "en": "Please adjust the angle of the camera before recording.",
+            "zh": "錄影前請先調整攝影機的角度。"
+          }
+        },
+        {
+          "phrase": "at an angle",
+          "zh": "傾斜地",
+          "example": {
+            "en": "The screen stands at an angle on the desk.",
+            "zh": "螢幕在桌上呈傾斜角度擺放。"
+          }
+        },
+        {
+          "phrase": "right angle",
+          "zh": "直角",
+          "example": {
+            "en": "The two walls meet at a right angle.",
+            "zh": "這兩面牆以直角相接。"
+          }
+        },
+        {
+          "phrase": "from a different angle",
+          "zh": "從不同的角度",
+          "example": {
+            "en": "Let's look at the problem from a different angle.",
+            "zh": "我們從不同的角度來看這個問題吧。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "產品",
+          "en": "The monitor can tilt to any angle you like.",
+          "zh": "這台螢幕可以傾斜到你喜歡的任何角度。"
+        },
+        {
+          "tag": "行銷",
+          "en": "The camera angle makes the product look larger.",
+          "zh": "拍攝角度讓產品看起來比較大。"
+        },
+        {
+          "tag": "辦公室",
+          "en": "Set the chair at a comfortable angle for your back.",
+          "zh": "把椅子調到對背部舒適的角度。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "angel",
+          "diff": "angel 是「天使」，拼法和 angle 只差字母順序；商業上常說 angel investor（天使投資人）。",
+          "example": {
+            "en": "Our angel investor gave the startup its first funding.",
+            "zh": "我們的天使投資人給了這家新創公司第一筆資金。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "viewpoint",
+          "diff": "viewpoint 只表示「觀點」；angle 除了角度，也可指看事情的切入點。",
+          "example": {
+            "en": "Each manager shared a different viewpoint on the plan.",
+            "zh": "每位經理對這個計畫都分享了不同的觀點。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "slope",
+          "pos": "n.",
+          "zh": "斜坡、傾斜",
+          "ipa": "/sloʊp/",
+          "example": {
+            "en": "The delivery truck stopped at the bottom of the slope.",
+            "zh": "送貨卡車停在斜坡底部。"
+          }
+        },
+        {
+          "w": "tilt",
+          "pos": "v.",
+          "zh": "傾斜",
+          "ipa": "/tɪlt/",
+          "example": {
+            "en": "Do not tilt the box when you carry it.",
+            "zh": "搬運箱子時請不要讓它傾斜。"
+          }
+        },
+        {
+          "w": "corner",
+          "pos": "n.",
+          "zh": "角落、轉角",
+          "ipa": "/ˈkɔːrnər/",
+          "example": {
+            "en": "The printer is in the corner of the meeting room.",
+            "zh": "印表機放在會議室的角落。"
+          }
+        },
+        {
+          "w": "degree",
+          "pos": "n.",
+          "zh": "度（角度、溫度）",
+          "ipa": "/dɪˈɡriː/",
+          "example": {
+            "en": "Turn the handle ninety degrees to lock the door.",
+            "zh": "把把手轉九十度就能鎖上門。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "triangle",
+          "ipa": "/ˈtraɪæŋɡl/",
+          "pos": "n.",
+          "zh": "三角形",
+          "link": "tri- 表示三，加 angle 就是「三個角」，像 tricycle"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "角度（傾斜的程度）",
+          "en": "the amount something is tilted or turned",
+          "in_passage": true,
+          "example": {
+            "en": "Please check the angle of the mirror before driving.",
+            "zh": "開車前請檢查後照鏡的角度。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "觀點、切入點",
+          "en": "a way of thinking about something",
+          "distinguish": "後面常接抽象的事，如 a new angle on the problem，指看事情的方式。",
+          "example": {
+            "en": "A new angle may help us sell this old product.",
+            "zh": "換個切入點也許能幫我們賣出這個舊產品。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "cushion",
+      "type": "word",
+      "ipa": "/ˈkʊʃən/",
+      "pos": "n.",
+      "zh": "坐墊、軟墊",
+      "en": "a soft bag used for sitting on or leaning against",
+      "note": "在文章裡，vehicle seat cushion and backrest 指車用座椅的坐墊與椅背，是底座角度調整後要貼合的位置。",
+      "forms": [
+        {
+          "w": "cushions",
+          "label": "複數（名詞）",
+          "pos": "n.",
+          "zh": "坐墊（複數）",
+          "ipa": "/ˈkʊʃənz/",
+          "example": {
+            "en": "The hotel replaced all the sofa cushions in the lobby.",
+            "zh": "飯店更換了大廳所有的沙發坐墊。"
+          }
+        },
+        {
+          "w": "cushions",
+          "label": "第三人稱單數（動詞）",
+          "pos": "v.",
+          "zh": "緩衝",
+          "ipa": "/ˈkʊʃənz/",
+          "example": {
+            "en": "A thick foam layer cushions the glass during shipping.",
+            "zh": "一層厚厚的泡棉在運送時為玻璃提供緩衝。"
+          }
+        },
+        {
+          "w": "cushioned",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "緩衝了",
+          "ipa": "/ˈkʊʃənd/",
+          "example": {
+            "en": "Extra savings cushioned the company during the slow season.",
+            "zh": "額外的存款在淡季時為公司提供了緩衝。"
+          }
+        },
+        {
+          "w": "cushioning",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "緩衝",
+          "ipa": "/ˈkʊʃənɪŋ/",
+          "example": {
+            "en": "The soft packing prevents damage by cushioning the product.",
+            "zh": "柔軟的包材藉由緩衝產品來避免損壞。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "seat cushion",
+          "zh": "座椅坐墊",
+          "example": {
+            "en": "The new seat cushion makes long meetings more comfortable.",
+            "zh": "新的座椅坐墊讓冗長的會議更舒適。"
+          }
+        },
+        {
+          "phrase": "cushion the impact",
+          "zh": "緩衝衝擊",
+          "example": {
+            "en": "Strong packaging helps cushion the impact during delivery.",
+            "zh": "堅固的包裝有助於在運送時緩衝衝擊。"
+          }
+        },
+        {
+          "phrase": "cushion cover",
+          "zh": "坐墊套",
+          "example": {
+            "en": "We sell a washable cushion cover for every size.",
+            "zh": "我們為每種尺寸都販售可水洗的坐墊套。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "家具",
+          "en": "The sofa has soft cushions and a wooden frame.",
+          "zh": "這張沙發有柔軟的坐墊和木頭框架。"
+        },
+        {
+          "tag": "辦公室",
+          "en": "She placed a cushion on her chair for support.",
+          "zh": "她在椅子上放了一個坐墊來支撐。"
+        },
+        {
+          "tag": "出貨",
+          "en": "Foam pieces act as a cushion for fragile items.",
+          "zh": "泡棉塊對易碎品起到緩衝的作用。"
+        },
+        {
+          "tag": "汽座",
+          "en": "A thick cushion keeps the baby comfortable on long trips.",
+          "zh": "厚實的坐墊讓寶寶在長途旅行中保持舒適。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "pillow",
+          "diff": "pillow 專指枕頭；cushion 是坐墊或靠墊。",
+          "example": {
+            "en": "The hotel provides two pillows for each guest bed.",
+            "zh": "飯店為每張客床提供兩個枕頭。"
+          }
+        },
+        {
+          "word": "pad",
+          "diff": "pad 是較薄的襯墊，常用來保護物品。",
+          "example": {
+            "en": "A foam pad protects the equipment during shipping.",
+            "zh": "泡棉墊在運送過程中保護設備。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "pillow",
+          "pos": "n.",
+          "zh": "枕頭",
+          "ipa": "/ˈpɪloʊ/",
+          "example": {
+            "en": "Guests can ask for an extra pillow at the front desk.",
+            "zh": "旅客可以向櫃台要求多一個枕頭。"
+          }
+        },
+        {
+          "w": "foam",
+          "pos": "n.",
+          "zh": "泡棉",
+          "ipa": "/foʊm/",
+          "example": {
+            "en": "The company ships glasses in boxes filled with foam.",
+            "zh": "公司用裝滿泡棉的箱子運送玻璃杯。"
+          }
+        },
+        {
+          "w": "support",
+          "pos": "n.",
+          "zh": "支撐",
+          "ipa": "/səˈpɔːrt/",
+          "example": {
+            "en": "This chair gives good support for your lower back.",
+            "zh": "這張椅子對下背部有很好的支撐。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈkʊʃən/",
+          "zh": "坐墊、軟墊",
+          "in_passage": true,
+          "example": {
+            "en": "Please put a cushion on the chair for the guest.",
+            "zh": "請在椅子上放個坐墊給客人。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ˈkʊʃən/",
+          "zh": "緩衝、減輕衝擊",
+          "example": {
+            "en": "The warehouse uses foam to cushion fragile products.",
+            "zh": "倉庫使用泡棉來緩衝易碎品。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "坐墊、軟墊",
+          "en": "a soft bag used for sitting on or leaning against",
+          "in_passage": true,
+          "example": {
+            "en": "A cushion on the chair makes long meetings easier.",
+            "zh": "椅子上的坐墊讓冗長的會議更輕鬆。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "緩衝（資金、時間）",
+          "en": "extra money or time that protects you from problems",
+          "distinguish": "後面常接 cash、time 等，指預留的緩衝，不是實體的軟墊。",
+          "example": {
+            "en": "A small cash cushion helps us during slow months.",
+            "zh": "一小筆現金緩衝能幫助我們度過淡季。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "lift",
+      "type": "word",
+      "ipa": "/lɪft/",
+      "pos": "v.",
+      "zh": "提起、抬起",
+      "en": "to move something up from a lower place",
+      "note": "在文章裡，lift the infant car seat off the base 指把汽座從底座上提起來，是取出寶寶時的最後一個動作。",
+      "grammar_note": "lift 是及物動詞，常用 lift + 物 + off／out／up 表示提到哪裡；off the base 是說「離開底座」。",
+      "forms": [
+        {
+          "w": "lifts",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "提起",
+          "ipa": "/lɪfts/",
+          "example": {
+            "en": "The crane lifts heavy boxes onto the truck.",
+            "zh": "起重機把沉重的箱子吊到卡車上。"
+          }
+        },
+        {
+          "w": "lifted",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "提起了",
+          "ipa": "/ˈlɪftɪd/",
+          "example": {
+            "en": "Two workers lifted the machine onto the table.",
+            "zh": "兩名工人把機器抬到桌上。"
+          }
+        },
+        {
+          "w": "lifting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "提起",
+          "ipa": "/ˈlɪftɪŋ/",
+          "example": {
+            "en": "Lifting heavy boxes without help can cause injuries.",
+            "zh": "沒人幫忙獨自搬重箱子可能造成受傷。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "lift up",
+          "zh": "舉起、抬起",
+          "example": {
+            "en": "Please lift up the lid and check inside.",
+            "zh": "請掀起蓋子檢查裡面。"
+          }
+        },
+        {
+          "phrase": "lift restrictions",
+          "zh": "解除限制",
+          "example": {
+            "en": "The city plans to lift restrictions on outdoor events.",
+            "zh": "市政府計畫解除對戶外活動的限制。"
+          }
+        },
+        {
+          "phrase": "a lift to",
+          "zh": "載…一程",
+          "example": {
+            "en": "Could you give me a lift to the airport?",
+            "zh": "你可以載我去機場嗎？"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "倉儲",
+          "en": "Please lift the boxes carefully when you unload the truck.",
+          "zh": "卸貨時請小心搬起這些箱子。"
+        },
+        {
+          "tag": "汽座",
+          "en": "Press the release button, then lift the car seat out.",
+          "zh": "按下釋放按鈕，再把汽座提出來。"
+        },
+        {
+          "tag": "銷售",
+          "en": "The new ad campaign could lift our sales this quarter.",
+          "zh": "新的廣告活動可能會提升我們這一季的銷售。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "raise",
+          "diff": "raise 常用於提高數字、價格或把東西舉高；lift 強調把東西從下往上抬離。",
+          "example": {
+            "en": "We plan to raise prices by five percent next year.",
+            "zh": "我們計畫明年把價格調漲百分之五。"
+          }
+        },
+        {
+          "phrase": "pick up",
+          "diff": "pick up 是拿起、撿起，也可指接人；語氣比 lift 口語。",
+          "example": {
+            "en": "Please pick up the package at the front desk.",
+            "zh": "請到櫃台領取包裹。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "carry",
+          "pos": "v.",
+          "zh": "攜帶、搬運",
+          "ipa": "/ˈkæri/",
+          "example": {
+            "en": "The staff carry the luggage to each guest room.",
+            "zh": "員工把行李搬到每間客房。"
+          }
+        },
+        {
+          "w": "hold",
+          "pos": "v.",
+          "zh": "拿著、握住",
+          "ipa": "/hoʊld/",
+          "example": {
+            "en": "Please hold the door open for the delivery driver.",
+            "zh": "請幫送貨司機扶著門。"
+          }
+        },
+        {
+          "w": "move",
+          "pos": "v.",
+          "zh": "移動",
+          "ipa": "/muːv/",
+          "example": {
+            "en": "We need to move the printer to the second floor.",
+            "zh": "我們需要把印表機搬到二樓。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/lɪft/",
+          "zh": "提起、抬起",
+          "in_passage": true,
+          "example": {
+            "en": "Please lift the lid and check the filter inside.",
+            "zh": "請掀開蓋子檢查裡面的濾網。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/lɪft/",
+          "zh": "電梯（英式）、順風車",
+          "example": {
+            "en": "The lift is out of order, so please use the stairs.",
+            "zh": "電梯故障了，請走樓梯。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "提起、抬起",
+          "en": "to move something up from a lower place",
+          "in_passage": true,
+          "example": {
+            "en": "Lift the box with your legs, not with your back.",
+            "zh": "用腿的力量抬箱子，不要用背。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "解除（禁令、限制）",
+          "en": "to end a rule that stops people from doing something",
+          "distinguish": "受詞是 ban、restriction 等規定，指「解除」。",
+          "example": {
+            "en": "The government decided to lift the travel ban.",
+            "zh": "政府決定解除旅遊禁令。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "提升（數字、情緒）",
+          "en": "to make something go higher in amount or level",
+          "distinguish": "受詞是 sales、profits 等數字，指「提高」。",
+          "example": {
+            "en": "A new promotion could lift sales by ten percent.",
+            "zh": "新的促銷活動可能把銷售額提高百分之十。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "simply",
+      "type": "word",
+      "ipa": "/ˈsɪmpli/",
+      "pos": "adv.",
+      "zh": "只要、簡單地",
+      "en": "in a way that is easy, or only",
+      "note": "在文章裡，simply click 的意思是「只要…就可以」，強調操作很簡單。講者多次用 simply 和 just，讓聽眾覺得步驟輕鬆。",
+      "grammar_note": "simply 通常放在動詞前，表示「只要…就好」；句首的 Simply put, ... 是「簡單來說」。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "simply put",
+          "zh": "簡單來說",
+          "example": {
+            "en": "Simply put, the new base is smaller and lighter.",
+            "zh": "簡單來說，新的底座更小也更輕。"
+          }
+        },
+        {
+          "phrase": "simply because",
+          "zh": "只是因為",
+          "example": {
+            "en": "We chose this supplier simply because the price was lower.",
+            "zh": "我們選這家供應商只是因為價格比較低。"
+          }
+        },
+        {
+          "phrase": "simply click",
+          "zh": "只要點擊",
+          "example": {
+            "en": "Simply click the link below to confirm your booking.",
+            "zh": "只要點擊下方連結就能確認你的訂位。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Simply reply to this email if you need more details.",
+          "zh": "如果你需要更多細節，只要回覆這封電子郵件即可。"
+        },
+        {
+          "tag": "產品",
+          "en": "Simply press the button, and the door opens.",
+          "zh": "只要按下按鈕，門就會打開。"
+        },
+        {
+          "tag": "簡報",
+          "en": "Let me explain the process as simply as possible.",
+          "zh": "讓我盡可能簡單地說明這個流程。"
+        },
+        {
+          "tag": "客服",
+          "en": "You simply need to sign the form at the counter.",
+          "zh": "你只需要在櫃台簽署這份表格。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "simple",
+          "diff": "simple 是形容詞（簡單的），simply 是副詞（簡單地、只要）。",
+          "usage": "simple 修飾名詞（a simple form）；simply 修飾動詞或整句（simply click）。",
+          "example": {
+            "en": "The booking form is simple and easy to complete.",
+            "zh": "這份訂位表格簡單，很容易填寫。"
+          }
+        },
+        {
+          "word": "similarly",
+          "diff": "similarly 是「同樣地」，拼法和 simply 前半很像，意思不同。",
+          "example": {
+            "en": "Similarly, our new model is lighter than the old one.",
+            "zh": "同樣地，我們的新款比舊款更輕。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "just",
+          "diff": "just 較口語，語氣和 simply 類似，常放在祈使句裡。",
+          "example": {
+            "en": "Just press the green button to start the machine.",
+            "zh": "只要按下綠色按鈕就能啟動機器。"
+          }
+        },
+        {
+          "word": "merely",
+          "diff": "merely 較正式，帶有「只不過」的語氣。",
+          "example": {
+            "en": "This is merely a draft, not the final report.",
+            "zh": "這只是草稿，不是最終報告。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "only",
+          "pos": "adv.",
+          "zh": "只、僅",
+          "ipa": "/ˈoʊnli/",
+          "example": {
+            "en": "We only need two signatures on this form.",
+            "zh": "這份表格我們只需要兩個簽名。"
+          }
+        },
+        {
+          "w": "easily",
+          "pos": "adv.",
+          "zh": "輕鬆地",
+          "ipa": "/ˈiːzəli/",
+          "example": {
+            "en": "The base can be removed easily by one person.",
+            "zh": "這個底座一個人就能輕鬆取下。"
+          }
+        },
+        {
+          "w": "quickly",
+          "pos": "adv.",
+          "zh": "快速地",
+          "ipa": "/ˈkwɪkli/",
+          "example": {
+            "en": "Please reply quickly so we can confirm the order.",
+            "zh": "請盡快回覆，我們才能確認訂單。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "simple",
+          "ipa": "/ˈsɪmpl/",
+          "pos": "adj.",
+          "zh": "簡單的",
+          "link": "simply 的詞幹，simple 加 -ly（le 變 ly）變副詞，像 gentle → gently"
+        },
+        {
+          "w": "simplify",
+          "ipa": "/ˈsɪmplɪfaɪ/",
+          "pos": "v.",
+          "zh": "簡化",
+          "link": "simple + -ify，使變簡單，像 identify"
+        },
+        {
+          "w": "simplicity",
+          "ipa": "/sɪmˈplɪsəti/",
+          "pos": "n.",
+          "zh": "簡單、簡潔",
+          "link": "simple + -icity，變成名詞，像 able → ability"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adv.",
+          "zh": "只要、僅僅",
+          "en": "only, and nothing more difficult",
+          "in_passage": true,
+          "example": {
+            "en": "To confirm your seat, simply show your ticket at the desk.",
+            "zh": "要確認座位，只要在櫃台出示機票即可。"
+          }
+        },
+        {
+          "pos": "adv.",
+          "zh": "簡單地、淺顯地",
+          "en": "in a way that is easy to understand",
+          "distinguish": "通常放在動詞後面，如 explain simply，指表達得淺顯易懂。",
+          "example": {
+            "en": "The manual explains each step simply and clearly.",
+            "zh": "這本手冊簡單明瞭地說明每個步驟。"
+          }
+        },
+        {
+          "pos": "adv.",
+          "zh": "完全、真的（強調）",
+          "en": "used to make a word stronger",
+          "distinguish": "後面接形容詞，如 simply excellent，用來加強語氣。",
+          "example": {
+            "en": "The service at this hotel was simply excellent.",
+            "zh": "這間飯店的服務真的非常棒。"
+          }
+        }
+      ]
+    }
+  ]
+}

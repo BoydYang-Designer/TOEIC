@@ -1,0 +1,964 @@
+{
+  "week": 3,
+  "day": 9,
+  "extra_vocab": [
+    {
+      "text": "compact",
+      "type": "word",
+      "ipa": "/kəmˈpækt/",
+      "pos": "adj.",
+      "zh": "小巧的、緊湊的",
+      "en": "small and designed to use little space",
+      "note": "在文章裡形容 Pocket Click 的迷你底座小巧、不佔空間。compact 常和 portable 一起出現，強調「小而好帶」。",
+      "forms": [
+        {
+          "w": "more compact",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更小巧的",
+          "ipa": "/mɔːr kəmˈpækt/",
+          "example": {
+            "en": "The new model is more compact than last year's version.",
+            "zh": "新款比去年的版本更小巧。"
+          }
+        },
+        {
+          "w": "most compact",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最小巧的",
+          "ipa": "/moʊst kəmˈpækt/",
+          "example": {
+            "en": "This is the most compact scanner we have ever produced.",
+            "zh": "這是我們生產過最小巧的掃描器。"
+          }
+        },
+        {
+          "w": "compactly",
+          "label": "副詞",
+          "pos": "adv.",
+          "zh": "緊湊地",
+          "ipa": "/kəmˈpæktli/",
+          "example": {
+            "en": "The parts are packed compactly to save shipping space.",
+            "zh": "零件被緊湊地包裝起來以節省運送空間。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "compact size",
+          "zh": "小巧的尺寸",
+          "example": {
+            "en": "The compact size makes this printer easy to place on any desk.",
+            "zh": "小巧的尺寸讓這台印表機很容易放在任何桌上。"
+          }
+        },
+        {
+          "phrase": "compact design",
+          "zh": "小巧的設計",
+          "example": {
+            "en": "Customers like the compact design of our new laptop.",
+            "zh": "客戶喜歡我們新筆電小巧的設計。"
+          }
+        },
+        {
+          "phrase": "compact car",
+          "zh": "小型車",
+          "example": {
+            "en": "We reserved a compact car for the three-day business trip.",
+            "zh": "我們為三天的出差預訂了一輛小型車。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "產品",
+          "en": "This compact printer fits easily on a small desk.",
+          "zh": "這台小巧的印表機很容易放在小桌上。"
+        },
+        {
+          "tag": "辦公室",
+          "en": "We chose a compact refrigerator for the break room.",
+          "zh": "我們為休息室選了一台小型冰箱。"
+        },
+        {
+          "tag": "出差",
+          "en": "A compact umbrella is useful on rainy business trips.",
+          "zh": "小巧的雨傘在下雨的出差途中很有用。"
+        },
+        {
+          "tag": "行銷",
+          "en": "Our ads highlight the compact shape of the new speaker.",
+          "zh": "我們的廣告強調新喇叭小巧的外型。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "impact",
+          "diff": "impact 是「影響、衝擊」，字尾和 compact 一樣是 -pact，但意思不同。",
+          "example": {
+            "en": "The new policy had a big impact on our sales.",
+            "zh": "新政策對我們的銷售有很大的影響。"
+          }
+        },
+        {
+          "word": "contact",
+          "diff": "contact 是「聯絡」，拼法和 compact 很像，意思完全不同。",
+          "example": {
+            "en": "Please contact our sales office to order the compact model.",
+            "zh": "請聯絡我們的業務處訂購小型款。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "small",
+          "diff": "small 只說大小；compact 強調小巧又能有效利用空間。",
+          "example": {
+            "en": "We need a small desk for the new assistant.",
+            "zh": "我們需要一張小桌子給新來的助理。"
+          }
+        },
+        {
+          "phrase": "space-saving",
+          "diff": "space-saving 直接說明「節省空間」的功能，常用來形容家具或設備。",
+          "example": {
+            "en": "A space-saving design helps us use the small storage room.",
+            "zh": "節省空間的設計幫助我們善用小儲藏室。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "small",
+          "pos": "adj.",
+          "zh": "小的",
+          "ipa": "/smɔːl/",
+          "example": {
+            "en": "The small shop sells parts for baby strollers.",
+            "zh": "這家小店販售嬰兒推車的零件。"
+          }
+        },
+        {
+          "w": "light",
+          "pos": "adj.",
+          "zh": "輕的",
+          "ipa": "/laɪt/",
+          "example": {
+            "en": "The new tablet is light enough to carry all day.",
+            "zh": "這台新平板輕到可以整天帶著走。"
+          }
+        },
+        {
+          "w": "slim",
+          "pos": "adj.",
+          "zh": "薄的、纖細的",
+          "ipa": "/slɪm/",
+          "example": {
+            "en": "The slim case fits easily into any laptop bag.",
+            "zh": "這個薄型保護殼很容易放進任何筆電包。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "portable",
+      "type": "word",
+      "ipa": "/ˈpɔːrtəbl/",
+      "pos": "adj.",
+      "zh": "便於攜帶的、可攜式的",
+      "en": "easy to carry or move from place to place",
+      "note": "在文章裡形容迷你底座輕巧，可以帶著旅行，呼應「旅行時的彈性」這個賣點。",
+      "forms": [
+        {
+          "w": "more portable",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更便於攜帶的",
+          "ipa": "/mɔːr ˈpɔːrtəbl/",
+          "example": {
+            "en": "The new laptop is more portable than the old one.",
+            "zh": "新筆電比舊的更便於攜帶。"
+          }
+        },
+        {
+          "w": "most portable",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最便於攜帶的",
+          "ipa": "/moʊst ˈpɔːrtəbl/",
+          "example": {
+            "en": "This is the most portable projector in our product line.",
+            "zh": "這是我們產品線中最便於攜帶的投影機。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "portable charger",
+          "zh": "行動電源",
+          "example": {
+            "en": "Please bring a portable charger on the long flight.",
+            "zh": "搭長途班機請帶著行動電源。"
+          }
+        },
+        {
+          "phrase": "portable device",
+          "zh": "可攜式裝置",
+          "example": {
+            "en": "Staff may use a portable device to scan the boxes.",
+            "zh": "員工可以使用可攜式裝置掃描箱子。"
+          }
+        },
+        {
+          "phrase": "portable computer",
+          "zh": "可攜式電腦",
+          "example": {
+            "en": "The company gave every sales rep a portable computer.",
+            "zh": "公司給每位業務代表一台可攜式電腦。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "產品",
+          "en": "This portable speaker works for up to ten hours.",
+          "zh": "這個可攜式喇叭最長可使用十小時。"
+        },
+        {
+          "tag": "出差",
+          "en": "A portable scanner is handy when I travel for work.",
+          "zh": "出差時，可攜式掃描器很好用。"
+        },
+        {
+          "tag": "會議",
+          "en": "We need a portable screen for the outdoor meeting.",
+          "zh": "我們需要一個可攜式螢幕來開戶外會議。"
+        },
+        {
+          "tag": "零售",
+          "en": "Portable heaters are on sale at all our stores.",
+          "zh": "可攜式暖氣機在我們所有門市都在特價。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "portal",
+          "diff": "portal 是「入口網站、入口」，拼法和 portable 前半很像，意思不同。",
+          "example": {
+            "en": "Employees can log in through the company portal.",
+            "zh": "員工可以透過公司入口網站登入。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "mobile",
+          "diff": "mobile 強調可移動或隨時隨地使用（mobile phone）；portable 強調容易搬運攜帶。",
+          "example": {
+            "en": "Customers can pay with a mobile phone at the counter.",
+            "zh": "客戶可以在櫃台用手機付款。"
+          }
+        },
+        {
+          "phrase": "easy to carry",
+          "diff": "easy to carry 是口語說法，意思和 portable 相同，但較不正式。",
+          "example": {
+            "en": "The new case is easy to carry and very light.",
+            "zh": "這個新保護殼很容易攜帶，而且很輕。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "light",
+          "pos": "adj.",
+          "zh": "輕的",
+          "ipa": "/laɪt/",
+          "example": {
+            "en": "This bag is light even when it is full.",
+            "zh": "這個包包即使裝滿也很輕。"
+          }
+        },
+        {
+          "w": "handy",
+          "pos": "adj.",
+          "zh": "方便好用的",
+          "ipa": "/ˈhændi/",
+          "example": {
+            "en": "The app is handy for checking flight times.",
+            "zh": "這個應用程式很適合用來查航班時間。"
+          }
+        },
+        {
+          "w": "mobile",
+          "pos": "adj.",
+          "zh": "行動的、可移動的",
+          "ipa": "/ˈmoʊbl/",
+          "example": {
+            "en": "Most customers use a mobile app to order food.",
+            "zh": "大多數客戶用行動應用程式訂餐。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "portability",
+          "ipa": "/ˌpɔːrtəˈbɪləti/",
+          "pos": "n.",
+          "zh": "可攜性",
+          "link": "portable 去掉 -le 加 -ility，變成「可攜帶的特性」，像 able → ability、flexible → flexibility"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "traditional",
+      "type": "word",
+      "ipa": "/trəˈdɪʃənl/",
+      "pos": "adj.",
+      "zh": "傳統的",
+      "en": "following ways of doing things that have been used for a long time",
+      "note": "在文章裡，traditional base 指長久以來常見的傳統汽座底座，用來和 Pocket Click 的迷你底座做比較。",
+      "grammar_note": "a traditional one 的 one 是代名詞，代替前面出現過的單數可數名詞 base，避免重複。",
+      "forms": [
+        {
+          "w": "more traditional",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更傳統的",
+          "ipa": "/mɔːr trəˈdɪʃənl/",
+          "example": {
+            "en": "Some customers prefer a more traditional look for their office.",
+            "zh": "有些客戶偏好更傳統的辦公室風格。"
+          }
+        },
+        {
+          "w": "most traditional",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最傳統的",
+          "ipa": "/moʊst trəˈdɪʃənl/",
+          "example": {
+            "en": "This is the most traditional restaurant in the old town.",
+            "zh": "這是舊城區最傳統的餐廳。"
+          }
+        },
+        {
+          "w": "traditionally",
+          "label": "副詞",
+          "pos": "adv.",
+          "zh": "傳統上",
+          "ipa": "/trəˈdɪʃənəli/",
+          "example": {
+            "en": "The factory has traditionally made parts for local car makers.",
+            "zh": "這間工廠傳統上為當地車廠製造零件。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "traditional method",
+          "zh": "傳統方法",
+          "example": {
+            "en": "The traditional method takes longer than the new process.",
+            "zh": "傳統方法比新流程花更多時間。"
+          }
+        },
+        {
+          "phrase": "traditional approach",
+          "zh": "傳統做法",
+          "example": {
+            "en": "Our company still uses a traditional approach to training.",
+            "zh": "我們公司仍採用傳統的培訓方式。"
+          }
+        },
+        {
+          "phrase": "traditional design",
+          "zh": "傳統設計",
+          "example": {
+            "en": "The hotel has a traditional design with wooden floors.",
+            "zh": "這間飯店有傳統的設計與木地板。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "We discussed the traditional sales model at the meeting.",
+          "zh": "我們在會議上討論了傳統的銷售模式。"
+        },
+        {
+          "tag": "行銷",
+          "en": "Social media is replacing traditional advertising in many companies.",
+          "zh": "社群媒體正在取代許多公司的傳統廣告。"
+        },
+        {
+          "tag": "製造",
+          "en": "Traditional factories need more workers than modern automated ones.",
+          "zh": "傳統工廠比現代自動化工廠需要更多工人。"
+        },
+        {
+          "tag": "餐飲",
+          "en": "The restaurant serves traditional dishes from southern Taiwan.",
+          "zh": "這間餐廳供應台灣南部的傳統菜餚。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "additional",
+          "diff": "additional 是「額外的」，字尾和 traditional 一樣是 -itional，意思不同。",
+          "example": {
+            "en": "We will charge an additional fee for late delivery.",
+            "zh": "延遲送達我們會加收額外費用。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "conventional",
+          "diff": "conventional 指符合一般慣例或標準；traditional 指代代相傳的做法。",
+          "example": {
+            "en": "The conventional way to book a hotel is by phone.",
+            "zh": "訂飯店的一般做法是打電話。"
+          }
+        },
+        {
+          "phrase": "old-fashioned",
+          "diff": "old-fashioned 帶有「過時」的意思，語氣比 traditional 負面。",
+          "example": {
+            "en": "Paper forms feel old-fashioned to many younger employees.",
+            "zh": "紙本表格對許多年輕員工來說顯得過時。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "standard",
+          "pos": "adj.",
+          "zh": "標準的",
+          "ipa": "/ˈstændərd/",
+          "example": {
+            "en": "Please follow the standard procedure for all orders.",
+            "zh": "所有訂單請依照標準程序處理。"
+          }
+        },
+        {
+          "w": "usual",
+          "pos": "adj.",
+          "zh": "平常的",
+          "ipa": "/ˈjuːʒuəl/",
+          "example": {
+            "en": "The usual delivery time is three business days.",
+            "zh": "一般的送貨時間是三個工作天。"
+          }
+        },
+        {
+          "w": "regular",
+          "pos": "adj.",
+          "zh": "定期的、常規的",
+          "ipa": "/ˈreɡjələr/",
+          "example": {
+            "en": "Regular customers receive a ten percent discount every month.",
+            "zh": "常客每個月可享有九折優惠。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "tradition",
+          "ipa": "/trəˈdɪʃən/",
+          "pos": "n.",
+          "zh": "傳統",
+          "link": "traditional 去掉 -al 就是名詞 tradition，像 addition → additional"
+        },
+        {
+          "w": "nontraditional",
+          "ipa": "/ˌnɑːntrəˈdɪʃənl/",
+          "pos": "adj.",
+          "zh": "非傳統的",
+          "link": "non- 表示不是，像 nonstop、nonfiction"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "convenience",
+      "type": "word",
+      "ipa": "/kənˈviːniəns/",
+      "pos": "n.",
+      "zh": "便利、方便",
+      "en": "the quality of being easy to use and saving time or effort",
+      "note": "在文章裡，the convenience of a traditional base 指傳統底座在日常使用時的便利（把底座留在車上，汽座可以快速卡入、取出）。這是整段簡報的賣點句。",
+      "grammar_note": "convenience 表示「便利」時是不可數名詞，不加 a；指「便利設施」時才用複數 conveniences。at your convenience 是固定說法。",
+      "forms": [
+        {
+          "w": "conveniences",
+          "label": "複數（便利設施）",
+          "pos": "n.",
+          "zh": "便利設施",
+          "ipa": "/kənˈviːniənsɪz/",
+          "example": {
+            "en": "The hotel offers modern conveniences like free Wi-Fi and a gym.",
+            "zh": "這間飯店提供免費無線網路和健身房等現代化便利設施。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "at your convenience",
+          "zh": "在你方便的時候",
+          "example": {
+            "en": "Please call our office back at your convenience this week.",
+            "zh": "本週請在你方便時回電給我們辦公室。"
+          }
+        },
+        {
+          "phrase": "for your convenience",
+          "zh": "為了方便您",
+          "example": {
+            "en": "Free parking is provided for your convenience at all branches.",
+            "zh": "為了方便您，所有分店都提供免費停車。"
+          }
+        },
+        {
+          "phrase": "convenience store",
+          "zh": "便利商店",
+          "example": {
+            "en": "I bought a bottle of water at the convenience store.",
+            "zh": "我在便利商店買了一瓶水。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Online booking offers great convenience for busy business travelers.",
+          "zh": "線上訂位為忙碌的商務旅客帶來很大的便利。"
+        },
+        {
+          "tag": "零售",
+          "en": "Customers pay extra for the convenience of same-day delivery.",
+          "zh": "客戶願意為當日送達的便利多付費用。"
+        },
+        {
+          "tag": "租車",
+          "en": "Picking up the car at the airport adds convenience.",
+          "zh": "在機場取車增加了便利性。"
+        },
+        {
+          "tag": "住宿",
+          "en": "The hotel's location is a real convenience for guests.",
+          "zh": "這間飯店的位置對旅客來說相當方便。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "convention",
+          "diff": "convention 是「大會、慣例」，拼法和 convenience 前半很像，意思不同。",
+          "example": {
+            "en": "The annual sales convention will be held in Chicago.",
+            "zh": "年度業務大會將在芝加哥舉行。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "ease",
+          "diff": "ease 強調輕鬆、不費力；convenience 強調省時省事。",
+          "example": {
+            "en": "Customers value the ease of paying by phone.",
+            "zh": "客戶重視用手機付款的輕鬆。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "comfort",
+          "pos": "n.",
+          "zh": "舒適",
+          "ipa": "/ˈkʌmfərt/",
+          "example": {
+            "en": "The new seats offer comfort during long meetings.",
+            "zh": "新座椅在冗長的會議中帶來舒適感。"
+          }
+        },
+        {
+          "w": "benefit",
+          "pos": "n.",
+          "zh": "好處",
+          "ipa": "/ˈbenɪfɪt/",
+          "example": {
+            "en": "A free shuttle is a benefit for hotel guests.",
+            "zh": "免費接駁車對飯店旅客來說是一項好處。"
+          }
+        },
+        {
+          "w": "access",
+          "pos": "n.",
+          "zh": "使用權、進入",
+          "ipa": "/ˈækses/",
+          "example": {
+            "en": "Employees have easy access to the printing room.",
+            "zh": "員工能輕鬆進入列印室。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "convenient",
+          "ipa": "/kənˈviːniənt/",
+          "pos": "adj.",
+          "zh": "方便的",
+          "link": "convenience 的 -ce 換成 -t 變形容詞，像 difference → different"
+        },
+        {
+          "w": "inconvenient",
+          "ipa": "/ˌɪnkənˈviːniənt/",
+          "pos": "adj.",
+          "zh": "不方便的",
+          "link": "in- 表示不，像 incorrect、inactive"
+        },
+        {
+          "w": "inconvenience",
+          "ipa": "/ˌɪnkənˈviːniəns/",
+          "pos": "n.",
+          "zh": "不便、麻煩",
+          "link": "in- + convenience，「不便」，像 correct → incorrect"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "option",
+      "type": "word",
+      "ipa": "/ˈɑːpʃən/",
+      "pos": "n.",
+      "zh": "選項、選擇",
+      "en": "one of the things you can choose from",
+      "note": "在文章裡，two options 指 Pocket Click 提供的兩種使用方式：底座留在車上，或整組帶著旅行。the idea is to give users... 是在說明設計理念。",
+      "grammar_note": "option 是可數名詞，說「提供選擇」要用 an option 或複數 options；option to + V 表示「做…的選擇權」。",
+      "forms": [
+        {
+          "w": "options",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "選項（複數）",
+          "ipa": "/ˈɑːpʃənz/",
+          "example": {
+            "en": "We reviewed three options before choosing the supplier.",
+            "zh": "我們在選定供應商之前比較了三個選項。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "payment option",
+          "zh": "付款方式",
+          "example": {
+            "en": "Credit card is our most popular payment option.",
+            "zh": "信用卡是我們最受歡迎的付款方式。"
+          }
+        },
+        {
+          "phrase": "option to renew",
+          "zh": "續約的選擇權",
+          "example": {
+            "en": "The contract gives us the option to renew for one year.",
+            "zh": "這份合約讓我們有續約一年的選擇權。"
+          }
+        },
+        {
+          "phrase": "explore options",
+          "zh": "研究各種選項",
+          "example": {
+            "en": "We should explore options for cutting shipping costs.",
+            "zh": "我們應該研究降低運費的各種選項。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "簡報",
+          "en": "Option two is cheaper, but it takes longer.",
+          "zh": "第二個選項比較便宜，但花的時間比較久。"
+        },
+        {
+          "tag": "採購",
+          "en": "The supplier gave us several options for packaging.",
+          "zh": "供應商提供我們幾種包裝的選項。"
+        },
+        {
+          "tag": "人資",
+          "en": "Employees have the option to work from home.",
+          "zh": "員工可以選擇在家工作。"
+        },
+        {
+          "tag": "訂房",
+          "en": "Guests have the option to cancel up to two days before arrival.",
+          "zh": "旅客可以選擇在抵達前兩天取消。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "auction",
+          "diff": "auction 是「拍賣」，拼法和 option 的字尾很像，意思不同。",
+          "example": {
+            "en": "The company sold its old machines at an auction.",
+            "zh": "公司在拍賣會上賣掉了舊機器。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "choice",
+          "diff": "choice 指選擇的行為或結果；option 指可供挑選的具體選項。",
+          "example": {
+            "en": "The team made the right choice when it hired her.",
+            "zh": "團隊雇用她是做了正確的選擇。"
+          }
+        },
+        {
+          "word": "alternative",
+          "diff": "alternative 指可以取代原本做法的另一個方案。",
+          "example": {
+            "en": "We need an alternative if the supplier cannot deliver.",
+            "zh": "如果供應商無法交貨，我們需要替代方案。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "choice",
+          "pos": "n.",
+          "zh": "選擇",
+          "ipa": "/tʃɔɪs/",
+          "example": {
+            "en": "Customers have a wide choice of colors and sizes.",
+            "zh": "客戶可以從多種顏色和尺寸中選擇。"
+          }
+        },
+        {
+          "w": "alternative",
+          "pos": "n.",
+          "zh": "替代方案",
+          "ipa": "/ɔːlˈtɜːrnətɪv/",
+          "example": {
+            "en": "Is there an alternative to this flight on Friday?",
+            "zh": "星期五有這班航班的替代班次嗎？"
+          }
+        },
+        {
+          "w": "selection",
+          "pos": "n.",
+          "zh": "選擇範圍、精選",
+          "ipa": "/sɪˈlekʃən/",
+          "example": {
+            "en": "The store offers a large selection of baby products.",
+            "zh": "這家店提供多種嬰兒用品可供選擇。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "opt",
+          "ipa": "/ɑːpt/",
+          "pos": "v.",
+          "zh": "選擇",
+          "link": "option 的詞幹，常說 opt for，意思是選擇某個選項"
+        },
+        {
+          "w": "optional",
+          "ipa": "/ˈɑːpʃənl/",
+          "pos": "adj.",
+          "zh": "可選擇的",
+          "link": "option + -al，形容詞字尾，像 traditional、additional"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "unit",
+      "type": "word",
+      "ipa": "/ˈjuːnɪt/",
+      "pos": "n.",
+      "zh": "一組裝置、單位",
+      "en": "one complete piece of equipment, or one part of a larger group",
+      "note": "在文章裡，the whole unit 指「迷你底座加上汽座」合在一起的整組裝置，旅行時可以整組帶著走。",
+      "grammar_note": "unit 是可數名詞，a unit、two units；表示「每單位」常用 per unit，如 price per unit。",
+      "forms": [
+        {
+          "w": "units",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "單位、件數",
+          "ipa": "/ˈjuːnɪts/",
+          "example": {
+            "en": "We sold five hundred units during the first week.",
+            "zh": "第一週我們賣出了五百件。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "unit price",
+          "zh": "單價",
+          "example": {
+            "en": "Please check that the unit price includes shipping and tax.",
+            "zh": "請確認單價是否含運費與稅金。"
+          }
+        },
+        {
+          "phrase": "business unit",
+          "zh": "事業單位",
+          "example": {
+            "en": "The business unit will present its results on Monday.",
+            "zh": "這個事業單位將在星期一報告成果。"
+          }
+        },
+        {
+          "phrase": "control unit",
+          "zh": "控制裝置",
+          "example": {
+            "en": "A technician replaced the control unit on the machine.",
+            "zh": "技術人員更換了機器上的控制裝置。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "We ordered ten units of the new model today.",
+          "zh": "我們今天訂購了十台新款機型。"
+        },
+        {
+          "tag": "製造",
+          "en": "Each unit is tested before it leaves the factory.",
+          "zh": "每一台在出廠前都會經過測試。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please confirm that the unit arrived in good condition.",
+          "zh": "請確認這台設備是否完好送達。"
+        },
+        {
+          "tag": "會議",
+          "en": "The marketing unit will share its plan next week.",
+          "zh": "行銷單位下週會分享它的計畫。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "union",
+          "diff": "union 是「工會、聯盟」，拼法和 unit 前半很像，意思不同。",
+          "example": {
+            "en": "The union and the company reached an agreement yesterday.",
+            "zh": "工會與公司昨天達成了協議。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "device",
+          "diff": "device 泛指小型電子或機械裝置；unit 強調一個完整、獨立的組件或設備。",
+          "example": {
+            "en": "The device sends a signal when the battery is low.",
+            "zh": "電池電量低時，這個裝置會發出訊號。"
+          }
+        },
+        {
+          "word": "set",
+          "diff": "set 指一套多個物品；unit 指一個完整的單件或組件。",
+          "example": {
+            "en": "The set includes a charger and two cables.",
+            "zh": "這個組合包含一個充電器和兩條電纜。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "item",
+          "pos": "n.",
+          "zh": "品項",
+          "ipa": "/ˈaɪtəm/",
+          "example": {
+            "en": "Each item in the order was checked twice.",
+            "zh": "訂單中的每個品項都檢查過兩次。"
+          }
+        },
+        {
+          "w": "piece",
+          "pos": "n.",
+          "zh": "一件、一個",
+          "ipa": "/piːs/",
+          "example": {
+            "en": "This piece of equipment must be cleaned daily.",
+            "zh": "這件設備必須每天清潔。"
+          }
+        },
+        {
+          "w": "department",
+          "pos": "n.",
+          "zh": "部門",
+          "ipa": "/dɪˈpɑːrtmənt/",
+          "example": {
+            "en": "The sales department holds a short meeting every Monday morning.",
+            "zh": "業務部每週一早上都會開一個短會。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "一組裝置、整套設備",
+          "en": "one complete piece of equipment or one set of parts",
+          "in_passage": true,
+          "example": {
+            "en": "The air conditioning unit in the meeting room needs repair.",
+            "zh": "會議室的空調設備需要維修。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "單位（計量或計價）",
+          "en": "an amount used for counting or measuring things",
+          "distinguish": "常見於 per unit、unit price，指計算數量或價格的基本單位。",
+          "example": {
+            "en": "The price per unit drops when you order more.",
+            "zh": "訂購量越多，每件單價越低。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "部門、單位",
+          "en": "a group within a company that does one kind of job",
+          "distinguish": "後面常接公司內的工作，如 research unit、business unit。",
+          "example": {
+            "en": "Our research unit is moving to the new building.",
+            "zh": "我們的研究單位即將搬到新大樓。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "（建築中的）一戶、一間",
+          "en": "one apartment or room in a larger building",
+          "distinguish": "在房地產或租賃情境中，指一個可出租或出售的住戶。",
+          "example": {
+            "en": "The company leases a unit on the third floor.",
+            "zh": "公司租了三樓的一個單位。"
+          }
+        }
+      ]
+    }
+  ]
+}

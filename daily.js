@@ -1555,7 +1555,7 @@ function genLater(w, d) { // 較晚的週、同一天已建置的最近一篇
 }
 function genG() {
   const id = idOf({ week: cur.w, day: cur.d }), g = (S.gen && S.gen[id]) || {}, sug = genSuggest(cur.w, cur.d);
-  return { id, sug, score: g.score != null ? g.score : sug.score, manual: g.score != null && g.score !== sug.score, type: g.type || (cur.d > CORE_DAYS ? 'text' : 'auto'), note: g.note || '', project: g.project != null ? g.project : weekProject(cur.w, cur.d) };
+  return { id, sug, score: g.score != null ? g.score : sug.score, manual: g.score != null && g.score !== sug.score, type: g.type || (cur.d > CORE_DAYS ? 'text' : 'auto'), note: g.note || '', tag: g.tag || '', project: g.project != null ? g.project : weekProject(cur.w, cur.d) };
 }
 function weekProject(w, d) { // 同一週的 D8 是同一個專案：新增第 2、3 篇時，預設帶入這週已經在用的專案名
   if (d <= CORE_DAYS) return '';
@@ -1572,6 +1572,7 @@ function genInput(v) { const n = parseFloat(v); if (isFinite(n)) genSet('score',
 function genReset() { genSet('score', null); render(); }
 function genType(t) { genSet('type', t === 'auto' && cur.d <= CORE_DAYS ? null : t); render(); } // D8 預設＝按照文本，所以 auto 要明確存起來
 function genProj(v) { genSet('project', v.trim() ? v.trim() : null); const el = document.getElementById('gen-prompt'); if (el) el.value = genPrompt(); }
+function genTag(v) { genSet('tag', v.trim() ? v.trim() : null); const el = document.getElementById('gen-prompt'); if (el) el.value = genPrompt(); }
 function genNote(v) { genSet('note', v.trim() ? v : null); const el = document.getElementById('gen-prompt'); if (el) el.value = genPrompt(); }
 function genLen(s) { const t = Math.max(0, Math.min(1, (s - 600) / 250)); return t < 0.34 ? '偏短' : t < 0.67 ? '中等' : '偏長'; }
 /* ===== TSL 候選單字：從 tsl.js（依詞頻排名）挑出「還沒收錄」的字，並依本篇難度取不同區段，放進新增文章的提示詞 ===== */
@@ -1638,6 +1639,7 @@ function genPromptText(g) { // 按照文本：passage 由使用者提供，AI �
   L.push('【基本資訊】', `・Week ${w}、Day ${dShow({ week: w, day: d })}（主題：${THEMES[dTh(d)]}）` + (d > CORE_DAYS ? `；_spec 只寫到 D7，D8 為專案：請照填 week: ${w}、day: ${d}（專案文章 day 8＝第 1 篇、9＝第 2 篇…，id 是 ${idOf({ week: w, day: d })}），不需要 subtopic` : ''),
     '・type：依文本性質判斷（書面文件、郵件、報告 → Reading；口說稿、對話、廣播 → Listening）');
   if (g.project) L.push(`・project：${g.project}（請在輸出 JSON 的 tag 後面加 "project" 欄位，值固定為此字串）`);
+  if (g.tag) L.push(`・tag：${g.tag}（輸出 JSON 的 tag 欄位請「逐字照填」此字串，不要自己另取、不要改寫；此欄位不受「tag 不得與既有 items 重複」限制）`);
   L.push('');
   L.push('【難度】已不需要詢問難度；請依文本本身的實際難度評估。', '・level.score 填你評估的多益分數（50 的倍數）、range 為 score ±50，cefr 與 why 依 _spec 的 rules.difficulty；不要為了符合建議值而更動文本。', '');
   L.push('【長度】文本多長就多長，不受 _spec 的 passage_length 限制；題數依文本字數，照 _spec 的 questions.count。', '');
@@ -1651,7 +1653,7 @@ function genPromptText(g) { // 按照文本：passage 由使用者提供，AI �
   if (pool.length) L.push('【子題材】', `・本日（D${d}）可選子題材：${pool.join('、')}`, '・請依文本內容選最接近的一個，填入 "subtopic"（須與清單文字完全一致）。', '');
   if (g.note.trim()) L.push('【補充要求】', g.note.trim(), '');
   L.push('【輸出】', '・只輸出 JSON，放在單一 json 程式碼區塊內，單篇輸出單一物件；格式與自我檢查依 _spec 的 how_to_use.output 與 rules.self_check（與「AI 自行設計文章」有關的項目，例如難度建議值，在本模式不適用）。',
-    '・不要輸出整份 daily.json、不要輸出 timing 欄位；tag 與 vocab 單字不得與既有 items 重複。', '');
+    '・不要輸出整份 daily.json、不要輸出 timing 欄位；tag（若上面已指定則照指定）與 vocab 單字不得與既有 items 重複。', '');
   L.push('【我的文本】', '（請把文本貼在這一行下方）');
   return L.join('\n');
 }
@@ -1663,6 +1665,7 @@ function genPrompt() {
   L.push(`請依我提供的 daily.json（內含 _spec 規格與既有 items）生成 ${g.id}。`, '');
   L.push('【基本資訊】', `・Week ${w}、Day ${dShow({ week: w, day: d })}（主題：${THEMES[dTh(d)]}）`, `・type：${typ}`);
   if (g.project) L.push(`・project：${g.project}（請在輸出 JSON 的 tag 後面加 "project" 欄位，值固定為此字串）`);
+  if (g.tag) L.push(`・tag：${g.tag}（輸出 JSON 的 tag 欄位請「逐字照填」此字串，不要自己另取、不要改寫；此欄位不受「tag 不得與既有 items 重複」限制）`);
   L.push('');
   L.push('【難度】已指定難度，請直接生成，不需要再詢問難度。', `・目標：多益約 ${s} 分（CEFR ${c}）。`);
   L.push(`・level.score 填 ${s}、range 填 "${s - 50}-${s + 50}"、cefr 填 "${c}"` + (s % 50 ? '（本次分數不是 50 的倍數，優先於 _spec 中「50 的倍數」的規定）。' : '。'));
@@ -1765,7 +1768,7 @@ function renderGen() {
     <h3 class="font-bold mb-3">③ 類型與補充要求（選填）</h3>
     <div class="flex flex-wrap gap-2 mb-3">${seg('auto', '由 AI 決定')}${seg('text', '按照文本')}${seg('Reading', 'Reading 閱讀')}${seg('Listening', 'Listening 聽力')}</div>
     ${g.type === 'text' ? '<p class="text-xs text-slate-500 mb-3 leading-relaxed">AI 不會自己寫文章，也不會改動你的文本；只針對文本設計單字詳解、考題與常用句。複製提示詞後，把文本貼在提示詞最下方一起送出。</p>' : ''}
-    ${d > CORE_DAYS ? `<label class="block text-xs text-slate-500 mb-1">專案小標籤（會顯示在文章上，也可在「題材總覽」依專案查找）</label><input type="text" value="${esc(g.project)}" oninput="genProj(this.value)" list="proj-list" placeholder="例如：6H12專案" class="${fld} w-full px-3 py-2 text-sm mb-3"><datalist id="proj-list">${[...new Set(DATA.map(x => x.project).filter(Boolean))].map(p => `<option value="${esc(p)}">`).join('')}</datalist>` : ''}
+    ${d > CORE_DAYS ? `<label class="block text-xs text-slate-500 mb-1">專案名稱（同一週的 D8 共用；會顯示在文章上，也可在「題材總覽」依專案查找）</label><input type="text" value="${esc(g.project)}" oninput="genProj(this.value)" list="proj-list" placeholder="例如：Pocket Clic" class="${fld} w-full px-3 py-2 text-sm mb-3"><label class="block text-xs text-slate-500 mb-1">這一篇的小標題（選填；AI 會逐字填進 JSON 的 tag）</label><input type="text" value="${esc(g.tag)}" oninput="genTag(this.value)" placeholder="例如：1. Introduction / How Infant Car Seat Installation Has Evolved" class="${fld} w-full px-3 py-2 text-sm mb-3"><datalist id="proj-list">${[...new Set(DATA.map(x => x.project).filter(Boolean))].map(p => `<option value="${esc(p)}">`).join('')}</datalist>` : ''}
     <textarea rows="2" oninput="genNote(this.value)" placeholder="例如：題材請與航空公司客服有關、請多出現被動語態…" class="${fld} w-full p-3 text-sm">${esc(g.note)}</textarea>
   </section>
 

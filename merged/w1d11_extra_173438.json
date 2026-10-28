@@ -1,0 +1,31 @@
+{
+  "week": 1,
+  "day": 11,
+  "extra_vocab": [
+    {
+      "text": "get around",
+      "type": "phrase",
+      "zh": "規避、繞過（規定、問題、障礙）；（消息）傳開；四處走動",
+      "en": "to avoid a problem or rule by finding another way",
+      "note": "這篇對話實際用的是 work around（想辦法繞過專利），get around 是意思相近、同樣常見的說法，常指想辦法避開規定或障礙。",
+      "pattern": "get around + 規定／問題／障礙",
+      "grammar_note": "get around 當「規避」時，受詞直接放在 around 後面；get around to + V-ing 是另一個片語，意思是「終於抽空做某事」。",
+      "examples": [
+        { "tag": "專利", "en": "Our engineers found a way to get around the patent problem.", "zh": "我們的工程師找到了繞過專利問題的方法。" },
+        { "tag": "物流", "en": "We used a different route to get around the traffic.", "zh": "我們走另一條路線來避開車潮。" },
+        { "tag": "規定", "en": "No one should try to get around the safety rules.", "zh": "任何人都不該試圖規避安全規定。" },
+        { "tag": "辦公室", "en": "News of the price increase got around the office quickly.", "zh": "漲價的消息很快就在辦公室傳開了。" },
+        { "tag": "出差", "en": "It is easy to get around Taipei by MRT.", "zh": "搭捷運在台北四處移動很方便。" }
+      ],
+      "similar": [
+        { "phrase": "work around", "diff": "work around 更強調用另一種做法或技術方案繞過障礙，常用在工程、系統；get around 的範圍較廣，也能用在規定或問題。", "example": { "en": "We built a temporary tool to work around the software error.", "zh": "我們做了一個暫時的工具來繞過這個軟體錯誤。" } },
+        { "phrase": "bypass", "diff": "bypass 較正式，指直接略過某個步驟或環節。", "example": { "en": "The new system bypasses the manual approval step.", "zh": "新系統略過了人工核准的步驟。" } },
+        { "phrase": "avoid", "diff": "avoid 只是單純避開，不一定有找替代方法的意思。", "example": { "en": "Please avoid sending large files by email.", "zh": "請避免用電子郵件寄送大型檔案。" } }
+      ],
+      "confusable": [
+        { "phrase": "get over", "diff": "get over 是「克服、從（打擊）中恢復」；get around 是「繞過、規避」。", "example": { "en": "It took us a month to get over the loss of that client.", "zh": "我們花了一個月才從失去那位客戶的打擊中恢復。" } },
+        { "phrase": "get along", "diff": "get along 是「相處融洽」，和「繞過」無關。", "example": { "en": "Our team gets along well with the design department.", "zh": "我們團隊和設計部門相處得很好。" } }
+      ]
+    }
+  ]
+}

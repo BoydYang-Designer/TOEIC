@@ -1,0 +1,936 @@
+{
+  "week": 3,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "evolve",
+      "type": "word",
+      "ipa": "/ɪˈvɑːlv/",
+      "pos": "v.",
+      "zh": "演變、逐漸發展",
+      "en": "to change slowly and develop over time",
+      "note": "在文章裡指嬰兒汽座系統隨著時間一步步改良與演變。have evolved 用現在完成式，表示「一路演變到現在」，常用在簡報開場交代背景。",
+      "grammar_note": "evolve 是不及物動詞，後面不能直接接受詞；要說「演變成／由…演變而來」時用 evolve into／evolve from。",
+      "forms": [
+        {
+          "w": "evolves",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "演變",
+          "ipa": "/ɪˈvɑːlvz/",
+          "example": {
+            "en": "Our software evolves as customers give us new feedback.",
+            "zh": "我們的軟體會隨著客戶給的新意見而不斷演進。"
+          }
+        },
+        {
+          "w": "evolved",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "演變了",
+          "ipa": "/ɪˈvɑːlvd/",
+          "example": {
+            "en": "The company evolved from a small shop into a global brand.",
+            "zh": "這家公司從一間小店演變成全球品牌。"
+          }
+        },
+        {
+          "w": "evolving",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在演變",
+          "ipa": "/ɪˈvɑːlvɪŋ/",
+          "example": {
+            "en": "Customer needs are evolving quickly in the travel market.",
+            "zh": "旅遊市場中的客戶需求正快速演變。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "evolve into",
+          "zh": "演變成",
+          "example": {
+            "en": "A small project can evolve into a major product line.",
+            "zh": "一個小專案可能演變成主要的產品線。"
+          }
+        },
+        {
+          "phrase": "evolve over time",
+          "zh": "隨時間演變",
+          "example": {
+            "en": "Office rules often evolve over time as the company grows.",
+            "zh": "公司成長時，辦公室規定常會隨時間演變。"
+          }
+        },
+        {
+          "phrase": "evolve from",
+          "zh": "由…演變而來",
+          "example": {
+            "en": "Good products often evolve from simple customer requests.",
+            "zh": "好產品往往由簡單的客戶需求演變而來。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Our marketing plan has evolved since last year's meeting.",
+          "zh": "自從去年的會議以來，我們的行銷計畫已經有所演變。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "As the project evolves, I will keep you updated by email.",
+          "zh": "隨著專案演進，我會用電子郵件隨時向你更新。"
+        },
+        {
+          "tag": "簡報",
+          "en": "Let me show how our product has evolved over three years.",
+          "zh": "讓我說明我們的產品在三年間是如何演變的。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "involve",
+          "diff": "involve 是「涉及、包含」，拼法和 evolve 很像，但意思完全不同。",
+          "usage": "evolve 是不及物動詞，不接受詞；involve 是及物動詞，後面一定要接受詞。",
+          "example": {
+            "en": "This job involves meeting clients and writing weekly reports.",
+            "zh": "這份工作包含會見客戶和撰寫每週報告。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "develop",
+          "diff": "develop 可以接受詞（develop a product），evolve 強調自然、逐步的改變，不接受詞。",
+          "example": {
+            "en": "We plan to develop a new mobile app next year.",
+            "zh": "我們計畫明年開發一款新的手機應用程式。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "develop",
+          "pos": "v.",
+          "zh": "發展、開發",
+          "ipa": "/dɪˈveləp/",
+          "example": {
+            "en": "The team will develop a new product this year.",
+            "zh": "團隊今年會開發一項新產品。"
+          }
+        },
+        {
+          "w": "change",
+          "pos": "v.",
+          "zh": "改變",
+          "ipa": "/tʃeɪndʒ/",
+          "example": {
+            "en": "Our schedule may change if the client calls today.",
+            "zh": "如果客戶今天來電，我們的行程可能會改變。"
+          }
+        },
+        {
+          "w": "progress",
+          "pos": "n.",
+          "zh": "進展",
+          "ipa": "/ˈprɑːɡres/",
+          "example": {
+            "en": "We made good progress on the new design.",
+            "zh": "我們在新設計上有不錯的進展。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "evolution",
+          "ipa": "/ˌevəˈluːʃən/",
+          "pos": "n.",
+          "zh": "演變、進化",
+          "link": "evolve 去掉 e 再加 -ution，變成「演變的過程」，像 solve → solution"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "install",
+      "type": "word",
+      "ipa": "/ɪnˈstɔːl/",
+      "pos": "v.",
+      "zh": "安裝",
+      "en": "to put equipment or software in place so it can be used",
+      "note": "在文章裡指把底座裝在車上。You install the base 的 you 是泛指「使用者」，是產品說明常見的語氣。",
+      "grammar_note": "install 是及物動詞，後面直接接受詞，再用 in／on 接地點（install the base in the car）；被動是 be installed in／on。",
+      "forms": [
+        {
+          "w": "installs",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "安裝",
+          "ipa": "/ɪnˈstɔːlz/",
+          "example": {
+            "en": "Our IT team installs updates on every computer on Fridays.",
+            "zh": "我們的資訊團隊每週五會在每台電腦上安裝更新。"
+          }
+        },
+        {
+          "w": "installed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "安裝了、被安裝",
+          "ipa": "/ɪnˈstɔːld/",
+          "example": {
+            "en": "They installed a new security system in the lobby yesterday.",
+            "zh": "他們昨天在大廳安裝了新的保全系統。"
+          }
+        },
+        {
+          "w": "installing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在安裝",
+          "ipa": "/ɪnˈstɔːlɪŋ/",
+          "example": {
+            "en": "We are installing new software on all office computers.",
+            "zh": "我們正在所有辦公室電腦上安裝新軟體。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "install software",
+          "zh": "安裝軟體",
+          "example": {
+            "en": "Please install software updates before the training session starts.",
+            "zh": "請在培訓課程開始前安裝軟體更新。"
+          }
+        },
+        {
+          "phrase": "install a system",
+          "zh": "安裝系統",
+          "example": {
+            "en": "We plan to install a system that tracks every shipment.",
+            "zh": "我們計畫安裝一套能追蹤每筆貨物的系統。"
+          }
+        },
+        {
+          "phrase": "install equipment",
+          "zh": "安裝設備",
+          "example": {
+            "en": "The factory needs to install equipment before production begins.",
+            "zh": "工廠在開始生產前需要先安裝設備。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "辦公室",
+          "en": "IT will install the new printer in the meeting room today.",
+          "zh": "資訊部門今天會把新印表機裝在會議室。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please let me know when you can install the new software.",
+          "zh": "請告訴我你何時能安裝新的軟體。"
+        },
+        {
+          "tag": "設施維修",
+          "en": "A technician will install the new lights on Monday morning.",
+          "zh": "技術人員星期一早上會安裝新的燈具。"
+        },
+        {
+          "tag": "產品說明",
+          "en": "Parents can install the base in a car without special tools.",
+          "zh": "家長不需要特殊工具就能把底座裝在車上。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "set up",
+          "diff": "set up 較口語，除了安裝，也可指設定或準備；install 偏向把設備或軟體裝好。",
+          "example": {
+            "en": "Can you set up the projector before the meeting starts?",
+            "zh": "你能在會議開始前把投影機設置好嗎？"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "attach",
+          "pos": "v.",
+          "zh": "裝上、附上",
+          "ipa": "/əˈtætʃ/",
+          "example": {
+            "en": "Please attach the cable to the back of the device.",
+            "zh": "請把電纜接到裝置的背面。"
+          }
+        },
+        {
+          "w": "mount",
+          "pos": "v.",
+          "zh": "架設、固定",
+          "ipa": "/maʊnt/",
+          "example": {
+            "en": "We will mount the screen on the wall tomorrow.",
+            "zh": "我們明天會把螢幕固定在牆上。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "installation",
+          "ipa": "/ˌɪnstəˈleɪʃən/",
+          "pos": "n.",
+          "zh": "安裝",
+          "link": "install + -ation，把「安裝」變成名詞，像 inform → information"
+        },
+        {
+          "w": "installer",
+          "ipa": "/ɪnˈstɔːlər/",
+          "pos": "n.",
+          "zh": "安裝人員、安裝程式",
+          "link": "install + -er，做安裝的人或東西，像 worker、teacher"
+        },
+        {
+          "w": "reinstall",
+          "ipa": "/ˌriːɪnˈstɔːl/",
+          "pos": "v.",
+          "zh": "重新安裝",
+          "link": "re- 表示再一次，像 restart、rewrite"
+        },
+        {
+          "w": "uninstall",
+          "ipa": "/ˌʌnɪnˈstɔːl/",
+          "pos": "v.",
+          "zh": "解除安裝",
+          "link": "un- 表示相反動作，像 unlock、undo"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "convenient",
+      "type": "word",
+      "ipa": "/kənˈviːniənt/",
+      "pos": "adj.",
+      "zh": "方便的",
+      "en": "easy to use and saving time or effort",
+      "note": "在文章裡，more convenient 指無底座汽座在旅行或租車時更省事。講者用它比較兩種汽座系統的好處。",
+      "grammar_note": "convenient 通常形容事物、時間或地點，主詞不能是人；要說 It is convenient for me，不說 I am convenient。",
+      "forms": [
+        {
+          "w": "more convenient",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更方便的",
+          "ipa": "/mɔːr kənˈviːniənt/",
+          "example": {
+            "en": "The new schedule is more convenient for our overseas clients.",
+            "zh": "新的時間表對我們的海外客戶來說更方便。"
+          }
+        },
+        {
+          "w": "most convenient",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最方便的",
+          "ipa": "/moʊst kənˈviːniənt/",
+          "example": {
+            "en": "This is the most convenient hotel near the convention center.",
+            "zh": "這是會議中心附近最方便的飯店。"
+          }
+        },
+        {
+          "w": "conveniently",
+          "label": "副詞",
+          "pos": "adv.",
+          "zh": "方便地",
+          "ipa": "/kənˈviːniəntli/",
+          "example": {
+            "en": "The hotel is conveniently located near the train station.",
+            "zh": "這間飯店位置方便，就在火車站附近。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "convenient location",
+          "zh": "方便的地點",
+          "example": {
+            "en": "The office has a convenient location near the subway station.",
+            "zh": "這間辦公室地點方便，就在地鐵站附近。"
+          }
+        },
+        {
+          "phrase": "convenient time",
+          "zh": "方便的時間",
+          "example": {
+            "en": "Please choose a convenient time for the interview.",
+            "zh": "請為面試選擇一個方便的時間。"
+          }
+        },
+        {
+          "phrase": "convenient for",
+          "zh": "對…方便",
+          "example": {
+            "en": "Would Tuesday at ten be convenient for you?",
+            "zh": "星期二十點你方便嗎？"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Online meetings are convenient when team members work in different cities.",
+          "zh": "當團隊成員在不同城市工作時，線上會議很方便。"
+        },
+        {
+          "tag": "住宿",
+          "en": "The hotel is convenient because it is next to the station.",
+          "zh": "這間飯店很方便，因為就在車站旁邊。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "I can call you at any time that is convenient.",
+          "zh": "我可以在任何你方便的時間打電話給你。"
+        },
+        {
+          "tag": "租車",
+          "en": "Renting a car is convenient when you travel with children.",
+          "zh": "帶著孩子旅行時，租車很方便。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "conventional",
+          "diff": "conventional 是「傳統的、慣例的」，和 convenient 拼法接近，意思不同。",
+          "example": {
+            "en": "The conventional method takes longer than the new one.",
+            "zh": "傳統的方法比新方法花更多時間。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "handy",
+          "diff": "handy 較口語，強調放在手邊、用起來順手；convenient 較正式。",
+          "example": {
+            "en": "A small notebook is handy during business trips.",
+            "zh": "出差時，小筆記本很好用。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "easy",
+          "pos": "adj.",
+          "zh": "容易的",
+          "ipa": "/ˈiːzi/",
+          "example": {
+            "en": "The new form is easy to fill out.",
+            "zh": "這份新表格很容易填寫。"
+          }
+        },
+        {
+          "w": "useful",
+          "pos": "adj.",
+          "zh": "有用的",
+          "ipa": "/ˈjuːsfəl/",
+          "example": {
+            "en": "This checklist is very useful for first-time business travelers.",
+            "zh": "這份檢查表對初次出差的人非常有用。"
+          }
+        },
+        {
+          "w": "simple",
+          "pos": "adj.",
+          "zh": "簡單的",
+          "ipa": "/ˈsɪmpl/",
+          "example": {
+            "en": "The booking process is simple and takes five minutes.",
+            "zh": "訂位流程很簡單，只要五分鐘。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "convenience",
+          "ipa": "/kənˈviːniəns/",
+          "pos": "n.",
+          "zh": "便利",
+          "link": "convenient 的 -t 換成 -ce 變名詞，像 different → difference"
+        },
+        {
+          "w": "inconvenient",
+          "ipa": "/ˌɪnkənˈviːniənt/",
+          "pos": "adj.",
+          "zh": "不方便的",
+          "link": "in- 表示不，像 incorrect、inactive"
+        },
+        {
+          "w": "inconvenience",
+          "ipa": "/ˌɪnkənˈviːniəns/",
+          "pos": "n.",
+          "zh": "不便、麻煩",
+          "link": "inconvenient 把 -t 換成 -ce，變成「不方便」這件事"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "advantage",
+      "type": "word",
+      "ipa": "/ədˈvæntɪdʒ/",
+      "pos": "n.",
+      "zh": "優點、優勢",
+      "en": "something good that makes one choice better than another",
+      "note": "在文章裡，Both systems have their own advantages 是公平比較的開場，說明傳統底座與無底座汽座各有優點，再帶出缺點與新構想。",
+      "grammar_note": "advantage 是可數名詞，說「各有優點」常用複數 advantages；比較對象用 advantage over，不用 than。take advantage of 的 of 後面接名詞或 V-ing。",
+      "forms": [
+        {
+          "w": "advantages",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "優點（複數）",
+          "ipa": "/ədˈvæntɪdʒɪz/",
+          "example": {
+            "en": "Each supplier offers different advantages for our production line.",
+            "zh": "每家供應商都為我們的生產線提供不同的優勢。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "competitive advantage",
+          "zh": "競爭優勢",
+          "example": {
+            "en": "Fast delivery gives us a competitive advantage in this market.",
+            "zh": "快速交貨讓我們在這個市場上有競爭優勢。"
+          }
+        },
+        {
+          "phrase": "take advantage of",
+          "zh": "利用",
+          "example": {
+            "en": "Customers can take advantage of the discount until Friday.",
+            "zh": "客戶可以在星期五之前享用這項折扣。"
+          }
+        },
+        {
+          "phrase": "have an advantage over",
+          "zh": "勝過、比…有優勢",
+          "example": {
+            "en": "Our new model will have an advantage over older products.",
+            "zh": "我們的新款將比舊產品更有優勢。"
+          }
+        },
+        {
+          "phrase": "advantages and disadvantages",
+          "zh": "優缺點",
+          "example": {
+            "en": "We discussed the advantages and disadvantages of each supplier.",
+            "zh": "我們討論了每家供應商的優缺點。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "One advantage of this plan is its low cost.",
+          "zh": "這個計畫的一個優點是成本低。"
+        },
+        {
+          "tag": "簡報",
+          "en": "The main advantage of our system is its speed.",
+          "zh": "我們系統的主要優點是速度。"
+        },
+        {
+          "tag": "行銷",
+          "en": "Free shipping is a clear advantage for online shoppers.",
+          "zh": "免運費對網購者來說是明顯的好處。"
+        },
+        {
+          "tag": "面試",
+          "en": "My language skills are an advantage in this job.",
+          "zh": "我的語言能力在這份工作中是一項優勢。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "advance",
+          "diff": "advance 是「前進、預先」，拼法與 advantage 相近，意思不同。",
+          "example": {
+            "en": "Please submit the form two days in advance.",
+            "zh": "請在兩天前先提交這份表格。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "benefit",
+          "diff": "benefit 強調帶給人的好處；advantage 強調比別人更有利。",
+          "example": {
+            "en": "The new plan has a clear benefit for employees.",
+            "zh": "這項新計畫對員工有明顯的好處。"
+          }
+        },
+        {
+          "phrase": "a plus",
+          "diff": "a plus 較口語，指額外的加分優點。",
+          "example": {
+            "en": "Speaking Japanese is a plus for this position.",
+            "zh": "會說日語對這個職位是加分。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "benefit",
+          "pos": "n.",
+          "zh": "好處、福利",
+          "ipa": "/ˈbenɪfɪt/",
+          "example": {
+            "en": "Health insurance is an important benefit for workers.",
+            "zh": "健康保險對勞工來說是重要的福利。"
+          }
+        },
+        {
+          "w": "strength",
+          "pos": "n.",
+          "zh": "長處",
+          "ipa": "/streŋkθ/",
+          "example": {
+            "en": "Good teamwork is one of our greatest strengths here.",
+            "zh": "良好的團隊合作是我們在這裡最大的長處之一。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "advantageous",
+          "ipa": "/ˌædvænˈteɪdʒəs/",
+          "pos": "adj.",
+          "zh": "有利的",
+          "link": "advantage + -ous，有好處的，像 famous、dangerous"
+        },
+        {
+          "w": "disadvantage",
+          "ipa": "/ˌdɪsədˈvæntɪdʒ/",
+          "pos": "n.",
+          "zh": "缺點、不利",
+          "link": "dis- 表示相反，像 disagree、dislike"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "connector",
+      "type": "word",
+      "ipa": "/kəˈnektər/",
+      "pos": "n.",
+      "zh": "接頭、連接器",
+      "en": "a part that joins two things together",
+      "note": "在文章裡，ISOFIX connectors 指汽座上用來扣住車上固定點的接頭。connector 是 connect + -or，意思是「做連接工作的東西」，像 projector。",
+      "forms": [
+        {
+          "w": "connectors",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "接頭（複數）",
+          "ipa": "/kəˈnektərz/",
+          "example": {
+            "en": "Please check that all connectors are clean before assembly.",
+            "zh": "組裝前請確認所有接頭都很乾淨。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "power connector",
+          "zh": "電源接頭",
+          "example": {
+            "en": "The power connector is loose, so the machine keeps stopping.",
+            "zh": "電源接頭鬆了，所以機器一直停機。"
+          }
+        },
+        {
+          "phrase": "electrical connector",
+          "zh": "電氣接頭",
+          "example": {
+            "en": "Workers tested every electrical connector on the line.",
+            "zh": "工人測試了生產線上的每個電氣接頭。"
+          }
+        },
+        {
+          "phrase": "a connector for",
+          "zh": "…用的接頭",
+          "example": {
+            "en": "We need a connector for this type of cable.",
+            "zh": "我們需要這種電纜用的接頭。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電腦設備",
+          "en": "This connector fits most laptops sold in our store.",
+          "zh": "這個接頭適用於我們店裡賣的大部分筆電。"
+        },
+        {
+          "tag": "製造",
+          "en": "Each connector is checked before it leaves the factory.",
+          "zh": "每個接頭在出廠前都會經過檢查。"
+        },
+        {
+          "tag": "維修",
+          "en": "The technician replaced a broken connector on the printer.",
+          "zh": "技術人員更換了印表機上損壞的接頭。"
+        },
+        {
+          "tag": "汽座",
+          "en": "The connector on the base clicks into the car's anchor.",
+          "zh": "底座上的接頭會卡進車上的固定點。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "converter",
+          "diff": "converter 是轉換器（轉換電壓或格式）；connector 只負責把兩樣東西接在一起。",
+          "example": {
+            "en": "You need a converter to use this plug overseas.",
+            "zh": "你需要一個轉換器才能在國外使用這個插頭。"
+          }
+        },
+        {
+          "word": "adapter",
+          "diff": "adapter 是轉接頭，讓不同規格的插頭能接在一起；connector 泛指各種連接用的零件。",
+          "example": {
+            "en": "I bought an adapter for my laptop charger.",
+            "zh": "我買了一個筆電充電器用的轉接頭。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "cable",
+          "pos": "n.",
+          "zh": "電纜、線材",
+          "ipa": "/ˈkeɪbl/",
+          "example": {
+            "en": "Please plug the cable into the back of the monitor.",
+            "zh": "請把電纜插到螢幕的背面。"
+          }
+        },
+        {
+          "w": "plug",
+          "pos": "n.",
+          "zh": "插頭",
+          "ipa": "/plʌɡ/",
+          "example": {
+            "en": "The plug does not fit this wall socket.",
+            "zh": "這個插頭插不進這個牆上插座。"
+          }
+        },
+        {
+          "w": "socket",
+          "pos": "n.",
+          "zh": "插座",
+          "ipa": "/ˈsɑːkɪt/",
+          "example": {
+            "en": "There is a socket near the meeting room door.",
+            "zh": "會議室門邊有一個插座。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "connect",
+          "ipa": "/kəˈnekt/",
+          "pos": "v.",
+          "zh": "連接",
+          "link": "connector 的詞幹，意思是把東西接在一起，加 -or 就變成「連接的東西」"
+        },
+        {
+          "w": "connection",
+          "ipa": "/kəˈnekʃən/",
+          "pos": "n.",
+          "zh": "連線、連接",
+          "link": "connect + -ion，把「連接」變成名詞，像 collect → collection"
+        },
+        {
+          "w": "disconnect",
+          "ipa": "/ˌdɪskəˈnekt/",
+          "pos": "v.",
+          "zh": "中斷連接",
+          "link": "dis- 表示相反，像 disagree、dislike"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "rental",
+      "type": "word",
+      "ipa": "/ˈrentl/",
+      "pos": "adj.",
+      "zh": "租賃的",
+      "en": "used or offered for rent",
+      "note": "在文章裡，rental cars 指旅行時租用的車。講者用它說明無底座汽座在租車時比較方便。",
+      "grammar_note": "rental 當形容詞時直接放在名詞前，且不加 s，例如 rental cars、rental agreement；不說 rentals car。",
+      "forms": [
+        {
+          "w": "rentals",
+          "label": "複數（名詞）",
+          "pos": "n.",
+          "zh": "租賃（物）",
+          "ipa": "/ˈrentlz/",
+          "example": {
+            "en": "Car rentals near the airport usually cost more on weekends.",
+            "zh": "機場附近的租車費用在週末通常比較貴。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "rental car",
+          "zh": "租賃車",
+          "example": {
+            "en": "We booked a rental car for the whole trip.",
+            "zh": "我們為整趟旅程預訂了一輛租賃車。"
+          }
+        },
+        {
+          "phrase": "rental agreement",
+          "zh": "租賃合約",
+          "example": {
+            "en": "Please read the rental agreement before you sign it.",
+            "zh": "簽名前請先閱讀租賃合約。"
+          }
+        },
+        {
+          "phrase": "rental fee",
+          "zh": "租金",
+          "example": {
+            "en": "The rental fee includes insurance and one extra driver.",
+            "zh": "租金包含保險與一位額外駕駛。"
+          }
+        },
+        {
+          "phrase": "rental company",
+          "zh": "租賃公司",
+          "example": {
+            "en": "The rental company will deliver the car to our hotel.",
+            "zh": "租賃公司會把車送到我們的飯店。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "出差",
+          "en": "I need a rental van for the trade show.",
+          "zh": "我需要一輛租賃廂型車去參加展覽。"
+        },
+        {
+          "tag": "合約",
+          "en": "The rental period starts on the first of June.",
+          "zh": "租賃期間從六月一日開始。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please send me the rental receipt by email today.",
+          "zh": "請今天用電子郵件把租賃收據寄給我。"
+        },
+        {
+          "tag": "租車",
+          "en": "Rental cars must be returned with a full tank.",
+          "zh": "租賃車必須加滿油才能歸還。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "lease",
+          "diff": "lease 多指長期租賃（如辦公室、車輛合約）；rental 多指短期租用。",
+          "example": {
+            "en": "We signed a two-year lease for the new office.",
+            "zh": "我們為新辦公室簽了兩年的租約。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "fee",
+          "pos": "n.",
+          "zh": "費用",
+          "ipa": "/fiː/",
+          "example": {
+            "en": "There is a small fee for early returns.",
+            "zh": "提前歸還需要收取一筆小額費用。"
+          }
+        },
+        {
+          "w": "deposit",
+          "pos": "n.",
+          "zh": "訂金、押金",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "example": {
+            "en": "A deposit is required when you book the car.",
+            "zh": "預訂車輛時需要先付押金。"
+          }
+        },
+        {
+          "w": "reservation",
+          "pos": "n.",
+          "zh": "預訂",
+          "ipa": "/ˌrezərˈveɪʃən/",
+          "example": {
+            "en": "I made a reservation for a rental car online.",
+            "zh": "我在網路上預訂了一輛租賃車。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "rent",
+          "ipa": "/rent/",
+          "pos": "v.",
+          "zh": "租用",
+          "link": "rental 的詞幹，加 -al 變成「與租有關的」，像 arrive → arrival、approve → approval"
+        },
+        {
+          "w": "renter",
+          "ipa": "/ˈrentər/",
+          "pos": "n.",
+          "zh": "承租人",
+          "link": "rent + -er，租東西的人，像 worker、driver"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ˈrentl/",
+          "zh": "租賃的",
+          "in_passage": true,
+          "example": {
+            "en": "The rental car was ready when we arrived at the airport.",
+            "zh": "我們抵達機場時，租賃車已經準備好了。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈrentl/",
+          "zh": "租賃、租用",
+          "example": {
+            "en": "The daily rental costs about fifty dollars, including insurance.",
+            "zh": "每日租金約五十美元，含保險。"
+          }
+        }
+      ],
+      "senses": []
+    }
+  ]
+}
