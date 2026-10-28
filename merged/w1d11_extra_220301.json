@@ -1,0 +1,210 @@
+{
+  "week": 1,
+  "day": 11,
+  "extra_vocab": [
+    {
+      "text": "bypass",
+      "type": "word",
+      "ipa": "/ˈbaɪpæs/",
+      "pos": "v.",
+      "zh": "繞過、避開",
+      "en": "to go around something instead of going through it",
+      "note": "原文雖然沒有直接出現這個字，但 work around those patents 的意思就接近 bypass：設計新機構來避開對手的專利。bypass 比 work around 更強調「直接繞開、略過」某個障礙或規定。",
+      "grammar_note": "bypass 當動詞時是及物動詞，後面直接接受詞（bypass the patent），不加 around 或 of。",
+      "forms": [
+        {
+          "w": "bypasses",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "繞過",
+          "ipa": "/ˈbaɪpæsɪz/",
+          "example": {
+            "en": "This new mechanism bypasses the competitor's patent completely.",
+            "zh": "這個新機構完全繞開了競爭對手的專利。"
+          }
+        },
+        {
+          "w": "bypassed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "繞過了；被繞過",
+          "ipa": "/ˈbaɪpæst/",
+          "example": {
+            "en": "The team bypassed the old software and built a new tool.",
+            "zh": "團隊略過舊軟體，自己做了一個新工具。"
+          }
+        },
+        {
+          "w": "bypassing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在繞過",
+          "ipa": "/ˈbaɪpæsɪŋ/",
+          "example": {
+            "en": "We saved time by bypassing the second round of approval.",
+            "zh": "我們略過第二輪核准，節省了時間。"
+          }
+        },
+        {
+          "w": "bypasses",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "繞道、旁路（複數）",
+          "ipa": "/ˈbaɪpæsɪz/",
+          "example": {
+            "en": "The city built two bypasses to reduce traffic in the center.",
+            "zh": "市府蓋了兩條外環道來減少市中心的車流。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "bypass the approval process",
+          "zh": "略過核准程序",
+          "example": {
+            "en": "Managers should not bypass the approval process for large purchases.",
+            "zh": "大額採購時，主管不應該略過核准程序。"
+          }
+        },
+        {
+          "phrase": "bypass a security system",
+          "zh": "繞過安全系統",
+          "example": {
+            "en": "No one is allowed to bypass a security system in our building.",
+            "zh": "我們大樓裡任何人都不得繞過安全系統。"
+          }
+        },
+        {
+          "phrase": "bypass a patent",
+          "zh": "避開專利",
+          "example": {
+            "en": "Engineers found a clever way to bypass a patent held by a rival.",
+            "zh": "工程師找到一個巧妙的方法，避開對手持有的專利。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "專利",
+          "en": "We want to bypass the patent issue by changing the mechanism.",
+          "zh": "我們想透過改變機構來避開專利問題。"
+        },
+        {
+          "tag": "採購",
+          "en": "Buying directly lets us bypass the distributor and lower our costs.",
+          "zh": "直接購買讓我們略過經銷商，降低成本。"
+        },
+        {
+          "tag": "資訊安全",
+          "en": "Staff must not bypass the login page to open the company files.",
+          "zh": "員工不得略過登入頁面去開啟公司檔案。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "pass by",
+          "diff": "pass by 是「路過、經過」，不是刻意避開；bypass 是為了避開而繞過。",
+          "usage": "bypass 是一個字，後面直接接受詞；pass by 是片語，常寫成 pass by + 地點，也可單獨使用。",
+          "example": {
+            "en": "Please pass by my office after the meeting to pick up the files.",
+            "zh": "會議結束後，請順道來我辦公室拿檔案。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "work around",
+          "diff": "work around 多指想辦法解決問題或限制，語氣較口語；bypass 強調直接繞開或略過。",
+          "example": {
+            "en": "Engineers worked around the problem by using a different part.",
+            "zh": "工程師改用不同的零件來解決這個問題。"
+          }
+        },
+        {
+          "word": "avoid",
+          "diff": "avoid 是「避免、不去碰」，範圍較廣；bypass 是指繞過某個障礙或步驟，仍要達到目標。",
+          "example": {
+            "en": "We should avoid using parts covered by the competitor's patent.",
+            "zh": "我們應該避免使用受競爭對手專利保護的零件。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "detour",
+          "ipa": "/ˈdiːtʊr/",
+          "pos": "n.",
+          "zh": "繞道",
+          "example": {
+            "en": "We took a detour because the main road was closed.",
+            "zh": "因為主要道路封閉，我們繞道而行。"
+          }
+        },
+        {
+          "w": "shortcut",
+          "ipa": "/ˈʃɔːrtkʌt/",
+          "pos": "n.",
+          "zh": "捷徑",
+          "example": {
+            "en": "There is no shortcut to getting a safety approval.",
+            "zh": "取得安全核准沒有捷徑。"
+          }
+        },
+        {
+          "w": "workaround",
+          "ipa": "/ˈwɝːkəraʊnd/",
+          "pos": "n.",
+          "zh": "變通辦法",
+          "example": {
+            "en": "The IT team found a workaround until the update is ready.",
+            "zh": "在更新完成前，資訊團隊找到了變通辦法。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/ˈbaɪpæs/",
+          "zh": "繞過、避開",
+          "in_passage": true,
+          "example": {
+            "en": "The new route will bypass the crowded city center.",
+            "zh": "新路線會繞過擁擠的市中心。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈbaɪpæs/",
+          "zh": "繞道、外環道",
+          "example": {
+            "en": "The bypass cuts our delivery time to the port by half an hour.",
+            "zh": "這條外環道讓我們到港口的運送時間縮短了半小時。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "繞過（障礙或限制）",
+          "en": "to find a way around a problem or rule",
+          "in_passage": true,
+          "example": {
+            "en": "They bypassed the supplier shortage by finding a new factory.",
+            "zh": "他們找到新工廠，避開了供應商缺貨的問題。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "略過（人或步驟）",
+          "en": "to skip a person or step in a normal process",
+          "distinguish": "受詞是人（經理、經銷商）或流程步驟時，多半是「略過、越過」。",
+          "example": {
+            "en": "She bypassed her manager and sent the request to the director.",
+            "zh": "她越過經理，直接把申請送給了主任。"
+          }
+        }
+      ]
+    }
+  ]
+}
