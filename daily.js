@@ -1203,7 +1203,7 @@ function renderDay() {
             <span class="text-xs text-slate-500 italic ml-1">${esc(v.pos)}</span>
             <p class="text-xs text-slate-400">${esc(v.ipa)}</p>
           </div>
-          <button onclick="vplay('${id}', this.dataset.w, '', this.dataset.w)" data-w="${esc(v.word)}" class="text-slate-400 hover:text-indigo-600 text-lg">🔊</button>
+          <button onclick="vplay('${id}', this.dataset.w, '', this.dataset.w)" data-w="${esc(v.word)}" data-vq="${id}" data-vi="${i}" class="text-slate-400 hover:text-indigo-600 text-lg">🔊</button>
         </div>
         <p class="mt-2 text-sm font-semibold text-slate-700 dark:text-slate-300">${esc(v.zh)}</p>
         <p class="text-xs mt-1 text-slate-500 dark:text-slate-400">搭配詞：${esc(v.col)}</p>${dyMulti(x, v)}

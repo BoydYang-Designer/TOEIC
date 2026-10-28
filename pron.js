@@ -73,9 +73,61 @@ function prMicMark(m, k) { // 詳解頁：練習過的字，麥克風位置改�
   const b = prBest(k);
   if (b) { m.dataset.sc = b; m.dataset.lv = b >= 85 ? 'g' : b >= 60 ? 'y' : 'r'; } else { delete m.dataset.sc; delete m.dataset.lv; }
 }
+/* ---------- 單字卡百分比：這個字「詳解頁」所有語音練習項目的總分 ----------
+   項目＝詳解頁每個 🎙（單字、原形、詞性、多義、屈折、同字族、搭配、同義改寫、例句、重點字詞、易混淆、近義、相關字…，
+   寫法與 notes.js 的 dnRenderDetail 一致；相同文字只算一項）。總分＝各項最高分加總 ÷ 全部項目數，沒練習的算 0；
+   一項都沒練習過就回傳 null（不顯示）。 */
+function prDetailKeys(x, v) {
+  const ex = dnFindExtraAny(x, v.word), e = Object.assign({}, v, ex || {});
+  e.text = v.word;
+  const T = (ex && ex.type) || (/\s/.test(v.word) ? 'phrase' : 'word'), out = new Map();
+  const add = t => { t = String(t == null ? '' : t).replace(/\s+/g, ' ').trim(); if (/[A-Za-z0-9]/.test(t)) out.set(prNorm(t), t); };
+  const arr = a => Array.isArray(a) ? a : (a ? [a] : []);
+  const obj = a => arr(a).filter(o => o && typeof o === 'object');
+  const exEn = o => { if (o && o.example && o.example.en) add(o.example.en); };
+  add(e.text);
+  if (e.en) add(e.en);
+  const m = dnMarksOf(idOf(x)).find(q => dnKey(q.text) === dnKey(v.word));
+  let ctx = m && m.ctx;
+  if (!ctx && T !== 'sentence') { const p = String(x.passage || ''), i = p.toLowerCase().indexOf(String(e.text).toLowerCase()); if (i >= 0) ctx = dnCtxOf(p, i, i + e.text.length, e.text); }
+  if (ctx && T !== 'sentence') add(ctx);
+  if (e.lemma && String(e.lemma).trim().toLowerCase() !== String(e.text).trim().toLowerCase()) add(e.lemma);
+  obj(e.pos_uses).forEach(o => { add(o.w || e.lemma || e.text); exEn(o); });
+  obj(e.senses).forEach(o => { add(e.lemma || e.text); exEn(o); });
+  obj(e.forms).forEach(o => { if (o.w) add(o.w); exEn(o); });
+  obj(e.derived).forEach(o => { if (o.w) add(o.w); });
+  const cols = arr(e.collocations);
+  cols.forEach(c => { add(typeof c === 'string' ? c : (c && (c.phrase || c.p)) || ''); });
+  arr(e.paraphrase).forEach(o => { if (o && typeof o === 'object' && o.en) add(o.en); });
+  arr(e.examples).forEach(o => add(typeof o === 'string' ? o : o && o.en));
+  cols.forEach(c => { if (c && typeof c === 'object' && c.example && c.example.en) add(c.example.en); });
+  arr(e.key_words).forEach(o => { if (o && typeof o === 'object' && o.w) add(o.w); });
+  obj(e.confusable).forEach(o => { add(o.word || o.phrase || ''); exEn(o); });
+  obj(e.similar).forEach(o => { add(o.phrase || o.word || ''); exEn(o); });
+  obj(e.family).forEach(o => { if (o.w) add(o.w); exEn(o); });
+  return [...out.keys()];
+}
+function prDetailPct(qid, i) { // → { pct, done, total } 或 null（還沒練習過）
+  try {
+    const x = dnArt(qid), v = x && x.vocab && x.vocab[i]; if (!v) return null;
+    const ks = prDetailKeys(x, v), total = ks.length; if (!total) return null;
+    let sum = 0, done = 0; ks.forEach(k => { const b = prBest(k); if (b) { sum += b; done++; } });
+    return done ? { pct: Math.round(sum / total), done, total } : null;
+  } catch (e) { return null; }
+}
+const prCardBadge = (qid, i) => { // 核心單字卡右上角：詳解語音練習總分；一項都沒練習就隱藏
+  const r = prDetailPct(qid, i);
+  return `<span class="pr-badge pr-total ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ${r ? skPctCls(r.pct) : 'hidden'}" data-vq="${esc(qid)}" data-vi="${i}" title="${r ? `詳解語音練習總分（已練習 ${r.done}／${r.total} 項，沒練習的算 0 分）` : ''}">${r ? r.pct : ''}</span>`;
+};
 function prRefreshBadges() {
   document.querySelectorAll('button.pr-mic').forEach(m => prMicMark(m, prNorm(m.dataset.pt)));
   document.querySelectorAll('.pr-badge').forEach(el => {
+    if (el.dataset.vq != null) { // 單字卡：詳解總分
+      const r = prDetailPct(el.dataset.vq, +el.dataset.vi);
+      el.className = 'pr-badge pr-total ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ' + (r ? skPctCls(r.pct) : 'hidden');
+      el.textContent = r ? r.pct : ''; el.title = r ? `詳解語音練習總分（已練習 ${r.done}／${r.total} 項，沒練習的算 0 分）` : '';
+      return;
+    }
     const b = prBest(el.dataset.k);
     el.className = 'pr-badge ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ' + (b ? skPctCls(b) : 'hidden');
     el.textContent = b || '';
@@ -105,7 +157,7 @@ function prInject(root) {
     m.addEventListener('click', ev => { ev.stopPropagation(); prOpen(text, b); });
     b.after(m);
     prMicMark(m, k);
-    m.insertAdjacentHTML('afterend', prBadge(k));
+    m.insertAdjacentHTML('afterend', b.dataset.vq != null ? prCardBadge(b.dataset.vq, +b.dataset.vi) : prBadge(k)); // 核心單字卡的 🔊 帶 data-vq／data-vi：徽章顯示詳解總分
   });
 }
 (function () {

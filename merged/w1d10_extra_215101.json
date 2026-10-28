@@ -1,0 +1,1158 @@
+{
+  "week": 1,
+  "day": 10,
+  "extra_vocab": [
+    {
+      "text": "flip",
+      "type": "word",
+      "ipa": "/flɪp/",
+      "pos": "v.",
+      "zh": "翻轉、翻過來",
+      "en": "to turn something over so the other side is up",
+      "note": "在這篇文章裡，flip the seat board 指把座椅板整個翻過來，讓它和把手對齊後才能收合。這是操作步驟中的動作字，語氣直接、口語。",
+      "grammar_note": "flip 當動詞時是及物動詞，可直接接受詞（flip the board）；翻轉後的方向可用 over 補充（flip it over）。",
+      "forms": [
+        {
+          "w": "flips",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "翻轉（第三人稱）",
+          "ipa": "/flɪps/",
+          "example": {
+            "en": "The technician flips each sample tray before the next inspection.",
+            "zh": "技術人員在下次檢查前會翻轉每個樣品盤。"
+          }
+        },
+        {
+          "w": "flipped",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "翻轉了",
+          "ipa": "/flɪpt/",
+          "example": {
+            "en": "She flipped the sign to show that the store was closed.",
+            "zh": "她把牌子翻面，顯示商店已打烊。"
+          }
+        },
+        {
+          "w": "flipping",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在翻轉",
+          "ipa": "/ˈflɪpɪŋ/",
+          "example": {
+            "en": "He is flipping the display board to show the next price list.",
+            "zh": "他正翻動展示板，秀出下一份價目表。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "flip a switch",
+          "zh": "按下開關",
+          "example": {
+            "en": "Flip a switch on the side to start the machine.",
+            "zh": "按下側邊的開關就能啟動機器。"
+          }
+        },
+        {
+          "phrase": "flip over",
+          "zh": "翻過來",
+          "example": {
+            "en": "Please flip the card over and sign on the back.",
+            "zh": "請把卡片翻過來，在背面簽名。"
+          }
+        },
+        {
+          "phrase": "flip through",
+          "zh": "快速翻閱",
+          "example": {
+            "en": "I flipped through the catalog before the meeting started.",
+            "zh": "我在會議開始前快速翻閱了型錄。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "產品說明",
+          "en": "To fold the table, flip the top panel toward the wall.",
+          "zh": "要收合桌子，請把桌面板往牆壁方向翻轉。"
+        },
+        {
+          "tag": "會議",
+          "en": "Let's flip the slide order so the budget comes first.",
+          "zh": "我們把投影片順序對調，讓預算先出現吧。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "flap",
+          "diff": "flap 是「拍動、擺動」或名詞「蓋子、折片」；flip 是把東西整個翻面。",
+          "example": {
+            "en": "The box has a flap that closes with a small magnet.",
+            "zh": "這個盒子有一個用小磁鐵閉合的蓋片。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "turn over",
+          "diff": "turn over 較中性，可用在人或物；flip 動作較快、較隨意。",
+          "example": {
+            "en": "Please turn over the form and read the instructions.",
+            "zh": "請把表格翻過來，閱讀說明。"
+          }
+        },
+        {
+          "word": "switch",
+          "diff": "switch 通常指切換功能或開關；flip 則偏重動作本身，如 flip a switch。",
+          "example": {
+            "en": "We switched the printer to double-sided mode this morning.",
+            "zh": "我們今天早上把印表機切換成雙面模式。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "turn",
+          "pos": "v.",
+          "zh": "轉動、翻",
+          "ipa": "/tɜːrn/",
+          "example": {
+            "en": "Turn the dial slowly until the light turns green.",
+            "zh": "慢慢轉動旋鈕，直到燈變成綠色。"
+          }
+        },
+        {
+          "w": "rotate",
+          "pos": "v.",
+          "zh": "旋轉",
+          "ipa": "/ˈroʊteɪt/",
+          "example": {
+            "en": "Rotate the handle to the left to lock the door.",
+            "zh": "把把手向左旋轉就能鎖門。"
+          }
+        },
+        {
+          "w": "reverse",
+          "pos": "v.",
+          "zh": "反轉、顛倒",
+          "ipa": "/rɪˈvɜːrs/",
+          "example": {
+            "en": "We reversed the order of the two steps to save time.",
+            "zh": "我們把兩個步驟對調以節省時間。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/flɪp/",
+          "zh": "翻轉",
+          "in_passage": true,
+          "example": {
+            "en": "Flip the seat board so it lines up with the bar.",
+            "zh": "把座椅板翻轉，讓它和横桿對齊。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/flɪp/",
+          "zh": "翻轉、輕彈",
+          "example": {
+            "en": "The coin flip decided which team would present first.",
+            "zh": "擲硬幣決定了哪一隊先進行簡報。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "翻轉、翻面",
+          "en": "to turn something over",
+          "in_passage": true,
+          "example": {
+            "en": "Flip the label over to find the serial number.",
+            "zh": "把標籤翻過來就能找到序號。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "撥動（開關）",
+          "en": "to move a switch quickly to turn it on or off",
+          "distinguish": "後面接 switch 或 lever 時，表示撥動開關。",
+          "example": {
+            "en": "Flip the main switch before you leave the factory.",
+            "zh": "離開工廠前請撥下總開關。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "快速翻閱",
+          "en": "to look quickly through pages",
+          "distinguish": "常搭配 through，指不細讀、只是快速瀏覽。",
+          "example": {
+            "en": "He flipped through the report to find the sales chart.",
+            "zh": "他快速翻閱報告尋找銷售圖表。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "deactivate",
+      "type": "word",
+      "ipa": "/diːˈæktɪveɪt/",
+      "pos": "v.",
+      "zh": "使停止作用、停用",
+      "en": "to make something stop working or stop being active",
+      "note": "文章用 activate 說明按下按鈕會啟動後輪旋轉機構，放開後就恢復正常移動，這個相反的動作就是 deactivate。deactivate 比 turn off 正式，常用在機構、帳號與功能。",
+      "forms": [
+        {
+          "w": "deactivates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "停用（第三人稱）",
+          "ipa": "/diːˈæktɪveɪts/",
+          "example": {
+            "en": "The system deactivates the alarm when the manager enters the code.",
+            "zh": "主管輸入密碼時，系統會解除警報。"
+          }
+        },
+        {
+          "w": "deactivated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "停用了",
+          "ipa": "/diːˈæktɪveɪtɪd/",
+          "example": {
+            "en": "Your account was deactivated after a year without any activity.",
+            "zh": "您的帳號因一年沒有任何活動而被停用。"
+          }
+        },
+        {
+          "w": "deactivating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在停用",
+          "ipa": "/diːˈæktɪveɪtɪŋ/",
+          "example": {
+            "en": "We are deactivating old user accounts to improve security.",
+            "zh": "我們正在停用舊的使用者帳號以提升安全性。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "deactivate an account",
+          "zh": "停用帳號",
+          "example": {
+            "en": "You can deactivate an account in the settings menu.",
+            "zh": "您可以在設定選單中停用帳號。"
+          }
+        },
+        {
+          "phrase": "deactivate the alarm",
+          "zh": "解除警報",
+          "example": {
+            "en": "Staff must deactivate the alarm before opening the store.",
+            "zh": "員工開店前必須解除警報。"
+          }
+        },
+        {
+          "phrase": "deactivate a feature",
+          "zh": "停用功能",
+          "example": {
+            "en": "Click here to deactivate a feature you no longer need.",
+            "zh": "點選此處即可停用不再需要的功能。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Please deactivate the old card once the new one arrives.",
+          "zh": "新卡寄到後，請停用舊卡。"
+        },
+        {
+          "tag": "產品說明",
+          "en": "Release the button to deactivate the swivel function.",
+          "zh": "放開按鈕即可停用旋轉功能。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "reactivate",
+          "diff": "reactivate 是「重新啟用」；deactivate 是「停用」，兩者方向相反。",
+          "example": {
+            "en": "Call the bank if you want to reactivate your card.",
+            "zh": "如果想重新啟用您的卡片，請致電銀行。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "disable",
+          "diff": "disable 常指讓功能暫時無法使用，用於軟體與設備；deactivate 也可指帳號與機構。",
+          "example": {
+            "en": "The IT team disabled the old login page last night.",
+            "zh": "資訊團隊昨晚停用了舊的登入頁面。"
+          }
+        },
+        {
+          "word": "turn off",
+          "diff": "turn off 較口語、日常；deactivate 較正式，常見於說明書與系統通知。",
+          "example": {
+            "en": "Please turn off the machine before you clean it.",
+            "zh": "清潔機器前請先關閉電源。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "disable",
+          "pos": "v.",
+          "zh": "使無法使用",
+          "ipa": "/dɪsˈeɪbl/",
+          "example": {
+            "en": "Disable the sound option if you are in a meeting.",
+            "zh": "開會時請關閉聲音選項。"
+          }
+        },
+        {
+          "w": "disengage",
+          "pos": "v.",
+          "zh": "使分離、解除",
+          "ipa": "/ˌdɪsɪnˈɡeɪdʒ/",
+          "example": {
+            "en": "Press the pedal to disengage the brake before you move.",
+            "zh": "移動前請踩踏板解除煞車。"
+          }
+        },
+        {
+          "w": "cancel",
+          "pos": "v.",
+          "zh": "取消",
+          "ipa": "/ˈkænsl/",
+          "example": {
+            "en": "You can cancel the service at any time online.",
+            "zh": "您可以隨時在線上取消服務。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "active",
+          "ipa": "/ˈæktɪv/",
+          "pos": "adj.",
+          "zh": "活躍的、運作中的",
+          "link": "最基礎的字，像 action、activity 的形容詞"
+        },
+        {
+          "w": "activate",
+          "ipa": "/ˈæktɪveɪt/",
+          "pos": "v.",
+          "zh": "啟動、啟用",
+          "link": "active + -ate，使…變成，像 educate、separate"
+        },
+        {
+          "w": "activation",
+          "ipa": "/ˌæktɪˈveɪʃn/",
+          "pos": "n.",
+          "zh": "啟動、啟用",
+          "link": "activate + -ion，動作變名詞，像 decide → decision"
+        },
+        {
+          "w": "deactivation",
+          "ipa": "/diːˌæktɪˈveɪʃn/",
+          "pos": "n.",
+          "zh": "停用",
+          "link": "de- + activation，相反的動作，像 decrease"
+        },
+        {
+          "w": "inactive",
+          "ipa": "/ɪnˈæktɪv/",
+          "pos": "adj.",
+          "zh": "不活躍的、未使用的",
+          "link": "in- + active，不…的，像 incorrect、incomplete"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "activation",
+      "type": "word",
+      "ipa": "/ˌæktɪˈveɪʃn/",
+      "pos": "n.",
+      "zh": "啟動、啟用",
+      "en": "the act of making something start to work",
+      "note": "文章提到 press this button to activate the swiveling mechanism，activation 就是這個「按下後讓機構開始作用」的動作或過程。名詞常見於產品說明、帳號與卡片啟用。",
+      "grammar_note": "activation 當「啟用的動作」時通常不可數；說「一次啟用」時可說 an activation，但較少見。後面常接 of + 名詞（activation of the account）。",
+      "forms": [
+        {
+          "w": "activations",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "啟用（複數）",
+          "ipa": "/ˌæktɪˈveɪʃnz/",
+          "example": {
+            "en": "Card activations rose sharply after the bank sent its reminder email.",
+            "zh": "銀行寄出提醒信後，信用卡啟用數大幅增加。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "activation code",
+          "zh": "啟用碼",
+          "example": {
+            "en": "Enter the activation code that we sent to your email.",
+            "zh": "請輸入我們寄到您信箱的啟用碼。"
+          }
+        },
+        {
+          "phrase": "account activation",
+          "zh": "帳號啟用",
+          "example": {
+            "en": "Account activation takes only a few minutes online.",
+            "zh": "帳號啟用只需要在線上花幾分鐘。"
+          }
+        },
+        {
+          "phrase": "activation process",
+          "zh": "啟用流程",
+          "example": {
+            "en": "The activation process requires a valid phone number.",
+            "zh": "啟用流程需要一組有效的電話號碼。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "產品說明",
+          "en": "Press the button for activation of the rear-wheel mechanism.",
+          "zh": "按下按鈕即可啟動後輪機構。"
+        },
+        {
+          "tag": "客服",
+          "en": "Activation of your new card may take one business day.",
+          "zh": "您的新卡啟用可能需要一個工作天。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "action",
+          "diff": "action 是「行動、措施」；activation 是「讓某功能開始作用」。",
+          "example": {
+            "en": "The manager took quick action to solve the shipping problem.",
+            "zh": "經理迅速採取行動來解決出貨問題。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "launch",
+          "diff": "launch 指產品或計畫正式推出；activation 指功能、帳號或服務開始生效。",
+          "example": {
+            "en": "The company will launch the new service in March.",
+            "zh": "公司將在三月推出新服務。"
+          }
+        },
+        {
+          "word": "start",
+          "diff": "start 是一般的開始；activation 較正式，常指經過設定或操作後才生效。",
+          "example": {
+            "en": "The start of the project was delayed by two weeks.",
+            "zh": "專案的開始延遲了兩週。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "launch",
+          "pos": "n.",
+          "zh": "推出",
+          "ipa": "/lɔːntʃ/",
+          "example": {
+            "en": "The launch of the new model is scheduled for May.",
+            "zh": "新型號預計在五月推出。"
+          }
+        },
+        {
+          "w": "setup",
+          "pos": "n.",
+          "zh": "設定、安裝",
+          "ipa": "/ˈsetʌp/",
+          "example": {
+            "en": "Setup of the new printer took less than ten minutes.",
+            "zh": "新印表機的設定不到十分鐘。"
+          }
+        },
+        {
+          "w": "registration",
+          "pos": "n.",
+          "zh": "註冊、登記",
+          "ipa": "/ˌredʒɪˈstreɪʃn/",
+          "example": {
+            "en": "Online registration closes on Friday at noon.",
+            "zh": "線上報名在週五中午截止。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "active",
+          "ipa": "/ˈæktɪv/",
+          "pos": "adj.",
+          "zh": "活躍的、運作中的",
+          "link": "最基礎的字，像 action 的形容詞"
+        },
+        {
+          "w": "activate",
+          "ipa": "/ˈæktɪveɪt/",
+          "pos": "v.",
+          "zh": "啟動、啟用",
+          "link": "active + -ate，使…變成，像 educate"
+        },
+        {
+          "w": "activity",
+          "ipa": "/ækˈtɪvəti/",
+          "pos": "n.",
+          "zh": "活動",
+          "link": "active + -ity，名詞字尾，像 able → ability"
+        },
+        {
+          "w": "deactivate",
+          "ipa": "/diːˈæktɪveɪt/",
+          "pos": "v.",
+          "zh": "停用",
+          "link": "de- + activate，相反的動作，像 decrease"
+        },
+        {
+          "w": "reactivate",
+          "ipa": "/riːˈæktɪveɪt/",
+          "pos": "v.",
+          "zh": "重新啟用",
+          "link": "re- + activate，再一次，像 restart、rebuild"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "功能啟動",
+          "en": "the act of turning on a function or machine",
+          "in_passage": true,
+          "example": {
+            "en": "A small light shows that the activation was successful.",
+            "zh": "一個小燈會顯示啟動成功。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "帳號或服務啟用",
+          "en": "the act of making an account, card, or service ready to use",
+          "distinguish": "後面常接 account、card、code，指帳號或卡片開通。",
+          "example": {
+            "en": "Please complete the activation of your card before you travel.",
+            "zh": "出發前請先完成您的卡片啟用。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "enable",
+      "type": "word",
+      "ipa": "/ɪˈneɪbl/",
+      "pos": "v.",
+      "zh": "使能夠、啟用",
+      "en": "to make it possible for someone or something to do something",
+      "note": "這個字沒有直接出現在文章裡，但和 stroller 的各個機構功能相關：按鈕「讓」後輪可橫向移動，就是 enable 的概念。商務上常說 enable users to…、enable a feature。",
+      "grammar_note": "enable + 人／物 + to + V，不能省略 to，也不說 enable + 人 + V-ing。",
+      "forms": [
+        {
+          "w": "enables",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "使能夠（第三人稱）",
+          "ipa": "/ɪˈneɪblz/",
+          "example": {
+            "en": "This tool enables our team to share files much faster.",
+            "zh": "這個工具讓我們的團隊能更快速地分享檔案。"
+          }
+        },
+        {
+          "w": "enabled",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "使能夠了",
+          "ipa": "/ɪˈneɪbld/",
+          "example": {
+            "en": "The new software enabled the staff to finish reports early.",
+            "zh": "新軟體讓員工能提早完成報告。"
+          }
+        },
+        {
+          "w": "enabling",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在使能夠",
+          "ipa": "/ɪˈneɪblɪŋ/",
+          "example": {
+            "en": "Enabling the new feature requires approval from the IT manager.",
+            "zh": "啟用新功能需要資訊部經理的核准。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "enable someone to",
+          "zh": "讓某人能夠",
+          "example": {
+            "en": "The update will enable users to log in with a fingerprint.",
+            "zh": "這次更新讓使用者能用指紋登入。"
+          }
+        },
+        {
+          "phrase": "enable a feature",
+          "zh": "啟用功能",
+          "example": {
+            "en": "Enable a feature in the settings menu to receive alerts.",
+            "zh": "在設定選單中啟用功能即可接收提醒。"
+          }
+        },
+        {
+          "phrase": "enable access",
+          "zh": "開放存取",
+          "example": {
+            "en": "The new password system will enable access for all staff.",
+            "zh": "新的密碼系統將讓所有員工都能存取。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "簡報",
+          "en": "Our design enables parents to fold the stroller with one hand.",
+          "zh": "我們的設計讓家長能單手收合推車。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please enable notifications so you don't miss any updates.",
+          "zh": "請開啟通知，以免錯過任何更新。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "able",
+          "diff": "able 是形容詞（be able to + V）；enable 是動詞，後面接受詞再接 to V。",
+          "usage": "We are able to finish. / The tool enables us to finish.（主詞自己有能力 vs. 讓別人有能力）",
+          "example": {
+            "en": "Our team is able to deliver the order by Friday.",
+            "zh": "我們的團隊能在週五前交貨。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "allow",
+          "diff": "allow 強調「允許、不阻止」；enable 強調「提供條件，讓某事做得到」。",
+          "example": {
+            "en": "The company does not allow staff to work from home.",
+            "zh": "公司不允許員工在家工作。"
+          }
+        },
+        {
+          "word": "permit",
+          "diff": "permit 較正式，偏向經過許可或規定；enable 偏向功能或工具帶來的可能。",
+          "example": {
+            "en": "Visitors are not permitted to enter the factory floor.",
+            "zh": "訪客不得進入工廠生產區。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "allow",
+          "pos": "v.",
+          "zh": "允許",
+          "ipa": "/əˈlaʊ/",
+          "example": {
+            "en": "This plan allows customers to cancel within thirty days.",
+            "zh": "這個方案允許客戶在三十天內取消。"
+          }
+        },
+        {
+          "w": "permit",
+          "pos": "v.",
+          "zh": "准許",
+          "ipa": "/pərˈmɪt/",
+          "example": {
+            "en": "Company rules permit employees to take breaks every two hours.",
+            "zh": "公司規定允許員工每兩小時休息一次。"
+          }
+        },
+        {
+          "w": "authorize",
+          "pos": "v.",
+          "zh": "授權",
+          "ipa": "/ˈɔːθəraɪz/",
+          "example": {
+            "en": "The director authorized the purchase of new equipment.",
+            "zh": "主任授權採購新設備。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "able",
+          "ipa": "/ˈeɪbl/",
+          "pos": "adj.",
+          "zh": "能夠的",
+          "link": "最基礎的字，be able to + V"
+        },
+        {
+          "w": "ability",
+          "ipa": "/əˈbɪləti/",
+          "pos": "n.",
+          "zh": "能力",
+          "link": "able 變 abil- + -ity，名詞字尾，像 possible → possibility"
+        },
+        {
+          "w": "unable",
+          "ipa": "/ʌnˈeɪbl/",
+          "pos": "adj.",
+          "zh": "無法的",
+          "link": "un- + able，不…的，像 unhappy"
+        },
+        {
+          "w": "disable",
+          "ipa": "/dɪsˈeɪbl/",
+          "pos": "v.",
+          "zh": "使無法使用",
+          "link": "dis- + able，使失去能力，像 dislike"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "使能夠",
+          "en": "to give someone the power or way to do something",
+          "example": {
+            "en": "Good training enables employees to solve problems on their own.",
+            "zh": "良好的訓練讓員工能自行解決問題。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "啟用（功能）",
+          "en": "to turn on a feature so it can be used",
+          "distinguish": "受詞是功能或設定時，指打開、啟用，反義是 disable。",
+          "example": {
+            "en": "Enable the two-step login to protect your account.",
+            "zh": "請啟用雙重登入來保護您的帳號。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "quick to pack",
+      "type": "phrase",
+      "zh": "收納或打包起來很快",
+      "en": "fast and easy to put into a bag, case, or box",
+      "note": "這句話說明折疊機構讓推車旅行時很快就能收好。主詞是物（stroller），所以 quick to pack 的意思是「收納起來很快」，而不是推車自己動作快。",
+      "pattern": "N + be／make + 受詞 + quick to + V",
+      "grammar_note": "「形容詞 + to V」中，物當主詞時 to V 帶有被動意味：quick to pack 是「被收納時很快」，不要寫成 quick to be packed。",
+      "examples": [
+        {
+          "tag": "產品說明",
+          "en": "This travel bag is light and quick to pack.",
+          "zh": "這個旅行包很輕，收納起來很快。"
+        },
+        {
+          "tag": "簡報",
+          "en": "The folding design makes our tents quick to pack after use.",
+          "zh": "摺疊設計讓我們的帳篷用完後能快速收好。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "The sample kit is quick to pack, so we can ship today.",
+          "zh": "樣品組很快就能打包，所以我們今天可以出貨。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "easy to pack",
+          "diff": "easy to pack 強調過程不費力；quick to pack 強調花費的時間短。",
+          "example": {
+            "en": "The new case is easy to pack and fits in any suitcase.",
+            "zh": "新的外盒很容易收納，能放進任何行李箱。"
+          }
+        },
+        {
+          "phrase": "convenient to carry",
+          "diff": "convenient to carry 重點是攜帶方便；quick to pack 重點是收納迅速。",
+          "example": {
+            "en": "A small charger is convenient to carry on business trips.",
+            "zh": "小型充電器出差時攜帶很方便。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "quick to respond",
+          "diff": "人當主詞時，quick to + V 表示「很快就做出反應」；物當主詞時才是「做起來很快」。",
+          "example": {
+            "en": "Our support team is quick to respond to every complaint.",
+            "zh": "我們的客服團隊會很快回應每一件客訴。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "complaints",
+      "type": "word",
+      "lemma": "complaint",
+      "ipa": "/kəmˈpleɪnts/",
+      "pos": "n.",
+      "zh": "客訴、抱怨（複數）",
+      "en": "things people say when they are not happy with a product or service",
+      "note": "在 We need a better mechanism for tracking customer complaints 中，complaints 指顧客對產品或服務表達不滿的申訴。用複數表示一般性的客訴，是客服與品管常見用語。",
+      "grammar_note": "complaint 是可數名詞，抱怨的內容用 complaint about + 名詞（a complaint about the delay）；動詞是 complain about，不要寫成 complaint about 當動詞。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "file a complaint",
+          "zh": "提出客訴",
+          "example": {
+            "en": "Customers can file a complaint on our website at any time.",
+            "zh": "顧客可隨時在我們的網站上提出客訴。"
+          }
+        },
+        {
+          "phrase": "handle complaints",
+          "zh": "處理客訴",
+          "example": {
+            "en": "Our team is trained to handle complaints politely and quickly.",
+            "zh": "我們的團隊受過訓練，能禮貌且迅速地處理客訴。"
+          }
+        },
+        {
+          "phrase": "receive complaints",
+          "zh": "收到客訴",
+          "example": {
+            "en": "We received complaints about the delayed delivery last week.",
+            "zh": "我們上週收到關於延遲送貨的客訴。"
+          }
+        },
+        {
+          "phrase": "customer complaints",
+          "zh": "顧客客訴",
+          "example": {
+            "en": "Customer complaints dropped after we improved the packaging.",
+            "zh": "改善包裝後，顧客客訴減少了。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Let's review this month's complaints before the next quality meeting.",
+          "zh": "我們在下次品質會議前先檢視本月的客訴吧。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Thank you for your message; we take all complaints seriously.",
+          "zh": "感謝您的來信，我們非常重視每一件客訴。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "compliment",
+          "diff": "compliment 是「稱讚」，拼法接近但意思相反；complaint 是「抱怨」。",
+          "example": {
+            "en": "The manager received a compliment from a happy customer today.",
+            "zh": "經理今天收到一位滿意顧客的稱讚。"
+          }
+        },
+        {
+          "word": "complement",
+          "diff": "complement 是「搭配、補足」；complaint 是「抱怨」。",
+          "example": {
+            "en": "This accessory will complement the new stroller design very well.",
+            "zh": "這個配件會和新推車設計非常搭配。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "criticism",
+          "diff": "criticism 是對人或事的批評意見，範圍較廣；complaint 多指對產品或服務的不滿申訴。",
+          "example": {
+            "en": "The report included criticism of the slow delivery service.",
+            "zh": "報告中包含對緩慢配送服務的批評。"
+          }
+        },
+        {
+          "word": "claim",
+          "diff": "claim 指依保固或保險提出的索賠；complaint 只表達不滿，不一定要求賠償。",
+          "example": {
+            "en": "She filed a claim for the damaged item under warranty.",
+            "zh": "她依保固為受損商品提出索賠。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "feedback",
+          "pos": "n.",
+          "zh": "意見回饋",
+          "ipa": "/ˈfiːdbæk/",
+          "example": {
+            "en": "We value your feedback and read every survey carefully.",
+            "zh": "我們重視您的意見回饋，並仔細閱讀每份問卷。"
+          }
+        },
+        {
+          "w": "refund",
+          "pos": "n.",
+          "zh": "退款",
+          "ipa": "/ˈriːfʌnd/",
+          "example": {
+            "en": "Customers may request a refund within thirty days of purchase.",
+            "zh": "顧客可在購買後三十天內申請退款。"
+          }
+        },
+        {
+          "w": "warranty",
+          "pos": "n.",
+          "zh": "保固",
+          "ipa": "/ˈwɔːrənti/",
+          "example": {
+            "en": "The warranty covers repairs for two years after purchase.",
+            "zh": "保固涵蓋購買後兩年的維修。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "complain",
+          "ipa": "/kəmˈpleɪn/",
+          "pos": "v.",
+          "zh": "抱怨、投訴",
+          "link": "動詞是 complain，名詞形是 complaint，字尾 -t 不是 -ment"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "lever",
+      "type": "word",
+      "ipa": "/ˈlevɚ/",
+      "pos": "n.",
+      "zh": "控制桿、操作桿",
+      "en": "a bar or handle that you push or pull to control a machine",
+      "note": "在 Pull the lever to use the release mechanism on the seat 中，lever 指用手拉動的小桿，用來啟動座椅的釋放機構。說明書中常見，動作動詞多用 pull、push。",
+      "forms": [
+        {
+          "w": "levers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "控制桿（複數）",
+          "ipa": "/ˈlevɚz/",
+          "example": {
+            "en": "The two levers on the right control the speed of the belt.",
+            "zh": "右側的兩根控制桿可以控制輸送帶的速度。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "pull a lever",
+          "zh": "拉動控制桿",
+          "example": {
+            "en": "Pull a lever on the side to open the container.",
+            "zh": "拉動側邊的控制桿就能打開容器。"
+          }
+        },
+        {
+          "phrase": "push the lever",
+          "zh": "推動控制桿",
+          "example": {
+            "en": "Push the lever forward to start the cutting machine.",
+            "zh": "把控制桿往前推即可啟動切割機。"
+          }
+        },
+        {
+          "phrase": "release lever",
+          "zh": "釋放桿",
+          "example": {
+            "en": "Use the release lever to adjust the height of the chair.",
+            "zh": "用釋放桿調整椅子的高度。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "產品說明",
+          "en": "The lever under the seat folds the frame in seconds.",
+          "zh": "座椅下方的控制桿能在幾秒內收合車架。"
+        },
+        {
+          "tag": "會議",
+          "en": "Lower prices are one lever we can use to grow sales.",
+          "zh": "降價是我們能用來提升銷售的手段之一。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "level",
+          "diff": "level 是「程度、水平、樓層」，拼法只差一個字母；lever 是「控制桿」。",
+          "example": {
+            "en": "The noise level in the factory is checked every month.",
+            "zh": "工廠的噪音程度每月都會檢查。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "handle",
+          "diff": "handle 是供手握持、拉開或搬動的把手；lever 是用來控制機器動作的桿子。",
+          "example": {
+            "en": "The handle on the door was replaced by the maintenance team.",
+            "zh": "門把手由維修團隊更換了。"
+          }
+        },
+        {
+          "word": "switch",
+          "diff": "switch 是開關，通常按或撥一下就切換；lever 要拉或推。",
+          "example": {
+            "en": "The main switch is located behind the front panel.",
+            "zh": "總開關位於前面板後方。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "handle",
+          "pos": "n.",
+          "zh": "把手",
+          "ipa": "/ˈhændl/",
+          "example": {
+            "en": "The handle of the case can be adjusted to three heights.",
+            "zh": "手提箱的把手可以調整成三種高度。"
+          }
+        },
+        {
+          "w": "switch",
+          "pos": "n.",
+          "zh": "開關",
+          "ipa": "/swɪtʃ/",
+          "example": {
+            "en": "Press the switch twice to turn off the display.",
+            "zh": "按兩下開關即可關閉螢幕。"
+          }
+        },
+        {
+          "w": "button",
+          "pos": "n.",
+          "zh": "按鈕",
+          "ipa": "/ˈbʌtn/",
+          "example": {
+            "en": "Press the green button to start the machine.",
+            "zh": "按下綠色按鈕即可啟動機器。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "leverage",
+          "ipa": "/ˈlevərɪdʒ/",
+          "pos": "n.",
+          "zh": "槓桿作用、影響力",
+          "link": "lever + -age，名詞字尾，像 package、storage"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "控制桿",
+          "en": "a bar you pull or push to control a machine",
+          "in_passage": true,
+          "example": {
+            "en": "Pull the lever to release the lock on the seat.",
+            "zh": "拉動控制桿以解除座椅的鎖定。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "手段、影響力",
+          "en": "something that you use to get a result",
+          "distinguish": "用在商業或策略情境，指能促成結果的工具，不是實體的桿子。",
+          "example": {
+            "en": "Price is the strongest lever for increasing sales this quarter.",
+            "zh": "價格是本季提升銷售最強的手段。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "defy gravity",
+      "type": "phrase",
+      "zh": "違抗地心引力、看起來不受重力影響",
+      "en": "to seem not to fall or sink as gravity would normally make something do",
+      "note": "文章提到 the stroller folds down with the help of gravity，defy gravity 正好是相反的概念：東西看起來不受重力影響。可用在產品、設計，也常用來比喻業績違反常理地持續成長。",
+      "pattern": "N + defy + gravity",
+      "grammar_note": "defy 是及物動詞，直接接受詞（defy gravity），不加 against；defy 也可寫成 defy + 人 + to V，表示「挑戰某人去做」。",
+      "examples": [
+        {
+          "tag": "產品說明",
+          "en": "The floating shelf looks like it can defy gravity.",
+          "zh": "這個浮空層架看起來像是能違抗地心引力。"
+        },
+        {
+          "tag": "簡報",
+          "en": "The folded stroller seems to defy gravity when it stands alone.",
+          "zh": "收合後的推車獨自站立時，看起來像是不受重力影響。"
+        },
+        {
+          "tag": "會議",
+          "en": "Our profits seem to defy gravity even in the slow season.",
+          "zh": "即使在淡季，我們的獲利似乎仍不受影響地成長。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "float in the air",
+          "diff": "float in the air 描述東西飄浮的狀態；defy gravity 強調「看起來違反常理」。",
+          "example": {
+            "en": "The lamp seems to float in the air above the table.",
+            "zh": "這盞燈看起來像飄浮在桌子上方。"
+          }
+        },
+        {
+          "phrase": "defy expectations",
+          "diff": "defy expectations 是比喻結果出乎預期；defy gravity 先指物理現象，也可比喻。",
+          "example": {
+            "en": "The new model defied expectations and sold out in a week.",
+            "zh": "新型號出乎預期，一週內就賣完了。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "deny",
+          "diff": "deny 是「否認、拒絕」；defy 是「反抗、無視（規則或力量）」。",
+          "example": {
+            "en": "The manager denied the rumor about the product delay.",
+            "zh": "經理否認了關於產品延遲的傳聞。"
+          }
+        }
+      ]
+    }
+  ]
+}
