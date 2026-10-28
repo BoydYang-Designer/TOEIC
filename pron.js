@@ -11,6 +11,7 @@
 
 const PR = { text: '', key: '', src: null, st: 'idle', final: '', interim: '', alts: [], cands: null, err: '', sr: null, tk: 0, restart: 0, stopping: false, srEnd: null, timer: null, wd: null, wdN: 0, everUp: false, rsT: [], fail: 0, srN: 0, t0: 0, res: null, nb: false, dbg: false,
   mr: null, stream: null, chunks: [], mime: '', mrDone: null, blob: null, ctx: null, node: null, pl: false, rel: false, relT: null, ptk: 0,
+  mt: null, rcN: 0, recov: false, pk: 0, blk: 0,
   lis: false, lisEl: null, lisRel: false, lrT: null, ltk: 0, lisAt: 0 }; // lis…：「聽範例」用 Web Audio 播放的狀態（lisRel＝範例播放關閉中） // mr…ptk：自己的錄音（只放記憶體，關閉視窗就刪）；prep＝準備麥克風中、rel＝回放關閉中
 const prNorm = t => String(t == null ? '' : t).trim().toLowerCase().replace(/\s+/g, ' ');
 const prWc = t => (String(t).match(/\S*[A-Za-z0-9]\S*/g) || []).length;
@@ -202,7 +203,7 @@ function prRender() {
   if (!skSR()) warn.push('此瀏覽器不支援語音辨識（建議用 Chrome／Edge／Safari）。');
   const busy = prep || proc || SK.mineRel || prPlaying() || PR.lis || PR.lisRel; // 回放中（含關閉中）不能錄音：和 speak.js 的 skMineBusy 一樣，要先按「停止回放」
   const micCls = rec ? 'bg-rose-600 text-white animate-pulse' : busy ? 'bg-slate-300 dark:bg-slate-700 text-slate-500' : 'bg-indigo-600 hover:bg-indigo-700 text-white';
-  const lbl = rec ? (long ? '🔴 錄音中…念完再點一次停止' : '🔴 請念出來…') : prep ? '⏳ 準備麥克風…' : (SK.mineRel || PR.lisRel) ? '⏳ 正在關閉播放音檔…完成後即可錄音' : PR.lis ? '🔊 範例播放中…請先按「⏹ 停止」，音檔關閉後才能錄音' : prPlaying() ? '🔊 播放錄音中…請先按「⏹ 停止回放」，音檔關閉後才能錄音' : proc ? '⏳ 辨識中…' : '點麥克風開始（或按空白鍵）';
+  const lbl = rec && PR.recov ? '🔧 麥克風重新連線中…請稍等一下再念' : rec ? (long ? '🔴 錄音中…念完再點一次停止' : '🔴 請念出來…') : prep ? '⏳ 準備麥克風…' : (SK.mineRel || PR.lisRel) ? '⏳ 正在關閉播放音檔…完成後即可錄音' : PR.lis ? '🔊 範例播放中…請先按「⏹ 停止」，音檔關閉後才能錄音' : prPlaying() ? '🔊 播放錄音中…請先按「⏹ 停止回放」，音檔關閉後才能錄音' : proc ? '⏳ 辨識中…' : '點麥克風開始（或按空白鍵）';
   let res = '';
   if (r) {
     if (r.none) res = '<p class="text-sm text-rose-600 dark:text-rose-400">沒有辨識到聲音，靠近麥克風再試一次。</p>';
@@ -285,7 +286,7 @@ function prToggle() {
   skAudioSession('play-and-record');
   prRelease();
   prCancel(true);
-  Object.assign(PR, { err: '', final: '', interim: '', alts: [], cands: null, res: null, nb: false, restart: 0, rsT: [], stopping: false, wdN: 0, blob: null, st: 'prep' });
+  Object.assign(PR, { err: '', final: '', interim: '', alts: [], cands: null, res: null, nb: false, restart: 0, rsT: [], stopping: false, wdN: 0, blob: null, st: 'prep', rcN: 0, recov: false, pk: 0, blk: 0 });
   prRender();
   if (PR.lisAt && Date.now() - PR.lisAt < 60000) { SK.lastEnd = Date.now(); PR.lisAt = 0; } // 剛聽過範例（含語音合成備援，結束時間不明）：多等一下再開麥克風
   const tk = ++PR.tk, wait = Math.max(Math.max(prSettle(), prKeepOn() ? 0 : (freed ? 600 : 400)) - (Date.now() - (SK.lastEnd || 0)), 0);
@@ -385,7 +386,7 @@ async function prMediaStart(tk) {
   let stream;
   try {
     if (keep) stream = await skKeepGet();
-    else { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); skLog('PR getUserMedia 成功'); }
+    else { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); const t0 = stream.getAudioTracks()[0] || {}; skLog('PR getUserMedia 成功 track=' + t0.readyState + ' muted=' + t0.muted + ' enabled=' + t0.enabled); }
   } catch (e) {
     skLog('PR getUserMedia 失敗 ' + (e && e.name) + ' ' + (e && e.message));
     PR.err = e && e.name === 'NotAllowedError' ? '麥克風權限被拒絕：請點網址列左邊的圖示（🔒 或 ⚙）→「麥克風」→ 允許，然後重新整理頁面。' : '取不到麥克風（可能被別的 App 佔用）。請再錄一次；還是不行請把 App 從多工畫面上滑關掉再開。';
@@ -407,7 +408,16 @@ async function prMediaStart(tk) {
       if (PR.mrDone) PR.mrDone();
       if (tk === PR.tk && PR.st === 'idle' && PR.res) prRender(); // 辨識先結束、錄音檔稍後才好 → 補上回放鈕
     };
+    PR.pk = 0; PR.blk = 0; // 量測這條串流有沒有真的收到聲音（包在 SkPcmRec 的處理函式外面，不改 speak.js）
+    if (mr.proc && mr.proc.onaudioprocess) {
+      const o = mr.proc.onaudioprocess;
+      mr.proc.onaudioprocess = function (e) {
+        try { const d = e.inputBuffer.getChannelData(0); let m = 0; for (let i = 0; i < d.length; i += 8) { const v = d[i] < 0 ? -d[i] : d[i]; if (v > m) m = v; } if (m > PR.pk) PR.pk = m; PR.blk++; } catch (x) {}
+        return o.apply(this, arguments);
+      };
+    }
     mr.start();
+    clearTimeout(PR.mt); PR.mt = setTimeout(() => prMicCheck(tk), 1800);
   } catch (e) { skLog('PR 建立錄音器失敗 ' + (e && (e.name || e.message))); if (!keep) stream.getTracks().forEach(t => t.stop()); PR.stream = null; PR.mr = null; }
 }
 /* ---------- 回放自己的錄音：用 Web Audio（不經過 <audio>，否則之後語音辨識會聽不到聲音），停止時整個 AudioContext 關掉 ---------- */
@@ -457,6 +467,35 @@ function prPlayMine() {
   skLog('PR 播放我的錄音 開始（Web Audio）');
   skPlayBlob(PR.blob, tk, () => { skLog('PR 播放我的錄音 播完'); end(); }, fail);
   prRender();
+}
+/* 麥克風自我檢查：iOS 有時 getUserMedia 成功，但那條串流全是 0（peak=0）。真的麥克風連環境雜音都不會是 0，
+   所以開始 1.8 秒後如果「完全沒有訊號」，就整個放掉（辨識、錄音、麥克風串流）、audioSession 重設、等一下再重開，最多 2 次。 */
+function prMicCheck(tk) {
+  if (tk !== PR.tk || PR.st !== 'rec' || PR.stopping || !PR.mr || PR.mr.state === 'inactive') return;
+  if (PR.blk > 0 && PR.pk > 0.0001) { skLog('PR 麥克風檢查 OK peak=' + PR.pk.toFixed(4)); return; }
+  const n = ++PR.rcN;
+  skLog('PR 麥克風檢查：沒有訊號 peak=' + PR.pk + ' blocks=' + PR.blk + '（第 ' + n + ' 次）');
+  if (n > 2) { PR.fail++; PR.err = '麥克風好像沒有收到聲音。請再錄一次；還是不行請把 App 從多工畫面上滑關掉再開。'; prRender(); return; }
+  prMicRecover(tk, n);
+}
+async function prMicRecover(tk, n) {
+  PR.recov = true; clearTimeout(PR.wd); prRender();
+  prSrOff(PR.sr); PR.sr = null;
+  const m = PR.mr; PR.mr = null; PR.mrDone = null; PR.chunks = [];
+  if (m) { m.ondataavailable = null; m.onstop = null; try { if (m.state !== 'inactive') m.stop(); } catch (e) {} }
+  if (PR.stream) { PR.stream.getTracks().forEach(t => t.stop()); PR.stream = null; }
+  try { skKeepFree(); } catch (e) {}
+  skAudioSession('auto');
+  await new Promise(r => setTimeout(r, n === 1 ? 700 : 1300));
+  if (tk !== PR.tk || PR.st !== 'rec' || PR.stopping) { PR.recov = false; return; }
+  skAudioSession('play-and-record');
+  await new Promise(r => setTimeout(r, 150));
+  if (tk !== PR.tk || PR.st !== 'rec' || PR.stopping) { PR.recov = false; return; }
+  Object.assign(PR, { final: '', interim: '', alts: [], everUp: false, wdN: 0, rsT: [], pk: 0, blk: 0, recov: false });
+  const r = prSrNew(tk, false);
+  try { r.start(); skLog('PR 恢復後重新開始辨識 n=' + n); prSrWatch(tk, r); }
+  catch (e) { skLog('PR 恢復後 start() 失敗 ' + (e && e.name)); PR.err = '語音辨識沒有啟動成功。請再錄一次；還是不行請把 App 從多工畫面上滑關掉再開。'; prRender(); return; }
+  prMediaStart(tk); prRender();
 }
 function prStop() {
   if (PR.st !== 'rec') return;
