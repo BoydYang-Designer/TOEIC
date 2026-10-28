@@ -137,17 +137,31 @@ function prListenStop(silent) {
   if (!PR.lis) return;
   PR.ltk++; const el = PR.lisEl; PR.lis = false; PR.lisEl = null;
   if (SK.node) { const n = SK.node; SK.node = null; n.onended = null; try { n.stop(); } catch (e) {} try { n.disconnect(); } catch (e) {} }
-  skCloseCtx(); try { speechSynthesis.cancel(); } catch (e) {}
-  SK.lastEnd = Date.now(); PR.lisRel = true; clearTimeout(PR.lrT);
-  skLog('PR 範例播放結束（AudioContext 已關閉）');
-  PR.lrT = setTimeout(() => {
-    if (!SK.playing && !PR.lis) skAudioSession('play-and-record');
-    PR.lisRel = false; skLog('PR 範例播放已完整關閉');
-    if (document.getElementById('pron-ov')) prRender();
-  }, 350);
+  /* 修正：原本只呼叫 skCloseCtx()（不等 close() 完成），350ms 後就當作關好了。
+     iOS 的 AudioContext.close() 是非同步的，太快接著開麥克風／新的 AudioContext 會讓音訊輸入卡住（錄到 peak=0 的全靜音）。
+     現在：自己關這個 ctx、等 close() 的 promise 完成，再多等 PR_LIS_SETTLE 毫秒，才解除 lisRel（lisRel 期間麥克風鈕與「聽範例」都不能按）。
+     不在點麥克風時用 setTimeout 等待，因為 iOS 的語音辨識 start() 需要保留在使用者手勢裡。 */
+  const c = SK.ctx; SK.ctx = null;
+  try { speechSynthesis.cancel(); } catch (e) {}
+  PR.lisRel = true; clearTimeout(PR.lrT);
+  skLog('PR 範例播放結束，等待 AudioContext 關閉');
+  let fin = false;
+  const done = () => {
+    if (fin) return; fin = true; clearTimeout(PR.lrT);
+    PR.lrT = setTimeout(() => {
+      if (!SK.playing && !PR.lis) skAudioSession('play-and-record');
+      SK.lastEnd = Date.now(); PR.lisRel = false; skLog('PR 範例播放已完整關閉');
+      if (document.getElementById('pron-ov')) prRender();
+    }, PR_LIS_SETTLE);
+  };
+  if (c) {
+    try { const p = c.close(); if (p && p.then) p.then(done, done); else setTimeout(done, 0); } catch (e) { done(); }
+    PR.lrT = setTimeout(done, 1500); // 保險：close() 一直沒回應也不要把按鈕鎖死
+  } else done();
   if (el) { try { el.dispatchEvent(new Event('ended')); } catch (e) {} } // 讓 vplay 的按鈕「播放中」狀態能復原
   if (!silent && document.getElementById('pron-ov')) prRender();
 }
+const PR_LIS_SETTLE = 900; // 範例播放的 AudioContext 關閉完成後，再等這麼久才允許錄音（原本 350）
 function prListenWeb(el, tk, orig) {
   const AC = window.AudioContext || window.webkitAudioContext, src = el.currentSrc || el.src;
   const fallback = () => { if (tk !== PR.ltk) return; PR.lis = false; PR.lisEl = null; skLog('PR 範例 Web Audio 失敗，改用 <audio>'); el._prPass = 1; try { const p = orig.call(el); if (p && p.catch) p.catch(() => {}); } catch (e) {} prRender(); };
@@ -201,7 +215,7 @@ function prRender() {
   const warn = [];
   if (!window.isSecureContext) warn.push('麥克風需要 https 或 localhost；直接雙擊（file://）開啟時無法錄音。');
   if (!skSR()) warn.push('此瀏覽器不支援語音辨識（建議用 Chrome／Edge／Safari）。');
-  const busy = prep || proc || SK.mineRel || prPlaying() || PR.lis || PR.lisRel; // 回放中（含關閉中）不能錄音：和 speak.js 的 skMineBusy 一樣，要先按「停止回放」
+  const busy = prep || proc || SK.mineRel || prPlaying() || PR.lis || PR.lisRel || (rec && PR.recov); // 回放中（含關閉中）不能錄音：和 speak.js 的 skMineBusy 一樣，要先按「停止回放」
   const micCls = rec ? 'bg-rose-600 text-white animate-pulse' : busy ? 'bg-slate-300 dark:bg-slate-700 text-slate-500' : 'bg-indigo-600 hover:bg-indigo-700 text-white';
   const lbl = rec && PR.recov ? '🔧 麥克風重新連線中…請稍等一下再念' : rec ? (long ? '🔴 錄音中…念完再點一次停止' : '🔴 請念出來…') : prep ? '⏳ 準備麥克風…' : (SK.mineRel || PR.lisRel) ? '⏳ 正在關閉播放音檔…完成後即可錄音' : PR.lis ? '🔊 範例播放中…請先按「⏹ 停止」，音檔關閉後才能錄音' : prPlaying() ? '🔊 播放錄音中…請先按「⏹ 停止回放」，音檔關閉後才能錄音' : proc ? '⏳ 辨識中…' : '點麥克風開始（或按空白鍵）';
   let res = '';
@@ -213,7 +227,7 @@ function prRender() {
   if (PR.blob) res += `<div class="flex flex-wrap items-center gap-2 mt-3"><button onclick="prPlayMine()" ${SK.mineRel ? 'disabled' : ''} class="${skCtl} ${SK.mineRel ? 'opacity-50' : ''}">${SK.mineRel ? '⏳ 關閉中…' : prPlaying() ? '⏹ 停止回放' : '▶ 聽我的錄音'}</button><span class="text-[0.6875rem] text-slate-400">錄音只暫存在這個視窗，關閉就刪除</span></div>`;
   const hot = PR.fail >= 2 || !!PR.err; // 平常是不顯眼的小字；連續沒收到聲音或出錯時變成明顯的橘色按鈕（和語音練習一樣）
   const reset = hot
-    ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 px-3 py-2 text-xs text-amber-800 dark:text-amber-300 text-center"><p class="mb-1.5">${PR.fail >= 2 ? '連續 ' + PR.fail + ' 次沒收到聲音，麥克風可能卡住了。' : '麥克風可能卡住了。'}</p>${/權限/.test(PR.err) ? skPermHelp() + '<div class="h-2"></div>' : ''}<p>請再錄一次；還是不行，請把 App 從多工畫面上滑關掉再開。</p></div>`
+    ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 px-3 py-2 text-xs text-amber-800 dark:text-amber-300 text-center"><p class="mb-1.5">${PR.fail >= 2 ? '連續 ' + PR.fail + ' 次沒收到聲音，麥克風可能卡住了。' : '麥克風可能卡住了。'}</p>${/權限/.test(PR.err) ? skPermHelp() + '<div class="h-2"></div>' : ''}<p>請再錄一次；還是不行，請把 App 從多工畫面上滑關掉再開。</p><button onclick="location.reload()" class="${skCtl} mt-2">🔄 重新載入頁面</button></div>`
     : '';
   const mrRow = '';
   const dbg = PR.dbg
@@ -275,7 +289,8 @@ const prKeepOn = () => skKeepOn() && S.prKeep !== 0; // 和語音練習完全一
 function prKeepSet(v) { S.prKeep = v; save(); try { skKeepFree(); } catch (e) {} skLog('PR 設定 常駐麥克風=' + (v ? '開' : '關')); prRender(); }
 const prSettle = () => (typeof S.spkWait === 'number' ? S.spkWait : PR.fail ? 700 : SK_MOB ? 350 : 0);
 function prToggle() {
-  skLog('PR 點麥克風 st=' + PR.st);
+  skLog('PR 點麥克風 st=' + PR.st + (PR.recov ? ' recov' : ''));
+  if (PR.recov && PR.st === 'rec') return; // 麥克風重新連線中：忽略點擊（原本會被當成「停止」，使 log 裡的重試只活了 0.65 秒就被結束，檢查沒機會跑完）
   if (PR.st === 'rec') { prStop(); return; }
   if (PR.st === 'proc' || PR.st === 'prep') return;
   if (prPlaying() || SK.mineRel || PR.lis || PR.lisRel) { try { dnToast('請先按 ⏹ 停止播放，等音檔關閉後再錄音'); } catch (e) {} return; } // 同 speak.js skRecToggle：回放（含關閉中）時不接著錄音，不在同一個動作裡「關播放→開麥克風」
@@ -394,11 +409,14 @@ async function prMediaStart(tk) {
     return;
   }
   if (PR.st !== 'rec' || tk !== PR.tk) { if (!keep) stream.getTracks().forEach(t => t.stop()); return; }
+  try { const t1 = stream.getAudioTracks()[0]; if (t1) skLog('PR 串流 enabled=' + t1.enabled + ' muted=' + t1.muted + ' rs=' + t1.readyState); } catch (e) {}
   if (!wantMr || (typeof MediaRecorder === 'undefined' && !skPcmOk())) return; // 只要常駐麥克風、不錄音檔
   if (!keep) PR.stream = stream; // 常駐的串流不放進 PR.stream（錄完不能被 stop）
   const mt = typeof MediaRecorder === 'undefined' ? '' : (['audio/webm', 'audio/mp4'].find(t => MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(t)) || '');
   try {
+    const tc = performance.now();
     const mr = skPcmOk() ? new SkPcmRec(stream) : new MediaRecorder(stream, mt ? { mimeType: mt } : undefined);
+    skLog('PR 建錄音器耗時 ' + Math.round(performance.now() - tc) + 'ms'); // 正常 <100ms；上千毫秒代表 iOS 音訊硬體還沒穩定
     PR.mr = mr; PR.mime = mr.mimeType || mt;
     mr.ondataavailable = e => { if (e.data && e.data.size) PR.chunks.push(e.data); };
     mr.onstop = () => {
@@ -475,6 +493,7 @@ function prMicCheck(tk) {
   if (tk !== PR.tk || PR.st !== 'rec' || PR.stopping || !PR.mr || PR.mr.state === 'inactive') return;
   if (PR.blk > 0 && PR.pk > 0.0001) { skLog('PR 麥克風檢查 OK peak=' + PR.pk.toFixed(4)); return; }
   const n = ++PR.rcN;
+  prKeepLog('檢查失敗'); // 記下當下 track 的 enabled／muted／readyState
   skLog('PR 麥克風檢查：沒有訊號 peak=' + PR.pk + ' blocks=' + PR.blk + '（第 ' + n + ' 次）');
   if (n > 2) { PR.fail++; PR.err = '麥克風好像沒有收到聲音。請再錄一次；還是不行請把 App 從多工畫面上滑關掉再開。'; prRender(); return; }
   prMicRecover(tk, n);
