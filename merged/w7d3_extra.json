@@ -1,0 +1,182 @@
+{
+  "week": 7,
+  "day": 3,
+  "extra_vocab": [
+    {
+      "text": "nominate",
+      "type": "word",
+      "ipa": "/ˈnɑːmɪneɪt/",
+      "pos": "v.",
+      "zh": "提名、推薦",
+      "en": "to officially suggest someone for a job, prize, or promotion",
+      "note": "在這篇裡 managers may nominate up to two employees 指主管可以正式推薦最多兩位員工參加升遷審核，是人資公告中的正式用字。",
+      "grammar_note": "nominate someone for 後面接獎項或職位，nominate someone as 後面接身分或職稱。",
+      "forms": [
+        { "w": "nominates", "label": "第三人稱單數", "pos": "v.", "zh": "提名", "ipa": "/ˈnɑːmɪneɪts/", "example": { "en": "Each manager nominates one employee for the annual training program.", "zh": "每位主管提名一名員工參加年度訓練計畫。" } },
+        { "w": "nominated", "label": "過去式／過去分詞", "pos": "v.", "zh": "提名了", "ipa": "/ˈnɑːmɪneɪtɪd/", "example": { "en": "Three staff members were nominated for the innovation award.", "zh": "有三位員工被提名角逐創新獎。" } },
+        { "w": "nominating", "label": "現在分詞", "pos": "v.", "zh": "提名中", "ipa": "/ˈnɑːmɪneɪtɪŋ/", "example": { "en": "Nominating the right person takes careful thought and honest feedback.", "zh": "提名對的人需要仔細思考和誠實的意見。" } }
+      ],
+      "collocations": [
+        { "phrase": "nominate someone for", "zh": "提名某人參加／擔任", "example": { "en": "The team nominated Paul for the customer service award.", "zh": "團隊提名保羅角逐客戶服務獎。" } },
+        { "phrase": "nominate A as B", "zh": "提名 A 擔任 B", "example": { "en": "The board nominated her as the next company president.", "zh": "董事會提名她擔任下一任公司總裁。" } },
+        { "phrase": "be nominated for", "zh": "被提名參加", "example": { "en": "Our design was nominated for an industry prize.", "zh": "我們的設計被提名角逐業界獎項。" } },
+        { "phrase": "nominate a candidate", "zh": "提名候選人", "example": { "en": "Each department must nominate one candidate by Friday.", "zh": "每個部門必須在星期五前提名一位候選人。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "I would like to nominate Ms. Chen for the leadership award.", "zh": "我想提名陳小姐角逐領導獎。" },
+        { "tag": "電子郵件", "en": "Employees may nominate a colleague for the Team Player Award.", "zh": "員工可以提名一位同事角逐最佳團隊合作獎。" },
+        { "tag": "公告", "en": "Staff are invited to nominate candidates before the end of May.", "zh": "歡迎員工在五月底前提名候選人。" }
+      ],
+      "confusable": [
+        { "word": "nominal", "diff": "nominal 是形容詞，意思是「微小的、象徵性的」，和動詞 nominate 意思不同，只是長得像。", "usage": "nominal 是形容詞，常見於 nominal fee（象徵性費用）；nominate 是動詞，後面要接人。", "example": { "en": "We charge only a nominal fee for the training materials.", "zh": "我們對訓練教材只收象徵性的費用。" } }
+      ],
+      "similar": [
+        { "word": "appoint", "diff": "appoint 是真的任命某人擔任職位，nominate 只是提名，還要經過決定。", "example": { "en": "The board appointed Mr. Kim as the new director.", "zh": "董事會任命金先生擔任新的主管。" } },
+        { "word": "recommend", "diff": "recommend 較口語，只是推薦；nominate 是正式程序，通常要填表或送審。", "example": { "en": "I recommend Ms. Lee for the sales manager position.", "zh": "我推薦李小姐擔任業務經理一職。" } }
+      ],
+      "family": [
+        { "w": "appoint", "ipa": "/əˈpɔɪnt/", "pos": "v.", "zh": "任命", "example": { "en": "The company will appoint a new manager next month.", "zh": "公司下個月將任命一位新經理。" } },
+        { "w": "recommend", "ipa": "/ˌrekəˈmend/", "pos": "v.", "zh": "推薦", "example": { "en": "Can you recommend a good caterer for the event?", "zh": "你能推薦活動用的好外燴業者嗎？" } },
+        { "w": "candidate", "ipa": "/ˈkændɪdeɪt/", "pos": "n.", "zh": "候選人、應徵者", "example": { "en": "The final candidate will meet the whole team on Monday.", "zh": "最後一位應徵者星期一會和整個團隊見面。" } }
+      ],
+      "derived": [
+        { "w": "nomination", "ipa": "/ˌnɑːmɪˈneɪʃn/", "pos": "n.", "zh": "提名", "link": "nominate 去掉 -e 加 -ion 變名詞，像 create → creation" },
+        { "w": "nominee", "ipa": "/ˌnɑːmɪˈniː/", "pos": "n.", "zh": "被提名人", "link": "nominate + -ee，表示「被…的人」，像 employee、trainee" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "提名（參加評選）", "en": "to officially suggest someone for a prize or promotion", "in_passage": true, "distinguish": "後面接 for + 獎項或機會，表示推薦對方參加。", "example": { "en": "Managers can nominate staff for the yearly service award.", "zh": "主管可以提名員工角逐年度服務獎。" } },
+        { "pos": "v.", "zh": "指定（某人擔任）", "en": "to choose someone to do a job or role", "distinguish": "後面接 to V 或 as + 職稱，表示指定去做某件事。", "example": { "en": "The committee nominated Mr. Kim to lead the meeting.", "zh": "委員會指定金先生主持這場會議。" } }
+      ]
+    },
+    {
+      "text": "creativity",
+      "type": "word",
+      "ipa": "/ˌkriːeɪˈtɪvəti/",
+      "pos": "n.",
+      "zh": "創造力、創意",
+      "en": "the ability to think of new and interesting ideas",
+      "note": "在這篇裡 creativity 和 teamwork 並列，表示升遷審核除了業績，也會評估員工的創意與合作。屬於人資與徵才文章常見的能力用語。",
+      "grammar_note": "creativity 是不可數名詞，不加 s，前面也不加 a。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "encourage creativity", "zh": "鼓勵創意", "example": { "en": "Open offices can encourage creativity among team members.", "zh": "開放式辦公室能鼓勵團隊成員發揮創意。" } },
+        { "phrase": "show creativity", "zh": "展現創意", "example": { "en": "She showed great creativity when she solved the shipping problem.", "zh": "她解決出貨問題時展現了很大的創意。" } },
+        { "phrase": "creativity and innovation", "zh": "創意與創新", "example": { "en": "Creativity and innovation drive growth in our industry.", "zh": "創意與創新推動我們產業的成長。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Our design team is known for its creativity and attention to detail.", "zh": "我們的設計團隊以創意和注重細節聞名。" },
+        { "tag": "徵才", "en": "This position requires creativity, strong writing skills, and teamwork.", "zh": "這個職位需要創意、優秀的寫作能力和團隊合作。" },
+        { "tag": "培訓", "en": "The workshop helps employees develop their creativity at work.", "zh": "這場工作坊協助員工培養工作上的創造力。" }
+      ],
+      "confusable": [
+        { "word": "creation", "diff": "creativity 是「創造的能力」，creation 是「創造的行為」或「被創造出來的東西」。", "usage": "creativity 不可數；creation 當「作品」時可數，如 a new creation。", "example": { "en": "The creation of the new logo took three weeks.", "zh": "製作新標誌花了三個星期。" } }
+      ],
+      "similar": [
+        { "word": "innovation", "diff": "innovation 指把新點子或新方法實際用出來的「創新」；creativity 是想出點子的能力。", "example": { "en": "Innovation helped the company enter a new market.", "zh": "創新幫助公司進入了新市場。" } },
+        { "word": "imagination", "diff": "imagination 是「想像力」，偏向腦中想像；creativity 更強調做出新東西。", "example": { "en": "The ad needs more imagination to attract young customers.", "zh": "這則廣告需要更多想像力來吸引年輕顧客。" } }
+      ],
+      "family": [
+        { "w": "innovation", "ipa": "/ˌɪnəˈveɪʃn/", "pos": "n.", "zh": "創新", "example": { "en": "Innovation is the key to staying ahead of competitors.", "zh": "創新是領先競爭對手的關鍵。" } },
+        { "w": "imagination", "ipa": "/ɪˌmædʒɪˈneɪʃn/", "pos": "n.", "zh": "想像力", "example": { "en": "Good marketing needs imagination as well as data.", "zh": "好的行銷除了數據也需要想像力。" } },
+        { "w": "talent", "ipa": "/ˈtælənt/", "pos": "n.", "zh": "才能、人才", "example": { "en": "We hire young talent from the best universities.", "zh": "我們從最好的大學聘用年輕人才。" } }
+      ],
+      "derived": [
+        { "w": "create", "ipa": "/kriˈeɪt/", "pos": "v.", "zh": "創造", "link": "creativity 的詞幹，create 是「創造」" },
+        { "w": "creator", "ipa": "/kriˈeɪtər/", "pos": "n.", "zh": "創作者", "link": "create + -or，做事的人，像 actor、visitor" },
+        { "w": "creation", "ipa": "/kriˈeɪʃn/", "pos": "n.", "zh": "創作、創造", "link": "create 去掉 -e 加 -ion，變名詞，像 relate → relation" },
+        { "w": "creative", "ipa": "/kriˈeɪtɪv/", "pos": "adj.", "zh": "有創意的", "link": "create + -ive，形容詞字尾，像 active、attractive" },
+        { "w": "creatively", "ipa": "/kriˈeɪtɪvli/", "pos": "adv.", "zh": "有創意地", "link": "creative + -ly，形容詞變副詞" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "disagreement",
+      "type": "word",
+      "ipa": "/ˌdɪsəˈɡriːmənt/",
+      "pos": "n.",
+      "zh": "意見不合、爭議",
+      "en": "a situation in which people have different opinions",
+      "note": "在這篇裡 a disagreement about a final rating 指員工與評分結果之間的歧見，後面接申訴程序，是說明申訴流程的客氣、中性說法。",
+      "grammar_note": "disagreement 是可數名詞，要寫 a disagreement；意見不合的事情用 about 或 over，對象用 with。",
+      "forms": [
+        { "w": "disagreements", "label": "複數", "pos": "n.", "zh": "意見不合（複數）", "ipa": "/ˌdɪsəˈɡriːmənts/", "example": { "en": "Small disagreements are normal when a team works on a new project.", "zh": "團隊進行新專案時，出現小意見不合是正常的。" } }
+      ],
+      "collocations": [
+        { "phrase": "resolve a disagreement", "zh": "解決歧見", "example": { "en": "The two departments met to resolve a disagreement over costs.", "zh": "兩個部門開會解決費用上的歧見。" } },
+        { "phrase": "have a disagreement with", "zh": "與…意見不合", "example": { "en": "He had a disagreement with his supervisor about the deadline.", "zh": "他和主管對截止日期意見不合。" } },
+        { "phrase": "disagreement between", "zh": "…之間的歧見", "example": { "en": "There is a disagreement between the two reports.", "zh": "這兩份報告之間有出入。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The two managers had a disagreement about the budget.", "zh": "兩位經理對預算意見不合。" },
+        { "tag": "電子郵件", "en": "Any disagreement about the schedule should be reported to Ms. Lee.", "zh": "對時程有任何歧見，應向李小姐報告。" },
+        { "tag": "合約", "en": "A disagreement over the price delayed the signing of the contract.", "zh": "價格上的歧見延後了合約的簽署。" }
+      ],
+      "confusable": [
+        { "word": "disagreeable", "diff": "disagreeable 是形容詞，意思是「令人不愉快的」，不是「不同意」。", "usage": "disagreement 是名詞（意見不合）；disagreeable 形容人或事「討厭的」，不能用來說某人不同意。", "example": { "en": "The client was disagreeable and rejected every proposal we made.", "zh": "那位客戶很難相處，否決了我們所有的提案。" } }
+      ],
+      "similar": [
+        { "word": "dispute", "diff": "dispute 的語氣較強，常指正式爭議，像價格或合約的糾紛。", "example": { "en": "The two companies are in a dispute over payment.", "zh": "這兩家公司因為付款問題陷入爭議。" } },
+        { "word": "argument", "diff": "argument 是「爭論、爭吵」，語氣比 disagreement 更激烈，也可指「論點」。", "example": { "en": "The argument between the two teams lasted an hour.", "zh": "兩個團隊之間的爭論持續了一個小時。" } }
+      ],
+      "family": [
+        { "w": "argument", "ipa": "/ˈɑːrɡjumənt/", "pos": "n.", "zh": "爭論、論點", "example": { "en": "Her argument for a larger budget convinced the board.", "zh": "她要求增加預算的論點說服了董事會。" } },
+        { "w": "dispute", "ipa": "/dɪˈspjuːt/", "pos": "n.", "zh": "爭議", "example": { "en": "The dispute with the supplier was solved last week.", "zh": "和供應商的爭議上週已經解決。" } },
+        { "w": "conflict", "ipa": "/ˈkɑːnflɪkt/", "pos": "n.", "zh": "衝突", "example": { "en": "A conflict of schedules forced us to cancel the meeting.", "zh": "時間上的衝突迫使我們取消會議。" } }
+      ],
+      "derived": [
+        { "w": "agree", "ipa": "/əˈɡriː/", "pos": "v.", "zh": "同意", "link": "disagreement 的詞幹，agree 是「同意」" },
+        { "w": "agreement", "ipa": "/əˈɡriːmənt/", "pos": "n.", "zh": "協議、同意", "link": "agree + -ment，變成名詞，像 payment、movement" },
+        { "w": "disagree", "ipa": "/ˌdɪsəˈɡriː/", "pos": "v.", "zh": "不同意", "link": "dis- 表示相反，像 dislike、disappear" },
+        { "w": "agreeable", "ipa": "/əˈɡriːəbl/", "pos": "adj.", "zh": "令人愉快的、可接受的", "link": "agree + -able，「可以同意的」，像 comfortable" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "意見不合", "en": "a situation in which people do not have the same opinion", "in_passage": true, "distinguish": "主詞是人，後面接 about、over 說明歧見的內容。", "example": { "en": "We had a short disagreement about who should lead the project.", "zh": "我們對誰該帶領專案有過一小段歧見。" } },
+        { "pos": "n.", "zh": "（資料之間的）出入", "en": "a difference between two sets of facts or numbers", "distinguish": "主詞是報告或數字，表示兩邊不一致。", "example": { "en": "Our audit found a disagreement between the invoice and the order.", "zh": "我們的稽核發現發票與訂單之間有出入。" } }
+      ]
+    },
+    {
+      "text": "forum",
+      "type": "word",
+      "ipa": "/ˈfɔːrəm/",
+      "pos": "n.",
+      "zh": "討論會、論壇",
+      "en": "a meeting or place where people talk about a topic",
+      "note": "在這篇裡 open forum 指任何人都可以參加、提問的公開說明會，用來讓員工發問。open forum 是公司公告很常見的說法。",
+      "forms": [
+        { "w": "forums", "label": "複數", "pos": "n.", "zh": "討論會、論壇（複數）", "ipa": "/ˈfɔːrəmz/", "example": { "en": "Our website has two forums for customers and for dealers.", "zh": "我們的網站有兩個論壇，分別給顧客和經銷商。" } }
+      ],
+      "collocations": [
+        { "phrase": "open forum", "zh": "公開討論會", "example": { "en": "The meeting ended with an open forum for staff questions.", "zh": "會議最後以讓員工發問的公開討論會作結。" } },
+        { "phrase": "hold a forum", "zh": "舉辦討論會", "example": { "en": "We plan to hold a forum on workplace safety in June.", "zh": "我們計畫在六月舉辦一場職場安全討論會。" } },
+        { "phrase": "online forum", "zh": "網路論壇", "example": { "en": "I found the answer on an online forum for engineers.", "zh": "我在一個工程師的網路論壇上找到了答案。" } },
+        { "phrase": "public forum", "zh": "公開論壇", "example": { "en": "The mayor spoke at a public forum about the new bridge.", "zh": "市長在一場公開論壇上談論新橋。" } }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "The company will hold a forum for all new employees.", "zh": "公司將為所有新進員工舉辦一場討論會。" },
+        { "tag": "網路", "en": "Many customers ask questions on the product's online forum.", "zh": "許多顧客在產品的網路論壇上發問。" },
+        { "tag": "活動", "en": "The city is hosting a forum on public transportation next week.", "zh": "市政府下週將舉辦一場大眾運輸討論會。" }
+      ],
+      "confusable": [
+        { "word": "form", "diff": "form 是「表格」或「形式」，forum 是「討論會、論壇」，字形相近但意思不同。", "example": { "en": "The form must be signed and returned by Friday afternoon.", "zh": "這份表格必須在星期五下午前簽名並交回。" } }
+      ],
+      "similar": [
+        { "phrase": "town hall meeting", "diff": "town hall meeting 常指公司或社區的全體說明會，由主管回答大家問題；forum 範圍更廣。", "example": { "en": "The CEO answered questions at the town hall meeting.", "zh": "執行長在全體說明會上回答問題。" } },
+        { "phrase": "panel discussion", "diff": "panel discussion 是由幾位專家上台討論，聽眾以聽為主；forum 更強調公開交流。", "example": { "en": "Three experts joined the panel discussion on remote work.", "zh": "三位專家參加了關於遠距工作的座談。" } }
+      ],
+      "family": [
+        { "w": "seminar", "ipa": "/ˈsemɪnɑːr/", "pos": "n.", "zh": "研討會", "example": { "en": "I attended a seminar on customer service last week.", "zh": "我上週參加了一場客戶服務研討會。" } },
+        { "w": "workshop", "ipa": "/ˈwɝːkʃɑːp/", "pos": "n.", "zh": "工作坊", "example": { "en": "The workshop teaches new staff how to use the system.", "zh": "這場工作坊教新進員工如何使用系統。" } },
+        { "w": "conference", "ipa": "/ˈkɑːnfərəns/", "pos": "n.", "zh": "會議、研討會", "example": { "en": "She will present her findings at the conference in May.", "zh": "她將在五月的會議上報告她的研究結果。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "討論會、公開座談", "en": "a meeting where people can talk about a topic", "in_passage": true, "distinguish": "指現場舉辦的活動，常和 hold、host 一起用。", "example": { "en": "The forum gave employees a chance to ask about the new policy.", "zh": "這場討論會讓員工有機會詢問新政策。" } },
+        { "pos": "n.", "zh": "網路論壇", "en": "a website where people post questions and answers", "distinguish": "指網站，常有 online、user 等字出現。", "example": { "en": "Users share tips on the support forum every day.", "zh": "使用者每天在支援論壇上分享技巧。" } }
+      ]
+    }
+  ]
+}

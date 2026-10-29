@@ -1,0 +1,149 @@
+{
+  "week": 7,
+  "day": 4,
+  "tag": "進口發電機貨物延遲清關與文件更正報告郵件",
+  "subtopic": "貿易與報關",
+  "type": "Reading",
+  "level": {
+    "score": 775,
+    "range": "725-825",
+    "cefr": "B2+",
+    "why": "以分詞構句、關係子句、since／although／because 等多重連接詞與 it is imperative that 的虛擬語氣句型組成較長的書面句，需整合文件不符、更正期限、二次查驗風險、倉儲費與查驗人員費用等多項資訊；imperative、discrepancy 等字彙較抽象，且干擾項（如倉儲費、供應商與報關行的角色）更接近正解。"
+  },
+  "passage": "Subject: Update on the Generator Shipment\n\nDear Mr. Alvarez,\n\nI am writing to update you on the 40 industrial generators that left Hamburg aboard the freighter Nordic Star on April 3. The vessel reached our port on schedule, but customs officials halted the release of the cargo after discovering that the certificate of origin did not match the commercial invoice. Since our assembly line cannot resume production until the units are delivered, it is imperative that this discrepancy be corrected before Friday.\n\nOur broker has already contacted the supplier, who has promised to send a revised certificate by tomorrow morning. Although we were impressed by how quickly the supplier responded, we remain cautious, because a second inspection may be required once the new documents have been filed. If that happens, clearance could take up to three additional business days, and storage fees of 200 dollars per day would apply.\n\nTo reduce the risk, I recommend that we employ an independent inspector to verify all paperwork before it is resubmitted. This would cost 800 dollars, but it would likely prevent further delays. Please let me know by Wednesday if you approve.\n\nBest regards,\nMaria Chen\nLogistics Manager",
+  "zh": "主旨：發電機貨物最新進度\n\n阿爾瓦雷茲先生，您好：\n\n我寫這封信是要向您報告 40 台工業用發電機的最新狀況，這批貨於 4 月 3 日由貨輪北極星號從漢堡出發。船隻已準時抵達我們的港口，但海關人員在發現原產地證明書與商業發票不一致後，暫停了貨物的放行。由於在貨物送達之前，我們的組裝線無法恢復生產，因此務必在週五前更正這項不一致之處。\n\n我們的報關行已經聯絡供應商，對方承諾會在明天早上寄出更正後的證明書。雖然供應商回應得這麼快讓我們印象深刻，但我們仍保持謹慎，因為新文件送件後，可能還需要進行第二次查驗。若發生這種情況，清關最多可能再多花三個工作天，並且每天要支付 200 美元的倉儲費。\n\n為了降低風險，我建議我們聘請一位獨立的查驗人員，在文件重新送件前核對所有文書資料。這會花費 800 美元，但很可能避免進一步的延誤。如果您同意，請在週三前告訴我。\n\n敬上\n瑪莉亞．陳\n物流經理",
+  "vocab": [
+    {
+      "word": "freighter",
+      "ipa": "/ˈfreɪtɚ/",
+      "pos": "n.",
+      "col": "cargo freighter / board a freighter",
+      "zh": "貨輪、貨機"
+    },
+    {
+      "word": "generator",
+      "ipa": "/ˈdʒenəreɪtɚ/",
+      "pos": "n.",
+      "col": "backup generator / power generator",
+      "zh": "發電機"
+    },
+    {
+      "word": "imperative",
+      "ipa": "/ɪmˈperətɪv/",
+      "pos": "adj.",
+      "col": "it is imperative that / imperative to act",
+      "zh": "非常重要的、必要的"
+    },
+    {
+      "word": "cautious",
+      "ipa": "/ˈkɔːʃəs/",
+      "pos": "adj.",
+      "col": "cautious about / remain cautious",
+      "zh": "謹慎的、小心的"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "Why did customs officials stop the release of the cargo?",
+      "opts": [
+        "The freighter arrived at the port later than planned",
+        "The generators were damaged during the voyage",
+        "Two shipping documents contained conflicting information",
+        "The storage fees had not been paid in advance"
+      ],
+      "ans": 2,
+      "why": [
+        "錯誤：信中說船隻準時抵達港口，所以不是延遲抵達。",
+        "錯誤：文中沒有提到發電機在運送途中受損。",
+        "正解：海關發現原產地證明書與商業發票不一致，因此暫停放行貨物。",
+        "錯誤：倉儲費只是若再延誤才會產生的費用，並不是暫停放行的原因。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What does Ms. Chen recommend doing?",
+      "opts": [
+        "Having an independent inspector check the paperwork",
+        "Hiring a second broker to contact the supplier",
+        "Moving the production line to a different site",
+        "Paying the storage fees before Friday"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：陳小姐建議聘請獨立的查驗人員，在重新送件前核對所有文書資料。",
+        "錯誤：與供應商聯絡的是現有的報關行，並不是建議再聘一位報關行。",
+        "錯誤：文中說組裝線要等貨物送達才能恢復生產，沒有提到遷移產線。",
+        "錯誤：倉儲費是延誤才會產生，信中並沒有建議先付費。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What will happen if a second inspection is required?",
+      "opts": [
+        "The supplier will pay the storage fees",
+        "The shipment will be returned to Hamburg",
+        "The production line will be moved to another factory",
+        "Clearance could be delayed and extra costs could be added"
+      ],
+      "ans": 3,
+      "why": [
+        "錯誤：文中沒有說供應商會負擔倉儲費。",
+        "錯誤：貨物是否退回漢堡並未被提及，這是文中沒出現的資訊。",
+        "錯誤：產線遷移沒有出現在信中。",
+        "正解：若需第二次查驗，清關最多可能再多花三個工作天，並且每天要付 200 美元倉儲費。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "All imported goods must be accompanied by documents ______ the country of origin and the value of the shipment.",
+      "opts": [
+        "specify",
+        "specifying",
+        "specified",
+        "specification"
+      ],
+      "ans": 1,
+      "why": [
+        "錯誤：specify 是原形動詞，放在名詞 documents 後面無法修飾名詞。",
+        "正解：documents specifying … 是現在分詞片語修飾名詞，表示「註明…的文件」，後面接受詞。",
+        "錯誤：specified 是過去分詞表被動，但後面直接接受詞 the country of origin，文法不通。",
+        "錯誤：specification 是名詞，後面不能再接 the country of origin 當受詞。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The shipment will be released ______ the customs officer has verified all the required paperwork.",
+      "opts": [
+        "unless",
+        "during",
+        "despite",
+        "once"
+      ],
+      "ans": 3,
+      "why": [
+        "錯誤：unless 表示「除非」，語意變成「除非海關已查驗，否則放行」，邏輯相反。",
+        "錯誤：during 是介系詞，後面要接名詞，不能接完整子句。",
+        "錯誤：despite 是介系詞，且語意是「儘管」，不合邏輯。",
+        "正解：once 當連接詞表示「一旦」，後面接完整子句，符合「查驗完成後即放行」的語意。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The new tariff is expected to ______ the cost of imported steel by almost ten percent.",
+      "opts": [
+        "rise",
+        "arise",
+        "raise",
+        "rose"
+      ],
+      "ans": 2,
+      "why": [
+        "錯誤：rise 是不及物動詞，後面不能直接接受詞 the cost。",
+        "錯誤：arise 表示「發生」，也是不及物動詞，語意不符。",
+        "正解：raise 是及物動詞，表示「提高」，後面接受詞 the cost。",
+        "錯誤：rose 是 rise 的過去式，不能接在 to 後面。"
+      ]
+    }
+  ]
+}

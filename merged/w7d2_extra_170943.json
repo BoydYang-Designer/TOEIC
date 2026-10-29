@@ -1,0 +1,732 @@
+{
+  "week": 7,
+  "day": 2,
+  "extra_vocab": [
+    {
+      "text": "achievers",
+      "type": "word",
+      "lemma": "achiever",
+      "ipa": "/əˈtʃiːvɚz/",
+      "pos": "n.",
+      "zh": "有成就的人、表現傑出的人（複數）",
+      "en": "people who do very well and reach their goals",
+      "note": "在這篇文章裡，top achievers 指業績最優秀、被公司邀請參加獎勵活動（retreat）的員工。achiever 指的是「人」，不是成就本身。",
+      "grammar_note": "achiever 是可數名詞，指「人」；成就本身是 achievement，動詞 achieve 是及物動詞，後面直接接 goal、target，不加 to。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "top achiever",
+          "zh": "頂尖表現者",
+          "example": {
+            "en": "She was named the top achiever in the sales department this year.",
+            "zh": "她今年被選為業務部門表現最優異的人。"
+          }
+        },
+        {
+          "phrase": "high achiever",
+          "zh": "高成就者",
+          "example": {
+            "en": "Our recruiters look for high achievers who work well in teams.",
+            "zh": "我們的招募人員在尋找善於團隊合作的高成就者。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "頒獎",
+          "en": "The award ceremony honors the achievers from every regional office.",
+          "zh": "頒獎典禮表揚各區域分公司的傑出人員。"
+        },
+        {
+          "tag": "獎勵活動",
+          "en": "Top achievers receive a bonus and an invitation to the annual retreat.",
+          "zh": "頂尖表現者會獲得獎金，並受邀參加年度活動。"
+        },
+        {
+          "tag": "人資",
+          "en": "The training program is designed for achievers who want to become managers.",
+          "zh": "這項培訓計畫是為想成為主管的傑出人員設計的。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "achievement",
+          "diff": "achiever 是「有成就的人」，achievement 是「成就、成果」這件事。",
+          "example": {
+            "en": "Winning the national award was a major achievement for the company.",
+            "zh": "贏得全國大獎是公司的一大成就。"
+          }
+        },
+        {
+          "word": "archive",
+          "diff": "拼法相近，但 archive 是「檔案館、存檔」，與成就無關。",
+          "example": {
+            "en": "Please store the old reports in the company archive after the audit.",
+            "zh": "稽核結束後，請把舊報告存放在公司檔案庫。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "high performer",
+          "diff": "常用在人資與績效評估，指工作表現好的人；achiever 帶有「達成目標」的意味。",
+          "example": {
+            "en": "The manager praised the high performers on the sales team.",
+            "zh": "經理稱讚了業務團隊中表現優異的人。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "recipient",
+          "pos": "n.",
+          "zh": "獲獎者、接受者",
+          "ipa": "/rɪˈsɪpiənt/",
+          "example": {
+            "en": "The recipient of this year's award will be announced on Friday.",
+            "zh": "今年的獲獎者將在週五公布。"
+          }
+        },
+        {
+          "w": "winner",
+          "pos": "n.",
+          "zh": "優勝者",
+          "ipa": "/ˈwɪnɚ/",
+          "example": {
+            "en": "The winner of the sales contest will receive a trip to Bali.",
+            "zh": "業績競賽的優勝者將獲得峇里島旅遊。"
+          }
+        },
+        {
+          "w": "performance",
+          "pos": "n.",
+          "zh": "表現、績效",
+          "ipa": "/pɚˈfɔːrməns/",
+          "example": {
+            "en": "Her performance this quarter was well above the team average.",
+            "zh": "她這一季的表現遠高於團隊平均。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "achieve",
+          "ipa": "/əˈtʃiːv/",
+          "pos": "v.",
+          "zh": "達成",
+          "link": "最基礎的動詞；achieve + -er，做這件事的人，像 worker、manager"
+        },
+        {
+          "w": "achievement",
+          "ipa": "/əˈtʃiːvmənt/",
+          "pos": "n.",
+          "zh": "成就",
+          "link": "achieve + -ment，變成名詞「成果」，像 payment、agreement"
+        },
+        {
+          "w": "achievable",
+          "ipa": "/əˈtʃiːvəbl/",
+          "pos": "adj.",
+          "zh": "可達成的",
+          "link": "achieve + -able，可以被達成的，像 reasonable、available"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [
+        {
+          "id": "nv_vmv6uqmfj6ju",
+          "result": "covered"
+        }
+      ]
+    },
+    {
+      "text": "impressed",
+      "type": "word",
+      "lemma": "impress",
+      "ipa": "/ɪmˈprest/",
+      "pos": "adj.",
+      "zh": "印象深刻的、感佩的",
+      "en": "feeling that something is very good and deserves respect",
+      "note": "在這篇文章裡，were impressed by the scale of the event 是飯店客氣地表示對活動規模印象深刻，帶有正面、禮貌的語氣。",
+      "grammar_note": "人感到印象深刻用 impressed（be impressed by / with + 事物）；造成印象的事物或結果用 impressive，不能說 The result is impressed。",
+      "forms": [
+        {
+          "w": "impresses",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "使印象深刻",
+          "ipa": "/ɪmˈpresɪz/",
+          "example": {
+            "en": "Her careful planning always impresses the senior managers at our company.",
+            "zh": "她縝密的規劃總是讓公司的高階主管印象深刻。"
+          }
+        },
+        {
+          "w": "impressing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "使印象深刻",
+          "ipa": "/ɪmˈpresɪŋ/",
+          "example": {
+            "en": "Impressing a new client takes more than a good presentation.",
+            "zh": "要讓新客戶留下深刻印象，不只需要一場好的簡報。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "impressed by",
+          "zh": "對…印象深刻",
+          "example": {
+            "en": "Customers were impressed by how quickly the staff solved the problem.",
+            "zh": "顧客對員工解決問題的速度之快印象深刻。"
+          }
+        },
+        {
+          "phrase": "impressed with",
+          "zh": "對…印象深刻",
+          "example": {
+            "en": "The board was impressed with her clear and confident presentation.",
+            "zh": "董事會對她清楚又自信的簡報印象深刻。"
+          }
+        },
+        {
+          "phrase": "highly impressed",
+          "zh": "非常印象深刻",
+          "example": {
+            "en": "We were highly impressed with the quality of the samples.",
+            "zh": "我們對樣品的品質印象非常深刻。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "面試",
+          "en": "The interviewers were impressed by her experience in international sales.",
+          "zh": "面試官對她的國際業務經驗印象深刻。"
+        },
+        {
+          "tag": "客戶",
+          "en": "Our client was impressed that the team finished the work early.",
+          "zh": "我們的客戶對團隊提早完工印象深刻。"
+        },
+        {
+          "tag": "簡報",
+          "en": "Everyone in the meeting was impressed after seeing the test results.",
+          "zh": "看到測試結果後，會議中的每個人都印象深刻。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "impressive",
+          "diff": "impressed 形容「感到」印象深刻的人；impressive 形容「令人」印象深刻的事物。",
+          "usage": "主詞是人用 impressed（The client was impressed），主詞是事物或結果用 impressive（The result is impressive）。",
+          "example": {
+            "en": "The company reported an impressive increase in online orders last quarter.",
+            "zh": "公司報告上一季網路訂單有令人印象深刻的成長。"
+          }
+        },
+        {
+          "word": "expressed",
+          "diff": "拼法與發音相近，但 expressed 是 express（表達）的過去式。",
+          "example": {
+            "en": "The manager expressed her thanks to the whole team.",
+            "zh": "經理向全體團隊表達了謝意。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "pleased with",
+          "diff": "只是滿意、高興，語氣比 impressed 弱，不一定有佩服的意思。",
+          "example": {
+            "en": "We are pleased with the results of the customer survey.",
+            "zh": "我們對顧客調查的結果感到滿意。"
+          }
+        },
+        {
+          "phrase": "struck by",
+          "diff": "語氣更強烈，常指被某個特點吸引注意。",
+          "example": {
+            "en": "She was struck by the friendly atmosphere in the new office.",
+            "zh": "她對新辦公室友善的氣氛印象深刻。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "admire",
+          "pos": "v.",
+          "zh": "欣賞、佩服",
+          "ipa": "/ədˈmaɪɚ/",
+          "example": {
+            "en": "Many employees admire the director's honest and open leadership style.",
+            "zh": "許多員工很欣賞總監坦率開放的領導風格。"
+          }
+        },
+        {
+          "w": "praise",
+          "pos": "v.",
+          "zh": "稱讚",
+          "ipa": "/preɪz/",
+          "example": {
+            "en": "The client praised the team for meeting every deadline.",
+            "zh": "客戶稱讚團隊趕上了每一個期限。"
+          }
+        },
+        {
+          "w": "satisfied",
+          "pos": "adj.",
+          "zh": "滿意的",
+          "ipa": "/ˈsætɪsfaɪd/",
+          "example": {
+            "en": "Most customers said they were satisfied with the new delivery service.",
+            "zh": "大多數顧客表示對新的配送服務感到滿意。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "impression",
+          "ipa": "/ɪmˈpreʃn/",
+          "pos": "n.",
+          "zh": "印象",
+          "link": "impress + -ion，變成名詞「印象」，像 discussion、decision"
+        },
+        {
+          "w": "impressive",
+          "ipa": "/ɪmˈpresɪv/",
+          "pos": "adj.",
+          "zh": "令人印象深刻的",
+          "link": "impress + -ive，「令人…的」，像 active、attractive"
+        },
+        {
+          "w": "impressively",
+          "ipa": "/ɪmˈpresɪvli/",
+          "pos": "adv.",
+          "zh": "令人印象深刻地",
+          "link": "impressive + -ly，形容詞變副詞，像 quickly、clearly"
+        },
+        {
+          "w": "unimpressed",
+          "ipa": "/ˌʌnɪmˈprest/",
+          "pos": "adj.",
+          "zh": "不為所動的",
+          "link": "un- + impressed，「不…的」，像 unhappy、unable"
+        }
+      ],
+      "pos_uses": [
+        {
+          "w": "impressed",
+          "pos": "adj.",
+          "ipa": "/ɪmˈprest/",
+          "zh": "印象深刻的",
+          "in_passage": true,
+          "example": {
+            "en": "The investors were impressed by the firm's steady growth over three years.",
+            "zh": "投資人對這家公司三年來的穩定成長印象深刻。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ɪmˈpres/",
+          "zh": "使印象深刻",
+          "example": {
+            "en": "The new design impressed everyone who attended the trade show.",
+            "zh": "新設計讓每位參加貿易展的人都印象深刻。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "employed",
+      "type": "word",
+      "lemma": "employ",
+      "ipa": "/ɪmˈplɔɪd/",
+      "pos": "v.",
+      "zh": "被僱用、受僱",
+      "en": "paid by a company to work for it",
+      "note": "在這篇文章裡是被動句 is employed by your company，指每位賓客都是這家公司的在職員工，作為申請優惠價的資格證明。",
+      "grammar_note": "employ 是及物動詞，表示「受僱於某公司」用被動：be employed by + 公司（或 at + 地點）；employed 也可當形容詞，表示「有工作的」，反義是 unemployed。",
+      "forms": [
+        {
+          "w": "employs",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "僱用",
+          "ipa": "/ɪmˈplɔɪz/",
+          "example": {
+            "en": "The factory employs more than two hundred workers in the region.",
+            "zh": "這間工廠在當地僱用了兩百多名員工。"
+          }
+        },
+        {
+          "w": "employing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "僱用",
+          "ipa": "/ɪmˈplɔɪɪŋ/",
+          "example": {
+            "en": "Employing local staff helps the company understand its customers better.",
+            "zh": "僱用當地員工有助於公司更了解自己的顧客。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "employed by",
+          "zh": "受僱於",
+          "example": {
+            "en": "All sales staff are employed by the regional office, not headquarters.",
+            "zh": "所有業務人員都受僱於區域辦公室，而不是總公司。"
+          }
+        },
+        {
+          "phrase": "employ workers",
+          "zh": "僱用員工",
+          "example": {
+            "en": "The new plant will employ workers from nearby towns.",
+            "zh": "新工廠會僱用附近城鎮的工人。"
+          }
+        },
+        {
+          "phrase": "employ a consultant",
+          "zh": "聘請顧問",
+          "example": {
+            "en": "We decided to employ a consultant to review the budget.",
+            "zh": "我們決定聘請一位顧問來審查預算。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "人資",
+          "en": "We plan to employ three more engineers before the product launch.",
+          "zh": "我們打算在產品上市前再僱用三位工程師。"
+        },
+        {
+          "tag": "貸款申請",
+          "en": "Applicants must be employed full time to qualify for the loan.",
+          "zh": "申請人必須是全職受僱，才符合貸款資格。"
+        },
+        {
+          "tag": "產業報告",
+          "en": "Retail is the industry that employs the largest number of people here.",
+          "zh": "零售業是這裡僱用人數最多的產業。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "deployed",
+          "diff": "拼法與發音相近，但 deployed 是「部署、調派」人員或資源。",
+          "example": {
+            "en": "Extra security staff were deployed at the entrance during the event.",
+            "zh": "活動期間，額外的保全人員被調派到入口處。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "hire",
+          "diff": "hire 強調「聘用」這個動作與決定，口語、常用；employ 較正式，也指持續僱用的狀態。",
+          "example": {
+            "en": "We will hire two new analysts after the budget is approved.",
+            "zh": "預算核准後，我們會聘用兩位新的分析師。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "lay off",
+          "pos": "phr. v.",
+          "zh": "資遣（因業務縮減，不是員工的錯）",
+          "ipa": "/ˌleɪ ˈɔːf/",
+          "example": {
+            "en": "The company had to lay off fifty workers after sales dropped.",
+            "zh": "銷售下滑後，公司不得不資遣五十名員工。"
+          }
+        },
+        {
+          "w": "dismiss",
+          "pos": "v.",
+          "zh": "解僱（因表現或過失，較正式）",
+          "ipa": "/dɪsˈmɪs/",
+          "example": {
+            "en": "He was dismissed after breaking the company's safety rules.",
+            "zh": "他因為違反公司安全規定而被解僱。"
+          }
+        },
+        {
+          "w": "fire",
+          "pos": "v.",
+          "zh": "開除（口語）",
+          "ipa": "/faɪɚ/",
+          "example": {
+            "en": "The manager fired the contractor for missing every deadline.",
+            "zh": "經理因為承包商每次都沒趕上期限而把他開除。"
+          }
+        },
+        {
+          "w": "resign",
+          "pos": "v.",
+          "zh": "辭職",
+          "ipa": "/rɪˈzaɪn/",
+          "example": {
+            "en": "She resigned to start her own consulting business.",
+            "zh": "她辭職去開創自己的顧問公司。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "employer",
+          "ipa": "/ɪmˈplɔɪɚ/",
+          "pos": "n.",
+          "zh": "雇主",
+          "link": "employ + -er，僱用人的人，像 worker、manager"
+        },
+        {
+          "w": "employee",
+          "ipa": "/ɪmˈplɔɪiː/",
+          "pos": "n.",
+          "zh": "員工",
+          "link": "employ + -ee，被僱用的人，像 trainee、interviewee"
+        },
+        {
+          "w": "employment",
+          "ipa": "/ɪmˈplɔɪmənt/",
+          "pos": "n.",
+          "zh": "僱用、就業",
+          "link": "employ + -ment，變成名詞，像 payment、agreement"
+        },
+        {
+          "w": "unemployed",
+          "ipa": "/ˌʌnɪmˈplɔɪd/",
+          "pos": "adj.",
+          "zh": "失業的",
+          "link": "un- + employed，不被僱用的，像 unhappy、unable"
+        },
+        {
+          "w": "unemployment",
+          "ipa": "/ˌʌnɪmˈplɔɪmənt/",
+          "pos": "n.",
+          "zh": "失業",
+          "link": "un- + employment，沒有就業，也就是「失業（率）」"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/ɪmˈplɔɪ/",
+          "zh": "僱用",
+          "in_passage": true,
+          "example": {
+            "en": "The company plans to employ twenty new technicians this summer.",
+            "zh": "公司計畫今年夏天僱用二十位新技術人員。"
+          }
+        },
+        {
+          "w": "employed",
+          "pos": "adj.",
+          "ipa": "/ɪmˈplɔɪd/",
+          "zh": "有工作的、受僱的",
+          "example": {
+            "en": "Over ninety percent of our graduates are employed within six months.",
+            "zh": "我們超過九成的畢業生在六個月內就有工作。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "僱用（人）",
+          "en": "to pay someone to work for you",
+          "in_passage": true,
+          "example": {
+            "en": "The hotel employs a full-time manager for its guest events.",
+            "zh": "這間飯店僱用一位全職經理負責住客活動。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "使用（方法、技術）",
+          "en": "to use something for a purpose",
+          "distinguish": "受詞是人就是「僱用」；受詞是方法、技術就是「使用」，語氣較正式。",
+          "example": {
+            "en": "The team employs a new method to test every product.",
+            "zh": "團隊採用新的方法來測試每一項產品。"
+          }
+        }
+      ],
+      "nw_done": [
+        {
+          "id": "nv_vmv6uwj620bo",
+          "result": "added"
+        }
+      ]
+    },
+    {
+      "text": "halted",
+      "type": "word",
+      "lemma": "halt",
+      "ipa": "/ˈhɔːltɪd/",
+      "pos": "v.",
+      "zh": "被迫暫停、中止",
+      "en": "stopped, often for a while",
+      "note": "在這篇文章裡是被動句 was halted，指東翼整修工程因許可證糾紛被迫暫停，不是自願停工，之後有可能再開始。",
+      "grammar_note": "halt 的過去式與過去分詞都是 halted；當及物動詞時受詞常是 work、production 等（halt production），被動 be halted 表示被迫暫停。",
+      "forms": [
+        {
+          "w": "halts",
+          "label": "第三人稱單數／複數",
+          "pos": "v./n.",
+          "zh": "使停止；停止",
+          "ipa": "/hɔːlts/",
+          "example": {
+            "en": "Heavy snow halts train service along the northern line every winter.",
+            "zh": "每年冬天，大雪都會讓北線的火車停駛。"
+          }
+        },
+        {
+          "w": "halting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "使停止",
+          "ipa": "/ˈhɔːltɪŋ/",
+          "example": {
+            "en": "Halting production for repairs cost the plant nearly a full day.",
+            "zh": "為了維修而停止生產，使工廠損失了將近一整天。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "halt production",
+          "zh": "停止生產",
+          "example": {
+            "en": "The plant had to halt production because of a parts shortage.",
+            "zh": "工廠因為零件短缺而不得不停止生產。"
+          }
+        },
+        {
+          "phrase": "come to a halt",
+          "zh": "停了下來",
+          "example": {
+            "en": "Traffic may come to a halt near the airport during the evening rush hour.",
+            "zh": "傍晚尖峰時段，機場附近的交通可能會完全停下來。"
+          }
+        },
+        {
+          "phrase": "halt operations",
+          "zh": "暫停營運",
+          "example": {
+            "en": "Storms forced the airline to halt operations at two airports.",
+            "zh": "暴風雨迫使航空公司暫停兩座機場的營運。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "施工",
+          "en": "The council halted the road project until the budget was approved.",
+          "zh": "市議會在預算核准前叫停了這項道路工程。"
+        },
+        {
+          "tag": "物流",
+          "en": "A customs problem halted the shipment at the border for two days.",
+          "zh": "海關問題讓貨物在邊境停留了兩天。"
+        },
+        {
+          "tag": "資訊系統",
+          "en": "Updates were halted when the server suddenly stopped responding.",
+          "zh": "伺服器突然沒有回應時，更新作業就被中止了。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "halve",
+          "diff": "拼法相近，但 halve 是「使減半」，不是停止。",
+          "example": {
+            "en": "The new system will halve our processing time by next year.",
+            "zh": "新系統將在明年把我們的處理時間減半。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "suspend",
+          "diff": "suspend 較正式，多指有計畫地暫時停止；halted 常是被意外或外力叫停。",
+          "example": {
+            "en": "The airline suspended flights to the island because of the storm.",
+            "zh": "航空公司因為暴風雨暫停了飛往該島的航班。"
+          }
+        },
+        {
+          "word": "stall",
+          "diff": "stall 指自己停滯、卡住（談判、引擎），不一定是被叫停。",
+          "example": {
+            "en": "Talks stalled when the two sides could not agree on price.",
+            "zh": "雙方無法在價格上達成共識，談判因而停滯。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "pause",
+          "pos": "v.",
+          "zh": "暫停、停頓",
+          "ipa": "/pɔːz/",
+          "example": {
+            "en": "Please pause the video so we can discuss the first slide.",
+            "zh": "請暫停影片，讓我們討論第一張投影片。"
+          }
+        },
+        {
+          "w": "delay",
+          "pos": "v.",
+          "zh": "延遲",
+          "ipa": "/dɪˈleɪ/",
+          "example": {
+            "en": "Bad weather may delay the delivery of the new equipment.",
+            "zh": "惡劣天氣可能會延遲新設備的送達。"
+          }
+        },
+        {
+          "w": "interrupt",
+          "pos": "v.",
+          "zh": "打斷、中斷",
+          "ipa": "/ˌɪntɚˈrʌpt/",
+          "example": {
+            "en": "A power failure interrupted the presentation for several minutes.",
+            "zh": "停電使簡報中斷了好幾分鐘。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/hɔːlt/",
+          "zh": "使停止；停止",
+          "in_passage": true,
+          "example": {
+            "en": "The manager decided to halt the experiment until the results were checked.",
+            "zh": "經理決定在確認結果之前先中止這項實驗。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/hɔːlt/",
+          "zh": "停止、中止",
+          "example": {
+            "en": "The strike brought all deliveries to a complete halt.",
+            "zh": "罷工使所有的配送完全停擺。"
+          }
+        }
+      ],
+      "senses": []
+    }
+  ]
+}

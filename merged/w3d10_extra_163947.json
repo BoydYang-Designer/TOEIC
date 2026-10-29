@@ -1,0 +1,59 @@
+{
+  "week": 3,
+  "day": 10,
+  "extra_vocab": [
+    {
+      "text": "This means you don't have to reach across to the other side",
+      "type": "sentence",
+      "zh": "這表示你不必伸手到另一側去。",
+      "note": "接在「兩個按鈕是連動的」之後，說明這個設計的好處。語氣是平實的說明，讓使用者知道可以省下麻煩。",
+      "chunks": [
+        { "en": "This means", "zh": "這表示" },
+        { "en": "you don't have to", "zh": "你不必" },
+        { "en": "reach across", "zh": "伸手越過去" },
+        { "en": "to the other side", "zh": "到另一側" }
+      ],
+      "structure": "This + means（＋that 省略）＋ 主詞 + don't have to + V（reach across）＋ to + 地點",
+      "grammar": [
+        {
+          "point": "don't have to + V",
+          "explain": "表示「不必、沒有必要」，不是「不可以」。don't have to 後面接原形動詞；要說「禁止」要用 must not 或 can't。"
+        },
+        {
+          "point": "This means (that) + 子句",
+          "explain": "This 指前面一整句的內容（兩個按鈕連動，按一個就好），means 後面常省略 that，直接接新的子句，用來說明結果或影響。"
+        },
+        {
+          "point": "reach across to + 地點",
+          "explain": "reach across 是「動詞 + 副詞」的動詞片語，意思是伸手越過某處；後面用 to 帶出要碰到的目標位置。"
+        }
+      ],
+      "pattern": "This means + 主詞 + don't have to + V + to + 地點",
+      "paraphrase": [
+        {
+          "en": "So you do not need to stretch over to the opposite side.",
+          "zh": "所以你不需要伸手到對面那一側。"
+        },
+        {
+          "en": "As a result, you can avoid reaching to the other side.",
+          "zh": "因此，你可以避免伸手到另一側。"
+        }
+      ],
+      "examples": [
+        {
+          "en": "This means we don't have to wait for the manager's approval.",
+          "zh": "這表示我們不必等經理的核准。"
+        },
+        {
+          "en": "This means customers don't have to go to the store to pay.",
+          "zh": "這表示顧客不必到店裡付款。"
+        }
+      ],
+      "key_words": [
+        { "w": "means", "ipa": "/miːnz/", "pos": "v.", "zh": "意思是、表示" },
+        { "w": "reach across", "zh": "伸手越過去" },
+        { "w": "the other side", "zh": "另一側、另一邊" }
+      ]
+    }
+  ]
+}

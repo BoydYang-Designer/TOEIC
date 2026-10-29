@@ -1,0 +1,171 @@
+{
+  "week": 7,
+  "day": 5,
+  "extra_vocab": [
+    {
+      "text": "commerce",
+      "type": "word",
+      "ipa": "/ˈkɑːmɝːs/",
+      "pos": "n.",
+      "zh": "商業、貿易",
+      "en": "the buying and selling of goods and services",
+      "note": "在這篇裡 online commerce platform 指線上購物或電商平台。commerce 比 business 更強調「買賣交易」本身，常見於電商相關的文章。",
+      "grammar_note": "commerce 是不可數名詞，不加 s，也不加 a。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "e-commerce", "zh": "電子商務", "example": { "en": "E-commerce sales grew by twenty percent during the holiday season.", "zh": "電子商務的銷售額在假期期間成長了兩成。" } },
+        { "phrase": "chamber of commerce", "zh": "商會", "example": { "en": "The local chamber of commerce will host a networking event.", "zh": "當地商會將舉辦一場交流活動。" } },
+        { "phrase": "online commerce", "zh": "線上商務", "example": { "en": "Online commerce has changed how small shops reach customers.", "zh": "線上商務改變了小商店接觸顧客的方式。" } }
+      ],
+      "examples": [
+        { "tag": "新聞", "en": "International commerce slowed after the new tax rules took effect.", "zh": "新稅制生效後，國際貿易趨緩。" },
+        { "tag": "會議", "en": "Our company specializes in software for mobile commerce.", "zh": "我們公司專門開發行動商務的軟體。" },
+        { "tag": "公告", "en": "The Department of Commerce released its annual trade report today.", "zh": "商務部今天發布了年度貿易報告。" }
+      ],
+      "confusable": [
+        { "word": "commence", "diff": "commence 是動詞，意思是「開始」（正式用法），拼法和 commerce 很像但意思完全不同。", "usage": "commerce 是名詞（商業），commence 是動詞（開始），後者常見於正式通知，如 The meeting will commence at nine。", "example": { "en": "The training session will commence at nine o'clock sharp.", "zh": "訓練課程將在九點整開始。" } }
+      ],
+      "similar": [
+        { "word": "trade", "diff": "trade 常指國與國之間或業者之間的貨物買賣；commerce 範圍更廣，包含整體商業活動。", "example": { "en": "Trade between the two countries has increased this year.", "zh": "兩國之間的貿易今年有所增加。" } },
+        { "word": "business", "diff": "business 是最通用的「生意、公司」；commerce 較正式，強調買賣交易。", "example": { "en": "Her business sells handmade furniture to customers overseas.", "zh": "她的生意把手工家具賣給海外顧客。" } }
+      ],
+      "family": [
+        { "w": "trade", "ipa": "/treɪd/", "pos": "n.", "zh": "貿易", "example": { "en": "Free trade helps small companies sell their products abroad.", "zh": "自由貿易幫助小公司把產品賣到國外。" } },
+        { "w": "retail", "ipa": "/ˈriːteɪl/", "pos": "n.", "zh": "零售", "example": { "en": "She has ten years of experience in retail management.", "zh": "她有十年的零售管理經驗。" } },
+        { "w": "transaction", "ipa": "/trænˈzækʃn/", "pos": "n.", "zh": "交易", "example": { "en": "Each transaction is recorded in the system automatically.", "zh": "每一筆交易都會自動記錄在系統中。" } }
+      ],
+      "derived": [
+        { "w": "commercial", "ipa": "/kəˈmɝːʃl/", "pos": "adj.", "zh": "商業的；n. 廣告", "link": "commerce 去掉 -e 加 -ial，變形容詞「商業的」，像 office → official" },
+        { "w": "commercially", "ipa": "/kəˈmɝːʃəli/", "pos": "adv.", "zh": "商業上地", "link": "commercial + -ly，形容詞變副詞，像 quick → quickly" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "bug",
+      "type": "word",
+      "ipa": "/bʌɡ/",
+      "pos": "n.",
+      "zh": "（軟體）錯誤、程式漏洞",
+      "en": "a mistake in a computer program that makes it work wrongly",
+      "note": "在這篇裡 a software bug 指造成顧客重複扣款的程式錯誤。bug 是資訊相關文章的高頻字，比 error 更口語，也更偏向「程式本身的缺陷」。",
+      "forms": [
+        { "w": "bugs", "label": "複數", "pos": "n.", "zh": "程式錯誤（複數）", "ipa": "/bʌɡz/", "example": { "en": "The testers found several bugs in the latest version of the app.", "zh": "測試人員在最新版本的應用程式中找到數個錯誤。" } }
+      ],
+      "collocations": [
+        { "phrase": "fix a bug", "zh": "修正錯誤", "example": { "en": "Our engineers worked all night to fix a bug in the payment page.", "zh": "我們的工程師徹夜工作，修正付款頁面的錯誤。" } },
+        { "phrase": "software bug", "zh": "軟體錯誤", "example": { "en": "A software bug deleted some files from the customer database.", "zh": "一個軟體錯誤刪除了客戶資料庫中的部分檔案。" } },
+        { "phrase": "bug report", "zh": "錯誤回報", "example": { "en": "Please attach a screenshot when you submit a bug report.", "zh": "提交錯誤回報時，請附上螢幕截圖。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The bug only appears when users pay with a credit card.", "zh": "這個錯誤只有在使用者以信用卡付款時才會出現。" },
+        { "tag": "電子郵件", "en": "We apologize for the bug and have already released a patch.", "zh": "我們為這個錯誤致歉，並且已經發布修補程式。" },
+        { "tag": "客服", "en": "Customers reported a bug that prevented them from logging in.", "zh": "顧客回報有個錯誤讓他們無法登入。" }
+      ],
+      "similar": [
+        { "word": "glitch", "diff": "glitch 是暫時性的小故障，可能自己消失；bug 是程式本身的缺陷，要修改程式才會好。", "example": { "en": "A brief glitch interrupted the live video stream this morning.", "zh": "今早一個短暫的小故障中斷了直播串流。" } },
+        { "word": "defect", "diff": "defect 通常指產品或設備的瑕疵，bug 專指軟體。", "example": { "en": "The inspector found a defect in the battery pack.", "zh": "檢驗員在電池組中發現了瑕疵。" } }
+      ],
+      "family": [
+        { "w": "error", "ipa": "/ˈerər/", "pos": "n.", "zh": "錯誤", "example": { "en": "An error message appeared when I tried to save the file.", "zh": "我嘗試存檔時出現了錯誤訊息。" } },
+        { "w": "defect", "ipa": "/ˈdiːfekt/", "pos": "n.", "zh": "瑕疵", "example": { "en": "Any defect must be reported within seven days of delivery.", "zh": "任何瑕疵都必須在到貨後七天內回報。" } },
+        { "w": "patch", "ipa": "/pætʃ/", "pos": "n.", "zh": "修補程式", "example": { "en": "The company released a security patch on Friday evening.", "zh": "公司在星期五晚上發布了一個安全修補程式。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "軟體錯誤", "en": "a mistake in a computer program", "in_passage": true, "distinguish": "文中有 software、engineers、corrected the error，判斷是程式問題。", "example": { "en": "The new update fixed a bug that slowed down the website.", "zh": "新的更新修正了讓網站變慢的錯誤。" } },
+        { "pos": "n.", "zh": "小蟲、昆蟲", "en": "a small insect", "distinguish": "和農業、食品、環境清潔等情境一起出現。", "example": { "en": "The restaurant was closed after inspectors found bugs in the kitchen.", "zh": "檢查人員在廚房發現小蟲後，這家餐廳被勒令停業。" } },
+        { "pos": "n.", "zh": "輕微的病毒感染", "en": "a mild illness that spreads easily", "distinguish": "常寫成 a stomach bug 或 catch a bug，出現在請病假的情境。", "example": { "en": "Half the office stayed home because of a stomach bug.", "zh": "辦公室有一半的人因為腸胃型感冒待在家。" } }
+      ]
+    },
+    {
+      "text": "convey",
+      "type": "word",
+      "ipa": "/kənˈveɪ/",
+      "pos": "v.",
+      "zh": "傳達、表達",
+      "en": "to make ideas or feelings known to someone",
+      "note": "在這篇裡 convey a sincere apology 指把誠摯的歉意傳達給顧客。convey 比 say 或 give 更正式，常用於道歉、感謝、訊息，是客氣得體的書面用語。",
+      "grammar_note": "convey 的句型是 convey + 事物 + to + 人，不能說 convey someone something；例如 convey our thanks to the team。",
+      "forms": [
+        { "w": "conveys", "label": "第三人稱單數", "pos": "v.", "zh": "傳達", "ipa": "/kənˈveɪz/", "example": { "en": "The logo conveys a sense of trust and quality.", "zh": "這個標誌傳達出信賴與品質的感覺。" } },
+        { "w": "conveyed", "label": "過去式／過去分詞", "pos": "v.", "zh": "傳達了", "ipa": "/kənˈveɪd/", "example": { "en": "She conveyed the client's concerns to the project team.", "zh": "她把客戶的疑慮傳達給專案團隊。" } },
+        { "w": "conveying", "label": "現在分詞", "pos": "v.", "zh": "傳達中", "ipa": "/kənˈveɪɪŋ/", "example": { "en": "Conveying bad news in person shows respect to the customer.", "zh": "當面傳達壞消息是對顧客的尊重。" } }
+      ],
+      "collocations": [
+        { "phrase": "convey a message", "zh": "傳達訊息", "example": { "en": "The poster should convey a message that is clear and simple.", "zh": "海報應該傳達清楚又簡單的訊息。" } },
+        { "phrase": "convey thanks", "zh": "轉達謝意", "example": { "en": "Please convey our thanks to everyone who joined the event.", "zh": "請向所有參加活動的人轉達我們的謝意。" } },
+        { "phrase": "convey information", "zh": "傳達資訊", "example": { "en": "Charts help us convey information to the board quickly.", "zh": "圖表幫助我們快速向董事會傳達資訊。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "I would like to convey my sincere apology for the delay.", "zh": "我想為延遲一事表達我誠摯的歉意。" },
+        { "tag": "簡報", "en": "A good presentation conveys complex ideas in simple language.", "zh": "好的簡報用簡單的語言傳達複雜的概念。" },
+        { "tag": "運輸", "en": "A belt conveys the boxes from the warehouse to the trucks.", "zh": "輸送帶把箱子從倉庫運到卡車上。" }
+      ],
+      "confusable": [
+        { "word": "convince", "diff": "convince 是「說服、使相信」，後面接人；convey 是「傳達」，後面接訊息或感受。", "usage": "convince + 人 + of / that，如 convince the client that…；convey + 事物 + to + 人。", "example": { "en": "Her report convinced the board to approve the new budget.", "zh": "她的報告說服董事會核准了新預算。" } },
+        { "word": "convene", "diff": "convene 是「召集、召開（會議）」，和傳達訊息無關。", "example": { "en": "The committee will convene on Monday to review the proposals.", "zh": "委員會將在星期一召開會議審查提案。" } }
+      ],
+      "similar": [
+        { "word": "communicate", "diff": "communicate 是溝通，可不接受詞（communicate with 人）；convey 一定要接被傳達的內容。", "example": { "en": "We communicate with our overseas clients by email every day.", "zh": "我們每天用電子郵件與海外客戶溝通。" } },
+        { "word": "express", "diff": "express 強調把自己的感受說出來；convey 強調讓對方收到並理解。", "example": { "en": "Several customers expressed concern about the new fees.", "zh": "幾位顧客對新的費用表示擔憂。" } }
+      ],
+      "family": [
+        { "w": "express", "ipa": "/ɪkˈspres/", "pos": "v.", "zh": "表達", "example": { "en": "He expressed his thanks to the whole sales team.", "zh": "他向整個業務團隊表達謝意。" } },
+        { "w": "deliver", "ipa": "/dɪˈlɪvər/", "pos": "v.", "zh": "遞送、傳達", "example": { "en": "Please deliver this message to the manager today.", "zh": "請今天把這則訊息轉交給經理。" } },
+        { "w": "transport", "ipa": "/trænˈspɔːrt/", "pos": "v.", "zh": "運輸", "example": { "en": "Trucks transport the goods to stores across the country.", "zh": "卡車把貨物運到全國各地的商店。" } }
+      ],
+      "derived": [
+        { "w": "conveyor", "ipa": "/kənˈveɪər/", "pos": "n.", "zh": "輸送帶、運送者", "link": "convey + -or，做事的東西或人，像 operator、visitor；常見於 conveyor belt（輸送帶）" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "傳達（想法、感受）", "en": "to let someone know an idea or a feeling", "in_passage": true, "distinguish": "受詞是 apology、message、thanks 等抽象的東西。", "example": { "en": "The manager conveyed his concerns to the head office.", "zh": "經理向總公司傳達了他的疑慮。" } },
+        { "pos": "v.", "zh": "運送、輸送", "en": "to carry people or things from one place to another", "distinguish": "受詞是貨物、水、電等實物，主詞常是輸送帶或管線。", "example": { "en": "The pipeline conveys oil from the port to the refinery.", "zh": "這條管線把石油從港口輸送到煉油廠。" } }
+      ]
+    },
+    {
+      "text": "delicate",
+      "type": "word",
+      "ipa": "/ˈdelɪkət/",
+      "pos": "adj.",
+      "zh": "微妙的、棘手的；脆弱的",
+      "en": "needing careful handling because it could easily go wrong",
+      "note": "在這篇裡 the matter remains delicate 表示重複扣款一事仍然敏感，溝通時稍有不慎就會讓顧客不滿，所以要求同仁使用核准的訊息範本。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "delicate situation", "zh": "微妙的處境", "example": { "en": "We are in a delicate situation after the contract dispute.", "zh": "合約爭議之後，我們處於微妙的處境。" } },
+        { "phrase": "delicate matter", "zh": "敏感的事情", "example": { "en": "Salary is a delicate matter that should be discussed in private.", "zh": "薪資是敏感的事，應該私下討論。" } },
+        { "phrase": "delicate balance", "zh": "微妙的平衡", "example": { "en": "Managers must keep a delicate balance between cost and quality.", "zh": "經理必須在成本與品質之間保持微妙的平衡。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The negotiation is at a delicate stage, so please stay quiet.", "zh": "談判正處於微妙的階段，所以請保持安靜。" },
+        { "tag": "物流", "en": "Delicate equipment must be packed in special boxes for shipping.", "zh": "精密設備必須用特製的箱子包裝運送。" },
+        { "tag": "電子郵件", "en": "This is a delicate issue, so I will call you directly.", "zh": "這是敏感的問題，所以我會直接打電話給你。" }
+      ],
+      "confusable": [
+        { "word": "delicious", "diff": "delicious 是「美味的」，拼法開頭相近但意思和 delicate 完全不同。", "example": { "en": "The caterer prepared a delicious lunch for all of the guests.", "zh": "外燴業者為所有賓客準備了美味的午餐。" } }
+      ],
+      "similar": [
+        { "word": "sensitive", "diff": "sensitive 強調「容易引起情緒反應」的議題；delicate 強調「需要小心處理」。", "example": { "en": "Customer data is sensitive, so only a few staff can see it.", "zh": "顧客資料屬於敏感資訊，所以只有少數員工能看到。" } },
+        { "word": "tricky", "diff": "tricky 是口語的「棘手、不好處理」，delicate 更正式、帶有需要技巧與禮貌的意味。", "example": { "en": "Scheduling a meeting across three time zones is tricky.", "zh": "安排橫跨三個時區的會議很棘手。" } }
+      ],
+      "family": [
+        { "w": "fragile", "ipa": "/ˈfrædʒl/", "pos": "adj.", "zh": "易碎的", "example": { "en": "Mark every box fragile before it goes onto the truck.", "zh": "貨物上卡車前，請在每個箱子上標示易碎。" } },
+        { "w": "gentle", "ipa": "/ˈdʒentl/", "pos": "adj.", "zh": "溫和的、輕柔的", "example": { "en": "Use a gentle tone when you speak to upset customers.", "zh": "和不開心的顧客說話時，請用溫和的語氣。" } },
+        { "w": "careful", "ipa": "/ˈkerfl/", "pos": "adj.", "zh": "小心的", "example": { "en": "Be careful when you handle the original contract.", "zh": "處理合約正本時請小心。" } }
+      ],
+      "derived": [
+        { "w": "delicacy", "ipa": "/ˈdelɪkəsi/", "pos": "n.", "zh": "微妙、細緻；佳餚", "link": "delicate 的 -ate 換成 -acy，變成抽象名詞，像 accurate → accuracy" },
+        { "w": "delicately", "ipa": "/ˈdelɪkətli/", "pos": "adv.", "zh": "小心地、巧妙地", "link": "delicate + -ly，形容詞變副詞，像 careful → carefully" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "微妙的、棘手的", "en": "needing careful handling so that nothing goes wrong", "in_passage": true, "distinguish": "主詞是 matter、situation、issue 等抽象的事。", "example": { "en": "Layoffs are a delicate issue for any growing company.", "zh": "裁員對任何成長中的公司都是敏感的議題。" } },
+        { "pos": "adj.", "zh": "易損壞的、精密的", "en": "easy to damage or break", "distinguish": "主詞是儀器、布料、零件等實物。", "example": { "en": "The delicate parts were wrapped in soft paper before shipping.", "zh": "精密的零件在出貨前用軟紙包好。" } },
+        { "pos": "adj.", "zh": "（顏色、味道）淡雅的", "en": "light and soft in color, taste, or smell", "distinguish": "常修飾 color、flavor、scent，帶正面的感覺。", "example": { "en": "The hotel lobby has a delicate scent of fresh flowers.", "zh": "飯店大廳有淡淡的鮮花香氣。" } }
+      ]
+    }
+  ]
+}

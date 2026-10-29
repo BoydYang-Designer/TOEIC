@@ -1,0 +1,692 @@
+{
+  "week": 7,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "downsize",
+      "type": "word",
+      "ipa": "/ˈdaʊnsaɪz/",
+      "pos": "v.",
+      "zh": "縮減規模、精簡人力",
+      "en": "to make a company or an office smaller, often by using less space or fewer workers",
+      "note": "在這篇文章裡指設計公司打算從目前的辦公室搬到較小的空間，也就是縮減辦公規模，不是單純的裁員。",
+      "grammar_note": "downsize 可當不及物動詞（plans to downsize），也可當及物動詞（downsize the office / the staff）。",
+      "forms": [
+        {
+          "w": "downsizes",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "縮減規模",
+          "ipa": "/ˈdaʊnsaɪzɪz/",
+          "example": {
+            "en": "The firm downsizes its office space whenever more staff work from home.",
+            "zh": "每當更多員工在家工作，這家公司就會縮減辦公空間。"
+          }
+        },
+        {
+          "w": "downsized",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "縮減了規模",
+          "ipa": "/ˈdaʊnsaɪzd/",
+          "example": {
+            "en": "Our company downsized its warehouse last year to cut rental costs.",
+            "zh": "我們公司去年縮減了倉庫規模，以降低租金成本。"
+          }
+        },
+        {
+          "w": "downsizing",
+          "label": "現在分詞／動名詞",
+          "pos": "v.",
+          "zh": "正在縮減規模；縮編",
+          "ipa": "/ˈdaʊnsaɪzɪŋ/",
+          "example": {
+            "en": "Downsizing the sales team was a difficult decision for management.",
+            "zh": "縮編業務團隊對管理階層來說是個艱難的決定。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "downsize the office",
+          "zh": "縮減辦公室規模",
+          "example": {
+            "en": "We decided to downsize the office after the lease expired.",
+            "zh": "租約到期後，我們決定縮減辦公室的規模。"
+          }
+        },
+        {
+          "phrase": "plan to downsize",
+          "zh": "打算縮減規模",
+          "example": {
+            "en": "Several tenants plan to downsize because fewer employees come to the office.",
+            "zh": "有幾位房客打算縮減規模，因為進辦公室的員工變少了。"
+          }
+        },
+        {
+          "phrase": "downsize its workforce",
+          "zh": "精簡人力",
+          "example": {
+            "en": "The manufacturer had to downsize its workforce when orders dropped sharply.",
+            "zh": "訂單大幅下滑時，這家製造商不得不精簡人力。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "租賃",
+          "en": "We asked the landlord for a smaller suite because we need to downsize.",
+          "zh": "我們因為需要縮減規模，所以請房東提供較小的辦公室。"
+        },
+        {
+          "tag": "人事",
+          "en": "The company may downsize if sales do not recover next quarter.",
+          "zh": "如果下一季業績沒有回升，公司可能會縮編。"
+        },
+        {
+          "tag": "會議",
+          "en": "Management agreed to downsize the regional branch rather than close it.",
+          "zh": "管理階層同意縮減區域分公司的規模，而不是關閉它。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "downgrade",
+          "diff": "downgrade 是降低等級或品質，downsize 是縮小規模或人數。",
+          "example": {
+            "en": "The airline downgraded our tickets from business class to economy.",
+            "zh": "航空公司把我們的機票從商務艙降為經濟艙。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "cut back",
+          "diff": "較口語，常接 on + 項目（cut back on staff），不限於縮小空間。",
+          "example": {
+            "en": "We had to cut back on staff after sales fell last year.",
+            "zh": "去年業績下滑後，我們不得不縮減人力。"
+          }
+        },
+        {
+          "phrase": "scale down",
+          "diff": "強調把整體規模調小，語氣中性，常用於計畫、營運或產量。",
+          "example": {
+            "en": "The retailer plans to scale down its operations in two regions.",
+            "zh": "這家零售商計畫縮減在兩個地區的營運規模。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "reduce",
+          "pos": "v.",
+          "zh": "減少",
+          "ipa": "/rɪˈduːs/",
+          "example": {
+            "en": "The new policy should reduce travel costs by about ten percent.",
+            "zh": "新政策應該能把差旅費用降低約百分之十。"
+          }
+        },
+        {
+          "w": "relocate",
+          "pos": "v.",
+          "zh": "搬遷",
+          "ipa": "/ˌriːˈloʊkeɪt/",
+          "example": {
+            "en": "The firm will relocate to a smaller office near the station.",
+            "zh": "這家公司將搬到車站附近較小的辦公室。"
+          }
+        },
+        {
+          "w": "expand",
+          "pos": "v.",
+          "zh": "擴張（反義）",
+          "ipa": "/ɪkˈspænd/",
+          "example": {
+            "en": "The company plans to expand its team once the contract is signed.",
+            "zh": "簽約後，公司打算擴編團隊。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "縮減規模（如辦公空間）",
+          "en": "to move to a smaller place or make something smaller",
+          "in_passage": true,
+          "example": {
+            "en": "Many firms downsize their offices because remote work is now common.",
+            "zh": "許多公司因為遠端工作變普遍而縮減辦公室規模。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "精簡人力、裁員",
+          "en": "to reduce the number of workers in a company",
+          "distinguish": "看受詞：space、office 指縮小規模；staff、workforce 指精簡人力。",
+          "example": {
+            "en": "The plant will downsize its staff by fifty workers this spring.",
+            "zh": "這間工廠今年春天將精簡五十名員工。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "debit",
+      "type": "word",
+      "ipa": "/ˈdebɪt/",
+      "pos": "n.",
+      "zh": "扣款、借記",
+      "en": "money taken directly from a bank account",
+      "note": "在這篇文章裡，automatic debit 指每月租金會自動從房客的銀行帳戶扣款，不必另外匯款。",
+      "grammar_note": "表示付款方式時用 by + 無冠詞名詞，如 by automatic debit、by debit card，不加 a 或 the。",
+      "forms": [
+        {
+          "w": "debits",
+          "label": "複數／第三人稱單數",
+          "pos": "n./v.",
+          "zh": "扣款（複數）；扣款",
+          "ipa": "/ˈdebɪts/",
+          "example": {
+            "en": "Please check your statement for any debits you do not recognize.",
+            "zh": "請檢查對帳單上是否有你不認得的扣款。"
+          }
+        },
+        {
+          "w": "debited",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "已扣款",
+          "ipa": "/ˈdebɪtɪd/",
+          "example": {
+            "en": "The bank debited the monthly fee from our company account on Friday.",
+            "zh": "銀行在週五從我們公司帳戶扣除了月費。"
+          }
+        },
+        {
+          "w": "debiting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在扣款",
+          "ipa": "/ˈdebɪtɪŋ/",
+          "example": {
+            "en": "The supplier apologized for debiting the account twice by mistake.",
+            "zh": "供應商為誤將帳戶重複扣款而道歉。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "automatic debit",
+          "zh": "自動扣款",
+          "example": {
+            "en": "Many tenants prefer automatic debit because it prevents late payments.",
+            "zh": "許多房客偏好自動扣款，因為這樣不會遲繳。"
+          }
+        },
+        {
+          "phrase": "debit card",
+          "zh": "簽帳金融卡",
+          "example": {
+            "en": "You can pay the registration fee with a debit card or cash.",
+            "zh": "你可以用簽帳金融卡或現金支付報名費。"
+          }
+        },
+        {
+          "phrase": "direct debit",
+          "zh": "直接扣款（銀行代扣）",
+          "example": {
+            "en": "Utility bills are paid by direct debit every month.",
+            "zh": "水電費每個月都是用直接扣款的方式繳納。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "租賃",
+          "en": "The landlord set up a monthly debit so rent is never late.",
+          "zh": "房東設定了每月扣款，所以租金絕不會遲繳。"
+        },
+        {
+          "tag": "銀行對帳",
+          "en": "The statement shows a debit of 120 dollars for office supplies.",
+          "zh": "對帳單顯示有一筆 120 美元的辦公用品扣款。"
+        },
+        {
+          "tag": "會計",
+          "en": "Each debit must match a receipt before the accountant approves it.",
+          "zh": "每一筆扣款都必須與收據相符，會計才會核准。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "credit",
+          "diff": "debit 是從帳戶扣錢，credit 是把錢記入帳戶（入帳）。",
+          "example": {
+            "en": "The refund appeared as a credit on our account yesterday.",
+            "zh": "退款昨天以入帳的形式出現在我們的帳戶中。"
+          }
+        },
+        {
+          "word": "debt",
+          "diff": "拼法相近，但 debt 是「欠的債」，字中的 b 不發音（/det/）；debit 是帳戶扣款。",
+          "example": {
+            "en": "The company paid off its debt ahead of schedule this year.",
+            "zh": "公司今年提前還清了債務。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "deduction",
+          "diff": "deduction 泛指從薪水、稅額等金額中扣除；debit 專指從銀行帳戶扣款。",
+          "example": {
+            "en": "A small deduction was made from each paycheck for insurance.",
+            "zh": "每張薪資單都被扣除了一小筆保險費。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "withdrawal",
+          "pos": "n.",
+          "zh": "提款",
+          "ipa": "/wɪðˈdrɔːəl/",
+          "example": {
+            "en": "Daily cash withdrawals are limited to five hundred dollars per account.",
+            "zh": "每個帳戶每日提領現金上限為五百美元。"
+          }
+        },
+        {
+          "w": "statement",
+          "pos": "n.",
+          "zh": "對帳單",
+          "ipa": "/ˈsteɪtmənt/",
+          "example": {
+            "en": "Your bank statement is mailed to the office on the fifth.",
+            "zh": "你的銀行對帳單會在五號寄到辦公室。"
+          }
+        },
+        {
+          "w": "balance",
+          "pos": "n.",
+          "zh": "餘額",
+          "ipa": "/ˈbæləns/",
+          "example": {
+            "en": "Please check the balance before approving the monthly payment.",
+            "zh": "請在核准每月付款前先確認餘額。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈdebɪt/",
+          "zh": "扣款、借記",
+          "in_passage": true,
+          "example": {
+            "en": "The statement lists every debit made during the month.",
+            "zh": "對帳單列出了這個月的每一筆扣款。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ˈdebɪt/",
+          "zh": "從帳戶扣款",
+          "example": {
+            "en": "The company will debit your account on the fifteenth.",
+            "zh": "公司會在十五日從你的帳戶扣款。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "hazard",
+      "type": "word",
+      "ipa": "/ˈhæzɚd/",
+      "pos": "n.",
+      "zh": "危險因素、隱患",
+      "en": "something that may cause danger or harm",
+      "note": "在這篇文章裡，fire hazard 指前一位房客留下的箱子堆在儲藏室，可能引發火災的隱患，所以房東會先清空。",
+      "grammar_note": "hazard 是可數名詞，常用 a hazard / hazards；「對…有危害」用 a hazard to + 對象。",
+      "forms": [
+        {
+          "w": "hazards",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "危險因素（複數）",
+          "ipa": "/ˈhæzɚdz/",
+          "example": {
+            "en": "Workers must report all safety hazards to the supervisor immediately.",
+            "zh": "員工必須立即向主管回報所有安全隱患。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "fire hazard",
+          "zh": "火災隱患",
+          "example": {
+            "en": "Blocking the exit with boxes creates a serious fire hazard.",
+            "zh": "用箱子堵住出口會造成嚴重的火災隱患。"
+          }
+        },
+        {
+          "phrase": "safety hazard",
+          "zh": "安全隱患",
+          "example": {
+            "en": "The broken stairs are a safety hazard for all visitors.",
+            "zh": "損壞的樓梯對所有訪客都是安全隱患。"
+          }
+        },
+        {
+          "phrase": "health hazard",
+          "zh": "健康危害",
+          "example": {
+            "en": "Dust in the warehouse can become a health hazard for staff.",
+            "zh": "倉庫裡的灰塵可能成為員工的健康危害。"
+          }
+        },
+        {
+          "phrase": "pose a hazard",
+          "zh": "構成危險",
+          "example": {
+            "en": "Loose cables pose a hazard to anyone walking through the hallway.",
+            "zh": "散亂的電線對走過走廊的人構成危險。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "檢查",
+          "en": "The inspector found a hazard near the loading dock and reported it.",
+          "zh": "檢查員在裝卸區附近發現一處隱患並加以通報。"
+        },
+        {
+          "tag": "公告",
+          "en": "Please report any hazard in the building to the facilities office.",
+          "zh": "請將大樓內的任何隱患回報給設施管理室。"
+        },
+        {
+          "tag": "公司規定",
+          "en": "Staff must wear helmets to avoid injury from falling objects and other hazards.",
+          "zh": "員工必須戴安全帽，以避免被掉落物與其他危險因素傷害。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "risk",
+          "diff": "hazard 是造成危險的「來源」（物品或狀況）；risk 是危險發生的「可能性」。",
+          "example": {
+            "en": "Without regular checks, the risk of equipment failure increases.",
+            "zh": "若沒有定期檢查，設備故障的風險就會提高。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "danger",
+          "diff": "danger 較口語、泛指危險狀態；hazard 常指檢查或規定中具體的隱患。",
+          "example": {
+            "en": "The old wiring is a danger to everyone in the building.",
+            "zh": "老舊的電線對大樓裡的每個人都是危險。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "inspection",
+          "pos": "n.",
+          "zh": "檢查",
+          "ipa": "/ɪnˈspekʃn/",
+          "example": {
+            "en": "The annual fire inspection will take place on Tuesday morning.",
+            "zh": "年度消防檢查將在週二早上進行。"
+          }
+        },
+        {
+          "w": "regulation",
+          "pos": "n.",
+          "zh": "規定",
+          "ipa": "/ˌreɡjuˈleɪʃn/",
+          "example": {
+            "en": "New safety regulations require all exits to be kept clear.",
+            "zh": "新的安全規定要求所有出口都必須保持暢通。"
+          }
+        },
+        {
+          "w": "precaution",
+          "pos": "n.",
+          "zh": "預防措施",
+          "ipa": "/prɪˈkɔːʃn/",
+          "example": {
+            "en": "As a precaution, the lobby was closed during the repairs.",
+            "zh": "基於預防，大廳在維修期間關閉。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "hazardous",
+          "ipa": "/ˈhæzɚdəs/",
+          "pos": "adj.",
+          "zh": "有危險的",
+          "link": "hazard + -ous，變成形容詞「有危險的」，像 dangerous、famous、various"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "lease",
+      "type": "word",
+      "ipa": "/liːs/",
+      "pos": "n.",
+      "zh": "租約",
+      "en": "a written agreement to rent a building or space for a set time",
+      "note": "在這篇文章裡，prepare the lease 指準備租賃合約；屋主在簽約前，要先收到現任房東寫的推薦信。",
+      "grammar_note": "lease 當動詞時雙向都可用：lease A from B 是向 B 承租，lease A to B 是把 A 租給 B，要看介系詞判斷。",
+      "forms": [
+        {
+          "w": "leases",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "租約（複數）",
+          "ipa": "/ˈliːsɪz/",
+          "example": {
+            "en": "All office leases in this building end on the same date in June.",
+            "zh": "這棟大樓所有的辦公室租約都在六月的同一天到期。"
+          }
+        },
+        {
+          "w": "leases",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "租用；出租",
+          "ipa": "/ˈliːsɪz/",
+          "example": {
+            "en": "She leases a small studio near the station for her design work.",
+            "zh": "她在車站附近租了一間小工作室做設計工作。"
+          }
+        },
+        {
+          "w": "leased",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "租用了；出租了",
+          "ipa": "/liːst/",
+          "example": {
+            "en": "We leased the equipment instead of buying it to save cash.",
+            "zh": "我們選擇租設備而不是買，以節省現金。"
+          }
+        },
+        {
+          "w": "leasing",
+          "label": "現在分詞／動名詞",
+          "pos": "v.",
+          "zh": "租用；出租",
+          "ipa": "/ˈliːsɪŋ/",
+          "example": {
+            "en": "Leasing a larger office would increase our monthly costs significantly.",
+            "zh": "承租較大的辦公室會大幅增加我們的每月成本。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "sign a lease",
+          "zh": "簽租約",
+          "example": {
+            "en": "Please sign a lease before we hand over the keys.",
+            "zh": "請先簽租約，我們才會交出鑰匙。"
+          }
+        },
+        {
+          "phrase": "renew a lease",
+          "zh": "續約",
+          "example": {
+            "en": "Tenants may renew a lease up to sixty days before it ends.",
+            "zh": "房客最早可在租約結束前六十天辦理續約。"
+          }
+        },
+        {
+          "phrase": "terminate a lease",
+          "zh": "終止租約",
+          "example": {
+            "en": "You may terminate a lease only with thirty days' written notice.",
+            "zh": "你必須以三十天的書面通知才能終止租約。"
+          }
+        },
+        {
+          "phrase": "lease agreement",
+          "zh": "租賃合約",
+          "example": {
+            "en": "The lease agreement states that rent increases once a year.",
+            "zh": "租賃合約註明租金每年調漲一次。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "租賃（名詞）",
+          "en": "The lease for Suite 210 begins on the first of next month.",
+          "zh": "210 號辦公室的租約從下個月一號開始。"
+        },
+        {
+          "tag": "辦公設備（承租）",
+          "en": "Our firm leases its copiers from a local supplier.",
+          "zh": "我們公司向一家本地供應商租用影印機。"
+        },
+        {
+          "tag": "房地產（出租）",
+          "en": "The owner leases the ground floor to a small coffee shop.",
+          "zh": "屋主把一樓出租給一家小咖啡店。"
+        },
+        {
+          "tag": "會議",
+          "en": "Legal will review the lease before we make a final decision.",
+          "zh": "在我們做出最後決定前，法務部會先審閱租約。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "rent",
+          "diff": "lease 是正式、通常較長期且有書面合約的租約；rent 泛指租用，也指「租金」本身。",
+          "example": {
+            "en": "The lease runs for three years, and the rent is due monthly.",
+            "zh": "租約為期三年，租金每月繳納。"
+          }
+        },
+        {
+          "word": "least",
+          "diff": "拼法相近，且 leased 與 least 同音（/liːst/）；least 是「最少」。",
+          "usage": "lease 是名詞或動詞；least 是形容詞或副詞，常見用法是 at least（至少）。",
+          "example": {
+            "en": "Please send at least three references with your application.",
+            "zh": "請隨申請資料附上至少三位推薦人。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "rental agreement",
+          "diff": "意思幾乎相同，rental agreement 較口語，常用於住宅或短期租賃；lease 較正式、長期。",
+          "example": {
+            "en": "The rental agreement for the apartment lasts twelve months.",
+            "zh": "這間公寓的租賃合約為期十二個月。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "tenant",
+          "pos": "n.",
+          "zh": "房客、承租人",
+          "ipa": "/ˈtenənt/",
+          "example": {
+            "en": "The tenant must give notice thirty days before leaving.",
+            "zh": "房客必須在搬離前三十天提出通知。"
+          }
+        },
+        {
+          "w": "landlord",
+          "pos": "n.",
+          "zh": "房東",
+          "ipa": "/ˈlændlɔːrd/",
+          "example": {
+            "en": "The landlord agreed to repair the heating system this week.",
+            "zh": "房東同意本週修理暖氣系統。"
+          }
+        },
+        {
+          "w": "deposit",
+          "pos": "n.",
+          "zh": "押金、訂金",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "example": {
+            "en": "A security deposit is returned after the final inspection.",
+            "zh": "押金會在最後檢查後退還。"
+          }
+        },
+        {
+          "w": "renewal",
+          "pos": "n.",
+          "zh": "續約",
+          "ipa": "/rɪˈnuːəl/",
+          "example": {
+            "en": "The lease renewal notice arrives sixty days before the end date.",
+            "zh": "續約通知會在結束日前六十天寄達。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/liːs/",
+          "zh": "租約",
+          "in_passage": true,
+          "example": {
+            "en": "The lease must be signed by both parties before move-in.",
+            "zh": "租約必須在入住前由雙方簽署。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/liːs/",
+          "zh": "承租；出租",
+          "example": {
+            "en": "We plan to lease a larger warehouse near the port.",
+            "zh": "我們打算在港口附近租一間較大的倉庫。"
+          }
+        }
+      ],
+      "senses": []
+    }
+  ]
+}

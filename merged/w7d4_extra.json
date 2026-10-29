@@ -1,0 +1,168 @@
+{
+  "week": 7,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "freighter",
+      "type": "word",
+      "ipa": "/ˈfreɪtər/",
+      "pos": "n.",
+      "zh": "貨輪、貨機",
+      "en": "a large ship or plane that carries goods, not passengers",
+      "note": "在這篇裡 the freighter Nordic Star 指載運四十台發電機從漢堡到港口的貨輪。freighter 專指運貨的船或飛機，比 ship 更明確。",
+      "forms": [
+        { "w": "freighters", "label": "複數", "pos": "n.", "zh": "貨輪（複數）", "ipa": "/ˈfreɪtərz/", "example": { "en": "Several freighters were waiting outside the port because of the strong winds.", "zh": "因為強風，好幾艘貨輪在港外等候。" } }
+      ],
+      "collocations": [
+        { "phrase": "ocean freighter", "zh": "遠洋貨輪", "example": { "en": "An ocean freighter takes about three weeks to cross the Pacific.", "zh": "遠洋貨輪橫越太平洋約需三個星期。" } },
+        { "phrase": "air freighter", "zh": "貨運飛機", "example": { "en": "Urgent spare parts will be sent by air freighter tonight.", "zh": "緊急的備用零件今晚會用貨機送出。" } },
+        { "phrase": "load a freighter", "zh": "裝載貨輪", "example": { "en": "Workers need two full days to load a freighter this size.", "zh": "工人需要整整兩天才能裝完這種大小的貨輪。" } }
+      ],
+      "examples": [
+        { "tag": "物流", "en": "The freighter will arrive at the port on Thursday morning.", "zh": "貨輪將在星期四早上抵達港口。" },
+        { "tag": "電子郵件", "en": "Your order left the factory aboard a freighter last week.", "zh": "您的訂單上週已搭乘貨輪離開工廠。" },
+        { "tag": "新聞", "en": "A freighter carrying electronics was delayed by a storm at sea.", "zh": "一艘載運電子產品的貨輪被海上風暴耽誤。" }
+      ],
+      "confusable": [
+        { "word": "ferry", "diff": "ferry 是載人與車輛的渡輪，freighter 是專門載貨的貨輪。", "example": { "en": "Staff take the ferry to the island office every morning.", "zh": "員工每天早上搭渡輪到島上的辦公室。" } }
+      ],
+      "similar": [
+        { "word": "cargo ship", "diff": "cargo ship 是較通用的說法，只能指船；freighter 也可指貨機。", "example": { "en": "A large cargo ship delivered the steel to our factory.", "zh": "一艘大型貨輪把鋼材運到我們的工廠。" } },
+        { "word": "container ship", "diff": "container ship 專門裝貨櫃，是 freighter 的一種。", "example": { "en": "The container ship holds more than ten thousand containers.", "zh": "這艘貨櫃船可裝超過一萬個貨櫃。" } }
+      ],
+      "family": [
+        { "w": "vessel", "ipa": "/ˈvesl/", "pos": "n.", "zh": "船隻", "example": { "en": "The vessel reached the harbor two hours ahead of schedule.", "zh": "這艘船比預定時間早兩小時抵達港口。" } },
+        { "w": "cargo", "ipa": "/ˈkɑːrɡoʊ/", "pos": "n.", "zh": "貨物", "example": { "en": "All cargo must be inspected before it leaves the dock.", "zh": "所有貨物離開碼頭前都必須檢查。" } },
+        { "w": "shipment", "ipa": "/ˈʃɪpmənt/", "pos": "n.", "zh": "出貨、一批貨", "example": { "en": "The next shipment is expected to arrive on Monday.", "zh": "下一批貨預計星期一抵達。" } }
+      ],
+      "derived": [
+        { "w": "freight", "ipa": "/freɪt/", "pos": "n.", "zh": "貨運、運費", "link": "freighter 的詞幹，freight 是「貨運」；加 -er 變成「運貨的東西」，像 computer、printer" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "貨輪", "en": "a large ship that carries goods across the sea", "in_passage": true, "distinguish": "文中有 aboard、port、vessel，可判斷是船。", "example": { "en": "The freighter docked at Kaohsiung Port at dawn.", "zh": "貨輪在黎明時靠泊高雄港。" } },
+        { "pos": "n.", "zh": "貨機", "en": "a plane that carries goods instead of passengers", "distinguish": "前面常有 air 或 cargo，或情境提到機場。", "example": { "en": "The freighter lands at the airport every night at eleven.", "zh": "這架貨機每晚十一點降落在機場。" } }
+      ]
+    },
+    {
+      "text": "generator",
+      "type": "word",
+      "ipa": "/ˈdʒenəreɪtər/",
+      "pos": "n.",
+      "zh": "發電機",
+      "en": "a machine that makes electricity",
+      "note": "在這篇裡出現在主旨 Update on the Generator Shipment，指進口的四十台工業用發電機。商業信件的主旨常用名詞片語，所以 Generator 首字母大寫。",
+      "forms": [
+        { "w": "generators", "label": "複數", "pos": "n.", "zh": "發電機（複數）", "ipa": "/ˈdʒenəreɪtərz/", "example": { "en": "Both generators were tested before they were sent to the plant.", "zh": "兩台發電機在送往工廠前都經過測試。" } }
+      ],
+      "collocations": [
+        { "phrase": "backup generator", "zh": "備用發電機", "example": { "en": "The hospital switched to its backup generator during the blackout.", "zh": "停電期間醫院改用備用發電機。" } },
+        { "phrase": "diesel generator", "zh": "柴油發電機", "example": { "en": "A diesel generator supplies power to the construction site.", "zh": "柴油發電機為工地供電。" } },
+        { "phrase": "portable generator", "zh": "可攜式發電機", "example": { "en": "We rented a portable generator for the outdoor event.", "zh": "我們為戶外活動租了一台可攜式發電機。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "We need to order three new generators before the summer season.", "zh": "夏季之前我們需要訂購三台新的發電機。" },
+        { "tag": "工廠", "en": "The factory cannot run without a generator during a power failure.", "zh": "停電時，工廠沒有發電機就無法運轉。" },
+        { "tag": "電子郵件", "en": "Please confirm the delivery date for the industrial generator.", "zh": "請確認這台工業用發電機的交貨日期。" }
+      ],
+      "confusable": [
+        { "word": "generation", "diff": "generator 是「發電機、產生器」，generation 是「世代」或「產生、發電的過程」。", "usage": "generator 指機器，可數；generation 指世代或過程，兩者詞尾不同，不能互換。", "example": { "en": "The new generation of engineers prefers cleaner power sources.", "zh": "新一代的工程師偏好更乾淨的能源。" } }
+      ],
+      "similar": [
+        { "word": "power plant", "diff": "power plant 是供應大量電力的發電廠；generator 是單一機器。", "example": { "en": "The new power plant will supply electricity to the whole city.", "zh": "新的發電廠將為整個城市供電。" } }
+      ],
+      "family": [
+        { "w": "engine", "ipa": "/ˈendʒɪn/", "pos": "n.", "zh": "引擎", "example": { "en": "The engine needs regular maintenance every six months.", "zh": "引擎每六個月需要定期保養。" } },
+        { "w": "motor", "ipa": "/ˈmoʊtər/", "pos": "n.", "zh": "馬達", "example": { "en": "The motor stopped working after the power surge.", "zh": "電力突波後馬達就停止運轉了。" } },
+        { "w": "battery", "ipa": "/ˈbætəri/", "pos": "n.", "zh": "電池", "example": { "en": "The battery lasts about ten hours on a full charge.", "zh": "這個電池充滿電可用約十小時。" } }
+      ],
+      "derived": [
+        { "w": "generate", "ipa": "/ˈdʒenəreɪt/", "pos": "v.", "zh": "產生、發（電）", "link": "generator 的詞幹，generate 是「產生」；加 -or 變成「產生的機器」，像 operator" },
+        { "w": "generation", "ipa": "/ˌdʒenəˈreɪʃn/", "pos": "n.", "zh": "世代、產生", "link": "generate 去掉 -e 加 -ion 變名詞，像 create → creation" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "發電機", "en": "a machine that makes electricity", "in_passage": true, "distinguish": "文中有 industrial、assembly line，指的是實體機器。", "example": { "en": "The generator provides power when the main supply fails.", "zh": "主電源中斷時，發電機提供電力。" } },
+        { "pos": "n.", "zh": "產生器（程式或工具）", "en": "a tool or program that makes something automatically", "distinguish": "前面常有 report、password 等字，指軟體工具。", "example": { "en": "Use the report generator to create the monthly sales summary.", "zh": "用報表產生器製作每月銷售摘要。" } }
+      ]
+    },
+    {
+      "text": "imperative",
+      "type": "word",
+      "ipa": "/ɪmˈperətɪv/",
+      "pos": "adj.",
+      "zh": "必要的、迫切的",
+      "en": "very important and needing action right now",
+      "note": "在這篇裡 it is imperative that this discrepancy be corrected 表示「這個差異一定要在星期五前更正」，語氣比 important 強，帶有緊迫感，適合在報告中向主管強調急迫性。",
+      "grammar_note": "it is imperative that 後面的 that 子句用原形動詞（可加 should），不隨主詞變化，如 it is imperative that he be present；也可接 to V。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "it is imperative that", "zh": "…是絕對必要的", "example": { "en": "It is imperative that every shipment be checked before departure.", "zh": "每批貨在出發前都必須檢查，這一點絕對必要。" } },
+        { "phrase": "imperative to", "zh": "必須做…", "example": { "en": "It is imperative to back up all files before the upgrade.", "zh": "升級之前務必備份所有檔案。" } },
+        { "phrase": "business imperative", "zh": "商業上的當務之急", "example": { "en": "Cutting costs has become a business imperative for the company.", "zh": "削減成本已成為公司的當務之急。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "It is imperative that we receive the payment before the deadline.", "zh": "我們必須在截止日前收到款項。" },
+        { "tag": "會議", "en": "Safety training is imperative for everyone working on the factory floor.", "zh": "安全訓練對在工廠現場工作的每個人都是必要的。" },
+        { "tag": "公告", "en": "It is imperative to report any equipment problem to your supervisor.", "zh": "任何設備問題都務必向主管回報。" }
+      ],
+      "confusable": [
+        { "word": "imperial", "diff": "imperial 是形容詞，意思是「帝國的」或「英制的」，和 imperative 只是拼法相近。", "example": { "en": "The old factory still uses imperial units for all measurements.", "zh": "這間老工廠的所有測量仍使用英制單位。" } }
+      ],
+      "similar": [
+        { "word": "essential", "diff": "essential 強調「不可缺少」，imperative 強調「急迫、必須馬上處理」。", "example": { "en": "Clear communication is essential when we manage a large project.", "zh": "管理大型專案時，清楚的溝通不可或缺。" } },
+        { "word": "crucial", "diff": "crucial 強調對結果「關鍵」，imperative 強調「必須採取行動」。", "example": { "en": "The next two weeks are crucial for the product launch.", "zh": "接下來兩週對產品上市至關重要。" } }
+      ],
+      "family": [
+        { "w": "urgent", "ipa": "/ˈɝːdʒənt/", "pos": "adj.", "zh": "緊急的", "example": { "en": "I need an urgent reply to the customer's complaint.", "zh": "我需要儘快回覆這位顧客的客訴。" } },
+        { "w": "vital", "ipa": "/ˈvaɪtl/", "pos": "adj.", "zh": "至關重要的", "example": { "en": "Accurate records are vital for every customs filing.", "zh": "準確的紀錄對每次報關都至關重要。" } },
+        { "w": "necessary", "ipa": "/ˈnesəseri/", "pos": "adj.", "zh": "必要的", "example": { "en": "Is it necessary to resend the whole document?", "zh": "有必要重寄整份文件嗎？" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "adj.", "ipa": "/ɪmˈperətɪv/", "zh": "必要的、迫切的", "in_passage": true, "example": { "en": "It is imperative that we confirm the order today.", "zh": "我們今天一定要確認這筆訂單。" } },
+        { "pos": "n.", "ipa": "/ɪmˈperətɪv/", "zh": "當務之急、必要之事", "example": { "en": "Customer safety is the first imperative for any airline.", "zh": "顧客安全是任何航空公司的首要之務。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "cautious",
+      "type": "word",
+      "ipa": "/ˈkɔːʃəs/",
+      "pos": "adj.",
+      "zh": "謹慎的、小心的",
+      "en": "careful because you think something bad may happen",
+      "note": "在這篇裡 we remain cautious 表示雖然供應商回應很快，但第二次檢查的風險還在，所以團隊不敢掉以輕心。語氣是理性、保留的專業用語。",
+      "grammar_note": "cautious 常接 about + 名詞／V-ing 或 of + 名詞，如 be cautious about signing；不要寫成 cautious to sign。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "cautious approach", "zh": "謹慎的做法", "example": { "en": "The bank takes a cautious approach when it approves large loans.", "zh": "銀行核准大額貸款時採取謹慎的做法。" } },
+        { "phrase": "cautious optimism", "zh": "審慎樂觀", "example": { "en": "Investors showed cautious optimism after the quarterly results came out.", "zh": "季報公布後，投資人表現出審慎樂觀。" } },
+        { "phrase": "be cautious about", "zh": "對…保持謹慎", "example": { "en": "We should be cautious about promising an exact delivery date.", "zh": "我們對承諾確切的交貨日期應該要謹慎。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The board is cautious about expanding into a new market this year.", "zh": "董事會對今年拓展新市場態度謹慎。" },
+        { "tag": "電子郵件", "en": "We remain cautious until the supplier sends the signed contract.", "zh": "在供應商寄來簽署的合約之前，我們仍保持謹慎。" },
+        { "tag": "投資", "en": "Cautious investors prefer safe options with steady returns.", "zh": "謹慎的投資人偏好報酬穩定的安全選項。" }
+      ],
+      "confusable": [
+        { "word": "conscious", "diff": "conscious 是「意識到的、有意識的」，發音和 cautious 相近，但意思不是「小心」。", "usage": "conscious 常用 be conscious of，表示「察覺到」；cautious 常用 be cautious about，表示「對…小心」。", "example": { "en": "We are conscious of the problem and are working on a fix.", "zh": "我們已意識到這個問題，正在處理修正。" } }
+      ],
+      "similar": [
+        { "word": "careful", "diff": "careful 是日常的「小心」，cautious 更強調為了避免風險而保守、不冒險。", "example": { "en": "Please be careful when you move the heavy equipment.", "zh": "搬運重型設備時請小心。" } },
+        { "word": "wary", "diff": "wary 帶有「不信任、有戒心」的意思，後面常接 of。", "example": { "en": "Customers are wary of offers that sound too good to be true.", "zh": "顧客對好得不像真的優惠心存戒心。" } }
+      ],
+      "family": [
+        { "w": "careful", "ipa": "/ˈkerfl/", "pos": "adj.", "zh": "小心的", "example": { "en": "A careful review can prevent costly mistakes.", "zh": "仔細的檢查可以避免代價高昂的錯誤。" } },
+        { "w": "wary", "ipa": "/ˈweri/", "pos": "adj.", "zh": "警覺的、戒備的", "example": { "en": "The manager is wary of changing suppliers so late.", "zh": "經理對這麼晚才更換供應商有所戒心。" } },
+        { "w": "prudent", "ipa": "/ˈpruːdnt/", "pos": "adj.", "zh": "審慎的、明智的", "example": { "en": "It is prudent to keep some money in reserve.", "zh": "保留一些備用資金是明智的。" } }
+      ],
+      "derived": [
+        { "w": "caution", "ipa": "/ˈkɔːʃn/", "pos": "n.", "zh": "謹慎、警告", "link": "cautious 的詞幹，caution 是「小心」；加 -ous 變形容詞，像 nervous、serious" },
+        { "w": "cautiously", "ipa": "/ˈkɔːʃəsli/", "pos": "adv.", "zh": "謹慎地", "link": "cautious + -ly，形容詞變副詞，像 careful → carefully" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

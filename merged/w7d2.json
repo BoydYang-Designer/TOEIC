@@ -1,0 +1,149 @@
+{
+  "week": 7,
+  "day": 2,
+  "tag": "團體訂房回覆：獎勵活動優惠價與入住條件",
+  "subtopic": "訂房與住宿",
+  "type": "Reading",
+  "level": {
+    "score": 750,
+    "range": "700-800",
+    "cefr": "B2",
+    "why": "以 although、which、分詞構句（Having reviewed…）與被動語態組成較長的書面句，需整合房價條件、文件要求、期限與附加福利等多項資訊；halted、favorable 等字彙較抽象，且干擾項（如 renovation 完成與否）更接近正解。"
+  },
+  "passage": "Subject: Group Booking for Your Sales Retreat\n\nDear Ms. Lin,\n\nThank you for your inquiry about hosting your company's annual retreat for top achievers. Having reviewed your request, we are pleased to confirm that we can welcome your 48 guests from March 14 to 16. We were impressed by the scale of the event, and we would like to make it as smooth as possible.\n\nAlthough renovation work in our east wing was halted last week because of a permit dispute, all rooms in that section are now available, which allows us to offer a favorable group rate of 140 dollars per night. To receive this rate, please send us a reference letter confirming that every guest is employed by your company, together with the signed booking form, by February 10. We cannot guarantee the rate after that date.\n\nAs a courtesy to your group, we will run a free shuttle between the airport and the hotel every thirty minutes. Guests may also use the spa on the second evening at no additional charge.\n\nBest regards,\nDaniel Cho\nGroup Sales Manager, Harbor View Hotel",
+  "zh": "主旨：業務獎勵活動團體訂房\n\n林小姐，您好：\n\n感謝您來信詢問貴公司年度頂尖業績人員獎勵活動的舉辦事宜。在審閱過您的需求後，我們很高興確認，我們可以在 3 月 14 日至 16 日接待您的 48 位賓客。我們對活動的規模印象深刻，也希望盡可能讓整個過程順利。\n\n雖然我們東翼的整修工程因許可證糾紛而在上週暫停，但該區所有房間現已可供使用，因此我們得以提供每晚 140 美元的優惠團體價格。若要享有這個價格，請在 2 月 10 日前寄給我們一封推薦信，證明每位賓客都受雇於貴公司，並附上已簽名的訂房表。逾期後我們無法保證這個價格。\n\n為了向貴團體表達禮遇，我們將提供每三十分鐘一班、往返機場與飯店的免費接駁車。賓客也可以在第二天晚上免費使用水療中心。\n\n敬上\n丹尼爾．趙\n團體業務經理，海景飯店",
+  "vocab": [
+    {
+      "word": "favorable",
+      "ipa": "/ˈfeɪvərəbl/",
+      "pos": "adj.",
+      "col": "favorable rate / favorable terms",
+      "zh": "優惠的、有利的"
+    },
+    {
+      "word": "courtesy",
+      "ipa": "/ˈkɝːtəsi/",
+      "pos": "n.",
+      "col": "courtesy shuttle / as a courtesy",
+      "zh": "禮遇、客氣；（免費的）招待"
+    },
+    {
+      "word": "spa",
+      "ipa": "/spɑː/",
+      "pos": "n.",
+      "col": "hotel spa / spa treatment",
+      "zh": "水療中心、健康休閒館"
+    },
+    {
+      "word": "guarantee",
+      "ipa": "/ˌɡærənˈtiː/",
+      "pos": "v.",
+      "col": "guarantee a rate / guarantee availability",
+      "zh": "保證、確保"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What is the main purpose of the email?",
+      "opts": [
+        "To announce that a renovation project has been completed",
+        "To respond to a booking inquiry and explain the conditions for a group rate",
+        "To ask a company to pay a deposit for a reserved event hall",
+        "To invite a manager to a free tour of the hotel spa"
+      ],
+      "ans": 1,
+      "why": [
+        "錯誤：信中提到的是東翼整修「暫停」，不是完成，也不是寫信的主要目的。",
+        "正解：信件回覆林小姐的詢問，確認接待日期，並說明取得團體優惠價所需的文件與期限。",
+        "錯誤：信中沒有要求付訂金，也沒有提到活動宴會廳。",
+        "錯誤：水療中心只是附帶提供的福利，並不是邀請參觀飯店的邀請函。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What is indicated about the east wing?",
+      "opts": [
+        "Its rooms will be unavailable during the retreat",
+        "Its renovation was finished by last week",
+        "It includes the spa that guests may use",
+        "Its rooms can now be offered to the group"
+      ],
+      "ans": 3,
+      "why": [
+        "錯誤：信中說該區房間現在已可使用，所以不是無法使用。",
+        "錯誤：文中說工程是「暫停」，並非已經完工，這是與 halted 容易混淆的干擾項。",
+        "錯誤：文中沒有說水療中心位於東翼，這是未提及的資訊。",
+        "正解：整修暫停後，該區所有房間現已可供使用，因此飯店能提供給林小姐的團體。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What must Ms. Lin do by February 10?",
+      "opts": [
+        "Send a letter and a signed form to the hotel",
+        "Choose the airport shuttle schedule",
+        "Pay for the use of the spa",
+        "Submit a permit for the east wing"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：要享有優惠價，須在 2 月 10 日前寄出證明賓客受雇的推薦信與已簽名的訂房表。",
+        "錯誤：接駁車是每三十分鐘一班的固定服務，不需要她選擇時間。",
+        "錯誤：水療中心的使用在第二天晚上免費，不需要付費。",
+        "錯誤：許可證糾紛是飯店的整修問題，與林小姐無關。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The hotel's ______ location near the convention center makes it popular with business travelers.",
+      "opts": [
+        "convenience",
+        "conveniently",
+        "convenient",
+        "conveniences"
+      ],
+      "ans": 2,
+      "why": [
+        "錯誤：convenience 是名詞，放在 location 前面需要形容詞來修飾。",
+        "錯誤：conveniently 是副詞，不能直接修飾名詞 location。",
+        "正解：空格位於 The hotel's 與名詞 location 之間，需要形容詞 convenient。",
+        "錯誤：conveniences 是名詞複數，意思是便利設施，文法與語意都不合。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "______ the airport shuttle was fully booked, several guests took taxis to the venue.",
+      "opts": [
+        "Because",
+        "Despite",
+        "Due to",
+        "Unless"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：後面接完整子句，且前後是因果關係，所以用連接詞 Because。",
+        "錯誤：Despite 是介系詞，後面要接名詞，且語意是「儘管」，不合邏輯。",
+        "錯誤：Due to 是介系詞片語，後面要接名詞，不能接完整子句。",
+        "錯誤：Unless 表示「除非」，語意不符，接駁車客滿與搭計程車是因果關係。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Rooms ______ before March 1 will receive a free upgrade, subject to availability.",
+      "opts": [
+        "booking",
+        "booked",
+        "to book",
+        "are booked"
+      ],
+      "ans": 1,
+      "why": [
+        "錯誤：booking 表主動，但房間是「被訂」的，語意不符。",
+        "正解：Rooms booked before March 1 是縮減的關係子句，過去分詞 booked 表被動，意思是「在 3 月 1 日前被訂下的房間」。",
+        "錯誤：to book 表目的或未來，不能直接放在名詞後面這樣修飾 Rooms。",
+        "錯誤：are booked 已是完整動詞，會使句子出現兩個主要動詞 are booked 與 will receive。"
+      ]
+    }
+  ]
+}

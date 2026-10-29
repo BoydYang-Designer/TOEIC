@@ -1,0 +1,183 @@
+{
+  "week": 7,
+  "day": 2,
+  "extra_vocab": [
+    {
+      "text": "favorable",
+      "type": "word",
+      "ipa": "/ˈfeɪvərəbl/",
+      "pos": "adj.",
+      "zh": "有利的、優惠的；讚許的",
+      "en": "good or better than usual for you",
+      "note": "在這篇裡 favorable group rate 指對團體客人有利的優惠房價，是飯店業務信常見的正面說法，語氣客氣又帶一點促銷意味。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "favorable rate", "zh": "優惠費率", "example": { "en": "We negotiated a favorable rate for the conference rooms.", "zh": "我們談到了會議室的優惠費率。" } },
+        { "phrase": "favorable terms", "zh": "有利的條件", "example": { "en": "The bank offered us favorable terms on the new loan.", "zh": "銀行提供我們新貸款的有利條件。" } },
+        { "phrase": "favorable impression", "zh": "良好印象", "example": { "en": "The new manager made a favorable impression on the whole team.", "zh": "新經理給整個團隊留下良好的印象。" } },
+        { "phrase": "favorable review", "zh": "好評", "example": { "en": "The hotel received a favorable review in a travel magazine.", "zh": "這家飯店在旅遊雜誌上獲得好評。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "The supplier gave us a favorable price for the first order.", "zh": "供應商給了我們首批訂單一個優惠的價格。" },
+        { "tag": "會議", "en": "Customer feedback on the new menu has been very favorable so far.", "zh": "到目前為止，顧客對新菜單的回應非常正面。" },
+        { "tag": "出差", "en": "Weather conditions are favorable for the outdoor event this weekend.", "zh": "這個週末的天氣條件適合舉辦戶外活動。" }
+      ],
+      "confusable": [
+        { "word": "favorite", "diff": "favorite 是「最喜歡的」，favorable 是「有利的、讚許的」，兩者發音和拼法很像但意思不同。", "example": { "en": "Pasta is the favorite dish among our visiting clients.", "zh": "義大利麵是來訪客戶最喜歡的菜色。" } }
+      ],
+      "similar": [
+        { "word": "reasonable", "diff": "reasonable 是「價格合理、不貴」，favorable 則是「比一般更有利」，語氣更正面。", "example": { "en": "The hotel offers a reasonable price for large groups.", "zh": "這家飯店對大型團體提供合理的價格。" } }
+      ],
+      "family": [
+        { "w": "positive", "ipa": "/ˈpɑːzətɪv/", "pos": "adj.", "zh": "正面的", "example": { "en": "The audit gave us positive results this quarter.", "zh": "這一季的稽核給了我們正面的結果。" } },
+        { "w": "beneficial", "ipa": "/ˌbenɪˈfɪʃl/", "pos": "adj.", "zh": "有益的", "example": { "en": "The new schedule is beneficial to all staff.", "zh": "新的時程表對所有員工都有益。" } },
+        { "w": "acceptable", "ipa": "/əkˈseptəbl/", "pos": "adj.", "zh": "可接受的", "example": { "en": "Your proposal is acceptable to the board.", "zh": "你的提案董事會可以接受。" } }
+      ],
+      "derived": [
+        { "w": "favor", "ipa": "/ˈfeɪvər/", "pos": "n.", "zh": "恩惠、幫忙；v. 偏愛", "link": "favorable 的詞幹；favor 是「好意、幫忙」，加 -able 就變成「值得讚許的、有利的」" },
+        { "w": "favorably", "ipa": "/ˈfeɪvərəbli/", "pos": "adv.", "zh": "有利地、讚許地", "link": "favorable + -ly，形容詞變副詞，像 quick → quickly" },
+        { "w": "unfavorable", "ipa": "/ʌnˈfeɪvərəbl/", "pos": "adj.", "zh": "不利的、不佳的", "link": "un- 表示否定，像 unable、unclear" },
+        { "w": "favorite", "ipa": "/ˈfeɪvərɪt/", "pos": "adj.", "zh": "最喜愛的", "link": "favor + -ite，「被偏愛的」，也可當名詞「最愛」" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "有利的、優惠的", "en": "good or better than usual for you", "in_passage": true, "distinguish": "後面常接 rate、price、terms 等商業字眼。", "example": { "en": "Our favorable rate is available only to groups of ten or more.", "zh": "我們的優惠費率只提供十人以上的團體。" } },
+        { "pos": "adj.", "zh": "讚許的、正面的", "en": "showing that you like or approve of something", "distinguish": "後面常接 opinion、review、response，表示人的看法。", "example": { "en": "Most customers gave a favorable opinion of the new service.", "zh": "大多數顧客對新服務給予正面的評價。" } },
+        { "pos": "adj.", "zh": "適合的、有助益的", "en": "helping something to go well", "distinguish": "後面常接 conditions，說明環境適合做某件事。", "example": { "en": "Market conditions are favorable for launching a new product.", "zh": "市場情勢適合推出新產品。" } }
+      ]
+    },
+    {
+      "text": "courtesy",
+      "type": "word",
+      "ipa": "/ˈkɝːtəsi/",
+      "pos": "n.",
+      "zh": "好意、禮遇；免費招待",
+      "en": "a kind or polite thing that you do for someone",
+      "note": "在這篇裡 As a courtesy to your group 表示飯店出於好意、額外提供的免費服務。常見於飯店、航空公司的客氣說法。",
+      "grammar_note": "courtesy 是名詞，要形容人時用 courteous；表示「由…提供」要用 courtesy of。",
+      "forms": [
+        { "w": "courtesies", "label": "複數", "pos": "n.", "zh": "禮遇、小服務", "ipa": "/ˈkɝːtəsiz/", "example": { "en": "Free parking and coffee are small courtesies that guests appreciate.", "zh": "免費停車和咖啡是客人很欣賞的小服務。" } }
+      ],
+      "collocations": [
+        { "phrase": "as a courtesy", "zh": "作為一種好意", "example": { "en": "As a courtesy, we will hold your room until six o'clock.", "zh": "出於好意，我們會替您保留房間到六點。" } },
+        { "phrase": "courtesy shuttle", "zh": "免費接駁車", "example": { "en": "A courtesy shuttle takes guests to the convention center every hour.", "zh": "免費接駁車每小時載客人到會議中心。" } },
+        { "phrase": "courtesy call", "zh": "禮貌性致電", "example": { "en": "The manager made a courtesy call to thank the client.", "zh": "經理打了一通禮貌性電話向客戶道謝。" } },
+        { "phrase": "courtesy of", "zh": "由…提供", "example": { "en": "The tickets were provided courtesy of our main sponsor.", "zh": "這些票券由我們的主要贊助商提供。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "The fee waiver is a courtesy, not something guests can expect.", "zh": "免收費用是一種好意，不是客人可以期待的權利。" },
+        { "tag": "公告", "en": "Thank you for your courtesy and patience during the system upgrade.", "zh": "感謝您在系統升級期間的體諒與耐心。" },
+        { "tag": "客服", "en": "Our staff treat every guest with courtesy and respect.", "zh": "我們的員工以禮貌和尊重對待每位客人。" }
+      ],
+      "confusable": [
+        { "word": "courteous", "diff": "courtesy 是名詞（禮貌、好意），courteous 是形容詞（有禮貌的）。", "usage": "形容人或態度要用 courteous，例如 a courteous driver；不能說 a courtesy driver（那是「接駁服務的司機」）。", "example": { "en": "All of our drivers are courteous and arrive on time.", "zh": "我們所有的司機都很有禮貌而且準時抵達。" } }
+      ],
+      "similar": [
+        { "word": "complimentary", "diff": "complimentary 是形容詞，意思是「免費贈送的」，用來修飾 breakfast、upgrade 等名詞。", "example": { "en": "Guests receive a complimentary breakfast every morning.", "zh": "客人每天早上都有免費早餐。" } },
+        { "word": "favor", "diff": "favor 是幫別人的忙，較個人化；courtesy 偏向機構或服務上的禮遇。", "example": { "en": "As a favor, the vendor delivered the parts on Sunday.", "zh": "供應商特別幫忙，在星期日送來了零件。" } }
+      ],
+      "family": [
+        { "w": "politeness", "ipa": "/pəˈlaɪtnəs/", "pos": "n.", "zh": "禮貌", "example": { "en": "Politeness is important when you speak with customers.", "zh": "與顧客交談時，禮貌很重要。" } },
+        { "w": "respect", "ipa": "/rɪˈspekt/", "pos": "n.", "zh": "尊重", "example": { "en": "She earned the respect of her colleagues quickly.", "zh": "她很快就贏得同事的尊重。" } },
+        { "w": "kindness", "ipa": "/ˈkaɪndnəs/", "pos": "n.", "zh": "善意、親切", "example": { "en": "Thank you for your kindness during our visit.", "zh": "感謝您在我們拜訪期間的親切招待。" } }
+      ],
+      "derived": [
+        { "w": "courteous", "ipa": "/ˈkɝːtiəs/", "pos": "adj.", "zh": "有禮貌的", "link": "courtesy 的形容詞，字尾 -ous 像 curious、serious" },
+        { "w": "courteously", "ipa": "/ˈkɝːtiəsli/", "pos": "adv.", "zh": "有禮貌地", "link": "courteous + -ly，形容詞變副詞，像 quick → quickly" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "（免費的）好意、禮遇", "en": "something extra that is given to be kind", "in_passage": true, "distinguish": "常和 free、as a courtesy 一起出現，指額外給的服務。", "example": { "en": "Free coffee in the lobby is a courtesy of the hotel.", "zh": "大廳的免費咖啡是飯店提供的一項禮遇。" } },
+        { "pos": "n.", "zh": "禮貌、客氣", "en": "polite behavior toward other people", "distinguish": "常接 with courtesy，指待人的態度。", "example": { "en": "Please answer every customer call with courtesy.", "zh": "請以禮貌的態度接聽每一通客戶來電。" } }
+      ]
+    },
+    {
+      "text": "spa",
+      "type": "word",
+      "ipa": "/spɑː/",
+      "pos": "n.",
+      "zh": "水療中心、溫泉",
+      "en": "a place where people go to relax with massage and other treatments",
+      "note": "在這篇裡指飯店內的水療設施，信中提到客人第二晚可免費使用，是額外的招待。spa 前面通常加 the 指飯店內的那間。",
+      "forms": [
+        { "w": "spas", "label": "複數", "pos": "n.", "zh": "水療中心（複數）", "ipa": "/spɑːz/", "example": { "en": "Several hotels in the area have spas open to the public.", "zh": "這一區有好幾家飯店的水療中心對外開放。" } }
+      ],
+      "collocations": [
+        { "phrase": "spa treatment", "zh": "水療護理", "example": { "en": "Each guest receives one free spa treatment during the stay.", "zh": "每位客人住宿期間可獲得一次免費水療護理。" } },
+        { "phrase": "spa package", "zh": "水療套裝方案", "example": { "en": "We booked a spa package for the entire sales team.", "zh": "我們替整個業務團隊訂了水療套裝方案。" } },
+        { "phrase": "spa facilities", "zh": "水療設施", "example": { "en": "The hotel's spa facilities include a sauna and a pool.", "zh": "飯店的水療設施包括三溫暖和泳池。" } },
+        { "phrase": "spa day", "zh": "水療日", "example": { "en": "The company organized a spa day to thank its staff.", "zh": "公司安排了一天水療日來感謝員工。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Guests can book a massage at the hotel spa this weekend.", "zh": "客人這個週末可以預約飯店水療中心的按摩。" },
+        { "tag": "廣告", "en": "The resort spa offers special packages for corporate groups.", "zh": "度假村的水療中心為企業團體提供特別方案。" },
+        { "tag": "公告", "en": "The spa will be closed for cleaning on Monday morning.", "zh": "水療中心星期一早上將因清潔而關閉。" }
+      ],
+      "similar": [
+        { "phrase": "health club", "diff": "health club 以健身房和運動課程為主，spa 則以放鬆的按摩和護理為主。", "example": { "en": "The hotel health club has a gym and a swimming pool.", "zh": "飯店的健身俱樂部有健身房和游泳池。" } },
+        { "phrase": "wellness center", "diff": "wellness center 範圍較廣，除了放鬆還包含健康諮詢和運動課程，語氣較正式。", "example": { "en": "The wellness center offers yoga classes and massage services.", "zh": "健康中心提供瑜伽課程和按摩服務。" } }
+      ],
+      "family": [
+        { "w": "massage", "ipa": "/məˈsɑːʒ/", "pos": "n.", "zh": "按摩", "example": { "en": "The hotel offers a one-hour massage for guests.", "zh": "飯店為客人提供一小時的按摩。" } },
+        { "w": "sauna", "ipa": "/ˈsɔːnə/", "pos": "n.", "zh": "三溫暖、烤箱浴", "example": { "en": "The sauna is open from six to ten every evening.", "zh": "三溫暖每天晚上六點到十點開放。" } },
+        { "w": "gym", "ipa": "/dʒɪm/", "pos": "n.", "zh": "健身房", "example": { "en": "Guests may use the gym at any time of day.", "zh": "客人可以在一天中任何時間使用健身房。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "水療中心", "en": "a place with massage and other treatments for relaxing", "in_passage": true, "distinguish": "常出現在飯店設施介紹，後面接 treatment、package。", "example": { "en": "The spa on the top floor has a view of the harbor.", "zh": "頂樓的水療中心可以看到海港景色。" } },
+        { "pos": "n.", "zh": "溫泉療養地", "en": "a town with natural hot water where people go for their health", "distinguish": "指整個地區，常有 spa town、spa resort 的說法。", "example": { "en": "The town is a famous spa known for its hot springs.", "zh": "這個小鎮是以溫泉聞名的療養勝地。" } }
+      ]
+    },
+    {
+      "text": "guarantee",
+      "type": "word",
+      "ipa": "/ˌɡerənˈtiː/",
+      "pos": "v.",
+      "zh": "保證、擔保",
+      "en": "to promise that something will happen or be true",
+      "note": "在這篇裡 We cannot guarantee the rate after that date 是委婉但明確的提醒：二月十日之後不保證仍是這個價格。用 cannot guarantee 比直接說 will change 更客氣。",
+      "grammar_note": "guarantee 後面可接名詞、that 子句或 to V，例如 guarantee delivery、guarantee that it will arrive、guarantee to reply；也可用雙受詞 guarantee you a seat。",
+      "forms": [
+        { "w": "guarantees", "label": "第三人稱單數", "pos": "v.", "zh": "保證", "ipa": "/ˌɡerənˈtiːz/", "example": { "en": "The contract guarantees delivery within five business days.", "zh": "這份合約保證在五個工作天內交貨。" } },
+        { "w": "guarantees", "label": "複數", "pos": "n.", "zh": "保證書、保固（複數）", "ipa": "/ˌɡerənˈtiːz/", "example": { "en": "We offer written guarantees on all of our office equipment.", "zh": "我們對所有辦公設備都提供書面保證。" } },
+        { "w": "guaranteed", "label": "過去式／過去分詞", "pos": "v.", "zh": "保證了", "ipa": "/ˌɡerənˈtiːd/", "example": { "en": "The airline guaranteed every passenger a seat on the next flight.", "zh": "航空公司保證每位乘客在下一班飛機有座位。" } },
+        { "w": "guaranteed", "label": "形容詞用法", "pos": "adj.", "zh": "有保證的", "ipa": "/ˌɡerənˈtiːd/", "example": { "en": "Customers receive guaranteed delivery within two days of ordering.", "zh": "顧客下單後兩天內保證送達。" } },
+        { "w": "guaranteeing", "label": "現在分詞", "pos": "v.", "zh": "保證中", "ipa": "/ˌɡerənˈtiːɪŋ/", "example": { "en": "Guaranteeing on-time delivery is our top priority this year.", "zh": "保證準時交貨是我們今年的首要任務。" } }
+      ],
+      "collocations": [
+        { "phrase": "money-back guarantee", "zh": "退款保證", "example": { "en": "The software comes with a thirty-day money-back guarantee.", "zh": "這套軟體附有三十天退款保證。" } },
+        { "phrase": "guarantee delivery", "zh": "保證送達", "example": { "en": "We guarantee delivery to any address in the country.", "zh": "我們保證送達全國任何地址。" } },
+        { "phrase": "guarantee a reservation", "zh": "擔保訂位／訂房", "example": { "en": "A credit card number will guarantee your reservation overnight.", "zh": "提供信用卡號可以擔保您整晚的訂房。" } },
+        { "phrase": "no guarantee", "zh": "無法保證", "example": { "en": "There is no guarantee that prices will stay the same.", "zh": "無法保證價格會維持不變。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Please book early, because we cannot guarantee a room later.", "zh": "請及早預訂，因為之後我們無法保證有房間。" },
+        { "tag": "採購", "en": "The supplier guarantees that all parts will arrive by Friday.", "zh": "供應商保證所有零件在星期五前送到。" },
+        { "tag": "保固", "en": "This printer comes with a two-year guarantee against defects.", "zh": "這台印表機附有兩年的瑕疵保固。" }
+      ],
+      "confusable": [
+        { "word": "ensure", "diff": "ensure 是「確保、設法使一定發生」，著重做法；guarantee 是「保證」，著重承諾。", "usage": "ensure 後面通常接 that 子句，不用於「保固」這種名詞意思；guarantee 可當名詞，ensure 只能當動詞。", "example": { "en": "Please ensure that all doors are locked before you leave.", "zh": "離開前請確認所有的門都已上鎖。" } },
+        { "word": "insure", "diff": "insure 是「投保、為…保險」，和 guarantee 的「承諾」不同。", "example": { "en": "The company insured the shipment against damage during transport.", "zh": "公司為這批貨物投保運送途中的損壞險。" } }
+      ],
+      "similar": [
+        { "word": "promise", "diff": "promise 是日常的「答應」，語氣較個人；guarantee 更正式，常有合約或書面保證的感覺。", "example": { "en": "The vendor promised to send the samples on Monday.", "zh": "廠商答應星期一寄出樣品。" } },
+        { "word": "assure", "diff": "assure 後面接人再接 that 子句，意思是「向某人保證、使放心」。", "example": { "en": "She assured the client that the work would finish on time.", "zh": "她向客戶保證工作會準時完成。" } }
+      ],
+      "family": [
+        { "w": "warranty", "ipa": "/ˈwɔːrənti/", "pos": "n.", "zh": "（產品）保固", "example": { "en": "The warranty covers repairs for two years.", "zh": "保固涵蓋兩年的維修。" } },
+        { "w": "promise", "ipa": "/ˈprɑːmɪs/", "pos": "v.", "zh": "答應、承諾", "example": { "en": "We promise to reply to every email within a day.", "zh": "我們承諾每封電子郵件一天內回覆。" } },
+        { "w": "commitment", "ipa": "/kəˈmɪtmənt/", "pos": "n.", "zh": "承諾、投入", "example": { "en": "The company has a strong commitment to quality.", "zh": "這家公司對品質有堅定的承諾。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/ˌɡerənˈtiː/", "zh": "保證", "in_passage": true, "example": { "en": "We guarantee that every order will ship within two days.", "zh": "我們保證每筆訂單兩天內出貨。" } },
+        { "pos": "n.", "ipa": "/ˌɡerənˈtiː/", "zh": "保證、保證書", "example": { "en": "Do you offer a guarantee on installation work?", "zh": "你們的安裝工程有提供保證嗎？" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "保證（某事會發生）", "en": "to promise that something will happen", "in_passage": true, "distinguish": "後面接事情或 that 子句，重點在承諾結果。", "example": { "en": "The manager guarantees that the report will be ready tomorrow.", "zh": "經理保證報告明天會準備好。" } },
+        { "pos": "v.", "zh": "為（產品）提供保固", "en": "to promise to fix or replace a product if it breaks", "distinguish": "受詞是產品，常接 for + 期間 或 against + 瑕疵。", "example": { "en": "The company guarantees its laptops against defects for three years.", "zh": "公司對筆記型電腦提供三年瑕疵保固。" } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "week": 7,
+  "day": 7,
+  "extra_vocab": [
+    {
+      "text": "assurance",
+      "type": "word",
+      "ipa": "/əˈʃʊrəns/",
+      "pos": "n.",
+      "zh": "保證、擔保；信心",
+      "en": "a promise that makes someone feel sure that something will happen",
+      "note": "在這篇裡 Mr. Reed 問 What assurance can you give us，意思是「你能給我們什麼保證」，希望對方提出具體的擔保，讓議員放心工程不會再停擺。語氣禮貌但帶有質疑。",
+      "grammar_note": "assurance 表示「保證」時是可數名詞（an assurance、assurances），後面接 that 子句或 of；表示「自信」時是不可數名詞。",
+      "forms": [
+        { "w": "assurances", "label": "複數", "pos": "n.", "zh": "保證（複數）", "ipa": "/əˈʃʊrənsɪz/", "example": { "en": "The supplier gave us several assurances about the delivery schedule.", "zh": "供應商就交貨時程向我們做了好幾項保證。" } }
+      ],
+      "collocations": [
+        { "phrase": "give an assurance", "zh": "給予保證", "example": { "en": "Can you give an assurance that the costs will not rise?", "zh": "你能保證成本不會上漲嗎？" } },
+        { "phrase": "written assurance", "zh": "書面保證", "example": { "en": "The client asked for written assurance before signing the contract.", "zh": "客戶在簽約前要求書面保證。" } },
+        { "phrase": "seek assurance", "zh": "尋求保證", "example": { "en": "Investors sought assurance that the project would stay on budget.", "zh": "投資人尋求專案不會超出預算的保證。" } },
+        { "phrase": "quality assurance", "zh": "品質保證", "example": { "en": "The quality assurance team tests every product before it ships.", "zh": "品質保證團隊在每項產品出貨前都會測試。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The manager offered his assurance that the report would be ready.", "zh": "經理保證報告會準備好。" },
+        { "tag": "電子郵件", "en": "We need your assurance that the repairs will finish by Friday.", "zh": "我們需要你保證維修會在星期五前完成。" },
+        { "tag": "談判", "en": "Without clear assurance from the bank, the board refused to proceed.", "zh": "沒有銀行明確的保證，董事會拒絕繼續進行。" }
+      ],
+      "confusable": [
+        { "word": "insurance", "diff": "insurance 是「保險」，assurance 是「口頭或書面的保證」，兩字拼法和發音很像。", "example": { "en": "The company bought insurance to cover damage during shipping.", "zh": "公司購買保險以涵蓋運送途中的損壞。" } }
+      ],
+      "similar": [
+        { "word": "guarantee", "diff": "guarantee 更正式，常有合約或保固的約束力；assurance 是讓對方放心的說法。", "example": { "en": "The contract includes a guarantee that work will finish on time.", "zh": "合約中包含工程會準時完成的保證。" } },
+        { "word": "commitment", "diff": "commitment 強調「承諾去做」，assurance 強調「讓對方確信」。", "example": { "en": "The mayor made a strong commitment to complete the project.", "zh": "市長強力承諾會完成這項計畫。" } }
+      ],
+      "family": [
+        { "w": "confidence", "ipa": "/ˈkɑːnfɪdəns/", "pos": "n.", "zh": "信心", "example": { "en": "Strong sales results gave investors more confidence in the firm.", "zh": "強勁的銷售成績讓投資人對公司更有信心。" } },
+        { "w": "certainty", "ipa": "/ˈsɝːtnti/", "pos": "n.", "zh": "確定、確實", "example": { "en": "We cannot say with certainty when the work will finish.", "zh": "我們無法確定工程何時會完成。" } },
+        { "w": "pledge", "ipa": "/pledʒ/", "pos": "n.", "zh": "誓言、承諾", "example": { "en": "The company made a pledge to reduce its waste.", "zh": "公司承諾要減少廢棄物。" } }
+      ],
+      "derived": [
+        { "w": "assure", "ipa": "/əˈʃʊr/", "pos": "v.", "zh": "向…保證、使放心", "link": "assurance 的詞幹，assure 是「保證」；去掉 -ance 就是動詞，像 insure → insurance" },
+        { "w": "reassure", "ipa": "/ˌriːəˈʃʊr/", "pos": "v.", "zh": "使安心、再次保證", "link": "re-（再次）+ assure，再保證一次，像 rebuild、restart" },
+        { "w": "reassurance", "ipa": "/ˌriːəˈʃʊrəns/", "pos": "n.", "zh": "安心、再保證", "link": "reassure + -ance，變成名詞，像 assure → assurance" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "保證、擔保", "en": "a promise that something will happen or is true", "in_passage": true, "distinguish": "常和 give、seek 一起用，後面接 that 子句。", "example": { "en": "The contractor gave us his assurance that the roof was safe.", "zh": "承包商向我們保證屋頂是安全的。" } },
+        { "pos": "n.", "zh": "自信、把握", "en": "a feeling of being sure about yourself", "distinguish": "不可數，常用 with assurance 或 self-assurance 表示態度。", "example": { "en": "She spoke with assurance during the investor presentation.", "zh": "她在投資人簡報中說話很有自信。" } }
+      ]
+    }
+  ]
+}

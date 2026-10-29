@@ -1,0 +1,532 @@
+[
+  {
+    "week": 7,
+    "day": 5,
+    "tag": "網站故障後客服處理與防止再發說明郵件",
+    "subtopic": "零售與電商",
+    "type": "Reading",
+    "level": {
+      "score": 775,
+      "range": "725-825",
+      "cefr": "B2+",
+      "why": "以 after、until、which 引導的關係子句與多重因果、被動語態組成較長的書面句，需整合故障原因、受影響交易數、客服處理時間、退款期限與預防措施等多項資訊；delicate、convey 等字彙較抽象，且干擾項（如退款是財務部門、測試是新工程師）更接近正解。"
+    },
+    "passage": "Subject: Weekend Website Problem and Next Steps\n\nDear team,\n\nAs you know, our online commerce platform went offline for nearly five hours on Saturday after a software bug caused some customers to be charged twice at checkout. Orders were halted until the engineers corrected the error, and we estimate that about 300 transactions were affected.\n\nI was impressed by how quickly the customer service team responded. Several top achievers on the night shift handled more than forty complaints each, which allowed us to convey a sincere apology to every affected customer before noon on Sunday. Because the matter remains delicate, please continue to use the approved message template when you contact customers.\n\nTo prevent a similar problem, we will take two steps. First, the finance department will refund all duplicate charges by Wednesday, and affected customers will receive a ten percent coupon. Second, we will employ two additional engineers to test every update before it goes live.\n\nThank you again for your hard work.\n\nBest regards,\nPaul Weston\nHead of Online Sales",
+    "zh": "主旨：週末網站問題與後續步驟\n\n各位同仁好：\n\n如大家所知，我們的線上商務平台在週六因為一個軟體錯誤，導致部分顧客在結帳時被重複扣款，平台因此離線了將近五個小時。在工程師修正錯誤之前，訂單處理一度暫停，我們估計約有 300 筆交易受到影響。\n\n客服團隊反應迅速，讓我印象深刻。夜班有幾位表現頂尖的同仁，每人處理了四十多件客訴，讓我們得以在週日中午前向每位受影響的顧客表達誠摯的歉意。由於這件事仍相當敏感，請在聯絡顧客時繼續使用核准的訊息範本。\n\n為了避免類似問題再次發生，我們將採取兩項措施。第一，財務部門會在週三前退還所有重複扣款，受影響的顧客也會收到一張九折優惠券。第二，我們會再聘請兩位工程師，在每次更新上線前先進行測試。\n\n再次感謝大家的辛勞。\n\n敬上\n保羅．韋斯頓\n線上銷售主管",
+    "vocab": [
+      {
+        "word": "commerce",
+        "ipa": "/ˈkɑːmɝːs/",
+        "pos": "n.",
+        "col": "online commerce / chamber of commerce",
+        "zh": "商業、商務"
+      },
+      {
+        "word": "bug",
+        "ipa": "/bʌɡ/",
+        "pos": "n.",
+        "col": "software bug / fix a bug",
+        "zh": "（程式）錯誤、漏洞"
+      },
+      {
+        "word": "convey",
+        "ipa": "/kənˈveɪ/",
+        "pos": "v.",
+        "col": "convey a message / convey thanks",
+        "zh": "傳達、表達"
+      },
+      {
+        "word": "delicate",
+        "ipa": "/ˈdelɪkət/",
+        "pos": "adj.",
+        "col": "delicate situation / delicate matter",
+        "zh": "棘手的、敏感的；易碎的"
+      }
+    ],
+    "questions": [
+      {
+        "kind": "context",
+        "q": "What caused the problem on Saturday?",
+        "opts": [
+          "A heavy increase in website traffic",
+          "A software error that charged some customers twice",
+          "A shipping mistake made by a supplier",
+          "A power failure at the engineers' office"
+        ],
+        "ans": 1,
+        "why": [
+          "錯誤：信中沒有提到流量暴增，這是未出現的資訊。",
+          "正解：一個軟體錯誤使部分顧客在結帳時被重複扣款，導致平台離線。",
+          "錯誤：信中完全沒有提到供應商或運送問題。",
+          "錯誤：信中沒有提到停電，離線是因為軟體錯誤。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "What did the night shift staff do before noon on Sunday?",
+        "opts": [
+          "They refunded all duplicate charges",
+          "They tested every update before it went live",
+          "They hired two more engineers",
+          "They apologized to the affected customers"
+        ],
+        "ans": 3,
+        "why": [
+          "錯誤：退還重複扣款是財務部門預計在週三前完成的事。",
+          "錯誤：測試每次更新是新聘工程師要做的事，不是夜班客服。",
+          "錯誤：聘請工程師是公司之後的措施，不是夜班同仁做的。",
+          "正解：夜班同仁處理大量客訴，在週日中午前向每位受影響的顧客表達歉意。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "What will the company do to avoid a similar problem?",
+        "opts": [
+          "Add engineers to test updates before release",
+          "Replace the approved message template",
+          "Give a coupon to every customer on the site",
+          "Reduce the number of orders accepted each day"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：公司會再聘請兩位工程師，在每次更新上線前先進行測試。",
+          "錯誤：信中是要求繼續使用核准的範本，並沒有要更換。",
+          "錯誤：優惠券只給受影響的顧客，且是補償措施，不是預防措施。",
+          "錯誤：文中沒有提到限制每日接受的訂單數量。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The website was updated at midnight ______ customers would not be affected during peak hours.",
+        "opts": [
+          "in case of",
+          "even if",
+          "so that",
+          "in spite of"
+        ],
+        "ans": 2,
+        "why": [
+          "錯誤：in case of 後面要接名詞，不能接完整子句。",
+          "錯誤：even if 表示「即使」，語意不符更新時間的目的。",
+          "正解：so that 引導表示目的的子句，意思是「以便」，說明在午夜更新的目的。",
+          "錯誤：in spite of 是介系詞片語，後面要接名詞，且語意是「儘管」。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "Management is considering ______ the return period from thirty to sixty days.",
+        "opts": [
+          "extending",
+          "to extend",
+          "extend",
+          "extended"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：consider 後面接動名詞，所以用 extending。",
+          "錯誤：consider 不接不定詞 to V。",
+          "錯誤：原形動詞不能直接接在 considering 之後。",
+          "錯誤：extended 是過去分詞，無法接受詞 the return period。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "Customers who are dissatisfied with a purchase may exchange it ______ the original packaging is undamaged.",
+        "opts": [
+          "owing to",
+          "as to",
+          "in case of",
+          "provided that"
+        ],
+        "ans": 3,
+        "why": [
+          "錯誤：owing to 是介系詞片語，後面接名詞，不能接完整子句。",
+          "錯誤：as to 是介系詞片語，意思是「關於」，不能引導條件子句。",
+          "錯誤：in case of 後面要接名詞，且語意是「萬一」，不符條件。",
+          "正解：provided that 引導條件子句，意思是「只要」，表示換貨的條件。"
+        ]
+      }
+    ]
+  },
+  {
+    "week": 7,
+    "day": 6,
+    "tag": "辦公室租賃申請審核與推薦信需求語音留言",
+    "subtopic": "房地產與租賃",
+    "type": "Listening",
+    "level": {
+      "score": 775,
+      "range": "725-825",
+      "cefr": "B2+",
+      "why": "以 since、because、which 引導的多重子句與分詞構句組成較長的口語句，需整合辦公室容納人數、推薦信期限、租金扣款方式、安全隱患與簽約日期等多項資訊；downsize、hazard 等字彙較抽象，且干擾項（週四、每月一號、下週一）較接近正解。"
+    },
+    "passage": "Hello, Mr. Evans. This is Laura Kim from Westgate Properties, calling about your application for Suite 210. Since your design firm plans to downsize from its current office, this suite should suit you well, because it is designed for companies employing up to thirty people. We were impressed by your company profile, but before we can prepare the lease, the owner requires a reference letter from your current landlord confirming that your rent has always been paid on time. Please send it by Thursday. The monthly rent is 2,800 dollars, which will be collected by automatic debit on the first day of each month. During yesterday's inspection, our staff also found that the storage closet is a fire hazard because of the boxes left by the previous tenant, so we will clear it before you move in. If everything is in order, we can sign the lease next Monday.",
+    "zh": "您好，伊凡斯先生，我是西門地產的蘿拉．金，來電是想談談您申請 210 號辦公室的事。由於貴設計公司打算縮減目前的辦公規模，這間辦公室應該很適合您，因為它是為最多三十人的公司所設計的。我們對貴公司的簡介印象深刻，但在我們準備租約之前，屋主要求您提供一封現任房東寫的推薦信，證明您一向準時繳納租金。請在週四前寄給我們。每月租金是 2,800 美元，將在每月一號自動扣款。昨天檢查時，我們的人員還發現儲藏室因為前一位房客留下的箱子而有火災隱憂，所以我們會在您搬進來之前清空。如果一切沒問題，我們可以在下週一簽租約。",
+    "vocab": [
+      {
+        "word": "downsize",
+        "ipa": "/ˈdaʊnsaɪz/",
+        "pos": "v.",
+        "col": "downsize the office / plan to downsize",
+        "zh": "縮減規模、精簡人力"
+      },
+      {
+        "word": "debit",
+        "ipa": "/ˈdebɪt/",
+        "pos": "n.",
+        "col": "automatic debit / debit card",
+        "zh": "扣款、借記"
+      },
+      {
+        "word": "hazard",
+        "ipa": "/ˈhæzɚd/",
+        "pos": "n.",
+        "col": "fire hazard / safety hazard",
+        "zh": "危險因素、隱患"
+      },
+      {
+        "word": "lease",
+        "ipa": "/liːs/",
+        "pos": "n.",
+        "col": "sign a lease / lease agreement",
+        "zh": "租約"
+      }
+    ],
+    "questions": [
+      {
+        "kind": "context",
+        "q": "What is Mr. Evans asked to provide?",
+        "opts": [
+          "A copy of his company profile",
+          "A list of the firm's employees",
+          "A letter from his current landlord",
+          "A deposit of 2,800 dollars"
+        ],
+        "ans": 2,
+        "why": [
+          "錯誤：說話者說已看過公司簡介，並沒有再要求提供。",
+          "錯誤：文中沒有要求提供員工名單，三十人只是辦公室的容納人數。",
+          "正解：屋主要求一封現任房東所寫、證明租金一向準時繳納的推薦信。",
+          "錯誤：2,800 美元是每月租金，不是要先繳的訂金。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "Why will the staff clear the storage closet?",
+        "opts": [
+          "It could cause a fire",
+          "Mr. Evans has requested more space",
+          "The owner wants to rent it separately",
+          "It is needed for a safety inspection"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：因為前一位房客留下的箱子讓儲藏室有火災隱憂，所以會在搬入前清空。",
+          "錯誤：文中沒有說伊凡斯先生要求更多空間。",
+          "錯誤：文中沒有提到屋主打算另外出租儲藏室。",
+          "錯誤：檢查已在昨天進行，清空是為了排除隱患，不是為了檢查。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "When can the lease be signed if everything is in order?",
+        "opts": [
+          "On Thursday",
+          "On the first day of next month",
+          "Yesterday afternoon",
+          "Next Monday"
+        ],
+        "ans": 3,
+        "why": [
+          "錯誤：週四是寄出推薦信的期限，不是簽約日。",
+          "錯誤：每月一號是自動扣款日，不是簽約日。",
+          "錯誤：昨天是檢查日，與簽約無關。",
+          "正解：說話者表示一切沒問題的話，下週一就可以簽租約。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The lease cannot be terminated early ______ both parties give written consent.",
+        "opts": [
+          "unless",
+          "if",
+          "because",
+          "although"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：unless 表示「除非」，意思是除非雙方書面同意，否則不能提前終止。",
+          "錯誤：if 會使語意變成「如果雙方同意就不能終止」，邏輯相反。",
+          "錯誤：because 表示原因，語意不符。",
+          "錯誤：although 表示讓步，語意不符。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The property manager asked all tenants to ______ with the new fire safety regulations by June.",
+        "opts": [
+          "adhere",
+          "comply",
+          "abide",
+          "adapt"
+        ],
+        "ans": 1,
+        "why": [
+          "錯誤：adhere 要搭配 to（adhere to），不是 with。",
+          "正解：comply 要搭配 with，表示「遵守」規定。",
+          "錯誤：abide 要搭配 by（abide by），不是 with。",
+          "錯誤：adapt 要搭配 to（adapt to），表示「適應」，語意也不符遵守規定。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "______ the security deposit in full is required before tenants receive their keys.",
+        "opts": [
+          "Payment",
+          "Paid",
+          "Pay",
+          "Paying"
+        ],
+        "ans": 3,
+        "why": [
+          "錯誤：Payment 是名詞，後面不能直接接受詞 the security deposit。",
+          "錯誤：Paid 是過去分詞，不能當句子的主詞。",
+          "錯誤：Pay 是原形動詞，不能直接當主詞。",
+          "正解：Paying 是動名詞，可當主詞並接受詞 the security deposit。"
+        ]
+      }
+    ]
+  },
+  {
+    "week": 7,
+    "day": 7,
+    "tag": "簡報／提案：港口街區再造與舊倉庫社區中心提案簡報",
+    "subtopic": "社區與都市發展",
+    "type": "Listening",
+    "level": {
+      "score": 800,
+      "range": "750-850",
+      "cefr": "B2+",
+      "why": "以分詞構句、非限定關係子句、被動與未完成案件的因果說明組成較長的口語句，並附議員提問與回覆；需整合歷史背景、時程、就業人數、預算比例計算與議會下一步等多項資訊，且 halted、underway、assurance 等字彙較抽象，干擾項（如 5.4 與 3.6 million dollars）更接近正解。"
+    },
+    "passage": "Ms. Torres: Good evening, council members. Today I would like to present our proposal for revitalizing the Harbor Street district.\n\nLet me begin with the background. Traditionally, Harbor Street has been the center of our city's fishing trade, but over the past decade many shops have closed, and the area has lost much of its foot traffic. Work on the old warehouse conversion was halted two years ago because of funding problems, and that unfinished building has been a source of frustration for residents.\n\nNow, about the plan. With your approval, we will convert the warehouse into a community center that includes a market hall, a small theater, and an archive of local photographs. Construction should be underway by March and take eighteen months. The project will employ about one hundred and twenty local workers, and forty permanent jobs will be created once the center opens.\n\nNext, let me turn to cost. The total budget is 9 million dollars, and 60 percent will come from a state grant. We believe the city's share is a worthwhile investment, because similar projects in neighboring cities have raised nearby property values by about twelve percent. A survey of residents last spring was also encouraging, and we were impressed that more than eighty percent of respondents supported the plan.\n\nBased on these findings, we recommend that the council approve the proposal at next month's meeting. That concludes my presentation, and I would be glad to take your questions.\n\nMr. Reed: The plan sounds promising, but I worry about another delay. What assurance can you give us that work will not be halted again?\n\nMs. Torres: That is an important point. The state grant has already been approved, and the contract allows the city to replace the contractor if progress falls behind.",
+    "zh": "托瑞斯女士：各位議員晚安。今天我想向各位提出港口街區的再造提案。\n\n讓我先從背景說起。港口街一向是本市漁業貿易的中心，但過去十年間，許多商店歇業，這個地區也失去了大部分人潮。舊倉庫改建工程在兩年前因資金問題而暫停，那棟未完工的建築也一直讓居民感到沮喪。\n\n接著談談計畫內容。在各位核准後，我們將把倉庫改建成社區中心，內有市集大廳、一間小型劇院，以及一座在地照片檔案館。工程預計在三月前動工，並需要十八個月完成。這個專案將聘用約一百二十位當地工人，中心開幕後也會創造四十個長期職缺。\n\n接下來，讓我談談成本。總預算為 900 萬美元，其中 60% 將來自州政府補助。我們相信市府負擔的部分是值得的投資，因為鄰近城市的類似計畫已使附近房價上漲約百分之十二。去年春天對居民所做的調查結果也令人鼓舞，超過百分之八十的受訪者支持這項計畫，讓我們印象深刻。\n\n根據這些調查結果，我們建議議會在下個月的會議中核准這項提案。我的報告到此結束，我很樂意回答各位的問題。\n\n里德先生：這項計畫聽起來很有前景，但我擔心又會再次延宕。您能提供什麼保證，讓我們相信工程不會再被叫停？\n\n托瑞斯女士：您提出了重要的一點。州政府的補助已經核准，而且合約規定，如果進度落後，市府可以更換承包商。",
+    "vocab": [
+      {
+        "word": "traditionally",
+        "ipa": "/trəˈdɪʃənəli/",
+        "pos": "adv.",
+        "col": "traditionally used / traditionally known",
+        "zh": "傳統上、一向"
+      },
+      {
+        "word": "archive",
+        "ipa": "/ˈɑːrkaɪv/",
+        "pos": "n.",
+        "col": "city archive / photo archive",
+        "zh": "檔案館、檔案庫"
+      },
+      {
+        "word": "underway",
+        "ipa": "/ˌʌndɚˈweɪ/",
+        "pos": "adj.",
+        "col": "be underway / already underway",
+        "zh": "進行中的"
+      },
+      {
+        "word": "worthwhile",
+        "ipa": "/ˌwɝːθˈwaɪl/",
+        "pos": "adj.",
+        "col": "worthwhile investment / well worthwhile",
+        "zh": "值得的"
+      },
+      {
+        "word": "assurance",
+        "ipa": "/əˈʃʊrəns/",
+        "pos": "n.",
+        "col": "give an assurance / written assurance",
+        "zh": "保證、承諾"
+      }
+    ],
+    "questions": [
+      {
+        "kind": "context",
+        "q": "What happened to the warehouse project two years ago?",
+        "opts": [
+          "It was completed ahead of schedule",
+          "It was stopped because of funding problems",
+          "It was canceled by local residents",
+          "It was moved to another district"
+        ],
+        "ans": 1,
+        "why": [
+          "錯誤：說話者說那是一棟未完工的建築，不是已完工。",
+          "正解：舊倉庫改建工程在兩年前因資金問題而暫停。",
+          "錯誤：文中說居民對未完工的建築感到沮喪，並沒有說是居民取消的。",
+          "錯誤：文中沒有提到計畫被移到其他街區。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "How much will the city contribute to the project?",
+        "opts": [
+          "3.6 million dollars",
+          "5.4 million dollars",
+          "9 million dollars",
+          "1.2 million dollars"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：總預算 900 萬美元中，60% 來自州政府補助，所以市府負擔其餘 40%，也就是 360 萬美元。",
+          "錯誤：540 萬美元是州政府補助的金額（60%），不是市府負擔。",
+          "錯誤：900 萬美元是整體預算，不是市府的出資。",
+          "錯誤：文中沒有出現這個金額，百分之十二是房價漲幅。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "What is Mr. Reed's main concern?",
+        "opts": [
+          "The survey results may be inaccurate",
+          "The project may create too few jobs",
+          "The work could be delayed again",
+          "The property values may fall"
+        ],
+        "ans": 2,
+        "why": [
+          "錯誤：里德先生沒有質疑調查結果的準確性。",
+          "錯誤：職缺數量不是他擔心的事，文中說明會創造四十個長期職缺。",
+          "正解：他說擔心又會再次延宕，並詢問工程不會再被叫停的保證。",
+          "錯誤：房價預期會上漲，里德先生沒有提到房價下跌。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "What does Ms. Torres ask the council to do next month?",
+        "opts": [
+          "Visit the old warehouse",
+          "Choose a new contractor",
+          "Review the survey of residents",
+          "Approve the proposal"
+        ],
+        "ans": 3,
+        "why": [
+          "錯誤：文中沒有邀請議員參觀舊倉庫。",
+          "錯誤：更換承包商只是合約中的備案，不是她要求議會做的事。",
+          "錯誤：調查是已經完成的資料，她沒有要求議會重新檢視。",
+          "正解：她建議議會在下個月的會議中核准這項提案。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The new community center, ______ will include a library and a market hall, is scheduled to open in two years.",
+        "opts": [
+          "whose",
+          "what",
+          "which",
+          "where"
+        ],
+        "ans": 2,
+        "why": [
+          "錯誤：whose 後面要接名詞，表示「…的」，這裡後面是動詞 will include。",
+          "錯誤：what 不能引導補充說明先行詞的非限定關係子句。",
+          "正解：非限定關係子句用 which 補充說明 center，並在子句中當主詞。",
+          "錯誤：where 用於地點關係，後面需要完整子句，這裡缺少主詞。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The proposal received ______ support from local business owners, who expect more customers.",
+        "opts": [
+          "overwhelmed",
+          "overwhelming",
+          "overwhelmingly",
+          "overwhelm"
+        ],
+        "ans": 1,
+        "why": [
+          "錯誤：overwhelmed 表示人「不堪負荷」，不能修飾 support。",
+          "正解：overwhelming 是形容詞，意思是「壓倒性的」，放在名詞 support 前面修飾。",
+          "錯誤：overwhelmingly 是副詞，不能直接修飾名詞。",
+          "錯誤：overwhelm 是動詞原形，不能放在名詞前面。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "______ the proposal is approved, the city will be able to begin the project as early as March.",
+        "opts": [
+          "Provided that",
+          "If only",
+          "Even though",
+          "Whereas"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：Provided that 意思是「只要」，引導條件子句，符合語意。",
+          "錯誤：If only 表示「但願」，用於願望，不能引導條件。",
+          "錯誤：Even though 表示「雖然」，語意是讓步，不合邏輯。",
+          "錯誤：Whereas 表示對比，不是條件。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "By the time the new station opens, the old terminal ______ for more than a year.",
+        "opts": [
+          "has been closed",
+          "is closed",
+          "had been closed",
+          "will have been closed"
+        ],
+        "ans": 3,
+        "why": [
+          "錯誤：has been closed 是現在完成式，無法搭配未來的 By the time … opens。",
+          "錯誤：is closed 是現在簡單式，沒有表示「已持續一年以上」。",
+          "錯誤：had been closed 是過去完成式，用於過去時間，與未來開幕不符。",
+          "正解：By the time + 現在式，主要子句用未來完成式 will have been closed，表示到那時已關閉超過一年。"
+        ]
+      }
+    ],
+    "presentation_phrases": [
+      {
+        "phrase": "Today I would like to present ...",
+        "meaning": "今天我想提出…",
+        "usage": "簡報開場，說明這次要提出的提案主題。"
+      },
+      {
+        "phrase": "Let me begin with the background.",
+        "meaning": "讓我先從背景說起。",
+        "usage": "進入第一個主要段落，交代現況或問題。"
+      },
+      {
+        "phrase": "Now, about the plan.",
+        "meaning": "接著談計畫內容。",
+        "usage": "從背景轉換到計畫，提示聽眾重點改變。"
+      },
+      {
+        "phrase": "Next, let me turn to cost.",
+        "meaning": "接下來，讓我談談成本。",
+        "usage": "轉到下一個要點，引出預算與費用說明。"
+      },
+      {
+        "phrase": "Based on these findings, we recommend that ...",
+        "meaning": "根據這些調查結果，我們建議…",
+        "usage": "說明調查或數據之後，提出具體建議。"
+      },
+      {
+        "phrase": "That concludes my presentation.",
+        "meaning": "我的報告到此結束。",
+        "usage": "簡報結尾，表示正式報告已完成。"
+      },
+      {
+        "phrase": "I would be glad to take your questions.",
+        "meaning": "我很樂意回答各位的問題。",
+        "usage": "邀請聽眾提問，進入問答時間。"
+      },
+      {
+        "phrase": "That is an important point.",
+        "meaning": "您提出了重要的一點。",
+        "usage": "回答提問前的緩衝語，表示認同對方的疑慮。"
+      }
+    ]
+  }
+]
