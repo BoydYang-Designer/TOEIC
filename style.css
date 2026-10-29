@@ -8,11 +8,17 @@ button:focus-visible{outline:2px solid #4f46e5;outline-offset:2px}
 /* 核心單字標示：不加 padding／粗體，字寬不變，開關標示時行數不會變；顏色淺 */
 mark.hl{background:rgba(251,191,36,.24);color:inherit;padding:0;border-radius:2px}
 .dark mark.hl{background:rgba(251,191,36,.20)}
-/* 入庫標註：只用底線（不影響排版）；單字／片語／句子三種顏色 */
-.mk{cursor:pointer;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:2px;text-underline-offset:3px}
-.mk-word{text-decoration-color:#0ea5e9}
-.mk-phrase{text-decoration-color:#8b5cf6}
-.mk-sentence{text-decoration-color:#10b981;text-decoration-style:solid;text-decoration-thickness:1px}
+/* 入庫標註：三種各用不同的「畫法」，重疊時才分得清楚（互不搶位置）
+   單字＝黃色底（和核心單字 mark.hl 同一個顏色）／片語＝紫色實線底線（貼著文字）／句子＝綠色點狀底線（離文字較遠）
+   底線的位置（text-underline-offset）不同，所以「片語在句子裡」會看到上面一條實線、下面一排點；單字的黃底則可以疊在任何一種上面 */
+.mk{cursor:pointer}
+.mk-word{background:rgba(251,191,36,.24);border-radius:2px}
+.dark .mk-word{background:rgba(251,191,36,.20)}
+mark.hl .mk-word,.mk-word mark.hl{background:transparent} /* 又是核心單字又入庫：只留一層黃底，不要疊深 */
+.mk-phrase{text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:2px;text-decoration-color:#8b5cf6;text-underline-offset:2px}
+.mk-sentence{text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:2px;text-decoration-color:#10b981;text-underline-offset:6px}
+.dark .mk-phrase{text-decoration-color:#a78bfa}
+.dark .mk-sentence{text-decoration-color:#34d399}
 
 /* 標註模式：文稿只做選取，不當成可點播放的句子 */
 .annot{cursor:text}
@@ -113,3 +119,11 @@ body[data-view="detail"] #main li>.flex.items-start~.flex.items-start{margin-top
 .sk-ws.sk-miss{color:#d97706;text-decoration:underline dotted;text-underline-offset:6px}
 .dark .sk-ws.sk-miss{color:#fbbf24}
 .sk-extra{text-decoration:underline dotted #e11d48;text-decoration-thickness:2px;text-underline-offset:6px}
+
+/* 固定播放列：桌機貼視窗頂端；手機貼在最上面 #side 之下（--side-h 由 daily.js 設定） */
+#sp-bar{top:0}
+@media (max-width:767px){#sp-bar{top:var(--side-h,0px)}}
+/* 播放列內的 A−／A＋ 縮小一點 */
+#sp-bar #sp-ctl button:not([onclick^="sp"]){min-height:2rem}
+/* 手機：播放列第三列（語速／單句／字級）要擠在同一列，A−／A＋ 縮小內距 */
+@media (max-width:767px){#sp-ctl button:not([onclick^="sp"]){padding-left:.5rem;padding-right:.5rem;min-width:0;white-space:nowrap}}

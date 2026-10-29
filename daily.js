@@ -66,7 +66,8 @@ const vsc=v=>{const n=v.name+' '+v.voiceURI;let s=0;if(/premium|enhanced|增強|
 const isTZ=v=>!!v&&/\b(Tom|Zoe)\b/i.test(v.name);
 const bestVoice=()=>{try{const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>vsc(b)-vsc(a));return vs.find(v=>/^en[-_]US$/i.test(v.lang)&&/\bZoe\b/i.test(v.name))||vs[0]||null}catch(e){return null}};
 const setVoice=u=>{const v=bestVoice();u.lang=v?v.lang:'en-US';if(v)u.voice=v};
-const Sp = { hlIdx:-2, au:null, mode:'', id:null, text:'', st:'idle', offset:0, pos:0, gotB:false, t0:0, cps:0, tok:0, rate:0.9, speed:1 };
+const Sp = { hlIdx:-2, au:null, mode:'', id:null, text:'', st:'idle', offset:0, pos:0, gotB:false, t0:0, cps:0, tok:0, rate:0.9, speed:1, stopAt:null, one:true };
+try { Sp.one = localStorage.getItem('dailyone') !== '0'; } catch(e) {} // 點句子後播完該句就暫停（預設開）
 const SP_SPEEDS = [0.75, 1, 1.25];
 try { const v = parseFloat(localStorage.getItem('dailyspeed')); if (SP_SPEEDS.includes(v)) Sp.speed = v; } catch(e) {}
 Sp.rate = Math.max(0.5, Math.min(2, 0.9 * Sp.speed)); // 語音合成：1× ＝ 原本的 0.9
@@ -94,16 +95,16 @@ function spCps() { // 每秒朗讀字元數（有邊界事件時實測，否則�
   if (Sp.st === 'playing' && Sp.gotB && el > 2 && Sp.pos > Sp.offset) Sp.cps = (Sp.pos-Sp.offset)/el;
   return Sp.cps || 14*Sp.rate;
 }
-function spRun(from) {
+function spRun(from, end) { // end＝只念到這個字元位置就暫停（單句模式）
   try {
     speechSynthesis.cancel();
     const tok = ++Sp.tok;
     from = Math.max(0, Math.min(from, Sp.text.length));
-    const u = new SpeechSynthesisUtterance(Sp.text.slice(from));
+    const u = new SpeechSynthesisUtterance(end ? Sp.text.slice(from, end) : Sp.text.slice(from));
     setVoice(u); u.rate = Sp.rate;
     Sp.offset = from; Sp.pos = from; Sp.gotB = false; Sp.t0 = Date.now(); Sp.st = 'playing';
     u.onboundary = e => { if (tok === Sp.tok) { Sp.gotB = true; Sp.pos = from + e.charIndex; } };
-    u.onend = () => { if (tok === Sp.tok) { Sp.st = 'idle'; Sp.pos = 0; spUI(); } };
+    u.onend = () => { if (tok === Sp.tok) { if (end) { Sp.st = 'paused'; Sp.pos = end; } else { Sp.st = 'idle'; Sp.pos = 0; } spUI(); } };
     u.onerror = e => { if (tok === Sp.tok && e.error !== 'canceled' && e.error !== 'interrupted') { Sp.st = 'idle'; spUI(); } };
     speechSynthesis.speak(u);
   } catch(e) { alert('您的瀏覽器不支援即時語音朗讀'); Sp.st = 'idle'; }
@@ -114,11 +115,11 @@ function spAudioFail(au) { // 找不到／無法播放 mp3 → 自動改用瀏�
   Sp.au = null; Sp.mode = 'tts'; spRun(0);
   if (typeof dnToast === 'function') dnToast('mp3 讀不到，改用語音合成播放');
 }
-function spToggle(id, startAt) { // 播放／暫停／繼續；startAt = 從指定秒數開始（點句子時使用）
+function spToggle(id, startAt, stopAt) { // 播放／暫停／繼續；startAt = 從指定秒數開始（點句子時使用）
   spFollowSet(true);
   if (Sp.id !== id) {
     spStop(); const x = DATA.find(d => idOf(d) === id);
-    Sp.id = id; Sp.text = x.passage; Sp.cps = 0;
+    Sp.id = id; Sp.text = x.passage; Sp.cps = 0; Sp.stopAt = stopAt || null;
     const au = new Audio(audioSrc(x));
     try { au.defaultPlaybackRate = Sp.speed; au.playbackRate = Sp.speed; au.preservesPitch = true; au.webkitPreservesPitch = true; } catch(e) {}
     Sp.au = au; Sp.mode = 'audio'; Sp.st = 'loading'; // 先顯示「載入中」，真的出聲（playing 事件）才切成播放中
@@ -142,6 +143,7 @@ function spToggle(id, startAt) { // 播放／暫停／繼續；startAt = 從指�
 }
 function spBack() { // 倒轉 5 秒：mp3 為精準倒轉，語音合成為估算
   if (Sp.st === 'idle') return;
+  Sp.stopAt = null;
   if (Sp.mode === 'audio') {
     Sp.au.currentTime = Math.max(0, Sp.au.currentTime - 5);
     if (Sp.st === 'paused') { Sp.au.play(); Sp.st = 'playing'; }
@@ -152,6 +154,7 @@ function spBack() { // 倒轉 5 秒：mp3 為精準倒轉，語音合成為估�
 }
 function spSkip(sec, keep) { // 前後跳 sec 秒（負數＝倒轉）。keep＝true：暫停中就維持暫停（鍵盤用）；mp3 精準，語音合成為估算
   if (Sp.st === 'idle' || !Sp.id) return;
+  Sp.stopAt = null;
   if (Sp.mode === 'audio' && Sp.au) {
     const a = Sp.au, d = a.duration, t = a.currentTime + sec;
     try { a.currentTime = Math.max(0, isFinite(d) ? Math.min(Math.max(0, d - 0.2), t) : t); } catch (e) {}
@@ -163,27 +166,32 @@ function spSkip(sec, keep) { // 前後跳 sec 秒（負數＝倒轉）。keep＝
 }
 function spFwd() { spSkip(5); } // 快轉 5 秒
 function spStop() {
-  Sp.tok++; Sp.st = 'idle'; Sp.pos = 0; Sp.id = null; Sp.mode = ''; spClearHl();
+  Sp.stopAt = null; Sp.tok++; Sp.st = 'idle'; Sp.pos = 0; Sp.id = null; Sp.mode = ''; spClearHl();
   if (Sp.au) { Sp.au.onerror = null; Sp.au.onended = null; Sp.au.pause(); Sp.au = null; }
   try { speechSynthesis.cancel(); } catch(e) {}
   spUI();
 }
 function spHtml(id) {
   const mine = Sp.id === id && Sp.st !== 'idle', playing = Sp.id === id && Sp.st === 'playing', loading = Sp.id === id && Sp.st === 'loading';
-  const base = 'inline-flex items-center justify-center whitespace-nowrap rounded-xl h-12 text-sm font-semibold transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ';
+  const base = 'inline-flex items-center justify-center whitespace-nowrap rounded-lg h-9 text-sm font-semibold transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ';
   const soft = base + 'bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-indigo-300';
   const on = base + 'bg-indigo-600 text-white';
-  const mini = (fn, ic, lb, dis, tip) => `<button onclick="${fn}" ${dis ? 'disabled' : ''} title="${tip}" aria-label="${tip}" class="${soft} flex-col w-14 shrink-0 leading-none gap-0.5"><span class="text-base">${ic}</span><span class="text-[0.6875rem] font-medium">${lb}</span></button>`;
-  const seg = v => `<button onclick="spSetSpeed(${v})" aria-pressed="${v === Sp.speed}" class="px-3 h-9 text-xs font-semibold transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${v}×</button>`;
-  const state = mine ? `<p class="text-xs ${playing ? 'text-indigo-600 dark:text-indigo-300 font-semibold' : 'text-slate-400'}">${playing ? '● ' : ''}${Sp.mode === 'audio' ? '音檔' : '語音合成'}${loading ? '（載入中）' : playing ? '播放中' : '（已暫停）'}</p>` : '';
-  return `<div class="flex items-stretch gap-2 w-full">
-      <button onclick="spToggle('${id}')" class="${playing || loading ? on : soft} flex-1 min-w-0 gap-2 px-3${loading ? ' animate-pulse' : ''}"><span class="text-lg leading-none">${loading ? '⏳' : playing ? '⏸' : '🔊'}</span><span>${loading ? '載入中…' : playing ? '暫停' : (mine ? '繼續' : '播放語音')}</span></button>
-      ${mini('spBack()', '⏪', '5秒', !mine, '倒轉 5 秒（鍵盤 ←）')}${mini('spFwd()', '⏩', '5秒', !mine, '快轉 5 秒（鍵盤 →）')}${mini('spStop()', '⏹', '停止', !mine, '停止')}
-    </div>
-    <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 w-full mt-2.5">
-      <div class="flex items-center gap-2"><span class="text-xs text-slate-500">語速</span><div class="inline-flex rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700" role="group" aria-label="語速">${SP_SPEEDS.map(seg).join('')}</div></div>
+  const ib = (fn, ic, lb, dis, tip) => `<button onclick="${fn}" ${dis ? 'disabled' : ''} title="${tip}" aria-label="${tip}" class="${soft} gap-0.5 px-2.5 w-full md:w-auto md:shrink-0"><span class="text-base leading-none">${ic}</span>${lb ? `<span class="text-[0.6875rem] font-bold leading-none">${lb}</span>` : ''}</button>`;
+  const seg = v => `<button onclick="spSetSpeed(${v})" aria-pressed="${v === Sp.speed}" class="px-2 md:px-2.5 h-8 text-xs font-semibold transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${v}×</button>`;
+  const tip = Sp.mode === 'audio' ? '音檔' : '語音合成';
+  return `<div class="flex flex-wrap items-center justify-between md:justify-start gap-x-2 gap-y-2">
+      <div class="grid grid-cols-[2fr_2fr_2fr_1fr] gap-1.5 w-full md:flex md:items-center md:gap-1 md:w-auto">
+        ${ib('spBack()', '⏪', '5', !mine, '倒轉 5 秒（鍵盤 ←）')}
+        <button onclick="spToggle('${id}')" title="${mine ? tip : ''}（鍵盤 空白鍵）" class="${playing || loading ? on : soft} gap-1.5 px-2 w-full md:w-auto md:px-3 md:min-w-[5.5rem]${loading ? ' animate-pulse' : ''}"><span class="text-base leading-none">${loading ? '⏳' : playing ? '⏸' : '▶'}</span><span>${loading ? '載入' : playing ? '暫停' : (mine ? '繼續' : '播放')}</span></button>
+        ${ib('spFwd()', '⏩', '5', !mine, '快轉 5 秒（鍵盤 →）')}
+        ${ib('spStop()', '⏹', '', !mine, '停止')}
+      </div>
+      <div class="flex flex-nowrap items-center justify-between gap-1.5 w-full md:contents">
+      <div class="inline-flex shrink-0 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700" role="group" aria-label="語速">${SP_SPEEDS.map(seg).join('')}</div>
+      <button onclick="spOneSet()" aria-pressed="${Sp.one}" title="${Sp.one ? '目前：點句子只播該句，播完暫停（點一下改成連續播放）' : '目前：點句子後連續播放（點一下改成播完該句就暫停）'}" class="h-8 px-2.5 shrink-0 rounded-lg text-xs font-semibold cursor-pointer border transition ${Sp.one ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-slate-100 hover:bg-slate-200 border-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700'}">${Sp.one ? '單句' : '連播'}</button>
       ${typeof rdBarH === 'function' ? rdBarH() : ''}
-    </div>${state ? `<div class="mt-1.5">${state}</div>` : ''}`;
+      </div>
+    </div>`;
 }
 const SP_TS = '#passage-text .tsent, #pair-text .tsent', SP_ZS = '#zh-text .zsent, #pair-text .zsent'; // 英文句／中文句（單語模式或中英對照）
 function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll(SP_TS.replace(/\.tsent/g, '.tsent.active') + ', ' + SP_ZS.replace(/\.zsent/g, '.zsent.active')).forEach(e => e.classList.remove('active')); }
@@ -217,6 +225,8 @@ function spFollow(el, zel) {
   let top = 0, bot = innerHeight;
   const side = document.getElementById('side');
   if (side && getComputedStyle(side).position === 'sticky') { const sr = side.getBoundingClientRect(); if (sr.bottom > 0) top = Math.min(sr.bottom, innerHeight * 0.4); }
+  const bar = document.getElementById('sp-bar');
+  if (bar) { const br = bar.getBoundingClientRect(); if (br.bottom > 0) top = Math.max(top, Math.min(br.bottom, innerHeight * 0.5)); } // 固定播放列不要擋到高亮句
   const mini = document.getElementById('mini');
   if (mini && mini.firstElementChild && getComputedStyle(mini).display !== 'none') bot = Math.max(top + 80, mini.getBoundingClientRect().top);
   const h = bot - top, r = tgt.getBoundingClientRect(), pad = 12;
@@ -252,19 +262,31 @@ function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily
   const zel = idx >= 0 && [...document.querySelectorAll(SP_ZS)].find(e => idx >= +e.dataset.z && idx <= (e.dataset.z2 != null ? +e.dataset.z2 : +e.dataset.z));
   spFollow(el, zel); // 畫面跟著高亮句子捲動（英文收合時改跟中文）
 }
-function spSeek(id, i) { // 點文稿句子：跳到該句播放
+function spSeek(id, i) { // 點文稿句子：播放該句；單句模式（預設）播完就暫停，按「繼續」或空白鍵再往下聽
   spFollowSet(true);
-  const x = DATA.find(d => idOf(d) === id), t = x.timing[i].start;
-  if (Sp.id === id && Sp.mode === 'tts') { spRun(x.timing[i].from); return; } // 語音合成：從該句的字元位置重播
+  const x = DATA.find(d => idOf(d) === id), s = x.timing[i], t = s.start, end = Sp.one ? s.end : null;
+  if (Sp.id === id && Sp.mode === 'tts') { spRun(s.from, Sp.one && s.to ? s.to : undefined); return; } // 語音合成：從該句的字元位置重播
   if (Sp.id === id && Sp.mode === 'audio' && Sp.au) {
-    Sp.au.currentTime = t;
+    Sp.au.currentTime = t; Sp.stopAt = end;
     if (Sp.st === 'paused') { Sp.au.play(); Sp.st = 'playing'; }
     spUI();
-  } else spToggle(id, t);
+  } else spToggle(id, t, end);
 }
+function spOneSet() { Sp.one = !Sp.one; if (!Sp.one) Sp.stopAt = null; try { localStorage.setItem('dailyone', Sp.one ? '1' : '0'); } catch(e) {} spUI(); if (typeof dnToast === 'function') dnToast(Sp.one ? '點句子：播完該句就暫停' : '點句子：從該句連續播放'); }
+// 單句模式的「句尾暫停」：每 20ms 檢查一次（timeupdate 約 250ms 一次，太粗會多念到下一句）
+setInterval(() => {
+  const a = Sp.au;
+  if (Sp.stopAt == null || Sp.mode !== 'audio' || !a || Sp.st !== 'playing' || a.currentTime < Sp.stopAt) return;
+  const end = Sp.stopAt; Sp.stopAt = null; a.pause();
+  try { a.currentTime = end; } catch (e) {}
+  Sp.st = 'paused'; spHl(Sp.id, end - 0.01); spUI();
+}, 20);
+// 播放列固定在畫面上方（手機要避開最上面的 #side）：把 #side 的高度寫進 --side-h
+(function () { const s = document.getElementById('side'); if (!s) return; const set = () => document.documentElement.style.setProperty('--side-h', (matchMedia('(max-width:767px)').matches ? s.offsetHeight : 0) + 'px'); set(); addEventListener('resize', set); if (window.ResizeObserver) new ResizeObserver(set).observe(s); })();
+const SP_MINI = false; // 手機底部浮動播放列：已有固定在上方的播放組，預設關閉；想要回來改成 true
 function spMini() { // 手機底部浮動播放列：捲到測驗區時仍可暫停／倒轉
   const el = document.getElementById('mini'); if (!el) return;
-  if (Sp.st === 'idle' || !Sp.id) { el.innerHTML = ''; return; }
+  if (!SP_MINI || Sp.st === 'idle' || !Sp.id) { el.innerHTML = ''; return; }
   const b = 'shrink-0 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium cursor-pointer bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
   el.innerHTML = `<div class="mx-3 mb-3 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur p-2 flex items-center gap-2" style="margin-bottom:max(0.75rem,env(safe-area-inset-bottom))">
     <span class="flex-1 min-w-0 truncate px-2 text-xs text-slate-500">${Sp.st === 'loading' ? '⏳ 載入中 · ' : Sp.st === 'playing' ? '● ' : '⏸ '}${Sp.id.toUpperCase()} · ${Sp.mode === 'audio' ? '音檔' : '語音合成'}</span>
@@ -1142,7 +1164,7 @@ function renderDay() {
   const vOpen = !!cur.vocabOpen, qOpen = !!cur.quizOpen; // 預設收合
 
   let h = `<header class="mb-6">
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mb-1">${tFrom() ? `<button onclick="goBack()" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">← ${tLabel()}</button>` : ''}${nextBtnHtml(x)}</div>
+    ${tFrom() ? `<button onclick="goBack()" class="block text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer mb-2">← ${tLabel()}</button>` : ''}<div class="grid grid-cols-4 gap-1.5 mb-3 md:w-96">${nextBtnHtml(x)}</div>
     <div class="flex items-center gap-2">
       <h2 class="text-xl md:text-2xl font-bold">Day ${dShow(x)} ${thName(x)}</h2>
     </div>
@@ -1158,16 +1180,14 @@ function renderDay() {
 
   <!-- 短文/聽力卡片 -->
   <section class="${card} p-4 md:p-6 mb-5 md:mb-6">
-    <div class="flex items-center gap-2 flex-wrap mb-3">
-      <button onclick="dnToggleMk()" aria-pressed="${!!cur.mk}" title="${cur.mk ? '點一下回到播放模式' : '點一下進入標註模式（選字不再播放音檔，並標示核心單字）'}" class="text-xs font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-lg cursor-pointer transition ${cur.mk ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">✏️ ${x.type}${cur.mk ? ' · 標註中' : ''}</button>
-      ${isListening ? '<span class="text-xs text-indigo-600 dark:text-indigo-400">建議先聽聲音作答</span>' : ''}
-    </div>
-    <div class="rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 p-2.5 mb-4">
-      <div class="grid grid-cols-3 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 mb-2.5" role="group" aria-label="文稿顯示">${[['en', '英文'], ['zh', '中文'], ['pair', '中英對照']].map(([m, lb]) => `<button onclick="setTextMode('${m}')" aria-pressed="${txMode === m}" class="h-10 px-2 text-sm font-medium transition cursor-pointer ${txMode === m ? 'bg-indigo-600 text-white' : 'bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700'}">${lb}</button>`).join('')}</div>
-      <div id="sp-ctl" data-id="${id}">${spHtml(id)}</div>
+    ${isListening ? '<p class="mb-2 text-xs text-indigo-600 dark:text-indigo-400">建議先聽聲音作答</p>' : ''}
+    <div id="sp-bar" class="sticky top-0 z-20 rounded-xl bg-slate-50/95 dark:bg-slate-800/90 backdrop-blur border border-slate-200 dark:border-slate-700 shadow-sm p-2 mb-4 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+      <button onclick="dnToggleMk()" aria-pressed="${!!cur.mk}" aria-label="${cur.mk ? '標註模式中' : '標註模式'}" title="${x.type}｜${cur.mk ? '標註中：點一下回到播放模式' : '點一下進入標註模式（選字不再播放音檔，並標示核心單字）'}" class="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-lg text-base cursor-pointer transition ${cur.mk ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">✏️</button>
+      <div class="inline-flex flex-1 md:flex-none rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700" role="group" aria-label="文稿顯示">${[['en', '英文'], ['zh', '中文'], ['pair', '對照']].map(([m, lb]) => `<button onclick="setTextMode('${m}')" aria-pressed="${txMode === m}" class="flex-1 md:flex-none h-9 md:h-8 px-3 text-xs font-semibold transition cursor-pointer ${txMode === m ? 'bg-indigo-600 text-white' : 'bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700'}">${lb}</button>`).join('')}</div>
+      <div id="sp-ctl" data-id="${id}" class="w-full md:w-auto md:flex-1 min-w-0">${spHtml(id)}</div>
     </div>`;
 
-  const hintTxt = cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔；播放中可按 空白鍵 暫停／繼續，← → 倒轉／快轉 5 秒。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。';
+  const hintTxt = cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。入庫的標示：黃底＝單字（與核心單字同色）、紫色實線＝片語、綠色點線＝句子。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔（預設播完該句就暫停；按「繼續」或 空白鍵 往下聽，← → 倒轉／快轉 5 秒；播放列的「單句／連播」可切換）。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。';
   const enBlock = `<p id="passage-text" class="${cur.mk ? 'annot ' : ''}${tmOk(x) ? '' : 'whitespace-pre-line '}leading-relaxed text-slate-700 dark:text-slate-300 font-sans">${passageHtml(x)}</p>
       <p class="mt-3 text-[0.6875rem] text-slate-400">${hintTxt}</p>`;
   const zhBlock = top => `<div class="${top ? 'mt-4 pt-4 border-t border-slate-200 dark:border-slate-800' : ''}">
@@ -1179,7 +1199,7 @@ function renderDay() {
   else if (txMode === 'pair') {
     const pr = pairHtml(x);
     h += pr
-      ? `<div id="pair-text">${pr}</div><p class="mt-4 text-[0.6875rem] text-slate-400">💡 中英對照：點英文或中文句子都會播放該句，播放時兩句一起亮並自動捲動追蹤。要標註入庫請切到「英文」。</p>`
+      ? `<div id="pair-text"${cur.mk ? ' class="annot"' : ''}>${pr}</div><p class="mt-4 text-[0.6875rem] text-slate-400">${cur.mk ? '✏️ 標註模式（中英對照）：在英文句子上選取不懂的字、片語或句子，按「＋ 入庫」；中文句子不能標註。點底線可加備註或看詳解。入庫的標示：黃底＝單字（與核心單字同色）、紫色實線＝片語、綠色點線＝句子。再按左上角按鈕回到播放模式。' : '💡 中英對照：點英文或中文句子都會播放該句（預設播完就暫停，空白鍵繼續），播放時兩句一起亮並自動捲動追蹤。要標註入庫，請按上方的 ✏️ 按鈕。'}</p>`
       : enBlock + (x.zh ? zhBlock(true) : '') + `<p class="mt-3 text-[0.6875rem] text-amber-600 dark:text-amber-400">這篇還沒有對時（timing）資料，所以中英對照暫以上下並列顯示，無法逐句追蹤。</p>`;
   } else {
     h += `<div class="p-8 text-center bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-dashed border-slate-300 dark:border-slate-700">
@@ -1367,13 +1387,13 @@ function renderBook() {
     </div>`;
 }
 
-function defOpen(x, r) { // 預設：英文／中文文稿、核心單字、隨堂測驗皆收合
+function defOpen(x, r) { // 預設：英文文稿展開；中文文稿、核心單字、隨堂測驗收合
   const done = !!(r && r.done);
-  return { en: false, zh: false };
+  return { en: true, zh: false };
 }
 function toggleText(k) { // k = 'en' | 'zh'
   const x = find(cur.w, cur.d), d = defOpen(x, S.ans[idOf(x)]), key = k + 'Open';
-  cur[key] = !(cur[key] !== undefined ? cur[key] : d[k]); render();
+  cur[key] = !(cur[key] !== undefined ? cur[key] : d[k]); txPrefSave(); render();
 }
 function speakPhrase(i) { // 句型發音：優先播 mp3（audio/daily/vocab/{句型slug}.mp3，與詳解同一套 vplay），沒有 mp3 就語音合成（省略號不念）
   const x = find(cur.w, cur.d), p = x && x.presentation_phrases && x.presentation_phrases[i];
@@ -1384,7 +1404,7 @@ function speakPhrase(i) { // 句型發音：優先播 mp3（audio/daily/vocab/{�
 function toggleSec(k) { cur[k + 'Open'] = !cur[k + 'Open']; render(); } // k = 'vocab' | 'phrases' | 'quiz'
 function toggleHl() { cur.hl = !cur.hl; cur.hlAuto = false; if (cur.hl) { const m = textModeOf(find(cur.w, cur.d)).raw; if (m === '' || m === 'zh') { cur.enOpen = true; cur.zhOpen = false; cur.pair = false; } } render(); } // 標示單字要看得到英文：對照／英文本來就有英文，收合或純中文則切到英文
 const tmOk = x => { const s = tmInfo(x).state; return s === 'ok' || s === 'partial'; }; // timing 異常（含與目前文稿的切句不符）時一律當作沒有 timing：不高亮、不報錯
-(function () { const st = document.createElement('style'); st.textContent = '.zhead{font-weight:600}#zh-text .zsent,#pair-text .zsent{cursor:pointer;border-radius:3px}#zh-text .zsent.active,#pair-text .zsent.active{background:rgba(250,204,21,.35)}'; document.head.appendChild(st); })();
+(function () { const st = document.createElement('style'); st.textContent = '.zhead{font-weight:600}#zh-text .zsent,#pair-text .zsent{cursor:pointer;border-radius:3px}#zh-text .zsent.active,#pair-text .zsent.active{background:rgba(250,204,21,.35)}#pair-text.annot .zsent{cursor:default;-webkit-user-select:none;user-select:none}'; document.head.appendChild(st); })();
 function zhAlign(A, B) { /* 句子對齊（Gale–Church 作法 ＋ 錨點）：A＝英文每句 {len 字數, tok 英文詞集合, lab 是否以「Name:」講者標籤開頭, q 是否以問號結尾}、B＝中文每句 {len, tok 中文裡出現的英數詞, lab, q}
    → 每句中文對應的英文句範圍 {first[], last[]}。動態規劃找「總成本最低」的單調對應：
    ① 每組中文字數應約等於英文字數 × 全文比例；1對1 最常見，合併／拆句要付額外成本
@@ -1513,18 +1533,21 @@ function pairHtml(x) { // 中英對照：一句英文、下面接對應的中文
   return out;
 }
 /* 文稿顯示模式：'en' 英文 / 'zh' 中文 / 'pair' 中英對照 / '' 收合。沿用 cur.enOpen、cur.zhOpen（兩個都開＝對照），另加 cur.pair。
-   標註模式（✏️）只能標英文，所以標註中遇到對照就暫時只顯示英文（raw 是你選的、eff 是實際顯示的） */
+   標註模式（✏️）在「英文」與「中英對照」都能標（對照時只標英文句，中文句不能選）；raw 是你選的、eff 是實際顯示的，現在兩者相同 */
 function textModeOf(x) {
   const d = defOpen(x, x && S.ans[idOf(x)]);
   const en = cur.enOpen !== undefined ? cur.enOpen : d.en, zh = cur.zhOpen !== undefined ? cur.zhOpen : d.zh;
   const raw = cur.pair || (en && zh) ? 'pair' : en ? 'en' : zh ? 'zh' : '';
-  return { raw, eff: cur.mk && raw === 'pair' ? 'en' : raw };
+  return { raw, eff: raw };
 }
+let TXPREF = null; // 文稿顯示偏好（英文／中文／對照／收合）：換篇、換週時沿用，也記在這台裝置
+try { TXPREF = JSON.parse(localStorage.getItem('dailytx') || 'null'); } catch (e) {}
+function txPrefSave() { const m = textModeOf(find(cur.w, cur.d)).raw; TXPREF = { enOpen: m === 'en' || m === 'pair', zhOpen: m === 'zh' || m === 'pair', pair: m === 'pair' }; try { localStorage.setItem('dailytx', JSON.stringify(TXPREF)); } catch (e) {} }
 function setTextMode(m) { // 再點一次目前的模式＝收合
   const x = find(cur.w, cur.d), cm = textModeOf(x);
-  if (m === cm.eff && !(cur.mk && m === 'pair')) m = '';
+  if (m === cm.eff) m = '';
   cur.enOpen = m === 'en'; cur.zhOpen = m === 'zh'; cur.pair = m === 'pair';
-  if (cur.mk && m === 'pair' && typeof dnToast === 'function') dnToast('標註模式只顯示英文；離開標註（再按 ✏️）後就是中英對照');
+  txPrefSave();
   render();
 }
 /* ===== 新增文章：產生檔名與給 AI 的提示詞 ===== */
@@ -1831,22 +1854,22 @@ function weekBtnHtml(x, step, maint) {
   const n = weekNeighbor(x, step);
   if (!n) return '';
   const fn = maint ? 'openItemNext' : 'goNext', lb = step < 0 ? '↑ 上一週' : '↓ 下一週';
-  const cls = maint ? `${btn} border border-slate-400 text-slate-600 dark:text-slate-300 !py-1.5 text-xs` : 'text-xs font-medium rounded-lg px-3 py-1 border border-slate-400 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer';
+  const cls = maint ? `${btn} border border-slate-400 text-slate-600 dark:text-slate-300 !py-1.5 text-xs` : 'w-full h-9 inline-flex items-center justify-center whitespace-nowrap text-[0.8125rem] font-medium rounded-lg px-1 border border-slate-400 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer';
   return `<button onclick="${fn}(${n.week},${n.day})" title="W${n.week} · D${dShow(n)} ${esc(n.tag || '')}" class="${cls}">${lb}</button>`;
 }
 function navBtnHtml(x, step) {
   const n = neighborOf(x, step);
   if (!n) return '';
-  return `<button onclick="goNext(${n.week},${n.day})" title="W${n.week} · D${dShow(n)} ${esc(n.tag || '')}" class="text-xs font-medium rounded-lg px-3 py-1 border border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 cursor-pointer">${step < 0 ? '← 上一篇' : '下一篇 →'}</button>`;
+  return `<button onclick="goNext(${n.week},${n.day})" title="W${n.week} · D${dShow(n)} ${esc(n.tag || '')}" class="w-full h-9 inline-flex items-center justify-center whitespace-nowrap text-[0.8125rem] font-medium rounded-lg px-1 border border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 cursor-pointer">${step < 0 ? '← 上一篇' : '下一篇 →'}</button>`;
 }
-const nextBtnHtml = x => weekBtnHtml(x, -1) + navBtnHtml(x, -1) + navBtnHtml(x, 1) + weekBtnHtml(x, 1); // 上一週 上一篇 下一篇 下一週
+const nextBtnHtml = x => [weekBtnHtml(x, -1), navBtnHtml(x, -1), navBtnHtml(x, 1), weekBtnHtml(x, 1)].map(b => b || '<span></span>').join(''); // 缺的位置留空，其他按鈕不會跑位； // 上一週 上一篇 下一篇 下一週
 function goNext(w, d) {
   const t = TBACK;
   TKEEP = t && tFrom() ? Object.assign({}, t, { w, d }) : null; // 讓換篇後仍然顯示「← 回週次表」
   go(w, d);
 }
 function go(w, d) {
-  TBACK = TKEEP; TKEEP = null; SEC = 'learn'; cur = { w, d, nw: w, view: 'day', showTranscript: false };
+  TBACK = TKEEP; TKEEP = null; SEC = 'learn'; cur = Object.assign({ w, d, nw: w, view: 'day', showTranscript: false }, TXPREF || {});
   S.last = { w, d }; save();
   push(); render();
   window.scrollTo({ top: 0, behavior: 'smooth' });

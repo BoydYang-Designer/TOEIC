@@ -15,7 +15,7 @@ const dnChip = 'text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-slate-10
 const dnSm = 'text-xs rounded-lg px-2.5 py-1 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer';
 const DN = { mgOpen: {}, sel: null, rp: null, mk: null, rf: null, rkf: null, mf: 'todo', chk: {}, fill: { en: true, col: true, forms: true, fam: true, deriv: true, pos: true, sense: true, conf: true, sim: true, schunk: true, spara: true, spat: true, skw: true } };
 const DNT = { word: '單字', phrase: '片語', sentence: '句子' };
-const DNTC = { word: 'bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300', phrase: 'bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-300', sentence: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' };
+const DNTC = { word: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300', phrase: 'bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-300', sentence: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' };
 const DRK = { passage: '英文文稿', zh: '中文翻譯', vocab: '核心單字／搭配', quiz: '題目／答案／解析', audio: '音檔／對時', other: '其他' };
 const DRS = { open: '待處理', fixing: '處理中', fixed: '已修正', wontfix: '不處理' };
 const DRSC = { open: '!bg-amber-100 !text-amber-700 dark:!bg-amber-950 dark:!text-amber-300', fixing: '!bg-sky-100 !text-sky-700 dark:!bg-sky-950 dark:!text-sky-300', fixed: '!bg-emerald-100 !text-emerald-700 dark:!bg-emerald-950 dark:!text-emerald-300', wontfix: '' };
@@ -231,16 +231,32 @@ function dnSelDetail() { // 詳解頁：選取例句／說明裡的英文字、�
   DN.sel = { qid: idOf(D.x), text, type: n <= 1 ? 'word' : n <= 6 ? 'phrase' : 'sentence', ctx, src: 'detail', head: D.e.text };
   dnBar();
 }
+/* 文稿的「英文區」有兩種：單語＝#passage-text（整個元素的文字就是 passage，位置從 0 起算）；
+   中英對照＝#pair-text 裡每一句英文 .tsent（對應 timing 的 from／to，前後空白已 trim，所以起點要補上被 trim 掉的空白數）。
+   入庫位置（from／to）一律是 passage 的字元位置，兩種模式共用同一套，標註的底線在兩種模式下位置完全一致。 */
+function dnPairSegs(x) { // [{el, base, len}]：每個英文句的元素、它在 passage 裡的起點、字數
+  const root = document.getElementById('pair-text'), tm = x && x.timing, p = String((x && x.passage) || ''); if (!root || !Array.isArray(tm)) return [];
+  const out = [];
+  root.querySelectorAll('.tsent[data-i]').forEach(el => { const t = tm[+el.dataset.i]; if (!t) return; const raw = p.slice(t.from, t.to); out.push({ el, base: t.from + (raw.length - raw.replace(/^\s+/, '').length), len: raw.trim().length }); });
+  return out;
+}
+function dnPairPos(segs, node, off, isEnd) { // 選取端點 → passage 位置；端點落在中文或句子之間時，起點取後面第一個英文句的開頭、終點取前面最後一個英文句的結尾
+  const hit = segs.find(s => s.el.contains(node)); if (hit) return hit.base + dnOff(hit.el, node, off);
+  if (isEnd) { const b = segs.filter(s => s.el.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_FOLLOWING); return b.length ? b[b.length - 1].base + b[b.length - 1].len : null; }
+  const a = segs.find(s => s.el.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_PRECEDING); return a ? a.base : null;
+}
 function dnSelRead() {
   if (cur.view === 'detail') { dnSelDetail(); return; }
   if (cur.view === 'speak') { if (typeof skSelRead === 'function') skSelRead(); return; } // 語音練習「一句一句」：選字入庫（speak.js）
   if (cur.view !== 'day' || !cur.mk) return;
-  const el = document.getElementById('passage-text'); if (!el) return;
+  const el = document.getElementById('passage-text') || document.getElementById('pair-text'); if (!el) return;
   const s = window.getSelection(); if (!s || !s.rangeCount || s.isCollapsed) return;
   const rg = s.getRangeAt(0); if (!el.contains(rg.startContainer) || !el.contains(rg.endContainer)) return;
   const x = find(cur.w, cur.d); if (!x) return;
   const p = String(x.passage || '');
-  let a = dnOff(el, rg.startContainer, rg.startOffset), b = dnOff(el, rg.endContainer, rg.endOffset);
+  let a, b;
+  if (el.id === 'passage-text') { a = dnOff(el, rg.startContainer, rg.startOffset); b = dnOff(el, rg.endContainer, rg.endOffset); }
+  else { const segs = dnPairSegs(x); a = dnPairPos(segs, rg.startContainer, rg.startOffset, false); b = dnPairPos(segs, rg.endContainer, rg.endOffset, true); if (a == null || b == null) return; }
   if (b < a) [a, b] = [b, a];
   const wc = /[A-Za-z0-9'’$%-]/;
   while (a < b && /[\s,;:"“”()]/.test(p[a])) a++;
@@ -312,7 +328,7 @@ function dnBar() {
 function dnToggleMk() { // 標註模式開關（與文稿卡片上的 Reading/Listening 標籤共用）
   cur.mk = !cur.mk;
   if (cur.mk) {
-    if (!cur.hl) { // 進入標註模式：順便標示核心單字（要看得到英文：目前是收合或純中文就切到英文；中英對照在標註模式本來就只顯示英文）
+    if (!cur.hl) { // 進入標註模式：順便標示核心單字（要看得到英文：目前是收合或純中文就切到英文；中英對照可以直接標註英文句）
       const m = typeof textModeOf === 'function' ? textModeOf(find(cur.w, cur.d)).raw : '';
       if (m === '' || m === 'zh') { cur.zhOpen = false; cur.pair = false; }
       cur.hl = true; cur.hlAuto = true;
@@ -396,25 +412,30 @@ function dnLocate(p, m) {
   return i < 0 ? null : { from: i, to: i + m.text.length };
 }
 function dnApplyMarks() {
-  const el = document.getElementById('passage-text'), x = find(cur.w, cur.d); if (!el || !x) return;
+  const x = find(cur.w, cur.d); if (!x) return;
   const ms = dnMarksOf(idOf(x)); if (!ms.length) return;
-  const p = String(x.passage || '');
+  const p = String(x.passage || ''), one = document.getElementById('passage-text');
+  const segs = one ? [{ el: one, base: 0, len: p.length }] : dnPairSegs(x); // 單語：整段；中英對照：每個英文句各自一段
+  if (!segs.length) return;
   ms.slice().sort((a, b) => (b.to - b.from) - (a.to - a.from)).forEach(m => { // 長的先包，短的包在裡面
     const loc = dnLocate(p, m); if (!loc) return;
-    const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = []; let pos = 0, n;
-    while ((n = tw.nextNode())) { nodes.push({ n, s: pos, e: pos + n.nodeValue.length }); pos += n.nodeValue.length; }
-    if (pos !== p.length) return;
-    nodes.forEach(o => {
-      const a = Math.max(loc.from, o.s) - o.s, b = Math.min(loc.to, o.e) - o.s;
-      if (a >= b) return;
-      let mid = o.n; if (a > 0) mid = mid.splitText(a); if (b - a < mid.nodeValue.length) mid.splitText(b - a);
-      const sp = document.createElement('span'); sp.className = 'mk mk-' + m.type; sp.dataset.id = m.id;
-      mid.parentNode.insertBefore(sp, mid); sp.appendChild(mid);
+    segs.forEach(sg => {
+      const lo = Math.max(loc.from, sg.base), hi = Math.min(loc.to, sg.base + sg.len); if (lo >= hi) return;
+      const tw = document.createTreeWalker(sg.el, NodeFilter.SHOW_TEXT), nodes = []; let pos = 0, n;
+      while ((n = tw.nextNode())) { nodes.push({ n, s: pos, e: pos + n.nodeValue.length }); pos += n.nodeValue.length; }
+      if (pos !== sg.len) return; // 這段的文字和 passage 對不上（例如文稿剛改過、timing 還沒更新）：不畫，不會壞
+      nodes.forEach(o => {
+        const a = Math.max(lo - sg.base, o.s) - o.s, b = Math.min(hi - sg.base, o.e) - o.s;
+        if (a >= b) return;
+        let mid = o.n; if (a > 0) mid = mid.splitText(a); if (b - a < mid.nodeValue.length) mid.splitText(b - a);
+        const sp = document.createElement('span'); sp.className = 'mk mk-' + m.type; sp.dataset.id = m.id;
+        mid.parentNode.insertBefore(sp, mid); sp.appendChild(mid);
+      });
     });
   });
 }
 document.getElementById('main').addEventListener('click', e => { // 在文稿上：選字時不要觸發「點句子播放」；點底線＝開啟該筆入庫
-  const t = e.target, inP = t.closest && t.closest('#passage-text'); if (!inP) return;
+  const t = e.target, inP = t.closest && t.closest('#passage-text, #pair-text'); if (!inP) return;
   if (!cur.mk) return; // 播放模式：照舊點句子播放
   e.stopPropagation(); // 標註模式：點／選文稿一律不播放
   const s = window.getSelection();
@@ -1096,11 +1117,11 @@ function dnRenderBank() {
 function dnToggleMhl() { cur.mhl = !cur.mhl; if (cur.mhl) cur.enOpen = true; render(); }
 (function () { // 入庫標示色：單字藍、片語紫、句子綠（與核心單字的黃色標示區分）
   const s = document.createElement('style');
-  s.textContent = '#passage-text.mhl .mk{border-radius:3px;padding:0 2px;color:inherit}'
-    + '#passage-text.mhl .mk-word{background:rgba(56,189,248,.35)}#passage-text.mhl .mk-phrase{background:rgba(167,139,250,.35)}#passage-text.mhl .mk-sentence{background:rgba(52,211,153,.30)}';
+  s.textContent = '#passage-text.mhl .mk,#pair-text.mhl .mk{border-radius:3px;padding:0 2px;color:inherit}'
+    + '#passage-text.mhl .mk-phrase,#pair-text.mhl .mk-phrase{background:rgba(167,139,250,.35)}#passage-text.mhl .mk-sentence,#pair-text.mhl .mk-sentence{background:rgba(52,211,153,.30)}';
   document.head.appendChild(s);
 })();
-function dnAfterDay() { dnApplyMarks(); const el = document.getElementById('passage-text'); if (el) el.classList.toggle('mhl', !!cur.mhl); dnSyncBar(); }
+function dnAfterDay() { dnApplyMarks(); ['passage-text', 'pair-text'].forEach(id => { const el = document.getElementById(id); if (el) el.classList.toggle('mhl', !!cur.mhl); }); dnSyncBar(); }
 function dnSyncBar() { if (DN.sel && (DN.sel.src === 'detail' ? cur.view !== 'detail' : (cur.view !== 'day' || DN.sel.qid !== idOf(find(cur.w, cur.d) || {})))) DN.sel = null; dnBar(); }
 function dnWhyH(x, q, qi, ok) { // 解析：預設收合，點「看解析」展開
   const open = !!(cur.why && cur.why[qi]);
