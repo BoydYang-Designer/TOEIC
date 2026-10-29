@@ -1,0 +1,127 @@
+{
+  "week": 4,
+  "day": 9,
+  "extra_vocab": [
+    {
+      "text": "hidden",
+      "type": "word",
+      "lemma": "hide",
+      "ipa": "/ˈhɪdn/",
+      "pos": "adj.",
+      "zh": "隱藏的、不外露的",
+      "en": "put where people cannot easily see it",
+      "note": "在這篇裡 hidden 修飾 folding lock，指鎖設計在內部、從外觀看不到。這是產品說明常見的正面說法，強調外型簡潔、不外露。",
+      "grammar_note": "hidden 是 hide（hide–hid–hidden）的過去分詞，當形容詞放在名詞前修飾，如 a hidden lock；不要寫成 hided。",
+      "forms": [
+        { "w": "hides", "label": "第三人稱單數", "pos": "v.", "zh": "隱藏", "ipa": "/haɪdz/", "example": { "en": "The new design hides the battery inside the base.", "zh": "新設計把電池藏在底座裡面。" } },
+        { "w": "hid", "label": "過去式", "pos": "v.", "zh": "隱藏（過去式）", "ipa": "/hɪd/", "example": { "en": "The designer hid the screws under a small plastic cover.", "zh": "設計師把螺絲藏在一個小塑膠蓋下面。" } },
+        { "w": "hiding", "label": "現在分詞", "pos": "v.", "zh": "正在隱藏", "ipa": "/ˈhaɪdɪŋ/", "example": { "en": "The cover is hiding all the cables behind the desk.", "zh": "這個蓋子把所有電線都藏在桌子後面。" } }
+      ],
+      "collocations": [
+        { "phrase": "hidden cost", "zh": "隱藏成本", "example": { "en": "Please check the contract for any hidden costs before signing.", "zh": "簽約前請檢查合約是否有任何隱藏成本。" } },
+        { "phrase": "hidden fee", "zh": "隱藏費用", "example": { "en": "The supplier added a hidden fee to the final invoice.", "zh": "供應商在最終發票上加了一筆隱藏費用。" } },
+        { "phrase": "hidden compartment", "zh": "隱藏式隔層", "example": { "en": "The bag has a hidden compartment for passports and cards.", "zh": "這個包包有隱藏式隔層，可放護照和卡片。" } }
+      ],
+      "examples": [
+        { "tag": "產品說明", "en": "The hidden zipper keeps the bag looking clean and simple.", "zh": "隱藏式拉鍊讓這個包包看起來簡潔俐落。" },
+        { "tag": "合約", "en": "Buyers should ask about any hidden charges before placing an order.", "zh": "買家下訂單前應該詢問是否有任何隱藏費用。" },
+        { "tag": "會議", "en": "We found a hidden problem in the supply chain last quarter.", "zh": "我們上一季在供應鏈中發現了一個隱藏的問題。" }
+      ],
+      "confusable": [
+        {
+          "word": "hid",
+          "diff": "hid 是 hide 的過去式，hidden 是過去分詞，也可當形容詞。",
+          "usage": "hid 只能當動詞過去式，不能放在名詞前修飾；要說「隱藏的鎖」要寫 hidden lock，不是 hid lock。",
+          "example": { "en": "The manager hid nothing and explained every cost to the client.", "zh": "經理沒有隱瞞任何事，並向客戶說明每一項費用。" }
+        }
+      ],
+      "similar": [
+        { "word": "concealed", "diff": "比 hidden 正式，常指刻意藏起來，如 concealed wiring。", "example": { "en": "The concealed wiring makes the office look neat and modern.", "zh": "隱藏的配線讓辦公室看起來整齊又現代。" } },
+        { "phrase": "out of sight", "diff": "比較口語，常放在 be 動詞或 keep 後面，不放在名詞前。", "example": { "en": "The cables are kept out of sight behind the desk.", "zh": "電線被收在桌子後面，看不見。" } }
+      ],
+      "family": [
+        { "w": "secret", "pos": "adj.", "zh": "祕密的", "ipa": "/ˈsiːkrɪt/", "example": { "en": "The recipe is a secret and only two people know it.", "zh": "這個配方是祕密，只有兩個人知道。" } },
+        { "w": "invisible", "pos": "adj.", "zh": "看不見的", "ipa": "/ɪnˈvɪzəbl/", "example": { "en": "The tape is almost invisible once it is on the box.", "zh": "這種膠帶貼在盒子上後幾乎看不見。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "w": "hidden", "pos": "adj.", "ipa": "/ˈhɪdn/", "zh": "隱藏的", "in_passage": true, "example": { "en": "The hidden door leads to the storage room.", "zh": "這扇隱藏的門通往儲藏室。" } },
+        { "pos": "v.", "ipa": "/haɪd/", "zh": "隱藏、藏起來", "example": { "en": "Do not hide important information from your team members.", "zh": "不要對團隊成員隱瞞重要資訊。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "藏起來、不讓人看見", "en": "to put something where others cannot see it", "in_passage": true, "example": { "en": "The staff hide the extra stock behind the main shelf.", "zh": "員工把多出來的庫存藏在主貨架後面。" } },
+        { "pos": "v.", "zh": "隱瞞", "en": "to not tell people about something", "distinguish": "後面接 truth、problem、fact 這類抽象名詞時，是「隱瞞」而不是實體藏起來。", "example": { "en": "The company tried to hide the problem from its investors.", "zh": "公司試圖對投資人隱瞞這個問題。" } }
+      ]
+    },
+    {
+      "text": "automatically",
+      "type": "word",
+      "ipa": "/ˌɔːtəˈmætɪkli/",
+      "pos": "adv.",
+      "zh": "自動地",
+      "en": "in a way that happens by itself without a person doing it",
+      "note": "在這篇裡修飾 locks，說明摺疊時鎖會自己鎖上，使用者不用再做額外動作。這是強調方便與安全的賣點用語。",
+      "grammar_note": "automatically 是副詞，修飾動詞，通常放在動詞前或句尾；形容詞要用 automatic（an automatic lock），不能寫 automatic locks the stroller。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "automatically renew", "zh": "自動續約", "example": { "en": "The subscription will automatically renew unless you cancel it.", "zh": "除非你取消，否則訂閱會自動續約。" } },
+        { "phrase": "automatically update", "zh": "自動更新", "example": { "en": "The app will automatically update when a new version is ready.", "zh": "新版本準備好時，這個應用程式會自動更新。" } },
+        { "phrase": "be automatically sent", "zh": "被自動寄出", "example": { "en": "A confirmation email is automatically sent after each purchase.", "zh": "每次購買後都會自動寄出一封確認信。" } }
+      ],
+      "examples": [
+        { "tag": "產品說明", "en": "The door locks automatically when the last employee leaves.", "zh": "最後一位員工離開時，門會自動上鎖。" },
+        { "tag": "電子郵件", "en": "You will automatically receive a receipt after your payment is complete.", "zh": "付款完成後，你會自動收到收據。" },
+        { "tag": "會議", "en": "The system automatically saves every change to the shared file.", "zh": "系統會自動儲存共用檔案的每一項修改。" }
+      ],
+      "confusable": [
+        {
+          "word": "automatic",
+          "diff": "automatic 是形容詞，automatically 是副詞。",
+          "usage": "automatic 修飾名詞（an automatic shutoff），automatically 修飾動詞或整個句子（it shuts off automatically）。",
+          "example": { "en": "This machine has an automatic shutoff for better safety.", "zh": "這台機器有自動關機功能，更加安全。" }
+        },
+        {
+          "word": "automated",
+          "diff": "automated 強調流程被設定成由機器處理；automatically 強調動作自己發生。",
+          "example": { "en": "Our automated system checks every order for errors.", "zh": "我們的自動化系統會檢查每一筆訂單有沒有錯誤。" }
+        }
+      ],
+      "similar": [
+        { "phrase": "by itself", "diff": "比較口語，通常放在句尾，主詞是機器或物品。", "example": { "en": "The machine turns off by itself after ten minutes.", "zh": "這台機器十分鐘後會自己關機。" } }
+      ],
+      "family": [
+        { "w": "manually", "pos": "adv.", "zh": "手動地", "ipa": "/ˈmænjuəli/", "example": { "en": "Please enter the data manually if the scan fails.", "zh": "如果掃描失敗，請手動輸入資料。" } },
+        { "w": "electronically", "pos": "adv.", "zh": "以電子方式", "ipa": "/ɪˌlekˈtrɑːnɪkli/", "example": { "en": "Please send the signed form electronically before noon.", "zh": "請在中午前以電子方式寄出簽名的表格。" } }
+      ],
+      "derived": [
+        { "w": "automatic", "pos": "adj.", "zh": "自動的", "ipa": "/ˌɔːtəˈmætɪk/", "link": "auto-（自己）+ -ic 形容詞字尾，「自己會動的」，像 basic、electric" },
+        { "w": "automate", "pos": "v.", "zh": "使自動化", "ipa": "/ˈɔːtəmeɪt/", "link": "auto-（自己）+ -ate 動詞字尾，讓機器「自己做」，像 operate、create" },
+        { "w": "automation", "pos": "n.", "zh": "自動化", "ipa": "/ˌɔːtəˈmeɪʃn/", "link": "automate + -ion，變成名詞，像 operation、creation" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "carry hook",
+      "type": "phrase",
+      "zh": "提掛鉤（用來提或掛的鉤子）",
+      "en": "a small hook used to carry or hang something",
+      "note": "在這篇裡指嬰兒車上另外加裝的提掛鉤。作者說明他們不再多加這個零件，而是把鎖的機構整合進關節，讓車架更簡潔。",
+      "pattern": "a + 用途 + hook",
+      "grammar_note": "carry 在這裡放在名詞前當修飾語，表示「用來提的」，類似 carry bag、carry handle；不要改成 carried hook。",
+      "examples": [
+        { "tag": "產品說明", "en": "The bag has a carry hook on the side for easy handling.", "zh": "這個包包側面有提掛鉤，方便攜帶。" },
+        { "tag": "電子郵件", "en": "Please confirm whether the carry hook is included in the package.", "zh": "請確認提掛鉤是否包含在包裝內。" },
+        { "tag": "會議", "en": "We removed the carry hook to make the frame lighter.", "zh": "我們拿掉提掛鉤，讓車架更輕。" }
+      ],
+      "similar": [
+        { "phrase": "carry handle", "diff": "carry handle 是用手抓握的把手；carry hook 是用來勾掛的鉤子。", "example": { "en": "The case has a strong carry handle on the top.", "zh": "這個箱子頂部有一個堅固的提把。" } },
+        { "phrase": "shoulder strap", "diff": "shoulder strap 是掛在肩上的背帶，比 hook 更適合長時間揹。", "example": { "en": "The shoulder strap makes the heavy case easier to carry.", "zh": "肩帶讓這個重箱子更容易攜帶。" } }
+      ],
+      "confusable": [
+        { "word": "carrier", "diff": "carrier 是搬運工具或運輸業者，不是掛鉤。", "example": { "en": "The carrier will deliver the goods to your office tomorrow.", "zh": "運輸業者明天會把貨送到你的辦公室。" } },
+        { "word": "hanger", "diff": "hanger 是用來吊掛衣服的衣架，hook 是固定在物品上的鉤子。", "example": { "en": "Please use a hanger instead of a hook for the coat.", "zh": "這件外套請用衣架，不要用掛鉤。" } }
+      ]
+    }
+  ]
+}

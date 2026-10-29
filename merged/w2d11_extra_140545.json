@@ -1,0 +1,70 @@
+{
+  "week": 2,
+  "day": 11,
+  "extra_vocab": [
+    {
+      "text": "available",
+      "type": "word",
+      "ipa": "/əˈveɪləbəl/",
+      "pos": "adj.",
+      "zh": "可取得的、可使用的；有空的",
+      "en": "ready to be used, seen, or bought",
+      "note": "once they’re available 表示「等原型或測試結果準備好、可以看的時候」。這裡的 available 指資料或成品已經完成、可以提供給對方。",
+      "grammar_note": "available 後面可接 to + 人（available to customers，對誰開放）或 for + 活動（available for a meeting，有空做什麼）；once 子句中用現在式（once they are available），不用 will。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "available for", "zh": "可供…、有空做…", "example": { "en": "Our sales manager is not available for meetings on Friday.", "zh": "我們的業務經理週五沒有空開會。" } },
+        { "phrase": "available upon request", "zh": "憑要求提供", "example": { "en": "Price lists are available upon request from our sales team.", "zh": "價目表可向我們的業務團隊索取。" } },
+        { "phrase": "make available", "zh": "提供、使可取得", "example": { "en": "We will make the data available to all staff next week.", "zh": "我們下週會把資料提供給所有員工。" } },
+        { "phrase": "currently available", "zh": "目前可取得的", "example": { "en": "Only two seats are currently available on that flight.", "zh": "那班飛機目前只剩兩個座位。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The meeting room is available from two o'clock this afternoon.", "zh": "這間會議室從今天下午兩點開始可以使用。" },
+        { "tag": "電子郵件", "en": "The full report will be available on our website next Monday.", "zh": "完整報告下週一會在我們的網站上提供。" },
+        { "tag": "採購", "en": "This model is available in black, white, and silver.", "zh": "這個型號有黑、白、銀三種顏色。" }
+      ],
+      "confusable": [
+        { "word": "unable", "diff": "unavailable 是「無法取得、沒空」，主詞常是物或時間；unable 是「無法做某事」，主詞是人。", "usage": "unable 後面接 to V（unable to attend）；unavailable 不接 to V。", "example": { "en": "I am unable to attend the meeting because of a client visit.", "zh": "因為要接待客戶，我無法出席會議。" } }
+      ],
+      "similar": [
+        { "word": "accessible", "diff": "accessible 強調「容易取得、容易進入或使用」，常用在資料、場所；available 只說明現在有沒有。", "example": { "en": "The files are accessible to everyone on the project team.", "zh": "專案團隊的每個人都能存取這些檔案。" } }
+      ],
+      "family": [
+        { "w": "ready", "ipa": "/ˈredi/", "pos": "adj.", "zh": "準備好的", "example": { "en": "The samples will be ready for shipping by Thursday.", "zh": "樣品週四前就能準備好出貨。" } },
+        { "w": "free", "ipa": "/friː/", "pos": "adj.", "zh": "有空的、免費的", "example": { "en": "Are you free to join the call at three?", "zh": "你三點有空加入通話嗎？" } }
+      ],
+      "derived": [
+        { "w": "availability", "ipa": "/əˌveɪləˈbɪləti/", "pos": "n.", "zh": "可用性、空檔、庫存", "link": "available + -ity，把「可取得」變成名詞，像 ability、possibility。" },
+        { "w": "unavailable", "ipa": "/ˌʌnəˈveɪləbəl/", "pos": "adj.", "zh": "無法取得的、沒空的", "link": "un- 是「不」，像 unable、unclear。" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "可取得的、可使用的", "en": "ready for people to see or use", "in_passage": true, "example": { "en": "The test results will be available to all team members.", "zh": "所有團隊成員都能取得測試結果。" } },
+        { "pos": "adj.", "zh": "有空的", "en": "free to meet or talk", "distinguish": "主詞是人時，通常指「有空」；主詞是物時，指「可取得」。", "example": { "en": "Is Ms. Lee available for a phone call this afternoon?", "zh": "李小姐今天下午有空講電話嗎？" } },
+        { "pos": "adj.", "zh": "買得到的、有現貨的", "en": "able to be bought", "distinguish": "常和 in stores、in stock、in different colors 一起出現。", "example": { "en": "The new phone will be available in stores next month.", "zh": "新手機下個月會在店裡開賣。" } }
+      ]
+    },
+    {
+      "text": "reach out",
+      "type": "phrase",
+      "zh": "聯絡、主動接洽",
+      "en": "to contact someone to ask or say something",
+      "note": "please feel free to reach out 是客氣的結尾用語，意思是「有任何問題歡迎隨時聯絡我們」。比 contact us 更友善、語氣更柔和，常見於簡報或信件結尾。",
+      "pattern": "reach out to + 人 (+ about / with + N)",
+      "grammar_note": "reach out 後面接人時要加 to（reach out to our team），不能直接接受詞；feel free to + V 是固定說法，這裡省略了 to reach out 後面的對象。",
+      "examples": [
+        { "tag": "電子郵件", "en": "Please reach out to me if you need more information.", "zh": "如果你需要更多資訊，請聯絡我。" },
+        { "tag": "客服", "en": "Customers can reach out to our support team by email or phone.", "zh": "客戶可以透過電子郵件或電話聯絡我們的客服團隊。" },
+        { "tag": "業務", "en": "I will reach out to the supplier about the late delivery.", "zh": "我會就延遲交貨的事聯絡供應商。" },
+        { "tag": "會議", "en": "Thank you for reaching out to us about this project.", "zh": "謝謝你主動就這個專案與我們聯絡。" }
+      ],
+      "similar": [
+        { "phrase": "get in touch", "diff": "意思相近，語氣較日常；常說 get in touch with + 人。", "example": { "en": "Please get in touch with our office to book a visit.", "zh": "請聯絡我們辦公室預約參訪。" } },
+        { "phrase": "contact", "diff": "contact 是及物動詞，直接接人（contact us），語氣較正式；reach out 較友善柔和。", "example": { "en": "You can contact the manager directly if there is a problem.", "zh": "如果有問題，你可以直接聯絡經理。" } }
+      ],
+      "confusable": [
+        { "phrase": "reach", "diff": "reach 當「聯絡到」時是及物動詞，直接接人，不加 out to；reach out to 強調「主動去聯絡」。", "usage": "reach someone 是「聯絡到某人」，reach out to someone 是「主動聯絡某人」。", "example": { "en": "I tried to reach you by phone, but nobody answered.", "zh": "我試著打電話聯絡你，但沒有人接。" } }
+      ]
+    }
+  ]
+}

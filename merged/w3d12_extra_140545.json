@@ -1,0 +1,44 @@
+{
+  "week": 3,
+  "day": 12,
+  "extra_vocab": [
+    {
+      "text": "baseless",
+      "type": "word",
+      "ipa": "/ˈbeɪsləs/",
+      "pos": "adj.",
+      "zh": "無底座的；毫無根據的",
+      "en": "without a base",
+      "note": "a baseless car seat 指「不用底座、直接用安全帶或固定裝置安裝的汽座」，是嬰兒汽座產業的用語。這是 base + -less 組成的複合形容詞，和 traditional base 形成對比。",
+      "grammar_note": "baseless car seat 是名詞片語，前面的 a 要放在 baseless 前；注意 baseless 不是「沒有基礎的」唯一意思，在一般英文中更常見的是「毫無根據的」。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "baseless car seat", "zh": "無底座汽座", "example": { "en": "A baseless car seat is easier to carry through the airport.", "zh": "無底座汽座比較容易帶著走過機場。" } },
+        { "phrase": "baseless claim", "zh": "毫無根據的說法", "example": { "en": "The company said the report was based on a baseless claim.", "zh": "公司表示這份報告是根據毫無根據的說法寫成的。" } },
+        { "phrase": "baseless rumor", "zh": "毫無根據的謠言", "example": { "en": "We need to stop the baseless rumor about the factory.", "zh": "我們需要阻止那則關於工廠的無稽謠言。" } },
+        { "phrase": "baseless accusation", "zh": "毫無根據的指控", "example": { "en": "The manager denied the baseless accusation in front of the team.", "zh": "經理在團隊面前否認了這項毫無根據的指控。" } }
+      ],
+      "examples": [
+        { "tag": "產品", "en": "Parents can choose a baseless seat for short trips with the baby.", "zh": "帶寶寶短程外出時，家長可以選擇無底座汽座。" },
+        { "tag": "會議", "en": "Those worries about delivery dates are completely baseless.", "zh": "那些對交貨日期的擔心完全沒有根據。" }
+      ],
+      "confusable": [
+        { "word": "based", "diff": "based 是 base 的過去分詞，用在 be based on（以…為基礎）；baseless 是「沒有底座／毫無根據」。", "usage": "based 前面通常接 be 或 is，後面接 on；baseless 直接修飾名詞，不接 on。", "example": { "en": "Our price is based on the cost of materials.", "zh": "我們的價格是依材料成本訂的。" } }
+      ],
+      "family": [
+        { "w": "portable", "ipa": "/ˈpɔːrtəbəl/", "pos": "adj.", "zh": "可攜帶的", "example": { "en": "This portable charger is perfect for business trips.", "zh": "這個可攜式充電器很適合出差使用。" } },
+        { "w": "compact", "ipa": "/kəmˈpækt/", "pos": "adj.", "zh": "小巧緊湊的", "example": { "en": "The compact design saves space in small offices.", "zh": "這個小巧的設計可以節省小型辦公室的空間。" } }
+      ],
+      "derived": [
+        { "w": "base", "ipa": "/beɪs/", "pos": "n.", "zh": "底座、基礎、基地", "link": "base 是詞幹；加 -less 表示「沒有…的」，像 useless、careless。" },
+        { "w": "basic", "ipa": "/ˈbeɪsɪk/", "pos": "adj.", "zh": "基本的", "link": "base + -ic，和「基礎」有關的，像 economic、electric。" },
+        { "w": "basically", "ipa": "/ˈbeɪsɪkli/", "pos": "adv.", "zh": "基本上", "link": "basic + -ally，變成副詞，像 automatically。" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "無底座的", "en": "without a base to hold it in place", "in_passage": true, "example": { "en": "The baseless model clips straight onto the stroller frame.", "zh": "這款無底座型號可以直接扣在推車框架上。" } },
+        { "pos": "adj.", "zh": "毫無根據的", "en": "not supported by facts or proof", "distinguish": "修飾 claim、rumor、fear 等抽象名詞時，就是「毫無根據」；修飾產品時才是「無底座」。", "example": { "en": "The customer's complaint turned out to be baseless.", "zh": "那位顧客的投訴後來證實毫無根據。" } }
+      ]
+    }
+  ]
+}

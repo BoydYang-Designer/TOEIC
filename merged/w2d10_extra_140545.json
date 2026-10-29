@@ -1,0 +1,272 @@
+{
+  "week": 2,
+  "day": 10,
+  "extra_vocab": [
+    {
+      "text": "applications",
+      "type": "word",
+      "lemma": "application",
+      "ipa": "/ˌæplɪˈkeɪʃnz/",
+      "pos": "n.",
+      "zh": "申請（案）（複數）",
+      "en": "official requests that you send to ask for something",
+      "note": "在這篇裡 patent applications 指已向專利局提出、正在等待審查的專利申請案，所以後面才會說保護範圍要看申請內容與目前的法律狀態。",
+      "grammar_note": "「申請某物」用 application for，不用 of，例如 an application for a patent。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "submit an application", "zh": "提出申請", "example": { "en": "Please submit your application before the end of this month.", "zh": "請在本月底前提出您的申請。" } },
+        { "phrase": "application form", "zh": "申請表", "example": { "en": "Fill in the application form and attach a copy of your ID.", "zh": "請填寫申請表，並附上身分證件影本。" } },
+        { "phrase": "application deadline", "zh": "申請截止日", "example": { "en": "The application deadline for the training program is next Friday.", "zh": "這個培訓課程的申請截止日是下週五。" } }
+      ],
+      "examples": [
+        { "tag": "專利", "en": "The firm has filed two applications for its new lock design.", "zh": "這家公司已為新的鎖具設計提出兩件申請。" },
+        { "tag": "求職", "en": "We received more than fifty applications for the sales position.", "zh": "業務職位我們收到了五十多份申請。" },
+        { "tag": "軟體", "en": "This application helps managers track orders from their phones.", "zh": "這個應用程式讓主管可以用手機追蹤訂單。" }
+      ],
+      "confusable": [
+        { "word": "appliance", "diff": "appliance 是家電或電器用品，拼法接近 application，意思無關。", "example": { "en": "The store sells kitchen appliances such as ovens and refrigerators.", "zh": "這家店販售烤箱和冰箱等廚房電器。" } }
+      ],
+      "similar": [
+        { "word": "request", "diff": "request 是一般的請求，不一定要正式書面；application 通常要填表、走正式流程。", "example": { "en": "We received a request to change the delivery date.", "zh": "我們收到了更改交貨日期的請求。" } },
+        { "word": "submission", "diff": "submission 強調「提交」這個動作或提交的文件；application 強調申請的內容。", "example": { "en": "The submission of the documents must be completed by Friday.", "zh": "文件必須在星期五前完成提交。" } }
+      ],
+      "family": [
+        { "w": "registration", "pos": "n.", "zh": "登記、註冊", "ipa": "/ˌredʒɪˈstreɪʃn/", "example": { "en": "Registration for the trade show opens next Monday.", "zh": "展覽會的報名下週一開始。" } },
+        { "w": "approval", "pos": "n.", "zh": "核准、批准", "ipa": "/əˈpruːvl/", "example": { "en": "The design still needs approval from the legal team.", "zh": "這個設計仍需要法務團隊的核准。" } }
+      ],
+      "derived": [
+        { "w": "apply", "pos": "v.", "zh": "申請；應用", "ipa": "/əˈplaɪ/", "link": "apply 把 -y 換成 -ication，變成名詞，像 modify → modification" },
+        { "w": "applicant", "pos": "n.", "zh": "申請人、應徵者", "ipa": "/ˈæplɪkənt/", "link": "applic- + -ant，提出申請的人，像 assistant、participant" },
+        { "w": "applicable", "pos": "adj.", "zh": "適用的", "ipa": "/əˈplɪkəbl/", "link": "applic- + -able，可以被套用的，像 available、reliable" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "申請（書）", "en": "a formal request for something such as a patent or a job", "in_passage": true, "distinguish": "後面接 for + 專利、貸款、職位時，是正式的申請。", "example": { "en": "We filed an application for a patent last month.", "zh": "我們上個月提出了一件專利申請。" } },
+        { "pos": "n.", "zh": "應用程式", "en": "a computer program for a special job", "distinguish": "主詞是軟體、手機、電腦時，指應用程式（常縮寫成 app）。", "example": { "en": "The new application lets drivers check delivery routes in real time.", "zh": "這個新應用程式讓司機可以即時查看配送路線。" } },
+        { "pos": "n.", "zh": "應用、運用", "en": "the use of something for a purpose", "distinguish": "後面接 of + 方法或技術時，是「運用」。", "example": { "en": "The application of this method reduced our costs by ten percent.", "zh": "運用這個方法讓我們的成本降低了百分之十。" } }
+      ]
+    },
+    {
+      "text": "patent applications",
+      "type": "phrase",
+      "zh": "專利申請（案）",
+      "en": "official papers sent to ask for a patent",
+      "note": "在這篇裡表示公司已提出、尚待審查的專利申請案。作者用 patent applications 而不是 patents，是謹慎地說明專利還沒有全部核准。",
+      "pattern": "file + a patent application + for + 發明",
+      "grammar_note": "patent 在這裡當修飾語，不加 s（patent applications，不寫 patents applications）；「為某發明申請專利」用 for。",
+      "examples": [
+        { "tag": "會議", "en": "We have filed three patent applications for the new folding system.", "zh": "我們已為新的摺疊系統提出三件專利申請。" },
+        { "tag": "電子郵件", "en": "Please send me the list of all pending patent applications.", "zh": "請把所有審查中的專利申請案清單寄給我。" },
+        { "tag": "法務", "en": "The legal team is preparing patent applications for two other products.", "zh": "法務團隊正在為另外兩項產品準備專利申請。" }
+      ],
+      "similar": [
+        { "phrase": "patent filings", "diff": "patent filings 比較口語，強調「已提出」的申請文件；patent applications 是較正式的說法。", "example": { "en": "Our patent filings increased sharply over the past two years.", "zh": "過去兩年我們的專利申請件數大幅增加。" } }
+      ],
+      "confusable": [
+        { "phrase": "granted patent", "diff": "granted patent 是已核准的專利，patent application 只是申請中、還沒核准。", "example": { "en": "The company now owns a granted patent for this lock design.", "zh": "公司現在擁有這個鎖具設計的已核准專利。" } },
+        { "phrase": "trademark application", "diff": "trademark application 是申請商標，保護名稱或標誌；專利保護的是發明或技術。", "example": { "en": "We submitted a trademark application to protect our brand name.", "zh": "我們提出商標申請，以保護我們的品牌名稱。" } }
+      ]
+    },
+    {
+      "text": "claims",
+      "type": "word",
+      "lemma": "claim",
+      "ipa": "/kleɪmz/",
+      "pos": "n.",
+      "zh": "（專利的）申請專利範圍、權利要求",
+      "en": "the parts of a patent that say exactly what it protects",
+      "note": "在這篇裡 claims 指專利申請書中「申請專利範圍」的各個條文，專利保護的範圍要看這些條文怎麼寫，所以說 exact scope depends on the claims。",
+      "grammar_note": "claim 當動詞時可接 that 子句或 to V；專利的 claims 常用複數，用 of 表示所屬的專利，如 the claims of the patent。",
+      "forms": [
+        { "w": "claimed", "label": "過去式／過去分詞", "pos": "v.", "zh": "聲稱、主張", "ipa": "/kleɪmd/", "example": { "en": "The supplier claimed that the parts had passed every safety test.", "zh": "供應商聲稱這些零件已通過所有安全測試。" } },
+        { "w": "claiming", "label": "現在分詞", "pos": "v.", "zh": "正在聲稱、申請", "ipa": "/ˈkleɪmɪŋ/", "example": { "en": "She is claiming the cost of her hotel as a travel expense.", "zh": "她正在申報她的飯店費用作為差旅費。" } }
+      ],
+      "collocations": [
+        { "phrase": "patent claims", "zh": "專利的申請範圍", "example": { "en": "The patent claims describe exactly what the invention can do.", "zh": "專利的申請範圍準確描述了這項發明的功能。" } },
+        { "phrase": "file a claim", "zh": "提出索賠", "example": { "en": "Customers must file a claim within thirty days of the damage.", "zh": "客戶必須在損壞後三十天內提出索賠。" } },
+        { "phrase": "warranty claim", "zh": "保固索賠", "example": { "en": "Each warranty claim is checked by our service team.", "zh": "每一件保固索賠都由我們的服務團隊審核。" } }
+      ],
+      "examples": [
+        { "tag": "專利", "en": "The claims define exactly what the patent protects.", "zh": "這些申請範圍明確界定了專利所保護的內容。" },
+        { "tag": "保險", "en": "All insurance claims must be sent to our office within a month.", "zh": "所有保險索賠都必須在一個月內寄到我們辦公室。" },
+        { "tag": "會議", "en": "The company's claims about battery life were not supported by the tests.", "zh": "公司對電池續航力的說法，並沒有測試結果支持。" }
+      ],
+      "confusable": [
+        { "word": "complaint", "diff": "complaint 是對不滿意的事表達抱怨；claim 是要求賠償或權利。", "example": { "en": "We received a complaint about the late delivery on Monday.", "zh": "星期一我們收到一則關於延遲交貨的客訴。" } }
+      ],
+      "family": [
+        { "w": "patent", "pos": "n.", "zh": "專利", "ipa": "/ˈpætnt/", "example": { "en": "The company owns a patent for this folding system.", "zh": "這家公司擁有這個摺疊系統的專利。" } },
+        { "w": "right", "pos": "n.", "zh": "權利", "ipa": "/raɪt/", "example": { "en": "Customers have the right to return products within a week.", "zh": "顧客有權在一週內退回商品。" } }
+      ],
+      "derived": [
+        { "w": "claimant", "pos": "n.", "zh": "提出索賠的人", "ipa": "/ˈkleɪmənt/", "link": "claim + -ant，做這件事的人，像 assistant、applicant" },
+        { "w": "disclaimer", "pos": "n.", "zh": "免責聲明", "ipa": "/dɪsˈkleɪmɚ/", "link": "dis-（否定）+ claim + -er，「不承認責任」的聲明，像 disagree、dislike" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/kleɪm/", "zh": "權利要求；索賠；主張", "in_passage": true, "example": { "en": "The insurance company approved her claim within two weeks.", "zh": "保險公司在兩週內核准了她的索賠。" } },
+        { "pos": "v.", "ipa": "/kleɪm/", "zh": "聲稱；申請（款項）", "example": { "en": "You can claim back the cost of travel by sending receipts.", "zh": "你可以附上收據，申請退還差旅費用。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "（專利的）權利要求項", "en": "a part of a patent that says what is protected", "in_passage": true, "distinguish": "和 patent、scope of protection 一起出現時，是專利文件裡的條文。", "example": { "en": "Claim 1 covers the overall connection system.", "zh": "第一項權利要求涵蓋整個連接系統。" } },
+        { "pos": "n.", "zh": "索賠", "en": "a request for money because of a loss or damage", "distinguish": "和 insurance、warranty、file 一起出現時，是向保險公司或廠商要求賠償。", "example": { "en": "He made an insurance claim after the warehouse flooded.", "zh": "倉庫淹水之後，他提出了保險理賠。" } },
+        { "pos": "n.", "zh": "主張、說法", "en": "a statement that something is true", "distinguish": "後面接 that 子句或 about 時，是「說某件事是真的」。", "example": { "en": "There is no proof for the claim that sales will double.", "zh": "沒有證據支持銷售額將翻倍的說法。" } }
+      ]
+    },
+    {
+      "text": "legal status",
+      "type": "phrase",
+      "zh": "法律狀態",
+      "en": "the official condition of something under the law, such as pending or approved",
+      "note": "在這篇裡 legal status 指專利申請目前的進度，例如審查中、已核准或已被駁回。作者用它說明保護範圍不是固定的，要看當下的狀態。",
+      "pattern": "check + the legal status of + N",
+      "grammar_note": "status 是單數名詞，複數是 statuses；「某物的法律狀態」用 of：the legal status of the patent。",
+      "examples": [
+        { "tag": "會議", "en": "We need to check the legal status of each patent application.", "zh": "我們需要確認每一件專利申請的法律狀態。" },
+        { "tag": "電子郵件", "en": "Could you confirm the current legal status of this trademark?", "zh": "您可以確認這個商標目前的法律狀態嗎？" },
+        { "tag": "法務", "en": "The legal status of the contract is still unclear to us.", "zh": "這份合約的法律狀態我們目前仍不清楚。" }
+      ],
+      "similar": [
+        { "phrase": "current status", "diff": "current status 泛指任何事情的目前狀況，不限法律；legal status 專指法律上的狀態。", "example": { "en": "Please update me on the current status of the order.", "zh": "請讓我知道這筆訂單目前的狀況。" } }
+      ],
+      "confusable": [
+        { "word": "statute", "diff": "statute 是成文的法規，和 status 拼法相近，但不是「狀態」。", "example": { "en": "The statute requires every importer to register with the government.", "zh": "這項法規要求每位進口商向政府登記。" } }
+      ]
+    },
+    {
+      "text": "replicating",
+      "type": "word",
+      "lemma": "replicate",
+      "ipa": "/ˈreplɪkeɪtɪŋ/",
+      "pos": "v.",
+      "zh": "複製、仿製（現在分詞）",
+      "en": "making an exact copy of something",
+      "note": "在這篇裡 rather than simply replicating their existing structure 表示團隊沒有照抄 Wonderland 的結構，而是自己設計，是回應侵權疑慮的謹慎說法。",
+      "grammar_note": "rather than 後面常接 V-ing 來和前面的做法對照，所以這裡用 replicating；replicate 是及物動詞，後面直接接受詞。",
+      "forms": [
+        { "w": "replicates", "label": "第三人稱單數", "pos": "v.", "zh": "複製", "ipa": "/ˈreplɪkeɪts/", "example": { "en": "This software replicates the data to a second server every night.", "zh": "這套軟體每天晚上會把資料複製到第二台伺服器。" } },
+        { "w": "replicated", "label": "過去式／過去分詞", "pos": "v.", "zh": "複製（過去式）", "ipa": "/ˈreplɪkeɪtɪd/", "example": { "en": "Other labs replicated the test and found the same result.", "zh": "其他實驗室重複了這項測試，並得到相同的結果。" } }
+      ],
+      "collocations": [
+        { "phrase": "replicate the results", "zh": "重現結果", "example": { "en": "We could not replicate the results in a second test.", "zh": "我們在第二次測試中無法重現這些結果。" } },
+        { "phrase": "replicate a design", "zh": "複製設計", "example": { "en": "Competitors may try to replicate a design that sells well.", "zh": "競爭對手可能會試圖複製賣得好的設計。" } },
+        { "phrase": "replicate success", "zh": "複製成功經驗", "example": { "en": "The firm hopes to replicate its success in other markets.", "zh": "公司希望在其他市場複製它的成功經驗。" } }
+      ],
+      "examples": [
+        { "tag": "專利", "en": "The patent stops other companies from replicating our locking system.", "zh": "這項專利讓其他公司不能仿製我們的鎖定系統。" },
+        { "tag": "研究", "en": "Engineers must replicate the problem before they can fix it.", "zh": "工程師必須先重現問題，才能修復它。" },
+        { "tag": "製造", "en": "It is hard to replicate this quality with a cheaper material.", "zh": "要用比較便宜的材料複製這樣的品質並不容易。" }
+      ],
+      "confusable": [
+        { "word": "replace", "diff": "replace 是取代、更換，replicate 是複製；拼法相近。", "example": { "en": "We will replace the old machine with a faster model.", "zh": "我們會用速度更快的機型來更換舊機器。" } }
+      ],
+      "similar": [
+        { "word": "copy", "diff": "copy 最口語、最常用，不一定是完全一樣；replicate 比較正式，強調複製得很準確。", "example": { "en": "Please copy the file to the shared folder before noon.", "zh": "請在中午前把檔案複製到共用資料夾。" } },
+        { "word": "imitate", "diff": "imitate 是模仿別人的做法或風格，有時帶負面意思；replicate 重在做出相同的東西或結果。", "example": { "en": "Many small firms try to imitate the market leader.", "zh": "許多小公司都試著模仿市場領導者。" } }
+      ],
+      "family": [
+        { "w": "original", "pos": "adj.", "zh": "原創的、原本的", "ipa": "/əˈrɪdʒənl/", "example": { "en": "We are proud of our original design for this product.", "zh": "我們對這項產品的原創設計感到驕傲。" } },
+        { "w": "duplicate", "pos": "v.", "zh": "複製、重複", "ipa": "/ˈduːplɪkeɪt/", "example": { "en": "Please do not duplicate the work that Sam already finished.", "zh": "請不要重複 Sam 已經完成的工作。" } }
+      ],
+      "derived": [
+        { "w": "replication", "pos": "n.", "zh": "複製、重現", "ipa": "/ˌreplɪˈkeɪʃn/", "link": "replicate + -ion，動詞變名詞，像 create → creation" },
+        { "w": "replica", "pos": "n.", "zh": "複製品、仿製品", "ipa": "/ˈreplɪkə/", "link": "和 replicate 同詞幹，指被複製出來的東西，像 copy 的名詞" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "複製、仿製", "en": "to make an exact copy of something", "in_passage": true, "distinguish": "受詞是結構、設計、產品時，是照樣做出一個。", "example": { "en": "No one has been able to replicate our connection design.", "zh": "目前沒有人能複製我們的連接設計。" } },
+        { "pos": "v.", "zh": "重現（結果、實驗）", "en": "to do a test again and get the same result", "distinguish": "受詞是 result、problem、test 時，是重做一次並得到相同結果。", "example": { "en": "The quality team replicated the failure in the lab.", "zh": "品管團隊在實驗室裡重現了這個故障。" } }
+      ]
+    },
+    {
+      "text": "conducted",
+      "type": "word",
+      "lemma": "conduct",
+      "ipa": "/kənˈdʌktɪd/",
+      "pos": "v.",
+      "zh": "進行、實施（過去分詞）",
+      "en": "organized and done, such as a test or a review",
+      "note": "在這篇裡 conducted 是過去分詞，修飾前面的 the patent review，指「我們已經做過的專利檢視」，帶有正式、有計畫地完成工作的語氣。",
+      "grammar_note": "the patent review we've conducted 省略了關係代名詞 that，意思是 the patent review that we have conducted；conduct 是及物動詞，後面直接接受詞。",
+      "forms": [
+        { "w": "conducts", "label": "第三人稱單數", "pos": "v.", "zh": "進行", "ipa": "/kənˈdʌkts/", "example": { "en": "Our quality team conducts a safety check every morning.", "zh": "我們的品管團隊每天早上都會進行安全檢查。" } },
+        { "w": "conducting", "label": "現在分詞", "pos": "v.", "zh": "正在進行", "ipa": "/kənˈdʌktɪŋ/", "example": { "en": "We are conducting interviews for the sales manager position.", "zh": "我們正在為業務經理職位進行面試。" } }
+      ],
+      "collocations": [
+        { "phrase": "conduct a review", "zh": "進行檢討、審查", "example": { "en": "The legal team will conduct a review of all our contracts.", "zh": "法務團隊會對我們所有的合約進行審查。" } },
+        { "phrase": "conduct research", "zh": "進行研究", "example": { "en": "The team will conduct research on new packaging materials.", "zh": "團隊將針對新的包裝材料進行研究。" } },
+        { "phrase": "conduct business", "zh": "做生意、處理業務", "example": { "en": "Many firms conduct business online instead of in stores.", "zh": "許多公司在網路上而不是在店面做生意。" } }
+      ],
+      "examples": [
+        { "tag": "產品測試", "en": "The lab conducted strength tests on every new sample.", "zh": "實驗室對每個新樣品都進行了強度測試。" },
+        { "tag": "會議", "en": "Ms. Lin will conduct the meeting while the manager is away.", "zh": "經理不在時，林小姐會主持會議。" },
+        { "tag": "人資", "en": "Interviews were conducted by the human resources team last week.", "zh": "面試上週由人資團隊進行。" }
+      ],
+      "confusable": [
+        { "word": "construct", "diff": "construct 是建造，conduct 是進行活動，兩者拼法相近。", "example": { "en": "The company will construct a new factory next year.", "zh": "公司明年會興建一座新工廠。" } }
+      ],
+      "similar": [
+        { "phrase": "carry out", "diff": "carry out 比較口語，也可接 plan、order；conduct 比較正式，多接 test、survey、review。", "example": { "en": "We carry out a final inspection before each shipment.", "zh": "每次出貨前我們都會進行最後檢查。" } },
+        { "word": "perform", "diff": "perform 強調執行任務或功能，也能說機器的運作表現；conduct 強調有計畫地進行。", "example": { "en": "The new machine performs the task twice as fast.", "zh": "這台新機器執行這項工作的速度快兩倍。" } }
+      ],
+      "family": [
+        { "w": "examine", "pos": "v.", "zh": "檢查、檢驗", "ipa": "/ɪɡˈzæmɪn/", "example": { "en": "Engineers will examine the frame for any small cracks.", "zh": "工程師會檢查車架有沒有任何細小裂縫。" } },
+        { "w": "inspect", "pos": "v.", "zh": "檢查、視察", "ipa": "/ɪnˈspekt/", "example": { "en": "An officer will inspect the warehouse next Monday.", "zh": "下週一會有人員來視察倉庫。" } }
+      ],
+      "derived": [
+        { "w": "conductor", "pos": "n.", "zh": "指揮；車掌；導體", "ipa": "/kənˈdʌktɚ/", "link": "conduct + -or，做這件事的人或物，像 actor、visitor" },
+        { "w": "misconduct", "pos": "n.", "zh": "不當行為", "ipa": "/ˌmɪsˈkɑːndʌkt/", "link": "mis-（錯誤）+ conduct（行為），做錯的行為，像 mistake、misunderstand" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/kənˈdʌkt/", "zh": "進行、實施", "in_passage": true, "example": { "en": "We must conduct a full review before the product launch.", "zh": "產品上市之前，我們必須進行一次完整的檢討。" } },
+        { "pos": "n.", "ipa": "/ˈkɑːndʌkt/", "zh": "行為、操守", "example": { "en": "All staff must follow the company code of conduct.", "zh": "所有員工都必須遵守公司的行為準則。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "進行、實施", "en": "to organize and carry out an activity", "in_passage": true, "distinguish": "受詞是 test、survey、review 這類活動時，是「進行」。", "example": { "en": "The firm conducted a test on the new battery.", "zh": "公司對新電池進行了一次測試。" } },
+        { "pos": "v.", "zh": "傳導（熱、電）", "en": "to let heat or electricity pass through", "distinguish": "受詞是 heat、electricity，主詞是金屬或材料時，是「傳導」。", "example": { "en": "Copper conducts electricity very well.", "zh": "銅的導電性很好。" } }
+      ]
+    },
+    {
+      "text": "distinct",
+      "type": "word",
+      "ipa": "/dɪˈstɪŋkt/",
+      "pos": "adj.",
+      "zh": "明顯不同的、獨特的",
+      "en": "clearly different from other things",
+      "note": "在這篇裡 a distinct technical approach 表示團隊的方案和 Wonderland 的專利有明顯、可以區分的差異。作者用 distinct 而不是「完全不同」，是謹慎、有分寸的說法。",
+      "grammar_note": "「和…不同」用 distinct from + 名詞，介系詞用 from，不用 than 或 to。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "distinct from", "zh": "與…不同", "example": { "en": "Our product is distinct from anything else on the market.", "zh": "我們的產品和市面上其他東西都不一樣。" } },
+        { "phrase": "distinct advantage", "zh": "明顯的優勢", "example": { "en": "The lighter frame gives us a distinct advantage over competitors.", "zh": "較輕的車架讓我們比競爭對手有明顯的優勢。" } },
+        { "phrase": "two distinct", "zh": "兩個明顯不同的", "example": { "en": "The report describes two distinct groups of customers.", "zh": "這份報告描述了兩類明顯不同的顧客。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The new model has a distinct design from last year's.", "zh": "新型號的設計和去年的明顯不同。" },
+        { "tag": "電子郵件", "en": "Please keep these two issues distinct in your final report.", "zh": "請在最終報告中把這兩個議題分開清楚說明。" },
+        { "tag": "產品說明", "en": "The new coffee has a distinct taste that customers like.", "zh": "這款新咖啡有顧客喜歡的獨特風味。" }
+      ],
+      "confusable": [
+        { "word": "distant", "diff": "distant 是「遙遠的」，拼法接近 distinct，意思不同。", "example": { "en": "The factory is located in a distant part of the country.", "zh": "這座工廠位在這個國家遙遠的地區。" } },
+        { "word": "district", "diff": "district 是「地區、區域」，是名詞，拼法也接近。", "example": { "en": "Our main office is in the business district.", "zh": "我們的總公司位在商業區。" } }
+      ],
+      "similar": [
+        { "word": "different", "diff": "different 是一般用語，只說不一樣；distinct 強調差異明顯、可以清楚區分。", "example": { "en": "The two suppliers offer different prices for the same part.", "zh": "這兩家供應商對同一個零件開出不同價格。" } },
+        { "word": "unique", "diff": "unique 是「獨一無二」，語氣更強；distinct 只是和別的有明顯不同。", "example": { "en": "Each product has a unique serial number for tracking.", "zh": "每項產品都有一個獨一無二的序號，方便追蹤。" } }
+      ],
+      "family": [
+        { "w": "clear", "pos": "adj.", "zh": "清楚的", "ipa": "/klɪr/", "example": { "en": "We need a clear answer from the supplier by Friday.", "zh": "我們需要供應商在星期五前給一個明確的答覆。" } },
+        { "w": "obvious", "pos": "adj.", "zh": "明顯的", "ipa": "/ˈɑːbviəs/", "example": { "en": "There is an obvious difference between the two samples.", "zh": "這兩個樣品之間有明顯的差異。" } }
+      ],
+      "derived": [
+        { "w": "distinctly", "pos": "adv.", "zh": "明顯地、清楚地", "ipa": "/dɪˈstɪŋktli/", "link": "distinct + -ly，變成副詞，像 clear → clearly" },
+        { "w": "distinction", "pos": "n.", "zh": "區別、差異", "ipa": "/dɪˈstɪŋkʃn/", "link": "distinct 去掉 -t 加 -tion，變成名詞，像 connect → connection" },
+        { "w": "distinctive", "pos": "adj.", "zh": "有特色的", "ipa": "/dɪˈstɪŋktɪv/", "link": "distinct + -ive，形容詞，指「有明顯特色的」，像 active、creative" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "明顯不同的、有區別的", "en": "clearly different and separate from something else", "in_passage": true, "distinguish": "常搭配 from，或放在 two distinct + 名詞，表示可以清楚區分。", "example": { "en": "The two proposals are distinct from each other in cost.", "zh": "這兩份提案在成本上有明顯的差別。" } },
+        { "pos": "adj.", "zh": "明顯的、清楚可辨的", "en": "easy to see, hear, or notice", "distinguish": "後面接 improvement、smell、change 這類名詞時，表示容易察覺。", "example": { "en": "There has been a distinct improvement in our delivery times.", "zh": "我們的交貨時間有明顯的改善。" } }
+      ]
+    }
+  ]
+}

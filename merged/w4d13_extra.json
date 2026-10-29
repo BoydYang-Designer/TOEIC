@@ -1,0 +1,123 @@
+{
+  "week": 4,
+  "day": 13,
+  "extra_vocab": [
+    {
+      "text": "impact",
+      "type": "word",
+      "ipa": "/ˈɪmpækt/",
+      "pos": "n.",
+      "zh": "衝擊、撞擊；影響",
+      "en": "a strong hit, or a strong effect on something",
+      "note": "在這篇裡 impacts 指嬰兒車使用時會遇到的撞擊與碰撞，和 loads（承重）、repeated folding（反覆摺疊）並列，都是車架必須承受的使用情況。",
+      "grammar_note": "impact 當「影響」時，常用 have an impact on + 名詞，介系詞用 on，不用 to。",
+      "forms": [
+        { "w": "impacts", "label": "複數", "pos": "n.", "zh": "撞擊、影響（複數）", "ipa": "/ˈɪmpækts/", "example": { "en": "Repeated impacts can damage the frame over time.", "zh": "反覆的撞擊會隨著時間損壞車架。" } },
+        { "w": "impacts", "label": "第三人稱單數", "pos": "v.", "zh": "對…造成影響", "ipa": "/ɪmˈpækts/", "example": { "en": "The new rule impacts every supplier in the region.", "zh": "這項新規定對該地區的每家供應商都有影響。" } },
+        { "w": "impacted", "label": "過去式／過去分詞", "pos": "v.", "zh": "對…造成影響", "ipa": "/ɪmˈpæktɪd/", "example": { "en": "The delay impacted our delivery schedule for three customers.", "zh": "這次延誤影響了我們對三位客戶的交貨時程。" } },
+        { "w": "impacting", "label": "現在分詞", "pos": "v.", "zh": "正在影響", "ipa": "/ɪmˈpæktɪŋ/", "example": { "en": "Rising material prices are impacting our profit this quarter.", "zh": "原料價格上漲正在影響我們本季的利潤。" } }
+      ],
+      "collocations": [
+        { "phrase": "have an impact on", "zh": "對…有影響", "example": { "en": "The new design will have an impact on shipping costs.", "zh": "新設計會對運費造成影響。" } },
+        { "phrase": "impact resistance", "zh": "耐衝擊性", "example": { "en": "This material has excellent impact resistance for outdoor use.", "zh": "這種材料的耐衝擊性很好，適合戶外使用。" } },
+        { "phrase": "negative impact", "zh": "負面影響", "example": { "en": "We want to reduce the negative impact of price changes.", "zh": "我們想降低價格變動帶來的負面影響。" } }
+      ],
+      "examples": [
+        { "tag": "產品測試", "en": "The tube must survive a strong impact without cracking.", "zh": "這根管子必須承受強烈撞擊而不破裂。" },
+        { "tag": "會議", "en": "We discussed the impact of the new tax on prices.", "zh": "我們討論了新稅制對價格的影響。" },
+        { "tag": "電子郵件", "en": "Please let me know the impact on the delivery schedule.", "zh": "請告訴我這對交貨時程的影響。" }
+      ],
+      "confusable": [
+        { "word": "compact", "diff": "compact 是「小巧的」，拼法接近但和影響、撞擊無關。", "example": { "en": "The compact design saves space in small offices.", "zh": "小巧的設計能在小型辦公室節省空間。" } }
+      ],
+      "similar": [
+        { "word": "effect", "diff": "effect 比較中性，泛指結果；impact 暗示強烈、明顯的影響。", "example": { "en": "The price change had little effect on our monthly sales.", "zh": "價格調整對我們的每月銷售額影響很小。" } },
+        { "word": "shock", "diff": "shock 專指突然的撞擊或震動，物理意味較強；impact 範圍更廣。", "example": { "en": "The foam pad absorbs shock when the case is dropped.", "zh": "箱子掉落時，泡棉墊能吸收衝擊。" } }
+      ],
+      "family": [
+        { "w": "influence", "pos": "n.", "zh": "影響力", "ipa": "/ˈɪnfluəns/", "example": { "en": "Social media has a strong influence on young buyers.", "zh": "社群媒體對年輕買家有很大的影響力。" } },
+        { "w": "consequence", "pos": "n.", "zh": "後果", "ipa": "/ˈkɑːnsəkwens/", "example": { "en": "Late payment can have serious consequences for our suppliers.", "zh": "延遲付款可能對我們的供應商造成嚴重後果。" } }
+      ],
+      "derived": [
+        { "w": "impactful", "pos": "adj.", "zh": "有影響力的", "ipa": "/ˈɪmpæktfl/", "link": "impact + -ful，充滿影響力的，像 useful、powerful" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈɪmpækt/", "zh": "衝擊、影響", "in_passage": true, "example": { "en": "The impact of the delay was greater than expected.", "zh": "這次延誤的影響比預期的更大。" } },
+        { "pos": "v.", "ipa": "/ɪmˈpækt/", "zh": "對…產生影響", "example": { "en": "Weather conditions may impact the arrival time of the shipment.", "zh": "天氣狀況可能影響貨物的抵達時間。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "撞擊、衝擊力", "en": "the force of one thing hitting another", "in_passage": true, "distinguish": "後面接 test、resistance 或談到掉落、碰撞時，是物理上的撞擊。", "example": { "en": "The helmet is tested for impact from different angles.", "zh": "這頂安全帽會從不同角度測試抗衝擊能力。" } },
+        { "pos": "n.", "zh": "影響", "en": "an effect that one thing has on another", "distinguish": "後面接 on + 事物，並談到成本、銷售、環境時，是抽象的影響。", "example": { "en": "The new policy had a strong impact on our sales.", "zh": "新政策對我們的銷售額影響很大。" } }
+      ]
+    },
+    {
+      "text": "conduct",
+      "type": "word",
+      "ipa": "/kənˈdʌkt/",
+      "pos": "v.",
+      "zh": "進行、實施",
+      "en": "to organize and do an activity such as a test or survey",
+      "note": "在這篇裡 conduct 搭配 tests，表示量產前必須「進行」強度、耐久與安全測試。這是正式、有計畫地做一件事的說法。",
+      "grammar_note": "conduct 是及物動詞，後面直接接受詞：conduct a survey，不寫 conduct on a survey。",
+      "forms": [
+        { "w": "conducts", "label": "第三人稱單數", "pos": "v.", "zh": "進行", "ipa": "/kənˈdʌkts/", "example": { "en": "Our quality team conducts a safety check every morning.", "zh": "我們的品管團隊每天早上都會進行安全檢查。" } },
+        { "w": "conducted", "label": "過去式／過去分詞", "pos": "v.", "zh": "進行（過去式）", "ipa": "/kənˈdʌktɪd/", "example": { "en": "The company conducted a survey of five hundred customers.", "zh": "公司對五百位客戶進行了問卷調查。" } },
+        { "w": "conducting", "label": "現在分詞", "pos": "v.", "zh": "正在進行", "ipa": "/kənˈdʌktɪŋ/", "example": { "en": "We are conducting interviews for the sales manager position.", "zh": "我們正在為業務經理職位進行面試。" } }
+      ],
+      "collocations": [
+        { "phrase": "conduct a survey", "zh": "進行問卷調查", "example": { "en": "We plan to conduct a survey among our regular customers.", "zh": "我們計畫對常客進行問卷調查。" } },
+        { "phrase": "conduct research", "zh": "進行研究", "example": { "en": "The team will conduct research on new packaging materials.", "zh": "團隊將針對新的包裝材料進行研究。" } },
+        { "phrase": "conduct business", "zh": "做生意、處理業務", "example": { "en": "Many firms conduct business online instead of in stores.", "zh": "許多公司在網路上而不是在店面做生意。" } }
+      ],
+      "examples": [
+        { "tag": "產品測試", "en": "The lab will conduct strength tests on every new sample.", "zh": "實驗室會對每個新樣品進行強度測試。" },
+        { "tag": "會議", "en": "Ms. Lin will conduct the meeting while the manager is away.", "zh": "經理不在時，林小姐會主持會議。" },
+        { "tag": "人資", "en": "Interviews will be conducted by the human resources team.", "zh": "面試將由人資團隊進行。" }
+      ],
+      "confusable": [
+        { "word": "construct", "diff": "construct 是建造，conduct 是進行活動，兩者拼法相近。", "example": { "en": "The company will construct a new factory next year.", "zh": "公司明年會興建一座新工廠。" } }
+      ],
+      "similar": [
+        { "phrase": "carry out", "diff": "carry out 比較口語，也可接 plan、order；conduct 比較正式，多接 test、survey。", "example": { "en": "We carry out a final inspection before each shipment.", "zh": "每次出貨前我們都會進行最後檢查。" } },
+        { "word": "perform", "diff": "perform 強調執行任務或功能，也能說機器的運作表現；conduct 強調有計畫地進行。", "example": { "en": "The new machine performs the task twice as fast.", "zh": "這台新機器執行這項工作的速度快兩倍。" } }
+      ],
+      "family": [
+        { "w": "examine", "pos": "v.", "zh": "檢查、檢驗", "ipa": "/ɪɡˈzæmɪn/", "example": { "en": "Engineers will examine the frame for any small cracks.", "zh": "工程師會檢查車架有沒有任何細小裂縫。" } },
+        { "w": "inspect", "pos": "v.", "zh": "檢查、視察", "ipa": "/ɪnˈspekt/", "example": { "en": "An officer will inspect the warehouse next Monday.", "zh": "下週一會有人員來視察倉庫。" } }
+      ],
+      "derived": [
+        { "w": "conductor", "pos": "n.", "zh": "指揮；車掌；導體", "ipa": "/kənˈdʌktɚ/", "link": "conduct + -or，做這件事的人或物，像 actor、visitor" },
+        { "w": "misconduct", "pos": "n.", "zh": "不當行為", "ipa": "/ˌmɪsˈkɑːndʌkt/", "link": "mis-（錯誤）+ conduct（行為），做錯的行為，像 mistake、misunderstand" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/kənˈdʌkt/", "zh": "進行、實施", "in_passage": true, "example": { "en": "We must conduct a full review before the product launch.", "zh": "產品上市之前，我們必須進行一次完整的檢討。" } },
+        { "pos": "n.", "ipa": "/ˈkɑːndʌkt/", "zh": "行為、操守", "example": { "en": "All staff must follow the company code of conduct.", "zh": "所有員工都必須遵守公司的行為準則。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "進行、實施", "en": "to organize and carry out an activity", "in_passage": true, "distinguish": "受詞是 test、survey、meeting 這類活動時，是「進行」。", "example": { "en": "The firm conducted a test on the new battery.", "zh": "公司對新電池進行了一次測試。" } },
+        { "pos": "v.", "zh": "傳導（熱、電）", "en": "to let heat or electricity pass through", "distinguish": "受詞是 heat、electricity，主詞是金屬或材料時，是「傳導」。", "example": { "en": "Copper conducts electricity very well.", "zh": "銅的導電性很好。" } }
+      ]
+    },
+    {
+      "type": "phrase",
+      "text": "production volume",
+      "zh": "生產量、產量",
+      "en": "the number of products a company makes in a certain time",
+      "note": "在這篇裡說明製造流程與成本取決於形狀和生產量：量越大，越值得開模或客製；量小時，用現成管材比較划算。",
+      "pattern": "high / low + production volume",
+      "grammar_note": "production volume 通常不加 s，量的多寡用 high / low 或 large / small 形容，不用 many / few。",
+      "examples": [
+        { "tag": "會議", "en": "A higher production volume usually lowers the cost of each unit.", "zh": "較高的產量通常會降低每個單位的成本。" },
+        { "tag": "採購", "en": "The supplier offers a discount when the production volume is large.", "zh": "產量大的時候，供應商會提供折扣。" },
+        { "tag": "電子郵件", "en": "Please send us your expected production volume for next year.", "zh": "請提供貴公司明年預計的生產量。" }
+      ],
+      "similar": [
+        { "word": "output", "diff": "output 是實際生產出來的產量，比較口語；production volume 常用在規劃和成本討論。", "example": { "en": "The factory's output increased by ten percent last month.", "zh": "工廠上個月的產出增加了百分之十。" } },
+        { "phrase": "production capacity", "diff": "production capacity 是最多能生產的產能，production volume 是實際或預計的生產量。", "example": { "en": "Our production capacity is limited during the holiday season.", "zh": "假期期間我們的產能有限。" } }
+      ],
+      "confusable": [
+        { "phrase": "sales volume", "diff": "sales volume 是賣出的數量，production volume 是生產出來的數量。", "example": { "en": "Sales volume fell last quarter even though we made more units.", "zh": "雖然我們生產了更多數量，上一季的銷售量仍然下降。" } }
+      ]
+    }
+  ]
+}

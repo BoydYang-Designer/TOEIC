@@ -1,0 +1,28 @@
+{
+  "week": 4,
+  "day": 14,
+  "extra_vocab": [
+    {
+      "text": "cost savings",
+      "type": "phrase",
+      "zh": "成本節省、節省的費用",
+      "en": "the money a company saves by spending less",
+      "note": "As for the cost savings 是用來轉換話題的說法，表示「至於省下多少成本」。這裡指改用鋁管後能省多少錢，並把這個問題交給業務同事回答。",
+      "pattern": "cost savings + from / of + N",
+      "grammar_note": "cost savings 通常用複數 savings，不說 cost saving；常見搭配是 cost savings from / on / of + 項目，要說明省在哪裡。",
+      "examples": [
+        { "tag": "會議", "en": "The new supplier could bring significant cost savings next year.", "zh": "新供應商明年可能帶來可觀的成本節省。" },
+        { "tag": "電子郵件", "en": "Please send me the estimated cost savings from the new process.", "zh": "請把新流程預估可節省的成本寄給我。" },
+        { "tag": "報告", "en": "Moving production overseas resulted in cost savings of about ten percent.", "zh": "把生產移到海外，節省了大約百分之十的成本。" },
+        { "tag": "採購", "en": "Buying in bulk gives us cost savings on every order.", "zh": "大量採購讓我們每張訂單都能節省成本。" }
+      ],
+      "similar": [
+        { "phrase": "cost reduction", "diff": "cost reduction 強調「降低成本」這個動作或目標；cost savings 強調實際「省下來的金額」。", "example": { "en": "Cost reduction is the main goal of this year's project.", "zh": "降低成本是今年這個專案的主要目標。" } },
+        { "phrase": "savings", "diff": "單獨用 savings 也可以表示省下的錢，但也可能指「存款」；加上 cost 意思更明確。", "example": { "en": "The savings from the new system will pay for training.", "zh": "新系統節省下來的費用會用來支付訓練。" } }
+      ],
+      "confusable": [
+        { "phrase": "cost cutting", "diff": "cost cutting 是「削減成本」的行動，常帶有裁員、縮減預算的感覺；cost savings 是結果，語氣較中性。", "example": { "en": "Cost cutting forced the company to close two small offices.", "zh": "削減成本迫使公司關閉了兩間小型辦公室。" } }
+      ]
+    }
+  ]
+}

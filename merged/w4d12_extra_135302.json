@@ -1,0 +1,841 @@
+{
+  "week": 4,
+  "day": 12,
+  "extra_vocab": [
+    {
+      "text": "mounted",
+      "type": "word",
+      "lemma": "mount",
+      "ipa": "/ˈmaʊntɪd/",
+      "pos": "adj.",
+      "zh": "安裝在……上的、固定在……上的",
+      "en": "fixed onto a surface or another part",
+      "note": "文中 mounted on the upper handlebar tube 是過去分詞後置修飾 controls，說明單手操作控制裝置裝在上方手把管上，所以手把必須容納多種機構。",
+      "grammar_note": "controls mounted on the tube 等於 controls that are mounted on the tube，過去分詞放在名詞後面修飾；安裝的位置多用 on（mounted on the wall），不用 in。",
+      "forms": [
+        {
+          "w": "mounts",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "安裝",
+          "ipa": "/maʊnts/",
+          "example": {
+            "en": "The technician mounts each sensor on the metal frame.",
+            "zh": "技術人員把每個感測器裝在金屬車架上。"
+          }
+        },
+        {
+          "w": "mounting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在安裝",
+          "ipa": "/ˈmaʊntɪŋ/",
+          "example": {
+            "en": "They are mounting the screen on the wall now.",
+            "zh": "他們現在正在把螢幕裝到牆上。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "mounted on the wall",
+          "zh": "安裝在牆上",
+          "example": {
+            "en": "The projector is mounted on the wall of the meeting room.",
+            "zh": "投影機安裝在會議室的牆上。"
+          }
+        },
+        {
+          "phrase": "wall-mounted",
+          "zh": "壁掛式的",
+          "example": {
+            "en": "We ordered a wall-mounted display for the new showroom.",
+            "zh": "我們為新的展示間訂了一台壁掛式螢幕。"
+          }
+        },
+        {
+          "phrase": "mount a campaign",
+          "zh": "發起活動",
+          "example": {
+            "en": "The marketing team will mount a campaign for the new model.",
+            "zh": "行銷團隊將為新機型發起一項宣傳活動。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "工程",
+          "en": "The battery is mounted at the rear of the vehicle.",
+          "zh": "電池安裝在車輛後方。"
+        },
+        {
+          "tag": "採購",
+          "en": "We need a bracket for the camera mounted above the door.",
+          "zh": "我們需要一個支架給裝在門上方的攝影機。"
+        },
+        {
+          "tag": "安裝",
+          "en": "Make sure the panel is firmly mounted before you test it.",
+          "zh": "測試之前，請確認面板已牢牢固定。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "mountain",
+          "diff": "mountain 是名詞「山」，拼法相近但跟安裝無關。",
+          "example": {
+            "en": "The factory is located at the foot of a large mountain.",
+            "zh": "這間工廠位於一座大山的山腳下。"
+          }
+        },
+        {
+          "word": "amount",
+          "diff": "amount 是「數量、金額」，字裡含有 mount，但意思完全不同。",
+          "example": {
+            "en": "The total amount of the invoice is $2,400.",
+            "zh": "這張發票的總金額是 2,400 美元。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "installed",
+          "diff": "installed 是「裝好、設置好」，範圍較廣；mounted 強調固定在某個表面上。",
+          "example": {
+            "en": "The security cameras were installed on the ceiling last week.",
+            "zh": "保全攝影機上週已裝在天花板上。"
+          }
+        },
+        {
+          "word": "attached",
+          "diff": "attached 是「附接、連接」，不一定固定在表面上。",
+          "example": {
+            "en": "The label is attached to the side of the shipping box.",
+            "zh": "標籤貼在出貨箱的側面。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "install",
+          "pos": "v.",
+          "zh": "安裝",
+          "ipa": "/ɪnˈstɔːl/",
+          "example": {
+            "en": "Our team will install the new equipment on Monday.",
+            "zh": "我們的團隊星期一會安裝新設備。"
+          }
+        },
+        {
+          "w": "attach",
+          "pos": "v.",
+          "zh": "附上、接上",
+          "ipa": "/əˈtætʃ/",
+          "example": {
+            "en": "Please attach the drawing to your purchase request.",
+            "zh": "請把圖面附在你的採購申請上。"
+          }
+        },
+        {
+          "w": "bracket",
+          "pos": "n.",
+          "zh": "支架",
+          "ipa": "/ˈbrækɪt/",
+          "example": {
+            "en": "This metal bracket holds the control panel in place.",
+            "zh": "這個金屬支架能固定控制面板的位置。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "w": "mounted",
+          "pos": "adj.",
+          "ipa": "/ˈmaʊntɪd/",
+          "zh": "安裝在……上的",
+          "in_passage": true,
+          "example": {
+            "en": "The mounted camera records every shipment leaving the warehouse.",
+            "zh": "裝好的攝影機會記錄離開倉庫的每一批貨。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/maʊnt/",
+          "zh": "安裝、發起",
+          "example": {
+            "en": "Please mount the sign above the main entrance.",
+            "zh": "請把招牌裝在主要入口上方。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/maʊnt/",
+          "zh": "支架、底座",
+          "example": {
+            "en": "The monitor comes with a wall mount and two screws.",
+            "zh": "這台螢幕附有壁掛支架和兩顆螺絲。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "安裝、固定",
+          "en": "to fix something onto a surface or frame",
+          "in_passage": true,
+          "example": {
+            "en": "Technicians will mount the sensors on the production line.",
+            "zh": "技術人員會把感測器裝在生產線上。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "發起、展開（活動）",
+          "en": "to start and organize an event or effort",
+          "distinguish": "受詞是 campaign、challenge 等活動時，指發起；受詞是實體物品時，指安裝。",
+          "example": {
+            "en": "The union plans to mount a challenge to the new policy.",
+            "zh": "工會打算對新政策提出挑戰。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "逐漸增加",
+          "en": "to grow in amount or strength",
+          "distinguish": "主詞是 pressure、costs 等抽象名詞時，指逐漸上升。",
+          "example": {
+            "en": "Costs continue to mount as the project falls behind schedule.",
+            "zh": "隨著專案進度落後，成本持續攀升。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "dedicated",
+      "type": "word",
+      "lemma": "dedicate",
+      "ipa": "/ˈdedɪkeɪtɪd/",
+      "pos": "adj.",
+      "zh": "專用的、專門的",
+      "en": "made or kept for one special purpose",
+      "note": "文中 a dedicated mold or tooling 指「專門為這個零件製作的模具或工裝」，說明改用碳纖維需要額外投資。dedicated 也常用來形容「敬業的」人。",
+      "grammar_note": "be dedicated to 的 to 是介系詞，後面接名詞或 V-ing，不接原形，例如 dedicated to improving quality。",
+      "forms": [
+        {
+          "w": "dedicates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "奉獻、專用於",
+          "ipa": "/ˈdedɪkeɪts/",
+          "example": {
+            "en": "The company dedicates one floor to research and testing.",
+            "zh": "公司把一整層樓專門用於研究與測試。"
+          }
+        },
+        {
+          "w": "dedicating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "致力於",
+          "ipa": "/ˈdedɪkeɪtɪŋ/",
+          "example": {
+            "en": "She is dedicating her time to improving customer service.",
+            "zh": "她正投入時間改善客戶服務。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "a dedicated team",
+          "zh": "專責團隊",
+          "example": {
+            "en": "We set up a dedicated team to handle customer complaints.",
+            "zh": "我們成立了專責團隊來處理客戶投訴。"
+          }
+        },
+        {
+          "phrase": "a dedicated line",
+          "zh": "專線",
+          "example": {
+            "en": "Customers can call a dedicated line for technical support.",
+            "zh": "客戶可以撥打專線取得技術支援。"
+          }
+        },
+        {
+          "phrase": "be dedicated to",
+          "zh": "致力於",
+          "example": {
+            "en": "Our staff are dedicated to providing fast and reliable service.",
+            "zh": "我們的員工致力於提供快速可靠的服務。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "We need a dedicated mold for each new design.",
+          "zh": "每個新設計都需要一套專用的模具。"
+        },
+        {
+          "tag": "人資",
+          "en": "The company is looking for a dedicated project manager.",
+          "zh": "公司正在找一位專職的專案經理。"
+        },
+        {
+          "tag": "採購",
+          "en": "A dedicated server will keep our customer data secure.",
+          "zh": "專用伺服器能確保我們的客戶資料安全。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "delicate",
+          "diff": "delicate 是「精細易損的」，拼法有點像，但跟專用無關。",
+          "example": {
+            "en": "Carbon fiber parts are delicate and need careful handling during shipping.",
+            "zh": "碳纖維零件很精細，出貨時需要小心處理。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "specialized",
+          "diff": "specialized 強調專業、特殊化；dedicated 強調專門用於某一目的。",
+          "example": {
+            "en": "The factory uses specialized equipment for carbon fiber parts.",
+            "zh": "這間工廠使用專門的設備來製作碳纖維零件。"
+          }
+        },
+        {
+          "word": "devoted",
+          "diff": "devoted 帶有感情，常指人的熱忱投入；dedicated 更偏中性、專用。",
+          "example": {
+            "en": "She is devoted to improving the quality of our products.",
+            "zh": "她全心投入提升我們產品的品質。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "exclusive",
+          "pos": "adj.",
+          "zh": "專屬的",
+          "ipa": "/ɪkˈskluːsɪv/",
+          "example": {
+            "en": "Members receive exclusive access to the new product line.",
+            "zh": "會員可以獨家取得新產品系列。"
+          }
+        },
+        {
+          "w": "committed",
+          "pos": "adj.",
+          "zh": "投入的、盡責的",
+          "ipa": "/kəˈmɪtɪd/",
+          "example": {
+            "en": "Our team is committed to delivering on time.",
+            "zh": "我們的團隊致力於準時交貨。"
+          }
+        },
+        {
+          "w": "specific",
+          "pos": "adj.",
+          "zh": "特定的",
+          "ipa": "/spɪˈsɪfɪk/",
+          "example": {
+            "en": "This tool is designed for a specific type of tube.",
+            "zh": "這個工具是為特定種類的管子設計的。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "dedication",
+          "ipa": "/ˌdedɪˈkeɪʃn/",
+          "pos": "n.",
+          "zh": "奉獻、敬業精神",
+          "link": "dedicate + -ion，變成名詞，像 educate → education"
+        }
+      ],
+      "pos_uses": [
+        {
+          "w": "dedicated",
+          "pos": "adj.",
+          "ipa": "/ˈdedɪkeɪtɪd/",
+          "zh": "專用的、敬業的",
+          "in_passage": true,
+          "example": {
+            "en": "A dedicated support team answers questions around the clock.",
+            "zh": "專責的支援團隊全天候回答問題。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ˈdedɪkeɪt/",
+          "zh": "奉獻、專門用於",
+          "example": {
+            "en": "We will dedicate more resources to product testing this year.",
+            "zh": "我們今年會投入更多資源在產品測試上。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "（資源、時間）專門用於",
+          "en": "to give time or money to one purpose",
+          "in_passage": true,
+          "example": {
+            "en": "The firm will dedicate a new line to carbon fiber parts.",
+            "zh": "公司將把一條新產線專門用於碳纖維零件。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "（正式）獻給、命名紀念",
+          "en": "to officially name something to honor a person or event",
+          "distinguish": "談到典禮、建築、書籍時指獻給，談到資源與時間時指專門投入。",
+          "example": {
+            "en": "The company dedicated its new library to the founder.",
+            "zh": "公司把新圖書館獻給創辦人。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "tooling",
+      "type": "word",
+      "ipa": "/ˈtuːlɪŋ/",
+      "pos": "n.",
+      "zh": "工裝、模具與加工設備",
+      "en": "the tools and equipment used to make a product",
+      "note": "文中 custom tooling 指為特定零件量身打造的模具與加工設備；說話者強調使用現成直管，就能省下開發這些設備的成本。",
+      "grammar_note": "tooling 是不可數名詞，不加 a 或 s；說「模具費」時用 tooling cost，cost 保持單數。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "custom tooling",
+          "zh": "客製化工裝",
+          "example": {
+            "en": "Custom tooling can add months to the development schedule.",
+            "zh": "客製化工裝可能讓開發時程多出好幾個月。"
+          }
+        },
+        {
+          "phrase": "tooling cost",
+          "zh": "模具費用",
+          "example": {
+            "en": "The tooling cost for this part is around $15,000.",
+            "zh": "這個零件的模具費用大約是一萬五千美元。"
+          }
+        },
+        {
+          "phrase": "invest in tooling",
+          "zh": "投資工裝",
+          "example": {
+            "en": "We must invest in tooling before starting mass production.",
+            "zh": "我們在開始量產之前必須先投資工裝。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "The supplier quoted separately for tooling and unit prices.",
+          "zh": "供應商把工裝與單價分開報價。"
+        },
+        {
+          "tag": "會議",
+          "en": "New tooling will take about eight weeks to complete.",
+          "zh": "新工裝大約需要八週才能完成。"
+        },
+        {
+          "tag": "製造",
+          "en": "Changing the design now would require expensive new tooling.",
+          "zh": "現在更改設計會需要昂貴的新工裝。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "tool",
+          "diff": "tool 是單一工具，可數；tooling 是整套加工設備，不可數。",
+          "usage": "tool 是可數名詞（a tool、tools）；tooling 是不可數名詞，不加 s。",
+          "example": {
+            "en": "A hand tool is cheap, but tooling for mass production is expensive.",
+            "zh": "手工具很便宜，但量產用的工裝很昂貴。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "equipment",
+          "diff": "equipment 泛指各種設備；tooling 專指製造零件所需的模具與工具。",
+          "example": {
+            "en": "The factory needs new equipment to produce the carbon fiber frames.",
+            "zh": "這間工廠需要新設備來生產碳纖維車架。"
+          }
+        },
+        {
+          "phrase": "molds and dies",
+          "diff": "molds and dies 專指模具與沖模，是 tooling 的一部分。",
+          "example": {
+            "en": "The supplier will build the molds and dies within six weeks.",
+            "zh": "供應商會在六週內完成模具與沖模。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "mold",
+          "pos": "n.",
+          "zh": "模具",
+          "ipa": "/moʊld/",
+          "example": {
+            "en": "The mold must be cleaned after every production run.",
+            "zh": "每次生產之後，模具都必須清潔。"
+          }
+        },
+        {
+          "w": "die",
+          "pos": "n.",
+          "zh": "沖模、模頭",
+          "ipa": "/daɪ/",
+          "example": {
+            "en": "A worn die can cause defects in the final product.",
+            "zh": "磨損的沖模可能讓成品出現瑕疵。"
+          }
+        },
+        {
+          "w": "fixture",
+          "pos": "n.",
+          "zh": "治具、夾具",
+          "ipa": "/ˈfɪkstʃər/",
+          "example": {
+            "en": "This fixture holds the tube steady during drilling.",
+            "zh": "這個治具能在鑽孔時固定管子。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "tool",
+          "ipa": "/tuːl/",
+          "pos": "n.",
+          "zh": "工具",
+          "link": "tooling = tool + -ing，把「工具」整體變成不可數名詞"
+        },
+        {
+          "w": "toolbox",
+          "ipa": "/ˈtuːlbɑːks/",
+          "pos": "n.",
+          "zh": "工具箱",
+          "link": "tool + box，裝工具的箱子，像 lunchbox"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "off-the-shelf",
+      "type": "word",
+      "ipa": "/ˌɔːf ðə ˈʃelf/",
+      "pos": "adj.",
+      "zh": "現成的、標準規格的",
+      "en": "ready to buy and use without special changes",
+      "note": "文中 off-the-shelf tubes 指市面上現成的標準管材，不需要客製加工，所以能直接採購、降低成本。",
+      "grammar_note": "放在名詞前當形容詞時要加連字號（off-the-shelf parts）；放在 be 動詞後可寫成 off the shelf，例如 These parts are available off the shelf。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "off-the-shelf software",
+          "zh": "現成軟體",
+          "example": {
+            "en": "Off-the-shelf software is cheaper than a fully custom system.",
+            "zh": "現成軟體比完全客製的系統便宜。"
+          }
+        },
+        {
+          "phrase": "off-the-shelf solution",
+          "zh": "現成的解決方案",
+          "example": {
+            "en": "An off-the-shelf solution may not fit our special requirements.",
+            "zh": "現成的解決方案可能不符合我們的特殊需求。"
+          }
+        },
+        {
+          "phrase": "off-the-shelf parts",
+          "zh": "現成零件",
+          "example": {
+            "en": "Using off-the-shelf parts shortens the overall development schedule.",
+            "zh": "使用現成零件能縮短開發時程。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "We chose an off-the-shelf motor to keep the cost low.",
+          "zh": "我們選用現成的馬達以壓低成本。"
+        },
+        {
+          "tag": "會議",
+          "en": "Off-the-shelf products are available immediately, so delivery is fast.",
+          "zh": "現成產品可以立即取得，所以交貨很快。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please check whether an off-the-shelf option meets our needs.",
+          "zh": "請確認現成的選項是否符合我們的需求。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "on the shelf",
+          "diff": "on the shelf 是「在架上」，也可指「被擱置」，和「現成」的意思不同。",
+          "example": {
+            "en": "The project has been on the shelf since last spring.",
+            "zh": "這個專案從去年春天起就被擱置了。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "ready-made",
+          "diff": "ready-made 也是現成的，用法更口語，常指成品或現成的答案。",
+          "example": {
+            "en": "The company bought ready-made components instead of building its own.",
+            "zh": "公司買了現成的零件，而不是自己製造。"
+          }
+        },
+        {
+          "word": "standard",
+          "diff": "standard 強調規格統一、是常規款，不一定是現貨。",
+          "example": {
+            "en": "We chose a standard part to keep the price low.",
+            "zh": "我們選用標準零件以壓低價格。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "custom",
+          "pos": "adj.",
+          "zh": "客製的",
+          "ipa": "/ˈkʌstəm/",
+          "example": {
+            "en": "The client ordered a custom design for the new lobby.",
+            "zh": "客戶為新大廳訂製了專屬設計。"
+          }
+        },
+        {
+          "w": "generic",
+          "pos": "adj.",
+          "zh": "通用的、無品牌的",
+          "ipa": "/dʒəˈnerɪk/",
+          "example": {
+            "en": "A generic part is usually cheaper than a branded one.",
+            "zh": "通用零件通常比品牌零件便宜。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "source",
+      "type": "word",
+      "ipa": "/sɔːrs/",
+      "pos": "v.",
+      "zh": "採購、取得貨源",
+      "en": "to find and buy materials or products from a supplier",
+      "note": "文中 source them directly 指直接找供應商採購這些現成的碳纖維管，不必另外開發客製工裝。source 當動詞是採購與供應鏈常用字。",
+      "grammar_note": "source 當動詞時直接接受詞（source materials），向誰採購用 from（source parts from local suppliers）。",
+      "forms": [
+        {
+          "w": "sources",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "採購",
+          "ipa": "/ˈsɔːrsɪz/",
+          "example": {
+            "en": "The company sources its raw materials from three countries.",
+            "zh": "這家公司從三個國家採購原料。"
+          }
+        },
+        {
+          "w": "sourced",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "採購（過去）",
+          "ipa": "/sɔːrst/",
+          "example": {
+            "en": "We sourced all the parts from local suppliers last year.",
+            "zh": "我們去年所有零件都向本地供應商採購。"
+          }
+        },
+        {
+          "w": "sourcing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在採購",
+          "ipa": "/ˈsɔːrsɪŋ/",
+          "example": {
+            "en": "The purchasing team is sourcing a new supplier for tubes.",
+            "zh": "採購團隊正在為管材尋找新的供應商。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "source materials",
+          "zh": "採購材料",
+          "example": {
+            "en": "It is hard to source materials during the holiday season.",
+            "zh": "假期期間很難採購到材料。"
+          }
+        },
+        {
+          "phrase": "source from suppliers",
+          "zh": "向供應商採購",
+          "example": {
+            "en": "We prefer to source from suppliers close to our factory.",
+            "zh": "我們偏好向靠近工廠的供應商採購。"
+          }
+        },
+        {
+          "phrase": "source locally",
+          "zh": "在當地採購",
+          "example": {
+            "en": "The restaurant sources its ingredients locally to reduce costs.",
+            "zh": "這家餐廳在當地採購食材以降低成本。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "Can you source three hundred units by the end of May?",
+          "zh": "你能在五月底前採購到三百個嗎？"
+        },
+        {
+          "tag": "會議",
+          "en": "We will source the parts directly from the manufacturer.",
+          "zh": "我們會直接向製造商採購這些零件。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please let me know if you can source an alternative.",
+          "zh": "如果你能找到替代品，請告訴我。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "sauce",
+          "diff": "sauce 是「醬汁」，發音和 source 相近，但意思完全不同。",
+          "example": {
+            "en": "The restaurant buys its sauce from a local supplier.",
+            "zh": "這家餐廳向本地供應商購買醬汁。"
+          }
+        },
+        {
+          "word": "course",
+          "diff": "course 是「課程、路線」，發音與 source 有點像。",
+          "example": {
+            "en": "The training course starts at nine on Monday morning.",
+            "zh": "訓練課程在星期一早上九點開始。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "procure",
+          "diff": "procure 較正式，常用於公家或大型採購；source 較口語，強調找貨源。",
+          "example": {
+            "en": "The department will procure new equipment before the end of June.",
+            "zh": "該部門將在六月底前採購新設備。"
+          }
+        },
+        {
+          "word": "purchase",
+          "diff": "purchase 只是「購買」；source 還包含找到供應商的過程。",
+          "example": {
+            "en": "We plan to purchase the tubes directly from the manufacturer.",
+            "zh": "我們打算直接向製造商購買這些管子。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "supplier",
+          "pos": "n.",
+          "zh": "供應商",
+          "ipa": "/səˈplaɪər/",
+          "example": {
+            "en": "Our main supplier delivers the goods every Tuesday morning.",
+            "zh": "我們的主要供應商每週二早上送貨。"
+          }
+        },
+        {
+          "w": "vendor",
+          "pos": "n.",
+          "zh": "廠商、賣方",
+          "ipa": "/ˈvendər/",
+          "example": {
+            "en": "The vendor offered a discount for large orders.",
+            "zh": "這家廠商對大量訂單提供折扣。"
+          }
+        },
+        {
+          "w": "supply",
+          "pos": "v.",
+          "zh": "供應",
+          "ipa": "/səˈplaɪ/",
+          "example": {
+            "en": "The factory supplies parts to several car makers.",
+            "zh": "這間工廠供應零件給好幾家車廠。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "resource",
+          "ipa": "/ˈriːsɔːrs/",
+          "pos": "n.",
+          "zh": "資源",
+          "link": "re- + source，再次湧出的來源，就是可用的資源"
+        },
+        {
+          "w": "outsource",
+          "ipa": "/ˈaʊtsɔːrs/",
+          "pos": "v.",
+          "zh": "外包",
+          "link": "out + source，把工作往外找來源，交給外部公司"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/sɔːrs/",
+          "zh": "採購、取得貨源",
+          "in_passage": true,
+          "example": {
+            "en": "We source our packaging materials from a nearby supplier.",
+            "zh": "我們的包裝材料向附近的供應商採購。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/sɔːrs/",
+          "zh": "來源、出處",
+          "example": {
+            "en": "The main source of the delay was a late shipment.",
+            "zh": "延誤的主要原因是貨物晚到。"
+          }
+        }
+      ],
+      "senses": []
+    }
+  ]
+}

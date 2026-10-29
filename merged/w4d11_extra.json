@@ -1,0 +1,242 @@
+{
+  "week": 4,
+  "day": 11,
+  "extra_vocab": [
+    {
+      "text": "adhesive",
+      "type": "word",
+      "ipa": "/ədˈhiːsɪv/",
+      "pos": "n.",
+      "zh": "黏著劑、膠",
+      "en": "a substance used to stick things together",
+      "note": "本句的 two-part adhesive 指要把兩種成分混合後才能使用的黏著劑（如環氧樹脂），用來把碳纖維管黏到塑膠零件上。",
+      "grammar_note": "adhesive 當名詞時可數，指「一種黏著劑」可說 an adhesive；two-part 是形容詞，兩個字中間要加連字號。",
+      "forms": [
+        { "w": "adhesives", "label": "複數", "pos": "n.", "zh": "各種黏著劑", "ipa": "/ədˈhiːsɪvz/", "example": { "en": "Our supplier offers several adhesives for metal and plastic parts.", "zh": "我們的供應商提供數種適用於金屬與塑膠零件的黏著劑。" } }
+      ],
+      "collocations": [
+        { "phrase": "strong adhesive", "zh": "強力黏著劑", "example": { "en": "The panels were attached with a strong adhesive instead of screws.", "zh": "這些面板是用強力黏著劑固定，而不是用螺絲。" } },
+        { "phrase": "apply adhesive", "zh": "塗抹黏著劑", "example": { "en": "Apply adhesive evenly to both surfaces before pressing them together.", "zh": "壓合之前，請把黏著劑均勻塗在兩個表面上。" } },
+        { "phrase": "adhesive tape", "zh": "膠帶", "example": { "en": "Please bring adhesive tape to seal the boxes before shipping.", "zh": "出貨前請帶膠帶來封箱。" } },
+        { "phrase": "industrial adhesive", "zh": "工業用黏著劑", "example": { "en": "This industrial adhesive works well at high temperatures.", "zh": "這種工業用黏著劑在高溫下效果很好。" } }
+      ],
+      "examples": [
+        { "tag": "生產", "en": "The adhesive needs about two hours to dry completely.", "zh": "這種黏著劑需要大約兩小時才會完全乾。" },
+        { "tag": "採購", "en": "We are looking for an adhesive that is safe for children's products.", "zh": "我們在找對兒童產品安全的黏著劑。" },
+        { "tag": "品管", "en": "The test showed that the adhesive lost strength in humid conditions.", "zh": "測試顯示這種黏著劑在潮濕環境下會失去黏性。" }
+      ],
+      "confusable": [
+        { "word": "adhesion", "diff": "adhesion 是名詞「附著力、黏著」，指黏住的狀態；adhesive 是黏住用的材料。", "usage": "adhesive 是黏著劑（東西），adhesion 是附著力（性質）。", "example": { "en": "Poor adhesion between the layers caused the product to fail.", "zh": "層與層之間附著力不佳，導致產品失效。" } }
+      ],
+      "similar": [
+        { "word": "glue", "diff": "glue 較口語、日常，常指一般膠水；adhesive 較正式，多用於工業與技術文件。", "example": { "en": "Use a little glue to fix the loose label on the box.", "zh": "用一點膠水把箱子上鬆脫的標籤黏好。" } }
+      ],
+      "family": [
+        { "w": "glue", "ipa": "/ɡluː/", "pos": "n.", "zh": "膠水", "example": { "en": "The glue dried quickly, so we could ship the samples today.", "zh": "膠水乾得很快，所以我們今天就能出貨樣品。" } },
+        { "w": "sealant", "ipa": "/ˈsiːlənt/", "pos": "n.", "zh": "密封膠", "example": { "en": "Apply sealant around the edges to keep water out.", "zh": "在邊緣塗上密封膠，防止水滲入。" } }
+      ],
+      "derived": [
+        { "w": "adhere", "ipa": "/ədˈhɪr/", "pos": "v.", "zh": "黏著；遵守", "link": "adhere 是詞幹，意思是「黏附」。再加 -sive 變成「會黏的」，所以 adhesive 是黏著劑。" },
+        { "w": "adhesion", "ipa": "/ədˈhiːʒən/", "pos": "n.", "zh": "附著力", "link": "adhere 的名詞，像 decide → decision，把「黏住」變成名詞。" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ədˈhiːsɪv/", "zh": "黏著劑", "in_passage": true, "example": { "en": "Choose an adhesive that works on both carbon fiber and plastic.", "zh": "請選擇同時適用於碳纖維與塑膠的黏著劑。" } },
+        { "pos": "adj.", "ipa": "/ədˈhiːsɪv/", "zh": "有黏性的", "example": { "en": "Attach the adhesive label to the top of each package.", "zh": "把有黏性的標籤貼在每個包裹的上方。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "bond",
+      "type": "word",
+      "ipa": "/bɑːnd/",
+      "pos": "v.",
+      "zh": "黏合、接合",
+      "en": "to join two things together firmly",
+      "note": "本句 bond A to B 表示用黏著劑把碳纖維管「黏合」到塑膠零件上。這是技術文件常見的動詞用法。",
+      "grammar_note": "bond A to B 或 bond A and B 表示把 A 黏到 B；bond with 則多用在人與人之間建立情感連結。",
+      "forms": [
+        { "w": "bonds", "label": "第三人稱單數", "pos": "v.", "zh": "黏合", "ipa": "/bɑːndz/", "example": { "en": "This adhesive bonds metal to plastic in under ten minutes.", "zh": "這種黏著劑不到十分鐘就能把金屬黏到塑膠上。" } },
+        { "w": "bonded", "label": "過去式／過去分詞", "pos": "v.", "zh": "黏合了", "ipa": "/ˈbɑːndɪd/", "example": { "en": "The two layers were bonded together before the final test.", "zh": "最後測試前，這兩層已經黏合在一起。" } },
+        { "w": "bonding", "label": "現在分詞", "pos": "v.", "zh": "黏合中", "ipa": "/ˈbɑːndɪŋ/", "example": { "en": "We are bonding the new parts in the lab this week.", "zh": "我們這週在實驗室黏合這批新零件。" } }
+      ],
+      "collocations": [
+        { "phrase": "bond A to B", "zh": "把 A 黏到 B", "example": { "en": "Workers bond the metal frame to the plastic cover by hand.", "zh": "工人用手工把金屬框架黏到塑膠外殼上。" } },
+        { "phrase": "bond strongly", "zh": "黏得很牢", "example": { "en": "The new glue bonds strongly even on smooth surfaces.", "zh": "這種新膠即使在光滑表面也黏得很牢。" } },
+        { "phrase": "bond with", "zh": "與…建立關係", "example": { "en": "The retreat helped new employees bond with their teammates.", "zh": "這次研習營幫助新進員工與同事建立情誼。" } }
+      ],
+      "examples": [
+        { "tag": "生產", "en": "It takes at least a day for the parts to bond fully.", "zh": "零件至少要一天才能完全黏牢。" },
+        { "tag": "品管", "en": "We tested how well the new material bonds to carbon fiber.", "zh": "我們測試了新材料與碳纖維的黏合程度。" }
+      ],
+      "confusable": [
+        { "word": "bound", "diff": "bound 是 bind（綁）的過去式，或表示「一定會、前往」；bond 才是「黏合」。", "usage": "bound 常見於 be bound to V（一定會）與 bound for（開往）。", "example": { "en": "The shipment is bound for Rotterdam and should arrive on Friday.", "zh": "這批貨運往鹿特丹，應該週五抵達。" } }
+      ],
+      "similar": [
+        { "word": "attach", "diff": "attach 是「附上、固定」，方式不限（螺絲、夾子都可以）；bond 專指用黏合方式接合。", "example": { "en": "Please attach the handle to the frame with two screws.", "zh": "請用兩顆螺絲把把手固定到框架上。" } },
+        { "word": "glue", "diff": "glue 當動詞較口語，指用膠水黏；bond 較正式，常用於技術與工程。", "example": { "en": "Glue the label to the back of the sample box.", "zh": "把標籤黏到樣品盒的背面。" } }
+      ],
+      "family": [
+        { "w": "attach", "ipa": "/əˈtætʃ/", "pos": "v.", "zh": "附上、固定", "example": { "en": "Attach the receipt to the expense report before sending it.", "zh": "寄出前，請把收據附在費用報告上。" } },
+        { "w": "join", "ipa": "/dʒɔɪn/", "pos": "v.", "zh": "連接、加入", "example": { "en": "This tool can join two pipes without welding.", "zh": "這個工具不用焊接就能連接兩根管子。" } },
+        { "w": "fasten", "ipa": "/ˈfæsən/", "pos": "v.", "zh": "扣緊、固定", "example": { "en": "Fasten the cover securely before moving the machine.", "zh": "移動機器之前，請把蓋子固定好。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/bɑːnd/", "zh": "黏合", "in_passage": true, "example": { "en": "The glue is designed to bond wood and metal together.", "zh": "這種膠是設計來把木頭與金屬黏在一起的。" } },
+        { "pos": "n.", "ipa": "/bɑːnd/", "zh": "債券；連結、關係", "example": { "en": "The company plans to issue bonds to fund its new factory.", "zh": "公司打算發行債券來為新工廠籌資。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "黏合、接合", "en": "to join two things firmly using glue or heat", "in_passage": true, "example": { "en": "The two plastic parts bond tightly under high heat.", "zh": "這兩個塑膠零件在高溫下會緊密接合。" } },
+        { "pos": "v.", "zh": "建立情感連結", "en": "to build a close relationship with other people", "distinguish": "後面接人或團體（bond with colleagues）就是情感意思；後面接物品與 to 就是黏合。", "example": { "en": "Team events help staff bond with one another quickly.", "zh": "團隊活動能幫助員工快速建立彼此的情誼。" } }
+      ]
+    },
+    {
+      "text": "drill",
+      "type": "word",
+      "ipa": "/drɪl/",
+      "pos": "v.",
+      "zh": "鑽（孔）",
+      "en": "to make a hole in something with a special tool",
+      "note": "本句 avoid drilling holes 的意思是盡量不要在碳纖維管上鑽孔，因為鑽孔會破壞纖維、降低強度。",
+      "grammar_note": "avoid 後面要接 V-ing（avoid drilling），不接 to V；drill a hole in 後面接被鑽的物體。",
+      "forms": [
+        { "w": "drills", "label": "第三人稱單數／複數", "pos": "v.", "zh": "鑽孔", "ipa": "/drɪlz/", "example": { "en": "The machine drills ten holes in each panel automatically.", "zh": "這台機器會自動在每片面板上鑽十個孔。" } },
+        { "w": "drilled", "label": "過去式／過去分詞", "pos": "v.", "zh": "鑽了", "ipa": "/drɪld/", "example": { "en": "The technician drilled two holes in the wall for the cables.", "zh": "技術人員在牆上鑽了兩個孔來走線。" } },
+        { "w": "drilling", "label": "現在分詞", "pos": "v.", "zh": "鑽孔中", "ipa": "/ˈdrɪlɪŋ/", "example": { "en": "They are drilling the final holes before the frame is painted.", "zh": "框架上漆之前，他們正在鑽最後幾個孔。" } }
+      ],
+      "collocations": [
+        { "phrase": "drill a hole", "zh": "鑽一個孔", "example": { "en": "You must drill a hole here before installing the bracket.", "zh": "安裝支架之前，你必須在這裡鑽一個孔。" } },
+        { "phrase": "drill into", "zh": "鑽入…", "example": { "en": "Do not drill into the pipe behind this wall.", "zh": "不要鑽到這面牆後面的管線。" } },
+        { "phrase": "power drill", "zh": "電鑽", "example": { "en": "Please bring a power drill to the installation site.", "zh": "請把電鑽帶到安裝現場。" } },
+        { "phrase": "fire drill", "zh": "消防演習", "example": { "en": "All employees must take part in the fire drill on Friday.", "zh": "所有員工都必須參加週五的消防演習。" } }
+      ],
+      "examples": [
+        { "tag": "生產", "en": "We drill the holes after the frame is fully assembled.", "zh": "我們在框架完全組裝好之後才鑽孔。" },
+        { "tag": "安裝", "en": "It is easy to drill through plastic but harder through carbon fiber.", "zh": "塑膠很容易鑽穿，但碳纖維就比較難。" },
+        { "tag": "訓練", "en": "The manager drilled the new staff on safety rules all week.", "zh": "經理整個星期反覆訓練新進員工安全規定。" }
+      ],
+      "confusable": [
+        { "word": "drive", "diff": "drive 是「駕駛、驅動、打入」，drill 是「用鑽頭鑽孔」，兩者動作不同。", "usage": "drive a screw 是把螺絲旋進去，drill a hole 是先鑽出孔。", "example": { "en": "Drive the screws into the holes after they are drilled.", "zh": "孔鑽好之後，再把螺絲旋入孔中。" } }
+      ],
+      "family": [
+        { "w": "tool", "ipa": "/tuːl/", "pos": "n.", "zh": "工具", "example": { "en": "Each technician must return the tools to the cabinet after work.", "zh": "每位技術人員下班後都必須把工具放回櫃子。" } },
+        { "w": "machine", "ipa": "/məˈʃiːn/", "pos": "n.", "zh": "機器", "example": { "en": "The new machine can cut and drill parts at the same time.", "zh": "這台新機器可以同時切割與鑽孔。" } }
+      ],
+      "derived": [
+        { "w": "driller", "ipa": "/ˈdrɪlər/", "pos": "n.", "zh": "鑽孔的人／鑽井工人", "link": "drill + -er，做這件事的人，像 worker、manager。" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/drɪl/", "zh": "鑽孔", "in_passage": true, "example": { "en": "Do not drill too close to the edge of the board.", "zh": "不要在太靠近板子邊緣的地方鑽孔。" } },
+        { "pos": "n.", "ipa": "/drɪl/", "zh": "電鑽；演習、訓練", "example": { "en": "The drill is on the shelf next to the toolbox.", "zh": "電鑽放在工具箱旁邊的架子上。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "鑽孔", "en": "to make a hole with a tool that turns", "in_passage": true, "example": { "en": "The workers drill holes in the steel plates every morning.", "zh": "工人每天早上都在鋼板上鑽孔。" } },
+        { "pos": "v.", "zh": "反覆訓練", "en": "to teach someone by making them repeat something many times", "distinguish": "後面接人加 on／in 某技能（drill staff on safety）就是訓練；接 holes 或物體就是鑽孔。", "example": { "en": "The coach drilled the sales team on the new pricing rules.", "zh": "教練反覆訓練業務團隊熟悉新的定價規則。" } }
+      ]
+    },
+    {
+      "text": "weaken",
+      "type": "word",
+      "ipa": "/ˈwiːkən/",
+      "pos": "v.",
+      "zh": "削弱、使變弱",
+      "en": "to make something less strong",
+      "note": "本句用 this could weaken the tubes，說明在管子上鑽孔會降低它的強度，所以要盡量避免。could 表示「有可能」。",
+      "grammar_note": "weaken 可作及物動詞（weaken the tubes）也可作不及物動詞（Demand weakened）；它本身已有「變弱」的意思，不需要再加 more。",
+      "forms": [
+        { "w": "weakens", "label": "第三人稱單數", "pos": "v.", "zh": "削弱", "ipa": "/ˈwiːkənz/", "example": { "en": "Frequent bending weakens the cable over time.", "zh": "經常彎折會讓電纜隨時間變弱。" } },
+        { "w": "weakened", "label": "過去式／過去分詞", "pos": "v.", "zh": "削弱了", "ipa": "/ˈwiːkənd/", "example": { "en": "The heavy rain weakened the old storage building.", "zh": "大雨使這棟老舊倉庫變得不牢固。" } },
+        { "w": "weakening", "label": "現在分詞", "pos": "v.", "zh": "削弱中", "ipa": "/ˈwiːkənɪŋ/", "example": { "en": "A weakening economy is reducing demand for our products.", "zh": "走弱的經濟正在減少市場對我們產品的需求。" } }
+      ],
+      "collocations": [
+        { "phrase": "weaken the structure", "zh": "削弱結構強度", "example": { "en": "Cutting the beam could weaken the structure of the whole frame.", "zh": "切割這根橫樑可能會削弱整個框架的結構強度。" } },
+        { "phrase": "weaken demand", "zh": "使需求減弱", "example": { "en": "Higher prices may weaken demand for our entry-level models.", "zh": "價格調漲可能會使入門款的需求減弱。" } },
+        { "phrase": "weaken a position", "zh": "削弱立場／地位", "example": { "en": "Late deliveries could weaken our position in the negotiation.", "zh": "延遲交貨可能會削弱我們在談判中的地位。" } }
+      ],
+      "examples": [
+        { "tag": "生產", "en": "Too much heat can weaken the plastic and cause cracks.", "zh": "過多的熱會使塑膠變弱並造成裂痕。" },
+        { "tag": "市場", "en": "The strong dollar has weakened our export sales this quarter.", "zh": "強勢美元使我們本季的出口銷售變弱。" }
+      ],
+      "confusable": [
+        { "word": "weekend", "diff": "發音相近（/ˈwiːkɛnd/），但 weekend 是名詞「週末」，weaken 是動詞「削弱」。", "example": { "en": "We will test the new design over the weekend.", "zh": "我們會在週末測試新設計。" } }
+      ],
+      "similar": [
+        { "word": "undermine", "diff": "undermine 多指暗中損害信心、基礎或計畫，語氣較強；weaken 是一般的「變弱」。", "example": { "en": "Frequent delays can undermine customers' trust in our company.", "zh": "頻繁延誤可能會損害客戶對公司的信任。" } },
+        { "word": "reduce", "diff": "reduce 是「減少」數量或程度；weaken 強調力量、強度變弱。", "example": { "en": "We want to reduce the weight of the frame by ten percent.", "zh": "我們想把框架減輕百分之十的重量。" } }
+      ],
+      "family": [
+        { "w": "damage", "ipa": "/ˈdæmɪdʒ/", "pos": "v.", "zh": "損壞", "example": { "en": "Rough handling may damage the tubes during shipping.", "zh": "粗魯搬運可能會在運送途中損壞管子。" } },
+        { "w": "reduce", "ipa": "/rɪˈduːs/", "pos": "v.", "zh": "減少", "example": { "en": "New packaging will reduce the risk of broken parts.", "zh": "新包裝會降低零件破損的風險。" } }
+      ],
+      "derived": [
+        { "w": "weak", "ipa": "/wiːk/", "pos": "adj.", "zh": "弱的", "link": "weak 是詞幹；加 -en 表示「使變得…」，像 strengthen、shorten、widen。" },
+        { "w": "weakness", "ipa": "/ˈwiːknəs/", "pos": "n.", "zh": "弱點", "link": "weak + -ness，把形容詞變成名詞，像 kindness、business。" },
+        { "w": "weakly", "ipa": "/ˈwiːkli/", "pos": "adv.", "zh": "虛弱地、無力地", "link": "weak + -ly，變成副詞，像 quickly、slowly。" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "structural",
+      "type": "word",
+      "ipa": "/ˈstrʌktʃərəl/",
+      "pos": "adj.",
+      "zh": "結構的、結構上的",
+      "en": "related to how something is built or put together",
+      "note": "structural strength 指零件或整體「結構強度」，在產品開發與工程對話中很常見。這裡強調鑽孔會影響管子的承重能力。",
+      "grammar_note": "structural 是形容詞，只能放在名詞前（structural strength）；要修飾動詞時用副詞 structurally。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "structural strength", "zh": "結構強度", "example": { "en": "The tests confirmed the structural strength of the new frame.", "zh": "測試確認了新框架的結構強度。" } },
+        { "phrase": "structural integrity", "zh": "結構完整性", "example": { "en": "Any crack could damage the structural integrity of the bridge.", "zh": "任何裂縫都可能破壞橋梁的結構完整性。" } },
+        { "phrase": "structural change", "zh": "結構性改變", "example": { "en": "The merger will lead to major structural changes in the company.", "zh": "這次合併會讓公司產生重大的結構性改變。" } },
+        { "phrase": "structural engineer", "zh": "結構工程師", "example": { "en": "A structural engineer will inspect the building next week.", "zh": "結構工程師下週會檢查這棟建築。" } }
+      ],
+      "examples": [
+        { "tag": "工程", "en": "The design team found a structural problem in the first prototype.", "zh": "設計團隊在第一個原型中發現了結構問題。" },
+        { "tag": "會議", "en": "We need to review the structural requirements before choosing materials.", "zh": "選擇材料之前，我們需要檢視結構上的要求。" },
+        { "tag": "管理", "en": "The company announced structural reforms to cut costs.", "zh": "公司宣布了結構性改革以降低成本。" }
+      ],
+      "confusable": [
+        { "word": "structured", "diff": "structured 是「有條理、有組織的」，常形容計畫、訓練；structural 是「結構上的」，指物體或系統的構造。", "usage": "structured 是 structure 的過去分詞形容詞，structural 則用 -al 表示「與結構有關」。", "example": { "en": "The company offers a structured training program for new hires.", "zh": "公司為新進員工提供一套有組織的訓練計畫。" } },
+        { "word": "constructive", "diff": "拼法有些相似，但 constructive 是「有建設性的」，常形容意見或批評。", "example": { "en": "Thank you for your constructive feedback on our proposal.", "zh": "謝謝你對我們提案給的建設性意見。" } }
+      ],
+      "family": [
+        { "w": "framework", "ipa": "/ˈfreɪmwɜːrk/", "pos": "n.", "zh": "架構、框架", "example": { "en": "The contract sets out a clear framework for cooperation.", "zh": "合約訂出了清楚的合作架構。" } }
+      ],
+      "derived": [
+        { "w": "structure", "ipa": "/ˈstrʌktʃər/", "pos": "n.", "zh": "結構、構造", "link": "structure 是詞幹；加 -al 變成形容詞「結構上的」，像 national、personal。" },
+        { "w": "structured", "ipa": "/ˈstrʌktʃərd/", "pos": "adj.", "zh": "有組織的、有結構的", "link": "structure + -d，被安排出結構的，像 organized。" },
+        { "w": "structurally", "ipa": "/ˈstrʌktʃərəli/", "pos": "adv.", "zh": "結構上地", "link": "structural + -ly，變成副詞，像 financially、technically。" },
+        { "w": "restructure", "ipa": "/riːˈstrʌktʃər/", "pos": "v.", "zh": "重組、調整架構", "link": "re- 是「重新」，像 rebuild、redesign。" },
+        { "w": "unstructured", "ipa": "/ʌnˈstrʌktʃərd/", "pos": "adj.", "zh": "無結構的、不固定的", "link": "un- 是「不」，像 unable、unclear。" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "mass production",
+      "type": "phrase",
+      "zh": "大量生產、量產",
+      "en": "making a very large number of the same product, usually in a factory",
+      "note": "For mass production 說明「進入量產階段時」的計畫。對照前面的 prototypes（原型），這裡指產品從樣品走向工廠大量製造，是新產品開發會議常見的說法。",
+      "pattern": "N + be ready for / go into mass production",
+      "grammar_note": "mass production 是不可數名詞，前面不加 a，也不加 s；動詞是 mass-produce，形容詞是 mass-produced，兩者都要加連字號。",
+      "examples": [
+        { "tag": "會議", "en": "The new model will go into mass production next spring.", "zh": "新型號將在明年春天進入量產。" },
+        { "tag": "電子郵件", "en": "Please confirm the final design before we begin mass production.", "zh": "在我們開始量產之前，請確認最終設計。" },
+        { "tag": "採購", "en": "The supplier must be able to support mass production by June.", "zh": "供應商必須能在六月前支援量產。" },
+        { "tag": "品管", "en": "Quality problems often appear only after mass production starts.", "zh": "品質問題常常在量產開始之後才出現。" }
+      ],
+      "similar": [
+        { "phrase": "large-scale production", "diff": "意思相近，強調「規模大」；mass production 更強調標準化、重複大量製造。", "example": { "en": "Large-scale production will require a bigger factory and more workers.", "zh": "大規模生產需要更大的工廠與更多工人。" } },
+        { "phrase": "volume production", "diff": "較偏工廠與供應鏈用語，指達到一定數量的生產，語氣比 mass production 更中性。", "example": { "en": "Volume production is scheduled to start in the third quarter.", "zh": "量產預定在第三季開始。" } },
+        { "phrase": "batch production", "diff": "指一批一批地生產，數量比量產少，可隨時更換產品；mass production 則是持續大量製造同一種產品。", "example": { "en": "We use batch production for custom orders with different colors.", "zh": "我們用分批生產來處理不同顏色的客製訂單。" } }
+      ],
+      "confusable": [
+        { "phrase": "mass-produced", "diff": "是形容詞「大量生產的」，用來修飾產品，不是名詞；要加連字號。", "usage": "mass production 是名詞片語（before mass production），mass-produced 放在名詞前或 be 動詞後（a mass-produced item）。", "example": { "en": "Mass-produced items are usually cheaper than handmade ones.", "zh": "大量生產的商品通常比手工製品便宜。" } },
+        { "phrase": "mass market", "diff": "mass market 是「大眾市場」，指賣給大量一般消費者的市場；mass production 是生產方式。", "example": { "en": "We plan to sell this product in the mass market.", "zh": "我們打算在大眾市場銷售這項產品。" } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "week": 3,
+  "day": 9,
+  "extra_vocab": [
+    {
+      "text": "neatly",
+      "type": "word",
+      "ipa": "/ˈniːtli/",
+      "pos": "adv.",
+      "zh": "整齊地、剛好地、貼合地",
+      "en": "in a tidy way, or in a way that fits well",
+      "note": "fits neatly with the seat 表示迷你底座和汽座「剛好貼合、不突兀」地結合在一起，強調外觀簡潔、設計精巧。",
+      "grammar_note": "neatly 是副詞，放在動詞後面修飾動作（fits neatly），不要和形容詞 neat 混用：The base is neat（形容詞），The base fits neatly（副詞）。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "fit neatly", "zh": "剛好貼合", "example": { "en": "The new printer fits neatly under the office desk.", "zh": "新印表機剛好放得進辦公桌下面。" } },
+        { "phrase": "neatly arranged", "zh": "排列整齊的", "example": { "en": "The samples were neatly arranged on the display table.", "zh": "樣品整齊地擺放在展示桌上。" } },
+        { "phrase": "neatly packed", "zh": "整齊包裝的", "example": { "en": "Each item is neatly packed in a small gift box.", "zh": "每件商品都整齊地裝在一個小禮盒裡。" } },
+        { "phrase": "neatly dressed", "zh": "穿著整潔的", "example": { "en": "All the sales staff were neatly dressed for the trade show.", "zh": "所有業務人員都穿著整齊參加展覽。" } }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "The documents were neatly filed in the blue folder.", "zh": "文件整齊地歸檔在藍色資料夾裡。" },
+        { "tag": "產品", "en": "The two parts connect neatly without any extra tools.", "zh": "這兩個零件不用額外工具就能順利接合。" },
+        { "tag": "倉庫", "en": "Please stack the boxes neatly along the wall.", "zh": "請把箱子整齊地沿著牆邊堆好。" }
+      ],
+      "confusable": [
+        { "word": "nearly", "diff": "拼法相近，但 nearly 是「幾乎」，修飾數量或程度；neatly 是「整齊地」。", "example": { "en": "We have nearly finished the design for the new model.", "zh": "我們幾乎完成了新型號的設計。" } },
+        { "word": "nicely", "diff": "nicely 是「很好地、順利地」，範圍較廣；neatly 強調整齊、貼合。", "example": { "en": "The project is going nicely and should finish on time.", "zh": "專案進行得很順利，應該能準時完成。" } }
+      ],
+      "similar": [
+        { "word": "tidily", "diff": "tidily 強調「整潔有條理」，多用於收納、擺放；neatly 還可表示剛好貼合。", "example": { "en": "The tools were tidily put away after the repair.", "zh": "維修完畢後，工具都整齊收好了。" } },
+        { "word": "perfectly", "diff": "perfectly 是「完全地、完美地」，語氣更強；neatly 偏向俐落、剛好。", "example": { "en": "The cover fits perfectly on the new base.", "zh": "這個蓋子完全貼合新底座。" } }
+      ],
+      "family": [
+        { "w": "tidy", "ipa": "/ˈtaɪdi/", "pos": "adj.", "zh": "整潔的", "example": { "en": "Please keep your desk tidy before the client visit.", "zh": "客戶來訪前，請保持你的桌面整潔。" } },
+        { "w": "organized", "ipa": "/ˈɔːrɡənaɪzd/", "pos": "adj.", "zh": "有條理的", "example": { "en": "She is very organized and always finishes work early.", "zh": "她很有條理，總是提早完成工作。" } }
+      ],
+      "derived": [
+        { "w": "neat", "ipa": "/niːt/", "pos": "adj.", "zh": "整齊的、俐落的", "link": "neat 是詞幹；加 -ly 變成副詞，像 quick → quickly。" },
+        { "w": "neatness", "ipa": "/ˈniːtnəs/", "pos": "n.", "zh": "整齊、整潔", "link": "neat + -ness，把形容詞變名詞，像 kindness、business。" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adv.", "zh": "剛好地、貼合地", "en": "in a way that fits well and looks clean", "in_passage": true, "example": { "en": "The cables fit neatly inside the small plastic case.", "zh": "電線剛好收進小塑膠盒裡。" } },
+        { "pos": "adv.", "zh": "整齊地", "en": "in a clean and tidy way", "distinguish": "和 arranged、packed、written 等動詞搭配時，多半是「整齊」的意思。", "example": { "en": "The report was neatly written and easy to read.", "zh": "這份報告寫得很工整，容易閱讀。" } }
+      ]
+    }
+  ]
+}
