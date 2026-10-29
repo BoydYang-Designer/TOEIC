@@ -1,0 +1,164 @@
+{
+  "week": 4,
+  "day": 9,
+  "tag": "2.Unfolding",
+  "project": "Super Lite — Carbon Compact Stroller",
+  "type": "Listening",
+  "level": {
+    "score": 700,
+    "range": "650-750",
+    "cefr": "B2",
+    "why": "口說簡報，句子較長且含 which 子句與 instead of、to 不定詞等結構；字彙如 hidden folding lock、integrated the locking mechanism 偏產品設計用語，需要理解操作步驟的前後關係。"
+  },
+  "passage": "To unfold the stroller, you need to press the folding button on the handlebar and another button on the side of the joint.\n\nThis second button releases our hidden folding lock, which automatically locks the stroller when folded.\n\nInstead of adding a separate carry hook, we integrated the locking mechanism into the joint to keep the frame design cleaner and simpler.",
+  "zh": "若要展開推車，您需要按下手把上的折疊按鈕，以及接頭側邊的另一個按鈕。\n\n第二個按鈕會解除我們隱藏式的折疊鎖，這個鎖會在推車折疊時自動將推車鎖定。\n\n我們沒有另外加裝獨立的手提掛鉤，而是將鎖定機構整合到接頭中，讓車架設計更簡潔俐落。",
+  "vocab": [
+    {
+      "word": "unfold",
+      "ipa": "/ʌnˈfoʊld/",
+      "pos": "v.",
+      "col": "unfold a stroller / unfold the map",
+      "zh": "展開、打開"
+    },
+    {
+      "word": "joint",
+      "ipa": "/dʒɔɪnt/",
+      "pos": "n.",
+      "col": "frame joint / connect at the joint",
+      "zh": "接頭、關節處"
+    },
+    {
+      "word": "hidden",
+      "ipa": "/ˈhɪdn/",
+      "pos": "adj.",
+      "col": "hidden feature / hidden cost",
+      "zh": "隱藏的、不外露的"
+    },
+    {
+      "word": "automatically",
+      "ipa": "/ˌɔːtəˈmætɪkli/",
+      "pos": "adv.",
+      "col": "automatically lock / automatically update",
+      "zh": "自動地"
+    },
+    {
+      "word": "carry hook",
+      "ipa": "/ˈkæri hʊk/",
+      "pos": "n.",
+      "col": "attach a carry hook / carry hook design",
+      "zh": "手提掛鉤"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "What must a user do to unfold the stroller?",
+      "opts": [
+        "Press only the folding button on the handlebar",
+        "Pull the carry hook upward",
+        "Press the handlebar button and a button on the side of the joint",
+        "Remove the hidden folding lock"
+      ],
+      "ans": 2,
+      "why": [
+        "只按手把上的按鈕不夠，還需要按接頭側邊的另一個按鈕。",
+        "文中提到的是沒有另外加裝手提掛鉤，並未用它來展開推車。",
+        "正解：講者說要同時按下手把上的折疊按鈕與接頭側邊的另一個按鈕。",
+        "第二個按鈕是用來解除隱藏式折疊鎖，並不是要把鎖拆掉。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "Why did the company integrate the locking mechanism into the joint?",
+      "opts": [
+        "To add a separate carry hook",
+        "To reduce the price of the stroller",
+        "To make the stroller lighter",
+        "To keep the frame design cleaner and simpler"
+      ],
+      "ans": 3,
+      "why": [
+        "文中說的是不另外加裝手提掛鉤，而不是新增。",
+        "文中完全沒有提到價格。",
+        "這段文字沒有說明整合鎖定機構與重量的關係。",
+        "正解：講者說將鎖定機構整合到接頭中，是為了讓車架設計更簡潔。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The folding lock engages ______ when the stroller is folded, so no extra step is needed.",
+      "opts": [
+        "automatically",
+        "automatic",
+        "automate",
+        "automation"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：此處需要副詞修飾動詞 engages，automatically 表示「自動地」。",
+        "automatic 是形容詞，不能修飾動詞。",
+        "automate 是動詞，不能放在這個位置。",
+        "automation 是名詞，無法修飾動詞 engages。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Parents should make sure the lock is fully ______ before lifting the stroller.",
+      "opts": [
+        "engage",
+        "engaged",
+        "engaging",
+        "engagement"
+      ],
+      "ans": 1,
+      "why": [
+        "engage 是原形動詞，不能放在 is fully 之後作被動結構。",
+        "正解：is fully engaged 為被動結構，表示鎖「已被完全扣上」。",
+        "engaging 作形容詞表示「吸引人的」，語意不符。",
+        "engagement 是名詞，不符合 is fully 後的語法。"
+      ]
+    }
+  ],
+  "presentation_phrases": [
+    {
+      "phrase": "To ..., you need to ...",
+      "meaning": "若要……，您需要……",
+      "usage": "說明操作某項功能的必要步驟"
+    },
+    {
+      "phrase": "Let me demonstrate how it works.",
+      "meaning": "讓我示範它如何運作。",
+      "usage": "由說明轉入實際操作示範"
+    },
+    {
+      "phrase": "This button releases ...",
+      "meaning": "這個按鈕會解除……",
+      "usage": "說明按鈕或零件的功能"
+    },
+    {
+      "phrase": "..., which automatically ...",
+      "meaning": "……，它會自動……",
+      "usage": "補充說明某項功能的自動化特性"
+    },
+    {
+      "phrase": "Instead of adding ..., we integrated ... into ...",
+      "meaning": "我們沒有另外加裝……，而是將……整合到……",
+      "usage": "說明設計上的取捨與整合"
+    },
+    {
+      "phrase": "..., to keep the design cleaner and simpler.",
+      "meaning": "……，讓設計更簡潔。",
+      "usage": "說明設計決策的目的"
+    },
+    {
+      "phrase": "Please note that ...",
+      "meaning": "請注意……",
+      "usage": "提醒聽眾重要的使用細節"
+    },
+    {
+      "phrase": "Do you have any questions so far?",
+      "meaning": "到目前為止，大家有任何問題嗎？",
+      "usage": "簡報中途或結尾邀請提問"
+    }
+  ]
+}

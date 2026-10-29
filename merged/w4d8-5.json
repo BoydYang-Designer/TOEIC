@@ -1,0 +1,205 @@
+{
+  "week": 4,
+  "day": 12,
+  "tag": "Q&A-2.",
+  "project": "Super Lite — Carbon Compact Stroller",
+  "type": "Listening",
+  "level": {
+    "score": 750,
+    "range": "700-800",
+    "cefr": "B2",
+    "why": "口說問答，句子較長且含 because 子句、including 分詞構句與 would 假設語氣；內容涵蓋結構要求、製造流程與工裝，字彙偏製造專業用語，需整合多處細節。"
+  },
+  "passage": "Can you also use carbon fiber tubes for the handlebar and the front bumper bar?\n\nFor the handlebar, we're currently using conventional aluminum tubes.\n\nThe handlebar needs to accommodate several mechanisms, including the one-hand operating controls mounted on the upper handlebar tube. Using carbon fiber here would make the structural design and manufacturing more challenging.\n\nFor the front bumper bar, switching to carbon fiber is a possibility because it doesn't have the same structural requirements as the main frame.\n\nHowever, our current bumper bar is made from bent aluminum tubing. To make it from carbon fiber, we'd need a different manufacturing process and probably a dedicated mold or tooling.\n\nThe carbon fiber tubes used in the current prototype are straight, off-the-shelf tubes, so we can source them directly without developing custom tooling.\n\nSo, it's technically possible, but we'd need to evaluate the cost and manufacturing feasibility before making a decision.",
+  "zh": "手把和前方防護扶手也能使用碳纖維管嗎？\n\n手把的部分，我們目前使用的是傳統鋁管。\n\n手把需要容納數個機構，包括安裝在上方手把管上的單手操作控制裝置。在這裡使用碳纖維會讓結構設計與製造變得更具挑戰性。\n\n至於前方防護扶手，改用碳纖維是有可能的，因為它不像主車架那樣有相同的結構要求。\n\n不過，我們目前的防護扶手是以彎折的鋁管製成。若要改用碳纖維製作，我們需要不同的製造流程，而且很可能需要專用的模具或工裝。\n\n目前原型機使用的碳纖維管是直管、現成品，所以我們可以直接採購，不需要開發客製化工裝。\n\n所以，技術上是可行的，但在做出決定之前，我們需要先評估成本與製造可行性。",
+  "vocab": [
+    {
+      "word": "conventional",
+      "ipa": "/kənˈvenʃənl/",
+      "pos": "adj.",
+      "col": "conventional method / conventional design",
+      "zh": "傳統的、慣用的"
+    },
+    {
+      "word": "mounted",
+      "ipa": "/ˈmaʊntɪd/",
+      "pos": "adj.",
+      "col": "wall-mounted / mounted on",
+      "zh": "安裝在……上的"
+    },
+    {
+      "word": "dedicated",
+      "ipa": "/ˈdedɪkeɪtɪd/",
+      "pos": "adj.",
+      "col": "dedicated team / dedicated equipment",
+      "zh": "專用的、專門的"
+    },
+    {
+      "word": "tooling",
+      "ipa": "/ˈtuːlɪŋ/",
+      "pos": "n.",
+      "col": "custom tooling / tooling cost",
+      "zh": "工裝、模具與加工設備"
+    },
+    {
+      "word": "off-the-shelf",
+      "ipa": "/ˌɔːf ðə ˈʃelf/",
+      "pos": "adj.",
+      "col": "off-the-shelf product / off-the-shelf part",
+      "zh": "現成的、標準品的"
+    },
+    {
+      "word": "source",
+      "ipa": "/sɔːrs/",
+      "pos": "v.",
+      "col": "source materials / source from suppliers",
+      "zh": "採購、尋找貨源"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "Why would using carbon fiber for the handlebar be challenging?",
+      "opts": [
+        "The tubes are not strong enough",
+        "Carbon fiber tubes are not sold in the right length",
+        "The handlebar must accommodate several mechanisms",
+        "Customers prefer aluminum handlebars"
+      ],
+      "ans": 2,
+      "why": [
+        "文中沒有說碳纖維強度不足。",
+        "文中說的原型機用管是現成的直管，並沒有說長度不合。",
+        "正解：講者說手把需要容納數個機構，包括單手操作控制裝置，使用碳纖維會讓結構設計與製造更具挑戰性。",
+        "文中沒有提到客戶偏好。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "Why is switching the front bumper bar to carbon fiber possible?",
+      "opts": [
+        "It does not have the same structural requirements as the main frame",
+        "It is already made from carbon fiber",
+        "It is currently made from straight tubes",
+        "It costs less than aluminum"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：講者說前方防護扶手不像主車架那樣有相同的結構要求，所以改用碳纖維是有可能的。",
+        "文中說目前的防護扶手是以彎折的鋁管製成。",
+        "直管是原型機所用的碳纖維管，並不是目前的防護扶手。",
+        "文中說還需要評估成本，沒有說比鋁便宜。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "What would be needed to make the bumper bar from carbon fiber?",
+      "opts": [
+        "A thicker aluminum tube",
+        "A new supplier of straight tubes",
+        "A heavier main frame",
+        "A different process and probably a dedicated mold or tooling"
+      ],
+      "ans": 3,
+      "why": [
+        "文中沒有提到要用更粗的鋁管。",
+        "直管是現成品，可以直接採購，與防護扶手的製作需求無關。",
+        "文中沒有提到要讓主車架更重。",
+        "正解：講者說需要不同的製造流程，而且很可能需要專用模具或工裝。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Before approving new tooling, the manager asked the team to ______ the cost.",
+      "opts": [
+        "estimation",
+        "estimate",
+        "estimated",
+        "estimating"
+      ],
+      "ans": 1,
+      "why": [
+        "estimation 是名詞，不能放在 to 之後作動詞。",
+        "正解：to 後面需接原形動詞，estimate 表示「估算」。",
+        "estimated 是過去式或過去分詞，不能接在 to 之後。",
+        "estimating 是動名詞，不能接在不定詞 to 之後。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Please ask the supplier to send a ______ quotation for the custom parts.",
+      "opts": [
+        "detail",
+        "details",
+        "detailed",
+        "detailing"
+      ],
+      "ans": 2,
+      "why": [
+        "detail 是名詞，不能直接修飾 quotation。",
+        "details 是複數名詞，無法放在冠詞 a 與 quotation 之間作修飾。",
+        "正解：此處需要形容詞修飾名詞 quotation，detailed 表示「詳細的」。",
+        "detailing 是動名詞或現在分詞，語意不符。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "The production line can only start ______ the mold has been approved.",
+      "opts": [
+        "once",
+        "during",
+        "despite",
+        "although"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：once 作連接詞，表示「一旦」，連接子句 the mold has been approved。",
+        "during 是介系詞，後面不能接完整子句。",
+        "despite 是介系詞，後面不能接完整子句，語意也不符。",
+        "although 表示讓步，語意不符。"
+      ]
+    }
+  ],
+  "presentation_phrases": [
+    {
+      "phrase": "Can you also use ... for ...?",
+      "meaning": "你們也能把……用在……嗎？",
+      "usage": "聽眾詢問材料或設計是否可延伸應用"
+    },
+    {
+      "phrase": "For ..., we're currently using ...",
+      "meaning": "關於……，我們目前使用的是……",
+      "usage": "說明現階段採用的材料或做法"
+    },
+    {
+      "phrase": "... needs to accommodate ...",
+      "meaning": "……需要容納／配合……",
+      "usage": "說明設計上的限制條件"
+    },
+    {
+      "phrase": "Switching to ... is a possibility because ...",
+      "meaning": "改用……是有可能的，因為……",
+      "usage": "說明替代方案的可行性與理由"
+    },
+    {
+      "phrase": "We'd need a different ... and probably a dedicated ...",
+      "meaning": "我們需要不同的……，而且很可能需要專用的……",
+      "usage": "說明改變所需的條件"
+    },
+    {
+      "phrase": "So, it's technically possible, but ...",
+      "meaning": "所以，技術上是可行的，但……",
+      "usage": "先肯定可能性再提出但書"
+    },
+    {
+      "phrase": "We'd need to evaluate the cost before making a decision.",
+      "meaning": "在做出決定之前，我們需要先評估成本。",
+      "usage": "說明決策前需要完成的評估"
+    },
+    {
+      "phrase": "Does that answer your question?",
+      "meaning": "這樣有回答到您的問題嗎？",
+      "usage": "回答後確認聽眾是否滿意"
+    }
+  ]
+}

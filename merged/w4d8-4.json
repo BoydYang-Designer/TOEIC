@@ -1,0 +1,171 @@
+{
+  "week": 4,
+  "day": 11,
+  "tag": "Customer Q&A-1.connect the carbon fiber tubes",
+  "project": "Super Lite — Carbon Compact Stroller",
+  "type": "Listening",
+  "level": {
+    "score": 750,
+    "range": "700-800",
+    "cefr": "B2",
+    "why": "口說問答，含 because 子句、as much as possible、we'll still need to validate 等結構；字彙如 adhesive、structural strength、long-term durability 偏製造與材料專業用語。"
+  },
+  "passage": "How do you connect the carbon fiber tubes to the plastic parts?\nCurrently, we're using a two-part adhesive to bond the carbon fiber tubes to the plastic parts in our prototypes.\n\nWe also try to avoid drilling holes in the carbon fiber tubes as much as possible, because this could weaken the tubes and affect their structural strength.\n\nFor mass production, we're planning to follow the same general approach, but we'll still need to validate the bonding strength and long-term durability.",
+  "zh": "你們是如何把碳纖維管連接到塑膠零件上的？\n目前，我們在原型機中使用雙液型黏著劑，將碳纖維管與塑膠零件黏合在一起。\n\n我們也盡可能避免在碳纖維管上鑽孔，因為這可能會削弱管材，並影響其結構強度。\n\n進入量產階段時，我們計畫沿用相同的大致做法，但仍需要驗證黏合強度與長期耐用性。",
+  "vocab": [
+    {
+      "word": "adhesive",
+      "ipa": "/ədˈhiːsɪv/",
+      "pos": "n.",
+      "col": "strong adhesive / apply adhesive",
+      "zh": "黏著劑、膠"
+    },
+    {
+      "word": "bond",
+      "ipa": "/bɑːnd/",
+      "pos": "v.",
+      "col": "bond the parts / bond firmly",
+      "zh": "黏合、接合"
+    },
+    {
+      "word": "drill",
+      "ipa": "/drɪl/",
+      "pos": "v.",
+      "col": "drill a hole / drill through",
+      "zh": "鑽（孔）"
+    },
+    {
+      "word": "weaken",
+      "ipa": "/ˈwiːkən/",
+      "pos": "v.",
+      "col": "weaken the structure / weaken over time",
+      "zh": "削弱、使變弱"
+    },
+    {
+      "word": "structural",
+      "ipa": "/ˈstrʌktʃərəl/",
+      "pos": "adj.",
+      "col": "structural strength / structural damage",
+      "zh": "結構上的"
+    },
+    {
+      "word": "mass production",
+      "ipa": "/mæs prəˈdʌkʃn/",
+      "pos": "phr.",
+      "col": "begin mass production / ready for mass production",
+      "zh": "量產"
+    }
+  ],
+  "questions": [
+    {
+      "kind": "context",
+      "q": "How are the carbon fiber tubes currently attached to the plastic parts in the prototypes?",
+      "opts": [
+        "With metal screws",
+        "With bolts through drilled holes",
+        "With a two-part adhesive",
+        "With heat welding"
+      ],
+      "ans": 2,
+      "why": [
+        "文中沒有提到使用金屬螺絲。",
+        "文中說盡量避免在管材上鑽孔，所以不是用鑽孔搭配螺栓固定。",
+        "正解：講者說目前原型機使用雙液型黏著劑，將碳纖維管黏合到塑膠零件上。",
+        "文中沒有提到熱熔焊接。"
+      ]
+    },
+    {
+      "kind": "context",
+      "q": "Why does the company try to avoid drilling holes in the carbon fiber tubes?",
+      "opts": [
+        "It could weaken the tubes and affect their structural strength",
+        "It would take too much production time",
+        "It would make the stroller heavier",
+        "It is not allowed by safety regulations"
+      ],
+      "ans": 0,
+      "why": [
+        "正解：講者說鑽孔可能削弱管材，並影響結構強度。",
+        "文中沒有提到鑽孔會花太多時間。",
+        "文中沒有提到鑽孔會增加重量。",
+        "文中沒有提到法規禁止鑽孔。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Repeated heavy loads can ______ the frame over time.",
+      "opts": [
+        "weak",
+        "weakness",
+        "weakly",
+        "weaken"
+      ],
+      "ans": 3,
+      "why": [
+        "weak 是形容詞，不能放在 can 之後作動詞。",
+        "weakness 是名詞，不能放在 can 之後作動詞。",
+        "weakly 是副詞，不能放在 can 之後作動詞。",
+        "正解：can 後面需接原形動詞，weaken 表示「削弱」。"
+      ]
+    },
+    {
+      "kind": "part5",
+      "q": "Before mass production, the team must ______ the adhesive under different temperatures.",
+      "opts": [
+        "tested",
+        "test",
+        "testing",
+        "tests"
+      ],
+      "ans": 1,
+      "why": [
+        "tested 是過去式或過去分詞，不能接在助動詞 must 之後。",
+        "正解：must 後面需接原形動詞，test 表示「測試」。",
+        "testing 是現在分詞或動名詞，不能接在 must 之後。",
+        "tests 是第三人稱單數或複數名詞，不能接在 must 之後。"
+      ]
+    }
+  ],
+  "presentation_phrases": [
+    {
+      "phrase": "How do you connect ... to ...?",
+      "meaning": "你們如何把……連接到……？",
+      "usage": "聽眾詢問結構或組裝方式時的提問句"
+    },
+    {
+      "phrase": "Currently, we're using ... to ...",
+      "meaning": "目前，我們使用……來……",
+      "usage": "說明現階段採用的做法"
+    },
+    {
+      "phrase": "We try to avoid ... as much as possible, because ...",
+      "meaning": "我們盡可能避免……，因為……",
+      "usage": "說明設計上刻意避免的做法與原因"
+    },
+    {
+      "phrase": "This could weaken ... and affect ...",
+      "meaning": "這可能削弱……並影響……",
+      "usage": "說明潛在風險"
+    },
+    {
+      "phrase": "For mass production, we're planning to ...",
+      "meaning": "進入量產階段，我們計畫……",
+      "usage": "說明量產階段的規劃"
+    },
+    {
+      "phrase": "We'll still need to validate ...",
+      "meaning": "我們仍需要驗證……",
+      "usage": "坦承尚待確認的項目"
+    },
+    {
+      "phrase": "That's a good question.",
+      "meaning": "這是個好問題。",
+      "usage": "回答聽眾提問前的緩衝句"
+    },
+    {
+      "phrase": "Does that answer your question?",
+      "meaning": "這樣有回答到您的問題嗎？",
+      "usage": "回答後確認聽眾是否滿意"
+    }
+  ]
+}
