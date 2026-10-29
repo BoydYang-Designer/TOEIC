@@ -1,0 +1,156 @@
+{
+ "week": 8,
+ "day": 2,
+ "tag": "颱風警報下的出差行程調整通知",
+ "subtopic": "天氣與行程",
+ "type": "Reading",
+ "level": {
+  "score": 775,
+  "range": "725-825",
+  "cefr": "B2+",
+  "why": "以 although、because、since、provided that 等連接詞組成多層複合句，搭配被動語態、分詞片語（followed by…）與 apprehensive、occupation 等較抽象的字彙；需整合班機、住宿、行程與保險四類資訊，干擾項多取自文中出現過的細節，比上週同日略難。"
+ },
+ "passage": "To: Overseas Conference Attendees\nFrom: Helen Park, Travel Coordination\nSubject: Revised Itinerary Due to Typhoon Warning\n\nThe national weather bureau has issued a typhoon warning for the Osaka region, and flights scheduled to depart on Thursday morning are expected to be canceled. Although some of you may feel apprehensive about traveling at all, the executive committee has wisely decided to postpone the departure until Friday afternoon rather than cancel the trip altogether. Hotel rooms in Osaka have been extended by one night at no cost to you, and the airline will rebook everyone automatically, provided that your passport details are already on file.\n\nBecause the storm is predicted to weaken by Friday, the factory tour will be held on Saturday instead, followed by the opening dinner. Since all employees on the payroll are covered by the company's travel insurance, no additional paperwork is required. However, when completing the arrival card, you must still state your occupation clearly, so please review the form before boarding. Once you reach the hotel, gather in the hallway beside the lobby at seven, where a coordinator will hand out your revised schedules.",
+ "zh": "收件人：海外研討會與會者\n寄件人：海倫・朴，差旅協調組\n主旨：因颱風警報而修訂的行程\n\n國家氣象局已針對大阪地區發布颱風警報，原訂週四上午出發的班機預計將被取消。雖然你們當中有些人可能對出行感到憂心，但執行委員會明智地決定把出發時間延後到週五下午，而不是整趟行程直接取消。大阪的飯店房間已免費為各位多延長一晚，而且只要你們的護照資料已經登錄在案，航空公司會自動為所有人重新訂位。\n\n由於預測暴風雨會在週五前減弱，工廠參訪改在週六舉行，接著是開幕晚宴。因為所有在公司薪資名單上的員工都已納入公司的旅遊保險，所以不需要額外的文件作業。不過，填寫入境卡時，你們仍須清楚填寫自己的職業，因此登機前請先檢查表格。抵達飯店後，請在七點到大廳旁的走廊集合，屆時會有一位協調人員發放修訂後的行程表。",
+ "vocab": [
+  {
+   "word": "apprehensive",
+   "ipa": "/ˌæprɪˈhensɪv/",
+   "pos": "adj.",
+   "col": "feel apprehensive / apprehensive about",
+   "zh": "憂慮的、擔心的"
+  },
+  {
+   "word": "payroll",
+   "ipa": "/ˈpeɪroʊl/",
+   "pos": "n.",
+   "col": "on the payroll / payroll department",
+   "zh": "薪資名單、員工薪資總額"
+  },
+  {
+   "word": "occupation",
+   "ipa": "/ˌɑːkjuˈpeɪʃn/",
+   "pos": "n.",
+   "col": "state your occupation / current occupation",
+   "zh": "職業"
+  },
+  {
+   "word": "wisely",
+   "ipa": "/ˈwaɪzli/",
+   "pos": "adv.",
+   "col": "wisely decide / spend wisely",
+   "zh": "明智地"
+  },
+  {
+   "word": "hallway",
+   "ipa": "/ˈhɔːlweɪ/",
+   "pos": "n.",
+   "col": "hotel hallway / wait in the hallway",
+   "zh": "走廊、玄關"
+  }
+ ],
+ "questions": [
+  {
+   "kind": "context",
+   "q": "What is the main purpose of the email?",
+   "opts": [
+    "To announce that the trip to Osaka has been canceled",
+    "To explain how to claim travel insurance",
+    "To inform attendees of schedule changes caused by a storm",
+    "To introduce a new factory tour for employees"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：委員會是延後出發，並非取消整趟行程。",
+    "錯誤：保險只是順帶一提，而且說明不需要額外文件。",
+    "正解：信件通知與會者因颱風警報而調整的出發日期與後續行程。",
+    "錯誤：工廠參訪只是改期到週六，並不是新增的活動。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "According to the email, what is scheduled for Saturday?",
+   "opts": [
+    "The factory tour and the opening dinner",
+    "The group's departure for Osaka",
+    "A meeting of the executive committee",
+    "The return flight to the home office"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：工廠參訪改在週六舉行，之後是開幕晚宴。",
+    "錯誤：出發時間延後到週五下午，不是週六。",
+    "錯誤：執行委員會只是做出了決定，文中沒有提到週六開會。",
+    "錯誤：文中沒有提到回程班機。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What condition must be met for the airline to rebook everyone automatically?",
+   "opts": [
+    "Attendees must pay for an extra hotel night.",
+    "Attendees must complete the arrival card early.",
+    "Attendees must be covered by travel insurance.",
+    "Attendees' passport details must already be on file."
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：多出的一晚住宿是免費的，與重新訂位無關。",
+    "錯誤：入境卡是抵達時要填的，不是重新訂位的條件。",
+    "錯誤：保險是涵蓋在薪資名單上的員工，並不是訂位的條件。",
+    "正解：只要護照資料已登錄在案，航空公司就會自動重新訂位。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "The flight was delayed ______ the heavy fog that covered the entire airport.",
+   "opts": [
+    "despite",
+    "because of",
+    "although",
+    "so that"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：despite 表示「儘管」，與延誤的因果關係相反。",
+    "正解：because of 是介系詞片語，後接名詞片語 the heavy fog，表示原因。",
+    "錯誤：although 是連接詞，後面要接完整子句，且語意不符。",
+    "錯誤：so that 表示目的，後面接子句，語意不符。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Passengers are advised to ______ their reservations at least one day before departure.",
+   "opts": [
+    "confirming",
+    "confirmation",
+    "confirm",
+    "confirmed"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：advised to 後面要接原形動詞，不能用動名詞。",
+    "錯誤：confirmation 是名詞，不能放在 to 之後當動詞。",
+    "正解：be advised to 後面接原形動詞 confirm，意為「確認」。",
+    "錯誤：confirmed 是過去式或過去分詞，不能直接接在 to 後面。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "The outdoor tour will go ahead as planned ______ the weather improves by noon.",
+   "opts": [
+    "provided that",
+    "in case of",
+    "in spite of",
+    "as well as"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：provided that 引導條件子句，表示「只要…」，後面接完整子句。",
+    "錯誤：in case of 後面接名詞，而且表示「萬一」，語意不符。",
+    "錯誤：in spite of 是介系詞片語，後面接名詞，語意也相反。",
+    "錯誤：as well as 表示「以及」，不能引導條件子句。"
+   ]
+  }
+ ]
+}

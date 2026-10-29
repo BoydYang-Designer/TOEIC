@@ -29,6 +29,11 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
          ※ 單字類（單字本身、原形、屈折變化、同字族、相關字、搭配片語、多詞性／多義的單字）改放共用庫
            audio/daily/words/{單字}.mp3，同一個字只錄一次；例句與句子放 vocab/（檔名不含文章 id）
 
+聲音：美式四個（Ava／Andrew／Emma／Brian）和字母、詳解用 Azure DragonHD（HD）聲音；英式、澳式維持標準 Neural（TOEIC 聽力有多種口音）。
+  ※ HD 聲音不支援 <prosody>，所以 HD 聲音不套用語速設定（rate／VOCAB_RATE／PASSAGE_RATE 只對標準聲音有效）。
+  ※ HD 每百萬字元價格約為標準的兩倍，估算費用已分開計算（PRICE_HD_USD_PER_M_CHARS）。
+  ※ 換聲音後想把舊檔換成新聲音：加 --redo（聲音不同的檔）或 --redo-all（連沒有紀錄的舊檔）。edge-tts 不支援 HD 名稱。
+
 引擎切換：預設用 DEFAULT_ENGINE；命令列加 --azure 或 --edge 可臨時改；視窗模式的「引擎」下拉選單也能切換。
   azure＝Azure Speech（動用 $200 點數）；edge-tts＝微軟 Edge 免費語音（2026-10-10 起因微軟改版常回 403，修好前請用 azure）。
   --usage 顯示 Azure 點數到期日與本腳本累計用量（記在 azure-usage.json，只是估算，實際以入口網站為準）。
@@ -66,16 +71,16 @@ from pathlib import Path
 CONCURRENCY = 4               # 同時產生幾個檔案（S0 可放心；若資源是 F0 免費層，請改 1～2，並留意 429 限流）
 # 順序必須「女、男、女、男…」交替（偶數位＝女聲、奇數位＝男聲）
 VOICES = [
-    "en-US-AvaMultilingualNeural",      # 女（美）
-    "en-US-AndrewMultilingualNeural",   # 男（美）
-    "en-US-EmmaMultilingualNeural",     # 女（美）
-    "en-US-BrianMultilingualNeural",    # 男（美）
+    "en-US-Ava:DragonHDLatestNeural",      # 女（美）HD
+    "en-US-Andrew:DragonHDLatestNeural",   # 男（美）HD
+    "en-US-Emma:DragonHDLatestNeural",     # 女（美）HD
+    "en-US-Brian:DragonHDLatestNeural",    # 男（美）HD
     "en-GB-SoniaNeural",                # 女（英）
     "en-GB-RyanNeural",                 # 男（英）
     "en-AU-NatashaNeural",              # 女（澳）
     "en-AU-WilliamNeural",              # 男（澳）
 ]
-LETTER_VOICE = "en-US-AvaMultilingualNeural"
+LETTER_VOICE = "en-US-Ava:DragonHDLatestNeural"
 LETTERS = "ABCDE"             # 選項字母檔：audio/A.mp3 ~ audio/E.mp3（缺才補；Part 1／2 共用）
 MAKE_LETTERS = True
 DEFAULT_ENGINE = "azure"      # 預設引擎："azure"（用點數）或 "edge-tts"（免費，目前常 403）
@@ -87,6 +92,10 @@ AZURE_FORMAT = "audio-24khz-48kbitrate-mono-mp3"   # 輸出格式（和原本 ed
 AZURE_RETRIES = 5             # 每個檔最多嘗試幾次（429／5xx／網路錯誤才重試）
 PAUSE_MS = 300                # Part 7 多人聊天：不同人說話之間停幾毫秒
 PRICE_USD_PER_M_CHARS = 15.0  # 只用來「估算」費用（標準 Neural 每百萬字元）；請對照 Azure 定價頁自行修改
+PRICE_HD_USD_PER_M_CHARS = 30.0   # HD（DragonHD）聲音每百萬字元的估算價（第三方資料，請對照 Azure 定價頁自行修改）
+HD_MARK = ":DragonHD"         # 聲音名稱含這串就視為 HD 聲音
+HD_FALLBACK = True         # HD 聲音被拒絕（例如這個區域沒有 HD）時，自動改用同名的 Multilingual 標準聲音，不讓整批失敗
+HD_PARAMS = "temperature=0.7" # HD 聲音的隨機度（0～1，越低越穩定、每次念法越一致；預設 1.0）。設成 "" 就不加
 LOG_NAME = "voices-log.json"  # 版本紀錄檔（和題庫 json 放同一層）：記每個 mp3 用過的聲音／語速／日期
 
 # 各題庫：file＝題庫 json；sub＝audio 底下的資料夾；rate＝語速（"-10%" 更慢、"+0%" 正常）；
@@ -124,7 +133,7 @@ MAKE_SENSE = True             # 多義（senses）：每個意思的單字發音
 PASSAGE_RATE = "-5%"          # 文章語速
 VOCAB_RATE = "-10%"           # 單字／句子語速（單字慢一點比較聽得清楚）
 PASSAGE_VOICES = VOICES       # 文章：依 id 固定挑一個聲音
-VOCAB_VOICE = "en-US-AvaMultilingualNeural"   # 詳解項目固定同一個聲音
+VOCAB_VOICE = "en-US-Ava:DragonHDLatestNeural"   # 詳解項目固定同一個聲音
 # ================================================================================
 
 HERE = Path(__file__).resolve().parent
@@ -194,7 +203,13 @@ def save_log(root=None):
     STATE["dirty"] = 0
 
 
+def is_hd(v):
+    return HD_MARK in v
+
+
 def short(v):
+    if is_hd(v):
+        return v.split("-")[-1].split(":")[0] + " HD"
     return v.split("-")[-1].replace("Neural", "")
 
 
@@ -879,7 +894,7 @@ def find_root(spec=None):
 
 
 # ------------------------------- Azure 點數用量（估算） -------------------------------
-USAGE = dict(session=0)
+USAGE = dict(session=0, usd=0.0)
 
 
 def usage_path(root) -> Path:
@@ -898,15 +913,20 @@ def save_usage(root):
     if not USAGE["session"]:
         return
     j = load_usage(root)
+    if "usd" not in j:                                   # 舊版紀錄只有字元數，先用標準價換算
+        j["usd"] = int(j.get("chars", 0)) / 1e6 * PRICE_USD_PER_M_CHARS
+    j["usd"] = round(float(j["usd"]) + USAGE["usd"], 4)
     j["chars"] = int(j.get("chars", 0)) + USAGE["session"]
     j["updated"] = datetime.now().strftime("%Y-%m-%d %H:%M")
     usage_path(root).write_text(json.dumps(j, ensure_ascii=False, indent=1), encoding="utf-8")
     USAGE["session"] = 0
+    USAGE["usd"] = 0.0
 
 
 def credit_line(root):
-    chars = int(load_usage(root).get("chars", 0))
-    used = chars / 1e6 * PRICE_USD_PER_M_CHARS
+    uj = load_usage(root)
+    chars = int(uj.get("chars", 0))
+    used = float(uj["usd"]) if "usd" in uj else chars / 1e6 * PRICE_USD_PER_M_CHARS
     when = "點數到期日未設定（請填 AZURE_CREDIT_END）"
     if AZURE_CREDIT_END:
         try:
@@ -1021,13 +1041,23 @@ def build_ssml(parts, rate):
         t = clean_text(text)
         if not t:
             raise ValueError("文字是空的")
-        body.append(f'<voice name="{xml_escape(voice)}">{po}{t}{pc}{brk if i < len(parts) - 1 else ""}</voice>')
+        hd = is_hd(voice)
+        # DragonHD 不支援 <prosody>（語速），所以 HD 聲音不加語速；改用 parameters 控制穩定度
+        p1, p2 = ("", "") if hd else (po, pc)
+        attr = f' parameters="{xml_escape(HD_PARAMS)}"' if hd and HD_PARAMS else ""
+        body.append(f'<voice name="{xml_escape(voice)}"{attr}>{p1}{t}{p2}{brk if i < len(parts) - 1 else ""}</voice>')
     return "<speak version='1.0' xml:lang='en-US'>" + "".join(body) + "</speak>"
 
 
 def job_chars(job):
     parts = job.get("parts") or [(job["text"], job["voice"])]
     return sum(len(clean_text(t)) for t, _ in parts)
+
+
+def job_cost(job):
+    """估算單一檔的費用（USD）：HD 聲音和標準聲音分開計價。"""
+    parts = job.get("parts") or [(job["text"], job["voice"])]
+    return sum(len(clean_text(t)) * (PRICE_HD_USD_PER_M_CHARS if is_hd(v) else PRICE_USD_PER_M_CHARS) for t, v in parts) / 1e6
 
 
 def azure_request(key, region, ssml, timeout):
@@ -1040,7 +1070,23 @@ def azure_request(key, region, ssml, timeout):
         return r.read()
 
 
+def hd_fallback_voice(v):
+    """en-US-Ava:DragonHDLatestNeural → en-US-AvaMultilingualNeural"""
+    return v.split(":")[0] + "MultilingualNeural" if is_hd(v) else v
+
+
 async def azure_synth(parts, rate, timeout, conf):
+    """回傳 (mp3 bytes, 實際使用的 parts)。HD 聲音被拒絕（HTTP 400）時，若 HD_FALLBACK 就改用標準聲音重試一次。"""
+    try:
+        return await azure_synth1(parts, rate, timeout, conf), parts
+    except ValueError:
+        if not (HD_FALLBACK and any(is_hd(v) for _, v in parts)):
+            raise
+        parts2 = [(t, hd_fallback_voice(v)) for t, v in parts]
+        return await azure_synth1(parts2, rate, timeout, conf), parts2
+
+
+async def azure_synth1(parts, rate, timeout, conf):
     """含重試／限流（429 依 Retry-After 等待、5xx 與網路錯誤指數退避）。401／403／404／400 不重試。"""
     key, region = conf
     ssml = build_ssml(parts, rate)
@@ -1052,7 +1098,7 @@ async def azure_synth(parts, rate, timeout, conf):
             code = e.code
             detail = ""
             try:
-                detail = e.read().decode("utf-8", "replace")[:120]
+                detail = e.read().decode("utf-8", "replace")[:300]
             except Exception:
                 pass
             if code in (401, 403):
@@ -1090,13 +1136,17 @@ async def synth(job, spec, sem, st, log, conf):
         sig = "|".join(v for _, v in parts)             # 版本紀錄用的聲音簽名（和 plan 裡的 need() 一致）
         timeout = spec.cfg["timeout"]
         try:
-            data = await azure_synth(parts, rate, timeout, conf)
+            data, used = await azure_synth(parts, rate, timeout, conf)
+            if used is not parts:                        # HD 被拒絕，已改用標準聲音
+                sig = "|".join(v for _, v in used)
+                log(f"⚠ {job['name']}  HD 聲音被拒絕（這個區域可能沒有 HD），改用標準聲音 {short(used[0][1])}")
             if len(data) <= 1000:
                 raise RuntimeError("產生的檔案太小")
             tmp.write_bytes(data)
             tmp.replace(job["path"])
             st["ok"] += 1
             USAGE["session"] += job_chars(job)
+            USAGE["usd"] += job_cost(job)
             record(job["path"], sig, rate)
             if STATE["dirty"] >= 20:                     # 每 20 筆存一次，中途當掉也不會全部遺失
                 save_log()
@@ -1135,9 +1185,11 @@ def generate(jobs, spec, log, progress, stop, root=None):
             log("✗ " + err)
             return 0, len(jobs), 0
         chars = sum(job_chars(j) for j in jobs)
+        cost = sum(job_cost(j) for j in jobs)
         USAGE["session"] = 0
+        USAGE["usd"] = 0.0
         log(f"引擎：Azure Speech　區域 {region}；本次 {total} 個檔、約 {chars:,} 字元"
-            f"（估算約 US${chars / 1e6 * PRICE_USD_PER_M_CHARS:.3f}）")
+            f"（估算約 US${cost:.3f}）")
         log(credit_line(STATE["root"]))
 
         async def go():
@@ -1195,10 +1247,26 @@ def check_azure():
     bad = 0
     for v in dict.fromkeys(VOICES + [LETTER_VOICE, VOCAB_VOICE]):
         ok = v in have
+        note = ""
+        if not ok and is_hd(v):          # HD 聲音可能不在清單裡，直接合成一次確認
+            global HD_PARAMS
+            try:
+                azure_request(key, region, build_ssml([("Hello.", v)], "-5%"), 30)
+                ok = True
+            except Exception as e1:
+                saved = HD_PARAMS
+                HD_PARAMS = ""
+                try:
+                    azure_request(key, region, build_ssml([("Hello.", v)], "-5%"), 30)
+                    ok, note = True, "　（可用，但 HD_PARAMS 被拒絕，請把 HD_PARAMS 設成 \"\"）"
+                except Exception:
+                    note = f"　（{region} 不支援這個 HD 聲音或名稱不對：{type(e1).__name__}；可改用 eastus／westeurope／southeastasia 的 Speech 資源）"
+                finally:
+                    HD_PARAMS = saved
         bad += (not ok)
-        print(f"  {'✓' if ok else '✗'} {v}")
+        print(f"  {'✓' if ok else '✗'} {v}{note}")
     try:
-        data = azure_request(key, region, build_ssml([("Hello.", VOICES[0])], "-5%"), 30)
+        data = azure_request(key, region, build_ssml([("Hello.", VOICES[-1])], "-5%"), 30)   # 用標準聲音測金鑰／區域
         print(f"✓ 合成測試成功（{len(data):,} bytes，約 6 個字元）")
     except Exception as e:
         print(f"✗ 合成測試失敗：{type(e).__name__} {e}")
@@ -1597,6 +1665,7 @@ def run_cli(root: Path, spec: Spec, dry: bool):
     total = sum(len(g["jobs"]) for g in groups)
     unit = spec.unit
     all_chars = sum(job_chars(j) for g in groups for j in g["jobs"])
+    all_cost = sum(job_cost(j) for g in groups for j in g["jobs"])
     print("=" * 78)
     print(f"題庫       : {spec.title}")
     print(f"專案資料夾 : {root}")
@@ -1610,7 +1679,7 @@ def run_cli(root: Path, spec: Spec, dry: bool):
         if spec.letters:
             print(f"字母存放   : {root / 'audio'}")
         print(f"語速 {spec.cfg['rate']}　缺 {total} 個檔")
-    print(f"字元估算   : 全部缺的檔共約 {all_chars:,} 字元（約 US${all_chars / 1e6 * PRICE_USD_PER_M_CHARS:.3f}，僅供估算）")
+    print(f"字元估算   : 全部缺的檔共約 {all_chars:,} 字元（約 US${all_cost:.3f}，HD 聲音以 US${PRICE_HD_USD_PER_M_CHARS:.0f}/百萬字元估算，僅供參考）")
     print("=" * 78)
     for n, g in enumerate(groups, 1):
         if spec.daily:
