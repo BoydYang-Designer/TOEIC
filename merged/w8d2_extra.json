@@ -1,0 +1,214 @@
+{
+  "week": 8,
+  "day": 2,
+  "extra_vocab": [
+    {
+      "text": "apprehensive",
+      "type": "word",
+      "ipa": "/ˌæprɪˈhensɪv/",
+      "pos": "adj.",
+      "zh": "憂慮的、擔心的",
+      "en": "worried that something bad may happen",
+      "note": "文中指部分人員對颱風天出差感到不安。語氣比 afraid 輕，常用在對未來的事情有點擔心時，後面多接 about。",
+      "grammar_note": "apprehensive 後面常接 about + 名詞或 V-ing，也可接 that 子句；介系詞用 about，不用 for。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "feel apprehensive about", "zh": "對…感到憂慮", "example": { "en": "Some new hires feel apprehensive about speaking in front of clients.", "zh": "有些新進員工對在客戶面前發言感到憂慮。" } },
+        { "phrase": "apprehensive about the outcome", "zh": "擔心結果", "example": { "en": "The team was apprehensive about the outcome of the contract negotiation.", "zh": "團隊擔心合約協商的結果。" } },
+        { "phrase": "an apprehensive look", "zh": "憂慮的神情", "example": { "en": "He gave the auditor an apprehensive look before opening the files.", "zh": "他打開檔案前，向稽核員投以憂慮的眼神。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Several staff members felt apprehensive about the sudden change in schedule.", "zh": "幾位員工對突然的行程變動感到憂慮。" },
+        { "tag": "會議", "en": "The manager looked apprehensive as she opened the quarterly sales report.", "zh": "經理打開季度銷售報告時顯得憂心忡忡。" },
+        { "tag": "出差", "en": "Many travelers are apprehensive about flying during bad weather.", "zh": "許多旅客對在惡劣天氣下搭機感到不安。" }
+      ],
+      "confusable": [
+        { "word": "comprehensive", "diff": "拼法很像，但 comprehensive 是「全面的、完整的」，和擔心無關。", "example": { "en": "We offer a comprehensive insurance plan for all full-time employees.", "zh": "我們為所有全職員工提供全面的保險方案。" } }
+      ],
+      "similar": [
+        { "word": "nervous", "diff": "nervous 較口語，常指上台或面試前的緊張；apprehensive 較正式，多指擔心未來的結果。", "example": { "en": "I was nervous before my first presentation to the board.", "zh": "我在第一次向董事會簡報前很緊張。" } },
+        { "word": "worried", "diff": "worried 最常用、語氣最直接；apprehensive 帶有預感不妙的意味，較書面。", "example": { "en": "She is worried that the shipment will arrive late.", "zh": "她擔心貨物會延遲到達。" } }
+      ],
+      "family": [
+        { "w": "anxious", "pos": "adj.", "zh": "焦慮的、渴望的", "ipa": "/ˈæŋkʃəs/", "example": { "en": "Customers are anxious to hear about the refund policy.", "zh": "客戶急著想知道退款政策。" } },
+        { "w": "uneasy", "pos": "adj.", "zh": "不安的", "ipa": "/ʌnˈiːzi/", "example": { "en": "Some employees felt uneasy about the proposed merger.", "zh": "有些員工對合併提案感到不安。" } },
+        { "w": "concerned", "pos": "adj.", "zh": "擔憂的", "ipa": "/kənˈsɜːrnd/", "example": { "en": "The board is concerned about rising shipping costs.", "zh": "董事會擔心運費不斷上漲。" } }
+      ],
+      "derived": [
+        { "w": "apprehension", "pos": "n.", "zh": "憂慮、不安", "ipa": "/ˌæprɪˈhenʃn/", "link": "apprehensive 去掉 -ive 改成 -ion，變成名詞「擔心」，像 tension、decision 的字尾" },
+        { "w": "apprehensively", "pos": "adv.", "zh": "憂慮地", "ipa": "/ˌæprɪˈhensɪvli/", "link": "apprehensive + -ly，形容詞變副詞，像 quickly、carefully" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "payroll",
+      "type": "word",
+      "ipa": "/ˈpeɪroʊl/",
+      "pos": "n.",
+      "zh": "薪資名冊、員工名單；薪資總額",
+      "en": "a list of the people who work for a company and get paid by it",
+      "note": "文中 on the payroll 指「在公司編制內領薪的員工」，所以這些人都受公司旅遊保險保障。這個說法強調員工身分正式、有領薪水。",
+      "grammar_note": "on the payroll 的介系詞固定用 on，不說 in the payroll；payroll 也常放在名詞前當修飾，如 payroll department。",
+      "forms": [
+        { "w": "payrolls", "label": "複數", "pos": "n.", "zh": "薪資名冊（複數）", "ipa": "/ˈpeɪroʊlz/", "example": { "en": "Both subsidiaries manage their payrolls through the same software system.", "zh": "兩家子公司透過同一套軟體系統管理各自的薪資作業。" } }
+      ],
+      "collocations": [
+        { "phrase": "on the payroll", "zh": "受雇於公司、列入薪資名單", "example": { "en": "We added three engineers to the payroll last quarter.", "zh": "我們上一季新增了三名工程師到編制內。" } },
+        { "phrase": "payroll department", "zh": "薪資部門", "example": { "en": "Please send your bank details to the payroll department.", "zh": "請把你的銀行帳戶資料寄給薪資部門。" } },
+        { "phrase": "payroll system", "zh": "薪資系統", "example": { "en": "The new payroll system reduced errors in monthly salary payments.", "zh": "新的薪資系統減少了每月發薪的錯誤。" } },
+        { "phrase": "meet payroll", "zh": "付得出員工薪水", "example": { "en": "The startup struggled to meet payroll during its first year.", "zh": "這家新創公司第一年很難籌出員工薪水。" } }
+      ],
+      "examples": [
+        { "tag": "人事", "en": "All full-time staff members are currently on the company payroll.", "zh": "所有全職員工目前都在公司編制內。" },
+        { "tag": "會計", "en": "The finance team processes the payroll on the last day of every month.", "zh": "財務團隊在每月最後一天處理薪資。" },
+        { "tag": "預算", "en": "Payroll is the largest expense for most service companies.", "zh": "薪資是多數服務業公司最大的支出。" }
+      ],
+      "confusable": [
+        { "word": "paycheck", "diff": "paycheck 是個人領到的薪水（支票或入帳）；payroll 是公司全體員工的薪資名冊或總額。", "example": { "en": "Your paycheck will be deposited into your account every Friday.", "zh": "你的薪水每週五會存入你的帳戶。" } },
+        { "word": "salary", "diff": "salary 是個人的固定薪資金額；payroll 指整個公司的發薪名單或總支出。", "example": { "en": "Her annual salary increased by five percent after the promotion.", "zh": "她升職後年薪增加了百分之五。" } }
+      ],
+      "similar": [
+        { "phrase": "on staff", "diff": "on staff 泛指是公司的在職員工；on the payroll 強調列入薪資名單、有領薪水。", "example": { "en": "Our firm has six full-time accountants on staff.", "zh": "我們公司有六位全職會計師在職。" } }
+      ],
+      "family": [
+        { "w": "wage", "pos": "n.", "zh": "工資、時薪", "ipa": "/weɪdʒ/", "example": { "en": "The factory raised the hourly wage for night shift workers.", "zh": "工廠提高了夜班員工的時薪。" } },
+        { "w": "bonus", "pos": "n.", "zh": "獎金", "ipa": "/ˈboʊnəs/", "example": { "en": "Every employee received a year-end bonus this December.", "zh": "今年十二月每位員工都領到了年終獎金。" } },
+        { "w": "benefit", "pos": "n.", "zh": "福利", "ipa": "/ˈbenɪfɪt/", "example": { "en": "Health insurance is one of the main benefits we provide.", "zh": "健康保險是我們提供的主要福利之一。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "員工名冊、受雇員工", "en": "a list of the workers a company employs and pays", "in_passage": true, "example": { "en": "Only permanent employees appear on the company's official payroll list.", "zh": "只有正式員工會出現在公司的正式薪資名單上。" } },
+        { "pos": "n.", "zh": "薪資總額", "en": "the total amount of money a company pays its workers", "distinguish": "看到 rising、cut、reduce 等和金額一起出現時，通常是「薪資總額」；看到 on the payroll 則是「員工名單」。", "example": { "en": "Rising labor costs pushed our monthly payroll above budget.", "zh": "人力成本上升，使我們每月的薪資總額超出預算。" } }
+      ],
+      "nw_done": [
+        { "id": "nv_vmv6v6nmmj0v", "result": "added" }
+      ]
+    },
+    {
+      "text": "occupation",
+      "type": "word",
+      "ipa": "/ˌɑːkjuˈpeɪʃn/",
+      "pos": "n.",
+      "zh": "職業",
+      "en": "the kind of work a person does to earn money",
+      "note": "文中指入境卡上要填寫的「職業」欄位。occupation 是表格和官方文件常用的正式字，日常聊天多說 job。",
+      "grammar_note": "表示「職業」時是可數名詞（填表常寫 What is your occupation?）；表示「占用、入住」時是不可數名詞。",
+      "forms": [
+        { "w": "occupations", "label": "複數", "pos": "n.", "zh": "職業（複數）", "ipa": "/ˌɑːkjuˈpeɪʃnz/", "example": { "en": "Teaching and nursing are among the most respected occupations in the country.", "zh": "教學和護理是該國最受尊敬的職業之一。" } }
+      ],
+      "collocations": [
+        { "phrase": "state your occupation", "zh": "填寫／說明你的職業", "example": { "en": "Applicants must state their occupation on the visa application.", "zh": "申請人必須在簽證申請表上填寫職業。" } },
+        { "phrase": "a skilled occupation", "zh": "技術性職業", "example": { "en": "Welding is a skilled occupation with strong demand.", "zh": "焊接是需求強勁的技術性職業。" } },
+        { "phrase": "choose an occupation", "zh": "選擇職業", "example": { "en": "Students should explore different fields before they choose an occupation.", "zh": "學生在選擇職業前應該先探索不同領域。" } }
+      ],
+      "examples": [
+        { "tag": "表格", "en": "Please write your name, address, and occupation on the form.", "zh": "請在表格上填寫姓名、地址和職業。" },
+        { "tag": "調查", "en": "The survey asked respondents about their age, income, and occupation.", "zh": "這份調查詢問受訪者的年齡、收入和職業。" },
+        { "tag": "租賃", "en": "The lease allows occupation of the warehouse starting in July.", "zh": "租約允許從七月起使用這座倉庫。" }
+      ],
+      "confusable": [
+        { "word": "vacation", "diff": "字尾 -ation 和發音很像，但 vacation 是「假期」，和工作種類無關。", "example": { "en": "Employees can take a paid vacation after one year of service.", "zh": "員工服務滿一年後可以請有薪假。" } }
+      ],
+      "similar": [
+        { "word": "job", "diff": "job 口語、指一份具體的工作；occupation 較正式，用在表格與統計。", "example": { "en": "She found a good job at a logistics company.", "zh": "她在一家物流公司找到了好工作。" } },
+        { "word": "profession", "diff": "profession 指需要專業訓練或資格的職業，如律師、醫師；occupation 範圍更廣。", "example": { "en": "Law is a profession that requires years of training.", "zh": "法律是需要多年訓練的專業職業。" } }
+      ],
+      "family": [
+        { "w": "career", "pos": "n.", "zh": "職涯", "ipa": "/kəˈrɪr/", "example": { "en": "She built a successful career in the shipping industry.", "zh": "她在航運業打造了成功的職涯。" } },
+        { "w": "position", "pos": "n.", "zh": "職位", "ipa": "/pəˈzɪʃn/", "example": { "en": "The company has an open position in accounting.", "zh": "公司在會計部門有一個職缺。" } }
+      ],
+      "derived": [
+        { "w": "occupy", "pos": "v.", "zh": "占用、占據", "ipa": "/ˈɑːkjupaɪ/", "link": "occupation 去掉 -ation 就是 occupy，像 apply → application" },
+        { "w": "occupant", "pos": "n.", "zh": "居住者、使用者", "ipa": "/ˈɑːkjupənt/", "link": "occupy + -ant，做動作的人，像 assistant、participant" },
+        { "w": "occupancy", "pos": "n.", "zh": "入住、入住率", "ipa": "/ˈɑːkjupənsi/", "link": "occupy + -ancy，表示狀態，像 vacancy（空房）" },
+        { "w": "occupational", "pos": "adj.", "zh": "職業的", "ipa": "/ˌɑːkjuˈpeɪʃənl/", "link": "occupation + -al，變成形容詞，像 national、traditional" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "職業", "en": "the kind of work a person does to earn money", "in_passage": true, "example": { "en": "Her occupation is listed as marketing consultant on the registration form.", "zh": "她的職業在登記表上寫的是行銷顧問。" } },
+        { "pos": "n.", "zh": "占用、入住", "en": "the act of living or working in a building or place", "distinguish": "和 building、office、apartment 等地點一起出現時，指「入住、使用」，不是職業。", "example": { "en": "The tenants took occupation of the new office last week.", "zh": "租戶上週搬進了新辦公室。" } }
+      ]
+    },
+    {
+      "text": "wisely",
+      "type": "word",
+      "ipa": "/ˈwaɪzli/",
+      "pos": "adv.",
+      "zh": "明智地",
+      "en": "in a way that shows good judgment",
+      "note": "文中 wisely 表達寫信者對委員會決定的正面評價：延後出發是明智之舉。這種放在動詞前、帶評價意味的副詞，在正式公告裡很常見。",
+      "grammar_note": "wisely 放在助動詞和過去分詞之間（has wisely decided），表示對整個決定的評價；放句尾（decided wisely）則只描述做法。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "choose wisely", "zh": "明智地選擇", "example": { "en": "Please choose wisely, because this vendor will serve us for years.", "zh": "請明智選擇，因為這家供應商會長期為我們服務。" } },
+        { "phrase": "invest wisely", "zh": "明智地投資", "example": { "en": "Companies that invest wisely in training often keep their best staff.", "zh": "明智投資在培訓上的公司，通常能留住最好的員工。" } },
+        { "phrase": "use time wisely", "zh": "善用時間", "example": { "en": "Using your time wisely helps you finish tasks before the deadline.", "zh": "善用時間能幫助你在截止日前完成工作。" } },
+        { "phrase": "act wisely", "zh": "行事明智", "example": { "en": "The committee acted wisely by consulting the legal team first.", "zh": "委員會先諮詢法務團隊，做法十分明智。" } }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "The board wisely chose to wait until the market became stable.", "zh": "董事會明智地選擇等到市場穩定後再行動。" },
+        { "tag": "預算", "en": "We should spend our marketing budget wisely this quarter.", "zh": "我們這一季應該明智地運用行銷預算。" },
+        { "tag": "合約", "en": "She wisely asked for a written contract before starting the project.", "zh": "她在開始專案前明智地要求書面合約。" }
+      ],
+      "confusable": [
+        { "word": "widely", "diff": "拼法和發音很像，但 widely 是「廣泛地」，不是「明智地」。", "example": { "en": "This software is widely used in the logistics industry.", "zh": "這套軟體在物流業被廣泛使用。" } }
+      ],
+      "similar": [
+        { "word": "sensibly", "diff": "sensibly 強調合乎常理、不浮誇；wisely 強調有判斷力、有遠見，語氣更正面。", "example": { "en": "The manager sensibly kept some funds aside for emergencies.", "zh": "經理合理地預留了一些資金以備緊急之需。" } },
+        { "phrase": "with good judgment", "diff": "with good judgment 是較長的說法，常放句尾；wisely 是單字，可放在動詞前。", "example": { "en": "She handled the complaint with good judgment and patience.", "zh": "她以良好的判斷力和耐心處理了這項客訴。" } }
+      ],
+      "family": [
+        { "w": "reasonable", "pos": "adj.", "zh": "合理的", "ipa": "/ˈriːznəbl/", "example": { "en": "The supplier offered a reasonable price for bulk orders.", "zh": "供應商對大量訂單提出了合理的價格。" } },
+        { "w": "careful", "pos": "adj.", "zh": "謹慎的", "ipa": "/ˈkerfl/", "example": { "en": "Be careful when you enter the customer data.", "zh": "輸入客戶資料時請小心。" } },
+        { "w": "thoughtful", "pos": "adj.", "zh": "深思熟慮的", "ipa": "/ˈθɔːtfl/", "example": { "en": "Thank you for your thoughtful comments on the proposal.", "zh": "謝謝你對提案提出的深思熟慮的意見。" } }
+      ],
+      "derived": [
+        { "w": "wise", "pos": "adj.", "zh": "明智的", "ipa": "/waɪz/", "link": "wisely 去掉 -ly 就是形容詞 wise；形容詞加 -ly 變副詞，像 quick → quickly" },
+        { "w": "wisdom", "pos": "n.", "zh": "智慧", "ipa": "/ˈwɪzdəm/", "link": "wise + -dom，表示狀態或領域，像 freedom、kingdom" },
+        { "w": "unwise", "pos": "adj.", "zh": "不明智的", "ipa": "/ʌnˈwaɪz/", "link": "un- 表示否定，加在 wise 前，像 unhappy、unable" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "hallway",
+      "type": "word",
+      "ipa": "/ˈhɔːlweɪ/",
+      "pos": "n.",
+      "zh": "走廊、玄關通道",
+      "en": "a long space inside a building with rooms on its sides",
+      "note": "文中請大家抵達飯店後在大廳旁的走廊集合。hallway 指建築物內連接各房間的通道，常用來描述集合或指引地點。",
+      "forms": [
+        { "w": "hallways", "label": "複數", "pos": "n.", "zh": "走廊（複數）", "ipa": "/ˈhɔːlweɪz/", "example": { "en": "The hotel's hallways were quiet after the evening conference ended.", "zh": "晚間會議結束後，飯店的走廊很安靜。" } }
+      ],
+      "collocations": [
+        { "phrase": "in the hallway", "zh": "在走廊上", "example": { "en": "A few colleagues were chatting in the hallway after lunch.", "zh": "午餐後有幾位同事在走廊上聊天。" } },
+        { "phrase": "along the hallway", "zh": "沿著走廊", "example": { "en": "Signs along the hallway direct visitors to each department.", "zh": "走廊沿途的標示會引導訪客前往各部門。" } },
+        { "phrase": "a narrow hallway", "zh": "狹窄的走廊", "example": { "en": "The narrow hallway made it hard to move the heavy boxes.", "zh": "狹窄的走廊讓搬運重箱子變得很困難。" } },
+        { "phrase": "down the hallway", "zh": "沿走廊往前走", "example": { "en": "The restrooms are just down the hallway on your left.", "zh": "洗手間就在走廊前方的左手邊。" } }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "Please leave your luggage in the hallway outside the meeting room.", "zh": "請把行李放在會議室外的走廊上。" },
+        { "tag": "辦公室", "en": "The photocopier is located at the end of the hallway.", "zh": "影印機在走廊的盡頭。" },
+        { "tag": "安全", "en": "Keep the hallway clear so everyone can exit safely during a fire.", "zh": "請保持走廊暢通，火災時大家才能安全離開。" }
+      ],
+      "confusable": [
+        { "word": "hall", "diff": "hall 可指大廳、會堂，也可指走廊；hallway 專指建築物內的通道。", "example": { "en": "The annual meeting will be held in the main hall.", "zh": "年度會議將在主禮堂舉行。" } },
+        { "word": "aisle", "diff": "aisle 是座位之間或貨架之間的通道；hallway 是建築物內連接房間的走廊。", "example": { "en": "Please keep the aisle clear so staff can walk through.", "zh": "請保持走道暢通，讓員工可以通行。" } }
+      ],
+      "similar": [
+        { "word": "corridor", "diff": "corridor 較正式，常指長而連接多個空間的走廊；hallway 也可指入口處的通道。", "example": { "en": "Offices line both sides of the long corridor on the third floor.", "zh": "三樓長長的走廊兩側都是辦公室。" } }
+      ],
+      "family": [
+        { "w": "lobby", "pos": "n.", "zh": "大廳", "ipa": "/ˈlɑːbi/", "example": { "en": "Visitors must sign in at the front lobby before entering.", "zh": "訪客進入前必須先在大廳簽到。" } },
+        { "w": "entrance", "pos": "n.", "zh": "入口", "ipa": "/ˈentrəns/", "example": { "en": "The main entrance will be closed for repairs next week.", "zh": "主入口下週將因維修而關閉。" } },
+        { "w": "stairway", "pos": "n.", "zh": "樓梯", "ipa": "/ˈsterweɪ/", "example": { "en": "Use the stairway if the elevator is out of service.", "zh": "電梯停用時請走樓梯。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

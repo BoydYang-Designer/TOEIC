@@ -1,0 +1,129 @@
+{
+  "week": 8,
+  "day": 3,
+  "extra_vocab": [
+    {
+      "text": "attain",
+      "type": "word",
+      "ipa": "/əˈteɪn/",
+      "pos": "v.",
+      "zh": "達成、達到",
+      "en": "to succeed in reaching a goal or level",
+      "note": "文中指協助公司達成「多數高階職位由內部晉升」的目標。attain 比 reach 正式，常用在公告和報告裡，搭配 goal、target 等目標類名詞。",
+      "grammar_note": "attain 是及物動詞，直接接受詞，不加 to：attain a goal，不說 attain to a goal。",
+      "forms": [
+        { "w": "attains", "label": "第三人稱單數", "pos": "v.", "zh": "達成", "ipa": "/əˈteɪnz/", "example": { "en": "The training program attains its purpose when staff apply new skills.", "zh": "當員工運用新技能時，培訓計畫就達到了目的。" } },
+        { "w": "attained", "label": "過去式／過去分詞", "pos": "v.", "zh": "達成了", "ipa": "/əˈteɪnd/", "example": { "en": "The company attained its sales target two months ahead of schedule.", "zh": "公司比預定時程提早兩個月達成銷售目標。" } },
+        { "w": "attaining", "label": "現在分詞", "pos": "v.", "zh": "正在達成", "ipa": "/əˈteɪnɪŋ/", "example": { "en": "Attaining long-term growth requires patience and careful planning.", "zh": "達成長期成長需要耐心和仔細的規劃。" } }
+      ],
+      "collocations": [
+        { "phrase": "attain a goal", "zh": "達成目標", "example": { "en": "Setting clear steps helps teams attain a goal more quickly.", "zh": "設定明確步驟能幫助團隊更快達成目標。" } },
+        { "phrase": "attain a high level of", "zh": "達到高水準的…", "example": { "en": "The firm attained a high level of customer satisfaction.", "zh": "這家公司達到了很高的客戶滿意度。" } },
+        { "phrase": "attain certification", "zh": "取得認證", "example": { "en": "Workers must attain certification before operating the heavy machinery.", "zh": "員工必須取得認證才能操作重型機械。" } }
+      ],
+      "examples": [
+        { "tag": "年度目標", "en": "Our department hopes to attain record sales by the end of the year.", "zh": "我們部門希望在年底前創下銷售紀錄。" },
+        { "tag": "人資", "en": "Employees can attain a higher position by completing the leadership program.", "zh": "員工完成領導力課程後，可以晉升到更高的職位。" },
+        { "tag": "品質", "en": "The factory attained the highest safety rating in its industry.", "zh": "這間工廠達到了業界最高的安全評級。" }
+      ],
+      "confusable": [
+        { "word": "obtain", "diff": "拼法和發音很像；obtain 是「取得」具體的東西，attain 是「達到」目標或水準。", "usage": "obtain 後面常接 visa、permit、information 等具體物件；attain 後面常接 goal、level、status 等成就。", "example": { "en": "You can obtain a visa at the embassy before your trip.", "zh": "你可以在出發前到大使館取得簽證。" } },
+        { "word": "attend", "diff": "拼法相近，但 attend 是「出席、參加」，和達成目標無關。", "example": { "en": "More than fifty managers will attend the training seminar.", "zh": "超過五十位經理將參加這場培訓研討會。" } }
+      ],
+      "similar": [
+        { "word": "achieve", "diff": "achieve 最常用，強調努力後有成果；attain 較正式，常用於書面。", "example": { "en": "The team achieved its sales goal ahead of schedule.", "zh": "團隊提前達成了銷售目標。" } },
+        { "word": "reach", "diff": "reach 最口語，也能指抵達某地；attain 只用於達成目標或水準。", "example": { "en": "We hope to reach our target by December.", "zh": "我們希望在十二月前達到目標。" } }
+      ],
+      "family": [
+        { "w": "goal", "pos": "n.", "zh": "目標", "ipa": "/ɡoʊl/", "example": { "en": "Our main goal this year is to expand overseas.", "zh": "我們今年的主要目標是拓展海外市場。" } },
+        { "w": "target", "pos": "n.", "zh": "指標、目標", "ipa": "/ˈtɑːrɡɪt/", "example": { "en": "The sales team set a new monthly target.", "zh": "業務團隊設定了新的月指標。" } },
+        { "w": "objective", "pos": "n.", "zh": "目的、目標", "ipa": "/əbˈdʒektɪv/", "example": { "en": "The objective of the meeting is to approve the budget.", "zh": "這場會議的目的是核准預算。" } }
+      ],
+      "derived": [
+        { "w": "attainment", "pos": "n.", "zh": "達成、成就", "ipa": "/əˈteɪnmənt/", "link": "attain + -ment，把動作變成名詞，像 payment、agreement" },
+        { "w": "attainable", "pos": "adj.", "zh": "可達成的", "ipa": "/əˈteɪnəbl/", "link": "attain + -able，表示可以被…的，像 available、acceptable" },
+        { "w": "unattainable", "pos": "adj.", "zh": "無法達成的", "ipa": "/ˌʌnəˈteɪnəbl/", "link": "un- 表示否定，加在 attainable 前，像 unavailable" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "flextime",
+      "type": "word",
+      "ipa": "/ˈflekstaɪm/",
+      "pos": "n.",
+      "zh": "彈性工時",
+      "en": "a system that lets workers choose when they start and finish work",
+      "note": "文中是 flexible time 的縮寫（英式也寫 flexitime），指員工可在上午七點到十點之間自選上班時間，但仍須配合核心時段。這是招募公告中常見的福利項目。",
+      "grammar_note": "flextime 是不可數名詞，不加 a 或 s：offer flextime，不說 a flextime。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "offer flextime", "zh": "提供彈性工時", "example": { "en": "Several local banks now offer flextime to attract younger workers.", "zh": "幾家本地銀行現在提供彈性工時以吸引年輕員工。" } },
+        { "phrase": "work flextime", "zh": "採彈性工時上班", "example": { "en": "Some of our designers work flextime and arrive after nine.", "zh": "我們有些設計師採彈性工時，九點後才到公司。" } },
+        { "phrase": "flextime schedule", "zh": "彈性工時時程", "example": { "en": "The flextime schedule must be approved by your direct supervisor.", "zh": "彈性工時時程必須經過你的直屬主管核准。" } },
+        { "phrase": "flextime policy", "zh": "彈性工時政策", "example": { "en": "The new flextime policy takes effect at the start of June.", "zh": "新的彈性工時政策將於六月初生效。" } }
+      ],
+      "examples": [
+        { "tag": "招募", "en": "Our company offers flextime to help employees balance work and family.", "zh": "我們公司提供彈性工時，幫助員工兼顧工作與家庭。" },
+        { "tag": "人事", "en": "Many working parents prefer jobs that provide flextime during school terms.", "zh": "許多上班族父母偏好學期中提供彈性工時的工作。" },
+        { "tag": "會議", "en": "Because of flextime, we scheduled the team meeting for midday.", "zh": "因為有彈性工時，我們把團隊會議排在中午。" }
+      ],
+      "confusable": [
+        { "word": "overtime", "diff": "overtime 是正常工時之外的加班；flextime 是總工時不變、只是上下班時間可調整。", "example": { "en": "Staff received extra pay for the overtime they worked last week.", "zh": "員工因上週的加班而領到額外薪水。" } },
+        { "word": "part-time", "diff": "part-time 是工作時數比全職少；flextime 的總時數不變，只是時間有彈性。", "example": { "en": "He works part-time at the call center on weekends.", "zh": "他週末在客服中心兼職。" } }
+      ],
+      "similar": [
+        { "phrase": "flexible hours", "diff": "flexible hours 是一般說法；flextime 則是公司正式制度的名稱，常搭配核心時段。", "example": { "en": "We offer flexible hours so staff can avoid rush-hour traffic.", "zh": "我們提供彈性工時，讓員工避開尖峰時段的車潮。" } },
+        { "phrase": "flexible schedule", "diff": "flexible schedule 可指工作日程整體有彈性；flextime 專指上下班時間的彈性。", "example": { "en": "A flexible schedule helps employees manage personal appointments.", "zh": "彈性的時程幫助員工處理私人約定。" } }
+      ],
+      "family": [
+        { "w": "shift", "pos": "n.", "zh": "輪班", "ipa": "/ʃɪft/", "example": { "en": "She works the night shift at the distribution center.", "zh": "她在配銷中心上夜班。" } },
+        { "w": "schedule", "pos": "n.", "zh": "時程表", "ipa": "/ˈskedʒuːl/", "example": { "en": "Please check the schedule before booking your flight.", "zh": "訂機票前請先確認時程表。" } },
+        { "w": "break", "pos": "n.", "zh": "休息時間", "ipa": "/breɪk/", "example": { "en": "Employees get a thirty-minute break at noon.", "zh": "員工中午有三十分鐘的休息時間。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "meaningful",
+      "type": "word",
+      "ipa": "/ˈmiːnɪŋfl/",
+      "pos": "adj.",
+      "zh": "有意義的、有價值的",
+      "en": "important or valuable to a person",
+      "note": "文中要求求職者在自傳中說明這份工作為何對自己「有意義」，重點是個人的動機與價值觀，不是單純的薪資或條件。",
+      "grammar_note": "常用 meaningful to + 人，表示「對某人有意義」。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "meaningful work", "zh": "有意義的工作", "example": { "en": "Many graduates are looking for meaningful work rather than high pay.", "zh": "許多畢業生想找有意義的工作，而不是高薪。" } },
+        { "phrase": "meaningful contribution", "zh": "有價值的貢獻", "example": { "en": "Her ideas made a meaningful contribution to the project.", "zh": "她的想法對專案做出了有價值的貢獻。" } },
+        { "phrase": "meaningful change", "zh": "實質的改變", "example": { "en": "Nothing will improve without meaningful change in our approach.", "zh": "我們的做法如果沒有實質改變，就不會有改善。" } },
+        { "phrase": "meaningful relationships", "zh": "有意義的關係", "example": { "en": "Good managers build meaningful relationships with their teams.", "zh": "好的主管會和團隊建立有意義的關係。" } }
+      ],
+      "examples": [
+        { "tag": "招募", "en": "I want a job where my daily work feels meaningful.", "zh": "我想要一份讓我覺得每天的工作都有意義的工作。" },
+        { "tag": "會議", "en": "Thank you for the meaningful discussion about our long-term strategy.", "zh": "謝謝大家針對我們的長期策略進行了有意義的討論。" },
+        { "tag": "報告", "en": "The survey shows a meaningful increase in customer loyalty.", "zh": "調查顯示客戶忠誠度有顯著的提升。" }
+      ],
+      "similar": [
+        { "word": "significant", "diff": "significant 強調重要程度或數量上的顯著，較正式；meaningful 強調對人有價值。", "example": { "en": "The merger had a significant impact on our revenue.", "zh": "這次合併對我們的營收有重大影響。" } },
+        { "word": "worthwhile", "diff": "worthwhile 指值得花時間或金錢；meaningful 偏重情感與價值上的意義。", "example": { "en": "Attending the workshop was a worthwhile use of our time.", "zh": "參加工作坊是對我們時間的值得運用。" } }
+      ],
+      "family": [
+        { "w": "rewarding", "pos": "adj.", "zh": "有回報的、有成就感的", "ipa": "/rɪˈwɔːrdɪŋ/", "example": { "en": "Teaching new hires is a rewarding part of my job.", "zh": "指導新進員工是我工作中很有成就感的一部分。" } },
+        { "w": "valuable", "pos": "adj.", "zh": "有價值的、珍貴的", "ipa": "/ˈvæljuəbl/", "example": { "en": "Your feedback is valuable to our product team.", "zh": "你的意見對我們的產品團隊很有價值。" } }
+      ],
+      "derived": [
+        { "w": "meaning", "pos": "n.", "zh": "意義", "ipa": "/ˈmiːnɪŋ/", "link": "mean（意指）+ -ing，變成名詞「意義」，像 building、painting" },
+        { "w": "meaningless", "pos": "adj.", "zh": "無意義的", "ipa": "/ˈmiːnɪŋləs/", "link": "meaning + -less，沒有…的，像 careless、useless" },
+        { "w": "meaningfully", "pos": "adv.", "zh": "有意義地", "ipa": "/ˈmiːnɪŋfəli/", "link": "meaningful + -ly，形容詞變副詞，像 carefully、successfully" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "有意義的、有價值的", "en": "important or valuable to a person", "in_passage": true, "example": { "en": "Volunteering at the center was a meaningful experience for her.", "zh": "在中心擔任志工對她來說是很有意義的經驗。" } },
+        { "pos": "adj.", "zh": "顯著的、重大的", "en": "large or important enough to notice", "distinguish": "和 increase、difference、change 等具體變化或數據一起出現時，指「顯著的」，而不是個人的感受。", "example": { "en": "The new system made a meaningful difference in processing time.", "zh": "新系統讓處理時間有了顯著的差異。" } }
+      ]
+    }
+  ]
+}
