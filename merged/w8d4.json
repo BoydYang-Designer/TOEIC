@@ -1,0 +1,149 @@
+{
+ "week": 8,
+ "day": 4,
+ "tag": "發票數量不符與倉庫盤點稽核說明",
+ "subtopic": "庫存與發票",
+ "type": "Listening",
+ "level": {
+  "score": 800,
+  "range": "750-850",
+  "cefr": "B2+",
+  "why": "以分詞構句（Having reviewed…）、被動語態、which 非限定子句與 It is advisable that… 的假設語氣句型組成長句，並出現 auditor、advisable 等較抽象的字彙；需整合稽核原因、錯誤成因、加班工資與新進人員作業四項資訊，干擾項多取自文中出現過的細節，比上週同日略難。"
+ },
+ "passage": "Good morning, everyone. Before the quarterly stock count begins, I would like to explain why an outside auditor will visit our warehouse next week. Several invoices from our packaging supplier, issued for bulk orders placed in August, show quantities that do not match the stock recorded in our system. Having reviewed the delivery notes, we believe that some cartons were counted twice, which means we may have overpaid by about four thousand two hundred dollars. Because the recount will require overtime, the wages for those extra hours will be approved by the executive team in advance. It is also advisable that every newcomer on the receiving crew be paired with an experienced colleague, and that each shipment be checked against its purchase order before anyone signs for it. A revised procedure will be circulated by Friday, so please read it carefully.",
+ "zh": "各位早安。在季度盤點開始之前，我想先說明為什麼下週會有一位外部稽核員到我們的倉庫來。我們包裝材料供應商針對八月下的大宗訂單所開立的幾張發票，顯示的數量與系統中記錄的庫存不符。檢視過交貨單之後，我們認為有些紙箱被重複計算了，這表示我們可能多付了大約四千兩百美元。因為重新盤點需要加班，那些額外工時的工資會事先由主管團隊核准。另外，建議每位進入收貨組的新進人員都搭配一位有經驗的同事，而且每批貨在簽收之前都要對照採購單檢查。修訂後的作業程序會在週五前發送給大家，請務必仔細閱讀。",
+ "vocab": [
+  {
+   "word": "auditor",
+   "ipa": "/ˈɔːdɪtər/",
+   "pos": "n.",
+   "col": "external auditor / hire an auditor",
+   "zh": "稽核員、審計員"
+  },
+  {
+   "word": "bulk",
+   "ipa": "/bʌlk/",
+   "pos": "n.",
+   "col": "in bulk / bulk order",
+   "zh": "大量、大宗"
+  },
+  {
+   "word": "advisable",
+   "ipa": "/ədˈvaɪzəbl/",
+   "pos": "adj.",
+   "col": "it is advisable to / strongly advisable",
+   "zh": "可取的、明智的、建議的"
+  },
+  {
+   "word": "circulate",
+   "ipa": "/ˈsɜːrkjəleɪt/",
+   "pos": "v.",
+   "col": "circulate a memo / circulate among staff",
+   "zh": "傳閱、散發"
+  }
+ ],
+ "questions": [
+  {
+   "kind": "context",
+   "q": "Why will an auditor visit the warehouse next week?",
+   "opts": [
+    "To train the newcomers on the receiving crew",
+    "To look into mismatches between invoices and recorded stock",
+    "To approve the overtime wages for the recount",
+    "To inspect the quality of the packaging materials"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：新進人員是搭配有經驗的同事，並不是由稽核員訓練。",
+    "正解：發票上的數量與系統記錄的庫存不符，所以外部稽核員要來查核。",
+    "錯誤：加班工資是由主管團隊事先核准，不是稽核員的工作。",
+    "錯誤：問題出在數量不符，與包裝材料的品質無關。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What do the managers believe caused the problem?",
+   "opts": [
+    "The supplier delivered fewer cartons than ordered.",
+    "Overtime hours were recorded incorrectly.",
+    "A purchase order was lost in the system.",
+    "Some cartons were counted twice."
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：文中沒有說供應商少交貨，反而是我們可能多付了款。",
+    "錯誤：加班是重新盤點之後才會發生，並非問題的原因。",
+    "錯誤：文中提到要對照採購單，但沒有說採購單遺失。",
+    "正解：檢視交貨單後，主管們認為有些紙箱被重複計算。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What is recommended for new members of the receiving crew?",
+   "opts": [
+    "Working together with an experienced colleague",
+    "Attending the auditor's briefing next week",
+    "Reading the revised procedure aloud to the team",
+    "Avoiding overtime work during the recount"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：建議每位新進人員搭配一位有經驗的同事。",
+    "錯誤：稽核員會來訪，但文中沒有提到要新進人員參加說明會。",
+    "錯誤：修訂的程序是發送給大家閱讀，並沒有要大聲朗讀。",
+    "錯誤：文中說加班工資會事先核准，並未要求新進人員避免加班。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "The finance department asked all suppliers to ______ their invoices within seven days of delivery.",
+   "opts": [
+    "issuing",
+    "issued",
+    "issue",
+    "issues"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：asked ... to 後面要接原形動詞，不能用動名詞。",
+    "錯誤：過去式或過去分詞不能直接接在 to 之後。",
+    "正解：ask + 受詞 + to V，故空格填原形動詞 issue，意為「開立」。",
+    "錯誤：issues 是第三人稱單數或複數名詞，不能接在 to 之後。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "The shipment arrived ______ the agreed date, so the invoice was paid without any penalty.",
+   "opts": [
+    "ahead of",
+    "owing to",
+    "in spite of",
+    "as to"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：ahead of 表示「早於」，貨物提早到，所以沒有罰款，語意通順。",
+    "錯誤：owing to 表示「由於」，不能表示時間早於約定日期。",
+    "錯誤：in spite of 表示「儘管」，語意不符。",
+    "錯誤：as to 表示「關於」，不能表示時間先後。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Payment will be released only after the purchasing manager has ______ the discrepancies between the invoice and the order.",
+   "opts": [
+    "reconcile",
+    "reconciled",
+    "reconciling",
+    "reconciliation"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：has 之後需要過去分詞，不能用原形。",
+    "正解：has reconciled 是現在完成式，reconcile 意為「核對並使一致」。",
+    "錯誤：reconciling 是現在分詞，不能與 has 構成完成式。",
+    "錯誤：reconciliation 是名詞，不能接在 has 之後當動詞。"
+   ]
+  }
+ ]
+}
