@@ -1,0 +1,162 @@
+{
+  "week": 2,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "guide",
+      "type": "word",
+      "ipa": "/ɡaɪd/",
+      "pos": "n.",
+      "zh": "導引件、導軌；指南",
+      "en": "a part or thing that shows where something should go",
+      "note": "this guide 指推車上的「導引件」，座椅放下去時，它會幫忙對準位置。這裡是名詞，和下一句 The guide helps align the seat 是同一個東西。",
+      "forms": [
+        { "w": "guides", "label": "複數／第三人稱單數", "pos": "n.", "zh": "指南、導引件（複數）", "ipa": "/ɡaɪdz/", "example": { "en": "The two guides on the frame keep the parts in line.", "zh": "框架上的兩個導引件讓零件保持對齊。" } },
+        { "w": "guided", "label": "過去式／過去分詞", "pos": "v.", "zh": "引導了", "ipa": "/ˈɡaɪdɪd/", "example": { "en": "A staff member guided the visitors through the factory.", "zh": "一位員工帶著訪客參觀工廠。" } },
+        { "w": "guiding", "label": "現在分詞", "pos": "v.", "zh": "引導中", "ipa": "/ˈɡaɪdɪŋ/", "example": { "en": "She is guiding new employees through the safety training today.", "zh": "她今天正在帶新進員工完成安全訓練。" } }
+      ],
+      "collocations": [
+        { "phrase": "user guide", "zh": "使用指南", "example": { "en": "Please read the user guide before using the machine.", "zh": "使用機器前，請先閱讀使用指南。" } },
+        { "phrase": "tour guide", "zh": "導遊", "example": { "en": "Our tour guide will meet us at the hotel lobby.", "zh": "我們的導遊會在飯店大廳與我們會合。" } },
+        { "phrase": "guide someone through", "zh": "帶某人完成…", "example": { "en": "The manager will guide you through the new ordering system.", "zh": "經理會帶你熟悉新的訂購系統。" } }
+      ],
+      "examples": [
+        { "tag": "產品示範", "en": "Place the part on the guide and press down gently.", "zh": "把零件放在導引件上，然後輕輕往下壓。" },
+        { "tag": "電子郵件", "en": "I have attached a short guide for the new software.", "zh": "我附上了一份新軟體的簡短指南。" }
+      ],
+      "confusable": [
+        { "word": "guard", "diff": "拼法相似，但 guard 是「守衛、保護」，guide 是「引導、指引」。", "example": { "en": "A security guard checks every visitor at the front door.", "zh": "一名警衛會在大門檢查每一位訪客。" } }
+      ],
+      "family": [
+        { "w": "manual", "ipa": "/ˈmænjuəl/", "pos": "n.", "zh": "操作手冊", "example": { "en": "The manual explains how to fold the stroller step by step.", "zh": "這本手冊一步一步說明如何折疊推車。" } },
+        { "w": "instruction", "ipa": "/ɪnˈstrʌkʃən/", "pos": "n.", "zh": "說明、指示", "example": { "en": "Follow the instructions on the box to set up the unit.", "zh": "請依照盒子上的說明安裝這個裝置。" } }
+      ],
+      "derived": [
+        { "w": "guidance", "ipa": "/ˈɡaɪdns/", "pos": "n.", "zh": "指導、指引", "link": "guide + -ance，把「引導」變成名詞，像 assistance、performance。" },
+        { "w": "guidebook", "ipa": "/ˈɡaɪdbʊk/", "pos": "n.", "zh": "旅遊指南書", "link": "guide + book，兩個字合在一起，像 notebook、textbook。" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ɡaɪd/", "zh": "導引件；指南；導遊", "in_passage": true, "example": { "en": "The guide on the base shows where to place the seat.", "zh": "底座上的導引件顯示座椅該放的位置。" } },
+        { "pos": "v.", "ipa": "/ɡaɪd/", "zh": "引導、帶領", "example": { "en": "Signs on the wall guide customers to the service desk.", "zh": "牆上的標示會引導顧客前往服務台。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "導引件、導軌", "en": "a part that helps something move to the right place", "in_passage": true, "example": { "en": "The metal guide keeps the drawer from sliding sideways.", "zh": "這個金屬導軌讓抽屜不會往旁邊滑偏。" } },
+        { "pos": "n.", "zh": "指南、手冊", "en": "a book or paper that explains how to do something", "distinguish": "常和 user、travel、quick 等字連用，是「說明文件」的意思。", "example": { "en": "This quick guide explains how to join the online meeting.", "zh": "這份快速指南說明如何加入線上會議。" } },
+        { "pos": "n.", "zh": "導遊、嚮導", "en": "a person who shows visitors around a place", "distinguish": "指「人」時，通常是導遊或嚮導。", "example": { "en": "The guide spoke clearly and answered every question from the group.", "zh": "導遊說話清楚，也回答了團體的每個問題。" } }
+      ]
+    },
+    {
+      "text": "lower",
+      "type": "word",
+      "ipa": "/ˈloʊər/",
+      "pos": "v.",
+      "zh": "放低、降低",
+      "en": "to move something down to a lower place",
+      "note": "lower it back onto the guide 表示「把座椅放回導引件上」。這裡是動詞，後面接受詞（it）和方向（back onto the guide）。",
+      "grammar_note": "lower 當動詞是及物動詞，要接受詞（lower the seat）；當形容詞時是 low 的比較級，兩者詞性不同，不要搞混。",
+      "forms": [
+        { "w": "lowers", "label": "第三人稱單數", "pos": "v.", "zh": "降低", "ipa": "/ˈloʊərz/", "example": { "en": "This lever lowers the table to a comfortable height.", "zh": "這根拉桿可以把桌子降到舒適的高度。" } },
+        { "w": "lowered", "label": "過去式／過去分詞", "pos": "v.", "zh": "降低了", "ipa": "/ˈloʊərd/", "example": { "en": "The supplier lowered its prices after we ordered more units.", "zh": "我們增加訂購數量後，供應商降低了價格。" } },
+        { "w": "lowering", "label": "現在分詞", "pos": "v.", "zh": "降低中", "ipa": "/ˈloʊərɪŋ/", "example": { "en": "We are lowering the screen so everyone can see it.", "zh": "我們正在把螢幕放低，讓大家都看得到。" } }
+      ],
+      "collocations": [
+        { "phrase": "lower the price", "zh": "降低價格", "example": { "en": "We may lower the price if you buy in bulk.", "zh": "如果你大量購買，我們可能會降價。" } },
+        { "phrase": "lower costs", "zh": "降低成本", "example": { "en": "The new process helped us lower costs by ten percent.", "zh": "新流程幫我們降低了百分之十的成本。" } },
+        { "phrase": "lower the volume", "zh": "把音量調小", "example": { "en": "Please lower the volume during the phone meeting.", "zh": "電話會議期間，請把音量調小。" } },
+        { "phrase": "lower the risk", "zh": "降低風險", "example": { "en": "Regular testing can lower the risk of product failure.", "zh": "定期測試可以降低產品故障的風險。" } }
+      ],
+      "examples": [
+        { "tag": "產品示範", "en": "Lower the handle slowly so it does not hit the frame.", "zh": "慢慢放低把手，才不會撞到框架。" },
+        { "tag": "會議", "en": "We need to lower our expectations for this quarter.", "zh": "我們必須降低對本季的期待。" }
+      ],
+      "confusable": [
+        { "word": "low", "diff": "low 是形容詞「低的」，不能直接接受詞；lower 當動詞才是「把…降低」。", "usage": "說 a low price（低價），但說 lower the price（降價）。", "example": { "en": "The store offers low prices on all office supplies.", "zh": "這家店的所有辦公用品都是低價。" } }
+      ],
+      "similar": [
+        { "word": "reduce", "diff": "reduce 多用在數量、成本、風險等「減少」；lower 還可以指把物體實際往下放。", "example": { "en": "We plan to reduce shipping costs by changing the box size.", "zh": "我們打算更換箱子尺寸來減少運費。" } },
+        { "word": "drop", "diff": "drop 常指價格或數字「下降」，也可以當不及物動詞；lower 是及物動詞，要有人去降低。", "example": { "en": "Sales dropped sharply after the new competitor opened.", "zh": "新競爭者開張後，銷售量大幅下滑。" } }
+      ],
+      "family": [
+        { "w": "reduce", "ipa": "/rɪˈduːs/", "pos": "v.", "zh": "減少", "example": { "en": "New packaging will reduce the number of damaged goods.", "zh": "新包裝會減少受損商品的數量。" } },
+        { "w": "decrease", "ipa": "/dɪˈkriːs/", "pos": "v.", "zh": "減少、下降", "example": { "en": "Our monthly costs decreased after we changed suppliers.", "zh": "換供應商後，我們每月的成本下降了。" } }
+      ],
+      "derived": [
+        { "w": "low", "ipa": "/loʊ/", "pos": "adj.", "zh": "低的", "link": "low 是詞幹；lower 當動詞是「使變低」，像 shorten、widen 的概念。" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/ˈloʊər/", "zh": "放低、降低", "in_passage": true, "example": { "en": "Lower the seat gently onto the frame to avoid damage.", "zh": "輕輕把座椅放到框架上，以免損壞。" } },
+        { "pos": "adj.", "ipa": "/ˈloʊər/", "zh": "較低的", "example": { "en": "The lower price attracted many new customers this month.", "zh": "較低的價格這個月吸引了許多新客戶。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "放低（物體）", "en": "to move something down slowly", "in_passage": true, "example": { "en": "Workers lowered the heavy box carefully onto the cart.", "zh": "工人小心地把沉重的箱子放到推車上。" } },
+        { "pos": "v.", "zh": "降低（數量、價格）", "en": "to make a number or level smaller", "distinguish": "受詞是 price、cost、risk 等抽象或數字時，是「降低」；受詞是物體時，是「放低」。", "example": { "en": "The company lowered its yearly budget for travel.", "zh": "公司降低了每年的差旅預算。" } }
+      ]
+    },
+    {
+      "text": "vertical",
+      "type": "word",
+      "ipa": "/ˈvɜːrtɪkəl/",
+      "pos": "n.",
+      "zh": "垂直（位置）；垂直的",
+      "en": "straight up and down",
+      "note": "push it slightly past vertical 的 vertical 在這裡當名詞，指「垂直的位置」，意思是把椅背推到比直立位置再多一點點。",
+      "grammar_note": "past vertical 的 vertical 前面不加 the 或 a，是固定說法（past vertical，超過垂直位置）；當形容詞時才放在名詞前（vertical line）。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "vertical line", "zh": "垂直線", "example": { "en": "Draw a vertical line to divide the page into two parts.", "zh": "畫一條垂直線把頁面分成兩個部分。" } },
+        { "phrase": "vertical position", "zh": "垂直位置", "example": { "en": "Keep the machine in a vertical position during transport.", "zh": "運送過程中，請讓機器保持垂直放置。" } },
+        { "phrase": "vertical axis", "zh": "縱軸", "example": { "en": "The vertical axis of the chart shows monthly sales.", "zh": "這張圖表的縱軸顯示每月銷售額。" } },
+        { "phrase": "off vertical", "zh": "偏離垂直", "example": { "en": "The pole is slightly off vertical and needs to be fixed.", "zh": "這根柱子稍微偏離垂直，需要修正。" } }
+      ],
+      "examples": [
+        { "tag": "產品示範", "en": "The backrest stops when it reaches a vertical position.", "zh": "椅背到達垂直位置時會停住。" },
+        { "tag": "施工", "en": "Check that the wall is exactly vertical before painting it.", "zh": "上漆之前，請確認牆面完全垂直。" }
+      ],
+      "confusable": [
+        { "word": "horizontal", "diff": "horizontal 是「水平的」，vertical 是「垂直的」，方向剛好相反。", "example": { "en": "The horizontal bar connects the two sides of the frame.", "zh": "這根水平的橫桿連接框架的兩側。" } }
+      ],
+      "similar": [
+        { "word": "upright", "diff": "upright 強調「直立站著」，常用在座椅、人、物體的姿勢；vertical 是較技術、精準的說法。", "example": { "en": "Please keep the seat upright during takeoff and landing.", "zh": "起飛與降落期間，請保持座椅直立。" } }
+      ],
+      "derived": [
+        { "w": "vertically", "ipa": "/ˈvɜːrtɪkli/", "pos": "adv.", "zh": "垂直地", "link": "vertical + -ly，變成副詞，像 quickly、directly。" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈvɜːrtɪkəl/", "zh": "垂直（位置）", "in_passage": true, "example": { "en": "The pole should stay within five degrees of vertical.", "zh": "這根柱子應保持在偏離垂直五度以內。" } },
+        { "pos": "adj.", "ipa": "/ˈvɜːrtɪkəl/", "zh": "垂直的", "example": { "en": "Store the boxes in a vertical stack to save space.", "zh": "把箱子垂直堆疊存放以節省空間。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "lower the handlebar to its lowest position.",
+      "type": "sentence",
+      "zh": "把手把降到最低位置。",
+      "note": "這是產品示範中的操作指示，用祈使句直接告訴使用者下一個動作。語氣簡短、直接，適合步驟說明。依手把類型不同，可換成 retract、adjust 或 push down 等說法。",
+      "chunks": [
+        { "en": "lower", "zh": "放低" },
+        { "en": "the handlebar", "zh": "手把" },
+        { "en": "to its lowest position.", "zh": "到它的最低位置" }
+      ],
+      "structure": "V（祈使）+ N（受詞）+ to + its + 最高級 + position",
+      "grammar": [
+        { "point": "祈使句", "explain": "句首直接用原形動詞 lower，省略主詞 you，用來下指令或說明步驟，語氣直接。" },
+        { "point": "to its lowest position", "explain": "to + 位置表示「移到什麼位置」；lowest 是 low 的最高級，前面用所有格 its 代替 the，指手把自己的最低位置。" }
+      ],
+      "pattern": "V + N + to + its + 最高級 + position",
+      "paraphrase": [
+        { "en": "Retract the handlebar to its lowest position.", "zh": "將伸縮手把收回至最低位置。（適用於會伸縮收合的手把，retract 強調「收回」。）" },
+        { "en": "Adjust the telescopic handlebar to its lowest position.", "zh": "將伸縮式手把調整至最低位置。（適用於說明書或規格描述，telescopic 指可伸縮的，adjust 強調調整長度。）" },
+        { "en": "Push the handlebar down to its lowest position.", "zh": "將手把往下推至最低位置。（最直覺的操作描述，適合口語示範，一聽就知道要往下推。）" }
+      ],
+      "examples": [
+        { "en": "Move the shelf to its highest position for easier access.", "zh": "把層架移到最高位置，方便取物。" },
+        { "en": "Set the screen to its brightest level before the presentation.", "zh": "簡報前，把螢幕調到最亮的程度。" }
+      ],
+      "key_words": [
+        { "w": "lower", "ipa": "/ˈloʊər/", "pos": "v.", "zh": "放低" },
+        { "w": "handlebar", "ipa": "/ˈhændlbɑːr/", "pos": "n.", "zh": "手把" },
+        { "w": "lowest", "ipa": "/ˈloʊɪst/", "pos": "adj.", "zh": "最低的" }
+      ]
+    }
+  ]
+}

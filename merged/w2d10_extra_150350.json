@@ -1,0 +1,517 @@
+{
+  "week": 2,
+  "day": 10,
+  "extra_vocab": [
+    {
+      "text": "filed patent",
+      "type": "phrase",
+      "zh": "提出專利申請（file a patent）",
+      "en": "to officially ask for a patent",
+      "note": "have filed patent applications 的意思是「已經提出專利申請」。file 在這裡是動詞，表示正式向主管機關遞交文件；注意專利「申請中」不等於「已核准」。",
+      "pattern": "file + (a) patent (application) + for + N",
+      "grammar_note": "file 是及物動詞，常用 file a patent for + 發明，或 file for a patent；現在完成式 have filed 強調「已經提出」，不代表專利已經取得。",
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "We filed a patent for the new locking system last month.",
+          "zh": "我們上個月為新的鎖定系統提出了專利申請。"
+        },
+        {
+          "tag": "報告",
+          "en": "The company has filed patent applications in three different countries.",
+          "zh": "這家公司已在三個不同國家提出專利申請。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please confirm whether the patent was filed before the product launch.",
+          "zh": "請確認專利是否在產品上市前就已提出申請。"
+        },
+        {
+          "tag": "法務",
+          "en": "Our legal team will file the patent as soon as the design is final.",
+          "zh": "設計定案後，我們的法務團隊會立刻提出專利申請。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "apply for a patent",
+          "diff": "意思相近，apply for 是「申請」，語氣較一般；file 強調「遞交文件」這個動作。",
+          "example": {
+            "en": "We plan to apply for a patent in Europe next year.",
+            "zh": "我們打算明年在歐洲申請專利。"
+          }
+        },
+        {
+          "phrase": "submit a patent application",
+          "diff": "較完整、正式的說法，常見於法律文件或郵件，意思與 file a patent application 相同。",
+          "example": {
+            "en": "They submitted a patent application for the folding frame in May.",
+            "zh": "他們在五月為折疊框架提交了專利申請。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "filled",
+          "diff": "發音與拼法相近，但 filled 是 fill（填滿、填寫）的過去式，和提出申請無關。",
+          "usage": "file 是「提出、歸檔」，fill out a form 才是「填寫表格」。",
+          "example": {
+            "en": "Please fill out the form and return it by Monday.",
+            "zh": "請填寫這份表格，並在週一前交回。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "integration",
+      "type": "word",
+      "ipa": "/ˌɪntɪˈɡreɪʃən/",
+      "pos": "n.",
+      "zh": "整合、結合",
+      "en": "the act of combining things so they work together",
+      "note": "its integration with different components 指整個系統與座椅、提籃、汽座等不同零件「結合運作」的方式。專利保護的重點就是這種整合，而不只是單一零件。",
+      "grammar_note": "integration 後面常接 with（與…整合）或 of A and B；動詞是 integrate A into/with B，不要說 integrate to。",
+      "forms": [
+        {
+          "w": "integrations",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "各種整合（功能）",
+          "ipa": "/ˌɪntɪˈɡreɪʃənz/",
+          "example": {
+            "en": "The software supports integrations with several popular payment systems.",
+            "zh": "這套軟體支援與數種熱門付款系統整合。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "integration with",
+          "zh": "與…整合",
+          "example": {
+            "en": "Integration with our current system will take about two weeks.",
+            "zh": "與我們現有系統整合大約需要兩週。"
+          }
+        },
+        {
+          "phrase": "system integration",
+          "zh": "系統整合",
+          "example": {
+            "en": "The team specializes in system integration for large factories.",
+            "zh": "這個團隊專門負責大型工廠的系統整合。"
+          }
+        },
+        {
+          "phrase": "seamless integration",
+          "zh": "無縫整合",
+          "example": {
+            "en": "Customers value the seamless integration between the app and the device.",
+            "zh": "顧客很重視應用程式與裝置之間的無縫整合。"
+          }
+        },
+        {
+          "phrase": "integration of A and B",
+          "zh": "A 與 B 的整合",
+          "example": {
+            "en": "The integration of sales and inventory data saves us time.",
+            "zh": "整合銷售與庫存資料替我們節省了時間。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "The key challenge is the integration of the new part.",
+          "zh": "主要的挑戰在於新零件的整合。"
+        },
+        {
+          "tag": "人資",
+          "en": "We have a program to support the integration of new employees.",
+          "zh": "我們有一項計畫協助新進員工融入團隊。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "integrity",
+          "diff": "拼法相近，但 integrity 是「誠信；完整性」，不是「整合」。",
+          "example": {
+            "en": "The company is known for its honesty and integrity.",
+            "zh": "這家公司以誠實與正直聞名。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "combination",
+          "diff": "combination 只是「組合」，不一定要彼此配合運作；integration 強調整合後能一起運作。",
+          "example": {
+            "en": "The product is a combination of two existing technologies.",
+            "zh": "這項產品結合了兩種現有技術。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "connection",
+          "ipa": "/kəˈnekʃən/",
+          "pos": "n.",
+          "zh": "連接、連結",
+          "example": {
+            "en": "A loose connection caused the machine to stop working.",
+            "zh": "一個鬆脫的接點讓機器停止運作。"
+          }
+        },
+        {
+          "w": "compatibility",
+          "ipa": "/kəmˌpætəˈbɪləti/",
+          "pos": "n.",
+          "zh": "相容性",
+          "example": {
+            "en": "We must check compatibility before buying the new equipment.",
+            "zh": "購買新設備前，我們必須確認相容性。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "integrate",
+          "ipa": "/ˈɪntɪɡreɪt/",
+          "pos": "v.",
+          "zh": "整合、結合",
+          "link": "integrate 是詞幹；去掉 -e 加 -ion 變成名詞，像 educate → education、decorate → decoration。"
+        },
+        {
+          "w": "integrated",
+          "ipa": "/ˈɪntɪɡreɪtɪd/",
+          "pos": "adj.",
+          "zh": "整合的、一體化的",
+          "link": "integrate + -d，被整合在一起的，像 limited、organized。"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "整合、結合",
+          "en": "the act of joining parts so they work as one system",
+          "in_passage": true,
+          "example": {
+            "en": "Smooth integration of the two teams improved our results.",
+            "zh": "兩個團隊順利整合，改善了我們的成果。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "融入",
+          "en": "the process of becoming part of a group",
+          "distinguish": "後面接人或團體時（new staff、the team），指「融入」；接系統或零件時，指「整合」。",
+          "example": {
+            "en": "Good training makes the integration of new staff much easier.",
+            "zh": "良好的訓練讓新進員工更容易融入。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "relevant patent",
+      "type": "phrase",
+      "zh": "相關專利",
+      "en": "a patent that is connected to the subject being discussed",
+      "note": "the relevant patent applications 指「與這項技術有關的那些專利申請」。relevant 在這裡限定範圍，表示保護範圍要以相關專利的內容為準，而不是泛指所有專利。",
+      "pattern": "the relevant + N（patent / regulation / document）",
+      "grammar_note": "relevant 放在名詞前時直接修飾（the relevant patents）；要說「與…有關」時用 relevant to + N，介系詞是 to，不用 with 或 about。",
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Please send me the relevant patent documents before Friday.",
+          "zh": "請在週五前把相關的專利文件寄給我。"
+        },
+        {
+          "tag": "會議",
+          "en": "We reviewed all relevant patents before we finalized the design.",
+          "zh": "我們在設計定案前檢視了所有相關專利。"
+        },
+        {
+          "tag": "法務",
+          "en": "The lawyer will check whether the relevant patents are still valid.",
+          "zh": "律師會確認這些相關專利是否仍然有效。"
+        },
+        {
+          "tag": "報告",
+          "en": "The report lists the relevant patents in this technical field.",
+          "zh": "這份報告列出了這個技術領域的相關專利。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "related patent",
+          "diff": "related 只說明「有關聯」；relevant 更強調「與當前議題直接相關、有參考價值」。",
+          "example": {
+            "en": "The company owns several related patents in the same field.",
+            "zh": "這家公司在同一個領域擁有數項相關專利。"
+          }
+        },
+        {
+          "phrase": "applicable",
+          "diff": "applicable 是「適用的」，常用於規定、法律；relevant 則是「相關的」，範圍較廣。",
+          "example": {
+            "en": "Please check the applicable laws before you export the product.",
+            "zh": "出口產品前，請先確認適用的法規。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "relative",
+          "diff": "拼法與發音相近，但 relative 是「相對的」或名詞「親戚」，不是「相關的」。",
+          "usage": "relevant 後接 to 表示「與…有關」；relative 常見於 relative to（相對於）。",
+          "example": {
+            "en": "The cost is low relative to similar products on the market.",
+            "zh": "相對於市面上類似的產品，這項成本很低。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "installation",
+      "type": "word",
+      "ipa": "/ˌɪnstəˈleɪʃən/",
+      "pos": "n.",
+      "zh": "安裝",
+      "en": "the act of putting something in place so it can be used",
+      "note": "during installation 指「安裝座椅的過程中」。這裡說磁鐵是在安裝時協助導引座椅到正確位置，強調它是輔助定位，不是主要固定機構。",
+      "grammar_note": "installation 當「安裝這個動作」時是不可數名詞，不加 a（during installation）；指具體設施或一次安裝時才加 s 或 an。",
+      "forms": [
+        {
+          "w": "installations",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "安裝案、設施",
+          "ipa": "/ˌɪnstəˈleɪʃənz/",
+          "example": {
+            "en": "Our technicians completed ten installations in different cities this week.",
+            "zh": "本週我們的技術人員在不同城市完成了十件安裝工作。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "installation guide",
+          "zh": "安裝指南",
+          "example": {
+            "en": "The installation guide explains each step with clear pictures.",
+            "zh": "安裝指南用清楚的圖片說明每個步驟。"
+          }
+        },
+        {
+          "phrase": "installation fee",
+          "zh": "安裝費",
+          "example": {
+            "en": "There is no installation fee for orders over five hundred dollars.",
+            "zh": "訂單超過五百美元就免收安裝費。"
+          }
+        },
+        {
+          "phrase": "easy installation",
+          "zh": "易於安裝",
+          "example": {
+            "en": "The product is popular because of its easy installation.",
+            "zh": "這項產品因為容易安裝而很受歡迎。"
+          }
+        },
+        {
+          "phrase": "installation process",
+          "zh": "安裝流程",
+          "example": {
+            "en": "The installation process takes less than thirty minutes.",
+            "zh": "安裝流程只需要不到三十分鐘。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "產品",
+          "en": "No special tools are needed for installation.",
+          "zh": "安裝時不需要特殊工具。"
+        },
+        {
+          "tag": "客服",
+          "en": "Please call us if you have trouble with the installation.",
+          "zh": "如果安裝時遇到問題，請來電聯絡我們。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "installment",
+          "diff": "拼法相似，但 installment 是「分期付款的一期」，和安裝無關。",
+          "example": {
+            "en": "You can pay in three monthly installments without extra fees.",
+            "zh": "你可以分三個月付款，不需額外費用。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "setup",
+          "diff": "setup 是「架設、設定」，範圍更廣，包含安裝後的設定；installation 較專指把物品裝上去。",
+          "example": {
+            "en": "Setup of the new printer takes about ten minutes.",
+            "zh": "新印表機的設定大約需要十分鐘。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "assembly",
+          "ipa": "/əˈsembli/",
+          "pos": "n.",
+          "zh": "組裝",
+          "example": {
+            "en": "Assembly of each unit takes less than twenty minutes.",
+            "zh": "每台裝置的組裝只需不到二十分鐘。"
+          }
+        },
+        {
+          "w": "equipment",
+          "ipa": "/ɪˈkwɪpmənt/",
+          "pos": "n.",
+          "zh": "設備",
+          "example": {
+            "en": "All the equipment arrived at the factory on Tuesday.",
+            "zh": "所有設備週二抵達了工廠。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "install",
+          "ipa": "/ɪnˈstɔːl/",
+          "pos": "v.",
+          "zh": "安裝",
+          "link": "install 是詞幹；加 -ation 變名詞，像 organize → organization、inform → information。"
+        },
+        {
+          "w": "installer",
+          "ipa": "/ɪnˈstɔːlər/",
+          "pos": "n.",
+          "zh": "安裝人員",
+          "link": "install + -er，做這件事的人，像 worker、manager。"
+        },
+        {
+          "w": "uninstall",
+          "ipa": "/ˌʌnɪnˈstɔːl/",
+          "pos": "v.",
+          "zh": "解除安裝",
+          "link": "un- 表示相反動作，像 unlock、undo。"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "安裝（作業）",
+          "en": "the work of putting equipment in place",
+          "in_passage": true,
+          "example": {
+            "en": "Installation of the new machine will start next Monday morning.",
+            "zh": "新機器的安裝將在下週一早上開始。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "設施、裝置",
+          "en": "a machine or system that has been put in place",
+          "distinguish": "常用複數 installations，指已經裝好的設備或場所，例如工業設施。",
+          "example": {
+            "en": "The factory has several large installations along the river.",
+            "zh": "這家工廠在河邊有數座大型設施。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "to meet the intended cabin baggage size requirements.",
+      "type": "sentence",
+      "zh": "以符合預期的隨身行李尺寸規定。",
+      "note": "這是前一句「打造更精簡的整體設計」的目的說明，用不定詞片語補充「為什麼要這樣改」。語氣客觀，常見於產品規格與設計說明。",
+      "chunks": [
+        {
+          "en": "to meet",
+          "zh": "為了符合"
+        },
+        {
+          "en": "the intended",
+          "zh": "預期的"
+        },
+        {
+          "en": "cabin baggage",
+          "zh": "隨身行李"
+        },
+        {
+          "en": "size requirements.",
+          "zh": "尺寸規定"
+        }
+      ],
+      "structure": "to + V（表目的）+ the + 過去分詞形容詞（intended）+ 名詞 + 名詞 + requirements",
+      "grammar": [
+        {
+          "point": "to V 表目的",
+          "explain": "to meet 是不定詞片語，說明前面動作的目的，意思接近 in order to meet。"
+        },
+        {
+          "point": "intended 當形容詞",
+          "explain": "intend 的過去分詞放在名詞前，表示「預期的、原本打算的」，intended requirements 指原先設定要達成的規定。"
+        },
+        {
+          "point": "名詞堆疊",
+          "explain": "cabin baggage size requirements 是連續名詞修飾最後的 requirements，前面的名詞用單數形，不加 s。"
+        }
+      ],
+      "pattern": "to meet the intended + N + N + requirements",
+      "paraphrase": [
+        {
+          "en": "in order to satisfy the planned size limits for carry-on bags.",
+          "zh": "為了符合針對隨身行李所規劃的尺寸限制。"
+        },
+        {
+          "en": "so that it fits the target cabin baggage size rules.",
+          "zh": "好讓它符合預期的隨身行李尺寸規定。"
+        }
+      ],
+      "examples": [
+        {
+          "en": "We added a second shift to meet the expected customer demand.",
+          "zh": "我們增加了第二個班次，以滿足預期的客戶需求。"
+        },
+        {
+          "en": "The team reduced the box size to meet the required shipping weight limits.",
+          "zh": "團隊縮小了箱子尺寸，以符合規定的運送重量限制。"
+        }
+      ],
+      "key_words": [
+        {
+          "w": "meet",
+          "ipa": "/miːt/",
+          "pos": "v.",
+          "zh": "符合、滿足"
+        },
+        {
+          "w": "intended",
+          "ipa": "/ɪnˈtendɪd/",
+          "pos": "adj.",
+          "zh": "預期的、打算中的"
+        },
+        {
+          "w": "cabin baggage",
+          "zh": "隨身行李（機艙行李）"
+        },
+        {
+          "w": "requirements",
+          "ipa": "/rɪˈkwaɪərmənts/",
+          "pos": "n.",
+          "zh": "要求、規定"
+        }
+      ]
+    }
+  ]
+}

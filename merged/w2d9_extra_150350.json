@@ -1,0 +1,163 @@
+{
+  "week": 2,
+  "day": 9,
+  "extra_vocab": [
+    {
+      "text": "perspective",
+      "type": "word",
+      "ipa": "/pərˈspektɪv/",
+      "pos": "n.",
+      "zh": "觀點、角度、看法",
+      "en": "a way of thinking about something",
+      "note": "From a design perspective 是「從設計的角度來看」的固定開頭，用來先說明自己是站在哪個立場發表意見。這裡的 perspective 讓後面的 I think 更客觀、更有專業感。",
+      "grammar_note": "from a/an + 形容詞 + perspective 是固定句型，a 或 an 依後面字的發音決定（from an engineering perspective）；介系詞用 from，不用 in 或 on。",
+      "forms": [
+        {
+          "w": "perspectives",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "各種觀點",
+          "ipa": "/pərˈspektɪvz/",
+          "example": {
+            "en": "We invited experts with different perspectives to review the plan.",
+            "zh": "我們邀請了不同觀點的專家來檢視這份計畫。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "from a business perspective",
+          "zh": "從商業角度來看",
+          "example": {
+            "en": "From a business perspective, the new market looks very promising.",
+            "zh": "從商業角度來看，這個新市場很有潛力。"
+          }
+        },
+        {
+          "phrase": "a different perspective",
+          "zh": "不同的觀點",
+          "example": {
+            "en": "Customer feedback gave us a different perspective on the product.",
+            "zh": "顧客回饋讓我們對這項產品有了不同的看法。"
+          }
+        },
+        {
+          "phrase": "offer a new perspective",
+          "zh": "提供新的角度",
+          "example": {
+            "en": "The new hire offered a new perspective on our process.",
+            "zh": "這位新進員工為我們的流程提供了新的角度。"
+          }
+        },
+        {
+          "phrase": "keep things in perspective",
+          "zh": "客觀看待事情",
+          "example": {
+            "en": "Let's keep things in perspective and focus on the main goal.",
+            "zh": "讓我們客觀看待事情，專注在主要目標上。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "From a cost perspective, the first option is much cheaper.",
+          "zh": "從成本的角度來看，第一個方案便宜很多。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "I would like to hear your perspective on this proposal.",
+          "zh": "我想聽聽你對這項提案的看法。"
+        },
+        {
+          "tag": "報告",
+          "en": "The report looks at the issue from the customer's perspective.",
+          "zh": "這份報告從客戶的角度來看這個問題。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "prospective",
+          "diff": "拼法相似，但 prospective 是形容詞，「未來的、有望成為的」，常修飾 customer、client。",
+          "usage": "perspective 是名詞（觀點），prospective 是形容詞，放在名詞前面。",
+          "example": {
+            "en": "We sent a sample to a prospective customer in Germany.",
+            "zh": "我們寄了一份樣品給德國的一位潛在客戶。"
+          }
+        },
+        {
+          "word": "respective",
+          "diff": "拼法也相近，但 respective 是「各自的」，常和複數名詞連用。",
+          "example": {
+            "en": "Team leaders will report to their respective managers on Monday.",
+            "zh": "組長們會在週一向各自的經理報告。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "point of view",
+          "diff": "意思幾乎相同，較口語；常說 from my point of view。perspective 稍微正式。",
+          "example": {
+            "en": "From my point of view, the schedule is too tight.",
+            "zh": "依我的看法，這個時程太緊了。"
+          }
+        },
+        {
+          "word": "viewpoint",
+          "diff": "viewpoint 是一個字，指個人或團體的立場；perspective 還能指更廣的角度或全局觀。",
+          "example": {
+            "en": "Her viewpoint helped the team understand the customer's concerns.",
+            "zh": "她的觀點幫助團隊了解客戶的顧慮。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "opinion",
+          "ipa": "/əˈpɪnjən/",
+          "pos": "n.",
+          "zh": "意見、看法",
+          "example": {
+            "en": "In my opinion, we should delay the launch by a week.",
+            "zh": "我認為我們應該把上市延後一週。"
+          }
+        },
+        {
+          "w": "approach",
+          "ipa": "/əˈproʊtʃ/",
+          "pos": "n.",
+          "zh": "方法、做法",
+          "example": {
+            "en": "We need a new approach to reduce production costs.",
+            "zh": "我們需要新的方法來降低生產成本。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "觀點、角度",
+          "en": "a particular way of looking at something",
+          "in_passage": true,
+          "example": {
+            "en": "Engineers and designers often see a problem from different perspectives.",
+            "zh": "工程師與設計師常從不同角度看同一個問題。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "客觀的判斷、全局觀",
+          "en": "the ability to judge how important something really is",
+          "distinguish": "常出現在 in perspective、keep things in perspective 這類說法中，表示「冷靜、客觀地看事情」。",
+          "example": {
+            "en": "One late shipment is a small problem when you put it in perspective.",
+            "zh": "把眼光放遠看，一次延遲出貨只是小問題。"
+          }
+        }
+      ]
+    }
+  ]
+}
