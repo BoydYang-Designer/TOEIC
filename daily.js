@@ -262,9 +262,17 @@ function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily
   const zel = idx >= 0 && [...document.querySelectorAll(SP_ZS)].find(e => idx >= +e.dataset.z && idx <= (e.dataset.z2 != null ? +e.dataset.z2 : +e.dataset.z));
   spFollow(el, zel); // 畫面跟著高亮句子捲動（英文收合時改跟中文）
 }
+const SP_TAIL = 0.45; // 單句模式：句尾多留幾秒再暫停（timing 的 end 常比實際唸完早一點）；覺得太晚就調小、太早就調大
+function spSentEnd(x, i) { // 該句暫停的位置＝end ＋ 緩衝，但不超過下一句開頭（避免念到下一句）
+  const s = x.timing[i], nx = x.timing[i + 1];
+  let e = s.end + SP_TAIL;
+  if (nx && nx.start > s.end) e = Math.min(e, nx.start - 0.02);
+  else if (nx) e = s.end;
+  return Math.max(e, s.end);
+}
 function spSeek(id, i) { // 點文稿句子：播放該句；單句模式（預設）播完就暫停，按「繼續」或空白鍵再往下聽
   spFollowSet(true);
-  const x = DATA.find(d => idOf(d) === id), s = x.timing[i], t = s.start, end = Sp.one ? s.end : null;
+  const x = DATA.find(d => idOf(d) === id), s = x.timing[i], t = s.start, end = Sp.one ? spSentEnd(x, i) : null;
   if (Sp.id === id && Sp.mode === 'tts') { spRun(s.from, Sp.one && s.to ? s.to : undefined); return; } // 語音合成：從該句的字元位置重播
   if (Sp.id === id && Sp.mode === 'audio' && Sp.au) {
     Sp.au.currentTime = t; Sp.stopAt = end;
@@ -1540,9 +1548,8 @@ function textModeOf(x) {
   const raw = cur.pair || (en && zh) ? 'pair' : en ? 'en' : zh ? 'zh' : '';
   return { raw, eff: raw };
 }
-let TXPREF = null; // 文稿顯示偏好（英文／中文／對照／收合）：換篇、換週時沿用，也記在這台裝置
-try { TXPREF = JSON.parse(localStorage.getItem('dailytx') || 'null'); } catch (e) {}
-function txPrefSave() { const m = textModeOf(find(cur.w, cur.d)).raw; TXPREF = { enOpen: m === 'en' || m === 'pair', zhOpen: m === 'zh' || m === 'pair', pair: m === 'pair' }; try { localStorage.setItem('dailytx', JSON.stringify(TXPREF)); } catch (e) {} }
+let TXPREF = null; // 文稿顯示偏好（英文／中文／對照／收合）：同一次使用中換篇、換週時沿用；重新整理後回到預設
+function txPrefSave() { const m = textModeOf(find(cur.w, cur.d)).raw; TXPREF = { enOpen: m === 'en' || m === 'pair', zhOpen: m === 'zh' || m === 'pair', pair: m === 'pair' }; }
 function setTextMode(m) { // 再點一次目前的模式＝收合
   const x = find(cur.w, cur.d), cm = textModeOf(x);
   if (m === cm.eff) m = '';
