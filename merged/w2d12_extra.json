@@ -1,0 +1,719 @@
+{
+  "week": 2,
+  "day": 12,
+  "extra_vocab": [
+    {
+      "text": "familiar",
+      "type": "word",
+      "ipa": "/fəˈmɪljɚ/",
+      "pos": "adj.",
+      "zh": "熟悉的",
+      "en": "knowing something well because you have used or seen it often",
+      "note": "在這篇裡，講者說「我比一般人更熟悉嬰兒車」，但還是需要兩隻手才能裝上座椅，用來強調舊設計其實不容易操作。",
+      "grammar_note": "「熟悉某事物」用 be familiar with + 事物；若主詞是事物、要說「對某人來說很眼熟」，則用 be familiar to + 人。",
+      "forms": [
+        {
+          "w": "more familiar",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更熟悉的",
+          "ipa": "/mɔːr fəˈmɪljɚ/",
+          "example": {
+            "en": "The sales team is more familiar with this customer than we are.",
+            "zh": "業務團隊比我們更熟悉這位客戶。"
+          }
+        },
+        {
+          "w": "most familiar",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最熟悉的",
+          "ipa": "/moʊst fəˈmɪljɚ/",
+          "example": {
+            "en": "Tom is the most familiar with our old ordering system.",
+            "zh": "湯姆最熟悉我們舊的訂購系統。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "be familiar with",
+          "zh": "熟悉……",
+          "example": {
+            "en": "Most of our staff are familiar with the safety rules.",
+            "zh": "我們大部分員工都熟悉安全規定。"
+          }
+        },
+        {
+          "phrase": "become familiar with",
+          "zh": "逐漸熟悉……",
+          "example": {
+            "en": "New employees will become familiar with the system in a week.",
+            "zh": "新進員工一週內就會熟悉這套系統。"
+          }
+        },
+        {
+          "phrase": "a familiar face",
+          "zh": "熟面孔",
+          "example": {
+            "en": "I saw a familiar face at the trade show today.",
+            "zh": "我今天在展覽上看到一張熟面孔。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Are you familiar with the new schedule for next week?",
+          "zh": "你熟悉下週的新時程嗎？"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please let me know if any step is not familiar to you.",
+          "zh": "如果有任何步驟你不熟悉，請告訴我。"
+        },
+        {
+          "tag": "面試",
+          "en": "She is familiar with several office software programs.",
+          "zh": "她熟悉好幾種辦公室軟體。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "famous",
+          "diff": "famous 是「有名的、大家都知道的」；familiar 是「自己熟悉、覺得眼熟的」，看的是個人經驗。",
+          "example": {
+            "en": "This famous brand is not familiar to many young customers.",
+            "zh": "這個有名的品牌對許多年輕顧客來說並不熟悉。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "aware",
+          "pos": "adj.",
+          "zh": "知道的、察覺到的",
+          "ipa": "/əˈwer/",
+          "example": {
+            "en": "Are you aware of the change in our return policy?",
+            "zh": "你知道我們退貨政策有變動嗎？"
+          }
+        },
+        {
+          "w": "experienced",
+          "pos": "adj.",
+          "zh": "有經驗的",
+          "ipa": "/ɪkˈspɪriənst/",
+          "example": {
+            "en": "We are looking for an experienced designer to join our team.",
+            "zh": "我們正在找有經驗的設計師加入團隊。"
+          }
+        },
+        {
+          "w": "known",
+          "pos": "adj.",
+          "zh": "已知的、知名的",
+          "ipa": "/noʊn/",
+          "example": {
+            "en": "The company is known for its fast delivery service.",
+            "zh": "這家公司以快速的配送服務聞名。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "unfamiliar",
+          "pos": "adj.",
+          "zh": "不熟悉的、陌生的",
+          "ipa": "/ˌʌnfəˈmɪljɚ/",
+          "link": "un-（不）+ familiar，和 unhappy、unable 一樣，加 un- 變成相反意思"
+        },
+        {
+          "w": "familiarity",
+          "pos": "n.",
+          "zh": "熟悉、熟悉程度",
+          "ipa": "/fəˌmɪliˈærəti/",
+          "link": "familiar + -ity，把形容詞變成名詞，像 quality、security"
+        },
+        {
+          "w": "familiarize",
+          "pos": "v.",
+          "zh": "使熟悉",
+          "ipa": "/fəˈmɪljəraɪz/",
+          "link": "familiar + -ize，「使變成……」，像 organize、finalize；常用 familiarize oneself with"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "熟悉的（對某事物很了解）",
+          "en": "knowing something well because you have used it before",
+          "in_passage": true,
+          "example": {
+            "en": "Our manager knows the product well and is familiar with every part.",
+            "zh": "我們經理很了解這項產品，熟悉每個零件。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "zh": "眼熟的、耳熟的",
+          "en": "easy to recognize because you have seen or heard it before",
+          "distinguish": "後面接 to + 人，或單獨放在名詞前面，表示「看起來、聽起來很熟」，不是「很了解」。",
+          "example": {
+            "en": "The speaker's voice sounded familiar to everyone in the room.",
+            "zh": "講者的聲音聽起來讓房裡每個人都覺得耳熟。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "colleague",
+      "type": "word",
+      "ipa": "/ˈkɑːliːɡ/",
+      "pos": "n.",
+      "zh": "同事",
+      "en": "a person you work with",
+      "note": "在這篇裡，講者介紹「財務部門的同事」親自試用 Magic Connect，讓聽眾看到真實使用者單手就能操作。",
+      "forms": [
+        {
+          "w": "colleagues",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "同事們",
+          "ipa": "/ˈkɑːliːɡz/",
+          "example": {
+            "en": "My colleagues are preparing the report for tomorrow's meeting.",
+            "zh": "我的同事們正在準備明天會議的報告。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "a former colleague",
+          "zh": "前同事",
+          "example": {
+            "en": "I got this job through a former colleague.",
+            "zh": "我是透過一位前同事得到這份工作的。"
+          }
+        },
+        {
+          "phrase": "work with colleagues",
+          "zh": "和同事一起工作",
+          "example": {
+            "en": "You should work with colleagues from other teams on this plan.",
+            "zh": "你應該和其他團隊的同事一起完成這項計畫。"
+          }
+        },
+        {
+          "phrase": "a colleague from the ... department",
+          "zh": "來自……部門的同事",
+          "example": {
+            "en": "A colleague from the IT department will fix your laptop.",
+            "zh": "資訊部門的一位同事會幫你修理筆電。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "I will ask a colleague to help us with the budget.",
+          "zh": "我會請一位同事幫我們處理預算。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please forward this message to your colleagues in the sales team.",
+          "zh": "請把這封郵件轉寄給業務團隊的同事。"
+        },
+        {
+          "tag": "出差",
+          "en": "I traveled to Tokyo with two colleagues last month.",
+          "zh": "我上個月和兩位同事去東京出差。"
+        },
+        {
+          "tag": "人事",
+          "en": "Our new colleague starts work in the design team on Monday.",
+          "zh": "我們的新同事星期一開始在設計團隊上班。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "college",
+          "diff": "college 是「大學、學院」，colleague 是「同事」；兩個字拼法接近，但發音完全不同。",
+          "example": {
+            "en": "She studied business at college before joining our company.",
+            "zh": "她加入我們公司之前，在大學念商業。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "coworker",
+          "diff": "意思幾乎一樣；coworker 比較口語，colleague 在正式場合或書面語中更常見。",
+          "example": {
+            "en": "My coworker shared the file with me this morning.",
+            "zh": "我的同事今天早上把檔案分享給我了。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "employee",
+          "pos": "n.",
+          "zh": "員工",
+          "ipa": "/ɪmˈplɔɪiː/",
+          "example": {
+            "en": "Every employee must wear an ID card in the office.",
+            "zh": "每位員工在辦公室都必須佩戴識別證。"
+          }
+        },
+        {
+          "w": "supervisor",
+          "pos": "n.",
+          "zh": "主管、督導",
+          "ipa": "/ˈsuːpɚvaɪzɚ/",
+          "example": {
+            "en": "Please ask your supervisor to approve this request.",
+            "zh": "請請你的主管批准這項申請。"
+          }
+        },
+        {
+          "w": "teammate",
+          "pos": "n.",
+          "zh": "團隊成員、隊友",
+          "ipa": "/ˈtiːmmeɪt/",
+          "example": {
+            "en": "My teammate will present the results at the meeting.",
+            "zh": "我的隊友會在會議上報告結果。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "sideways",
+      "type": "word",
+      "ipa": "/ˈsaɪdweɪz/",
+      "pos": "adj.",
+      "zh": "向旁邊的、橫向的",
+      "en": "moving or facing toward the side",
+      "note": "在這篇裡，sideways 放在名詞 movement 前面當形容詞，指嬰兒車可以橫向平移，方便在擁擠的店內或狹窄的走道移動。",
+      "grammar_note": "sideways 可當副詞（move sideways，動詞後面）或形容詞（sideways movement，名詞前面）；字尾的 -s 是固定拼法，不是複數。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "move sideways",
+          "zh": "橫向移動",
+          "example": {
+            "en": "The cart can move sideways in narrow aisles.",
+            "zh": "這台推車可以在狹窄的走道裡橫向移動。"
+          }
+        },
+        {
+          "phrase": "sideways movement",
+          "zh": "橫向移動（名詞）",
+          "example": {
+            "en": "This model has a smooth sideways movement.",
+            "zh": "這個型號的橫向移動很順暢。"
+          }
+        },
+        {
+          "phrase": "turn sideways",
+          "zh": "轉成側面",
+          "example": {
+            "en": "Turn the screen sideways to see the full chart.",
+            "zh": "把螢幕轉成橫向，就能看到完整的圖表。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "產品說明",
+          "en": "Press the button to move the chair sideways.",
+          "zh": "按下按鈕，就能讓椅子橫向移動。"
+        },
+        {
+          "tag": "倉庫",
+          "en": "Workers moved the table sideways to make more room.",
+          "zh": "工人把桌子往旁邊移，騰出更多空間。"
+        },
+        {
+          "tag": "出貨",
+          "en": "Do not carry the boxes sideways through the narrow door.",
+          "zh": "不要把箱子橫著搬過狹窄的門。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "to the side",
+          "diff": "to the side 是「移到旁邊」這個位置；sideways 強調橫向移動的方式或方向。",
+          "example": {
+            "en": "Please move the chairs to the side before the meeting.",
+            "zh": "開會前請把椅子移到旁邊。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "forward",
+          "pos": "adv.",
+          "zh": "向前",
+          "ipa": "/ˈfɔːrwɚd/",
+          "example": {
+            "en": "Push the cart forward to enter the elevator.",
+            "zh": "把推車往前推進電梯。"
+          }
+        },
+        {
+          "w": "backward",
+          "pos": "adv.",
+          "zh": "向後",
+          "ipa": "/ˈbækwɚd/",
+          "example": {
+            "en": "The seat can face forward or backward.",
+            "zh": "座椅可以朝前或朝後。"
+          }
+        },
+        {
+          "w": "upward",
+          "pos": "adv.",
+          "zh": "向上",
+          "ipa": "/ˈʌpwɚd/",
+          "example": {
+            "en": "Sales have moved upward since we lowered the price.",
+            "zh": "自從我們降價後，銷售額一直往上升。"
+          }
+        },
+        {
+          "w": "downward",
+          "pos": "adv.",
+          "zh": "向下",
+          "ipa": "/ˈdaʊnwɚd/",
+          "example": {
+            "en": "Push the handle downward until it locks.",
+            "zh": "把把手往下壓，直到鎖住為止。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ˈsaɪdweɪz/",
+          "zh": "橫向的、向旁邊的",
+          "in_passage": true,
+          "example": {
+            "en": "The sideways movement helps us fit the cart through the door.",
+            "zh": "橫向移動讓我們能把推車通過那扇門。"
+          }
+        },
+        {
+          "pos": "adv.",
+          "ipa": "/ˈsaɪdweɪz/",
+          "zh": "向旁邊、橫著",
+          "example": {
+            "en": "Please turn the box sideways so it fits on the shelf.",
+            "zh": "請把箱子橫過來，這樣才放得進架子。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "competing",
+      "type": "word",
+      "lemma": "compete",
+      "ipa": "/kəmˈpiːtɪŋ/",
+      "pos": "adj.",
+      "zh": "競爭的、對手的",
+      "en": "trying to win the same customers or sales as another company",
+      "note": "在這篇裡，competing strollers 指其他品牌的競品嬰兒車；講者說對手也有橫向移動功能，但本公司用不同機構做到同樣效果。",
+      "grammar_note": "competing 放在名詞前面當形容詞；動詞 compete 常接 with（對象）、for（目標）或 in（領域），例如 compete with other firms for new customers。",
+      "forms": [
+        {
+          "w": "competes",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "競爭",
+          "ipa": "/kəmˈpiːts/",
+          "example": {
+            "en": "Our company competes with three large firms in this market.",
+            "zh": "我們公司在這個市場和三家大公司競爭。"
+          }
+        },
+        {
+          "w": "competed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "競爭（過去式）",
+          "ipa": "/kəmˈpiːtɪd/",
+          "example": {
+            "en": "Both firms competed for the same large contract last year.",
+            "zh": "去年兩家公司競爭同一份大合約。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "competing products",
+          "zh": "競爭產品",
+          "example": {
+            "en": "Customers often compare our phone with competing products.",
+            "zh": "顧客常拿我們的手機和競爭產品比較。"
+          }
+        },
+        {
+          "phrase": "competing offers",
+          "zh": "互相競爭的報價",
+          "example": {
+            "en": "We received two competing offers for the new office building.",
+            "zh": "我們收到兩份互相競爭的新辦公大樓報價。"
+          }
+        },
+        {
+          "phrase": "competing priorities",
+          "zh": "互相衝突的優先事項",
+          "example": {
+            "en": "I have several competing priorities this week.",
+            "zh": "我這週有好幾件互相搶時間的優先事項。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "We need a clear plan to beat the competing brands.",
+          "zh": "我們需要一個明確的計畫來打敗競爭品牌。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Our service is faster than that of competing firms.",
+          "zh": "我們的服務比競爭公司更快。"
+        },
+        {
+          "tag": "市場報告",
+          "en": "Two competing companies opened new stores in this area.",
+          "zh": "兩家競爭的公司在這個地區開了新店。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "completing",
+          "diff": "completing 是「完成」，competing 是「競爭」；中間 -mp- 與 -mpl- 拼法相近，容易看錯。",
+          "example": {
+            "en": "We are completing the final check of the new product.",
+            "zh": "我們正在完成新產品的最後檢查。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "rival",
+          "diff": "rival 當形容詞也是「對手的」，語氣更像針鋒相對；competing 比較中性，只說明在同一市場競爭。",
+          "example": {
+            "en": "Our main rival company just launched a cheaper model.",
+            "zh": "我們的主要對手公司剛推出一款更便宜的型號。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "opponent",
+          "pos": "n.",
+          "zh": "對手",
+          "ipa": "/əˈpoʊnənt/",
+          "example": {
+            "en": "Our main opponent has lowered its prices again.",
+            "zh": "我們的主要對手又降價了。"
+          }
+        },
+        {
+          "w": "challenge",
+          "pos": "n.",
+          "zh": "挑戰",
+          "ipa": "/ˈtʃælɪndʒ/",
+          "example": {
+            "en": "Finding new customers is our biggest challenge this year.",
+            "zh": "尋找新客戶是我們今年最大的挑戰。"
+          }
+        },
+        {
+          "w": "advantage",
+          "pos": "n.",
+          "zh": "優勢",
+          "ipa": "/ədˈvæntɪdʒ/",
+          "example": {
+            "en": "Fast delivery gives us an advantage over other companies.",
+            "zh": "快速配送讓我們比其他公司更有優勢。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "competition",
+          "pos": "n.",
+          "zh": "競爭、比賽",
+          "ipa": "/ˌkɑːmpəˈtɪʃən/",
+          "link": "compete + -ition，動詞變名詞，像 add → addition、repeat → repetition"
+        },
+        {
+          "w": "competitor",
+          "pos": "n.",
+          "zh": "競爭者、對手",
+          "ipa": "/kəmˈpetɪtɚ/",
+          "link": "compet(e) + -itor，做這件事的人，像 visitor、editor"
+        },
+        {
+          "w": "competitive",
+          "pos": "adj.",
+          "zh": "有競爭力的",
+          "ipa": "/kəmˈpetətɪv/",
+          "link": "compet(e) + -itive，形容詞字尾，像 positive、active；常見 competitive price（有競爭力的價格）"
+        },
+        {
+          "w": "competitively",
+          "pos": "adv.",
+          "zh": "有競爭力地",
+          "ipa": "/kəmˈpetətɪvli/",
+          "link": "competitive + -ly，形容詞加 -ly 變副詞，像 quickly；常見 competitively priced"
+        }
+      ],
+      "pos_uses": [
+        {
+          "w": "competing",
+          "pos": "adj.",
+          "ipa": "/kəmˈpiːtɪŋ/",
+          "zh": "競爭的、對手的",
+          "in_passage": true,
+          "example": {
+            "en": "We lost the order to a competing firm in Taipei.",
+            "zh": "我們把這筆訂單輸給了台北一家競爭公司。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/kəmˈpiːt/",
+          "zh": "競爭",
+          "example": {
+            "en": "Small shops find it hard to compete with large chains.",
+            "zh": "小商店很難和大型連鎖店競爭。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "into place",
+      "type": "phrase",
+      "zh": "就定位、到正確位置",
+      "en": "into the right position",
+      "note": "在這篇裡，locking it into place 是指把座椅卡進轉接器、鎖在正確位置，強調「動作完成、牢牢固定」。",
+      "pattern": "lock / snap / click / fall + N + into place",
+      "grammar_note": "常和 lock、snap、click、fall 等動詞連用；place 前面不加 the 或 a，固定寫成 into place。",
+      "examples": [
+        {
+          "tag": "產品示範",
+          "en": "Lower the seat until it snaps into place.",
+          "zh": "把座椅往下放，直到它卡進定位。"
+        },
+        {
+          "tag": "組裝說明",
+          "en": "Push the cover down and click it into place.",
+          "zh": "把蓋子往下壓，扣到定位。"
+        },
+        {
+          "tag": "會議",
+          "en": "Once we get the budget, everything will fall into place.",
+          "zh": "只要預算拿到，一切就會順利就位。"
+        },
+        {
+          "tag": "倉庫",
+          "en": "Two workers lifted the shelf and moved it into place.",
+          "zh": "兩名工人把架子抬起，移到正確位置。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "into position",
+          "diff": "意思很接近；into position 較常用於移動到特定位置（如機器、人員），into place 更常表示「卡好、固定」。",
+          "example": {
+            "en": "The workers moved the screen into position before the speech.",
+            "zh": "工人在演講前把螢幕移到定位。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "in place",
+          "diff": "in place 是「已經在定位／已準備好」的狀態，into place 是「移動到定位」的動作。",
+          "usage": "into 表示移動的方向，所以接 move、lock、snap 等動作動詞；in 表示現在的狀態，常搭配 be 動詞，例如 The plan is in place.",
+          "example": {
+            "en": "The new safety rules are already in place at all stores.",
+            "zh": "新的安全規定已經在所有門市實施。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "sum up",
+      "type": "phrase",
+      "zh": "總結、概括",
+      "en": "to say the main points of something in a short way",
+      "note": "在這篇裡，To sum up 是講者在簡報最後的收尾用語，用來引出三個重點，是商務簡報很常見的結尾說法。",
+      "pattern": "To sum up, + 句子 / sum up + N",
+      "grammar_note": "受詞是名詞時可放中間或後面（sum up the results / sum the results up）；受詞是代名詞時一定要放中間，說 sum it up，不說 sum up it。",
+      "examples": [
+        {
+          "tag": "簡報",
+          "en": "To sum up, our new plan will save time and money.",
+          "zh": "總結來說，我們的新計畫能省時間也省錢。"
+        },
+        {
+          "tag": "會議",
+          "en": "Let me sum up what we agreed on today.",
+          "zh": "讓我總結一下我們今天同意的事項。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Could you sum up the report in one page?",
+          "zh": "你可以把這份報告總結成一頁嗎？"
+        },
+        {
+          "tag": "報告",
+          "en": "I will sum up the main results in the last slide.",
+          "zh": "我會在最後一張投影片總結主要結果。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "in conclusion",
+          "diff": "語氣較正式，多用在報告或演講的最後；to sum up 在一般會議與簡報中都很常用。",
+          "example": {
+            "en": "In conclusion, we recommend moving the launch to May.",
+            "zh": "總結來說，我們建議把上市時間改到五月。"
+          }
+        },
+        {
+          "phrase": "to summarize",
+          "diff": "意思和 to sum up 幾乎相同，但 to summarize 比較書面，sum up 較口語自然。",
+          "example": {
+            "en": "To summarize, the project is on time and on budget.",
+            "zh": "總結來說，專案準時完成，也沒有超出預算。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "add up",
+          "diff": "add up 是「把數字加起來、合計」；sum up 是用幾句話「總結重點」。",
+          "example": {
+            "en": "Please add up the costs before sending the final quote.",
+            "zh": "寄出最終報價前，請先把成本加總。"
+          }
+        }
+      ]
+    }
+  ]
+}
