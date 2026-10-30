@@ -66,7 +66,7 @@ const vsc=v=>{const n=v.name+' '+v.voiceURI;let s=0;if(/premium|enhanced|增強|
 const isTZ=v=>!!v&&/\b(Tom|Zoe)\b/i.test(v.name);
 const bestVoice=()=>{try{const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>vsc(b)-vsc(a));return vs.find(v=>/^en[-_]US$/i.test(v.lang)&&/\bZoe\b/i.test(v.name))||vs[0]||null}catch(e){return null}};
 const setVoice=u=>{const v=bestVoice();u.lang=v?v.lang:'en-US';if(v)u.voice=v};
-const Sp = { hlIdx:-2, au:null, mode:'', id:null, text:'', st:'idle', offset:0, pos:0, gotB:false, t0:0, cps:0, tok:0, rate:0.9, speed:1, stopAt:null, one:true };
+const Sp = { hlIdx:-2, au:null, mode:'', id:null, text:'', st:'idle', offset:0, pos:0, gotB:false, t0:0, cps:0, tok:0, rate:0.9, speed:1, stopAt:null, one:true, jumpIdx:-1, endIdx:null };
 try { Sp.one = localStorage.getItem('dailyone') !== '0'; } catch(e) {} // 點句子後播完該句就暫停（預設開）
 const SP_SPEEDS = [0.75, 1, 1.25];
 try { const v = parseFloat(localStorage.getItem('dailyspeed')); if (SP_SPEEDS.includes(v)) Sp.speed = v; } catch(e) {}
@@ -102,9 +102,9 @@ function spRun(from, end) { // end＝只念到這個字元位置就暫停（單�
     from = Math.max(0, Math.min(from, Sp.text.length));
     const u = new SpeechSynthesisUtterance(end ? Sp.text.slice(from, end) : Sp.text.slice(from));
     setVoice(u); u.rate = Sp.rate;
-    Sp.offset = from; Sp.pos = from; Sp.gotB = false; Sp.t0 = Date.now(); Sp.st = 'playing';
+    Sp.endIdx = null; Sp.offset = from; Sp.pos = from; Sp.gotB = false; Sp.t0 = Date.now(); Sp.st = 'playing';
     u.onboundary = e => { if (tok === Sp.tok) { Sp.gotB = true; Sp.pos = from + e.charIndex; } };
-    u.onend = () => { if (tok === Sp.tok) { if (end) { Sp.st = 'paused'; Sp.pos = end; } else { Sp.st = 'idle'; Sp.pos = 0; } spUI(); } };
+    u.onend = () => { if (tok === Sp.tok) { if (end) { Sp.st = 'paused'; Sp.pos = end; spMarkEnd(end, true); } else { Sp.st = 'idle'; Sp.pos = 0; } spUI(); } };
     u.onerror = e => { if (tok === Sp.tok && e.error !== 'canceled' && e.error !== 'interrupted') { Sp.st = 'idle'; spUI(); } };
     speechSynthesis.speak(u);
   } catch(e) { alert('您的瀏覽器不支援即時語音朗讀'); Sp.st = 'idle'; }
@@ -115,7 +115,8 @@ function spAudioFail(au) { // 找不到／無法播放 mp3 → 自動改用瀏�
   Sp.au = null; Sp.mode = 'tts'; spRun(0);
   if (typeof dnToast === 'function') dnToast('mp3 讀不到，改用語音合成播放');
 }
-function spToggle(id, startAt, stopAt) { // 播放／暫停／繼續；startAt = 從指定秒數開始（點句子時使用）
+function spToggle(id, startAt, stopAt) {
+  Sp.endIdx = null; // 播放／暫停／繼續；startAt = 從指定秒數開始（點句子時使用）
   spFollowSet(true);
   if (Sp.id !== id) {
     spStop(); const x = DATA.find(d => idOf(d) === id);
@@ -141,18 +142,13 @@ function spToggle(id, startAt, stopAt) { // 播放／暫停／繼續；startAt =
   if (Sp.st === 'playing') { spCps(); Sp.pos = spNow(); Sp.tok++; speechSynthesis.cancel(); Sp.st = 'paused'; spUI(); }
   else spRun(Sp.st === 'paused' ? Sp.pos : 0);
 }
-function spBack() { // 倒轉 5 秒：mp3 為精準倒轉，語音合成為估算
-  if (Sp.st === 'idle') return;
-  Sp.stopAt = null;
-  if (Sp.mode === 'audio') {
-    Sp.au.currentTime = Math.max(0, Sp.au.currentTime - 5);
-    if (Sp.st === 'paused') { Sp.au.play(); Sp.st = 'playing'; }
-    spUI(); return;
-  }
-  const cps = spCps(), now = spNow();
-  spRun(spSnap(Math.max(0, Math.round(now - cps*5))));
+function spBack() { spSkip(-4); } // 倒轉 4 秒：mp3 為精準倒轉，語音合成為估算
+function spMarkEnd(end, tts) { // 單句模式播完暫停：記住剛播完的是哪一句，讓上一句／下一句以它為基準
+  const x = DATA.find(d => idOf(d) === Sp.id), tm = x && x.timing; Sp.endIdx = null; if (!tm) return;
+  tm.forEach((s, i) => { if (tts ? s.to === end : Math.abs(spSentEnd(x, i) - end) < 1e-6) Sp.endIdx = i; });
 }
-function spSkip(sec, keep) { // 前後跳 sec 秒（負數＝倒轉）。keep＝true：暫停中就維持暫停（鍵盤用）；mp3 精準，語音合成為估算
+function spSkip(sec, keep) {
+  Sp.jumpIdx = -1; Sp.endIdx = null; // 前後跳 sec 秒（負數＝倒轉）。keep＝true：暫停中就維持暫停（鍵盤用）；mp3 精準，語音合成為估算
   if (Sp.st === 'idle' || !Sp.id) return;
   Sp.stopAt = null;
   if (Sp.mode === 'audio' && Sp.au) {
@@ -164,9 +160,41 @@ function spSkip(sec, keep) { // 前後跳 sec 秒（負數＝倒轉）。keep＝
   const to = spSnap(Math.max(0, Math.min(Math.max(0, Sp.text.length - 1), Math.round(spNow() + spCps() * sec))));
   if (Sp.st === 'paused' && keep) { Sp.pos = to; spUI(); } else spRun(to);
 }
-function spFwd() { spSkip(5); } // 快轉 5 秒
+function spFwd() { spSkip(4); } // 快轉 4 秒（只剩鍵盤 → 使用，畫面上已無按鈕）
+const SP_LEAD = 0.45; // 跳句：句首再多往前 SP_LEAD 秒
+function spSentGo(dir) { // dir＝-1 上一句／+1 下一句（需要 timing；沒有 timing 就退回前後 4 秒）。回傳 false＝沒有可跳的句子
+  if (Sp.st === 'idle' || !Sp.id) return false;
+  const x = DATA.find(d => idOf(d) === Sp.id), tm = x && x.timing && tmOk(x) ? x.timing : null;
+  if (!tm || !tm.length) { spSkip(dir * 4); return true; }
+  const audio = Sp.mode === 'audio' && Sp.au;
+  let idx = -1, to;
+  if (audio) {
+    const t = Sp.au.currentTime;
+    tm.forEach((s, i) => { if (s.start - SP_LEAD <= t + 0.05) idx = i; });
+  } else {
+    const f = spNow();
+    tm.forEach((s, i) => { if (s.from != null && s.from <= f) idx = i; });
+  }
+  // ↑／⏮：這一句播完了（停在句尾）→ 重播這一句（可連按，一直重播同一句）；還沒播完 → 跳回上一句。↓：下一句開頭
+  const fin = Sp.st === 'paused' && Sp.endIdx != null; // 剛播完一句、停在句尾
+  if (fin) idx = Sp.endIdx;
+  Sp.endIdx = null;
+  to = dir > 0 ? idx + 1 : (fin ? idx : idx - 1);
+  if (to >= tm.length) return false;
+  to = Math.max(0, to);
+  spFollowSet(true);
+  if (audio) {
+    Sp.stopAt = Sp.one ? spSentEnd(x, to) : null;
+    try { Sp.au.currentTime = Math.max(0, tm[to].start - SP_LEAD); } catch (e) {}
+    if (Sp.st === 'paused') { Sp.au.play(); Sp.st = 'playing'; }
+    spUI();
+  } else spRun(tm[to].from, Sp.one && tm[to].to ? tm[to].to : undefined);
+  return true;
+}
+function spPrev() { spSentGo(-1); } // 上一句
+function spNext() { spSentGo(1); } // 下一句
 function spStop() {
-  Sp.stopAt = null; Sp.tok++; Sp.st = 'idle'; Sp.pos = 0; Sp.id = null; Sp.mode = ''; spClearHl();
+  Sp.jumpIdx = -1; Sp.endIdx = null; Sp.stopAt = null; Sp.tok++; Sp.st = 'idle'; Sp.pos = 0; Sp.id = null; Sp.mode = ''; spClearHl();
   if (Sp.au) { Sp.au.onerror = null; Sp.au.onended = null; Sp.au.pause(); Sp.au = null; }
   try { speechSynthesis.cancel(); } catch(e) {}
   spUI();
@@ -180,10 +208,10 @@ function spHtml(id) {
   const seg = v => `<button onclick="spSetSpeed(${v})" aria-pressed="${v === Sp.speed}" class="px-2 md:px-2.5 h-8 text-xs font-semibold transition cursor-pointer ${v === Sp.speed ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'}">${v}×</button>`;
   const tip = Sp.mode === 'audio' ? '音檔' : '語音合成';
   return `<div class="flex flex-wrap items-center justify-between md:justify-start gap-x-2 gap-y-2">
-      <div class="grid grid-cols-[2fr_2fr_2fr_1fr] gap-1.5 w-full md:flex md:items-center md:gap-1 md:w-auto">
-        ${ib('spBack()', '⏪', '5', !mine, '倒轉 5 秒（鍵盤 ←）')}
+      <div class="grid grid-cols-[2fr_2fr_3fr_2fr] gap-1.5 w-full md:flex md:items-center md:gap-1 md:w-auto">
+        ${ib('spPrev()', '⏮', '', !mine, '重播本句（已播完）／回上一句（未播完）（鍵盤 ↑）')}
+        ${ib('spBack()', '⏪', '4', !mine, '倒轉 4 秒（鍵盤 ←）')}
         <button onclick="spToggle('${id}')" title="${mine ? tip : ''}（鍵盤 空白鍵）" class="${playing || loading ? on : soft} gap-1.5 px-2 w-full md:w-auto md:px-3 md:min-w-[5.5rem]${loading ? ' animate-pulse' : ''}"><span class="text-base leading-none">${loading ? '⏳' : playing ? '⏸' : '▶'}</span><span>${loading ? '載入' : playing ? '暫停' : (mine ? '繼續' : '播放')}</span></button>
-        ${ib('spFwd()', '⏩', '5', !mine, '快轉 5 秒（鍵盤 →）')}
         ${ib('spStop()', '⏹', '', !mine, '停止')}
       </div>
       <div class="flex flex-nowrap items-center justify-between gap-1.5 w-full md:contents">
@@ -270,7 +298,8 @@ function spSentEnd(x, i) { // 該句暫停的位置＝end ＋ 緩衝，但不超
   else if (nx) e = s.end;
   return Math.max(e, s.end);
 }
-function spSeek(id, i) { // 點文稿句子：播放該句；單句模式（預設）播完就暫停，按「繼續」或空白鍵再往下聽
+function spSeek(id, i) {
+  Sp.jumpIdx = -1; Sp.endIdx = null; // 點文稿句子：播放該句；單句模式（預設）播完就暫停，按「繼續」或空白鍵再往下聽
   spFollowSet(true);
   const x = DATA.find(d => idOf(d) === id), s = x.timing[i], t = s.start, end = Sp.one ? spSentEnd(x, i) : null;
   if (Sp.id === id && Sp.mode === 'tts') { spRun(s.from, Sp.one && s.to ? s.to : undefined); return; } // 語音合成：從該句的字元位置重播
@@ -287,7 +316,7 @@ setInterval(() => {
   if (Sp.stopAt == null || Sp.mode !== 'audio' || !a || Sp.st !== 'playing' || a.currentTime < Sp.stopAt) return;
   const end = Sp.stopAt; Sp.stopAt = null; a.pause();
   try { a.currentTime = end; } catch (e) {}
-  Sp.st = 'paused'; spHl(Sp.id, end - 0.01); spUI();
+  Sp.st = 'paused'; spMarkEnd(end, false); spHl(Sp.id, end - 0.01); spUI();
 }, 20);
 // 播放列固定在畫面上方（手機要避開最上面的 #side）：把 #side 的高度寫進 --side-h
 (function () { const s = document.getElementById('side'); if (!s) return; const set = () => document.documentElement.style.setProperty('--side-h', (matchMedia('(max-width:767px)').matches ? s.offsetHeight : 0) + 'px'); set(); addEventListener('resize', set); if (window.ResizeObserver) new ResizeObserver(set).observe(s); })();
@@ -298,15 +327,14 @@ function spMini() { // 手機底部浮動播放列：捲到測驗區時仍可暫
   const b = 'shrink-0 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium cursor-pointer bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300';
   el.innerHTML = `<div class="mx-3 mb-3 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur p-2 flex items-center gap-2" style="margin-bottom:max(0.75rem,env(safe-area-inset-bottom))">
     <span class="flex-1 min-w-0 truncate px-2 text-xs text-slate-500">${Sp.st === 'loading' ? '⏳ 載入中 · ' : Sp.st === 'playing' ? '● ' : '⏸ '}${Sp.id.toUpperCase()} · ${Sp.mode === 'audio' ? '音檔' : '語音合成'}</span>
-    <button onclick="spBack()" class="${b}">⏪ 5秒</button>
-    <button onclick="spFwd()" class="${b}">5秒 ⏩</button>
+    <button onclick="spBack()" class="${b}">⏪ 4秒</button>
     <button onclick="spToggle(Sp.id)" class="${b}${Sp.st === 'loading' ? ' animate-pulse' : ''}">${Sp.st === 'loading' ? '⏳' : Sp.st === 'playing' ? '⏸' : '▶'}</button>
     <button onclick="spStop()" class="${b}">⏹</button></div>`;
 }
 function spUI() { const el = document.getElementById('sp-ctl'); if (el) el.innerHTML = spHtml(el.dataset.id); spMini(); spJumpUpdate(); }
 document.addEventListener('visibilitychange', () => { if (document.hidden) spStop(); });
 window.addEventListener('pagehide', () => { try { speechSynthesis.cancel(); } catch(e) {} });
-/* 鍵盤（閱讀頁、正在播放／暫停中才生效）：空白鍵＝暫停／繼續，← 倒轉 5 秒，→ 快轉 5 秒。
+/* 鍵盤（閱讀頁、正在播放／暫停中才生效）：空白鍵＝暫停／繼續，← 倒轉 4 秒，→ 快轉 4 秒，↑ 這句播完＝重播這句、沒播完＝上一句，↓ 下一句。
    沒在播放時不攔截，空白鍵照常捲動頁面；輸入框、發音練習視窗開著、按住 Ctrl／Alt／Shift 時也不處理。 */
 let kbSpace = false;
 document.addEventListener('keydown', e => {
@@ -317,10 +345,14 @@ document.addEventListener('keydown', e => {
   if (document.getElementById('pron-ov')) return;
   const k = e.key;
   if (k === ' ' || k === 'Spacebar') { e.preventDefault(); kbSpace = true; spToggle(Sp.id); }
-  else if (k === 'ArrowLeft' || k === 'ArrowRight') {
+  else if (k === 'ArrowUp' || k === 'ArrowDown') { // 上／下箭頭：上一句／下一句
     e.preventDefault();
-    spSkip(k === 'ArrowLeft' ? -5 : 5, true);
-    if (typeof dnToast === 'function') dnToast(k === 'ArrowLeft' ? '⏪ 倒轉 5 秒' : '⏩ 快轉 5 秒');
+    const ok = spSentGo(k === 'ArrowUp' ? -1 : 1);
+    if (typeof dnToast === 'function') dnToast(ok ? (k === 'ArrowUp' ? '⏮ 上一句' : '⏭ 下一句') : '已經是最後一句');
+  } else if (k === 'ArrowLeft' || k === 'ArrowRight') {
+    e.preventDefault();
+    spSkip(k === 'ArrowLeft' ? -4 : 4, true);
+    if (typeof dnToast === 'function') dnToast(k === 'ArrowLeft' ? '⏪ 倒轉 4 秒' : '⏩ 快轉 4 秒');
   }
 });
 document.addEventListener('keyup', e => { // 焦點在按鈕上時，空白鍵放開會再觸發一次「點擊」→ 擋掉，避免暫停後又立刻繼續
@@ -1195,7 +1227,7 @@ function renderDay() {
       <div id="sp-ctl" data-id="${id}" class="w-full md:w-auto md:flex-1 min-w-0">${spHtml(id)}</div>
     </div>`;
 
-  const hintTxt = cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。入庫的標示：黃底＝單字（與核心單字同色）、紫色實線＝片語、綠色點線＝句子。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔（預設播完該句就暫停；按「繼續」或 空白鍵 往下聽，← → 倒轉／快轉 5 秒；播放列的「單句／連播」可切換）。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。';
+  const hintTxt = cur.mk ? '✏️ 標註模式：選取不懂的字、片語或句子，按「＋ 入庫」；點底線可加備註或看詳解。入庫的標示：黃底＝單字（與核心單字同色）、紫色實線＝片語、綠色點線＝句子。再按左上角按鈕回到播放模式。' : '💡 點句子會播放該句音檔（預設播完該句就暫停；按「繼續」或 空白鍵 往下聽，← → 倒轉／快轉 4 秒，↑ ↓ 重播本句／上一句／下一句；播放列的「單句／連播」可切換）。要標註入庫，請先按上方的 ✏️ 按鈕切換到標註模式。';
   const enBlock = `<p id="passage-text" class="${cur.mk ? 'annot ' : ''}${tmOk(x) ? '' : 'whitespace-pre-line '}leading-relaxed text-slate-700 dark:text-slate-300 font-sans">${passageHtml(x)}</p>
       <p class="mt-3 text-[0.6875rem] text-slate-400">${hintTxt}</p>`;
   const zhBlock = top => `<div class="${top ? 'mt-4 pt-4 border-t border-slate-200 dark:border-slate-800' : ''}">
