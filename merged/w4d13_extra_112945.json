@@ -1,0 +1,172 @@
+{
+  "week": 4,
+  "day": 13,
+  "extra_vocab": [
+    {
+      "text": "square",
+      "type": "word",
+      "ipa": "/skwer/",
+      "pos": "adj.",
+      "zh": "正方形的",
+      "en": "having four equal sides and four corners",
+      "note": "在這篇文章裡，square 是形容詞，說明碳纖維管的橫截面可以是正方形，和 rectangular（長方形）、oval（橢圓形）並列，都是在描述管子的形狀。",
+      "grammar_note": "5 square meters 是「面積 5 平方公尺」，5 meters square 是「邊長各 5 公尺的正方形」，兩者意思不同。",
+      "forms": [
+        { "w": "squares", "label": "複數／第三人稱單數", "pos": "n.", "zh": "正方形（複數）", "ipa": "/skwerz/", "example": { "en": "The design uses small squares to show each part.", "zh": "這個設計用小正方形來標示每個零件。" } },
+        { "w": "squared", "label": "過去式／過去分詞", "pos": "v.", "zh": "使成方形；結清", "ipa": "/skwerd/", "example": { "en": "The team squared the edges before painting the frame.", "zh": "團隊在塗裝車架之前，先把邊緣修成方正。" } },
+        { "w": "squaring", "label": "現在分詞", "pos": "v.", "zh": "使成方形", "ipa": "/ˈskwerɪŋ/", "example": { "en": "He is squaring the corners of the metal plate.", "zh": "他正在把金屬板的角修成直角。" } }
+      ],
+      "collocations": [
+        { "phrase": "square meter", "zh": "平方公尺", "example": { "en": "The new factory has 5,000 square meters of floor space.", "zh": "新工廠有 5,000 平方公尺的樓地板面積。" } },
+        { "phrase": "square footage", "zh": "（以平方英尺計的）面積", "example": { "en": "The rent depends on the square footage of the office.", "zh": "租金取決於辦公室的面積。" } },
+        { "phrase": "town square", "zh": "市鎮廣場", "example": { "en": "The product fair will be held in the town square.", "zh": "產品展將在市鎮廣場舉行。" } }
+      ],
+      "examples": [
+        { "tag": "產品設計", "en": "The customer asked for a square box instead of a round one.", "zh": "客戶要求用方形盒子，而不是圓形的。" },
+        { "tag": "會議", "en": "A square tube is easier to connect to flat parts.", "zh": "方管比較容易和平面零件接合。" },
+        { "tag": "付款", "en": "Once you pay the balance, we will be square.", "zh": "你付清尾款後，我們就兩不相欠了。" }
+      ],
+      "confusable": [
+        { "word": "cube", "diff": "square 是平面的正方形（2D），cube 是立體的正方體（3D）。", "example": { "en": "The sample arrived in a small plastic cube.", "zh": "樣品裝在一個小塑膠立方體裡送來。" } }
+      ],
+      "family": [
+        { "w": "rectangular", "pos": "adj.", "zh": "長方形的", "ipa": "/rekˈtæŋɡjələr/", "example": { "en": "The rectangular tube is stronger in one direction.", "zh": "這支長方形管子在某個方向上比較堅固。" } },
+        { "w": "circular", "pos": "adj.", "zh": "圓形的", "ipa": "/ˈsɜːrkjələr/", "example": { "en": "We chose a circular tube for the handlebar.", "zh": "我們為把手選用了圓形管。" } },
+        { "w": "round", "pos": "adj.", "zh": "圓的", "ipa": "/raʊnd/", "example": { "en": "Round tubes are cheaper than custom shapes.", "zh": "圓管比客製形狀便宜。" } },
+        { "w": "triangular", "pos": "adj.", "zh": "三角形的", "ipa": "/traɪˈæŋɡjələr/", "example": { "en": "The triangular shape adds strength to the support.", "zh": "三角形的結構讓支撐更堅固。" } }
+      ],
+      "derived": [
+        { "w": "squarely", "pos": "adv.", "zh": "正面地；正好地", "ipa": "/ˈskwerli/", "link": "square + -ly，副詞，像 clearly、directly" }
+      ],
+      "pos_uses": [
+        { "pos": "adj.", "ipa": "/skwer/", "zh": "正方形的；平方的", "in_passage": true, "example": { "en": "We chose a square design for the storage box.", "zh": "我們為收納盒選用了方形設計。" } },
+        { "pos": "n.", "ipa": "/skwer/", "zh": "正方形；廣場", "example": { "en": "The office is near the main square downtown.", "zh": "辦公室在市中心的主廣場附近。" } },
+        { "pos": "v.", "ipa": "/skwer/", "zh": "使成直角；結清", "example": { "en": "Please square the account before the end of the month.", "zh": "請在月底前結清這筆帳。" } }
+      ],
+      "senses": [
+        { "pos": "adj.", "zh": "正方形的", "en": "having four equal sides and four corners", "in_passage": true, "example": { "en": "The square cross-section makes the part easy to stack.", "zh": "方形的橫截面讓這個零件容易堆疊。" } },
+        { "pos": "adj.", "zh": "平方的（面積單位）", "en": "used for measuring area", "distinguish": "square 後面接單位（meter、foot）時，指面積單位。", "example": { "en": "The warehouse is about 800 square meters.", "zh": "這間倉庫大約有 800 平方公尺。" } },
+        { "pos": "adj.", "zh": "兩不相欠的", "en": "owing no money to each other", "distinguish": "出現在付款或帳務情境，常說 all square 或 be square。", "example": { "en": "After this payment, we are square with the supplier.", "zh": "付完這筆款後，我們和供應商就兩清了。" } }
+      ]
+    },
+    {
+      "text": "oval",
+      "type": "word",
+      "ipa": "/ˈoʊvl/",
+      "pos": "adj.",
+      "zh": "橢圓形的",
+      "en": "shaped like an egg or a long circle",
+      "note": "在這篇文章裡，oval 說明碳纖維管的橫截面也可以是橢圓形，與 square、rectangular 一起列出可能的管型。",
+      "forms": [
+        { "w": "ovals", "label": "複數", "pos": "n.", "zh": "橢圓形（複數）", "ipa": "/ˈoʊvlz/", "example": { "en": "The logo is made of two blue ovals.", "zh": "這個標誌由兩個藍色橢圓形組成。" } }
+      ],
+      "collocations": [
+        { "phrase": "oval table", "zh": "橢圓形桌子", "example": { "en": "We booked a room with a large oval table.", "zh": "我們預訂了一間有大型橢圓桌的會議室。" } },
+        { "phrase": "oval shape", "zh": "橢圓形狀", "example": { "en": "The oval shape helps reduce air resistance.", "zh": "橢圓形狀有助於降低空氣阻力。" } }
+      ],
+      "examples": [
+        { "tag": "產品設計", "en": "An oval tube can be stronger than a round one.", "zh": "橢圓管有時比圓管更堅固。" },
+        { "tag": "電子郵件", "en": "Please send us a photo of the oval mirror.", "zh": "請把那面橢圓鏡的照片寄給我們。" }
+      ],
+      "confusable": [
+        { "word": "oral", "diff": "oral 是「口頭的」，只差一個字母，拼法和 oval 很像但意思完全不同。", "example": { "en": "We gave an oral report at the Monday meeting.", "zh": "我們在週一會議上做了口頭報告。" } }
+      ],
+      "family": [
+        { "w": "round", "pos": "adj.", "zh": "圓的", "ipa": "/raʊnd/", "example": { "en": "Round tubes are easier to buy off the shelf.", "zh": "圓管比較容易買到現成品。" } },
+        { "w": "circular", "pos": "adj.", "zh": "圓形的", "ipa": "/ˈsɜːrkjələr/", "example": { "en": "The circular opening is about five centimeters wide.", "zh": "這個圓形開口大約五公分寬。" } },
+        { "w": "rectangular", "pos": "adj.", "zh": "長方形的", "ipa": "/rekˈtæŋɡjələr/", "example": { "en": "The rectangular box fits the shelf better.", "zh": "長方形盒子更適合放在架上。" } },
+        { "w": "curved", "pos": "adj.", "zh": "彎曲的", "ipa": "/kɜːrvd/", "example": { "en": "The curved handle feels comfortable in the hand.", "zh": "彎曲的把手握起來很舒服。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "adj.", "ipa": "/ˈoʊvl/", "zh": "橢圓形的", "in_passage": true, "example": { "en": "The oval window gives the room more light.", "zh": "橢圓形的窗戶讓房間更明亮。" } },
+        { "pos": "n.", "ipa": "/ˈoʊvl/", "zh": "橢圓形", "example": { "en": "Draw an oval around the part that needs repair.", "zh": "請把需要維修的部分用橢圓形圈起來。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "promptly",
+      "type": "word",
+      "ipa": "/ˈprɑːmptli/",
+      "pos": "adv.",
+      "zh": "迅速地；準時地",
+      "en": "quickly, or at the right time",
+      "note": "所在句只有 promptly 一個字，這篇文章中沒有出現這個字，以下依多益常見用法說明。promptly 常用在「立刻回覆」「準時抵達」「準時付款」。",
+      "grammar_note": "promptly 是副詞，修飾動詞（reply promptly）；prompt 是形容詞，修飾名詞（a prompt reply），兩者不要混用。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "respond promptly", "zh": "迅速回覆", "example": { "en": "Please respond promptly to every customer complaint.", "zh": "請迅速回覆每一件客訴。" } },
+        { "phrase": "pay promptly", "zh": "準時付款", "example": { "en": "Customers who pay promptly receive a small discount.", "zh": "準時付款的客戶可享有小額折扣。" } },
+        { "phrase": "arrive promptly", "zh": "準時抵達", "example": { "en": "The guests arrived promptly at nine o'clock.", "zh": "客人們在九點整準時抵達。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Thank you for replying so promptly to my message.", "zh": "謝謝你這麼迅速地回覆我的訊息。" },
+        { "tag": "客服", "en": "The technician promptly fixed the problem after the call.", "zh": "技術人員在接到電話後迅速修好了問題。" },
+        { "tag": "會議", "en": "The meeting will start promptly at ten, so please be on time.", "zh": "會議會在十點準時開始，請準時到場。" }
+      ],
+      "confusable": [
+        { "word": "properly", "diff": "promptly 是「迅速、準時」，properly 是「正確地、適當地」，強調做得對不對。", "example": { "en": "The machine was not installed properly, so it stopped.", "zh": "這台機器沒有安裝妥當，所以停了下來。" } }
+      ],
+      "similar": [
+        { "word": "immediately", "diff": "immediately 強調「馬上、不等待」，語氣比 promptly 更急。", "example": { "en": "Please call me immediately if the shipment is late.", "zh": "如果貨物延遲，請立刻打電話給我。" } },
+        { "word": "without delay", "diff": "without delay 是片語，語氣較正式，常見於通知或信件中。", "example": { "en": "Please send the signed form without delay.", "zh": "請不要延誤，盡快寄回簽好的表格。" } }
+      ],
+      "family": [
+        { "w": "immediately", "pos": "adv.", "zh": "立即", "ipa": "/ɪˈmiːdiətli/", "example": { "en": "We will ship your order immediately after payment.", "zh": "付款後我們會立刻出貨。" } },
+        { "w": "quickly", "pos": "adv.", "zh": "快速地", "ipa": "/ˈkwɪkli/", "example": { "en": "The team solved the problem quickly.", "zh": "團隊很快就解決了這個問題。" } },
+        { "w": "shortly", "pos": "adv.", "zh": "不久", "ipa": "/ˈʃɔːrtli/", "example": { "en": "The manager will join the call shortly.", "zh": "經理很快就會加入通話。" } }
+      ],
+      "derived": [
+        { "w": "prompt", "pos": "adj.", "zh": "迅速的；準時的", "ipa": "/prɑːmpt/", "link": "詞幹本身，promptly 就是 prompt + -ly，變成副詞" },
+        { "w": "promptness", "pos": "n.", "zh": "迅速；準時", "ipa": "/ˈprɑːmptnəs/", "link": "prompt + -ness，名詞，像 kindness、weakness" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adv.", "zh": "迅速地、立即", "en": "very quickly, without waiting", "example": { "en": "Please answer the client's question promptly.", "zh": "請迅速回答客戶的問題。" } },
+        { "pos": "adv.", "zh": "準時地", "en": "exactly at the planned time", "distinguish": "後面接時間（at nine、at noon）時，多半是「準時」。", "example": { "en": "The train left promptly at noon.", "zh": "火車在中午準時出發。" } }
+      ]
+    },
+    {
+      "text": "volume",
+      "type": "word",
+      "ipa": "/ˈvɑːljuːm/",
+      "pos": "n.",
+      "zh": "量；產量；音量；冊",
+      "en": "the amount of something, such as products, sales, or sound",
+      "note": "在這篇文章裡，production volume 是「生產量」，指一次生產多少台。成本會隨形狀和生產量不同而變，量越大，單位成本通常越低。",
+      "grammar_note": "表示「量」時常和 high、low、large 搭配，不用 many 或 much；a large volume of 後面接不可數名詞或複數名詞。",
+      "forms": [
+        { "w": "volumes", "label": "複數", "pos": "n.", "zh": "量（複數）；冊", "ipa": "/ˈvɑːljuːmz/", "example": { "en": "Large volumes of orders arrive before the holiday season.", "zh": "假期旺季前會湧入大量訂單。" } }
+      ],
+      "collocations": [
+        { "phrase": "sales volume", "zh": "銷售量", "example": { "en": "Sales volume rose by ten percent last quarter.", "zh": "上一季銷售量成長了百分之十。" } },
+        { "phrase": "production volume", "zh": "產量", "example": { "en": "A higher production volume lowers the cost of each unit.", "zh": "較高的產量會降低每個單位的成本。" } },
+        { "phrase": "trading volume", "zh": "交易量", "example": { "en": "Trading volume increased sharply after the announcement.", "zh": "公告發布後，交易量大幅增加。" } },
+        { "phrase": "a large volume of", "zh": "大量的", "example": { "en": "We receive a large volume of emails every day.", "zh": "我們每天都會收到大量電子郵件。" } }
+      ],
+      "examples": [
+        { "tag": "生產", "en": "The price depends on the shape and the order volume.", "zh": "價格取決於形狀和訂單量。" },
+        { "tag": "會議", "en": "Could you turn down the volume of the speaker?", "zh": "可以請你把喇叭的音量調小嗎？" },
+        { "tag": "物流", "en": "The volume of this box is about thirty liters.", "zh": "這個箱子的容積大約三十公升。" },
+        { "tag": "圖書館", "en": "The report is published in three volumes.", "zh": "這份報告分成三冊出版。" }
+      ],
+      "confusable": [
+        { "word": "value", "diff": "volume 是「量、數量」，value 是「價值、價格」，拼法相近但意思不同。", "example": { "en": "The value of the order is higher than last year.", "zh": "這筆訂單的價值比去年高。" } }
+      ],
+      "family": [
+        { "w": "quantity", "pos": "n.", "zh": "數量", "ipa": "/ˈkwɑːntəti/", "example": { "en": "Please confirm the quantity before we place the order.", "zh": "下單之前，請先確認數量。" } },
+        { "w": "amount", "pos": "n.", "zh": "金額；數量", "ipa": "/əˈmaʊnt/", "example": { "en": "The total amount is shown at the bottom of the invoice.", "zh": "總金額列在發票的最下方。" } },
+        { "w": "output", "pos": "n.", "zh": "產出；產量", "ipa": "/ˈaʊtpʊt/", "example": { "en": "The factory increased its output by twenty percent.", "zh": "工廠把產量提高了百分之二十。" } },
+        { "w": "capacity", "pos": "n.", "zh": "容量；產能", "ipa": "/kəˈpæsəti/", "example": { "en": "Our plant is running at full capacity this month.", "zh": "我們的工廠這個月在滿載產能下運作。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "量、產量", "en": "the amount of something that is made, sold, or handled", "in_passage": true, "example": { "en": "Low volume means the cost of each unit stays high.", "zh": "量少代表每個單位的成本會維持在高點。" } },
+        { "pos": "n.", "zh": "音量", "en": "how loud a sound is", "distinguish": "和 turn up、turn down 搭配時，指聲音大小。", "example": { "en": "Please lower the volume during the video call.", "zh": "視訊通話時，請把音量調低。" } },
+        { "pos": "n.", "zh": "容積、體積", "en": "the amount of space inside something", "distinguish": "和 liters、cubic meters 等單位一起出現時，指容積。", "example": { "en": "The shipping volume is calculated in cubic meters.", "zh": "運送體積是以立方公尺計算。" } },
+        { "pos": "n.", "zh": "（書的）冊、卷", "en": "one book in a set of books", "distinguish": "常說 Volume 2，指一套書中的某一冊。", "example": { "en": "Volume two of the manual covers safety rules.", "zh": "手冊第二冊涵蓋安全規定。" } }
+      ]
+    }
+  ]
+}

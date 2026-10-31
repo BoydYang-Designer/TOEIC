@@ -1,0 +1,68 @@
+{
+  "week": 4,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "Lite",
+      "type": "word",
+      "ipa": "/laɪt/",
+      "pos": "adj.",
+      "zh": "輕量版的、精簡的（行銷用拼法）",
+      "en": "a short way to write light, used in product names to show something is lighter or simpler",
+      "note": "在這篇文章裡，Super Lite 是產品名稱，Lite 是 light 的行銷用拼法，暗示這款嬰兒車很輕。一般文章和正式信件裡仍然寫 light。",
+      "grammar_note": "Lite 只用在品牌或產品名稱，一般句子中的「輕的」要寫 light，不要寫成 lite。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "Lite version", "zh": "精簡版", "example": { "en": "We will launch a Lite version of the app next month.", "zh": "我們下個月會推出這個應用程式的精簡版。" } },
+        { "phrase": "Lite model", "zh": "輕量款", "example": { "en": "The Lite model costs less than the standard one.", "zh": "輕量款的價格比標準款便宜。" } },
+        { "phrase": "Lite plan", "zh": "基本方案", "example": { "en": "Our Lite plan includes basic features for small teams.", "zh": "我們的基本方案包含適合小型團隊的基本功能。" } }
+      ],
+      "examples": [
+        { "tag": "產品介紹", "en": "The Super Lite is our newest stroller for busy city parents.", "zh": "Super Lite 是我們為忙碌的都市父母推出的最新嬰兒車。" },
+        { "tag": "電子郵件", "en": "Please send me the price list for the Lite series.", "zh": "請把 Lite 系列的價目表寄給我。" },
+        { "tag": "行銷", "en": "Customers like the Lite design because it is easy to carry.", "zh": "顧客喜歡 Lite 的設計，因為它很容易攜帶。" }
+      ],
+      "confusable": [
+        { "word": "light", "diff": "light 是標準拼法，意思是「輕的」；Lite 只是產品名稱的特殊寫法。", "example": { "en": "The new frame is light enough for one hand.", "zh": "這個新車架夠輕，單手就能拿起來。" } },
+        { "word": "lit", "diff": "lit 是 light 當動詞「點亮」的過去式，發音是 /lɪt/，不是「輕」的意思。", "example": { "en": "The showroom was brightly lit for the product launch.", "zh": "展示間為了新品發表會被照得很明亮。" } }
+      ],
+      "similar": [
+        { "word": "lightweight", "diff": "lightweight 是一般用字，直接說明重量很輕；Lite 多半只出現在品牌或產品名裡。", "example": { "en": "This lightweight frame is easy to carry on a plane.", "zh": "這個輕量車架很容易帶上飛機。" } }
+      ],
+      "family": [
+        { "w": "lightweight", "pos": "adj.", "zh": "重量輕的", "ipa": "/ˈlaɪtweɪt/", "example": { "en": "Customers want a lightweight stroller for daily travel.", "zh": "顧客想要一台適合日常出行的輕量嬰兒車。" } },
+        { "w": "compact", "pos": "adj.", "zh": "小巧緊湊的", "ipa": "/kəmˈpækt/", "example": { "en": "The compact design saves space in a small car.", "zh": "這個小巧的設計在小車裡很省空間。" } },
+        { "w": "portable", "pos": "adj.", "zh": "便於攜帶的", "ipa": "/ˈpɔːrtəbl/", "example": { "en": "A portable charger is useful on business trips.", "zh": "攜帶式充電器在出差時很實用。" } },
+        { "w": "slim", "pos": "adj.", "zh": "輕薄的、纖細的", "ipa": "/slɪm/", "example": { "en": "The slim laptop fits easily into my bag.", "zh": "這台輕薄的筆電很容易放進我的包包。" } }
+      ],
+      "derived": [
+        { "w": "lighten", "pos": "v.", "zh": "使變輕", "ipa": "/ˈlaɪtn/", "link": "light + -en，使變輕，像 widen、shorten" },
+        { "w": "lightly", "pos": "adv.", "zh": "輕輕地", "ipa": "/ˈlaɪtli/", "link": "light + -ly，副詞，像 quickly、slowly" },
+        { "w": "lightness", "pos": "n.", "zh": "輕的程度", "ipa": "/ˈlaɪtnəs/", "link": "light + -ness，輕的狀態，像 kindness、weakness" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "backrest panel",
+      "type": "phrase",
+      "zh": "椅背板、靠背面板",
+      "en": "the flat part of a seat that supports the back",
+      "note": "在這篇文章裡，backrest panel 是嬰兒車椅背後面的那塊板子。摺疊前先把它固定好，才不會垂下來碰到地面。",
+      "pattern": "fasten + the + 位置 + backrest panel",
+      "grammar_note": "backrest 是一個字，不要拆成 back rest；panel 是可數名詞，多片時要寫 panels。",
+      "examples": [
+        { "tag": "產品說明", "en": "The backrest panel can be removed for easy cleaning.", "zh": "椅背板可以拆下來，方便清洗。" },
+        { "tag": "客服", "en": "Please check that the backrest panel is locked in place.", "zh": "請確認椅背板已經鎖定在原位。" },
+        { "tag": "採購", "en": "We need a new supplier for the backrest panel fabric.", "zh": "我們需要為椅背板的布料找新的供應商。" }
+      ],
+      "similar": [
+        { "phrase": "seat back", "diff": "seat back 指座椅的背部整體，backrest panel 則是其中的一塊板或面板。", "example": { "en": "The seat back can lean at three different angles.", "zh": "座椅靠背可以調整成三種不同的角度。" } }
+      ],
+      "confusable": [
+        { "phrase": "armrest", "diff": "armrest 是扶手，backrest 是靠背，兩個字都以 -rest 結尾，但支撐的位置不同。", "example": { "en": "The armrest is too low for tall passengers.", "zh": "這個扶手對高個子乘客來說太低了。" } },
+        { "phrase": "footrest", "diff": "footrest 是腳踏板（放腳的地方），backrest 是靠背（靠背的地方）。", "example": { "en": "Adjust the footrest before you fold the stroller.", "zh": "摺疊嬰兒車之前，請先調整腳踏板。" } }
+      ]
+    }
+  ]
+}

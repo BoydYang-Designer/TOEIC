@@ -1,0 +1,27 @@
+{
+  "week": 4,
+  "day": 14,
+  "extra_vocab": [
+    {
+      "text": "on the shelf",
+      "type": "phrase",
+      "zh": "擺在架上、有現貨",
+      "en": "in a store and ready to be bought",
+      "note": "文章裡實際出現的是 off-the-shelf（現成的、不需客製的），指不用另外開模、買來就能用的碳纖維管。on the shelf 則是「擺在貨架上」，兩者相關但用法不同。",
+      "pattern": "N + be + on the shelf / on the shelves",
+      "grammar_note": "貨架不只一層時常用複數 on the shelves；當形容詞放在名詞前面要寫成 off-the-shelf，並加連字號（off-the-shelf tubes）。",
+      "examples": [
+        { "tag": "零售", "en": "The new model is already on the shelf in most stores.", "zh": "新款在大多數門市已經上架了。" },
+        { "tag": "倉儲", "en": "Please keep a few extra boxes on the shelf.", "zh": "請在架上多留幾個箱子備用。" },
+        { "tag": "會議", "en": "The product has been on the shelf since last spring.", "zh": "這項產品從去年春天就一直擺在架上（賣不出去）。" }
+      ],
+      "similar": [
+        { "phrase": "in stock", "diff": "in stock 強調「庫存有貨、可以出貨」，不一定在店面的貨架上。", "example": { "en": "The carbon fiber tubes are in stock and ready to ship.", "zh": "這些碳纖維管有現貨，可以馬上出貨。" } },
+        { "phrase": "off-the-shelf", "diff": "off-the-shelf 是形容詞，指「現成的、標準規格的」，不用客製。", "example": { "en": "We chose off-the-shelf parts to keep the cost low.", "zh": "我們選用現成零件來壓低成本。" } }
+      ],
+      "confusable": [
+        { "phrase": "on the market", "diff": "on the market 是「市面上有販售」，範圍較大；on the shelf 指實際擺在貨架上。", "example": { "en": "This stroller has been on the market for two years.", "zh": "這款嬰兒車已經在市面上販售兩年了。" } }
+      ]
+    }
+  ]
+}

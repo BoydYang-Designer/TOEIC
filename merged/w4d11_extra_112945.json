@@ -1,0 +1,29 @@
+{
+  "week": 4,
+  "day": 11,
+  "extra_vocab": [
+    {
+      "text": "long-term",
+      "type": "phrase",
+      "zh": "長期的",
+      "en": "lasting or planned for a long time",
+      "note": "在這篇文章裡，long-term durability 是「長期耐用性」，表示量產前還要確認黏合處用很久也不會出問題。long-term 放在名詞前面，用來說明時間跨度長。",
+      "pattern": "long-term + N（如 plan、contract、durability）",
+      "grammar_note": "放在名詞前當形容詞時要加連字號（long-term plan）；當副詞片語時寫成 in the long term，中間不加連字號。",
+      "examples": [
+        { "tag": "會議", "en": "We need a long-term plan to reduce production costs.", "zh": "我們需要一份降低生產成本的長期計畫。" },
+        { "tag": "合約", "en": "The supplier offered us a long-term contract with a fixed price.", "zh": "供應商提供我們一份價格固定的長期合約。" },
+        { "tag": "產品測試", "en": "The long-term test showed no change in the frame strength.", "zh": "長期測試顯示車架的強度沒有變化。" },
+        { "tag": "策略", "en": "In the long term, this investment will save the company money.", "zh": "長期來看，這項投資會幫公司省錢。" }
+      ],
+      "similar": [
+        { "phrase": "long-lasting", "diff": "long-lasting 多用來形容產品或效果「持續很久」；long-term 則強調時間規劃或時間跨度長。", "example": { "en": "Customers want a long-lasting battery for daily use.", "zh": "顧客想要一顆適合日常使用、續航很久的電池。" } },
+        { "phrase": "extended", "diff": "extended 指時間「被延長」，不一定是長期；long-term 本身就是長時間的規劃。", "example": { "en": "We offer an extended warranty on all frames.", "zh": "我們為所有車架提供延長保固。" } }
+      ],
+      "confusable": [
+        { "phrase": "short-term", "diff": "short-term 是反義詞，表示短期的；long-term 是長期的。", "example": { "en": "The short-term goal is to finish the prototype by June.", "zh": "短期目標是在六月前完成原型。" } },
+        { "phrase": "long-time", "diff": "long-time 指「相識或合作已久」，放在人或關係前面；long-term 指未來或持續的時間長。", "example": { "en": "She is a long-time customer of our company.", "zh": "她是我們公司的長期（多年）老顧客。" } }
+      ]
+    }
+  ]
+}

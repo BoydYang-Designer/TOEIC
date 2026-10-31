@@ -1,0 +1,77 @@
+{
+  "week": 4,
+  "day": 14,
+  "extra_vocab": [
+    {
+      "text": "ready-made",
+      "type": "word",
+      "ipa": "/ˌredi ˈmeɪd/",
+      "pos": "adj.",
+      "zh": "現成的、已做好的",
+      "en": "already made and ready to use, not made for one customer",
+      "note": "所在句只有 ready-made 一個字，文章裡沒有出現，但意思與文章中的 off-the-shelf 很接近，都是指現成、不用另外客製的零件。",
+      "grammar_note": "ready-made 是複合形容詞，要加連字號，不要拆成 ready made；放在名詞前面（ready-made parts）或 be 動詞後面（The parts are ready-made.）都可以。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "ready-made parts", "zh": "現成零件", "example": { "en": "Using ready-made parts helps us finish the prototype faster.", "zh": "使用現成零件能幫助我們更快完成原型。" } },
+        { "phrase": "ready-made solution", "zh": "現成的解決方案", "example": { "en": "There is no ready-made solution for this problem.", "zh": "這個問題沒有現成的解決方案。" } },
+        { "phrase": "ready-made meal", "zh": "現成餐點", "example": { "en": "The store sells ready-made meals for busy office workers.", "zh": "這家店為忙碌的上班族販售現成餐點。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "We bought ready-made tubes to avoid extra tooling costs.", "zh": "我們買現成的管子，以避免額外的模具費用。" },
+        { "tag": "會議", "en": "A ready-made design saves time, but it may not fit every customer.", "zh": "現成的設計能節省時間，但不一定適合每位客戶。" },
+        { "tag": "電子郵件", "en": "Please let me know if you need a ready-made template.", "zh": "如果你需要現成的範本，請告訴我。" }
+      ],
+      "confusable": [
+        { "word": "ready-to-use", "diff": "ready-made 強調「事先已經做好」，ready-to-use 強調「拿來就能馬上用」。", "example": { "en": "The kit is ready-to-use, so no assembly is needed.", "zh": "這個套組開箱即用，不需要組裝。" } },
+        { "word": "custom-made", "diff": "custom-made 是反義的說法，指依客戶需求特別訂做；ready-made 是現成的。", "example": { "en": "The client ordered a custom-made frame for the new model.", "zh": "客戶為新機型訂製了一個專用車架。" } }
+      ],
+      "similar": [
+        { "word": "off-the-shelf", "diff": "off-the-shelf 多用於零件、軟體等標準規格的商品，商務文件中更常見。", "example": { "en": "We chose off-the-shelf software to keep the budget low.", "zh": "我們選擇現成的軟體，好壓低預算。" } },
+        { "word": "pre-made", "diff": "pre-made 語氣較口語，常用在食物或材料，強調事先做好。", "example": { "en": "The cafe uses pre-made sauces to serve customers quickly.", "zh": "這家咖啡館使用事先做好的醬料，好快速服務顧客。" } }
+      ],
+      "family": [
+        { "w": "standard", "pos": "adj.", "zh": "標準的", "ipa": "/ˈstændərd/", "example": { "en": "The standard size fits most of our products.", "zh": "標準尺寸適合我們大部分的產品。" } },
+        { "w": "custom", "pos": "adj.", "zh": "客製的", "ipa": "/ˈkʌstəm/", "example": { "en": "Custom tools make the product more expensive.", "zh": "客製的工具會讓產品更貴。" } },
+        { "w": "prepared", "pos": "adj.", "zh": "事先準備好的", "ipa": "/prɪˈperd/", "example": { "en": "We sent the client a prepared list of questions.", "zh": "我們寄給客戶一份事先準備好的問題清單。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "aluminum",
+      "type": "word",
+      "ipa": "/əˈluːmɪnəm/",
+      "pos": "n.",
+      "zh": "鋁",
+      "en": "a light, silver-colored metal used to make many products",
+      "note": "在這篇文章裡，aluminum 放在 tubes 前面當修飾語，指「鋁製的管子」，用來和碳纖維管比較重量與成本。",
+      "grammar_note": "aluminum 是不可數名詞，不加 s；美式拼法是 aluminum，英式拼法是 aluminium。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "aluminum frame", "zh": "鋁製車架", "example": { "en": "The aluminum frame is cheaper than the carbon fiber one.", "zh": "鋁製車架比碳纖維車架便宜。" } },
+        { "phrase": "aluminum alloy", "zh": "鋁合金", "example": { "en": "This bicycle is made of strong aluminum alloy.", "zh": "這台腳踏車是用堅固的鋁合金製成。" } },
+        { "phrase": "aluminum tubing", "zh": "鋁管材", "example": { "en": "We ordered aluminum tubing from two different suppliers.", "zh": "我們向兩家不同的供應商訂購了鋁管材。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "Aluminum is cheaper than carbon fiber, but it is heavier.", "zh": "鋁比碳纖維便宜，但是比較重。" },
+        { "tag": "會議", "en": "Should we switch to aluminum to reduce the production cost?", "zh": "我們該改用鋁來降低生產成本嗎？" },
+        { "tag": "產品說明", "en": "The case is made of recycled aluminum.", "zh": "這個外殼是用回收鋁製成的。" }
+      ],
+      "confusable": [
+        { "word": "aluminium", "diff": "aluminium 是英式拼法，意思和美式的 aluminum 完全相同。", "example": { "en": "The British supplier quoted a price for aluminium sheets.", "zh": "這家英國供應商報了鋁板的價格。" } },
+        { "word": "alloy", "diff": "alloy 是「合金」，由兩種以上金屬混合而成；aluminum 是單一種金屬。", "example": { "en": "The alloy is stronger than pure metal.", "zh": "這種合金比純金屬更堅固。" } }
+      ],
+      "family": [
+        { "w": "steel", "pos": "n.", "zh": "鋼", "ipa": "/stiːl/", "example": { "en": "Steel is stronger than aluminum, but much heavier.", "zh": "鋼比鋁堅固，但重很多。" } },
+        { "w": "metal", "pos": "n.", "zh": "金屬", "ipa": "/ˈmetl/", "example": { "en": "The metal parts must be tested for strength.", "zh": "這些金屬零件必須經過強度測試。" } },
+        { "w": "plastic", "pos": "n.", "zh": "塑膠", "ipa": "/ˈplæstɪk/", "example": { "en": "Plastic parts are light and easy to produce.", "zh": "塑膠零件輕又容易生產。" } },
+        { "w": "copper", "pos": "n.", "zh": "銅", "ipa": "/ˈkɑːpər/", "example": { "en": "The price of copper has risen this year.", "zh": "銅的價格今年上漲了。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
