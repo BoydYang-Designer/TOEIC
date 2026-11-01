@@ -172,12 +172,12 @@ function prInject(root) {
 })();
 
 /* ---------- 練習視窗 ---------- */
-function prOpen(text, src) {
+function prOpen(text, src, seg) {
   prKeepTouch(); prKeepLog('開視窗');
   prCancel(); prMineDrop();
   if (PR.ex === 'play') prExFinish(true);
   try { spStop(); } catch (e) {} try { skStopAll(); } catch (e) {}
-  Object.assign(PR, { text, key: prNorm(text), src: src || null, st: 'idle', final: '', interim: '', alts: [], cands: null, err: '', res: null, nb: false, fail: 0, dead: false });
+  Object.assign(PR, { text, key: prNorm(text), src: src || null, seg: seg || null, st: 'idle', final: '', interim: '', alts: [], cands: null, err: '', res: null, nb: false, fail: 0, dead: false });
   let ov = document.getElementById('pron-ov');
   if (!ov) { ov = document.createElement('div'); ov.id = 'pron-ov'; document.body.appendChild(ov); }
   prRender();
@@ -306,6 +306,7 @@ function prExBegin(fromOverlay) {
   PR.ex = 'play'; PR.exEl = null; PR.exTts = false; clearTimeout(PR.exT);
   const tk = ++PR.exTk;
   prAudioForPlay();
+  if (fromOverlay && PR.seg) { prExPlayWeb(PR.seg.url, tk, PR.seg); prRender(); return; } // 常用句：只播原 mp3 的那一段
   if (fromOverlay) {
     if (PR.src && PR.src.isConnected) { prGateArm(tk, 'play'); PR.gateSkip = true; try { PR.src.click(); } finally { PR.gateSkip = false; } }
     else { prGateArm(tk, 'play'); try { speak(PR.text); } catch (e) { prExFinish(true); } }
@@ -322,7 +323,7 @@ function prExFetch(src) {
   }
   return p;
 }
-async function prExPlayWeb(src, tk) {
+async function prExPlayWeb(src, tk, seg) {
   const AC = window.AudioContext || window.webkitAudioContext;
   let ctx; try { ctx = new AC(); try { ctx.resume(); } catch (e) {} } catch (e) { skLog('PR 範例 AudioContext 建立失敗，改用語音合成'); prExTts(tk); return; }
   PR.exCtx = ctx;
@@ -333,8 +334,10 @@ async function prExPlayWeb(src, tk) {
     if (tk !== PR.exTk || PR.ex !== 'play' || PR.exCtx !== ctx) return;
     const s = ctx.createBufferSource(); s.buffer = buf; s.connect(ctx.destination);
     s.onended = () => { if (tk === PR.exTk && PR.exNode === s) prExFinish(); };
-    PR.exNode = s; s.start(0);
-    clearTimeout(PR.exT); PR.exT = setTimeout(() => { if (tk === PR.exTk) prExFinish(); }, (buf.duration + 3) * 1000); // 保險：onended 沒來也會結束
+    PR.exNode = s;
+    const dur = seg ? Math.max(0.2, Math.min(seg.e, buf.duration) - seg.s) : buf.duration;
+    if (seg) s.start(0, seg.s, dur); else s.start(0);
+    clearTimeout(PR.exT); PR.exT = setTimeout(() => { if (tk === PR.exTk) prExFinish(); }, (dur + 3) * 1000); // 保險：onended 沒來也會結束
     prRender();
   } catch (e) {
     skLog('PR 範例 Web Audio 失敗 ' + (e && (e.message || e.name)) + '，改用語音合成');

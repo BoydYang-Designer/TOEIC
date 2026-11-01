@@ -117,8 +117,8 @@ function spAudioFail(au) { // 找不到／無法播放 mp3 → 自動改用瀏�
   Sp.au = null; Sp.mode = 'tts'; spRun(0);
   if (typeof dnToast === 'function') dnToast('mp3 讀不到，改用語音合成播放');
 }
-function spToggle(id, startAt, stopAt) {
-  Sp.endIdx = null; // 播放／暫停／繼續；startAt = 從指定秒數開始（點句子時使用）
+function spToggle(id, startAt, stopAt, quiet) {
+  spQuiet = !!quiet; Sp.endIdx = null; // 播放／暫停／繼續；startAt = 從指定秒數開始（點句子時使用）
   spFollowSet(true);
   if (Sp.id !== id) {
     spStop(); const x = DATA.find(d => idOf(d) === id);
@@ -231,7 +231,7 @@ function spClearHl() { Sp.hlIdx = -2; document.querySelectorAll(SP_TS.replace(/\
    - 使用者自己滑動（滾輪／觸控）→ 立刻停止動畫並暫停跟隨，出現「回到播放位置」按鈕；按播放、點句子或按該按鈕 → 重新跟隨
    - 想調整手感：pos＝停留位置（0.3＝偏上 30%，0.5＝正中間）、tol＝偏離超過可視高度多少比例才再捲（越小越黏、越大越少動） */
 const SP_FOLLOW = { pos: 0.3, tol: 0.08 };
-let spFollowOn = true, spAnim = 0;
+let spFollowOn = true, spAnim = 0, spQuiet = false; // spQuiet：常用句播放時不捲動、不跳「回到播放位置」
 function spFollowSet(v) { spFollowOn = v; if (!v) spAnimStop(); spJumpUpdate(); }
 ['wheel', 'touchmove'].forEach(ev => window.addEventListener(ev, () => { if (spFollowOn) spFollowSet(false); }, { passive: true })); // 程式捲動不會觸發這兩個事件
 function spAnimStop() { if (spAnim) { cancelAnimationFrame(spAnim); spAnim = 0; } }
@@ -248,6 +248,7 @@ function spScrollTo(y) { // 自製緩動捲動：連續多句時不會互相打�
   spAnim = requestAnimationFrame(step);
 }
 function spFollow(el, zel) {
+  if (spQuiet) return;
   if (!spFollowOn) { spJumpUpdate(); return; }
   const vis = e => e && e.getClientRects().length > 0;
   const hit = vis(el) ? el : vis(zel) ? zel : null; if (!hit) return;
@@ -269,7 +270,7 @@ function spFollowNow() { spFollow(document.querySelector(SP_TS.replace(/\.tsent/
 function spJumpUpdate() { // 跟隨被暫停時，浮出「回到播放位置」按鈕（浮在手機底部播放列上方）
   let b = document.getElementById('sp-jump');
   const live = (Sp.st === 'playing' || Sp.st === 'paused') && document.querySelector(SP_TS.replace(/\.tsent/g, '.tsent.active') + ', ' + SP_ZS.replace(/\.zsent/g, '.zsent.active'));
-  if (spFollowOn || !live) { if (b) b.style.display = 'none'; return; }
+  if (spQuiet || spFollowOn || !live) { if (b) b.style.display = 'none'; return; }
   if (!b) {
     b = document.createElement('button'); b.id = 'sp-jump'; b.textContent = '⤓ 回到播放位置';
     b.className = 'fixed right-3 z-40 rounded-full shadow-lg px-4 py-2 text-xs font-semibold bg-indigo-600 text-white cursor-pointer';
@@ -292,6 +293,68 @@ function spHl(id, t) { // 依播放秒數標示目前句子（資料來自 daily
   const zel = idx >= 0 && [...document.querySelectorAll(SP_ZS)].find(e => idx >= +e.dataset.z && idx <= (e.dataset.z2 != null ? +e.dataset.z2 : +e.dataset.z));
   spFollow(el, zel); // 畫面跟著高亮句子捲動（英文收合時改跟中文）
 }
+/* ===== 我的常用句：選句 → 加入 → 用原 mp3 的時間點播放，可微調起訖 ===== */
+const myAll = () => S.myph || (S.myph = []);
+const myOf = qid => myAll().filter(o => o.qid === qid);
+function myRange(x, from, to) {
+  if (!tmOk(x)) return null;
+  const tm = x.timing; let i0 = -1, i1 = -1;
+  tm.forEach((s, i) => { if (s.from < to && s.to > from) { if (i0 < 0) i0 = i; i1 = i; } });
+  if (i0 < 0) return null;
+  const a = tm[i0], b = tm[i1];
+  const fr = (s, p) => s.start + (s.end - s.start) * Math.min(1, Math.max(0, (p - s.from) / Math.max(1, s.to - s.from)));
+  return { s: from <= a.from ? a.start : fr(a, from), e: to >= b.to ? b.end : fr(b, to) };
+}
+function myphAdd(qid, from, to) {
+  const x = DATA.find(d => idOf(d) === qid); if (!x) return;
+  const text = String(x.passage).slice(from, to).trim(); if (!text) return;
+  if (myOf(qid).some(o => o.text === text)) { dnToast('已經在常用句裡了'); return; }
+  const r = myRange(x, from, to) || { s: 0, e: 0 };
+  myAll().push({ id: 'mp' + Date.now().toString(36), qid, from, to, text, s: r.s, e: r.e, ds: 0, de: 0, t: Date.now() });
+  cur.myOpen = true; save(); dnToast('已加入常用句'); render();
+}
+function myPlay(id) {
+  const o = myAll().find(a => a.id === id); if (!o) return;
+  const x = DATA.find(d => idOf(d) === o.qid); if (!x) return;
+  if (!dyHas(x) || !o.e) { speak(o.text); return; }
+  const t0 = Math.max(0, o.s + o.ds), t1 = o.e + o.de + SP_TAIL;
+  Sp.jumpIdx = -1; Sp.endIdx = null; spQuiet = true; spJumpUpdate();
+  if (Sp.id === o.qid && Sp.mode === 'audio' && Sp.au) {
+    Sp.au.currentTime = t0; Sp.stopAt = t1;
+    if (Sp.st === 'paused') { Sp.au.play(); Sp.st = 'playing'; }
+    spUI();
+  } else spToggle(o.qid, t0, t1, true);
+}
+function myNudge(id, k, d) { const o = myAll().find(a => a.id === id); if (!o) return; o[k] = Math.round((o[k] + d) * 100) / 100; save(); myPlay(id); render(); }
+function myReset(id) { const o = myAll().find(a => a.id === id); if (o) { o.ds = o.de = 0; save(); render(); } }
+function myDel(id) { if (!confirm('刪除這個常用句？')) return; S.myph = myAll().filter(a => a.id !== id); save(); render(); }
+function myPractice(id) {
+  const o = myAll().find(a => a.id === id); if (!o) return;
+  const x = DATA.find(d => idOf(d) === o.qid);
+  const seg = x && dyHas(x) && o.e ? { url: audioSrc(x), s: Math.max(0, o.s + o.ds), e: o.e + o.de + SP_TAIL } : null;
+  prOpen(o.text, null, seg);
+}
+function mySection(x) {
+  const L = myOf(idOf(x)); if (!L.length) return '';
+  const nb = `${btn} border border-slate-300 dark:border-slate-700 !py-1 !px-2 text-xs`;
+  const nudge = (o, k, lbl) => `<span class="inline-flex items-center gap-1 text-xs text-slate-500">${lbl}
+    <button onclick="myNudge('${o.id}','${k}',-0.1)" class="${nb}">−0.1</button>
+    <b class="w-12 text-center">${o[k] >= 0 ? '+' : ''}${o[k].toFixed(2)}s</b>
+    <button onclick="myNudge('${o.id}','${k}',0.1)" class="${nb}">+0.1</button></span>`;
+  const open = !!cur.myOpen; // 與核心多益單字、常用句型相同：預設收合
+  const head = `<div class="flex items-center justify-between ${open ? 'mb-3' : 'mb-8'} gap-2"><button onclick="toggleSec('my')" class="font-bold text-lg cursor-pointer">${open ? '▾' : '▸'} ⭐ 我的常用句（${L.length}）</button></div>`;
+  if (!open) return head;
+  return head + `<div class="space-y-3 mb-8">` + L.map(o => `
+    <div class="${card} p-4"><p class="font-medium">${esc(o.text)}</p>
+      <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <button onclick="myPlay('${o.id}')" class="${btn} bg-indigo-600 text-white !py-1.5 text-xs">▶ 聽</button>
+        <button onclick="myPractice('${o.id}')" class="${btn} border border-slate-300 dark:border-slate-700 !py-1.5 text-xs">🎙 練習</button>${prBadge(prNorm(o.text))}
+        ${nudge(o, 'ds', '起點')}${nudge(o, 'de', '終點')}
+        <button onclick="myReset('${o.id}')" class="${nb}">重設</button>
+        <button onclick="myDel('${o.id}')" class="${nb} text-rose-500">刪除</button>
+      </div></div>`).join('') + '</div>';
+}
+
 const SP_TAIL = 0.45; // 單句模式：句尾多留幾秒再暫停（timing 的 end 常比實際唸完早一點）；覺得太晚就調小、太早就調大
 function spSentEnd(x, i) { // 該句暫停的位置＝end ＋ 緩衝，但不超過下一句開頭（避免念到下一句）
   const s = x.timing[i], nx = x.timing[i + 1];
@@ -1300,6 +1363,7 @@ function renderDay() {
   }
 
   // 我的入庫（選字入庫）
+  h += mySection(x);
   h += dnDaySec(x);
 
   // 隨堂測驗
@@ -1443,7 +1507,7 @@ function speakPhrase(i) { // 句型發音：優先播 mp3（audio/daily/vocab/{�
   const t = String(p.phrase).replace(/\.{2,}|…/g, ' ').replace(/\s+/g, ' ').trim();
   if (typeof vplay === 'function') vplay(idOf(x), t, '', t); else speak(t);
 }
-function toggleSec(k) { cur[k + 'Open'] = !cur[k + 'Open']; render(); } // k = 'vocab' | 'phrases' | 'quiz'
+function toggleSec(k) { cur[k + 'Open'] = !cur[k + 'Open']; render(); } // k = 'vocab' | 'phrases' | 'quiz' | 'my'
 function toggleHl() { cur.hl = !cur.hl; cur.hlAuto = false; if (cur.hl) { const m = textModeOf(find(cur.w, cur.d)).raw; if (m === '' || m === 'zh') { cur.enOpen = true; cur.zhOpen = false; cur.pair = false; } } render(); } // 標示單字要看得到英文：對照／英文本來就有英文，收合或純中文則切到英文
 const tmOk = x => { const s = tmInfo(x).state; return s === 'ok' || s === 'partial'; }; // timing 異常（含與目前文稿的切句不符）時一律當作沒有 timing：不高亮、不報錯
 (function () { const st = document.createElement('style'); st.textContent = '.zhead{font-weight:600}#zh-text .zsent,#pair-text .zsent{cursor:pointer;border-radius:3px}#zh-text .zsent.active,#pair-text .zsent.active{background:rgba(250,204,21,.35)}#pair-text.annot .zsent{cursor:default;-webkit-user-select:none;user-select:none}'; document.head.appendChild(st); })();
