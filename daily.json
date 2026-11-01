@@ -111120,6 +111120,211 @@
               }
             }
           ]
+        },
+        {
+          "text": "throttle",
+          "type": "word",
+          "ipa": "/ˈθrɑːtl/",
+          "pos": "n.",
+          "zh": "油門、節流閥（控制引擎動力的裝置）",
+          "en": "a part that you turn or press to control how fast an engine goes",
+          "note": "在這篇裡，throttle 是比喻用的名詞：嬰兒車底下的轉桿要「像機車的油門一樣扭轉」，才能解開折疊鎖。講者用大家熟悉的機車油門，讓聽眾想像扭轉的動作。",
+          "grammar_note": "throttle 當「油門」是可數名詞（a throttle、the throttle），但 at full throttle（全速）前面不加 a 或 the。",
+          "forms": [
+            {
+              "w": "throttles",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "油門（複數）",
+              "ipa": "/ˈθrɑːtlz/",
+              "example": {
+                "en": "The factory tests the throttles on every motorcycle before shipping.",
+                "zh": "工廠在出貨前會測試每輛機車的油門。"
+              }
+            },
+            {
+              "w": "throttles",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "限制、壓低（速度或流量）",
+              "ipa": "/ˈθrɑːtlz/",
+              "example": {
+                "en": "The software throttles the upload speed during busy hours.",
+                "zh": "這套軟體在尖峰時段會限制上傳速度。"
+              }
+            },
+            {
+              "w": "throttled",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "限制了（速度或流量）",
+              "ipa": "/ˈθrɑːtld/",
+              "example": {
+                "en": "The provider throttled our network speed last month.",
+                "zh": "供應商上個月限制了我們的網路速度。"
+              }
+            },
+            {
+              "w": "throttling",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在限制（速度或流量）",
+              "ipa": "/ˈθrɑːtlɪŋ/",
+              "example": {
+                "en": "The company is throttling video streams to save bandwidth.",
+                "zh": "公司正在限制影音串流以節省頻寬。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "motorcycle throttle",
+              "zh": "機車油門",
+              "example": {
+                "en": "The mechanic replaced a worn motorcycle throttle yesterday.",
+                "zh": "技師昨天更換了一個磨損的機車油門。"
+              }
+            },
+            {
+              "phrase": "open the throttle",
+              "zh": "加大油門",
+              "example": {
+                "en": "Open the throttle slowly when you start the machine.",
+                "zh": "啟動機器時，請慢慢加大油門。"
+              }
+            },
+            {
+              "phrase": "at full throttle",
+              "zh": "全速、全力",
+              "example": {
+                "en": "Our sales team is working at full throttle this quarter.",
+                "zh": "我們的業務團隊這一季正全力衝刺。"
+              }
+            },
+            {
+              "phrase": "throttle control",
+              "zh": "油門控制",
+              "example": {
+                "en": "The throttle control on this model is very easy to use.",
+                "zh": "這個型號的油門控制非常容易操作。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "產品說明",
+              "en": "Twist the throttle gently to increase the engine speed.",
+              "zh": "輕輕扭轉油門，提高引擎轉速。"
+            },
+            {
+              "tag": "產品說明",
+              "en": "Release the throttle before you press the brake.",
+              "zh": "踩煞車之前，請先放開油門。"
+            },
+            {
+              "tag": "簡報說明",
+              "en": "The handlebar twists like a throttle to release the lock.",
+              "zh": "把手像油門一樣扭轉，就能解開鎖。"
+            },
+            {
+              "tag": "一般商務",
+              "en": "The tight budget could throttle our plans to hire new staff.",
+              "zh": "緊縮的預算可能會限制我們招募新員工的計畫。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "throat",
+              "diff": "throat 是「喉嚨」，開頭拼法和 throttle 很像，但和機器、油門無關。",
+              "example": {
+                "en": "The sales manager had a sore throat after the long meeting.",
+                "zh": "業務經理在冗長的會議後喉嚨很痛。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "accelerator",
+              "diff": "accelerator 常指汽車的油門踏板；throttle 多指機車的轉把，或引擎上控制進氣的裝置。",
+              "example": {
+                "en": "The driver pressed the accelerator to merge onto the highway.",
+                "zh": "司機踩下油門以匯入高速公路。"
+              }
+            },
+            {
+              "phrase": "gas pedal",
+              "diff": "gas pedal 是口語說法，指汽車的油門踏板，語氣比 throttle 日常。",
+              "example": {
+                "en": "Press the gas pedal gently to avoid wasting fuel.",
+                "zh": "輕踩油門踏板以避免浪費燃料。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "pedal",
+              "pos": "n.",
+              "zh": "踏板",
+              "ipa": "/ˈpedl/",
+              "example": {
+                "en": "Press the pedal to start the sewing machine.",
+                "zh": "踩下踏板來啟動縫紉機。"
+              }
+            },
+            {
+              "w": "lever",
+              "pos": "n.",
+              "zh": "控制桿、拉桿",
+              "ipa": "/ˈlevər/",
+              "example": {
+                "en": "Pull the lever to release the safety lock.",
+                "zh": "拉動拉桿來解開安全鎖。"
+              }
+            },
+            {
+              "w": "engine",
+              "pos": "n.",
+              "zh": "引擎",
+              "ipa": "/ˈendʒɪn/",
+              "example": {
+                "en": "The engine starts when you turn the key.",
+                "zh": "轉動鑰匙後引擎就會啟動。"
+              }
+            },
+            {
+              "w": "handlebar",
+              "pos": "n.",
+              "zh": "（車的）把手",
+              "ipa": "/ˈhændlbɑːr/",
+              "example": {
+                "en": "You can adjust the handlebar height with one hand.",
+                "zh": "你可以單手調整把手的高度。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˈθrɑːtl/",
+              "zh": "油門、節流閥",
+              "in_passage": true,
+              "example": {
+                "en": "Turn the throttle slowly to start moving the vehicle forward.",
+                "zh": "慢慢轉動油門，讓車輛開始向前移動。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/ˈθrɑːtl/",
+              "zh": "限制、壓低（速度、流量或成長）",
+              "example": {
+                "en": "New rules may throttle the growth of small online shops.",
+                "zh": "新規定可能會抑制小型網路商店的成長。"
+              }
+            }
+          ],
+          "senses": []
         }
       ]
     },
