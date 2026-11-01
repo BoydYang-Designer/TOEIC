@@ -76,6 +76,9 @@ TSL_DNAME.N = '非 TSL';
 const TSLSET = new Set(TSL_WORDS.map(norm));
 let LEARNED = new Map(); // norm word -> { w, d, s }　s＝詳解狀態：2 有詳解、1 含在其他字詳解內、0 缺詳解、undefined 未知（舊版 index）
 const gap = x => { if (x.o) return x.s === 0; const h = LEARNED.get(x.n); return !!h && h.s === 0; };
+/* 來源標示：W0D1＝TSL 字庫（沒有文章的字的通用詳解） */
+const wdLabel = (w, d) => w ? 'W' + w + 'D' + d : 'TSL 字庫';
+const fromOf = h => h.from || wdLabel(h.w, h.d);
 const qidWD = q => { const m = /^w(\d+)d(\d+)$/.exec(q || ''); return m ? [+m[1], +m[2]] : [0, 0]; };
 /* 入庫但還沒寫回 daily.json 的字（存在這個瀏覽器的 S.marks）：TSL 單字 → 算「已收錄、缺詳解」 */
 function mergeMarks() {
@@ -88,9 +91,9 @@ function mergeMarks() {
 async function ensureOthers() {
   if (OTH_LOADED) return; OTH_LOADED = true;
   let list = [];
-  if (IX && Array.isArray(IX.other)) list = IX.other.map(a => ({ text: a[0], type: a[1], from: 'W' + a[2] + 'D' + a[3], s: a[4] }));
-  else { const j = await getJ('daily.json'); if (j) (Array.isArray(j) ? j : (j.items || [])).forEach(x => (x.extra_vocab || []).forEach(e => { const t = e.text || e.word; if (t) list.push({ text: t, type: e.type || 'word', from: 'W' + x.week + 'D' + x.day, s: 2 }); })); }
-  (S.marks || []).forEach(m => { if (m.text) { const [w, d] = qidWD(m.qid); list.push({ text: m.text, type: m.type || 'word', from: w ? 'W' + w + 'D' + d : '', s: 0, pend: 1 }); } });
+  if (IX && Array.isArray(IX.other)) list = IX.other.map(a => ({ text: a[0], type: a[1], from: wdLabel(a[2], a[3]), s: a[4] }));
+  else { const j = await getJ('daily.json'); if (j) (Array.isArray(j) ? j : (j.items || [])).forEach(x => (x.extra_vocab || []).forEach(e => { const t = e.text || e.word; if (t) list.push({ text: t, type: e.type || 'word', from: wdLabel(x.week, x.day), s: 2 }); })); }
+  (S.marks || []).forEach(m => { if (m.text) { const [w, d] = qidWD(m.qid); list.push({ text: m.text, type: m.type || 'word', from: w ? wdLabel(w, d) : '', s: 0, pend: 1 }); } });
   const seen = new Set(); OTHERS = [];
   list.forEach(o => {
     const k = norm(o.text); if (!k || seen.has(k)) return;
@@ -166,10 +169,10 @@ function paint() {
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 p-3 pt-1">${shown.map(x => {
         const hit = x.o ? { s: x.s, from: x.from } : LEARNED.get(x.n);
         const inner = `<span class="w-2 h-2 rounded-full shrink-0 ${x.b ? x.b.dot : 'bg-slate-400'}"></span><span class="font-semibold truncate">${esc(x.w)}</span><span class="ml-auto text-[0.625rem] text-slate-400 shrink-0" title="主題：${TSL_DNAME[x.d]}${x.d2 ? '／次：D' + x.d2 + ' ' + TSL_DNAME[x.d2] : ''}">${x.o ? typeTag(x.type) : x.d === 'G' ? 'G' : 'D' + x.d + (x.d2 ? '·' + x.d2 : '')}</span><span class="text-xs text-slate-400 shrink-0">${x.r || '—'}</span>`;
-        if (hit && hit.s === 0) return `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="${hit.from || 'W' + hit.w + 'D' + hit.d} · 已入庫但缺詳解，點開看單字卡" class="flex items-center gap-1.5 rounded-lg border border-amber-400 bg-amber-50 dark:bg-amber-950/30 hover:bg-amber-100 dark:hover:bg-amber-950 px-2.5 py-2 text-sm">${inner}<span class="text-[0.625rem] text-amber-600 dark:text-amber-400 shrink-0">缺詳解</span></a>`;
+        if (hit && hit.s === 0) return `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="${fromOf(hit)} · 已入庫但缺詳解，點開看單字卡" class="flex items-center gap-1.5 rounded-lg border border-amber-400 bg-amber-50 dark:bg-amber-950/30 hover:bg-amber-100 dark:hover:bg-amber-950 px-2.5 py-2 text-sm">${inner}<span class="text-[0.625rem] text-amber-600 dark:text-amber-400 shrink-0">缺詳解</span></a>`;
         return hit
-          ? `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="${hit.from || 'W' + hit.w + 'D' + hit.d} · 點開詳解" class="flex items-center gap-1.5 rounded-lg border border-indigo-300 dark:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950 px-2.5 py-2 text-sm">${inner}</a>`
-          : `<div class="flex items-center gap-1.5 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 px-2.5 py-2 text-sm text-slate-400 dark:text-slate-500">${inner}</div>`;
+          ? `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="${fromOf(hit)} · 點開詳解" class="flex items-center gap-1.5 rounded-lg border border-indigo-300 dark:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950 px-2.5 py-2 text-sm">${inner}</a>`
+          : `<a href="daily.html#vocab=${encodeURIComponent(x.n)}" title="還沒有文章用到 · 點開到 TSL 字庫建立通用詳解" class="flex items-center gap-1.5 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 px-2.5 py-2 text-sm text-slate-400 dark:text-slate-500">${inner}</a>`;
       }).join('')}</div></details>`;
   });
   document.getElementById('list').innerHTML = html || '<p class="text-sm text-slate-500">沒有符合的單字。</p>';

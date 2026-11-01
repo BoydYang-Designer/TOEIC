@@ -41,6 +41,10 @@ MODULES = {
               'dirs': ['audio/daily', '_trash']},
     'tools': {'title': '所有 .py／.bat 工具腳本', 'files': ['*.py', '*.bat'], 'dirs': []},
     'docs': {'title': '說明文件', 'files': ['*.md'], 'dirs': []},
+    'tsl': {'title': 'TSL 總表與詳解（無文章單字詳解功能用：vocab.html、daily.js、notes.js、合併與掃描腳本）',
+            'files': ['vocab.html', 'daily.js', 'notes.js', 'tsl.js', 'daily.html', 'cloud-sync.js', 'json_merge.py',
+                      'Scan總表與音檔.py', 'vocab_index.json', 'tsl_extra.json'],
+            'dirs': []},
 }
 for _n in range(1, 8):   # part1 … part7：同樣的檔案結構
     MODULES['part%d' % _n] = {'title': 'Part %d（part%d.html／.js／.json＋音檔清單）' % (_n, _n),

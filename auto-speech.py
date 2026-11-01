@@ -657,7 +657,7 @@ def plan_daily(root: Path):
         for x in items:
             qid = art_id(x)
             p = str(x.get("passage") or "").strip()
-            if not p:
+            if not p or x.get("library"):   # library＝TSL 字庫虛擬項目：沒有文章，不產整篇 mp3
                 continue
             path = (root / x["audio"]) if x.get("audio") else audio / "daily" / f"{qid}.mp3"
             voice = PASSAGE_VOICES[zlib.crc32(qid.encode("utf-8")) % len(PASSAGE_VOICES)]

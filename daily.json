@@ -166,6 +166,687 @@
   },
   "items": [
     {
+      "week": 0,
+      "day": 1,
+      "tag": "TSL 字庫",
+      "library": true,
+      "passage": "（TSL 字庫：沒有內文，只放通用詳解）",
+      "extra_vocab": [
+        {
+          "text": "abide",
+          "type": "word",
+          "ipa": "/əˈbaɪd/",
+          "pos": "v.",
+          "zh": "遵守（規則、決定）",
+          "en": "to follow a rule or an agreement",
+          "note": "多益最常見的用法是 abide by + 規則／合約／決定，語氣正式，常出現在公告、合約與公司規定中。另有「忍受」的意思，但通常只用在否定句，如 can't abide。",
+          "grammar_note": "表示「遵守」時一定要接 by（abide by the rules），不能直接接受詞，也不能寫成 abide to。",
+          "forms": [
+            {
+              "w": "abides",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "遵守",
+              "ipa": "/əˈbaɪdz/",
+              "example": {
+                "en": "She always abides by the budget set by the finance team.",
+                "zh": "她總是遵守財務團隊訂定的預算。"
+              }
+            },
+            {
+              "w": "abided",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "遵守（過去）",
+              "ipa": "/əˈbaɪdɪd/",
+              "example": {
+                "en": "The factory abided by the new environmental rules last year.",
+                "zh": "這間工廠去年遵守了新的環保規定。"
+              }
+            },
+            {
+              "w": "abiding",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在遵守",
+              "ipa": "/əˈbaɪdɪŋ/",
+              "example": {
+                "en": "We are abiding by the schedule agreed with the client.",
+                "zh": "我們正遵守與客戶約定的時程。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "abide by the law",
+              "zh": "遵守法律",
+              "example": {
+                "en": "Every business must abide by the law in this country.",
+                "zh": "這個國家的每一家公司都必須遵守法律。"
+              }
+            },
+            {
+              "phrase": "abide by a ruling",
+              "zh": "遵守裁決",
+              "example": {
+                "en": "The firm promised to abide by the court's ruling.",
+                "zh": "這家公司承諾遵守法院的裁決。"
+              }
+            },
+            {
+              "phrase": "abide by company policy",
+              "zh": "遵守公司政策",
+              "example": {
+                "en": "New staff should abide by company policy at all times.",
+                "zh": "新進員工應隨時遵守公司政策。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "公司規定",
+              "en": "All employees must abide by the safety rules.",
+              "zh": "所有員工都必須遵守安全規定。"
+            },
+            {
+              "tag": "合約",
+              "en": "Both companies agreed to abide by the terms of the contract.",
+              "zh": "兩家公司同意遵守合約條款。"
+            },
+            {
+              "tag": "採購",
+              "en": "Suppliers who fail to abide by our standards will lose orders.",
+              "zh": "未能遵守我們標準的供應商將失去訂單。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "comply with",
+              "diff": "comply with 更常用在法規、標準，語氣正式；abide by 常用在規則、決定、合約。",
+              "example": {
+                "en": "Our products comply with international safety standards.",
+                "zh": "我們的產品符合國際安全標準。"
+              }
+            },
+            {
+              "phrase": "obey",
+              "diff": "obey 可直接接人或規則（obey the rules），語氣像「服從命令」；abide by 較像「遵守約定」。",
+              "example": {
+                "en": "Employees must obey the instructions of the safety officer.",
+                "zh": "員工必須服從安全主管的指示。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "comply",
+              "pos": "v.",
+              "zh": "遵守、符合",
+              "ipa": "/kəmˈplaɪ/",
+              "example": {
+                "en": "Please comply with the new safety rules.",
+                "zh": "請遵守新的安全規定。"
+              }
+            },
+            {
+              "w": "obey",
+              "pos": "v.",
+              "zh": "服從、遵守",
+              "ipa": "/oʊˈbeɪ/",
+              "example": {
+                "en": "Drivers must obey the traffic rules.",
+                "zh": "駕駛人必須遵守交通規則。"
+              }
+            },
+            {
+              "w": "follow",
+              "pos": "v.",
+              "zh": "遵照、跟隨",
+              "ipa": "/ˈfɑːloʊ/",
+              "example": {
+                "en": "Please follow the steps in the manual.",
+                "zh": "請依照手冊上的步驟操作。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "v.",
+              "zh": "遵守",
+              "en": "to follow a rule or an agreement",
+              "distinguish": "後面接 by，受詞是規則、合約或決定。",
+              "example": {
+                "en": "Our staff abide by a strict code of conduct.",
+                "zh": "我們的員工遵守嚴格的行為準則。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "忍受（多用於否定）",
+              "en": "to accept something you do not like",
+              "distinguish": "沒有 by，通常用在 can't／cannot 之後，表示受不了。",
+              "example": {
+                "en": "I cannot abide waiting for slow replies from vendors.",
+                "zh": "我受不了等廠商緩慢的回覆。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "acclaim",
+          "type": "word",
+          "ipa": "/əˈkleɪm/",
+          "pos": "n.",
+          "zh": "讚譽、好評",
+          "en": "strong praise from many people",
+          "note": "多益常見於新品、書籍、餐廳或公司的報導與廣告，如 critical acclaim、widely acclaimed。當動詞是「公開稱讚」，常用被動 be acclaimed as。",
+          "grammar_note": "acclaim 當名詞是不可數，不加 a，也不加 s；當形容詞用時，常見的是過去分詞 acclaimed（廣受好評的）。",
+          "forms": [
+            {
+              "w": "acclaims",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "稱讚",
+              "ipa": "/əˈkleɪmz/",
+              "example": {
+                "en": "The magazine acclaims the new model for its simple design.",
+                "zh": "這本雜誌稱讚新款的簡約設計。"
+              }
+            },
+            {
+              "w": "acclaimed",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "稱讚（過去）",
+              "ipa": "/əˈkleɪmd/",
+              "example": {
+                "en": "The press acclaimed the company's new CEO last month.",
+                "zh": "媒體上個月稱讚了公司的新執行長。"
+              }
+            },
+            {
+              "w": "acclaimed",
+              "label": "形容詞（分詞）",
+              "pos": "adj.",
+              "zh": "廣受好評的",
+              "ipa": "/əˈkleɪmd/",
+              "example": {
+                "en": "She is an acclaimed designer known for her office furniture.",
+                "zh": "她是以辦公家具聞名、廣受好評的設計師。"
+              }
+            },
+            {
+              "w": "acclaiming",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在稱讚",
+              "ipa": "/əˈkleɪmɪŋ/",
+              "example": {
+                "en": "Many reviewers are acclaiming the new phone's long battery life.",
+                "zh": "許多評論者正稱讚新手機的長電池續航力。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "critical acclaim",
+              "zh": "評論界的讚譽",
+              "example": {
+                "en": "The novel received critical acclaim after its release last spring.",
+                "zh": "這本小說去年春天發行後獲得評論界讚譽。"
+              }
+            },
+            {
+              "phrase": "wide acclaim",
+              "zh": "廣泛好評",
+              "example": {
+                "en": "The software won wide acclaim among small business owners.",
+                "zh": "這套軟體在小型企業主之間廣受好評。"
+              }
+            },
+            {
+              "phrase": "win acclaim for",
+              "zh": "因…而贏得讚譽",
+              "example": {
+                "en": "The company won acclaim for its fast customer service.",
+                "zh": "這家公司因快速的客戶服務而贏得讚譽。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "餐廳宣傳",
+              "en": "The restaurant has earned acclaim for its fresh local food.",
+              "zh": "這家餐廳因新鮮的在地食材而獲得讚譽。"
+            },
+            {
+              "tag": "廣告",
+              "en": "Our hotel was acclaimed as the best in the region.",
+              "zh": "我們的飯店被譽為該地區最棒的飯店。"
+            },
+            {
+              "tag": "會議",
+              "en": "The director spoke about the acclaim our new product has received.",
+              "zh": "主管談到我們的新產品所獲得的好評。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "claim",
+              "diff": "claim 是「主張、索賠」，acclaim 是「公開的讚揚」，兩者意思不同。",
+              "usage": "claim 可當可數名詞（an insurance claim）也可當動詞；acclaim 當名詞是不可數。",
+              "example": {
+                "en": "She filed an insurance claim after the storm damaged her shop.",
+                "zh": "暴風雨損壞她的店面後，她提出了保險理賠。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "praise",
+              "diff": "praise 較口語、用途廣，可用在個人；acclaim 多指大眾或媒體的公開讚美，語氣較正式。",
+              "example": {
+                "en": "The manager gave high praise to the sales team.",
+                "zh": "經理對業務團隊給予高度讚賞。"
+              }
+            },
+            {
+              "phrase": "applaud",
+              "diff": "applaud 原指鼓掌，也可指公開稱讚某個決定或行動，後面常接決定、計畫。",
+              "example": {
+                "en": "Investors applauded the company's decision to cut costs.",
+                "zh": "投資人讚許公司降低成本的決定。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "praise",
+              "pos": "n.",
+              "zh": "稱讚",
+              "ipa": "/preɪz/",
+              "example": {
+                "en": "The staff received praise from the customers.",
+                "zh": "員工獲得顧客的稱讚。"
+              }
+            },
+            {
+              "w": "applaud",
+              "pos": "v.",
+              "zh": "稱讚、鼓掌",
+              "ipa": "/əˈplɔːd/",
+              "example": {
+                "en": "Everyone applauded the team after the presentation.",
+                "zh": "簡報結束後大家都為團隊鼓掌。"
+              }
+            },
+            {
+              "w": "reputation",
+              "pos": "n.",
+              "zh": "名聲",
+              "ipa": "/ˌrepjəˈteɪʃn/",
+              "example": {
+                "en": "The firm has a good reputation for quality.",
+                "zh": "這家公司在品質上享有好名聲。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/əˈkleɪm/",
+              "zh": "讚譽、好評",
+              "example": {
+                "en": "The team's work received public acclaim this year.",
+                "zh": "團隊的作品今年獲得大眾的讚譽。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/əˈkleɪm/",
+              "zh": "公開稱讚",
+              "example": {
+                "en": "Critics often acclaim the museum as a must-see place.",
+                "zh": "評論家常稱讚這間博物館是必去之處。"
+              }
+            }
+          ],
+          "senses": []
+        },
+        {
+          "text": "accurately",
+          "type": "word",
+          "ipa": "/ˈækjərətli/",
+          "pos": "adv.",
+          "zh": "準確地、正確地",
+          "en": "in a way that is exactly correct",
+          "note": "多益常見於報告、資料、測量與預測的情境，如 measure accurately、record accurately。強調結果與事實或數字相符，沒有錯誤。",
+          "grammar_note": "accurately 是副詞，可放在動詞前或受詞後（accurately record the data / record the data accurately）；修飾動詞時不能用形容詞 accurate。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "measure accurately",
+              "zh": "準確測量",
+              "example": {
+                "en": "The new device can measure room temperature accurately.",
+                "zh": "這個新裝置可以準確測量室溫。"
+              }
+            },
+            {
+              "phrase": "predict accurately",
+              "zh": "準確預測",
+              "example": {
+                "en": "Few analysts could predict sales accurately last year.",
+                "zh": "去年很少有分析師能準確預測銷售。"
+              }
+            },
+            {
+              "phrase": "record accurately",
+              "zh": "準確記錄",
+              "example": {
+                "en": "Please record every payment accurately in the system.",
+                "zh": "請在系統中準確記錄每一筆付款。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "報告",
+              "en": "The report accurately describes our sales in the last quarter.",
+              "zh": "這份報告準確描述了我們上一季的銷售。"
+            },
+            {
+              "tag": "會議",
+              "en": "Can you explain the problem accurately so we can fix it?",
+              "zh": "你能準確說明問題，好讓我們修正嗎？"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please make sure the figures are accurately entered in the form.",
+              "zh": "請確認數字已正確填入表單。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "accordingly",
+              "diff": "accordingly 是「因此、依情況」，和「準確」無關，只是拼法開頭相似。",
+              "example": {
+                "en": "The schedule changed, so we updated the plan accordingly.",
+                "zh": "時程改變了，所以我們相應地更新了計畫。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "precisely",
+              "phrase": "precisely",
+              "diff": "precisely 更強調細節與精確到細微處，也可用來強調「正是」。",
+              "example": {
+                "en": "The machine cuts the metal precisely to the size you need.",
+                "zh": "這台機器把金屬精確切成你需要的尺寸。"
+              }
+            },
+            {
+              "phrase": "correctly",
+              "diff": "correctly 強調沒有錯誤；accurately 強調與事實或數值非常接近。",
+              "example": {
+                "en": "Please fill out the form correctly before you submit it.",
+                "zh": "提交前請正確填寫這份表單。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "precisely",
+              "pos": "adv.",
+              "zh": "精確地",
+              "ipa": "/prɪˈsaɪsli/",
+              "example": {
+                "en": "The meeting starts precisely at nine o'clock.",
+                "zh": "會議正好在九點開始。"
+              }
+            },
+            {
+              "w": "correctly",
+              "pos": "adv.",
+              "zh": "正確地",
+              "ipa": "/kəˈrektli/",
+              "example": {
+                "en": "The printer is not working correctly today.",
+                "zh": "印表機今天運作不正常。"
+              }
+            },
+            {
+              "w": "exactly",
+              "pos": "adv.",
+              "zh": "確切地",
+              "ipa": "/ɪɡˈzæktli/",
+              "example": {
+                "en": "The package arrived exactly on time.",
+                "zh": "包裹準時送達。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "accurate",
+              "pos": "adj.",
+              "zh": "準確的",
+              "ipa": "/ˈækjərət/",
+              "link": "accurately 去掉 -ly 就是形容詞，像 quick → quickly、careful → carefully"
+            },
+            {
+              "w": "accuracy",
+              "pos": "n.",
+              "zh": "準確度",
+              "ipa": "/ˈækjərəsi/",
+              "link": "accurate + -cy，變成名詞，像 privacy、fluency"
+            },
+            {
+              "w": "inaccurate",
+              "pos": "adj.",
+              "zh": "不準確的",
+              "ipa": "/ɪnˈækjərət/",
+              "link": "in- 表示「不」，像 incorrect、inactive"
+            },
+            {
+              "w": "inaccurately",
+              "pos": "adv.",
+              "zh": "不準確地",
+              "ipa": "/ɪnˈækjərətli/",
+              "link": "inaccurate + -ly，形容詞變副詞，意思和 accurately 相反"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "adhere",
+          "type": "word",
+          "ipa": "/ədˈhɪr/",
+          "pos": "v.",
+          "zh": "遵守；黏附",
+          "en": "to follow a rule closely, or to stick to something",
+          "note": "多益最常見的用法是 adhere to + 規定／政策／時程／標準，語氣正式，常出現在公司公告與合約。也可指東西黏在表面上，如膠帶、標籤。",
+          "grammar_note": "adhere to 的 to 是介系詞，後面接名詞或 V-ing，不接原形動詞（adhere to following the rules，不寫 adhere to follow）。",
+          "forms": [
+            {
+              "w": "adheres",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "遵守",
+              "ipa": "/ədˈhɪrz/",
+              "example": {
+                "en": "The manager adheres to the same rules as everyone else.",
+                "zh": "經理和其他人一樣遵守同樣的規定。"
+              }
+            },
+            {
+              "w": "adhered",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "遵守（過去）",
+              "ipa": "/ədˈhɪrd/",
+              "example": {
+                "en": "The team adhered to the budget throughout the project.",
+                "zh": "團隊在整個專案期間都遵守預算。"
+              }
+            },
+            {
+              "w": "adhering",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在遵守",
+              "ipa": "/ədˈhɪrɪŋ/",
+              "example": {
+                "en": "We are adhering to the delivery schedule this month.",
+                "zh": "我們這個月正遵守交貨時程。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "adhere to a policy",
+              "zh": "遵守政策",
+              "example": {
+                "en": "All branches must adhere to the same refund policy.",
+                "zh": "所有分店都必須遵守相同的退款政策。"
+              }
+            },
+            {
+              "phrase": "adhere to a schedule",
+              "zh": "遵守時程",
+              "example": {
+                "en": "It is hard to adhere to a schedule when staff are away.",
+                "zh": "員工不在時很難遵守時程。"
+              }
+            },
+            {
+              "phrase": "adhere to the guidelines",
+              "zh": "遵守準則",
+              "example": {
+                "en": "Please adhere to the guidelines when you write the report.",
+                "zh": "撰寫報告時請遵守準則。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "公司規定",
+              "en": "Employees are required to adhere to the dress code.",
+              "zh": "員工必須遵守服裝規定。"
+            },
+            {
+              "tag": "採購",
+              "en": "The supplier failed to adhere to the agreed delivery date.",
+              "zh": "供應商未能遵守約定的交貨日期。"
+            },
+            {
+              "tag": "產品",
+              "en": "This label adheres well to both glass and plastic.",
+              "zh": "這個標籤能牢牢黏在玻璃和塑膠上。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "adopt",
+              "diff": "adopt 是「採用」新方法或新政策；adhere 是「遵守」已有的規則。",
+              "usage": "adopt 是及物動詞，直接接受詞（adopt a plan）；adhere 要加 to 才能接受詞（adhere to a plan）。",
+              "example": {
+                "en": "The company decided to adopt a new filing system.",
+                "zh": "公司決定採用新的檔案系統。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "comply with",
+              "diff": "comply with 多用於法規與標準，強調符合要求；adhere to 強調持續遵循、堅持不變。",
+              "example": {
+                "en": "Our software complies with the latest privacy laws.",
+                "zh": "我們的軟體符合最新的隱私法規。"
+              }
+            },
+            {
+              "phrase": "stick to",
+              "diff": "stick to 較口語，常用於計畫、預算、議程；adhere to 較正式。",
+              "example": {
+                "en": "Please stick to the agenda so the meeting ends on time.",
+                "zh": "請依照議程進行，讓會議準時結束。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "follow",
+              "pos": "v.",
+              "zh": "遵照",
+              "ipa": "/ˈfɑːloʊ/",
+              "example": {
+                "en": "Please follow the instructions on the label.",
+                "zh": "請遵照標籤上的說明。"
+              }
+            },
+            {
+              "w": "comply",
+              "pos": "v.",
+              "zh": "遵守、符合",
+              "ipa": "/kəmˈplaɪ/",
+              "example": {
+                "en": "All factories must comply with the safety law.",
+                "zh": "所有工廠都必須遵守安全法規。"
+              }
+            },
+            {
+              "w": "stick",
+              "pos": "v.",
+              "zh": "黏住、堅持",
+              "ipa": "/stɪk/",
+              "example": {
+                "en": "The price tag will not stick to a wet box.",
+                "zh": "價格標籤無法黏在潮濕的箱子上。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "adherence",
+              "pos": "n.",
+              "zh": "遵守、堅持",
+              "ipa": "/ədˈhɪrəns/",
+              "link": "adhere + -ence，動詞變名詞，像 existence、difference"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "v.",
+              "zh": "遵守",
+              "en": "to follow a rule, plan, or standard",
+              "distinguish": "後面接 to + 規定、計畫或標準，主詞通常是人或公司。",
+              "example": {
+                "en": "Our team adheres to the safety plan on every project.",
+                "zh": "我們團隊在每個專案都遵守安全計畫。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "黏附",
+              "en": "to stick to a surface",
+              "distinguish": "後面接 to + 物體表面，主詞通常是膠帶、標籤等物品。",
+              "example": {
+                "en": "The tape adheres firmly to clean, dry surfaces.",
+                "zh": "這種膠帶能牢牢黏在乾淨乾燥的表面。"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "week": 1,
       "day": 1,
       "tag": "會議時間異動通知",

@@ -172,7 +172,7 @@ print('p7：需朗讀的文件 %d，音檔完整 %d，缺 %d，孤兒檔 %d' % (
 DDIR = os.path.join(AUD, 'daily')
 dexp, dcustom = {}, {}
 for it in items('daily.json'):
-    if isinstance(it, dict) and 'week' in it and 'day' in it:
+    if isinstance(it, dict) and 'week' in it and 'day' in it and not it.get('library'):   # library＝TSL 字庫虛擬項目：沒有文章音檔
         i = did(it['week'], it['day'])
         a = it.get('audio')
         if a and os.path.normpath(os.path.join(ROOT, a)) != os.path.normpath(os.path.join(DDIR, i + '.mp3')):
@@ -254,7 +254,7 @@ def timing_state(it):
 
 _t = {'total': 0, 'ok': 0, 'partial': 0, 'bad': 0, 'none': 0, 'todo': []}
 for it in items('daily.json'):
-    if not isinstance(it, dict) or 'week' not in it or 'day' not in it:
+    if not isinstance(it, dict) or 'week' not in it or 'day' not in it or it.get('library'):   # 字庫沒有 timing
         continue
     s, why = timing_state(it)
     _t['total'] += 1
@@ -312,7 +312,8 @@ else:
         if k not in tset:
             return
         # 核心單字缺詳解（s=0）優先顯示，才不會被其他文章的 forms 蓋掉
-        if k not in learned or (s == 0 and learned[k][2] != 0):
+        # 字庫（週 0）是「沒有文章」的通用詳解：之後有文章用到，就改顯示那一篇
+        if k not in learned or (s == 0 and learned[k][2] != 0) or (learned[k][0] == 0 and w != 0):
             learned[k] = [w, d, s]
     for it in items('daily.json'):
         if not isinstance(it, dict) or 'week' not in it or 'day' not in it:

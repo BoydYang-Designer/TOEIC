@@ -560,7 +560,8 @@ class Daily(Profile):
 
     def make_ctx(self, items, data):
         sp = (data.get('_spec') or {}).get('subtopics') if isinstance(data, dict) else None
-        return {'passages': {self.key(x): str(x.get('passage') or '') for x in items if isinstance(x, dict)}, 'subtopics': sp or {},
+        return {'passages': {self.key(x): ('' if x.get('library') else str(x.get('passage') or '')) for x in items if isinstance(x, dict)},   # 字庫（library）沒有真正的內文：留空，補丁才不會對每個字警告「沒有出現在文章裡」
+                'subtopics': sp or {},
                 'extras': extra_owners(items), 'olds': {self.key(x): x for x in items if isinstance(x, dict)}}
 
     def merge_prepare(self, new_by_key):
@@ -3299,7 +3300,7 @@ def open_review(root, folder, state, preselect=None):
         data, items = read_daily()
         S['ents'] = []
         for e in items:
-            if isinstance(e, dict) and isinstance(e.get('week'), int) and isinstance(e.get('day'), int) and e.get('passage'):
+            if isinstance(e, dict) and isinstance(e.get('week'), int) and isinstance(e.get('day'), int) and e.get('passage') and not e.get('library'):
                 m = mp3_of(e)
                 if m:
                     S['ents'].append({'id': did(e['week'], e['day']), 'week': e['week'], 'day': e['day'], 'mp3': m,

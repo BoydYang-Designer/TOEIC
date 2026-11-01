@@ -17,7 +17,9 @@ const SUBTOPICS = {"D1": ["郵件與備忘錄", "公告與公司規定", "設備
 
 
 /* 題庫資料由 daily.json 載入（生成規則見 daily.json 的 _spec，題目在 items） */
-let DATA = [];
+let DATA = [], LIB = null; // LIB＝「TSL 字庫」虛擬項目（library:true、week 0）：裝沒有文章的 TSL 字的通用詳解。不放進 DATA，所以週次表、統計、mp3／timing 都看不到它
+const isLib = x => !!(x && x.library);
+function setItems(items) { LIB = items.find(isLib) || null; DATA = items.filter(x => !isLib(x)); }
 const itemsOf = j => Array.isArray(j) ? j : (j && j.items) || []; // daily.json 可為陣列，或 { _spec, items }
 
 /* 狀態管理 */
@@ -57,7 +59,7 @@ const audioSrc = x => audioPath(x) + (AU.idx && AU.idx.v ? '?v=' + AU.idx.v : ''
 // 複製全文用：兩人以上對話時，行首的「人名:」改成「(人名:)」，避免被當成要唸出來的字
 const spkParen = t => { t = String(t || ''); const re = /^([A-Z][A-Za-z.'\- ]{0,20}):(?=\s|$)/gm; const names = new Set((t.match(re) || []).map(m => m.slice(0, -1))); return names.size >= 2 ? t.replace(re, '($1:)') : t; };
 const dyHas = x => !!(AU.idx && AU.idx.daily && (AU.idx.daily.complete || []).includes(idOf(x)));
-const find = (w, d) => DATA.find(x => x.week == w && x.day == d);
+const find = (w, d) => DATA.find(x => x.week == w && x.day == d) || (LIB && LIB.week == w && LIB.day == d ? LIB : undefined);
 const L = 'ABCD';
 
 /* 聲音：優先 Zoe（增強/高品質），找不到就挑分數最高的英文語音 */
@@ -638,7 +640,7 @@ function tslGaps() {
   if (typeof TSL_WORDS === 'undefined') return null; // daily.html 沒載入 tsl.js
   const rk = new Map(); TSL_WORDS.forEach((w, i) => { const k = tslNz(w); if (!rk.has(k)) rk.set(k, i + 1); });
   const cov = new Set(); // 同一個字在別篇已有詳解就沿用，所以全部文章一起算
-  DATA.forEach(x => dnExtraOf(x).forEach(e => { cov.add(tslNz(e.text || e.word)); (e.forms || []).concat(e.derived || []).forEach(f => { if (f && f.w) cov.add(tslNz(f.w)); }); }));
+  (LIB ? [LIB] : []).concat(DATA).forEach(x => dnExtraOf(x).forEach(e => { cov.add(tslNz(e.text || e.word)); (e.forms || []).concat(e.derived || []).forEach(f => { if (f && f.w) cov.add(tslNz(f.w)); }); }));
   const groups = []; let total = 0, ok = 0;
   [...DATA].sort((a, b) => a.week - b.week || a.day - b.day).forEach(x => {
     const miss = [];
@@ -2037,7 +2039,7 @@ function renderTrash() {
 
 /* 啟動：讀取 daily.json 後渲染；雙擊開啟（file://）時改用手動選取檔案 */
 function loadFromText(t) {
-  try { DATA = itemsOf(JSON.parse(t)); try { sigSync(); mkRelink(); } catch (e2) { console.error(e2); } showLaunch(); }
+  try { setItems(itemsOf(JSON.parse(t))); try { sigSync(); mkRelink(); } catch (e2) { console.error(e2); } showLaunch(); }
   catch (e) { alert('daily.json 格式有誤：' + e.message); }
 }
 function pickJson(input) {
@@ -2052,7 +2054,7 @@ function openVocabByHash() {
   // 寬鬆比對：入庫的是 annual、TSL 總表是 annually 這類「同字根、只差字尾」的情況（較長者以較短者開頭、最多差 3 字、較短者至少 5 字）
   const near = (a, b) => { if (!a || !b || a === b) return false; const s = a.length <= b.length ? a : b, l = s === a ? b : a; return s.length >= 5 && l.startsWith(s) && l.length - s.length <= 3; };
   const open = (x, i, e) => {
-    SEC = 'learn'; cur = { w: x.week, d: x.day, nw: x.week, view: 'day', showTranscript: false };
+    SEC = 'learn'; cur = { w: x.week, d: x.day, nw: isLib(x) ? 1 : x.week, view: isLib(x) ? 'launch' : 'day', showTranscript: false }; // 字庫沒有內文頁：停在選單，直接疊上詳解頁
     VBACK = { w: x.week, d: x.day };
     render();
     if (i >= 0) dnOpenVocab(i);                       // 核心單字 → 開詳解
@@ -2062,19 +2064,21 @@ function openVocabByHash() {
   const mk = dnMarks().find(m => nz(m.text) === q && dnArt(m.qid)); // 只入庫、還沒寫回的字：開到入庫所在篇的詳解（顯示「待補詳解」）
   if (mk && !DATA.some(x => (x.vocab || []).some(v => nz(v.word) === q) || (x.extra_vocab || []).some(e => nz(e.text || e.word) === q))) { const x = dnArt(mk.qid); return open(x, -1, { text: mk.text }); }
   for (const ok of [(w) => w === q, (w) => near(w, q)]) { // 先精確比對，找不到再用寬鬆比對
-    for (const x of DATA) {
+    for (const x of DATA.concat(LIB ? [LIB] : [])) { // 文章優先，字庫最後
       const i = (x.vocab || []).findIndex(v => ok(nz(v.word)));
       const e = (x.extra_vocab || []).find(e => ok(nz(e.text || e.word)));
       if (i >= 0 || e) return open(x, i, i >= 0 ? null : e);
     }
   }
+  // 字庫：TSL 總表裡的字，還沒有文章也沒有詳解 → 開到字庫的詳解頁（頁面上可複製 AI 提示詞、入庫）
+  if (LIB && typeof TSL_WORDS !== 'undefined') { const w = TSL_WORDS.find(t => nz(t) === q); if (w) return open(LIB, -1, { text: w }); }
   return false;
 }
 async function boot() {
   try {
     const res = await fetch('daily.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    DATA = itemsOf(await res.json());
+    setItems(itemsOf(await res.json()));
     await auLoad();
     await trLoad(); // trash-index.json（沒有就當作 Trash 是空的，不會報錯）
   } catch (e) { return bootFail(e); }

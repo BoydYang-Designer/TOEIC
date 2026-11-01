@@ -25,8 +25,8 @@ function dnToast(m) { const d = document.createElement('div'); d.textContent = m
 const dnTime = t => { const d = new Date(t), p = n => String(n).padStart(2, '0'); return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`; };
 const dnStamp = () => { const d = new Date(), p = n => String(n).padStart(2, '0'); return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`; };
 function dnDownload(name, text, mime) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: mime })); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); }
-const dnArt = qid => DATA.find(d => idOf(d) === qid);
-const dnArtLabel = qid => { const x = dnArt(qid); return x ? `W${x.week}·D${x.day} ${x.tag || ''}` : qid; };
+const dnArt = qid => DATA.find(d => idOf(d) === qid) || (LIB && idOf(LIB) === qid ? LIB : undefined); // 字庫（LIB）也算一篇，只是沒有內文
+const dnArtLabel = qid => { const x = dnArt(qid); return x ? (isLib(x) ? 'TSL 字庫' : `W${x.week}·D${x.day} ${x.tag || ''}`) : qid; };
 /* 比對用的「字鍵」：小寫、空白合併，並把英文單複數視為同一個字（magnet／magnets、company／companies、box／boxes 都同一個）。
    只用來比較、去重、找詳解；畫面顯示與存檔的文字不變。規則很保守：ss／us／is 結尾與少數常見例外（news、series…）不處理。 */
 const DN_SG_STOP = new Set(['news', 'series', 'species', 'this', 'does', 'has', 'was', 'yes', 'its', 'plus', 'thus', 'means', 'always', 'perhaps', 'sometimes', 'whereas', 'physics', 'economics', 'analytics', 'logistics', 'headquarters', 'goods']);
@@ -113,7 +113,7 @@ function dnSaveReport() {
 function dnSetRs(id, st) { const r = dnReports().find(q => q.id === id); if (!r) return; r.status = st; r.updated = Date.now(); save(); render(); }
 function dnDelReport(id) { if (!confirm('確定刪除這筆回報？')) return; S.reports = dnReports().filter(r => r.id !== id); save(); render(); }
 function dnSetF(k, v) { DN[k] = DN[k] === v ? null : v; render(); }
-function dnGoArt(qid) { const x = dnArt(qid); if (!x) return; cur.stk = []; if (inMaint()) openItem(x.week, x.day); else go(x.week, x.day); }
+function dnGoArt(qid) { const x = dnArt(qid); if (!x) return; if (isLib(x)) { dnToast('TSL 字庫沒有文章內文'); return; } cur.stk = []; if (inMaint()) openItem(x.week, x.day); else go(x.week, x.day); }
 function dnRpCard(r) {
   const x = dnArt(r.qid), sn = r.snap;
   return `<div class="${card} p-3 mb-3"><div class="min-w-0">
@@ -173,8 +173,8 @@ const dnMarksOf = qid => dnMarks().filter(m => m.qid === qid);
 const dnExtraOf = x => Array.isArray(x && x.extra_vocab) ? x.extra_vocab : [];
 const dnFindExtra = (x, text) => dnExtraOf(x).find(e => dnKey(e.text || e.word) === dnKey(text)); // 只找本篇
 /* 同一個字在別篇已有詳解時，沿用那一份：先找本篇，再依週次找其他篇 */
-const dnArts = () => DATA.slice().sort((a, b) => a.week - b.week || a.day - b.day);
-const dnLabel = a => `W${a.week}·D${a.day}`;
+const dnArts = () => (LIB ? [LIB] : []).concat(DATA.slice().sort((a, b) => a.week - b.week || a.day - b.day)); // 字庫（week 0）排最前面：同一個字的詳解一律以字庫那一筆為主
+const dnLabel = a => isLib(a) ? 'TSL 字庫' : `W${a.week}·D${a.day}`;
 const dnExtraSrc = (x, text) => dnArts().find(a => dnFindExtra(a, text)) || null; // 全題庫同一個字只有一份詳解：一律取最早（週、天）有的那一篇，資料裡就算還有重複也不會各顯示各的
 const dnFindExtraAny = (x, text) => { const s = x && dnExtraSrc(x, text); return s ? dnFindExtra(s, text) : undefined; };
 function dnElsewhere(qid, text) { // 同一個字在「其他篇」的入庫狀態：{ label, merged } 或 null
@@ -660,19 +660,19 @@ function dnPrompt(qid, only, fillAll, extraIts, rng) { // extraIts：額外的�
   const x = dnArt(qid); if (!x) return '';
   const its0 = dnPromptItems(qid, only, fillAll).concat(extraIts || []), its = rng ? its0.slice(rng[0], rng[1]) : its0, lv = x.level || {}, sc = lv.score || 600, hasFill = its.some(o => o.fill), hasNw = typeof nwNotesFor === 'function' && its.some(o => nwNotesFor(o.m).length);
   const items = its.map(({ m, fill }, i) => {
-    let t = `${i + 1}. ` + (fill ? '【補齊】' : '') + `type=${m.type}｜text="${m.text}"` + (m.type === 'sentence' ? '' : `｜所在句："${m.ctx}"`) + (typeof nwNoteTxt === 'function' ? nwNoteTxt(m) : (m.note ? `｜我的備註：${m.note}` : ''));
+    let t = `${i + 1}. ` + (fill ? '【補齊】' : '') + `type=${m.type}｜text="${m.text}"` + (m.type === 'sentence' || !m.ctx ? '' : `｜所在句："${m.ctx}"`) + (typeof nwNoteTxt === 'function' ? nwNoteTxt(m) : (m.note ? `｜我的備註：${m.note}` : ''));
     if (fill) t += `\n   要補：${fill.map(k => DNF[k]).join('；')}\n   現有詳解（既有內容保留，只補缺的）：${JSON.stringify(dnFindExtraAny(x, m.text))}`;
     return t;
   }).join('\n');
   return [
     '你是 TOEIC 英語教材編輯。請替下面「我不懂的單字／片語／句子」各寫一筆詳解。結果會寫回 daily.json 的 extra_vocab，網頁會用來顯示詳解頁。',
     '',
-    `【這篇文章】W${x.week} D${x.day}｜${x.tag || ''}｜多益約 ${sc} 分${lv.cefr ? `（CEFR ${lv.cefr}` + (lv.range ? `，範圍 ${lv.range}` : '') + '）' : ''}`,
+    isLib(x) ? `【性質】TSL 字庫（這些字還沒有文章，請寫「通用詳解」）｜多益約 ${sc} 分` : `【這篇文章】W${x.week} D${x.day}｜${x.tag || ''}｜多益約 ${sc} 分${lv.cefr ? `（CEFR ${lv.cefr}` + (lv.range ? `，範圍 ${lv.range}` : '') + '）' : ''}`,
     '',
     '【程度規則（很重要）】',
     `- 說明、例句、搭配、相關字都要控制在多益約 ${sc} 分的程度：用字與句型不要超過這個程度；例句 8–15 字、商務情境、不要用罕見字。`,
     '- 中文一律繁體；音標用美式 IPA（含斜線，如 /kənˈfɜːrm/）。',
-    '- note 要說明「在這篇文章裡」的用法與語感，1–3 句，不要寫成字典式長篇。',
+    isLib(x) ? '- note 寫這個字在多益商務情境最常見的用法與語感，1–3 句，不要寫成字典式長篇；沒有文章，不要提「這篇文章」。' : '- note 要說明「在這篇文章裡」的用法與語感，1–3 句，不要寫成字典式長篇。',
     '- 沒有內容的欄位直接省略，不要寫空字串或 null；選填欄位（grammar_note、confusable 的 usage）沒有必要就不要寫。',
     '',
     '【內容規則（單字、片語）】',
@@ -702,9 +702,7 @@ function dnPrompt(qid, only, fillAll, extraIts, rng) { // extraIts：額外的�
     '- 語氣與用途 note（選填）：這句話在這篇文章裡的語氣與用途（例如客氣的請求、正式通知、委婉拒絕），1–2 句；沒有特別之處就省略。',
     '',
     ...(hasNw ? nwRules() : []),
-    '【文章全文】',
-    String(x.passage || ''),
-    '',
+    ...(isLib(x) ? ['【字庫說明】', '- 這些字還沒有出現在任何文章裡，所以沒有「本篇用法」：pos_uses、senses 都不要輸出 in_passage 欄位，詞性與意思依多益常見度排序，例句涵蓋最常見的商務情境。', '- 之後有文章用到這個字時，會再把「這篇的用法」補進同一筆；現在不需要為任何文章調整。', ''] : ['【文章全文】', String(x.passage || ''), '']),
     '【要寫的項目】（每項的 text 必須與下面完全相同，不可改寫或加減字）',
     items || '（尚未勾選任何項目）',
     '',
@@ -917,12 +915,19 @@ function dnHiCtx(ctx, text) {
 }
 const dnSpk = (x, e, suf, w) => `<button onclick="vplay('${idOf(x)}', this.dataset.t, '${suf}', this.dataset.w)" data-t="${esc(e.at || e.text)}" data-w="${esc(w)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button>`;
 const dnExHtml = o => o && o.en ? `<p>${esc(o.en)}</p>${o.zh ? `<p class="text-xs text-slate-500">${esc(o.zh)}</p>` : ''}` : '';
+function dnLibMark(x, text) { // 字庫：沒有文章可以選字，直接用 TSL 單字建一筆入庫（沒有所在句）；已存在就回傳舊的
+  const id = idOf(x), old = dnMarks().find(m => m.qid === id && dnKey(m.text) === dnKey(text)); if (old) return old;
+  const now = Date.now(), m = { id: dnId('m'), qid: id, text, type: /\s/.test(text) ? 'phrase' : 'word', ctx: '', from: 0, to: 0, note: '', created: now, updated: now };
+  dnMarks().push(m); return m;
+}
 function dnCopyOne() { // 詳解頁：只為這個字複製 AI 提示詞（核心單字會順便入庫，提示詞需要所在句）
   const D = dnDetailData(); if (!D) return;
+  const fresh = !D.m && !D.base && isLib(D.x); if (fresh) D.m = dnLibMark(D.x, D.e.text); // 字庫的字：按下就順便入庫
   if (D.m) { save(); auCopy(dnPrompt(idOf(D.x), new Set([dnKey(D.m.text)]))); }
   else if (D.base) auCopy(dnTempPrompt(idOf(D.x), [D.base], false));
   else return;
   dnToast('已複製這個字的提示詞，貼給 AI');
+  if (fresh) render();
 }
 function dnRenderDetail() {
   const D = dnDetailData();
@@ -931,15 +936,15 @@ function dnRenderDetail() {
   let ctx = m && m.ctx; if (!ctx && T !== 'sentence') { const p = String(x.passage || ''), i = p.toLowerCase().indexOf(String(e.text).toLowerCase()); if (i >= 0) ctx = dnCtxOf(p, i, i + e.text.length, e.text); }
   const list = (arr, fn) => arr.length ? `<ul class="space-y-1.5 text-sm">${arr.map(fn).join('')}</ul>` : '';
   const ex2 = dnArr(e.examples).map(o => typeof o === 'string' ? { en: o } : o);
-  let h = `<header class="mb-4 flex items-start justify-between gap-2"><div class="min-w-0"><div class="flex flex-wrap items-center gap-2"><span class="${dnChip} ${DNTC[T]}">${DNT[T]}</span><span class="text-xs text-slate-500">W${x.week} · D${x.day} ${esc(x.tag || '')}</span>${lvBadge(x)}</div>
+  let h = `<header class="mb-4 flex items-start justify-between gap-2"><div class="min-w-0"><div class="flex flex-wrap items-center gap-2"><span class="${dnChip} ${DNTC[T]}">${DNT[T]}</span><span class="text-xs text-slate-500">${isLib(x) ? 'TSL 字庫（通用詳解）' : `W${x.week} · D${x.day} ${esc(x.tag || '')}`}</span>${lvBadge(x)}</div>
     <h2 class="${T === 'sentence' ? 'text-lg leading-relaxed' : 'text-2xl'} font-bold mt-2 break-words">${esc(e.text)} <button onclick="vplay('${idOf(xs)}', this.dataset.w, '', this.dataset.w)" data-w="${esc(e.text)}" class="text-slate-400 hover:text-indigo-600 text-xl align-middle" aria-label="發音">🔊</button></h2>
     ${e.ipa || e.pos ? `<p class="text-sm text-slate-500 mt-1">${esc(e.ipa || '')} ${e.pos ? `<i>${esc(e.pos)}</i>` : ''}</p>` : ''}
     ${e.zh ? `<p class="text-base font-semibold mt-2">${esc(e.zh)}</p>` : ''}${e.en ? `<p class="text-sm text-slate-500 italic mt-1 leading-relaxed">${esc(e.en)} ${dnSpk(xs, e, '_en', e.en)}</p>` : ''}</div><div class="flex flex-col items-end gap-1.5 shrink-0">${dnBackBtn()}${dnTrailBackBtn()}</div></header>`;
   if (!ex) {
-    h += `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 leading-relaxed">這個項目還沒有補充詳解（${D.base ? '目前只顯示核心單字卡的內容' : '待補'}）。${m ? '已在入庫，請到「📌 入庫彙整」複製 AI 提示詞，合併回 daily.json 後就會出現。' : '按下面的按鈕入庫，再到「📌 入庫彙整」產生 AI 提示詞。'}
-      <div class="mt-2 flex flex-wrap gap-2">${(m || D.base) ? `<button onclick="dnCopyOne()" class="text-xs rounded-lg px-2.5 py-1 ${dnPri} cursor-pointer">複製 AI 提示詞（這個字）</button>` : ''}${m ? `<button onclick="dnNav('marks')" class="${dnSm}">前往 📌 入庫彙整</button>` : D.base ? `<button onclick="dnAddFromVocab(${D.i})" class="${dnSm}">＋ 入庫（請 AI 補詳解）</button>` : ''}</div></div>`;
+    h += `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 leading-relaxed">這個項目還沒有補充詳解（${D.base ? '目前只顯示核心單字卡的內容' : '待補'}）。${m ? '已在入庫，請到「📌 入庫彙整」複製 AI 提示詞，合併回 daily.json 後就會出現。' : isLib(x) ? '這個字還沒有出現在任何文章裡。按「複製 AI 提示詞」會順便把它加入入庫彙整；貼給 AI → 檔案存成 w0d1_extra.json → json_merge.py 合併 → 重新執行 Scan 腳本，這裡就會有通用詳解。' : '按下面的按鈕入庫，再到「📌 入庫彙整」產生 AI 提示詞。'}
+      <div class="mt-2 flex flex-wrap gap-2">${(m || D.base || isLib(x)) ? `<button onclick="dnCopyOne()" class="text-xs rounded-lg px-2.5 py-1 ${dnPri} cursor-pointer">複製 AI 提示詞（這個字）</button>` : ''}${m ? `<button onclick="dnNav('marks')" class="${dnSm}">前往 📌 入庫彙整</button>` : D.base ? `<button onclick="dnAddFromVocab(${D.i})" class="${dnSm}">＋ 入庫（請 AI 補詳解）</button>` : ''}</div></div>`;
   }
-  if (ex && src && src !== x) h += `<p class="rounded-lg bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 text-xs px-3 py-2 mb-3">這個字已在 ${dnLabel(src)} 入庫並寫好詳解，這裡沿用同一份。「說明」寫的是當時那篇的用法。</p>`;
+  if (ex && src && src !== x) h += `<p class="rounded-lg bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 text-xs px-3 py-2 mb-3">${isLib(src) ? '這個字的詳解來自「TSL 字庫」（通用說明），這裡沿用同一份。' : `這個字已在 ${dnLabel(src)} 入庫並寫好詳解，這裡沿用同一份。「說明」寫的是當時那篇的用法。`}</p>`;
   h += sec('在文章裡', ctx ? `<div class="flex items-start gap-2"><p class="text-sm leading-relaxed flex-1">${dnHiCtx(ctx, e.text)}</p>${T === 'sentence' ? '' : `<button onclick="vplay('${idOf(x)}', this.dataset.t, '_ctx', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(ctx)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button>`}</div>` : '');
   h += sec(T === 'sentence' ? '語氣與用途' : '說明', e.note ? `<p class="text-sm leading-relaxed whitespace-pre-line">${esc(e.note)}</p>` : '');
   const chs = dnArr(e.chunks).filter(c => c && typeof c === 'object' && c.en);
