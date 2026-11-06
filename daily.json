@@ -3433,6 +3433,943 @@
           "derived": [],
           "pos_uses": [],
           "senses": []
+        },
+        {
+          "text": "immediately",
+          "type": "word",
+          "ipa": "/ɪˈmiːdiətli/",
+          "pos": "adv.",
+          "zh": "立即、馬上",
+          "en": "right now, without any delay",
+          "note": "多益常見於公告、規定與客服信件，表示「馬上、不得延遲」。也常放在介系詞前面，說明「緊接在…之後」，如 immediately after、immediately upon arrival。",
+          "grammar_note": "immediately 可放在 after、upon、following 前面，加強「緊接著」：immediately after the meeting、immediately upon arrival（upon 後面接名詞或 V-ing）。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "immediately after",
+              "zh": "緊接在…之後",
+              "example": {
+                "en": "Please call me immediately after the meeting ends.",
+                "zh": "會議一結束請立刻打給我。"
+              }
+            },
+            {
+              "phrase": "immediately upon arrival",
+              "zh": "一抵達就…",
+              "example": {
+                "en": "Guests must sign in immediately upon arrival at the office.",
+                "zh": "訪客一抵達辦公室就必須簽到。"
+              }
+            },
+            {
+              "phrase": "respond immediately",
+              "zh": "立即回應",
+              "example": {
+                "en": "We should respond immediately to every serious customer complaint.",
+                "zh": "我們應該立即回應每一件嚴重的客訴。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "安全",
+              "en": "Please stop using the machine immediately if it makes noise.",
+              "zh": "如果機器發出噪音，請立刻停止使用。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "I will send you the updated file immediately, Ms. Lee.",
+              "zh": "李小姐，我會立刻把更新的檔案寄給您。"
+            },
+            {
+              "tag": "出差",
+              "en": "He left the office immediately to meet the client.",
+              "zh": "他立刻離開辦公室去見客戶。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "imminent",
+              "diff": "imminent 是形容詞，表示「即將發生的」；immediately 是副詞，表示「馬上、沒有延遲」。",
+              "usage": "imminent 修飾事情，如 an imminent decision；immediately 修飾動作，如 reply immediately。",
+              "example": {
+                "en": "A decision about the new contract is imminent.",
+                "zh": "關於新合約的決定即將出爐。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "right away",
+              "diff": "更口語，常用在日常對話與電子郵件。",
+              "example": {
+                "en": "Please reply to this customer email right away.",
+                "zh": "請馬上回覆這封客戶郵件。"
+              }
+            },
+            {
+              "phrase": "at once",
+              "diff": "語氣較強，常用在命令或緊急通知。",
+              "example": {
+                "en": "All staff must leave the building at once.",
+                "zh": "所有員工必須立刻離開大樓。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "immediate",
+              "ipa": "/ɪˈmiːdiət/",
+              "pos": "adj.",
+              "zh": "立即的、直接的",
+              "link": "immediate 是詞幹；immediate + -ly 變成副詞，像 quick → quickly。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [],
+          "nw_done": [
+            {
+              "id": "nv_vmv8b94yjzlo",
+              "result": "added"
+            }
+          ]
+        },
+        {
+          "text": "mandate",
+          "type": "word",
+          "ipa": "/ˈmændeɪt/",
+          "pos": "v.",
+          "zh": "強制規定、授權",
+          "en": "to officially order that something must be done",
+          "note": "多益常見於法規、公司政策與新聞，指政府或公司「強制要求」，常用被動 be mandated by law；當名詞則指「官方命令」或「授權」。",
+          "grammar_note": "mandate that 後面的子句動詞用原形（或 should + 原形）：The law mandates that all workers wear helmets。動詞常用被動：be mandated by law。",
+          "forms": [
+            {
+              "w": "mandates",
+              "label": "第三人稱單數／複數",
+              "pos": "v.",
+              "zh": "強制規定",
+              "ipa": "/ˈmændeɪts/",
+              "example": {
+                "en": "The government mandates safety checks for all new equipment.",
+                "zh": "政府強制規定所有新設備都要做安全檢查。"
+              }
+            },
+            {
+              "w": "mandated",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "強制規定",
+              "ipa": "/ˈmændeɪtɪd/",
+              "example": {
+                "en": "The company mandated remote work during the storm.",
+                "zh": "公司在暴風雨期間強制規定遠距工作。"
+              }
+            },
+            {
+              "w": "mandating",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "強制規定",
+              "ipa": "/ˈmændeɪtɪŋ/",
+              "example": {
+                "en": "The city is mandating recycling for all offices.",
+                "zh": "市政府正強制要求所有辦公室做資源回收。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "mandated by law",
+              "zh": "法律強制規定",
+              "example": {
+                "en": "Safety training is mandated by law in this industry.",
+                "zh": "這個產業的安全訓練是法律強制規定的。"
+              }
+            },
+            {
+              "phrase": "mandate that",
+              "zh": "規定必須…",
+              "example": {
+                "en": "The contract mandates that payment be made within thirty days.",
+                "zh": "合約規定款項必須在三十天內付清。"
+              }
+            },
+            {
+              "phrase": "government mandate",
+              "zh": "政府的強制規定",
+              "example": {
+                "en": "The new government mandate affects every food business.",
+                "zh": "這項新的政府規定影響所有食品業者。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "公告",
+              "en": "All employees are mandated to attend the safety briefing.",
+              "zh": "所有員工都被規定必須參加安全說明會。"
+            },
+            {
+              "tag": "人資",
+              "en": "The CEO received a clear mandate to cut costs.",
+              "zh": "執行長獲得明確的授權去削減成本。"
+            },
+            {
+              "tag": "法規",
+              "en": "Federal rules mandate regular fire drills in office buildings.",
+              "zh": "聯邦規定要求辦公大樓定期舉行消防演習。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "demand",
+              "diff": "demand 是「要求、需求」，不一定有官方效力；mandate 是官方或法律上的強制規定。",
+              "example": {
+                "en": "Customer demand for our product grew rapidly this year.",
+                "zh": "今年顧客對我們產品的需求快速成長。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "require",
+              "diff": "更一般、更常用；mandate 語氣更正式，強調官方強制。",
+              "example": {
+                "en": "The company requires all visitors to sign in at the desk.",
+                "zh": "公司要求所有訪客在櫃檯簽到。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "mandatory",
+              "ipa": "/ˈmændətɔːri/",
+              "pos": "adj.",
+              "zh": "強制的、必須的",
+              "link": "mandate 去掉 e + -ory，形容詞，意思是被強制規定的。"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "v.",
+              "ipa": "/ˈmændeɪt/",
+              "zh": "強制規定",
+              "example": {
+                "en": "The company will mandate training for all new employees.",
+                "zh": "公司將強制規定所有新進員工參加訓練。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˈmændeɪt/",
+              "zh": "命令、授權",
+              "example": {
+                "en": "The union has a mandate to negotiate on behalf of workers.",
+                "zh": "工會獲得授權代表工人進行協商。"
+              }
+            }
+          ],
+          "senses": []
+        },
+        {
+          "text": "feel hard done by",
+          "type": "phrase",
+          "zh": "覺得受到不公平的對待",
+          "en": "to feel that you were treated in an unfair way",
+          "note": "偏英式口語，常見於對話與聽力，描述自己在工作或分配上吃虧、覺得不公平。",
+          "pattern": "feel / be + hard done by (+ when / because 子句)",
+          "grammar_note": "hard done by 是固定的形容詞片語（源自 be done by），後面不再接受詞；前面搭配 feel 或 be，後面要說原因時用 when 或 because 引導子句。",
+          "examples": [
+            {
+              "tag": "職場",
+              "en": "She felt hard done by when the bonus went to someone else.",
+              "zh": "當獎金給了別人時，她覺得受到不公平的對待。"
+            },
+            {
+              "tag": "人事",
+              "en": "Many staff feel hard done by after the pay cut.",
+              "zh": "減薪之後，許多員工覺得自己被虧待了。"
+            },
+            {
+              "tag": "會議",
+              "en": "Do not feel hard done by; everyone had to work overtime.",
+              "zh": "別覺得被不公平對待，每個人都得加班。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "feel unfairly treated",
+              "diff": "意思相同，說法較直白、中性，英美都通用。",
+              "example": {
+                "en": "He feels unfairly treated because of the new schedule.",
+                "zh": "他覺得新的班表對他不公平。"
+              }
+            },
+            {
+              "phrase": "get a raw deal",
+              "diff": "指實際上拿到不公平的待遇，不只是「感覺」；feel hard done by 強調主觀感受。",
+              "example": {
+                "en": "Part-time workers often get a raw deal on pay.",
+                "zh": "兼職人員在薪資上常常吃虧。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "be hard on",
+              "diff": "be hard on 是「對…嚴苛」，主詞是做出嚴苛行為的人；feel hard done by 的主詞是被不公平對待的人。",
+              "example": {
+                "en": "The manager was hard on the new staff.",
+                "zh": "經理對新進員工很嚴格。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "effect",
+          "type": "word",
+          "ipa": "/ɪˈfekt/",
+          "pos": "n.",
+          "zh": "影響、效果；生效",
+          "en": "a change that happens because of something",
+          "note": "多益最常見的是名詞：have an effect on（對…有影響）、side effect（副作用），以及法規「生效」的 take effect、go into effect。要區分：effect 是名詞，effective 是形容詞（有效的），affect 是動詞（影響）。",
+          "grammar_note": "規定「生效」的主詞是規定本身：The rule takes effect / goes into effect / comes into effect（effect 前不加 a、the）；由人或機構「實施」規定，用 put the rule into effect。",
+          "forms": [
+            {
+              "w": "effects",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "影響、效果（複數）",
+              "ipa": "/ɪˈfekts/",
+              "example": {
+                "en": "Some medicines have side effects, so please read the label.",
+                "zh": "有些藥有副作用，所以請閱讀標籤。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "take effect",
+              "zh": "生效",
+              "example": {
+                "en": "The new tax rules will take effect on the first of January.",
+                "zh": "新的稅務規定將在一月一日生效。"
+              }
+            },
+            {
+              "phrase": "come into effect / go into effect",
+              "zh": "開始生效、開始實施",
+              "example": {
+                "en": "The new computer sign-in system will go into effect tomorrow.",
+                "zh": "新的電腦登入系統明天開始生效。"
+              }
+            },
+            {
+              "phrase": "have an effect on",
+              "zh": "對…有影響",
+              "example": {
+                "en": "The weather can have an effect on our delivery times.",
+                "zh": "天氣可能對我們的送貨時間有影響。"
+              }
+            },
+            {
+              "phrase": "secondary effect",
+              "zh": "次要影響",
+              "example": {
+                "en": "A secondary effect of the new schedule is lower overtime cost.",
+                "zh": "新班表的次要影響是加班費降低。"
+              }
+            },
+            {
+              "phrase": "in effect",
+              "zh": "（規定）仍然有效；實質上",
+              "example": {
+                "en": "The ban on overtime work is still in effect this month.",
+                "zh": "加班禁令這個月仍然有效。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "研究",
+              "en": "We are studying the long-term effects of remote work.",
+              "zh": "我們正在研究遠距工作的長期影響。"
+            },
+            {
+              "tag": "行銷",
+              "en": "The price cut had a positive effect on our monthly sales.",
+              "zh": "降價對我們的月銷售有正面的影響。"
+            },
+            {
+              "tag": "簡報",
+              "en": "The special effects in the product video impressed the clients.",
+              "zh": "產品影片裡的特效讓客戶印象深刻。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "affect",
+              "diff": "affect 是動詞「影響」，effect 多半是名詞「影響、效果」。",
+              "usage": "動詞用 affect + 受詞（affect sales）；名詞用 have an effect on（have an effect on sales）。",
+              "example": {
+                "en": "The delay will affect our delivery schedule this week.",
+                "zh": "這次延誤會影響我們本週的出貨時程。"
+              }
+            },
+            {
+              "word": "effective",
+              "diff": "effective 是形容詞「有效的」，effect 是名詞，不能互換。",
+              "usage": "effective 修飾名詞或接在 be 後面（an effective plan）；effective + 日期 表示「自…起生效」。",
+              "example": {
+                "en": "The new advertising plan was very effective in raising sales.",
+                "zh": "新的廣告計畫在提升銷售上非常有效。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "put into effect",
+              "diff": "人或機構「實施」規定，後面接規定當受詞；take effect 則是規定自己「生效」。",
+              "example": {
+                "en": "The company will put the new policy into effect on Monday.",
+                "zh": "公司將在星期一實施新政策。"
+              }
+            },
+            {
+              "word": "apply",
+              "diff": "apply to 表示規定「適用於」某些人或情況，不是「生效」的意思。",
+              "example": {
+                "en": "This rule applies to all staff in the Taipei office.",
+                "zh": "這項規定適用於台北辦公室的所有員工。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "result",
+              "ipa": "/rɪˈzʌlt/",
+              "pos": "n.",
+              "zh": "結果",
+              "example": {
+                "en": "The result of the test was better than we expected.",
+                "zh": "測試的結果比我們預期的好。"
+              }
+            },
+            {
+              "w": "impact",
+              "ipa": "/ˈɪmpækt/",
+              "pos": "n.",
+              "zh": "衝擊、影響",
+              "example": {
+                "en": "The new law will have a big impact on small shops.",
+                "zh": "新法律將對小店造成很大的衝擊。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "effective",
+              "ipa": "/ɪˈfektɪv/",
+              "pos": "adj.",
+              "zh": "有效的",
+              "link": "effect + -ive，形容詞「有效果的」，像 active、creative。"
+            },
+            {
+              "w": "effectively",
+              "ipa": "/ɪˈfektɪvli/",
+              "pos": "adv.",
+              "zh": "有效地；實際上",
+              "link": "effective + -ly，形容詞變副詞，像 quick → quickly。"
+            },
+            {
+              "w": "effectiveness",
+              "ipa": "/ɪˈfektɪvnəs/",
+              "pos": "n.",
+              "zh": "有效性",
+              "link": "effective + -ness，把「有效」變成名詞，像 kind → kindness。"
+            },
+            {
+              "w": "ineffective",
+              "ipa": "/ˌɪnɪˈfektɪv/",
+              "pos": "adj.",
+              "zh": "無效的",
+              "link": "in- + effective，in- 表示「不」，像 incorrect。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "影響、效果",
+              "en": "a change that something causes",
+              "example": {
+                "en": "The training had a clear effect on the team's results.",
+                "zh": "這次訓練對團隊的成績有明顯的影響。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "（法規）生效、實施",
+              "en": "the time when a rule or law starts to be used",
+              "distinguish": "出現在 take effect、go into effect、in effect 等片語，主詞是法規、制度或政策時，指「生效、有效」。",
+              "example": {
+                "en": "The new rule has been in effect since the beginning of the month.",
+                "zh": "這項新規定從月初起就已經生效了。"
+              }
+            }
+          ],
+          "nw_done": [
+            {
+              "id": "nmv9qone8yy8d",
+              "result": "added"
+            }
+          ]
+        },
+        {
+          "text": "drastically",
+          "type": "word",
+          "ipa": "/ˈdræstɪkli/",
+          "pos": "adv.",
+          "zh": "大幅地、劇烈地",
+          "en": "in a very big and sudden way",
+          "note": "多益常見於報告與新聞，修飾 increase、drop、change 等動詞，表示變化很大且很突然，常帶有「幅度驚人」的語氣。",
+          "grammar_note": "drastically 修飾動詞或形容詞，位置在動詞前後都可以（drastically reduce / fell drastically），前面不加 very。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "drop drastically",
+              "zh": "大幅下降",
+              "example": {
+                "en": "Our sales dropped drastically after the main store closed.",
+                "zh": "主要門市關閉後，我們的銷售大幅下滑。"
+              }
+            },
+            {
+              "phrase": "change drastically",
+              "zh": "劇烈改變",
+              "example": {
+                "en": "The market has changed drastically in the last two years.",
+                "zh": "這個市場在過去兩年劇烈改變。"
+              }
+            },
+            {
+              "phrase": "drastically reduce",
+              "zh": "大幅減少",
+              "example": {
+                "en": "We must drastically reduce our travel costs this year.",
+                "zh": "我們今年必須大幅降低差旅成本。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "報告",
+              "en": "Prices rose drastically because of the shortage of raw materials.",
+              "zh": "由於原料短缺，價格大幅上漲。"
+            },
+            {
+              "tag": "會議",
+              "en": "The new system drastically cut the time we spend on reports.",
+              "zh": "新系統大幅縮短了我們做報告的時間。"
+            },
+            {
+              "tag": "新聞",
+              "en": "The two plans are drastically different in cost and schedule.",
+              "zh": "這兩個計畫在成本與時程上差異極大。"
+            }
+          ],
+          "similar": [
+            {
+              "word": "dramatically",
+              "diff": "dramatically 較中性，表示顯著的變化；drastically 更強調突然、激烈，有時帶有負面感。",
+              "example": {
+                "en": "Online orders have increased dramatically since the sale began.",
+                "zh": "促銷開始後，網路訂單大幅增加。"
+              }
+            },
+            {
+              "word": "sharply",
+              "diff": "sharply 常用來描述數字快速上升或下降。",
+              "example": {
+                "en": "Oil prices fell sharply at the end of the week.",
+                "zh": "油價在週末大跌。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "drastic",
+              "ipa": "/ˈdræstɪk/",
+              "pos": "adj.",
+              "zh": "劇烈的、極端的",
+              "link": "drastic 是詞幹；drastic + -ally 變成副詞，像 automatic → automatically。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "according to",
+          "type": "phrase",
+          "zh": "根據、依照",
+          "en": "as said or shown by someone or something",
+          "note": "多益常見於報告、公告與新聞，用來引出資料或說法的來源，如 according to the report、according to the schedule；語氣正式、客觀。",
+          "pattern": "According to + 來源, + 句子",
+          "grammar_note": "according to 後面接名詞（資料或人物），不接子句；不能說 according to me，表達自己的意見要用 in my opinion。",
+          "examples": [
+            {
+              "tag": "報告",
+              "en": "According to the report, sales rose by ten percent in May.",
+              "zh": "根據報告，五月的銷售成長了百分之十。"
+            },
+            {
+              "tag": "會議",
+              "en": "According to our manager, the deadline has been moved to Friday.",
+              "zh": "根據我們經理的說法，截止日已改到星期五。"
+            },
+            {
+              "tag": "出差",
+              "en": "According to the schedule, the train leaves at eight.",
+              "zh": "根據時刻表，火車八點出發。"
+            },
+            {
+              "tag": "公告",
+              "en": "According to the new rule, visitors must wear a badge.",
+              "zh": "依照新規定，訪客必須配戴識別證。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "based on",
+              "diff": "based on 表示「以…為依據」來做決定或計算，後面接的是依據的內容。",
+              "example": {
+                "en": "Prices are based on the size of the order.",
+                "zh": "價格是依訂單的大小決定的。"
+              }
+            },
+            {
+              "phrase": "as stated in",
+              "diff": "指文件裡「明文寫著」，常見於合約與公告。",
+              "example": {
+                "en": "As stated in the contract, either side may end the deal.",
+                "zh": "如合約所載，任何一方都可以終止合作。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "accordingly",
+              "diff": "accordingly 是副詞，意思是「相應地、依情況」，不接名詞當來源。",
+              "example": {
+                "en": "We received your request and will act accordingly.",
+                "zh": "我們已收到您的要求，會依此處理。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "constant",
+          "type": "word",
+          "ipa": "/ˈkɑːnstənt/",
+          "pos": "adj.",
+          "zh": "持續不斷的；固定不變的",
+          "en": "happening all the time, or not changing",
+          "note": "多益常見於 constant demand、constant change、constant temperature，強調「一直發生、沒有間斷」或「保持不變」，語氣中性。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "constant demand",
+              "zh": "持續不斷的需求",
+              "example": {
+                "en": "There is a constant demand for skilled engineers in this city.",
+                "zh": "這個城市對有技術的工程師一直有需求。"
+              }
+            },
+            {
+              "phrase": "constant change",
+              "zh": "不斷的變化",
+              "example": {
+                "en": "The tech industry is in a state of constant change.",
+                "zh": "科技業處於不斷變動的狀態。"
+              }
+            },
+            {
+              "phrase": "constant supply",
+              "zh": "穩定的供應",
+              "example": {
+                "en": "A constant supply of water is essential for the factory.",
+                "zh": "穩定的水源供應對工廠來說非常重要。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "職場",
+              "en": "Our team faces constant pressure to meet tight deadlines.",
+              "zh": "我們的團隊持續面臨趕上緊迫截止日的壓力。"
+            },
+            {
+              "tag": "電話",
+              "en": "The constant noise from the street made the call difficult.",
+              "zh": "街上不斷的噪音讓通話變得困難。"
+            },
+            {
+              "tag": "客服",
+              "en": "The constant delays are hurting our customer reviews.",
+              "zh": "不斷的延誤正在傷害我們的顧客評價。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "consistent",
+              "diff": "consistent 是「前後一致、表現穩定」；constant 強調「一直持續、沒有間斷」。",
+              "example": {
+                "en": "Our sales team has delivered consistent results every quarter.",
+                "zh": "我們的業務團隊每一季都有穩定的成績。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "continuous",
+              "diff": "continuous 強調中間完全沒有停止，常用於機器、流程。",
+              "example": {
+                "en": "The machine needs continuous power to run all night.",
+                "zh": "這台機器需要持續供電才能整夜運轉。"
+              }
+            },
+            {
+              "word": "steady",
+              "diff": "steady 強調穩定、平穩地進行，常用於成長或收入。",
+              "example": {
+                "en": "Sales showed a steady increase over the last year.",
+                "zh": "過去一年銷售呈現穩定的成長。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "constantly",
+              "ipa": "/ˈkɑːnstəntli/",
+              "pos": "adv.",
+              "zh": "不斷地、經常地",
+              "link": "constant + -ly，形容詞變副詞，像 quick → quickly。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "adj.",
+              "zh": "持續不斷的",
+              "en": "happening again and again without stopping",
+              "example": {
+                "en": "We receive constant calls from customers about the new app.",
+                "zh": "我們不斷接到顧客詢問新應用程式的電話。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "zh": "固定不變的",
+              "en": "staying the same over time",
+              "distinguish": "和 temperature、speed、level 等名詞搭配時，指「穩定不變」。",
+              "example": {
+                "en": "Keep the storage room at a constant temperature all year.",
+                "zh": "請讓儲藏室全年保持固定的溫度。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "compensation",
+          "type": "word",
+          "ipa": "/ˌkɑːmpənˈseɪʃn/",
+          "pos": "n.",
+          "zh": "賠償、補償；薪酬",
+          "en": "money given to make up for a loss, or money paid for work",
+          "note": "多益常見於客服、保險與人資：補償損失或不便時，用 compensation for + 損失的原因；談薪資與福利時，compensation package 指整體薪酬。",
+          "grammar_note": "compensation 是不可數名詞，不加 s；補償的原因用 for（compensation for the delay），給誰則說 give someone compensation。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "compensation for",
+              "zh": "對…的賠償",
+              "example": {
+                "en": "She asked for compensation for the damaged package.",
+                "zh": "她要求賠償那個受損的包裹。"
+              }
+            },
+            {
+              "phrase": "receive compensation",
+              "zh": "獲得賠償",
+              "example": {
+                "en": "Passengers receive compensation when their flights are canceled.",
+                "zh": "航班被取消時，乘客可獲得賠償。"
+              }
+            },
+            {
+              "phrase": "compensation package",
+              "zh": "薪酬待遇（整體）",
+              "example": {
+                "en": "The compensation package includes a bonus and health insurance.",
+                "zh": "這份薪酬待遇包含獎金與健康保險。"
+              }
+            },
+            {
+              "phrase": "claim compensation",
+              "zh": "請求賠償",
+              "example": {
+                "en": "You can claim compensation within thirty days of the accident.",
+                "zh": "事故發生後三十天內，您可以請求賠償。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "客服",
+              "en": "We offer full compensation for any late delivery.",
+              "zh": "任何延遲送達我們都提供完整賠償。"
+            },
+            {
+              "tag": "人資",
+              "en": "Her compensation depends on her sales and years of service.",
+              "zh": "她的薪酬取決於她的業績與年資。"
+            },
+            {
+              "tag": "法律",
+              "en": "The company paid compensation to workers hurt on the job.",
+              "zh": "公司賠償了在工作中受傷的員工。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "complement",
+              "diff": "complement 是「補充、搭配」，拼法與 compliment（稱讚）、compensation 都容易搞混。",
+              "usage": "complement 是及物動詞，後面接受詞：complement our system；compensation 是不可數名詞，後面接 for。",
+              "example": {
+                "en": "The new software will complement our existing system.",
+                "zh": "新軟體將和我們現有的系統相輔相成。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "reimbursement",
+              "diff": "reimbursement 是把你先墊的錢還給你；compensation 是補償損失、不便或給付酬勞。",
+              "example": {
+                "en": "Please submit receipts to get reimbursement for travel costs.",
+                "zh": "請提交收據以取得差旅費用的報銷。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "salary",
+              "ipa": "/ˈsæləri/",
+              "pos": "n.",
+              "zh": "薪水",
+              "example": {
+                "en": "Her salary is paid on the twenty-fifth of every month.",
+                "zh": "她的薪水在每個月二十五日發放。"
+              }
+            },
+            {
+              "w": "benefit",
+              "ipa": "/ˈbenɪfɪt/",
+              "pos": "n.",
+              "zh": "福利、好處",
+              "example": {
+                "en": "Health insurance is one of the main benefits of this job.",
+                "zh": "健康保險是這份工作的主要福利之一。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "compensate",
+              "ipa": "/ˈkɑːmpənseɪt/",
+              "pos": "v.",
+              "zh": "補償、彌補",
+              "link": "compensate 是詞幹；去掉 e 加 -ion 變成名詞，像 create → creation。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "賠償、補償",
+              "en": "money paid to make up for a loss or problem",
+              "example": {
+                "en": "The airline gave us compensation for the long delay.",
+                "zh": "航空公司因為長時間的延誤而給了我們賠償。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "薪酬",
+              "en": "all the money and benefits paid for a job",
+              "distinguish": "談 job、executive、package 時，指薪水加獎金、福利的整體報酬，而不是賠償。",
+              "example": {
+                "en": "Total compensation for this job includes salary, bonuses, and insurance.",
+                "zh": "這份工作的總薪酬包括薪水、獎金與保險。"
+              }
+            }
+          ],
+          "nw_done": [
+            {
+              "id": "nmv9q5i50m6zr",
+              "result": "added"
+            }
+          ]
+        },
+        {
+          "text": "so to speak",
+          "type": "phrase",
+          "zh": "可以說、打個比方",
+          "en": "used to show that your words are not exact or are used in a special way",
+          "note": "插入語，用來提醒聽者你用的詞是比喻或不夠精確，語氣輕鬆；多益對話與演說中偶爾出現，通常放在句尾或所說詞語之後。",
+          "pattern": "N / 子句 + , so to speak",
+          "grammar_note": "so to speak 是插入語，前後常用逗號隔開，可放在句中或句尾；它不改變句子結構，後面不再接受詞。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "Our new manager is the glue of the team, so to speak.",
+              "zh": "我們的新經理可以說是團隊的黏著劑。"
+            },
+            {
+              "tag": "簡報",
+              "en": "The website is our shop window, so to speak.",
+              "zh": "網站可以說就是我們的店面櫥窗。"
+            },
+            {
+              "tag": "面試",
+              "en": "I was thrown in at the deep end, so to speak.",
+              "zh": "我可以說是被直接丟進深水區，一開始就得面對挑戰。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "This update is, so to speak, a fresh start for our team.",
+              "zh": "這次更新可以說是我們團隊的全新開始。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "as it were",
+              "diff": "意思幾乎相同，但較正式、較少見，常放在詞語之後。",
+              "example": {
+                "en": "She is the heart of the office, as it were.",
+                "zh": "她可以說是辦公室的核心。"
+              }
+            },
+            {
+              "phrase": "in a way",
+              "diff": "表示「在某種程度上」，不是說比喻，而是說法不完全準確。",
+              "example": {
+                "en": "In a way, the delay helped us improve the plan.",
+                "zh": "某種程度上，這次延誤幫助我們改進了計畫。"
+              }
+            }
+          ]
         }
       ]
     },

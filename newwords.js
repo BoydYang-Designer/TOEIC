@@ -71,6 +71,7 @@ function nwRe(text) {
 function nwFindArt(n) { // 這個新單字被哪一篇文章採用：核心單字／詳解（一律算）、文稿裡出現（只算建立之後才有的文章）
   const k = dnKey(n.text), base = new Set(n.base || []);
   for (const a of dnArts()) {
+    if (isLib(a)) continue; // 字庫（通用詳解）不算被文章採用
     if ((a.vocab || []).some(v => dnKey(v.word) === k)) return { x: a, via: 'vocab' };
     if (dnFindExtra(a, n.text)) return { x: a, via: 'extra' };
   }
@@ -81,15 +82,21 @@ function nwFindArt(n) { // 這個新單字被哪一篇文章採用：核心單�
   }
   return null;
 }
-function nwCovered(text) { // 這個拼法已收在別的字詳解的屈折變化／衍生字裡
+function nwCovered(text, noLib) { // 這個拼法已收在別的字詳解的屈折變化／衍生字裡（noLib＝不算字庫：字庫只是通用詳解，不代表被文章採用）
   const k = dnKey(text);
-  for (const a of dnArts()) for (const e of dnExtraOf(a)) if (dnArr(e.forms).concat(dnArr(e.derived)).some(f => f && f.w && dnKey(f.w) === k)) return { a, e };
+  for (const a of dnArts()) for (const e of (noLib && isLib(a) ? [] : dnExtraOf(a))) if (dnArr(e.forms).concat(dnArr(e.derived)).some(f => f && f.w && dnKey(f.w) === k)) return { a, e };
   return null;
 }
-function nwBanked(n) { // 已在庫：入庫清單／核心單字／詳解，或收在別的字的屈折變化
-  const b = dnBanked(n.text); if (b) return b;
-  const m = dnMarks().find(q => q.nw === n.id); if (m) return { where: 'mark', qid: m.qid };
-  const c = n.own ? null : nwCovered(n.text); if (c) return { where: 'forms', qid: idOf(c.a), lemma: c.e.text };
+function nwBanked(n) { // 已在庫（掛在文章底下）：入庫清單／核心單字／詳解，或收在別的字的屈折變化。字庫（TSL 字庫＝通用詳解）不算：沒有文章採用，新單字仍留在「待採用」
+  const lid = nwLibId(), k = dnKey(n.text);
+  const mk = dnMarks().find(q => q.qid !== lid && dnKey(q.text) === k); if (mk) return { where: 'mark', qid: mk.qid };
+  for (const a of dnArts()) {
+    if (isLib(a)) continue;
+    if (dnFindExtra(a, n.text)) return { where: 'extra', qid: idOf(a) };
+    if ((a.vocab || []).some(v => dnKey(v.word) === k)) return { where: 'vocab', qid: idOf(a) };
+  }
+  const m = dnMarks().find(q => q.nw === n.id && q.qid !== lid); if (m) return { where: 'mark', qid: m.qid };
+  const c = n.own ? null : nwCovered(n.text, true); if (c) return { where: 'forms', qid: idOf(c.a), lemma: c.e.text };
   return null;
 }
 const nwDoneRec = n => { for (const a of dnArts()) for (const e of dnExtraOf(a)) { const o = dnArr(e.nw_done).find(q => q && q.id === n.id); if (o) return { a, e, o }; } return null; };
@@ -104,28 +111,31 @@ function nwEntry(n) { // 這個新單字對應的詳解：{ a: 詳解所在文�
 }
 function nwStatus(n) {
   const ent = nwEntry(n), art = nwFindArt(n), bk = nwBanked(n), rec = nwDoneRec(n), note = nwHasNote(n), lm = nwLibMark(n);
-  const adopted = !!(art || bk || ent);
-  let st;
-  if (!adopted) st = 'pending';
+  const libEnt = !!(ent && isLib(ent.a)); // 詳解在「TSL 字庫」＝通用詳解（沒有文章）
+  const adopted = !!(art || bk || (ent && !libEnt)); // 只有字庫的通用詳解／入庫，不算被文章採用：維持「待採用」，之後新文章還是會優先帶入
+  let st, supp = false;
+  if (!adopted) { st = 'pending'; supp = !!(note && libEnt && !rec); } // supp：通用詳解已有、但備註還沒被 AI 處理 → 也列進「待補充詳解」
   else if (note) st = ent ? (rec ? 'updated' : 'supplement') : 'waitdetail';
-  else st = (lm && !ent) ? 'waitdetail' : 'removable'; // 通用詳解（字庫）已入庫但詳解還沒寫回 → 等 AI 詳解，不要顯示成可移除
-  return { st, art, bk, ent, rec, note, lm, tsl: nwTslHit(n.text) };
+  else st = 'removable';
+  return { st, art, bk, ent, rec, note, lm, supp, lib: libEnt ? 'done' : (lm ? 'wait' : ''), tsl: nwTslHit(n.text) };
 }
 const nwIsDone = n => !!nwDoneRec(n);
 
 /* ---------- 通用詳解（不掛任何文章）：和 TSL 單字一樣，掛在「TSL 字庫」（LIB，w0d1）底下 ----------
    不用等文章採用：按「通用詳解」→ 在字庫建一筆入庫（沒有所在句）→ 複製只含這個字的 AI 提示詞（字庫版：寫多益通用詳解、不提「這篇文章」）。
-   AI 回傳存成 w0d1_extra.json → json_merge.py 合併進 daily.json → 重新整理，這個字就有詳解（之後有文章用到，會補「本篇用法」進同一筆）。
+   AI 回傳存成 w0d1_extra.json → json_merge.py 合併進 daily.json → 重新整理，這個字就有詳解。
+   重點：字庫只是「通用詳解」，不算被文章採用 → 這個字仍留在「待採用」，新增文章時照樣優先帶入；之後文章採用它時，會自動入庫並把「本篇用法」補進同一筆詳解。
    備註（n.note）照舊隨提示詞交給 AI，AI 回 nw_done 後顯示「已更新」。 */
 const NW_LIBCAP = 8; // 一次最多複製幾個字的提示詞（太多 AI 會寫不完）
 const nwLibOn = () => typeof LIB !== 'undefined' && !!LIB;
+const nwLibId = () => nwLibOn() ? idOf(LIB) : null;
 function nwLibMark(n) { // 這個新單字在字庫的入庫項目
   if (!nwLibOn()) return null; const id = idOf(LIB);
   return dnMarks().find(q => q.qid === id && (q.nw === n.id || dnKey(q.text) === dnKey(n.text))) || null;
 }
-function nwLibEligible() { // 還沒有詳解、可以請 AI 寫通用詳解的新單字（待採用，或已在字庫入庫但詳解未寫回）
+function nwLibEligible() { // 待採用、且字庫還沒有詳解的新單字（含已在字庫入庫但詳解未寫回的）
   if (!nwLibOn()) return [];
-  return nwList().filter(n => { const s = nwStatus(n); return !s.ent && (s.st === 'pending' || !!s.lm); }).sort((a, b) => (a.created || 0) - (b.created || 0));
+  return nwList().filter(n => { const s = nwStatus(n); return s.st === 'pending' && s.lib !== 'done'; }).sort((a, b) => (a.created || 0) - (b.created || 0));
 }
 function nwLibCopy(ids) { // ids：單一 id 字串，或 id 陣列；省略＝全部可請 AI 寫的（最多 NW_LIBCAP 個）
   if (!nwLibOn()) { dnToast('daily.json 裡沒有「TSL 字庫」項目（library:true），無法產生通用詳解'); return; }
@@ -133,7 +143,7 @@ function nwLibCopy(ids) { // ids：單一 id 字串，或 id 陣列；省略＝�
   const all = ns.length; ns = ns.slice(0, NW_LIBCAP); if (!ns.length) { dnToast('沒有需要通用詳解的新單字'); return; }
   const keys = new Set();
   ns.forEach(n => {
-    let m = nwLibMark(n) || dnLibMark(LIB, n.text);
+    const m = nwLibMark(n) || dnLibMark(LIB, n.text);
     if (!m.nw) m.nw = n.id; // 記下來源：之後在入庫彙整刪掉它，就不會又被自動加回來
     keys.add(dnKey(m.text));
   });
@@ -163,7 +173,7 @@ const nwRules = () => [
 function nwAutoMark() {
   let add = 0; const now = Date.now();
   nwList().forEach(n => {
-    if (n.noauto || dnMarks().some(m => m.nw === n.id) || dnBanked(n.text) || (!n.own && nwCovered(n.text))) return;
+    if (n.noauto || dnMarks().some(m => m.nw === n.id && m.qid !== nwLibId()) || nwBanked(n)) return;
     const a = nwFindArt(n); if (!a || a.via !== 'passage') return;
     const text = a.hit, p = String(a.x.passage || '');
     if (dnMarks().some(m => dnKey(m.text) === dnKey(text))) return;
@@ -182,7 +192,7 @@ function nwOnMarkDel(markId) { // 使用者自己刪掉自動入庫的項目 →
 function nwSupGroups() {
   const by = new Map();
   nwList().forEach(n => {
-    const s = nwStatus(n); if (s.st !== 'supplement' || !s.ent) return;
+    const s = nwStatus(n); if ((s.st !== 'supplement' && !s.supp) || !s.ent) return;
     const e = s.ent.e, a = s.ent.a, qid = idOf(a), ek = dnKey(e.text || e.word);
     const g = by.get(qid) || { qid, a, ents: new Map() }; by.set(qid, g);
     const it = g.ents.get(ek) || { e, ns: [] }; g.ents.set(ek, it); it.ns.push(n);
@@ -218,7 +228,7 @@ function nwPoolKeys() { return new Set(nwPending().map(o => tslNz(o.n.text))); }
 function nwGenLines() {
   const ps = nwPending(); if (!ps.length) return [];
   const L = ['【我的新單字（優先採用）】', `・以下是使用者自己遇到、想學的新單字／片語（${ps.length} 個，依加入順序）。原則上請用 2–5 個自然地寫進本篇 passage（不是硬性規定，可依文章情境增加或減少），優先順序高於下方的 TSL 候選單字，目標是與 TSL 候選字大約各占一半：`];
-  ps.forEach(({ n, s }, i) => L.push(`  ${i + 1}. ${n.text}（${n.type === 'phrase' ? '片語' : '單字'}｜${s.tsl ? 'TSL 核心單字 #' + s.tsl.r : '非 TSL 核心單字'}）` + (nwHasNote(n) ? `｜備註：${String(n.note).trim().replace(/\s+/g, ' ')}` : '') + (n.own ? '｜獨立詳解：請當成獨立項目，lemma 用它自己，不併進其他字' : '')));
+  ps.forEach(({ n, s }, i) => L.push(`  ${i + 1}. ${n.text}（${n.type === 'phrase' ? '片語' : '單字'}｜${s.tsl ? 'TSL 核心單字 #' + s.tsl.r : '非 TSL 核心單字'}${s.lib === 'done' ? '｜已有通用詳解（字庫）' : ''}）` + (nwHasNote(n) ? `｜備註：${String(n.note).trim().replace(/\s+/g, ' ')}` : '') + (n.own ? '｜獨立詳解：請當成獨立項目，lemma 用它自己，不併進其他字' : '')));
   L.push('・情境真的放不進本篇主題的字可以跳過，不要硬塞（沒用到的會留給之後的文章）；單字可用原形或自然的屈折變化，片語要照原樣出現在 passage 裡。',
     '・標「TSL 核心單字」的字：除了寫進 passage，也要放進 vocab（算在 vocab 總數 3–6 個之內，並優先於 TSL 候選單字）。',
     '・標「非 TSL 核心單字」的字：寫進 passage 即可，不要放進 vocab；文章合併進 daily.json 後，網頁會自動把它入庫，之後再用「入庫彙整」請 AI 補詳解。',
@@ -338,7 +348,7 @@ const NW_ST = {
 const NW_RES = { added: 'AI 已把備註補進詳解', covered: '原詳解已涵蓋備註，沒有重複新增', unclear: 'AI 看不懂備註，沒有處理' };
 function nwCounts() {
   const c = { all: 0, pending: 0, todo: 0, rem: 0 };
-  nwList().forEach(n => { const s = nwStatus(n).st; c.all++; if (s === 'pending') c.pending++; else if (s === 'waitdetail' || s === 'supplement') c.todo++; else c.rem++; });
+  nwList().forEach(n => { const o = nwStatus(n), s = o.st; c.all++; if (s === 'pending') c.pending++; else if (s === 'waitdetail' || s === 'supplement') c.todo++; else c.rem++; if (o.supp) c.todo++; });
   return c;
 }
 const nwBtn = () => `<button onclick="dnNav('nw')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'nw' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">🆕 新單字（${nwList().length}）</button>`;
@@ -370,24 +380,25 @@ function nwRow(n) {
   const s = nwStatus(n), st = NW_ST[s.st], done = s.st === 'updated' || s.st === 'removable';
   const msg = {
     pending: s.tsl ? `多益核心單字（TSL #${s.tsl.r}）：新增文章時優先排進文章與核心單字` : '非核心單字：被文章採用後會自動入庫',
-    waitdetail: s.lm ? '已在 TSL 字庫入庫、通用詳解還沒寫回：按「通用詳解」再複製提示詞 → 貼給 AI → 存成 w0d1_extra.json → json_merge.py 合併' : '已入庫、詳解還沒寫回：備註會隨詳解提示詞一起交給 AI（到「📌 入庫彙整」複製）',
+    waitdetail: '已入庫、詳解還沒寫回：備註會隨詳解提示詞一起交給 AI（到「📌 入庫彙整」複製）',
     supplement: '已有詳解、備註還沒處理：到「📌 入庫彙整」的「新單字補充」複製提示詞',
     updated: s.rec ? esc(NW_RES[s.rec.o.result] || '已處理') + (s.rec.o.fix ? `（AI 判斷備註有誤字：${esc(s.rec.o.fix)}）` : '') : '',
     removable: '已被文章採用或已在庫'
-  }[s.st] + (n.own && s.st === 'pending' ? '<br>獨立詳解：等新文章採用後入庫，不併入其他字的詳解' : ''), wh = nwWhere(s);
+  }[s.st] + (n.own && s.st === 'pending' ? '<br>獨立詳解：等新文章採用後入庫，不併入其他字的詳解' : '')
+    + (s.st === 'pending' && s.lib === 'done' ? '<br>已有通用詳解（TSL 字庫）；仍留在待採用，新文章會優先帶入，採用後補「本篇用法」' : s.st === 'pending' && s.lib === 'wait' ? '<br>已在 TSL 字庫入庫、等 AI 通用詳解：貼給 AI → w0d1_extra.json → json_merge.py 合併' : ''), wh = nwWhere(s);
   return `<div class="py-3 flex items-start gap-2">
     <button onclick="speak(this.dataset.t)" data-t="${esc(n.text)}" class="text-slate-400 hover:text-indigo-600 text-lg shrink-0 mt-0.5" aria-label="發音">🔊</button>
     <div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-1.5"><b class="text-base break-words">${esc(n.text)}</b><span class="${dnChip}">${n.type === 'phrase' ? '片語' : '單字'}</span>${s.tsl ? `<span class="${dnChip} !bg-indigo-100 !text-indigo-800 dark:!bg-indigo-950 dark:!text-indigo-300">TSL #${s.tsl.r}</span>` : ''}<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${st.c}">${st.label}</span></div>
       ${nwHasNote(n) ? `<p class="text-xs text-amber-700 dark:text-amber-300 mt-1 break-words">備註：${esc(n.note)}</p>` : ''}
       <p class="text-xs text-slate-500 mt-1 leading-relaxed">${msg}${wh ? `<br>${wh}` : ''}</p></div>
-    <div class="flex flex-col gap-1 shrink-0">${!s.ent && (s.st === 'pending' || s.lm) && nwLibOn() ? `<button onclick="nwLibCopy('${n.id}')" class="${dnSm}" title="不掛任何文章，直接請 AI 寫通用詳解">${s.lm ? '再複製' : '通用詳解'}</button>` : ''}${s.ent ? `<button onclick="dnOpenExtra('${idOf(s.ent.a)}',this.dataset.t)" data-t="${esc(s.ent.e.text || s.ent.e.word)}" class="${dnSm}">詳解</button>` : ''}${n.own ? (s.st === 'pending' ? `<button onclick="nwOwn('${n.id}')" class="${dnSm}">取消獨立</button>` : '') : (s.bk && s.bk.where === 'forms' ? `<button onclick="nwOwn('${n.id}')" class="${dnSm}">單獨入庫</button>` : '')}<button onclick="nwEdit('${n.id}')" class="${dnSm}">✎</button><button onclick="nwDel('${n.id}')" class="text-xs ${done ? 'rounded-lg px-2.5 py-1 bg-emerald-600 text-white hover:bg-emerald-700' : 'text-rose-500 hover:underline'} cursor-pointer">移除</button></div></div>`;
+    <div class="flex flex-col gap-1 shrink-0">${!s.ent && s.st === 'pending' && nwLibOn() ? `<button onclick="nwLibCopy('${n.id}')" class="${dnSm}" title="不掛任何文章，直接請 AI 寫通用詳解">${s.lm ? '再複製' : '通用詳解'}</button>` : ''}${s.ent ? `<button onclick="dnOpenExtra('${idOf(s.ent.a)}',this.dataset.t)" data-t="${esc(s.ent.e.text || s.ent.e.word)}" class="${dnSm}">詳解</button>` : ''}${n.own ? (s.st === 'pending' ? `<button onclick="nwOwn('${n.id}')" class="${dnSm}">取消獨立</button>` : '') : (s.bk && s.bk.where === 'forms' ? `<button onclick="nwOwn('${n.id}')" class="${dnSm}">單獨入庫</button>` : '')}<button onclick="nwEdit('${n.id}')" class="${dnSm}">✎</button><button onclick="nwDel('${n.id}')" class="text-xs ${done ? 'rounded-lg px-2.5 py-1 bg-emerald-600 text-white hover:bg-emerald-700' : 'text-rose-500 hover:underline'} cursor-pointer">移除</button></div></div>`;
 }
 function nwListHtml() {
   const c = nwCounts(), tab = DN.nwTab, T = [['all', '全部', c.all], ['pending', '待採用', c.pending], ['todo', '待補充詳解', c.todo], ['rem', '可移除', c.rem]];
   const tb = ([t, n, k]) => `<button onclick="nwTab('${t}')" class="${btn} !py-1.5 !px-3 text-xs ${tab === t ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}${k ? '' : ' opacity-50'}">${n} <span class="opacity-70">${k}</span></button>`;
-  const rows = nwList().slice().sort((a, b) => (b.created || 0) - (a.created || 0)).filter(n => { const s = nwStatus(n).st; return tab === 'all' || (tab === 'pending' ? s === 'pending' : tab === 'todo' ? s === 'waitdetail' || s === 'supplement' : s === 'removable' || s === 'updated'); });
+  const rows = nwList().slice().sort((a, b) => (b.created || 0) - (a.created || 0)).filter(n => { const o = nwStatus(n), s = o.st; return tab === 'all' || (tab === 'pending' ? s === 'pending' : tab === 'todo' ? s === 'waitdetail' || s === 'supplement' || o.supp : s === 'removable' || s === 'updated'); });
   return `<div class="flex flex-wrap items-center gap-2 mb-3">${T.map(tb).join('')}${c.rem ? `<button onclick="nwRemoveDone()" class="${btn} !py-1.5 !px-3 text-xs ml-auto bg-emerald-600 text-white hover:bg-emerald-700">移除全部可移除（${c.rem}）</button>` : ''}</div>`
-    + (nwLibEligible().length ? `<div class="${card} p-3 mb-3 flex flex-wrap items-center justify-between gap-2"><p class="text-xs text-slate-500 leading-relaxed flex-1 min-w-[12rem]"><b>通用詳解（不掛文章）</b>：和 TSL 單字一樣，不用等文章採用，直接請 AI 寫詳解（存成 w0d1_extra.json）。</p><button onclick="nwLibCopy()" class="${btn} ${dnPri} !py-1 !px-2.5 text-xs">複製 AI 提示詞（${Math.min(nwLibEligible().length, NW_LIBCAP)}${nwLibEligible().length > NW_LIBCAP ? '／' + nwLibEligible().length : ''}）</button></div>` : '')
+    + (nwLibEligible().length ? `<div class="${card} p-3 mb-3 flex flex-wrap items-center justify-between gap-2"><p class="text-xs text-slate-500 leading-relaxed flex-1 min-w-[12rem]"><b>通用詳解（不掛文章）</b>：和 TSL 單字一樣，不用等文章採用，直接請 AI 寫詳解（存成 w0d1_extra.json）。寫完這個字仍留在待採用，之後文章用到時會補「本篇用法」。</p><button onclick="nwLibCopy()" class="${btn} ${dnPri} !py-1 !px-2.5 text-xs">複製 AI 提示詞（${Math.min(nwLibEligible().length, NW_LIBCAP)}${nwLibEligible().length > NW_LIBCAP ? '／' + nwLibEligible().length : ''}）</button></div>` : '')
     + (tab === 'todo' ? nwSupSec() : '')
     + (rows.length ? `<div class="${card} px-4 divide-y divide-slate-100 dark:divide-slate-800">${rows.map(nwRow).join('')}</div>` : `<p class="text-sm text-slate-400 text-center py-8">${c.all ? '這個分類沒有項目。' : '還沒有新單字。在上面輸入或按 🎤 說出一個單字。'}</p>`);
 }
