@@ -1,0 +1,315 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "incentive",
+      "type": "word",
+      "ipa": "/ɪnˈsentɪv/",
+      "pos": "n.",
+      "zh": "誘因、獎勵",
+      "en": "something that makes people want to do something",
+      "note": "指能讓人更願意做某事的外在好處，如獎金、折扣、福利，多益常見於人資、銷售與行銷。和「動機」(motivation) 不同：motivation 是內心的動力，incentive 是外面給的誘因。",
+      "grammar_note": "incentive 是可數名詞，常接 to + V（an incentive to work harder），也可接 for + N。",
+      "forms": [
+        { "w": "incentives", "label": "複數", "pos": "n.", "zh": "誘因、獎勵（複數）", "ipa": "/ɪnˈsentɪvz/", "example": { "en": "The company offers incentives to staff who reach their sales goals.", "zh": "公司提供獎勵給達成銷售目標的員工。" } }
+      ],
+      "collocations": [
+        { "phrase": "offer an incentive", "zh": "提供誘因", "example": { "en": "We plan to offer an incentive to early buyers.", "zh": "我們打算提供誘因給早期購買的顧客。" } },
+        { "phrase": "financial incentive", "zh": "金錢上的獎勵", "example": { "en": "A financial incentive can make employees work harder.", "zh": "金錢上的獎勵可以讓員工更努力工作。" } },
+        { "phrase": "incentive program", "zh": "獎勵計畫", "example": { "en": "The incentive program rewards teams that finish projects early.", "zh": "這個獎勵計畫獎勵提早完成專案的團隊。" } }
+      ],
+      "examples": [
+        { "tag": "人資", "en": "A year-end bonus is a strong incentive to stay.", "zh": "年終獎金是留下來的強大誘因。" },
+        { "tag": "行銷", "en": "Free shipping gives customers an incentive to order online.", "zh": "免運費讓顧客更有誘因在網路上訂購。" },
+        { "tag": "政策", "en": "The city provides an incentive for companies to hire locally.", "zh": "市政府提供誘因，鼓勵公司在地僱用。" }
+      ],
+      "confusable": [
+        { "word": "motive", "diff": "motive 是一個人做某事背後的原因或目的；incentive 是外界給的獎勵。", "example": { "en": "His motive for changing jobs was a better salary.", "zh": "他換工作的動機是想要更好的薪水。" } }
+      ],
+      "similar": [
+        { "word": "motivation", "diff": "motivation 是內心想做的動力，incentive 是外在給的好處。", "example": { "en": "Praise from the boss gave her more motivation to work.", "zh": "老闆的稱讚給了她更多工作的動力。" } },
+        { "word": "reward", "diff": "reward 是做完事後給的獎賞，incentive 是事前用來吸引人的誘因。", "example": { "en": "Staff received a reward for finishing the project early.", "zh": "員工因提早完成專案而獲得獎賞。" } }
+      ],
+      "family": [
+        { "w": "bonus", "ipa": "/ˈboʊnəs/", "pos": "n.", "zh": "獎金", "example": { "en": "Every employee received a bonus at the end of the year.", "zh": "每位員工在年底都拿到了獎金。" } },
+        { "w": "discount", "ipa": "/ˈdɪskaʊnt/", "pos": "n.", "zh": "折扣", "example": { "en": "We offer a discount to customers who pay early.", "zh": "我們提供折扣給提早付款的顧客。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [
+        { "id": "nv_vmv6was021mr", "result": "added" }
+      ]
+    },
+    {
+      "text": "indicate",
+      "type": "word",
+      "ipa": "/ˈɪndɪkeɪt/",
+      "pos": "v.",
+      "zh": "指出、顯示、表示",
+      "en": "to show or point out something",
+      "note": "多益常見於報告、圖表與表單說明，如 The report indicates that...；表單上的 Please indicate... 則是「請註明」。",
+      "grammar_note": "indicate 後面可直接接名詞或 that 子句，不接 to V；要求對方填寫時常用 Please indicate + N。",
+      "forms": [
+        { "w": "indicates", "label": "第三人稱單數", "pos": "v.", "zh": "顯示、指出", "ipa": "/ˈɪndɪkeɪts/", "example": { "en": "The chart indicates that sales rose in the second quarter.", "zh": "圖表顯示第二季銷售上升。" } },
+        { "w": "indicated", "label": "過去式／過去分詞", "pos": "v.", "zh": "顯示、表示", "ipa": "/ˈɪndɪkeɪtɪd/", "example": { "en": "Our survey indicated that customers want faster delivery.", "zh": "我們的調查顯示顧客想要更快的送貨。" } },
+        { "w": "indicating", "label": "現在分詞", "pos": "v.", "zh": "顯示、表示", "ipa": "/ˈɪndɪkeɪtɪŋ/", "example": { "en": "The red light is indicating that the machine needs repair.", "zh": "紅燈顯示這台機器需要維修。" } }
+      ],
+      "collocations": [
+        { "phrase": "indicate that", "zh": "顯示…", "example": { "en": "Early results indicate that the new design is popular.", "zh": "初步結果顯示新設計很受歡迎。" } },
+        { "phrase": "as indicated", "zh": "如…所示", "example": { "en": "As indicated in the contract, payment is due in thirty days.", "zh": "如合約所示，款項須在三十天內付清。" } },
+        { "phrase": "indicate a preference", "zh": "表明偏好", "example": { "en": "Please indicate a preference for lunch on the form.", "zh": "請在表格上註明您午餐的偏好。" } }
+      ],
+      "examples": [
+        { "tag": "報告", "en": "The data indicates a strong demand for online services.", "zh": "資料顯示網路服務的需求很強。" },
+        { "tag": "表單", "en": "Please indicate your arrival time in the box below.", "zh": "請在下方欄位註明您的抵達時間。" },
+        { "tag": "電子郵件", "en": "He indicated that he would accept the offer next week.", "zh": "他表示下週會接受這個提議。" }
+      ],
+      "confusable": [
+        { "word": "indict", "diff": "indict 是「起訴」，c 不發音（/ɪnˈdaɪt/），和 indicate 意思無關。", "example": { "en": "The prosecutor decided to indict the former director.", "zh": "檢察官決定起訴那位前董事。" } }
+      ],
+      "similar": [
+        { "word": "show", "diff": "更口語、更常用，indicate 稍正式。", "example": { "en": "The chart shows that costs went down in May.", "zh": "圖表顯示五月的成本下降了。" } },
+        { "word": "suggest", "diff": "suggest 的語氣較弱，表示「暗示」，證據沒有 indicate 那麼確定。", "example": { "en": "The results suggest that customers prefer the smaller size.", "zh": "結果顯示顧客可能比較喜歡小尺寸。" } }
+      ],
+      "derived": [
+        { "w": "indication", "ipa": "/ˌɪndɪˈkeɪʃn/", "pos": "n.", "zh": "跡象、指示", "link": "indicate 去掉 e + -ion，變成名詞，像 create → creation。" },
+        { "w": "indicator", "ipa": "/ˈɪndɪkeɪtɚ/", "pos": "n.", "zh": "指標、指示燈", "link": "indicate 去掉 e + -or，表示「做事的東西」，像 actor、visitor。" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "指出、顯示", "en": "to show that something is true", "example": { "en": "Recent sales figures indicate a growing interest in our products.", "zh": "近期的銷售數字顯示大家對我們的產品越來越有興趣。" } },
+        { "pos": "v.", "zh": "表明、註明", "en": "to say or write something clearly", "distinguish": "主詞是人、要對方寫出或說出資訊時，用「註明、表明」；主詞是資料或圖表時，用「顯示」。", "example": { "en": "Please indicate which day you can attend the workshop.", "zh": "請註明您哪一天可以參加工作坊。" } }
+      ]
+    },
+    {
+      "text": "insight",
+      "type": "word",
+      "ipa": "/ˈɪnsaɪt/",
+      "pos": "n.",
+      "zh": "洞察、深入的了解",
+      "en": "a clear and deep understanding of something",
+      "note": "多益常見於市場研究、顧客分析與簡報，如 gain insight into customer needs；語氣正面，表示看得比表面更深。",
+      "grammar_note": "insight 常接 into：insight into the market。指一則具體的見解時可說 an insight，泛指時不加冠詞。",
+      "forms": [
+        { "w": "insights", "label": "複數", "pos": "n.", "zh": "見解（複數）", "ipa": "/ˈɪnsaɪts/", "example": { "en": "The survey gave us useful insights into customer habits.", "zh": "這份調查讓我們對顧客習慣有了有用的見解。" } }
+      ],
+      "collocations": [
+        { "phrase": "gain insight into", "zh": "深入了解", "example": { "en": "The visit helped us gain insight into the local market.", "zh": "這次拜訪讓我們更深入了解當地市場。" } },
+        { "phrase": "valuable insight", "zh": "寶貴的見解", "example": { "en": "Her report offers valuable insight for new managers.", "zh": "她的報告為新任經理提供了寶貴的見解。" } },
+        { "phrase": "provide insight", "zh": "提供洞見", "example": { "en": "The study provides insight into why sales dropped.", "zh": "這份研究讓人了解銷售下滑的原因。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Thank you for sharing your insight at today's meeting.", "zh": "謝謝您在今天的會議上分享您的見解。" },
+        { "tag": "培訓", "en": "The course gives new staff insight into our company culture.", "zh": "這門課讓新進員工了解我們的公司文化。" },
+        { "tag": "行銷", "en": "Customer feedback gives us insight we cannot get from numbers.", "zh": "顧客意見讓我們得到光看數字得不到的洞見。" }
+      ],
+      "confusable": [
+        { "word": "foresight", "diff": "foresight 是「遠見」，指預先看到未來；insight 是對現在事物看得深入。", "example": { "en": "The manager's foresight saved the company from a big loss.", "zh": "經理的遠見讓公司免於一大筆損失。" } }
+      ],
+      "similar": [
+        { "word": "understanding", "diff": "較一般的「了解」；insight 強調看得更深、更透徹。", "example": { "en": "A good understanding of the market helps us plan.", "zh": "對市場有良好的了解有助於我們規劃。" } },
+        { "word": "perspective", "diff": "指看事情的角度或觀點，不一定很深入。", "example": { "en": "Her perspective on the issue was very helpful.", "zh": "她對這個議題的觀點非常有幫助。" } }
+      ],
+      "derived": [
+        { "w": "insightful", "ipa": "/ˈɪnsaɪtfl/", "pos": "adj.", "zh": "有深刻見解的", "link": "insight + -ful，充滿見解的，像 helpful、useful。" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "code",
+      "type": "word",
+      "ipa": "/koʊd/",
+      "pos": "n.",
+      "zh": "規範；代碼、密碼；程式碼",
+      "en": "a set of rules, or a group of letters or numbers with a special meaning",
+      "note": "多益常見三種意思：規範（dress code、code of conduct）、代碼或密碼（access code）、程式碼（寫程式）。dress code 是公司對服裝的規定，屬於第一種「規範」。",
+      "forms": [
+        { "w": "codes", "label": "複數", "pos": "n.", "zh": "代碼（複數）", "ipa": "/koʊdz/", "example": { "en": "Please enter both codes before you open the safe.", "zh": "開保險箱前請輸入這兩組代碼。" } },
+        { "w": "coded", "label": "過去式／過去分詞", "pos": "v.", "zh": "編寫程式", "ipa": "/ˈkoʊdɪd/", "example": { "en": "Our team coded the new website in two weeks.", "zh": "我們的團隊兩週就寫好了新網站的程式。" } },
+        { "w": "coding", "label": "現在分詞", "pos": "v.", "zh": "編寫程式", "ipa": "/ˈkoʊdɪŋ/", "example": { "en": "She is coding a new app for our clients.", "zh": "她正在替我們的客戶寫一個新的應用程式。" } }
+      ],
+      "collocations": [
+        { "phrase": "dress code", "zh": "服裝規定", "example": { "en": "The dress code at our office is business casual.", "zh": "我們辦公室的服裝規定是商務休閒。" } },
+        { "phrase": "code of conduct", "zh": "行為準則", "example": { "en": "All new staff must read the code of conduct.", "zh": "所有新進員工都必須閱讀行為準則。" } },
+        { "phrase": "access code", "zh": "通行碼", "example": { "en": "Enter the access code to open the meeting room.", "zh": "輸入通行碼就能開啟會議室。" } }
+      ],
+      "examples": [
+        { "tag": "規定", "en": "Please follow the dress code when you visit clients.", "zh": "拜訪客戶時請遵守服裝規定。" },
+        { "tag": "安全", "en": "Your security code will be sent by text message.", "zh": "您的安全碼會以簡訊寄出。" },
+        { "tag": "科技", "en": "The engineers fixed an error in the code yesterday.", "zh": "工程師昨天修正了程式碼中的一個錯誤。" }
+      ],
+      "family": [
+        { "w": "password", "ipa": "/ˈpæswɝːd/", "pos": "n.", "zh": "密碼", "example": { "en": "Please change your password every three months.", "zh": "請每三個月更換一次密碼。" } },
+        { "w": "policy", "ipa": "/ˈpɑːləsi/", "pos": "n.", "zh": "政策、規定", "example": { "en": "The company policy forbids personal calls during meetings.", "zh": "公司規定禁止在會議中接私人電話。" } }
+      ],
+      "derived": [
+        { "w": "coder", "ipa": "/ˈkoʊdɚ/", "pos": "n.", "zh": "寫程式的人", "link": "code + -er，做事的人，像 worker、manager。" },
+        { "w": "decode", "ipa": "/diːˈkoʊd/", "pos": "v.", "zh": "解碼", "link": "de- + code，de- 表示相反，像 decrease，把密碼解開。" },
+        { "w": "encode", "ipa": "/ɪnˈkoʊd/", "pos": "v.", "zh": "編碼", "link": "en- + code，把資料變成代碼。" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/koʊd/", "zh": "規範；代碼；密碼", "example": { "en": "The code of conduct explains how staff should treat customers.", "zh": "行為準則說明員工應該如何對待顧客。" } },
+        { "pos": "v.", "ipa": "/koʊd/", "zh": "編寫程式；編碼", "example": { "en": "He can code a simple website in one day.", "zh": "他一天就能寫出一個簡單的網站。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "規範、守則", "en": "a set of rules about how to behave or dress", "example": { "en": "The hotel has a strict code for staff behavior.", "zh": "這間飯店對員工行為有嚴格的規範。" } },
+        { "pos": "n.", "zh": "代碼、密碼", "en": "a group of letters or numbers used to identify or open something", "distinguish": "後面或前面有 product、zip、access、security 等字時，通常指代碼或密碼。", "example": { "en": "Use the product code on the box to track your order.", "zh": "用盒子上的產品代碼來查詢您的訂單。" } },
+        { "pos": "n.", "zh": "程式碼", "en": "the written instructions for a computer program", "distinguish": "出現在軟體、工程師、網站的情境，不加冠詞，指一整串程式內容。", "example": { "en": "The new software has more than ten thousand lines of code.", "zh": "這套新軟體有超過一萬行的程式碼。" } }
+      ],
+      "nw_done": [
+        { "id": "nv_vmv8a23yzwhk", "result": "added" }
+      ]
+    },
+    {
+      "text": "protocol",
+      "type": "word",
+      "ipa": "/ˈproʊtəkɔːl/",
+      "pos": "n.",
+      "zh": "規程、禮節、協定",
+      "en": "an official set of rules about how to do something",
+      "note": "多益常見於醫療、資安與商務禮儀，如 safety protocol、follow protocol，指官方規定好的標準做法或禮節，語氣正式。",
+      "grammar_note": "指一般的禮節或規範時，protocol 不可數（follow protocol）；指具體的一套規程時可數（security protocols）。",
+      "forms": [
+        { "w": "protocols", "label": "複數", "pos": "n.", "zh": "規程（複數）", "ipa": "/ˈproʊtəkɔːlz/", "example": { "en": "All staff must learn the new security protocols this month.", "zh": "所有員工本月都必須學會新的資安規程。" } }
+      ],
+      "collocations": [
+        { "phrase": "follow protocol", "zh": "遵守規程", "example": { "en": "Please follow protocol when you report an accident.", "zh": "通報事故時請遵守規程。" } },
+        { "phrase": "safety protocol", "zh": "安全規程", "example": { "en": "The factory updated its safety protocol after the visit.", "zh": "工廠在這次視察後更新了安全規程。" } },
+        { "phrase": "security protocol", "zh": "資安規程", "example": { "en": "Our security protocol requires two passwords for every account.", "zh": "我們的資安規程要求每個帳號有兩組密碼。" } }
+      ],
+      "examples": [
+        { "tag": "禮儀", "en": "Business protocol says you should greet guests at the door.", "zh": "商務禮節是要在門口迎接賓客。" },
+        { "tag": "醫療", "en": "The nurse checked the patient according to hospital protocol.", "zh": "護理師依照醫院規程檢查病人。" },
+        { "tag": "會議", "en": "It is standard protocol to record every client meeting.", "zh": "錄下每場客戶會議是標準規程。" }
+      ],
+      "similar": [
+        { "word": "procedure", "diff": "procedure 指做事的步驟；protocol 強調正式、官方規定的做法。", "example": { "en": "Follow the procedure below to reset your password.", "zh": "請依照下列步驟重設密碼。" } },
+        { "word": "guideline", "diff": "guideline 是建議性的指引，protocol 的規定性更強。", "example": { "en": "We follow the guidelines from the head office.", "zh": "我們遵循總公司的指引。" } }
+      ],
+      "family": [
+        { "w": "policy", "ipa": "/ˈpɑːləsi/", "pos": "n.", "zh": "政策、方針", "example": { "en": "Our policy is to answer emails within one day.", "zh": "我們的方針是在一天內回覆郵件。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "regulation",
+      "type": "word",
+      "ipa": "/ˌreɡjəˈleɪʃn/",
+      "pos": "n.",
+      "zh": "規定、法規",
+      "en": "an official rule made by a government or a company",
+      "note": "多半用複數 regulations，指政府或公司訂的具體條文，如 safety regulations、customs regulations；多益常見於公告、法規遵循與進出口情境。",
+      "grammar_note": "指具體條文時可數，常用複數 regulations；後面常接 on、regarding 或 about 說明規定的內容，如 regulations on food safety。",
+      "forms": [
+        { "w": "regulations", "label": "複數", "pos": "n.", "zh": "規定、法規（複數）", "ipa": "/ˌreɡjəˈleɪʃnz/", "example": { "en": "New regulations will take effect at the start of next year.", "zh": "新規定將在明年年初生效。" } }
+      ],
+      "collocations": [
+        { "phrase": "safety regulations", "zh": "安全規定", "example": { "en": "Safety regulations require workers to wear helmets on site.", "zh": "安全規定要求工人在現場戴安全帽。" } },
+        { "phrase": "customs regulations", "zh": "海關規定", "example": { "en": "Customs regulations changed, so our shipment was delayed at the port.", "zh": "海關規定改變了，所以我們的貨物在港口被延誤。" } },
+        { "phrase": "comply with regulations", "zh": "遵守規定", "example": { "en": "All suppliers must comply with the local regulations.", "zh": "所有供應商都必須遵守當地規定。" } }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "Regulations regarding the lunch break were established last month.", "zh": "關於午休時間的規定已在上個月訂定。" },
+        { "tag": "會議", "en": "The new regulation limits how long visitors can stay.", "zh": "新規定限制訪客可以停留的時間。" },
+        { "tag": "電子郵件", "en": "Please review the regulations on travel expenses before you book.", "zh": "訂票前請先閱讀差旅費用的相關規定。" }
+      ],
+      "confusable": [
+        { "word": "regular", "diff": "regular 是形容詞，意思是「定期的、一般的」，和 regulation 拼法相近但意思不同。", "example": { "en": "We hold a regular meeting every Monday morning.", "zh": "我們每週一早上固定開會。" } }
+      ],
+      "similar": [
+        { "word": "rule", "diff": "rule 較口語、範圍更廣；regulation 多為正式、有條文的規定。", "example": { "en": "The rule says all visitors must sign in first.", "zh": "規定要求所有訪客先簽到。" } },
+        { "word": "policy", "diff": "policy 是公司或組織的方針；regulation 是具體條文，常由政府或上級訂定。", "example": { "en": "Our policy is to refund orders within seven days.", "zh": "我們的方針是在七天內退款。" } }
+      ],
+      "derived": [
+        { "w": "regulate", "ipa": "/ˈreɡjəleɪt/", "pos": "v.", "zh": "管制、規範", "link": "regulate 是詞幹；去掉 e 加 -ion 就變成 regulation，像 create → creation。" },
+        { "w": "regulator", "ipa": "/ˈreɡjəleɪtɚ/", "pos": "n.", "zh": "監管機構", "link": "regulate 去掉 e + -or，做管制的人或單位，像 actor、visitor。" },
+        { "w": "regulatory", "ipa": "/ˈreɡjələtɔːri/", "pos": "adj.", "zh": "管制的、監管的", "link": "regulate 去掉 e + -ory，形容詞，常和 agency（機構）一起出現。" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "規定、法規", "en": "an official rule that people must follow", "example": { "en": "The regulation requires all drivers to carry a valid license.", "zh": "這項規定要求所有司機都要攜帶有效駕照。" } },
+        { "pos": "n.", "zh": "管制、調節", "en": "control of something by rules", "distinguish": "不可數，後面常接 of，指「對某事物的管理」，而不是一條條的規則。", "example": { "en": "The regulation of food prices is difficult for the government.", "zh": "管制食品價格對政府來說很困難。" } }
+      ],
+      "nw_done": [
+        { "id": "nv_vmv8ayi4vwti", "result": "added" }
+      ]
+    },
+    {
+      "text": "severely",
+      "type": "word",
+      "ipa": "/sɪˈvɪrli/",
+      "pos": "adv.",
+      "zh": "嚴厲地、嚴重地",
+      "en": "in a very serious or strict way",
+      "note": "多益常見於公告、新聞與報告，用來修飾被動或結果性的動詞，如 be severely punished、severely damaged，語氣正式且強烈。",
+      "grammar_note": "severely 通常放在助動詞與過去分詞之間：will be severely punished；不要寫成 punished severe。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "severely punished", "zh": "受到嚴厲處罰", "example": { "en": "Anyone caught stealing from the shop will be severely punished.", "zh": "任何被抓到在店裡偷竊的人都會受到嚴厲處罰。" } },
+        { "phrase": "severely damaged", "zh": "嚴重受損", "example": { "en": "The storm severely damaged the warehouse near the port.", "zh": "暴風雨嚴重損壞了港口附近的倉庫。" } },
+        { "phrase": "severely limited", "zh": "嚴格受限", "example": { "en": "Our budget for travel is severely limited this quarter.", "zh": "本季我們的差旅預算非常有限。" } }
+      ],
+      "examples": [
+        { "tag": "公司規定", "en": "Those who share company data with outside parties will be severely punished.", "zh": "將公司資料洩漏給外部人士的人將受到嚴厲處罰。" },
+        { "tag": "新聞", "en": "Heavy rain severely hurt farm production in the south.", "zh": "大雨嚴重影響了南部的農業生產。" },
+        { "tag": "客服", "en": "We apologize that your package was severely delayed.", "zh": "很抱歉您的包裹嚴重延誤。" }
+      ],
+      "confusable": [
+        { "word": "sincerely", "diff": "sincerely 是「誠摯地」，拼法和 severely 相近，但意思完全不同。", "example": { "en": "We sincerely thank you for your support this year.", "zh": "我們由衷感謝您今年的支持。" } }
+      ],
+      "similar": [
+        { "word": "seriously", "diff": "更常用、語氣較不強烈，常說 seriously injured。", "example": { "en": "Two workers were seriously hurt in the accident.", "zh": "有兩名工人在意外中受了重傷。" } },
+        { "word": "strictly", "diff": "strictly 是「嚴格地」，用在規定與禁止，如 strictly forbidden。", "example": { "en": "Smoking is strictly forbidden inside the factory area.", "zh": "工廠區域內嚴格禁止吸菸。" } }
+      ],
+      "derived": [
+        { "w": "severe", "ipa": "/sɪˈvɪr/", "pos": "adj.", "zh": "嚴重的、嚴厲的", "link": "severe 是詞幹；severe + -ly 變成副詞，像 quick → quickly。" },
+        { "w": "severity", "ipa": "/sɪˈverəti/", "pos": "n.", "zh": "嚴重程度", "link": "severe + -ity，變成名詞，像 able → ability。" }
+      ],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [
+        { "id": "nv_vmv8b2bfy7ds", "result": "added" }
+      ]
+    },
+    {
+      "text": "refrain",
+      "type": "word",
+      "ipa": "/rɪˈfreɪn/",
+      "pos": "v.",
+      "zh": "克制、避免",
+      "en": "to stop yourself from doing something",
+      "note": "多益常見於公告與標示，如 Please refrain from using your phone，語氣比 Don't 客氣、正式。",
+      "grammar_note": "refrain 是不及物動詞，後面一定要接 from + V-ing（或名詞），不能直接接受詞，也不接 to V。",
+      "forms": [
+        { "w": "refrains", "label": "第三人稱單數", "pos": "v.", "zh": "克制、避免", "ipa": "/rɪˈfreɪnz/", "example": { "en": "He always refrains from commenting on private matters at work.", "zh": "他在工作中總是避免評論私人的事。" } },
+        { "w": "refrained", "label": "過去式／過去分詞", "pos": "v.", "zh": "克制、避免", "ipa": "/rɪˈfreɪnd/", "example": { "en": "She refrained from replying until she checked the facts.", "zh": "她在查證事實之前忍住沒有回覆。" } },
+        { "w": "refraining", "label": "現在分詞", "pos": "v.", "zh": "克制、避免", "ipa": "/rɪˈfreɪnɪŋ/", "example": { "en": "Thank you for refraining from smoking in this area.", "zh": "謝謝您在這個區域不吸菸。" } }
+      ],
+      "collocations": [
+        { "phrase": "refrain from smoking", "zh": "避免吸菸", "example": { "en": "Visitors are asked to refrain from smoking inside the building.", "zh": "請訪客不要在建築物內吸菸。" } },
+        { "phrase": "refrain from using", "zh": "避免使用", "example": { "en": "Passengers must refrain from using phones during takeoff.", "zh": "乘客在起飛時必須避免使用手機。" } },
+        { "phrase": "refrain from commenting", "zh": "避免發表評論", "example": { "en": "We ask all staff to refrain from commenting on the merger.", "zh": "我們要求所有員工不要對合併案發表評論。" } }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "Please refrain from taking photos in the exhibition hall.", "zh": "請勿在展覽廳內拍照。" },
+        { "tag": "會議", "en": "All attendees should refrain from interrupting the speaker during the talk.", "zh": "所有與會者在演講期間應避免打斷講者。" },
+        { "tag": "電子郵件", "en": "We kindly ask you to refrain from forwarding this message.", "zh": "我們誠懇請您不要轉寄這封訊息。" }
+      ],
+      "confusable": [
+        { "word": "restrain", "diff": "restrain 是「抑制、約束」，拼法相近，但用法不同。", "usage": "refrain 是不及物動詞，要接 from；restrain 是及物動詞，直接接受詞，如 restrain costs。", "example": { "en": "The company must restrain costs to stay in business.", "zh": "公司必須控制成本才能繼續經營。" } }
+      ],
+      "similar": [
+        { "word": "avoid", "diff": "avoid 後面直接接 V-ing，不加 from；語氣較中性。", "example": { "en": "Please avoid using the elevator during the fire drill.", "zh": "消防演習期間請避免使用電梯。" } },
+        { "phrase": "keep from", "diff": "keep from + V-ing 較口語，也可表示「讓…不要」。", "example": { "en": "Try to keep from checking email during the meeting.", "zh": "開會時盡量不要查看電子郵件。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

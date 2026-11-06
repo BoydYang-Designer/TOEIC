@@ -1,0 +1,230 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "referance letter",
+      "type": "phrase",
+      "zh": "推薦信",
+      "en": "a letter from a person who knows you and says good things about your work",
+      "note": "此處照原樣保留拼法，正確拼法是 reference letter。多益常見於求職或申請時，請前主管或老師寫信證明你的工作能力與品格。",
+      "pattern": "write / ask for + a reference letter + for / from + 人",
+      "grammar_note": "reference letter 是可數名詞，要寫 a reference letter 或 reference letters；說「幫誰寫」用 for，說「由誰寫」用 from。",
+      "examples": [
+        { "tag": "求職", "en": "Please attach a reference letter from your former manager.", "zh": "請附上前主管寫的推薦信。" },
+        { "tag": "電子郵件", "en": "Could you write a reference letter for me this week?", "zh": "你這週可以幫我寫一封推薦信嗎？" },
+        { "tag": "面試", "en": "I brought two reference letters to the interview today.", "zh": "我今天帶了兩封推薦信來面試。" },
+        { "tag": "人資", "en": "The company requires a reference letter before the final offer.", "zh": "公司在發出最終錄取通知前，需要一封推薦信。" }
+      ],
+      "similar": [
+        { "phrase": "recommendation letter", "diff": "意思幾乎相同，美式更常說，語氣稍微強調「推薦」。", "example": { "en": "He asked his professor for a recommendation letter.", "zh": "他向教授要了一封推薦信。" } },
+        { "phrase": "letter of reference", "diff": "同樣是推薦信，說法較正式，常見於書面文件。", "example": { "en": "She included a letter of reference with her application.", "zh": "她在申請資料中附上了一封推薦信。" } }
+      ],
+      "confusable": [
+        { "word": "cover letter", "diff": "cover letter 是求職者自己寫的求職信，reference letter 是別人寫來推薦你的信。", "example": { "en": "Your cover letter should explain why you want this job.", "zh": "你的求職信應該說明你為什麼想要這份工作。" } }
+      ]
+    },
+    {
+      "text": "excutive",
+      "type": "word",
+      "ipa": "/ɪɡˈzekjətɪv/",
+      "pos": "n.",
+      "zh": "高階主管；行政的",
+      "en": "a person who has an important management job in a company",
+      "note": "此處照原樣保留拼法，正確拼法是 executive。多益常見於 chief executive、sales executive 與 executive meeting，指公司的高階主管，或形容「主管級的」。",
+      "forms": [
+        { "w": "executives", "label": "複數", "pos": "n.", "zh": "主管（複數）", "ipa": "/ɪɡˈzekjətɪvz/", "example": { "en": "Several executives will attend the board meeting on Monday morning.", "zh": "幾位主管會出席星期一早上的董事會。" } }
+      ],
+      "collocations": [
+        { "phrase": "chief executive", "zh": "執行長", "example": { "en": "The chief executive announced a new plan to the staff.", "zh": "執行長向員工宣布了一項新計畫。" } },
+        { "phrase": "senior executive", "zh": "資深主管", "example": { "en": "Every senior executive must approve the budget before it is sent.", "zh": "每位資深主管都必須在預算送出前核准。" } },
+        { "phrase": "executive summary", "zh": "摘要（報告開頭的重點整理）", "example": { "en": "Please read the executive summary before the meeting starts.", "zh": "請在會議開始前先讀這份摘要。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The executive team meets every Monday to review sales results.", "zh": "主管團隊每週一開會檢討銷售成績。" },
+        { "tag": "電子郵件", "en": "Please forward this report to the executive in charge of marketing.", "zh": "請把這份報告轉寄給負責行銷的主管。" },
+        { "tag": "職稱", "en": "She works as an account executive at an advertising firm.", "zh": "她在一家廣告公司擔任客戶業務專員。" },
+        { "tag": "出差", "en": "He booked an executive room at the hotel for the trip.", "zh": "他為這趟出差在飯店訂了一間行政客房。" }
+      ],
+      "confusable": [
+        { "word": "execute", "diff": "execute 是動詞，意思是「執行」；executive 是名詞（主管）或形容詞（主管級的）。", "usage": "execute 是動詞，後面接計畫、命令等受詞；executive 指人或用來修飾名詞。", "example": { "en": "The team will execute the plan next month.", "zh": "團隊下個月會執行這項計畫。" } }
+      ],
+      "family": [
+        { "w": "manager", "pos": "n.", "zh": "經理", "ipa": "/ˈmænɪdʒɚ/", "example": { "en": "The manager approved our travel request this morning.", "zh": "經理今天早上核准了我們的出差申請。" } },
+        { "w": "director", "pos": "n.", "zh": "主任、董事", "ipa": "/dəˈrektɚ/", "example": { "en": "The director will speak at the annual meeting.", "zh": "董事將在年度會議上發言。" } }
+      ],
+      "derived": [
+        { "w": "execute", "pos": "v.", "zh": "執行", "ipa": "/ˈeksɪkjuːt/", "link": "詞幹 execute，意思是把計畫真的做出來，是這一族的基礎動詞" },
+        { "w": "execution", "pos": "n.", "zh": "執行", "ipa": "/ˌeksɪˈkjuːʃn/", "link": "execute + -ion，把「執行」這個動作變成名詞，像 decide → decision" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ɪɡˈzekjətɪv/", "zh": "高階主管", "example": { "en": "The company hired a new executive to lead the sales team.", "zh": "公司聘請了一位新主管來帶領業務團隊。" } },
+        { "pos": "adj.", "ipa": "/ɪɡˈzekjətɪv/", "zh": "主管級的、行政的", "example": { "en": "The executive committee will vote on the new budget.", "zh": "執行委員會將針對新預算進行表決。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "高階主管", "en": "a senior person who makes big decisions in a company", "example": { "en": "The executives agreed to open a new office in Tokyo.", "zh": "主管們同意在東京開設新辦公室。" } },
+        { "pos": "n.", "zh": "業務專員（職稱）", "en": "a person with a certain job in a company, like sales or marketing", "distinguish": "前面通常有 sales、account 等字，表示負責某類工作的職員，不一定是高階主管。", "example": { "en": "Our sales executive visited three clients in Taipei this week.", "zh": "我們的業務專員這週拜訪了三位台北的客戶。" } }
+      ]
+    },
+    {
+      "text": "plentiful",
+      "type": "word",
+      "ipa": "/ˈplentɪfl/",
+      "pos": "adj.",
+      "zh": "豐富的、充足的",
+      "en": "more than enough; existing in large amounts",
+      "note": "多用在 supply、food、resources 等名詞前，或用 be plentiful 描述資源、工作機會很多；比 enough 更強調「很多」。",
+      "forms": [
+        { "w": "more plentiful", "label": "比較級", "pos": "adj.", "zh": "更充足的", "ipa": "/mɔːr ˈplentɪfl/", "example": { "en": "Fresh fruit is more plentiful in summer than in winter.", "zh": "新鮮水果在夏天比冬天更充足。" } },
+        { "w": "most plentiful", "label": "最高級", "pos": "adj.", "zh": "最充足的", "ipa": "/moʊst ˈplentɪfl/", "example": { "en": "Rice is the most plentiful crop in this region.", "zh": "稻米是這個地區最豐富的作物。" } }
+      ],
+      "collocations": [
+        { "phrase": "plentiful supply", "zh": "充足的供應", "example": { "en": "The store keeps a plentiful supply of printer paper.", "zh": "這家店備有充足的影印紙。" } },
+        { "phrase": "plentiful resources", "zh": "豐富的資源", "example": { "en": "The new factory has plentiful resources for large orders.", "zh": "新工廠有足夠的資源處理大量訂單。" } },
+        { "phrase": "be plentiful", "zh": "很多、很充足", "example": { "en": "Job openings are plentiful in the technology industry now.", "zh": "科技業目前的職缺很多。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "Raw materials are plentiful this year, so prices have dropped.", "zh": "今年原料充足，所以價格下降了。" },
+        { "tag": "職場", "en": "Parking spaces are plentiful near our office building.", "zh": "我們辦公大樓附近的停車位很多。" },
+        { "tag": "電子郵件", "en": "We are happy to report that stock is plentiful this season.", "zh": "我們很高興告知，本季庫存充足。" }
+      ],
+      "confusable": [
+        { "word": "plenty", "diff": "plenty 是名詞或代名詞，表示「大量」；plentiful 是形容詞，表示「很充足的」。", "usage": "plenty 常用 plenty of + 名詞；plentiful 直接修飾名詞或接在 be 動詞後面，不加 of。", "example": { "en": "We have plenty of time to finish the report.", "zh": "我們有很多時間完成這份報告。" } }
+      ],
+      "similar": [
+        { "phrase": "abundant", "diff": "語氣較正式，常用來形容自然資源或大量的供給。", "example": { "en": "The region has abundant water and rich farmland.", "zh": "這個地區有充沛的水源和肥沃的農地。" } },
+        { "phrase": "sufficient", "diff": "表示「足夠」而已，不一定很多；plentiful 強調數量很多。", "example": { "en": "We have sufficient funds to start the project.", "zh": "我們有足夠的資金啟動這個專案。" } }
+      ],
+      "family": [
+        { "w": "ample", "pos": "adj.", "zh": "充裕的", "ipa": "/ˈæmpl/", "example": { "en": "There is ample space for all the new desks.", "zh": "有充裕的空間放所有新桌子。" } },
+        { "w": "scarce", "pos": "adj.", "zh": "稀少的（反義）", "ipa": "/skers/", "example": { "en": "Skilled workers are scarce in this small town.", "zh": "這個小鎮上技術工人很少。" } }
+      ],
+      "derived": [
+        { "w": "plenty", "pos": "n.", "zh": "大量", "ipa": "/ˈplenti/", "link": "詞幹 plent-，plenty 是名詞，表示「很多」，是這一族的基礎字" },
+        { "w": "plentifully", "pos": "adv.", "zh": "豐富地、大量地", "ipa": "/ˈplentɪfəli/", "link": "plentiful + -ly，形容詞變副詞，像 quick → quickly" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "apprentice",
+      "type": "word",
+      "ipa": "/əˈprentɪs/",
+      "pos": "n.",
+      "zh": "學徒",
+      "en": "a person who learns a job by working with a skilled worker",
+      "note": "多益常見於製造、建築、餐飲等需要學技術的工作，指跟著師傅邊做邊學、通常有固定期間的人；常搭配 apprentice program。",
+      "forms": [
+        { "w": "apprentices", "label": "複數", "pos": "n.", "zh": "學徒（複數）", "ipa": "/əˈprentɪsɪz/", "example": { "en": "The factory hired six apprentices to learn machine repair.", "zh": "工廠雇用了六名學徒來學機器維修。" } }
+      ],
+      "collocations": [
+        { "phrase": "apprentice program", "zh": "學徒計畫", "example": { "en": "Our apprentice program lasts for two years.", "zh": "我們的學徒計畫為期兩年。" } },
+        { "phrase": "work as an apprentice", "zh": "擔任學徒", "example": { "en": "He worked as an apprentice at a local car shop.", "zh": "他曾在當地一家汽車修理店當學徒。" } },
+        { "phrase": "train an apprentice", "zh": "訓練學徒", "example": { "en": "Ms. Lin will train the new apprentice next week.", "zh": "林小姐下週會訓練新來的學徒。" } }
+      ],
+      "examples": [
+        { "tag": "徵才", "en": "We are looking for an apprentice to join our kitchen team.", "zh": "我們正在找一位學徒加入廚房團隊。" },
+        { "tag": "面試", "en": "He applied to be an apprentice at a design studio.", "zh": "他申請到一家設計工作室當學徒。" },
+        { "tag": "電子郵件", "en": "Your apprentice will start work on the first of March.", "zh": "您的學徒將在三月一日開始工作。" }
+      ],
+      "confusable": [
+        { "word": "intern", "diff": "intern 多半是學生，做短期實習；apprentice 是長期跟著師傅學技術的人。", "example": { "en": "The summer intern helped us organize customer files.", "zh": "暑期實習生幫我們整理了客戶檔案。" } }
+      ],
+      "family": [
+        { "w": "trainee", "pos": "n.", "zh": "受訓人員", "ipa": "/treɪˈniː/", "example": { "en": "Each trainee gets a guide for the first week.", "zh": "每位受訓人員第一週都會拿到一本指南。" } },
+        { "w": "assistant", "pos": "n.", "zh": "助理", "ipa": "/əˈsɪstənt/", "example": { "en": "My assistant will send you the schedule today.", "zh": "我的助理今天會把時程表寄給你。" } }
+      ],
+      "derived": [
+        { "w": "apprenticeship", "pos": "n.", "zh": "學徒期、學徒訓練", "ipa": "/əˈprentɪsʃɪp/", "link": "apprentice + -ship，表示身分或時期，像 friendship、leadership" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "lay out",
+      "type": "phrase",
+      "zh": "詳細說明；擺放；排版",
+      "en": "to explain something clearly, or to arrange things in a plan",
+      "note": "多益最常見的是「有條理地說明、列出（計畫、條款）」，如 lay out a plan；也可指擺放物品或設計版面。",
+      "pattern": "lay out + N（計畫／條款／文件）",
+      "grammar_note": "lay out 可以分開用，名詞放中間：lay the plan out；代名詞一定放中間：lay it out。lay 的三態是 lay–laid–laid，不要和 lie 搞混。",
+      "examples": [
+        { "tag": "會議", "en": "The manager will lay out the budget plan at the meeting.", "zh": "經理會在會議上詳細說明預算計畫。" },
+        { "tag": "電子郵件", "en": "Our email lays out the rules for using the new system.", "zh": "我們的郵件說明了使用新系統的規則。" },
+        { "tag": "設計", "en": "Designers laid out the product photos on the first page.", "zh": "設計師把產品照片排在第一頁。" },
+        { "tag": "活動", "en": "Please lay out the documents on the table before the guests arrive.", "zh": "請在客人抵達前把文件擺在桌上。" },
+        { "tag": "合約", "en": "The contract lays out each person's duties clearly.", "zh": "合約清楚列出每個人的職責。" }
+      ],
+      "similar": [
+        { "phrase": "explain", "diff": "意思較一般；lay out 強調有條理地把整個計畫或內容一項一項列出來。", "example": { "en": "Can you explain the new schedule to the team?", "zh": "你可以向團隊說明新的時程嗎？" } },
+        { "phrase": "set out", "diff": "意思接近，語氣稍微正式，常用於報告或文件。", "example": { "en": "The report sets out three ways to cut costs.", "zh": "這份報告列出了三種降低成本的方法。" } }
+      ],
+      "confusable": [
+        { "word": "lay off", "diff": "lay off 是「資遣員工」，和 lay out 意思完全不同。", "example": { "en": "The company had to lay off ten workers last month.", "zh": "公司上個月不得不資遣十名員工。" } }
+      ]
+    },
+    {
+      "text": "pay raise",
+      "type": "phrase",
+      "zh": "加薪",
+      "en": "an increase in the money you earn from your job",
+      "note": "美式常說 pay raise，英式多說 pay rise；多益常見於績效評估、薪資協商與公司公告。",
+      "pattern": "get / give + 人 + a pay raise",
+      "grammar_note": "pay raise 是可數名詞，要寫 a pay raise；要求加薪說 ask for a pay raise，不說 ask a pay raise。",
+      "examples": [
+        { "tag": "面試", "en": "I would like to ask about the chance of a pay raise.", "zh": "我想請問有沒有加薪的機會。" },
+        { "tag": "績效", "en": "Good sales results helped her earn a pay raise this year.", "zh": "良好的銷售成績讓她今年獲得加薪。" },
+        { "tag": "公告", "en": "All staff will receive a three percent pay raise in July.", "zh": "全體員工將在七月獲得百分之三的加薪。" },
+        { "tag": "電子郵件", "en": "Thank you for approving my pay raise request.", "zh": "謝謝您核准我的加薪申請。" }
+      ],
+      "similar": [
+        { "phrase": "salary increase", "diff": "說法較正式，常用在書面文件與公告。", "example": { "en": "The salary increase will start on the first of April.", "zh": "加薪將從四月一日開始。" } },
+        { "phrase": "pay increase", "diff": "美式與英式都能用，語氣中性。", "example": { "en": "The union asked for a pay increase for all workers.", "zh": "工會為全體員工要求加薪。" } }
+      ],
+      "confusable": [
+        { "word": "bonus", "diff": "bonus 是一次性的獎金，pay raise 是把固定薪資調高。", "example": { "en": "She received a bonus for finishing the project early.", "zh": "她因提早完成專案而拿到一筆獎金。" } }
+      ]
+    },
+    {
+      "text": "practical experiance",
+      "type": "phrase",
+      "zh": "實務經驗",
+      "en": "knowledge you get by doing real work, not only by studying",
+      "note": "此處照原樣保留拼法，正確拼法是 practical experience。多益常見於徵才廣告與履歷，如 requires two years of practical experience。",
+      "pattern": "have / gain + practical experience + in + 領域",
+      "grammar_note": "experience 指「經驗」時是不可數名詞，不加 s，也不說 an experience；只有指某一次經歷時才可數。",
+      "examples": [
+        { "tag": "徵才", "en": "This job requires at least two years of practical experience.", "zh": "這份工作至少需要兩年的實務經驗。" },
+        { "tag": "履歷", "en": "I gained practical experience in sales during my internship.", "zh": "我在實習期間累積了業務的實務經驗。" },
+        { "tag": "面試", "en": "Do you have practical experience with customer service?", "zh": "你有客戶服務的實務經驗嗎？" },
+        { "tag": "培訓", "en": "The course gives students practical experience before graduation.", "zh": "這門課讓學生在畢業前累積實務經驗。" }
+      ],
+      "similar": [
+        { "phrase": "hands-on experience", "diff": "更口語，強調「親手做過」。", "example": { "en": "We need someone with hands-on experience in marketing.", "zh": "我們需要有行銷實戰經驗的人。" } },
+        { "phrase": "work experience", "diff": "泛指工作經歷，不一定強調實際操作的技能。", "example": { "en": "Please list your work experience on the form.", "zh": "請在表格上列出你的工作經歷。" } }
+      ]
+    },
+    {
+      "text": "proof of employment",
+      "type": "phrase",
+      "zh": "在職證明",
+      "en": "a document that shows you work for a company",
+      "note": "多益常見於申請貸款、簽證、租屋時，要求提供公司開立的證明文件。",
+      "pattern": "proof of + N",
+      "grammar_note": "proof 在這裡是不可數名詞，不說 a proof of employment，也不加 s；要指文件可說 a letter as proof of employment。",
+      "examples": [
+        { "tag": "銀行", "en": "The bank asked me for proof of employment for the loan.", "zh": "銀行要求我提供在職證明以辦理貸款。" },
+        { "tag": "簽證", "en": "You must show proof of employment when you apply for a visa.", "zh": "申請簽證時必須出示在職證明。" },
+        { "tag": "人資", "en": "Please contact HR to get proof of employment today.", "zh": "請今天聯絡人資部門取得在職證明。" },
+        { "tag": "租屋", "en": "The landlord needs proof of employment from each new tenant.", "zh": "房東需要每位新房客提供在職證明。" }
+      ],
+      "similar": [
+        { "phrase": "employment verification letter", "diff": "更正式，指由公司開立、確認你在職的信件。", "example": { "en": "HR sent me an employment verification letter yesterday.", "zh": "人資昨天寄給我一封在職證明信。" } },
+        { "phrase": "certificate of employment", "diff": "指正式的在職證明書，常見於申請文件。", "example": { "en": "She submitted a certificate of employment with her application.", "zh": "她在申請時附上了在職證明書。" } }
+      ],
+      "confusable": [
+        { "word": "proof of purchase", "diff": "proof of purchase 是「購買證明」（如發票、收據），和工作無關。", "example": { "en": "Keep your proof of purchase in case you need a refund.", "zh": "請保留購買證明，以防需要退款。" } }
+      ]
+    }
+  ]
+}
