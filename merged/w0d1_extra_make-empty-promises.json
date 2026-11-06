@@ -1,0 +1,29 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "make empty promises",
+      "type": "phrase",
+      "zh": "做出空頭承諾、開空頭支票",
+      "en": "to say you will do something when you do not really plan to do it",
+      "note": "多益商務情境常見於客戶關係、行銷與管理，指說得好聽卻不打算做或做不到，帶有批評的語氣。多半用在「不要這樣做」或「失去信任」的句子裡。",
+      "pattern": "make empty promises (to + 人／about + N)",
+      "grammar_note": "承諾要用動詞 make 搭配（make a promise），不用 do 或 give；empty promises 指一再說了不做，通常用複數。",
+      "examples": [
+        { "tag": "客戶", "en": "Our sales team never makes empty promises about delivery dates.", "zh": "我們的業務團隊從不對交貨日期做空頭承諾。" },
+        { "tag": "會議", "en": "Please do not make empty promises to clients about our schedule.", "zh": "請不要對客戶就我們的時程做出空頭承諾。" },
+        { "tag": "管理", "en": "Employees lose trust when managers make empty promises about pay raises.", "zh": "當主管對加薪開空頭支票時，員工會失去信任。" },
+        { "tag": "電子郵件", "en": "We apologize for the delay and will not make empty promises again.", "zh": "我們為延誤致歉，也不會再做空頭承諾。" }
+      ],
+      "similar": [
+        { "phrase": "all talk and no action", "diff": "all talk and no action 是形容人光說不做；make empty promises 強調「做出承諾」這個動作。", "example": { "en": "The new supplier seems all talk and no action so far.", "zh": "到目前為止，這家新供應商似乎只會說不會做。" } },
+        { "phrase": "give false hope", "diff": "give false hope 強調讓對方產生不實的期待，不一定有明確的承諾。", "example": { "en": "Do not give false hope to staff about job security.", "zh": "不要讓員工對工作保障抱持不實的希望。" } }
+      ],
+      "confusable": [
+        { "phrase": "keep a promise", "diff": "keep a promise 是「履行承諾」，和空頭承諾剛好相反。", "example": { "en": "A good supplier always keeps a promise about delivery dates.", "zh": "好的供應商總是遵守交貨日期的承諾。" } },
+        { "phrase": "make a promise", "diff": "make a promise 只是中性的「做出承諾」；加了 empty 才表示沒有誠意或做不到。", "example": { "en": "The manager made a promise to review the plan this week.", "zh": "經理承諾這週會審查這份計畫。" } }
+      ]
+    }
+  ]
+}

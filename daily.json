@@ -6384,6 +6384,2374 @@
           ],
           "pos_uses": [],
           "senses": []
+        },
+        {
+          "text": "give in",
+          "type": "phrase",
+          "zh": "讓步、屈服、同意",
+          "en": "to stop saying no and agree to what someone wants",
+          "note": "多益常見於談判與客訴情境，指在對方堅持之下被迫讓步，語氣帶有「本來不想答應」的感覺；也可以指向壓力或誘惑低頭。",
+          "pattern": "give in (to + N／V-ing)",
+          "grammar_note": "give in 後面要接對象時要加 to（give in to the demand），這個 to 是介系詞，後面接名詞或 V-ing；give in 本身不直接接受詞。",
+          "examples": [
+            {
+              "tag": "談判",
+              "en": "After long talks, the supplier finally gave in to our price request.",
+              "zh": "經過冗長的談判，供應商終於接受了我們的報價要求。"
+            },
+            {
+              "tag": "客訴",
+              "en": "We should not give in to every demand from unhappy customers.",
+              "zh": "我們不應該對不滿意顧客的每個要求都讓步。"
+            },
+            {
+              "tag": "會議",
+              "en": "The manager refused to give in, even when the team disagreed.",
+              "zh": "即使團隊不同意，經理還是不肯讓步。"
+            },
+            {
+              "tag": "行銷",
+              "en": "Many shoppers give in to the temptation of big discounts.",
+              "zh": "許多購物者抵擋不了大折扣的誘惑。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "agree to",
+              "diff": "agree to 是主動、爽快地同意；give in 是在壓力下勉強同意。",
+              "example": {
+                "en": "The client agreed to a later delivery date without any problem.",
+                "zh": "客戶毫無問題地同意了較晚的交貨日期。"
+              }
+            },
+            {
+              "phrase": "back down",
+              "diff": "back down 強調收回原本堅持的立場；give in 強調接受對方的要求。",
+              "example": {
+                "en": "The union backed down and accepted the company's new offer.",
+                "zh": "工會讓步並接受了公司的新提議。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "give up",
+              "diff": "give up 是放棄、不再嘗試；give in 是同意對方的要求。",
+              "example": {
+                "en": "Do not give up before you have tried every option.",
+                "zh": "在試過所有選項之前，不要放棄。"
+              }
+            },
+            {
+              "phrase": "give out",
+              "diff": "give out 是分發，或指東西用完；和讓步無關。",
+              "example": {
+                "en": "Please give out the handouts before the meeting starts.",
+                "zh": "請在會議開始前把講義發下去。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "realistic",
+          "type": "word",
+          "ipa": "/ˌriːəˈlɪstɪk/",
+          "pos": "adj.",
+          "zh": "切合實際的、務實的",
+          "en": "possible to do or reach in real life",
+          "note": "多益常用來形容目標、預算、期限、預期「是否實際可行」，反義字是 unrealistic。用在圖片或模型時，則是「逼真」的意思。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "realistic goal",
+              "zh": "切合實際的目標",
+              "example": {
+                "en": "Our team set a realistic goal for next quarter's sales.",
+                "zh": "我們團隊為下一季的銷售訂了一個切合實際的目標。"
+              }
+            },
+            {
+              "phrase": "realistic expectations",
+              "zh": "合理的期待",
+              "example": {
+                "en": "Managers should give new staff realistic expectations about the job.",
+                "zh": "主管應該讓新進員工對工作有合理的期待。"
+              }
+            },
+            {
+              "phrase": "realistic budget",
+              "zh": "切合實際的預算",
+              "example": {
+                "en": "A realistic budget must include shipping and insurance costs.",
+                "zh": "切合實際的預算必須包含運費和保險費。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "We need a realistic schedule before we promise a date to clients.",
+              "zh": "在向客戶承諾日期之前，我們需要一份切實可行的時程表。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Thank you for your offer, but the price is not realistic for us.",
+              "zh": "謝謝您的報價，但這個價格對我們來說不切實際。"
+            },
+            {
+              "tag": "專案",
+              "en": "Be realistic about how much work one person can finish.",
+              "zh": "要實際評估一個人能完成多少工作。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "real",
+              "diff": "real 是「真的、真實的」；realistic 是「切合實際、可行的」。",
+              "example": {
+                "en": "The problem is real, so we need a realistic solution.",
+                "zh": "問題是真的，所以我們需要一個切實可行的解決辦法。"
+              }
+            },
+            {
+              "word": "reasonable",
+              "diff": "reasonable 是「合理的」（價格、要求）；realistic 強調做得到、符合現實。",
+              "example": {
+                "en": "They offered a reasonable price for the whole order.",
+                "zh": "他們為整筆訂單開出了合理的價格。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "practical",
+              "pos": "adj.",
+              "zh": "實用的、可行的",
+              "ipa": "/ˈpræktɪkl/",
+              "example": {
+                "en": "We need a practical way to cut shipping costs.",
+                "zh": "我們需要一個實用的方法來降低運費。"
+              }
+            },
+            {
+              "w": "feasible",
+              "pos": "adj.",
+              "zh": "可行的",
+              "ipa": "/ˈfiːzəbl/",
+              "example": {
+                "en": "The plan looks feasible if we hire two more people.",
+                "zh": "如果我們再雇兩個人，這個計畫看起來可行。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "real",
+              "ipa": "/ˈriːəl/",
+              "pos": "adj.",
+              "zh": "真實的",
+              "link": "字根：real 是「真的」，realistic 就是 real + -istic（像…的），貼近現實的。"
+            },
+            {
+              "w": "reality",
+              "ipa": "/riˈæləti/",
+              "pos": "n.",
+              "zh": "現實",
+              "link": "real + -ity，變成名詞，像 quality、security。"
+            },
+            {
+              "w": "realize",
+              "ipa": "/ˈriːəlaɪz/",
+              "pos": "v.",
+              "zh": "體認到、實現",
+              "link": "real + -ize，「使成為真的」，像 organize、finalize。"
+            },
+            {
+              "w": "realistically",
+              "ipa": "/ˌriːəˈlɪstɪkli/",
+              "pos": "adv.",
+              "zh": "實際地、務實地",
+              "link": "realistic + -ally，變成副詞，像 basically、automatically。"
+            },
+            {
+              "w": "unrealistic",
+              "ipa": "/ˌʌnriːəˈlɪstɪk/",
+              "pos": "adj.",
+              "zh": "不切實際的",
+              "link": "un-（不）+ realistic，像 unhappy、unable。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "adj.",
+              "zh": "切合實際的、可行的",
+              "en": "sensible and possible to achieve",
+              "example": {
+                "en": "It is not realistic to expect results within one week.",
+                "zh": "期待一週內就看到成果是不切實際的。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "zh": "逼真的",
+              "en": "looking like the real thing",
+              "distinguish": "修飾圖片、模型、描寫時多指「逼真」；修飾計畫、目標、預算時指「可行」。",
+              "example": {
+                "en": "The product photos look very realistic on the new website.",
+                "zh": "這些產品照片在新網站上看起來非常逼真。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "immortality",
+          "type": "word",
+          "ipa": "/ˌɪmɔːrˈtæləti/",
+          "pos": "n.",
+          "zh": "不朽、永生",
+          "en": "the state of living forever or never being forgotten",
+          "note": "多益閱讀偶爾出現在人物報導或品牌故事，指「永生」或「名留後世」；商務情境裡多半是比喻用法。",
+          "grammar_note": "immortality 是不可數名詞，不加 s，也不加 a／an。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "achieve immortality",
+              "zh": "達到不朽",
+              "example": {
+                "en": "Great inventors often achieve immortality through their products.",
+                "zh": "偉大的發明家常因自己的產品而名垂不朽。"
+              }
+            },
+            {
+              "phrase": "dream of immortality",
+              "zh": "夢想永生",
+              "example": {
+                "en": "Many people dream of immortality, but nobody has found the secret.",
+                "zh": "許多人夢想永生，但沒有人找到祕訣。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "報導",
+              "en": "The artist's work gave him a kind of immortality after his death.",
+              "zh": "這位藝術家的作品讓他在死後得到某種不朽。"
+            },
+            {
+              "tag": "品牌",
+              "en": "Some founders hope their brand will bring them immortality.",
+              "zh": "有些創辦人希望自己的品牌能讓他們名垂青史。"
+            },
+            {
+              "tag": "演講",
+              "en": "No company can promise immortality, but good service lasts a long time.",
+              "zh": "沒有公司能保證永存，但好的服務能長久留存。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "immorality",
+              "diff": "拼法只差一個 m；immorality 是「不道德」，immortality 是「不朽」。",
+              "example": {
+                "en": "The article discusses the immorality of hiding product risks.",
+                "zh": "這篇文章討論隱瞞產品風險的不道德。"
+              }
+            },
+            {
+              "word": "mortality",
+              "diff": "mortality 是「死亡率、必死性」，意思和 immortality 相反。",
+              "example": {
+                "en": "The report shows a drop in child mortality last year.",
+                "zh": "報告顯示去年兒童死亡率下降。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "legacy",
+              "pos": "n.",
+              "zh": "遺產、傳承",
+              "ipa": "/ˈlegəsi/",
+              "example": {
+                "en": "The founder left a strong legacy in the company.",
+                "zh": "創辦人在公司留下了深遠的影響。"
+              }
+            },
+            {
+              "w": "fame",
+              "pos": "n.",
+              "zh": "名聲",
+              "ipa": "/feɪm/",
+              "example": {
+                "en": "The firm gained fame for its fast delivery.",
+                "zh": "這家公司以快速交貨聞名。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "mortal",
+              "ipa": "/ˈmɔːrtl/",
+              "pos": "adj.",
+              "zh": "會死的",
+              "link": "字根 mort 是「死」，mortal 就是會死的。"
+            },
+            {
+              "w": "immortal",
+              "ipa": "/ɪˈmɔːrtl/",
+              "pos": "adj.",
+              "zh": "不朽的、永生的",
+              "link": "im-（不）+ mortal，不會死的；再加 -ity 就變成 immortality。"
+            },
+            {
+              "w": "mortality",
+              "ipa": "/mɔːrˈtæləti/",
+              "pos": "n.",
+              "zh": "死亡率",
+              "link": "mortal + -ity，變成名詞，像 reality、quality。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "astonishing",
+          "type": "word",
+          "lemma": "astonish",
+          "ipa": "/əˈstɑːnɪʃɪŋ/",
+          "pos": "adj.",
+          "zh": "令人驚訝的、驚人的",
+          "en": "very surprising, often in a good way",
+          "note": "多益常用來形容成長、速度、成果「驚人」，修飾的是事物；如果要說「人感到驚訝」，要用 astonished。",
+          "forms": [
+            {
+              "w": "astonishes",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "使震驚",
+              "ipa": "/əˈstɑːnɪʃɪz/",
+              "example": {
+                "en": "The speed of the new machine astonishes every visitor.",
+                "zh": "這台新機器的速度讓每位訪客都感到驚訝。"
+              }
+            },
+            {
+              "w": "astonished",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "使震驚",
+              "ipa": "/əˈstɑːnɪʃt/",
+              "example": {
+                "en": "Customers were astonished by how fast the repair was done.",
+                "zh": "顧客對維修完成的速度之快感到驚訝。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "an astonishing result",
+              "zh": "驚人的結果",
+              "example": {
+                "en": "The survey produced an astonishing result for the marketing team.",
+                "zh": "這份調查為行銷團隊帶來了驚人的結果。"
+              }
+            },
+            {
+              "phrase": "at an astonishing rate",
+              "zh": "以驚人的速度",
+              "example": {
+                "en": "Online sales are growing at an astonishing rate this year.",
+                "zh": "今年網路銷售正以驚人的速度成長。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "報告",
+              "en": "Our profits rose by an astonishing forty percent last quarter.",
+              "zh": "我們的獲利在上一季驚人地成長了百分之四十。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Thank you for your astonishing effort during the busy season.",
+              "zh": "感謝您在旺季期間付出的驚人努力。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "astonished",
+              "diff": "astonished 形容「人」感到驚訝；astonishing 形容「令人驚訝的事物」。",
+              "usage": "感受的人用 -ed（We were astonished），造成感受的事物用 -ing（The news was astonishing）。",
+              "example": {
+                "en": "The staff were astonished by the sudden change in plans.",
+                "zh": "員工對計畫的突然改變感到驚訝。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "amazing",
+              "diff": "amazing 較口語、多半是正面；astonishing 稍正式，可以只是「出乎意料」。",
+              "example": {
+                "en": "The new design received an amazing response from buyers.",
+                "zh": "新設計得到買家極佳的回應。"
+              }
+            },
+            {
+              "word": "surprising",
+              "diff": "surprising 程度較輕，astonishing 的驚訝程度更強。",
+              "example": {
+                "en": "It is surprising that the delivery arrived two days early.",
+                "zh": "貨物提早兩天送達，真令人意外。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "amazing",
+              "pos": "adj.",
+              "zh": "令人驚奇的",
+              "ipa": "/əˈmeɪzɪŋ/",
+              "example": {
+                "en": "The sales team did an amazing job this month.",
+                "zh": "業務團隊這個月表現得非常出色。"
+              }
+            },
+            {
+              "w": "impressive",
+              "pos": "adj.",
+              "zh": "令人印象深刻的",
+              "ipa": "/ɪmˈpresɪv/",
+              "example": {
+                "en": "Her impressive results helped her win the promotion.",
+                "zh": "她亮眼的成績幫助她獲得升遷。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "astonishment",
+              "ipa": "/əˈstɑːnɪʃmənt/",
+              "pos": "n.",
+              "zh": "驚訝",
+              "link": "astonish + -ment，把動作變成名詞，像 payment、agreement。"
+            },
+            {
+              "w": "astonishingly",
+              "ipa": "/əˈstɑːnɪʃɪŋli/",
+              "pos": "adv.",
+              "zh": "驚人地",
+              "link": "astonishing + -ly，變成副詞，像 quickly、clearly。"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "v.",
+              "ipa": "/əˈstɑːnɪʃ/",
+              "zh": "使震驚、使驚訝",
+              "example": {
+                "en": "The low price of the new model may astonish our competitors.",
+                "zh": "新機種的低價可能會讓我們的競爭對手大吃一驚。"
+              }
+            },
+            {
+              "w": "astonishing",
+              "pos": "adj.",
+              "ipa": "/əˈstɑːnɪʃɪŋ/",
+              "zh": "令人驚訝的",
+              "example": {
+                "en": "She gave an astonishing presentation about our yearly results.",
+                "zh": "她針對我們的年度成果做了一場令人驚豔的簡報。"
+              }
+            }
+          ],
+          "senses": []
+        },
+        {
+          "text": "innumerable",
+          "type": "word",
+          "ipa": "/ɪˈnuːmərəbl/",
+          "pos": "adj.",
+          "zh": "無數的、數不清的",
+          "en": "too many to count",
+          "note": "語氣較正式、偏書面，常見於報導與長文，表示「多到數不清」；口語裡更常說 countless 或 many。",
+          "grammar_note": "innumerable 只修飾可數的複數名詞（innumerable reasons），不修飾不可數名詞，不能說 innumerable information。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "innumerable times",
+              "zh": "無數次",
+              "example": {
+                "en": "I have checked the figures innumerable times, and they are correct.",
+                "zh": "我已經檢查過這些數字無數次，它們都是正確的。"
+              }
+            },
+            {
+              "phrase": "innumerable factors",
+              "zh": "無數的因素",
+              "example": {
+                "en": "Innumerable factors affect the price of raw materials.",
+                "zh": "無數的因素會影響原料的價格。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "報導",
+              "en": "The company has faced innumerable problems since it opened in 2015.",
+              "zh": "這家公司自 2015 年開業以來面臨過無數問題。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We have received innumerable requests for the new product catalog.",
+              "zh": "我們收到了無數索取新產品目錄的請求。"
+            },
+            {
+              "tag": "會議",
+              "en": "There are innumerable ways to reduce costs in this department.",
+              "zh": "這個部門有無數種降低成本的方法。"
+            }
+          ],
+          "similar": [
+            {
+              "word": "countless",
+              "diff": "意思幾乎相同，都是「數不清的」。countless 較口語、日常常用；innumerable 較正式、書面。兩者都只接可數複數名詞。",
+              "example": {
+                "en": "Countless customers wrote to thank us for the quick service.",
+                "zh": "無數顧客來信感謝我們的快速服務。"
+              }
+            },
+            {
+              "word": "numerous",
+              "diff": "numerous 是「很多的」，數量大但仍算得出來；innumerable 強調多到數不清。",
+              "example": {
+                "en": "Numerous clients attended the opening of our new office.",
+                "zh": "許多客戶參加了我們新辦公室的開幕。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "innumerate",
+              "diff": "拼法和發音相近；innumerate 指「不會算數的、缺乏數字概念的」，和「很多」無關。",
+              "usage": "innumerable 與 innumerate 都是形容詞，但前者形容「數量」，後者形容「人的數字能力」。",
+              "example": {
+                "en": "Innumerate staff may make serious mistakes when they read financial reports.",
+                "zh": "缺乏數字概念的員工在看財務報告時可能會犯嚴重的錯誤。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "number",
+              "ipa": "/ˈnʌmbɚ/",
+              "pos": "n.",
+              "zh": "數字、數量",
+              "link": "字根 numer 是「數」；innumerable = in-（不）+ numer（數）+ -able（能…的），也就是「數不清的」。"
+            },
+            {
+              "w": "numerous",
+              "ipa": "/ˈnuːmərəs/",
+              "pos": "adj.",
+              "zh": "許多的",
+              "link": "numer + -ous（有…的），數量很多的，像 famous、serious。"
+            },
+            {
+              "w": "numerical",
+              "ipa": "/nuːˈmerɪkl/",
+              "pos": "adj.",
+              "zh": "數字的",
+              "link": "numer + -ical，與數字有關的，像 practical、technical。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [],
+          "nw_done": [
+            {
+              "id": "nmvo1hyxv921f",
+              "result": "added"
+            }
+          ]
+        },
+        {
+          "text": "retail therapy",
+          "type": "phrase",
+          "zh": "購物療法（靠購物紓壓）",
+          "en": "shopping to feel better when you are sad or stressed",
+          "note": "口語、輕鬆的說法，常見於消費行為報導或廣告文案；意思是「靠買東西讓心情變好」，不是真的治療。",
+          "pattern": "need／go for／enjoy + some retail therapy",
+          "grammar_note": "therapy 是不可數名詞，不加 s，也不加 a；想說「一點」用 some 或 a bit of（some retail therapy）。",
+          "examples": [
+            {
+              "tag": "閒聊",
+              "en": "After a stressful week, she went out for some retail therapy.",
+              "zh": "壓力很大的一週過後，她出去逛街買東西紓壓。"
+            },
+            {
+              "tag": "行銷",
+              "en": "Our new app offers fast delivery for customers who need retail therapy.",
+              "zh": "我們的新應用程式為想靠購物紓壓的顧客提供快速配送。"
+            },
+            {
+              "tag": "報導",
+              "en": "Retail therapy helped the mall keep its sales up during the holidays.",
+              "zh": "購物紓壓的風氣讓這間購物中心在假期期間維持了銷售。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "shopping spree",
+              "diff": "shopping spree 強調短時間內買很多東西，不一定是為了心情；retail therapy 的重點是「靠購物讓心情變好」。",
+              "example": {
+                "en": "The winner of the contest enjoyed a free shopping spree downtown.",
+                "zh": "比賽的優勝者在市中心享受了一場免費的瘋狂採購。"
+              }
+            },
+            {
+              "phrase": "treat yourself",
+              "diff": "treat yourself 是「犒賞自己」，可以是吃飯、旅行，不一定是購物。",
+              "example": {
+                "en": "Please treat yourself to a nice dinner after the long trip.",
+                "zh": "長途旅行之後，請好好犒賞自己吃一頓好的晚餐。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "physical therapy",
+              "diff": "physical therapy 是真正的「物理治療」；retail therapy 只是比喻，不是醫療。",
+              "example": {
+                "en": "He goes to physical therapy twice a week after his injury.",
+                "zh": "受傷之後，他每週去做兩次物理治療。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "Impulse buying",
+          "type": "phrase",
+          "zh": "衝動購物",
+          "en": "buying things suddenly without planning to",
+          "note": "零售與行銷常見的名詞，指顧客臨時起意購買；商店常把小商品放在收銀台附近來促成這種行為。",
+          "pattern": "impulse buying + V（rises／drops）／lead to + impulse buying",
+          "grammar_note": "impulse buying 是不可數名詞；指「一次」衝動購買要說 an impulse buy 或 an impulse purchase。",
+          "examples": [
+            {
+              "tag": "行銷",
+              "en": "Impulse buying often rises when stores place snacks near the checkout.",
+              "zh": "當商店把零食擺在收銀台附近時，衝動購物通常會增加。"
+            },
+            {
+              "tag": "報告",
+              "en": "Online ads can lead to impulse buying among young shoppers.",
+              "zh": "網路廣告可能導致年輕購物者衝動購物。"
+            },
+            {
+              "tag": "個人理財",
+              "en": "To save money, avoid impulse buying and make a shopping list.",
+              "zh": "想省錢的話，避免衝動購物，並列出購物清單。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "impulse purchase",
+              "diff": "impulse purchase 指「一次」衝動購買，是可數名詞（an impulse purchase）；impulse buying 指整體行為，不可數。",
+              "example": {
+                "en": "That last-minute gift was an impulse purchase at the airport.",
+                "zh": "那份臨時的禮物是我在機場一時衝動買的。"
+              }
+            },
+            {
+              "phrase": "unplanned purchase",
+              "diff": "unplanned purchase 更中性，常用於報告，不帶情緒。",
+              "example": {
+                "en": "Unplanned purchases make up a large part of our store sales.",
+                "zh": "計畫之外的購買占了我們店內銷售的一大部分。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "compulsive buying",
+              "diff": "compulsive buying 是難以控制的強迫性購物，較嚴重；impulse buying 只是一時興起。",
+              "example": {
+                "en": "Doctors say compulsive buying can cause serious money problems.",
+                "zh": "醫生說強迫性購物可能造成嚴重的金錢問題。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "perk",
+          "type": "word",
+          "ipa": "/pɝːk/",
+          "pos": "n.",
+          "zh": "福利、額外的好處",
+          "en": "an extra good thing you get from your job",
+          "note": "多益最常見的是名詞，指薪水以外的額外福利（健身房、彈性上班等），語氣比 benefit 輕鬆；動詞用法 perk up 則是「精神變好、情況好轉」。",
+          "grammar_note": "perk up 是片語動詞，受詞可以放中間或後面（perk sales up／perk up sales），但代名詞一定放中間（perk it up），不能說 perk up it。",
+          "forms": [
+            {
+              "w": "perks",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "福利（複數）",
+              "ipa": "/pɝːks/",
+              "example": {
+                "en": "The perks include free lunch and a monthly transport allowance.",
+                "zh": "福利包含免費午餐和每月的交通津貼。"
+              }
+            },
+            {
+              "w": "perks",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "使振作（perk up）",
+              "ipa": "/pɝːks/",
+              "example": {
+                "en": "A cup of coffee always perks me up in the morning.",
+                "zh": "一杯咖啡總能讓我在早上打起精神。"
+              }
+            },
+            {
+              "w": "perked",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "振作、好轉（perk up）",
+              "ipa": "/pɝːkt/",
+              "example": {
+                "en": "Sales perked up after we launched the new advertising campaign.",
+                "zh": "我們推出新的廣告活動後，銷售回溫了。"
+              }
+            },
+            {
+              "w": "perking",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "使好轉（perk up）",
+              "ipa": "/ˈpɝːkɪŋ/",
+              "example": {
+                "en": "Lower prices are perking up demand in the retail market.",
+                "zh": "較低的價格正在提振零售市場的需求。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "perk up",
+              "zh": "振作、好轉",
+              "example": {
+                "en": "Share prices perked up when the company announced strong profits.",
+                "zh": "公司宣布強勁的獲利時，股價出現好轉。"
+              }
+            },
+            {
+              "phrase": "job perk",
+              "zh": "工作福利",
+              "example": {
+                "en": "Free parking is a nice job perk for employees.",
+                "zh": "免費停車是員工很棒的工作福利。"
+              }
+            },
+            {
+              "phrase": "offer perks",
+              "zh": "提供福利",
+              "example": {
+                "en": "The firm offers perks such as flexible hours and gym membership.",
+                "zh": "這家公司提供彈性工時和健身房會員等福利。"
+              }
+            },
+            {
+              "phrase": "perks of the job",
+              "zh": "工作的額外好處",
+              "example": {
+                "en": "One of the perks of the job is traveling abroad.",
+                "zh": "這份工作的好處之一是可以出國。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "招募",
+              "en": "We offer a competitive salary and several attractive perks to new hires.",
+              "zh": "我們為新進員工提供具競爭力的薪水和多項吸引人的福利。"
+            },
+            {
+              "tag": "會議",
+              "en": "Free coffee is a small perk, but employees really like it.",
+              "zh": "免費咖啡是個小福利，但員工真的很喜歡。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "bonus",
+              "diff": "bonus 是額外的現金獎金，通常和績效有關；perk 是非現金的福利或好處。",
+              "example": {
+                "en": "She received a bonus of five hundred dollars for her excellent work.",
+                "zh": "她因為表現出色而拿到五百美元的獎金。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "benefit",
+              "diff": "benefit 較正式，常指整套福利（保險、休假、退休金）；perk 較口語，多指額外的小好處。",
+              "example": {
+                "en": "The company benefit package includes health insurance and paid leave.",
+                "zh": "公司的福利方案包含健康保險和有薪假。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "incentive",
+              "pos": "n.",
+              "zh": "獎勵、誘因",
+              "ipa": "/ɪnˈsentɪv/",
+              "example": {
+                "en": "The company gives an incentive to staff who reach their targets.",
+                "zh": "公司對達成目標的員工提供獎勵。"
+              }
+            },
+            {
+              "w": "allowance",
+              "pos": "n.",
+              "zh": "津貼",
+              "ipa": "/əˈlaʊəns/",
+              "example": {
+                "en": "Employees get a monthly meal allowance on top of their salary.",
+                "zh": "員工除了薪水之外還有每月的餐費津貼。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "perky",
+              "ipa": "/ˈpɝːki/",
+              "pos": "adj.",
+              "zh": "活潑的、有精神的",
+              "link": "perk（振作）+ -y（…的），精神振作的樣子，像 sunny、healthy。"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/pɝːk/",
+              "zh": "福利、額外好處",
+              "example": {
+                "en": "Staff discounts are one of the best perks at this store.",
+                "zh": "員工折扣是這家店最棒的福利之一。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/pɝːk/",
+              "zh": "振作、好轉（多用 perk up）",
+              "example": {
+                "en": "The market began to perk up after the holiday season.",
+                "zh": "假期過後，市場開始回溫。"
+              }
+            }
+          ],
+          "senses": [],
+          "nw_done": [
+            {
+              "id": "nmw26bx5liq3k",
+              "result": "added"
+            }
+          ]
+        },
+        {
+          "text": "percolator",
+          "type": "word",
+          "ipa": "/ˈpɝːkəleɪtɚ/",
+          "pos": "n.",
+          "zh": "滲濾式咖啡壺",
+          "en": "a pot that makes coffee by passing hot water through coffee grounds",
+          "note": "多益常出現在飯店、客房、茶水間的設備介紹中，指用熱水循環沖泡咖啡的壺，是房內咖啡設備的一種。",
+          "forms": [
+            {
+              "w": "percolators",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "滲濾式咖啡壺（複數）",
+              "ipa": "/ˈpɝːkəleɪtɚz/",
+              "example": {
+                "en": "The business center has two percolators for visitors.",
+                "zh": "商務中心有兩台滲濾式咖啡壺供訪客使用。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "coffee percolator",
+              "zh": "滲濾式咖啡壺",
+              "example": {
+                "en": "The hotel provides a coffee percolator in every guest room.",
+                "zh": "這家飯店在每間客房都提供一台咖啡壺。"
+              }
+            },
+            {
+              "phrase": "electric percolator",
+              "zh": "電動滲濾壺",
+              "example": {
+                "en": "This electric percolator makes ten cups of coffee quickly.",
+                "zh": "這台電動滲濾壺能很快煮出十杯咖啡。"
+              }
+            },
+            {
+              "phrase": "percolator coffee",
+              "zh": "用滲濾壺煮的咖啡",
+              "example": {
+                "en": "Many guests enjoy fresh percolator coffee at breakfast.",
+                "zh": "許多房客在早餐時享用現煮的滲濾壺咖啡。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "飯店",
+              "en": "Each room has a small percolator and free coffee packets.",
+              "zh": "每間客房都有一個小型咖啡壺和免費咖啡包。"
+            },
+            {
+              "tag": "辦公室",
+              "en": "Please clean the percolator after you finish making coffee.",
+              "zh": "煮完咖啡後，請把咖啡壺清洗乾淨。"
+            },
+            {
+              "tag": "採購",
+              "en": "We plan to buy a new percolator for the break room.",
+              "zh": "我們打算為休息室買一台新的咖啡壺。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "kettle",
+              "diff": "kettle 是燒水壺，只煮開水；percolator 是用來煮咖啡的壺。",
+              "example": {
+                "en": "The kettle only boils water, but the percolator makes coffee.",
+                "zh": "水壺只能燒開水，但滲濾壺可以煮咖啡。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "coffee maker",
+              "diff": "coffee maker 是泛稱，各種煮咖啡的機器都可以用；percolator 只是其中一種。",
+              "example": {
+                "en": "A coffee maker is available in the meeting room.",
+                "zh": "會議室裡有咖啡機可以使用。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "kettle",
+              "ipa": "/ˈketl/",
+              "pos": "n.",
+              "zh": "燒水壺",
+              "example": {
+                "en": "Please fill the kettle before the guests arrive.",
+                "zh": "客人到達前，請先把水壺裝滿水。"
+              }
+            },
+            {
+              "w": "microwave",
+              "ipa": "/ˈmaɪkroʊweɪv/",
+              "pos": "n.",
+              "zh": "微波爐",
+              "example": {
+                "en": "Staff can heat lunch in the microwave downstairs.",
+                "zh": "員工可以在樓下的微波爐加熱午餐。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "percolate",
+              "ipa": "/ˈpɝːkəleɪt/",
+              "pos": "v.",
+              "zh": "滲濾、慢慢滲透",
+              "link": "percolate + -or，做這個動作的機器，像 projector、elevator。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "amenity",
+          "type": "word",
+          "ipa": "/əˈmenəti/",
+          "pos": "n.",
+          "zh": "便利設施、舒適的設備",
+          "en": "something that makes a place more comfortable or easy to use",
+          "note": "多益常用在飯店、公寓、辦公大樓的介紹，指游泳池、健身房、免費 Wi-Fi 這類讓人更舒適方便的附加設施。通常用複數 amenities。",
+          "grammar_note": "amenity 是可數名詞，介紹設施時多用複數 amenities，例如 hotel amenities。",
+          "forms": [
+            {
+              "w": "amenities",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "便利設施（複數）",
+              "ipa": "/əˈmenətiz/",
+              "example": {
+                "en": "Guests may use all the amenities on the fifth floor.",
+                "zh": "房客可以使用五樓所有的設施。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "hotel amenities",
+              "zh": "飯店設施",
+              "example": {
+                "en": "Hotel amenities include a spa and free breakfast.",
+                "zh": "飯店設施包括水療中心和免費早餐。"
+              }
+            },
+            {
+              "phrase": "basic amenities",
+              "zh": "基本設施",
+              "example": {
+                "en": "The cabin lacks basic amenities such as hot water.",
+                "zh": "這間小木屋缺乏熱水等基本設施。"
+              }
+            },
+            {
+              "phrase": "modern amenities",
+              "zh": "現代化設施",
+              "example": {
+                "en": "Our office has all the modern amenities you need.",
+                "zh": "我們的辦公室有你需要的所有現代化設施。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "飯店",
+              "en": "The hotel offers many amenities, including a pool and a gym.",
+              "zh": "這家飯店提供許多設施，包括游泳池和健身房。"
+            },
+            {
+              "tag": "租屋",
+              "en": "The apartment is close to local amenities like shops and parks.",
+              "zh": "這間公寓靠近商店和公園等當地生活設施。"
+            },
+            {
+              "tag": "商務",
+              "en": "Free Wi-Fi is one of the amenities for business guests.",
+              "zh": "免費 Wi-Fi 是提供給商務房客的設施之一。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "amenable",
+              "diff": "拼法接近，但 amenable 是「願意接受的、順從的」。",
+              "usage": "amenity 是名詞，amenable 是形容詞，常用 be amenable to + N。",
+              "example": {
+                "en": "The client was amenable to our new schedule.",
+                "zh": "客戶願意接受我們的新時程。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "facility",
+              "diff": "facility 指場所或設備本身（如健身房、停車場），強調能做某件事；amenity 偏重讓人更舒適的附加好處。",
+              "example": {
+                "en": "The fitness facility is open to guests until ten p.m.",
+                "zh": "健身設施開放給房客使用到晚上十點。"
+              }
+            },
+            {
+              "word": "service",
+              "diff": "service 是由人提供的「服務」（如客房服務），不是看得到的設備；amenity 是設施或用品。",
+              "example": {
+                "en": "Room service is available twenty-four hours a day.",
+                "zh": "客房服務全天二十四小時提供。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "feature",
+              "ipa": "/ˈfiːtʃɚ/",
+              "pos": "n.",
+              "zh": "特色、功能",
+              "example": {
+                "en": "A free shuttle is a popular feature of this hotel.",
+                "zh": "免費接駁車是這家飯店受歡迎的特色。"
+              }
+            },
+            {
+              "w": "convenience",
+              "ipa": "/kənˈviːniəns/",
+              "pos": "n.",
+              "zh": "便利",
+              "example": {
+                "en": "Guests enjoy the convenience of an online check-in.",
+                "zh": "房客享有線上登記入住的便利。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": [],
+          "nw_done": [
+            {
+              "id": "nmw2dyka33g2o",
+              "result": "added"
+            }
+          ]
+        },
+        {
+          "text": "Complimentary toiletries",
+          "type": "phrase",
+          "zh": "免費提供的盥洗用品",
+          "en": "free soap, shampoo and other small items for the bathroom",
+          "note": "飯店、民宿的客房介紹常見的說法，指房內附贈、不另外收費的洗髮精、沐浴乳、牙刷等。complimentary 在這裡是「免費贈送」的意思。",
+          "pattern": "Complimentary + N (+ are provided)",
+          "grammar_note": "toiletries 是複數名詞，後面的動詞要用複數，例如 Toiletries are provided。",
+          "examples": [
+            {
+              "tag": "飯店",
+              "en": "Complimentary toiletries are provided in every guest room.",
+              "zh": "每間客房都提供免費的盥洗用品。"
+            },
+            {
+              "tag": "官網",
+              "en": "Guests will find complimentary toiletries in the bathroom.",
+              "zh": "房客會在浴室裡找到免費的盥洗用品。"
+            },
+            {
+              "tag": "評論",
+              "en": "The hotel gave us complimentary toiletries and clean towels.",
+              "zh": "飯店給了我們免費的盥洗用品和乾淨的毛巾。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "free toiletries",
+              "diff": "意思相同，free 較口語；complimentary 較正式，常見於飯店文宣。",
+              "example": {
+                "en": "The hostel offers free toiletries to all guests.",
+                "zh": "這間旅舍提供所有房客免費的盥洗用品。"
+              }
+            },
+            {
+              "phrase": "bathroom supplies",
+              "diff": "泛指浴室用品，不一定是免費提供的。",
+              "example": {
+                "en": "Staff will refill the bathroom supplies every morning.",
+                "zh": "員工每天早上會補充浴室用品。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "complementary",
+              "diff": "拼法接近，但 complementary 是「互補的」，complimentary 是「免費的、讚美的」。",
+              "example": {
+                "en": "The two colors are complementary in our new logo design.",
+                "zh": "這兩種顏色在我們的新標誌設計中相輔相成。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "charging ports",
+          "type": "phrase",
+          "zh": "充電孔、充電插座",
+          "en": "places where you can plug in a phone or other device to charge it",
+          "note": "多益常見於機場、飯店、會議室、交通工具的設施介紹，說明座位或房間旁有可以替手機、筆電充電的插孔。",
+          "pattern": "have / provide + charging ports",
+          "grammar_note": "charging 是用途形容詞，要寫 charging ports，不說 charge ports；port 是可數名詞，常用複數。",
+          "examples": [
+            {
+              "tag": "會議室",
+              "en": "Every seat in the meeting room has charging ports.",
+              "zh": "會議室的每個座位都有充電孔。"
+            },
+            {
+              "tag": "機場",
+              "en": "The airport lounge has many charging ports near the seats.",
+              "zh": "機場貴賓室的座位旁有許多充電孔。"
+            },
+            {
+              "tag": "飯店",
+              "en": "Please use the charging ports beside the bed for your phone.",
+              "zh": "請使用床邊的充電孔為你的手機充電。"
+            },
+            {
+              "tag": "採購",
+              "en": "We need more charging ports in the new office.",
+              "zh": "我們新辦公室需要更多充電孔。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "USB ports",
+              "diff": "指 USB 規格的插孔，是 charging ports 的一種。",
+              "example": {
+                "en": "The train seats have USB ports for passengers.",
+                "zh": "火車座位上有供乘客使用的 USB 插孔。"
+              }
+            },
+            {
+              "phrase": "power outlets",
+              "diff": "指牆上的電源插座，可接各種電器；charging ports 多半專門給手機充電。",
+              "example": {
+                "en": "There are power outlets under every table.",
+                "zh": "每張桌子下面都有電源插座。"
+              }
+            },
+            {
+              "phrase": "charging stations",
+              "diff": "指專門的充電站（一個區域或設備），範圍比單一插孔大。",
+              "example": {
+                "en": "The mall installed charging stations on each floor.",
+                "zh": "商場在每一層樓都設置了充電站。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "port",
+              "diff": "單獨的 port 也可以指「港口」，要看上下文判斷。",
+              "example": {
+                "en": "The cargo ship arrived at the port on Monday.",
+                "zh": "貨輪星期一抵達了港口。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "well-equipped",
+          "type": "word",
+          "ipa": "/ˌwel ɪˈkwɪpt/",
+          "pos": "adj.",
+          "zh": "設備齊全的",
+          "en": "having all the things that are needed",
+          "note": "多益常用在飯店、辦公室、健身房、廚房的介紹，說明「該有的設備都有」，是很正面的描述。",
+          "grammar_note": "常用 be well-equipped with + N（設備）或 be well-equipped to + V（足以…）；放在名詞前要加連字號，如 a well-equipped office。",
+          "forms": [
+            {
+              "w": "better-equipped",
+              "label": "比較級",
+              "pos": "adj.",
+              "zh": "設備更齊全的",
+              "ipa": "/ˌbetɚ ɪˈkwɪpt/",
+              "example": {
+                "en": "Our new branch is better-equipped than the old one.",
+                "zh": "我們的新分店設備比舊店更齊全。"
+              }
+            },
+            {
+              "w": "best-equipped",
+              "label": "最高級",
+              "pos": "adj.",
+              "zh": "設備最齊全的",
+              "ipa": "/ˌbest ɪˈkwɪpt/",
+              "example": {
+                "en": "This is the best-equipped gym in the whole city.",
+                "zh": "這是全市設備最齊全的健身房。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "well-equipped kitchen",
+              "zh": "設備齊全的廚房",
+              "example": {
+                "en": "The apartment has a well-equipped kitchen for long stays.",
+                "zh": "這間公寓有設備齊全的廚房，適合長期入住。"
+              }
+            },
+            {
+              "phrase": "well-equipped gym",
+              "zh": "設備齊全的健身房",
+              "example": {
+                "en": "The hotel has a well-equipped gym on the second floor.",
+                "zh": "飯店二樓有一間設備齊全的健身房。"
+              }
+            },
+            {
+              "phrase": "be well-equipped to",
+              "zh": "有足夠的條件去…",
+              "example": {
+                "en": "Our team is well-equipped to handle large orders.",
+                "zh": "我們的團隊有足夠的條件處理大量訂單。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "飯店",
+              "en": "The room is well-equipped with a desk and fast Wi-Fi.",
+              "zh": "這間客房配有書桌和高速 Wi-Fi，設備齊全。"
+            },
+            {
+              "tag": "辦公室",
+              "en": "Our new office is well-equipped for video meetings.",
+              "zh": "我們的新辦公室具備視訊會議所需的完整設備。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "well-furnished",
+              "diff": "well-furnished 指家具齊全，重點在桌椅床櫃；well-equipped 指設備、器材齊全。",
+              "example": {
+                "en": "The rental room is well-furnished, with a bed and sofa.",
+                "zh": "這間出租房家具齊全，有床和沙發。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "fully equipped",
+              "diff": "意思很接近，更強調「所有東西都有」，語氣比 well-equipped 更滿。",
+              "example": {
+                "en": "The conference room is fully equipped with a projector.",
+                "zh": "會議室配備了投影機，設備一應俱全。"
+              }
+            },
+            {
+              "phrase": "well-stocked",
+              "diff": "強調備貨充足（商品、用品很多），不是設備或機器。",
+              "example": {
+                "en": "The pantry is well-stocked with snacks and drinks.",
+                "zh": "茶水間備有充足的零食和飲料。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "equip",
+              "ipa": "/ɪˈkwɪp/",
+              "pos": "v.",
+              "zh": "配備、裝備",
+              "link": "詞幹 equip，給予所需的東西；equipped 是它的過去分詞，well- 表示「很好地」。"
+            },
+            {
+              "w": "equipment",
+              "ipa": "/ɪˈkwɪpmənt/",
+              "pos": "n.",
+              "zh": "設備、器材",
+              "link": "equip + -ment，變成名詞，像 payment、agreement；是不可數名詞，不加 s。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "overall experience",
+          "type": "phrase",
+          "zh": "整體體驗、整體感受",
+          "en": "how good or bad the whole visit or service was",
+          "note": "多益常出現在顧客評價、問卷、評論中，用來總結「從頭到尾整體感覺如何」，常搭配 rate、enjoy、improve 等字。",
+          "pattern": "the overall experience + of / with + N",
+          "examples": [
+            {
+              "tag": "問卷",
+              "en": "Please rate your overall experience with our customer service.",
+              "zh": "請為你對我們客戶服務的整體體驗評分。"
+            },
+            {
+              "tag": "評論",
+              "en": "The overall experience at this hotel was very pleasant.",
+              "zh": "在這家飯店的整體體驗非常愉快。"
+            },
+            {
+              "tag": "會議",
+              "en": "We want to improve the overall experience of online shoppers.",
+              "zh": "我們想改善網路購物者的整體體驗。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Thank you for sharing your overall experience with us.",
+              "zh": "謝謝你與我們分享你的整體體驗。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "overall impression",
+              "diff": "impression 是「第一印象或整體看法」，較主觀；experience 強調實際經歷的過程。",
+              "example": {
+                "en": "Our overall impression of the product was positive.",
+                "zh": "我們對這項產品的整體印象是正面的。"
+              }
+            },
+            {
+              "phrase": "customer experience",
+              "diff": "指顧客與公司接觸的全部經驗，是企業常用的專業說法。",
+              "example": {
+                "en": "A good website improves the customer experience.",
+                "zh": "好的網站能提升顧客體驗。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "work experience",
+              "diff": "work experience 是「工作經歷」，用在履歷與面試；overall experience 是對某次服務的整體感受。",
+              "example": {
+                "en": "She has five years of work experience in sales.",
+                "zh": "她有五年的業務工作經驗。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "well-maintained",
+          "type": "word",
+          "ipa": "/ˌwel meɪnˈteɪnd/",
+          "pos": "adj.",
+          "zh": "維護良好的、保養得宜的",
+          "en": "kept in good condition by regular care and repair",
+          "note": "多益常用在飯店、建築、設備、道路的介紹或評論，表示平時有定期保養，狀況很好。",
+          "grammar_note": "放在名詞前要加連字號，如 a well-maintained room；放在 be 動詞後可寫成 is well maintained。",
+          "forms": [
+            {
+              "w": "better-maintained",
+              "label": "比較級",
+              "pos": "adj.",
+              "zh": "維護得更好的",
+              "ipa": "/ˌbetɚ meɪnˈteɪnd/",
+              "example": {
+                "en": "The new building is better-maintained than the old one.",
+                "zh": "新大樓比舊大樓維護得更好。"
+              }
+            },
+            {
+              "w": "best-maintained",
+              "label": "最高級",
+              "pos": "adj.",
+              "zh": "維護得最好的",
+              "ipa": "/ˌbest meɪnˈteɪnd/",
+              "example": {
+                "en": "This is the best-maintained hotel on the street.",
+                "zh": "這是這條街上維護得最好的飯店。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "well-maintained facilities",
+              "zh": "維護良好的設施",
+              "example": {
+                "en": "The resort is known for its well-maintained facilities.",
+                "zh": "這間度假村以維護良好的設施聞名。"
+              }
+            },
+            {
+              "phrase": "well-maintained equipment",
+              "zh": "保養良好的設備",
+              "example": {
+                "en": "Well-maintained equipment lasts longer and costs less to repair.",
+                "zh": "保養良好的設備壽命更長，維修成本也更低。"
+              }
+            },
+            {
+              "phrase": "well-maintained road",
+              "zh": "維護良好的道路",
+              "example": {
+                "en": "A well-maintained road makes delivery faster and safer.",
+                "zh": "維護良好的道路讓送貨更快也更安全。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "評論",
+              "en": "The rooms were clean and the building was well-maintained.",
+              "zh": "房間很乾淨，建築物也維護得很好。"
+            },
+            {
+              "tag": "不動產",
+              "en": "This well-maintained office is available for rent next month.",
+              "zh": "這間維護良好的辦公室下個月開放出租。"
+            },
+            {
+              "tag": "公園",
+              "en": "The city park is well-maintained by a team of workers.",
+              "zh": "這座市立公園由一組工作人員妥善維護。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "well-managed",
+              "diff": "well-managed 指「管理得好」（公司、專案、團隊）；well-maintained 指「保養得好」（建築、設備）。",
+              "example": {
+                "en": "The hotel is well-managed, and the staff are very helpful.",
+                "zh": "這家飯店管理得很好，員工也很樂於幫忙。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "well-kept",
+              "diff": "意思接近，較口語，常用在庭院、房子，強調整潔；well-maintained 更強調定期保養。",
+              "example": {
+                "en": "The hotel has a well-kept garden at the back.",
+                "zh": "這家飯店後面有一座整理得很好的花園。"
+              }
+            },
+            {
+              "phrase": "in good condition",
+              "diff": "意思相近，是片語，放在 be 動詞後說明狀態。",
+              "example": {
+                "en": "The used printer is still in good condition.",
+                "zh": "這台二手印表機的狀況還很好。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "maintain",
+              "ipa": "/meɪnˈteɪn/",
+              "pos": "v.",
+              "zh": "維持、保養",
+              "link": "詞幹 maintain，讓東西保持好狀態；maintained 是它的過去分詞，well- 表示「很好地」。"
+            },
+            {
+              "w": "maintenance",
+              "ipa": "/ˈmeɪntənəns/",
+              "pos": "n.",
+              "zh": "維修、保養",
+              "link": "maintain 的名詞，字尾變成 -tenance，像 performance；是不可數名詞。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "Play a big role in",
+          "type": "phrase",
+          "zh": "在…扮演重要角色、對…有很大影響",
+          "en": "to be very important in making something happen",
+          "note": "多益常用在說明原因、影響因素的文章，例如價格、服務、行銷如何影響結果。語氣自然，不會太正式。",
+          "pattern": "N + play(s) a big role in + N / V-ing",
+          "grammar_note": "in 是介系詞，後面接名詞或 V-ing，不接原形動詞；動詞 play 要依主詞與時態變化（plays、played、playing）。",
+          "examples": [
+            {
+              "tag": "行銷",
+              "en": "Price plays a big role in what customers choose to buy.",
+              "zh": "價格對顧客選擇購買什麼有很大的影響。"
+            },
+            {
+              "tag": "會議",
+              "en": "Good teamwork played a big role in our success.",
+              "zh": "良好的團隊合作對我們的成功很重要。"
+            },
+            {
+              "tag": "報告",
+              "en": "Social media is playing a big role in our marketing.",
+              "zh": "社群媒體在我們的行銷中扮演重要角色。"
+            },
+            {
+              "tag": "評論",
+              "en": "Clean rooms play a big role in hotel ratings.",
+              "zh": "乾淨的客房對飯店評價有很大影響。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "play an important role in",
+              "diff": "意思幾乎相同，important 比 big 稍正式，常見於報告與正式文章。",
+              "example": {
+                "en": "Training plays an important role in employee growth.",
+                "zh": "訓練對員工成長扮演重要角色。"
+              }
+            },
+            {
+              "phrase": "contribute to",
+              "diff": "強調「促成、有貢獻」，後面接結果；to 是介系詞，接名詞或 V-ing。",
+              "example": {
+                "en": "Good service contributes to higher customer satisfaction.",
+                "zh": "良好的服務有助於提高顧客滿意度。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "roll",
+              "diff": "role 和 roll 發音相同（/roʊl/）；role 是「角色」，roll 是「滾動、捲、麵包捲」。",
+              "example": {
+                "en": "The company will roll out a new service next month.",
+                "zh": "公司下個月將推出一項新服務。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "hold the team back",
+          "type": "phrase",
+          "zh": "拖累團隊、阻礙團隊進展",
+          "en": "to stop the team from moving forward or doing better",
+          "note": "多益常見於專案管理與績效情境，指某個人、問題或流程讓團隊進度變慢、無法進步。主詞可以是人，也可以是舊系統、冗長流程這類事物。",
+          "pattern": "N + hold(s) + 人 + back (from + V-ing)",
+          "grammar_note": "hold back 是可分開的片語動詞，受詞可放中間或後面（hold the team back／hold back the team），但代名詞一定放中間：hold them back，不能說 hold back them。",
+          "examples": [
+            {
+              "tag": "專案",
+              "en": "Old software is holding the team back from finishing on time.",
+              "zh": "老舊的軟體讓團隊無法準時完成。"
+            },
+            {
+              "tag": "會議",
+              "en": "Slow approval steps hold the team back every single week.",
+              "zh": "緩慢的核准流程每個星期都在拖累團隊。"
+            },
+            {
+              "tag": "管理",
+              "en": "One late supplier should not hold the team back any longer.",
+              "zh": "一家延遲的供應商不應該再繼續拖累團隊了。"
+            },
+            {
+              "tag": "績效",
+              "en": "Poor communication has held the team back for most of the year.",
+              "zh": "溝通不良讓團隊在這一年的大部分時間裡裹足不前。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "slow down",
+              "diff": "slow down 只是「變慢」；hold back 強調被擋住、無法進步。",
+              "example": {
+                "en": "Heavy traffic may slow down the delivery trucks this afternoon.",
+                "zh": "今天下午的交通壅塞可能會拖慢送貨卡車。"
+              }
+            },
+            {
+              "phrase": "get in the way of",
+              "diff": "get in the way of 是「妨礙、擋路」，後面接名詞或事情，不接人加 back。",
+              "example": {
+                "en": "Small disagreements should not get in the way of the project.",
+                "zh": "小爭執不應該妨礙這個專案。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "hold up",
+              "diff": "hold up 多指耽擱事物（貨物、進度、付款）；hold the team back 是讓人或團隊無法進步。",
+              "example": {
+                "en": "A customs check held up the shipment for two days.",
+                "zh": "海關檢查讓貨物耽擱了兩天。"
+              }
+            },
+            {
+              "phrase": "hold on",
+              "diff": "hold on 是「等一下」（電話或對話中），和阻礙無關。",
+              "example": {
+                "en": "Please hold on while I connect you to the manager.",
+                "zh": "請稍等，我幫您轉接給經理。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "make empty promises",
+          "type": "phrase",
+          "zh": "做出空頭承諾、開空頭支票",
+          "en": "to say you will do something when you do not really plan to do it",
+          "note": "多益商務情境常見於客戶關係、行銷與管理，指說得好聽卻不打算做或做不到，帶有批評的語氣。多半用在「不要這樣做」或「失去信任」的句子裡。",
+          "pattern": "make empty promises (to + 人／about + N)",
+          "grammar_note": "承諾要用動詞 make 搭配（make a promise），不用 do 或 give；empty promises 指一再說了不做，通常用複數。",
+          "examples": [
+            {
+              "tag": "客戶",
+              "en": "Our sales team never makes empty promises about delivery dates.",
+              "zh": "我們的業務團隊從不對交貨日期做空頭承諾。"
+            },
+            {
+              "tag": "會議",
+              "en": "Please do not make empty promises to clients about our schedule.",
+              "zh": "請不要對客戶就我們的時程做出空頭承諾。"
+            },
+            {
+              "tag": "管理",
+              "en": "Employees lose trust when managers make empty promises about pay raises.",
+              "zh": "當主管對加薪開空頭支票時，員工會失去信任。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We apologize for the delay and will not make empty promises again.",
+              "zh": "我們為延誤致歉，也不會再做空頭承諾。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "all talk and no action",
+              "diff": "all talk and no action 是形容人光說不做；make empty promises 強調「做出承諾」這個動作。",
+              "example": {
+                "en": "The new supplier seems all talk and no action so far.",
+                "zh": "到目前為止，這家新供應商似乎只會說不會做。"
+              }
+            },
+            {
+              "phrase": "give false hope",
+              "diff": "give false hope 強調讓對方產生不實的期待，不一定有明確的承諾。",
+              "example": {
+                "en": "Do not give false hope to staff about job security.",
+                "zh": "不要讓員工對工作保障抱持不實的希望。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "keep a promise",
+              "diff": "keep a promise 是「履行承諾」，和空頭承諾剛好相反。",
+              "example": {
+                "en": "A good supplier always keeps a promise about delivery dates.",
+                "zh": "好的供應商總是遵守交貨日期的承諾。"
+              }
+            },
+            {
+              "phrase": "make a promise",
+              "diff": "make a promise 只是中性的「做出承諾」；加了 empty 才表示沒有誠意或做不到。",
+              "example": {
+                "en": "The manager made a promise to review the plan this week.",
+                "zh": "經理承諾這週會審查這份計畫。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "just ahead",
+          "type": "phrase",
+          "zh": "就在前方；即將到來",
+          "en": "a short distance in front of you, or coming soon",
+          "note": "多益常見於指路、交通廣播、機場或建築導覽，表示「前面不遠處」。也可用在時間上，表示好日子或忙碌期「即將到來」。",
+          "pattern": "N + is + just ahead (of + N)",
+          "grammar_note": "just ahead 後面如果要接地點或事物，要加 of（just ahead of the bank）；單獨使用時後面不接名詞。",
+          "examples": [
+            {
+              "tag": "指路",
+              "en": "The post office is just ahead, on your left.",
+              "zh": "郵局就在前面，在你的左手邊。"
+            },
+            {
+              "tag": "交通",
+              "en": "Traffic is slow just ahead because of road work.",
+              "zh": "前方因為道路施工，車流很慢。"
+            },
+            {
+              "tag": "機場",
+              "en": "The boarding gate is just ahead of the security check.",
+              "zh": "登機門就在安檢處的前方。"
+            },
+            {
+              "tag": "時程",
+              "en": "Busy weeks are just ahead, so please plan your work.",
+              "zh": "忙碌的幾週即將到來，請規劃好你的工作。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "straight ahead",
+              "diff": "強調「筆直往前」的方向，不一定是很近的地方。",
+              "example": {
+                "en": "Go straight ahead and turn right at the bank.",
+                "zh": "直直往前走，在銀行處右轉。"
+              }
+            },
+            {
+              "phrase": "up ahead",
+              "diff": "較口語，指前方某處，距離不一定很近。",
+              "example": {
+                "en": "There is a gas station up ahead on the right.",
+                "zh": "前方右邊有一座加油站。"
+              }
+            },
+            {
+              "phrase": "coming up",
+              "diff": "只用在時間，表示事情即將發生。",
+              "example": {
+                "en": "Our annual meeting is coming up in two weeks.",
+                "zh": "我們的年會兩週後就要到了。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "ahead of schedule",
+              "diff": "意思是「比預定時間提早」，和位置在前方無關。",
+              "example": {
+                "en": "The project is ahead of schedule by two weeks.",
+                "zh": "這個專案比預定時程提早了兩週。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "passage",
+          "type": "word",
+          "ipa": "/ˈpæsɪdʒ/",
+          "pos": "n.",
+          "zh": "文章段落；通道；通過",
+          "en": "a short part of a text, or a way to go through a place",
+          "note": "多益最常見的是閱讀題中的「段落」，指一小段文字。另外也常指建築裡的「通道」，以及「（法案）通過」或「（時間）流逝」。",
+          "forms": [
+            {
+              "w": "passages",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "段落、通道（複數）",
+              "ipa": "/ˈpæsɪdʒɪz/",
+              "example": {
+                "en": "Two passages in the report need to be rewritten.",
+                "zh": "報告中有兩個段落需要重寫。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "read a passage",
+              "zh": "閱讀一段文章",
+              "example": {
+                "en": "Candidates must read a passage and then answer five questions.",
+                "zh": "考生必須先閱讀一段文章，再回答五個問題。"
+              }
+            },
+            {
+              "phrase": "short passage",
+              "zh": "短文、一小段文字",
+              "example": {
+                "en": "The short passage describes a new hotel opening.",
+                "zh": "這篇短文介紹了一家新飯店的開幕。"
+              }
+            },
+            {
+              "phrase": "passage of time",
+              "zh": "時間的流逝",
+              "example": {
+                "en": "Prices tend to rise with the passage of time.",
+                "zh": "價格往往隨著時間流逝而上漲。"
+              }
+            },
+            {
+              "phrase": "safe passage",
+              "zh": "安全通行",
+              "example": {
+                "en": "The guard gave the visitors safe passage through the factory.",
+                "zh": "警衛讓訪客安全通過工廠。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "閱讀測驗",
+              "en": "Please read the first passage and choose the best answer.",
+              "zh": "請閱讀第一段文章，並選出最佳答案。"
+            },
+            {
+              "tag": "大樓",
+              "en": "Staff must use the back passage during the building repair.",
+              "zh": "大樓維修期間，員工必須走後面的通道。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "passenger",
+              "diff": "拼法接近，但 passenger 是「乘客」，是人；passage 是段落或通道。",
+              "example": {
+                "en": "Each passenger must show a ticket before boarding the train.",
+                "zh": "每位乘客上火車前都必須出示車票。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "paragraph",
+              "ipa": "/ˈperəɡræf/",
+              "pos": "n.",
+              "zh": "段落",
+              "example": {
+                "en": "The second paragraph explains the new company rules.",
+                "zh": "第二段說明了公司的新規定。"
+              }
+            },
+            {
+              "w": "corridor",
+              "ipa": "/ˈkɔːrɪdɔːr/",
+              "pos": "n.",
+              "zh": "走廊",
+              "example": {
+                "en": "The meeting room is at the end of the corridor.",
+                "zh": "會議室在走廊的盡頭。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "pass",
+              "ipa": "/pæs/",
+              "pos": "v.",
+              "zh": "通過、經過",
+              "link": "詞幹 pass，通過；加 -age 變成名詞，像 package、message。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "（文章的）段落",
+              "en": "a short part of a written text",
+              "example": {
+                "en": "This passage explains how the new refund policy works.",
+                "zh": "這個段落說明了新的退款政策如何運作。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "通道、走道",
+              "en": "a narrow way that connects two places",
+              "distinguish": "出現在建築、地點的描述中，指可以走過去的路。",
+              "example": {
+                "en": "Keep the passage near the exit clear at all times.",
+                "zh": "出口附近的通道必須隨時保持暢通。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "（法案）通過；（時間）流逝",
+              "en": "the act of passing, or the time that goes by",
+              "distinguish": "常接 of：the passage of a law、the passage of time。",
+              "example": {
+                "en": "The passage of the new law will affect small businesses.",
+                "zh": "新法案的通過將會影響小型企業。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "liable",
+          "type": "word",
+          "ipa": "/ˈlaɪəbəl/",
+          "pos": "adj.",
+          "zh": "有法律責任的；易於…的",
+          "en": "legally responsible for something, or likely to do something bad",
+          "note": "多益常見於合約、保險、賠償的情境，指「在法律上要負責、要賠償」。另一個常見用法是 liable to + V，表示「很可能發生（通常是不好的事）」。",
+          "grammar_note": "be liable for + N 是「對…負責」；be liable to + V 是「容易…」，to 後面接原形動詞。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "be liable for damages",
+              "zh": "須賠償損失",
+              "example": {
+                "en": "The company was held liable for damages after the accident.",
+                "zh": "事故發生後，這家公司被判須賠償損失。"
+              }
+            },
+            {
+              "phrase": "liable for the cost",
+              "zh": "須負擔費用",
+              "example": {
+                "en": "Customers are liable for the cost of lost keys.",
+                "zh": "顧客須負擔遺失鑰匙的費用。"
+              }
+            },
+            {
+              "phrase": "legally liable",
+              "zh": "在法律上須負責",
+              "example": {
+                "en": "The owner is legally liable for the safety of the building.",
+                "zh": "業主在法律上須對大樓的安全負責。"
+              }
+            },
+            {
+              "phrase": "liable to change",
+              "zh": "可能會改變",
+              "example": {
+                "en": "Flight times are liable to change in bad weather.",
+                "zh": "天氣不好時，航班時間可能會改變。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "合約",
+              "en": "The supplier is liable for any damage during shipping.",
+              "zh": "供應商須對運送過程中的任何損壞負責。"
+            },
+            {
+              "tag": "保險",
+              "en": "You may be liable for the repair costs if you break it.",
+              "zh": "如果你弄壞它，可能要負擔維修費用。"
+            },
+            {
+              "tag": "物流",
+              "en": "Shipments are liable to arrive late during the holidays.",
+              "zh": "假期期間，貨物可能會延遲送達。"
+            },
+            {
+              "tag": "辦公",
+              "en": "Employees are liable to make mistakes when they are tired.",
+              "zh": "員工疲累時容易出錯。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "likely",
+              "diff": "likely to + V 只是「可能」，語氣中性；liable to + V 多半指不好的事。",
+              "usage": "liable 還有「負法律責任」的意思（liable for），likely 沒有這個用法。",
+              "example": {
+                "en": "The new product is likely to sell well this year.",
+                "zh": "這項新產品今年很可能會熱賣。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "responsible",
+              "diff": "responsible 的範圍較廣，指負責任、負責某項工作，不一定有法律責任；liable 強調法律或賠償上的責任。",
+              "example": {
+                "en": "She is responsible for training all the new staff.",
+                "zh": "她負責訓練所有新進員工。"
+              }
+            },
+            {
+              "word": "accountable",
+              "diff": "accountable 強調要向某人「說明、交代」自己做了什麼，常用 accountable to + 人。",
+              "example": {
+                "en": "Managers are accountable to the board for the results.",
+                "zh": "經理須向董事會交代成果。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "liability",
+              "ipa": "/ˌlaɪəˈbɪləti/",
+              "pos": "n.",
+              "zh": "法律責任、債務",
+              "link": "liable 的 -able 變成 -ility，像 able → ability、reliable → reliability。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "adj.",
+              "zh": "（法律上）須負責的",
+              "en": "having to pay or take responsibility by law",
+              "example": {
+                "en": "The shop is not liable for items left in the room.",
+                "zh": "商店不須對留在房內的物品負責。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "zh": "容易…的、可能會…的",
+              "en": "likely to do or have something, often something bad",
+              "distinguish": "後面接 to + V，通常指不好的事。",
+              "example": {
+                "en": "Old machines are liable to break down without warning.",
+                "zh": "老舊的機器可能會無預警故障。"
+              }
+            }
+          ],
+          "nw_done": [
+            {
+              "id": "nmw47o9yrkacl",
+              "result": "added"
+            }
+          ]
+        },
+        {
+          "text": "slack off",
+          "type": "phrase",
+          "zh": "偷懶、鬆懈、懈怠",
+          "en": "to work less hard than you should",
+          "note": "口語說法，用來形容工作或讀書不夠認真，帶有一點批評的語氣。常見於談績效、團隊紀律、截止日前的情境。",
+          "pattern": "S + slack off (at work / on + N)",
+          "grammar_note": "slack off 是不及物片語，後面不直接接受詞；要加地點或事情時，用 at work 或 on the project。",
+          "examples": [
+            {
+              "tag": "辦公",
+              "en": "Some staff slack off when the manager is away.",
+              "zh": "經理不在的時候，有些員工會偷懶。"
+            },
+            {
+              "tag": "會議",
+              "en": "We cannot slack off now because the deadline is near.",
+              "zh": "截止日快到了，我們現在不能鬆懈。"
+            },
+            {
+              "tag": "績效",
+              "en": "Sales dropped because the team began to slack off.",
+              "zh": "因為團隊開始鬆懈，業績下滑了。"
+            },
+            {
+              "tag": "人資",
+              "en": "He was warned for slacking off during busy weeks.",
+              "zh": "他因為在忙碌期間偷懶而受到警告。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "goof off",
+              "diff": "更口語，強調不做正事、玩樂混時間。",
+              "example": {
+                "en": "Some interns goof off instead of finishing their tasks.",
+                "zh": "有些實習生不完成工作，只顧著混時間。"
+              }
+            },
+            {
+              "phrase": "take it easy",
+              "diff": "是「放輕鬆、不要太累」，語氣正面，不是批評。",
+              "example": {
+                "en": "You should take it easy after such a long project.",
+                "zh": "做完這麼長的專案後，你應該放鬆一下。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "slow down",
+              "diff": "slow down 只是速度變慢，不一定是偷懶；slack off 是不夠努力。",
+              "example": {
+                "en": "Please slow down when you drive through the factory yard.",
+                "zh": "開車經過工廠院區時，請減速慢行。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "take the blame",
+          "type": "phrase",
+          "zh": "承擔責任、扛下過錯",
+          "en": "to say that a mistake was your fault",
+          "note": "指承認「是我的錯」，或替別人（例如團隊）扛下責任。常見於主管對失誤的處理、客訴回應的情境。",
+          "pattern": "take the blame (for + N / V-ing)",
+          "grammar_note": "blame 在這裡是不可數名詞，前面用 the；for 後面接名詞或 V-ing（take the blame for losing the client）。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "The manager took the blame for the late delivery.",
+              "zh": "經理為延遲交貨扛下了責任。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "I will take the blame for the error in the report.",
+              "zh": "報告中的錯誤由我來負責。"
+            },
+            {
+              "tag": "團隊",
+              "en": "A good leader takes the blame when the team fails.",
+              "zh": "好的領導者在團隊失敗時會扛起責任。"
+            },
+            {
+              "tag": "客服",
+              "en": "She took the blame for losing the customer's package.",
+              "zh": "她承擔了弄丟顧客包裹的責任。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "take responsibility for",
+              "diff": "較正式、較正面，強調願意負責並處理問題；take the blame 重點在承認錯誤。",
+              "example": {
+                "en": "We take responsibility for the mistake and will fix it.",
+                "zh": "我們對這個錯誤負責，也會加以改正。"
+              }
+            },
+            {
+              "phrase": "accept the blame",
+              "diff": "意思相同，語氣稍微正式一點。",
+              "example": {
+                "en": "He was ready to accept the blame for the delay.",
+                "zh": "他準備好為這次延誤承擔責任。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "take the credit",
+              "diff": "意思相反：take the credit 是把功勞攬到自己身上，take the blame 是把過錯扛下來。",
+              "example": {
+                "en": "He took the credit for the whole team's hard work.",
+                "zh": "他把整個團隊辛苦的成果攬為己功。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "shift the blame",
+          "type": "phrase",
+          "zh": "推卸責任、把過錯推給別人",
+          "en": "to say that someone else is at fault instead of you",
+          "note": "帶有負面語氣，指自己犯錯卻把責任推到別人或別的原因上，常見於職場批評、會議紀錄、新聞評論。",
+          "pattern": "shift the blame (from A) to / onto + 人",
+          "grammar_note": "「推給某人」要用 to 或 onto，例如 shift the blame onto the supplier；blame 是不可數名詞，前面用 the。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "Please do not shift the blame onto other departments.",
+              "zh": "請不要把責任推給其他部門。"
+            },
+            {
+              "tag": "新聞",
+              "en": "The company tried to shift the blame to its supplier.",
+              "zh": "這家公司試圖把責任推給供應商。"
+            },
+            {
+              "tag": "職場",
+              "en": "He always shifts the blame whenever a project fails.",
+              "zh": "每當專案失敗，他總是把責任推給別人。"
+            },
+            {
+              "tag": "客服",
+              "en": "Instead of shifting the blame, we should solve the problem.",
+              "zh": "我們應該解決問題，而不是互相推卸責任。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "pass the buck",
+              "diff": "較口語的慣用語，意思相同，指把責任丟給別人。",
+              "example": {
+                "en": "Managers should not pass the buck to their staff.",
+                "zh": "經理不應該把責任推給下屬。"
+              }
+            },
+            {
+              "phrase": "blame someone else",
+              "diff": "直接說「怪別人」，語氣較直白，沒有「刻意推卸」的味道那麼重。",
+              "example": {
+                "en": "It is easy to blame someone else for a mistake.",
+                "zh": "要把錯誤怪到別人頭上很容易。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "take the credit",
+          "type": "phrase",
+          "zh": "把功勞攬在自己身上；接受讚揚",
+          "en": "to say that you did something good, or to receive praise for it",
+          "note": "常指把別人的功勞算成自己的（負面語氣），但前面加 deserve 或 fully 時，也可以是中性的「接受應得的讚揚」。常見於職場評論、績效討論。",
+          "pattern": "take the credit for + N / V-ing",
+          "grammar_note": "credit 在這個意思是不可數名詞，常用 take (all) the credit for；for 後面接名詞或 V-ing。",
+          "examples": [
+            {
+              "tag": "職場",
+              "en": "He took the credit for the project, but we did the work.",
+              "zh": "他把專案的功勞攬在自己身上，但事情是我們做的。"
+            },
+            {
+              "tag": "會議",
+              "en": "Our manager never takes the credit for the team's success.",
+              "zh": "我們的經理從不把團隊的成功攬為己功。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "You should take the credit for closing this big deal.",
+              "zh": "你應該為談成這筆大生意接受讚揚。"
+            },
+            {
+              "tag": "新聞",
+              "en": "The mayor took the credit for the new bridge.",
+              "zh": "市長把這座新橋的功勞攬在自己身上。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "get the credit for",
+              "diff": "較中性，只是「得到肯定」，不一定是搶功勞。",
+              "example": {
+                "en": "She deserves to get the credit for this idea.",
+                "zh": "她應該因為這個點子而得到肯定。"
+              }
+            },
+            {
+              "phrase": "steal the credit",
+              "diff": "語氣更負面，明確指「搶走別人的功勞」。",
+              "example": {
+                "en": "Nobody likes a boss who tries to steal the credit.",
+                "zh": "沒有人喜歡想搶功勞的老闆。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "give credit to",
+              "diff": "意思相反：give credit to 是把功勞歸給別人，take the credit 是攬在自己身上。",
+              "example": {
+                "en": "Please give credit to everyone who helped on this project.",
+                "zh": "請把功勞歸給所有協助這個專案的人。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "suck up to",
+          "type": "phrase",
+          "zh": "巴結、拍馬屁、討好（有權力的人）",
+          "en": "to be too nice to someone important to get something from them",
+          "note": "口語、帶貶意，用來批評對上司或有權力的人過度討好。多半在背後評論別人時使用，不適合當面說，也不適合正式文件。",
+          "pattern": "suck up to + 人（上司／客戶）",
+          "grammar_note": "suck up to 的 to 是介系詞，後面接人（suck up to the boss）；人如果是代名詞，要放在 to 後面（suck up to him）。",
+          "examples": [
+            {
+              "tag": "職場",
+              "en": "Some people suck up to the boss to get promoted.",
+              "zh": "有些人為了升遷而巴結老闆。"
+            },
+            {
+              "tag": "同事",
+              "en": "I do not like how he sucks up to our clients.",
+              "zh": "我不喜歡他巴結我們客戶的樣子。"
+            },
+            {
+              "tag": "面試",
+              "en": "Do not suck up to the interviewer; just be honest.",
+              "zh": "不要討好面試官，誠實就好。"
+            },
+            {
+              "tag": "閒聊",
+              "en": "She was sucking up to the director all through lunch.",
+              "zh": "她整頓午餐都在巴結主任。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "kiss up to",
+              "diff": "意思幾乎相同，同樣是口語、帶貶意。",
+              "example": {
+                "en": "He likes to kiss up to anyone with power.",
+                "zh": "他喜歡討好任何有權力的人。"
+              }
+            },
+            {
+              "phrase": "flatter",
+              "diff": "是一般單字，指說好聽的話奉承人，語氣較正式，可直接接受詞（flatter the client）。",
+              "example": {
+                "en": "She tried to flatter the buyer to get a better deal.",
+                "zh": "她想奉承買家，以換取更好的交易條件。"
+              }
+            },
+            {
+              "phrase": "butter up",
+              "diff": "也是口語，指用好聽話或小好處討好人，受詞可放中間（butter him up）。",
+              "example": {
+                "en": "He bought lunch to butter up the new manager.",
+                "zh": "他請午餐來討好新經理。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "suck up",
+              "diff": "單獨的 suck up 也可指「把東西吸進去」，沒有加 to 時多半是這個意思。",
+              "example": {
+                "en": "This machine can suck up dust from the office carpet.",
+                "zh": "這台機器可以吸起辦公室地毯上的灰塵。"
+              }
+            }
+          ]
         }
       ]
     },
@@ -224768,6 +227136,297 @@
           ],
           "pos_uses": [],
           "senses": []
+        },
+        {
+          "text": "sheets",
+          "type": "word",
+          "lemma": "sheet",
+          "ipa": "/ʃiːts/",
+          "pos": "n.",
+          "zh": "板材、薄板（複數）",
+          "en": "flat, thin pieces of material such as metal or paper",
+          "note": "在這篇指「鋁板」。aluminum sheets 是工廠常用的薄金屬板材，它短缺代表生產線的原料出了問題。",
+          "grammar_note": "aluminum 在這裡是名詞當形容詞修飾 sheets，本身不加 s；sheet 是可數名詞，數量用 a sheet of、two sheets of 表示。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "sheet metal",
+              "zh": "金屬板",
+              "example": {
+                "en": "The factory cuts sheet metal into parts for the new machine.",
+                "zh": "工廠把金屬板切割成新機器的零件。"
+              }
+            },
+            {
+              "phrase": "a sheet of paper",
+              "zh": "一張紙",
+              "example": {
+                "en": "Please bring a sheet of paper to the training session.",
+                "zh": "請帶一張紙來參加培訓課程。"
+              }
+            },
+            {
+              "phrase": "data sheet",
+              "zh": "規格表、資料表",
+              "example": {
+                "en": "The supplier sent a data sheet with the product's exact specifications.",
+                "zh": "供應商寄來一份附有產品確切規格的資料表。"
+              }
+            },
+            {
+              "phrase": "balance sheet",
+              "zh": "資產負債表",
+              "example": {
+                "en": "The balance sheet shows that costs have risen this year.",
+                "zh": "資產負債表顯示今年的成本上升了。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "採購",
+              "en": "We ordered five hundred steel sheets for the new assembly line.",
+              "zh": "我們為新的組裝線訂購了五百片鋼板。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please confirm the thickness of the sheets before you ship the order.",
+              "zh": "出貨之前，請確認板材的厚度。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "plate",
+              "diff": "plate 通常是較厚的金屬板；sheet 是較薄的片狀板材。",
+              "example": {
+                "en": "The steel plate is too thick for this cutting machine.",
+                "zh": "這塊鋼板對這台切割機來說太厚了。"
+              }
+            },
+            {
+              "word": "panel",
+              "diff": "panel 是組成牆面、門或機器外殼的一塊面板，重點在「用途」而不是厚薄。",
+              "example": {
+                "en": "We need a metal panel to cover the front of the machine.",
+                "zh": "我們需要一塊金屬面板來蓋住機器的正面。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "steel",
+              "pos": "n.",
+              "zh": "鋼",
+              "ipa": "/stiːl/",
+              "example": {
+                "en": "The price of steel has gone up since last month.",
+                "zh": "鋼的價格自上個月以來上漲了。"
+              }
+            },
+            {
+              "w": "metal",
+              "pos": "n.",
+              "zh": "金屬",
+              "ipa": "/ˈmetl/",
+              "example": {
+                "en": "This product is made of recycled metal and plastic.",
+                "zh": "這項產品由回收金屬和塑膠製成。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "板材、薄板",
+              "en": "a thin, flat piece of metal or other material",
+              "in_passage": true,
+              "example": {
+                "en": "The plant cuts each aluminum sheet to the size customers need.",
+                "zh": "工廠把每片鋁板切成客戶需要的尺寸。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "（紙的）一張",
+              "en": "a single piece of paper",
+              "distinguish": "紙張常用 a sheet of paper 的固定說法；前後文講到金屬、材料時才是板材。",
+              "example": {
+                "en": "Each visitor must sign one sheet at the front desk.",
+                "zh": "每位訪客都必須在櫃檯簽一張簽到表。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "床單",
+              "en": "a large piece of cloth used on a bed",
+              "distinguish": "出現在飯店、寢具、客房的情境時是床單。",
+              "example": {
+                "en": "The hotel changes the sheets every day for each guest.",
+                "zh": "飯店每天為每位房客更換床單。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "alloy",
+          "type": "word",
+          "ipa": "/ˈælɔɪ/",
+          "pos": "n.",
+          "zh": "合金",
+          "en": "a metal made by mixing two or more metals",
+          "note": "在這篇指「合金」，由兩種以上金屬混合而成。a lower-grade alloy 表示強度或品質等級比目前材料低，但交期較短，所以才需要先做強度測試。",
+          "grammar_note": "alloy 是可數名詞，單數前要加冠詞；因為 alloy 以母音 /æ/ 開頭，不定冠詞用 an（an alloy），但前面有形容詞時看形容詞，如 a lower-grade alloy。",
+          "forms": [
+            {
+              "w": "alloys",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "合金（複數）",
+              "ipa": "/ˈælɔɪz/",
+              "example": {
+                "en": "The factory tested two different alloys before it chose a supplier.",
+                "zh": "工廠在選定供應商之前測試了兩種不同的合金。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "aluminum alloy",
+              "zh": "鋁合金",
+              "example": {
+                "en": "Aluminum alloy is light, strong, and cheaper than many other metals.",
+                "zh": "鋁合金輕、堅固，而且比許多其他金屬便宜。"
+              }
+            },
+            {
+              "phrase": "steel alloy",
+              "zh": "鋼合金",
+              "example": {
+                "en": "This steel alloy resists heat better than ordinary steel does.",
+                "zh": "這種鋼合金比一般的鋼更耐熱。"
+              }
+            },
+            {
+              "phrase": "alloy wheels",
+              "zh": "鋁合金輪圈",
+              "example": {
+                "en": "The new model comes with alloy wheels as a standard feature.",
+                "zh": "新車款的標準配備包含鋁合金輪圈。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "採購",
+              "en": "The engineers prefer an alloy that is both light and affordable.",
+              "zh": "工程師偏好既輕又價格合理的合金。"
+            },
+            {
+              "tag": "品管",
+              "en": "Each batch of alloy must pass a strength test before delivery.",
+              "zh": "每一批合金在交貨前都必須通過強度測試。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "ally",
+              "diff": "拼法與發音都很像（/ˈælaɪ/，只差最後的字母）；ally 是「盟友、合作夥伴」，alloy 是金屬材料。",
+              "example": {
+                "en": "Our biggest ally in the project is the local supplier.",
+                "zh": "在這個專案中，我們最大的盟友是當地的供應商。"
+              }
+            },
+            {
+              "word": "allow",
+              "diff": "allow 是動詞「允許」，alloy 是名詞「合金」，發音也不同（/əˈlaʊ/）。",
+              "usage": "allow 是動詞，後面常接 sb to V；alloy 是名詞，前面要有冠詞或形容詞。",
+              "example": {
+                "en": "Our contract does not allow us to change the material.",
+                "zh": "我們的合約不允許我們更換材料。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "aluminum",
+              "pos": "n.",
+              "zh": "鋁",
+              "ipa": "/əˈluːmɪnəm/",
+              "example": {
+                "en": "Aluminum is widely used in cars because it is light.",
+                "zh": "鋁因為很輕，被廣泛用在汽車上。"
+              }
+            },
+            {
+              "w": "copper",
+              "pos": "n.",
+              "zh": "銅",
+              "ipa": "/ˈkɑːpɚ/",
+              "example": {
+                "en": "Copper wire is more expensive than it was last year.",
+                "zh": "銅線比去年更貴了。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "lower-grade",
+          "type": "phrase",
+          "zh": "等級較低的、品質較差一級的",
+          "en": "not as high in level or quality as another one",
+          "note": "在這篇指 a lower-grade alloy：比目前使用的材料低一個等級的合金。這裡是用「比較」的方式，暗示便宜、交期短，但強度可能不夠，所以要先測試。",
+          "pattern": "a lower-grade + N（than + 現有的 N）",
+          "grammar_note": "lower-grade 是複合形容詞，放在名詞前要用連字號，grade 不加 s：a lower-grade material，不是 a lower-grades material。",
+          "examples": [
+            {
+              "tag": "採購",
+              "en": "The buyer chose a lower-grade steel to meet the tight budget.",
+              "zh": "採購人員選了等級較低的鋼材來配合緊縮的預算。"
+            },
+            {
+              "tag": "品管",
+              "en": "Customers may complain if we use lower-grade parts in the final product.",
+              "zh": "如果我們在成品中使用等級較低的零件，顧客可能會抱怨。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We can offer a lower-grade option at a much better price.",
+              "zh": "我們可以用好得多的價格提供等級較低的選項。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "lower-quality",
+              "diff": "lower-quality 泛指品質較差；lower-grade 更強調依規格或等級分級（金屬、肉品、原料等）後低一級。",
+              "example": {
+                "en": "The lower-quality fabric wore out after only three months.",
+                "zh": "品質較差的布料只用了三個月就磨破了。"
+              }
+            },
+            {
+              "phrase": "inferior",
+              "diff": "inferior 語氣更直接、帶負面評價，常接 to（inferior to）。",
+              "example": {
+                "en": "Their service is inferior to what we expected from them.",
+                "zh": "他們的服務比我們原本期待的差。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "low-grade",
+              "diff": "low-grade 是「低等級」，沒有比較對象；lower-grade 是「比另一個更低一級」，通常和現有材料相比。",
+              "example": {
+                "en": "The report says low-grade materials caused most of the defects.",
+                "zh": "報告指出低等級的材料造成了大部分瑕疵。"
+              }
+            }
+          ]
         }
       ],
       "prosody": {

@@ -137,6 +137,31 @@ function nwLibEligible() { // 待採用、且字庫還沒有詳解的新單字�
   if (!nwLibOn()) return [];
   return nwList().filter(n => { const s = nwStatus(n); return s.st === 'pending' && s.lib !== 'done'; }).sort((a, b) => (a.created || 0) - (b.created || 0));
 }
+/* ---------- 拼字檢查：新單字本身打錯字 ----------
+   通用詳解的提示詞會附「text → id」對照表，要求 AI 先檢查拼字：明顯拼錯就用正確拼法寫詳解，並在 nw_done 加 word_fix（正確拼法）。
+   網頁看到 word_fix 與新單字不同 → 這一列顯示「疑似拼錯」+「改正」鈕（同時把字庫入庫項目的字一起改掉，詳解就對得上）。
+   json_merge.py 不用改：nw_done 只檢查 id／result，多的欄位原樣保留。 */
+function nwTypoRule(ns) {
+  return ['【新單字拼字檢查】',
+    '下面每個單字／片語都附有 id。請先逐一檢查拼字：',
+    '- 拼對了：照一般規則寫，不用多做什麼（沒有備註的字，不需要加 nw_done）。',
+    '- 明顯拼錯（打錯或漏掉字母，例如 acommodate）：不要照錯的拼法寫。text 改用「正確拼法」寫這一筆完整詳解，並在這一筆加 \"nw_done\"：{ \"id\": \"（下表對應的 id）\", \"result\": \"added\", \"word_fix\": \"正確拼法\" }；若這一筆本來就要加 nw_done（因為有備註），把 word_fix 放進同一個物件，不要拆成兩個。',
+    '- 看不出是哪個字、無法確定正確拼法：這個字不要寫，並在聊天回覆用一句話列出來。',
+    '對照表（text → id）：'].concat(ns.map(n => `- ${n.text}  →  ${n.id}`)).join('\n') + '\n\n';
+}
+const nwWordFix = n => { const r = nwDoneRec(n), w = r && String(r.o.word_fix || '').trim(); return w && dnKey(w) !== dnKey(n.text) ? w : ''; }; // AI 判斷這個字拼錯時給的正確拼法
+function nwFixWord(id) {
+  const n = nwList().find(q => q.id === id); if (!n) return;
+  const w = nwWordFix(n); if (!w) return;
+  if (nwList().some(q => q.id !== n.id && dnKey(q.text) === dnKey(w))) { // 正確拼法已經在清單裡 → 直接移除打錯的這筆
+    if (!confirm(`新單字裡已經有「${w}」了，要把打錯的「${n.text}」移除嗎？`)) return;
+    NW = nwList().filter(q => q.id !== n.id); nwSave(); render(); return;
+  }
+  const lid = nwLibId();
+  dnMarks().forEach(m => { if (m.qid === lid && [].concat(m.nw || []).includes(n.id) && dnKey(m.text) !== dnKey(w)) m.text = w; });
+  n.text = w; n.type = /\s/.test(w) ? 'phrase' : 'word'; nwTouch(n); nwSave(); save();
+  dnToast(`已改成 ${w}`); render();
+}
 function nwLibCopy(ids) { // ids：單一 id 字串，或 id 陣列；省略＝全部可請 AI 寫的（最多 NW_LIBCAP 個）
   if (!nwLibOn()) { dnToast('daily.json 裡沒有「TSL 字庫」項目（library:true），無法產生通用詳解'); return; }
   let ns = ids ? [].concat(ids).map(id => nwList().find(q => q.id === id)).filter(Boolean) : nwLibEligible();
@@ -147,7 +172,10 @@ function nwLibCopy(ids) { // ids：單一 id 字串，或 id 陣列；省略＝�
     if (!m.nw) m.nw = n.id; // 記下來源：之後在入庫彙整刪掉它，就不會又被自動加回來
     keys.add(dnKey(m.text));
   });
-  save(); auCopy(dnPrompt(idOf(LIB), keys));
+  save();
+  let p = dnPrompt(idOf(LIB), keys); const rule = nwTypoRule(ns);
+  p = p.includes('【輸出格式】') ? p.replace('【輸出格式】', () => rule + '【輸出格式】') : p + '\n\n' + rule;
+  auCopy(p);
   dnToast(all > ns.length ? `已複製前 ${ns.length} 個（還有 ${all - ns.length} 個，貼完再按一次）` : `已複製通用詳解提示詞（${ns.length} 個），貼給 AI`);
   nwRefresh();
 }
@@ -333,6 +361,7 @@ function nwEditSave() {
   const t = nwNormText((document.getElementById('nw-ew') || {}).value), note = String((document.getElementById('nw-en') || {}).value || '').trim();
   if (!t || !/[A-Za-z]/.test(t) || /[\u4e00-\u9fff]/.test(t)) { dnToast('請輸入英文單字或片語'); return; }
   if (note !== String(n.note || '').trim()) { const old = n.id; n.id = dnId('n'); dnMarks().forEach(m => { if (m.nw === old) m.nw = n.id; }); save(); } // 備註改了 → 換新 id，舊的「已更新」紀錄就不再算數
+  if (nwLibOn() && dnKey(t) !== dnKey(n.text)) { const lid = idOf(LIB), idn = n.id; dnMarks().forEach(m => { if (m.qid === lid && [].concat(m.nw || []).includes(idn)) m.text = t; }); save(); } // 字庫的入庫項目跟著改
   n.text = t; n.type = /\s/.test(t) ? 'phrase' : 'word'; n.note = note; nwTouch(n); nwSave(); dnClose(); render();
 }
 function nwTab(t) { DN.nwTab = t; nwRefresh(); }
@@ -386,7 +415,8 @@ function nwRow(n) {
     updated: s.rec ? esc(NW_RES[s.rec.o.result] || '已處理') + (s.rec.o.fix ? `（AI 判斷備註有誤字：${esc(s.rec.o.fix)}）` : '') : '',
     removable: '已被文章採用或已在庫'
   }[s.st] + (n.own && s.st === 'pending' ? '<br>獨立詳解：等新文章採用後入庫，不併入其他字的詳解' : '')
-    + (s.st === 'pending' && s.lib === 'done' ? '<br>已有通用詳解（TSL 字庫）；仍留在待採用，新文章會優先帶入，採用後補「本篇用法」' : s.st === 'pending' && s.lib === 'wait' ? '<br>已在 TSL 字庫入庫、等 AI 通用詳解：貼給 AI → w0d1_extra.json → json_merge.py 合併' : ''), wh = nwWhere(s);
+    + (s.st === 'pending' && s.lib === 'done' ? '<br>已有通用詳解（TSL 字庫）；仍留在待採用，新文章會優先帶入，採用後補「本篇用法」' : s.st === 'pending' && s.lib === 'wait' ? '<br>已在 TSL 字庫入庫、等 AI 通用詳解：貼給 AI → w0d1_extra.json → json_merge.py 合併' : '')
+    + (nwWordFix(n) ? `<br><span class="text-amber-600 dark:text-amber-400">⚠ AI 判斷這個字拼錯了，應該是 <b>${esc(nwWordFix(n))}</b></span> <button onclick="nwFixWord('${n.id}')" class="${dnSm}">改正</button>` : ''), wh = nwWhere(s);
   return `<div class="py-3 flex items-start gap-2">
     <button onclick="speak(this.dataset.t)" data-t="${esc(n.text)}" class="text-slate-400 hover:text-indigo-600 text-lg shrink-0 mt-0.5" aria-label="發音">🔊</button>
     <div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-1.5"><b class="text-base break-words">${esc(n.text)}</b><span class="${dnChip}">${n.type === 'phrase' ? '片語' : '單字'}</span>${s.tsl ? `<span class="${dnChip} !bg-indigo-100 !text-indigo-800 dark:!bg-indigo-950 dark:!text-indigo-300">TSL #${s.tsl.r}</span>` : ''}<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ${st.c}">${st.label}</span></div>

@@ -1,0 +1,97 @@
+{
+  "week": 3,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "sheets",
+      "type": "word",
+      "lemma": "sheet",
+      "ipa": "/ʃiːts/",
+      "pos": "n.",
+      "zh": "板材、薄板（複數）",
+      "en": "flat, thin pieces of material such as metal or paper",
+      "note": "在這篇指「鋁板」。aluminum sheets 是工廠常用的薄金屬板材，它短缺代表生產線的原料出了問題。",
+      "grammar_note": "aluminum 在這裡是名詞當形容詞修飾 sheets，本身不加 s；sheet 是可數名詞，數量用 a sheet of、two sheets of 表示。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "sheet metal", "zh": "金屬板", "example": { "en": "The factory cuts sheet metal into parts for the new machine.", "zh": "工廠把金屬板切割成新機器的零件。" } },
+        { "phrase": "a sheet of paper", "zh": "一張紙", "example": { "en": "Please bring a sheet of paper to the training session.", "zh": "請帶一張紙來參加培訓課程。" } },
+        { "phrase": "data sheet", "zh": "規格表、資料表", "example": { "en": "The supplier sent a data sheet with the product's exact specifications.", "zh": "供應商寄來一份附有產品確切規格的資料表。" } },
+        { "phrase": "balance sheet", "zh": "資產負債表", "example": { "en": "The balance sheet shows that costs have risen this year.", "zh": "資產負債表顯示今年的成本上升了。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "We ordered five hundred steel sheets for the new assembly line.", "zh": "我們為新的組裝線訂購了五百片鋼板。" },
+        { "tag": "電子郵件", "en": "Please confirm the thickness of the sheets before you ship the order.", "zh": "出貨之前，請確認板材的厚度。" }
+      ],
+      "confusable": [
+        { "word": "plate", "diff": "plate 通常是較厚的金屬板；sheet 是較薄的片狀板材。", "example": { "en": "The steel plate is too thick for this cutting machine.", "zh": "這塊鋼板對這台切割機來說太厚了。" } },
+        { "word": "panel", "diff": "panel 是組成牆面、門或機器外殼的一塊面板，重點在「用途」而不是厚薄。", "example": { "en": "We need a metal panel to cover the front of the machine.", "zh": "我們需要一塊金屬面板來蓋住機器的正面。" } }
+      ],
+      "family": [
+        { "w": "steel", "pos": "n.", "zh": "鋼", "ipa": "/stiːl/", "example": { "en": "The price of steel has gone up since last month.", "zh": "鋼的價格自上個月以來上漲了。" } },
+        { "w": "metal", "pos": "n.", "zh": "金屬", "ipa": "/ˈmetl/", "example": { "en": "This product is made of recycled metal and plastic.", "zh": "這項產品由回收金屬和塑膠製成。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "板材、薄板", "en": "a thin, flat piece of metal or other material", "in_passage": true, "example": { "en": "The plant cuts each aluminum sheet to the size customers need.", "zh": "工廠把每片鋁板切成客戶需要的尺寸。" } },
+        { "pos": "n.", "zh": "（紙的）一張", "en": "a single piece of paper", "distinguish": "紙張常用 a sheet of paper 的固定說法；前後文講到金屬、材料時才是板材。", "example": { "en": "Each visitor must sign one sheet at the front desk.", "zh": "每位訪客都必須在櫃檯簽一張簽到表。" } },
+        { "pos": "n.", "zh": "床單", "en": "a large piece of cloth used on a bed", "distinguish": "出現在飯店、寢具、客房的情境時是床單。", "example": { "en": "The hotel changes the sheets every day for each guest.", "zh": "飯店每天為每位房客更換床單。" } }
+      ]
+    },
+    {
+      "text": "alloy",
+      "type": "word",
+      "ipa": "/ˈælɔɪ/",
+      "pos": "n.",
+      "zh": "合金",
+      "en": "a metal made by mixing two or more metals",
+      "note": "在這篇指「合金」，由兩種以上金屬混合而成。a lower-grade alloy 表示強度或品質等級比目前材料低，但交期較短，所以才需要先做強度測試。",
+      "grammar_note": "alloy 是可數名詞，單數前要加冠詞；因為 alloy 以母音 /æ/ 開頭，不定冠詞用 an（an alloy），但前面有形容詞時看形容詞，如 a lower-grade alloy。",
+      "forms": [
+        { "w": "alloys", "label": "複數", "pos": "n.", "zh": "合金（複數）", "ipa": "/ˈælɔɪz/", "example": { "en": "The factory tested two different alloys before it chose a supplier.", "zh": "工廠在選定供應商之前測試了兩種不同的合金。" } }
+      ],
+      "collocations": [
+        { "phrase": "aluminum alloy", "zh": "鋁合金", "example": { "en": "Aluminum alloy is light, strong, and cheaper than many other metals.", "zh": "鋁合金輕、堅固，而且比許多其他金屬便宜。" } },
+        { "phrase": "steel alloy", "zh": "鋼合金", "example": { "en": "This steel alloy resists heat better than ordinary steel does.", "zh": "這種鋼合金比一般的鋼更耐熱。" } },
+        { "phrase": "alloy wheels", "zh": "鋁合金輪圈", "example": { "en": "The new model comes with alloy wheels as a standard feature.", "zh": "新車款的標準配備包含鋁合金輪圈。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "The engineers prefer an alloy that is both light and affordable.", "zh": "工程師偏好既輕又價格合理的合金。" },
+        { "tag": "品管", "en": "Each batch of alloy must pass a strength test before delivery.", "zh": "每一批合金在交貨前都必須通過強度測試。" }
+      ],
+      "confusable": [
+        { "word": "ally", "diff": "拼法與發音都很像（/ˈælaɪ/，只差最後的字母）；ally 是「盟友、合作夥伴」，alloy 是金屬材料。", "example": { "en": "Our biggest ally in the project is the local supplier.", "zh": "在這個專案中，我們最大的盟友是當地的供應商。" } },
+        { "word": "allow", "diff": "allow 是動詞「允許」，alloy 是名詞「合金」，發音也不同（/əˈlaʊ/）。", "usage": "allow 是動詞，後面常接 sb to V；alloy 是名詞，前面要有冠詞或形容詞。", "example": { "en": "Our contract does not allow us to change the material.", "zh": "我們的合約不允許我們更換材料。" } }
+      ],
+      "family": [
+        { "w": "aluminum", "pos": "n.", "zh": "鋁", "ipa": "/əˈluːmɪnəm/", "example": { "en": "Aluminum is widely used in cars because it is light.", "zh": "鋁因為很輕，被廣泛用在汽車上。" } },
+        { "w": "copper", "pos": "n.", "zh": "銅", "ipa": "/ˈkɑːpɚ/", "example": { "en": "Copper wire is more expensive than it was last year.", "zh": "銅線比去年更貴了。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "lower-grade",
+      "type": "phrase",
+      "zh": "等級較低的、品質較差一級的",
+      "en": "not as high in level or quality as another one",
+      "note": "在這篇指 a lower-grade alloy：比目前使用的材料低一個等級的合金。這裡是用「比較」的方式，暗示便宜、交期短，但強度可能不夠，所以要先測試。",
+      "pattern": "a lower-grade + N（than + 現有的 N）",
+      "grammar_note": "lower-grade 是複合形容詞，放在名詞前要用連字號，grade 不加 s：a lower-grade material，不是 a lower-grades material。",
+      "examples": [
+        { "tag": "採購", "en": "The buyer chose a lower-grade steel to meet the tight budget.", "zh": "採購人員選了等級較低的鋼材來配合緊縮的預算。" },
+        { "tag": "品管", "en": "Customers may complain if we use lower-grade parts in the final product.", "zh": "如果我們在成品中使用等級較低的零件，顧客可能會抱怨。" },
+        { "tag": "電子郵件", "en": "We can offer a lower-grade option at a much better price.", "zh": "我們可以用好得多的價格提供等級較低的選項。" }
+      ],
+      "similar": [
+        { "phrase": "lower-quality", "diff": "lower-quality 泛指品質較差；lower-grade 更強調依規格或等級分級（金屬、肉品、原料等）後低一級。", "example": { "en": "The lower-quality fabric wore out after only three months.", "zh": "品質較差的布料只用了三個月就磨破了。" } },
+        { "phrase": "inferior", "diff": "inferior 語氣更直接、帶負面評價，常接 to（inferior to）。", "example": { "en": "Their service is inferior to what we expected from them.", "zh": "他們的服務比我們原本期待的差。" } }
+      ],
+      "confusable": [
+        { "phrase": "low-grade", "diff": "low-grade 是「低等級」，沒有比較對象；lower-grade 是「比另一個更低一級」，通常和現有材料相比。", "example": { "en": "The report says low-grade materials caused most of the defects.", "zh": "報告指出低等級的材料造成了大部分瑕疵。" } }
+      ]
+    }
+  ]
+}

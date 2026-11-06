@@ -1,0 +1,216 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "just ahead",
+      "type": "phrase",
+      "zh": "就在前方；即將到來",
+      "en": "a short distance in front of you, or coming soon",
+      "note": "多益常見於指路、交通廣播、機場或建築導覽，表示「前面不遠處」。也可用在時間上，表示好日子或忙碌期「即將到來」。",
+      "pattern": "N + is + just ahead (of + N)",
+      "grammar_note": "just ahead 後面如果要接地點或事物，要加 of（just ahead of the bank）；單獨使用時後面不接名詞。",
+      "examples": [
+        { "tag": "指路", "en": "The post office is just ahead, on your left.", "zh": "郵局就在前面，在你的左手邊。" },
+        { "tag": "交通", "en": "Traffic is slow just ahead because of road work.", "zh": "前方因為道路施工，車流很慢。" },
+        { "tag": "機場", "en": "The boarding gate is just ahead of the security check.", "zh": "登機門就在安檢處的前方。" },
+        { "tag": "時程", "en": "Busy weeks are just ahead, so please plan your work.", "zh": "忙碌的幾週即將到來，請規劃好你的工作。" }
+      ],
+      "similar": [
+        { "phrase": "straight ahead", "diff": "強調「筆直往前」的方向，不一定是很近的地方。", "example": { "en": "Go straight ahead and turn right at the bank.", "zh": "直直往前走，在銀行處右轉。" } },
+        { "phrase": "up ahead", "diff": "較口語，指前方某處，距離不一定很近。", "example": { "en": "There is a gas station up ahead on the right.", "zh": "前方右邊有一座加油站。" } },
+        { "phrase": "coming up", "diff": "只用在時間，表示事情即將發生。", "example": { "en": "Our annual meeting is coming up in two weeks.", "zh": "我們的年會兩週後就要到了。" } }
+      ],
+      "confusable": [
+        { "phrase": "ahead of schedule", "diff": "意思是「比預定時間提早」，和位置在前方無關。", "example": { "en": "The project is ahead of schedule by two weeks.", "zh": "這個專案比預定時程提早了兩週。" } }
+      ]
+    },
+    {
+      "text": "passage",
+      "type": "word",
+      "ipa": "/ˈpæsɪdʒ/",
+      "pos": "n.",
+      "zh": "文章段落；通道；通過",
+      "en": "a short part of a text, or a way to go through a place",
+      "note": "多益最常見的是閱讀題中的「段落」，指一小段文字。另外也常指建築裡的「通道」，以及「（法案）通過」或「（時間）流逝」。",
+      "forms": [
+        { "w": "passages", "label": "複數", "pos": "n.", "zh": "段落、通道（複數）", "ipa": "/ˈpæsɪdʒɪz/", "example": { "en": "Two passages in the report need to be rewritten.", "zh": "報告中有兩個段落需要重寫。" } }
+      ],
+      "collocations": [
+        { "phrase": "read a passage", "zh": "閱讀一段文章", "example": { "en": "Candidates must read a passage and then answer five questions.", "zh": "考生必須先閱讀一段文章，再回答五個問題。" } },
+        { "phrase": "short passage", "zh": "短文、一小段文字", "example": { "en": "The short passage describes a new hotel opening.", "zh": "這篇短文介紹了一家新飯店的開幕。" } },
+        { "phrase": "passage of time", "zh": "時間的流逝", "example": { "en": "Prices tend to rise with the passage of time.", "zh": "價格往往隨著時間流逝而上漲。" } },
+        { "phrase": "safe passage", "zh": "安全通行", "example": { "en": "The guard gave the visitors safe passage through the factory.", "zh": "警衛讓訪客安全通過工廠。" } }
+      ],
+      "examples": [
+        { "tag": "閱讀測驗", "en": "Please read the first passage and choose the best answer.", "zh": "請閱讀第一段文章，並選出最佳答案。" },
+        { "tag": "大樓", "en": "Staff must use the back passage during the building repair.", "zh": "大樓維修期間，員工必須走後面的通道。" }
+      ],
+      "confusable": [
+        { "word": "passenger", "diff": "拼法接近，但 passenger 是「乘客」，是人；passage 是段落或通道。", "example": { "en": "Each passenger must show a ticket before boarding the train.", "zh": "每位乘客上火車前都必須出示車票。" } }
+      ],
+      "family": [
+        { "w": "paragraph", "ipa": "/ˈperəɡræf/", "pos": "n.", "zh": "段落", "example": { "en": "The second paragraph explains the new company rules.", "zh": "第二段說明了公司的新規定。" } },
+        { "w": "corridor", "ipa": "/ˈkɔːrɪdɔːr/", "pos": "n.", "zh": "走廊", "example": { "en": "The meeting room is at the end of the corridor.", "zh": "會議室在走廊的盡頭。" } }
+      ],
+      "derived": [
+        { "w": "pass", "ipa": "/pæs/", "pos": "v.", "zh": "通過、經過", "link": "詞幹 pass，通過；加 -age 變成名詞，像 package、message。" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "（文章的）段落", "en": "a short part of a written text", "example": { "en": "This passage explains how the new refund policy works.", "zh": "這個段落說明了新的退款政策如何運作。" } },
+        { "pos": "n.", "zh": "通道、走道", "en": "a narrow way that connects two places", "distinguish": "出現在建築、地點的描述中，指可以走過去的路。", "example": { "en": "Keep the passage near the exit clear at all times.", "zh": "出口附近的通道必須隨時保持暢通。" } },
+        { "pos": "n.", "zh": "（法案）通過；（時間）流逝", "en": "the act of passing, or the time that goes by", "distinguish": "常接 of：the passage of a law、the passage of time。", "example": { "en": "The passage of the new law will affect small businesses.", "zh": "新法案的通過將會影響小型企業。" } }
+      ]
+    },
+    {
+      "text": "liable",
+      "type": "word",
+      "ipa": "/ˈlaɪəbəl/",
+      "pos": "adj.",
+      "zh": "有法律責任的；易於…的",
+      "en": "legally responsible for something, or likely to do something bad",
+      "note": "多益常見於合約、保險、賠償的情境，指「在法律上要負責、要賠償」。另一個常見用法是 liable to + V，表示「很可能發生（通常是不好的事）」。",
+      "grammar_note": "be liable for + N 是「對…負責」；be liable to + V 是「容易…」，to 後面接原形動詞。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "be liable for damages", "zh": "須賠償損失", "example": { "en": "The company was held liable for damages after the accident.", "zh": "事故發生後，這家公司被判須賠償損失。" } },
+        { "phrase": "liable for the cost", "zh": "須負擔費用", "example": { "en": "Customers are liable for the cost of lost keys.", "zh": "顧客須負擔遺失鑰匙的費用。" } },
+        { "phrase": "legally liable", "zh": "在法律上須負責", "example": { "en": "The owner is legally liable for the safety of the building.", "zh": "業主在法律上須對大樓的安全負責。" } },
+        { "phrase": "liable to change", "zh": "可能會改變", "example": { "en": "Flight times are liable to change in bad weather.", "zh": "天氣不好時，航班時間可能會改變。" } }
+      ],
+      "examples": [
+        { "tag": "合約", "en": "The supplier is liable for any damage during shipping.", "zh": "供應商須對運送過程中的任何損壞負責。" },
+        { "tag": "保險", "en": "You may be liable for the repair costs if you break it.", "zh": "如果你弄壞它，可能要負擔維修費用。" },
+        { "tag": "物流", "en": "Shipments are liable to arrive late during the holidays.", "zh": "假期期間，貨物可能會延遲送達。" },
+        { "tag": "辦公", "en": "Employees are liable to make mistakes when they are tired.", "zh": "員工疲累時容易出錯。" }
+      ],
+      "confusable": [
+        { "word": "likely", "diff": "likely to + V 只是「可能」，語氣中性；liable to + V 多半指不好的事。", "usage": "liable 還有「負法律責任」的意思（liable for），likely 沒有這個用法。", "example": { "en": "The new product is likely to sell well this year.", "zh": "這項新產品今年很可能會熱賣。" } }
+      ],
+      "similar": [
+        { "word": "responsible", "diff": "responsible 的範圍較廣，指負責任、負責某項工作，不一定有法律責任；liable 強調法律或賠償上的責任。", "example": { "en": "She is responsible for training all the new staff.", "zh": "她負責訓練所有新進員工。" } },
+        { "word": "accountable", "diff": "accountable 強調要向某人「說明、交代」自己做了什麼，常用 accountable to + 人。", "example": { "en": "Managers are accountable to the board for the results.", "zh": "經理須向董事會交代成果。" } }
+      ],
+      "derived": [
+        { "w": "liability", "ipa": "/ˌlaɪəˈbɪləti/", "pos": "n.", "zh": "法律責任、債務", "link": "liable 的 -able 變成 -ility，像 able → ability、reliable → reliability。" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "（法律上）須負責的", "en": "having to pay or take responsibility by law", "example": { "en": "The shop is not liable for items left in the room.", "zh": "商店不須對留在房內的物品負責。" } },
+        { "pos": "adj.", "zh": "容易…的、可能會…的", "en": "likely to do or have something, often something bad", "distinguish": "後面接 to + V，通常指不好的事。", "example": { "en": "Old machines are liable to break down without warning.", "zh": "老舊的機器可能會無預警故障。" } }
+      ],
+      "nw_done": [
+        { "id": "nmw47o9yrkacl", "result": "added" }
+      ]
+    },
+    {
+      "text": "slack off",
+      "type": "phrase",
+      "zh": "偷懶、鬆懈、懈怠",
+      "en": "to work less hard than you should",
+      "note": "口語說法，用來形容工作或讀書不夠認真，帶有一點批評的語氣。常見於談績效、團隊紀律、截止日前的情境。",
+      "pattern": "S + slack off (at work / on + N)",
+      "grammar_note": "slack off 是不及物片語，後面不直接接受詞；要加地點或事情時，用 at work 或 on the project。",
+      "examples": [
+        { "tag": "辦公", "en": "Some staff slack off when the manager is away.", "zh": "經理不在的時候，有些員工會偷懶。" },
+        { "tag": "會議", "en": "We cannot slack off now because the deadline is near.", "zh": "截止日快到了，我們現在不能鬆懈。" },
+        { "tag": "績效", "en": "Sales dropped because the team began to slack off.", "zh": "因為團隊開始鬆懈，業績下滑了。" },
+        { "tag": "人資", "en": "He was warned for slacking off during busy weeks.", "zh": "他因為在忙碌期間偷懶而受到警告。" }
+      ],
+      "similar": [
+        { "phrase": "goof off", "diff": "更口語，強調不做正事、玩樂混時間。", "example": { "en": "Some interns goof off instead of finishing their tasks.", "zh": "有些實習生不完成工作，只顧著混時間。" } },
+        { "phrase": "take it easy", "diff": "是「放輕鬆、不要太累」，語氣正面，不是批評。", "example": { "en": "You should take it easy after such a long project.", "zh": "做完這麼長的專案後，你應該放鬆一下。" } }
+      ],
+      "confusable": [
+        { "phrase": "slow down", "diff": "slow down 只是速度變慢，不一定是偷懶；slack off 是不夠努力。", "example": { "en": "Please slow down when you drive through the factory yard.", "zh": "開車經過工廠院區時，請減速慢行。" } }
+      ]
+    },
+    {
+      "text": "take the blame",
+      "type": "phrase",
+      "zh": "承擔責任、扛下過錯",
+      "en": "to say that a mistake was your fault",
+      "note": "指承認「是我的錯」，或替別人（例如團隊）扛下責任。常見於主管對失誤的處理、客訴回應的情境。",
+      "pattern": "take the blame (for + N / V-ing)",
+      "grammar_note": "blame 在這裡是不可數名詞，前面用 the；for 後面接名詞或 V-ing（take the blame for losing the client）。",
+      "examples": [
+        { "tag": "會議", "en": "The manager took the blame for the late delivery.", "zh": "經理為延遲交貨扛下了責任。" },
+        { "tag": "電子郵件", "en": "I will take the blame for the error in the report.", "zh": "報告中的錯誤由我來負責。" },
+        { "tag": "團隊", "en": "A good leader takes the blame when the team fails.", "zh": "好的領導者在團隊失敗時會扛起責任。" },
+        { "tag": "客服", "en": "She took the blame for losing the customer's package.", "zh": "她承擔了弄丟顧客包裹的責任。" }
+      ],
+      "similar": [
+        { "phrase": "take responsibility for", "diff": "較正式、較正面，強調願意負責並處理問題；take the blame 重點在承認錯誤。", "example": { "en": "We take responsibility for the mistake and will fix it.", "zh": "我們對這個錯誤負責，也會加以改正。" } },
+        { "phrase": "accept the blame", "diff": "意思相同，語氣稍微正式一點。", "example": { "en": "He was ready to accept the blame for the delay.", "zh": "他準備好為這次延誤承擔責任。" } }
+      ],
+      "confusable": [
+        { "phrase": "take the credit", "diff": "意思相反：take the credit 是把功勞攬到自己身上，take the blame 是把過錯扛下來。", "example": { "en": "He took the credit for the whole team's hard work.", "zh": "他把整個團隊辛苦的成果攬為己功。" } }
+      ]
+    },
+    {
+      "text": "shift the blame",
+      "type": "phrase",
+      "zh": "推卸責任、把過錯推給別人",
+      "en": "to say that someone else is at fault instead of you",
+      "note": "帶有負面語氣，指自己犯錯卻把責任推到別人或別的原因上，常見於職場批評、會議紀錄、新聞評論。",
+      "pattern": "shift the blame (from A) to / onto + 人",
+      "grammar_note": "「推給某人」要用 to 或 onto，例如 shift the blame onto the supplier；blame 是不可數名詞，前面用 the。",
+      "examples": [
+        { "tag": "會議", "en": "Please do not shift the blame onto other departments.", "zh": "請不要把責任推給其他部門。" },
+        { "tag": "新聞", "en": "The company tried to shift the blame to its supplier.", "zh": "這家公司試圖把責任推給供應商。" },
+        { "tag": "職場", "en": "He always shifts the blame whenever a project fails.", "zh": "每當專案失敗，他總是把責任推給別人。" },
+        { "tag": "客服", "en": "Instead of shifting the blame, we should solve the problem.", "zh": "我們應該解決問題，而不是互相推卸責任。" }
+      ],
+      "similar": [
+        { "phrase": "pass the buck", "diff": "較口語的慣用語，意思相同，指把責任丟給別人。", "example": { "en": "Managers should not pass the buck to their staff.", "zh": "經理不應該把責任推給下屬。" } },
+        { "phrase": "blame someone else", "diff": "直接說「怪別人」，語氣較直白，沒有「刻意推卸」的味道那麼重。", "example": { "en": "It is easy to blame someone else for a mistake.", "zh": "要把錯誤怪到別人頭上很容易。" } }
+      ]
+    },
+    {
+      "text": "take the credit",
+      "type": "phrase",
+      "zh": "把功勞攬在自己身上；接受讚揚",
+      "en": "to say that you did something good, or to receive praise for it",
+      "note": "常指把別人的功勞算成自己的（負面語氣），但前面加 deserve 或 fully 時，也可以是中性的「接受應得的讚揚」。常見於職場評論、績效討論。",
+      "pattern": "take the credit for + N / V-ing",
+      "grammar_note": "credit 在這個意思是不可數名詞，常用 take (all) the credit for；for 後面接名詞或 V-ing。",
+      "examples": [
+        { "tag": "職場", "en": "He took the credit for the project, but we did the work.", "zh": "他把專案的功勞攬在自己身上，但事情是我們做的。" },
+        { "tag": "會議", "en": "Our manager never takes the credit for the team's success.", "zh": "我們的經理從不把團隊的成功攬為己功。" },
+        { "tag": "電子郵件", "en": "You should take the credit for closing this big deal.", "zh": "你應該為談成這筆大生意接受讚揚。" },
+        { "tag": "新聞", "en": "The mayor took the credit for the new bridge.", "zh": "市長把這座新橋的功勞攬在自己身上。" }
+      ],
+      "similar": [
+        { "phrase": "get the credit for", "diff": "較中性，只是「得到肯定」，不一定是搶功勞。", "example": { "en": "She deserves to get the credit for this idea.", "zh": "她應該因為這個點子而得到肯定。" } },
+        { "phrase": "steal the credit", "diff": "語氣更負面，明確指「搶走別人的功勞」。", "example": { "en": "Nobody likes a boss who tries to steal the credit.", "zh": "沒有人喜歡想搶功勞的老闆。" } }
+      ],
+      "confusable": [
+        { "phrase": "give credit to", "diff": "意思相反：give credit to 是把功勞歸給別人，take the credit 是攬在自己身上。", "example": { "en": "Please give credit to everyone who helped on this project.", "zh": "請把功勞歸給所有協助這個專案的人。" } }
+      ]
+    },
+    {
+      "text": "suck up to",
+      "type": "phrase",
+      "zh": "巴結、拍馬屁、討好（有權力的人）",
+      "en": "to be too nice to someone important to get something from them",
+      "note": "口語、帶貶意，用來批評對上司或有權力的人過度討好。多半在背後評論別人時使用，不適合當面說，也不適合正式文件。",
+      "pattern": "suck up to + 人（上司／客戶）",
+      "grammar_note": "suck up to 的 to 是介系詞，後面接人（suck up to the boss）；人如果是代名詞，要放在 to 後面（suck up to him）。",
+      "examples": [
+        { "tag": "職場", "en": "Some people suck up to the boss to get promoted.", "zh": "有些人為了升遷而巴結老闆。" },
+        { "tag": "同事", "en": "I do not like how he sucks up to our clients.", "zh": "我不喜歡他巴結我們客戶的樣子。" },
+        { "tag": "面試", "en": "Do not suck up to the interviewer; just be honest.", "zh": "不要討好面試官，誠實就好。" },
+        { "tag": "閒聊", "en": "She was sucking up to the director all through lunch.", "zh": "她整頓午餐都在巴結主任。" }
+      ],
+      "similar": [
+        { "phrase": "kiss up to", "diff": "意思幾乎相同，同樣是口語、帶貶意。", "example": { "en": "He likes to kiss up to anyone with power.", "zh": "他喜歡討好任何有權力的人。" } },
+        { "phrase": "flatter", "diff": "是一般單字，指說好聽的話奉承人，語氣較正式，可直接接受詞（flatter the client）。", "example": { "en": "She tried to flatter the buyer to get a better deal.", "zh": "她想奉承買家，以換取更好的交易條件。" } },
+        { "phrase": "butter up", "diff": "也是口語，指用好聽話或小好處討好人，受詞可放中間（butter him up）。", "example": { "en": "He bought lunch to butter up the new manager.", "zh": "他請午餐來討好新經理。" } }
+      ],
+      "confusable": [
+        { "phrase": "suck up", "diff": "單獨的 suck up 也可指「把東西吸進去」，沒有加 to 時多半是這個意思。", "example": { "en": "This machine can suck up dust from the office carpet.", "zh": "這台機器可以吸起辦公室地毯上的灰塵。" } }
+      ]
+    }
+  ]
+}

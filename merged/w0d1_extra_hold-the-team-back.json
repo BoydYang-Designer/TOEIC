@@ -1,0 +1,29 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "hold the team back",
+      "type": "phrase",
+      "zh": "拖累團隊、阻礙團隊進展",
+      "en": "to stop the team from moving forward or doing better",
+      "note": "多益常見於專案管理與績效情境，指某個人、問題或流程讓團隊進度變慢、無法進步。主詞可以是人，也可以是舊系統、冗長流程這類事物。",
+      "pattern": "N + hold(s) + 人 + back (from + V-ing)",
+      "grammar_note": "hold back 是可分開的片語動詞，受詞可放中間或後面（hold the team back／hold back the team），但代名詞一定放中間：hold them back，不能說 hold back them。",
+      "examples": [
+        { "tag": "專案", "en": "Old software is holding the team back from finishing on time.", "zh": "老舊的軟體讓團隊無法準時完成。" },
+        { "tag": "會議", "en": "Slow approval steps hold the team back every single week.", "zh": "緩慢的核准流程每個星期都在拖累團隊。" },
+        { "tag": "管理", "en": "One late supplier should not hold the team back any longer.", "zh": "一家延遲的供應商不應該再繼續拖累團隊了。" },
+        { "tag": "績效", "en": "Poor communication has held the team back for most of the year.", "zh": "溝通不良讓團隊在這一年的大部分時間裡裹足不前。" }
+      ],
+      "similar": [
+        { "phrase": "slow down", "diff": "slow down 只是「變慢」；hold back 強調被擋住、無法進步。", "example": { "en": "Heavy traffic may slow down the delivery trucks this afternoon.", "zh": "今天下午的交通壅塞可能會拖慢送貨卡車。" } },
+        { "phrase": "get in the way of", "diff": "get in the way of 是「妨礙、擋路」，後面接名詞或事情，不接人加 back。", "example": { "en": "Small disagreements should not get in the way of the project.", "zh": "小爭執不應該妨礙這個專案。" } }
+      ],
+      "confusable": [
+        { "phrase": "hold up", "diff": "hold up 多指耽擱事物（貨物、進度、付款）；hold the team back 是讓人或團隊無法進步。", "example": { "en": "A customs check held up the shipment for two days.", "zh": "海關檢查讓貨物耽擱了兩天。" } },
+        { "phrase": "hold on", "diff": "hold on 是「等一下」（電話或對話中），和阻礙無關。", "example": { "en": "Please hold on while I connect you to the manager.", "zh": "請稍等，我幫您轉接給經理。" } }
+      ]
+    }
+  ]
+}

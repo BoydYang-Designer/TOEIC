@@ -1,0 +1,287 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "give in",
+      "type": "phrase",
+      "zh": "屈服、讓步、同意",
+      "en": "to stop saying no and agree after being asked many times",
+      "note": "多益常出現在談判、客訴、價格討論的情境，帶有「本來不想答應，最後還是答應了」的語感。另外在英式英語中也可表示「交出、繳交」，但多益較常用 hand in 或 submit。",
+      "pattern": "give in (to + N)",
+      "grammar_note": "give in 後面不能直接接受詞，要先加 to 再接名詞（give in to the demand，不說 give in the demand）。",
+      "examples": [
+        { "tag": "談判", "en": "The client finally gave in and accepted our new price.", "zh": "客戶終於讓步，接受了我們的新價格。" },
+        { "tag": "會議", "en": "We should not give in to every demand from the supplier.", "zh": "我們不應該對供應商的每項要求都讓步。" },
+        { "tag": "電子郵件", "en": "After two weeks of talks, the union gave in on overtime pay.", "zh": "經過兩週的談判，工會在加班費上讓步了。" },
+        { "tag": "客服", "en": "The manager gave in and let the customer return the item.", "zh": "經理讓步了，讓客人退回這項商品。" },
+        { "tag": "繳交（英式）", "en": "Please give in your reports to Ms. Lin by noon.", "zh": "請在中午前把你們的報告交給林小姐。" }
+      ],
+      "similar": [
+        { "phrase": "back down", "diff": "指在爭論中收回原本的立場，比 give in 更強調「不再堅持」。", "example": { "en": "Our team refused to back down on the delivery date.", "zh": "我們的團隊拒絕在交貨日期上退讓。" } },
+        { "phrase": "agree to", "diff": "只是單純同意，沒有「不情願」的語氣，後面直接接要求或計畫。", "example": { "en": "She agreed to the new schedule after a short talk.", "zh": "簡短討論後，她同意了新的時程。" } },
+        { "phrase": "hand in", "diff": "只對應「繳交文件」這個意思，語氣中性，多益比 give in 更常見。", "example": { "en": "Please hand in your expense form before Friday.", "zh": "請在星期五前交出你的費用表單。" } }
+      ],
+      "confusable": [
+        { "word": "give up", "diff": "give up 是放棄、不再嘗試；give in 是在壓力下同意或讓步。", "example": { "en": "We will not give up until the problem is solved.", "zh": "在問題解決之前，我們不會放棄。" } },
+        { "word": "give out", "diff": "give out 是分發東西，或指機器、用品用完、壞掉，和讓步無關。", "example": { "en": "Staff will give out free samples at the entrance.", "zh": "員工會在入口處發放免費試用品。" } }
+      ]
+    },
+    {
+      "text": "realistic",
+      "type": "word",
+      "ipa": "/ˌriːəˈlɪstɪk/",
+      "pos": "adj.",
+      "zh": "切合實際的、務實的；逼真的",
+      "en": "based on what is possible or true in real life",
+      "note": "多益常用來形容目標、計畫、預期、期限是否「做得到」，例如 realistic goal。也可以表示「很逼真的」。語氣偏正面，反義字是 unrealistic。",
+      "grammar_note": "It is realistic to + V 表示「…是切實際的」；形容人時用 be realistic about + N（對…很務實）。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "realistic goal", "zh": "切合實際的目標", "example": { "en": "Let's set a realistic goal for next quarter's sales.", "zh": "我們為下一季的銷售訂一個切合實際的目標吧。" } },
+        { "phrase": "realistic expectations", "zh": "實際的期待", "example": { "en": "Customers need realistic expectations about delivery times.", "zh": "客戶對送貨時間需要有實際的期待。" } },
+        { "phrase": "realistic deadline", "zh": "做得到的期限", "example": { "en": "The manager asked for a more realistic deadline.", "zh": "經理要求一個更可行的期限。" } },
+        { "phrase": "realistic price", "zh": "合理的價格", "example": { "en": "We offered a realistic price to win the contract.", "zh": "我們提出合理的價格來爭取合約。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "We need a realistic plan to finish the project on time.", "zh": "我們需要一份切實可行的計畫，才能準時完成專案。" },
+        { "tag": "業績", "en": "Is it realistic to expect ten percent growth this year?", "zh": "期待今年成長百分之十，實際嗎？" },
+        { "tag": "求職", "en": "She has a realistic view of the job market.", "zh": "她對就業市場有務實的看法。" },
+        { "tag": "培訓", "en": "The training video shows a realistic office situation.", "zh": "這部訓練影片呈現了很真實的辦公室情境。" }
+      ],
+      "confusable": [
+        { "word": "real", "diff": "real 是「真的、不是假的」；realistic 是「切合實際、合乎現實」。", "example": { "en": "The real problem is the late delivery, not the price.", "zh": "真正的問題是延遲交貨，不是價格。" } }
+      ],
+      "similar": [
+        { "phrase": "sensible", "diff": "強調做法理性、有常識，不一定在談「做不做得到」。", "example": { "en": "Buying in bulk is a sensible way to save money.", "zh": "大量採購是節省成本的明智做法。" } },
+        { "phrase": "workable", "diff": "強調計畫或方法「行得通」，常用在計畫、方案。", "example": { "en": "We need a workable solution before the meeting ends.", "zh": "我們需要在會議結束前想出一個行得通的方案。" } }
+      ],
+      "family": [
+        { "w": "practical", "ipa": "/ˈpræktɪkəl/", "pos": "adj.", "zh": "實用的、實際的", "example": { "en": "This is a practical way to save office costs.", "zh": "這是節省辦公室成本的實用方法。" } },
+        { "w": "reasonable", "ipa": "/ˈriːzənəbəl/", "pos": "adj.", "zh": "合理的", "example": { "en": "Their offer is reasonable for such a large order.", "zh": "對這麼大的訂單來說，他們的報價很合理。" } }
+      ],
+      "derived": [
+        { "w": "real", "ipa": "/ˈriːəl/", "pos": "adj.", "zh": "真的、真實的", "link": "詞幹 real，真的；加 -istic 變成「合乎現實的」，結尾像 optimistic。" },
+        { "w": "reality", "ipa": "/riˈæləti/", "pos": "n.", "zh": "現實", "link": "real + -ity，變成名詞，像 quality、ability。" },
+        { "w": "realistically", "ipa": "/ˌriːəˈlɪstɪkli/", "pos": "adv.", "zh": "實際地、務實地", "link": "realistic + -ly，變成副詞，像 quickly、carefully。" },
+        { "w": "unrealistic", "ipa": "/ˌʌnriːəˈlɪstɪk/", "pos": "adj.", "zh": "不切實際的", "link": "un- 表示否定 + realistic，像 unhappy、unclear。" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "immortality",
+      "type": "word",
+      "ipa": "/ˌɪmɔːrˈtæləti/",
+      "pos": "n.",
+      "zh": "不朽、永生",
+      "en": "the ability to live forever",
+      "note": "多半出現在文章、廣告、人物介紹中，指「永遠活著」或「名聲永遠留下來」。商務情境常用在品牌、創辦人、作品「流傳後世」的說法。是不可數名詞。",
+      "grammar_note": "immortality 是不可數名詞，不加 a，也不加 s；形容詞是 immortal。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "achieve immortality", "zh": "獲得不朽", "example": { "en": "He hoped his books would help him achieve immortality.", "zh": "他希望自己的書能讓他永垂不朽。" } },
+        { "phrase": "seek immortality", "zh": "追求永生", "example": { "en": "Some rich people spend money to seek immortality.", "zh": "有些富人花錢追求永生。" } },
+        { "phrase": "symbol of immortality", "zh": "不朽的象徵", "example": { "en": "The old tree is a symbol of immortality in this town.", "zh": "這棵老樹是這個小鎮不朽的象徵。" } }
+      ],
+      "examples": [
+        { "tag": "一般", "en": "Many people believe fame can give a person a kind of immortality.", "zh": "許多人相信名聲能給人某種不朽。" },
+        { "tag": "品牌", "en": "The founder's name gave the brand a sense of immortality.", "zh": "創辦人的名字讓這個品牌有了不朽的感覺。" },
+        { "tag": "廣告", "en": "No product can offer immortality, but this cream helps your skin.", "zh": "沒有任何產品能帶來永生，但這款乳霜能幫助你的肌膚。" }
+      ],
+      "confusable": [
+        { "word": "immorality", "diff": "拼法和發音相近，但 immorality 是「不道德」，immortality 是「不朽」。", "example": { "en": "Critics accused the manager of immorality after the hiring scandal.", "zh": "招聘醜聞後，批評者指控經理不道德。" } }
+      ],
+      "similar": [
+        { "phrase": "eternal life", "diff": "較口語、較常見，直接說「永遠的生命」，常用在宗教或日常說法。", "example": { "en": "Some people dream of eternal life, but no one can live forever.", "zh": "有些人夢想永生，但沒有人能永遠活著。" } }
+      ],
+      "family": [
+        { "w": "eternity", "ipa": "/ɪˈtɜːrnəti/", "pos": "n.", "zh": "永恆、很長的時間", "example": { "en": "The meeting felt like an eternity to everyone.", "zh": "這場會議對每個人來說彷彿永遠沒完。" } }
+      ],
+      "derived": [
+        { "w": "mortal", "ipa": "/ˈmɔːrtl/", "pos": "adj.", "zh": "終究會死的", "link": "詞幹 mortal，指人會死；加 im- 變成相反意思。" },
+        { "w": "immortal", "ipa": "/ɪˈmɔːrtl/", "pos": "adj.", "zh": "不朽的、永生的", "link": "im- 表示否定 + mortal，像 impossible、impatient。" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "astonishing",
+      "type": "word",
+      "lemma": "astonish",
+      "ipa": "/əˈstɑːnɪʃɪŋ/",
+      "pos": "adj.",
+      "zh": "令人驚訝的、驚人的",
+      "en": "very surprising, in a way that is hard to believe",
+      "note": "多益常用來形容數字、成長、速度、結果「多到令人吃驚」，語氣比 surprising 強。也是動詞 astonish 的現在分詞。",
+      "grammar_note": "astonishing 形容「讓人驚訝的事物」，astonished 形容「感到驚訝的人」；人感到驚訝要說 be astonished at / by + N。",
+      "forms": [
+        { "w": "astonishes", "label": "第三人稱單數", "pos": "v.", "zh": "使驚訝", "ipa": "/əˈstɑːnɪʃɪz/", "example": { "en": "The low price of the new phone astonishes many shoppers.", "zh": "這支新手機的低價讓許多購物者很驚訝。" } },
+        { "w": "astonished", "label": "過去式／過去分詞", "pos": "v.", "zh": "使驚訝（過去）", "ipa": "/əˈstɑːnɪʃt/", "example": { "en": "The size of the order astonished our sales team.", "zh": "這筆訂單的規模讓我們的業務團隊很驚訝。" } }
+      ],
+      "collocations": [
+        { "phrase": "astonishing growth", "zh": "驚人的成長", "example": { "en": "The company reported astonishing growth in Asian markets.", "zh": "這家公司公布了在亞洲市場的驚人成長。" } },
+        { "phrase": "astonishing speed", "zh": "驚人的速度", "example": { "en": "The team finished the work at astonishing speed.", "zh": "這個團隊以驚人的速度完成了工作。" } },
+        { "phrase": "an astonishing number of", "zh": "驚人數量的…", "example": { "en": "An astonishing number of people visited our booth.", "zh": "有驚人數量的人參觀了我們的攤位。" } },
+        { "phrase": "astonishing result", "zh": "驚人的結果", "example": { "en": "The survey showed an astonishing result about customer habits.", "zh": "這份調查顯示了關於顧客習慣的驚人結果。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Our new product sold out in two days, which is astonishing.", "zh": "我們的新產品兩天就賣光了，真是驚人。" },
+        { "tag": "報告", "en": "Sales grew by an astonishing forty percent in one year.", "zh": "銷售額在一年內驚人地成長了百分之四十。" },
+        { "tag": "同事", "en": "It is astonishing that no one noticed the error.", "zh": "居然沒有人發現這個錯誤，真令人驚訝。" },
+        { "tag": "客戶", "en": "The hotel's service was astonishing, so we booked again.", "zh": "這家飯店的服務好得驚人，所以我們又訂了一次。" }
+      ],
+      "confusable": [
+        { "word": "astonished", "diff": "astonished 形容人「感到驚訝」，astonishing 形容事物「令人驚訝」。", "usage": "人當主詞用 astonished（I was astonished），事物當主詞用 astonishing（The news was astonishing）。", "example": { "en": "We were astonished by the sudden change in the schedule.", "zh": "時程的突然改變讓我們很驚訝。" } }
+      ],
+      "similar": [
+        { "phrase": "amazing", "diff": "意思接近，較口語，可以是正面的「很棒」；astonishing 重點在「出乎意料」。", "example": { "en": "The amazing view from the office impressed every visitor.", "zh": "辦公室裡絕佳的景色讓每位訪客印象深刻。" } },
+        { "phrase": "surprising", "diff": "語氣較弱，只是「出乎意料」，不一定有「驚人」的感覺。", "example": { "en": "It is surprising that the store closed so early.", "zh": "這家店這麼早就打烊，真讓人意外。" } }
+      ],
+      "family": [
+        { "w": "surprise", "ipa": "/sɚˈpraɪz/", "pos": "n.", "zh": "驚喜、意外", "example": { "en": "The new manager's visit was a big surprise.", "zh": "新經理的來訪是個大驚喜。" } },
+        { "w": "shock", "ipa": "/ʃɑːk/", "pos": "n.", "zh": "震驚、衝擊", "example": { "en": "The price increase came as a shock to customers.", "zh": "漲價對顧客來說是個衝擊。" } }
+      ],
+      "derived": [
+        { "w": "astonishment", "ipa": "/əˈstɑːnɪʃmənt/", "pos": "n.", "zh": "驚訝", "link": "astonish + -ment，把動作變成名詞，像 payment、agreement。" },
+        { "w": "astonishingly", "ipa": "/əˈstɑːnɪʃɪŋli/", "pos": "adv.", "zh": "驚人地", "link": "astonishing + -ly，變成副詞，像 quickly、carefully。" }
+      ],
+      "pos_uses": [
+        { "w": "astonishing", "pos": "adj.", "ipa": "/əˈstɑːnɪʃɪŋ/", "zh": "令人驚訝的", "example": { "en": "The company made an astonishing profit last quarter.", "zh": "這家公司上一季賺了驚人的利潤。" } },
+        { "w": "astonished", "pos": "adj.", "ipa": "/əˈstɑːnɪʃt/", "zh": "感到驚訝的", "example": { "en": "The manager looked astonished when he read the report.", "zh": "經理讀到報告時看起來很驚訝。" } },
+        { "pos": "v.", "ipa": "/əˈstɑːnɪʃ/", "zh": "使驚訝", "example": { "en": "The speed of the new printer will astonish you.", "zh": "這台新印表機的速度會讓你驚訝。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "innumerable",
+      "type": "word",
+      "ipa": "/ɪˈnuːmərəbəl/",
+      "pos": "adj.",
+      "zh": "無數的、數不清的",
+      "en": "too many to count",
+      "note": "語氣比 many 強，比 countless 正式，多用在書面報告、廣告、介紹文中，強調「多到數不完」。",
+      "grammar_note": "innumerable 本身已有「無數」的意思，不能加 very；後面接複數可數名詞（innumerable times）。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "innumerable times", "zh": "無數次", "example": { "en": "I have checked these numbers innumerable times already.", "zh": "我已經把這些數字檢查了無數次。" } },
+        { "phrase": "innumerable ways", "zh": "無數種方式", "example": { "en": "Our software can be used in innumerable ways.", "zh": "我們的軟體可以用無數種方式使用。" } },
+        { "phrase": "innumerable problems", "zh": "數不清的問題", "example": { "en": "The old system caused innumerable problems for our staff.", "zh": "舊系統給我們的員工帶來數不清的問題。" } }
+      ],
+      "examples": [
+        { "tag": "報告", "en": "Innumerable customers have praised our fast delivery service.", "zh": "無數的顧客稱讚我們的快速送貨服務。" },
+        { "tag": "電子郵件", "en": "There are innumerable reasons to choose our service.", "zh": "選擇我們的服務有無數個理由。" },
+        { "tag": "行銷", "en": "The new app can save you innumerable hours of work.", "zh": "這個新應用程式能幫你省下無數個工作時數。" }
+      ],
+      "confusable": [
+        { "word": "numerous", "diff": "numerous 只是「很多」，數量可以算出來；innumerable 是多到「數不完」。", "example": { "en": "Numerous employees joined the meeting, but not everyone could speak.", "zh": "許多員工參加了會議，但不是每個人都有機會發言。" } }
+      ],
+      "similar": [
+        { "phrase": "countless", "diff": "意思幾乎相同；countless 較口語、日常，innumerable 較正式、常見於書面報告。", "example": { "en": "Countless customers have asked about our return policy.", "zh": "無數的顧客問過我們的退貨政策。" } }
+      ],
+      "family": [
+        { "w": "endless", "ipa": "/ˈendləs/", "pos": "adj.", "zh": "無止盡的", "example": { "en": "The endless emails made it hard to focus on work.", "zh": "沒完沒了的電子郵件讓人很難專心工作。" } }
+      ],
+      "derived": [
+        { "w": "number", "ipa": "/ˈnʌmbɚ/", "pos": "n.", "zh": "數字、數量", "link": "詞幹 number，數；innumerable = in-（不）+ number + -able（可以…的），意思是「不能被數的」。" },
+        { "w": "numerous", "ipa": "/ˈnuːmərəs/", "pos": "adj.", "zh": "許多的", "link": "number 的字根 + -ous（有…性質的），像 famous，意思是「數量很多的」。" }
+      ],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [
+        { "id": "nmvo1hyxv921f", "result": "added" }
+      ]
+    },
+    {
+      "text": "retail therapy",
+      "type": "phrase",
+      "zh": "購物解壓、靠買東西讓心情變好",
+      "en": "shopping to feel happier when you are sad or stressed",
+      "note": "輕鬆、口語的說法，常出現在生活類文章、廣告和閒聊中，表示「用逛街買東西來紓解壓力」，語氣帶一點玩笑。",
+      "pattern": "need / go for + some retail therapy",
+      "grammar_note": "retail therapy 是不可數名詞，不說 a retail therapy，常用 some retail therapy。",
+      "examples": [
+        { "tag": "日常", "en": "After a stressful week, she went shopping for some retail therapy.", "zh": "壓力很大的一週過後，她去逛街購物解壓。" },
+        { "tag": "行銷", "en": "Our weekend sale offers the perfect retail therapy for busy workers.", "zh": "我們的週末特賣是忙碌上班族最好的購物解壓。" },
+        { "tag": "閒聊", "en": "I needed some retail therapy after losing that big client.", "zh": "失去那位大客戶之後，我需要買點東西解解壓。" },
+        { "tag": "新聞", "en": "Many people turn to retail therapy when the economy feels weak.", "zh": "景氣不好時，許多人會用購物來解壓。" }
+      ],
+      "similar": [
+        { "phrase": "shopping spree", "diff": "重點是「在短時間內買很多」，不一定是為了解壓。", "example": { "en": "She went on a shopping spree before the holiday.", "zh": "她在假期前大肆採購了一番。" } },
+        { "phrase": "treat yourself", "diff": "指犒賞自己，不一定是買東西，也可以是吃大餐或旅行。", "example": { "en": "You should treat yourself after finishing the big project.", "zh": "完成大專案後，你應該好好犒賞自己。" } }
+      ]
+    },
+    {
+      "text": "Impulse buying",
+      "type": "phrase",
+      "zh": "衝動購物、衝動消費",
+      "en": "buying something suddenly without planning to",
+      "note": "多益常見於行銷、零售、消費者行為的文章，說明商店如何用擺放位置或促銷，讓顧客臨時決定購買。",
+      "pattern": "avoid / encourage / lead to + impulse buying",
+      "grammar_note": "impulse buying 是不可數名詞；單一次買到的東西要說 an impulse buy 或 an impulse purchase；「憑一時衝動」用 on impulse（He bought the watch on impulse）。",
+      "examples": [
+        { "tag": "行銷", "en": "Stores put candy near the cashier to encourage impulse buying.", "zh": "商店把糖果放在收銀台旁，來鼓勵衝動購物。" },
+        { "tag": "分析", "en": "Impulse buying increases when shoppers feel tired or hungry.", "zh": "購物者疲累或飢餓時，衝動購物會增加。" },
+        { "tag": "報告", "en": "Online ads can lead to impulse buying late at night.", "zh": "網路廣告可能在深夜導致衝動購物。" },
+        { "tag": "個人", "en": "I try to avoid impulse buying by making a shopping list.", "zh": "我列購物清單，試著避免衝動購物。" }
+      ],
+      "similar": [
+        { "phrase": "impulse purchase", "diff": "指「一次臨時起意買的東西」，可數；impulse buying 指這種行為，不可數。", "example": { "en": "The gum is a typical impulse purchase at the register.", "zh": "口香糖是收銀台常見的衝動購買商品。" } },
+        { "phrase": "unplanned purchase", "diff": "意思相近，語氣較中性、較正式，不一定有「衝動」的情緒。", "example": { "en": "Many unplanned purchases happen near the store entrance.", "zh": "許多計畫外的購買發生在商店入口附近。" } }
+      ],
+      "confusable": [
+        { "word": "panic buying", "diff": "panic buying 是因為擔心缺貨而搶買，impulse buying 是一時興起想買。", "example": { "en": "Panic buying emptied the shelves before the storm arrived.", "zh": "在暴風雨來臨前，恐慌性搶購讓貨架空了。" } }
+      ]
+    },
+    {
+      "text": "perk",
+      "type": "word",
+      "ipa": "/pɜːrk/",
+      "pos": "n.",
+      "zh": "福利、額外的好處",
+      "en": "an extra benefit that comes with a job",
+      "note": "多益最常見的是名詞 perk（常用複數 perks），指薪水以外的福利，例如免費午餐、健身房、彈性工時。動詞片語 perk up 表示「好轉、變得更有活力」。",
+      "grammar_note": "perk up 是片語動詞：可不及物（Sales perked up.），也可及物，受詞放中間（perk the team up）。",
+      "forms": [
+        { "w": "perks", "label": "複數", "pos": "n.", "zh": "福利（複數）", "ipa": "/pɜːrks/", "example": { "en": "All staff members receive extra perks after one year.", "zh": "所有員工工作滿一年後都會獲得額外福利。" } },
+        { "w": "perks", "label": "第三人稱單數", "pos": "v.", "zh": "好轉、振作（perk up）", "ipa": "/pɜːrks/", "example": { "en": "The market usually perks up when interest rates fall.", "zh": "利率下降時，市場通常會好轉。" } },
+        { "w": "perked", "label": "過去式／過去分詞", "pos": "v.", "zh": "好轉（過去）", "ipa": "/pɜːrkt/", "example": { "en": "Sales perked up after we changed the store layout.", "zh": "我們改變店面配置後，銷售好轉了。" } },
+        { "w": "perking", "label": "現在分詞", "pos": "v.", "zh": "好轉中", "ipa": "/ˈpɜːrkɪŋ/", "example": { "en": "Sales are perking up after a slow winter.", "zh": "經歷淡季的冬天後，銷售正在回升。" } }
+      ],
+      "collocations": [
+        { "phrase": "job perks", "zh": "工作福利", "example": { "en": "A company car is one of the job perks we offer.", "zh": "公司配車是我們提供的工作福利之一。" } },
+        { "phrase": "perks of the job", "zh": "工作附帶的好處", "example": { "en": "Free coffee is one of the small perks of the job.", "zh": "免費咖啡是這份工作的小福利之一。" } },
+        { "phrase": "perk up", "zh": "好轉、變得更有活力", "example": { "en": "Online sales began to perk up after the new ad.", "zh": "新廣告推出後，網路銷售開始好轉。" } },
+        { "phrase": "perk someone up", "zh": "使某人振作起來", "example": { "en": "Some good news can perk up the whole team.", "zh": "一些好消息就能讓整個團隊振奮起來。" } }
+      ],
+      "examples": [
+        { "tag": "招募", "en": "This job offers great perks, including free lunch and gym access.", "zh": "這份工作有很棒的福利，包括免費午餐和健身房使用權。" },
+        { "tag": "面試", "en": "One perk of working here is flexible hours.", "zh": "在這裡工作的一項福利是彈性工時。" },
+        { "tag": "電子郵件", "en": "Employees will enjoy new perks starting next month.", "zh": "從下個月起，員工將享有新的福利。" },
+        { "tag": "業績", "en": "Hotel bookings began to perk up in the spring.", "zh": "飯店訂房在春天開始回升。" }
+      ],
+      "similar": [
+        { "phrase": "fringe benefits", "diff": "較正式的說法，指薪水以外的福利，perk 則較口語、感覺較輕鬆。", "example": { "en": "The company offers fringe benefits such as health insurance.", "zh": "公司提供健康保險等額外福利。" } }
+      ],
+      "family": [
+        { "w": "benefit", "ipa": "/ˈbenɪfɪt/", "pos": "n.", "zh": "福利、好處", "example": { "en": "Health insurance is an important benefit for workers.", "zh": "健康保險對員工來說是重要的福利。" } },
+        { "w": "bonus", "ipa": "/ˈboʊnəs/", "pos": "n.", "zh": "獎金", "example": { "en": "Staff will receive a bonus at the end of the year.", "zh": "員工會在年底收到獎金。" } },
+        { "w": "incentive", "ipa": "/ɪnˈsentɪv/", "pos": "n.", "zh": "獎勵、誘因", "example": { "en": "The company gives an incentive for early payment.", "zh": "公司提供提早付款的優惠。" } }
+      ],
+      "derived": [
+        { "w": "perky", "ipa": "/ˈpɜːrki/", "pos": "adj.", "zh": "有精神的、活潑的", "link": "perk + -y，變成形容詞，指有 perk up 之後的樣子，像 sunny、busy。" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/pɜːrk/", "zh": "福利、額外好處", "example": { "en": "Free parking is a nice perk for our employees.", "zh": "免費停車對我們的員工來說是不錯的福利。" } },
+        { "pos": "v.", "ipa": "/pɜːrk/", "zh": "好轉、變有精神（perk up）", "example": { "en": "Customers perk up when they hear about the sale.", "zh": "顧客一聽到特賣就精神一振。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "（perk up）好轉、變得更活躍", "en": "to become more active or lively", "distinguish": "主詞是事物或人，自己變好；沒有受詞。", "example": { "en": "Sales finally perked up in the last week of June.", "zh": "六月最後一週，銷售終於好轉了。" } },
+        { "pos": "v.", "zh": "（perk up）使振作、使更有趣", "en": "to make someone or something feel more lively", "distinguish": "後面有受詞，表示「讓…變好」。", "example": { "en": "A few new colors will perk up the old website.", "zh": "加入幾種新顏色，能讓舊網站更有活力。" } }
+      ],
+      "nw_done": [
+        { "id": "nmw26bx5liq3k", "result": "added" }
+      ]
+    }
+  ]
+}
