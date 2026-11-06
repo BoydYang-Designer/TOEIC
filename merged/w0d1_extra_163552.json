@@ -1,0 +1,309 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "ban",
+      "type": "word",
+      "ipa": "/bæn/",
+      "pos": "v.",
+      "zh": "禁止；禁令",
+      "en": "to say officially that something is not allowed",
+      "note": "多益常見於新聞與公告，語氣直接，動詞用 ban + N，名詞用 a ban on + N；比 prohibit 口語、簡短。",
+      "grammar_note": "ban 當名詞接 on：a ban on smoking。當動詞常用被動 be banned from + 地點或 V-ing；變化形 banned、banning 要重複字尾 n。",
+      "forms": [
+        { "w": "bans", "label": "第三人稱單數／複數", "pos": "v.", "zh": "禁止", "ipa": "/bænz/", "example": { "en": "The city bans parking on this street after six p.m.", "zh": "市政府禁止晚上六點後在這條街停車。" } },
+        { "w": "banned", "label": "過去式／過去分詞", "pos": "v.", "zh": "禁止", "ipa": "/bænd/", "example": { "en": "The airline banned large bags from the cabin last year.", "zh": "這家航空公司去年禁止大型行李進入客艙。" } },
+        { "w": "banning", "label": "現在分詞", "pos": "v.", "zh": "禁止", "ipa": "/ˈbænɪŋ/", "example": { "en": "Banning phones in meetings saved us a lot of time.", "zh": "禁止在會議中使用手機為我們節省了很多時間。" } }
+      ],
+      "collocations": [
+        { "phrase": "a ban on", "zh": "對…的禁令", "example": { "en": "The government announced a ban on plastic bags.", "zh": "政府宣布了塑膠袋禁令。" } },
+        { "phrase": "lift a ban", "zh": "解除禁令", "example": { "en": "The city will lift the ban on street food next month.", "zh": "市政府下個月將解除對路邊小吃的禁令。" } },
+        { "phrase": "impose a ban", "zh": "實施禁令", "example": { "en": "The company imposed a ban on personal email at work.", "zh": "公司實施了工作時間禁用私人電子郵件的規定。" } },
+        { "phrase": "be banned from", "zh": "被禁止進入／做…", "example": { "en": "Visitors are banned from taking photos in the lab.", "zh": "訪客被禁止在實驗室內拍照。" } }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "Smoking is banned in all areas of the building.", "zh": "大樓所有區域都禁止吸菸。" },
+        { "tag": "新聞", "en": "The new law bans the sale of cigarettes to teenagers.", "zh": "新法律禁止向青少年販售香菸。" },
+        { "tag": "進出口", "en": "A ban on imports caused prices to rise sharply.", "zh": "進口禁令使價格大幅上漲。" }
+      ],
+      "similar": [
+        { "word": "prohibit", "diff": "更正式，常用在法規與合約條文中，後面接 from + V-ing。", "example": { "en": "The contract prohibits the use of our logo without permission.", "zh": "合約禁止未經許可使用我們的標誌。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/bæn/", "zh": "禁止", "example": { "en": "The company banned phones from the factory floor for safety.", "zh": "公司為了安全，禁止在工廠內使用手機。" } },
+        { "pos": "n.", "ipa": "/bæn/", "zh": "禁令", "example": { "en": "A ban on night flights has been in place since 2020.", "zh": "夜間航班的禁令從二〇二〇年起就已實施。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "obligation",
+      "type": "word",
+      "ipa": "/ˌɑːblɪˈɡeɪʃn/",
+      "pos": "n.",
+      "zh": "義務、責任",
+      "en": "something you must do because of a rule, law, or promise",
+      "note": "多益常見於合約、法規與客服，如 legal obligation；促銷文案的 no obligation 表示「沒有購買義務」。",
+      "grammar_note": "obligation 後面接 to + V：an obligation to pay。be under no obligation to + V 表示「沒有義務做…」。",
+      "forms": [
+        { "w": "obligations", "label": "複數", "pos": "n.", "zh": "義務（複數）", "ipa": "/ˌɑːblɪˈɡeɪʃnz/", "example": { "en": "The company has obligations to its customers and shareholders.", "zh": "公司對顧客與股東都有義務。" } }
+      ],
+      "collocations": [
+        { "phrase": "legal obligation", "zh": "法律義務", "example": { "en": "Paying taxes on time is a legal obligation for all companies.", "zh": "準時繳稅是所有公司的法律義務。" } },
+        { "phrase": "fulfill an obligation", "zh": "履行義務", "example": { "en": "The supplier failed to fulfill its obligation to deliver on time.", "zh": "供應商沒有履行準時交貨的義務。" } },
+        { "phrase": "no obligation", "zh": "無義務、不強迫購買", "example": { "en": "Sign up for a free trial with no obligation.", "zh": "免費試用，沒有任何購買義務，歡迎申請。" } },
+        { "phrase": "be under an obligation to", "zh": "有義務要…", "example": { "en": "Employees are under an obligation to keep client data private.", "zh": "員工有義務對客戶資料保密。" } }
+      ],
+      "examples": [
+        { "tag": "合約", "en": "The contract states the obligations of both parties very clearly.", "zh": "合約非常清楚地寫明雙方的義務。" },
+        { "tag": "電子郵件", "en": "We feel an obligation to inform you of the change.", "zh": "我們覺得有義務告知您這項變更。" },
+        { "tag": "會議", "en": "Safety is our obligation to every worker in the factory.", "zh": "安全是我們對工廠每一位工人的責任。" }
+      ],
+      "similar": [
+        { "word": "duty", "diff": "duty 偏向道德上或職位上該做的事，語氣更個人。", "example": { "en": "It is the manager's duty to protect staff safety.", "zh": "保護員工的安全是經理的職責。" } },
+        { "word": "responsibility", "diff": "強調負責做某事，或要對結果負責。", "example": { "en": "Training new staff is my responsibility this month.", "zh": "這個月訓練新進員工是我的責任。" } }
+      ],
+      "derived": [
+        { "w": "oblige", "ipa": "/əˈblaɪdʒ/", "pos": "v.", "zh": "迫使、使不得不", "link": "oblige 是詞幹，表示因規定或情況而不得不做；常用被動 be obliged to + V。" },
+        { "w": "obligatory", "ipa": "/əˈblɪɡətɔːri/", "pos": "adj.", "zh": "強制的、必須的", "link": "obligation + -ory 的形容詞形式，和 mandatory 意思相近。" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "prohibit",
+      "type": "word",
+      "ipa": "/proʊˈhɪbɪt/",
+      "pos": "v.",
+      "zh": "禁止",
+      "en": "to say officially that people must not do something",
+      "note": "多益常見於規定、合約與公告，語氣正式，常用被動 be prohibited。與 forbid 的差別：prohibit 多用在法律、規章、公司政策；forbid 較口語，多是某人下令不准。",
+      "grammar_note": "prohibit 的句型是 prohibit + 人／物 + from + V-ing；被動是 be prohibited from V-ing 或 be prohibited by law。不接 to V（forbid 才接 to V）。",
+      "forms": [
+        { "w": "prohibits", "label": "第三人稱單數", "pos": "v.", "zh": "禁止", "ipa": "/proʊˈhɪbɪts/", "example": { "en": "The policy prohibits staff from accepting gifts from clients.", "zh": "這項政策禁止員工接受客戶的禮物。" } },
+        { "w": "prohibited", "label": "過去式／過去分詞", "pos": "v.", "zh": "禁止", "ipa": "/proʊˈhɪbɪtɪd/", "example": { "en": "Outside food was prohibited at the conference center.", "zh": "會議中心禁止攜帶外食。" } },
+        { "w": "prohibiting", "label": "現在分詞", "pos": "v.", "zh": "禁止", "ipa": "/proʊˈhɪbɪtɪŋ/", "example": { "en": "A new rule prohibiting overtime work takes effect in May.", "zh": "一項禁止加班的新規定將在五月生效。" } }
+      ],
+      "collocations": [
+        { "phrase": "prohibited by law", "zh": "法律禁止", "example": { "en": "Selling this product without a license is prohibited by law.", "zh": "沒有執照販售這項產品是法律所禁止的。" } },
+        { "phrase": "strictly prohibited", "zh": "嚴格禁止", "example": { "en": "Smoking is strictly prohibited near the fuel tanks.", "zh": "燃料槽附近嚴格禁止吸菸。" } },
+        { "phrase": "prohibit from", "zh": "禁止…做", "example": { "en": "The agreement prohibits the supplier from selling to our rivals.", "zh": "協議禁止供應商把貨賣給我們的競爭對手。" } }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "Use of mobile phones is prohibited during the exam.", "zh": "考試期間禁止使用手機。" },
+        { "tag": "合約", "en": "The contract prohibits subletting the office without written approval.", "zh": "合約禁止未經書面同意轉租辦公室。" },
+        { "tag": "公司規定", "en": "Company rules prohibit employees from using social media at work.", "zh": "公司規定禁止員工上班時使用社群媒體。" }
+      ],
+      "confusable": [
+        { "word": "inhibit", "diff": "inhibit 是「抑制、妨礙」，使事情不易發生；prohibit 是明文禁止，兩字拼法相近。", "example": { "en": "High prices may inhibit customers from buying more.", "zh": "高價格可能會抑制顧客多買。" } }
+      ],
+      "similar": [
+        { "word": "forbid", "diff": "forbid 較口語，常是某人（老闆、家長）下令不准；句型是 forbid + 人 + to V，被動是 be forbidden to V。prohibit 較正式，接 from + V-ing。", "example": { "en": "The manager forbids staff to use the lab after midnight.", "zh": "經理禁止員工在午夜後使用實驗室。" } },
+        { "word": "ban", "diff": "ban 更直接、簡短，常見於新聞標題與公告，也常當名詞（a ban on）。", "example": { "en": "The city banned cars from the old town center.", "zh": "市政府禁止汽車進入舊城區中心。" } }
+      ],
+      "derived": [
+        { "w": "prohibition", "ipa": "/ˌproʊəˈbɪʃn/", "pos": "n.", "zh": "禁止、禁令", "link": "prohibit 變成名詞「禁令」，像 exhibit → exhibition。" },
+        { "w": "prohibitive", "ipa": "/proʊˈhɪbətɪv/", "pos": "adj.", "zh": "（價格）高得令人卻步的", "link": "prohibit + -ive，像是被「禁止」了，常見於 prohibitive cost（高到買不起的成本）。" }
+      ],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [
+        { "id": "nmv9qcwo1070i", "result": "added" }
+      ]
+    },
+    {
+      "text": "abolish",
+      "type": "word",
+      "ipa": "/əˈbɑːlɪʃ/",
+      "pos": "v.",
+      "zh": "廢除",
+      "en": "to officially end a law, rule, or system",
+      "note": "多益常見於新聞與政策，指徹底終止舊的法律、制度、稅或規定，語氣正式。",
+      "grammar_note": "abolish 的受詞是制度、法律或稅，不是人；常用被動 be abolished。",
+      "forms": [
+        { "w": "abolishes", "label": "第三人稱單數", "pos": "v.", "zh": "廢除", "ipa": "/əˈbɑːlɪʃɪz/", "example": { "en": "The new law abolishes the old tax on imported parts.", "zh": "新法律廢除了進口零件的舊稅。" } },
+        { "w": "abolished", "label": "過去式／過去分詞", "pos": "v.", "zh": "廢除", "ipa": "/əˈbɑːlɪʃt/", "example": { "en": "The company abolished its night shift last spring.", "zh": "公司去年春天廢除了夜班。" } },
+        { "w": "abolishing", "label": "現在分詞", "pos": "v.", "zh": "廢除", "ipa": "/əˈbɑːlɪʃɪŋ/", "example": { "en": "Abolishing the fee made the service more popular.", "zh": "廢除這項費用讓服務變得更受歡迎。" } }
+      ],
+      "collocations": [
+        { "phrase": "abolish a law", "zh": "廢除法律", "example": { "en": "Voters asked the council to abolish an unfair law.", "zh": "選民要求議會廢除一項不公平的法律。" } },
+        { "phrase": "abolish a tax", "zh": "廢除稅制", "example": { "en": "The government may abolish the tax on small shops.", "zh": "政府可能廢除對小店徵收的稅。" } },
+        { "phrase": "abolish a system", "zh": "廢除制度", "example": { "en": "Some firms want to abolish the old pay system.", "zh": "有些公司想廢除舊的薪資制度。" } }
+      ],
+      "examples": [
+        { "tag": "新聞", "en": "The government plans to abolish the old licensing system.", "zh": "政府計畫廢除舊的許可制度。" },
+        { "tag": "公司", "en": "Management decided to abolish the rule about wearing ties.", "zh": "管理階層決定廢除打領帶的規定。" },
+        { "tag": "工會", "en": "The union wants to abolish unpaid overtime completely.", "zh": "工會希望完全廢除無薪加班。" }
+      ],
+      "confusable": [
+        { "word": "abandon", "diff": "abandon 是「放棄、拋棄」計畫或東西，不一定是官方正式廢除。", "example": { "en": "The team abandoned the project when the funding stopped.", "zh": "資金中斷時，團隊放棄了這個專案。" } }
+      ],
+      "similar": [
+        { "word": "scrap", "diff": "更口語，指把計畫或做法丟掉不用。", "example": { "en": "The firm scrapped its plan to open a second branch.", "zh": "公司取消了開第二間分店的計畫。" } },
+        { "word": "cancel", "diff": "cancel 用在活動、訂單、預約；abolish 用在制度與法律。", "example": { "en": "We had to cancel the meeting because of the storm.", "zh": "因為暴風雨，我們必須取消會議。" } }
+      ],
+      "derived": [
+        { "w": "abolition", "ipa": "/ˌæbəˈlɪʃn/", "pos": "n.", "zh": "廢除", "link": "abolish 變成名詞，像 demolish → demolition。" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "enforce",
+      "type": "word",
+      "ipa": "/ɪnˈfɔːrs/",
+      "pos": "v.",
+      "zh": "執行、強制實施（規定）",
+      "en": "to make sure that people follow a rule or law",
+      "note": "多益常見於政府、公司與合約情境，重點在「讓規定真的被遵守」，不只是訂出規定；enforce regulations 就是確保法規被落實。",
+      "grammar_note": "enforce 的受詞是規則或法律（enforce a rule），不是人；要說「強迫某人做」用 force + 人 + to V，不說 enforce someone to V。",
+      "forms": [
+        { "w": "enforces", "label": "第三人稱單數", "pos": "v.", "zh": "執行", "ipa": "/ɪnˈfɔːrsɪz/", "example": { "en": "The agency enforces safety rules at every factory in the region.", "zh": "這個機構在地區內每一間工廠執行安全規定。" } },
+        { "w": "enforced", "label": "過去式／過去分詞", "pos": "v.", "zh": "執行", "ipa": "/ɪnˈfɔːrst/", "example": { "en": "The ban was enforced strictly after the accident.", "zh": "事故發生後，這項禁令被嚴格執行。" } },
+        { "w": "enforcing", "label": "現在分詞", "pos": "v.", "zh": "執行", "ipa": "/ɪnˈfɔːrsɪŋ/", "example": { "en": "Enforcing the new rules will take time and money.", "zh": "執行新規定需要時間與金錢。" } }
+      ],
+      "collocations": [
+        { "phrase": "enforce regulations", "zh": "執行法規", "example": { "en": "The city inspectors enforce regulations on food safety.", "zh": "市政府的稽查員負責執行食品安全法規。" } },
+        { "phrase": "enforce a rule", "zh": "執行規定", "example": { "en": "Managers must enforce the rule about wearing ID badges.", "zh": "主管必須落實配戴識別證的規定。" } },
+        { "phrase": "strictly enforce", "zh": "嚴格執行", "example": { "en": "The airline strictly enforces its limit on carry-on bags.", "zh": "這家航空公司嚴格執行手提行李的限制。" } }
+      ],
+      "examples": [
+        { "tag": "法規", "en": "Police will enforce the new parking law next week.", "zh": "警方下週將執行新的停車法規。" },
+        { "tag": "公司", "en": "It is hard to enforce a rule that nobody likes.", "zh": "要落實一條沒人喜歡的規定很困難。" },
+        { "tag": "合約", "en": "The court can enforce the contract if either side breaks it.", "zh": "如果任何一方違約，法院可以強制執行合約。" }
+      ],
+      "confusable": [
+        { "word": "reinforce", "diff": "reinforce 是「加強、強化」，拼法相近但和執行規定無關。", "example": { "en": "The training will reinforce good habits among new staff.", "zh": "這次訓練會強化新進員工的良好習慣。" } }
+      ],
+      "similar": [
+        { "word": "implement", "diff": "implement 是把計畫或制度付諸實行；enforce 強調讓人確實遵守。", "example": { "en": "We will implement the new filing system in June.", "zh": "我們將在六月開始實施新的歸檔系統。" } },
+        { "phrase": "carry out", "diff": "較口語，泛指把工作、計畫或檢查確實做完。", "example": { "en": "The staff will carry out the new safety checks daily.", "zh": "員工每天都會進行新的安全檢查。" } }
+      ],
+      "derived": [
+        { "w": "enforcement", "ipa": "/ɪnˈfɔːrsmənt/", "pos": "n.", "zh": "執行、執法", "link": "enforce + -ment，變成名詞，像 pay → payment。" },
+        { "w": "enforceable", "ipa": "/ɪnˈfɔːrsəbl/", "pos": "adj.", "zh": "可執行的、有強制力的", "link": "enforce + -able，可被…的，像 reasonable、available。" }
+      ],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [
+        { "id": "nmv9qebwy96o2", "result": "added" }
+      ]
+    },
+    {
+      "text": "habit",
+      "type": "word",
+      "ipa": "/ˈhæbɪt/",
+      "pos": "n.",
+      "zh": "習慣",
+      "en": "something you do often without thinking about it",
+      "note": "指個人或某群人反覆做、已經不用特別想的行為，多益常見於職場、健康與消費者行為。和 convention 不同：habit 是個人反覆的行為，convention 是社會或行業大家認同的慣例。",
+      "grammar_note": "get into the habit of 與 be in the habit of 的 of 是介系詞，後面接 V-ing；habit 是可數名詞，說 a good habit。",
+      "forms": [
+        { "w": "habits", "label": "複數", "pos": "n.", "zh": "習慣（複數）", "ipa": "/ˈhæbɪts/", "example": { "en": "Many young people have changed their spending habits online.", "zh": "許多年輕人在網路上改變了他們的消費習慣。" } }
+      ],
+      "collocations": [
+        { "phrase": "get into the habit of", "zh": "養成…的習慣", "example": { "en": "Try to get into the habit of checking emails twice daily.", "zh": "試著養成每天查看兩次電子郵件的習慣。" } },
+        { "phrase": "break a habit", "zh": "戒掉習慣", "example": { "en": "It is hard to break a habit like working late.", "zh": "要戒掉像加班到很晚這樣的習慣很難。" } },
+        { "phrase": "good habit / bad habit", "zh": "好習慣／壞習慣", "example": { "en": "Taking notes at every meeting is a good habit.", "zh": "每次開會都做筆記是個好習慣。" } },
+        { "phrase": "be in the habit of", "zh": "有…的習慣", "example": { "en": "She is in the habit of arriving at the office early.", "zh": "她習慣提早到辦公室。" } }
+      ],
+      "examples": [
+        { "tag": "職場", "en": "Arriving early is a habit that managers like to see.", "zh": "提早到是主管樂見的習慣。" },
+        { "tag": "調查", "en": "Our survey studies the shopping habits of young customers.", "zh": "我們的調查研究年輕顧客的購物習慣。" }
+      ],
+      "confusable": [
+        { "word": "convention", "diff": "convention 是社會或行業大家認同的慣例，也可指大型會議；habit 是個人反覆做的習慣。", "usage": "habit 是個人的行為，常接 of + V-ing；convention 是共同遵守的做法，常說 business convention 或 a convention for + N。", "example": { "en": "It is business convention to exchange cards at the first meeting.", "zh": "第一次見面交換名片是商務慣例。" } }
+      ],
+      "similar": [
+        { "word": "custom", "diff": "custom 指社會、地區或文化的傳統習俗。", "example": { "en": "Giving small gifts is a common custom in this country.", "zh": "送小禮物是這個國家常見的習俗。" } },
+        { "word": "routine", "diff": "routine 指固定的日常作息或工作流程。", "example": { "en": "Checking email is part of my morning routine.", "zh": "查看電子郵件是我早晨例行事項的一部分。" } }
+      ],
+      "derived": [
+        { "w": "habitual", "ipa": "/həˈbɪtʃuəl/", "pos": "adj.", "zh": "習慣性的", "link": "habit + -ual，形容詞，像 casual、actual。" },
+        { "w": "habitually", "ipa": "/həˈbɪtʃuəli/", "pos": "adv.", "zh": "習慣性地", "link": "habitual + -ly，形容詞變副詞，像 quick → quickly。" }
+      ],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [
+        { "id": "nmv9qfauoglba", "result": "added" }
+      ]
+    },
+    {
+      "text": "legislation",
+      "type": "word",
+      "ipa": "/ˌledʒɪˈsleɪʃn/",
+      "pos": "n.",
+      "zh": "立法；法規（總稱）",
+      "en": "laws made by a government",
+      "note": "多益常見於新聞、環保、勞工與稅務話題，如 pass legislation、new legislation，泛指一整套法律或立法的過程。",
+      "grammar_note": "legislation 是不可數名詞，不加 s，也不說 a legislation；指單一條法律時用 a law 或 an act。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "pass legislation", "zh": "通過立法", "example": { "en": "Congress plans to pass legislation on data privacy this year.", "zh": "國會計畫今年通過資料隱私的立法。" } },
+        { "phrase": "new legislation", "zh": "新法規", "example": { "en": "New legislation requires companies to report their carbon output.", "zh": "新法規要求公司申報碳排放量。" } },
+        { "phrase": "introduce legislation", "zh": "提出法案", "example": { "en": "The senator will introduce legislation to protect small farms.", "zh": "那位參議員將提出保護小農的法案。" } },
+        { "phrase": "environmental legislation", "zh": "環保法規", "example": { "en": "Environmental legislation has changed how factories handle waste.", "zh": "環保法規改變了工廠處理廢棄物的方式。" } }
+      ],
+      "examples": [
+        { "tag": "新聞", "en": "The legislation will take effect at the end of the year.", "zh": "這項法規將在年底生效。" },
+        { "tag": "公司", "en": "Our legal team follows all current tax legislation closely.", "zh": "我們的法務團隊密切關注所有現行的稅務法規。" }
+      ],
+      "confusable": [
+        { "word": "legislature", "diff": "legislature 是「立法機關」（如國會、議會），指制定法律的單位；legislation 是它制定出來的法律。", "example": { "en": "The state legislature voted on the budget bill yesterday.", "zh": "州議會昨天針對預算法案進行了表決。" } }
+      ],
+      "similar": [
+        { "word": "law", "diff": "law 可數，指單一條法律；legislation 是不可數的總稱。", "example": { "en": "This law protects workers from unfair dismissal.", "zh": "這條法律保護勞工不被不當解僱。" } },
+        { "word": "regulation", "diff": "regulation 是依法律訂出的具體規定，常是條文細則。", "example": { "en": "The regulation limits how much waste a plant can release.", "zh": "這項規定限制工廠可以排放的廢棄物量。" } }
+      ],
+      "derived": [
+        { "w": "legislate", "ipa": "/ˈledʒɪsleɪt/", "pos": "v.", "zh": "立法", "link": "legislate 是詞幹；去掉 e 加 -ion 變成 legislation，像 create → creation。" },
+        { "w": "legislator", "ipa": "/ˈledʒɪsleɪtɚ/", "pos": "n.", "zh": "立法委員、議員", "link": "legislate 去掉 e + -or，做立法的人，像 actor、visitor。" },
+        { "w": "legislative", "ipa": "/ˈledʒɪsleɪtɪv/", "pos": "adj.", "zh": "立法的", "link": "legislate 去掉 e + -ive，形容詞，像 active、creative。" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "法規（總稱）", "en": "the laws made by a government", "example": { "en": "The legislation protects workers from unsafe conditions.", "zh": "這些法規保護勞工免於不安全的工作環境。" } },
+        { "pos": "n.", "zh": "立法（過程）", "en": "the act of making laws", "distinguish": "和 process、of 搭配，指「制定法律的過程」，而不是法律本身。", "example": { "en": "The process of legislation can take several years.", "zh": "立法的過程可能要花好幾年。" } }
+      ]
+    },
+    {
+      "text": "restrict",
+      "type": "word",
+      "ipa": "/rɪˈstrɪkt/",
+      "pos": "v.",
+      "zh": "限制",
+      "en": "to limit what someone can do or how much of something is allowed",
+      "note": "多益常見於公告、規定與政策，重點是用規定限制範圍或行動，如 restrict access to。名詞 restriction 解除時常用 lift（或 remove、ease），raise 是「調高」，如 raise the limit，不用來說解除限制。",
+      "grammar_note": "restrict A to B 表示把 A 限制在 B 的範圍內，如 restrict access to staff only；被動是 be restricted to + 名詞。",
+      "forms": [
+        { "w": "restricts", "label": "第三人稱單數", "pos": "v.", "zh": "限制", "ipa": "/rɪˈstrɪkts/", "example": { "en": "This visa restricts holders to working only twenty hours weekly.", "zh": "這種簽證限制持有人每週只能工作二十小時。" } },
+        { "w": "restricted", "label": "過去式／過去分詞", "pos": "v.", "zh": "限制", "ipa": "/rɪˈstrɪktɪd/", "example": { "en": "Parking was restricted to employees during the construction.", "zh": "施工期間，停車位僅限員工使用。" } },
+        { "w": "restricting", "label": "現在分詞", "pos": "v.", "zh": "限制", "ipa": "/rɪˈstrɪktɪŋ/", "example": { "en": "Restricting overtime has improved staff morale in our department.", "zh": "限制加班提升了我們部門的員工士氣。" } }
+      ],
+      "collocations": [
+        { "phrase": "restrict A to B", "zh": "把 A 限制在 B", "example": { "en": "The company restricts the use of company cars to business trips.", "zh": "公司把公務車限制只能用於出差。" } },
+        { "phrase": "lift a restriction", "zh": "解除限制", "example": { "en": "The government will lift the restriction on imports next month.", "zh": "政府下個月將解除對進口的限制。" } },
+        { "phrase": "impose restrictions", "zh": "實施限制", "example": { "en": "The city imposed restrictions on night-time deliveries downtown.", "zh": "市政府對市中心的夜間配送實施了限制。" } },
+        { "phrase": "restrict access", "zh": "限制進入或使用", "example": { "en": "Please restrict access to this file to the finance team.", "zh": "請將這份檔案的存取權限限定給財務團隊。" } }
+      ],
+      "examples": [
+        { "tag": "安全", "en": "Entry to the factory floor is restricted for safety reasons.", "zh": "基於安全理由，工廠作業區限制進入。" },
+        { "tag": "預算", "en": "A small budget restricts what we can do this year.", "zh": "預算很少，限制了我們今年能做的事。" }
+      ],
+      "similar": [
+        { "word": "limit", "diff": "limit 側重設定數量、時間的上限；restrict 側重用規定限制行動或範圍。limit A to B 也能用，語氣較一般。", "example": { "en": "We limit each customer to two tickets per order.", "zh": "我們限制每位顧客每筆訂單最多買兩張票。" } }
+      ],
+      "derived": [
+        { "w": "restriction", "ipa": "/rɪˈstrɪkʃn/", "pos": "n.", "zh": "限制", "link": "restrict + -ion，變成名詞，像 act → action。" },
+        { "w": "restrictive", "ipa": "/rɪˈstrɪktɪv/", "pos": "adj.", "zh": "限制性的、嚴格的", "link": "restrict + -ive，形容詞，像 active、creative。" },
+        { "w": "unrestricted", "ipa": "/ˌʌnrɪˈstrɪktɪd/", "pos": "adj.", "zh": "不受限制的", "link": "un- + restricted，un- 表示「不」，像 unusual。" }
+      ],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [
+        { "id": "nmv9qhvuatlgz", "result": "added", "fix": "raise a restriction→lift a restriction" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "tardiness",
+      "type": "word",
+      "ipa": "/ˈtɑːrdinəs/",
+      "pos": "n.",
+      "zh": "遲到、延遲",
+      "en": "being late for work or a meeting",
+      "note": "多益常見於公司規定、員工手冊、人資通知，指上班或開會「遲到」。語氣比 lateness 正式，是不可數名詞。",
+      "grammar_note": "tardiness 是不可數名詞，不加 a、不加 s；報告遲到的說法是 report tardiness。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "report tardiness", "zh": "通報遲到", "example": { "en": "Employees must report tardiness to their supervisor before nine a.m.", "zh": "員工必須在早上九點前向主管通報遲到。" } },
+        { "phrase": "excessive tardiness", "zh": "過度遲到", "example": { "en": "Excessive tardiness can lead to a written warning.", "zh": "過度遲到可能導致書面警告。" } },
+        { "phrase": "tardiness policy", "zh": "遲到規定", "example": { "en": "The new tardiness policy starts on the first of next month.", "zh": "新的遲到規定從下個月一日開始。" } }
+      ],
+      "examples": [
+        { "tag": "人資通知", "en": "Frequent tardiness may lower your score in the yearly review.", "zh": "經常遲到可能會降低你在年度考核的分數。" },
+        { "tag": "會議", "en": "Tardiness at weekly team meetings wastes everyone's time.", "zh": "每週團隊會議遲到會浪費大家的時間。" },
+        { "tag": "電子郵件", "en": "Thank you for your explanation about yesterday's tardiness.", "zh": "謝謝你說明昨天遲到的原因。" }
+      ],
+      "confusable": [
+        { "word": "delay", "diff": "delay 指事情、班機或交通被延後；tardiness 指「人」遲到的行為。", "usage": "delay 可以說 a delay（可數），tardiness 是不可數名詞，不能加 a。", "example": { "en": "A flight delay made the team late for the client meeting.", "zh": "班機延誤讓團隊趕不上客戶會議。" } }
+      ],
+      "similar": [
+        { "phrase": "lateness", "diff": "lateness 較口語、通用；tardiness 較正式，常用在公司規定和手冊。", "example": { "en": "Lateness is not accepted during the training week.", "zh": "訓練週期間不接受遲到。" } }
+      ],
+      "family": [
+        { "w": "lateness", "pos": "n.", "zh": "遲到、晚", "ipa": "/ˈleɪtnəs/", "example": { "en": "His lateness made the whole team wait for ten minutes.", "zh": "他的遲到讓整個團隊多等了十分鐘。" } },
+        { "w": "absence", "pos": "n.", "zh": "缺席", "ipa": "/ˈæbsəns/", "example": { "en": "Please send a note to explain your absence.", "zh": "請寄一則訊息說明你的缺席。" } },
+        { "w": "attendance", "pos": "n.", "zh": "出勤、出席", "ipa": "/əˈtendəns/", "example": { "en": "Good attendance is an important part of this job.", "zh": "良好的出勤是這份工作很重要的一部分。" } }
+      ],
+      "derived": [
+        { "w": "tardy", "ipa": "/ˈtɑːrdi/", "pos": "adj.", "zh": "遲到的、拖延的", "link": "tardiness 去掉 -ness 就是 tardy；-ness 把形容詞變名詞，像 kind→kindness、busy→business。" }
+      ],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [ { "id": "nmv9qqdz6vabc", "result": "added", "fix": "handvook→handbook" } ]
+    },
+    {
+      "text": "regularly",
+      "type": "word",
+      "ipa": "/ˈreɡjələrli/",
+      "pos": "adv.",
+      "zh": "定期地、經常地",
+      "en": "at the same time again and again, or very often",
+      "note": "多益常見於公司規定、會議、設備檢查、資料備份，表示「按固定時間」或「經常」。常放在助動詞後、一般動詞前，如 employees regularly attend。",
+      "grammar_note": "regularly 是副詞，常放在主詞後、一般動詞前（employees regularly attend），或放在 be 動詞／助動詞後（are regularly checked）；也可放句尾。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "meet regularly", "zh": "定期開會", "example": { "en": "The managers meet regularly to discuss the budget.", "zh": "經理們定期開會討論預算。" } },
+        { "phrase": "regularly scheduled", "zh": "定期安排的", "example": { "en": "Regularly scheduled meetings help us plan the week.", "zh": "定期安排的會議幫助我們規劃一週。" } },
+        { "phrase": "update regularly", "zh": "定期更新", "example": { "en": "We update the price list regularly on our website.", "zh": "我們定期在網站上更新價目表。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Our team meets regularly to review the sales results.", "zh": "我們的團隊定期開會檢討銷售成果。" },
+        { "tag": "人資", "en": "New employees regularly receive training on office safety rules.", "zh": "新進員工會定期接受辦公室安全規定的訓練。" },
+        { "tag": "設備維護", "en": "The system is regularly checked to keep our data safe.", "zh": "系統會定期檢查，以確保我們的資料安全。" },
+        { "tag": "電子郵件", "en": "Please check your inbox regularly for updates from us.", "zh": "請定期查看你的收件匣，了解我們的最新通知。" }
+      ],
+      "confusable": [
+        { "word": "usually", "diff": "usually 是「通常、大多時候」；regularly 是「按固定時間、有規律地」。", "example": { "en": "Our employees usually arrive at eight, but today was different.", "zh": "我們的員工通常八點到，但今天不一樣。" } }
+      ],
+      "similar": [
+        { "phrase": "frequently", "diff": "frequently 強調次數多，不一定有固定時間；regularly 強調固定、有規律。", "example": { "en": "Customers frequently ask about our return policy.", "zh": "顧客經常詢問我們的退貨政策。" } },
+        { "phrase": "on a regular basis", "diff": "意思和 regularly 幾乎一樣，但比較正式，通常放在句尾。", "example": { "en": "We back up the files on a regular basis.", "zh": "我們定期備份這些檔案。" } }
+      ],
+      "family": [
+        { "w": "weekly", "pos": "adj.", "zh": "每週的", "ipa": "/ˈwiːkli/", "example": { "en": "We hold a weekly meeting every Monday morning.", "zh": "我們每週一早上舉行每週會議。" } },
+        { "w": "monthly", "pos": "adj.", "zh": "每月的", "ipa": "/ˈmʌnθli/", "example": { "en": "Please send the monthly report to the finance office.", "zh": "請把月報告寄給財務部。" } },
+        { "w": "frequently", "pos": "adv.", "zh": "經常地", "ipa": "/ˈfriːkwəntli/", "example": { "en": "The printer frequently breaks down during busy weeks.", "zh": "印表機在忙碌的週間經常故障。" } }
+      ],
+      "derived": [
+        { "w": "regular", "ipa": "/ˈreɡjələr/", "pos": "adj.", "zh": "規律的、固定的", "link": "regularly = regular + -ly；形容詞加 -ly 變副詞，像 quick→quickly。" },
+        { "w": "irregular", "ipa": "/ɪˈreɡjələr/", "pos": "adj.", "zh": "不規律的、不固定的", "link": "ir- 表示「不」，irregular 就是不規律，像 impossible、incorrect 的字首概念。" },
+        { "w": "regularity", "ipa": "/ˌreɡjəˈlerəti/", "pos": "n.", "zh": "規律性", "link": "regular + -ity，變成名詞，像 quality、ability。" }
+      ],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [ { "id": "nmv9qsfe3abzr", "result": "added" } ]
+    },
+    {
+      "text": "eloquent",
+      "type": "word",
+      "ipa": "/ˈeləkwənt/",
+      "pos": "adj.",
+      "zh": "口才好的、有說服力的",
+      "en": "able to speak or write in a clear and strong way",
+      "note": "多益常見於稱讚演講者、介紹人物或形容一封有說服力的信。三個字很像：fluent 重「流利不卡」、articulate 重「說得清楚有條理」、eloquent 重「說得有力又動聽」。",
+      "grammar_note": "eloquent 形容說話或文字「好聽、有說服力」（an eloquent speech），不是用來說語言程度；說語言程度要用 fluent in + 語言。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "an eloquent speaker", "zh": "口才好的講者", "example": { "en": "The company hired an eloquent speaker for the conference.", "zh": "公司為這場研討會請了一位口才很好的講者。" } },
+        { "phrase": "eloquent speech", "zh": "動人的演說", "example": { "en": "Her eloquent speech moved everyone in the room.", "zh": "她動人的演說感動了房間裡的每個人。" } },
+        { "phrase": "eloquent about", "zh": "對…說得很有說服力", "example": { "en": "He was eloquent about the benefits of the new system.", "zh": "他把新系統的好處說得非常有說服力。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The CEO was eloquent when she explained the new plan.", "zh": "執行長解釋新計畫時說得非常有說服力。" },
+        { "tag": "電子郵件", "en": "His eloquent letter convinced the client to sign the contract.", "zh": "他那封有說服力的信讓客戶同意簽約。" },
+        { "tag": "人物介紹", "en": "The award winner was an eloquent leader and a kind person.", "zh": "這位得獎者是口才很好的領導者，也是個親切的人。" }
+      ],
+      "confusable": [
+        { "word": "articulate", "diff": "articulate 重點是「表達清楚、有條理」，不一定動聽；eloquent 還要有力量、能打動人。", "usage": "articulate 當形容詞念 /ɑːrˈtɪkjələt/，也可以當動詞（清楚表達），念 /ɑːrˈtɪkjəleɪt/。", "example": { "en": "Our manager is articulate, so everyone understands her instructions.", "zh": "我們的經理表達很清楚，所以大家都懂她的指示。" } },
+        { "word": "fluent", "diff": "fluent 重點是「流利、不卡」，常指語言能力，不代表內容有說服力。", "usage": "常用 fluent in + 語言（fluent in English），或 speak English fluently。", "example": { "en": "Mr. Lee is fluent in English, Japanese, and Chinese.", "zh": "李先生英文、日文和中文都說得很流利。" } }
+      ],
+      "family": [
+        { "w": "persuasive", "pos": "adj.", "zh": "有說服力的", "ipa": "/pərˈsweɪsɪv/", "example": { "en": "Her persuasive report won the board's support.", "zh": "她有說服力的報告贏得了董事會的支持。" } },
+        { "w": "confident", "pos": "adj.", "zh": "有自信的", "ipa": "/ˈkɑːnfɪdənt/", "example": { "en": "A confident speaker looks at the audience while talking.", "zh": "有自信的講者說話時會看著聽眾。" } }
+      ],
+      "derived": [
+        { "w": "eloquently", "ipa": "/ˈeləkwəntli/", "pos": "adv.", "zh": "口才很好地、有說服力地", "link": "eloquent + -ly，變成副詞，像 quick→quickly。" },
+        { "w": "eloquence", "ipa": "/ˈeləkwəns/", "pos": "n.", "zh": "口才、雄辯", "link": "字尾 -ent 改成 -ence 變名詞，像 different→difference、confident→confidence。" }
+      ],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [ { "id": "nmvibz0auaj7h", "result": "added" } ]
+    },
+    {
+      "text": "etymology",
+      "type": "word",
+      "ipa": "/ˌetɪˈmɑːlədʒi/",
+      "pos": "n.",
+      "zh": "字源、詞源學",
+      "en": "the history of where a word came from and how its meaning changed",
+      "note": "不是多益核心字，偶爾出現在語言學習或閱讀文章中，指一個字的來源與演變。",
+      "grammar_note": "指「某個字的來源」時是可數名詞，常用 the etymology of + 字；指整個學科時是不可數名詞。",
+      "forms": [
+        { "w": "etymologies", "label": "複數", "pos": "n.", "zh": "字源（複數）", "ipa": "/ˌetɪˈmɑːlədʒiz/", "example": { "en": "The book lists the etymologies of one thousand common words.", "zh": "這本書列出一千個常用字的字源。" } }
+      ],
+      "collocations": [
+        { "phrase": "the etymology of", "zh": "…的字源", "example": { "en": "Do you know the etymology of this business term?", "zh": "你知道這個商業用語的字源嗎？" } },
+        { "phrase": "trace the etymology", "zh": "追溯字源", "example": { "en": "The writer tries to trace the etymology of every new term.", "zh": "這位作者試著追溯每個新詞的字源。" } },
+        { "phrase": "study etymology", "zh": "研究字源", "example": { "en": "Many students study etymology to remember new words.", "zh": "許多學生研究字源來記住新單字。" } }
+      ],
+      "examples": [
+        { "tag": "學習", "en": "I like reading about the etymology of business words.", "zh": "我喜歡閱讀商業用字的字源。" },
+        { "tag": "課堂", "en": "The teacher showed us the etymology of the word company.", "zh": "老師讓我們看 company 這個字的字源。" },
+        { "tag": "購書", "en": "Please send me a book about English etymology next week.", "zh": "請在下週寄給我一本關於英文字源的書。" }
+      ],
+      "confusable": [
+        { "word": "entomology", "diff": "entomology 是「昆蟲學」，拼法和發音都很像 etymology，但意思完全不同。", "example": { "en": "The museum has a small room for entomology and insects.", "zh": "博物館有一間小展間展示昆蟲學和昆蟲。" } }
+      ],
+      "family": [
+        { "w": "origin", "pos": "n.", "zh": "起源、來源", "ipa": "/ˈɔːrɪdʒɪn/", "example": { "en": "The origin of this brand name is quite interesting.", "zh": "這個品牌名稱的由來很有趣。" } },
+        { "w": "vocabulary", "pos": "n.", "zh": "字彙", "ipa": "/voʊˈkæbjəleri/", "example": { "en": "Reading every day helps you build your English vocabulary.", "zh": "每天閱讀有助於累積你的英文字彙。" } }
+      ],
+      "derived": [
+        { "w": "etymological", "ipa": "/ˌetɪməˈlɑːdʒɪkəl/", "pos": "adj.", "zh": "字源的", "link": "etymology 去掉 -y 加 -ical，變形容詞，像 biology→biological。" },
+        { "w": "etymologist", "ipa": "/ˌetɪˈmɑːlədʒɪst/", "pos": "n.", "zh": "字源學家", "link": "etymology 去掉 -y 加 -ist，指做這門學問的人，像 art→artist、science→scientist。" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "loquacious",
+      "type": "word",
+      "ipa": "/loʊˈkweɪʃəs/",
+      "pos": "adj.",
+      "zh": "多話的、健談的",
+      "en": "talking a lot",
+      "note": "偏正式、書面的字，形容人愛說話、說個不停；多益少見，有時帶一點「話太多」的負面感。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "a loquacious host", "zh": "很健談的主持人", "example": { "en": "A loquacious host can keep a long party lively.", "zh": "健談的主人能讓一場長時間的派對保持熱鬧。" } },
+        { "phrase": "become loquacious", "zh": "變得多話", "example": { "en": "He becomes loquacious when he talks about his hobby.", "zh": "他一聊到自己的嗜好就變得很多話。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Our loquacious director talked for an hour at the meeting.", "zh": "我們話很多的主任在會議上講了一個小時。" },
+        { "tag": "人物介紹", "en": "The new sales rep is friendly and loquacious.", "zh": "新來的業務代表親切又健談。" },
+        { "tag": "出差", "en": "My loquacious seatmate told me his life story on the flight.", "zh": "我話很多的鄰座在飛機上跟我說了他的人生故事。" }
+      ],
+      "confusable": [
+        { "word": "eloquent", "diff": "loquacious 重點是「話多」；eloquent 重點是「說得好、有說服力」，話不一定多。", "example": { "en": "Our eloquent manager convinced the board with a short talk.", "zh": "我們口才很好的經理用一段簡短的話說服了董事會。" } }
+      ],
+      "similar": [
+        { "word": "talkative", "diff": "talkative 是日常常用字，意思幾乎相同，語氣比較中性、口語。", "example": { "en": "Our talkative neighbor always stops to chat in the hall.", "zh": "我們愛說話的鄰居總是在走廊停下來聊天。" } },
+        { "word": "chatty", "diff": "chatty 更口語，指愛閒聊、輕鬆聊天，語氣比較親切。", "example": { "en": "The chatty clerk told us about the new store.", "zh": "那位愛聊天的店員跟我們介紹了新店。" } }
+      ],
+      "family": [
+        { "w": "talkative", "pos": "adj.", "zh": "愛說話的", "ipa": "/ˈtɔːkətɪv/", "example": { "en": "She is talkative at lunch but quiet in meetings.", "zh": "她午餐時很愛說話，開會時卻很安靜。" } },
+        { "w": "quiet", "pos": "adj.", "zh": "安靜的、話少的", "ipa": "/ˈkwaɪət/", "example": { "en": "He is quiet in meetings but writes clear reports.", "zh": "他開會時話不多，但報告寫得很清楚。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "ease up",
+      "type": "phrase",
+      "zh": "放鬆、減輕、緩和",
+      "en": "to become less strong, serious, or strict",
+      "note": "口語常見，可指工作量、壓力、車流、天氣變輕，也可指對別人「別那麼嚴格」。",
+      "pattern": "ease up + on + 人／事",
+      "grammar_note": "ease up 是不及物片語動詞，後面不直接接受詞；要說對誰或對什麼放鬆，用 ease up on + 人／事，on 後面接名詞或 V-ing。",
+      "examples": [
+        { "tag": "工作量", "en": "Work should ease up after the busy season ends in March.", "zh": "三月旺季結束後，工作量應該會減輕。" },
+        { "tag": "職場", "en": "Please ease up on the new staff while they learn.", "zh": "新進員工還在學習，請對他們寬鬆一點。" },
+        { "tag": "交通", "en": "Traffic should ease up after seven, so please wait a bit.", "zh": "七點過後車流應該會減少，請稍等一下。" },
+        { "tag": "日常", "en": "Once the deadline passes, I can ease up and take a day off.", "zh": "截止日一過，我就能放鬆並休一天假。" }
+      ],
+      "similar": [
+        { "phrase": "let up", "diff": "let up 多指雨、風、壓力「減弱、停止」；ease up 更常指人放鬆管理或力道。", "example": { "en": "The rain should let up before our outdoor event begins.", "zh": "雨應該會在我們的戶外活動開始前變小。" } },
+        { "phrase": "slow down", "diff": "slow down 指速度或進度變慢；ease up 指強度、壓力、嚴格程度變小。", "example": { "en": "Sales slow down in winter, so we plan fewer events.", "zh": "冬天銷售變慢，所以我們安排較少活動。" } }
+      ],
+      "confusable": [
+        { "word": "give up", "diff": "give up 是「放棄」，完全不做了；ease up 只是減輕力道，事情還在進行。", "example": { "en": "He did not give up, even after the third failure.", "zh": "即使失敗了三次，他也沒有放棄。" } }
+      ]
+    },
+    {
+      "text": "relent",
+      "type": "word",
+      "ipa": "/rɪˈlent/",
+      "pos": "v.",
+      "zh": "讓步、心軟、（風雨等）減弱",
+      "en": "to stop refusing and agree to something",
+      "note": "多益偶見於談判、客戶或主管的態度：原本很堅持，最後「讓步、鬆口」。也可指風雨、壓力等慢慢變弱。",
+      "grammar_note": "relent 是不及物動詞，後面不直接接受詞；對某事讓步用 relent on + 名詞，或 relent and + V。",
+      "forms": [
+        { "w": "relents", "label": "第三人稱單數", "pos": "v.", "zh": "讓步", "ipa": "/rɪˈlents/", "example": { "en": "If the buyer relents, we can close the deal today.", "zh": "如果買方讓步，我們今天就能成交。" } },
+        { "w": "relented", "label": "過去式／過去分詞", "pos": "v.", "zh": "讓步了", "ipa": "/rɪˈlentɪd/", "example": { "en": "The boss relented and let us leave early on Friday.", "zh": "老闆心軟了，讓我們星期五提早下班。" } },
+        { "w": "relenting", "label": "現在分詞", "pos": "v.", "zh": "正在讓步", "ipa": "/rɪˈlentɪŋ/", "example": { "en": "Even after hours of talks, the union was not relenting.", "zh": "即使談了好幾個小時，工會還是不肯讓步。" } }
+      ],
+      "collocations": [
+        { "phrase": "relent on", "zh": "在…上讓步", "example": { "en": "We hope the bank will relent on the late fee.", "zh": "我們希望銀行能在滯納金上讓步。" } },
+        { "phrase": "relent and agree", "zh": "讓步並同意", "example": { "en": "We hope the client will relent and agree to the new date.", "zh": "我們希望客戶能讓步並同意新的日期。" } },
+        { "phrase": "refuse to relent", "zh": "不肯讓步", "example": { "en": "Some buyers refuse to relent, even when the offer is fair.", "zh": "有些買家即使報價合理也不肯讓步。" } }
+      ],
+      "examples": [
+        { "tag": "談判", "en": "The supplier finally relented and lowered the price by five percent.", "zh": "供應商終於讓步，把價格降了百分之五。" },
+        { "tag": "客戶", "en": "After a long talk, the client relented and signed the contract.", "zh": "談了很久之後，客戶讓步並簽了合約。" },
+        { "tag": "主管", "en": "Our manager would not relent, so we worked on Saturday.", "zh": "我們經理不肯讓步，所以星期六我們還是上班。" },
+        { "tag": "天氣", "en": "The storm did not relent until midnight, so flights stayed canceled.", "zh": "暴風雨到半夜才減弱，所以班機持續取消。" }
+      ],
+      "confusable": [
+        { "word": "resent", "diff": "resent /rɪˈzent/ 是「對…感到不滿、怨恨」；relent 是「態度軟化、讓步」。拼法只差一個字母。", "usage": "resent 是及物動詞，後面接受詞（resent the rule）；relent 是不及物動詞。", "example": { "en": "Some staff resent the new rule about working weekends.", "zh": "有些員工對週末要上班的新規定感到不滿。" } }
+      ],
+      "similar": [
+        { "phrase": "give in", "diff": "give in 較口語，常指在壓力下投降；relent 較正式，強調態度變柔和。", "example": { "en": "The seller gave in and accepted our lower offer.", "zh": "賣方讓步，接受了我們較低的報價。" } },
+        { "phrase": "back down", "diff": "back down 指放棄原本的立場或要求，不一定是心軟。", "example": { "en": "The manager refused to back down on the deadline.", "zh": "經理在截止日上不肯退讓。" } }
+      ],
+      "family": [
+        { "w": "agree", "pos": "v.", "zh": "同意", "ipa": "/əˈɡriː/", "example": { "en": "Both sides agreed to meet again on Monday.", "zh": "雙方同意星期一再見面。" } },
+        { "w": "refuse", "pos": "v.", "zh": "拒絕", "ipa": "/rɪˈfjuːz/", "example": { "en": "The shop refused to refund the broken item.", "zh": "商店拒絕退還這件壞掉的商品。" } },
+        { "w": "compromise", "pos": "v.", "zh": "妥協", "ipa": "/ˈkɑːmprəmaɪz/", "example": { "en": "Both sides compromised on the delivery date and the price.", "zh": "雙方在交貨日期和價格上都做了妥協。" } }
+      ],
+      "derived": [
+        { "w": "relentless", "ipa": "/rɪˈlentləs/", "pos": "adj.", "zh": "不間斷的、毫不留情的", "link": "relent + -less（沒有）：不會讓步、不會停下來，像 careless、endless。" },
+        { "w": "relentlessly", "ipa": "/rɪˈlentləsli/", "pos": "adv.", "zh": "不間斷地、毫不留情地", "link": "relentless + -ly，變成副詞，像 quick→quickly。" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "讓步、心軟", "en": "to stop refusing and agree to something", "distinguish": "主詞是人或公司時，通常是「讓步」。", "example": { "en": "After many calls, the landlord relented and lowered the rent.", "zh": "打了很多通電話後，房東讓步並降低了租金。" } },
+        { "pos": "v.", "zh": "（風雨、壓力等）減弱", "en": "to become weaker or less strong", "distinguish": "主詞是雨、風、壓力等，就是「減弱」。", "example": { "en": "The heavy rain finally relented, and the trucks started moving.", "zh": "大雨終於減弱，貨車開始動了。" } }
+      ]
+    },
+    {
+      "text": "relentlessly",
+      "type": "word",
+      "ipa": "/rɪˈlentləsli/",
+      "pos": "adv.",
+      "zh": "不間斷地、毫不留情地",
+      "en": "without stopping or becoming weaker",
+      "note": "多益常見於形容努力、競爭、行銷或工作「不停、不放鬆」，通常有「很用力、不放棄」的語感；也可用來形容雨或壓力一直不停。",
+      "grammar_note": "relentlessly 修飾動詞，常放在動詞或受詞之後（work relentlessly）；放在動詞前（relentlessly pursue）語氣更強。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "work relentlessly", "zh": "不停地努力工作", "example": { "en": "The engineers work relentlessly to fix the system error.", "zh": "工程師們不停地努力修復系統錯誤。" } },
+        { "phrase": "relentlessly pursue", "zh": "不懈地追求", "example": { "en": "We must relentlessly pursue better service for our clients.", "zh": "我們必須不懈地追求為客戶提供更好的服務。" } },
+        { "phrase": "compete relentlessly", "zh": "毫不留情地競爭", "example": { "en": "Both firms compete relentlessly for the same customers.", "zh": "兩家公司毫不留情地爭奪同一批客戶。" } }
+      ],
+      "examples": [
+        { "tag": "市場競爭", "en": "Our competitors are relentlessly promoting their new products online.", "zh": "我們的競爭對手正不停地在網路上推廣新產品。" },
+        { "tag": "工作", "en": "She pushed relentlessly to finish the project before the deadline.", "zh": "她不放鬆地趕工，要在截止日前完成專案。" },
+        { "tag": "出差", "en": "It rained relentlessly during our entire business trip to Osaka.", "zh": "我們整趟大阪出差期間雨都下個不停。" }
+      ],
+      "confusable": [
+        { "word": "relentless", "diff": "意思相同，但詞性不同：relentless 是形容詞，relentlessly 是副詞。", "usage": "relentless 修飾名詞（relentless effort）或放在 be 動詞後；relentlessly 修飾動詞。", "example": { "en": "Her relentless effort helped the team win the contract.", "zh": "她不懈的努力幫助團隊贏得了合約。" } }
+      ],
+      "similar": [
+        { "phrase": "constantly", "diff": "constantly 強調「一直、經常發生」，不一定很用力；relentlessly 強調不停又毫不放鬆。", "example": { "en": "Prices change constantly in the online market.", "zh": "網路市場的價格一直在變動。" } },
+        { "phrase": "tirelessly", "diff": "tirelessly 強調「不知疲倦」，語氣正面；relentlessly 可正面，也可能帶有壓迫感。", "example": { "en": "The volunteers worked tirelessly to prepare for the event.", "zh": "志工們不知疲倦地為活動做準備。" } }
+      ],
+      "family": [
+        { "w": "constantly", "pos": "adv.", "zh": "不斷地", "ipa": "/ˈkɑːnstəntli/", "example": { "en": "The phone rings constantly during the holiday sale period.", "zh": "促銷假期期間電話響個不停。" } },
+        { "w": "continuously", "pos": "adv.", "zh": "連續地", "ipa": "/kənˈtɪnjuəsli/", "example": { "en": "The machine ran continuously for twelve hours without a break.", "zh": "這台機器連續運轉了十二小時沒有休息。" } }
+      ],
+      "derived": [
+        { "w": "relent", "ipa": "/rɪˈlent/", "pos": "v.", "zh": "讓步、減弱", "link": "詞幹：relent 是「態度軟下來」，加上 -less 就變成「不會軟下來」。" },
+        { "w": "relentless", "ipa": "/rɪˈlentləs/", "pos": "adj.", "zh": "不間斷的、毫不留情的", "link": "relent + -less（沒有），像 careless、endless；再加 -ly 就是 relentlessly。" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

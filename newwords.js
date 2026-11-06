@@ -346,9 +346,10 @@ const NW_ST = {
   removable: { label: '已入庫・可移除', c: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' }
 };
 const NW_RES = { added: 'AI 已把備註補進詳解', covered: '原詳解已涵蓋備註，沒有重複新增', unclear: 'AI 看不懂備註，沒有處理' };
+const nwNeedDetail = o => o.st === 'waitdetail' || o.st === 'supplement' || !!o.supp || (o.st === 'pending' && o.lib !== 'done'); // 還需要 AI 寫（或補）詳解：已入庫等詳解、備註待補，或待採用但還沒有任何詳解
 function nwCounts() {
   const c = { all: 0, pending: 0, todo: 0, rem: 0 };
-  nwList().forEach(n => { const o = nwStatus(n), s = o.st; c.all++; if (s === 'pending') c.pending++; else if (s === 'waitdetail' || s === 'supplement') c.todo++; else c.rem++; if (o.supp) c.todo++; });
+  nwList().forEach(n => { const o = nwStatus(n), s = o.st; c.all++; if (s === 'pending') c.pending++; else if (s !== 'waitdetail' && s !== 'supplement') c.rem++; if (nwNeedDetail(o)) c.todo++; });
   return c;
 }
 const nwBtn = () => `<button onclick="dnNav('nw')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'nw' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">🆕 新單字（${nwList().length}）</button>`;
@@ -396,7 +397,7 @@ function nwRow(n) {
 function nwListHtml() {
   const c = nwCounts(), tab = DN.nwTab, T = [['all', '全部', c.all], ['pending', '待採用', c.pending], ['todo', '待補充詳解', c.todo], ['rem', '可移除', c.rem]];
   const tb = ([t, n, k]) => `<button onclick="nwTab('${t}')" class="${btn} !py-1.5 !px-3 text-xs ${tab === t ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}${k ? '' : ' opacity-50'}">${n} <span class="opacity-70">${k}</span></button>`;
-  const rows = nwList().slice().sort((a, b) => (b.created || 0) - (a.created || 0)).filter(n => { const o = nwStatus(n), s = o.st; return tab === 'all' || (tab === 'pending' ? s === 'pending' : tab === 'todo' ? s === 'waitdetail' || s === 'supplement' || o.supp : s === 'removable' || s === 'updated'); });
+  const rows = nwList().slice().sort((a, b) => (b.created || 0) - (a.created || 0)).filter(n => { const o = nwStatus(n), s = o.st; return tab === 'all' || (tab === 'pending' ? s === 'pending' : tab === 'todo' ? nwNeedDetail(o) : s === 'removable' || s === 'updated'); });
   return `<div class="flex flex-wrap items-center gap-2 mb-3">${T.map(tb).join('')}${c.rem ? `<button onclick="nwRemoveDone()" class="${btn} !py-1.5 !px-3 text-xs ml-auto bg-emerald-600 text-white hover:bg-emerald-700">移除全部可移除（${c.rem}）</button>` : ''}</div>`
     + (nwLibEligible().length ? `<div class="${card} p-3 mb-3 flex flex-wrap items-center justify-between gap-2"><p class="text-xs text-slate-500 leading-relaxed flex-1 min-w-[12rem]"><b>通用詳解（不掛文章）</b>：和 TSL 單字一樣，不用等文章採用，直接請 AI 寫詳解（存成 w0d1_extra.json）。寫完這個字仍留在待採用，之後文章用到時會補「本篇用法」。</p><button onclick="nwLibCopy()" class="${btn} ${dnPri} !py-1 !px-2.5 text-xs">複製 AI 提示詞（${Math.min(nwLibEligible().length, NW_LIBCAP)}${nwLibEligible().length > NW_LIBCAP ? '／' + nwLibEligible().length : ''}）</button></div>` : '')
     + (tab === 'todo' ? nwSupSec() : '')
