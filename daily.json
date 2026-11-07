@@ -8752,6 +8752,439 @@
               }
             }
           ]
+        },
+        {
+          "text": "vendors",
+          "type": "word",
+          "lemma": "vendor",
+          "ipa": "/ˈvendɚz/",
+          "pos": "n.",
+          "zh": "供應商、廠商（複數）",
+          "en": "a person or company that sells goods or services to other businesses",
+          "note": "多益常出現在採購、合約與付款的情境，指賣東西或提供服務給公司的廠商。vendor 比 supplier 更常用在泛指「對公司賣東西的一方」，語氣中性。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "reliable vendor",
+              "zh": "可靠的供應商",
+              "example": {
+                "en": "We need a reliable vendor for office supplies.",
+                "zh": "我們需要一家可靠的辦公用品供應商。"
+              }
+            },
+            {
+              "phrase": "vendor contract",
+              "zh": "供應商合約",
+              "example": {
+                "en": "The legal team is reviewing the vendor contract this week.",
+                "zh": "法務團隊本週正在審閱供應商合約。"
+              }
+            },
+            {
+              "phrase": "select a vendor",
+              "zh": "挑選供應商",
+              "example": {
+                "en": "It took two weeks to select a vendor for the project.",
+                "zh": "為了這個專案挑選供應商花了兩個星期。"
+              }
+            },
+            {
+              "phrase": "approved vendor",
+              "zh": "核准的供應商",
+              "example": {
+                "en": "Only approved vendors can join the bidding process.",
+                "zh": "只有核准的供應商才能參加投標。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "採購",
+              "en": "We compare prices from three vendors before placing an order.",
+              "zh": "下訂單之前，我們會比較三家供應商的價格。"
+            },
+            {
+              "tag": "會議",
+              "en": "The vendors will present their new products at tomorrow's meeting.",
+              "zh": "供應商將在明天的會議上介紹他們的新產品。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please send the updated contract to all our vendors today.",
+              "zh": "請今天把更新後的合約寄給我們所有的供應商。"
+            },
+            {
+              "tag": "展覽",
+              "en": "Many vendors set up booths at the annual trade fair.",
+              "zh": "許多廠商在年度商展設置攤位。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "venue",
+              "diff": "venue 是舉辦會議或活動的場地，不是賣東西的人或公司，拼法和 vendor 有點像。",
+              "example": {
+                "en": "The venue for the conference is a hotel near the airport.",
+                "zh": "會議的場地是機場附近的一間飯店。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "supplier",
+              "pos": "n.",
+              "zh": "供應商",
+              "ipa": "/səˈplaɪɚ/",
+              "example": {
+                "en": "Our main supplier delivers parts every Monday.",
+                "zh": "我們的主要供應商每週一送零件。"
+              }
+            },
+            {
+              "w": "seller",
+              "pos": "n.",
+              "zh": "賣方、賣家",
+              "ipa": "/ˈselɚ/",
+              "example": {
+                "en": "The seller offered a ten percent discount.",
+                "zh": "賣方提供了九折優惠。"
+              }
+            },
+            {
+              "w": "contractor",
+              "pos": "n.",
+              "zh": "承包商",
+              "ipa": "/ˈkɑːntræktɚ/",
+              "example": {
+                "en": "The contractor finished the repair work on time.",
+                "zh": "承包商準時完成了維修工作。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "budget set",
+          "type": "phrase",
+          "zh": "（由…）訂定的預算",
+          "en": "the amount of money that someone has decided to spend",
+          "note": "常見寫法是 the budget set by + 人或單位，用來說明預算是誰訂的。多益的公告、電子郵件和會議對話裡，常用在要求大家照預算執行的情境。",
+          "pattern": "the + N + set by + 人／單位",
+          "grammar_note": "set 在這裡是過去分詞（拼法和原形一樣），放在名詞後面修飾名詞，意思是 that was set，不需要再加 which was。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "We must keep the project within the budget set for this quarter.",
+              "zh": "我們必須讓專案維持在本季訂定的預算內。"
+            },
+            {
+              "tag": "採購",
+              "en": "The budget set by the manager does not cover new computers.",
+              "zh": "經理訂定的預算不包含新電腦。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please check the budget set for each department in the attached file.",
+              "zh": "請查看附件中各部門訂定的預算。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "approved budget",
+              "diff": "approved budget 強調預算已經被核准；budget set 強調預算是由誰訂出來的。",
+              "example": {
+                "en": "The approved budget allows us to hire two more staff.",
+                "zh": "核准的預算讓我們可以再多聘兩位員工。"
+              }
+            },
+            {
+              "phrase": "fixed budget",
+              "diff": "fixed budget 強調金額固定、不能增加；budget set 只說明預算已經被訂定。",
+              "example": {
+                "en": "We have a fixed budget, so we cannot add more items.",
+                "zh": "我們的預算是固定的，所以不能再增加項目。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "zone out",
+          "type": "phrase",
+          "zh": "恍神、放空、沒在聽",
+          "en": "to stop paying attention to what is happening around you",
+          "note": "口語說法，指累了或無聊時腦袋放空、沒聽進對方說的話。多益常出現在同事間的對話，像會議中或電話裡；正式書面較少用。",
+          "pattern": "someone + zone out（+ during + 會議／電話）",
+          "grammar_note": "zone out 是不及物的片語動詞，後面不直接接受詞；要說明在什麼時候放空，用 during 或 in 加事件，例如 zone out during the meeting。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "I zoned out during the long meeting and missed the key point.",
+              "zh": "我在冗長的會議中恍神，漏掉了重點。"
+            },
+            {
+              "tag": "電話",
+              "en": "He zoned out on the call and asked her to repeat it.",
+              "zh": "他在電話中放空，請她再說一次。"
+            },
+            {
+              "tag": "培訓",
+              "en": "Many staff zone out when the training video is too long.",
+              "zh": "訓練影片太長時，很多員工會恍神。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "space out",
+              "diff": "意思幾乎相同，也是口語；space out 在美式英語很常用。",
+              "example": {
+                "en": "Sorry, I spaced out for a moment. Could you repeat that?",
+                "zh": "抱歉，我剛剛恍神了一下，可以請你再說一次嗎？"
+              }
+            },
+            {
+              "phrase": "lose focus",
+              "diff": "lose focus 語氣比較中性，可用在正式一點的說明，不一定是完全放空。",
+              "example": {
+                "en": "People often lose focus when a meeting runs too long.",
+                "zh": "會議開太久時，人們常常會無法專心。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "zoom out",
+              "diff": "拼法和發音相近，但 zoom out 是把畫面縮小、拉遠，不是恍神。",
+              "example": {
+                "en": "Please zoom out so everyone can see the whole chart.",
+                "zh": "請把畫面縮小，讓大家看到整張圖表。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "go blank",
+          "type": "phrase",
+          "zh": "（腦中）一片空白；（螢幕）變成空白",
+          "en": "to suddenly be unable to remember or think of anything",
+          "note": "最常見的說法是 someone's mind goes blank，指緊張或被突然問話時腦袋一片空白。螢幕或投影幕突然沒畫面，也可以用 go blank。",
+          "pattern": "someone's mind／head + goes blank（+ when／during ...）",
+          "grammar_note": "go 的過去式是 went，所以是 my mind went blank；blank 在這裡是形容詞，前面不加 a，也不寫成 go blanks。",
+          "examples": [
+            {
+              "tag": "面試",
+              "en": "My mind went blank when the interviewer asked about my plan.",
+              "zh": "面試官問起我的計畫時，我腦中一片空白。"
+            },
+            {
+              "tag": "簡報",
+              "en": "Her mind went blank halfway through the presentation.",
+              "zh": "她簡報進行到一半時，腦中一片空白。"
+            },
+            {
+              "tag": "設備",
+              "en": "The projector screen went blank in the middle of the talk.",
+              "zh": "演講進行到一半，投影幕突然變成空白。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "draw a blank",
+              "diff": "draw a blank 是「想不起來」某件事，受詞常是特定的名字或答案；go blank 強調整個腦袋突然空了。",
+              "example": {
+                "en": "I drew a blank when she asked for the client's name.",
+                "zh": "她問我客戶的名字時，我完全想不起來。"
+              }
+            },
+            {
+              "phrase": "freeze up",
+              "diff": "freeze up 強調緊張到動彈不得或說不出話，不一定是忘記內容。",
+              "example": {
+                "en": "He froze up during the presentation and forgot his notes.",
+                "zh": "他在簡報時僵住了，忘了自己的筆記。"
+              }
+            }
+          ],
+          "nw_done": [
+            {
+              "id": "nmw6b7yv9imd9",
+              "result": "added"
+            }
+          ]
+        },
+        {
+          "text": "lost one's train of thought",
+          "type": "phrase",
+          "zh": "思緒中斷、講到一半忘了要說什麼",
+          "en": "to forget what you were saying or thinking because something interrupted you",
+          "note": "常用在說話或報告到一半被打斷的情境，像電話突然響、有人插話。語氣自然，不是在責怪誰，可以拿來解釋為什麼突然停下來。",
+          "pattern": "lose + one's + train of thought（+ when／after + 事件）",
+          "grammar_note": "one's 只是代稱，實際使用時要換成 my、her、their 等，例如 She lost her train of thought；lost 是 lose 的過去式。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "Sorry, I lost my train of thought after the phone rang.",
+              "zh": "抱歉，電話響了之後我忘了剛剛講到哪裡。"
+            },
+            {
+              "tag": "簡報",
+              "en": "She lost her train of thought when the slide would not change.",
+              "zh": "投影片換不過去時，她的思緒中斷了。"
+            },
+            {
+              "tag": "電話",
+              "en": "He lost his train of thought and had to start over.",
+              "zh": "他思緒中斷，只好重新開始講。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "forgot what he was saying",
+              "diff": "說法比較直白；lose one's train of thought 強調思緒被打斷。",
+              "example": {
+                "en": "He paused and forgot what he was saying.",
+                "zh": "他停了一下，忘了自己剛剛在說什麼。"
+              }
+            },
+            {
+              "phrase": "get sidetracked",
+              "diff": "get sidetracked 指被其他話題或事情帶偏、離題，不一定是忘記。",
+              "example": {
+                "en": "We got sidetracked and never finished the budget discussion.",
+                "zh": "我們離題了，預算討論一直沒有討論完。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "lose track of",
+              "diff": "lose track of 是不再掌握某件事（時間、數量、進度）；lost one's train of thought 是講話或思考被打斷。",
+              "example": {
+                "en": "I lost track of time and missed the start of the call.",
+                "zh": "我忘了時間，錯過了電話會議的開頭。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "slipped my mind",
+          "type": "phrase",
+          "zh": "（我）一時忘了、忘記了",
+          "en": "to be forgotten by someone, usually by mistake",
+          "note": "用來委婉解釋「不是故意忘記」，語氣比直接說 I forgot 柔和。常見於道歉或補交東西的電子郵件與對話。",
+          "pattern": "N／It + slip(s／ped) + one's mind",
+          "grammar_note": "主詞是被忘記的事（The deadline slipped my mind），不是人；不能說 I slipped my mind。my 要依忘記的人換成 his、her、their 等。",
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "Sorry, the deadline slipped my mind. I will send it today.",
+              "zh": "抱歉，我一時忘了截止日期，今天就寄給你。"
+            },
+            {
+              "tag": "會議",
+              "en": "It completely slipped my mind that we had a meeting at three.",
+              "zh": "我完全忘了我們三點有會議。"
+            },
+            {
+              "tag": "電話",
+              "en": "Her phone number slipped my mind, so I asked a colleague.",
+              "zh": "我一時想不起她的電話號碼，所以問了同事。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "forget",
+              "diff": "forget 的主詞是人，語氣直接，後面可接 to V；slip one's mind 的主詞是被忘記的事，語氣較委婉。",
+              "example": {
+                "en": "I forgot to attach the file to my last email.",
+                "zh": "我上一封郵件忘了附上檔案。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "come to mind",
+              "diff": "come to mind 是某個想法或名字浮現在腦中，和 slip one's mind（忘記）剛好相反。",
+              "example": {
+                "en": "No other name comes to mind right now.",
+                "zh": "我現在想不到其他的名字。"
+              }
+            },
+            {
+              "phrase": "slip up",
+              "diff": "slip up 是犯小錯、出差錯，不是忘記。",
+              "example": {
+                "en": "If we slip up on this order, we may lose the client.",
+                "zh": "如果我們在這張訂單上出錯，可能會失去客戶。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "ring a bell",
+          "type": "phrase",
+          "zh": "聽起來耳熟、讓人有點印象",
+          "en": "to sound familiar, but you cannot remember exactly why",
+          "note": "常用在聽到名字、公司或產品名稱時，覺得好像聽過卻想不起來。多益對話裡常見疑問句或否定句，例如 Does that name ring a bell?",
+          "pattern": "N（name／word／face）+ ring(s) a bell（+ for + 人）",
+          "grammar_note": "主詞是讓人覺得耳熟的名字或事物；bell 用單數，前面要有 a；現在式第三人稱單數用 rings，過去式是 rang。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "That name rings a bell, but I cannot remember where we met.",
+              "zh": "這個名字聽起來耳熟，但我想不起來在哪裡見過。"
+            },
+            {
+              "tag": "電話",
+              "en": "Her company name does not ring a bell. Is it new?",
+              "zh": "她的公司名稱我沒什麼印象，是新公司嗎？"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Does the name Mr. Lee ring a bell for anyone on the team?",
+              "zh": "團隊裡有人對李先生這個名字有印象嗎？"
+            },
+            {
+              "tag": "資料",
+              "en": "The product code rang a bell, so I checked our records.",
+              "zh": "這個產品代碼聽起來耳熟，所以我查了我們的紀錄。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "sound familiar",
+              "diff": "意思很接近，語氣更直接；sound familiar 用在聽到的東西，後面可不加 a bell。",
+              "example": {
+                "en": "The client's name sounds familiar. Have we worked with them?",
+                "zh": "這位客戶的名字聽起來很熟，我們合作過嗎？"
+              }
+            },
+            {
+              "phrase": "look familiar",
+              "diff": "look familiar 用在看到的人或東西，ring a bell 則多用在聽到的名字或訊息。",
+              "example": {
+                "en": "His face looks familiar, but I cannot place him.",
+                "zh": "他的臉看起來很眼熟，但我想不起他是誰。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "ring the bell",
+              "diff": "ring the bell 是真的按鈴或搖鈴；ring a bell 是慣用語，指聽起來耳熟。",
+              "example": {
+                "en": "Please ring the bell at the front desk for service.",
+                "zh": "需要服務請按櫃檯的鈴。"
+              }
+            }
+          ],
+          "nw_done": [
+            {
+              "id": "nmw6bc3pqa1sf",
+              "result": "added"
+            }
+          ]
         }
       ]
     },
@@ -365463,6 +365896,949 @@
               "example": {
                 "en": "We received an urgent request from the head office this morning.",
                 "zh": "今天早上我們收到總公司的緊急要求。"
+              }
+            }
+          ],
+          "senses": []
+        },
+        {
+          "text": "absorbent",
+          "type": "word",
+          "ipa": "/əbˈzɔːrbənt/",
+          "pos": "adj.",
+          "zh": "吸水的、有吸收性的",
+          "en": "able to take in liquid easily",
+          "note": "和文章裡 absorb（公司吸收停車費）同字根，這裡指物品能吸收液體。文章提到漏水損壞，這個字常出現在清潔、防潮與產品說明的情境。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "absorbent material",
+              "zh": "吸水材料",
+              "example": {
+                "en": "The factory uses absorbent material to clean up oil spills.",
+                "zh": "工廠用吸水材料來清理漏出的油。"
+              }
+            },
+            {
+              "phrase": "highly absorbent",
+              "zh": "吸水性很強的",
+              "example": {
+                "en": "Our new cloths are highly absorbent and easy to wash.",
+                "zh": "我們的新抹布吸水性很強，而且容易清洗。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "採購",
+              "en": "We ordered absorbent towels for the cleaning staff.",
+              "zh": "我們幫清潔人員訂購了吸水毛巾。"
+            },
+            {
+              "tag": "產品說明",
+              "en": "This absorbent pad can hold up to ten times its weight in water.",
+              "zh": "這種吸水墊最多可吸收自身重量十倍的水。"
+            },
+            {
+              "tag": "維修",
+              "en": "Please place an absorbent mat near the entrance on rainy days.",
+              "zh": "下雨天請在入口附近放一張吸水墊。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "absorbed",
+              "diff": "absorbed 形容人很專心，absorbent 形容物品能吸水。",
+              "usage": "absorbed 常用 be absorbed in + 名詞，表示專心於某事；absorbent 只用來形容材料或產品。",
+              "example": {
+                "en": "She was so absorbed in the report that she missed the call.",
+                "zh": "她太專心看報告，結果沒接到電話。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "soak",
+              "pos": "v.",
+              "zh": "浸濕、泡濕",
+              "ipa": "/soʊk/",
+              "example": {
+                "en": "Heavy rain soaked the boxes in the loading area.",
+                "zh": "大雨把裝卸區的箱子都淋濕了。"
+              }
+            },
+            {
+              "w": "moisture",
+              "pos": "n.",
+              "zh": "濕氣、水分",
+              "ipa": "/ˈmɔɪstʃɚ/",
+              "example": {
+                "en": "Moisture from the leak damaged part of the ceiling.",
+                "zh": "漏水造成的濕氣損壞了一部分天花板。"
+              }
+            },
+            {
+              "w": "waterproof",
+              "pos": "adj.",
+              "zh": "防水的",
+              "ipa": "/ˈwɔːtɚpruːf/",
+              "example": {
+                "en": "All packages must be wrapped in waterproof covers.",
+                "zh": "所有包裹都必須用防水套包好。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "absorb",
+              "ipa": "/əbˈzɔːrb/",
+              "pos": "v.",
+              "zh": "吸收",
+              "link": "基礎字，吸收液體、費用或知識；absorbent 就是 absorb + -ent，表示有吸收性的"
+            },
+            {
+              "w": "absorption",
+              "ipa": "/əbˈzɔːrpʃən/",
+              "pos": "n.",
+              "zh": "吸收",
+              "link": "absorb + -tion（拼成 -ption），把動作變成名詞，像 educate → education"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "absorption",
+          "type": "word",
+          "ipa": "/əbˈzɔːrpʃən/",
+          "pos": "n.",
+          "zh": "吸收；（費用的）承擔；併入",
+          "en": "the process of taking something in, such as liquid, cost, or a smaller company",
+          "note": "和文章裡 absorb（公司吸收每日停車費）同字根，這是名詞形。在企業情境常指成本由公司自己承擔，也可指公司或團隊被併入。",
+          "grammar_note": "absorption 是不可數名詞，不加 s；表示「吸收…」時後面常接 of，例如 the absorption of costs。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "absorption of costs",
+              "zh": "成本的吸收（由公司承擔）",
+              "example": {
+                "en": "The absorption of costs by the company pleased all employees.",
+                "zh": "公司承擔成本的做法讓所有員工都很滿意。"
+              }
+            },
+            {
+              "phrase": "rate of absorption",
+              "zh": "吸收速度",
+              "example": {
+                "en": "The rate of absorption depends on the material's thickness.",
+                "zh": "吸收速度取決於材料的厚度。"
+              }
+            },
+            {
+              "phrase": "moisture absorption",
+              "zh": "吸濕",
+              "example": {
+                "en": "Moisture absorption can damage the paper stored in the basement.",
+                "zh": "吸濕可能會損壞存放在地下室的紙張。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "Management explained the absorption of rising fuel costs at the meeting.",
+              "zh": "管理階層在會議上說明了公司如何承擔上漲的燃料成本。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please be patient during the absorption of the two departments.",
+              "zh": "兩個部門合併的期間，請大家耐心配合。"
+            },
+            {
+              "tag": "產品說明",
+              "en": "This material offers fast absorption and dries quickly after use.",
+              "zh": "這種材料吸收速度快，使用後乾得也快。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "adoption",
+              "diff": "拼法和發音有點像，但 adoption 是採用（制度、方法），absorption 是吸收。",
+              "example": {
+                "en": "The adoption of the new policy begins next month.",
+                "zh": "新政策下個月開始採用。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "integration",
+              "pos": "n.",
+              "zh": "整合",
+              "ipa": "/ˌɪntɪˈɡreɪʃən/",
+              "example": {
+                "en": "The integration of the two systems took a month.",
+                "zh": "兩個系統的整合花了一個月。"
+              }
+            },
+            {
+              "w": "merger",
+              "pos": "n.",
+              "zh": "（公司）合併",
+              "ipa": "/ˈmɝːdʒɚ/",
+              "example": {
+                "en": "The merger created one of the largest firms in the region.",
+                "zh": "這次合併造就了該地區最大的公司之一。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "absorb",
+              "ipa": "/əbˈzɔːrb/",
+              "pos": "v.",
+              "zh": "吸收；承擔（費用）",
+              "link": "基礎字，absorption 是 absorb 的名詞形"
+            },
+            {
+              "w": "absorbent",
+              "ipa": "/əbˈzɔːrbənt/",
+              "pos": "adj.",
+              "zh": "吸水的",
+              "link": "absorb + -ent，變成形容詞，表示有吸收性的"
+            },
+            {
+              "w": "absorbing",
+              "ipa": "/əbˈzɔːrbɪŋ/",
+              "pos": "adj.",
+              "zh": "引人入勝的",
+              "link": "absorb + -ing，形容把人整個吸進去的，像 interesting"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "吸收（液體、養分）",
+              "en": "the act of taking in liquid or other matter",
+              "example": {
+                "en": "This cloth has fast absorption, so spills dry quickly.",
+                "zh": "這塊布吸收速度很快，所以灑出來的水很快就乾。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "（費用）由公司承擔",
+              "en": "when a company pays a cost itself instead of passing it on",
+              "distinguish": "和 cost、fee 等字一起出現時，指公司自己吃下成本。",
+              "example": {
+                "en": "The absorption of shipping costs helped us keep prices low.",
+                "zh": "由公司承擔運費，幫助我們維持低價。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "（小公司）被併入",
+              "en": "when a small company becomes part of a bigger one",
+              "distinguish": "和 firm、company、department 等字一起出現時，指組織被併入。",
+              "example": {
+                "en": "The absorption of the smaller firm took about six months.",
+                "zh": "併入這家較小的公司花了大約六個月。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "hands-on",
+          "type": "word",
+          "ipa": "/ˌhændz ˈɑːn/",
+          "pos": "adj.",
+          "zh": "實際操作的、親自參與的",
+          "en": "involving real practice, not only reading or listening",
+          "note": "原句把 absorb 和 hands-on practice 放在一起，說明實作練習能讓新人更快學會技能。這個字常見於培訓、徵才與管理風格的描述。",
+          "grammar_note": "hands-on 是形容詞，放在名詞前面（hands-on training）；hands 要用複數，不寫成 hand-on。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "hands-on experience",
+              "zh": "實務經驗",
+              "example": {
+                "en": "Interns gain hands-on experience by working with real clients.",
+                "zh": "實習生透過接觸真實客戶來累積實務經驗。"
+              }
+            },
+            {
+              "phrase": "hands-on training",
+              "zh": "實作訓練",
+              "example": {
+                "en": "The company offers hands-on training during the first week.",
+                "zh": "公司在第一週提供實作訓練。"
+              }
+            },
+            {
+              "phrase": "hands-on approach",
+              "zh": "親自動手的做法",
+              "example": {
+                "en": "A hands-on approach helps new managers learn the team's needs quickly.",
+                "zh": "親自動手的做法能幫助新主管快速了解團隊的需求。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "培訓",
+              "en": "The workshop gives staff hands-on practice with the new software.",
+              "zh": "這場工作坊讓員工實際操作新軟體。"
+            },
+            {
+              "tag": "徵才",
+              "en": "We prefer applicants who have hands-on skills with inventory systems.",
+              "zh": "我們偏好具備庫存系統實作技能的應徵者。"
+            },
+            {
+              "tag": "管理",
+              "en": "Our director is a hands-on manager who visits the site daily.",
+              "zh": "我們的主任是親力親為的主管，每天都會到現場。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "hands-free",
+              "diff": "hands-free 是不用手拿的（免持），hands-on 是親自動手做的。",
+              "example": {
+                "en": "Please use a hands-free device while driving to the site.",
+                "zh": "開車前往現場時，請使用免持裝置。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "practical",
+              "diff": "practical 泛指實用、可行；hands-on 強調親自動手練習或參與。",
+              "example": {
+                "en": "The seminar gave us practical advice on managing budgets.",
+                "zh": "這場研討會提供了管理預算的實用建議。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "practical",
+              "pos": "adj.",
+              "zh": "實用的",
+              "ipa": "/ˈpræktɪkəl/",
+              "example": {
+                "en": "We need a practical solution to the parking problem.",
+                "zh": "我們需要一個解決停車問題的實用辦法。"
+              }
+            },
+            {
+              "w": "experience",
+              "pos": "n.",
+              "zh": "經驗",
+              "ipa": "/ɪkˈspɪriəns/",
+              "example": {
+                "en": "She has five years of experience in customer service.",
+                "zh": "她有五年的客服經驗。"
+              }
+            },
+            {
+              "w": "training",
+              "pos": "n.",
+              "zh": "訓練、培訓",
+              "ipa": "/ˈtreɪnɪŋ/",
+              "example": {
+                "en": "All new staff must complete safety training this week.",
+                "zh": "所有新進員工本週都必須完成安全訓練。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "adj.",
+              "zh": "實際操作的",
+              "en": "learned by doing the work yourself",
+              "example": {
+                "en": "Hands-on classes are more popular than lectures in our program.",
+                "zh": "在我們的課程中，實作課比講課更受歡迎。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "zh": "親自參與管理的",
+              "en": "taking an active part in the work instead of only giving orders",
+              "distinguish": "描述的是人（主管、老闆）時，指事事親自過問。",
+              "example": {
+                "en": "The CEO is very hands-on and checks every detail.",
+                "zh": "執行長非常親力親為，每個細節都會檢查。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "shadow",
+          "type": "word",
+          "ipa": "/ˈʃædoʊ/",
+          "pos": "v.",
+          "zh": "跟班見習；影子",
+          "en": "to follow a worker closely in order to learn how the job is done",
+          "note": "原句中新進實習生 shadow 資深同仁來學習，是培訓情境裡的常見說法。這個字也常當名詞，指影子或陰影。",
+          "forms": [
+            {
+              "w": "shadows",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "影子（複數）",
+              "ipa": "/ˈʃædoʊz/",
+              "example": {
+                "en": "The trees cast long shadows across the parking lot.",
+                "zh": "樹木在停車場上投下長長的影子。"
+              }
+            },
+            {
+              "w": "shadows",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "跟班見習",
+              "ipa": "/ˈʃædoʊz/",
+              "example": {
+                "en": "She shadows the sales manager every Tuesday morning.",
+                "zh": "她每週二早上都跟著業務經理見習。"
+              }
+            },
+            {
+              "w": "shadowed",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "跟班見習",
+              "ipa": "/ˈʃædoʊd/",
+              "example": {
+                "en": "He shadowed the project lead for two weeks last month.",
+                "zh": "他上個月跟著專案負責人見習了兩週。"
+              }
+            },
+            {
+              "w": "shadowing",
+              "label": "現在分詞／動名詞",
+              "pos": "v.",
+              "zh": "跟班見習",
+              "ipa": "/ˈʃædoʊɪŋ/",
+              "example": {
+                "en": "Shadowing a senior engineer helped her learn the process.",
+                "zh": "跟著資深工程師見習，幫助她學會了這個流程。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "shadow a colleague",
+              "zh": "跟著同事見習",
+              "example": {
+                "en": "You can shadow a colleague to see how the system works.",
+                "zh": "你可以跟著同事見習，了解系統怎麼運作。"
+              }
+            },
+            {
+              "phrase": "job shadowing",
+              "zh": "工作見習",
+              "example": {
+                "en": "Job shadowing is part of our new employee program.",
+                "zh": "工作見習是我們新進員工計畫的一部分。"
+              }
+            },
+            {
+              "phrase": "cast a shadow",
+              "zh": "投下影子",
+              "example": {
+                "en": "The new tower will cast a shadow over the old building.",
+                "zh": "新大樓會在舊大樓上投下影子。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "培訓",
+              "en": "Each intern will shadow a team leader for one day.",
+              "zh": "每位實習生都會跟著組長見習一天。"
+            },
+            {
+              "tag": "徵才",
+              "en": "Candidates may shadow a staff member before the final interview.",
+              "zh": "應徵者在最後面試前可以跟著一位員工見習。"
+            },
+            {
+              "tag": "會議",
+              "en": "Please let me shadow you at the client meeting next week.",
+              "zh": "下週的客戶會議，請讓我跟著你學習。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "shade",
+              "diff": "shadow 是物體擋住光而形成的影子；shade 是不被陽光直射的遮蔭處。",
+              "example": {
+                "en": "Customers waited in the shade outside the store.",
+                "zh": "顧客在店外的遮蔭處等候。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "follow",
+              "diff": "follow 泛指跟隨；shadow 特指跟著某人工作來學習。",
+              "example": {
+                "en": "Interns follow the manager to learn how meetings are run.",
+                "zh": "實習生跟著經理學習會議怎麼進行。"
+              }
+            },
+            {
+              "word": "observe",
+              "diff": "observe 是在旁邊觀察；shadow 是全程跟在某人身邊，通常時間較長。",
+              "example": {
+                "en": "Visitors may observe the training session from the back.",
+                "zh": "訪客可以在後方觀看這場訓練。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "mentor",
+              "pos": "n.",
+              "zh": "導師、資深指導者",
+              "ipa": "/ˈmentɔːr/",
+              "example": {
+                "en": "Each new hire is assigned a mentor for three months.",
+                "zh": "每位新進員工都會分配一位導師，為期三個月。"
+              }
+            },
+            {
+              "w": "trainee",
+              "pos": "n.",
+              "zh": "受訓者",
+              "ipa": "/treɪˈniː/",
+              "example": {
+                "en": "The trainee asked several questions about the filing system.",
+                "zh": "受訓者問了幾個關於檔案系統的問題。"
+              }
+            },
+            {
+              "w": "intern",
+              "pos": "n.",
+              "zh": "實習生",
+              "ipa": "/ˈɪntɝːn/",
+              "example": {
+                "en": "The intern prepared the slides for tomorrow's presentation.",
+                "zh": "實習生準備了明天簡報用的投影片。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [
+            {
+              "pos": "v.",
+              "ipa": "/ˈʃædoʊ/",
+              "zh": "跟班見習、緊跟著學習",
+              "example": {
+                "en": "New hires shadow experienced staff during their first week.",
+                "zh": "新進員工第一週會跟著資深同仁見習。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˈʃædoʊ/",
+              "zh": "影子、陰影",
+              "example": {
+                "en": "A shadow from the crane covered the entrance.",
+                "zh": "起重機的影子遮住了入口。"
+              }
+            }
+          ],
+          "senses": []
+        },
+        {
+          "text": "observe",
+          "type": "word",
+          "ipa": "/əbˈzɜːrv/",
+          "pos": "v.",
+          "zh": "觀察；遵守；慶祝（假日）",
+          "en": "to watch something carefully, or to follow a rule",
+          "note": "原句中的 observe 是「仔細看、觀察」。這個字在公告和備忘錄裡也很常指「遵守規定」，像這篇的停車與進出新規定就適合用 observe the rules。",
+          "grammar_note": "observe + 人 + V（原形）或 V-ing，表示看到某人做了或正在做某事；表示「遵守」時，受詞是規定、法律或時間表。",
+          "forms": [
+            {
+              "w": "observes",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "觀察、遵守",
+              "ipa": "/əbˈzɜːrvz/",
+              "example": {
+                "en": "The inspector observes every step of the production line.",
+                "zh": "檢查員會觀察生產線的每一個步驟。"
+              }
+            },
+            {
+              "w": "observed",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "觀察、遵守",
+              "ipa": "/əbˈzɜːrvd/",
+              "example": {
+                "en": "Staff observed the new safety rules during the audit.",
+                "zh": "稽核期間，員工都遵守了新的安全規定。"
+              }
+            },
+            {
+              "w": "observing",
+              "label": "現在分詞／動名詞",
+              "pos": "v.",
+              "zh": "觀察、遵守",
+              "ipa": "/əbˈzɜːrvɪŋ/",
+              "example": {
+                "en": "We are observing how customers use the new kiosk.",
+                "zh": "我們正在觀察顧客如何使用新的服務機台。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "observe safety regulations",
+              "zh": "遵守安全規定",
+              "example": {
+                "en": "Workers must observe safety regulations when using the machine.",
+                "zh": "工作人員使用機器時必須遵守安全規定。"
+              }
+            },
+            {
+              "phrase": "closely observe",
+              "zh": "仔細觀察",
+              "example": {
+                "en": "Managers closely observe how new staff handle customers.",
+                "zh": "主管會仔細觀察新進員工如何應對顧客。"
+              }
+            },
+            {
+              "phrase": "observe a trend",
+              "zh": "觀察到趨勢",
+              "example": {
+                "en": "Analysts observe a trend toward online shopping every year.",
+                "zh": "分析師每年都觀察到網路購物成長的趨勢。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "培訓",
+              "en": "Trainees observe a senior agent before taking real calls.",
+              "zh": "受訓人員先觀摩資深專員，再開始接真正的電話。"
+            },
+            {
+              "tag": "公告",
+              "en": "All employees are asked to observe the new parking rules.",
+              "zh": "所有員工都請遵守新的停車規定。"
+            },
+            {
+              "tag": "假日",
+              "en": "Our offices will observe the national holiday on Monday.",
+              "zh": "我們的辦公室星期一將配合國定假日休息。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "absorb",
+              "diff": "發音和拼法有點像，但 absorb 是吸收（液體、費用、知識），observe 是觀察或遵守。",
+              "example": {
+                "en": "The new carpet will absorb noise from the busy street.",
+                "zh": "新地毯會吸收來自繁忙街道的噪音。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "notice",
+              "diff": "notice 是不經意注意到；observe 是有目的、較仔細地看。",
+              "example": {
+                "en": "Did you notice the new sign at the north entrance?",
+                "zh": "你有注意到北側入口的新告示牌嗎？"
+              }
+            },
+            {
+              "phrase": "comply with",
+              "diff": "comply with 是遵守規定或要求，語氣較正式；observe 當「遵守」時也可用，但常和規則、時間表搭配。",
+              "example": {
+                "en": "All vendors must comply with the company's safety policy.",
+                "zh": "所有供應商都必須遵守公司的安全政策。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "monitor",
+              "pos": "v.",
+              "zh": "監控、持續觀察",
+              "ipa": "/ˈmɑːnɪtɚ/",
+              "example": {
+                "en": "The system will monitor energy use in each office.",
+                "zh": "這套系統會監控每間辦公室的用電量。"
+              }
+            },
+            {
+              "w": "inspect",
+              "pos": "v.",
+              "zh": "檢查",
+              "ipa": "/ɪnˈspekt/",
+              "example": {
+                "en": "The manager will inspect the new work area today.",
+                "zh": "經理今天會檢查新的工作區。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "observation",
+              "ipa": "/ˌɑːbzɚˈveɪʃən/",
+              "pos": "n.",
+              "zh": "觀察；意見",
+              "link": "observe + -ation，把觀察這件事變成名詞，像 organize → organization"
+            },
+            {
+              "w": "observer",
+              "ipa": "/əbˈzɜːrvɚ/",
+              "pos": "n.",
+              "zh": "觀察者、旁觀者",
+              "link": "observe + -er，做這件事的人，像 worker、manager"
+            },
+            {
+              "w": "observant",
+              "ipa": "/əbˈzɜːrvənt/",
+              "pos": "adj.",
+              "zh": "觀察力敏銳的",
+              "link": "observe + -ant，變成形容詞，表示善於觀察的"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "v.",
+              "zh": "觀察",
+              "en": "to watch something carefully",
+              "example": {
+                "en": "We observed a rise in complaints after the price change.",
+                "zh": "我們發現價格調整後客訴增加了。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "遵守（規定）",
+              "en": "to follow a rule or a law",
+              "distinguish": "受詞是 rules、policy、limit 等規定時，意思是遵守，不是觀察。",
+              "example": {
+                "en": "Drivers must observe the speed limit inside the lot.",
+                "zh": "駕駛人在停車場內必須遵守速限。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "慶祝、依假日休息",
+              "en": "to take a day off to mark a special day",
+              "distinguish": "受詞是 holiday 等節日時，指依該假日放假。",
+              "example": {
+                "en": "Most banks observe this holiday by closing for the day.",
+                "zh": "大多數銀行在這個假日會休息一天。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "grant",
+          "type": "word",
+          "ipa": "/ɡrænt/",
+          "pos": "n.",
+          "zh": "補助金；批准、授予",
+          "en": "money given for a special purpose, or the act of officially giving something",
+          "note": "原句中的 grant 是名詞，指機構提供、通常不需歸還的補助金。當動詞時是比 give 更正式的「批准、授予」，常搭配 permission、access、request。",
+          "grammar_note": "grant 可接雙受詞：grant + 人 + 物（grant staff access）；也可寫成 grant + 物 + to + 人。被動常用 be granted + 物。",
+          "forms": [
+            {
+              "w": "grants",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "補助金（複數）",
+              "ipa": "/ɡrænts/",
+              "example": {
+                "en": "The foundation awards three grants to schools each year.",
+                "zh": "這個基金會每年頒發三筆補助金給學校。"
+              }
+            },
+            {
+              "w": "grants",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "給予、批准",
+              "ipa": "/ɡrænts/",
+              "example": {
+                "en": "The policy grants every employee two extra days of paid leave.",
+                "zh": "這項政策給予每位員工兩天額外的有薪假。"
+              }
+            },
+            {
+              "w": "granted",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "給予、批准",
+              "ipa": "/ˈɡræntɪd/",
+              "example": {
+                "en": "Our request for extra storage space was granted yesterday.",
+                "zh": "我們要求增加儲藏空間的申請昨天已獲批准。"
+              }
+            },
+            {
+              "w": "granting",
+              "label": "現在分詞／動名詞",
+              "pos": "v.",
+              "zh": "給予、批准",
+              "ipa": "/ˈɡræntɪŋ/",
+              "example": {
+                "en": "Granting access to outsiders could create a serious security risk.",
+                "zh": "讓外人進入可能造成嚴重的安全風險。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "apply for a grant",
+              "zh": "申請補助金",
+              "example": {
+                "en": "Small firms can apply for a grant before the deadline.",
+                "zh": "小型公司可在截止日前申請補助金。"
+              }
+            },
+            {
+              "phrase": "receive a grant",
+              "zh": "獲得補助金",
+              "example": {
+                "en": "The museum received a grant from a local bank.",
+                "zh": "這間博物館獲得了當地銀行的補助金。"
+              }
+            },
+            {
+              "phrase": "grant permission",
+              "zh": "給予許可",
+              "example": {
+                "en": "Only the director can grant permission to enter the lab.",
+                "zh": "只有主任可以批准進入實驗室。"
+              }
+            },
+            {
+              "phrase": "grant access",
+              "zh": "授予存取權限",
+              "example": {
+                "en": "The IT team will grant access once your form arrives.",
+                "zh": "資訊部門收到你的表單後就會開通權限。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "財務",
+              "en": "The grant will help us launch the training program.",
+              "zh": "這筆補助金將協助我們推出培訓計畫。"
+            },
+            {
+              "tag": "人事",
+              "en": "HR will grant extra leave to staff who work overtime.",
+              "zh": "人資部門會給加班的員工額外的假。"
+            },
+            {
+              "tag": "資訊",
+              "en": "Please grant me access to the shared folder.",
+              "zh": "請授權我使用這個共用資料夾。"
+            },
+            {
+              "tag": "申請",
+              "en": "Our application for a research grant was approved last week.",
+              "zh": "我們的研究補助申請上週已通過。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "grand",
+              "diff": "只差一個字母：grand 是形容詞，表示盛大的、宏偉的；grant 是補助金或批准。",
+              "example": {
+                "en": "The company held a grand opening for its new branch.",
+                "zh": "公司為新分公司舉辦了盛大的開幕典禮。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "subsidy",
+              "diff": "subsidy 多指政府給企業或產業的補貼，常用來降低成本；grant 通常給特定計畫或研究。",
+              "example": {
+                "en": "The government offers a subsidy to farms using solar power.",
+                "zh": "政府提供補貼給使用太陽能的農場。"
+              }
+            },
+            {
+              "word": "approve",
+              "diff": "approve 是同意某個計畫或請求；grant 是把對方要的東西正式給他。",
+              "example": {
+                "en": "The board approved the budget for next year.",
+                "zh": "董事會通過了明年的預算。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "fund",
+              "pos": "n.",
+              "zh": "基金、資金",
+              "ipa": "/fʌnd/",
+              "example": {
+                "en": "The fund supports small businesses in the region.",
+                "zh": "這個基金支持當地的小型企業。"
+              }
+            },
+            {
+              "w": "scholarship",
+              "pos": "n.",
+              "zh": "獎學金",
+              "ipa": "/ˈskɑːlɚʃɪp/",
+              "example": {
+                "en": "She won a scholarship to study business abroad.",
+                "zh": "她獲得獎學金出國讀商學。"
+              }
+            },
+            {
+              "w": "permission",
+              "pos": "n.",
+              "zh": "許可",
+              "ipa": "/pɚˈmɪʃən/",
+              "example": {
+                "en": "You need permission to park in this lot.",
+                "zh": "你需要許可才能停在這個停車場。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/ɡrænt/",
+              "zh": "補助金",
+              "example": {
+                "en": "The city offered a grant to small local businesses.",
+                "zh": "市政府提供補助金給當地的小型企業。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/ɡrænt/",
+              "zh": "批准、授予",
+              "example": {
+                "en": "The board agreed to grant a two-week extension.",
+                "zh": "董事會同意批准兩週的延期。"
               }
             }
           ],

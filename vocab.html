@@ -79,7 +79,7 @@ const gap = x => { if (x.o) return x.s === 0; const h = LEARNED.get(x.n); return
 /* 來源標示：W0D1＝TSL 字庫（沒有文章的字的通用詳解） */
 const wdLabel = (w, d) => w ? 'W' + w + 'D' + d : 'TSL 字庫';
 const fromOf = h => h.from || wdLabel(h.w, h.d);
-const qidWD = q => { const m = /^w(\d+)d(\d+)$/.exec(q || ''); return m ? [+m[1], +m[2]] : [0, 0]; };
+const qidWD = q => { const m = /^w(\d+)d(\d+)/.exec(q || ''); return m ? [+m[1], +m[2]] : [0, 0]; };
 /* 入庫但還沒寫回 daily.json 的字（存在這個瀏覽器的 S.marks）：TSL 單字 → 算「已收錄、缺詳解」 */
 function mergeMarks() {
   (S.marks || []).forEach(m => {
@@ -92,7 +92,7 @@ async function ensureOthers() {
   if (OTH_LOADED) return; OTH_LOADED = true;
   let list = [];
   if (IX && Array.isArray(IX.other)) list = IX.other.map(a => ({ text: a[0], type: a[1], from: wdLabel(a[2], a[3]), s: a[4] }));
-  else { const j = await getJ('daily.json'); if (j) (Array.isArray(j) ? j : (j.items || [])).forEach(x => (x.extra_vocab || []).forEach(e => { const t = e.text || e.word; if (t) list.push({ text: t, type: e.type || 'word', from: wdLabel(x.week, x.day), s: 2 }); })); }
+  else { const j = await getJ('daily.json'); if (j) (Array.isArray(j) ? j : (j.items || [])).forEach(x => (x.extra_vocab || []).forEach(e => { const t = e.text || e.word; if (t) list.push({ text: t, type: e.type || 'word', from: wdLabel(x.week, x.day), s: 2 }); if (!e.type || e.type === 'word') (e.forms || []).forEach(f => { if (f && f.w) list.push({ text: f.w, type: 'word', from: wdLabel(x.week, x.day), s: 2 }); }); })); }
   (S.marks || []).forEach(m => { if (m.text) { const [w, d] = qidWD(m.qid); list.push({ text: m.text, type: m.type || 'word', from: w ? wdLabel(w, d) : '', s: 0, pend: 1 }); } });
   const seen = new Set(); OTHERS = [];
   list.forEach(o => {

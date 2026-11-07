@@ -1,0 +1,162 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "vendors",
+      "type": "word",
+      "lemma": "vendor",
+      "ipa": "/ˈvendɚz/",
+      "pos": "n.",
+      "zh": "供應商、廠商（複數）",
+      "en": "a person or company that sells goods or services to other businesses",
+      "note": "多益常出現在採購、合約與付款的情境，指賣東西或提供服務給公司的廠商。vendor 比 supplier 更常用在泛指「對公司賣東西的一方」，語氣中性。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "reliable vendor",
+          "zh": "可靠的供應商",
+          "example": {
+            "en": "We need a reliable vendor for office supplies.",
+            "zh": "我們需要一家可靠的辦公用品供應商。"
+          }
+        },
+        {
+          "phrase": "vendor contract",
+          "zh": "供應商合約",
+          "example": {
+            "en": "The legal team is reviewing the vendor contract this week.",
+            "zh": "法務團隊本週正在審閱供應商合約。"
+          }
+        },
+        {
+          "phrase": "select a vendor",
+          "zh": "挑選供應商",
+          "example": {
+            "en": "It took two weeks to select a vendor for the project.",
+            "zh": "為了這個專案挑選供應商花了兩個星期。"
+          }
+        },
+        {
+          "phrase": "approved vendor",
+          "zh": "核准的供應商",
+          "example": {
+            "en": "Only approved vendors can join the bidding process.",
+            "zh": "只有核准的供應商才能參加投標。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "We compare prices from three vendors before placing an order.",
+          "zh": "下訂單之前，我們會比較三家供應商的價格。"
+        },
+        {
+          "tag": "會議",
+          "en": "The vendors will present their new products at tomorrow's meeting.",
+          "zh": "供應商將在明天的會議上介紹他們的新產品。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please send the updated contract to all our vendors today.",
+          "zh": "請今天把更新後的合約寄給我們所有的供應商。"
+        },
+        {
+          "tag": "展覽",
+          "en": "Many vendors set up booths at the annual trade fair.",
+          "zh": "許多廠商在年度商展設置攤位。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "venue",
+          "diff": "venue 是舉辦會議或活動的場地，不是賣東西的人或公司，拼法和 vendor 有點像。",
+          "example": {
+            "en": "The venue for the conference is a hotel near the airport.",
+            "zh": "會議的場地是機場附近的一間飯店。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "supplier",
+          "pos": "n.",
+          "zh": "供應商",
+          "ipa": "/səˈplaɪɚ/",
+          "example": {
+            "en": "Our main supplier delivers parts every Monday.",
+            "zh": "我們的主要供應商每週一送零件。"
+          }
+        },
+        {
+          "w": "seller",
+          "pos": "n.",
+          "zh": "賣方、賣家",
+          "ipa": "/ˈselɚ/",
+          "example": {
+            "en": "The seller offered a ten percent discount.",
+            "zh": "賣方提供了九折優惠。"
+          }
+        },
+        {
+          "w": "contractor",
+          "pos": "n.",
+          "zh": "承包商",
+          "ipa": "/ˈkɑːntræktɚ/",
+          "example": {
+            "en": "The contractor finished the repair work on time.",
+            "zh": "承包商準時完成了維修工作。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "budget set",
+      "type": "phrase",
+      "zh": "（由…）訂定的預算",
+      "en": "the amount of money that someone has decided to spend",
+      "note": "常見寫法是 the budget set by + 人或單位，用來說明預算是誰訂的。多益的公告、電子郵件和會議對話裡，常用在要求大家照預算執行的情境。",
+      "pattern": "the + N + set by + 人／單位",
+      "grammar_note": "set 在這裡是過去分詞（拼法和原形一樣），放在名詞後面修飾名詞，意思是 that was set，不需要再加 which was。",
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "We must keep the project within the budget set for this quarter.",
+          "zh": "我們必須讓專案維持在本季訂定的預算內。"
+        },
+        {
+          "tag": "採購",
+          "en": "The budget set by the manager does not cover new computers.",
+          "zh": "經理訂定的預算不包含新電腦。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please check the budget set for each department in the attached file.",
+          "zh": "請查看附件中各部門訂定的預算。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "approved budget",
+          "diff": "approved budget 強調預算已經被核准；budget set 強調預算是由誰訂出來的。",
+          "example": {
+            "en": "The approved budget allows us to hire two more staff.",
+            "zh": "核准的預算讓我們可以再多聘兩位員工。"
+          }
+        },
+        {
+          "phrase": "fixed budget",
+          "diff": "fixed budget 強調金額固定、不能增加；budget set 只說明預算已經被訂定。",
+          "example": {
+            "en": "We have a fixed budget, so we cannot add more items.",
+            "zh": "我們的預算是固定的，所以不能再增加項目。"
+          }
+        }
+      ]
+    }
+  ]
+}

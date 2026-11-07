@@ -45,6 +45,12 @@ MODULES = {
             'files': ['vocab.html', 'daily.js', 'notes.js', 'tsl.js', 'daily.html', 'cloud-sync.js', 'json_merge.py',
                       'Scan總表與音檔.py', 'vocab_index.json', 'tsl_extra.json'],
             'dirs': []},
+    'practice': {'title': '單字練習與測驗（整合 TSL 總表／入庫單字／新單字；用詳解欄位出題：閃卡間隔複習、例句克漏字、詞性變化 forms/derived、搭配詞 collocations、易混字 confusable、聽寫、🎤 口說）',
+                 'files': ['practice*.html', 'practice*.js', 'practice*.json', 'practice*.md',   # 練習頁；檔案還沒建立時這幾項不會出現
+                           'daily.json', 'tsl.js', 'newwords.js', 'vocab_index.json', 'tsl_extra.json',   # 題庫來源：入庫詳解／TSL 字表／新單字／索引
+                           'daily.js', 'notes.js', 'speak.js', 'pron.js', 'cloud-sync.js', 'style.css',   # 入庫 marks、口說評分、同步、樣式
+                           'vocab.html', 'index.html', 'Scan總表與音檔.py', 'json_merge.py'],
+                 'dirs': []},
 }
 for _n in range(1, 8):   # part1 … part7：同樣的檔案結構
     MODULES['part%d' % _n] = {'title': 'Part %d（part%d.html／.js／.json＋音檔清單）' % (_n, _n),
