@@ -1,0 +1,966 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "caller",
+      "type": "word",
+      "ipa": "/ˈkɔːlər/",
+      "pos": "n.",
+      "zh": "來電者、打電話的人",
+      "en": "a person who makes a phone call",
+      "note": "多益常見於客服、櫃檯與電話留言情境，例如詢問來電者姓名、請來電者留言或轉接分機。",
+      "forms": [
+        {
+          "w": "callers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "來電者（複數）",
+          "ipa": "/ˈkɔːlərz/",
+          "example": { "en": "Several callers complained about the long wait on the phone line.", "zh": "好幾位來電者抱怨電話等候太久。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "caller ID",
+          "zh": "來電顯示",
+          "example": { "en": "The caller ID showed a number from our London office.", "zh": "來電顯示是我們倫敦辦公室的號碼。" }
+        },
+        {
+          "phrase": "unknown caller",
+          "zh": "不明來電者",
+          "example": { "en": "Do not give company information to an unknown caller.", "zh": "不要把公司資訊透露給不明來電者。" }
+        },
+        {
+          "phrase": "regular caller",
+          "zh": "常打電話來的人",
+          "example": { "en": "He is a regular caller who orders supplies every month.", "zh": "他是常客，每個月都打電話訂貨。" }
+        }
+      ],
+      "examples": [
+        { "tag": "客服", "en": "The caller asked to speak with someone in the billing department.", "zh": "來電者要求和帳務部門的人通話。" },
+        { "tag": "櫃檯", "en": "Please ask the caller to leave a name and number.", "zh": "請請來電者留下姓名和電話。" },
+        { "tag": "辦公室", "en": "Our receptionist greets every caller in a friendly voice.", "zh": "我們的櫃檯人員用親切的聲音招呼每位來電者。" }
+      ],
+      "confusable": [
+        {
+          "word": "collar",
+          "diff": "collar 是「衣領」，發音與拼法和 caller 很像，但和電話無關。",
+          "example": { "en": "The new uniform has a white collar and a red tie.", "zh": "新制服有白色衣領和紅色領帶。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "operator",
+          "pos": "n.",
+          "zh": "接線生、總機",
+          "ipa": "/ˈɑːpəreɪtər/",
+          "example": { "en": "The operator connected me to the sales manager at once.", "zh": "總機馬上把我轉接給業務經理。" }
+        },
+        {
+          "w": "receptionist",
+          "pos": "n.",
+          "zh": "櫃檯接待人員",
+          "ipa": "/rɪˈsepʃənɪst/",
+          "example": { "en": "The receptionist will take your message and pass it on.", "zh": "櫃檯人員會記下你的留言並轉達。" }
+        },
+        {
+          "w": "voicemail",
+          "pos": "n.",
+          "zh": "語音留言",
+          "ipa": "/ˈvɔɪsmeɪl/",
+          "example": { "en": "Please leave a voicemail if I do not answer.", "zh": "如果我沒接電話，請留語音訊息。" }
+        },
+        {
+          "w": "extension",
+          "pos": "n.",
+          "zh": "分機",
+          "ipa": "/ɪkˈstenʃən/",
+          "example": { "en": "Please dial extension 305 to reach the accounting team.", "zh": "請撥分機 305 找會計團隊。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "call",
+          "pos": "v./n.",
+          "zh": "打電話；電話、呼叫",
+          "ipa": "/kɔːl/",
+          "link": "最基礎的字。caller = call + -er，打電話的人，像 teacher、worker"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "casual",
+      "type": "word",
+      "ipa": "/ˈkæʒuəl/",
+      "pos": "adj.",
+      "zh": "休閒的、隨意的、非正式的",
+      "en": "not formal and not serious",
+      "note": "多益常見於服裝規定（casual dress）、非正式的談話與聚會，也可指臨時性的工作。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "casual dress",
+          "zh": "休閒服裝",
+          "example": { "en": "Casual dress is welcome at the company picnic on Saturday.", "zh": "星期六的公司野餐歡迎穿休閒服裝。" }
+        },
+        {
+          "phrase": "casual conversation",
+          "zh": "輕鬆的閒聊",
+          "example": { "en": "We had a casual conversation about the project over coffee.", "zh": "我們喝咖啡時輕鬆聊了一下這個專案。" }
+        },
+        {
+          "phrase": "casual Friday",
+          "zh": "週五便服日",
+          "example": { "en": "Our office has a casual Friday policy all year round.", "zh": "我們辦公室全年都有週五便服日的規定。" }
+        }
+      ],
+      "examples": [
+        { "tag": "服裝", "en": "Employees may wear casual clothes every Friday this summer.", "zh": "今年夏天，員工每個星期五可以穿便服。" },
+        { "tag": "會議", "en": "The manager gave a casual talk instead of a long speech.", "zh": "經理做了一場輕鬆的談話，而不是冗長的演講。" },
+        { "tag": "招募", "en": "We hire casual workers during the busy holiday season.", "zh": "我們在忙碌的假期旺季僱用臨時工。" }
+      ],
+      "confusable": [
+        {
+          "word": "causal",
+          "diff": "causal 是「因果的」，只差一個字母，常和 casual 看錯。",
+          "example": { "en": "The study shows a causal link between sleep and work results.", "zh": "這項研究顯示睡眠與工作成果之間有因果關係。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "informal",
+          "diff": "informal 強調不是正式的場合或用語；casual 還有輕鬆隨意的感覺。",
+          "example": { "en": "The party will be informal, so you do not need a suit.", "zh": "這場聚會很隨性，所以你不需要穿西裝。" }
+        },
+        {
+          "word": "relaxed",
+          "diff": "relaxed 強調氣氛放鬆、不緊張；casual 常用於服裝與態度。",
+          "example": { "en": "The team meeting had a relaxed atmosphere this morning.", "zh": "今天早上的團隊會議氣氛很輕鬆。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "formal",
+          "pos": "adj.",
+          "zh": "正式的",
+          "ipa": "/ˈfɔːrməl/",
+          "example": { "en": "A formal letter should end with a polite closing.", "zh": "正式的信件應該以禮貌的結語收尾。" }
+        },
+        {
+          "w": "dress code",
+          "pos": "n.",
+          "zh": "服裝規定",
+          "ipa": "/dres koʊd/",
+          "example": { "en": "The dress code for the dinner is formal.", "zh": "這場晚宴的服裝規定是正式服裝。" }
+        },
+        {
+          "w": "comfortable",
+          "pos": "adj.",
+          "zh": "舒適的",
+          "ipa": "/ˈkʌmftərbəl/",
+          "example": { "en": "These shoes are comfortable enough to wear all day.", "zh": "這雙鞋舒服到可以穿一整天。" }
+        },
+        {
+          "w": "uniform",
+          "pos": "n.",
+          "zh": "制服",
+          "ipa": "/ˈjuːnɪfɔːrm/",
+          "example": { "en": "Staff must wear a uniform while they are on duty.", "zh": "員工值班時必須穿制服。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "casually",
+          "pos": "adv.",
+          "zh": "隨意地、不經意地",
+          "ipa": "/ˈkæʒuəli/",
+          "link": "casual + -ly，形容詞變副詞，像 quick → quickly"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "休閒的、不正式的",
+          "en": "not formal",
+          "example": { "en": "She wore a casual jacket to the client lunch.", "zh": "她穿休閒外套去赴客戶午餐。" }
+        },
+        {
+          "pos": "adj.",
+          "zh": "隨意的、不經意的",
+          "en": "done without much thought or planning",
+          "distinguish": "後面接 comment、remark 這類字時，指隨口說說、不是認真的。",
+          "example": { "en": "It was only a casual comment, so please do not worry.", "zh": "那只是隨口說說的評論，所以請不用擔心。" }
+        },
+        {
+          "pos": "adj.",
+          "zh": "臨時的、不固定的",
+          "en": "not working all the time or for a long period",
+          "distinguish": "後面接 job、worker、labor 時，指不是正式、長期的工作。",
+          "example": { "en": "He took a casual job at the warehouse last summer.", "zh": "他去年夏天在倉庫做了一份臨時工作。" }
+        }
+      ]
+    },
+    {
+      "text": "chairperson",
+      "type": "word",
+      "ipa": "/ˈtʃerpɜːrsən/",
+      "pos": "n.",
+      "zh": "主席、會議主持人",
+      "en": "the person who leads a meeting or a group",
+      "note": "多益常見於會議、董事會與委員會情境，不分性別，是 chairman 的中性說法。",
+      "forms": [
+        {
+          "w": "chairpersons",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "主席（複數）",
+          "ipa": "/ˈtʃerpɜːrsənz/",
+          "example": { "en": "The chairpersons of both committees will meet on Thursday.", "zh": "兩個委員會的主席星期四會面。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "elect a chairperson",
+          "zh": "選出主席",
+          "example": { "en": "The board will elect a new chairperson next month.", "zh": "董事會下個月會選出新主席。" }
+        },
+        {
+          "phrase": "serve as chairperson",
+          "zh": "擔任主席",
+          "example": { "en": "She has served as chairperson for three years.", "zh": "她已經擔任主席三年了。" }
+        },
+        {
+          "phrase": "appoint a chairperson",
+          "zh": "任命主席",
+          "example": { "en": "We need to appoint a chairperson before the vote begins.", "zh": "我們需要在投票開始前任命一位主席。" }
+        },
+        {
+          "phrase": "chairperson of the committee",
+          "zh": "委員會主席",
+          "example": { "en": "The chairperson of the committee opened the meeting at nine.", "zh": "委員會主席九點開始這場會議。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The chairperson asked everyone to turn off their phones.", "zh": "主席請大家把手機關掉。" },
+        { "tag": "公告", "en": "Our chairperson will give the opening speech tomorrow morning.", "zh": "我們的主席明天早上會致開幕詞。" },
+        { "tag": "董事會", "en": "The chairperson thanked all members for their hard work this year.", "zh": "主席感謝所有成員今年的辛勞。" }
+      ],
+      "confusable": [
+        {
+          "word": "chairman",
+          "diff": "意思相同，但 chairman 字面上指男性；現在較常用中性的 chairperson 或 chair。",
+          "example": { "en": "The chairman of the board announced the new plan.", "zh": "董事長宣布了新計畫。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "chair",
+          "diff": "chair 也可指「主席」，口語更簡短；它還是動詞，表示「主持（會議）」。",
+          "example": { "en": "Mr. Kim will chair the meeting this afternoon.", "zh": "金先生今天下午會主持會議。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "committee",
+          "pos": "n.",
+          "zh": "委員會",
+          "ipa": "/kəˈmɪti/",
+          "example": { "en": "The committee meets on the first Monday of every month.", "zh": "委員會每個月第一個星期一開會。" }
+        },
+        {
+          "w": "board",
+          "pos": "n.",
+          "zh": "董事會",
+          "ipa": "/bɔːrd/",
+          "example": { "en": "The board approved the budget at yesterday's meeting.", "zh": "董事會在昨天的會議上通過了預算。" }
+        },
+        {
+          "w": "agenda",
+          "pos": "n.",
+          "zh": "議程",
+          "ipa": "/əˈdʒendə/",
+          "example": { "en": "Please read the agenda before the meeting starts.", "zh": "請在會議開始前閱讀議程。" }
+        },
+        {
+          "w": "director",
+          "pos": "n.",
+          "zh": "主管、董事",
+          "ipa": "/dəˈrektər/",
+          "example": { "en": "The director will explain the new rules to everyone.", "zh": "主管會向大家說明新規定。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "chair",
+          "pos": "n./v.",
+          "zh": "椅子；主席；主持",
+          "ipa": "/tʃer/",
+          "link": "最基礎的字。chairperson = chair（主席）+ person（人）"
+        },
+        {
+          "w": "chairman",
+          "pos": "n.",
+          "zh": "男主席、董事長",
+          "ipa": "/ˈtʃermən/",
+          "link": "chair + man，指男性主席，像 salesman"
+        },
+        {
+          "w": "chairwoman",
+          "pos": "n.",
+          "zh": "女主席",
+          "ipa": "/ˈtʃerwʊmən/",
+          "link": "chair + woman，指女性主席，和 chairman 相對"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "cheer",
+      "type": "word",
+      "ipa": "/tʃɪr/",
+      "pos": "v.",
+      "zh": "歡呼、為…加油",
+      "en": "to shout to show support or happiness",
+      "note": "多益常見於活動、運動比賽與慶祝情境；cheer up 表示讓人心情變好，名詞 cheer 指歡呼聲。",
+      "grammar_note": "cheer up 可以拆開，受詞是代名詞時要放中間：cheer him up，不說 cheer up him。為某人加油用 cheer for 或 cheer on。",
+      "forms": [
+        {
+          "w": "cheers",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "歡呼",
+          "ipa": "/tʃɪrz/",
+          "example": { "en": "The crowd cheers whenever our team scores a point.", "zh": "每當我們的隊伍得分，群眾就歡呼。" }
+        },
+        {
+          "w": "cheers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "歡呼聲（複數）",
+          "ipa": "/tʃɪrz/",
+          "example": { "en": "Loud cheers filled the hall when the winner was announced.", "zh": "宣布得獎者時，歡呼聲充滿了大廳。" }
+        },
+        {
+          "w": "cheered",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "歡呼了",
+          "ipa": "/tʃɪrd/",
+          "example": { "en": "Staff cheered when the manager announced the bonus plan.", "zh": "經理宣布獎金計畫時，員工們歡呼起來。" }
+        },
+        {
+          "w": "cheering",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在歡呼",
+          "ipa": "/ˈtʃɪrɪŋ/",
+          "example": { "en": "The fans are cheering outside the stadium right now.", "zh": "球迷們現在正在體育場外歡呼。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "cheer for",
+          "zh": "為…加油",
+          "example": { "en": "Employees came to cheer for the company's soccer team.", "zh": "員工們來為公司的足球隊加油。" }
+        },
+        {
+          "phrase": "cheer up",
+          "zh": "使振作、打起精神",
+          "example": { "en": "A short break can cheer up a tired team.", "zh": "短暫的休息可以讓疲累的團隊重新振作。" }
+        },
+        {
+          "phrase": "cheer on",
+          "zh": "為…加油打氣",
+          "example": { "en": "Customers gathered to cheer on the marathon runners.", "zh": "顧客們聚集起來為馬拉松跑者加油打氣。" }
+        },
+        {
+          "phrase": "give a cheer",
+          "zh": "歡呼一聲",
+          "example": { "en": "The audience gave a cheer at the end of the speech.", "zh": "演講結束時，觀眾歡呼了一聲。" }
+        }
+      ],
+      "examples": [
+        { "tag": "活動", "en": "The crowd began to cheer when the CEO walked on stage.", "zh": "執行長走上舞台時，群眾開始歡呼。" },
+        { "tag": "慶祝", "en": "Everyone cheered after the team won the sales contest.", "zh": "團隊贏得業績競賽後，大家都歡呼起來。" },
+        { "tag": "比賽", "en": "Thousands of fans cheer for their teams at the stadium.", "zh": "數千名球迷在體育場為他們的球隊加油。" }
+      ],
+      "confusable": [
+        {
+          "word": "chair",
+          "diff": "chair 是「椅子、主席」，發音接近 cheer，聽力時容易搞混。",
+          "example": { "en": "Please take a chair near the stage and wait for the show.", "zh": "請在舞台附近找張椅子坐下，等候表演。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "applaud",
+          "diff": "applaud 是拍手鼓掌，語氣較正式；cheer 是大聲歡呼。",
+          "example": { "en": "The audience stood up to applaud the speaker.", "zh": "觀眾起立為講者鼓掌。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "celebrate",
+          "pos": "v.",
+          "zh": "慶祝",
+          "ipa": "/ˈselɪbreɪt/",
+          "example": { "en": "We will celebrate our tenth anniversary with a party.", "zh": "我們會舉辦派對慶祝十週年。" }
+        },
+        {
+          "w": "encourage",
+          "pos": "v.",
+          "zh": "鼓勵",
+          "ipa": "/ɪnˈkɜːrɪdʒ/",
+          "example": { "en": "Managers should encourage staff to share new ideas.", "zh": "主管應該鼓勵員工分享新點子。" }
+        },
+        {
+          "w": "support",
+          "pos": "n.",
+          "zh": "支持",
+          "ipa": "/səˈpɔːrt/",
+          "example": { "en": "Thank you for your support during the busy season.", "zh": "謝謝你在忙季時的支持。" }
+        },
+        {
+          "w": "crowd",
+          "pos": "n.",
+          "zh": "人群",
+          "ipa": "/kraʊd/",
+          "example": { "en": "A large crowd waited outside the store before opening.", "zh": "開店前，一大群人在店外等候。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "cheerful",
+          "pos": "adj.",
+          "zh": "開朗的、愉快的",
+          "ipa": "/ˈtʃɪrfəl/",
+          "link": "cheer + -ful（充滿），充滿歡樂的，像 helpful、useful"
+        },
+        {
+          "w": "cheerfully",
+          "pos": "adv.",
+          "zh": "開心地、愉快地",
+          "ipa": "/ˈtʃɪrfəli/",
+          "link": "cheerful + -ly，形容詞變副詞，像 helpful → helpfully"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/tʃɪr/",
+          "zh": "歡呼、為…加油",
+          "example": { "en": "Visitors cheer loudly at the end of each performance.", "zh": "每場表演結束時，遊客都大聲歡呼。" }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/tʃɪr/",
+          "zh": "歡呼聲、喝采",
+          "example": { "en": "A cheer rose from the crowd as the show began.", "zh": "表演開始時，群眾中響起一陣歡呼。" }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "歡呼、加油",
+          "en": "to shout loudly to show support or joy",
+          "example": { "en": "The workers cheered as the new factory opened.", "zh": "新工廠開幕時，工人們歡呼起來。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "使心情變好（cheer up）",
+          "en": "to make someone feel happier",
+          "distinguish": "後面接 up 且受詞是人時，是安慰、使振作，不是大聲歡呼。",
+          "example": { "en": "The good news cheered everyone up after a hard week.", "zh": "好消息讓大家在辛苦的一週後重新打起精神。" }
+        }
+      ]
+    },
+    {
+      "text": "chilly",
+      "type": "word",
+      "ipa": "/ˈtʃɪli/",
+      "pos": "adj.",
+      "zh": "冷颼颼的、涼的",
+      "en": "cold enough to feel uncomfortable",
+      "note": "多益常見於天氣、辦公室溫度與戶外活動情境；也可形容態度冷淡，例如 a chilly reception。",
+      "forms": [
+        {
+          "w": "chillier",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更冷的",
+          "ipa": "/ˈtʃɪliər/",
+          "example": { "en": "The office feels chillier in the morning than in the afternoon.", "zh": "辦公室早上比下午感覺更冷。" }
+        },
+        {
+          "w": "chilliest",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最冷的",
+          "ipa": "/ˈtʃɪliɪst/",
+          "example": { "en": "Yesterday was the chilliest day of the whole week.", "zh": "昨天是整個星期最冷的一天。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "chilly weather",
+          "zh": "寒冷的天氣",
+          "example": { "en": "Chilly weather may lower sales at our outdoor cafe.", "zh": "寒冷的天氣可能會降低我們戶外咖啡廳的銷售。" }
+        },
+        {
+          "phrase": "chilly morning",
+          "zh": "涼颼颼的早晨",
+          "example": { "en": "It was a chilly morning, so we wore thick coats.", "zh": "那是個涼颼颼的早晨，所以我們穿了厚外套。" }
+        },
+        {
+          "phrase": "chilly reception",
+          "zh": "冷淡的接待、冷淡的反應",
+          "example": { "en": "The new plan received a chilly reception from the staff.", "zh": "新計畫得到員工冷淡的反應。" }
+        },
+        {
+          "phrase": "feel chilly",
+          "zh": "覺得冷",
+          "example": { "en": "I feel chilly, so please turn off the air conditioner.", "zh": "我覺得冷，所以請關掉冷氣。" }
+        }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "The meeting room is too chilly, so please close the window.", "zh": "會議室太冷了，所以請關上窗戶。" },
+        { "tag": "天氣", "en": "It gets chilly in the evening, so bring a jacket.", "zh": "晚上會變涼，所以請帶一件外套。" },
+        { "tag": "出差", "en": "The hotel lobby was chilly after we arrived from the airport.", "zh": "我們從機場抵達後，飯店大廳感覺涼颼颼的。" }
+      ],
+      "confusable": [
+        {
+          "word": "chili",
+          "diff": "chili 是「辣椒」，發音和 chilly 一樣，但意思是食物，不是天氣。",
+          "example": { "en": "The restaurant serves a spicy chili soup on cold days.", "zh": "這間餐廳在寒冷的日子供應辛辣的辣椒湯。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "cold",
+          "diff": "cold 是一般的冷，程度可能更強；chilly 是有點冷、感到不舒服。",
+          "example": { "en": "It is very cold outside, so wear a warm coat.", "zh": "外面很冷，所以請穿暖和的外套。" }
+        },
+        {
+          "word": "cool",
+          "diff": "cool 是涼爽、通常讓人舒服；chilly 比較冷，讓人想多穿衣服。",
+          "example": { "en": "The cool air in the lobby felt nice after the walk.", "zh": "走了一段路後，大廳的涼風感覺很舒服。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "temperature",
+          "pos": "n.",
+          "zh": "溫度",
+          "ipa": "/ˈtemprətʃər/",
+          "example": { "en": "The room temperature is set to twenty-two degrees.", "zh": "室內溫度設定為二十二度。" }
+        },
+        {
+          "w": "jacket",
+          "pos": "n.",
+          "zh": "外套",
+          "ipa": "/ˈdʒækɪt/",
+          "example": { "en": "Please bring a jacket for the outdoor tour.", "zh": "戶外導覽請帶一件外套。" }
+        },
+        {
+          "w": "heater",
+          "pos": "n.",
+          "zh": "暖氣機",
+          "ipa": "/ˈhiːtər/",
+          "example": { "en": "The heater in my office stopped working this morning.", "zh": "我辦公室的暖氣機今天早上壞了。" }
+        },
+        {
+          "w": "breeze",
+          "pos": "n.",
+          "zh": "微風",
+          "ipa": "/briːz/",
+          "example": { "en": "A cool breeze came through the open window.", "zh": "一陣涼風從開著的窗戶吹進來。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "chill",
+          "pos": "v./n.",
+          "zh": "使變冷；寒意",
+          "ipa": "/tʃɪl/",
+          "link": "最基礎的字。chilly = chill + -y，變成形容詞，像 sun → sunny、rain → rainy"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "涼颼颼的",
+          "en": "cold enough to feel uncomfortable",
+          "example": { "en": "Bring a sweater because the evenings are chilly here.", "zh": "請帶一件毛衣，因為這裡的傍晚很涼。" }
+        },
+        {
+          "pos": "adj.",
+          "zh": "冷淡的",
+          "en": "not friendly or warm",
+          "distinguish": "後面接 reply、reception、look 這類字時，指態度冷淡，不是天氣冷。",
+          "example": { "en": "The client gave us a chilly reply to our offer.", "zh": "客戶對我們的提案回覆得很冷淡。" }
+        }
+      ]
+    },
+    {
+      "text": "clerk",
+      "type": "word",
+      "ipa": "/klɜːrk/",
+      "pos": "n.",
+      "zh": "店員、職員、辦事員",
+      "en": "a person who works in a shop or office and helps customers or does paperwork",
+      "note": "多益常見於零售、飯店、銀行與辦公室情境，例如 sales clerk、desk clerk、office clerk。",
+      "forms": [
+        {
+          "w": "clerks",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "店員、職員（複數）",
+          "ipa": "/klɜːrks/",
+          "example": { "en": "Three clerks handle customer questions at the information counter.", "zh": "三位店員在服務台處理顧客的問題。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "sales clerk",
+          "zh": "銷售店員",
+          "example": { "en": "The sales clerk helped me find a larger size.", "zh": "銷售店員幫我找到比較大的尺寸。" }
+        },
+        {
+          "phrase": "desk clerk",
+          "zh": "櫃檯人員",
+          "example": { "en": "The hotel desk clerk gave us two room keys.", "zh": "飯店櫃檯人員給了我們兩把房間鑰匙。" }
+        },
+        {
+          "phrase": "office clerk",
+          "zh": "辦公室職員",
+          "example": { "en": "We are hiring an office clerk to answer phones.", "zh": "我們正在僱用一名辦公室職員來接電話。" }
+        }
+      ],
+      "examples": [
+        { "tag": "零售", "en": "The clerk wrapped the gift and handed me the receipt.", "zh": "店員包好禮物，並把收據遞給我。" },
+        { "tag": "飯店", "en": "Please ask the clerk at the front desk for an extra towel.", "zh": "請向櫃檯人員多要一條毛巾。" },
+        { "tag": "求職", "en": "She works as a clerk at the city office.", "zh": "她在市政府辦公室擔任職員。" }
+      ],
+      "similar": [
+        {
+          "word": "cashier",
+          "diff": "cashier 專指收銀、收錢的人；clerk 範圍更廣，包含銷售與文書工作。",
+          "example": { "en": "The cashier counted the money twice before closing.", "zh": "收銀員在打烊前把錢數了兩次。" }
+        },
+        {
+          "word": "assistant",
+          "diff": "assistant 是協助主管或同事的助理；clerk 偏重處理櫃檯與文書事務。",
+          "example": { "en": "The assistant booked the meeting room for Friday.", "zh": "助理訂了星期五的會議室。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "receptionist",
+          "pos": "n.",
+          "zh": "櫃檯接待人員",
+          "ipa": "/rɪˈsepʃənɪst/",
+          "example": { "en": "The receptionist greeted each visitor with a smile.", "zh": "櫃檯人員微笑迎接每位訪客。" }
+        },
+        {
+          "w": "staff",
+          "pos": "n.",
+          "zh": "員工（全體）",
+          "ipa": "/stæf/",
+          "example": { "en": "The staff meets every Monday to plan the week.", "zh": "員工每星期一開會規劃一週工作。" }
+        },
+        {
+          "w": "employee",
+          "pos": "n.",
+          "zh": "員工",
+          "ipa": "/ɪmˈplɔɪiː/",
+          "example": { "en": "Each employee must sign the new safety rules.", "zh": "每位員工都必須簽署新的安全規定。" }
+        },
+        {
+          "w": "supervisor",
+          "pos": "n.",
+          "zh": "主管、督導",
+          "ipa": "/ˈsuːpərvaɪzər/",
+          "example": { "en": "Please ask your supervisor to approve the request.", "zh": "請請你的主管核准這項申請。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "clerical",
+          "pos": "adj.",
+          "zh": "文書的、辦事員的",
+          "ipa": "/ˈklerɪkəl/",
+          "link": "clerk 的 -k 換成 -ical，變成形容詞「文書的」，像 music → musical"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "店員",
+          "en": "a person who sells things to customers in a shop",
+          "example": { "en": "The store clerk showed me three different laptops.", "zh": "店員給我看了三台不同的筆電。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "辦事員、職員",
+          "en": "a person who does office work such as filing and records",
+          "distinguish": "句中有 office、accounting、files 等字時，通常指辦公室裡的文書人員。",
+          "example": { "en": "A clerk in the accounting office sorts the invoices.", "zh": "會計室的一位職員負責整理發票。" }
+        }
+      ]
+    },
+    {
+      "text": "circulation",
+      "type": "word",
+      "ipa": "/ˌsɜːrkjəˈleɪʃən/",
+      "pos": "n.",
+      "zh": "發行量、流通、循環",
+      "en": "the number of copies sold, or the movement of things from place to place",
+      "note": "多益常見於媒體（報紙雜誌的發行量）、金融（流通中的貨幣）與辦公環境（空氣流通）情境。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "circulation figures",
+          "zh": "發行量數字",
+          "example": { "en": "Circulation figures rose after the magazine changed its cover.", "zh": "雜誌換封面後，發行量數字上升了。" }
+        },
+        {
+          "phrase": "daily circulation",
+          "zh": "每日發行量",
+          "example": { "en": "The newspaper has a daily circulation of fifty thousand copies.", "zh": "這份報紙每日發行量為五萬份。" }
+        },
+        {
+          "phrase": "in circulation",
+          "zh": "流通中、在發行中",
+          "example": { "en": "Many old coins are no longer in circulation.", "zh": "許多舊硬幣已不再流通。" }
+        },
+        {
+          "phrase": "air circulation",
+          "zh": "空氣流通",
+          "example": { "en": "Good air circulation keeps the warehouse cool in summer.", "zh": "良好的空氣流通讓倉庫夏天保持涼爽。" }
+        },
+        {
+          "phrase": "blood circulation",
+          "zh": "血液循環",
+          "example": { "en": "Regular walking at lunch can improve your blood circulation.", "zh": "午餐時固定散步可以改善你的血液循環。" }
+        }
+      ],
+      "examples": [
+        { "tag": "媒體", "en": "The magazine's circulation grew by ten percent last year.", "zh": "這本雜誌的發行量去年成長了百分之十。" },
+        { "tag": "公司", "en": "The new report is now in circulation among all department heads.", "zh": "新報告現在正在各部門主管之間傳閱。" },
+        { "tag": "辦公室", "en": "Open the windows to improve circulation in the meeting room.", "zh": "打開窗戶以改善會議室的空氣流通。" }
+      ],
+      "confusable": [
+        {
+          "word": "circular",
+          "diff": "circular 當形容詞是「圓形的」，當名詞是「傳閱的通知、傳單」；circulation 是發行量或流通。",
+          "usage": "circular 是形容詞或名詞，circulation 是名詞，意思不同，詞性也不同。",
+          "example": { "en": "The company sent a circular to all employees on Monday.", "zh": "公司星期一寄了一份傳閱通知給所有員工。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "distribution",
+          "diff": "distribution 重點在把商品分送到各地；circulation 常指報章雜誌的發行量或東西的流通。",
+          "example": { "en": "The distribution of the new catalog begins next week.", "zh": "新目錄的發送從下星期開始。" }
+        },
+        {
+          "word": "readership",
+          "diff": "readership 是讀者人數；circulation 是賣出或發出的份數。",
+          "example": { "en": "The magazine has a large readership among young workers.", "zh": "這本雜誌在年輕上班族之間有很多讀者。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "edition",
+          "pos": "n.",
+          "zh": "版本、刊期",
+          "ipa": "/ɪˈdɪʃən/",
+          "example": { "en": "The latest edition of the guide includes new maps.", "zh": "指南的最新版本包含新的地圖。" }
+        },
+        {
+          "w": "subscription",
+          "pos": "n.",
+          "zh": "訂閱",
+          "ipa": "/səbˈskrɪpʃən/",
+          "example": { "en": "Your subscription will end on the first of March.", "zh": "你的訂閱將在三月一日到期。" }
+        },
+        {
+          "w": "publisher",
+          "pos": "n.",
+          "zh": "出版商",
+          "ipa": "/ˈpʌblɪʃər/",
+          "example": { "en": "The publisher plans to print more copies next month.", "zh": "出版商計畫下個月多印一些。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "circle",
+          "pos": "n./v.",
+          "zh": "圓圈；繞圈",
+          "ipa": "/ˈsɜːrkəl/",
+          "link": "最基礎的字，指「圓圈」。circulation 就是東西繞圈流動、到處流通"
+        },
+        {
+          "w": "circulate",
+          "pos": "v.",
+          "zh": "流通、傳閱、循環",
+          "ipa": "/ˈsɜːrkjəleɪt/",
+          "link": "circulation 去掉 -ion 加 -e，變成動詞，像 educate → education"
+        },
+        {
+          "w": "circular",
+          "pos": "adj.",
+          "zh": "圓形的；傳閱的",
+          "ipa": "/ˈsɜːrkjələr/",
+          "link": "circle 的 -le 換成 -ular，變成形容詞「圓形的」，像 single → singular"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "發行量",
+          "en": "the number of copies of a newspaper or magazine that are sold",
+          "example": { "en": "Our weekly paper has a circulation of about ten thousand.", "zh": "我們的週報發行量大約一萬份。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "流通、傳播",
+          "en": "the movement of money, news, or papers from person to person",
+          "distinguish": "後面接 money、coins、documents 時，指東西在人與人之間流通。",
+          "example": { "en": "The rumor was already in wide circulation by noon.", "zh": "到中午時，這個謠言已經廣為流傳。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "循環（血液、空氣）",
+          "en": "the movement of air or blood around a space or body",
+          "distinguish": "和 blood、air、room 等字一起出現時，指循環或流通。",
+          "example": { "en": "A fan helps the circulation of air in the small office.", "zh": "風扇有助於小辦公室的空氣流通。" }
+        }
+      ]
+    },
+    {
+      "text": "chronic",
+      "type": "word",
+      "ipa": "/ˈkrɑːnɪk/",
+      "pos": "adj.",
+      "zh": "慢性的、長期的",
+      "en": "lasting for a long time or happening again and again",
+      "note": "多益常見於醫療保險、員工健康福利，也用在 chronic shortage、chronic problem 這類長期難解決的問題。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "chronic disease",
+          "zh": "慢性疾病",
+          "example": { "en": "The insurance plan covers many chronic diseases.", "zh": "這個保險方案涵蓋許多慢性疾病。" }
+        },
+        {
+          "phrase": "chronic pain",
+          "zh": "慢性疼痛",
+          "example": { "en": "Long hours at a desk can lead to chronic back pain.", "zh": "長時間坐在書桌前可能導致慢性背痛。" }
+        },
+        {
+          "phrase": "chronic shortage",
+          "zh": "長期短缺",
+          "example": { "en": "The hospital faces a chronic shortage of trained nurses.", "zh": "這間醫院長期缺乏受過訓練的護理師。" }
+        },
+        {
+          "phrase": "chronic problem",
+          "zh": "長期存在的問題",
+          "example": { "en": "Late deliveries are a chronic problem for this supplier.", "zh": "延遲交貨是這家供應商長期存在的問題。" }
+        }
+      ],
+      "examples": [
+        { "tag": "保險", "en": "Employees with chronic conditions can get extra health support.", "zh": "有慢性疾病的員工可以獲得額外的健康支援。" },
+        { "tag": "營運", "en": "The factory has a chronic delay in shipping orders.", "zh": "這間工廠長期有出貨延遲的問題。" },
+        { "tag": "新聞", "en": "Chronic traffic jams make the daily commute very hard.", "zh": "長期的交通堵塞讓每天通勤非常辛苦。" }
+      ],
+      "confusable": [
+        {
+          "word": "acute",
+          "diff": "acute 是急性的，突然發生、很嚴重；chronic 是慢性的，持續很久。",
+          "example": { "en": "He went to the hospital because of acute stomach pain.", "zh": "他因為急性胃痛去了醫院。" }
+        },
+        {
+          "word": "chronicle",
+          "diff": "chronicle 是名詞，指「編年史、紀事」，拼法開頭和 chronic 很像。",
+          "example": { "en": "The book is a chronicle of the company's early years.", "zh": "這本書記錄了公司早期的歷史。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "long-term",
+          "diff": "long-term 只強調時間長；chronic 常帶有難以改善、令人困擾的感覺。",
+          "example": { "en": "The company needs a long-term solution to the staff shortage.", "zh": "公司需要一個長期的方法來解決人手不足。" }
+        },
+        {
+          "word": "ongoing",
+          "diff": "ongoing 是「持續進行中」，語氣中性；chronic 多指不好的長期狀況。",
+          "example": { "en": "We are dealing with an ongoing problem in the system.", "zh": "我們正在處理系統裡持續發生的問題。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "shortage",
+          "pos": "n.",
+          "zh": "短缺",
+          "ipa": "/ˈʃɔːrtɪdʒ/",
+          "example": { "en": "A shortage of parts slowed production last month.", "zh": "零件短缺讓上個月的生產變慢了。" }
+        },
+        {
+          "w": "symptom",
+          "pos": "n.",
+          "zh": "症狀",
+          "ipa": "/ˈsɪmptəm/",
+          "example": { "en": "Please see a doctor if the symptoms continue.", "zh": "如果症狀持續，請去看醫生。" }
+        },
+        {
+          "w": "persistent",
+          "pos": "adj.",
+          "zh": "持續的、不斷的",
+          "ipa": "/pərˈsɪstənt/",
+          "example": { "en": "A persistent noise in the machine worried the engineers.", "zh": "機器裡持續的噪音讓工程師們很擔心。" }
+        },
+        {
+          "w": "condition",
+          "pos": "n.",
+          "zh": "狀況、病況",
+          "ipa": "/kənˈdɪʃən/",
+          "example": { "en": "The patient's condition is getting better each day.", "zh": "病人的狀況一天比一天好。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "chronically",
+          "pos": "adv.",
+          "zh": "長期地、慢性地",
+          "ipa": "/ˈkrɑːnɪkli/",
+          "link": "chronic + -ally，形容詞變副詞，像 basic → basically"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "慢性的（疾病）",
+          "en": "describing an illness that lasts a long time",
+          "example": { "en": "Chronic illness can make it hard to work full time.", "zh": "慢性疾病可能讓人難以全職工作。" }
+        },
+        {
+          "pos": "adj.",
+          "zh": "長期難以解決的",
+          "en": "describing a bad problem that never goes away",
+          "distinguish": "後面接 shortage、delay、problem 時，指長期存在的問題，不是疾病。",
+          "example": { "en": "The company has a chronic lack of skilled drivers.", "zh": "這家公司長期缺乏有經驗的司機。" }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,962 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "clinic",
+      "type": "word",
+      "ipa": "/ˈklɪnɪk/",
+      "pos": "n.",
+      "zh": "診所",
+      "en": "a small place where people go to see a doctor or get medical care",
+      "note": "多益常見於醫療、員工福利與預約情境，例如牙科診所、公司內的健康診所、診所看診時間。",
+      "forms": [
+        {
+          "w": "clinics",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "診所（複數）",
+          "ipa": "/ˈklɪnɪks/",
+          "example": { "en": "The city plans to build three new clinics in rural areas.", "zh": "市政府計畫在鄉村地區蓋三間新診所。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "dental clinic",
+          "zh": "牙科診所",
+          "example": { "en": "The dental clinic is on the second floor of the building.", "zh": "牙科診所在這棟大樓的二樓。" }
+        },
+        {
+          "phrase": "health clinic",
+          "zh": "健康診所",
+          "example": { "en": "A free health clinic opened near the factory last month.", "zh": "上個月工廠附近開了一間免費的健康診所。" }
+        },
+        {
+          "phrase": "clinic hours",
+          "zh": "門診時間",
+          "example": { "en": "Clinic hours are listed on the door and on our website.", "zh": "門診時間貼在門上，也列在我們的網站上。" }
+        },
+        {
+          "phrase": "visit a clinic",
+          "zh": "去診所看診",
+          "example": { "en": "You should visit a clinic if the pain does not go away.", "zh": "如果疼痛沒有消失，你應該去診所看看。" }
+        }
+      ],
+      "examples": [
+        { "tag": "醫療", "en": "The clinic is open from nine to five on weekdays.", "zh": "這間診所平日從九點開到五點。" },
+        { "tag": "福利", "en": "Our company runs a small clinic for employees on site.", "zh": "我們公司在現場設有一間小診所給員工使用。" },
+        { "tag": "預約", "en": "Please call the clinic to book an appointment for next week.", "zh": "請打電話給診所預約下星期的門診。" }
+      ],
+      "similar": [
+        {
+          "word": "hospital",
+          "diff": "hospital 規模較大，有急診和住院；clinic 較小，多處理一般門診。",
+          "example": { "en": "The hospital has more beds and doctors than a small clinic.", "zh": "醫院的病床和醫師比小診所多。" }
+        },
+        {
+          "phrase": "medical center",
+          "diff": "medical center 是較大的醫療機構，常結合門診、檢查與手術；clinic 規模較小。",
+          "example": { "en": "The new medical center offers both checkups and surgery.", "zh": "新的醫療中心同時提供健康檢查與手術。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "nurse",
+          "pos": "n.",
+          "zh": "護理師",
+          "ipa": "/nɜːrs/",
+          "example": { "en": "The nurse took my temperature before the doctor arrived.", "zh": "醫師到達前，護理師先量了我的體溫。" }
+        },
+        {
+          "w": "patient",
+          "pos": "n.",
+          "zh": "病人",
+          "ipa": "/ˈpeɪʃənt/",
+          "example": { "en": "Each patient must fill out a form at the front desk.", "zh": "每位病人都必須在櫃檯填一份表格。" }
+        },
+        {
+          "w": "appointment",
+          "pos": "n.",
+          "zh": "預約、約診",
+          "ipa": "/əˈpɔɪntmənt/",
+          "example": { "en": "I have an appointment with Dr. Lee at three.", "zh": "我三點和李醫師有約診。" }
+        },
+        {
+          "w": "checkup",
+          "pos": "n.",
+          "zh": "健康檢查",
+          "ipa": "/ˈtʃekʌp/",
+          "example": { "en": "Employees get a free health checkup once a year.", "zh": "員工每年可以做一次免費健康檢查。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "clinical",
+          "pos": "adj.",
+          "zh": "臨床的",
+          "ipa": "/ˈklɪnɪkəl/",
+          "link": "clinic + -al，變成形容詞「診所的、臨床的」，像 music → musical"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "診所",
+          "en": "a small place where people get medical care",
+          "example": { "en": "The clinic offers quick tests for common illnesses.", "zh": "這間診所提供常見疾病的快速檢驗。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "專題諮詢、指導班",
+          "en": "a short class or event where people get help on one topic",
+          "distinguish": "前面接 tax、business、coaching 這類非醫療的字時，指提供協助或指導的活動，不是診所。",
+          "example": { "en": "The bank hosts a free tax clinic every April.", "zh": "銀行每年四月舉辦免費的報稅諮詢活動。" }
+        }
+      ]
+    },
+    {
+      "text": "collector",
+      "type": "word",
+      "ipa": "/kəˈlektər/",
+      "pos": "n.",
+      "zh": "收藏家、收集者、收款人",
+      "en": "a person who collects things, or a person whose job is to collect money",
+      "note": "多益常見於藝術收藏、稅務與帳款催收情境，例如 art collector（藝術收藏家）、tax collector（稅務員）、debt collector（討債人員）。",
+      "forms": [
+        {
+          "w": "collectors",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "收藏家（複數）",
+          "ipa": "/kəˈlektərz/",
+          "example": { "en": "Stamp collectors from many countries visited the trade fair.", "zh": "來自許多國家的集郵者參觀了這場貿易展。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "art collector",
+          "zh": "藝術收藏家",
+          "example": { "en": "The famous art collector donated his paintings to the city.", "zh": "這位有名的藝術收藏家把他的畫捐給了市政府。" }
+        },
+        {
+          "phrase": "tax collector",
+          "zh": "稅務員、收稅人",
+          "example": { "en": "A tax collector checked the company's records last week.", "zh": "稅務員上星期檢查了公司的帳冊。" }
+        },
+        {
+          "phrase": "debt collector",
+          "zh": "討債人員",
+          "example": { "en": "A debt collector sent a letter about the unpaid bill.", "zh": "討債人員寄了一封關於未付帳單的信。" }
+        },
+        {
+          "phrase": "ticket collector",
+          "zh": "收票員、查票員",
+          "example": { "en": "The ticket collector checked every passenger's ticket on the train.", "zh": "查票員檢查了火車上每位乘客的車票。" }
+        }
+      ],
+      "examples": [
+        { "tag": "展覽", "en": "The museum borrowed several rare coins from a private collector.", "zh": "博物館向一位私人收藏家借了幾枚稀有的硬幣。" },
+        { "tag": "市政", "en": "The garbage collector comes to our street every Wednesday morning.", "zh": "垃圾收集員每星期三早上會來我們這條街。" },
+        { "tag": "帳務", "en": "The company hired a collector to follow up on late payments.", "zh": "公司僱了一名收款人員來追蹤逾期的款項。" }
+      ],
+      "confusable": [
+        {
+          "word": "collection",
+          "diff": "collector 是「收集的人」；collection 是「收藏品」或「收集這件事」。",
+          "example": { "en": "The museum opened a new collection of modern art.", "zh": "博物館推出了一批新的現代藝術收藏。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "museum",
+          "pos": "n.",
+          "zh": "博物館",
+          "ipa": "/mjuˈziːəm/",
+          "example": { "en": "The museum is open to visitors every day except Monday.", "zh": "博物館除了星期一以外每天開放參觀。" }
+        },
+        {
+          "w": "auction",
+          "pos": "n.",
+          "zh": "拍賣會",
+          "ipa": "/ˈɔːkʃən/",
+          "example": { "en": "The painting was sold at an auction for a high price.", "zh": "這幅畫在拍賣會上以高價賣出。" }
+        },
+        {
+          "w": "gallery",
+          "pos": "n.",
+          "zh": "畫廊",
+          "ipa": "/ˈɡæləri/",
+          "example": { "en": "The gallery will show works by local artists this month.", "zh": "畫廊這個月會展出當地藝術家的作品。" }
+        },
+        {
+          "w": "antique",
+          "pos": "n.",
+          "zh": "古董",
+          "ipa": "/ænˈtiːk/",
+          "example": { "en": "The shop sells antiques from the early twentieth century.", "zh": "這間店販售二十世紀初的古董。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "collect",
+          "pos": "v.",
+          "zh": "收集、收取",
+          "ipa": "/kəˈlekt/",
+          "link": "最基礎的字。collector = collect + -or，做這件事的人，像 actor、visitor"
+        },
+        {
+          "w": "collection",
+          "pos": "n.",
+          "zh": "收藏品、收集",
+          "ipa": "/kəˈlekʃən/",
+          "link": "collect + -ion，動詞變名詞，像 act → action"
+        },
+        {
+          "w": "collective",
+          "pos": "adj.",
+          "zh": "集體的、共同的",
+          "ipa": "/kəˈlektɪv/",
+          "link": "collect + -ive，變成形容詞「集體的」，像 act → active"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "收藏家",
+          "en": "a person who collects things like art, stamps, or coins",
+          "example": { "en": "The collector paid a high price for the old map.", "zh": "這位收藏家花高價買下那張舊地圖。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "收取款項或物品的人",
+          "en": "a person whose job is to collect money or things",
+          "distinguish": "前面接 tax、debt、ticket、garbage 時，指負責收取的人員，不是收藏興趣。",
+          "example": { "en": "The rent collector visits each apartment on the first of the month.", "zh": "收租員在每月一號拜訪每一戶公寓。" }
+        }
+      ]
+    },
+    {
+      "text": "compile",
+      "type": "word",
+      "ipa": "/kəmˈpaɪl/",
+      "pos": "v.",
+      "zh": "彙編、整理、編製",
+      "en": "to collect information from different places and put it together",
+      "note": "多益常見於報告、統計、名單與資料整理情境，指把不同來源的資料整理成一份完整的文件。",
+      "grammar_note": "常用句型是 compile A from B（從 B 整理出 A），受詞多半是資料、清單或報告。",
+      "forms": [
+        {
+          "w": "compiles",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "彙編",
+          "ipa": "/kəmˈpaɪlz/",
+          "example": { "en": "She compiles the weekly sales figures every Friday afternoon.", "zh": "她每個星期五下午彙整每週的銷售數字。" }
+        },
+        {
+          "w": "compiled",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "彙編了、被彙編",
+          "ipa": "/kəmˈpaɪld/",
+          "example": { "en": "The team compiled a list of all possible suppliers.", "zh": "團隊整理出所有可能的供應商名單。" }
+        },
+        {
+          "w": "compiling",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在彙編",
+          "ipa": "/kəmˈpaɪlɪŋ/",
+          "example": { "en": "We are compiling the survey results for the board meeting.", "zh": "我們正在整理董事會會議要用的調查結果。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "compile a report",
+          "zh": "彙整報告",
+          "example": { "en": "Please compile a report on last quarter's expenses.", "zh": "請彙整一份上一季開支的報告。" }
+        },
+        {
+          "phrase": "compile data",
+          "zh": "彙整資料",
+          "example": { "en": "It took two days to compile data from all branches.", "zh": "彙整所有分店的資料花了兩天。" }
+        },
+        {
+          "phrase": "compile a list",
+          "zh": "整理名單",
+          "example": { "en": "I will compile a list of attendees by noon.", "zh": "我會在中午前整理好出席者名單。" }
+        },
+        {
+          "phrase": "compile statistics",
+          "zh": "編製統計資料",
+          "example": { "en": "The agency compiles statistics on employment every month.", "zh": "這個機構每個月編製就業統計資料。" }
+        }
+      ],
+      "examples": [
+        { "tag": "報告", "en": "The assistant will compile the survey results into one file.", "zh": "助理會把調查結果彙整成一個檔案。" },
+        { "tag": "專案", "en": "Each team member must compile notes from their meetings.", "zh": "每位團隊成員必須整理自己的會議筆記。" },
+        { "tag": "行銷", "en": "We compiled a guide of the best restaurants for clients.", "zh": "我們為客戶整理了一份最佳餐廳指南。" }
+      ],
+      "confusable": [
+        {
+          "word": "comply",
+          "diff": "comply 是「遵守（規定）」，拼法和 compile 很像，但意思完全不同。",
+          "usage": "comply 後面要加 with（comply with the rules），compile 直接接受詞。",
+          "example": { "en": "All staff must comply with the new safety rules.", "zh": "所有員工都必須遵守新的安全規定。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "gather",
+          "diff": "gather 是把東西或資料集合起來；compile 還包含整理、編排成一份文件。",
+          "example": { "en": "Please gather all receipts before you submit the claim.", "zh": "提交請款前，請先把所有收據收集好。" }
+        },
+        {
+          "phrase": "put together",
+          "diff": "意思接近，較口語；compile 比較正式，常用於報告與資料。",
+          "example": { "en": "Can you put together a short summary for the board?", "zh": "你可以為董事會整理一份簡短摘要嗎？" }
+        }
+      ],
+      "family": [
+        {
+          "w": "data",
+          "pos": "n.",
+          "zh": "資料、數據",
+          "ipa": "/ˈdeɪtə/",
+          "example": { "en": "The data shows a rise in online orders.", "zh": "數據顯示網路訂單增加了。" }
+        },
+        {
+          "w": "statistics",
+          "pos": "n.",
+          "zh": "統計資料",
+          "ipa": "/stəˈtɪstɪks/",
+          "example": { "en": "These statistics come from a survey of five hundred companies.", "zh": "這些統計資料來自對五百家公司的調查。" }
+        },
+        {
+          "w": "summary",
+          "pos": "n.",
+          "zh": "摘要",
+          "ipa": "/ˈsʌməri/",
+          "example": { "en": "Please send me a short summary of the meeting.", "zh": "請寄給我一份簡短的會議摘要。" }
+        },
+        {
+          "w": "record",
+          "pos": "n.",
+          "zh": "紀錄",
+          "ipa": "/ˈrekərd/",
+          "example": { "en": "Keep a record of every payment you make.", "zh": "請保留你每一筆付款的紀錄。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "compilation",
+          "pos": "n.",
+          "zh": "彙編、彙整的成果",
+          "ipa": "/ˌkɑːmpəˈleɪʃən/",
+          "link": "compile + -ation，動詞變名詞，像 educate → education"
+        },
+        {
+          "w": "compiler",
+          "pos": "n.",
+          "zh": "編製者、編輯者",
+          "ipa": "/kəmˈpaɪlər/",
+          "link": "compile + -r，做這件事的人，像 writer、reader"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "cooler",
+      "type": "word",
+      "ipa": "/ˈkuːlər/",
+      "pos": "n.",
+      "zh": "冷藏箱、冷卻裝置、飲水機",
+      "en": "a container or machine that keeps things cold",
+      "note": "多益常見於戶外活動、餐飲運送與辦公室情境，例如放飲料的冷藏箱、辦公室的飲水機（water cooler）。這個拼法也是形容詞 cool 的比較級，意思是「更涼的」。",
+      "forms": [
+        {
+          "w": "coolers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "冷藏箱（複數）",
+          "ipa": "/ˈkuːlərz/",
+          "example": { "en": "The caterer brought two large coolers filled with ice and drinks.", "zh": "外燴業者帶來兩個裝滿冰塊和飲料的大冷藏箱。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "water cooler",
+          "zh": "飲水機",
+          "example": { "en": "Staff gathered around the water cooler to talk about the news.", "zh": "員工聚在飲水機旁討論這則消息。" }
+        },
+        {
+          "phrase": "portable cooler",
+          "zh": "攜帶式冷藏箱",
+          "example": { "en": "A portable cooler keeps the samples cold during transport.", "zh": "攜帶式冷藏箱能讓樣品在運送途中保持低溫。" }
+        },
+        {
+          "phrase": "cooler bag",
+          "zh": "保冷袋",
+          "example": { "en": "Pack the lunch in a cooler bag to keep it fresh.", "zh": "把午餐放進保冷袋，才能保持新鮮。" }
+        }
+      ],
+      "examples": [
+        { "tag": "活動", "en": "We put the drinks in a cooler before the picnic.", "zh": "野餐前，我們把飲料放進冷藏箱。" },
+        { "tag": "辦公室", "en": "A new water cooler was installed in the break room.", "zh": "休息室裝了一台新的飲水機。" },
+        { "tag": "運輸", "en": "The fruit was shipped in a cooler to stay fresh.", "zh": "這些水果用冷藏箱運送，以保持新鮮。" }
+      ],
+      "confusable": [
+        {
+          "word": "cooker",
+          "diff": "cooker 是「烹調用的爐具」，只差一個字母，但功能相反：cooler 是冷的，cooker 是熱的。",
+          "example": { "en": "Please turn off the cooker before you leave the kitchen.", "zh": "離開廚房前，請關掉爐具。" }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "ice chest",
+          "diff": "意思接近，ice chest 是北美較口語的說法；cooler 較通用。",
+          "example": { "en": "Put the fish in an ice chest to keep it cold.", "zh": "把魚放進冰桶，保持低溫。" }
+        },
+        {
+          "word": "refrigerator",
+          "diff": "refrigerator 是固定在室內的冰箱；cooler 多半是可以搬動的保冷容器。",
+          "example": { "en": "Store the milk in the refrigerator after opening it.", "zh": "牛奶開封後請放在冰箱裡。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "freezer",
+          "pos": "n.",
+          "zh": "冷凍庫",
+          "ipa": "/ˈfriːzər/",
+          "example": { "en": "The ice cream must stay in the freezer overnight.", "zh": "冰淇淋必須放在冷凍庫過夜。" }
+        },
+        {
+          "w": "ice",
+          "pos": "n.",
+          "zh": "冰塊",
+          "ipa": "/aɪs/",
+          "example": { "en": "Please bring enough ice for all the drinks.", "zh": "請帶足夠的冰塊給所有飲料用。" }
+        },
+        {
+          "w": "bottle",
+          "pos": "n.",
+          "zh": "瓶子",
+          "ipa": "/ˈbɑːtl/",
+          "example": { "en": "Each guest will receive a bottle of cold water.", "zh": "每位賓客都會拿到一瓶冰水。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "cool",
+          "pos": "v./adj.",
+          "zh": "冷卻；涼爽的",
+          "ipa": "/kuːl/",
+          "link": "最基礎的字。cooler = cool + -er，做冷卻工作的東西，像 heater（暖氣機）、printer（印表機）"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈkuːlər/",
+          "zh": "冷藏箱、冷卻裝置",
+          "example": { "en": "Keep the vaccine in a cooler until the nurse arrives.", "zh": "護理師到達前，請把疫苗放在冷藏箱裡。" }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ˈkuːlər/",
+          "zh": "更涼的（cool 的比較級）",
+          "example": { "en": "The meeting room is cooler than the office downstairs.", "zh": "會議室比樓下的辦公室更涼。" }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "冷藏箱",
+          "en": "a box that keeps food and drinks cold",
+          "example": { "en": "Fill the cooler with ice before the guests arrive.", "zh": "賓客到達前，請把冷藏箱裝滿冰塊。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "冷卻裝置、飲水機",
+          "en": "a machine that makes air or water cold",
+          "distinguish": "前面接 water 或在辦公室出現時，通常指飲水機；也常借指大家聊天的地方。",
+          "example": { "en": "The water cooler near the lobby needs a new filter.", "zh": "大廳附近的飲水機需要換新的濾心。" }
+        }
+      ]
+    },
+    {
+      "text": "daytime",
+      "type": "word",
+      "ipa": "/ˈdeɪtaɪm/",
+      "pos": "n.",
+      "zh": "白天、日間",
+      "en": "the part of the day when it is light",
+      "note": "多益常見於營業時間、班表、聯絡電話與天氣情境，例如 daytime hours、daytime phone number；當形容詞時放在名詞前，如 daytime job。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "daytime hours",
+          "zh": "白天時段",
+          "example": { "en": "Our support line is open during daytime hours only.", "zh": "我們的客服專線只在白天時段開放。" }
+        },
+        {
+          "phrase": "daytime job",
+          "zh": "白天的工作",
+          "example": { "en": "She kept her daytime job while she studied at night.", "zh": "她晚上念書時，仍保留白天的工作。" }
+        },
+        {
+          "phrase": "daytime phone number",
+          "zh": "日間聯絡電話",
+          "example": { "en": "Please give us a daytime phone number for delivery.", "zh": "請提供我們一個白天可聯絡的電話，以便送貨。" }
+        },
+        {
+          "phrase": "in the daytime",
+          "zh": "在白天",
+          "example": { "en": "The streets are very busy in the daytime.", "zh": "街道在白天非常繁忙。" }
+        }
+      ],
+      "examples": [
+        { "tag": "班表", "en": "The daytime shift starts at seven and ends at three.", "zh": "白班從七點開始，三點結束。" },
+        { "tag": "旅遊", "en": "Daytime temperatures in the desert can reach forty degrees.", "zh": "沙漠白天的氣溫可以高達四十度。" },
+        { "tag": "客服", "en": "Please call us during the daytime if you need help.", "zh": "如果需要協助，請在白天打電話給我們。" }
+      ],
+      "confusable": [
+        {
+          "word": "daylight",
+          "diff": "daylight 是「日光、天亮的光線」；daytime 是「白天這段時間」。",
+          "example": { "en": "We worked near the window to use natural daylight.", "zh": "我們在窗邊工作，好利用自然日光。" }
+        },
+        {
+          "word": "daily",
+          "diff": "daily 是「每天的」，拼法開頭和 daytime 很像，但不是指白天。",
+          "example": { "en": "The daily report is sent to the manager at five.", "zh": "每日報告會在五點寄給經理。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "nighttime",
+          "pos": "n.",
+          "zh": "夜間",
+          "ipa": "/ˈnaɪttaɪm/",
+          "example": { "en": "Nighttime deliveries avoid heavy traffic in the city.", "zh": "夜間配送可以避開市區的塞車。" }
+        },
+        {
+          "w": "evening",
+          "pos": "n.",
+          "zh": "傍晚、晚上",
+          "ipa": "/ˈiːvnɪŋ/",
+          "example": { "en": "The training session starts at six in the evening.", "zh": "訓練課程在傍晚六點開始。" }
+        },
+        {
+          "w": "shift",
+          "pos": "n.",
+          "zh": "輪班",
+          "ipa": "/ʃɪft/",
+          "example": { "en": "Who is working the night shift this week?", "zh": "這個星期誰上夜班？" }
+        },
+        {
+          "w": "hours",
+          "pos": "n.",
+          "zh": "營業時間、工作時數",
+          "ipa": "/aʊərz/",
+          "example": { "en": "Our business hours are nine to six on weekdays.", "zh": "我們平日的營業時間是九點到六點。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "day",
+          "pos": "n.",
+          "zh": "天、白天",
+          "ipa": "/deɪ/",
+          "link": "最基礎的字。daytime = day（白天）+ time（時間），白天的時段，像 lunchtime、bedtime"
+        },
+        {
+          "w": "daily",
+          "pos": "adj./adv.",
+          "zh": "每天的；每天",
+          "ipa": "/ˈdeɪli/",
+          "link": "day 的 y 變成 i 再加 -ly，像 happy → happily"
+        },
+        {
+          "w": "daylight",
+          "pos": "n.",
+          "zh": "日光",
+          "ipa": "/ˈdeɪlaɪt/",
+          "link": "day + light（光），白天的光線，像 sunlight"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈdeɪtaɪm/",
+          "zh": "白天",
+          "example": { "en": "The factory runs mostly in the daytime.", "zh": "這間工廠主要在白天運作。" }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ˈdeɪtaɪm/",
+          "zh": "白天的、日間的",
+          "example": { "en": "We offer daytime classes and evening classes for adults.", "zh": "我們為成人提供日間班和夜間班。" }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "dealership",
+      "type": "word",
+      "ipa": "/ˈdiːlərʃɪp/",
+      "pos": "n.",
+      "zh": "經銷商、汽車經銷店、經銷權",
+      "en": "a business that sells cars or other products for a larger company",
+      "note": "多益最常見於汽車銷售與維修情境，例如 car dealership（汽車經銷店）、authorized dealership（授權經銷商）。",
+      "forms": [
+        {
+          "w": "dealerships",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "經銷店（複數）",
+          "ipa": "/ˈdiːlərʃɪps/",
+          "example": { "en": "Several dealerships in the area offer special year-end discounts.", "zh": "這個地區有幾間經銷店提供年終特價。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "car dealership",
+          "zh": "汽車經銷店",
+          "example": { "en": "We bought our delivery van from a local car dealership.", "zh": "我們的送貨車是向當地一間汽車經銷店買的。" }
+        },
+        {
+          "phrase": "authorized dealership",
+          "zh": "授權經銷商",
+          "example": { "en": "Only an authorized dealership can repair this model under warranty.", "zh": "只有授權經銷商才能在保固期內維修這款車。" }
+        },
+        {
+          "phrase": "open a dealership",
+          "zh": "開設經銷店",
+          "example": { "en": "She decided to open a dealership in her hometown.", "zh": "她決定在家鄉開一間經銷店。" }
+        },
+        {
+          "phrase": "dealership network",
+          "zh": "經銷網絡",
+          "example": { "en": "The brand has a large dealership network across Asia.", "zh": "這個品牌在亞洲各地有龐大的經銷網絡。" }
+        }
+      ],
+      "examples": [
+        { "tag": "汽車", "en": "The car dealership offers free service for the first year.", "zh": "這間汽車經銷店提供第一年免費保養。" },
+        { "tag": "求職", "en": "He started working at a truck dealership after college.", "zh": "他大學畢業後開始在一間卡車經銷店工作。" },
+        { "tag": "商務", "en": "The company plans to open a new dealership downtown.", "zh": "公司計畫在市中心開一間新的經銷店。" }
+      ],
+      "confusable": [
+        {
+          "word": "dealer",
+          "diff": "dealer 是賣東西的人或公司；dealership 是這家經銷店本身，或經銷的權利。",
+          "example": { "en": "The dealer showed us three models that fit our budget.", "zh": "經銷商向我們展示了三款符合預算的車型。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "distributor",
+          "diff": "distributor 是把貨從廠商分送給零售店的經銷商；dealership 直接賣給消費者。",
+          "example": { "en": "The distributor ships spare parts to every dealership each week.", "zh": "經銷商每週把備用零件送到每一間經銷店。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "showroom",
+          "pos": "n.",
+          "zh": "展示間",
+          "ipa": "/ˈʃoʊruːm/",
+          "example": { "en": "The showroom displays all of our newest models.", "zh": "展示間陳列了我們所有最新的車型。" }
+        },
+        {
+          "w": "salesperson",
+          "pos": "n.",
+          "zh": "銷售人員",
+          "ipa": "/ˈseɪlzpɜːrsən/",
+          "example": { "en": "The salesperson explained the features of each car.", "zh": "銷售人員說明了每輛車的特色。" }
+        },
+        {
+          "w": "franchise",
+          "pos": "n.",
+          "zh": "加盟店、特許經營",
+          "ipa": "/ˈfræntʃaɪz/",
+          "example": { "en": "He owns a franchise of a well-known coffee chain.", "zh": "他擁有一間知名連鎖咖啡店的加盟店。" }
+        },
+        {
+          "w": "warranty",
+          "pos": "n.",
+          "zh": "保固",
+          "ipa": "/ˈwɔːrənti/",
+          "example": { "en": "The warranty covers repairs for the first three years.", "zh": "保固涵蓋前三年的維修。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "deal",
+          "pos": "v./n.",
+          "zh": "處理、交易；生意",
+          "ipa": "/diːl/",
+          "link": "最基礎的字。dealer = deal + -er（做這件事的人），dealership 再加 -ship"
+        },
+        {
+          "w": "dealer",
+          "pos": "n.",
+          "zh": "商人、經銷商",
+          "ipa": "/ˈdiːlər/",
+          "link": "deal + -er，做買賣的人，像 teacher、worker"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "經銷店",
+          "en": "a business that sells cars or other products for a maker",
+          "example": { "en": "The dealership sold forty cars during the weekend sale.", "zh": "這間經銷店在週末特賣期間賣出四十輛車。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "經銷權",
+          "en": "the right to sell a company's products in a place",
+          "distinguish": "和 give、win、hold 等動詞一起用時，指獲得或擁有銷售的權利，不是一間店。",
+          "example": { "en": "The company gave him the dealership for the northern region.", "zh": "公司把北部地區的經銷權給了他。" }
+        }
+      ]
+    },
+    {
+      "text": "deck",
+      "type": "word",
+      "ipa": "/dek/",
+      "pos": "n.",
+      "zh": "甲板、露臺、簡報、（交通工具的）層",
+      "en": "a flat surface or level, such as on a ship, outside a house, or in a presentation",
+      "note": "多益常見四種用法：船的甲板（on deck）、戶外木平台或露臺、公車與渡輪的樓層（upper deck），以及一份簡報檔（slide deck）。要靠上下文判斷意思。",
+      "forms": [
+        {
+          "w": "decks",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "甲板、樓層（複數）",
+          "ipa": "/deks/",
+          "example": { "en": "Both decks of the ferry were crowded with tourists.", "zh": "渡輪的兩層甲板都擠滿了遊客。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "slide deck",
+          "zh": "簡報檔",
+          "example": { "en": "Please send me the slide deck before the meeting.", "zh": "請在會議前把簡報檔寄給我。" }
+        },
+        {
+          "phrase": "on deck",
+          "zh": "在甲板上；待命",
+          "example": { "en": "The captain asked all crew members to be on deck.", "zh": "船長要求所有船員到甲板上集合。" }
+        },
+        {
+          "phrase": "upper deck",
+          "zh": "上層甲板、上層",
+          "example": { "en": "The upper deck of the bus offers a great view.", "zh": "巴士的上層視野很棒。" }
+        },
+        {
+          "phrase": "observation deck",
+          "zh": "觀景台",
+          "example": { "en": "The observation deck is open until ten at night.", "zh": "觀景台開放到晚上十點。" }
+        }
+      ],
+      "examples": [
+        { "tag": "郵輪", "en": "Passengers can relax on the sun deck after lunch.", "zh": "午餐後，乘客可以在日光甲板上放鬆。" },
+        { "tag": "簡報", "en": "She updated the deck with the latest sales figures.", "zh": "她用最新的銷售數字更新了簡報。" },
+        { "tag": "餐廳", "en": "The restaurant has a wooden deck beside the river.", "zh": "這間餐廳在河邊有一座木頭露臺。" }
+      ],
+      "confusable": [
+        {
+          "word": "desk",
+          "diff": "desk 是「辦公桌」，拼法只差一個字母，但意思完全不同。",
+          "example": { "en": "Please leave the files on my desk before you go.", "zh": "你離開前，請把文件放在我的桌上。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "presentation",
+          "diff": "presentation 是整場報告或簡報；deck 只指簡報用的投影片檔案。",
+          "example": { "en": "Her presentation was clear and short, so everyone enjoyed it.", "zh": "她的簡報清楚又簡短，所以大家都很喜歡。" }
+        },
+        {
+          "word": "slides",
+          "diff": "slides 是一張一張的投影片；deck 是整份投影片的集合。",
+          "example": { "en": "I printed the slides for everyone in the meeting.", "zh": "我把投影片印出來給會議上的每個人。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "ferry",
+          "pos": "n.",
+          "zh": "渡輪",
+          "ipa": "/ˈferi/",
+          "example": { "en": "The ferry leaves the harbor every hour on weekends.", "zh": "週末渡輪每小時從港口出發。" }
+        },
+        {
+          "w": "cruise",
+          "pos": "n.",
+          "zh": "郵輪旅行",
+          "ipa": "/kruːz/",
+          "example": { "en": "The company arranged a cruise for its top sellers.", "zh": "公司為業績最好的銷售人員安排了一趟郵輪旅行。" }
+        },
+        {
+          "w": "balcony",
+          "pos": "n.",
+          "zh": "陽台",
+          "ipa": "/ˈbælkəni/",
+          "example": { "en": "Each room has a private balcony facing the sea.", "zh": "每間房都有面海的私人陽台。" }
+        },
+        {
+          "w": "patio",
+          "pos": "n.",
+          "zh": "露天庭院",
+          "ipa": "/ˈpætioʊ/",
+          "example": { "en": "We held the meeting outside on the patio.", "zh": "我們在戶外的露天庭院開會。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "甲板",
+          "en": "the flat top level of a ship",
+          "example": { "en": "Passengers gathered on deck to watch the ship leave the port.", "zh": "乘客聚集在甲板上，看著船離開港口。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "露臺、木平台",
+          "en": "a flat wooden area outside a building",
+          "distinguish": "和 wooden、garden、pool、restaurant 等字一起出現時，指戶外的木平台。",
+          "example": { "en": "Guests can enjoy dinner on the deck overlooking the lake.", "zh": "賓客可以在俯瞰湖面的露臺上用晚餐。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "簡報檔",
+          "en": "a set of slides used in a business presentation",
+          "distinguish": "和 slide、pitch、investor 等字一起出現時，指一整份簡報檔。",
+          "example": { "en": "The sales deck includes charts for the last three quarters.", "zh": "這份業務簡報包含過去三季的圖表。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "（交通工具的）樓層",
+          "en": "one level of a bus, ship, or other large vehicle",
+          "distinguish": "前面接 upper、lower、car 或 bus 時，指車船的某一層。",
+          "example": { "en": "Cars are parked on the lower deck of the ferry.", "zh": "車輛停放在渡輪的下層。" }
+        }
+      ]
+    },
+    {
+      "text": "delicious",
+      "type": "word",
+      "ipa": "/dɪˈlɪʃəs/",
+      "pos": "adj.",
+      "zh": "美味的、可口的",
+      "en": "having a very good taste or smell",
+      "note": "多益常見於餐廳、飯店、活動餐點與廣告情境，用來稱讚食物，語氣比 good 更強、很正面。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "delicious meal",
+          "zh": "美味的一餐",
+          "example": { "en": "The hotel served a delicious meal after the conference.", "zh": "會議結束後，飯店供應了一頓美味的餐點。" }
+        },
+        {
+          "phrase": "taste delicious",
+          "zh": "嚐起來很美味",
+          "example": { "en": "These cookies taste delicious and are made without sugar.", "zh": "這些餅乾嚐起來很美味，而且不含糖。" }
+        },
+        {
+          "phrase": "delicious food",
+          "zh": "美味的食物",
+          "example": { "en": "Visitors enjoy the delicious food at the night market.", "zh": "遊客很喜歡夜市裡的美味食物。" }
+        },
+        {
+          "phrase": "look delicious",
+          "zh": "看起來很好吃",
+          "example": { "en": "All the desserts on the table look delicious.", "zh": "桌上所有的甜點看起來都很好吃。" }
+        }
+      ],
+      "examples": [
+        { "tag": "餐廳", "en": "The soup was so delicious that we ordered a second bowl.", "zh": "這碗湯太好喝了，所以我們又點了第二碗。" },
+        { "tag": "活動", "en": "The caterer prepared a delicious lunch for all the guests.", "zh": "外燴業者為所有賓客準備了美味的午餐。" },
+        { "tag": "廣告", "en": "Try our delicious new sandwich for only five dollars.", "zh": "試試我們美味的新三明治，只要五美元。" }
+      ],
+      "confusable": [
+        {
+          "word": "delightful",
+          "diff": "delightful 是「令人愉快的」，可形容活動、人或地方；delicious 專指食物好吃。",
+          "example": { "en": "It was a delightful evening with our new business partners.", "zh": "和我們的新商業夥伴共度了愉快的一晚。" }
+        },
+        {
+          "word": "delicate",
+          "diff": "delicate 是「精緻的、易碎的」，拼法開頭和 delicious 很像，但和味道無關。",
+          "example": { "en": "The delicate glass cups must be packed with care.", "zh": "這些精緻的玻璃杯必須小心包裝。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "tasty",
+          "diff": "tasty 是「好吃的」，語氣比較口語、程度較輕；delicious 的稱讚更強烈。",
+          "example": { "en": "The tasty snacks at the party disappeared within ten minutes.", "zh": "派對上好吃的點心不到十分鐘就被吃光了。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "flavor",
+          "pos": "n.",
+          "zh": "口味、風味",
+          "ipa": "/ˈfleɪvər/",
+          "example": { "en": "This ice cream comes in twelve different flavors.", "zh": "這款冰淇淋有十二種不同口味。" }
+        },
+        {
+          "w": "recipe",
+          "pos": "n.",
+          "zh": "食譜",
+          "ipa": "/ˈresəpi/",
+          "example": { "en": "The chef shared his recipe with the magazine.", "zh": "主廚把他的食譜分享給雜誌。" }
+        },
+        {
+          "w": "fresh",
+          "pos": "adj.",
+          "zh": "新鮮的",
+          "ipa": "/freʃ/",
+          "example": { "en": "We use fresh fruit in every dessert.", "zh": "我們每一道甜點都使用新鮮水果。" }
+        },
+        {
+          "w": "chef",
+          "pos": "n.",
+          "zh": "主廚",
+          "ipa": "/ʃef/",
+          "example": { "en": "The chef created a special menu for the event.", "zh": "主廚為這場活動設計了特別菜單。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "deliciously",
+          "pos": "adv.",
+          "zh": "美味地、令人愉悅地",
+          "ipa": "/dɪˈlɪʃəsli/",
+          "link": "delicious + -ly，形容詞變副詞，像 quick → quickly"
+        },
+        {
+          "w": "deliciousness",
+          "pos": "n.",
+          "zh": "美味",
+          "ipa": "/dɪˈlɪʃəsnəs/",
+          "link": "delicious + -ness，把性質變成名詞，像 kind → kindness"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

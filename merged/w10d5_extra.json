@@ -1,0 +1,503 @@
+{
+  "week": 10,
+  "day": 5,
+  "extra_vocab": [
+    {
+      "text": "discontinue",
+      "type": "word",
+      "ipa": "/ˌdɪskənˈtɪnjuː/",
+      "pos": "v.",
+      "zh": "停產、停止（供應或提供）",
+      "en": "to stop making or selling something",
+      "note": "在這篇裡是被動語態 has been discontinued，指這款果汁機已經停產，所以客服改提供較新的型號。這個字是客服、採購與公告裡很常見的說法。",
+      "grammar_note": "discontinue 後面直接接名詞（discontinue a product），不接 to V；表示商品停產時常用被動：be discontinued。",
+      "forms": [
+        {
+          "w": "discontinues",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "停產",
+          "ipa": "/ˌdɪskənˈtɪnjuːz/",
+          "example": { "en": "The company discontinues older printer models every spring to make room for new ones.", "zh": "公司每年春天都會讓舊款印表機停產，好為新款騰出空間。" }
+        },
+        {
+          "w": "discontinued",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "停產了",
+          "ipa": "/ˌdɪskənˈtɪnjuːd/",
+          "example": { "en": "The store discontinued that phone case last month because sales were low.", "zh": "商店上個月因為銷量低而停賣那款手機殼。" }
+        },
+        {
+          "w": "discontinued",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "已停產的",
+          "ipa": "/ˌdɪskənˈtɪnjuːd/",
+          "example": { "en": "Discontinued items are sold at half price while supplies last.", "zh": "已停產的商品在售完為止前以半價出售。" }
+        },
+        {
+          "w": "discontinuing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在停止供應",
+          "ipa": "/ˌdɪskənˈtɪnjuɪŋ/",
+          "example": { "en": "We are discontinuing the free shipping offer at the end of June.", "zh": "我們將在六月底停止免運費優惠。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "discontinue a product",
+          "zh": "讓產品停產",
+          "example": { "en": "The firm decided to discontinue a product that lost money.", "zh": "公司決定讓一項虧錢的產品停產。" }
+        },
+        {
+          "phrase": "discontinue a service",
+          "zh": "停止提供服務",
+          "example": { "en": "The bank will discontinue the service after December thirty-first.", "zh": "銀行將在十二月三十一日後停止這項服務。" }
+        },
+        {
+          "phrase": "discontinue production",
+          "zh": "停止生產",
+          "example": { "en": "The factory will discontinue production of the old model soon.", "zh": "工廠很快就會停止生產舊款型號。" }
+        },
+        {
+          "phrase": "be discontinued",
+          "zh": "被停產、被停止",
+          "example": { "en": "That color has been discontinued, so please choose another one.", "zh": "那個顏色已經停產，所以請選擇別的顏色。" }
+        }
+      ],
+      "examples": [
+        { "tag": "客服", "en": "We are sorry, but this model was discontinued last year.", "zh": "很抱歉，這個型號去年就停產了。" },
+        { "tag": "電子郵件", "en": "We plan to discontinue the paper catalog starting next spring.", "zh": "我們計畫從明年春天起停止發行紙本型錄。" },
+        { "tag": "採購", "en": "Please order extra parts before the supplier discontinues them.", "zh": "請在供應商停產這些零件前多訂一些。" }
+      ],
+      "confusable": [
+        {
+          "word": "discontinuous",
+          "diff": "discontinuous 是形容詞「不連續的、中斷的」，拼法很像 discontinue，但不是停產的意思。",
+          "usage": "discontinue 是動詞，discontinuous 是形容詞，後面不能直接接受詞。",
+          "example": { "en": "A discontinuous power supply stopped the machines several times today.", "zh": "不穩定的供電讓機器今天停了好幾次。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "stop",
+          "diff": "stop 是最一般的「停止」；discontinue 較正式，常用於停產或停止服務。",
+          "example": { "en": "Please stop using the old form after the end of June.", "zh": "六月底之後，請停止使用舊表格。" }
+        },
+        {
+          "phrase": "phase out",
+          "diff": "phase out 是逐步淘汰，過程較慢；discontinue 是決定不再繼續供應。",
+          "example": { "en": "We will phase out the old model over the next six months.", "zh": "我們會在接下來六個月逐步淘汰舊款型號。" }
+        },
+        {
+          "word": "cancel",
+          "diff": "cancel 是取消已安排的事（航班、訂單）；discontinue 是結束持續提供的產品或服務。",
+          "example": { "en": "The airline had to cancel the morning flight because of fog.", "zh": "因為起霧，航空公司必須取消早上的班機。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "cancel",
+          "pos": "v.",
+          "zh": "取消",
+          "ipa": "/ˈkænsəl/",
+          "example": { "en": "You can cancel your order within twenty-four hours.", "zh": "你可以在二十四小時內取消訂單。" }
+        },
+        {
+          "w": "suspend",
+          "pos": "v.",
+          "zh": "暫停",
+          "ipa": "/səˈspend/",
+          "example": { "en": "The company will suspend sales until the problem is fixed.", "zh": "公司在問題解決前會暫停銷售。" }
+        },
+        {
+          "w": "replace",
+          "pos": "v.",
+          "zh": "更換、取代",
+          "ipa": "/rɪˈpleɪs/",
+          "example": { "en": "We will replace the broken part free of charge.", "zh": "我們會免費更換損壞的零件。" }
+        },
+        {
+          "w": "outdated",
+          "pos": "adj.",
+          "zh": "過時的",
+          "ipa": "/ˌaʊtˈdeɪtɪd/",
+          "example": { "en": "The outdated software caused many errors in the system.", "zh": "過時的軟體讓系統出現許多錯誤。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "continue",
+          "pos": "v.",
+          "zh": "繼續",
+          "ipa": "/kənˈtɪnjuː/",
+          "link": "最基礎的字。discontinue = dis-（不、相反）+ continue，不再繼續，像 disagree、disconnect"
+        },
+        {
+          "w": "continuous",
+          "pos": "adj.",
+          "zh": "持續不斷的",
+          "ipa": "/kənˈtɪnjuəs/",
+          "link": "continue + -ous（充滿…的），像 nervous、famous"
+        },
+        {
+          "w": "continuation",
+          "pos": "n.",
+          "zh": "繼續、延續",
+          "ipa": "/kənˌtɪnjuˈeɪʃən/",
+          "link": "continue + -ation，動詞變名詞，像 educate → education"
+        },
+        {
+          "w": "discontinuation",
+          "pos": "n.",
+          "zh": "停產、中止",
+          "ipa": "/ˌdɪskənˌtɪnjuˈeɪʃən/",
+          "link": "discontinue + -ation，把「停產」這件事變成名詞"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "停產、停止供應",
+          "en": "to stop making or selling a product or service",
+          "in_passage": true,
+          "example": { "en": "The manufacturer discontinued the older blender after a design change.", "zh": "設計改版後，製造商讓舊款果汁機停產了。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "中止、停止使用",
+          "en": "to stop doing or using something",
+          "distinguish": "受詞是 treatment、membership、use 這類字時，指中止做某件事，不是產品停產。",
+          "example": { "en": "Please discontinue use of the device if it becomes hot.", "zh": "如果裝置變燙，請停止使用。" }
+        }
+      ]
+    },
+    {
+      "text": "parcel",
+      "type": "word",
+      "ipa": "/ˈpɑːrsəl/",
+      "pos": "n.",
+      "zh": "包裹",
+      "en": "something wrapped or packed to be sent by mail",
+      "note": "在這篇裡指要寄回公司的包裹，客服請顧客把退貨品打包成包裹。parcel 在多益常見於寄送、退貨與物流情境。",
+      "forms": [
+        {
+          "w": "parcels",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "包裹（複數）",
+          "ipa": "/ˈpɑːrsəlz/",
+          "example": { "en": "The courier picked up twelve parcels from our warehouse today.", "zh": "快遞員今天從我們的倉庫收走十二個包裹。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "send a parcel",
+          "zh": "寄包裹",
+          "example": { "en": "You can send a parcel from any post office.", "zh": "你可以在任何一間郵局寄包裹。" }
+        },
+        {
+          "phrase": "parcel delivery",
+          "zh": "包裹遞送",
+          "example": { "en": "Parcel delivery usually takes two to five working days.", "zh": "包裹遞送通常要兩到五個工作天。" }
+        },
+        {
+          "phrase": "track a parcel",
+          "zh": "追蹤包裹",
+          "example": { "en": "Customers can track a parcel on our website.", "zh": "顧客可以在我們的網站上追蹤包裹。" }
+        },
+        {
+          "phrase": "parcel post",
+          "zh": "包裹郵寄",
+          "example": { "en": "Parcel post is cheaper than express mail for heavy items.", "zh": "寄重的物品時，包裹郵寄比快捷郵件便宜。" }
+        }
+      ],
+      "examples": [
+        { "tag": "客服", "en": "Please pack the items in a strong parcel before sending them.", "zh": "寄出前，請把物品用堅固的包裹裝好。" },
+        { "tag": "物流", "en": "The parcel will arrive at your office within three days.", "zh": "包裹會在三天內送到你的辦公室。" },
+        { "tag": "電子郵件", "en": "We have shipped your parcel and attached the tracking number.", "zh": "我們已寄出你的包裹，並附上追蹤編號。" }
+      ],
+      "similar": [
+        {
+          "word": "package",
+          "diff": "package 泛指包裝好的東西，也可指套裝方案；parcel 專指要寄送的包裹，英式用法較常見。",
+          "example": { "en": "The package from the supplier arrived this morning.", "zh": "供應商寄來的包裹今天早上到了。" }
+        },
+        {
+          "word": "packet",
+          "diff": "packet 是小包裝、小袋或小盒；parcel 通常是較大、要郵寄的包裹。",
+          "example": { "en": "A small packet of samples was inside the box.", "zh": "盒子裡有一小包樣品。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "shipping",
+          "pos": "n.",
+          "zh": "運送、運費",
+          "ipa": "/ˈʃɪpɪŋ/",
+          "example": { "en": "Shipping is free for orders over fifty dollars.", "zh": "訂單超過五十美元就免運費。" }
+        },
+        {
+          "w": "label",
+          "pos": "n.",
+          "zh": "標籤、貼紙",
+          "ipa": "/ˈleɪbəl/",
+          "example": { "en": "Please attach the shipping label to the outside of the box.", "zh": "請把運送標籤貼在箱子外面。" }
+        },
+        {
+          "w": "courier",
+          "pos": "n.",
+          "zh": "快遞員、快遞公司",
+          "ipa": "/ˈkʊriər/",
+          "example": { "en": "The courier will pick up the parcel at noon.", "zh": "快遞員中午會來取包裹。" }
+        },
+        {
+          "w": "postage",
+          "pos": "n.",
+          "zh": "郵資",
+          "ipa": "/ˈpoʊstɪdʒ/",
+          "example": { "en": "The postage for this parcel is about twelve dollars.", "zh": "這個包裹的郵資大約十二美元。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "包裹",
+          "en": "something packed to be sent by mail",
+          "in_passage": true,
+          "example": { "en": "A parcel arrived at the reception desk this morning.", "zh": "今天早上有一個包裹送到櫃檯。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "一塊土地",
+          "en": "a piece of land that is part of a larger area",
+          "distinguish": "後面接 of land 或出現 developer、property 時，指一塊土地，不是包裹。",
+          "example": { "en": "The developer bought a large parcel of land near the port.", "zh": "開發商買下港口附近一大塊土地。" }
+        }
+      ]
+    },
+    {
+      "text": "ideally",
+      "type": "word",
+      "ipa": "/aɪˈdiːəli/",
+      "pos": "adv.",
+      "zh": "理想上、最好是",
+      "en": "in the best situation; if everything can be as good as possible",
+      "note": "在這篇裡是客氣的建議，客服說 ideally use the original box，意思是「最好用原本的盒子，但不一定非得這樣」。語氣比 must 輕，比較有彈性。",
+      "grammar_note": "ideally 常放在句首（Ideally, we should ...）或要求的動詞前，表示最好這樣做、但不是硬性規定。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "ideally located",
+          "zh": "位置絕佳",
+          "example": { "en": "The hotel is ideally located next to the airport.", "zh": "這間飯店位置絕佳，就在機場旁邊。" }
+        },
+        {
+          "phrase": "ideally suited",
+          "zh": "非常適合",
+          "example": { "en": "She is ideally suited for the manager position.", "zh": "她非常適合擔任經理職務。" }
+        },
+        {
+          "phrase": "ideally placed",
+          "zh": "處於最有利的位置",
+          "example": { "en": "Our shop is ideally placed for office workers on a lunch break.", "zh": "我們的店位置理想，很適合午休的上班族。" }
+        }
+      ],
+      "examples": [
+        { "tag": "專案", "en": "Ideally, we should finish the report before the client visits.", "zh": "最理想的是，我們在客戶來訪前完成報告。" },
+        { "tag": "招募", "en": "Ideally, applicants should have two years of sales experience.", "zh": "最好是應徵者有兩年的業務經驗。" },
+        { "tag": "電子郵件", "en": "Please reply by noon, or ideally even sooner.", "zh": "請在中午前回覆，最好是更早。" }
+      ],
+      "confusable": [
+        {
+          "word": "ideal",
+          "diff": "ideal 是形容詞「理想的」，也可當名詞；ideally 是副詞，用來修飾動詞或整個句子。",
+          "usage": "ideal 修飾名詞（an ideal place），ideally 修飾動詞或整句（Ideally, we should ...）。",
+          "example": { "en": "The quiet room is ideal for private meetings.", "zh": "這間安靜的房間很適合開私人會議。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "preferably",
+          "diff": "preferably 強調個人偏好、比較想要；ideally 強調情況最理想時的做法。",
+          "example": { "en": "Please send two copies of the form, preferably in color.", "zh": "請寄兩份表格，最好是彩色的。" }
+        },
+        {
+          "phrase": "in an ideal world",
+          "diff": "意思接近，但 in an ideal world 暗示現實中很難做到，語氣更像在說遺憾。",
+          "example": { "en": "In an ideal world, every order would arrive on time.", "zh": "在理想的世界裡，每筆訂單都會準時送到。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "suitable",
+          "pos": "adj.",
+          "zh": "適合的",
+          "ipa": "/ˈsuːtəbəl/",
+          "example": { "en": "This room is suitable for a small meeting.", "zh": "這個房間適合開小型會議。" }
+        },
+        {
+          "w": "perfectly",
+          "pos": "adv.",
+          "zh": "完美地、完全地",
+          "ipa": "/ˈpɜːrfɪktli/",
+          "example": { "en": "The new system works perfectly after the update.", "zh": "更新之後，新系統運作得很完美。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "ideal",
+          "pos": "adj.",
+          "zh": "理想的",
+          "ipa": "/aɪˈdiːəl/",
+          "link": "最基礎的字。ideal + -ly，形容詞變副詞，像 quick → quickly"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adv.",
+          "zh": "最好是、理想上",
+          "en": "if possible; in the best way",
+          "in_passage": true,
+          "example": { "en": "Ideally, the sample should reach us before Friday.", "zh": "樣品最好在星期五前送到我們這裡。" }
+        },
+        {
+          "pos": "adv.",
+          "zh": "理想地、恰好地",
+          "en": "in a way that is perfect for something",
+          "distinguish": "後面接 located、suited、placed 等字時，指位置或條件剛好很理想。",
+          "example": { "en": "The office is ideally situated close to the subway station.", "zh": "這間辦公室位置理想，靠近地鐵站。" }
+        }
+      ]
+    },
+    {
+      "text": "noisy",
+      "type": "word",
+      "ipa": "/ˈnɔɪzi/",
+      "pos": "adj.",
+      "zh": "吵鬧的、嘈雜的、噪音大的",
+      "en": "making a lot of sound that is unpleasant",
+      "note": "在這篇裡是顧客抱怨果汁機變得 extremely noisy，也就是運轉聲音很大，是商品瑕疵的一個徵兆。多益常見於客訴、辦公環境與旅館情境。",
+      "forms": [
+        {
+          "w": "noisier",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更吵的",
+          "ipa": "/ˈnɔɪziər/",
+          "example": { "en": "The new fan is noisier than the old one.", "zh": "新的風扇比舊的更吵。" }
+        },
+        {
+          "w": "noisiest",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最吵的",
+          "ipa": "/ˈnɔɪziɪst/",
+          "example": { "en": "This is the noisiest machine on our whole production line.", "zh": "這是我們整條生產線上最吵的機器。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "noisy machine",
+          "zh": "噪音大的機器",
+          "example": { "en": "A noisy machine in the workshop is disturbing everyone nearby.", "zh": "工作間裡一台噪音很大的機器正在打擾附近的每個人。" }
+        },
+        {
+          "phrase": "noisy environment",
+          "zh": "嘈雜的環境",
+          "example": { "en": "It is hard to focus in a noisy environment.", "zh": "在嘈雜的環境裡很難專心。" }
+        },
+        {
+          "phrase": "noisy neighborhood",
+          "zh": "吵鬧的社區",
+          "example": { "en": "The apartment is in a noisy neighborhood near the station.", "zh": "這間公寓位在車站附近一個吵鬧的社區。" }
+        },
+        {
+          "phrase": "noisy open office",
+          "zh": "吵鬧的開放式辦公室",
+          "example": { "en": "A noisy open office can lower staff productivity and focus.", "zh": "吵鬧的開放式辦公室可能降低員工的效率和專注力。" }
+        }
+      ],
+      "examples": [
+        { "tag": "客服", "en": "The air conditioner became noisy after only one month of use.", "zh": "冷氣只用了一個月就變得很吵。" },
+        { "tag": "辦公室", "en": "The office is too noisy for phone calls, so I work at home.", "zh": "辦公室吵到不能講電話，所以我在家工作。" },
+        { "tag": "旅遊", "en": "My hotel room was noisy because it faced a busy street.", "zh": "我的飯店房間很吵，因為面對繁忙的街道。" }
+      ],
+      "confusable": [
+        {
+          "word": "nosy",
+          "diff": "nosy 是「愛打聽、好管閒事的」，拼法和 noisy 只差一個字母，但意思完全不同。",
+          "example": { "en": "My nosy coworker keeps asking about my salary.", "zh": "我那位愛打聽的同事一直問我的薪水。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "loud",
+          "diff": "loud 強調音量大，不一定令人不悅；noisy 強調吵雜、令人煩。",
+          "example": { "en": "The music was too loud for a quiet business dinner.", "zh": "這音樂對安靜的商務晚餐來說太大聲了。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "quiet",
+          "pos": "adj.",
+          "zh": "安靜的",
+          "ipa": "/ˈkwaɪət/",
+          "example": { "en": "The quiet room is perfect for reading reports.", "zh": "這間安靜的房間很適合讀報告。" }
+        },
+        {
+          "w": "disturb",
+          "pos": "v.",
+          "zh": "打擾",
+          "ipa": "/dɪˈstɜːrb/",
+          "example": { "en": "Please do not disturb guests who are sleeping.", "zh": "請不要打擾正在睡覺的客人。" }
+        },
+        {
+          "w": "complaint",
+          "pos": "n.",
+          "zh": "抱怨、客訴",
+          "ipa": "/kəmˈpleɪnt/",
+          "example": { "en": "We received three complaints about the noise last week.", "zh": "我們上星期收到三件關於噪音的客訴。" }
+        },
+        {
+          "w": "volume",
+          "pos": "n.",
+          "zh": "音量",
+          "ipa": "/ˈvɑːljuːm/",
+          "example": { "en": "Please turn down the volume during the video meeting.", "zh": "視訊會議期間請把音量調小。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "noise",
+          "pos": "n.",
+          "zh": "噪音、聲音",
+          "ipa": "/nɔɪz/",
+          "link": "最基礎的字。noisy = noise 去掉 e 加 -y，變成形容詞，像 sun → sunny"
+        },
+        {
+          "w": "noisily",
+          "pos": "adv.",
+          "zh": "吵鬧地",
+          "ipa": "/ˈnɔɪzɪli/",
+          "link": "noisy 的 -y 換成 -ily，形容詞變副詞，像 easy → easily"
+        },
+        {
+          "w": "noiseless",
+          "pos": "adj.",
+          "zh": "無聲的",
+          "ipa": "/ˈnɔɪzləs/",
+          "link": "noise + -less（沒有），沒有聲音的，像 useless、homeless"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

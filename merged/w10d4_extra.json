@@ -1,0 +1,170 @@
+{
+  "week": 10,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "habitual",
+      "type": "word",
+      "ipa": "/həˈbɪtʃuəl/",
+      "pos": "adj.",
+      "zh": "習慣性的、慣常的",
+      "en": "done often or regularly, as a habit",
+      "note": "文中 Marcus 指出多位客戶提到 Delta 的 habitual delays，意思是延誤不是偶爾發生，而是常態。這個字語氣偏負面，常用來形容讓人困擾的重複行為。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "habitual delays", "zh": "習慣性延誤", "example": { "en": "Habitual delays at the port have raised our shipping costs.", "zh": "港口習慣性的延誤提高了我們的運費。" } },
+        { "phrase": "habitual behavior", "zh": "習慣性行為", "example": { "en": "Changing habitual behavior takes time and strong support from managers.", "zh": "改變習慣性行為需要時間，也需要主管的有力支持。" } },
+        { "phrase": "habitual customer", "zh": "常客", "example": { "en": "Habitual customers receive a discount card after ten visits.", "zh": "常客在來店十次後會拿到折扣卡。" } }
+      ],
+      "examples": [
+        { "tag": "供應商", "en": "The supplier's habitual lateness has cost us several large orders.", "zh": "這家供應商習慣性的遲交讓我們損失了幾筆大訂單。" },
+        { "tag": "人資", "en": "His habitual absence from team meetings worries the manager.", "zh": "他經常缺席團隊會議，讓經理很擔心。" },
+        { "tag": "客服", "en": "Habitual complaints from one customer slowed down our support team.", "zh": "同一位顧客一再的抱怨拖慢了我們的客服團隊。" },
+        { "tag": "工作習慣", "en": "She has a habitual way of checking every figure twice.", "zh": "她有把每個數字都檢查兩次的習慣。" }
+      ],
+      "confusable": [
+        { "word": "habitable", "diff": "拼法相近，habitable 是「適合居住的」，和習慣無關。", "example": { "en": "The old building is no longer habitable, so we moved.", "zh": "那棟舊大樓已經不適合居住，所以我們搬走了。" } }
+      ],
+      "similar": [
+        { "word": "chronic", "diff": "chronic 強調長期存在、難以解決；habitual 強調一再發生，像是習慣。", "example": { "en": "The firm has a chronic problem with late shipments.", "zh": "這家公司長期有出貨延遲的問題。" } },
+        { "word": "repeated", "diff": "repeated 只說明發生過很多次；habitual 帶有「已成慣例」的意味。", "example": { "en": "Repeated delays upset several of our clients last month.", "zh": "上個月一再的延誤讓好幾位客戶不高興。" } }
+      ],
+      "family": [
+        { "w": "routine", "pos": "n.", "zh": "例行公事", "ipa": "/ruːˈtiːn/", "example": { "en": "Checking the inbox is part of my morning routine.", "zh": "查看收件匣是我早上例行工作的一部分。" } },
+        { "w": "usual", "pos": "adj.", "zh": "平常的", "ipa": "/ˈjuːʒuəl/", "example": { "en": "The usual delivery time is three business days.", "zh": "平常的送貨時間是三個工作天。" } },
+        { "w": "frequent", "pos": "adj.", "zh": "頻繁的", "ipa": "/ˈfriːkwənt/", "example": { "en": "Frequent changes to the plan confused the whole team.", "zh": "計畫的頻繁更動讓整個團隊感到困惑。" } }
+      ],
+      "derived": [
+        { "w": "habit", "pos": "n.", "zh": "習慣", "ipa": "/ˈhæbɪt/", "link": "habit 是基礎字；habit + -ual，變成形容詞「習慣性的」，像 casual、usual" },
+        { "w": "habitually", "pos": "adv.", "zh": "習慣性地", "ipa": "/həˈbɪtʃuəli/", "link": "habitual + -ly，變成副詞，像 usually、casually" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "recur",
+      "type": "word",
+      "ipa": "/rɪˈkɜːr/",
+      "pos": "v.",
+      "zh": "再度發生、反覆出現",
+      "en": "to happen again",
+      "note": "文中 Marcus 擔心若延誤問題在旺季再度發生，生產線可能停擺。recur 常用於問題、錯誤、症狀等不好的事重複出現，語氣正式。",
+      "grammar_note": "recur 是不及物動詞，主詞是問題或錯誤，後面不接受詞；過去式與現在分詞要重複 r：recurred、recurring。",
+      "forms": [
+        { "w": "recurs", "label": "第三人稱單數", "pos": "v.", "zh": "再度發生", "ipa": "/rɪˈkɜːrz/", "example": { "en": "The error recurs whenever the system is updated overnight.", "zh": "每次系統在夜間更新，這個錯誤就會再次出現。" } },
+        { "w": "recurred", "label": "過去式／過去分詞", "pos": "v.", "zh": "再度發生（過去）", "ipa": "/rɪˈkɜːrd/", "example": { "en": "The same problem recurred twice during the last quarter.", "zh": "同樣的問題在上一季又發生了兩次。" } },
+        { "w": "recurring", "label": "現在分詞", "pos": "v.", "zh": "正在反覆發生", "ipa": "/rɪˈkɜːrɪŋ/", "example": { "en": "Problems have been recurring since we changed the software.", "zh": "自從我們換了軟體，問題就一直反覆出現。" } },
+        { "w": "recurring", "label": "形容詞", "pos": "adj.", "zh": "反覆出現的、定期的", "ipa": "/rɪˈkɜːrɪŋ/", "example": { "en": "Recurring costs such as rent are listed in the budget.", "zh": "租金等定期支出已列在預算中。" } }
+      ],
+      "collocations": [
+        { "phrase": "if the problem recurs", "zh": "如果問題再次發生", "example": { "en": "If the problem recurs, please contact our support team.", "zh": "如果問題再次發生，請聯絡我們的客服團隊。" } },
+        { "phrase": "recurring problem", "zh": "反覆出現的問題", "example": { "en": "The recurring problem with the printer wastes everyone's time.", "zh": "印表機反覆出現的問題浪費了大家的時間。" } },
+        { "phrase": "recurring payment", "zh": "定期扣款", "example": { "en": "Please cancel the recurring payment on my account.", "zh": "請取消我帳戶上的定期扣款。" } }
+      ],
+      "examples": [
+        { "tag": "品質", "en": "Quality managers study why defects recur on the same line.", "zh": "品管經理研究為什麼瑕疵會在同一條產線反覆出現。" },
+        { "tag": "軟體", "en": "The bug recurs after every update, so we need a permanent fix.", "zh": "這個程式錯誤在每次更新後都會再出現，所以我們需要永久的修正。" },
+        { "tag": "財務", "en": "Some costs recur each year, so include them in the budget.", "zh": "有些成本每年都會發生，所以要把它們列入預算。" }
+      ],
+      "confusable": [
+        { "word": "occur", "diff": "occur 是「發生」（一次）；recur 是 re-（再次）+ occur，指再度發生。", "example": { "en": "A delay may occur if the truck leaves late.", "zh": "如果卡車晚出發，可能會發生延誤。" } }
+      ],
+      "similar": [
+        { "word": "reoccur", "diff": "意思相同，reoccur 較少見；商務書面中 recur 更常用。", "example": { "en": "We will review the process if the fault reoccurs next month.", "zh": "如果下個月故障再度發生，我們會檢討這個流程。" } },
+        { "phrase": "happen again", "diff": "意思相同，但 happen again 較口語；recur 較正式。", "example": { "en": "I hope this mistake will not happen again next quarter.", "zh": "我希望這個錯誤下一季不會再發生。" } }
+      ],
+      "family": [
+        { "w": "occur", "pos": "v.", "zh": "發生", "ipa": "/əˈkɜːr/", "example": { "en": "The accident occurred just before the morning shift began.", "zh": "意外就發生在早班開始前。" } },
+        { "w": "repeat", "pos": "v.", "zh": "重複", "ipa": "/rɪˈpiːt/", "example": { "en": "Please repeat the order number so I can write it down.", "zh": "請重複一次訂單編號，我好寫下來。" } },
+        { "w": "persist", "pos": "v.", "zh": "持續存在", "ipa": "/pɚˈsɪst/", "example": { "en": "If the noise persists, call the maintenance office.", "zh": "如果噪音持續，請打給維修辦公室。" } }
+      ],
+      "derived": [
+        { "w": "recurrence", "pos": "n.", "zh": "再度發生", "ipa": "/rɪˈkɜːrəns/", "link": "recur + -ence，動詞變名詞，像 occur → occurrence" },
+        { "w": "recurrent", "pos": "adj.", "zh": "反覆發生的", "ipa": "/rɪˈkɜːrənt/", "link": "recur + -ent，變成形容詞，像 current、different" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "internationally",
+      "type": "word",
+      "ipa": "/ˌɪntɚˈnæʃənəli/",
+      "pos": "adv.",
+      "zh": "在國際上、跨國地",
+      "en": "in many countries, not only in one country",
+      "note": "文中指 Norwood 可以出貨到國外，所以有助於新的歐洲工廠。ship internationally 是物流與採購中很常見的說法，表示跨國運送。",
+      "grammar_note": "internationally 是副詞，用來修飾動詞或過去分詞（ship internationally、internationally known）；放在名詞前要用形容詞 international。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "ship internationally", "zh": "出貨到國外", "example": { "en": "Can your store ship internationally, or only within the country?", "zh": "你們的店可以出貨到國外，還是只限國內？" } },
+        { "phrase": "operate internationally", "zh": "跨國經營", "example": { "en": "Companies that operate internationally must follow many different laws.", "zh": "跨國經營的公司必須遵守許多不同的法律。" } },
+        { "phrase": "internationally recognized", "zh": "國際認可的", "example": { "en": "She is an internationally recognized expert in supply chain management.", "zh": "她是供應鏈管理領域受國際認可的專家。" } }
+      ],
+      "examples": [
+        { "tag": "物流", "en": "We now deliver our products internationally within five business days.", "zh": "我們現在能在五個工作天內把產品送到國外。" },
+        { "tag": "公司", "en": "The brand has grown internationally over the past ten years.", "zh": "這個品牌在過去十年中在國際上不斷成長。" },
+        { "tag": "認證", "en": "This certificate is accepted internationally by most employers.", "zh": "這張證書在國際上被大多數雇主接受。" }
+      ],
+      "confusable": [
+        { "word": "nationally", "diff": "nationally 是「在全國範圍內」；internationally 是「跨越國界」。", "example": { "en": "The campaign was broadcast nationally on all major channels.", "zh": "這場宣傳活動在所有主要頻道向全國播出。" } }
+      ],
+      "similar": [
+        { "word": "overseas", "diff": "overseas 強調「海外、越過海洋」；internationally 強調「跨越國界」。", "example": { "en": "We sell our goods overseas through local partners.", "zh": "我們透過當地夥伴在海外銷售商品。" } },
+        { "word": "globally", "diff": "globally 指「全球範圍」；internationally 指多個國家之間。", "example": { "en": "The firm is expanding globally with offices on five continents.", "zh": "這家公司正在全球擴張，在五大洲設有辦公室。" } }
+      ],
+      "family": [
+        { "w": "global", "pos": "adj.", "zh": "全球的", "ipa": "/ˈɡloʊbəl/", "example": { "en": "The global market for packaging is growing quickly.", "zh": "全球的包裝市場正在快速成長。" } },
+        { "w": "export", "pos": "n.", "zh": "出口", "ipa": "/ˈekspɔːrt/", "example": { "en": "Exports to Europe increased by twelve percent this year.", "zh": "今年對歐洲的出口成長了百分之十二。" } },
+        { "w": "shipment", "pos": "n.", "zh": "出貨、貨物", "ipa": "/ˈʃɪpmənt/", "example": { "en": "The shipment will arrive at the plant on Tuesday.", "zh": "這批貨會在星期二抵達工廠。" } }
+      ],
+      "derived": [
+        { "w": "nation", "pos": "n.", "zh": "國家", "ipa": "/ˈneɪʃən/", "link": "nation 是基礎字，表示國家" },
+        { "w": "national", "pos": "adj.", "zh": "全國的、國家的", "ipa": "/ˈnæʃənəl/", "link": "nation + -al，變成形容詞「國家的」，像 final、personal" },
+        { "w": "international", "pos": "adj.", "zh": "國際的", "ipa": "/ˌɪntɚˈnæʃənəl/", "link": "inter-（之間）+ national，國與國之間的，像 internet" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "invaluable",
+      "type": "word",
+      "ipa": "/ɪnˈvæljəbəl/",
+      "pos": "adj.",
+      "zh": "極有價值的、無價的",
+      "en": "so useful or important that you cannot measure its value",
+      "note": "文中 Marcus 聽到 Norwood 有推薦信和相關實務經驗後說 That is invaluable，意思是這對評選非常重要、很有幫助。語氣是強烈的肯定。",
+      "grammar_note": "invaluable 的 in- 不是否定，不是「沒有價值」；它本身已是最高程度，通常不再加 very。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "invaluable experience", "zh": "寶貴的經驗", "example": { "en": "Working abroad gave her invaluable experience in international sales.", "zh": "在國外工作讓她累積了國際銷售的寶貴經驗。" } },
+        { "phrase": "invaluable asset", "zh": "無價的資產", "example": { "en": "A loyal customer base is an invaluable asset for any shop.", "zh": "忠實的顧客群對任何商店都是無價的資產。" } },
+        { "phrase": "invaluable resource", "zh": "極有價值的資源", "example": { "en": "The company library is an invaluable resource for new employees.", "zh": "公司圖書室對新進員工是極有價值的資源。" } }
+      ],
+      "examples": [
+        { "tag": "人事", "en": "Her ten years in logistics make her invaluable to our team.", "zh": "她在物流業的十年經驗讓她對我們團隊極為重要。" },
+        { "tag": "產品開發", "en": "The customer feedback was invaluable when we redesigned the package.", "zh": "我們重新設計包裝時，顧客的意見非常寶貴。" },
+        { "tag": "稽核", "en": "Your advice during the audit was invaluable to us.", "zh": "你在稽核期間的建議對我們非常有幫助。" },
+        { "tag": "實習", "en": "The internship gave him invaluable training in sales.", "zh": "這次實習讓他得到了寶貴的業務訓練。" }
+      ],
+      "confusable": [
+        { "word": "valuable", "diff": "valuable 是「有價值的」；invaluable 是價值高到難以衡量，語氣更強。", "usage": "兩個字意思都正面，invaluable 不是 valuable 的反義字。", "example": { "en": "These documents are valuable, so please keep them in the safe.", "zh": "這些文件很有價值，所以請放在保險箱裡。" } },
+        { "word": "worthless", "diff": "worthless 才是「沒有價值的」；invaluable 看起來像否定，但意思相反。", "example": { "en": "The old equipment is worthless and should be thrown away.", "zh": "舊設備已經沒有價值，應該丟掉。" } }
+      ],
+      "similar": [
+        { "word": "priceless", "diff": "priceless 常指無法用錢買到、無可取代的東西；invaluable 常指非常有用。", "example": { "en": "The founder's old notes are priceless to our history archive.", "zh": "創辦人的舊筆記對我們的歷史檔案館是無價之寶。" } },
+        { "phrase": "extremely useful", "diff": "意思接近，但語氣較口語、較不強烈。", "example": { "en": "The new software is extremely useful for tracking orders.", "zh": "這套新軟體對追蹤訂單極為有用。" } }
+      ],
+      "family": [
+        { "w": "essential", "pos": "adj.", "zh": "不可或缺的", "ipa": "/ɪˈsenʃəl/", "example": { "en": "Clear labels are essential for safe shipping.", "zh": "清楚的標籤對安全運送是不可或缺的。" } },
+        { "w": "asset", "pos": "n.", "zh": "資產、有價值的人或物", "ipa": "/ˈæset/", "example": { "en": "Experienced staff are our biggest asset.", "zh": "有經驗的員工是我們最大的資產。" } },
+        { "w": "resource", "pos": "n.", "zh": "資源", "ipa": "/ˈriːsɔːrs/", "example": { "en": "Our online guide is a helpful resource for beginners.", "zh": "我們的線上指南對初學者是很有幫助的資源。" } }
+      ],
+      "derived": [
+        { "w": "value", "pos": "n.", "zh": "價值", "ipa": "/ˈvæljuː/", "link": "value 是基礎字，表示價值" },
+        { "w": "valuable", "pos": "adj.", "zh": "有價值的", "ipa": "/ˈvæljuəbəl/", "link": "value + -able，值得的，像 comfortable；加上 in- 表示強調，變成 invaluable" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

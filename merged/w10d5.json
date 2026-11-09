@@ -1,0 +1,132 @@
+{
+ "week": 10,
+ "day": 5,
+ "tag": "電器瑕疵退換貨客服通話",
+ "subtopic": "客訴與退換貨",
+ "type": "Listening",
+ "level": {
+  "score": 750,
+  "range": "700-800",
+  "cefr": "B2",
+  "why": "對話含讓步與條件子句、被動語態與政策說明，需整合顧客要求、退款限制、替代方案與後續處理；字彙為客服與退換貨常用詞，干擾項取自文中相近的處理方式。"
+ },
+ "passage": "Agent: Thank you for calling Brightway Home. How can I help you?\nCustomer: I bought a blender two weeks ago, and it has become extremely noisy. I would like a refund.\nAgent: I am sorry to hear that. Our policy bans refunds on used appliances, but we have an obligation to replace any defective item. Unfortunately, that model has been discontinued, so I can offer you a newer one.\nCustomer: That is fine. How do I send the old one back?\nAgent: We will email you a prepaid label. Please pack the blender in a parcel, and ideally use the original box. If the new blender does not arrive within a week, a customer service executive will contact you.\nCustomer: Thank you very much.",
+ "zh": "客服人員：感謝您來電布萊特威家居。請問有什麼能為您服務的嗎？\n顧客：我兩週前買了一台果汁機，現在變得非常吵。我想要退款。\n客服人員：很抱歉聽到這件事。我們的政策禁止已使用過的電器退款，但我們有義務更換任何有瑕疵的商品。遺憾的是，那個型號已經停產，所以我可以提供您一台較新的型號。\n顧客：可以。那我該怎麼把舊的寄回去？\n客服人員：我們會用電子郵件寄給您一張預付運費標籤。請把果汁機裝進包裹，最好使用原本的盒子。如果新的果汁機一週內沒有送達，會有一位客服主管與您聯絡。\n顧客：非常謝謝你。",
+ "vocab": [
+  {
+   "word": "discontinue",
+   "ipa": "/ˌdɪskənˈtɪnju/",
+   "pos": "v.",
+   "col": "discontinue a product / discontinue a service",
+   "zh": "停產；中止"
+  },
+  {
+   "word": "parcel",
+   "ipa": "/ˈpɑrsl/",
+   "pos": "n.",
+   "col": "send a parcel / parcel delivery",
+   "zh": "包裹"
+  },
+  {
+   "word": "ideally",
+   "ipa": "/aɪˈdiəli/",
+   "pos": "adv.",
+   "col": "ideally suited / ideally located",
+   "zh": "理想上；最好是"
+  },
+  {
+   "word": "noisy",
+   "ipa": "/ˈnɔɪzi/",
+   "pos": "adj.",
+   "col": "noisy machine / noisy environment",
+   "zh": "吵鬧的；嘈雜的"
+  }
+ ],
+ "questions": [
+  {
+   "kind": "context",
+   "q": "What does the customer originally ask for?",
+   "opts": [
+    "A replacement blender",
+    "A refund",
+    "A repair appointment",
+    "A discount on a new model"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：更換是客服人員提出的方案。",
+    "正解：顧客一開始要求的是退款。",
+    "錯誤：顧客並未提到要預約維修。",
+    "錯誤：顧客並未要求折扣。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "Why can the agent not send the same model?",
+   "opts": [
+    "It is out of stock",
+    "It is banned in the customer's area",
+    "It has a higher price",
+    "It has been discontinued"
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：文中並未說缺貨。",
+    "錯誤：被禁止的是已使用電器的退款，並非該型號。",
+    "錯誤：文中沒有提到價格差異。",
+    "正解：該型號已經停產，所以只能提供較新的型號。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What will happen if the new blender does not arrive within a week?",
+   "opts": [
+    "A customer service executive will contact the customer",
+    "The customer will receive a full refund",
+    "The agent will send another parcel",
+    "The customer must call the store again"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：若一週內沒送達，會有客服主管與顧客聯絡。",
+    "錯誤：退款已因政策被排除。",
+    "錯誤：文中沒有提到再寄一次包裹。",
+    "錯誤：是由客服主管主動聯絡，不需顧客再來電。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Items damaged during shipping will be replaced ______ no extra cost to the customer.",
+   "opts": [
+    "for",
+    "in",
+    "at",
+    "by"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：for no extra cost 不是固定搭配。",
+    "錯誤：in no extra cost 不是固定搭配。",
+    "正解：at no extra cost 為固定搭配，表示「不另收費」。",
+    "錯誤：by no extra cost 不是固定搭配。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Please keep your receipt, ______ you will not be able to return the product.",
+   "opts": [
+    "therefore",
+    "otherwise",
+    "moreover",
+    "meanwhile"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：therefore 表示因此，語意不符。",
+    "正解：otherwise 表示「否則」，符合語意。",
+    "錯誤：moreover 表示此外，語意不符。",
+    "錯誤：meanwhile 表示同時，語意不符。"
+   ]
+  }
+ ]
+}

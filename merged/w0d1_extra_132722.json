@@ -1,0 +1,340 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "calculation",
+      "type": "word",
+      "ipa": "/ˌkælkjəˈleɪʃən/",
+      "pos": "n.",
+      "zh": "計算、估算",
+      "en": "the act of finding an answer by using numbers",
+      "note": "多益常見於財務、預算、採購與工程情境，指算出數字的過程或結果。常說 make a calculation、check the calculation。",
+      "forms": [
+        { "w": "calculations", "label": "複數", "pos": "n.", "zh": "計算（複數）", "ipa": "/ˌkælkjəˈleɪʃənz/", "example": { "en": "Her calculations were checked by two different managers.", "zh": "她的計算由兩位不同的經理檢查過。" } }
+      ],
+      "collocations": [
+        { "phrase": "make a calculation", "zh": "進行計算", "example": { "en": "Please make a calculation of the total shipping cost first.", "zh": "請先算出總運費。" } },
+        { "phrase": "rough calculation", "zh": "粗略估算", "example": { "en": "A rough calculation suggests profits will rise by ten percent.", "zh": "粗略估算顯示利潤將成長百分之十。" } },
+        { "phrase": "calculation error", "zh": "計算錯誤", "example": { "en": "A calculation error caused the invoice to show the wrong total.", "zh": "一個計算錯誤使發票上的總額不正確。" } }
+      ],
+      "examples": [
+        { "tag": "財務", "en": "The accountant checked each calculation before sending the report.", "zh": "會計在寄出報告前檢查了每一筆計算。" },
+        { "tag": "預算", "en": "Our calculation shows that we need three more workers.", "zh": "我們的計算顯示還需要三名員工。" },
+        { "tag": "採購", "en": "According to my calculations, the order will cost under five thousand dollars.", "zh": "依我的計算，這筆訂單的費用不到五千美元。" }
+      ],
+      "similar": [
+        { "word": "estimate", "diff": "estimate 是大約的估計或估價；calculation 強調用數字算出來的過程。", "example": { "en": "Please send me an estimate for the repair work.", "zh": "請寄一份維修工程的估價單給我。" } }
+      ],
+      "family": [
+        { "w": "total", "pos": "n.", "zh": "總數、總額", "ipa": "/ˈtoʊtl/", "example": { "en": "The total on the bill was higher than expected.", "zh": "帳單上的總額比預期的高。" } },
+        { "w": "figure", "pos": "n.", "zh": "數字、數據", "ipa": "/ˈfɪɡjɚ/", "example": { "en": "The sales figure for May is better than last year.", "zh": "五月的銷售數字比去年好。" } },
+        { "w": "formula", "pos": "n.", "zh": "公式", "ipa": "/ˈfɔːrmjələ/", "example": { "en": "Use this formula to find the monthly cost.", "zh": "用這個公式算出每月的費用。" } }
+      ],
+      "derived": [
+        { "w": "calculate", "pos": "v.", "zh": "計算", "ipa": "/ˈkælkjəleɪt/", "link": "calculate 是基礎字；calculate + -ion，動詞變名詞，像 educate → education" },
+        { "w": "calculator", "pos": "n.", "zh": "計算機", "ipa": "/ˈkælkjəleɪtɚ/", "link": "calculate + -or，做計算的東西，像 actor、visitor" },
+        { "w": "miscalculation", "pos": "n.", "zh": "計算錯誤、判斷失誤", "ipa": "/ˌmɪskælkjəˈleɪʃən/", "link": "mis-（錯）+ calculation，算錯，像 misunderstand" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "計算（過程或結果）", "en": "the work of finding an answer with numbers", "example": { "en": "The calculation took only a few minutes with the new software.", "zh": "用新軟體計算只花了幾分鐘。" } },
+        { "pos": "n.", "zh": "盤算、評估", "en": "careful thinking about what will probably happen", "distinguish": "後面接 risk、cost 或出現 careful 時，指謹慎評估，不一定是數字計算。", "example": { "en": "After careful calculation, we chose the cheaper supplier.", "zh": "經過仔細盤算後，我們選了比較便宜的供應商。" } }
+      ]
+    },
+    {
+      "text": "clarify",
+      "type": "word",
+      "ipa": "/ˈklerəfaɪ/",
+      "pos": "v.",
+      "zh": "澄清、說明清楚",
+      "en": "to make something easier to understand",
+      "note": "多益常見於會議、電子郵件與客服對話，用來請對方把模糊的部分說清楚，或自己補充說明。語氣客氣、正式。",
+      "grammar_note": "clarify 是及物動詞，直接接受詞：clarify the policy，不加 about；也可接 what 等子句。",
+      "forms": [
+        { "w": "clarifies", "label": "第三人稱單數", "pos": "v.", "zh": "澄清", "ipa": "/ˈklerəfaɪz/", "example": { "en": "This table clarifies how bonuses are calculated each quarter.", "zh": "這張表說明了每季獎金是怎麼計算的。" } },
+        { "w": "clarified", "label": "過去式／過去分詞", "pos": "v.", "zh": "澄清（過去）", "ipa": "/ˈklerəfaɪd/", "example": { "en": "She clarified the schedule and everyone understood the plan.", "zh": "她說明清楚了時程，大家都了解這項計畫。" } },
+        { "w": "clarifying", "label": "現在分詞", "pos": "v.", "zh": "正在澄清", "ipa": "/ˈklerəfaɪɪŋ/", "example": { "en": "He spent the morning clarifying the contract terms with the lawyer.", "zh": "他一早上都在和律師釐清合約條款。" } }
+      ],
+      "collocations": [
+        { "phrase": "clarify a point", "zh": "釐清一點", "example": { "en": "Let me clarify one point before we move on.", "zh": "在我們繼續之前，讓我釐清一點。" } },
+        { "phrase": "clarify the details", "zh": "釐清細節", "example": { "en": "Please call the supplier to clarify the details of the delivery.", "zh": "請打電話給供應商，釐清送貨的細節。" } },
+        { "phrase": "clarify the situation", "zh": "說明情況", "example": { "en": "The manager spoke to staff to clarify the situation.", "zh": "經理向員工說明了情況。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Could you clarify what you mean by a flexible deadline?", "zh": "你可以說明一下你所謂彈性截止日是什麼意思嗎？" },
+        { "tag": "電子郵件", "en": "I am writing to clarify the terms of our agreement.", "zh": "我寫這封信是想釐清我們協議的條款。" },
+        { "tag": "公告", "en": "The company issued a statement to clarify its new rules.", "zh": "公司發出聲明來說明新的規定。" }
+      ],
+      "confusable": [
+        { "word": "classify", "diff": "拼法相近，classify 是「分類」，不是「說明清楚」。", "example": { "en": "We classify all documents by department and date.", "zh": "我們依部門與日期把所有文件分類。" } }
+      ],
+      "similar": [
+        { "word": "explain", "diff": "explain 是一般的說明；clarify 針對模糊、有疑問的部分補充說清楚。", "example": { "en": "Please explain how the new system works.", "zh": "請說明這套新系統怎麼運作。" } },
+        { "phrase": "make clear", "diff": "make clear 較口語，後面常接 that 子句，強調讓對方確定明白。", "example": { "en": "Let me make clear that the offer ends on Friday.", "zh": "讓我說清楚，這項優惠星期五截止。" } }
+      ],
+      "family": [
+        { "w": "confirm", "pos": "v.", "zh": "確認", "ipa": "/kənˈfɜːrm/", "example": { "en": "Please confirm the meeting time by email.", "zh": "請用電子郵件確認會議時間。" } },
+        { "w": "explain", "pos": "v.", "zh": "說明、解釋", "ipa": "/ɪkˈspleɪn/", "example": { "en": "The guide explains each step in simple words.", "zh": "這份指南用簡單的文字說明每個步驟。" } },
+        { "w": "specify", "pos": "v.", "zh": "明確指出", "ipa": "/ˈspesɪfaɪ/", "example": { "en": "Please specify the size and color you need.", "zh": "請明確指出你需要的尺寸和顏色。" } }
+      ],
+      "derived": [
+        { "w": "clarification", "pos": "n.", "zh": "澄清、說明", "ipa": "/ˌklerəfəˈkeɪʃən/", "link": "clarify + -cation，動詞變名詞，像 identify → identification" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "cooperate",
+      "type": "word",
+      "ipa": "/koʊˈɑːpəreɪt/",
+      "pos": "v.",
+      "zh": "合作、配合",
+      "en": "to work together with other people to reach the same goal",
+      "note": "多益常見於部門合作、配合調查或稽核，以及與廠商的合作關係。cooperate with + 人或單位 是最常見的用法。",
+      "grammar_note": "cooperate 是不及物動詞，後面接 with + 人／單位，不能直接接受詞；也可寫成 co-operate。",
+      "forms": [
+        { "w": "cooperates", "label": "第三人稱單數", "pos": "v.", "zh": "合作", "ipa": "/koʊˈɑːpəreɪts/", "example": { "en": "Our supplier always cooperates when we change the delivery date.", "zh": "我們更改交貨日期時，供應商總是配合。" } },
+        { "w": "cooperated", "label": "過去式／過去分詞", "pos": "v.", "zh": "合作（過去）", "ipa": "/koʊˈɑːpəreɪtɪd/", "example": { "en": "Both departments cooperated to finish the report ahead of schedule.", "zh": "兩個部門合作，提前完成了報告。" } },
+        { "w": "cooperating", "label": "現在分詞", "pos": "v.", "zh": "正在合作", "ipa": "/koʊˈɑːpəreɪtɪŋ/", "example": { "en": "Thank you for cooperating with us during the busy season.", "zh": "謝謝您在旺季期間配合我們。" } }
+      ],
+      "collocations": [
+        { "phrase": "cooperate with", "zh": "與…合作", "example": { "en": "We are happy to cooperate with local schools on this project.", "zh": "我們很樂意在這個專案上與當地學校合作。" } },
+        { "phrase": "cooperate fully", "zh": "全力配合", "example": { "en": "The company promised to cooperate fully with the audit team.", "zh": "公司承諾全力配合稽核小組。" } },
+        { "phrase": "cooperate closely", "zh": "密切合作", "example": { "en": "Marketing and sales cooperate closely to plan each campaign.", "zh": "行銷與業務部門密切合作來規劃每次活動。" } }
+      ],
+      "examples": [
+        { "tag": "部門", "en": "Sales and design teams must cooperate to meet the deadline.", "zh": "業務與設計團隊必須合作才能趕上截止日。" },
+        { "tag": "調查", "en": "All staff are asked to cooperate during the safety inspection.", "zh": "安全檢查期間，所有員工都須配合。" },
+        { "tag": "合作案", "en": "The two firms agreed to cooperate on a new product.", "zh": "這兩家公司同意合作開發新產品。" }
+      ],
+      "confusable": [
+        { "word": "operate", "diff": "operate 是「操作、營運」；cooperate 多了 co-（一起），是「合作」。", "example": { "en": "Our team will operate the new machine next week.", "zh": "我們的團隊下週會操作新機器。" } },
+        { "word": "corporate", "diff": "拼法相近，corporate 是形容詞，意思是「公司的」。", "example": { "en": "The corporate office is moving to a new building.", "zh": "公司總部要搬到新大樓。" } }
+      ],
+      "similar": [
+        { "word": "collaborate", "diff": "collaborate 更強調一起創作、共同完成成果；cooperate 偏重配合與協力。", "example": { "en": "The two designers collaborate on every new package.", "zh": "這兩位設計師合作設計每一款新包裝。" } },
+        { "phrase": "work together", "diff": "意思相同，work together 較口語，cooperate 較正式。", "example": { "en": "We need to work together to solve this problem.", "zh": "我們需要一起合作解決這個問題。" } }
+      ],
+      "family": [
+        { "w": "teamwork", "pos": "n.", "zh": "團隊合作", "ipa": "/ˈtiːmwɜːrk/", "example": { "en": "Good teamwork helped us finish the project early.", "zh": "良好的團隊合作幫助我們提早完成專案。" } },
+        { "w": "partner", "pos": "n.", "zh": "夥伴、合作對象", "ipa": "/ˈpɑːrtnɚ/", "example": { "en": "Our partner in Japan will visit next month.", "zh": "我們在日本的合作夥伴下個月會來拜訪。" } },
+        { "w": "assist", "pos": "v.", "zh": "協助", "ipa": "/əˈsɪst/", "example": { "en": "Two staff members will assist you at the front desk.", "zh": "兩位員工會在櫃台協助您。" } }
+      ],
+      "derived": [
+        { "w": "cooperation", "pos": "n.", "zh": "合作、配合", "ipa": "/koʊˌɑːpəˈreɪʃən/", "link": "cooperate + -ion，動詞變名詞，像 educate → education" },
+        { "w": "cooperative", "pos": "adj.", "zh": "合作的、肯配合的", "ipa": "/koʊˈɑːpərətɪv/", "link": "cooperate + -ive，變成形容詞，像 active、creative" },
+        { "w": "uncooperative", "pos": "adj.", "zh": "不合作的", "ipa": "/ˌʌnkoʊˈɑːpərətɪv/", "link": "un-（不）+ cooperative，像 unhappy、unclear" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "courier",
+      "type": "word",
+      "ipa": "/ˈkʊriɚ/",
+      "pos": "n.",
+      "zh": "快遞員、快遞公司",
+      "en": "a person or company that delivers documents or packages quickly",
+      "note": "多益常見於急件、合約文件、樣品的寄送。courier 強調快速、直接送到，常用 send by courier 表示用快遞寄送。",
+      "forms": [
+        { "w": "couriers", "label": "複數", "pos": "n.", "zh": "快遞員（複數）", "ipa": "/ˈkʊriɚz/", "example": { "en": "Several couriers were waiting outside the building for the parcels.", "zh": "好幾位快遞員正在大樓外等著收包裹。" } }
+      ],
+      "collocations": [
+        { "phrase": "courier service", "zh": "快遞服務", "example": { "en": "A courier service can deliver the package within two hours.", "zh": "快遞服務可以在兩小時內送達包裹。" } },
+        { "phrase": "send by courier", "zh": "用快遞寄送", "example": { "en": "Please send the signed forms by courier to our head office.", "zh": "請把簽好的表格用快遞寄到我們總公司。" } },
+        { "phrase": "courier fee", "zh": "快遞費", "example": { "en": "The courier fee is added to your final bill.", "zh": "快遞費會加到你的最終帳單裡。" } }
+      ],
+      "examples": [
+        { "tag": "文件", "en": "The courier will pick up the contract at four o'clock.", "zh": "快遞員會在四點來取合約。" },
+        { "tag": "客服", "en": "Your parcel was handed to a courier this morning.", "zh": "您的包裹今天早上已交給快遞員。" },
+        { "tag": "採購", "en": "We use a courier for urgent documents that must arrive tomorrow.", "zh": "必須明天送達的急件，我們會使用快遞。" },
+        { "tag": "出差", "en": "I asked the courier to deliver the samples to the hotel.", "zh": "我請快遞員把樣品送到飯店。" }
+      ],
+      "confusable": [
+        { "word": "carrier", "diff": "carrier 是運輸公司的泛稱（貨運、航空）；courier 專指快速送件的人或公司。", "example": { "en": "Our carrier delivers heavy freight to ports across Asia.", "zh": "我們的運輸業者把重型貨物運到亞洲各地的港口。" } }
+      ],
+      "similar": [
+        { "word": "messenger", "diff": "messenger 是送信或文件的人，常指在城市內或公司之間跑腿。", "example": { "en": "A messenger brought the documents to our office by noon.", "zh": "一位信差在中午前把文件送到我們辦公室。" } },
+        { "phrase": "delivery person", "diff": "delivery person 泛指送貨的人，不一定是快遞公司的人員。", "example": { "en": "The delivery person left the box at the front desk.", "zh": "送貨員把箱子留在櫃台。" } }
+      ],
+      "family": [
+        { "w": "parcel", "pos": "n.", "zh": "包裹", "ipa": "/ˈpɑːrsl/", "example": { "en": "The parcel should arrive at your office by Friday.", "zh": "包裹應該會在星期五前送到你的辦公室。" } },
+        { "w": "package", "pos": "n.", "zh": "包裹、包裝", "ipa": "/ˈpækɪdʒ/", "example": { "en": "Please sign for the package at the front desk.", "zh": "請到櫃台簽收包裹。" } },
+        { "w": "delivery", "pos": "n.", "zh": "送貨、遞送", "ipa": "/dɪˈlɪvəri/", "example": { "en": "Delivery takes two to three business days.", "zh": "送貨需要兩到三個工作天。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "快遞員", "en": "a person who takes documents or packages to people", "example": { "en": "The courier gave me a pen and asked for my signature.", "zh": "快遞員給了我一支筆，請我簽名。" } },
+        { "pos": "n.", "zh": "快遞公司", "en": "a company that delivers documents and packages quickly", "distinguish": "前面有 a、the 且指公司名稱或服務時，是快遞公司，不是個別的送貨人。", "example": { "en": "We changed to a faster courier to cut delivery times.", "zh": "我們改用速度更快的快遞公司來縮短送貨時間。" } }
+      ]
+    },
+    {
+      "text": "copyright",
+      "type": "word",
+      "ipa": "/ˈkɑːpiraɪt/",
+      "pos": "n.",
+      "zh": "版權、著作權",
+      "en": "the legal right to control who can copy or sell a work",
+      "note": "多益常見於出版、網站、影像與軟體相關的公告和合約，指作品的所有權利。常和 protected by copyright、copyright law 一起出現。",
+      "forms": [
+        { "w": "copyrights", "label": "複數", "pos": "n.", "zh": "版權（複數）", "ipa": "/ˈkɑːpiraɪts/", "example": { "en": "The company sold its copyrights to a larger publishing firm.", "zh": "這家公司把它的版權賣給一家較大的出版公司。" } },
+        { "w": "copyrights", "label": "第三人稱單數", "pos": "v.", "zh": "取得版權", "ipa": "/ˈkɑːpiraɪts/", "example": { "en": "She copyrights every design before showing it to clients.", "zh": "她在向客戶展示之前，會替每個設計申請版權。" } },
+        { "w": "copyrighted", "label": "過去式／過去分詞", "pos": "v.", "zh": "已取得版權", "ipa": "/ˈkɑːpiraɪtɪd/", "example": { "en": "The firm copyrighted its logo and all its training manuals.", "zh": "這家公司為它的標誌和所有訓練手冊取得了版權。" } },
+        { "w": "copyrighted", "label": "形容詞", "pos": "adj.", "zh": "受版權保護的", "ipa": "/ˈkɑːpiraɪtɪd/", "example": { "en": "Copyrighted pictures cannot be used without the owner's permission.", "zh": "受版權保護的圖片未經擁有者許可不能使用。" } },
+        { "w": "copyrighting", "label": "現在分詞", "pos": "v.", "zh": "正在申請版權", "ipa": "/ˈkɑːpiraɪtɪŋ/", "example": { "en": "He is copyrighting the new software before the product launch.", "zh": "他正在新產品上市前為這套新軟體申請版權。" } }
+      ],
+      "collocations": [
+        { "phrase": "copyright law", "zh": "著作權法", "example": { "en": "Copyright law protects books, music, and software from being copied.", "zh": "著作權法保護書籍、音樂和軟體不被複製。" } },
+        { "phrase": "protected by copyright", "zh": "受版權保護", "example": { "en": "This design is protected by copyright, so please do not copy it.", "zh": "這個設計受版權保護，所以請不要複製。" } },
+        { "phrase": "copyright holder", "zh": "版權所有人", "example": { "en": "You must ask the copyright holder for permission first.", "zh": "你必須先向版權所有人取得許可。" } }
+      ],
+      "examples": [
+        { "tag": "出版", "en": "The photographer owns the copyright to all the images.", "zh": "這位攝影師擁有所有圖片的版權。" },
+        { "tag": "法務", "en": "Our lawyer is checking whether we violate any copyright.", "zh": "我們的律師正在檢查我們是否侵犯了任何版權。" },
+        { "tag": "網站", "en": "The copyright for this article belongs to the publisher.", "zh": "這篇文章的版權屬於出版社。" },
+        { "tag": "合約", "en": "The contract says the copyright will stay with the writer.", "zh": "合約註明版權仍歸作者所有。" }
+      ],
+      "confusable": [
+        { "word": "copywriter", "diff": "copywriter 是「廣告文案撰寫人」，是人；copyright 是權利。", "example": { "en": "The copywriter wrote the slogan for our new advertisement.", "zh": "文案撰寫人為我們的新廣告寫了標語。" } }
+      ],
+      "similar": [
+        { "word": "patent", "diff": "patent 是專利，保護新發明；copyright 保護書、音樂等創作作品。", "example": { "en": "We applied for a patent on the new machine.", "zh": "我們為這台新機器申請了專利。" } },
+        { "word": "trademark", "diff": "trademark 是商標，保護品牌名稱或標誌；copyright 保護作品本身。", "example": { "en": "The company registered its logo as a trademark.", "zh": "這家公司把它的標誌註冊為商標。" } }
+      ],
+      "family": [
+        { "w": "permission", "pos": "n.", "zh": "許可", "ipa": "/pɚˈmɪʃən/", "example": { "en": "You need written permission to use these photos.", "zh": "使用這些照片需要書面許可。" } },
+        { "w": "license", "pos": "n.", "zh": "授權、執照", "ipa": "/ˈlaɪsns/", "example": { "en": "The software license allows up to ten users.", "zh": "這個軟體授權最多允許十位使用者。" } },
+        { "w": "author", "pos": "n.", "zh": "作者", "ipa": "/ˈɔːθɚ/", "example": { "en": "The author gave us permission to print the chapter.", "zh": "作者允許我們印出這個章節。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈkɑːpiraɪt/", "zh": "版權、著作權", "example": { "en": "Who holds the copyright to this training video?", "zh": "這部訓練影片的版權屬於誰？" } },
+        { "pos": "v.", "ipa": "/ˈkɑːpiraɪt/", "zh": "為…取得版權", "example": { "en": "We plan to copyright the manual before it goes on sale.", "zh": "我們打算在手冊上市前為它取得版權。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "crane",
+      "type": "word",
+      "ipa": "/kreɪn/",
+      "pos": "n.",
+      "zh": "起重機；鶴",
+      "en": "a tall machine that lifts and moves heavy things",
+      "note": "多益常見於建築工地、港口與工廠的描述，指搬運重物的起重機。圖片題中看到 crane，多半是工地或港口場景。",
+      "forms": [
+        { "w": "cranes", "label": "複數", "pos": "n.", "zh": "起重機（複數）", "ipa": "/kreɪnz/", "example": { "en": "Two cranes were working at the shipyard on Monday morning.", "zh": "星期一早上，兩台起重機在造船廠作業。" } }
+      ],
+      "collocations": [
+        { "phrase": "tower crane", "zh": "塔式起重機", "example": { "en": "A tower crane stands beside the new office building.", "zh": "一台塔式起重機立在新辦公大樓旁。" } },
+        { "phrase": "crane operator", "zh": "起重機操作員", "example": { "en": "The crane operator waited for a signal before lifting the load.", "zh": "起重機操作員等到信號才吊起貨物。" } },
+        { "phrase": "mobile crane", "zh": "移動式起重機", "example": { "en": "We rented a mobile crane to move the machine.", "zh": "我們租了一台移動式起重機來搬運機器。" } }
+      ],
+      "examples": [
+        { "tag": "建築", "en": "A large crane lifted the steel beams onto the roof.", "zh": "一台大型起重機把鋼梁吊到屋頂上。" },
+        { "tag": "工地", "en": "Workers wear helmets when a crane is moving nearby.", "zh": "附近有起重機移動時，工人都會戴安全帽。" },
+        { "tag": "港口", "en": "The port bought a new crane to unload heavy containers.", "zh": "港口買了一台新起重機來卸下重型貨櫃。" },
+        { "tag": "新聞", "en": "A crane will remove the old sign from the building tomorrow.", "zh": "明天會有起重機把舊招牌從大樓上拆下。" }
+      ],
+      "confusable": [
+        { "word": "crate", "diff": "拼法相近，crate 是裝貨物的「板條箱」。", "example": { "en": "Each crate contains twenty boxes of printer paper.", "zh": "每個板條箱裡有二十盒影印紙。" } }
+      ],
+      "similar": [
+        { "word": "hoist", "diff": "hoist 是較小型的升降裝置，常用於工廠或倉庫的小範圍吊運。", "example": { "en": "The hoist can lift small loads up to two floors.", "zh": "這台升降機可以把小型貨物吊到兩層樓高。" } },
+        { "word": "forklift", "diff": "forklift 是叉舉車，用來搬運棧板，主要在地面移動；crane 是向高處吊起。", "example": { "en": "A forklift moved the pallets into the warehouse.", "zh": "一台叉舉車把棧板搬進倉庫。" } }
+      ],
+      "family": [
+        { "w": "construction", "pos": "n.", "zh": "建築、施工", "ipa": "/kənˈstrʌkʃən/", "example": { "en": "Construction on the new factory starts next month.", "zh": "新工廠的施工下個月開始。" } },
+        { "w": "site", "pos": "n.", "zh": "工地、場地", "ipa": "/saɪt/", "example": { "en": "Visitors must wear helmets at the building site.", "zh": "訪客在工地必須戴安全帽。" } },
+        { "w": "equipment", "pos": "n.", "zh": "設備", "ipa": "/ɪˈkwɪpmənt/", "example": { "en": "The heavy equipment will arrive at the site on Monday.", "zh": "重型設備星期一會送到工地。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "起重機", "en": "a tall machine that lifts and moves heavy things", "example": { "en": "The crane moved the container from the ship to the truck.", "zh": "起重機把貨櫃從船上移到卡車上。" } },
+        { "pos": "n.", "zh": "鶴", "en": "a large bird with long legs and a long neck", "distinguish": "上下文出現 lake、bird、park 等字時指鳥；出現 lift、construction、site 時指機器。", "example": { "en": "A crane stood quietly beside the lake near our factory.", "zh": "一隻鶴靜靜地站在我們工廠附近的湖邊。" } }
+      ]
+    },
+    {
+      "text": "coupon",
+      "type": "word",
+      "ipa": "/ˈkuːpɑːn/",
+      "pos": "n.",
+      "zh": "優惠券、折價券",
+      "en": "a piece of paper or a code that gives you a lower price",
+      "note": "多益常見於購物、促銷廣告與電子郵件通知，指可以折抵或享有優惠的憑證。常和 redeem、valid、expire 等字一起出現。",
+      "forms": [
+        { "w": "coupons", "label": "複數", "pos": "n.", "zh": "優惠券（複數）", "ipa": "/ˈkuːpɑːnz/", "example": { "en": "Customers collected coupons from the newspaper every Sunday morning.", "zh": "顧客每個星期天早上都會從報紙上收集優惠券。" } }
+      ],
+      "collocations": [
+        { "phrase": "redeem a coupon", "zh": "兌換優惠券", "example": { "en": "You can redeem a coupon at any branch of our store.", "zh": "你可以在我們任何一家分店兌換優惠券。" } },
+        { "phrase": "coupon code", "zh": "優惠碼", "example": { "en": "Enter the coupon code at checkout to see the new price.", "zh": "結帳時輸入優惠碼，就可以看到新價格。" } },
+        { "phrase": "discount coupon", "zh": "折價券", "example": { "en": "She printed a discount coupon before going to the shopping center.", "zh": "她在去購物中心之前，先印了一張折價券。" } }
+      ],
+      "examples": [
+        { "tag": "購物", "en": "Show this coupon at the register to get ten percent off.", "zh": "在收銀台出示這張優惠券可享九折。" },
+        { "tag": "廣告", "en": "Every new member receives a coupon for a free coffee.", "zh": "每位新會員都會收到一張免費咖啡的優惠券。" },
+        { "tag": "電子郵件", "en": "We sent you a coupon as a thank-you for your order.", "zh": "我們寄了一張優惠券給你，感謝你的訂購。" },
+        { "tag": "公告", "en": "The coupon is valid only until the end of this month.", "zh": "這張優惠券只到本月底有效。" }
+      ],
+      "similar": [
+        { "word": "voucher", "diff": "voucher 常是可抵付一定金額或兌換商品的憑證；coupon 多半是折價優惠。", "example": { "en": "The hotel gave us a meal voucher for the delay.", "zh": "飯店因為延誤給了我們一張餐券。" } },
+        { "phrase": "discount code", "diff": "discount code 是網購用的折扣碼，不是紙本；coupon 紙本與線上都能指。", "example": { "en": "Use the discount code on your confirmation email.", "zh": "請使用確認信上的折扣碼。" } }
+      ],
+      "family": [
+        { "w": "discount", "pos": "n.", "zh": "折扣", "ipa": "/ˈdɪskaʊnt/", "example": { "en": "Members get a twenty percent discount on all items.", "zh": "會員所有商品可享八折優惠。" } },
+        { "w": "sale", "pos": "n.", "zh": "特賣", "ipa": "/seɪl/", "example": { "en": "The winter sale starts on Friday morning.", "zh": "冬季特賣星期五早上開始。" } },
+        { "w": "refund", "pos": "n.", "zh": "退款", "ipa": "/ˈriːfʌnd/", "example": { "en": "You can ask for a refund within thirty days.", "zh": "你可以在三十天內要求退款。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "costly",
+      "type": "word",
+      "ipa": "/ˈkɔːstli/",
+      "pos": "adj.",
+      "zh": "昂貴的、代價高的",
+      "en": "needing a lot of money or causing a big loss",
+      "note": "多益常見於預算、採購與風險討論，指花費很大或要付出很高代價。比 expensive 更正式，常搭配 mistake、delay、repair。",
+      "grammar_note": "costly 雖然字尾是 -ly，但它是形容詞，不是副詞；放在名詞前或 be 動詞後。",
+      "forms": [
+        { "w": "costlier", "label": "比較級", "pos": "adj.", "zh": "更昂貴的", "ipa": "/ˈkɔːstliɚ/", "example": { "en": "Air freight is costlier than shipping goods by sea.", "zh": "空運比海運更貴。" } },
+        { "w": "costliest", "label": "最高級", "pos": "adj.", "zh": "最昂貴的", "ipa": "/ˈkɔːstliɪst/", "example": { "en": "This is the costliest project our company has ever started.", "zh": "這是我們公司有史以來花費最高的專案。" } }
+      ],
+      "collocations": [
+        { "phrase": "costly mistake", "zh": "代價高的錯誤", "example": { "en": "A costly mistake on the order form delayed the shipment.", "zh": "訂單表格上一個代價高昂的錯誤延誤了出貨。" } },
+        { "phrase": "costly repair", "zh": "昂貴的維修", "example": { "en": "The costly repair used up most of our maintenance budget.", "zh": "這次昂貴的維修用掉了我們大部分的維護預算。" } },
+        { "phrase": "costly delay", "zh": "代價高的延誤", "example": { "en": "A costly delay at customs forced us to cancel the event.", "zh": "海關的延誤代價高昂，迫使我們取消了活動。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "Replacing the old machine would be too costly for us.", "zh": "換掉舊機器對我們來說花費太高了。" },
+        { "tag": "人事", "en": "Hiring more staff is costly, so we are waiting until spring.", "zh": "增聘人手花費很大，所以我們要等到春天。" },
+        { "tag": "廣告", "en": "Television ads are costly for small companies.", "zh": "電視廣告對小公司來說很昂貴。" },
+        { "tag": "出差", "en": "Last-minute changes to flight tickets can be very costly.", "zh": "臨時更改機票可能會非常花錢。" }
+      ],
+      "confusable": [
+        { "word": "cost", "diff": "cost 是名詞或動詞（費用、花費）；costly 才是形容詞（昂貴的）。", "usage": "不能說 It is cost；要說 It is costly，或用 cost 當動詞：It costs a lot。", "example": { "en": "The repair will cost about two hundred dollars.", "zh": "這次維修大約要花兩百美元。" } }
+      ],
+      "similar": [
+        { "word": "expensive", "diff": "expensive 單純指價格高；costly 較正式，也可指要付出很大代價。", "example": { "en": "The restaurant near our office is too expensive.", "zh": "我們辦公室附近的餐廳太貴了。" } },
+        { "word": "pricey", "diff": "pricey 是口語說法，意思是有點貴。", "example": { "en": "The hotel is pricey, but the location is excellent.", "zh": "這家飯店有點貴，但地點很棒。" } }
+      ],
+      "family": [
+        { "w": "budget", "pos": "n.", "zh": "預算", "ipa": "/ˈbʌdʒɪt/", "example": { "en": "We must keep the project within the budget.", "zh": "我們必須把專案控制在預算內。" } },
+        { "w": "expense", "pos": "n.", "zh": "費用、開銷", "ipa": "/ɪkˈspens/", "example": { "en": "Travel expenses will be paid back next week.", "zh": "差旅費下週會核銷。" } },
+        { "w": "afford", "pos": "v.", "zh": "負擔得起", "ipa": "/əˈfɔːrd/", "example": { "en": "We cannot afford a new office this year.", "zh": "我們今年負擔不起新辦公室。" } }
+      ],
+      "derived": [
+        { "w": "cost", "pos": "n.", "zh": "成本、費用", "ipa": "/kɔːst/", "link": "cost 是基礎字；cost + -ly，變成形容詞「花費大的」，像 friend → friendly" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "昂貴的、花費大的", "en": "needing a lot of money", "example": { "en": "Moving the factory to another city is a costly plan.", "zh": "把工廠搬到另一個城市是一項花費很大的計畫。" } },
+        { "pos": "adj.", "zh": "代價慘重的", "en": "causing a big loss or a serious problem", "distinguish": "後面接 mistake、error、delay 時，強調造成的損失，不只是價格高。", "example": { "en": "Missing the deadline would be a costly error for us.", "zh": "錯過截止日對我們來說會是代價慘重的失誤。" } }
+      ]
+    }
+  ]
+}
