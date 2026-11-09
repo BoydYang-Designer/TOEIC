@@ -1,0 +1,218 @@
+{
+  "week": 9,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "compartment",
+      "type": "word",
+      "ipa": "/kəmˈpɑːrtmənt/",
+      "pos": "n.",
+      "zh": "隔間、置物空間",
+      "en": "a separate space inside a larger thing, such as a truck, bag, or box",
+      "note": "在這篇電子郵件裡，truck compartments 指貨車內部分隔出來的貨艙或置物區，檢驗員要檢查裡面有沒有鬆脫或包裝不良的物品。這個字在多益常見於運輸、倉儲、飛機與行李情境。",
+      "forms": [
+        {
+          "w": "compartments",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "隔間（複數）",
+          "ipa": "/kəmˈpɑːrtmənts/",
+          "example": { "en": "The delivery van has three compartments for different types of goods.", "zh": "這輛貨車有三個隔間，用來放不同類型的貨物。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "overhead compartment",
+          "zh": "（飛機座位上方的）行李櫃",
+          "example": { "en": "Please place your small bag in the overhead compartment.", "zh": "請把您的小包包放在上方行李櫃裡。" }
+        },
+        {
+          "phrase": "storage compartment",
+          "zh": "儲物格",
+          "example": { "en": "The tools are kept in a locked storage compartment.", "zh": "工具被放在上鎖的儲物格裡。" }
+        },
+        {
+          "phrase": "luggage compartment",
+          "zh": "行李廂",
+          "example": { "en": "The bus driver loaded our suitcases into the luggage compartment.", "zh": "巴士司機把我們的行李箱放進行李廂。" }
+        }
+      ],
+      "examples": [
+        { "tag": "運輸", "en": "Each compartment of the truck must be cleaned before loading.", "zh": "貨車的每個隔間在裝貨前都必須清潔。" },
+        { "tag": "出差", "en": "My laptop fits in the front compartment of this bag.", "zh": "我的筆電放得進這個包包的前面隔層。" },
+        { "tag": "倉儲", "en": "The warehouse crew checked every compartment for damaged boxes.", "zh": "倉庫人員檢查了每個隔間是否有受損的箱子。" }
+      ],
+      "confusable": [
+        {
+          "word": "department",
+          "diff": "拼法相近，但 department 是公司的「部門」；compartment 是物品的「隔間」。",
+          "example": { "en": "The shipping department will send the parts on Monday.", "zh": "出貨部門星期一會寄出零件。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "section",
+          "diff": "section 是一般的「區塊、部分」，可以是文件、場地或物品；compartment 一定是有隔板分開的封閉空間。",
+          "example": { "en": "Fragile items are kept in a separate section of the warehouse.", "zh": "易碎品被存放在倉庫的另一個區域。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "locker",
+          "pos": "n.",
+          "zh": "置物櫃",
+          "ipa": "/ˈlɑːkɚ/",
+          "example": { "en": "Staff can store their belongings in a locker near the entrance.", "zh": "員工可以把個人物品放在入口附近的置物櫃。" }
+        },
+        {
+          "w": "container",
+          "pos": "n.",
+          "zh": "貨櫃、容器",
+          "ipa": "/kənˈteɪnɚ/",
+          "example": { "en": "The container arrived at the port two days ago.", "zh": "貨櫃兩天前抵達港口。" }
+        },
+        {
+          "w": "cargo",
+          "pos": "n.",
+          "zh": "貨物",
+          "ipa": "/ˈkɑːrɡoʊ/",
+          "example": { "en": "The cargo must be checked before it leaves the dock.", "zh": "貨物在離開碼頭前必須先檢查。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "compartmentalize",
+          "ipa": "/ˌkɑːmpɑːrtˈmentəlaɪz/",
+          "pos": "v.",
+          "zh": "分隔、分成小塊",
+          "link": "compartment + -alize，把…分成一個個隔間，像 organize、finalize"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "隔間、置物空間",
+          "en": "a separate space inside a larger thing",
+          "in_passage": true,
+          "example": { "en": "Items in the cargo compartment should be tied down securely.", "zh": "貨艙裡的物品應該牢牢固定住。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "（火車的）車廂隔間",
+          "en": "a small room with seats in a train",
+          "distinguish": "出現在火車、搭車的情境，指有門隔開的小包廂，而不是放東西的空間。",
+          "example": { "en": "We reserved a private compartment on the night train to Rome.", "zh": "我們在開往羅馬的夜班火車上訂了一間獨立包廂。" }
+        }
+      ]
+    },
+    {
+      "text": "specially",
+      "type": "word",
+      "ipa": "/ˈspeʃəli/",
+      "pos": "adv.",
+      "zh": "特別地、專門地",
+      "en": "for one particular purpose or person",
+      "note": "在這篇電子郵件裡，specially ordered alloys 指為特定需求「專門訂製、特別訂購」的合金，因此需要第二次檢驗。這個字最常放在過去分詞前面，如 specially designed、specially trained。",
+      "grammar_note": "specially 常修飾過去分詞（specially designed），強調「為某個特定目的」；想表達「尤其、特別是」要用 especially，不要混用。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "specially designed",
+          "zh": "專門設計的",
+          "example": { "en": "The chairs are specially designed to reduce back pain.", "zh": "這些椅子是專門設計來減輕背痛的。" }
+        },
+        {
+          "phrase": "specially trained",
+          "zh": "受過專門訓練的",
+          "example": { "en": "Specially trained staff will handle all customer complaints.", "zh": "受過專門訓練的人員會處理所有客訴。" }
+        },
+        {
+          "phrase": "specially prepared",
+          "zh": "特別準備的",
+          "example": { "en": "A specially prepared menu will be served to our guests.", "zh": "我們會為賓客提供特別準備的菜單。" }
+        }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "These parts were specially made for our largest customer.", "zh": "這些零件是專門為我們最大的客戶製作的。" },
+        { "tag": "電子郵件", "en": "I have specially arranged a meeting room for your visit.", "zh": "我已特別為您來訪安排了一間會議室。" },
+        { "tag": "公告", "en": "The lab is specially equipped to test new materials.", "zh": "這間實驗室設有專門的設備來測試新材料。" }
+      ],
+      "confusable": [
+        {
+          "word": "especially",
+          "diff": "especially 是「尤其、特別是」，用來強調某一點；specially 是「為特定目的而特別」。",
+          "usage": "especially 常放在被強調的詞前面（especially in winter）；specially 常修飾過去分詞（specially made）。",
+          "example": { "en": "Sales rose, especially in the northern region.", "zh": "銷售成長了，尤其是在北部地區。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "specifically",
+          "diff": "specifically 強調「明確地、具體地」，如 specifically asked；specially 強調「為特定目的」。",
+          "example": { "en": "The client specifically asked for a blue cover.", "zh": "客戶明確要求藍色封面。" }
+        },
+        {
+          "word": "exclusively",
+          "diff": "exclusively 強調「僅限、專屬」，排除其他對象；語氣比 specially 更強。",
+          "example": { "en": "This lounge is exclusively for first-class passengers.", "zh": "這間貴賓室僅供頭等艙乘客使用。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "customized",
+          "pos": "adj.",
+          "zh": "客製化的",
+          "ipa": "/ˈkʌstəmaɪzd/",
+          "example": { "en": "We offer customized packages for corporate clients.", "zh": "我們為企業客戶提供客製化的方案。" }
+        },
+        {
+          "w": "tailored",
+          "pos": "adj.",
+          "zh": "量身訂做的",
+          "ipa": "/ˈteɪlɚd/",
+          "example": { "en": "The training is tailored to the needs of each department.", "zh": "這項訓練是依據各部門需求量身設計的。" }
+        },
+        {
+          "w": "particular",
+          "pos": "adj.",
+          "zh": "特定的",
+          "ipa": "/pɚˈtɪkjələr/",
+          "example": { "en": "Do you need a particular size or color?", "zh": "您需要特定的尺寸或顏色嗎？" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "special",
+          "ipa": "/ˈspeʃəl/",
+          "pos": "adj.",
+          "zh": "特別的",
+          "link": "詞幹 special；special + -ly 變成副詞，像 quick → quickly"
+        },
+        {
+          "w": "specialist",
+          "ipa": "/ˈspeʃəlɪst/",
+          "pos": "n.",
+          "zh": "專家",
+          "link": "special + -ist，專精某領域的人，像 artist、tourist"
+        },
+        {
+          "w": "specialize",
+          "ipa": "/ˈspeʃəlaɪz/",
+          "pos": "v.",
+          "zh": "專攻、專門從事",
+          "link": "special + -ize，使變得專門，像 organize、realize"
+        },
+        {
+          "w": "specialty",
+          "ipa": "/ˈspeʃəlti/",
+          "pos": "n.",
+          "zh": "專長、特產",
+          "link": "special + -ty，特別的專長，像 safety、royalty"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

@@ -1,0 +1,845 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "airport",
+      "type": "word",
+      "ipa": "/ˈɛrˌpɔːrt/",
+      "pos": "n.",
+      "zh": "機場",
+      "en": "a place where planes take off and land",
+      "note": "出差、接機、航班變更是多益最常見的情境，常和 flight、terminal、gate 一起出現。口語與公告裡都很常用，是必備的基本字。",
+      "grammar_note": "「在機場」用 at the airport，「去機場」用 to the airport，「抵達機場」用 arrive at the airport，不說 arrive to。",
+      "forms": [
+        {
+          "w": "airports",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "機場（複數）",
+          "ipa": "/ˈɛrˌpɔːrts/",
+          "example": {
+            "en": "Several airports in the region closed because of heavy snow.",
+            "zh": "該地區有幾個機場因大雪而關閉。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "airport shuttle",
+          "zh": "機場接駁車",
+          "example": {
+            "en": "Please book the airport shuttle before you leave the hotel.",
+            "zh": "離開飯店前請先預約機場接駁車。"
+          }
+        },
+        {
+          "phrase": "airport security",
+          "zh": "機場安檢",
+          "example": {
+            "en": "Airport security checks every bag, so please allow extra time.",
+            "zh": "機場安檢會檢查每件行李，所以請預留多一點時間。"
+          }
+        },
+        {
+          "phrase": "pick up at the airport",
+          "zh": "在機場接人",
+          "example": {
+            "en": "Our driver will pick you up at the airport on Monday.",
+            "zh": "我們的司機星期一會到機場接你。"
+          }
+        },
+        {
+          "phrase": "airport terminal",
+          "zh": "機場航廈",
+          "example": {
+            "en": "The airport terminal has a quiet room for business travelers.",
+            "zh": "機場航廈有一間給商務旅客使用的安靜休息室。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "出差",
+          "en": "I will meet you at the airport at seven tomorrow morning.",
+          "zh": "我明天早上七點在機場和你碰面。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please arrive at the airport two hours before your flight departs.",
+          "zh": "請在航班起飛前兩小時抵達機場。"
+        },
+        {
+          "tag": "會議",
+          "en": "The client's flight lands at noon, so we will start the meeting late.",
+          "zh": "客戶的班機中午才降落，所以我們會晚一點開會。"
+        },
+        {
+          "tag": "飯店",
+          "en": "The hotel offers a free ride to the airport every hour.",
+          "zh": "飯店每小時提供一班免費前往機場的接送。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "airline",
+          "diff": "airline 是「航空公司」，airport 是「機場」這個地點。",
+          "example": {
+            "en": "Which airline are you flying with to Tokyo next week?",
+            "zh": "你下週搭哪一家航空公司的班機去東京？"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "terminal",
+          "pos": "n.",
+          "zh": "航廈",
+          "ipa": "/ˈtɜːrmɪnəl/",
+          "example": {
+            "en": "Our flight leaves from Terminal Two, not Terminal One.",
+            "zh": "我們的班機從第二航廈出發，不是第一航廈。"
+          }
+        },
+        {
+          "w": "gate",
+          "pos": "n.",
+          "zh": "登機門",
+          "ipa": "/ɡeɪt/",
+          "example": {
+            "en": "Passengers should go to gate twelve for boarding.",
+            "zh": "乘客請前往十二號登機門登機。"
+          }
+        },
+        {
+          "w": "baggage",
+          "pos": "n.",
+          "zh": "行李",
+          "ipa": "/ˈbæɡɪdʒ/",
+          "example": {
+            "en": "Please collect your baggage at the carousel after landing.",
+            "zh": "降落後請到行李轉盤領取您的行李。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "allergy",
+      "type": "word",
+      "ipa": "/ˈælərdʒi/",
+      "pos": "n.",
+      "zh": "過敏",
+      "en": "a body reaction to food, dust, or other things that makes you feel sick",
+      "note": "餐廳、公司聚餐與活動餐點中，常會詢問客人有沒有 food allergy。藥品與食品標示的情境也常出現這個字。",
+      "grammar_note": "「對…過敏」用 have an allergy to + 物質，介系詞用 to；allergy 是可數名詞，複數是 allergies。",
+      "forms": [
+        {
+          "w": "allergies",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "過敏（複數）",
+          "ipa": "/ˈælərdʒiz/",
+          "example": {
+            "en": "Employees with serious allergies should tell the safety manager.",
+            "zh": "有嚴重過敏的員工應告知安全主管。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "food allergy",
+          "zh": "食物過敏",
+          "example": {
+            "en": "The menu shows which dishes are safe for guests with a food allergy.",
+            "zh": "菜單上標示哪些菜色適合有食物過敏的客人。"
+          }
+        },
+        {
+          "phrase": "allergy to",
+          "zh": "對…過敏",
+          "example": {
+            "en": "He has an allergy to nuts, so he skipped the dessert.",
+            "zh": "他對堅果過敏，所以沒吃甜點。"
+          }
+        },
+        {
+          "phrase": "seasonal allergy",
+          "zh": "季節性過敏",
+          "example": {
+            "en": "Her seasonal allergy gets worse every spring, so she works from home.",
+            "zh": "她的季節性過敏每年春天都更嚴重，所以她在家工作。"
+          }
+        },
+        {
+          "phrase": "allergy medicine",
+          "zh": "過敏藥",
+          "example": {
+            "en": "Allergy medicine is available at the pharmacy next to the office.",
+            "zh": "辦公室隔壁的藥局有賣過敏藥。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "餐廳",
+          "en": "Please let the waiter know if you have an allergy.",
+          "zh": "如果您有過敏，請告訴服務生。"
+        },
+        {
+          "tag": "公司活動",
+          "en": "Please tell the organizer about any allergy before the lunch meeting.",
+          "zh": "午餐會議前，請告知主辦人任何過敏狀況。"
+        },
+        {
+          "tag": "飯店",
+          "en": "The hotel kitchen can prepare a special meal for guests with an allergy.",
+          "zh": "飯店廚房可以為有過敏的客人準備特別餐點。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "illness",
+          "diff": "allergy 是身體對特定物質的過敏反應；illness 是一般的生病。",
+          "example": {
+            "en": "She missed the meeting because of an illness, not an allergy.",
+            "zh": "她缺席會議是因為生病，不是因為過敏。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "symptom",
+          "pos": "n.",
+          "zh": "症狀",
+          "ipa": "/ˈsɪmptəm/",
+          "example": {
+            "en": "A runny nose is a common symptom of an allergy.",
+            "zh": "流鼻水是過敏的常見症狀。"
+          }
+        },
+        {
+          "w": "ingredient",
+          "pos": "n.",
+          "zh": "食材、成分",
+          "ipa": "/ɪnˈɡriːdiənt/",
+          "example": {
+            "en": "Every ingredient is listed on the back of the package.",
+            "zh": "每一項成分都列在包裝背面。"
+          }
+        },
+        {
+          "w": "medicine",
+          "pos": "n.",
+          "zh": "藥",
+          "ipa": "/ˈmɛdɪsən/",
+          "example": {
+            "en": "Please keep your medicine in your carry-on bag during the flight.",
+            "zh": "飛行期間請把您的藥放在隨身行李中。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "allergic",
+          "ipa": "/əˈlɜːrdʒɪk/",
+          "pos": "adj.",
+          "zh": "過敏的",
+          "link": "allergy 的 y 換成 -ic，變成形容詞「過敏的」，像 economy → economic；常用 be allergic to + 物質"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "amateur",
+      "type": "word",
+      "ipa": "/ˈæmətʃər/",
+      "pos": "n.",
+      "zh": "業餘愛好者；業餘的",
+      "en": "a person who does something for fun, not as a job",
+      "note": "常見於比賽、活動與廣告情境，例如 amateur photographer（業餘攝影師）。與 professional 相對；當形容詞用有時帶有「不夠專業」的負面語氣。",
+      "grammar_note": "amateur 的第一個音是母音，單數名詞前用 an（an amateur）；當形容詞時放在名詞前面，如 an amateur photographer。",
+      "forms": [
+        {
+          "w": "amateurs",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "業餘愛好者（複數）",
+          "ipa": "/ˈæmətʃərz/",
+          "example": {
+            "en": "The league welcomes amateurs of all ages to join the tournament.",
+            "zh": "聯賽歡迎各年齡層的業餘愛好者參加錦標賽。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "amateur photographer",
+          "zh": "業餘攝影師",
+          "example": {
+            "en": "An amateur photographer took the winning picture for our magazine.",
+            "zh": "一位業餘攝影師拍下了我們雜誌的得獎照片。"
+          }
+        },
+        {
+          "phrase": "amateur athlete",
+          "zh": "業餘運動員",
+          "example": {
+            "en": "Amateur athletes may join the company running event next month.",
+            "zh": "業餘運動員可以參加下個月的公司路跑活動。"
+          }
+        },
+        {
+          "phrase": "amateur level",
+          "zh": "業餘程度",
+          "example": {
+            "en": "Our team still plays at the amateur level, but it is improving.",
+            "zh": "我們的球隊仍在業餘程度，但正在進步。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "活動",
+          "en": "The contest is open to anyone, even an amateur with no training.",
+          "zh": "比賽開放給任何人，即使是沒受過訓練的業餘者。"
+        },
+        {
+          "tag": "行銷",
+          "en": "The amateur video was cheap to make, but it went viral.",
+          "zh": "那支業餘影片製作成本很低，卻在網路上爆紅。"
+        },
+        {
+          "tag": "社交",
+          "en": "He is an amateur chef, but his dishes impress our clients.",
+          "zh": "他是業餘廚師，但他的料理讓我們的客戶印象深刻。"
+        },
+        {
+          "tag": "報告",
+          "en": "The report looked amateur, so the manager asked us to redo it.",
+          "zh": "那份報告看起來不夠專業，所以經理要我們重做。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "beginner",
+          "diff": "beginner 強調「剛開始學、經驗少」；amateur 強調「不以此為職業」，但可能已經很有經驗。",
+          "example": {
+            "en": "The course is designed for beginners who have never used the software.",
+            "zh": "這門課是為從沒用過這套軟體的初學者設計的。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "professional",
+          "pos": "adj.",
+          "zh": "專業的",
+          "ipa": "/prəˈfɛʃənəl/",
+          "example": {
+            "en": "We hired a professional designer to update our logo.",
+            "zh": "我們請了一位專業設計師來更新公司標誌。"
+          }
+        },
+        {
+          "w": "expert",
+          "pos": "n.",
+          "zh": "專家",
+          "ipa": "/ˈɛkspɜːrt/",
+          "example": {
+            "en": "Our tax expert will answer your questions after the talk.",
+            "zh": "我們的稅務專家會在演講後回答您的問題。"
+          }
+        },
+        {
+          "w": "hobby",
+          "pos": "n.",
+          "zh": "嗜好",
+          "ipa": "/ˈhɑːbi/",
+          "example": {
+            "en": "Photography started as a hobby, but now it is her job.",
+            "zh": "攝影一開始只是嗜好，但現在成了她的工作。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "amateurish",
+          "ipa": "/ˌæməˈtʃʊrɪʃ/",
+          "pos": "adj.",
+          "zh": "外行的、不夠專業的（貶義）",
+          "link": "amateur + -ish，「有…樣子的」，像 childish；指做得像外行人，語氣偏負面"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈæmətʃər/",
+          "zh": "業餘愛好者",
+          "example": {
+            "en": "She is an amateur who paints landscapes on weekends.",
+            "zh": "她是個週末畫風景畫的業餘畫家。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ˈæmətʃər/",
+          "zh": "業餘的",
+          "example": {
+            "en": "The amateur theater group will perform at the town festival.",
+            "zh": "這個業餘劇團將在鎮上的慶典中演出。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "業餘愛好者",
+          "en": "someone who does an activity for pleasure, not for pay",
+          "distinguish": "中性語氣，常和 professional 對比。",
+          "example": {
+            "en": "As an amateur, he plays golf only on Sunday afternoons.",
+            "zh": "身為業餘愛好者，他只在星期天下午打高爾夫。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "外行人（貶義）",
+          "en": "a person who is not skilled at something",
+          "distinguish": "帶批評語氣，常出現在 only an amateur 這類說法中。",
+          "example": {
+            "en": "Only an amateur would send a contract without checking it.",
+            "zh": "只有外行人才會沒檢查就寄出合約。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "announcer",
+      "type": "word",
+      "ipa": "/əˈnaʊnsər/",
+      "pos": "n.",
+      "zh": "播報員、廣播員、司儀",
+      "en": "a person who reads news or information on radio, TV, or at an event",
+      "note": "多益常出現在廣播、機場或車站公告與活動介紹的情境中。announcer 是「做播報的人」，播報的內容則叫 announcement。",
+      "forms": [
+        {
+          "w": "announcers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "播報員（複數）",
+          "ipa": "/əˈnaʊnsərz/",
+          "example": {
+            "en": "The station hired two new announcers for the evening news.",
+            "zh": "電台為晚間新聞聘請了兩位新的播報員。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "radio announcer",
+          "zh": "電台播音員",
+          "example": {
+            "en": "She worked as a radio announcer before joining our marketing team.",
+            "zh": "她加入我們的行銷團隊之前，是一名電台播音員。"
+          }
+        },
+        {
+          "phrase": "sports announcer",
+          "zh": "體育播報員",
+          "example": {
+            "en": "The sports announcer described every goal with great energy.",
+            "zh": "體育播報員以十足的活力描述每一個進球。"
+          }
+        },
+        {
+          "phrase": "TV announcer",
+          "zh": "電視播報員",
+          "example": {
+            "en": "A TV announcer will read our company's new advertisement.",
+            "zh": "一位電視播報員將唸出我們公司的新廣告詞。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "廣播",
+          "en": "The radio announcer read the traffic report every morning.",
+          "zh": "廣播員每天早上都會播報路況。"
+        },
+        {
+          "tag": "機場",
+          "en": "The announcer said our flight to Boston is now boarding.",
+          "zh": "廣播員說我們飛往波士頓的班機現在開始登機。"
+        },
+        {
+          "tag": "研討會",
+          "en": "A famous announcer will introduce each speaker at the conference.",
+          "zh": "一位知名的司儀將在研討會上介紹每位講者。"
+        },
+        {
+          "tag": "體育活動",
+          "en": "The announcer thanked the sponsors before the game began.",
+          "zh": "比賽開始前，播報員感謝了贊助商。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "announcement",
+          "diff": "announcer 是「播報的人」，announcement 是「公告、通知的內容」。",
+          "example": {
+            "en": "Please read the announcement on the board before the meeting.",
+            "zh": "會議前請先閱讀公布欄上的公告。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "host",
+          "diff": "host 負責主持整個節目或活動；announcer 主要負責播報訊息或介紹來賓。",
+          "example": {
+            "en": "The host welcomed guests and kept the show running smoothly.",
+            "zh": "主持人歡迎來賓，並讓節目順利進行。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "host",
+          "pos": "n.",
+          "zh": "主持人",
+          "ipa": "/hoʊst/",
+          "example": {
+            "en": "The host of the event thanked everyone for coming.",
+            "zh": "活動主持人感謝大家的蒞臨。"
+          }
+        },
+        {
+          "w": "speaker",
+          "pos": "n.",
+          "zh": "講者",
+          "ipa": "/ˈspiːkər/",
+          "example": {
+            "en": "The first speaker will talk about sales results.",
+            "zh": "第一位講者將談銷售成果。"
+          }
+        },
+        {
+          "w": "reporter",
+          "pos": "n.",
+          "zh": "記者",
+          "ipa": "/rɪˈpɔːrtər/",
+          "example": {
+            "en": "A reporter asked the CEO about the new product.",
+            "zh": "一位記者向執行長詢問新產品的事。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "announce",
+          "ipa": "/əˈnaʊns/",
+          "pos": "v.",
+          "zh": "宣布、公布",
+          "link": "基本動詞「宣布」；加 -er 就變成做這件事的人，像 teach → teacher"
+        },
+        {
+          "w": "announcement",
+          "ipa": "/əˈnaʊnsmənt/",
+          "pos": "n.",
+          "zh": "公告、通知",
+          "link": "announce + -ment，動作的結果變成名詞，像 pay → payment、agree → agreement"
+        },
+        {
+          "w": "unannounced",
+          "ipa": "/ˌʌnəˈnaʊnst/",
+          "pos": "adj.",
+          "zh": "未事先通知的",
+          "link": "un-（不）+ announce + -ed，「沒有事先宣布的」，像 unlimited"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "anyhow",
+      "type": "word",
+      "ipa": "/ˈɛniˌhaʊ/",
+      "pos": "adv.",
+      "zh": "無論如何；不管怎樣；話說回來",
+      "en": "in any case; no matter what",
+      "note": "偏口語，常用在對話裡表示「不管怎樣」或「回到正題」。多益聽力的對話中很常聽到，書面正式文件較少用。",
+      "grammar_note": "anyhow 偏口語；放句首時後面要加逗號。正式信件或報告建議改用 in any case 或 nevertheless。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "thanks anyhow",
+          "zh": "還是謝謝你",
+          "example": {
+            "en": "Sorry you cannot join us. Thanks anyhow, and see you next time.",
+            "zh": "很遺憾你不能加入我們。還是謝謝你，下次見。"
+          }
+        },
+        {
+          "phrase": "go ahead anyhow",
+          "zh": "還是照做、繼續進行",
+          "example": {
+            "en": "Not everyone replied, but we will go ahead anyhow.",
+            "zh": "不是每個人都回覆了，但我們還是會繼續進行。"
+          }
+        },
+        {
+          "phrase": "Anyhow, as I was saying",
+          "zh": "總之，就像我剛才說的",
+          "example": {
+            "en": "Anyhow, as I was saying, sales rose in the second quarter.",
+            "zh": "總之，就像我剛才說的，第二季的銷售成長了。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Anyhow, let's go back to the budget discussion.",
+          "zh": "話說回來，我們回到預算的討論吧。"
+        },
+        {
+          "tag": "採購",
+          "en": "The price is high, but we will buy it anyhow.",
+          "zh": "價格很高，但我們還是會買。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "I already sent the file, but please check it again anyhow.",
+          "zh": "我已經寄出檔案了，但還是請你再確認一次。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "somehow",
+          "diff": "somehow 是「不知怎麼地、用某種方法」；anyhow 是「不管怎樣、無論如何」。",
+          "example": {
+            "en": "Somehow, the team finished the report before the deadline.",
+            "zh": "不知怎麼地，團隊在截止日前完成了報告。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "anyway",
+          "diff": "意思幾乎相同，但 anyway 更常見、可用於各種場合；anyhow 更口語。",
+          "example": {
+            "en": "The store was closed, so we ordered online anyway.",
+            "zh": "商店關門了，所以我們還是在網路上訂購。"
+          }
+        },
+        {
+          "phrase": "in any case",
+          "diff": "語氣較正式，適合用在書信、電子郵件或會議。",
+          "example": {
+            "en": "In any case, please send the invoice by Friday.",
+            "zh": "無論如何，請在星期五前寄出發票。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "however",
+          "pos": "adv.",
+          "zh": "然而",
+          "ipa": "/haʊˈɛvər/",
+          "example": {
+            "en": "Sales are good; however, costs are rising quickly.",
+            "zh": "銷售很好；然而，成本正快速上升。"
+          }
+        },
+        {
+          "w": "regardless",
+          "pos": "adv.",
+          "zh": "不管怎樣",
+          "ipa": "/rɪˈɡɑːrdləs/",
+          "example": {
+            "en": "Some people were late, but the meeting started on time regardless.",
+            "zh": "有些人遲到了，但會議還是準時開始。"
+          }
+        },
+        {
+          "w": "still",
+          "pos": "adv.",
+          "zh": "仍然",
+          "ipa": "/stɪl/",
+          "example": {
+            "en": "The price went up, but customers still buy the product.",
+            "zh": "價格上漲了，但顧客仍然購買這項產品。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adv.",
+          "zh": "無論如何、還是",
+          "en": "in spite of what has happened or what is true",
+          "distinguish": "前面常有 but，表示「雖然有困難，還是要做」。",
+          "example": {
+            "en": "I know it is late, but I will call the client anyhow.",
+            "zh": "我知道很晚了，但我還是會打電話給客戶。"
+          }
+        },
+        {
+          "pos": "adv.",
+          "zh": "總之、話說回來",
+          "en": "used to go back to the main topic or to end a talk",
+          "distinguish": "放在句首，用來轉換話題或收尾，後面常接逗號。",
+          "example": {
+            "en": "Anyhow, that is all for today, so thank you everyone.",
+            "zh": "總之，今天就到這裡，謝謝大家。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "appetizer",
+      "type": "word",
+      "ipa": "/ˈæpɪˌtaɪzər/",
+      "pos": "n.",
+      "zh": "開胃菜",
+      "en": "a small dish you eat before the main meal",
+      "note": "多益餐廳、飯店宴會與公司聚餐的情境很常見，常和 main course、dessert 一起出現。接待客戶時，點 appetizer 是常見的商務用餐流程。",
+      "grammar_note": "appetizer 是可數名詞，單數前要加 an（an appetizer），複數是 appetizers。",
+      "forms": [
+        {
+          "w": "appetizers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "開胃菜（複數）",
+          "ipa": "/ˈæpɪˌtaɪzərz/",
+          "example": {
+            "en": "The restaurant offers six vegetarian appetizers on its lunch menu.",
+            "zh": "這間餐廳的午餐菜單上有六種素食開胃菜。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "order an appetizer",
+          "zh": "點一道開胃菜",
+          "example": {
+            "en": "Let's order an appetizer while we wait for the client.",
+            "zh": "我們在等客戶的時候先點一道開胃菜吧。"
+          }
+        },
+        {
+          "phrase": "serve appetizers",
+          "zh": "供應開胃菜",
+          "example": {
+            "en": "The hotel will serve appetizers at the welcome reception.",
+            "zh": "飯店會在歡迎酒會上供應開胃菜。"
+          }
+        },
+        {
+          "phrase": "appetizer platter",
+          "zh": "開胃菜拼盤",
+          "example": {
+            "en": "The caterer prepared a large appetizer platter for the office party.",
+            "zh": "外燴業者為公司派對準備了一大盤開胃菜拼盤。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "餐廳",
+          "en": "We shared a shrimp appetizer before the main course arrived.",
+          "zh": "主菜上桌前，我們分享了一道蝦子開胃菜。"
+        },
+        {
+          "tag": "活動",
+          "en": "Guests enjoyed a small appetizer while waiting for the keynote speech.",
+          "zh": "賓客在等待專題演講時享用了一道小開胃菜。"
+        },
+        {
+          "tag": "公司聚餐",
+          "en": "The company dinner begins with an appetizer, followed by a main dish.",
+          "zh": "公司晚宴以一道開胃菜開始，接著是主菜。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "appetite",
+          "diff": "appetizer 是「開胃菜」這道菜；appetite 是「食慾」。",
+          "example": {
+            "en": "The long hike gave everyone a big appetite for lunch.",
+            "zh": "長時間的健行讓大家午餐時胃口大開。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "starter",
+          "diff": "starter 是英式英語常用的說法，意思相同；美式英語較常說 appetizer。",
+          "example": {
+            "en": "For a starter, I will have the soup of the day.",
+            "zh": "開胃菜我要點今日例湯。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "entrée",
+          "pos": "n.",
+          "zh": "主菜",
+          "ipa": "/ˈɑːntreɪ/",
+          "example": {
+            "en": "Most guests chose the fish entrée for the banquet.",
+            "zh": "大多數賓客在宴會上選擇了魚排主菜。"
+          }
+        },
+        {
+          "w": "dessert",
+          "pos": "n.",
+          "zh": "甜點",
+          "ipa": "/dɪˈzɜːrt/",
+          "example": {
+            "en": "The set menu includes a drink and a dessert.",
+            "zh": "套餐包含一杯飲料和一份甜點。"
+          }
+        },
+        {
+          "w": "beverage",
+          "pos": "n.",
+          "zh": "飲料",
+          "ipa": "/ˈbɛvərɪdʒ/",
+          "example": {
+            "en": "Food and beverages will be provided at the reception.",
+            "zh": "酒會上會提供餐點與飲料。"
+          }
+        },
+        {
+          "w": "menu",
+          "pos": "n.",
+          "zh": "菜單",
+          "ipa": "/ˈmɛnjuː/",
+          "example": {
+            "en": "The waiter handed each guest a copy of the menu.",
+            "zh": "服務生遞給每位客人一份菜單。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "appetizing",
+          "ipa": "/ˈæpɪˌtaɪzɪŋ/",
+          "pos": "adj.",
+          "zh": "開胃的、引人食慾的",
+          "link": "把 appetizer 的 -er 換成 -ing，變成形容詞「讓人想吃的」，像 interesting、exciting"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

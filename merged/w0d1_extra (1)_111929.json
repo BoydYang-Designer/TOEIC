@@ -1,0 +1,2508 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "acceptance",
+      "type": "word",
+      "ipa": "/əkˈseptəns/",
+      "pos": "n.",
+      "zh": "接受、同意；驗收",
+      "en": "the act of agreeing to take something that is offered",
+      "note": "多益常見於求職與商務信件，表示「接受」錄用、提案或條款，也可指貨物的「驗收」。語氣正式，常搭配 of 後面接被接受的東西。",
+      "grammar_note": "acceptance 是名詞，常寫成 acceptance of + 名詞；動詞是 accept，不要寫成 acceptance the offer。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "letter of acceptance",
+          "zh": "錄取通知／接受函",
+          "example": {
+            "en": "The company sent him a letter of acceptance on Monday.",
+            "zh": "公司星期一寄給他一封錄取通知。"
+          }
+        },
+        {
+          "phrase": "gain acceptance",
+          "zh": "獲得認同",
+          "example": {
+            "en": "Online banking has gained acceptance among our older customers.",
+            "zh": "網路銀行已在年長客戶之間獲得認同。"
+          }
+        },
+        {
+          "phrase": "acceptance of the terms",
+          "zh": "接受條款",
+          "example": {
+            "en": "Clicking this button means acceptance of the terms and conditions.",
+            "zh": "按下這個按鈕代表接受條款與條件。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "We are waiting for your acceptance of the job offer.",
+          "zh": "我們正在等你接受這份工作邀約。"
+        },
+        {
+          "tag": "會議",
+          "en": "The manager asked for the team's acceptance of the new schedule.",
+          "zh": "經理請團隊接受新的時程表。"
+        },
+        {
+          "tag": "採購",
+          "en": "Payment is due within ten days of acceptance of the goods.",
+          "zh": "貨物驗收後十天內須付款。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "accept",
+          "diff": "accept 是動詞「接受」，acceptance 是名詞「接受這件事」。",
+          "usage": "accept 是動詞，後面直接接受詞；acceptance 是名詞，要寫成 acceptance of + 名詞。",
+          "example": {
+            "en": "Please accept our invitation to the opening event.",
+            "zh": "請接受我們對開幕活動的邀請。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "approval",
+          "pos": "n.",
+          "zh": "核准、同意",
+          "ipa": "/əˈpruːvəl/",
+          "example": {
+            "en": "We need the manager's approval before we place the order.",
+            "zh": "下訂單之前，我們需要經理的核准。"
+          }
+        },
+        {
+          "w": "agreement",
+          "pos": "n.",
+          "zh": "協議、同意",
+          "ipa": "/əˈɡriːmənt/",
+          "example": {
+            "en": "Both companies signed the agreement at yesterday's meeting.",
+            "zh": "兩家公司在昨天的會議上簽了協議。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "accept",
+          "pos": "v.",
+          "zh": "接受",
+          "ipa": "/əkˈsept/",
+          "link": "基礎動詞，加 -ance 就變成名詞 acceptance，像 perform → performance"
+        },
+        {
+          "w": "acceptable",
+          "pos": "adj.",
+          "zh": "可接受的",
+          "ipa": "/əkˈseptəbl/",
+          "link": "accept + -able，可以被接受的，像 comfortable、reliable"
+        },
+        {
+          "w": "unacceptable",
+          "pos": "adj.",
+          "zh": "無法接受的",
+          "ipa": "/ˌʌnəkˈseptəbl/",
+          "link": "un- + acceptable，不能被接受，像 unable、unusual"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "接受、同意",
+          "en": "the act of saying yes to an offer or plan",
+          "example": {
+            "en": "His acceptance of the offer made everyone in the office happy.",
+            "zh": "他接受了這份邀約，讓辦公室每個人都很高興。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "認同、普遍接受",
+          "en": "the feeling that something is normal or good",
+          "distinguish": "後面常接 among / in 某群人或市場，表示被大家認同。",
+          "example": {
+            "en": "The new product slowly won acceptance in the Asian market.",
+            "zh": "這項新產品慢慢在亞洲市場獲得認同。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "驗收",
+          "en": "the act of agreeing that goods are correct",
+          "distinguish": "出現在採購、貨物、付款情境，常和 form、goods 一起出現。",
+          "example": {
+            "en": "The buyer signed the acceptance form after checking the goods.",
+            "zh": "買方檢查貨物後簽了驗收單。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "accumulate",
+      "type": "word",
+      "ipa": "/əˈkjuːmjəleɪt/",
+      "pos": "v.",
+      "zh": "累積、逐漸增加",
+      "en": "to get more and more of something over time",
+      "note": "多益常用在財務、經驗、點數或庫存，表示一點一點慢慢變多。可以是好事（累積經驗），也可以是壞事（累積債務）。",
+      "forms": [
+        {
+          "w": "accumulates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "累積",
+          "ipa": "/əˈkjuːmjəleɪts/",
+          "example": {
+            "en": "Dust accumulates quickly on the old warehouse shelves.",
+            "zh": "灰塵很快就會堆在舊倉庫的架子上。"
+          }
+        },
+        {
+          "w": "accumulated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "累積了",
+          "ipa": "/əˈkjuːmjəleɪtɪd/",
+          "example": {
+            "en": "She accumulated two weeks of unused vacation by December.",
+            "zh": "到十二月她累積了兩週沒休的假。"
+          }
+        },
+        {
+          "w": "accumulated",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "累積的",
+          "ipa": "/əˈkjuːmjəleɪtɪd/",
+          "example": {
+            "en": "The accumulated profits were used to buy new equipment.",
+            "zh": "累積下來的利潤被用來買新設備。"
+          }
+        },
+        {
+          "w": "accumulating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在累積",
+          "ipa": "/əˈkjuːmjəleɪtɪŋ/",
+          "example": {
+            "en": "Orders are accumulating faster than we can process them.",
+            "zh": "訂單累積的速度比我們處理的速度還快。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "accumulate experience",
+          "zh": "累積經驗",
+          "example": {
+            "en": "You will accumulate valuable experience in our sales department.",
+            "zh": "你會在我們的業務部累積寶貴的經驗。"
+          }
+        },
+        {
+          "phrase": "accumulate debt",
+          "zh": "累積債務",
+          "example": {
+            "en": "The company continued to accumulate debt last year.",
+            "zh": "這家公司去年持續累積債務。"
+          }
+        },
+        {
+          "phrase": "accumulate points",
+          "zh": "累積點數",
+          "example": {
+            "en": "Members can accumulate points every time they shop with us.",
+            "zh": "會員每次在我們這裡購物都可以累積點數。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "財務",
+          "en": "Over time, small savings can accumulate into a large amount.",
+          "zh": "時間一久，小額儲蓄也能累積成一大筆錢。"
+        },
+        {
+          "tag": "會計",
+          "en": "Our unpaid bills began to accumulate during the summer.",
+          "zh": "夏天期間，我們未付的帳單開始越積越多。"
+        },
+        {
+          "tag": "職場",
+          "en": "Interns accumulate useful work experience in just six months.",
+          "zh": "實習生在短短六個月內就能累積實用的工作經驗。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "accommodate",
+          "diff": "拼法相近；accommodate 是「容納、為…提供住宿」，accumulate 是「累積」。",
+          "example": {
+            "en": "The hotel can accommodate two hundred guests for the event.",
+            "zh": "這間飯店可以容納兩百位客人參加活動。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "collect",
+          "diff": "collect 是有目的地收集；accumulate 強調隨時間慢慢變多。",
+          "example": {
+            "en": "We collect customer feedback after every online purchase.",
+            "zh": "每次網路購物後，我們都會收集顧客意見。"
+          }
+        },
+        {
+          "phrase": "build up",
+          "diff": "build up 比較口語，accumulate 比較正式，常見於書面與報告。",
+          "example": {
+            "en": "Try to build up your savings before buying a car.",
+            "zh": "買車之前，試著先把存款累積起來。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "gain",
+          "pos": "v.",
+          "zh": "獲得",
+          "ipa": "/ɡeɪn/",
+          "example": {
+            "en": "He gained useful skills during his first year here.",
+            "zh": "他在這裡的第一年學到了很多實用技能。"
+          }
+        },
+        {
+          "w": "total",
+          "pos": "n.",
+          "zh": "總數",
+          "ipa": "/ˈtoʊtl/",
+          "example": {
+            "en": "The total of all expenses is five thousand dollars.",
+            "zh": "所有費用的總數是五千美元。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "accumulation",
+          "pos": "n.",
+          "zh": "累積",
+          "ipa": "/əˌkjuːmjəˈleɪʃn/",
+          "link": "accumulate + -ion，把動作變成名詞，像 decorate → decoration"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "additionally",
+      "type": "word",
+      "ipa": "/əˈdɪʃənəli/",
+      "pos": "adv.",
+      "zh": "此外、另外",
+      "en": "also; as one more thing",
+      "note": "多放在句首，用逗號隔開，用來補充另一個資訊，常見於電子郵件、公告與報告。語氣比 also 正式，和 in addition 很接近。",
+      "grammar_note": "additionally 是副詞，不能直接放在名詞前；要修飾名詞用形容詞 additional（additional cost）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "Additionally, please note",
+          "zh": "另外請注意",
+          "example": {
+            "en": "Additionally, please note that the office closes at five.",
+            "zh": "另外請注意，辦公室五點關門。"
+          }
+        },
+        {
+          "phrase": "additionally required",
+          "zh": "額外需要的",
+          "example": {
+            "en": "Two forms are additionally required for overseas orders.",
+            "zh": "海外訂單另外還需要兩份表格。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Additionally, please attach a copy of your passport.",
+          "zh": "另外，請附上你的護照影本。"
+        },
+        {
+          "tag": "會議",
+          "en": "The plan is cheaper. Additionally, it saves a lot of time.",
+          "zh": "這個計畫比較便宜。此外，還能省下很多時間。"
+        },
+        {
+          "tag": "報告",
+          "en": "We improved delivery times and, additionally, reduced shipping costs.",
+          "zh": "我們縮短了交貨時間，另外也降低了運費。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "additional",
+          "diff": "additional 是形容詞「額外的」，additionally 是副詞「此外」。",
+          "usage": "additional 放在名詞前（additional staff）；additionally 通常放句首或修飾整個句子。",
+          "example": {
+            "en": "We need additional staff for the holiday season.",
+            "zh": "假日期間我們需要額外的人手。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "in addition",
+          "diff": "意思幾乎相同；in addition 也可接 to + 名詞（in addition to the fee）。",
+          "example": {
+            "en": "In addition, we will offer free shipping on all orders.",
+            "zh": "此外，所有訂單我們都提供免運費。"
+          }
+        },
+        {
+          "phrase": "also",
+          "diff": "also 比較口語，位置多在動詞前；additionally 較正式，常放句首。",
+          "example": {
+            "en": "We also offer free repairs for the first year.",
+            "zh": "我們第一年也提供免費維修。"
+          }
+        },
+        {
+          "phrase": "moreover",
+          "diff": "moreover 語氣更正式，常用來加強前面說的論點。",
+          "example": {
+            "en": "Moreover, the new model uses much less energy.",
+            "zh": "而且，新機型用的能源少很多。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "extra",
+          "pos": "adj.",
+          "zh": "額外的",
+          "ipa": "/ˈekstrə/",
+          "example": {
+            "en": "Please pay an extra fee for heavy bags.",
+            "zh": "過重的行李請另付額外費用。"
+          }
+        },
+        {
+          "w": "besides",
+          "pos": "adv.",
+          "zh": "而且、此外",
+          "ipa": "/bɪˈsaɪdz/",
+          "example": {
+            "en": "Besides, the hotel is too far from the airport.",
+            "zh": "而且，這間飯店離機場太遠了。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "add",
+          "pos": "v.",
+          "zh": "增加、加上",
+          "ipa": "/æd/",
+          "link": "最基本的動詞「加」，其他字都從它長出來"
+        },
+        {
+          "w": "addition",
+          "pos": "n.",
+          "zh": "增加、附加物",
+          "ipa": "/əˈdɪʃn/",
+          "link": "add + -ition，加的動作或加上去的東西，像 compete → competition"
+        },
+        {
+          "w": "additional",
+          "pos": "adj.",
+          "zh": "額外的",
+          "ipa": "/əˈdɪʃənl/",
+          "link": "addition + -al，變成形容詞，像 tradition → traditional"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "administrative",
+      "type": "word",
+      "ipa": "/ədˈmɪnɪstreɪtɪv/",
+      "pos": "adj.",
+      "zh": "行政的、管理的",
+      "en": "related to the work of running an office or a company",
+      "note": "多益職場情境很常見，指文書、安排、管理這類辦公室行政工作。常見搭配有 administrative assistant（行政助理）與 administrative fee（手續費）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "administrative assistant",
+          "zh": "行政助理",
+          "example": {
+            "en": "We are hiring an administrative assistant for the front desk.",
+            "zh": "我們正在為櫃檯招聘一位行政助理。"
+          }
+        },
+        {
+          "phrase": "administrative fee",
+          "zh": "行政手續費",
+          "example": {
+            "en": "A small administrative fee applies to every late payment.",
+            "zh": "每筆逾期付款都要加收一筆小額手續費。"
+          }
+        },
+        {
+          "phrase": "administrative work",
+          "zh": "行政工作",
+          "example": {
+            "en": "Most of my day goes to administrative work and emails.",
+            "zh": "我一天大部分時間都花在行政工作和電子郵件上。"
+          }
+        },
+        {
+          "phrase": "administrative office",
+          "zh": "行政辦公室",
+          "example": {
+            "en": "Visit the administrative office to pick up your ID card.",
+            "zh": "請到行政辦公室領取你的識別證。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "職場",
+          "en": "She works as an administrative assistant in our Taipei office.",
+          "zh": "她在我們的台北辦公室擔任行政助理。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please send the form to the administrative department.",
+          "zh": "請把表格寄給行政部門。"
+        },
+        {
+          "tag": "會議",
+          "en": "Administrative costs rose by five percent this year.",
+          "zh": "今年行政成本上升了百分之五。"
+        },
+        {
+          "tag": "公告",
+          "en": "The administrative staff will hold a short meeting at nine.",
+          "zh": "行政人員九點會開一個簡短的會議。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "administration",
+          "diff": "administration 是名詞，指管理工作或行政部門；administrative 是形容詞。",
+          "usage": "administrative 後面要接名詞（administrative work）；administration 本身就是名詞，不能再修飾名詞。",
+          "example": {
+            "en": "The administration approved the plan after a long review.",
+            "zh": "管理階層在長時間審查後核准了這項計畫。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "office",
+          "pos": "n.",
+          "zh": "辦公室",
+          "ipa": "/ˈɔːfɪs/",
+          "example": {
+            "en": "The main office is on the third floor.",
+            "zh": "總辦公室在三樓。"
+          }
+        },
+        {
+          "w": "management",
+          "pos": "n.",
+          "zh": "管理、管理階層",
+          "ipa": "/ˈmænɪdʒmənt/",
+          "example": {
+            "en": "Management plans to open two new stores next year.",
+            "zh": "管理階層計畫明年開兩家新店。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "administer",
+          "pos": "v.",
+          "zh": "管理、執行",
+          "ipa": "/ədˈmɪnɪstər/",
+          "link": "基礎動詞「管理」；去掉 -er 加上 -ative 就變成形容詞，像 talk → talkative"
+        },
+        {
+          "w": "administration",
+          "pos": "n.",
+          "zh": "管理、行政部門",
+          "ipa": "/ədˌmɪnɪˈstreɪʃn/",
+          "link": "administer + -ation，管理這件事，像 inform → information"
+        },
+        {
+          "w": "administrator",
+          "pos": "n.",
+          "zh": "管理人員",
+          "ipa": "/ədˈmɪnɪstreɪtər/",
+          "link": "administr- + -ator，做管理的人，像 actor、operator"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "affirmative",
+      "type": "word",
+      "ipa": "/əˈfɜːrmətɪv/",
+      "pos": "adj.",
+      "zh": "肯定的、表示同意的",
+      "en": "saying yes or showing agreement",
+      "note": "多益常見於電子郵件與回覆，表示對方的答覆是「是」或「同意」。語氣正式，常搭配 answer、reply、response，或用 in the affirmative 表示「回答是」。",
+      "forms": [
+        {
+          "w": "affirmatives",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "肯定回答（複數）",
+          "ipa": "/əˈfɜːrmətɪvz/",
+          "example": {
+            "en": "The count showed nine affirmatives and only two negatives.",
+            "zh": "計票結果顯示九票贊成，只有兩票反對。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "affirmative response",
+          "zh": "肯定的回覆",
+          "example": {
+            "en": "We need an affirmative response before the end of today.",
+            "zh": "我們今天結束前需要一個肯定的回覆。"
+          }
+        },
+        {
+          "phrase": "in the affirmative",
+          "zh": "回答是、表示同意",
+          "example": {
+            "en": "The director replied in the affirmative within an hour.",
+            "zh": "主管在一小時內回覆說同意。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "We received an affirmative reply from the supplier this morning.",
+          "zh": "我們今天早上收到供應商的肯定回覆。"
+        },
+        {
+          "tag": "會議",
+          "en": "If the vote is affirmative, we will begin the project Monday.",
+          "zh": "如果投票結果是贊成，我們星期一就開始這個專案。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "confirm",
+          "diff": "confirm 是「確認」某件事屬實或預約無誤；affirmative 是表示「是／同意」。",
+          "usage": "confirm 是動詞，後面接受詞；affirmative 是形容詞或名詞，不能當動詞用。",
+          "example": {
+            "en": "Please confirm your flight time by email today.",
+            "zh": "請今天用電子郵件確認你的班機時間。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "positive",
+          "diff": "positive 比較口語，也可指正面的看法或結果；affirmative 專指表示「是」。",
+          "example": {
+            "en": "We got a positive reply from the new client.",
+            "zh": "我們收到新客戶正面的回覆。"
+          }
+        },
+        {
+          "phrase": "favorable",
+          "diff": "favorable 指有利、讚許的態度；affirmative 單純是同意。",
+          "example": {
+            "en": "The committee gave a favorable report on our plan.",
+            "zh": "委員會對我們的計畫提出了正面的報告。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "negative",
+          "pos": "adj.",
+          "zh": "否定的、負面的",
+          "ipa": "/ˈneɡətɪv/",
+          "example": {
+            "en": "The customer sent a negative review about the delay.",
+            "zh": "客戶針對延誤寄來一則負面評論。"
+          }
+        },
+        {
+          "w": "agree",
+          "pos": "v.",
+          "zh": "同意",
+          "ipa": "/əˈɡriː/",
+          "example": {
+            "en": "Both sides agree to meet again next week.",
+            "zh": "雙方同意下週再見面。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "affirm",
+          "pos": "v.",
+          "zh": "肯定、確認",
+          "ipa": "/əˈfɜːrm/",
+          "link": "基礎動詞「堅定地表示」；加 -ative 變成形容詞，像 talk → talkative"
+        },
+        {
+          "w": "affirmation",
+          "pos": "n.",
+          "zh": "肯定、確認",
+          "ipa": "/ˌæfərˈmeɪʃn/",
+          "link": "affirm + -ation，肯定這件事，像 inform → information"
+        },
+        {
+          "w": "affirmatively",
+          "pos": "adv.",
+          "zh": "肯定地",
+          "ipa": "/əˈfɜːrmətɪvli/",
+          "link": "affirmative + -ly，形容詞變副詞，像 quick → quickly"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/əˈfɜːrmətɪv/",
+          "zh": "肯定的",
+          "example": {
+            "en": "Her answer was affirmative, so we booked the conference room.",
+            "zh": "她的答覆是肯定的，所以我們訂了會議室。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/əˈfɜːrmətɪv/",
+          "zh": "肯定回答",
+          "example": {
+            "en": "We took her short nod as an affirmative.",
+            "zh": "我們把她簡單的點頭當作肯定的答覆。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "airplane",
+      "type": "word",
+      "ipa": "/ˈerpleɪn/",
+      "pos": "n.",
+      "zh": "飛機",
+      "en": "a vehicle with wings that flies and carries people",
+      "note": "多益出差、機場與旅遊情境的基本字，常見於登機、延誤、航班公告。這是美式拼法，英式寫 aeroplane；口語常簡稱 plane。",
+      "grammar_note": "「搭飛機」用 by airplane（或 by plane），by 後面不加 a／the；但 on an airplane 就要加冠詞。",
+      "forms": [
+        {
+          "w": "airplanes",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "飛機（複數）",
+          "ipa": "/ˈerpleɪnz/",
+          "example": {
+            "en": "Several airplanes landed late because of the heavy rain.",
+            "zh": "因為大雨，好幾架飛機都晚點降落。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "board an airplane",
+          "zh": "登機",
+          "example": {
+            "en": "Passengers may board the airplane after the final call.",
+            "zh": "最後廣播之後，旅客就可以登機。"
+          }
+        },
+        {
+          "phrase": "by airplane",
+          "zh": "搭飛機",
+          "example": {
+            "en": "Some goods are sent by airplane to save time.",
+            "zh": "有些貨物用飛機運送以節省時間。"
+          }
+        },
+        {
+          "phrase": "airplane ticket",
+          "zh": "機票",
+          "example": {
+            "en": "I booked an airplane ticket for the business trip.",
+            "zh": "我為這次出差訂了機票。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "出差",
+          "en": "The airplane to Singapore leaves from Gate twelve at nine.",
+          "zh": "飛往新加坡的飛機九點從十二號登機門出發。"
+        },
+        {
+          "tag": "機場",
+          "en": "Please turn off your phone before the airplane takes off.",
+          "zh": "飛機起飛前，請把手機關機。"
+        },
+        {
+          "tag": "公告",
+          "en": "The airplane was delayed for two hours because of the storm.",
+          "zh": "因為暴風雨，飛機延誤了兩個小時。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "airport",
+          "diff": "airplane 是飛機本身，airport 是機場。",
+          "example": {
+            "en": "We met our clients at the airport this morning.",
+            "zh": "我們今天早上在機場接了客戶。"
+          }
+        },
+        {
+          "word": "airline",
+          "diff": "airline 是航空公司，不是飛機。",
+          "example": {
+            "en": "The airline offers cheap tickets to Seoul in spring.",
+            "zh": "這家航空公司在春天提供飛首爾的便宜機票。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "plane",
+          "diff": "plane 是 airplane 的口語簡稱，兩者意思相同。",
+          "example": {
+            "en": "I fell asleep on the plane to Chicago.",
+            "zh": "我在飛往芝加哥的飛機上睡著了。"
+          }
+        },
+        {
+          "phrase": "aircraft",
+          "diff": "aircraft 範圍更廣，包含直升機等，單複數同形；用於正式或技術情境。",
+          "example": {
+            "en": "The aircraft is checked carefully before every flight.",
+            "zh": "每次飛行前都會仔細檢查這架航空器。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "flight",
+          "pos": "n.",
+          "zh": "航班",
+          "ipa": "/flaɪt/",
+          "example": {
+            "en": "Our flight to Paris leaves at noon on Friday.",
+            "zh": "我們飛巴黎的航班星期五中午起飛。"
+          }
+        },
+        {
+          "w": "passenger",
+          "pos": "n.",
+          "zh": "乘客",
+          "ipa": "/ˈpæsɪndʒər/",
+          "example": {
+            "en": "Each passenger may bring one small bag on board.",
+            "zh": "每位乘客可以帶一個小包包上機。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "alike",
+      "type": "word",
+      "ipa": "/əˈlaɪk/",
+      "pos": "adj.",
+      "zh": "相像的；同樣地",
+      "en": "very similar; in the same way",
+      "note": "當形容詞時只能放在 be 動詞或 look 之後，說明兩者很像；當副詞時常放在句尾，表示「兩者都…」，像 customers and clients alike。多益閱讀中常以 A and B alike 的形式出現。",
+      "grammar_note": "alike 當形容詞不能直接放在名詞前（不能說 alike products）；要放前面用 similar。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "look alike",
+          "zh": "看起來很像",
+          "example": {
+            "en": "The two models look alike, so check the label.",
+            "zh": "這兩款看起來很像，所以請檢查標籤。"
+          }
+        },
+        {
+          "phrase": "think alike",
+          "zh": "想法相近",
+          "example": {
+            "en": "Good business partners often think alike about new ideas.",
+            "zh": "好的事業夥伴對新點子的想法通常很接近。"
+          }
+        },
+        {
+          "phrase": "A and B alike",
+          "zh": "A 和 B 都",
+          "example": {
+            "en": "The new rule affects customers and sellers alike.",
+            "zh": "這項新規定對顧客和賣家都有影響。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Our two products are alike in price and quality.",
+          "zh": "我們兩項產品在價格與品質上很相似。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "All employees, new and old alike, must attend the training.",
+          "zh": "所有員工，無論新舊，都必須參加訓練。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "like",
+          "diff": "like 是介系詞「像」，後面接名詞；alike 後面不接受詞。",
+          "usage": "A is like B，但 A and B are alike；alike 不能放在名詞前，也不接受詞。",
+          "example": {
+            "en": "This new laptop is like the one we bought.",
+            "zh": "這台新筆電和我們買過的那台很像。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "similar",
+          "diff": "similar 可放在名詞前（similar prices）；alike 不行。",
+          "example": {
+            "en": "Both stores have similar prices for office supplies.",
+            "zh": "兩家店的辦公用品價格很相近。"
+          }
+        },
+        {
+          "phrase": "the same as",
+          "diff": "the same as 表示「完全一樣」，alike 只是很像。",
+          "example": {
+            "en": "Both reports give the same sales figures for May.",
+            "zh": "兩份報告給出的五月銷售數字完全一樣。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "different",
+          "pos": "adj.",
+          "zh": "不同的",
+          "ipa": "/ˈdɪfrənt/",
+          "example": {
+            "en": "The two plans are very different from each other.",
+            "zh": "這兩個計畫彼此非常不同。"
+          }
+        },
+        {
+          "w": "equal",
+          "pos": "adj.",
+          "zh": "相等的",
+          "ipa": "/ˈiːkwəl/",
+          "example": {
+            "en": "All workers receive equal pay for equal work.",
+            "zh": "所有員工同工同酬。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/əˈlaɪk/",
+          "zh": "相像的",
+          "example": {
+            "en": "The two designs look very alike to me.",
+            "zh": "這兩個設計在我看來非常相像。"
+          }
+        },
+        {
+          "pos": "adv.",
+          "ipa": "/əˈlaɪk/",
+          "zh": "同樣地",
+          "example": {
+            "en": "The course helps managers and staff alike.",
+            "zh": "這門課對經理與員工都有幫助。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "anniversary",
+      "type": "word",
+      "ipa": "/ˌænəˈvɜːrsəri/",
+      "pos": "n.",
+      "zh": "週年紀念日",
+      "en": "a day when you remember something that happened in an earlier year",
+      "note": "多益常見於公司週年慶、促銷活動與員工在職週年的情境，也可指結婚紀念日。常搭配序數，如 the tenth anniversary。",
+      "grammar_note": "第幾週年用序數加 anniversary，如 the 20th anniversary；後面接 of + 事件（anniversary of the opening）。",
+      "forms": [
+        {
+          "w": "anniversaries",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "週年紀念日（複數）",
+          "ipa": "/ˌænəˈvɜːrsəriz/",
+          "example": {
+            "en": "The firm holds events on several anniversaries each year.",
+            "zh": "這家公司每年在好幾個週年紀念日舉辦活動。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "celebrate the anniversary",
+          "zh": "慶祝週年",
+          "example": {
+            "en": "We will celebrate the anniversary with a small party on Friday.",
+            "zh": "我們星期五會用一個小派對慶祝週年。"
+          }
+        },
+        {
+          "phrase": "work anniversary",
+          "zh": "到職週年",
+          "example": {
+            "en": "Today is Tom's five-year work anniversary at our firm.",
+            "zh": "今天是 Tom 在我們公司的五週年。"
+          }
+        },
+        {
+          "phrase": "wedding anniversary",
+          "zh": "結婚紀念日",
+          "example": {
+            "en": "He took a day off for his wedding anniversary.",
+            "zh": "他為了結婚紀念日請了一天假。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "Our company will mark its twentieth anniversary next month.",
+          "zh": "我們公司下個月將迎來二十週年。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Thank you for joining us on our store's anniversary.",
+          "zh": "謝謝你在本店週年慶時與我們同在。"
+        },
+        {
+          "tag": "行銷",
+          "en": "We are offering a ten percent discount for our anniversary sale.",
+          "zh": "週年慶期間我們提供九折優惠。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "annual",
+          "diff": "annual 是形容詞「每年的」，anniversary 是名詞「週年紀念日」。",
+          "usage": "annual 修飾名詞（annual meeting）；anniversary 本身是名詞，指某天。",
+          "example": {
+            "en": "The annual sales meeting is held every March in Taipei.",
+            "zh": "年度業務會議每年三月在台北舉行。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "celebration",
+          "pos": "n.",
+          "zh": "慶祝活動",
+          "ipa": "/ˌseləˈbreɪʃn/",
+          "example": {
+            "en": "The celebration starts at six in the lobby.",
+            "zh": "慶祝活動六點在大廳開始。"
+          }
+        },
+        {
+          "w": "event",
+          "pos": "n.",
+          "zh": "活動",
+          "ipa": "/ɪˈvent/",
+          "example": {
+            "en": "The charity event attracted many local businesses last year.",
+            "zh": "這場慈善活動去年吸引了許多本地企業。"
+          }
+        },
+        {
+          "w": "ceremony",
+          "pos": "n.",
+          "zh": "典禮",
+          "ipa": "/ˈserəmoʊni/",
+          "example": {
+            "en": "The award ceremony will begin at seven tonight in the hall.",
+            "zh": "頒獎典禮今晚七點在大廳開始。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "antique",
+      "type": "word",
+      "ipa": "/ænˈtiːk/",
+      "pos": "n.",
+      "zh": "古董",
+      "en": "an old and valuable object, like furniture or a clock",
+      "note": "多益常見於拍賣、展覽、飯店裝潢與購物情境，指有歷史、有價值的老物件。名詞和形容詞拼法相同，常見搭配是 antique furniture 與 antique shop。",
+      "forms": [
+        {
+          "w": "antiques",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "古董（複數）",
+          "ipa": "/ænˈtiːks/",
+          "example": {
+            "en": "The store sells furniture and other antiques from Europe.",
+            "zh": "這家店賣來自歐洲的家具和其他古董。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "antique furniture",
+          "zh": "古董家具",
+          "example": {
+            "en": "The lobby is decorated with antique furniture from Italy.",
+            "zh": "大廳裝飾著來自義大利的古董家具。"
+          }
+        },
+        {
+          "phrase": "antique shop",
+          "zh": "古董店",
+          "example": {
+            "en": "She opened an antique shop near the train station.",
+            "zh": "她在火車站附近開了一家古董店。"
+          }
+        },
+        {
+          "phrase": "antique collection",
+          "zh": "古董收藏",
+          "example": {
+            "en": "He donated his antique collection to the city museum.",
+            "zh": "他把自己的古董收藏捐給市立博物館。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "The hotel bought an old mirror at an antique fair.",
+          "zh": "飯店在古董市集買了一面舊鏡子。"
+        },
+        {
+          "tag": "拍賣",
+          "en": "This antique vase is worth more than ten thousand dollars.",
+          "zh": "這個古董花瓶價值超過一萬美元。"
+        },
+        {
+          "tag": "市集",
+          "en": "Antique dealers often visit the weekend market in town.",
+          "zh": "古董商常去鎮上的週末市集。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "ancient",
+          "diff": "ancient 指非常久遠的古代（如古羅馬），不一定是物品；antique 是有價值的老東西。",
+          "usage": "ancient 是形容詞，不能當名詞用；antique 可以當名詞（an antique）。",
+          "example": {
+            "en": "Visitors enjoy the ancient temples near our hotel.",
+            "zh": "遊客喜歡我們飯店附近的古老寺廟。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "vintage",
+          "diff": "vintage 常指某個年代的經典款（衣服、車、酒），antique 通常指更老、超過百年的物件。",
+          "example": {
+            "en": "She likes wearing vintage clothes from the 1980s.",
+            "zh": "她喜歡穿八〇年代的復古衣服。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "collection",
+          "pos": "n.",
+          "zh": "收藏品",
+          "ipa": "/kəˈlekʃn/",
+          "example": {
+            "en": "The museum has a large collection of old maps.",
+            "zh": "博物館有大量的古地圖收藏。"
+          }
+        },
+        {
+          "w": "auction",
+          "pos": "n.",
+          "zh": "拍賣",
+          "ipa": "/ˈɔːkʃn/",
+          "example": {
+            "en": "The painting was sold at an auction yesterday.",
+            "zh": "那幅畫昨天在拍賣會上售出。"
+          }
+        },
+        {
+          "w": "furniture",
+          "pos": "n.",
+          "zh": "家具",
+          "ipa": "/ˈfɜːrnɪtʃər/",
+          "example": {
+            "en": "We need new furniture for the meeting room.",
+            "zh": "我們的會議室需要新家具。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ænˈtiːk/",
+          "zh": "古董",
+          "example": {
+            "en": "This desk is an antique from the nineteenth century.",
+            "zh": "這張書桌是十九世紀的古董。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ænˈtiːk/",
+          "zh": "古董的",
+          "example": {
+            "en": "They bought an antique clock for the new lobby.",
+            "zh": "他們為新大廳買了一座古董鐘。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "actress",
+      "type": "word",
+      "ipa": "/ˈæktrəs/",
+      "pos": "n.",
+      "zh": "女演員",
+      "en": "a woman who acts in films, plays, or TV shows",
+      "note": "多益常見於廣告、活動、新聞與娛樂相關情境，指女性演員。現在很多人用 actor 泛指所有演員，但 actress 仍常用在獎項與介紹文字。",
+      "forms": [
+        {
+          "w": "actresses",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "女演員（複數）",
+          "ipa": "/ˈæktrəsɪz/",
+          "example": {
+            "en": "Two actresses signed contracts with the film studio this week.",
+            "zh": "兩位女演員這週和電影公司簽了約。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "leading actress",
+          "zh": "女主角",
+          "example": {
+            "en": "The leading actress will give a short speech at the event.",
+            "zh": "女主角會在活動上做一段簡短的演說。"
+          }
+        },
+        {
+          "phrase": "award-winning actress",
+          "zh": "得獎女演員",
+          "example": {
+            "en": "We invited an award-winning actress to host the charity dinner.",
+            "zh": "我們邀請一位得獎女演員主持慈善晚宴。"
+          }
+        },
+        {
+          "phrase": "best actress",
+          "zh": "最佳女主角",
+          "example": {
+            "en": "She won the prize for best actress at the film festival.",
+            "zh": "她在影展上贏得最佳女主角獎。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "廣告",
+          "en": "The company hired a famous actress for its new TV commercial.",
+          "zh": "公司請了一位知名女演員拍新的電視廣告。"
+        },
+        {
+          "tag": "活動",
+          "en": "The actress will attend the opening of our new store.",
+          "zh": "這位女演員將出席我們新店的開幕。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "actor",
+          "diff": "actor 是男演員，現在也常泛指所有演員；actress 專指女演員。",
+          "example": {
+            "en": "The actor in our new advertisement is a local student.",
+            "zh": "我們新廣告裡的演員是一位當地學生。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "performer",
+          "diff": "performer 泛指表演者，不限性別，也包含歌手、舞者等。",
+          "example": {
+            "en": "The performer thanked the audience after the show.",
+            "zh": "表演者在演出後向觀眾道謝。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "director",
+          "pos": "n.",
+          "zh": "導演",
+          "ipa": "/dəˈrektər/",
+          "example": {
+            "en": "The director chose a new actress for the main role.",
+            "zh": "導演為主角選了一位新的女演員。"
+          }
+        },
+        {
+          "w": "audience",
+          "pos": "n.",
+          "zh": "觀眾",
+          "ipa": "/ˈɔːdiəns/",
+          "example": {
+            "en": "The audience clapped loudly at the end of the play.",
+            "zh": "戲劇結束時，觀眾大聲鼓掌。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "act",
+          "pos": "v.",
+          "zh": "表演、行動",
+          "ipa": "/ækt/",
+          "link": "最基本的動詞，「演出」或「採取行動」"
+        },
+        {
+          "w": "actor",
+          "pos": "n.",
+          "zh": "演員",
+          "ipa": "/ˈæktər/",
+          "link": "act + -or，做事的人，像 visitor、editor；actress 是 actor 的女性形"
+        },
+        {
+          "w": "action",
+          "pos": "n.",
+          "zh": "行動",
+          "ipa": "/ˈækʃn/",
+          "link": "act + -ion，動作變名詞，像 decide → decision"
+        },
+        {
+          "w": "active",
+          "pos": "adj.",
+          "zh": "活躍的",
+          "ipa": "/ˈæktɪv/",
+          "link": "act + -ive，會行動的，像 creative"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "adjacent",
+      "type": "word",
+      "ipa": "/əˈdʒeɪsnt/",
+      "pos": "adj.",
+      "zh": "鄰近的、毗鄰的",
+      "en": "next to or very near something",
+      "note": "多益常見於地點、建築、房間與停車場的描述，指兩個地方緊鄰。語氣正式，常出現在公告、廣告與房地產說明。",
+      "grammar_note": "adjacent 後面要接 to 再接地點（adjacent to the station），不是 adjacent with，也不能直接接名詞。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "adjacent to",
+          "zh": "鄰近…",
+          "example": {
+            "en": "Our office is adjacent to the central train station.",
+            "zh": "我們的辦公室就在中央火車站旁邊。"
+          }
+        },
+        {
+          "phrase": "adjacent building",
+          "zh": "相鄰的大樓",
+          "example": {
+            "en": "The adjacent building is being repaired this month.",
+            "zh": "隔壁那棟大樓這個月正在整修。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "The meeting will be held in the adjacent conference room.",
+          "zh": "會議將在隔壁的會議室舉行。"
+        },
+        {
+          "tag": "公告",
+          "en": "Please use the adjacent parking lot after six o'clock.",
+          "zh": "六點以後請使用隔壁的停車場。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "adjust",
+          "diff": "拼法相近；adjust 是動詞「調整」，adjacent 是形容詞「鄰近的」。",
+          "usage": "adjust 是動詞，後面接受詞；adjacent 是形容詞，要接 to 再接地點。",
+          "example": {
+            "en": "Please adjust the chair height before the meeting starts.",
+            "zh": "會議開始前，請先調整椅子的高度。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "next to",
+          "diff": "next to 比較口語，說「在…旁邊」；adjacent to 較正式。",
+          "example": {
+            "en": "The copy room is next to the manager's office.",
+            "zh": "影印室就在經理辦公室旁邊。"
+          }
+        },
+        {
+          "phrase": "nearby",
+          "diff": "nearby 只表示附近，不一定緊貼；adjacent 通常是相連或緊鄰。",
+          "example": {
+            "en": "Several restaurants are nearby, so lunch is easy.",
+            "zh": "附近有好幾家餐廳，所以午餐很方便。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "location",
+          "pos": "n.",
+          "zh": "地點",
+          "ipa": "/loʊˈkeɪʃn/",
+          "example": {
+            "en": "The new store has a very good location.",
+            "zh": "新店的地點非常好。"
+          }
+        },
+        {
+          "w": "neighbor",
+          "pos": "n.",
+          "zh": "鄰居",
+          "ipa": "/ˈneɪbər/",
+          "example": {
+            "en": "Our neighbor company shares the same parking lot.",
+            "zh": "我們隔壁的公司和我們共用同一個停車場。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "admission",
+      "type": "word",
+      "ipa": "/ədˈmɪʃn/",
+      "pos": "n.",
+      "zh": "入場許可、入場費；入學；承認",
+      "en": "the right to enter a place, or the money you pay to enter",
+      "note": "多益常見於展覽、博物館與活動公告，指「入場」或「入場費」，也可指學校或課程的「錄取」。另外可表示承認錯誤。",
+      "grammar_note": "表示入場或入學時用 admission to + 地點／學校；表示承認時用 admission of + 錯誤。admission 作入場費時是不可數名詞。",
+      "forms": [
+        {
+          "w": "admissions",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "入學許可（複數）",
+          "ipa": "/ədˈmɪʃnz/",
+          "example": {
+            "en": "The admissions office opens at eight on weekdays.",
+            "zh": "招生辦公室平日八點開門。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "admission fee",
+          "zh": "入場費",
+          "example": {
+            "en": "The admission fee includes a guide and a small gift.",
+            "zh": "入場費包含導覽和一份小禮物。"
+          }
+        },
+        {
+          "phrase": "free admission",
+          "zh": "免費入場",
+          "example": {
+            "en": "Children under six get free admission to the exhibition.",
+            "zh": "六歲以下兒童可免費參觀展覽。"
+          }
+        },
+        {
+          "phrase": "admission ticket",
+          "zh": "入場券",
+          "example": {
+            "en": "Please show your admission ticket at the main gate.",
+            "zh": "請在大門出示你的入場券。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "活動",
+          "en": "Admission to the trade show is free for registered guests.",
+          "zh": "已登記的來賓可免費進入貿易展。"
+        },
+        {
+          "tag": "博物館",
+          "en": "Admission starts at nine, and the museum closes at five.",
+          "zh": "九點開始入場，博物館五點關閉。"
+        },
+        {
+          "tag": "學校",
+          "en": "She applied for admission to a business school in Boston.",
+          "zh": "她申請了波士頓一所商學院的入學許可。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "permission",
+          "diff": "拼法相近；permission 是「被允許做某事」，admission 是「被允許進入」。",
+          "example": {
+            "en": "You need permission from your manager to leave early.",
+            "zh": "你要得到經理的許可才能提早離開。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "entry",
+          "diff": "entry 指進入的動作或入口，範圍較廣；admission 強調被准許進入或入場費。",
+          "example": {
+            "en": "Entry to the lab is only for staff members.",
+            "zh": "只有員工可以進入實驗室。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "ticket",
+          "pos": "n.",
+          "zh": "票",
+          "ipa": "/ˈtɪkɪt/",
+          "example": {
+            "en": "The ticket office sells concert tickets until six o'clock.",
+            "zh": "售票處賣演唱會門票到六點。"
+          }
+        },
+        {
+          "w": "fee",
+          "pos": "n.",
+          "zh": "費用",
+          "ipa": "/fiː/",
+          "example": {
+            "en": "The hotel charges a small fee for late checkout.",
+            "zh": "飯店對延遲退房收取一筆小額費用。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "admit",
+          "pos": "v.",
+          "zh": "承認、准許進入",
+          "ipa": "/ədˈmɪt/",
+          "link": "基礎動詞；admit → admission，像 permit → permission"
+        },
+        {
+          "w": "admittance",
+          "pos": "n.",
+          "zh": "進入許可",
+          "ipa": "/ədˈmɪtns/",
+          "link": "admit + -ance，允許進入的權利，像 attend → attendance"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "入場許可、入場費",
+          "en": "the right or price to enter a place",
+          "example": {
+            "en": "The price of admission includes a free drink.",
+            "zh": "入場費包含一杯免費飲料。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "入學、入會許可",
+          "en": "the act of letting someone join a school or program",
+          "distinguish": "後面接學校、課程或組織，常和 apply for 一起用。",
+          "example": {
+            "en": "Admission to the training program depends on your test score.",
+            "zh": "能否進入訓練課程要看你的測驗分數。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "承認",
+          "en": "a statement that you did something wrong or that something is true",
+          "distinguish": "後面常接 of + 錯誤或事實。",
+          "example": {
+            "en": "His admission of the error helped us fix it quickly.",
+            "zh": "他承認錯誤，讓我們很快就修正了。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "afterward",
+      "type": "word",
+      "ipa": "/ˈæftərwərd/",
+      "pos": "adv.",
+      "zh": "之後、後來",
+      "en": "at a later time, after something has happened",
+      "note": "多益常見於行程、會議與公告，說明某件事之後接著發生什麼，多放在句尾或逗號後。美式拼法是 afterward，英式常寫 afterwards，意思相同。",
+      "grammar_note": "afterward 是副詞，後面不直接接名詞；要說「在…之後」請用 after + 名詞（after the meeting）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "shortly afterward",
+          "zh": "不久之後",
+          "example": {
+            "en": "The meeting ended, and shortly afterward the manager left.",
+            "zh": "會議結束，不久之後經理就離開了。"
+          }
+        },
+        {
+          "phrase": "soon afterward",
+          "zh": "隨後不久",
+          "example": {
+            "en": "The new store opened, and soon afterward sales went up.",
+            "zh": "新店開幕，隨後不久銷售就上升了。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Please finish the report first; we can discuss it afterward.",
+          "zh": "請先完成報告，我們之後再討論。"
+        },
+        {
+          "tag": "行程",
+          "en": "We will visit the factory and have lunch afterward.",
+          "zh": "我們會先參觀工廠，之後再吃午餐。"
+        },
+        {
+          "tag": "會議",
+          "en": "I will explain the plan now and take questions afterward.",
+          "zh": "我現在先說明計畫，之後再接受提問。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "after",
+          "diff": "after 是介系詞或連接詞，後面接名詞或子句；afterward 是副詞，單獨使用。",
+          "usage": "after 後面要接東西（after the meeting）；afterward 後面不接名詞，常放句尾。",
+          "example": {
+            "en": "After the meeting, we will have lunch together.",
+            "zh": "會議結束後，我們會一起吃午餐。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "later",
+          "diff": "later 範圍較廣，單純指「晚一點」；afterward 是在某件事之後。",
+          "example": {
+            "en": "I will send the file later this afternoon.",
+            "zh": "我今天下午晚一點會寄出檔案。"
+          }
+        },
+        {
+          "phrase": "then",
+          "diff": "then 較口語，常連接依序發生的動作；afterward 語氣較正式。",
+          "example": {
+            "en": "We reviewed the budget, and then we voted on it.",
+            "zh": "我們先檢視預算，然後對它進行投票。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "beforehand",
+          "pos": "adv.",
+          "zh": "事先",
+          "ipa": "/bɪˈfɔːrhænd/",
+          "example": {
+            "en": "Please send me the agenda beforehand so I can prepare.",
+            "zh": "請事先把議程寄給我，讓我可以準備。"
+          }
+        },
+        {
+          "w": "meanwhile",
+          "pos": "adv.",
+          "zh": "同時、在此期間",
+          "ipa": "/ˈmiːnwaɪl/",
+          "example": {
+            "en": "Meanwhile, the sales team is preparing the next report.",
+            "zh": "同時，業務團隊正在準備下一份報告。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "aisle",
+      "type": "word",
+      "ipa": "/aɪl/",
+      "pos": "n.",
+      "zh": "走道、通道",
+      "en": "a narrow path between rows of seats or shelves",
+      "note": "多益常見於飛機、超市、戲院與會場的情境，指座位或貨架之間的通道。注意 s 不發音，唸起來和 isle（小島）一樣。",
+      "forms": [
+        {
+          "w": "aisles",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "走道（複數）",
+          "ipa": "/aɪlz/",
+          "example": {
+            "en": "The aisles in our new store are wide and clean.",
+            "zh": "我們新店的走道又寬又乾淨。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "aisle seat",
+          "zh": "靠走道的座位",
+          "example": {
+            "en": "I prefer an aisle seat so I can move easily.",
+            "zh": "我偏好靠走道的座位，這樣方便走動。"
+          }
+        },
+        {
+          "phrase": "block the aisle",
+          "zh": "擋住走道",
+          "example": {
+            "en": "Please do not block the aisle with your bags.",
+            "zh": "請不要用你的包包擋住走道。"
+          }
+        },
+        {
+          "phrase": "supermarket aisle",
+          "zh": "超市走道",
+          "example": {
+            "en": "Free samples are handed out in the supermarket aisle.",
+            "zh": "超市的走道上有人發放免費試吃品。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "飛機",
+          "en": "Please keep the aisle clear during the flight.",
+          "zh": "飛行期間請保持走道暢通。"
+        },
+        {
+          "tag": "超市",
+          "en": "The coffee is in aisle five, next to the tea.",
+          "zh": "咖啡在第五走道，就在茶旁邊。"
+        },
+        {
+          "tag": "劇院",
+          "en": "Ushers will show you to your seat along the aisle.",
+          "zh": "帶位人員會沿著走道帶你到座位。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "isle",
+          "diff": "isle 是「小島」，和 aisle 發音相同，但拼法與意思都不同。",
+          "usage": "aisle 與 isle 同音（都唸 /aɪl/），要靠拼法和句意判斷。",
+          "example": {
+            "en": "The company owns a small hotel on a tiny isle.",
+            "zh": "這家公司在一座小島上擁有一間小旅館。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "corridor",
+          "diff": "corridor 是建築物裡的走廊；aisle 是座位或貨架之間的通道。",
+          "example": {
+            "en": "The meeting room is at the end of the corridor.",
+            "zh": "會議室在走廊的盡頭。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "seat",
+          "pos": "n.",
+          "zh": "座位",
+          "ipa": "/siːt/",
+          "example": {
+            "en": "Please take your seat before the plane leaves.",
+            "zh": "飛機起飛前請就座。"
+          }
+        },
+        {
+          "w": "shelf",
+          "pos": "n.",
+          "zh": "架子",
+          "ipa": "/ʃelf/",
+          "example": {
+            "en": "The new products are on the top shelf.",
+            "zh": "新產品放在最上層的架子上。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "ambassador",
+      "type": "word",
+      "ipa": "/æmˈbæsədər/",
+      "pos": "n.",
+      "zh": "大使；代表、形象大使",
+      "en": "an important person who represents a country or a company",
+      "note": "多益常見於新聞與商業活動，指外交「大使」，也可指代表公司形象的人（brand ambassador）。語氣正式。",
+      "forms": [
+        {
+          "w": "ambassadors",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "大使（複數）",
+          "ipa": "/æmˈbæsədərz/",
+          "example": {
+            "en": "Foreign ambassadors attended the trade fair in Taipei.",
+            "zh": "各國大使出席了在台北舉辦的貿易展。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "brand ambassador",
+          "zh": "品牌形象大使",
+          "example": {
+            "en": "The sports company chose a famous singer as its brand ambassador.",
+            "zh": "這家運動公司選了一位知名歌手當品牌形象大使。"
+          }
+        },
+        {
+          "phrase": "ambassador to",
+          "zh": "駐…大使",
+          "example": {
+            "en": "He was named ambassador to Japan last year.",
+            "zh": "他去年被任命為駐日大使。"
+          }
+        },
+        {
+          "phrase": "serve as an ambassador",
+          "zh": "擔任代表",
+          "example": {
+            "en": "Employees serve as ambassadors when they meet customers.",
+            "zh": "員工在接觸客戶時就是公司的代表。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "外交",
+          "en": "The ambassador will meet our CEO on Tuesday.",
+          "zh": "大使星期二會和我們的執行長見面。"
+        },
+        {
+          "tag": "行銷",
+          "en": "She is a great ambassador for our company's values.",
+          "zh": "她是我們公司價值觀的絕佳代表。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "embassy",
+          "diff": "ambassador 是「大使」這個人；embassy 是「大使館」這個地方。",
+          "example": {
+            "en": "The embassy is open from nine to four.",
+            "zh": "大使館的開放時間是九點到四點。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "representative",
+          "diff": "representative 可指任何機構的代表；ambassador 層級較高，多指外交或形象代表。",
+          "example": {
+            "en": "A company representative will answer your questions.",
+            "zh": "公司代表會回答你的問題。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "diplomat",
+          "pos": "n.",
+          "zh": "外交官",
+          "ipa": "/ˈdɪpləmæt/",
+          "example": {
+            "en": "The diplomat spoke at the international trade meeting.",
+            "zh": "這位外交官在國際貿易會議上發言。"
+          }
+        },
+        {
+          "w": "government",
+          "pos": "n.",
+          "zh": "政府",
+          "ipa": "/ˈɡʌvərnmənt/",
+          "example": {
+            "en": "The government signed a new trade agreement.",
+            "zh": "政府簽署了一項新的貿易協議。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "大使",
+          "en": "a person sent to another country to represent their own country",
+          "example": {
+            "en": "The new ambassador arrived in Taipei last week.",
+            "zh": "新任大使上週抵達台北。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "代表、形象大使",
+          "en": "a person who shows the good side of a company or group",
+          "distinguish": "出現在行銷或公司情境，常搭配 brand 或 for + 公司。",
+          "example": {
+            "en": "Our best salespeople act as ambassadors for the company.",
+            "zh": "我們最優秀的業務人員就是公司的代表。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "amuse",
+      "type": "word",
+      "ipa": "/əˈmjuːz/",
+      "pos": "v.",
+      "zh": "逗樂、使覺得有趣",
+      "en": "to make someone smile or laugh",
+      "note": "多益常見於活動、廣告與閱讀文章，指讓人覺得好笑或開心。常用被動 be amused by／at，或用 amusing 形容有趣的事物。",
+      "grammar_note": "amused 修飾人，表示「覺得有趣」；amusing 修飾事物，表示「有趣的」，不要說 an amused story。",
+      "forms": [
+        {
+          "w": "amuses",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "逗樂",
+          "ipa": "/əˈmjuːzɪz/",
+          "example": {
+            "en": "This silly video amuses our customers every time they see it.",
+            "zh": "這支搞笑影片每次都能逗樂我們的客戶。"
+          }
+        },
+        {
+          "w": "amused",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "逗樂了",
+          "ipa": "/əˈmjuːzd/",
+          "example": {
+            "en": "The funny email amused the whole sales team yesterday.",
+            "zh": "那封有趣的郵件昨天逗樂了整個業務團隊。"
+          }
+        },
+        {
+          "w": "amused",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "覺得有趣的",
+          "ipa": "/əˈmjuːzd/",
+          "example": {
+            "en": "The customers looked amused when the mascot started to dance.",
+            "zh": "吉祥物開始跳舞時，顧客們看起來覺得很有趣。"
+          }
+        },
+        {
+          "w": "amusing",
+          "label": "現在分詞／形容詞",
+          "pos": "adj.",
+          "zh": "有趣的",
+          "ipa": "/əˈmjuːzɪŋ/",
+          "example": {
+            "en": "He told an amusing story about his first day at work.",
+            "zh": "他講了一個關於他上班第一天的有趣故事。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "be amused by",
+          "zh": "被…逗樂",
+          "example": {
+            "en": "The clients were amused by the short video.",
+            "zh": "客戶們被這支短片逗樂了。"
+          }
+        },
+        {
+          "phrase": "amuse oneself",
+          "zh": "自己找樂子",
+          "example": {
+            "en": "While waiting for the train, she amused herself with a game.",
+            "zh": "等火車的時候，她玩遊戲自娛。"
+          }
+        },
+        {
+          "phrase": "amuse the guests",
+          "zh": "娛樂賓客",
+          "example": {
+            "en": "The comedian was hired to amuse the guests at dinner.",
+            "zh": "他們請了一位喜劇演員在晚宴上娛樂賓客。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "The speaker told a short story to amuse the team.",
+          "zh": "講者說了一個小故事來逗樂團隊。"
+        },
+        {
+          "tag": "廣告",
+          "en": "Our new advertisement is designed to amuse young viewers.",
+          "zh": "我們的新廣告是設計來逗樂年輕觀眾的。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "abuse",
+          "diff": "拼法相近；abuse 是「濫用、虐待」，amuse 是「逗樂」。",
+          "usage": "abuse 當動詞時唸 /əˈbjuːz/；當名詞時唸 /əˈbjuːs/，和 amuse 的 /əˈmjuːz/ 不同。",
+          "example": {
+            "en": "The company does not allow employees to abuse sick leave.",
+            "zh": "公司不允許員工濫用病假。"
+          }
+        },
+        {
+          "word": "amaze",
+          "diff": "amaze 是「使驚訝、讚嘆」，amuse 是「使覺得有趣」。",
+          "example": {
+            "en": "The sales results amazed everyone on the team.",
+            "zh": "銷售成績讓團隊的每個人都很驚訝。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "entertain",
+          "diff": "entertain 指提供表演或節目娛樂，也可指招待客人；amuse 強調讓人覺得好笑。",
+          "example": {
+            "en": "The band will entertain guests during the dinner.",
+            "zh": "樂團會在晚餐時為賓客表演助興。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "funny",
+          "pos": "adj.",
+          "zh": "好笑的",
+          "ipa": "/ˈfʌni/",
+          "example": {
+            "en": "That was a funny video about office life.",
+            "zh": "那是一支關於辦公室生活的好笑影片。"
+          }
+        },
+        {
+          "w": "humor",
+          "pos": "n.",
+          "zh": "幽默",
+          "ipa": "/ˈhjuːmər/",
+          "example": {
+            "en": "A little humor can make meetings less boring.",
+            "zh": "一點幽默能讓會議不那麼無聊。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "amusement",
+          "pos": "n.",
+          "zh": "娛樂、樂趣",
+          "ipa": "/əˈmjuːzmənt/",
+          "link": "amuse + -ment，動作變名詞，像 move → movement、pay → payment"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "annoy",
+      "type": "word",
+      "ipa": "/əˈnɔɪ/",
+      "pos": "v.",
+      "zh": "使惱怒、打擾",
+      "en": "to make someone a little angry or upset",
+      "note": "多益常見於客訴、辦公室與服務情境，指讓人覺得煩或不高興，程度比 anger 輕。常用被動 be annoyed at／with／by。",
+      "grammar_note": "annoyed 修飾人，表示「感到惱怒」；annoying 修飾事物，表示「令人惱怒的」。對人用 annoyed with，對事用 annoyed at／by。",
+      "forms": [
+        {
+          "w": "annoys",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "使惱怒",
+          "ipa": "/əˈnɔɪz/",
+          "example": {
+            "en": "Loud music in the office annoys many employees.",
+            "zh": "辦公室裡的大聲音樂讓許多員工很煩。"
+          }
+        },
+        {
+          "w": "annoyed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "惹惱了",
+          "ipa": "/əˈnɔɪd/",
+          "example": {
+            "en": "The late reply annoyed the client very much.",
+            "zh": "遲來的回覆讓客戶非常惱火。"
+          }
+        },
+        {
+          "w": "annoyed",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "感到惱怒的",
+          "ipa": "/əˈnɔɪd/",
+          "example": {
+            "en": "The annoyed customer asked to speak to the manager.",
+            "zh": "那位惱怒的顧客要求和經理說話。"
+          }
+        },
+        {
+          "w": "annoying",
+          "label": "現在分詞／形容詞",
+          "pos": "adj.",
+          "zh": "令人惱怒的",
+          "ipa": "/əˈnɔɪɪŋ/",
+          "example": {
+            "en": "The annoying noise made it hard to focus on work.",
+            "zh": "那惱人的噪音讓人很難專心工作。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "annoy customers",
+          "zh": "惹惱顧客",
+          "example": {
+            "en": "Long waiting times can annoy customers and hurt sales.",
+            "zh": "過長的等候時間可能惹惱顧客並傷害銷售。"
+          }
+        },
+        {
+          "phrase": "be annoyed with",
+          "zh": "對（某人）感到惱怒",
+          "example": {
+            "en": "He was annoyed with his coworker for being late.",
+            "zh": "他對遲到的同事感到惱怒。"
+          }
+        },
+        {
+          "phrase": "be annoyed at",
+          "zh": "對（某事）感到惱怒",
+          "example": {
+            "en": "Many shoppers were annoyed at the long checkout line.",
+            "zh": "許多購物者對結帳的長長人龍感到不耐煩。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Please don't annoy our guests with too many emails.",
+          "zh": "請不要用太多電子郵件打擾我們的客人。"
+        },
+        {
+          "tag": "辦公室",
+          "en": "It annoys me when people talk loudly on the phone.",
+          "zh": "有人大聲講電話時，我會覺得很煩。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "announce",
+          "diff": "拼法與發音開頭相近；announce 是「宣布」，annoy 是「惹惱」。",
+          "example": {
+            "en": "The company will announce the new schedule on Friday.",
+            "zh": "公司將在星期五宣布新的時程表。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "bother",
+          "diff": "bother 語氣較輕，常用來客氣地說「打擾」；annoy 強調讓人覺得煩。",
+          "example": {
+            "en": "Sorry to bother you, but do you have a minute?",
+            "zh": "不好意思打擾你，你有空嗎？"
+          }
+        },
+        {
+          "phrase": "irritate",
+          "diff": "irritate 較正式，程度可能更強，也可指刺激皮膚或眼睛。",
+          "example": {
+            "en": "The strong smell may irritate some customers.",
+            "zh": "強烈的氣味可能會讓部分顧客不舒服。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "upset",
+          "pos": "adj.",
+          "zh": "不高興的、難過的",
+          "ipa": "/ʌpˈset/",
+          "example": {
+            "en": "The customer was upset about the late delivery.",
+            "zh": "顧客對延遲送達感到不高興。"
+          }
+        },
+        {
+          "w": "complain",
+          "pos": "v.",
+          "zh": "抱怨",
+          "ipa": "/kəmˈpleɪn/",
+          "example": {
+            "en": "Several guests complain about the noise every week.",
+            "zh": "每週都有好幾位客人抱怨噪音。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "annoyance",
+          "pos": "n.",
+          "zh": "惱怒、令人煩的事",
+          "ipa": "/əˈnɔɪəns/",
+          "link": "annoy + -ance，動作變名詞，像 appear → appearance"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "anytime",
+      "type": "word",
+      "ipa": "/ˈeniˌtaɪm/",
+      "pos": "adv.",
+      "zh": "任何時候、隨時",
+      "en": "at any time; whenever you like",
+      "note": "多益常見於客服、電子郵件與廣告，表示「隨時都可以」，語氣友善輕鬆，常見句型是 call me anytime、available anytime。",
+      "grammar_note": "anytime 是副詞，意思是「隨時」；any time 分開寫是名詞片語，如 Do you have any time? 指「一點時間」。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "available anytime",
+          "zh": "隨時可用",
+          "example": {
+            "en": "Our online support is available anytime, day or night.",
+            "zh": "我們的線上客服日夜隨時都有人。"
+          }
+        },
+        {
+          "phrase": "anytime soon",
+          "zh": "短期內",
+          "example": {
+            "en": "We do not expect prices to drop anytime soon.",
+            "zh": "我們不預期價格會在短期內下降。"
+          }
+        },
+        {
+          "phrase": "call anytime",
+          "zh": "隨時打電話",
+          "example": {
+            "en": "Please call us anytime if you have a question.",
+            "zh": "如果有問題，請隨時打電話給我們。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Feel free to contact me anytime after the meeting.",
+          "zh": "會議結束後，歡迎隨時聯絡我。"
+        },
+        {
+          "tag": "服務",
+          "en": "You can cancel your membership anytime without a fee.",
+          "zh": "你可以隨時取消會員，不收取費用。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "any time",
+          "diff": "any time 分開寫是名詞片語，指「任何時間、一點時間」；anytime 是副詞「隨時」。",
+          "usage": "問「有沒有時間」用 any time（Do you have any time?）；說「隨時」用 anytime。",
+          "example": {
+            "en": "Do you have any time to talk before lunch?",
+            "zh": "午餐前你有時間談一談嗎？"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "at any time",
+          "diff": "意思相同但更正式，常見於規定與合約。",
+          "example": {
+            "en": "You may change your seat at any time before departure.",
+            "zh": "出發前你可以隨時更換座位。"
+          }
+        },
+        {
+          "phrase": "whenever",
+          "diff": "whenever 是連接詞，後面接子句；anytime 是副詞，單獨使用。",
+          "example": {
+            "en": "Call me whenever you need help with the system.",
+            "zh": "只要你需要系統方面的協助，隨時打給我。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "anywhere",
+          "pos": "adv.",
+          "zh": "任何地方",
+          "ipa": "/ˈeniwer/",
+          "example": {
+            "en": "You can work from anywhere with a laptop.",
+            "zh": "有一台筆電，你就可以在任何地方工作。"
+          }
+        },
+        {
+          "w": "always",
+          "pos": "adv.",
+          "zh": "總是",
+          "ipa": "/ˈɔːlweɪz/",
+          "example": {
+            "en": "Our hotline is always open for urgent problems.",
+            "zh": "我們的熱線隨時為緊急問題開放。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "appraisal",
+      "type": "word",
+      "ipa": "/əˈpreɪzl/",
+      "pos": "n.",
+      "zh": "評估、績效考核；估價",
+      "en": "a careful check of how good or how valuable something is",
+      "note": "多益常見於人資與房地產情境，指對員工表現的「考核」，或對房屋、物品價值的「估價」。也可泛指對情況的評估。",
+      "forms": [
+        {
+          "w": "appraisals",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "考核、估價（複數）",
+          "ipa": "/əˈpreɪzlz/",
+          "example": {
+            "en": "The managers completed all staff appraisals before the end of May.",
+            "zh": "經理們在五月底前完成了所有員工的考核。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "performance appraisal",
+          "zh": "績效考核",
+          "example": {
+            "en": "The performance appraisal covers sales results and teamwork.",
+            "zh": "績效考核包含銷售成績和團隊合作。"
+          }
+        },
+        {
+          "phrase": "annual appraisal",
+          "zh": "年度考核",
+          "example": {
+            "en": "Every employee has an annual appraisal with a manager in March.",
+            "zh": "每位員工三月都會和主管進行年度考核。"
+          }
+        },
+        {
+          "phrase": "property appraisal",
+          "zh": "房地產估價",
+          "example": {
+            "en": "A property appraisal is needed before we sell the old office.",
+            "zh": "出售舊辦公室之前需要先做房地產估價。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "面談",
+          "en": "Please prepare for your appraisal meeting next Tuesday.",
+          "zh": "請為下週二的考核面談做準備。"
+        },
+        {
+          "tag": "銀行",
+          "en": "The bank requires an appraisal before it approves the loan.",
+          "zh": "銀行在核准貸款之前要求先做估價。"
+        },
+        {
+          "tag": "會議",
+          "en": "We need an honest appraisal of the new sales plan.",
+          "zh": "我們需要對新的銷售計畫做一個誠實的評估。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "praise",
+          "diff": "praise 是「稱讚」，一定是好話；appraisal 是「評估」，結果可好可壞。",
+          "example": {
+            "en": "The manager gave her high praise for the report.",
+            "zh": "經理對她的報告給予高度讚美。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "evaluation",
+          "diff": "evaluation 更常用、範圍更廣；appraisal 多用於員工考核與估價。",
+          "example": {
+            "en": "The evaluation of the new system will take two weeks.",
+            "zh": "新系統的評估將需要兩週。"
+          }
+        },
+        {
+          "phrase": "review",
+          "diff": "review 較口語、較輕鬆，如 yearly review。",
+          "example": {
+            "en": "The yearly review helps staff set goals for next year.",
+            "zh": "年度檢討幫助員工設定明年的目標。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "performance",
+          "pos": "n.",
+          "zh": "表現、績效",
+          "ipa": "/pərˈfɔːrməns/",
+          "example": {
+            "en": "Her performance this quarter was better than expected.",
+            "zh": "她這一季的表現比預期的好。"
+          }
+        },
+        {
+          "w": "feedback",
+          "pos": "n.",
+          "zh": "意見回饋",
+          "ipa": "/ˈfiːdbæk/",
+          "example": {
+            "en": "Please give us feedback on the training course.",
+            "zh": "請針對訓練課程給我們意見回饋。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "appraise",
+          "pos": "v.",
+          "zh": "評估、估價",
+          "ipa": "/əˈpreɪz/",
+          "link": "基礎動詞；appraise + -al，動作變名詞，像 approve → approval"
+        },
+        {
+          "w": "appraiser",
+          "pos": "n.",
+          "zh": "估價師、評估員",
+          "ipa": "/əˈpreɪzər/",
+          "link": "appraise + -er，做評估的人，像 worker、teacher"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "績效考核",
+          "en": "a yearly check of how well an employee works",
+          "distinguish": "出現在人資、員工、主管的情境。",
+          "example": {
+            "en": "Employees receive a written appraisal once every six months.",
+            "zh": "員工每六個月會收到一份書面考核。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "估價",
+          "en": "a decision about how much something is worth",
+          "distinguish": "出現在房子、土地、珠寶或銀行貸款的情境。",
+          "example": {
+            "en": "The appraisal shows the building is worth two million dollars.",
+            "zh": "估價顯示這棟大樓價值兩百萬美元。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "評估、評價",
+          "en": "a careful opinion about a situation or plan",
+          "distinguish": "出現在報告與分析，常搭配 of + 情況。",
+          "example": {
+            "en": "The report offers a clear appraisal of our current risks.",
+            "zh": "這份報告對我們目前的風險提供了清楚的評估。"
+          }
+        }
+      ]
+    }
+  ]
+}

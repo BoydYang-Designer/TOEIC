@@ -1,0 +1,749 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "bean",
+      "type": "word",
+      "ipa": "/biːn/",
+      "pos": "n.",
+      "zh": "豆子",
+      "en": "a small seed that people cook and eat or use to make a drink",
+      "note": "多益常見於餐廳、咖啡店、食品採購與農產品進出口情境，尤其是 coffee bean（咖啡豆）。spill the beans 是口語慣用語，意思是「洩露祕密」。",
+      "forms": [
+        {
+          "w": "beans",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "豆子（複數）",
+          "ipa": "/biːnz/",
+          "example": { "en": "The café buys fresh coffee beans from three different suppliers.", "zh": "這間咖啡店向三家不同的供應商採購新鮮咖啡豆。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "coffee bean",
+          "zh": "咖啡豆",
+          "example": { "en": "Each coffee bean is carefully selected before it is roasted.", "zh": "每一顆咖啡豆在烘焙前都經過仔細挑選。" }
+        },
+        {
+          "phrase": "green beans",
+          "zh": "四季豆",
+          "example": { "en": "The restaurant serves grilled chicken with rice and green beans.", "zh": "這間餐廳供應烤雞佐白飯和四季豆。" }
+        },
+        {
+          "phrase": "spill the beans",
+          "zh": "洩露祕密",
+          "example": { "en": "Please don't spill the beans about the surprise party.", "zh": "請不要洩露驚喜派對的祕密。" }
+        }
+      ],
+      "examples": [
+        { "tag": "餐廳", "en": "The soup contains beans, so please tell us about any allergies.", "zh": "這道湯含有豆類，所以請告訴我們您有沒有任何過敏。" },
+        { "tag": "採購", "en": "We import dried beans from several farms in South America.", "zh": "我們從南美洲的幾座農場進口乾豆。" },
+        { "tag": "咖啡店", "en": "Our shop roasts its own beans every morning.", "zh": "我們店裡每天早上自己烘焙咖啡豆。" }
+      ],
+      "confusable": [
+        {
+          "word": "been",
+          "diff": "been 是 be 的過去分詞，發音是 /bɪn/，和 bean /biːn/ 的長音不同。",
+          "example": { "en": "We have been working with this supplier for ten years.", "zh": "我們和這家供應商合作已經十年了。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "grain",
+          "pos": "n.",
+          "zh": "穀物",
+          "ipa": "/ɡreɪn/",
+          "example": { "en": "The company exports grain to more than twenty countries.", "zh": "這家公司把穀物出口到二十多個國家。" }
+        },
+        {
+          "w": "vegetable",
+          "pos": "n.",
+          "zh": "蔬菜",
+          "ipa": "/ˈvedʒtəbəl/",
+          "example": { "en": "Fresh vegetables are delivered to the kitchen every morning.", "zh": "新鮮蔬菜每天早上送到廚房。" }
+        },
+        {
+          "w": "ingredient",
+          "pos": "n.",
+          "zh": "食材、成分",
+          "ipa": "/ɪnˈɡriːdiənt/",
+          "example": { "en": "All ingredients are listed on the back of the package.", "zh": "所有成分都列在包裝背面。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "bench",
+      "type": "word",
+      "ipa": "/bentʃ/",
+      "pos": "n.",
+      "zh": "長椅、工作台",
+      "en": "a long seat for two or more people, or a table for working",
+      "note": "多益常見於公園、車站、辦公大樓大廳的長椅，以及工廠、維修室、實驗室的工作台（workbench）。依情境判斷是「坐」的長椅還是「工作」的檯面。",
+      "forms": [
+        {
+          "w": "benches",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "長椅（複數）",
+          "ipa": "/ˈbentʃɪz/",
+          "example": { "en": "Several benches along the walkway were replaced last month.", "zh": "步道旁的好幾張長椅上個月被換新了。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "park bench",
+          "zh": "公園長椅",
+          "example": { "en": "Employees often eat lunch on the park bench near the office.", "zh": "員工常在辦公室附近的公園長椅上吃午餐。" }
+        },
+        {
+          "phrase": "workbench",
+          "zh": "工作台",
+          "example": { "en": "Each technician has a workbench with a lamp and tools.", "zh": "每位技師都有一張配有檯燈與工具的工作台。" }
+        },
+        {
+          "phrase": "sit on a bench",
+          "zh": "坐在長椅上",
+          "example": { "en": "Please sit on a bench in the lobby until your name is called.", "zh": "請在大廳的長椅上坐著，等候叫號。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公園", "en": "The company donated three new benches to the city park.", "zh": "公司捐了三張新長椅給市立公園。" },
+        { "tag": "大廳", "en": "Visitors can wait on the bench beside the reception desk.", "zh": "訪客可以在接待櫃檯旁的長椅上等候。" },
+        { "tag": "工廠", "en": "Tools must be put back on the bench after each shift.", "zh": "每個班次結束後，工具必須放回工作台。" }
+      ],
+      "confusable": [
+        {
+          "word": "branch",
+          "diff": "拼法相近，但 branch 是「分公司、分支」或樹枝；bench 是長椅。",
+          "example": { "en": "The bank will open a new branch on Main Street.", "zh": "這家銀行將在大街上開一間新的分行。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "seat",
+          "diff": "seat 是任何座位，可以是單人座；bench 是可以讓數個人並坐的長椅。",
+          "example": { "en": "Please take a seat while the manager finishes the call.", "zh": "經理講完電話前，請先坐一下。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "stool",
+          "pos": "n.",
+          "zh": "凳子",
+          "ipa": "/stuːl/",
+          "example": { "en": "He sat on a stool next to the counter.", "zh": "他坐在櫃檯旁的凳子上。" }
+        },
+        {
+          "w": "workshop",
+          "pos": "n.",
+          "zh": "工作坊、維修廠",
+          "ipa": "/ˈwɝːkʃɑːp/",
+          "example": { "en": "The repair workshop is open from eight to five.", "zh": "維修廠的營業時間是八點到五點。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "長椅",
+          "en": "a long seat for two or more people",
+          "example": { "en": "There is a bench at the bus stop outside our building.", "zh": "我們大樓外的公車站有一張長椅。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "工作台",
+          "en": "a strong table where people make or fix things",
+          "distinguish": "出現在工廠、維修、實驗室的情境，並提到工具或零件，就是「工作台」。",
+          "example": { "en": "The engineer repaired the machine on the bench in the lab.", "zh": "工程師在實驗室的工作台上修理這台機器。" }
+        }
+      ]
+    },
+    {
+      "text": "biography",
+      "type": "word",
+      "ipa": "/baɪˈɑːɡrəfi/",
+      "pos": "n.",
+      "zh": "傳記、人物簡介",
+      "en": "a written story of a person's life",
+      "note": "多益常見於活動公告、講者介紹與書籍相關情境，例如講座手冊中的 speaker's biography。也可指文末附上的簡短個人介紹，口語常縮寫成 bio。",
+      "forms": [
+        {
+          "w": "biographies",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "傳記（複數）",
+          "ipa": "/baɪˈɑːɡrəfiz/",
+          "example": { "en": "The website lists biographies of all senior managers.", "zh": "網站上列有所有資深經理的簡介。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "short biography",
+          "zh": "簡短的人物簡介",
+          "example": { "en": "Please include a short biography of about one hundred words.", "zh": "請附上約一百字的簡短人物簡介。" }
+        },
+        {
+          "phrase": "write a biography",
+          "zh": "撰寫傳記",
+          "example": { "en": "He plans to write a biography of the former mayor.", "zh": "他打算撰寫前市長的傳記。" }
+        },
+        {
+          "phrase": "biography of",
+          "zh": "……的傳記",
+          "example": { "en": "She read a biography of the company's founder on the flight.", "zh": "她在飛機上讀了公司創辦人的傳記。" }
+        }
+      ],
+      "examples": [
+        { "tag": "活動", "en": "Each speaker's biography is printed in the conference program.", "zh": "每位講者的簡介都印在會議手冊上。" },
+        { "tag": "電子郵件", "en": "Please send us a short biography for the event poster.", "zh": "請寄給我們一份簡短簡介，用於活動海報。" },
+        { "tag": "書店", "en": "The biography of the famous chef is on sale this week.", "zh": "這位名廚的傳記本週特價。" }
+      ],
+      "confusable": [
+        {
+          "word": "biology",
+          "diff": "拼法相近，但 biology 是「生物學」；biography 是「傳記」。",
+          "example": { "en": "She has a degree in biology and works in a research lab.", "zh": "她有生物學學位，在研究實驗室工作。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "profile",
+          "diff": "profile 是較短的人物簡介，重點介紹特色；biography 是較完整的生平記述。",
+          "example": { "en": "The magazine published a profile of the new CEO.", "zh": "雜誌刊登了新任執行長的人物簡介。" }
+        },
+        {
+          "word": "résumé",
+          "diff": "résumé 是求職用的學經歷摘要；biography 是對外介紹一個人的生平。",
+          "example": { "en": "Please attach your résumé to the online application form.", "zh": "請把您的履歷附在線上申請表上。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "author",
+          "pos": "n.",
+          "zh": "作者",
+          "ipa": "/ˈɔːθɚ/",
+          "example": { "en": "The author will sign copies of her book at the store.", "zh": "作者將在書店為讀者簽名。" }
+        },
+        {
+          "w": "speaker",
+          "pos": "n.",
+          "zh": "講者",
+          "ipa": "/ˈspiːkɚ/",
+          "example": { "en": "The keynote speaker will arrive at the hall at nine.", "zh": "主講人將在九點抵達會場。" }
+        },
+        {
+          "w": "novel",
+          "pos": "n.",
+          "zh": "長篇小說",
+          "ipa": "/ˈnɑːvəl/",
+          "example": { "en": "The novel became a bestseller within two weeks.", "zh": "這本小說在兩週內成為暢銷書。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "biographer",
+          "ipa": "/baɪˈɑːɡrəfɚ/",
+          "pos": "n.",
+          "zh": "傳記作者",
+          "link": "biography + -er，寫傳記的人，像 writer、teacher"
+        },
+        {
+          "w": "biographical",
+          "ipa": "/ˌbaɪəˈɡræfɪkəl/",
+          "pos": "adj.",
+          "zh": "傳記的、生平的",
+          "link": "biography 去掉 y 加 -ical，變成形容詞，像 geography → geographical"
+        },
+        {
+          "w": "autobiography",
+          "ipa": "/ˌɔːtəbaɪˈɑːɡrəfi/",
+          "pos": "n.",
+          "zh": "自傳",
+          "link": "auto-（自己）+ biography，自己寫自己的傳記，像 automatic、autograph"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "blueprint",
+      "type": "word",
+      "ipa": "/ˈbluːprɪnt/",
+      "pos": "n.",
+      "zh": "藍圖、設計圖",
+      "en": "a detailed plan or drawing for building or making something",
+      "note": "多益常見於建築、工程與製造情境，指施工用的設計圖；也常比喻成「計畫藍圖」，如 a blueprint for growth。語氣正式，常見於提案與簡報。",
+      "forms": [
+        {
+          "w": "blueprints",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "設計圖（複數）",
+          "ipa": "/ˈbluːprɪnts/",
+          "example": { "en": "The engineers checked the blueprints before the factory was built.", "zh": "工廠興建前，工程師先檢查了設計圖。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "blueprint for",
+          "zh": "……的藍圖",
+          "example": { "en": "This report is a blueprint for our growth over five years.", "zh": "這份報告是我們未來五年成長的藍圖。" }
+        },
+        {
+          "phrase": "draw up a blueprint",
+          "zh": "繪製／擬訂藍圖",
+          "example": { "en": "The architect will draw up a blueprint for the new office.", "zh": "建築師會為新辦公室繪製設計圖。" }
+        },
+        {
+          "phrase": "follow the blueprint",
+          "zh": "按照設計圖行事",
+          "example": { "en": "The builders must follow the blueprint exactly.", "zh": "施工人員必須完全按照設計圖施作。" }
+        }
+      ],
+      "examples": [
+        { "tag": "工程", "en": "The blueprint shows where each wall and window will go.", "zh": "設計圖上標示了每一面牆和每一扇窗的位置。" },
+        { "tag": "簡報", "en": "Our new plan is a blueprint for expanding into Asia.", "zh": "我們的新計畫是拓展亞洲市場的藍圖。" }
+      ],
+      "similar": [
+        {
+          "word": "plan",
+          "diff": "plan 是最一般的「計畫」；blueprint 更詳細、像施工用的設計圖，也常比喻為完整的行動藍圖。",
+          "example": { "en": "We need a clear plan before we start the project.", "zh": "開始專案之前，我們需要一個清楚的計畫。" }
+        },
+        {
+          "word": "roadmap",
+          "diff": "roadmap 強調達成目標的步驟與時程；blueprint 強調整體結構與設計。",
+          "example": { "en": "The roadmap lists the main tasks for each quarter.", "zh": "這份路線圖列出了每一季的主要工作。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "layout",
+          "pos": "n.",
+          "zh": "配置、版面",
+          "ipa": "/ˈleɪaʊt/",
+          "example": { "en": "The new office layout gives each team more space.", "zh": "新的辦公室配置讓每個團隊有更多空間。" }
+        },
+        {
+          "w": "sketch",
+          "pos": "n.",
+          "zh": "草圖",
+          "ipa": "/sketʃ/",
+          "example": { "en": "She showed us a quick sketch of the new logo.", "zh": "她給我們看了新標誌的快速草圖。" }
+        },
+        {
+          "w": "draft",
+          "pos": "n.",
+          "zh": "草稿、初稿",
+          "ipa": "/dræft/",
+          "example": { "en": "Please send me the first draft of the proposal today.", "zh": "請今天把提案的初稿寄給我。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "設計圖、施工圖",
+          "en": "a detailed drawing used to build something",
+          "example": { "en": "The contractor asked for a copy of the final blueprint.", "zh": "承包商要了一份最終設計圖的副本。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "（計畫的）藍圖",
+          "en": "a detailed plan that shows how to reach a goal",
+          "distinguish": "後面常接 for + 目標或成長，沒有實體建築物，就是比喻用法。",
+          "example": { "en": "The CEO presented a blueprint for the company's future.", "zh": "執行長提出了公司未來發展的藍圖。" }
+        }
+      ]
+    },
+    {
+      "text": "booklet",
+      "type": "word",
+      "ipa": "/ˈbʊklət/",
+      "pos": "n.",
+      "zh": "小冊子",
+      "en": "a thin book with a paper cover that gives information",
+      "note": "多益常見於產品說明、公司介紹與活動資料，例如 instruction booklet（說明手冊）。通常頁數不多、內容簡短，常是免費發送的資料。",
+      "forms": [
+        {
+          "w": "booklets",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "小冊子（複數）",
+          "ipa": "/ˈbʊkləts/",
+          "example": { "en": "We printed two hundred booklets for the training session.", "zh": "我們為訓練課程印了兩百本小冊子。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "instruction booklet",
+          "zh": "使用說明小冊",
+          "example": { "en": "Please read the instruction booklet before using the machine.", "zh": "使用機器前，請先閱讀說明小冊。" }
+        },
+        {
+          "phrase": "free booklet",
+          "zh": "免費小冊子",
+          "example": { "en": "Visitors can pick up a free booklet at the front desk.", "zh": "訪客可以在櫃檯領取免費小冊子。" }
+        },
+        {
+          "phrase": "informational booklet",
+          "zh": "資訊手冊",
+          "example": { "en": "New employees receive an informational booklet on their first day.", "zh": "新進員工在第一天會收到一本資訊手冊。" }
+        }
+      ],
+      "examples": [
+        { "tag": "產品", "en": "A short booklet comes in the box with every printer.", "zh": "每台印表機的包裝盒裡都附有一本小冊子。" },
+        { "tag": "活動", "en": "The booklet includes a map of the exhibition hall.", "zh": "這本小冊子裡有展覽廳的地圖。" },
+        { "tag": "電子郵件", "en": "I have attached a booklet about our new health plan.", "zh": "我附上了一本關於新健康保險方案的小冊子。" }
+      ],
+      "similar": [
+        {
+          "word": "brochure",
+          "diff": "brochure 多是印刷精美的宣傳品，用來介紹產品或服務；booklet 更偏向資訊或說明用途。",
+          "example": { "en": "The travel agency gave us a brochure about the tour.", "zh": "旅行社給了我們一份旅遊行程的宣傳冊。" }
+        },
+        {
+          "word": "pamphlet",
+          "diff": "pamphlet 是薄薄的小冊，常談單一主題，如健康或政策；booklet 的用途較廣。",
+          "example": { "en": "The clinic offers a pamphlet on healthy eating habits.", "zh": "診所提供一份關於健康飲食習慣的小冊子。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "manual",
+          "pos": "n.",
+          "zh": "使用手冊",
+          "ipa": "/ˈmænjuəl/",
+          "example": { "en": "The manual explains how to set up the new system.", "zh": "手冊說明了如何設定新系統。" }
+        },
+        {
+          "w": "catalog",
+          "pos": "n.",
+          "zh": "型錄、目錄",
+          "ipa": "/ˈkætəlɔːɡ/",
+          "example": { "en": "Our spring catalog is now available on the website.", "zh": "我們的春季型錄現已刊登在網站上。" }
+        },
+        {
+          "w": "handout",
+          "pos": "n.",
+          "zh": "講義、傳單",
+          "ipa": "/ˈhændaʊt/",
+          "example": { "en": "Please take one handout and pass the rest along.", "zh": "請拿一份講義，其餘的往後傳。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "brainstorm",
+      "type": "word",
+      "ipa": "/ˈbreɪnstɔːrm/",
+      "pos": "v.",
+      "zh": "腦力激盪",
+      "en": "to think of many ideas together in a short time",
+      "note": "多益常見於會議、企劃與工作坊情境，指團隊一起自由發想點子，例如 brainstorm ideas。也可當名詞，指腦力激盪的討論時間。語氣口語自然，商務場合普遍使用。",
+      "grammar_note": "brainstorm 當動詞可直接接 ideas、solutions，不需要加 about；和誰一起發想用 with：brainstorm with the team。",
+      "forms": [
+        {
+          "w": "brainstorms",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "腦力激盪",
+          "ipa": "/ˈbreɪnstɔːrmz/",
+          "example": { "en": "Our team brainstorms new product names every Monday morning.", "zh": "我們團隊每週一早上都會為新產品名稱腦力激盪。" }
+        },
+        {
+          "w": "brainstormed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "腦力激盪",
+          "ipa": "/ˈbreɪnstɔːrmd/",
+          "example": { "en": "We brainstormed several slogans before choosing the final one.", "zh": "我們腦力激盪出好幾個口號，才選出最後一個。" }
+        },
+        {
+          "w": "brainstorming",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "腦力激盪",
+          "ipa": "/ˈbreɪnstɔːrmɪŋ/",
+          "example": { "en": "Brainstorming together helped us solve the delivery problem quickly.", "zh": "一起腦力激盪幫助我們很快解決了運送問題。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "brainstorm ideas",
+          "zh": "腦力激盪想點子",
+          "example": { "en": "Let's brainstorm ideas for the spring advertising campaign.", "zh": "我們來為春季廣告活動腦力激盪想點子吧。" }
+        },
+        {
+          "phrase": "brainstorming session",
+          "zh": "腦力激盪會議",
+          "example": { "en": "The brainstorming session lasted about forty-five minutes.", "zh": "腦力激盪會議持續了大約四十五分鐘。" }
+        },
+        {
+          "phrase": "brainstorm solutions",
+          "zh": "集思廣益找解決辦法",
+          "example": { "en": "The managers met to brainstorm solutions to the staff shortage.", "zh": "主管們開會集思廣益，尋找解決人力不足的辦法。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Let's brainstorm for ten minutes before we choose a direction.", "zh": "我們先腦力激盪十分鐘，再決定方向。" },
+        { "tag": "電子郵件", "en": "Could you join us on Thursday afternoon to brainstorm?", "zh": "您星期四下午可以加入我們一起腦力激盪嗎？" },
+        { "tag": "工作坊", "en": "Participants will brainstorm in small groups and share their results.", "zh": "參加者將分小組腦力激盪，並分享成果。" }
+      ],
+      "similar": [
+        {
+          "phrase": "come up with ideas",
+          "diff": "come up with ideas 強調「想出點子」的結果；brainstorm 強調一群人自由發想的過程。",
+          "example": { "en": "We need to come up with ideas for a new logo.", "zh": "我們需要想出新標誌的點子。" }
+        },
+        {
+          "phrase": "generate ideas",
+          "diff": "generate ideas 較正式，常用於報告與課程說明；brainstorm 較口語。",
+          "example": { "en": "The workshop helps teams generate ideas for new services.", "zh": "這個工作坊幫助團隊產生新服務的點子。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "idea",
+          "pos": "n.",
+          "zh": "點子、想法",
+          "ipa": "/aɪˈdiːə/",
+          "example": { "en": "Her idea saved the company a lot of money.", "zh": "她的點子替公司省下了很多錢。" }
+        },
+        {
+          "w": "creativity",
+          "pos": "n.",
+          "zh": "創造力",
+          "ipa": "/ˌkriːeɪˈtɪvəti/",
+          "example": { "en": "The job requires creativity and strong writing skills.", "zh": "這份工作需要創造力與優秀的寫作能力。" }
+        },
+        {
+          "w": "proposal",
+          "pos": "n.",
+          "zh": "提案",
+          "ipa": "/prəˈpoʊzəl/",
+          "example": { "en": "The board will review the proposal next Tuesday.", "zh": "董事會下週二會審閱這份提案。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/ˈbreɪnstɔːrm/",
+          "zh": "腦力激盪",
+          "example": { "en": "The designers will brainstorm together before the client meeting.", "zh": "設計師會在客戶會議前一起腦力激盪。" }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈbreɪnstɔːrm/",
+          "zh": "腦力激盪（討論）",
+          "example": { "en": "We had a quick brainstorm and chose three promising ideas.", "zh": "我們快速腦力激盪了一下，選出三個有潛力的點子。" }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "bulletin",
+      "type": "word",
+      "ipa": "/ˈbʊlətɪn/",
+      "pos": "n.",
+      "zh": "公告、簡報、快報",
+      "en": "a short official message or news report",
+      "note": "多益常見於公司內部公告、佈告欄（bulletin board）與新聞快報。語氣正式、內容簡短，常用來通知員工或大眾最新資訊。",
+      "forms": [
+        {
+          "w": "bulletins",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "公告（複數）",
+          "ipa": "/ˈbʊlətɪnz/",
+          "example": { "en": "HR sends out bulletins about training courses every month.", "zh": "人資部每個月都會發出關於培訓課程的公告。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "bulletin board",
+          "zh": "佈告欄",
+          "example": { "en": "Notices are posted on the bulletin board near the elevator.", "zh": "通知貼在電梯附近的佈告欄上。" }
+        },
+        {
+          "phrase": "news bulletin",
+          "zh": "新聞快報",
+          "example": { "en": "The evening news bulletin reported heavy traffic on the highway.", "zh": "晚間新聞快報播報了高速公路的嚴重塞車。" }
+        },
+        {
+          "phrase": "issue a bulletin",
+          "zh": "發布公告",
+          "example": { "en": "The agency will issue a bulletin if the schedule changes.", "zh": "如果時程有變，該機構會發布公告。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公司", "en": "The new parking rules were posted in the weekly bulletin.", "zh": "新的停車規定刊登在每週公告裡。" },
+        { "tag": "安全", "en": "A safety bulletin was sent to every department this morning.", "zh": "今天早上有一份安全通報寄給了每個部門。" },
+        { "tag": "廣播", "en": "The radio station stopped the music for a traffic bulletin.", "zh": "電台暫停音樂，插播一則交通快報。" }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "公告、通報",
+          "en": "a short message from an organization to its members",
+          "example": { "en": "Please read the bulletin about the new vacation policy.", "zh": "請閱讀關於新休假政策的公告。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "新聞快報",
+          "en": "a short news report on radio or television",
+          "distinguish": "出現在電視、廣播或新聞情境，指簡短的最新消息。",
+          "example": { "en": "The bulletin said the airport would reopen at noon.", "zh": "快報說機場將在中午重新開放。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "bullet",
+          "diff": "拼法相近，bullet 是子彈，商務文件中常指 bullet point（條列項目符號）。",
+          "example": { "en": "Please use bullet points to summarize the main findings.", "zh": "請用條列方式摘要主要發現。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "notice",
+          "diff": "notice 是一張通知，可以很短，貼在牆上或寄給個人；bulletin 較像定期發布的正式通報。",
+          "example": { "en": "A notice about the fire drill is on the door.", "zh": "門上貼有關於消防演習的通知。" }
+        },
+        {
+          "word": "newsletter",
+          "diff": "newsletter 是定期寄給訂閱者的刊物，篇幅較長；bulletin 內容多為簡短公告。",
+          "example": { "en": "Our monthly newsletter includes tips for new customers.", "zh": "我們的月刊包含給新顧客的小提醒。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "memo",
+          "pos": "n.",
+          "zh": "備忘錄",
+          "ipa": "/ˈmemoʊ/",
+          "example": { "en": "The manager sent a memo about the new schedule.", "zh": "經理寄出了一份關於新時程的備忘錄。" }
+        },
+        {
+          "w": "announcement",
+          "pos": "n.",
+          "zh": "公告、宣布",
+          "ipa": "/əˈnaʊnsmənt/",
+          "example": { "en": "The announcement will be made at the staff meeting.", "zh": "這項公告將在員工會議上宣布。" }
+        },
+        {
+          "w": "headline",
+          "pos": "n.",
+          "zh": "標題",
+          "ipa": "/ˈhedlaɪn/",
+          "example": { "en": "The headline on the front page caught everyone's attention.", "zh": "頭版的標題吸引了大家的注意。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": []
+    },
+    {
+      "text": "by-law",
+      "type": "word",
+      "ipa": "/ˈbaɪlɔː/",
+      "pos": "n.",
+      "zh": "公司章程、細則、地方法規",
+      "en": "a rule made by a company, club, or local government",
+      "note": "多益常見於公司章程、社區管理規則與地方政府規定，通常以複數 by-laws 出現。層級比國家法律低，是組織內部或地方單位訂的規章。",
+      "grammar_note": "也可以寫成 bylaw 或 bylaws；by-law 是可數名詞，指某一條細則，by-laws 指整套規章。",
+      "forms": [
+        {
+          "w": "by-laws",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "章程、細則（複數）",
+          "ipa": "/ˈbaɪlɔːz/",
+          "example": { "en": "The by-laws were updated to include new voting rules.", "zh": "章程已更新，加入了新的表決規則。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "company by-laws",
+          "zh": "公司章程",
+          "example": { "en": "The company by-laws require an annual shareholder meeting.", "zh": "公司章程規定每年要召開股東會。" }
+        },
+        {
+          "phrase": "amend the by-laws",
+          "zh": "修訂章程",
+          "example": { "en": "Members voted to amend the by-laws at the annual meeting.", "zh": "成員在年會上投票通過修訂章程。" }
+        },
+        {
+          "phrase": "in accordance with the by-laws",
+          "zh": "依照章程",
+          "example": { "en": "The meeting was held in accordance with the by-laws.", "zh": "會議依照章程舉行。" }
+        },
+        {
+          "phrase": "local by-laws",
+          "zh": "地方法規",
+          "example": { "en": "Local by-laws limit the height of outdoor signs.", "zh": "地方法規限制戶外招牌的高度。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公司", "en": "According to the by-law, any change needs two-thirds of the votes.", "zh": "依據這條細則，任何變更都需要三分之二的票數。" },
+        { "tag": "社區", "en": "The city by-law bans parking on this street after midnight.", "zh": "市府規定禁止午夜過後在這條街上停車。" },
+        { "tag": "電子郵件", "en": "Please review the attached by-laws before Friday's meeting.", "zh": "請在星期五的會議前審閱附上的章程。" }
+      ],
+      "confusable": [
+        {
+          "word": "by law",
+          "diff": "by law 是兩個字，意思是「依法律規定」；by-law 是名詞，指「細則、章程」。",
+          "usage": "by law 是副詞片語，常放在句中或句尾，如 required by law；by-law 是名詞，可數，前面可加 a 或 the。",
+          "example": { "en": "Employers must by law keep accurate payroll records.", "zh": "雇主依法必須保存準確的薪資紀錄。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "regulation",
+          "diff": "regulation 通常由政府或主管機關制定，範圍較廣；by-law 是組織或地方單位的內部規章。",
+          "example": { "en": "New safety regulations apply to all factories in the country.", "zh": "新的安全法規適用於全國所有工廠。" }
+        },
+        {
+          "word": "rule",
+          "diff": "rule 是最一般的「規則」，不一定有正式文件；by-law 是正式寫成的規章。",
+          "example": { "en": "The first rule here is to wear a helmet.", "zh": "這裡的第一條規則是要戴安全帽。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "policy",
+          "pos": "n.",
+          "zh": "政策、規定",
+          "ipa": "/ˈpɑːləsi/",
+          "example": { "en": "The company policy does not allow personal calls at work.", "zh": "公司規定上班時間不得打私人電話。" }
+        },
+        {
+          "w": "guideline",
+          "pos": "n.",
+          "zh": "指導方針",
+          "ipa": "/ˈɡaɪdlaɪn/",
+          "example": { "en": "Please follow the guidelines when you submit your report.", "zh": "提交報告時，請遵循指導方針。" }
+        },
+        {
+          "w": "agreement",
+          "pos": "n.",
+          "zh": "協議、合約",
+          "ipa": "/əˈɡriːmənt/",
+          "example": { "en": "Both sides signed the agreement on Monday morning.", "zh": "雙方在星期一早上簽署了協議。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

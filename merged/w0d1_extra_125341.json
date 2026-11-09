@@ -1,0 +1,345 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "compensate",
+      "type": "word",
+      "ipa": "/ˈkɑːmpənseɪt/",
+      "pos": "v.",
+      "zh": "補償；彌補",
+      "en": "to give money or something to make up for a loss or problem",
+      "note": "多益常見於客訴、賠償、薪資與福利的情境。「彌補」用 compensate for，「賠償某人」用 compensate + 人 + for。",
+      "grammar_note": "彌補事物用 compensate for + 事物；賠償某人用 compensate + 人 + for + 損失，for 不能省略。",
+      "forms": [
+        { "w": "compensates", "label": "第三人稱單數", "pos": "v.", "zh": "補償", "ipa": "/ˈkɑːmpənseɪts/", "example": { "en": "The company compensates employees for working overtime on weekends.", "zh": "公司會補償員工週末的加班。" } },
+        { "w": "compensated", "label": "過去式／過去分詞", "pos": "v.", "zh": "補償了", "ipa": "/ˈkɑːmpənseɪtɪd/", "example": { "en": "We were compensated for the delay with a free ticket.", "zh": "我們因延誤獲得一張免費機票作為補償。" } },
+        { "w": "compensating", "label": "現在分詞", "pos": "v.", "zh": "補償（進行中）", "ipa": "/ˈkɑːmpənseɪtɪŋ/", "example": { "en": "The firm is compensating customers for the damaged goods.", "zh": "公司正在補償客戶受損的貨品。" } }
+      ],
+      "collocations": [
+        { "phrase": "compensate for", "zh": "彌補…", "example": { "en": "Extra training will compensate for the lack of experience.", "zh": "額外的訓練可以彌補經驗不足。" } },
+        { "phrase": "compensate + 人 + for", "zh": "就…補償某人", "example": { "en": "The airline will compensate passengers for the lost baggage.", "zh": "航空公司會就遺失的行李補償乘客。" } },
+        { "phrase": "be compensated", "zh": "獲得補償", "example": { "en": "Staff will be compensated for any travel costs.", "zh": "員工的任何差旅費用都會獲得補償。" } }
+      ],
+      "examples": [
+        { "tag": "客訴", "en": "The store gave customers free coffee to compensate for the long wait.", "zh": "商店送客人免費咖啡，補償他們的久候。" },
+        { "tag": "薪資", "en": "A higher salary helps compensate for the long working hours.", "zh": "較高的薪水可以彌補長時間的工作。" },
+        { "tag": "保險", "en": "The insurance company will compensate us for the damage to the car.", "zh": "保險公司會賠償我們車子的損壞。" },
+        { "tag": "物流", "en": "The shipping company offered to compensate us for the late delivery.", "zh": "貨運公司提出要為延遲送達補償我們。" }
+      ],
+      "confusable": [
+        { "word": "complement", "diff": "complement 是「補足、相配」，compensate 是「補償損失」，兩個字拼法與發音都很像。", "example": { "en": "The blue tie complements his gray suit very well.", "zh": "這條藍領帶和他的灰色西裝很搭。" } }
+      ],
+      "similar": [
+        { "phrase": "make up for", "diff": "make up for 較口語，後面接要彌補的事物，不直接接人。", "example": { "en": "Extra hours will make up for the time we lost.", "zh": "多花的時數可以彌補我們損失的時間。" } }
+      ],
+      "family": [
+        { "w": "refund", "pos": "n.", "zh": "退款", "ipa": "/ˈriːfʌnd/", "example": { "en": "The shop gave me a full refund for the broken phone.", "zh": "商店為壞掉的手機給了我全額退款。" } },
+        { "w": "reward", "pos": "n.", "zh": "獎賞", "ipa": "/rɪˈwɔːrd/", "example": { "en": "The company gave a reward to its best team.", "zh": "公司給了表現最好的團隊一份獎賞。" } },
+        { "w": "benefit", "pos": "n.", "zh": "福利", "ipa": "/ˈbenɪfɪt/", "example": { "en": "Health insurance is an important benefit for our staff.", "zh": "健康保險是我們員工的一項重要福利。" } },
+        { "w": "loss", "pos": "n.", "zh": "損失", "ipa": "/lɔːs/", "example": { "en": "The storm caused a big loss for the farm.", "zh": "暴風雨為這座農場造成很大的損失。" } }
+      ],
+      "derived": [
+        { "w": "compensation", "pos": "n.", "zh": "補償金；薪酬", "ipa": "/ˌkɑːmpənˈseɪʃn/", "link": "compensate + -ion，把「補償」這個動作變成名詞，像 create → creation" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "賠償", "en": "to pay someone for a loss or harm", "distinguish": "後面接人或公司，並提到損失、延誤、損壞時，是這個意思。", "example": { "en": "The factory agreed to compensate the workers for their lost wages.", "zh": "工廠同意賠償工人損失的薪資。" } },
+        { "pos": "v.", "zh": "彌補；抵消", "en": "to make up for something bad with something good", "distinguish": "常接 for + 缺點或不足，兩件事互相平衡時是這個意思。", "example": { "en": "Fast delivery can compensate for a slightly higher price.", "zh": "快速送達可以彌補稍高的價格。" } }
+      ]
+    },
+    {
+      "text": "complication",
+      "type": "word",
+      "ipa": "/ˌkɑːmplɪˈkeɪʃn/",
+      "pos": "n.",
+      "zh": "複雜的問題；併發症",
+      "en": "a new problem that makes something harder",
+      "note": "多益常見於專案、運送、行程延誤的公告，指突然出現、讓事情更難處理的問題，常用複數 complications。",
+      "grammar_note": "complication 是可數名詞，說明延誤原因時常寫 due to unexpected complications。",
+      "forms": [
+        { "w": "complications", "label": "複數", "pos": "n.", "zh": "複雜的問題（複數）", "ipa": "/ˌkɑːmplɪˈkeɪʃnz/", "example": { "en": "Several complications delayed the opening of the new store.", "zh": "幾個突發問題延後了新店的開幕。" } }
+      ],
+      "collocations": [
+        { "phrase": "unexpected complications", "zh": "意外的麻煩", "example": { "en": "Unexpected complications slowed down the building project by two weeks.", "zh": "意外的麻煩讓建案慢了兩週。" } },
+        { "phrase": "due to complications", "zh": "由於複雜的問題", "example": { "en": "The flight was canceled due to technical complications.", "zh": "這班飛機因技術問題而取消。" } },
+        { "phrase": "cause complications", "zh": "造成麻煩", "example": { "en": "A missing signature could cause complications later on.", "zh": "少了一個簽名，之後可能會造成麻煩。" } }
+      ],
+      "examples": [
+        { "tag": "專案", "en": "The project finished on time without any major complications.", "zh": "這個專案準時完成，沒有任何大問題。" },
+        { "tag": "運送", "en": "Customs checks led to complications in the delivery schedule.", "zh": "海關檢查導致送貨時程出了問題。" },
+        { "tag": "合約", "en": "Please read the contract carefully to avoid complications.", "zh": "請仔細閱讀合約，以免日後出問題。" },
+        { "tag": "公告", "en": "We apologize for the complications with your online order.", "zh": "對於您的網路訂單所發生的問題，我們深感抱歉。" }
+      ],
+      "confusable": [
+        { "word": "complexity", "diff": "complexity 是「複雜的程度」，complication 是「讓事情更難的新問題」。", "usage": "complexity 是不可數名詞；complication 是可數名詞，常用複數 complications。", "example": { "en": "The complexity of the tax system confuses many small firms.", "zh": "稅制的複雜程度讓許多小公司感到困惑。" } }
+      ],
+      "similar": [
+        { "word": "difficulty", "diff": "difficulty 是一般的困難；complication 通常是突然出現、讓情況變複雜的問題。", "example": { "en": "We had some difficulty finding the correct address.", "zh": "我們在找正確地址時遇到一些困難。" } }
+      ],
+      "family": [
+        { "w": "problem", "pos": "n.", "zh": "問題", "ipa": "/ˈprɑːbləm/", "example": { "en": "We found a problem with the new software today.", "zh": "我們今天發現新軟體有問題。" } },
+        { "w": "delay", "pos": "n.", "zh": "延誤", "ipa": "/dɪˈleɪ/", "example": { "en": "The heavy rain caused a delay of two hours.", "zh": "大雨造成兩小時的延誤。" } },
+        { "w": "trouble", "pos": "n.", "zh": "麻煩", "ipa": "/ˈtrʌbl/", "example": { "en": "I had trouble opening the file you sent.", "zh": "我打不開你寄來的檔案。" } },
+        { "w": "issue", "pos": "n.", "zh": "問題；議題", "ipa": "/ˈɪʃuː/", "example": { "en": "Please report any issue to the help desk.", "zh": "任何問題請向服務台回報。" } }
+      ],
+      "derived": [
+        { "w": "complicate", "pos": "v.", "zh": "使複雜", "ipa": "/ˈkɑːmplɪkeɪt/", "link": "complication 去掉 -ion 就是動詞，把事情變複雜" },
+        { "w": "complicated", "pos": "adj.", "zh": "複雜的", "ipa": "/ˈkɑːmplɪkeɪtɪd/", "link": "complicate + -ed，變成形容詞，像 tired、excited" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "麻煩；複雜的問題", "en": "a new problem that makes a situation harder", "distinguish": "和專案、運送、合約有關時，是這個意思。", "example": { "en": "A computer error added a complication to the process.", "zh": "電腦錯誤讓整個流程多了一個麻煩。" } },
+        { "pos": "n.", "zh": "併發症", "en": "a new health problem that appears during an illness or treatment", "distinguish": "和手術、病情、醫院有關時，是這個意思。", "example": { "en": "The surgery went well, with no serious complications.", "zh": "手術很順利，沒有嚴重的併發症。" } }
+      ]
+    },
+    {
+      "text": "comprehension",
+      "type": "word",
+      "ipa": "/ˌkɑːmprɪˈhenʃn/",
+      "pos": "n.",
+      "zh": "理解；理解力",
+      "en": "the ability to understand something",
+      "note": "多益常見於 reading comprehension、listening comprehension 等測驗與教學情境，指理解語言或文字的能力。",
+      "grammar_note": "comprehension 是不可數名詞，不加 s，也不加 a。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "reading comprehension", "zh": "閱讀理解", "example": { "en": "The test has a reading comprehension section with ten questions.", "zh": "這份測驗有一個十題的閱讀理解部分。" } },
+        { "phrase": "listening comprehension", "zh": "聽力理解", "example": { "en": "Her listening comprehension improved after three months of daily practice.", "zh": "經過三個月每天練習，她的聽力理解進步了。" } },
+        { "phrase": "beyond comprehension", "zh": "令人無法理解", "example": { "en": "The new tax rules are beyond comprehension for many people.", "zh": "新的稅法對許多人來說難以理解。" } },
+        { "phrase": "comprehension test", "zh": "理解力測驗", "example": { "en": "Students take a comprehension test at the end of each unit.", "zh": "學生在每個單元結束時都要做理解力測驗。" } }
+      ],
+      "examples": [
+        { "tag": "教學", "en": "Good pictures help improve the comprehension of difficult texts.", "zh": "好的圖片有助於提升對難懂文章的理解。" },
+        { "tag": "培訓", "en": "We check comprehension by asking questions after the video.", "zh": "我們在影片後提問，來確認大家是否理解。" },
+        { "tag": "說明書", "en": "Clear instructions make comprehension easier for new users.", "zh": "清楚的說明讓新使用者更容易理解。" },
+        { "tag": "考試", "en": "The exam checks both vocabulary and comprehension skills.", "zh": "這個考試同時測驗字彙與理解能力。" }
+      ],
+      "similar": [
+        { "word": "understanding", "diff": "understanding 較口語，也可指對人的體諒；comprehension 偏重理解文字或語言的能力。", "example": { "en": "She has a good understanding of the market.", "zh": "她對市場有很好的了解。" } }
+      ],
+      "family": [
+        { "w": "knowledge", "pos": "n.", "zh": "知識", "ipa": "/ˈnɑːlɪdʒ/", "example": { "en": "He has a lot of knowledge about computers.", "zh": "他對電腦懂得很多。" } },
+        { "w": "skill", "pos": "n.", "zh": "技能", "ipa": "/skɪl/", "example": { "en": "Good communication is an important skill at work.", "zh": "良好的溝通是工作上重要的技能。" } },
+        { "w": "ability", "pos": "n.", "zh": "能力", "ipa": "/əˈbɪləti/", "example": { "en": "The job requires the ability to work in a team.", "zh": "這份工作需要團隊合作的能力。" } },
+        { "w": "explanation", "pos": "n.", "zh": "說明；解釋", "ipa": "/ˌekspləˈneɪʃn/", "example": { "en": "The manager gave a short explanation of the new rules.", "zh": "經理簡短說明了新的規定。" } }
+      ],
+      "derived": [
+        { "w": "comprehend", "pos": "v.", "zh": "理解", "ipa": "/ˌkɑːmprɪˈhend/", "link": "comprehension 的動詞，意思和 understand 相同，但較正式" },
+        { "w": "comprehensive", "pos": "adj.", "zh": "全面的；完整的", "ipa": "/ˌkɑːmprɪˈhensɪv/", "link": "comprehend + -sive，「包含全部的」，像 expensive、extensive；意思不是「理解的」，小心別和 comprehension 搞混" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "contestant",
+      "type": "word",
+      "ipa": "/kənˈtestənt/",
+      "pos": "n.",
+      "zh": "參賽者",
+      "en": "a person who takes part in a contest",
+      "note": "多益常見於比賽、徵選活動與廣播公告，指參加比賽或節目競賽的人。",
+      "forms": [
+        { "w": "contestants", "label": "複數", "pos": "n.", "zh": "參賽者（複數）", "ipa": "/kənˈtestənts/", "example": { "en": "All contestants must arrive at the hall by nine.", "zh": "所有參賽者必須在九點前抵達會場。" } }
+      ],
+      "collocations": [
+        { "phrase": "register as a contestant", "zh": "報名成為參賽者", "example": { "en": "Employees can register as a contestant before May tenth.", "zh": "員工可以在五月十日前報名參賽。" } },
+        { "phrase": "contestant number", "zh": "參賽編號", "example": { "en": "Please wait until your contestant number is called.", "zh": "請等到叫到您的參賽編號再上場。" } },
+        { "phrase": "the winning contestant", "zh": "獲勝的參賽者", "example": { "en": "The winning contestant will receive a trip to Hawaii.", "zh": "獲勝的參賽者將獲得夏威夷之旅。" } }
+      ],
+      "examples": [
+        { "tag": "比賽", "en": "Each contestant has three minutes to present an idea.", "zh": "每位參賽者有三分鐘可以發表一個想法。" },
+        { "tag": "公告", "en": "Ten contestants will compete in the final round tonight.", "zh": "十位參賽者今晚將進行決賽。" },
+        { "tag": "徵選", "en": "The company is looking for contestants for its cooking show.", "zh": "公司正在為它的烹飪節目徵求參賽者。" },
+        { "tag": "活動", "en": "The judges asked each contestant a few simple questions.", "zh": "評審問了每位參賽者幾個簡單的問題。" }
+      ],
+      "confusable": [
+        { "word": "candidate", "diff": "candidate 是求職或選舉的候選人；contestant 是比賽的參賽者。", "example": { "en": "The company interviewed five candidates for the sales job.", "zh": "公司為這個業務工作面試了五位應徵者。" } }
+      ],
+      "similar": [
+        { "word": "competitor", "diff": "competitor 是競爭者，也常指商業上的對手；contestant 只指參加比賽的人。", "example": { "en": "Our main competitor lowered its prices this month.", "zh": "我們的主要競爭對手這個月降價了。" } }
+      ],
+      "family": [
+        { "w": "prize", "pos": "n.", "zh": "獎品；獎項", "ipa": "/praɪz/", "example": { "en": "The first prize is a free weekend trip.", "zh": "第一名的獎品是免費的週末旅行。" } },
+        { "w": "winner", "pos": "n.", "zh": "獲勝者", "ipa": "/ˈwɪnɚ/", "example": { "en": "The winner of the contest will be announced on Friday.", "zh": "比賽的得獎者將在週五公布。" } },
+        { "w": "judge", "pos": "n.", "zh": "評審", "ipa": "/dʒʌdʒ/", "example": { "en": "The judge gave our team the highest score.", "zh": "評審給了我們團隊最高分。" } },
+        { "w": "audience", "pos": "n.", "zh": "觀眾", "ipa": "/ˈɔːdiəns/", "example": { "en": "The audience clapped loudly after the last speech.", "zh": "最後一場演講後，觀眾大聲鼓掌。" } }
+      ],
+      "derived": [
+        { "w": "contest", "pos": "n.", "zh": "比賽；競賽", "ipa": "/ˈkɑːntest/", "link": "contestant 去掉 -ant 就是 contest；-ant 表示「做這件事的人」，像 assistant、participant" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "contradict",
+      "type": "word",
+      "ipa": "/ˌkɑːntrəˈdɪkt/",
+      "pos": "v.",
+      "zh": "與…矛盾；反駁",
+      "en": "to say the opposite of what someone said, or to not match other facts",
+      "note": "多益常見於報告、數據、說法互相矛盾的情境，也可指當面反駁別人。",
+      "grammar_note": "contradict 是及物動詞，後面直接接受詞，不加 with 或 to：contradict the report。",
+      "forms": [
+        { "w": "contradicts", "label": "第三人稱單數", "pos": "v.", "zh": "與…矛盾", "ipa": "/ˌkɑːntrəˈdɪkts/", "example": { "en": "His second email contradicts what he wrote earlier.", "zh": "他的第二封電子郵件和他稍早寫的內容矛盾。" } },
+        { "w": "contradicted", "label": "過去式／過去分詞", "pos": "v.", "zh": "與…矛盾了", "ipa": "/ˌkɑːntrəˈdɪktɪd/", "example": { "en": "The new data contradicted the results of last year.", "zh": "新的數據與去年的結果相矛盾。" } },
+        { "w": "contradicting", "label": "現在分詞", "pos": "v.", "zh": "反駁（進行中）", "ipa": "/ˌkɑːntrəˈdɪktɪŋ/", "example": { "en": "She is contradicting everything we agreed on yesterday.", "zh": "她正在推翻我們昨天同意的所有事。" } }
+      ],
+      "collocations": [
+        { "phrase": "contradict each other", "zh": "互相矛盾", "example": { "en": "The two reports contradict each other on the sales numbers.", "zh": "這兩份報告在銷售數字上互相矛盾。" } },
+        { "phrase": "contradict oneself", "zh": "自相矛盾", "example": { "en": "Please try not to contradict yourself during the long presentation.", "zh": "在這場長時間的簡報中，請盡量不要自相矛盾。" } },
+        { "phrase": "contradict the findings", "zh": "與研究結果相矛盾", "example": { "en": "The new study may contradict the findings of earlier tests.", "zh": "新的研究可能與先前測試的結果相矛盾。" } }
+      ],
+      "examples": [
+        { "tag": "報告", "en": "This chart contradicts the figures in the sales report.", "zh": "這張圖表和銷售報告中的數字不一致。" },
+        { "tag": "會議", "en": "I don't want to contradict you, but the deadline is Friday.", "zh": "我不想反駁你，但截止日期是週五。" },
+        { "tag": "合約", "en": "Nothing in this email should contradict the written contract.", "zh": "這封電子郵件中的內容不應與書面合約相牴觸。" },
+        { "tag": "新聞", "en": "The news story contradicts the company's official statement.", "zh": "這則新聞報導與公司的官方聲明相矛盾。" }
+      ],
+      "confusable": [
+        { "word": "contract", "diff": "contract 是合約（名詞）或收縮（動詞）；拼法前半和 contradict 很像。", "example": { "en": "Please sign the contract before the end of the week.", "zh": "請在本週結束前簽署合約。" } },
+        { "word": "contrast", "diff": "contrast 是「對比」，只是指出不同；contradict 是兩件事互相衝突、不可能都對。", "example": { "en": "The report shows a contrast between city and rural sales.", "zh": "報告顯示了城市與鄉村銷售之間的差異。" } }
+      ],
+      "similar": [
+        { "phrase": "disagree with", "diff": "disagree with 是不同意某人的意見；contradict 還可指資料、說法本身互相衝突。", "example": { "en": "I disagree with the plan to cut our budget.", "zh": "我不同意削減預算的計畫。" } }
+      ],
+      "family": [
+        { "w": "deny", "pos": "v.", "zh": "否認", "ipa": "/dɪˈnaɪ/", "example": { "en": "The manager denied that the store would close.", "zh": "經理否認這家店會關閉。" } },
+        { "w": "argue", "pos": "v.", "zh": "爭論；主張", "ipa": "/ˈɑːrɡjuː/", "example": { "en": "Some members argue that the price is too high.", "zh": "有些成員主張價格太高。" } },
+        { "w": "oppose", "pos": "v.", "zh": "反對", "ipa": "/əˈpoʊz/", "example": { "en": "Many staff oppose the plan to move the office.", "zh": "許多員工反對搬遷辦公室的計畫。" } },
+        { "w": "conflict", "pos": "n.", "zh": "衝突；牴觸", "ipa": "/ˈkɑːnflɪkt/", "example": { "en": "The meeting time is in conflict with my other plans.", "zh": "會議時間和我其他的計畫衝突。" } }
+      ],
+      "derived": [
+        { "w": "contradiction", "pos": "n.", "zh": "矛盾", "ipa": "/ˌkɑːntrəˈdɪkʃn/", "link": "contradict + -ion，把動作變成名詞，像 decide → decision" },
+        { "w": "contradictory", "pos": "adj.", "zh": "矛盾的", "ipa": "/ˌkɑːntrəˈdɪktəri/", "link": "contradict + -ory，變成形容詞，像 satisfactory" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "與…矛盾", "en": "to be different from something in a way that both cannot be true", "distinguish": "主詞是報告、數據、說法等事物時，是這個意思。", "example": { "en": "The test results contradict the company's earlier claims.", "zh": "測試結果與公司先前的說法相矛盾。" } },
+        { "pos": "v.", "zh": "反駁", "en": "to say that what someone said is wrong", "distinguish": "主詞是人，受詞也是人時，是這個意思。", "example": { "en": "It is rude to contradict your client in public.", "zh": "當眾反駁你的客戶是不禮貌的。" } }
+      ]
+    },
+    {
+      "text": "cordless",
+      "type": "word",
+      "ipa": "/ˈkɔːrdləs/",
+      "pos": "adj.",
+      "zh": "無線的（不需電線）",
+      "en": "working without a wire to a power source",
+      "note": "多益常見於產品廣告與電器採購，如 cordless phone、cordless drill。指沒有電源線，不是指無線網路。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "cordless phone", "zh": "無線電話", "example": { "en": "The hotel room has a cordless phone beside the bed.", "zh": "飯店房間的床邊有一支無線電話。" } },
+        { "phrase": "cordless drill", "zh": "無線電鑽", "example": { "en": "Workers use a cordless drill to put up the shelves.", "zh": "工人用無線電鑽來安裝層架。" } },
+        { "phrase": "cordless vacuum cleaner", "zh": "無線吸塵器", "example": { "en": "This cordless vacuum cleaner runs for forty minutes on one charge.", "zh": "這台無線吸塵器充一次電可運轉四十分鐘。" } }
+      ],
+      "examples": [
+        { "tag": "廣告", "en": "Our new cordless mouse works up to six months on one battery.", "zh": "我們的新款無線滑鼠一顆電池可用長達六個月。" },
+        { "tag": "採購", "en": "Please order five cordless drills for the repair team.", "zh": "請為維修團隊訂購五支無線電鑽。" },
+        { "tag": "使用說明", "en": "Charge the cordless unit for two hours before first use.", "zh": "首次使用前，請先為這台無線機器充電兩小時。" },
+        { "tag": "展售", "en": "The trade show featured many cordless tools for home users.", "zh": "這場貿易展展出許多供家庭使用的無線工具。" }
+      ],
+      "confusable": [
+        { "word": "wireless", "diff": "wireless 是「無線的」，常指無線網路或藍牙；cordless 是「沒有電源線」，通常靠電池。", "example": { "en": "The office has a fast wireless network on every floor.", "zh": "辦公室每一層樓都有快速的無線網路。" } }
+      ],
+      "similar": [
+        { "word": "battery-powered", "diff": "battery-powered 強調靠電池運作；cordless 強調沒有電線。", "example": { "en": "This battery-powered fan is useful during power cuts.", "zh": "這台電池供電的風扇在停電時很有用。" } }
+      ],
+      "family": [
+        { "w": "battery", "pos": "n.", "zh": "電池", "ipa": "/ˈbætəri/", "example": { "en": "The battery lasts about eight hours on a full charge.", "zh": "這顆電池充飽電約可使用八小時。" } },
+        { "w": "charger", "pos": "n.", "zh": "充電器", "ipa": "/ˈtʃɑːrdʒɚ/", "example": { "en": "Please bring your phone charger to the meeting.", "zh": "請把你的手機充電器帶到會議上。" } },
+        { "w": "plug", "pos": "n.", "zh": "插頭；插座", "ipa": "/plʌɡ/", "example": { "en": "Is there a plug near the front of the room?", "zh": "房間前面附近有插座嗎？" } },
+        { "w": "cord", "pos": "n.", "zh": "電線", "ipa": "/kɔːrd/", "example": { "en": "A long cord can be dangerous in a busy office.", "zh": "在繁忙的辦公室裡，長電線可能很危險。" } }
+      ],
+      "derived": [
+        { "w": "cord", "pos": "n.", "zh": "電線；細繩", "ipa": "/kɔːrd/", "link": "cordless 是 cord（電線）+ -less（沒有），像 useless、careless" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "cosmetic",
+      "type": "word",
+      "ipa": "/kɑːzˈmetɪk/",
+      "pos": "adj.",
+      "zh": "化妝用的；美容的；表面的",
+      "en": "used to make the face or body look better",
+      "note": "多益常見於化妝品公司、廣告與產品說明。cosmetic changes 指只改外觀、不影響功能的表面修改。",
+      "grammar_note": "當「化妝品」的名詞時多用複數 cosmetics；單數 cosmetic 主要當形容詞。",
+      "forms": [
+        { "w": "cosmetics", "label": "複數", "pos": "n.", "zh": "化妝品", "ipa": "/kɑːzˈmetɪks/", "example": { "en": "The company exports cosmetics and skin care products to Asia.", "zh": "這家公司出口化妝品和護膚產品到亞洲。" } }
+      ],
+      "collocations": [
+        { "phrase": "cosmetic surgery", "zh": "整形手術", "example": { "en": "The clinic offers both cosmetic surgery and skin treatments.", "zh": "這間診所同時提供整形手術與皮膚療程。" } },
+        { "phrase": "cosmetic products", "zh": "美容產品", "example": { "en": "Our cosmetic products are tested to be safe for sensitive skin.", "zh": "我們的美容產品經過測試，對敏感肌膚也安全。" } },
+        { "phrase": "cosmetic changes", "zh": "表面的修改", "example": { "en": "We only made cosmetic changes to the website this month.", "zh": "我們這個月只對網站做了外觀上的修改。" } },
+        { "phrase": "cosmetic company", "zh": "化妝品公司", "example": { "en": "She works for a large cosmetic company in Seoul.", "zh": "她在首爾的一家大型化妝品公司工作。" } }
+      ],
+      "examples": [
+        { "tag": "廣告", "en": "This cosmetic cream makes your skin feel soft all day.", "zh": "這款美容乳霜讓你的皮膚整天都很柔軟。" },
+        { "tag": "產品", "en": "The cosmetic bag is made from recycled material.", "zh": "這個化妝包是用回收材料做的。" },
+        { "tag": "維修", "en": "The repairs are only cosmetic and do not affect performance.", "zh": "這些修繕只是外觀上的，不會影響性能。" },
+        { "tag": "零售", "en": "The store opened a new cosmetic counter on the first floor.", "zh": "這家店在一樓開了一個新的化妝品櫃檯。" }
+      ],
+      "confusable": [
+        { "word": "cosmic", "diff": "cosmic 是「宇宙的」，拼法與發音都像 cosmetic，但意思完全不同。", "example": { "en": "The science museum has a new show about cosmic events.", "zh": "科學博物館有一場關於宇宙現象的新展演。" } }
+      ],
+      "family": [
+        { "w": "makeup", "pos": "n.", "zh": "化妝品；妝", "ipa": "/ˈmeɪkʌp/", "example": { "en": "She puts on makeup before every client meeting.", "zh": "她在每次客戶會議前都會化妝。" } },
+        { "w": "perfume", "pos": "n.", "zh": "香水", "ipa": "/pɚˈfjuːm/", "example": { "en": "The shop sells perfume and other gift items.", "zh": "這家店賣香水和其他禮品。" } },
+        { "w": "lotion", "pos": "n.", "zh": "乳液", "ipa": "/ˈloʊʃn/", "example": { "en": "This lotion is made for dry and sensitive skin.", "zh": "這款乳液是為乾燥敏感的肌膚設計的。" } },
+        { "w": "beauty", "pos": "n.", "zh": "美；美容", "ipa": "/ˈbjuːti/", "example": { "en": "The beauty industry is growing quickly in Asia.", "zh": "美容產業在亞洲快速成長。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "adj.", "ipa": "/kɑːzˈmetɪk/", "zh": "化妝用的；美容的", "example": { "en": "The lab tests every cosmetic product before it goes on sale.", "zh": "實驗室在每項美容產品上市前都會進行測試。" } },
+        { "pos": "n.", "ipa": "/kɑːzˈmetɪk/", "zh": "化妝品（多用複數 cosmetics）", "example": { "en": "Each cosmetic in this line is free of animal testing.", "zh": "這個系列的每一項化妝品都沒有經過動物實驗。" } }
+      ],
+      "senses": [
+        { "pos": "adj.", "zh": "化妝的；美容的", "en": "used to make the face or body look better", "distinguish": "和產品、皮膚、美容產業有關時，是這個意思。", "example": { "en": "The cosmetic industry spends a lot on advertising each year.", "zh": "化妝品產業每年在廣告上花很多錢。" } },
+        { "pos": "adj.", "zh": "表面的；只改外觀的", "en": "changing only how something looks, not how it works", "distinguish": "和修繕、修改、改版有關時，是「只改外觀」的意思。", "example": { "en": "These cosmetic repairs will not fix the real problem.", "zh": "這些表面的修補無法解決真正的問題。" } }
+      ]
+    },
+    {
+      "text": "countryside",
+      "type": "word",
+      "ipa": "/ˈkʌntrisaɪd/",
+      "pos": "n.",
+      "zh": "鄉下；郊外",
+      "en": "land outside towns and cities, with farms and fields",
+      "note": "多益常見於旅遊、房地產、廣告與公司旅遊情境，帶有風景優美、安靜的語感。",
+      "grammar_note": "countryside 是不可數名詞，不加 s，通常加 the：in the countryside。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "in the countryside", "zh": "在鄉下", "example": { "en": "Many families prefer to live in the countryside.", "zh": "許多家庭偏好住在鄉下。" } },
+        { "phrase": "the surrounding countryside", "zh": "周圍的鄉間", "example": { "en": "Guests can enjoy the surrounding countryside from the hotel garden.", "zh": "客人可以在飯店花園欣賞周圍的鄉間風景。" } },
+        { "phrase": "countryside tour", "zh": "鄉村之旅", "example": { "en": "We booked a countryside tour for our overseas visitors.", "zh": "我們為海外訪客預訂了一趟鄉村之旅。" } },
+        { "phrase": "beautiful countryside", "zh": "美麗的鄉間", "example": { "en": "The train passes through beautiful countryside near the coast.", "zh": "這班火車經過海岸附近美麗的鄉間。" } }
+      ],
+      "examples": [
+        { "tag": "旅遊", "en": "The hotel offers bicycle rides through the quiet countryside.", "zh": "這間飯店提供騎腳踏車穿越寧靜鄉間的行程。" },
+        { "tag": "公司搬遷", "en": "The company is moving its factory to the countryside next year.", "zh": "公司明年要把工廠搬到鄉下。" },
+        { "tag": "廣告", "en": "Enjoy fresh air and open views in the peaceful countryside.", "zh": "在寧靜的鄉間享受新鮮空氣與開闊的視野。" },
+        { "tag": "公司旅遊", "en": "Our staff trip includes a walk around the green countryside.", "zh": "我們的員工旅遊包含在綠色鄉間散步。" }
+      ],
+      "confusable": [
+        { "word": "country", "diff": "country 主要是「國家」；countryside 專指鄉下的地區。", "usage": "country 當「國家」是可數名詞（countries）；countryside 是不可數名詞，不加 s。", "example": { "en": "The country plans to build a new airport next year.", "zh": "這個國家計畫明年蓋一座新機場。" } }
+      ],
+      "similar": [
+        { "phrase": "rural area", "diff": "rural area 較正式，常用在報告與新聞；countryside 較口語，帶有風景的感覺。", "example": { "en": "The bank plans to open branches in rural areas.", "zh": "這家銀行計畫在鄉村地區開設分行。" } }
+      ],
+      "family": [
+        { "w": "farm", "pos": "n.", "zh": "農場", "ipa": "/fɑːrm/", "example": { "en": "The farm sells fresh vegetables to local stores.", "zh": "這座農場把新鮮蔬菜賣給當地商店。" } },
+        { "w": "village", "pos": "n.", "zh": "村莊", "ipa": "/ˈvɪlɪdʒ/", "example": { "en": "The village has only one small hotel near the station.", "zh": "這個村莊在車站附近只有一間小旅館。" } },
+        { "w": "field", "pos": "n.", "zh": "田野；田地", "ipa": "/fiːld/", "example": { "en": "The workers are cutting the grass in the field.", "zh": "工人們正在田裡割草。" } },
+        { "w": "scenery", "pos": "n.", "zh": "風景", "ipa": "/ˈsiːnəri/", "example": { "en": "The scenery along the coast is simply beautiful in spring.", "zh": "春天時，海岸沿線的風景美極了。" } }
+      ],
+      "derived": [
+        { "w": "country", "pos": "n.", "zh": "國家；鄉下", "ipa": "/ˈkʌntri/", "link": "countryside 是 country（鄉下）+ side（地區、旁邊），像 seaside、roadside" },
+        { "w": "countrywide", "pos": "adj.", "zh": "全國的", "ipa": "/ˌkʌntriˈwaɪd/", "link": "country + -wide（遍及），像 worldwide、nationwide" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

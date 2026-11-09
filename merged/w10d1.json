@@ -1,0 +1,132 @@
+{
+ "week": 10,
+ "day": 1,
+ "tag": "新進保全人員訪客管制與保密規定說明對話",
+ "subtopic": "訪客與安全門禁",
+ "type": "Listening",
+ "level": {
+  "score": 755,
+  "range": "705-805",
+  "cefr": "B2",
+  "why": "對話含被動語態、條件與關係子句，需整合訪客管制、緊急按鈕與保密規定；字彙為保全與門禁常用詞，干擾項取自文中相近的程序與物件。"
+ },
+ "passage": "Ms. Torres: Welcome, Kevin. Your reference letter from the executive at your previous company helped us approve your badge quickly, and your practical experience at a hospital front desk is exactly what we need.\nKevin: Thank you. What should I know on my first day?\nMs. Torres: Every visitor must sign in and wear a badge. A visiting repairperson must always have an escort, even if the person only needs the restroom. If someone refuses to follow the rules, press the button under the desk. It silently alerts the security team.\nKevin: Understood. Is there anything I should avoid?\nMs. Torres: Please refrain from discussing building layouts or visitor lists with outsiders. Anyone caught passing company information to outside parties will be severely punished.\nKevin: I will keep that in mind. When do I start?\nMs. Torres: Tomorrow at eight. Please bring your identification.",
+ "zh": "托雷斯女士：歡迎你，凱文。你前一家公司主管所寫的推薦信讓我們很快就核准了你的識別證，而你在醫院櫃檯的實務經驗，正是我們需要的。\n凱文：謝謝。第一天有什麼我該知道的事嗎？\n托雷斯女士：每位訪客都必須登記並配戴識別證。來訪的維修人員必須隨時有人陪同，就算他只是要去洗手間也一樣。如果有人拒絕遵守規定，就按下櫃檯下方的按鈕，它會無聲地通知保全團隊。\n凱文：了解。有什麼是我應該避免的嗎？\n托雷斯女士：請不要與外人談論大樓的格局或訪客名單。任何被發現把公司資訊洩漏給外部人士的人，都會受到嚴厲處分。\n凱文：我會記住的。我什麼時候開始上班？\n托雷斯女士：明天早上八點。請帶著你的身分證件。",
+ "vocab": [
+  {
+   "word": "repairperson",
+   "ipa": "/rɪˈpɛrˌpɝsn/",
+   "pos": "n.",
+   "col": "call a repairperson / visiting repairperson",
+   "zh": "維修人員"
+  },
+  {
+   "word": "restroom",
+   "ipa": "/ˈrɛstˌrum/",
+   "pos": "n.",
+   "col": "use the restroom / public restroom",
+   "zh": "洗手間；廁所"
+  },
+  {
+   "word": "silently",
+   "ipa": "/ˈsaɪləntli/",
+   "pos": "adv.",
+   "col": "silently alert / work silently",
+   "zh": "無聲地；默默地"
+  },
+  {
+   "word": "escort",
+   "ipa": "/ˈɛskɔrt/",
+   "pos": "n.",
+   "col": "security escort / under escort",
+   "zh": "護送者；陪同人員"
+  }
+ ],
+ "questions": [
+  {
+   "kind": "context",
+   "q": "What is Ms. Torres mainly doing in the conversation?",
+   "opts": [
+    "Interviewing Kevin for a job",
+    "Explaining security procedures to a new employee",
+    "Asking Kevin to repair the front desk",
+    "Introducing Kevin to the previous company's executive"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：Kevin 已獲錄用，對話不是面試。",
+    "正解：她向新進員工說明訪客與保全相關規定。",
+    "錯誤：維修人員是訪客角色，並非要求 Kevin 維修。",
+    "錯誤：執行主管是出具推薦信的人，對話中並未介紹他。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What must a visiting repairperson always have?",
+   "opts": [
+    "A signed letter from a manager",
+    "A badge from the previous company",
+    "A list of building layouts",
+    "An escort"
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：文中沒有要求主管簽署的信件。",
+    "錯誤：訪客須配戴本棟大樓的識別證，並非前公司的。",
+    "錯誤：大樓格局是不可對外討論的資訊。",
+    "正解：維修人員必須隨時有人陪同，連去洗手間也一樣。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What does the button under the desk do?",
+   "opts": [
+    "It quietly alerts the security team",
+    "It locks all the doors in the building",
+    "It calls the police directly",
+    "It sounds a loud alarm"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：按鈕會無聲地通知保全團隊。",
+    "錯誤：文中沒有提到會鎖門。",
+    "錯誤：文中沒有提到會直接報警。",
+    "錯誤：文中說是 silently，表示不會發出聲響。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "The security team has ______ increased the number of cameras in the parking garage this year.",
+   "opts": [
+    "significant",
+    "significance",
+    "significantly",
+    "signify"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：significant 為形容詞，無法修飾動詞 increased。",
+    "錯誤：significance 為名詞，不能修飾動詞。",
+    "正解：副詞 significantly 修飾 increased。",
+    "錯誤：signify 為動詞，語法不通。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Access to the server room is limited ______ authorized personnel only.",
+   "opts": [
+    "for",
+    "to",
+    "with",
+    "at"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：limited for 不是固定搭配。",
+    "正解：limited to 表示限於。",
+    "錯誤：limited with 不是固定搭配。",
+    "錯誤：limited at 不是固定搭配。"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,156 @@
+{
+ "week": 9,
+ "day": 1,
+ "tag": "辦公用品管理員計畫徵求公告",
+ "subtopic": "公告與公司規定",
+ "type": "Reading",
+ "level": {
+  "score": 755,
+  "range": "705-805",
+  "cefr": "B2",
+  "why": "公告包含原因子句、形容詞片語與被動語態，需整合計畫背景、申請條件與福利；單字為辦公用品與管理相關詞彙，干擾項取自文中相近資訊。"
+ },
+ "passage": "Notice to All Staff: Office Supplies Steward Program\n\nStarting next month, the Facilities Department will appoint one employee on each floor as an Office Supplies Steward. Because paper consumption and toner orders have risen by nearly 20 percent this year, we need someone to track usage and restock shared items, such as staplers and cartons of copy paper, before they run out.\n\nIdeal candidates are zealous about reducing waste and devoted to keeping the supply room organized. Applicants should have practical experience in inventory or purchasing, and each application must include a reference letter from a department executive. Stewards will receive a small monthly allowance and can conveniently handle these duties during regular working hours, so no overtime will be required.\n\nPlease submit applications to Ms. Alvarez by Friday, November 20. Selected candidates will be announced the following Monday.",
+ "zh": "全體員工公告：辦公用品管理員計畫\n\n從下個月開始，總務部將在每個樓層指派一名員工擔任辦公用品管理員。由於今年紙張消耗量與碳粉訂購量已增加近百分之二十，我們需要有人追蹤使用情形，並在釘書機、整箱影印紙等共用物品用完之前補貨。\n\n理想的人選是熱衷於減少浪費，並且盡心維持用品室井然有序的人。申請人應具備庫存或採購方面的實務經驗，而且每份申請都必須附上一封由部門主管出具的推薦信。管理員將領取一筆小額月津貼，並且可以在正常上班時間內方便地處理這些工作，因此不需要加班。\n\n請在 11 月 20 日星期五前將申請書交給艾瓦雷茲女士。入選者將於下週一公布。",
+ "vocab": [
+  {
+   "word": "toner",
+   "ipa": "/ˈtoʊnɚ/",
+   "pos": "n.",
+   "col": "toner cartridge / replace the toner",
+   "zh": "碳粉；印表機碳粉"
+  },
+  {
+   "word": "carton",
+   "ipa": "/ˈkɑrtn/",
+   "pos": "n.",
+   "col": "a carton of / cardboard carton",
+   "zh": "紙盒；整箱"
+  },
+  {
+   "word": "consumption",
+   "ipa": "/kənˈsʌmpʃən/",
+   "pos": "n.",
+   "col": "energy consumption / reduce consumption",
+   "zh": "消耗（量）"
+  },
+  {
+   "word": "conveniently",
+   "ipa": "/kənˈvinjəntli/",
+   "pos": "adv.",
+   "col": "conveniently located / conveniently handle",
+   "zh": "方便地；便利地"
+  },
+  {
+   "word": "stapler",
+   "ipa": "/ˈsteɪplɚ/",
+   "pos": "n.",
+   "col": "a stapler / refill the stapler",
+   "zh": "釘書機"
+  }
+ ],
+ "questions": [
+  {
+   "kind": "context",
+   "q": "Why is the Facilities Department introducing the program?",
+   "opts": [
+    "Several shared staplers have been lost",
+    "Employees have complained about overtime",
+    "Use of paper and toner has increased noticeably",
+    "The supply room is being moved to another floor"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：釘書機只是被補貨的共用物品之一，並未說遺失。",
+    "錯誤：文中說明管理員工作不需加班，並非因員工抱怨。",
+    "正解：紙張消耗量與碳粉訂購量今年上升近 20%，需要有人追蹤。",
+    "錯誤：文中沒有提到供應室搬遷。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What must each applicant include with the application?",
+   "opts": [
+    "A letter of recommendation from the HR director",
+    "A reference letter from a department executive",
+    "A written plan for cutting printing costs",
+    "A report on this year's toner orders"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：信須由部門主管而非人資主任出具。",
+    "正解：每份申請都必須附上部門主管的推薦信。",
+    "錯誤：文中並未要求降低列印成本的書面計畫。",
+    "錯誤：toner 訂購量是計畫背景，不是申請附件。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What will stewards receive for their work?",
+   "opts": [
+    "Extra vacation days",
+    "Paid overtime",
+    "Priority for promotion",
+    "A small monthly allowance"
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：文中沒有提到額外休假。",
+    "錯誤：文中說明工作在正常上班時間內處理，不需加班。",
+    "錯誤：文中沒有提到升遷優先權。",
+    "正解：管理員將領取一筆小額月津貼。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Employees are asked to use the copier ______ to avoid unnecessary paper waste.",
+   "opts": [
+    "carefully",
+    "careful",
+    "care",
+    "caring"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：此處需副詞修飾動詞 use。",
+    "錯誤：careful 為形容詞，無法修飾動詞。",
+    "錯誤：care 為名詞或動詞，詞性不符。",
+    "錯誤：caring 為形容詞或分詞，不適合此處。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Please contact the facilities team ______ you notice that supplies are running low.",
+   "opts": [
+    "despite",
+    "during",
+    "if",
+    "regarding"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：despite 後接名詞，不接子句。",
+    "錯誤：during 後接名詞表期間，不接子句。",
+    "正解：if 引導條件子句，表示「如果注意到」。",
+    "錯誤：regarding 為介系詞，後不接子句。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "The company has set a ______ to reduce its monthly energy consumption by ten percent.",
+   "opts": [
+    "targeted",
+    "target",
+    "targeting",
+    "targets"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：targeted 為形容詞或過去分詞，不能直接接在冠詞 a 後作名詞。",
+    "正解：a 後需單數名詞 target，表示「目標」。",
+    "錯誤：targeting 為動名詞，語意與用法不符。",
+    "錯誤：targets 為複數，與 a 不一致。"
+   ]
+  }
+ ]
+}

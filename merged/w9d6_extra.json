@@ -1,0 +1,190 @@
+{
+  "week": 9,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "dependence",
+      "type": "word",
+      "ipa": "/dɪˈpendəns/",
+      "pos": "n.",
+      "zh": "依賴、依靠",
+      "en": "the state of needing someone or something to survive or work well",
+      "note": "在這篇 a heavy dependence on a single insurer 指公司過度依賴單一保險公司，是風險管理的語氣，暗示需要分散來源。dependence 在商務文章常帶有「過度依賴、有風險」的負面意味。",
+      "grammar_note": "dependence 後面接 on（dependence on），不接 of 或 to；形容詞是 dependent（結尾是 -ent），名詞是 -ence，不要拼混。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "heavy dependence on", "zh": "對…的高度依賴", "example": { "en": "The firm's heavy dependence on one client put its revenue at risk.", "zh": "這家公司高度依賴單一客戶，使營收面臨風險。" } },
+        { "phrase": "reduce dependence on", "zh": "降低對…的依賴", "example": { "en": "We plan to reduce dependence on imported parts next year.", "zh": "我們計畫明年降低對進口零件的依賴。" } },
+        { "phrase": "growing dependence on", "zh": "對…日益增加的依賴", "example": { "en": "A growing dependence on online sales changed our staffing needs.", "zh": "對線上銷售日益增加的依賴改變了我們的人力需求。" } }
+      ],
+      "examples": [
+        { "tag": "報告", "en": "The audit revealed a dependence on outdated software across departments.", "zh": "稽核發現各部門都依賴過時的軟體。" },
+        { "tag": "會議", "en": "Our dependence on a single supplier makes us vulnerable to delays.", "zh": "我們依賴單一供應商，使我們容易受到延誤影響。" },
+        { "tag": "電子郵件", "en": "We hope to end our dependence on temporary workers by spring.", "zh": "我們希望在春天前結束對臨時人員的依賴。" }
+      ],
+      "confusable": [
+        { "word": "dependent", "diff": "意思相近，但 dependent 是形容詞「依賴的、取決於的」。", "usage": "dependence 是名詞（a dependence on），dependent 是形容詞（be dependent on）；兩者後面都接 on，但詞性不同，結尾也不同（-ence／-ent）。", "example": { "en": "Our sales are dependent on seasonal demand.", "zh": "我們的銷售取決於季節性需求。" } }
+      ],
+      "similar": [
+        { "word": "reliance", "diff": "reliance 較中性，指信賴並依靠；dependence 常帶有「過度依賴」的負面語氣。", "example": { "en": "The company's reliance on one bank is a concern.", "zh": "這家公司依賴單一銀行，令人擔憂。" } }
+      ],
+      "family": [
+        { "w": "supplier", "ipa": "/səˈplaɪɚ/", "pos": "n.", "zh": "供應商", "example": { "en": "We are looking for a second supplier of packaging.", "zh": "我們正在尋找第二家包裝材料供應商。" } },
+        { "w": "risk", "ipa": "/rɪsk/", "pos": "n.", "zh": "風險", "example": { "en": "Using one vendor increases the risk of delays.", "zh": "只用一家廠商會增加延誤的風險。" } },
+        { "w": "alternative", "ipa": "/ɔːlˈtɜːrnətɪv/", "pos": "n.", "zh": "替代方案", "example": { "en": "We need an alternative in case the shipment is late.", "zh": "萬一貨物延遲，我們需要一個替代方案。" } }
+      ],
+      "derived": [
+        { "w": "depend", "ipa": "/dɪˈpend/", "pos": "v.", "zh": "依賴、取決於", "link": "depend 是詞幹；depend 後面加 -ence 變成名詞「依賴」，像 differ → difference" },
+        { "w": "dependent", "ipa": "/dɪˈpendənt/", "pos": "adj.", "zh": "依賴的", "link": "depend + -ent，形容詞「依賴的」，像 different、absent" },
+        { "w": "dependable", "ipa": "/dɪˈpendəbəl/", "pos": "adj.", "zh": "可靠的", "link": "depend + -able，「可以依靠的」，像 reliable、affordable" },
+        { "w": "independent", "ipa": "/ˌɪndɪˈpendənt/", "pos": "adj.", "zh": "獨立的", "link": "in-（不）+ dependent，不依賴別人，像 incorrect、inactive" },
+        { "w": "independence", "ipa": "/ˌɪndɪˈpendəns/", "pos": "n.", "zh": "獨立", "link": "independent 把 -t 改成 -ce 變名詞，像 absent → absence" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "premium",
+      "type": "word",
+      "ipa": "/ˈpriːmiəm/",
+      "pos": "n.",
+      "zh": "保險費；溢價、額外費用",
+      "en": "an amount of money you pay regularly for insurance",
+      "note": "在這篇 annual premiums 指每年付給保險公司的保險費；文中說保費漲得比營收快，點出成本壓力。多益在保險、財務情境常見，也常當形容詞表示「高級的」。",
+      "grammar_note": "當「保險費」是可數名詞（annual premiums）；當形容詞「高級的」時放在名詞前且不加 s，如 premium service。",
+      "forms": [
+        { "w": "premiums", "label": "複數", "pos": "n.", "zh": "保險費（複數）", "ipa": "/ˈpriːmiəmz/", "example": { "en": "Several insurers raised their premiums after the storm damage claims.", "zh": "在風災理賠案之後，幾家保險公司調高了保費。" } }
+      ],
+      "collocations": [
+        { "phrase": "insurance premium", "zh": "保險費", "example": { "en": "The insurance premium is due on the fifteenth of every month.", "zh": "保險費在每個月十五日到期。" } },
+        { "phrase": "annual premium", "zh": "年繳保費", "example": { "en": "Choosing a higher deductible lowers your annual premium.", "zh": "選擇較高的自付額會降低你的年繳保費。" } },
+        { "phrase": "pay a premium for", "zh": "為…多付一筆錢", "example": { "en": "Customers will pay a premium for faster delivery.", "zh": "顧客願意為更快的配送多付費用。" } },
+        { "phrase": "at a premium", "zh": "價格偏高、供不應求", "example": { "en": "Skilled technicians are at a premium in this region.", "zh": "在這個地區，熟練的技術人員很搶手。" } }
+      ],
+      "examples": [
+        { "tag": "保險", "en": "Your monthly premium will increase if you add a second driver.", "zh": "如果你加登第二位駕駛，每月保費會增加。" },
+        { "tag": "行銷", "en": "We offer premium membership with free shipping and priority support.", "zh": "我們提供高級會員資格，含免運費和優先客服。" },
+        { "tag": "採購", "en": "The supplier charges a ten percent premium for rush orders.", "zh": "供應商對急單加收百分之十的額外費用。" }
+      ],
+      "confusable": [
+        { "word": "premier", "diff": "拼法接近，但 premier 是形容詞「首要的、頂尖的」。", "usage": "premier 當形容詞放名詞前（premier supplier）；premium 當名詞是「保費」，當形容詞是「高級的」。", "example": { "en": "The company is the premier supplier of medical equipment.", "zh": "這家公司是頂尖的醫療設備供應商。" } },
+        { "word": "premises", "diff": "拼法接近，但 premises 是「營業場所、房地」，一定要加 s。", "example": { "en": "Smoking is not allowed on the premises.", "zh": "場所內禁止吸菸。" } }
+      ],
+      "similar": [
+        { "word": "fee", "diff": "fee 是服務或手續的費用；premium 專指保險費或額外多付的錢。", "example": { "en": "The consultant charges a fee for each review.", "zh": "這位顧問每次審查都收一筆費用。" } },
+        { "word": "surcharge", "diff": "surcharge 是附加費，在原價之外加收；premium 當「溢價」時語氣較中性。", "example": { "en": "A surcharge applies to orders delivered after six.", "zh": "六點之後送達的訂單要加收附加費。" } }
+      ],
+      "family": [
+        { "w": "policy", "ipa": "/ˈpɑːləsi/", "pos": "n.", "zh": "保單、政策", "example": { "en": "Please read your insurance policy before signing.", "zh": "簽名前請先閱讀你的保單。" } },
+        { "w": "coverage", "ipa": "/ˈkʌvərɪdʒ/", "pos": "n.", "zh": "保障範圍", "example": { "en": "This plan includes coverage for damage during transport.", "zh": "這個方案包含運送途中損壞的保障。" } },
+        { "w": "claim", "ipa": "/kleɪm/", "pos": "n.", "zh": "理賠申請", "example": { "en": "She filed a claim after the warehouse flooded.", "zh": "倉庫淹水後，她提出了理賠申請。" } },
+        { "w": "deductible", "ipa": "/dɪˈdʌktəbəl/", "pos": "n.", "zh": "自付額", "example": { "en": "The deductible is five hundred dollars per claim.", "zh": "每次理賠的自付額是五百美元。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈpriːmiəm/", "zh": "保險費、溢價", "in_passage": true, "example": { "en": "We must pay the premium before the policy takes effect.", "zh": "我們必須在保單生效前繳交保費。" } },
+        { "pos": "adj.", "ipa": "/ˈpriːmiəm/", "zh": "高級的、優質的", "example": { "en": "The hotel offers a premium room with a harbor view.", "zh": "這間飯店提供附港景的高級客房。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "保險費", "en": "money you pay regularly to an insurance company", "in_passage": true, "example": { "en": "The annual premium covers fire, theft, and water damage.", "zh": "年繳保費涵蓋火災、竊盜和水損。" } },
+        { "pos": "n.", "zh": "溢價、額外費用", "en": "extra money you pay for something special or hard to get", "distinguish": "出現 pay a premium、at a premium 時，指的是為了特別的東西多付的錢。", "example": { "en": "Buyers paid a premium for rare materials during the shortage.", "zh": "缺貨期間，買家為稀有材料付出了溢價。" } }
+      ]
+    },
+    {
+      "text": "reproduce",
+      "type": "word",
+      "ipa": "/ˌriːprəˈduːs/",
+      "pos": "v.",
+      "zh": "複製、重製；重現",
+      "en": "to make a copy of something",
+      "note": "在這篇指提案不可「重複使用」先前提案中的內容（原樣複製貼上）；這是徵求提案公告常見的限制，語氣正式。多益常見於版權、合約和文件規定。",
+      "grammar_note": "reproduce 是及物動詞，後面直接接受詞（reproduce a document）；來源用 from 放在受詞之後，如 reproduce material from earlier submissions。",
+      "forms": [
+        { "w": "reproduces", "label": "第三人稱單數", "pos": "v.", "zh": "複製", "ipa": "/ˌriːprəˈduːsɪz/", "example": { "en": "This printer reproduces color photographs with remarkable accuracy.", "zh": "這台印表機能非常精準地複製彩色照片。" } },
+        { "w": "reproduced", "label": "過去式／過去分詞", "pos": "v.", "zh": "複製了", "ipa": "/ˌriːprəˈduːst/", "example": { "en": "The chart was reproduced from last year's annual report.", "zh": "這張圖表是從去年的年報複製而來的。" } },
+        { "w": "reproducing", "label": "現在分詞", "pos": "v.", "zh": "複製中", "ipa": "/ˌriːprəˈduːsɪŋ/", "example": { "en": "Reproducing the full manual without permission is not allowed.", "zh": "未經許可不得複製整本手冊。" } }
+      ],
+      "collocations": [
+        { "phrase": "reproduce in whole or in part", "zh": "全部或部分複製", "example": { "en": "You may not reproduce this report in whole or in part.", "zh": "您不得全部或部分複製這份報告。" } },
+        { "phrase": "reproduce the results", "zh": "重現結果", "example": { "en": "Other teams were unable to reproduce the results of the test.", "zh": "其他團隊無法重現這項測試的結果。" } },
+        { "phrase": "reproduce a document", "zh": "複製文件", "example": { "en": "It is illegal to reproduce a document without the owner's permission.", "zh": "未經所有人許可而複製文件是違法的。" } }
+      ],
+      "examples": [
+        { "tag": "版權", "en": "Photos on this site cannot be reproduced without written approval.", "zh": "未經書面核准，本網站的照片不得複製。" },
+        { "tag": "設計", "en": "The new press can reproduce fine details in full color.", "zh": "這台新印刷機能以全彩重現細微的細節。" },
+        { "tag": "合約", "en": "Any quoted text must be reproduced exactly as it appears.", "zh": "任何引用的文字都必須照原樣複製。" }
+      ],
+      "confusable": [
+        { "word": "reduce", "diff": "拼法和發音接近，但 reduce 是「減少」。", "example": { "en": "We aim to reduce printing costs by ten percent.", "zh": "我們的目標是把印刷成本降低百分之十。" } },
+        { "word": "replace", "diff": "拼法接近，但 replace 是「取代、更換」，不是複製。", "example": { "en": "We will replace the old machine next month.", "zh": "我們下個月會更換這台舊機器。" } }
+      ],
+      "similar": [
+        { "word": "copy", "diff": "copy 口語、用途廣；reproduce 較正式，常用在版權、出版和法律文件。", "example": { "en": "Please copy the file onto a USB drive.", "zh": "請把檔案複製到隨身碟裡。" } },
+        { "word": "duplicate", "diff": "duplicate 強調做出一模一樣的副本；reproduce 重點在重新做出原本的內容。", "example": { "en": "Do not duplicate keys without permission from the manager.", "zh": "未經經理許可，請勿複製鑰匙。" } }
+      ],
+      "family": [
+        { "w": "permission", "ipa": "/pərˈmɪʃən/", "pos": "n.", "zh": "許可", "example": { "en": "You need written permission to use this logo.", "zh": "使用這個標誌需要書面許可。" } },
+        { "w": "copyright", "ipa": "/ˈkɑːpiraɪt/", "pos": "n.", "zh": "版權", "example": { "en": "The copyright belongs to the company, not the writer.", "zh": "版權屬於公司，而不是作者。" } },
+        { "w": "original", "ipa": "/əˈrɪdʒənəl/", "pos": "adj.", "zh": "原本的、原創的", "example": { "en": "Please keep the original receipt for your records.", "zh": "請保留原始收據作為記錄。" } }
+      ],
+      "derived": [
+        { "w": "produce", "ipa": "/prəˈduːs/", "pos": "v.", "zh": "生產、製造", "link": "produce 是詞幹；re-（再次）+ produce，就是「再做一次」" },
+        { "w": "reproduction", "ipa": "/ˌriːprəˈdʌkʃən/", "pos": "n.", "zh": "複製、複製品", "link": "reproduce 去掉 -e 加 -tion 變名詞，像 produce → production" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "複製、重製", "en": "to make a copy of a document, picture, or text", "in_passage": true, "example": { "en": "Applicants may not reproduce text taken from the company website.", "zh": "申請人不得複製取自公司網站的文字。" } },
+        { "pos": "v.", "zh": "重現（結果、問題）", "en": "to get the same result or problem again", "distinguish": "受詞是 error、problem、results 時，指把同樣情況再做出一次。", "example": { "en": "The technician tried to reproduce the problem on a test computer.", "zh": "技術人員試著在測試用電腦上重現這個問題。" } }
+      ]
+    },
+    {
+      "text": "insert",
+      "type": "word",
+      "ipa": "/ɪnˈsɜːrt/",
+      "pos": "v.",
+      "zh": "插入、放入",
+      "en": "to put something into something else",
+      "note": "在這篇指簽署好的保密同意書必須「放入」文件，作為最後一頁，是提案格式的要求。多益常見於文件整理、軟體操作（插入圖片、頁碼）和合約條款。",
+      "grammar_note": "insert 當動詞重音在第二音節 /ɪnˈsɜːrt/，當名詞「插頁」重音在第一音節 /ˈɪnsɜːrt/；常用 insert A into／in B。",
+      "forms": [
+        { "w": "inserts", "label": "第三人稱單數", "pos": "v.", "zh": "插入", "ipa": "/ɪnˈsɜːrts/", "example": { "en": "She inserts a cover page at the front of each report.", "zh": "她在每份報告前面插入一張封面。" } },
+        { "w": "inserts", "label": "複數", "pos": "n.", "zh": "插頁（複數）", "ipa": "/ˈɪnsɜːrts/", "example": { "en": "The magazine comes with two advertising inserts every month.", "zh": "這本雜誌每個月都附兩張廣告插頁。" } },
+        { "w": "inserted", "label": "過去式／過去分詞", "pos": "v.", "zh": "插入了", "ipa": "/ɪnˈsɜːrtɪd/", "example": { "en": "A new clause was inserted into the contract last week.", "zh": "上週合約中被加進了一項新條款。" } },
+        { "w": "inserting", "label": "現在分詞", "pos": "v.", "zh": "插入中", "ipa": "/ɪnˈsɜːrtɪŋ/", "example": { "en": "Inserting a table makes the data easier to read.", "zh": "插入表格能讓資料更容易閱讀。" } }
+      ],
+      "collocations": [
+        { "phrase": "insert a page", "zh": "插入一頁", "example": { "en": "Please insert a blank page between the two sections.", "zh": "請在兩個章節之間插入一張空白頁。" } },
+        { "phrase": "insert a clause", "zh": "加入一項條款", "example": { "en": "The lawyer asked us to insert a clause about late payments.", "zh": "律師要求我們加入一條關於逾期付款的條款。" } },
+        { "phrase": "insert an image", "zh": "插入圖片", "example": { "en": "Click this button to insert an image into your slide.", "zh": "點這個按鈕就能把圖片插入你的投影片。" } },
+        { "phrase": "insert a card", "zh": "插入卡片", "example": { "en": "Insert your card and enter the PIN number to continue.", "zh": "請插入卡片並輸入密碼以繼續。" } }
+      ],
+      "examples": [
+        { "tag": "文件", "en": "Remember to insert the signed form at the back of the file.", "zh": "記得把簽好的表格放在檔案最後面。" },
+        { "tag": "軟體", "en": "You can insert page numbers from the menu at the top.", "zh": "你可以從上方的選單插入頁碼。" },
+        { "tag": "設備", "en": "Insert the paper into the tray and press the green button.", "zh": "把紙放進紙匣，然後按下綠色按鈕。" }
+      ],
+      "confusable": [
+        { "word": "assert", "diff": "字尾 -sert 發音接近，但 assert 是「主張、斷言」。", "example": { "en": "The manager asserted that the delay was not our fault.", "zh": "經理主張這次延誤不是我們的錯。" } }
+      ],
+      "similar": [
+        { "phrase": "put in", "diff": "put in 是口語說法，用途很廣；insert 較正式，強調放進指定的位置。", "example": { "en": "Please put in a new battery before using the remote.", "zh": "使用遙控器前，請先放入新電池。" } },
+        { "word": "add", "diff": "add 是一般的「加上」，不一定有明確位置；insert 強調放進中間或指定處。", "example": { "en": "Add a short note at the end of the email.", "zh": "請在電子郵件最後加一則簡短的備註。" } }
+      ],
+      "family": [
+        { "w": "attach", "ipa": "/əˈtætʃ/", "pos": "v.", "zh": "附上、黏上", "example": { "en": "Please attach your resume to the email.", "zh": "請把你的履歷附在電子郵件裡。" } },
+        { "w": "enclose", "ipa": "/ɪnˈkloʊz/", "pos": "v.", "zh": "隨函附上", "example": { "en": "I have enclosed a copy of the invoice.", "zh": "我隨信附上一份發票副本。" } }
+      ],
+      "derived": [
+        { "w": "insertion", "ipa": "/ɪnˈsɜːrʃən/", "pos": "n.", "zh": "插入、插入處", "link": "insert + -ion，把「插入」這個動作變成名詞，像 collect → collection" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/ɪnˈsɜːrt/", "zh": "插入、放入", "in_passage": true, "example": { "en": "Insert the signed page before you scan the whole document.", "zh": "掃描整份文件前，請先放入簽好的那一頁。" } },
+        { "pos": "n.", "ipa": "/ˈɪnsɜːrt/", "zh": "插頁、夾頁", "example": { "en": "The product insert explains how to install the filter.", "zh": "產品說明夾頁解釋了如何安裝濾網。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "插入、放入", "en": "to put something into something else", "in_passage": true, "example": { "en": "Please insert the signed contract into the blue folder.", "zh": "請把簽好的合約放入藍色資料夾。" } },
+        { "pos": "v.", "zh": "加入（文字、條款）", "en": "to add words or a section into a text", "distinguish": "受詞是 word、sentence、clause、comment 時，指在文件中加入內容。", "example": { "en": "She inserted a short comment next to the revised figure.", "zh": "她在修改過的數字旁邊加了一則簡短的註解。" } }
+      ]
+    }
+  ]
+}

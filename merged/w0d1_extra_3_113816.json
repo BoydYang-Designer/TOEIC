@@ -1,0 +1,152 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "bathroom",
+      "type": "word",
+      "ipa": "/ˈbæθruːm/",
+      "pos": "n.",
+      "zh": "浴室、洗手間",
+      "en": "a room with a toilet and a sink",
+      "note": "多益常見於飯店、辦公室、住宅和設施公告。美式英文中 bathroom 也常指廁所；公共場所的指示牌多用 restroom。",
+      "forms": [
+        { "w": "bathrooms", "label": "複數", "pos": "n.", "zh": "洗手間（複數）", "ipa": "/ˈbæθruːmz/", "example": { "en": "The office bathrooms will be cleaned twice a day.", "zh": "辦公室的洗手間一天會清潔兩次。" } }
+      ],
+      "collocations": [
+        { "phrase": "use the bathroom", "zh": "上洗手間", "example": { "en": "Customers may use the bathroom on the second floor.", "zh": "顧客可以使用二樓的洗手間。" } },
+        { "phrase": "bathroom break", "zh": "上洗手間的休息時間", "example": { "en": "Let's take a short bathroom break before the next session.", "zh": "下一場開始前，我們先休息一下上洗手間。" } },
+        { "phrase": "private bathroom", "zh": "獨立衛浴", "example": { "en": "All rooms at this hotel have a private bathroom.", "zh": "這間飯店的所有房間都有獨立衛浴。" } }
+      ],
+      "examples": [
+        { "tag": "飯店", "en": "The bathroom in our room was clean and bright.", "zh": "我們房間的浴室乾淨又明亮。" },
+        { "tag": "公告", "en": "The bathroom on the first floor is closed for repairs.", "zh": "一樓的洗手間因整修而關閉。" },
+        { "tag": "租屋", "en": "The apartment has two bedrooms and one bathroom.", "zh": "這間公寓有兩間臥室和一間浴室。" }
+      ],
+      "confusable": [
+        { "word": "bath", "diff": "bath 是「洗澡、浴缸」，bathroom 是放浴缸或馬桶的「房間」。", "example": { "en": "I would like a room with a bath, not just a shower.", "zh": "我想要有浴缸的房間，而不是只有淋浴。" } }
+      ],
+      "similar": [
+        { "word": "restroom", "diff": "restroom 是公共場所（餐廳、辦公室、商場）較客氣的說法；bathroom 在家裡或飯店房間內更常用。", "example": { "en": "The restroom is next to the elevator on this floor.", "zh": "這一層的洗手間在電梯旁邊。" } },
+        { "word": "toilet", "diff": "toilet 原指馬桶，英式英文也指廁所；在美式商務場合較少直接使用。", "example": { "en": "The toilet in the lobby is out of order.", "zh": "大廳的馬桶故障了。" } }
+      ],
+      "family": [
+        { "w": "shower", "ipa": "/ˈʃaʊɚ/", "pos": "n.", "zh": "淋浴", "example": { "en": "The gym has a shower for staff who bike to work.", "zh": "健身房為騎車上班的員工設有淋浴間。" } },
+        { "w": "sink", "ipa": "/sɪŋk/", "pos": "n.", "zh": "洗手台、水槽", "example": { "en": "Please wash your hands at the sink before you enter.", "zh": "進入前請先在洗手台洗手。" } },
+        { "w": "towel", "ipa": "/ˈtaʊəl/", "pos": "n.", "zh": "毛巾", "example": { "en": "The hotel provides clean towels every morning.", "zh": "飯店每天早上都提供乾淨的毛巾。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "beginner",
+      "type": "word",
+      "ipa": "/bɪˈɡɪnɚ/",
+      "pos": "n.",
+      "zh": "初學者、新手",
+      "en": "a person who is just starting to learn something",
+      "note": "多益常見於課程、訓練、使用手冊和軟體廣告，如 beginner level（初級）。也可放在名詞前當修飾語，如 beginner course。",
+      "grammar_note": "beginner 是可數名詞：a beginner、beginners；放在名詞前當修飾語時用單數，如 a beginner course，不加 s。",
+      "forms": [
+        { "w": "beginners", "label": "複數", "pos": "n.", "zh": "初學者（複數）", "ipa": "/bɪˈɡɪnɚz/", "example": { "en": "The class is open to beginners and experienced users.", "zh": "這堂課開放給初學者和有經驗的使用者。" } }
+      ],
+      "collocations": [
+        { "phrase": "complete beginner", "zh": "完全的新手", "example": { "en": "You do not need experience; complete beginners are welcome.", "zh": "不需要經驗，完全的新手也歡迎。" } },
+        { "phrase": "beginner's guide", "zh": "新手指南", "example": { "en": "She wrote a beginner's guide to online marketing.", "zh": "她寫了一本網路行銷的新手指南。" } },
+        { "phrase": "beginner level", "zh": "初級程度", "example": { "en": "We offer courses at beginner level and advanced level.", "zh": "我們提供初級和高級程度的課程。" } },
+        { "phrase": "for beginners", "zh": "適合初學者", "example": { "en": "This software is easy to use for beginners.", "zh": "這套軟體對初學者來說很容易使用。" } }
+      ],
+      "examples": [
+        { "tag": "自我介紹", "en": "I am a beginner, so please explain each step slowly.", "zh": "我是新手，所以請慢慢說明每個步驟。" },
+        { "tag": "課程", "en": "The new beginner course starts next Monday at nine.", "zh": "新的初級課程下週一九點開始。" },
+        { "tag": "訓練", "en": "Even a beginner can learn this system in one day.", "zh": "就連新手也能在一天內學會這個系統。" }
+      ],
+      "similar": [
+        { "word": "novice", "diff": "novice 較正式，常用在比賽或專業領域，如 novice player；beginner 較通用。", "example": { "en": "The contest has separate prizes for novice and expert players.", "zh": "這場比賽為新手和專家選手設有不同的獎項。" } },
+        { "word": "newcomer", "diff": "newcomer 指新加入或新來的人，不一定是不懂的人；beginner 強調剛開始學。", "example": { "en": "The newcomer quickly learned how to use the system.", "zh": "這位新來的同事很快就學會了使用系統。" } }
+      ],
+      "family": [
+        { "w": "expert", "ipa": "/ˈekspɜːrt/", "pos": "n.", "zh": "專家", "example": { "en": "The expert answered questions about tax rules.", "zh": "專家回答了有關稅務規定的問題。" } },
+        { "w": "trainee", "ipa": "/treɪˈniː/", "pos": "n.", "zh": "受訓者", "example": { "en": "Each trainee receives a guide on the first day.", "zh": "每位受訓者在第一天都會拿到一本指南。" } },
+        { "w": "advanced", "ipa": "/ədˈvænst/", "pos": "adj.", "zh": "高級的、進階的", "example": { "en": "We offer an advanced course for experienced staff.", "zh": "我們為有經驗的員工提供進階課程。" } }
+      ],
+      "derived": [
+        { "w": "begin", "ipa": "/bɪˈɡɪn/", "pos": "v.", "zh": "開始", "link": "begin 是詞幹；加 -ner（n 要重複）變成「剛開始學的人」，像 learner、worker" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "beverage",
+      "type": "word",
+      "ipa": "/ˈbevərɪdʒ/",
+      "pos": "n.",
+      "zh": "飲料",
+      "en": "a drink",
+      "note": "比 drink 正式，常見於餐廳菜單、活動公告、機上服務和飯店；food and beverage 是「餐飲業」的常用說法。",
+      "grammar_note": "beverage 是可數名詞（a beverage、beverages）；但 food and beverage 當產業名稱時，beverage 不加 s。",
+      "forms": [
+        { "w": "beverages", "label": "複數", "pos": "n.", "zh": "飲料（複數）", "ipa": "/ˈbevərɪdʒɪz/", "example": { "en": "Hot and cold beverages are available in the lobby.", "zh": "大廳提供熱飲和冷飲。" } }
+      ],
+      "collocations": [
+        { "phrase": "food and beverage", "zh": "餐飲（業）", "example": { "en": "She manages the food and beverage department at the hotel.", "zh": "她負責管理飯店的餐飲部門。" } },
+        { "phrase": "beverage menu", "zh": "飲料單", "example": { "en": "Please check the beverage menu for today's special drinks.", "zh": "請看飲料單了解今天的特別飲品。" } },
+        { "phrase": "alcoholic beverages", "zh": "含酒精飲料", "example": { "en": "Alcoholic beverages are not allowed in the office.", "zh": "辦公室內不允許飲用含酒精飲料。" } },
+        { "phrase": "beverage service", "zh": "飲料服務", "example": { "en": "The airline stopped its free beverage service on short flights.", "zh": "這家航空公司在短程航班停止了免費飲料服務。" } }
+      ],
+      "examples": [
+        { "tag": "活動", "en": "Snacks and beverages will be served after the meeting.", "zh": "會議結束後會提供點心和飲料。" },
+        { "tag": "餐廳", "en": "Every lunch set comes with a free beverage.", "zh": "每份午餐套餐都附一杯免費飲料。" },
+        { "tag": "採購", "en": "We ordered more beverages for the company party.", "zh": "我們為公司派對多訂了一些飲料。" }
+      ],
+      "similar": [
+        { "word": "drink", "diff": "drink 是日常最常用的說法；beverage 比較正式，常見於菜單和公告。", "example": { "en": "Would you like a drink before the presentation begins?", "zh": "簡報開始前，您想來杯飲料嗎？" } },
+        { "word": "refreshments", "diff": "refreshments 指活動提供的飲料加點心，常用複數；beverage 只指飲料。", "example": { "en": "Refreshments will be served in the hall at noon.", "zh": "中午會在大廳提供茶點。" } }
+      ],
+      "family": [
+        { "w": "menu", "ipa": "/ˈmenjuː/", "pos": "n.", "zh": "菜單", "example": { "en": "The menu changes every season at this restaurant.", "zh": "這家餐廳的菜單每季都會更換。" } },
+        { "w": "snack", "ipa": "/snæk/", "pos": "n.", "zh": "點心、零食", "example": { "en": "The office provides free snacks on Friday afternoons.", "zh": "辦公室在週五下午提供免費點心。" } },
+        { "w": "cafeteria", "ipa": "/ˌkæfəˈtɪriə/", "pos": "n.", "zh": "自助餐廳、員工餐廳", "example": { "en": "Most employees eat lunch in the company cafeteria.", "zh": "大多數員工在公司餐廳吃午餐。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "birthday",
+      "type": "word",
+      "ipa": "/ˈbɜːrθdeɪ/",
+      "pos": "n.",
+      "zh": "生日",
+      "en": "the day each year when you celebrate the day you were born",
+      "note": "多益常見於辦公室慶生、會員生日優惠、賀卡和活動通知。語氣輕鬆、友善。",
+      "grammar_note": "「在生日當天」用介系詞 on：on your birthday，不用 in 或 at。",
+      "forms": [
+        { "w": "birthdays", "label": "複數", "pos": "n.", "zh": "生日（複數）", "ipa": "/ˈbɜːrθdeɪz/", "example": { "en": "We celebrate staff birthdays on the first Friday of each month.", "zh": "我們在每個月第一個週五為員工慶生。" } }
+      ],
+      "collocations": [
+        { "phrase": "birthday party", "zh": "生日派對", "example": { "en": "Her coworkers planned a birthday party in the break room.", "zh": "她的同事在休息室籌劃了一場生日派對。" } },
+        { "phrase": "birthday card", "zh": "生日卡片", "example": { "en": "Everyone signed the birthday card for our manager.", "zh": "大家都在我們經理的生日卡片上簽了名。" } },
+        { "phrase": "birthday gift", "zh": "生日禮物", "example": { "en": "Members receive a free birthday gift from the store.", "zh": "會員可以從店裡領到一份免費的生日禮物。" } },
+        { "phrase": "on your birthday", "zh": "在你生日當天", "example": { "en": "You will get a ten percent discount on your birthday.", "zh": "你在生日當天可以享有九折優惠。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Please join us for cake to celebrate Tom's birthday.", "zh": "請來和我們一起吃蛋糕，慶祝湯姆的生日。" },
+        { "tag": "廣告", "en": "Show your ID to get a free dessert for your birthday.", "zh": "出示證件，就能在生日時獲得一份免費甜點。" },
+        { "tag": "會議", "en": "Tomorrow is the director's birthday, so we bought flowers.", "zh": "明天是主任的生日，所以我們買了花。" }
+      ],
+      "confusable": [
+        { "word": "anniversary", "diff": "anniversary 是事件的「週年紀念日」，如公司成立週年；birthday 是人出生的日子。", "example": { "en": "The company will hold a party for its tenth anniversary.", "zh": "公司將為成立十週年舉辦派對。" } }
+      ],
+      "family": [
+        { "w": "celebrate", "ipa": "/ˈseləbreɪt/", "pos": "v.", "zh": "慶祝", "example": { "en": "We will celebrate the new contract with a team lunch.", "zh": "我們將以團隊午餐來慶祝新合約。" } },
+        { "w": "gift", "ipa": "/ɡɪft/", "pos": "n.", "zh": "禮物", "example": { "en": "Each guest received a small gift at the event.", "zh": "每位賓客在活動中都收到一份小禮物。" } },
+        { "w": "guest", "ipa": "/ɡest/", "pos": "n.", "zh": "賓客", "example": { "en": "Over one hundred guests attended the opening party.", "zh": "超過一百位賓客參加了開幕派對。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

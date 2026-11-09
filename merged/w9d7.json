@@ -1,0 +1,232 @@
+{
+ "week": 9,
+ "day": 7,
+ "tag": "簡報／提案：冷鏈溫度監測標籤新產品簡報",
+ "subtopic": "新產品簡報",
+ "type": "Listening",
+ "level": {
+  "score": 800,
+  "range": "750-850",
+  "cefr": "B2+",
+  "why": "簡報包含長句、被動與分詞構句，需整合產品功能、通關效益、測試結果與預算請求；字彙偏抽象（embed、expedite、protocol），干擾項取自文中的數字與人物資訊。"
+ },
+ "passage": "Good morning, everyone. I am pleased to introduce ColdLink, a new temperature monitoring tag designed for shipments of food and medicine. Today I will cover what the product does, how it was tested, and what we need from you to launch it this spring.\n\nHere is why this matters. Many perishable goods are spoiled not because they were poorly produced, but because the temperature changed during transport and nobody noticed until the cartons were opened. ColdLink solves this by embedding a sensor, only three centimeters wide, directly into the packaging. The tag records the temperature every five minutes and sends an alert to the driver and the warehouse whenever it leaves the safe range.\n\nTurning to paperwork, every reading is stored automatically, so customs officers can verify that a shipment met the required regulations without opening a single box. In our trial with a seafood importer, this helped expedite clearance, cutting the average wait from two days to six hours. All alerts follow a standard protocol, so staff always know who should respond and what to do next.\n\nLet me share how we tested it. Our pilot team included engineers with practical experience in refrigerated logistics, and the results were superb. The importer's executive director even sent us a reference letter praising the accuracy of the system.\n\nWhat we need from you today is approval of a production budget of three hundred thousand dollars by the end of this month. Before I show a short demonstration, let me recap the key point. ColdLink protects product quality and shortens delays at the border. I would be happy to take your questions afterward.",
+ "zh": "各位早安。我很高興向大家介紹 ColdLink，這是一款專為食品與藥品貨運設計的新型溫度監測標籤。今天我會說明這項產品的功能、測試過程，以及要在今年春天上市我們需要各位提供什麼。\n\n這件事之所以重要，原因如下。許多易腐壞的商品變質，並不是因為生產得不好，而是運送途中溫度改變了，卻直到紙箱被打開才有人發現。ColdLink 的解決方式，是把一個寬度只有三公分的感測器直接嵌入包裝內。這個標籤每五分鐘記錄一次溫度，只要溫度超出安全範圍，就會向司機和倉庫發出警示。\n\n談到文書作業，每一筆讀數都會自動儲存，所以海關人員不必打開任何一個箱子，就能確認貨物符合規定。在我們與一家海鮮進口商的試用中，這有助於加快通關，把平均等待時間從兩天縮短到六小時。所有警示都遵循標準流程，因此員工永遠知道該由誰回應，以及下一步該怎麼做。\n\n讓我分享一下我們如何測試。我們的試行團隊包含在冷鏈物流方面具有實務經驗的工程師，成果非常出色。這家進口商的執行董事甚至寄給我們一封推薦信，稱讚這套系統的準確度。\n\n今天我們需要各位在本月底前核准三十萬美元的生產預算。在我展示簡短的示範之前，讓我先回顧重點。ColdLink 能保護產品品質，並縮短在邊境的延誤。結束之後，我很樂意回答各位的問題。",
+ "vocab": [
+  {
+   "word": "embed",
+   "ipa": "/ɪmˈbɛd/",
+   "pos": "v.",
+   "col": "embed a sensor / embed in the packaging",
+   "zh": "嵌入；內建"
+  },
+  {
+   "word": "expedite",
+   "ipa": "/ˈɛkspəˌdaɪt/",
+   "pos": "v.",
+   "col": "expedite clearance / expedite delivery",
+   "zh": "加快；促進"
+  },
+  {
+   "word": "poorly",
+   "ipa": "/ˈpʊrli/",
+   "pos": "adv.",
+   "col": "poorly produced / perform poorly",
+   "zh": "差勁地；不佳地"
+  },
+  {
+   "word": "superb",
+   "ipa": "/suˈpɝb/",
+   "pos": "adj.",
+   "col": "superb results / superb quality",
+   "zh": "極佳的；一流的"
+  },
+  {
+   "word": "centimeter",
+   "ipa": "/ˈsɛntəˌmitɚ/",
+   "pos": "n.",
+   "col": "five centimeters / square centimeter",
+   "zh": "公分"
+  }
+ ],
+ "questions": [
+  {
+   "kind": "context",
+   "q": "What is ColdLink?",
+   "opts": [
+    "A refrigerated truck for transporting seafood",
+    "A software program for filing customs documents",
+    "A temperature monitoring tag for perishable shipments",
+    "A packaging material that keeps food cold"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：ColdLink 是標籤，並非冷藏貨車。",
+    "錯誤：它儲存讀數協助通關，但本身不是報關軟體。",
+    "正解：ColdLink 是為食品與藥品貨運設計的溫度監測標籤。",
+    "錯誤：它是嵌入包裝的感測器，並非保冷材料。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What was the result of the trial with the seafood importer?",
+   "opts": [
+    "The average clearance wait dropped from two days to six hours",
+    "The tag recorded the temperature every five minutes",
+    "The sensor measured only three centimeters",
+    "The production budget was approved"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：試用結果是平均通關等待時間從兩天縮短到六小時。",
+    "錯誤：每五分鐘記錄一次是產品功能，不是試用結果。",
+    "錯誤：三公分是感測器寬度。",
+    "錯誤：預算尚待本次簡報後核准。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What did the importer's executive director do?",
+   "opts": [
+    "Approved the production budget",
+    "Sent a reference letter praising the system",
+    "Joined the pilot team as an engineer",
+    "Wrote the alert protocol for drivers"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：預算是請聽眾核准，並非進口商執行董事。",
+    "正解：他寄來推薦信，稱讚系統的準確度。",
+    "錯誤：試行團隊由具冷鏈物流經驗的工程師組成。",
+    "錯誤：警示流程為標準化流程，文中未說是他撰寫。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What does the speaker ask the audience to do?",
+   "opts": [
+    "Test the product with their own clients",
+    "Contact customs officers about the new tags",
+    "Reduce the number of alerts sent to drivers",
+    "Approve a production budget by the end of the month"
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：測試已由試行團隊完成。",
+    "錯誤：與海關的往來不是本次的請求。",
+    "錯誤：文中沒有提到要減少警示數量。",
+    "正解：講者請聽眾在本月底前核准三十萬美元的生產預算。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Shipments must be inspected for compliance with safety ______ before they leave the port.",
+   "opts": [
+    "regulate",
+    "regulations",
+    "regulatory",
+    "regulated"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：regulate 為動詞，不能接在 safety 後作名詞。",
+    "正解：safety regulations 為名詞片語，意為「安全法規」。",
+    "錯誤：regulatory 為形容詞，後面缺少名詞。",
+    "錯誤：regulated 為分詞，無法與 safety 構成名詞片語。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "The warehouse team responded ______ to the temperature alert, preventing any loss of goods.",
+   "opts": [
+    "prompt",
+    "prompted",
+    "promptly",
+    "promptness"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：prompt 為形容詞，無法修飾動詞 responded。",
+    "錯誤：prompted 為過去分詞，不能修飾動詞。",
+    "正解：副詞 promptly 修飾 responded。",
+    "錯誤：promptness 為名詞，無法修飾動詞。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Customers can track the status of their orders ______ the mobile app at any time.",
+   "opts": [
+    "through",
+    "during",
+    "among",
+    "toward"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：through the app 表示透過應用程式。",
+    "錯誤：during 後接期間，不適用。",
+    "錯誤：among 表示在多者之中，語意不符。",
+    "錯誤：toward 表示朝向，語意不符。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "______ the new sensor is more expensive than the old one, it saves money by reducing spoiled goods.",
+   "opts": [
+    "Despite",
+    "Because of",
+    "Nevertheless",
+    "Although"
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：Despite 後接名詞，不接子句。",
+    "錯誤：Because of 後接名詞，且語意不符。",
+    "錯誤：Nevertheless 為副詞，不能引導從屬子句。",
+    "正解：Although 引導讓步子句，與後句形成對比。"
+   ]
+  }
+ ],
+ "presentation_phrases": [
+  {
+   "phrase": "I am pleased to introduce...",
+   "meaning": "我很高興向大家介紹…",
+   "usage": "開場時引出產品或主題，語氣正式而友善。"
+  },
+  {
+   "phrase": "Today I will cover...",
+   "meaning": "今天我會說明…",
+   "usage": "預告簡報的主要內容，幫助聽眾掌握架構。"
+  },
+  {
+   "phrase": "Here is why this matters.",
+   "meaning": "這件事之所以重要，原因如下。",
+   "usage": "在說明問題背景後強調重要性，引導聽眾進入重點。"
+  },
+  {
+   "phrase": "Turning to paperwork, ...",
+   "meaning": "談到文書作業，…",
+   "usage": "轉換到下一個重點時使用，可替換成其他主題。"
+  },
+  {
+   "phrase": "Let me share how we tested it.",
+   "meaning": "讓我分享我們如何測試。",
+   "usage": "進入測試或驗證階段時，說明方法與成果。"
+  },
+  {
+   "phrase": "What we need from you today is...",
+   "meaning": "今天我們需要各位…",
+   "usage": "提出具體請求，例如核准預算或提供資源。"
+  },
+  {
+   "phrase": "Let me recap the key point.",
+   "meaning": "讓我回顧重點。",
+   "usage": "結尾前重述核心訊息，加深聽眾印象。"
+  },
+  {
+   "phrase": "I would be happy to take your questions.",
+   "meaning": "我很樂意回答各位的問題。",
+   "usage": "結尾時開放問答，語氣禮貌。"
+  }
+ ]
+}

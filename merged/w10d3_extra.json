@@ -1,0 +1,132 @@
+{
+  "week": 10,
+  "day": 3,
+  "extra_vocab": [
+    {
+      "text": "insufficient",
+      "type": "word",
+      "ipa": "/ˌɪnsəˈfɪʃənt/",
+      "pos": "adj.",
+      "zh": "不足的、不夠的",
+      "en": "not enough for what is needed",
+      "note": "文章中指員工認為薪資不足以對應自己的職責時，可以申請審查。insufficient 語氣正式、客觀，常用在報告、公告與申請說明。",
+      "grammar_note": "常見句型是 insufficient for + 名詞，或 insufficient to + V；前面不用 very，要加強語氣可用 clearly、highly。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "insufficient funds", "zh": "餘額不足", "example": { "en": "The transfer failed because of insufficient funds in the account.", "zh": "因為帳戶餘額不足，轉帳失敗了。" } },
+        { "phrase": "insufficient evidence", "zh": "證據不足", "example": { "en": "The court dismissed the case due to insufficient evidence.", "zh": "法院因證據不足而駁回了這個案件。" } },
+        { "phrase": "insufficient information", "zh": "資訊不足", "example": { "en": "We cannot approve the request with insufficient information.", "zh": "資訊不足，我們無法核准這項申請。" } },
+        { "phrase": "insufficient for", "zh": "不足以應付…", "example": { "en": "The current salary is insufficient for a family in this city.", "zh": "目前的薪水不足以供這座城市的一個家庭生活。" } }
+      ],
+      "examples": [
+        { "tag": "預算", "en": "The budget is insufficient, so we must delay the project.", "zh": "預算不足，所以我們必須延後這個專案。" },
+        { "tag": "庫存", "en": "Our stock was insufficient to meet the sudden demand.", "zh": "我們的庫存不足以應付突然增加的需求。" },
+        { "tag": "人資", "en": "Many staff say the training time is insufficient.", "zh": "許多員工表示訓練時間不夠。" }
+      ],
+      "confusable": [
+        { "word": "inefficient", "diff": "拼法相近，但 inefficient 是「沒效率的」，不是「不夠」。", "example": { "en": "The old system is inefficient and wastes a lot of time.", "zh": "舊系統沒有效率，浪費很多時間。" } }
+      ],
+      "similar": [
+        { "word": "inadequate", "diff": "inadequate 強調品質或程度不夠好；insufficient 強調數量不足。", "example": { "en": "The safety training was inadequate, so we added more classes.", "zh": "安全訓練不夠完善，所以我們增加了課程。" } },
+        { "phrase": "not enough", "diff": "意思相同，但 not enough 較口語；insufficient 較正式，多用在書面。", "example": { "en": "We do not have enough staff to finish by Friday.", "zh": "我們人手不夠，無法在星期五前完成。" } }
+      ],
+      "family": [
+        { "w": "shortage", "pos": "n.", "zh": "短缺", "ipa": "/ˈʃɔːrtɪdʒ/", "example": { "en": "A shortage of drivers delayed all our deliveries.", "zh": "司機短缺使我們所有的出貨都延誤了。" } },
+        { "w": "lack", "pos": "n.", "zh": "缺乏", "ipa": "/læk/", "example": { "en": "A lack of space is our biggest problem.", "zh": "空間不足是我們最大的問題。" } }
+      ],
+      "derived": [
+        { "w": "sufficient", "pos": "adj.", "zh": "足夠的", "ipa": "/səˈfɪʃənt/", "link": "sufficient 是基礎字；insufficient = in-（不）+ sufficient，像 incorrect、inactive" },
+        { "w": "sufficiently", "pos": "adv.", "zh": "足夠地", "ipa": "/səˈfɪʃəntli/", "link": "sufficient + -ly，變成副詞，像 quickly、carefully" },
+        { "w": "insufficiently", "pos": "adv.", "zh": "不足地", "ipa": "/ˌɪnsəˈfɪʃəntli/", "link": "insufficient + -ly，變成副詞「不夠地」" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "inclusive",
+      "type": "word",
+      "ipa": "/ɪnˈkluːsɪv/",
+      "pos": "adj.",
+      "zh": "包含…在內的；包容的",
+      "en": "including everything or all the costs that are mentioned",
+      "note": "文章中說薪酬方案現在包含健康保險、交通津貼和年度獎金，用的是 inclusive of。這個字常見於報價、合約與飯店方案，表示價格或內容已經包含哪些項目。",
+      "grammar_note": "inclusive of + 名詞 表示「包含…」，of 不能省略；日期、數字後面也可直接加 inclusive，如 Monday to Friday inclusive（含週五）。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "inclusive of tax", "zh": "含稅", "example": { "en": "All prices on this list are inclusive of tax.", "zh": "這份清單上的所有價格都含稅。" } },
+        { "phrase": "all-inclusive", "zh": "全包式的", "example": { "en": "The all-inclusive package covers meals, drinks, and airport transfers.", "zh": "全包式方案包含餐點、飲料和機場接送。" } },
+        { "phrase": "inclusive workplace", "zh": "包容的職場", "example": { "en": "Managers are learning how to create an inclusive workplace.", "zh": "主管們正在學習如何打造包容的職場。" } }
+      ],
+      "examples": [
+        { "tag": "報價", "en": "The quoted fee is inclusive of all service charges.", "zh": "報價的費用包含所有服務費。" },
+        { "tag": "飯店", "en": "The room rate is inclusive of breakfast and parking.", "zh": "房價包含早餐和停車費。" },
+        { "tag": "招募", "en": "Our hiring policy is inclusive and open to all applicants.", "zh": "我們的招募政策是包容的，開放給所有應徵者。" },
+        { "tag": "公告", "en": "The sale runs from Monday to Friday inclusive.", "zh": "特賣活動從週一到週五（含週五）。" }
+      ],
+      "confusable": [
+        { "word": "exclusive", "diff": "exclusive of 剛好相反，表示「不包含…」；exclusive 也可指「獨家的」。", "usage": "inclusive of 是「含…」，exclusive of 是「不含…」，後面都接名詞。", "example": { "en": "The price is exclusive of tax, so you pay more.", "zh": "這個價格不含稅，所以你要多付一些。" } },
+        { "word": "conclusive", "diff": "拼法相近，conclusive 是「決定性的、確定的」。", "example": { "en": "We do not have conclusive proof of the error yet.", "zh": "我們還沒有關於這個錯誤的確定證據。" } }
+      ],
+      "similar": [
+        { "word": "including", "diff": "including 是介系詞，直接接名詞；inclusive of 較正式，常用在報價與合約。", "example": { "en": "The fee, including tax, is two hundred dollars.", "zh": "費用含稅共兩百美元。" } }
+      ],
+      "family": [
+        { "w": "comprehensive", "pos": "adj.", "zh": "全面的、涵蓋範圍廣的", "ipa": "/ˌkɑːmprɪˈhensɪv/", "example": { "en": "The company offers a comprehensive health plan to all staff.", "zh": "公司提供所有員工全面的健康保險方案。" } },
+        { "w": "total", "pos": "adj.", "zh": "總共的", "ipa": "/ˈtoʊtl/", "example": { "en": "The total cost of the trip is under one thousand dollars.", "zh": "這趟旅行的總費用不到一千美元。" } }
+      ],
+      "derived": [
+        { "w": "include", "pos": "v.", "zh": "包含", "ipa": "/ɪnˈkluːd/", "link": "include 是基礎字；include + -ive，變成形容詞「包含的」，像 active、creative" },
+        { "w": "inclusion", "pos": "n.", "zh": "包含；納入", "ipa": "/ɪnˈkluːʒən/", "link": "include 去掉 -de，加 -sion，變成名詞，像 decide → decision" },
+        { "w": "exclude", "pos": "v.", "zh": "排除、不包含", "ipa": "/ɪkˈskluːd/", "link": "ex-（向外）+ clude，把…排除在外，與 include 相反" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "包含…在內的", "en": "including everything or all the costs that are mentioned", "in_passage": true, "example": { "en": "Our monthly fee is inclusive of software updates and support.", "zh": "我們的月費包含軟體更新與支援服務。" } },
+        { "pos": "adj.", "zh": "包容的、不排斥任何人的", "en": "open to all kinds of people", "distinguish": "後面接 workplace、policy、culture 等名詞，指的是「包容」，不是價格或項目。", "example": { "en": "An inclusive culture helps every employee feel welcome here.", "zh": "包容的文化讓每位員工在這裡都感到受歡迎。" } }
+      ]
+    },
+    {
+      "text": "introductory",
+      "type": "word",
+      "ipa": "/ˌɪntrəˈdʌktəri/",
+      "pos": "adj.",
+      "zh": "初期的；入門的；介紹性的",
+      "en": "coming at the beginning to help people start",
+      "note": "文章中 introductory period 指新進員工的三個月試用期，期間薪資為標準薪資的九成。這個字放在名詞前，表示「剛開始的階段」，語氣中性、偏正式。",
+      "grammar_note": "introductory 是形容詞，放在名詞前，如 introductory course；說「向某人介紹」要用動詞 introduce，不是 introductory。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "introductory period", "zh": "試用期、初期", "example": { "en": "Your health coverage starts after the introductory period ends.", "zh": "你的健康保險在試用期結束後開始生效。" } },
+        { "phrase": "introductory offer", "zh": "新上市優惠", "example": { "en": "The introductory offer ends on the last day of this month.", "zh": "新上市優惠到本月最後一天結束。" } },
+        { "phrase": "introductory course", "zh": "入門課程", "example": { "en": "An introductory course in marketing is open to all staff.", "zh": "行銷入門課程開放給所有員工。" } }
+      ],
+      "examples": [
+        { "tag": "人資", "en": "New hires will receive the introductory rate for three months.", "zh": "新進員工三個月內適用試用期薪資。" },
+        { "tag": "行銷", "en": "Customers can enjoy an introductory price during the first week.", "zh": "顧客在第一週可享有新上市價格。" },
+        { "tag": "會議", "en": "The manager made a few introductory remarks and then welcomed the speaker.", "zh": "經理說了幾句開場白，然後歡迎演講者。" }
+      ],
+      "confusable": [
+        { "word": "introduction", "diff": "introduction 是名詞，指「介紹、前言」；introductory 是形容詞。", "usage": "introduction 當名詞用（an introduction），introductory 必須放在名詞前面修飾它。", "example": { "en": "Please read the introduction before you start the manual.", "zh": "開始看手冊前，請先讀前言。" } }
+      ],
+      "similar": [
+        { "word": "probationary", "diff": "probationary 專指員工的試用期，語氣更正式；introductory 範圍較廣。", "example": { "en": "New staff must finish a probationary period of three months.", "zh": "新進員工必須完成三個月的試用期。" } },
+        { "word": "initial", "diff": "initial 強調「最初的」，introductory 強調「為了讓人開始上手」。", "example": { "en": "The initial training lasts one week and covers basic rules.", "zh": "最初的訓練為期一週，內容涵蓋基本規定。" } }
+      ],
+      "family": [
+        { "w": "trial", "pos": "n.", "zh": "試用、試驗", "ipa": "/ˈtraɪəl/", "example": { "en": "You can use the software free during the trial.", "zh": "試用期間你可以免費使用這套軟體。" } },
+        { "w": "orientation", "pos": "n.", "zh": "新人訓練、迎新說明", "ipa": "/ˌɔːriənˈteɪʃən/", "example": { "en": "All new employees must attend orientation on Monday morning.", "zh": "所有新進員工都必須參加星期一早上的迎新說明。" } },
+        { "w": "beginner", "pos": "n.", "zh": "初學者", "ipa": "/bɪˈɡɪnɚ/", "example": { "en": "This workshop is designed for beginners with no experience.", "zh": "這個工作坊是為沒有經驗的初學者設計的。" } }
+      ],
+      "derived": [
+        { "w": "introduce", "pos": "v.", "zh": "介紹；引進", "ipa": "/ˌɪntrəˈduːs/", "link": "introduce 是基礎字，introductory 是由 introduction 變成形容詞，意思是「為了介紹或開始用的」" },
+        { "w": "introduction", "pos": "n.", "zh": "介紹；前言；引進", "ipa": "/ˌɪntrəˈdʌkʃən/", "link": "introduce 去掉 -e 加 -tion，變成名詞，像 produce → production" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "初期的、試用的", "en": "happening at the start, before the normal rules begin", "in_passage": true, "example": { "en": "The introductory period gives both sides time to see if the job fits.", "zh": "試用期讓雙方有時間確認這份工作是否合適。" } },
+        { "pos": "adj.", "zh": "新上市的（優惠）", "en": "offered at a special low price when something is new", "distinguish": "後面接 offer、price、rate 時，指新產品或新服務的限時優惠。", "example": { "en": "We are offering an introductory discount on our new service plan.", "zh": "我們的新服務方案提供新上市折扣。" } },
+        { "pos": "adj.", "zh": "入門的", "en": "made for people who are just starting to learn", "distinguish": "後面接 course、class、guide 時，指給初學者的入門內容。", "example": { "en": "She teaches an introductory class on spreadsheets every Tuesday evening.", "zh": "她每週二晚上開一堂試算表入門課。" } }
+      ]
+    }
+  ]
+}

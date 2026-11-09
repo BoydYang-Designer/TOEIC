@@ -1,0 +1,590 @@
+{
+  "week": 10,
+  "day": 2,
+  "extra_vocab": [
+    {
+      "text": "unload",
+      "type": "word",
+      "ipa": "/ʌnˈloʊd/",
+      "pos": "v.",
+      "zh": "卸貨、卸下",
+      "en": "to take goods or things off a truck, ship, or plane",
+      "note": "在這篇裡是被動語態 must be unloaded，指廠商要在規定時間前把貨箱從車上卸下來，好讓會場清空。",
+      "grammar_note": "unload 後面可接貨物（unload the boxes），也可接車輛（unload the truck）；從哪裡卸下用 from。",
+      "forms": [
+        {
+          "w": "unloads",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "卸貨",
+          "ipa": "/ʌnˈloʊdz/",
+          "example": { "en": "The driver unloads the boxes at the back entrance every morning.", "zh": "司機每天早上都在後門卸下箱子。" }
+        },
+        {
+          "w": "unloaded",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "卸了貨、被卸下",
+          "ipa": "/ʌnˈloʊdɪd/",
+          "example": { "en": "The crew unloaded the entire shipment within two hours.", "zh": "工作人員在兩小時內卸完了整批貨。" }
+        },
+        {
+          "w": "unloading",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在卸貨",
+          "ipa": "/ʌnˈloʊdɪŋ/",
+          "example": { "en": "Workers are unloading the machines from the truck right now.", "zh": "工人現在正從卡車上卸下機器。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "unload a truck",
+          "zh": "卸下卡車上的貨",
+          "example": { "en": "It took four people to unload a truck full of equipment.", "zh": "要四個人才能卸下一整車的設備。" }
+        },
+        {
+          "phrase": "unload cargo",
+          "zh": "卸下貨物",
+          "example": { "en": "The ship will unload cargo at the port on Tuesday.", "zh": "這艘船星期二會在港口卸貨。" }
+        },
+        {
+          "phrase": "unload something from",
+          "zh": "從…卸下某物",
+          "example": { "en": "Please unload the samples from the van before noon.", "zh": "請在中午前把樣品從貨車上卸下來。" }
+        }
+      ],
+      "examples": [
+        { "tag": "展覽佈展", "en": "All crates must be unloaded at the loading dock before nine.", "zh": "所有貨箱必須在九點前在裝卸區卸下。" },
+        { "tag": "物流", "en": "The warehouse staff unload about twenty trucks a day.", "zh": "倉庫人員一天大約卸二十輛卡車的貨。" },
+        { "tag": "電子郵件", "en": "Please confirm who will unload the delivery when it arrives.", "zh": "請確認貨送到時由誰負責卸貨。" }
+      ],
+      "confusable": [
+        {
+          "word": "download",
+          "diff": "unload 是把實體貨物卸下來；download 是把電腦檔案從網路下載到裝置。",
+          "example": { "en": "You can download the setup guide from our website before the expo.", "zh": "展覽前，你可以從我們的網站下載佈展指南。" }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "offload",
+          "diff": "意思接近，但 offload 較口語，也常用來指把工作或責任推給別人。",
+          "example": { "en": "The team offloaded the heavy equipment at the loading dock.", "zh": "團隊在裝卸區卸下了重型設備。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "cargo",
+          "pos": "n.",
+          "zh": "（船、飛機運送的）貨物",
+          "ipa": "/ˈkɑːrɡoʊ/",
+          "example": { "en": "The cargo arrived at the port two days early.", "zh": "這批貨物提早兩天抵達港口。" }
+        },
+        {
+          "w": "shipment",
+          "pos": "n.",
+          "zh": "一批出貨、運送",
+          "ipa": "/ˈʃɪpmənt/",
+          "example": { "en": "Our next shipment will leave the factory on Monday.", "zh": "我們下一批貨星期一會離開工廠。" }
+        },
+        {
+          "w": "crate",
+          "pos": "n.",
+          "zh": "貨箱、板條箱",
+          "ipa": "/kreɪt/",
+          "example": { "en": "Each crate holds ten small machine parts.", "zh": "每個貨箱裝有十個小型機械零件。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "load",
+          "pos": "v./n.",
+          "zh": "裝載；貨物量",
+          "ipa": "/loʊd/",
+          "link": "最基礎的字。unload = un-（相反）+ load（裝），把裝上去的東西卸下來，像 unlock、undo"
+        },
+        {
+          "w": "reload",
+          "pos": "v.",
+          "zh": "重新裝載",
+          "ipa": "/riːˈloʊd/",
+          "link": "re-（再一次）+ load，像 rewrite、reopen"
+        },
+        {
+          "w": "overload",
+          "pos": "v.",
+          "zh": "超載、負荷過重",
+          "ipa": "/ˌoʊvərˈloʊd/",
+          "link": "over-（過多）+ load，像 overwork、overcharge"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "cord",
+      "type": "word",
+      "ipa": "/kɔːrd/",
+      "pos": "n.",
+      "zh": "電線、細繩",
+      "en": "a thin wire covered with plastic that carries electricity to a machine",
+      "note": "在這篇裡是 power cord（電源線）。防火規定要求電線必須用保護蓋蓋好，避免有人被絆倒或發生火災。",
+      "forms": [
+        {
+          "w": "cords",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "電線（複數）",
+          "ipa": "/kɔːrdz/",
+          "example": { "en": "Please keep all cords away from the walkway in the booth.", "zh": "請讓攤位裡所有的電線遠離走道。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "power cord",
+          "zh": "電源線",
+          "example": { "en": "The power cord of this projector is too short.", "zh": "這台投影機的電源線太短了。" }
+        },
+        {
+          "phrase": "extension cord",
+          "zh": "延長線",
+          "example": { "en": "You may need an extension cord to reach the wall outlet.", "zh": "你可能需要一條延長線才能接到牆上的插座。" }
+        },
+        {
+          "phrase": "charging cord",
+          "zh": "充電線",
+          "example": { "en": "I left my charging cord in the conference room yesterday.", "zh": "我昨天把充電線忘在會議室了。" }
+        }
+      ],
+      "examples": [
+        { "tag": "展覽佈展", "en": "Cover every cord on the floor with a safety mat.", "zh": "請用安全墊蓋住地板上的每一條電線。" },
+        { "tag": "辦公室", "en": "Someone tripped over a loose cord near the printer.", "zh": "有人被印表機旁一條鬆脫的電線絆倒。" },
+        { "tag": "採購", "en": "The package includes a laptop, a charger, and a power cord.", "zh": "套裝內含一台筆電、一個充電器和一條電源線。" }
+      ],
+      "confusable": [
+        {
+          "word": "chord",
+          "diff": "chord 和 cord 發音相同，但 chord 是音樂的「和弦」，與電線無關。",
+          "example": { "en": "The band played a chord to start the opening ceremony.", "zh": "樂團彈了一個和弦，為開幕典禮揭開序幕。" }
+        },
+        {
+          "word": "card",
+          "diff": "card 發音是 /kɑːrd/，意思是卡片，常和 cord 的拼字搞混。",
+          "example": { "en": "Please show your card at the information desk.", "zh": "請在服務台出示你的卡片。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "cable",
+          "diff": "cable 通常較粗、較長，指網路線、電纜；cord 多指家電或小型設備的電線。",
+          "example": { "en": "We need a longer cable to connect the screen to the computer.", "zh": "我們需要一條更長的線把螢幕接到電腦。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "plug",
+          "pos": "n.",
+          "zh": "插頭",
+          "ipa": "/plʌɡ/",
+          "example": { "en": "The plug does not fit this wall socket.", "zh": "這個插頭不適合這個牆上的插座。" }
+        },
+        {
+          "w": "outlet",
+          "pos": "n.",
+          "zh": "插座",
+          "ipa": "/ˈaʊtlet/",
+          "example": { "en": "Each booth has two electrical outlets near the back wall.", "zh": "每個攤位後牆附近有兩個電源插座。" }
+        },
+        {
+          "w": "wire",
+          "pos": "n.",
+          "zh": "金屬線、電線",
+          "ipa": "/ˈwaɪər/",
+          "example": { "en": "The technician replaced the damaged wire inside the machine.", "zh": "技術人員更換了機器內部受損的電線。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "cordless",
+          "pos": "adj.",
+          "zh": "無線的（不用電線）",
+          "ipa": "/ˈkɔːrdləs/",
+          "link": "cord + -less（沒有），沒有電線的，像 homeless、useless"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "電線",
+          "en": "a wire that carries electricity to a machine",
+          "in_passage": true,
+          "example": { "en": "Please check that the cord is not damaged before use.", "zh": "使用前請檢查電線有沒有受損。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "細繩、繩索",
+          "en": "a thick string used to tie or pull things",
+          "distinguish": "看到 tie、pull、curtain 這類字，通常是指繩子，不是電線。",
+          "example": { "en": "Pull the cord to open the window blinds.", "zh": "拉這條繩子就能打開百葉窗。" }
+        }
+      ]
+    },
+    {
+      "text": "rebate",
+      "type": "word",
+      "ipa": "/ˈriːbeɪt/",
+      "pos": "n.",
+      "zh": "退款、回饋金",
+      "en": "money that is given back to you after you have paid",
+      "note": "在這篇裡指提早報名的廠商，在報到時可以拿回一部分費用。rebate 是事後退回部分金額，不是全額退費。",
+      "grammar_note": "名詞重音在第一音節 /ˈriːbeɪt/，動詞在第二音節 /rɪˈbeɪt/。常說 a rebate on + 商品或費用。",
+      "forms": [
+        {
+          "w": "rebates",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "退款（複數）",
+          "ipa": "/ˈriːbeɪts/",
+          "example": { "en": "The store offers rebates on all new office printers this month.", "zh": "這間店這個月對所有新的辦公室印表機提供退款優惠。" }
+        },
+        {
+          "w": "rebates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "退還部分款項",
+          "ipa": "/rɪˈbeɪts/",
+          "example": { "en": "The supplier rebates five percent of the fee to loyal clients.", "zh": "供應商會退還百分之五的費用給忠實客戶。" }
+        },
+        {
+          "w": "rebated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "退還了部分款項",
+          "ipa": "/rɪˈbeɪtɪd/",
+          "example": { "en": "Part of the booth fee was rebated after the show ended.", "zh": "展覽結束後，攤位費有一部分被退還了。" }
+        },
+        {
+          "w": "rebating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在退還部分款項",
+          "ipa": "/rɪˈbeɪtɪŋ/",
+          "example": { "en": "The company is rebating ten dollars to every customer this week.", "zh": "公司這星期正在退還每位客人十美元。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "offer a rebate",
+          "zh": "提供退款優惠",
+          "example": { "en": "The manufacturer will offer a rebate on its newest model.", "zh": "製造商會對最新型號提供退款優惠。" }
+        },
+        {
+          "phrase": "claim a rebate",
+          "zh": "申請退款",
+          "example": { "en": "You must send the receipt to claim a rebate.", "zh": "你必須寄出收據才能申請退款。" }
+        },
+        {
+          "phrase": "mail-in rebate",
+          "zh": "郵寄申請的退款",
+          "example": { "en": "The mail-in rebate form is inside the product box.", "zh": "郵寄退款申請表放在產品盒子裡。" }
+        },
+        {
+          "phrase": "tax rebate",
+          "zh": "退稅",
+          "example": { "en": "Many small businesses received a tax rebate last spring.", "zh": "許多小公司去年春天收到了退稅。" }
+        }
+      ],
+      "examples": [
+        { "tag": "展覽報名", "en": "Early registration rebates will be issued at the information desk.", "zh": "提早報名的退款將在服務台發放。" },
+        { "tag": "採購", "en": "We saved two hundred dollars thanks to the rebate on the copier.", "zh": "多虧影印機的退款優惠，我們省了兩百美元。" },
+        { "tag": "電子郵件", "en": "Your rebate will arrive within four weeks of approval.", "zh": "你的退款會在核准後四週內送達。" }
+      ],
+      "similar": [
+        {
+          "word": "refund",
+          "diff": "refund 通常是不滿意或取消後退回全部款項；rebate 是購買後退回一部分，當作優惠。",
+          "example": { "en": "The airline gave us a full refund after the flight was canceled.", "zh": "航班取消後，航空公司給了我們全額退款。" }
+        },
+        {
+          "word": "discount",
+          "diff": "discount 是付款時直接少付；rebate 是先付全額，之後再拿回一部分。",
+          "example": { "en": "We offer a discount to customers who order more than fifty units.", "zh": "訂購超過五十件的客戶，我們提供折扣。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "refund",
+          "pos": "n.",
+          "zh": "退款",
+          "ipa": "/ˈriːfʌnd/",
+          "example": { "en": "Please contact us if you would like a refund.", "zh": "如果你想退款，請與我們聯絡。" }
+        },
+        {
+          "w": "coupon",
+          "pos": "n.",
+          "zh": "優惠券",
+          "ipa": "/ˈkuːpɑːn/",
+          "example": { "en": "Bring this coupon to the booth to receive a free sample.", "zh": "帶這張優惠券到攤位可領取免費樣品。" }
+        },
+        {
+          "w": "deposit",
+          "pos": "n.",
+          "zh": "訂金、押金",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "example": { "en": "We require a deposit before we reserve your booth.", "zh": "我們在保留你的攤位前需要先收訂金。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈriːbeɪt/",
+          "zh": "退款、回饋金",
+          "in_passage": true,
+          "example": { "en": "Customers can get a rebate when they buy two machines.", "zh": "顧客買兩台機器就可以拿到退款。" }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/rɪˈbeɪt/",
+          "zh": "退還（部分款項）",
+          "example": { "en": "The company will rebate part of the fee to exhibitors.", "zh": "公司會把一部分費用退還給參展廠商。" }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "vacate",
+      "type": "word",
+      "ipa": "/ˈveɪkeɪt/",
+      "pos": "v.",
+      "zh": "騰空、搬離、退出",
+      "en": "to leave a room, seat, or building so that it is empty",
+      "note": "在這篇裡是被動語態 must be vacated，指星期日晚上六點前，所有攤位都要清空，人和物品都得離開會場。",
+      "grammar_note": "vacate 是及物動詞，後面直接接地方，不加 from：vacate the room，不說 vacate from the room。",
+      "forms": [
+        {
+          "w": "vacates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "騰空、搬離",
+          "ipa": "/ˈveɪkeɪts/",
+          "example": { "en": "Each tenant vacates the office by the end of the month.", "zh": "每位房客都在月底前搬離辦公室。" }
+        },
+        {
+          "w": "vacated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "騰空了、被騰空",
+          "ipa": "/ˈveɪkeɪtɪd/",
+          "example": { "en": "The staff vacated the meeting room at four o'clock.", "zh": "員工在四點時離開了會議室。" }
+        },
+        {
+          "w": "vacating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在騰空、搬離",
+          "ipa": "/ˈveɪkeɪtɪŋ/",
+          "example": { "en": "We are vacating the old warehouse by next Friday.", "zh": "我們下星期五前要搬離舊倉庫。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "vacate the premises",
+          "zh": "離開場地、搬離房舍",
+          "example": { "en": "Visitors must vacate the premises when the building closes.", "zh": "大樓關閉時，訪客必須離開場地。" }
+        },
+        {
+          "phrase": "vacate a room",
+          "zh": "退房、離開房間",
+          "example": { "en": "Guests are asked to vacate a room before noon.", "zh": "客人須在中午前退房。" }
+        },
+        {
+          "phrase": "vacate a position",
+          "zh": "離開職位",
+          "example": { "en": "The director will vacate her position at the end of June.", "zh": "這位主任將在六月底離開她的職位。" }
+        }
+      ],
+      "examples": [
+        { "tag": "展覽佈展", "en": "All booths must be vacated by six on Sunday evening.", "zh": "所有攤位必須在星期日晚上六點前清空。" },
+        { "tag": "租賃", "en": "The tenant agreed to vacate the apartment by the first of May.", "zh": "房客同意在五月一日前搬離公寓。" },
+        { "tag": "飯店", "en": "Please vacate your room by eleven so we can clean it.", "zh": "請在十一點前退房，我們才能打掃房間。" }
+      ],
+      "confusable": [
+        {
+          "word": "vacation",
+          "diff": "vacation 是名詞，意思是假期；vacate 是動詞，意思是騰空、離開。",
+          "example": { "en": "She will take a vacation after the expo ends.", "zh": "展覽結束後，她要去度假。" }
+        },
+        {
+          "word": "evacuate",
+          "diff": "evacuate 是遇到危險時緊急疏散；vacate 只是一般的離開並騰出空間。",
+          "example": { "en": "Staff had to evacuate the hall when the fire alarm rang.", "zh": "火災警報響起時，員工必須疏散離開大廳。" }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "move out of",
+          "diff": "意思相近，較口語；vacate 比較正式，常見於公告、合約。",
+          "example": { "en": "We plan to move out of the old office next month.", "zh": "我們打算下個月搬離舊辦公室。" }
+        },
+        {
+          "phrase": "leave",
+          "diff": "leave 是最一般的說法；vacate 強調離開後空間已清空、可供別人使用。",
+          "example": { "en": "Exhibitors should leave the hall before the doors close.", "zh": "參展廠商應在大門關閉前離開會場。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "occupy",
+          "pos": "v.",
+          "zh": "佔用、佔據",
+          "ipa": "/ˈɑːkjupaɪ/",
+          "example": { "en": "Our company occupies the whole third floor of the building.", "zh": "我們公司佔用大樓的整個三樓。" }
+        },
+        {
+          "w": "available",
+          "pos": "adj.",
+          "zh": "可使用的、有空的",
+          "ipa": "/əˈveɪləbəl/",
+          "example": { "en": "Only two booths are still available for the spring show.", "zh": "春季展覽只剩兩個攤位還可以使用。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "vacant",
+          "pos": "adj.",
+          "zh": "空著的、無人使用的",
+          "ipa": "/ˈveɪkənt/",
+          "link": "vacate 去掉 -ate 加 -ant，變成形容詞，像 assist → assistant"
+        },
+        {
+          "w": "vacancy",
+          "pos": "n.",
+          "zh": "空缺、空房",
+          "ipa": "/ˈveɪkənsi/",
+          "link": "vacant 的 -t 換成 -cy，變成名詞，像 urgent → urgency"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "騰空、搬離（場地）",
+          "en": "to leave a place so that it is empty",
+          "in_passage": true,
+          "example": { "en": "Guests must vacate the conference hall before the cleaning crew arrives.", "zh": "客人必須在清潔人員到達前離開會議廳。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "辭去（職位）",
+          "en": "to leave a job or position so someone else can take it",
+          "distinguish": "受詞是 position、post、seat 這類職務時，是「離開職位」；受詞是房間或場地時，是「騰空」。",
+          "example": { "en": "The manager will vacate his post when he retires next year.", "zh": "經理明年退休時會離開他的職位。" }
+        }
+      ]
+    },
+    {
+      "text": "messenger",
+      "type": "word",
+      "ipa": "/ˈmesɪndʒər/",
+      "pos": "n.",
+      "zh": "送件人、快遞員、信差",
+      "en": "a person whose job is to carry letters or packages to someone",
+      "note": "在這篇裡指廠商請來代為送資料到攤位的人。on your behalf（代替你）表示送件人不是廠商本人，所以要事先提供名字，方便入場確認。",
+      "forms": [
+        {
+          "w": "messengers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "送件人（複數）",
+          "ipa": "/ˈmesɪndʒərz/",
+          "example": { "en": "Two messengers delivered the contracts to our office this morning.", "zh": "今天早上有兩位送件人把合約送到我們辦公室。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "send by messenger",
+          "zh": "派人送件",
+          "example": { "en": "We will send the signed documents by messenger today.", "zh": "我們今天會派人把簽好的文件送過去。" }
+        },
+        {
+          "phrase": "messenger service",
+          "zh": "快遞服務",
+          "example": { "en": "The firm uses a messenger service for urgent legal papers.", "zh": "這家公司用快遞服務寄送緊急的法律文件。" }
+        },
+        {
+          "phrase": "bike messenger",
+          "zh": "自行車快遞員",
+          "example": { "en": "A bike messenger can reach downtown faster than a car.", "zh": "自行車快遞員比汽車更快到達市中心。" }
+        }
+      ],
+      "examples": [
+        { "tag": "展覽佈展", "en": "Please give us the messenger's name before the materials arrive.", "zh": "資料送達前，請先告訴我們送件人的名字。" },
+        { "tag": "電子郵件", "en": "A messenger will pick up the package from your office at two.", "zh": "送件人會在兩點到你的辦公室取包裹。" },
+        { "tag": "櫃檯", "en": "The messenger asked the receptionist to sign for the envelope.", "zh": "送件人請櫃檯人員在信封上簽收。" }
+      ],
+      "confusable": [
+        {
+          "word": "message",
+          "diff": "message 是「訊息、留言」這件東西；messenger 是傳遞訊息或物品的人。",
+          "example": { "en": "I left a message for you at the information desk.", "zh": "我在服務台留了一則訊息給你。" }
+        },
+        {
+          "word": "passenger",
+          "diff": "passenger 是「乘客」，字尾很像 messenger，但意思完全不同。",
+          "example": { "en": "Each passenger must show a ticket before boarding the bus.", "zh": "每位乘客上車前都必須出示車票。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "courier",
+          "diff": "courier 多指快遞公司的專業送貨人員，語氣較正式；messenger 常指在市區內送文件的人。",
+          "example": { "en": "We hired a courier to deliver the samples overnight.", "zh": "我們請快遞員連夜送樣品。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "parcel",
+          "pos": "n.",
+          "zh": "包裹",
+          "ipa": "/ˈpɑːrsəl/",
+          "example": { "en": "A large parcel arrived for you at the front desk.", "zh": "有一個大包裹送到櫃檯給你。" }
+        },
+        {
+          "w": "package",
+          "pos": "n.",
+          "zh": "包裹、套裝",
+          "ipa": "/ˈpækɪdʒ/",
+          "example": { "en": "Please sign here to confirm you received the package.", "zh": "請在這裡簽名，確認你已收到包裹。" }
+        },
+        {
+          "w": "deliver",
+          "pos": "v.",
+          "zh": "遞送、交付",
+          "ipa": "/dɪˈlɪvər/",
+          "example": { "en": "We can deliver the display panels to your booth tomorrow.", "zh": "我們明天可以把展示板送到你的攤位。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "message",
+          "pos": "n./v.",
+          "zh": "訊息；傳訊息",
+          "ipa": "/ˈmesɪdʒ/",
+          "link": "最基礎的字。messenger = message（訊息）+ -er（做事的人），傳遞訊息的人，像 teacher、worker"
+        },
+        {
+          "w": "messaging",
+          "pos": "n.",
+          "zh": "訊息傳送",
+          "ipa": "/ˈmesɪdʒɪŋ/",
+          "link": "message + -ing，把「傳訊息」這件事變成名詞，像 meeting、marketing"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

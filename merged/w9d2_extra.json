@@ -1,0 +1,468 @@
+{
+  "week": 9,
+  "day": 2,
+  "extra_vocab": [
+    {
+      "text": "reminder",
+      "type": "word",
+      "ipa": "/rɪˈmaɪndər/",
+      "pos": "n.",
+      "zh": "提醒（通知）",
+      "en": "a message that helps you remember something",
+      "note": "在這篇語音留言中，Julia 用 calling with a reminder about your trip 說明來電目的，是客氣、公事公辦的開場，常見於活動主辦單位提醒講者行程。",
+      "grammar_note": "reminder 是名詞，後面常接 about / of / that 子句；動詞是 remind（remind + 人 + to V），不能把 reminder 當動詞用。",
+      "forms": [
+        {
+          "w": "reminders",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "提醒（複數）",
+          "ipa": "/rɪˈmaɪndərz/",
+          "example": {
+            "en": "Automatic reminders help customers pay their invoices on time.",
+            "zh": "自動提醒能幫助客戶準時支付發票款項。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "friendly reminder",
+          "zh": "友善的提醒",
+          "example": {
+            "en": "Just a friendly reminder that the office closes early today.",
+            "zh": "友善提醒一下，辦公室今天提早關門。"
+          }
+        },
+        {
+          "phrase": "reminder email",
+          "zh": "提醒郵件",
+          "example": {
+            "en": "The system sends a reminder email two days before every deadline.",
+            "zh": "系統會在每個截止日前兩天寄出提醒郵件。"
+          }
+        },
+        {
+          "phrase": "set a reminder",
+          "zh": "設定提醒",
+          "example": {
+            "en": "Please set a reminder on your phone for the afternoon call.",
+            "zh": "請在手機上為下午的通話設定提醒。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "語音留言",
+          "en": "I am calling with a reminder about tomorrow's interview.",
+          "zh": "我來電是要提醒您明天的面試。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "This is a quick reminder that the report is due on Friday.",
+          "zh": "快速提醒一下，報告的截止日是星期五。"
+        },
+        {
+          "tag": "行事曆",
+          "en": "A reminder will appear on your screen ten minutes before the meeting.",
+          "zh": "會議開始前十分鐘，螢幕上會出現提醒。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "remainder",
+          "diff": "reminder 是「提醒」；remainder 是「剩下的部分」，兩字拼法與發音很像。",
+          "example": {
+            "en": "Please pay the remainder of the fee by the end of the month.",
+            "zh": "請在月底前繳清費用的剩餘部分。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "notification",
+          "diff": "reminder 是提醒已知的事；notification 多是通知新發生的事，語氣較正式。",
+          "example": {
+            "en": "You will receive a notification when your order has shipped.",
+            "zh": "訂單出貨後，您會收到通知。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "notice",
+          "pos": "n.",
+          "zh": "通知",
+          "ipa": "/ˈnoʊtɪs/",
+          "example": {
+            "en": "The manager posted a notice about the new parking rules.",
+            "zh": "經理張貼了一份關於新停車規定的通知。"
+          }
+        },
+        {
+          "w": "alert",
+          "pos": "n.",
+          "zh": "警示",
+          "ipa": "/əˈlɜːrt/",
+          "example": {
+            "en": "The airline sent a weather alert to all passengers.",
+            "zh": "航空公司向所有乘客發出了天氣警示。"
+          }
+        },
+        {
+          "w": "deadline",
+          "pos": "n.",
+          "zh": "截止期限",
+          "ipa": "/ˈdɛdlaɪn/",
+          "example": {
+            "en": "The deadline for the proposal is next Wednesday.",
+            "zh": "提案的截止日期是下星期三。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "remind",
+          "ipa": "/rɪˈmaɪnd/",
+          "pos": "v.",
+          "zh": "提醒",
+          "link": "re-（再次）+ mind（心裡想），讓人再想起；remind + -er 就變成「提醒的東西」，像 teach → teacher"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "提醒通知",
+          "en": "a message that helps you remember something",
+          "in_passage": true,
+          "distinguish": "後面常接 about 加事情，如 a reminder about your trip。",
+          "example": {
+            "en": "Thank you for the reminder about the training session.",
+            "zh": "謝謝你提醒我培訓課程的事。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "令人想起的事物",
+          "en": "something that makes you think of another thing",
+          "distinguish": "後面常接 of，如 a reminder of…，語氣較感性。",
+          "example": {
+            "en": "The empty office was a reminder of last year's layoffs.",
+            "zh": "空蕩蕩的辦公室讓人想起去年的裁員。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "shorten",
+      "type": "word",
+      "ipa": "/ˈʃɔːrtən/",
+      "pos": "v.",
+      "zh": "縮短",
+      "en": "to make something shorter in time or length",
+      "note": "在這篇語音留言中用被動式 has been shortened to forty minutes，說明轉機時間被縮短，所以對方必須準時趕到登機門。這種「縮短時間或行程」的說法在班機、會議與交期的情境很常見。",
+      "grammar_note": "shorten 是及物動詞；被動 be shortened to + 時間 表示「縮短到…」，be shortened by + 時間 則表示「縮短了…」。",
+      "forms": [
+        {
+          "w": "shortens",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "縮短",
+          "ipa": "/ˈʃɔːrtənz/",
+          "example": {
+            "en": "A direct flight shortens the trip by almost three hours.",
+            "zh": "直飛班機讓行程縮短了將近三小時。"
+          }
+        },
+        {
+          "w": "shortened",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "縮短了",
+          "ipa": "/ˈʃɔːrtənd/",
+          "example": {
+            "en": "The airline shortened the check-in time for international flights.",
+            "zh": "航空公司縮短了國際航班的報到時間。"
+          }
+        },
+        {
+          "w": "shortened",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "縮短的",
+          "ipa": "/ˈʃɔːrtənd/",
+          "example": {
+            "en": "The store has shortened hours during the holiday season.",
+            "zh": "這家店在假期期間營業時間縮短。"
+          }
+        },
+        {
+          "w": "shortening",
+          "label": "現在分詞／動名詞",
+          "pos": "v.",
+          "zh": "縮短",
+          "ipa": "/ˈʃɔːrtənɪŋ/",
+          "example": {
+            "en": "Shortening the process will help us serve customers faster.",
+            "zh": "縮短流程能讓我們更快服務顧客。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "shorten the delivery time",
+          "zh": "縮短交貨時間",
+          "example": {
+            "en": "We hired more drivers to shorten the delivery time.",
+            "zh": "我們多聘了司機來縮短交貨時間。"
+          }
+        },
+        {
+          "phrase": "shorten the schedule",
+          "zh": "縮短時程",
+          "example": {
+            "en": "The team worked overtime to shorten the schedule by two weeks.",
+            "zh": "團隊加班，把時程縮短了兩週。"
+          }
+        },
+        {
+          "phrase": "shorten the meeting",
+          "zh": "縮短會議",
+          "example": {
+            "en": "Please shorten the meeting if everyone agrees on the plan.",
+            "zh": "如果大家都同意計畫，請縮短會議時間。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "簡報",
+          "en": "The manager asked us to shorten the presentation to ten slides.",
+          "zh": "經理要我們把簡報縮短到十張投影片。"
+        },
+        {
+          "tag": "出差",
+          "en": "Bad weather may shorten our stay in Boston by one day.",
+          "zh": "惡劣的天氣可能讓我們在波士頓的停留縮短一天。"
+        },
+        {
+          "tag": "生產",
+          "en": "New machines will shorten the time needed to finish each order.",
+          "zh": "新機器會縮短完成每筆訂單所需的時間。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "reduce",
+          "diff": "reduce 是減少數量、金額或程度；shorten 專指縮短時間或長度。",
+          "example": {
+            "en": "The company plans to reduce travel costs by ten percent.",
+            "zh": "公司計畫把差旅成本降低百分之十。"
+          }
+        },
+        {
+          "phrase": "cut short",
+          "diff": "cut short 指被迫提早結束行程或活動，語氣比 shorten 更強調中途中斷。",
+          "example": {
+            "en": "The storm forced us to cut the trip short.",
+            "zh": "暴風雨迫使我們提早結束旅程。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "extend",
+          "pos": "v.",
+          "zh": "延長",
+          "ipa": "/ɪkˈstɛnd/",
+          "example": {
+            "en": "The hotel agreed to extend our stay by one night.",
+            "zh": "飯店同意讓我們多住一晚。"
+          }
+        },
+        {
+          "w": "delay",
+          "pos": "n.",
+          "zh": "延誤",
+          "ipa": "/dɪˈleɪ/",
+          "example": {
+            "en": "The delay at the airport cost us two hours.",
+            "zh": "機場的延誤讓我們損失了兩個小時。"
+          }
+        },
+        {
+          "w": "postpone",
+          "pos": "v.",
+          "zh": "延後",
+          "ipa": "/poʊstˈpoʊn/",
+          "example": {
+            "en": "We had to postpone the launch until next month.",
+            "zh": "我們不得不把發表會延到下個月。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "short",
+          "ipa": "/ʃɔːrt/",
+          "pos": "adj.",
+          "zh": "短的",
+          "link": "基本形容詞「短的」；short + -en，「使變短」，像 wide → widen、strong → strengthen"
+        },
+        {
+          "w": "shortly",
+          "ipa": "/ˈʃɔːrtli/",
+          "pos": "adv.",
+          "zh": "不久、很快",
+          "link": "short + -ly，變成副詞「在短時間內」，常見於 We will arrive shortly"
+        },
+        {
+          "w": "shortage",
+          "ipa": "/ˈʃɔːrtɪdʒ/",
+          "pos": "n.",
+          "zh": "短缺",
+          "link": "short + -age，「不夠的狀態」，像 manage → management 的名詞化概念，常見 labor shortage"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "punctual",
+      "type": "word",
+      "ipa": "/ˈpʌŋktʃuəl/",
+      "pos": "adj.",
+      "zh": "準時的",
+      "en": "arriving or doing something at the right time, not late",
+      "note": "在這篇語音留言中，Julia 提醒轉機時間只剩四十分鐘，所以要在登機門前 be punctual。punctual 是客氣、較正式的說法，多用來要求或稱讚一個人守時。",
+      "grammar_note": "「準時到某個活動」用 be punctual for + 活動；修飾動作要用副詞 punctually，例如 arrive punctually。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "be punctual for",
+          "zh": "準時參加…",
+          "example": {
+            "en": "Please be punctual for the training session on Monday.",
+            "zh": "請準時參加星期一的訓練課程。"
+          }
+        },
+        {
+          "phrase": "punctual delivery",
+          "zh": "準時交貨",
+          "example": {
+            "en": "The contract requires punctual delivery of all materials.",
+            "zh": "合約要求所有材料必須準時交貨。"
+          }
+        },
+        {
+          "phrase": "stay punctual",
+          "zh": "保持準時",
+          "example": {
+            "en": "It is hard to stay punctual during a busy travel week.",
+            "zh": "在忙碌的出差週很難一直保持準時。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "客戶關係",
+          "en": "Clients appreciate a supplier that is always punctual.",
+          "zh": "客戶很欣賞總是準時的供應商。"
+        },
+        {
+          "tag": "職場",
+          "en": "Punctual employees make a good impression on their supervisors.",
+          "zh": "準時的員工會給主管留下好印象。"
+        },
+        {
+          "tag": "交通",
+          "en": "Trains in this city are very punctual, so do not be late.",
+          "zh": "這座城市的火車非常準時，所以請不要遲到。"
+        },
+        {
+          "tag": "面試",
+          "en": "Interviewers often notice whether a candidate is punctual.",
+          "zh": "面試官常會注意應徵者是否準時。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "punctuation",
+          "diff": "punctual 是「準時的」；punctuation 是「標點符號」，兩字開頭相同但意思完全不同。",
+          "example": {
+            "en": "Please check the punctuation in the report before you send it.",
+            "zh": "寄出報告前，請先檢查標點符號。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "on time",
+          "diff": "on time 較口語、最常用，可放在句尾（arrive on time）；punctual 較正式，常用來形容人或習慣。",
+          "example": {
+            "en": "The train arrived on time, so we reached the client early.",
+            "zh": "火車準時抵達，所以我們提早到客戶那裡。"
+          }
+        },
+        {
+          "word": "prompt",
+          "diff": "prompt 強調「迅速、立刻」，如 prompt reply；punctual 強調「準時、不遲到」。",
+          "example": {
+            "en": "We appreciate your prompt reply to our request.",
+            "zh": "我們感謝您迅速回覆我們的請求。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "reliable",
+          "pos": "adj.",
+          "zh": "可靠的",
+          "ipa": "/rɪˈlaɪəbəl/",
+          "example": {
+            "en": "She is a reliable colleague who always meets her deadlines.",
+            "zh": "她是個可靠的同事，總是能趕上截止期限。"
+          }
+        },
+        {
+          "w": "schedule",
+          "pos": "n.",
+          "zh": "行程表、時程",
+          "ipa": "/ˈskɛdʒuːl/",
+          "example": {
+            "en": "The schedule for tomorrow's meeting has been updated.",
+            "zh": "明天會議的時程表已經更新了。"
+          }
+        },
+        {
+          "w": "late",
+          "pos": "adj.",
+          "zh": "遲到的",
+          "ipa": "/leɪt/",
+          "example": {
+            "en": "Several late shipments upset our biggest customer.",
+            "zh": "好幾批遲到的貨讓我們最大的客戶不高興。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "punctually",
+          "ipa": "/ˈpʌŋktʃuəli/",
+          "pos": "adv.",
+          "zh": "準時地",
+          "link": "punctual + -ly，變成副詞，像 quick → quickly"
+        },
+        {
+          "w": "punctuality",
+          "ipa": "/ˌpʌŋktʃuˈæləti/",
+          "pos": "n.",
+          "zh": "守時",
+          "link": "punctual + -ity，形容詞變名詞，像 popular → popularity"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

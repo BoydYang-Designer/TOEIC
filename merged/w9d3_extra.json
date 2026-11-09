@@ -1,0 +1,325 @@
+{
+  "week": 9,
+  "day": 3,
+  "extra_vocab": [
+    {
+      "text": "comply",
+      "type": "word",
+      "ipa": "/kəmˈplaɪ/",
+      "pos": "v.",
+      "zh": "遵守、遵從",
+      "en": "to follow a rule, law, or request",
+      "note": "在這篇備忘錄裡，comply with the revised evaluation guidelines 表示主管必須遵守修訂後的評核準則。語氣正式，帶有人資對主管的要求與提醒意味，常見於公告、規定與合約。",
+      "grammar_note": "comply 是不及物動詞，後面一定要接 with 才能接規定或要求：comply with the rules，不說 comply the rules。",
+      "forms": [
+        {
+          "w": "complies",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "遵守",
+          "ipa": "/kəmˈplaɪz/",
+          "example": { "en": "Our supplier always complies with international safety standards.", "zh": "我們的供應商一向遵守國際安全標準。" }
+        },
+        {
+          "w": "complied",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "遵守",
+          "ipa": "/kəmˈplaɪd/",
+          "example": { "en": "The factory complied with the new environmental law last year.", "zh": "這間工廠去年已遵守新的環保法規。" }
+        },
+        {
+          "w": "complying",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "遵守",
+          "ipa": "/kəmˈplaɪɪŋ/",
+          "example": { "en": "Complying with the deadline will require extra effort from everyone.", "zh": "要遵守截止期限，每個人都得多努力。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "comply with regulations",
+          "zh": "遵守法規",
+          "example": { "en": "All food producers must comply with health regulations.", "zh": "所有食品生產商都必須遵守衛生法規。" }
+        },
+        {
+          "phrase": "comply with a request",
+          "zh": "依照要求辦理",
+          "example": { "en": "We are happy to comply with your request for a refund.", "zh": "我們很樂意依照您的要求辦理退款。" }
+        },
+        {
+          "phrase": "fail to comply",
+          "zh": "未能遵守",
+          "example": { "en": "Companies that fail to comply may face heavy fines.", "zh": "未遵守規定的公司可能面臨高額罰款。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "All visitors are required to comply with the building's security rules.", "zh": "所有訪客都必須遵守大樓的保全規定。" },
+        { "tag": "電子郵件", "en": "Please comply with the new expense policy starting next month.", "zh": "請從下個月起遵守新的費用政策。" },
+        { "tag": "稽核", "en": "The auditor checked whether each branch complied with the safety procedures.", "zh": "稽核員檢查各分公司是否遵守安全程序。" }
+      ],
+      "confusable": [
+        {
+          "word": "complain",
+          "diff": "拼法相近，但 complain 是「抱怨、投訴」；comply 是「遵守」。",
+          "example": { "en": "Several customers complained about the long delivery time.", "zh": "有好幾位顧客抱怨運送時間太長。" }
+        },
+        {
+          "word": "compliment",
+          "diff": "compliment 是名詞或動詞，意思是「稱讚」，發音與拼法都像 comply，但意思完全不同。",
+          "example": { "en": "The manager paid her a compliment on the clear report.", "zh": "經理稱讚她的報告寫得清楚。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "adhere to",
+          "diff": "adhere to 強調嚴格堅持（規則、計畫、標準），語氣比 comply with 更正式、更堅定。",
+          "example": { "en": "Staff must adhere to the schedule set by the director.", "zh": "員工必須嚴格遵守主任訂的時間表。" }
+        },
+        {
+          "phrase": "abide by",
+          "diff": "abide by 常用於接受並遵守規定、決定或協議，後面常接 rules、decision、contract。",
+          "example": { "en": "Both companies agreed to abide by the terms of the contract.", "zh": "兩家公司同意遵守合約條款。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "obey",
+          "pos": "v.",
+          "zh": "服從、聽從",
+          "ipa": "/oʊˈbeɪ/",
+          "example": { "en": "Drivers must obey the speed limit inside the factory area.", "zh": "駕駛在廠區內必須遵守速限。" }
+        },
+        {
+          "w": "regulation",
+          "pos": "n.",
+          "zh": "規定、法規",
+          "ipa": "/ˌreɡjuˈleɪʃən/",
+          "example": { "en": "The new regulation affects all companies with over fifty employees.", "zh": "新規定影響所有員工超過五十人的公司。" }
+        },
+        {
+          "w": "requirement",
+          "pos": "n.",
+          "zh": "要求、必要條件",
+          "ipa": "/rɪˈkwaɪɚmənt/",
+          "example": { "en": "A college degree is a basic requirement for this position.", "zh": "大學學歷是這個職位的基本條件。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "compliance",
+          "ipa": "/kəmˈplaɪəns/",
+          "pos": "n.",
+          "zh": "遵守、合規",
+          "link": "comply 去掉 y 加 -iance，變成名詞，像 rely → reliance"
+        },
+        {
+          "w": "compliant",
+          "ipa": "/kəmˈplaɪənt/",
+          "pos": "adj.",
+          "zh": "符合規定的、順從的",
+          "link": "comply 去掉 y 加 -iant，變成形容詞，像 rely → reliant"
+        },
+        {
+          "w": "noncompliance",
+          "ipa": "/ˌnɑːnkəmˈplaɪəns/",
+          "pos": "n.",
+          "zh": "不遵守、違規",
+          "link": "non-（不）+ compliance，像 nonprofit、nonstop"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "eager",
+      "type": "word",
+      "ipa": "/ˈiːɡɚ/",
+      "pos": "adj.",
+      "zh": "渴望的、熱切的",
+      "en": "very interested in doing or getting something",
+      "note": "在這篇備忘錄裡，candidates who are eager to move into a supervisory role 指「很想晉升為主管的候選人」。eager 帶有正面、積極的語感，常用來形容員工或應徵者渴望機會。",
+      "grammar_note": "eager 後面接 to + 原形動詞，或 for + 名詞：eager to learn、eager for new challenges。不接 V-ing。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "eager to start",
+          "zh": "迫不及待想開始",
+          "example": { "en": "The new team members are eager to start the training program.", "zh": "新團隊成員迫不及待想開始訓練課程。" }
+        },
+        {
+          "phrase": "eager for",
+          "zh": "渴望……",
+          "example": { "en": "Many young employees are eager for more responsibility.", "zh": "許多年輕員工渴望承擔更多責任。" }
+        },
+        {
+          "phrase": "eager to please",
+          "zh": "急於討好、想讓人滿意",
+          "example": { "en": "The new assistant is eager to please every client.", "zh": "新助理急著讓每位客戶都滿意。" }
+        }
+      ],
+      "examples": [
+        { "tag": "面試", "en": "The candidate seemed eager to join our sales department.", "zh": "這位應徵者看起來很想加入我們的業務部。" },
+        { "tag": "電子郵件", "en": "We are eager to hear your feedback on the proposal.", "zh": "我們很期待聽到您對提案的意見。" },
+        { "tag": "會議", "en": "Investors are eager to see the results of the new product.", "zh": "投資人渴望看到新產品的成果。" }
+      ],
+      "similar": [
+        {
+          "word": "keen",
+          "diff": "keen 也是「熱衷的」，英式英語較常用，常接 on 或 to，語氣比 eager 稍平和。",
+          "example": { "en": "She is keen to take on the new project.", "zh": "她很想接下這個新專案。" }
+        },
+        {
+          "word": "enthusiastic",
+          "diff": "enthusiastic 強調表現出來的熱情，常接 about；eager 強調心裡渴望要做某事。",
+          "example": { "en": "The staff were enthusiastic about the new office layout.", "zh": "員工對新的辦公室配置很有熱情。" }
+        },
+        {
+          "word": "anxious",
+          "diff": "anxious 後面接 to V 時也可表示「渴望」，但通常是「焦慮、擔心」；eager 只有正面意思。",
+          "example": { "en": "Investors are anxious about the falling share price.", "zh": "投資人對下跌的股價感到焦慮。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "ambitious",
+          "pos": "adj.",
+          "zh": "有野心的、有抱負的",
+          "ipa": "/æmˈbɪʃəs/",
+          "example": { "en": "She is an ambitious manager who wants to open new branches.", "zh": "她是個有抱負的經理，想開設新的分店。" }
+        },
+        {
+          "w": "motivated",
+          "pos": "adj.",
+          "zh": "有動力的",
+          "ipa": "/ˈmoʊtɪveɪtɪd/",
+          "example": { "en": "We are looking for a motivated person to lead the team.", "zh": "我們在找一位有動力的人來帶領團隊。" }
+        },
+        {
+          "w": "willing",
+          "pos": "adj.",
+          "zh": "願意的",
+          "ipa": "/ˈwɪlɪŋ/",
+          "example": { "en": "Are you willing to travel abroad twice a year?", "zh": "你願意每年出國兩次嗎？" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "eagerly",
+          "ipa": "/ˈiːɡɚli/",
+          "pos": "adv.",
+          "zh": "熱切地",
+          "link": "eager + -ly，變成副詞，像 quick → quickly、happy → happily"
+        },
+        {
+          "w": "eagerness",
+          "ipa": "/ˈiːɡɚnəs/",
+          "pos": "n.",
+          "zh": "渴望、熱切",
+          "link": "eager + -ness，變成名詞，像 kindness、readiness"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "inappropriate",
+      "type": "word",
+      "ipa": "/ˌɪnəˈproʊpriət/",
+      "pos": "adj.",
+      "zh": "不適當的、不恰當的",
+      "en": "not right or suitable for a certain situation",
+      "note": "在這篇備忘錄裡，comments about a candidate's age or personal style are inappropriate 指這類評論不適合出現在評核中，並會被從檔案中移除。語氣是明確的規定與警告，常見於職場守則與公告。",
+      "grammar_note": "inappropriate 後面常接 for + 人／場合，或用句型 It is inappropriate to + V：It is inappropriate to ask about a candidate's age.",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "inappropriate behavior",
+          "zh": "不當行為",
+          "example": { "en": "The company has a strict policy against inappropriate behavior at work.", "zh": "公司對工作場合的不當行為有嚴格的規定。" }
+        },
+        {
+          "phrase": "inappropriate language",
+          "zh": "不當用語",
+          "example": { "en": "Staff should avoid inappropriate language in emails to clients.", "zh": "員工寫給客戶的電子郵件應避免使用不當用語。" }
+        },
+        {
+          "phrase": "inappropriate for",
+          "zh": "不適合……",
+          "example": { "en": "Casual clothes are inappropriate for a formal business meeting.", "zh": "休閒服不適合正式的商務會議。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "Jokes about colleagues are inappropriate in a professional workplace.", "zh": "在專業的職場裡，拿同事開玩笑是不恰當的。" },
+        { "tag": "電子郵件", "en": "I apologize if my earlier comment seemed inappropriate.", "zh": "如果我先前的意見讓人覺得不恰當，我深感抱歉。" },
+        { "tag": "客服", "en": "It was inappropriate for the agent to raise his voice.", "zh": "客服人員提高音量是不恰當的。" }
+      ],
+      "similar": [
+        {
+          "word": "unsuitable",
+          "diff": "unsuitable 指不適合某個用途或對象，如場地、人選；inappropriate 更常指言行不得體。",
+          "example": { "en": "This venue is unsuitable for a conference of two hundred people.", "zh": "這個場地不適合舉辦兩百人的會議。" }
+        },
+        {
+          "word": "improper",
+          "diff": "improper 較正式，常指違反規定或程序的做法，如 improper use。",
+          "example": { "en": "Improper use of company equipment may lead to disciplinary action.", "zh": "不當使用公司設備可能受到懲處。" }
+        },
+        {
+          "word": "unacceptable",
+          "diff": "unacceptable 語氣更強，表示完全無法接受；inappropriate 只是「不恰當」。",
+          "example": { "en": "Repeated delays are unacceptable for our largest customer.", "zh": "對我們最大的客戶而言，一再延誤是無法接受的。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "suitable",
+          "pos": "adj.",
+          "zh": "合適的",
+          "ipa": "/ˈsuːtəbəl/",
+          "example": { "en": "We are still looking for a suitable candidate for the job.", "zh": "我們仍在尋找適合這份工作的人選。" }
+        },
+        {
+          "w": "acceptable",
+          "pos": "adj.",
+          "zh": "可接受的",
+          "ipa": "/əkˈseptəbəl/",
+          "example": { "en": "The quality of the samples is acceptable to our buyers.", "zh": "樣品的品質是我們的買家可以接受的。" }
+        },
+        {
+          "w": "professional",
+          "pos": "adj.",
+          "zh": "專業的、職業的",
+          "ipa": "/prəˈfeʃənəl/",
+          "example": { "en": "Please keep your tone professional when replying to customers.", "zh": "回覆顧客時，請保持專業的語氣。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "appropriate",
+          "ipa": "/əˈproʊpriət/",
+          "pos": "adj.",
+          "zh": "適當的",
+          "link": "詞幹 appropriate；加上 in-（不）變成相反意思，像 incorrect、inactive"
+        },
+        {
+          "w": "appropriately",
+          "ipa": "/əˈproʊpriətli/",
+          "pos": "adv.",
+          "zh": "適當地",
+          "link": "appropriate + -ly，變成副詞，像 quick → quickly"
+        },
+        {
+          "w": "inappropriately",
+          "ipa": "/ˌɪnəˈproʊpriətli/",
+          "pos": "adv.",
+          "zh": "不適當地",
+          "link": "inappropriate + -ly，變成副詞，表示做得不得體"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+ "week": 9,
+ "day": 2,
+ "tag": "機場班機延誤警示與轉機提醒語音留言",
+ "subtopic": "航班與機場",
+ "type": "Listening",
+ "level": {
+  "score": 750,
+  "range": "700-800",
+  "cefr": "B2",
+  "why": "口語留言含原因與結果子句、被動語態及關係子句，需整合天氣警示、縮短的轉機時間與接送安排；字彙為航班與行程常用詞，干擾項取自文中的時間與數字資訊。"
+ },
+ "passage": "Hello, Mr. Ramirez. This is Julia Chen from the Harbor Business Forum, calling with a reminder about your trip tomorrow. The airline has issued a weather advisory for the morning, so your departure from Denver may be delayed. Please arrive at the airport at least two hours early. Also, the layover in Chicago has been shortened to forty minutes, which means you will need to be punctual at the gate for your connecting flight. A driver will meet you in the arrivals hall and take you directly to the hotel. As the chief executive of Ramirez Foods, you will address the audience on Friday afternoon, and our attendees are an energetic group who enjoy lively questions. If your plans change, please call me back at five five five, zero one four two. Safe travels.",
+ "zh": "拉米雷茲先生您好，我是哈伯商業論壇的茱莉亞．陳，來電提醒您明天的行程。航空公司已針對明天早上發布天氣警示，因此您從丹佛出發的班機可能會延誤。請至少提早兩個小時抵達機場。另外，您在芝加哥的轉機時間已縮短為四十分鐘，這表示您必須準時抵達登機門，搭乘轉接航班。司機會在入境大廳接您，並直接送您到飯店。身為拉米雷茲食品公司的執行長，您將在週五下午對聽眾發表演說，而我們的與會者是一群精力充沛、喜歡熱烈提問的人。如果您的計畫有變，請回電給我，號碼是五五五、零一四二。祝您旅途平安。",
+ "vocab": [
+  {
+   "word": "reminder",
+   "ipa": "/rɪˈmaɪndɚ/",
+   "pos": "n.",
+   "col": "a friendly reminder / send a reminder",
+   "zh": "提醒；提示"
+  },
+  {
+   "word": "advisory",
+   "ipa": "/ədˈvaɪzəri/",
+   "pos": "n.",
+   "col": "weather advisory / travel advisory",
+   "zh": "警示；公告"
+  },
+  {
+   "word": "shorten",
+   "ipa": "/ˈʃɔrtn/",
+   "pos": "v.",
+   "col": "shorten the schedule / shorten the wait",
+   "zh": "縮短"
+  },
+  {
+   "word": "punctual",
+   "ipa": "/ˈpʌŋktʃuəl/",
+   "pos": "adj.",
+   "col": "be punctual / punctual arrival",
+   "zh": "準時的"
+  },
+  {
+   "word": "energetic",
+   "ipa": "/ˌɛnɚˈdʒɛtɪk/",
+   "pos": "adj.",
+   "col": "energetic speaker / energetic team",
+   "zh": "精力充沛的；有活力的"
+  }
+ ],
+ "questions": [
+  {
+   "kind": "context",
+   "q": "Why is Ms. Chen calling Mr. Ramirez?",
+   "opts": [
+    "To cancel his speaking engagement",
+    "To remind him about travel arrangements and changes",
+    "To ask him to book a hotel room",
+    "To confirm the topic of his talk"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：她並未取消演講，反而提到他將上台演說。",
+    "正解：她來電提醒行程，並告知班機與轉機的變動。",
+    "錯誤：飯店已安排，司機會直接送他過去，不是請他訂房。",
+    "錯誤：來電中未提到演講主題。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What might cause a delay in Denver?",
+   "opts": [
+    "A shortage of pilots",
+    "A long line at security",
+    "A weather advisory",
+    "A mechanical problem"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：文中沒有提到機師人力不足。",
+    "錯誤：兩小時是建議提早抵達的時間，並非延誤原因。",
+    "正解：航空公司針對早上發布天氣警示，班機可能延誤。",
+    "錯誤：文中沒有提到機械故障。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What is Mr. Ramirez asked to do in Chicago?",
+   "opts": [
+    "Request a longer layover",
+    "Meet the driver at the arrivals hall",
+    "Call the forum from the gate",
+    "Be on time at the gate for his connecting flight"
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：轉機時間已縮短，並非要求延長。",
+    "錯誤：司機是在抵達目的地的入境大廳接他，不是在芝加哥。",
+    "錯誤：回電是在計畫有變時，並非在芝加哥。",
+    "正解：轉機只有四十分鐘，必須準時抵達登機門。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "The airline apologized for the ______ caused by the delayed departure.",
+   "opts": [
+    "inconvenience",
+    "inconvenient",
+    "inconveniently",
+    "inconvenienced"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：the 之後需名詞，inconvenience 意為「不便」。",
+    "錯誤：inconvenient 為形容詞，不能單獨作 for 的受詞。",
+    "錯誤：inconveniently 為副詞，不能接在 the 後。",
+    "錯誤：inconvenienced 為過去分詞，不能作名詞。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Travelers must show a valid passport ______ boarding the aircraft.",
+   "opts": [
+    "in case of",
+    "as for",
+    "prior to",
+    "instead of"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：in case of 表示「萬一」，語意不符。",
+    "錯誤：as for 表示「至於」，語意不符。",
+    "正解：prior to 表示「在…之前」，後接 boarding。",
+    "錯誤：instead of 表示「而不是」，語意不符。"
+   ]
+  }
+ ]
+}

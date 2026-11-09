@@ -1,0 +1,149 @@
+{
+ "week": 10,
+ "day": 3,
+ "tag": "新薪資結構與試用期薪資說明",
+ "subtopic": "薪資與福利",
+ "type": "Reading",
+ "level": {
+  "score": 750,
+  "range": "700-800",
+  "cefr": "B2",
+  "why": "文章含關係子句、被動語態與條件句，需整合調整原因、計算方式、試用期與申請管道；字彙為薪資制度相關詞彙，干擾項取自文中相近資訊。"
+ },
+ "passage": "Understanding Your New Pay Structure\n\nLast year's survey showed that many employees feel hard done by when colleagues with similar duties receive very different salaries. In response, the company has drastically simplified its pay system, which will take effect on January first.\n\nUnder the new structure, base salary will depend on the position level and on practical experience rather than on negotiation skills alone. New hires who wish to have previous experience counted must submit a reference letter from a former employer. During the three-month introductory period, salaries will be set at ninety percent of the standard rate, and the full amount will be paid retroactively if the employee passes the review.\n\nThe compensation package is now inclusive of health insurance, a transportation allowance, and an annual bonus. Senior executives will also follow the published salary ranges. Employees who believe their pay is insufficient for their responsibilities can request a review through the HR portal.",
+ "zh": "了解您的新薪資結構\n\n去年的調查顯示，許多員工在職責相近的同事領到差異很大的薪水時，會覺得自己受到不公平對待。為了回應這個問題，公司已大幅簡化薪資制度，並將於一月一日起生效。\n\n在新的結構下，底薪將取決於職位等級與實務經驗，而不再僅僅取決於談薪能力。希望將過去經驗納入計算的新進員工，必須提交一封前雇主所寫的推薦信。在為期三個月的試用期間，薪資將訂為標準薪資的百分之九十，若員工通過考核，則會追溯補發全額薪資。\n\n現在的薪酬方案涵蓋健康保險、交通津貼與年度獎金。資深主管也將遵循公布的薪資級距。如果員工認為自己的薪水不足以反映其職責，可以透過人資入口網站申請重新檢視。",
+ "vocab": [
+  {
+   "word": "drastically",
+   "ipa": "/ˈdræstɪkli/",
+   "pos": "adv.",
+   "col": "drastically reduce / drastically change",
+   "zh": "大幅地；徹底地"
+  },
+  {
+   "word": "insufficient",
+   "ipa": "/ˌɪnsəˈfɪʃənt/",
+   "pos": "adj.",
+   "col": "insufficient funds / insufficient evidence",
+   "zh": "不足的"
+  },
+  {
+   "word": "inclusive",
+   "ipa": "/ɪnˈklusɪv/",
+   "pos": "adj.",
+   "col": "inclusive of / all-inclusive",
+   "zh": "包含的；涵蓋的"
+  },
+  {
+   "word": "introductory",
+   "ipa": "/ˌɪntrəˈdʌktəri/",
+   "pos": "adj.",
+   "col": "introductory period / introductory offer",
+   "zh": "試用的；入門的"
+  }
+ ],
+ "questions": [
+  {
+   "kind": "context",
+   "q": "Why did the company simplify its pay system?",
+   "opts": [
+    "Employees asked for more bonuses",
+    "Colleagues with similar duties received very different pay",
+    "The company wanted to hire more senior executives",
+    "Health insurance costs had risen sharply"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：員工的不滿在於薪資差異，並非要求更多獎金。",
+    "正解：職責相近的同事薪資差異很大，讓員工覺得不公平。",
+    "錯誤：文中沒有提到要聘請更多資深主管。",
+    "錯誤：健康保險只是薪酬方案的一部分。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What will happen if an employee passes the review after the introductory period?",
+   "opts": [
+    "The employee will receive a one-time bonus",
+    "The introductory period will be extended",
+    "The employee will be promoted to senior level",
+    "The full salary will be paid retroactively"
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：文中沒有提到一次性獎金。",
+    "錯誤：通過考核後不會延長試用期。",
+    "錯誤：文中沒有提到升遷。",
+    "正解：通過考核後，會追溯補發全額薪資。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What can employees do if they think their pay is insufficient?",
+   "opts": [
+    "Request a review through the HR portal",
+    "Submit a reference letter to HR",
+    "Negotiate directly with a senior executive",
+    "Wait until the next annual survey"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：員工可透過人資入口網站申請重新檢視。",
+    "錯誤：推薦信是新進員工計入過去經驗時才需提交。",
+    "錯誤：資深主管同樣遵循公布的薪資級距，文中沒有提到可直接議價。",
+    "錯誤：文中沒有要求等待下次調查。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "The new bonus system is designed to reward ______ performance over the entire year.",
+   "opts": [
+    "consistency",
+    "consist",
+    "consistent",
+    "consistently"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：consistency 為名詞，無法修飾 performance。",
+    "錯誤：consist 為動詞，詞性不符。",
+    "正解：consistent 為形容詞，修飾名詞 performance。",
+    "錯誤：consistently 為副詞，不能修飾名詞。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Salaries are paid ______ a monthly basis through direct deposit.",
+   "opts": [
+    "on",
+    "by",
+    "at",
+    "in"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：on a monthly basis 為固定搭配，表示「按月」。",
+    "錯誤：by a monthly basis 不是固定搭配。",
+    "錯誤：at a monthly basis 不是固定搭配。",
+    "錯誤：in a monthly basis 不是固定搭配。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "______ the budget was reduced this year, the company managed to keep all employee bonuses.",
+   "opts": [
+    "Because",
+    "Unless",
+    "Whereas",
+    "Even though"
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：Because 表示原因，語意不符。",
+    "錯誤：Unless 表示「除非」，語意不通。",
+    "錯誤：Whereas 表示對比，語意不如讓步自然。",
+    "正解：Even though 引導讓步子句，與後句形成轉折。"
+   ]
+  }
+ ]
+}

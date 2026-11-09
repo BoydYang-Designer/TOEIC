@@ -1,0 +1,772 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "carpenter",
+      "type": "word",
+      "ipa": "/ˈkɑːrpəntər/",
+      "pos": "n.",
+      "zh": "木工、木匠",
+      "en": "a person whose job is to make or repair things made of wood",
+      "note": "多益常見於裝修、辦公室修繕與工程情境，例如請木工做櫃子、修門或地板。",
+      "forms": [
+        {
+          "w": "carpenters",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "木工（複數）",
+          "ipa": "/ˈkɑːrpəntərz/",
+          "example": { "en": "Two carpenters are fixing the wooden floor in the lobby.", "zh": "兩位木工正在修大廳的木地板。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "hire a carpenter",
+          "zh": "僱用木工",
+          "example": { "en": "We need to hire a carpenter before the store opens.", "zh": "商店開張前，我們需要僱一位木工。" }
+        },
+        {
+          "phrase": "skilled carpenter",
+          "zh": "技術純熟的木工",
+          "example": { "en": "A skilled carpenter made the tables for our new restaurant.", "zh": "一位技術純熟的木工替我們的新餐廳做了桌子。" }
+        },
+        {
+          "phrase": "work as a carpenter",
+          "zh": "從事木工",
+          "example": { "en": "He worked as a carpenter before he started his own company.", "zh": "他創業前是做木工的。" }
+        }
+      ],
+      "examples": [
+        { "tag": "工程", "en": "The carpenter will build new shelves for our storage room.", "zh": "木工會替我們的儲藏室做新的架子。" },
+        { "tag": "修繕", "en": "We asked a carpenter to repair the broken office door.", "zh": "我們請木工修理辦公室壞掉的門。" },
+        { "tag": "招募", "en": "Our company is looking for an experienced carpenter this spring.", "zh": "我們公司今年春天在找有經驗的木工。" }
+      ],
+      "confusable": [
+        {
+          "word": "carpet",
+          "diff": "carpet 是「地毯」，拼法開頭和 carpenter 很像，但和木工無關。",
+          "example": { "en": "The workers will put a new carpet in the meeting room.", "zh": "工人會在會議室鋪新地毯。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "builder",
+          "diff": "builder 指蓋房子的人，範圍較廣；carpenter 專指做木工的人。",
+          "example": { "en": "The builder finished the new office building two weeks early.", "zh": "建築商提早兩週完成了新辦公大樓。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "plumber",
+          "pos": "n.",
+          "zh": "水管工",
+          "ipa": "/ˈplʌmər/",
+          "example": { "en": "The plumber fixed the leak in the kitchen this morning.", "zh": "水管工今天早上修好了廚房的漏水。" }
+        },
+        {
+          "w": "electrician",
+          "pos": "n.",
+          "zh": "電工",
+          "ipa": "/ɪˌlekˈtrɪʃən/",
+          "example": { "en": "An electrician will check the lights in the hall today.", "zh": "電工今天會檢查大廳的燈。" }
+        },
+        {
+          "w": "painter",
+          "pos": "n.",
+          "zh": "油漆工",
+          "ipa": "/ˈpeɪntər/",
+          "example": { "en": "The painter will start work on the walls on Monday.", "zh": "油漆工星期一會開始粉刷牆壁。" }
+        },
+        {
+          "w": "contractor",
+          "pos": "n.",
+          "zh": "承包商",
+          "ipa": "/ˈkɑːntræktər/",
+          "example": { "en": "The contractor sent us a cost estimate by email yesterday.", "zh": "承包商昨天用電子郵件寄給我們費用估價。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "carpentry",
+          "pos": "n.",
+          "zh": "木工、木工手藝",
+          "ipa": "/ˈkɑːrpəntri/",
+          "link": "carpenter 的 -er 換成 -ry，變成這個行業或手藝，像 jewel → jewelry"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "caterer",
+      "type": "word",
+      "ipa": "/ˈkeɪtərər/",
+      "pos": "n.",
+      "zh": "外燴業者、餐飲供應商",
+      "en": "a person or company that provides food and drink for events",
+      "note": "多益常見於公司聚餐、會議午餐、開幕活動等情境，通常要提前聯絡、確認人數與菜單。",
+      "forms": [
+        {
+          "w": "caterers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "外燴業者（複數）",
+          "ipa": "/ˈkeɪtərərz/",
+          "example": { "en": "Several caterers sent us price quotes for the staff party.", "zh": "好幾家外燴業者寄給我們員工聚會的報價。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "local caterer",
+          "zh": "當地的外燴業者",
+          "example": { "en": "A local caterer provided food for the opening ceremony.", "zh": "一家當地的外燴業者為開幕典禮提供餐點。" }
+        },
+        {
+          "phrase": "contact the caterer",
+          "zh": "聯絡外燴業者",
+          "example": { "en": "Please contact the caterer to confirm the number of guests.", "zh": "請聯絡外燴業者確認賓客人數。" }
+        },
+        {
+          "phrase": "book a caterer",
+          "zh": "預約外燴業者",
+          "example": { "en": "We should book a caterer at least two weeks early.", "zh": "我們至少應該提前兩週預約外燴業者。" }
+        }
+      ],
+      "examples": [
+        { "tag": "活動", "en": "We hired a caterer for the company dinner next Friday.", "zh": "我們請了外燴業者負責下星期五的公司晚宴。" },
+        { "tag": "電子郵件", "en": "Please ask the caterer to send us a menu by Monday.", "zh": "請要求外燴業者星期一前把菜單寄給我們。" },
+        { "tag": "會議", "en": "The caterer will deliver lunch to the conference room at noon.", "zh": "外燴業者中午會把午餐送到會議室。" }
+      ],
+      "similar": [
+        {
+          "word": "catering company",
+          "diff": "意思相同，catering company 強調是一家公司；caterer 可指公司也可指個人。",
+          "example": { "en": "The catering company offers lunch boxes for large meetings.", "zh": "這家餐飲公司提供大型會議用的便當。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "banquet",
+          "pos": "n.",
+          "zh": "宴會",
+          "ipa": "/ˈbæŋkwɪt/",
+          "example": { "en": "The annual banquet will be held in the grand ballroom.", "zh": "年度宴會將在大宴會廳舉行。" }
+        },
+        {
+          "w": "buffet",
+          "pos": "n.",
+          "zh": "自助餐",
+          "ipa": "/bəˈfeɪ/",
+          "example": { "en": "The hotel serves a hot buffet breakfast every morning.", "zh": "飯店每天早上供應熱的自助早餐。" }
+        },
+        {
+          "w": "venue",
+          "pos": "n.",
+          "zh": "活動場地",
+          "ipa": "/ˈvenjuː/",
+          "example": { "en": "The venue can hold about two hundred guests.", "zh": "這個場地可以容納大約兩百位賓客。" }
+        },
+        {
+          "w": "menu",
+          "pos": "n.",
+          "zh": "菜單",
+          "ipa": "/ˈmenjuː/",
+          "example": { "en": "Please check the menu for guests who cannot eat meat.", "zh": "請檢查菜單，看有沒有適合不吃肉的賓客。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "cater",
+          "pos": "v.",
+          "zh": "提供餐飲；迎合",
+          "ipa": "/ˈkeɪtər/",
+          "link": "最基礎的字。caterer = cater + -er，做這件事的人，像 teacher、worker"
+        },
+        {
+          "w": "catering",
+          "pos": "n.",
+          "zh": "餐飲外燴服務",
+          "ipa": "/ˈkeɪtərɪŋ/",
+          "link": "cater + -ing，把「提供餐飲」這件事變成名詞，像 meeting、marketing"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "cartridge",
+      "type": "word",
+      "ipa": "/ˈkɑːrtrɪdʒ/",
+      "pos": "n.",
+      "zh": "墨水匣、碳粉匣、卡匣",
+      "en": "a small container of ink or toner that you put in a printer",
+      "note": "多益最常見於辦公室情境，印表機沒墨水或沒碳粉時要更換 cartridge，也常出現在採購與辦公用品訂單裡。",
+      "forms": [
+        {
+          "w": "cartridges",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "墨水匣（複數）",
+          "ipa": "/ˈkɑːrtrɪdʒɪz/",
+          "example": { "en": "The store sells printer cartridges at a lower price online.", "zh": "這家店在網路上以較低的價格賣印表機墨水匣。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "ink cartridge",
+          "zh": "墨水匣",
+          "example": { "en": "This ink cartridge fits most office printers made by our supplier.", "zh": "這個墨水匣適用我們供應商製造的大部分辦公室印表機。" }
+        },
+        {
+          "phrase": "toner cartridge",
+          "zh": "碳粉匣",
+          "example": { "en": "Each toner cartridge can print about two thousand pages.", "zh": "每個碳粉匣大約可以印兩千頁。" }
+        },
+        {
+          "phrase": "replace a cartridge",
+          "zh": "更換墨水匣",
+          "example": { "en": "It takes only a minute to replace a cartridge.", "zh": "更換一個墨水匣只要一分鐘。" }
+        }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "The printer stopped because the cartridge was empty.", "zh": "印表機停了，因為墨水匣空了。" },
+        { "tag": "採購", "en": "Please order five new cartridges for the second floor.", "zh": "請為二樓訂五個新的墨水匣。" },
+        { "tag": "電子郵件", "en": "The cartridge you ordered will arrive on Wednesday.", "zh": "你訂的墨水匣星期三會送到。" }
+      ],
+      "confusable": [
+        {
+          "word": "carriage",
+          "diff": "carriage 是「（火車）車廂」或「馬車」，拼法和 cartridge 都有 car-，但意思完全不同。",
+          "example": { "en": "The train has one first-class carriage at the front.", "zh": "這班火車最前面有一節頭等車廂。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "toner",
+          "pos": "n.",
+          "zh": "碳粉",
+          "ipa": "/ˈtoʊnər/",
+          "example": { "en": "Please keep spare toner in the supply closet.", "zh": "請把備用碳粉放在置物櫃裡。" }
+        },
+        {
+          "w": "printer",
+          "pos": "n.",
+          "zh": "印表機",
+          "ipa": "/ˈprɪntər/",
+          "example": { "en": "The printer on the second floor is out of order.", "zh": "二樓的印表機故障了。" }
+        },
+        {
+          "w": "refill",
+          "pos": "n.",
+          "zh": "補充包、補充用品",
+          "ipa": "/ˈriːfɪl/",
+          "example": { "en": "You can buy an ink refill instead of a new cartridge.", "zh": "你可以買墨水補充包，不用買新的墨水匣。" }
+        },
+        {
+          "w": "supplies",
+          "pos": "n.",
+          "zh": "用品、補給品",
+          "ipa": "/səˈplaɪz/",
+          "example": { "en": "The office supplies arrive on the first Monday of each month.", "zh": "辦公用品每個月第一個星期一送到。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "certification",
+      "type": "word",
+      "ipa": "/ˌsɜːrtɪfɪˈkeɪʃən/",
+      "pos": "n.",
+      "zh": "認證、證書、資格證明",
+      "en": "an official paper or process that shows you have the skills or quality needed",
+      "note": "多益常見於求職、專業訓練與產品品質情境，例如應徵時要附上 certification，或工廠通過品質認證。",
+      "grammar_note": "指「認證這件事」時常當不可數名詞（obtain certification），指「一張證書」或「一項資格」時可數（two certifications）。",
+      "forms": [
+        {
+          "w": "certifications",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "證書、資格（複數）",
+          "ipa": "/ˌsɜːrtɪfɪˈkeɪʃənz/",
+          "example": { "en": "Our staff hold several certifications in safety and first aid.", "zh": "我們的員工持有數項安全與急救的證書。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "obtain certification",
+          "zh": "取得認證",
+          "example": { "en": "Workers must obtain certification before they use the machine.", "zh": "工人使用這台機器前必須取得認證。" }
+        },
+        {
+          "phrase": "professional certification",
+          "zh": "專業認證",
+          "example": { "en": "A professional certification can help you get a better job.", "zh": "專業認證可以幫你找到更好的工作。" }
+        },
+        {
+          "phrase": "safety certification",
+          "zh": "安全認證",
+          "example": { "en": "The new heater passed the safety certification test last week.", "zh": "這款新暖氣機上星期通過了安全認證測試。" }
+        },
+        {
+          "phrase": "certification exam",
+          "zh": "認證考試",
+          "example": { "en": "She is studying hard for the certification exam in June.", "zh": "她正為六月的認證考試用功準備。" }
+        }
+      ],
+      "examples": [
+        { "tag": "人資", "en": "Candidates need a teaching certification to apply for this job.", "zh": "應徵者需要教師資格證書才能申請這份工作。" },
+        { "tag": "品管", "en": "The factory received international quality certification last year after an inspection.", "zh": "這間工廠去年經過檢查後取得了國際品質認證。" },
+        { "tag": "電子郵件", "en": "Please send a copy of your certification with your application.", "zh": "請隨申請文件附上你的證書影本。" }
+      ],
+      "confusable": [
+        {
+          "word": "certificate",
+          "diff": "certificate 是一張紙本證書；certification 強調取得認證的過程或資格。",
+          "usage": "certificate 是可數的實體文件（a certificate），certification 指認證這件事時多為不可數。",
+          "example": { "en": "Each participant will receive a certificate at the end of the course.", "zh": "每位參加者在課程結束時會拿到一張證書。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "license",
+          "pos": "n.",
+          "zh": "執照、許可證",
+          "ipa": "/ˈlaɪsəns/",
+          "example": { "en": "You need a license to operate this type of machine.", "zh": "操作這種機器需要執照。" }
+        },
+        {
+          "w": "diploma",
+          "pos": "n.",
+          "zh": "畢業證書、文憑",
+          "ipa": "/dɪˈploʊmə/",
+          "example": { "en": "Applicants must have a high school diploma or higher.", "zh": "應徵者必須有高中以上的畢業證書。" }
+        },
+        {
+          "w": "qualification",
+          "pos": "n.",
+          "zh": "資格、條件",
+          "ipa": "/ˌkwɑːlɪfɪˈkeɪʃən/",
+          "example": { "en": "Her qualifications make her perfect for the manager position.", "zh": "她的資歷讓她很適合經理一職。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "certify",
+          "pos": "v.",
+          "zh": "證明、認證",
+          "ipa": "/ˈsɜːrtɪfaɪ/",
+          "link": "最基礎的字。-fy 是「使成為」的動詞字尾，像 simplify、identify"
+        },
+        {
+          "w": "certified",
+          "pos": "adj.",
+          "zh": "經過認證的、有證照的",
+          "ipa": "/ˈsɜːrtɪfaɪd/",
+          "link": "certify + -ed，被認證過的，像 qualified、experienced"
+        },
+        {
+          "w": "certificate",
+          "pos": "n.",
+          "zh": "證書",
+          "ipa": "/sərˈtɪfɪkət/",
+          "link": "certify 的 -fy 換成 -ficate，指證明的那張紙，像 duplicate"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "認證（過程或資格）",
+          "en": "the process of getting official approval that you have the needed skills",
+          "example": { "en": "Certification takes about three months and includes a written test.", "zh": "取得認證大約要三個月，還包含一場筆試。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "證書（文件）",
+          "en": "an official paper that shows you passed a test or met a standard",
+          "distinguish": "句中有 copy、attach、show 這類字時，通常是指證書這份文件。",
+          "example": { "en": "Please show your certification at the entrance of the lab.", "zh": "請在實驗室入口出示你的證書。" }
+        }
+      ]
+    },
+    {
+      "text": "circus",
+      "type": "word",
+      "ipa": "/ˈsɜːrkəs/",
+      "pos": "n.",
+      "zh": "馬戲團",
+      "en": "a show with people and animals that perform in a big tent",
+      "note": "多益常見於活動、廣告與休閒情境，例如馬戲團來城市表演、贈送馬戲團門票給客戶。",
+      "forms": [
+        {
+          "w": "circuses",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "馬戲團（複數）",
+          "ipa": "/ˈsɜːrkəsɪz/",
+          "example": { "en": "Few circuses travel between cities by train today.", "zh": "現在很少有馬戲團搭火車在城市之間移動。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "circus tent",
+          "zh": "馬戲團帳篷",
+          "example": { "en": "The circus tent can seat more than one thousand people.", "zh": "這個馬戲團帳篷可以容納超過一千人。" }
+        },
+        {
+          "phrase": "circus performer",
+          "zh": "馬戲團表演者",
+          "example": { "en": "Every circus performer practices for several hours each day.", "zh": "每位馬戲團表演者每天都練習好幾個小時。" }
+        },
+        {
+          "phrase": "circus tickets",
+          "zh": "馬戲團門票",
+          "example": { "en": "The bank gave circus tickets to families who opened accounts.", "zh": "銀行把馬戲團門票送給開戶的家庭。" }
+        }
+      ],
+      "examples": [
+        { "tag": "活動", "en": "The circus will perform in our city for two weeks.", "zh": "馬戲團將在我們城市表演兩週。" },
+        { "tag": "行銷", "en": "We gave away circus tickets to our best customers.", "zh": "我們把馬戲團門票送給最好的客戶。" },
+        { "tag": "旅遊", "en": "Many families visit the circus during the summer holiday.", "zh": "許多家庭在暑假期間去看馬戲團。" }
+      ],
+      "confusable": [
+        {
+          "word": "circuit",
+          "diff": "circuit 是「電路」或「一圈、巡迴」，拼法和 circus 很像，但和表演無關。",
+          "example": { "en": "A broken circuit stopped the machine in the factory.", "zh": "一個壞掉的電路讓工廠的機器停了。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "carnival",
+          "pos": "n.",
+          "zh": "嘉年華",
+          "ipa": "/ˈkɑːrnɪvəl/",
+          "example": { "en": "The town holds a carnival every year in July.", "zh": "這個城鎮每年七月舉辦嘉年華。" }
+        },
+        {
+          "w": "festival",
+          "pos": "n.",
+          "zh": "節慶、藝術節",
+          "ipa": "/ˈfestɪvəl/",
+          "example": { "en": "The music festival attracts visitors from many countries.", "zh": "這場音樂節吸引了來自許多國家的遊客。" }
+        },
+        {
+          "w": "performance",
+          "pos": "n.",
+          "zh": "表演",
+          "ipa": "/pərˈfɔːrməns/",
+          "example": { "en": "The evening performance starts at seven thirty.", "zh": "晚場表演七點半開始。" }
+        },
+        {
+          "w": "audience",
+          "pos": "n.",
+          "zh": "觀眾",
+          "ipa": "/ˈɔːdiəns/",
+          "example": { "en": "The audience clapped loudly at the end of the show.", "zh": "表演結束時，觀眾熱烈鼓掌。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "classmate",
+      "type": "word",
+      "ipa": "/ˈklæsmeɪt/",
+      "pos": "n.",
+      "zh": "同學",
+      "en": "a person who is in the same class as you at school",
+      "note": "多益常見於人脈、求職推薦與社交情境，例如在展覽遇到老同學，或同學推薦工作機會。",
+      "forms": [
+        {
+          "w": "classmates",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "同學（複數）",
+          "ipa": "/ˈklæsmeɪts/",
+          "example": { "en": "My classmates and I plan to meet after the course ends.", "zh": "課程結束後，我和同學們打算見個面。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "former classmate",
+          "zh": "以前的同學",
+          "example": { "en": "A former classmate now works in our sales department.", "zh": "一位以前的同學現在在我們的業務部門工作。" }
+        },
+        {
+          "phrase": "classmate from college",
+          "zh": "大學同學",
+          "example": { "en": "Peter invited a classmate from college to the product launch.", "zh": "彼得邀請了一位大學同學參加新產品發表會。" }
+        },
+        {
+          "phrase": "study with a classmate",
+          "zh": "和同學一起讀書",
+          "example": { "en": "Studying with a classmate helped me pass the exam.", "zh": "和同學一起讀書幫助我通過了考試。" }
+        }
+      ],
+      "examples": [
+        { "tag": "人脈", "en": "I met a former classmate at the trade show yesterday.", "zh": "我昨天在貿易展遇到一位以前的同學。" },
+        { "tag": "求職", "en": "My classmate recommended me for a job at his company.", "zh": "我的同學推薦我到他的公司工作。" },
+        { "tag": "進修", "en": "She studied marketing with a classmate from university.", "zh": "她和一位大學同學一起讀行銷。" }
+      ],
+      "confusable": [
+        {
+          "word": "colleague",
+          "diff": "colleague 是「同事」，在同一個公司或領域工作；classmate 是在學校的同學。",
+          "example": { "en": "My colleague will join the meeting from the Tokyo office.", "zh": "我的同事會從東京辦公室加入會議。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "schoolmate",
+          "diff": "schoolmate 指同一所學校的人，不一定同班；classmate 指同一個班級的人。",
+          "example": { "en": "A schoolmate told me about the open position at the bank.", "zh": "一位校友告訴我銀行有職缺。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "coworker",
+          "pos": "n.",
+          "zh": "同事",
+          "ipa": "/ˈkoʊwɜːrkər/",
+          "example": { "en": "My coworker showed me how to use the new system.", "zh": "我的同事教我怎麼用新系統。" }
+        },
+        {
+          "w": "teammate",
+          "pos": "n.",
+          "zh": "隊友、團隊夥伴",
+          "ipa": "/ˈtiːmmeɪt/",
+          "example": { "en": "Each teammate is responsible for one part of the project.", "zh": "每位團隊夥伴負責專案的一個部分。" }
+        },
+        {
+          "w": "roommate",
+          "pos": "n.",
+          "zh": "室友",
+          "ipa": "/ˈruːmmeɪt/",
+          "example": { "en": "My roommate works at a bank near the station.", "zh": "我的室友在車站附近的銀行工作。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "class",
+          "pos": "n.",
+          "zh": "班級、課程",
+          "ipa": "/klæs/",
+          "link": "最基礎的字。classmate = class（班級）+ mate（夥伴），同班的夥伴，像 teammate、roommate"
+        },
+        {
+          "w": "classroom",
+          "pos": "n.",
+          "zh": "教室",
+          "ipa": "/ˈklæsruːm/",
+          "link": "class + room（房間），上課的房間，像 bedroom、meeting room"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "closure",
+      "type": "word",
+      "ipa": "/ˈkloʊʒər/",
+      "pos": "n.",
+      "zh": "關閉、封閉、歇業",
+      "en": "the act of closing a place, road, or business",
+      "note": "多益常見於公告與新聞情境，例如道路封閉、商店暫時歇業、工廠關廠，常搭配 temporary、due to 等字。",
+      "grammar_note": "常用 closure of + 地點或事業，也可說 due to the closure of ...（因為…關閉）。",
+      "forms": [
+        {
+          "w": "closures",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "關閉（複數）",
+          "ipa": "/ˈkloʊʒərz/",
+          "example": { "en": "Several school closures were announced because of the storm.", "zh": "因為暴風雨，宣布了好幾所學校停課。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "road closure",
+          "zh": "道路封閉",
+          "example": { "en": "A road closure is causing long delays near the airport.", "zh": "機場附近的道路封閉造成嚴重延誤。" }
+        },
+        {
+          "phrase": "store closure",
+          "zh": "商店歇業",
+          "example": { "en": "Customers were upset about the store closure in downtown.", "zh": "客人對市中心的商店歇業感到不滿。" }
+        },
+        {
+          "phrase": "temporary closure",
+          "zh": "暫時關閉",
+          "example": { "en": "The temporary closure will help us finish the repair work.", "zh": "暫時關閉能讓我們完成維修工作。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "The closure of the main road will last three days.", "zh": "主要道路的封閉將持續三天。" },
+        { "tag": "公司", "en": "The company announced the closure of its old factory.", "zh": "公司宣布關閉舊工廠。" },
+        { "tag": "電子郵件", "en": "We apologize for the closure of our store on Monday.", "zh": "我們為星期一商店關閉一事致歉。" }
+      ],
+      "confusable": [
+        {
+          "word": "closer",
+          "diff": "closer 是 close 的比較級「更近的」，發音是 /ˈkloʊsər/；closure 是名詞「關閉」。",
+          "usage": "closure 是名詞，closer 是形容詞或副詞的比較級（closer to ...）。",
+          "example": { "en": "Our new office is closer to the station than the old one.", "zh": "我們的新辦公室比舊的更靠近車站。" }
+        },
+        {
+          "word": "disclosure",
+          "diff": "disclosure 是「揭露、公開」資訊，多用於財務與法律文件，和關閉無關。",
+          "example": { "en": "The report requires full disclosure of all costs.", "zh": "這份報告要求完整揭露所有費用。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "shutdown",
+          "diff": "shutdown 常指機器、系統或工廠整個停止運作；closure 範圍更廣，也可指道路或商店。",
+          "example": { "en": "The shutdown of the system lasted about two hours.", "zh": "系統關機持續了大約兩個小時。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "suspension",
+          "pos": "n.",
+          "zh": "暫停",
+          "ipa": "/səˈspenʃən/",
+          "example": { "en": "The suspension of the service will start on Friday.", "zh": "服務暫停將從星期五開始。" }
+        },
+        {
+          "w": "cancellation",
+          "pos": "n.",
+          "zh": "取消",
+          "ipa": "/ˌkænsəˈleɪʃən/",
+          "example": { "en": "We received a cancellation notice from the hotel this morning.", "zh": "我們今天早上收到飯店的取消通知。" }
+        },
+        {
+          "w": "delay",
+          "pos": "n.",
+          "zh": "延誤",
+          "ipa": "/dɪˈleɪ/",
+          "example": { "en": "The delay in delivery was caused by bad weather.", "zh": "送貨延誤是因為天氣不好。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "close",
+          "pos": "v.",
+          "zh": "關閉",
+          "ipa": "/kloʊz/",
+          "link": "最基礎的字。closure = close + -ure，把「關閉」變成名詞，像 expose → exposure"
+        },
+        {
+          "w": "enclose",
+          "pos": "v.",
+          "zh": "隨函附上、圍起來",
+          "ipa": "/ɪnˈkloʊz/",
+          "link": "en-（放進去）+ close，把東西封在信封裡，像 enter、encourage"
+        },
+        {
+          "w": "enclosure",
+          "pos": "n.",
+          "zh": "附件、圍起來的區域",
+          "ipa": "/ɪnˈkloʊʒər/",
+          "link": "enclose + -ure，隨信附上的東西，像 closure"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "commuter",
+      "type": "word",
+      "ipa": "/kəˈmjuːtər/",
+      "pos": "n.",
+      "zh": "通勤者",
+      "en": "a person who travels to work every day, often from far away",
+      "note": "多益常見於交通、公告與廣告情境，例如通勤列車、尖峰時段、為通勤族增加班次。",
+      "forms": [
+        {
+          "w": "commuters",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "通勤者（複數）",
+          "ipa": "/kəˈmjuːtərz/",
+          "example": { "en": "Many commuters now work from home two days a week.", "zh": "許多通勤族現在每週有兩天在家工作。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "daily commuter",
+          "zh": "每天通勤的人",
+          "example": { "en": "A daily commuter can save money with a monthly pass.", "zh": "每天通勤的人用月票可以省錢。" }
+        },
+        {
+          "phrase": "commuter train",
+          "zh": "通勤列車",
+          "example": { "en": "The commuter train to the city leaves every ten minutes.", "zh": "往市區的通勤列車每十分鐘一班。" }
+        },
+        {
+          "phrase": "commuter traffic",
+          "zh": "通勤車潮",
+          "example": { "en": "Commuter traffic is heaviest between seven and nine in the morning.", "zh": "通勤車潮在早上七點到九點之間最多。" }
+        }
+      ],
+      "examples": [
+        { "tag": "交通", "en": "Thousands of commuters take this train every morning.", "zh": "每天早上有數千名通勤者搭這班火車。" },
+        { "tag": "公告", "en": "The city added more buses to help commuters.", "zh": "市政府增加了更多公車來幫助通勤者。" },
+        { "tag": "廣告", "en": "This app shows commuters the fastest way to work.", "zh": "這個應用程式會告訴通勤者上班最快的路線。" }
+      ],
+      "confusable": [
+        {
+          "word": "computer",
+          "diff": "computer 是「電腦」，拼法和 commuter 只差一兩個字母，閱讀時很容易看錯。",
+          "example": { "en": "I use my computer to check train times before leaving.", "zh": "我出門前用電腦查火車時間。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "passenger",
+          "pos": "n.",
+          "zh": "乘客",
+          "ipa": "/ˈpæsɪndʒər/",
+          "example": { "en": "Each passenger must show a ticket before getting on the bus.", "zh": "每位乘客上公車前都必須出示車票。" }
+        },
+        {
+          "w": "rush hour",
+          "pos": "n.",
+          "zh": "尖峰時段",
+          "ipa": "/ˈrʌʃ aʊər/",
+          "example": { "en": "Avoid driving downtown during rush hour if you can.", "zh": "可以的話，尖峰時段避免開車進市中心。" }
+        },
+        {
+          "w": "route",
+          "pos": "n.",
+          "zh": "路線",
+          "ipa": "/ruːt/",
+          "example": { "en": "This bus route connects the airport and the city center.", "zh": "這條公車路線連接機場與市中心。" }
+        },
+        {
+          "w": "fare",
+          "pos": "n.",
+          "zh": "車資",
+          "ipa": "/fer/",
+          "example": { "en": "The train fare will go up by five percent next month.", "zh": "火車票價下個月會調漲百分之五。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "commute",
+          "pos": "v./n.",
+          "zh": "通勤；通勤路程",
+          "ipa": "/kəˈmjuːt/",
+          "link": "最基礎的字。commuter = commute + -er，做這件事的人，像 teacher、worker"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

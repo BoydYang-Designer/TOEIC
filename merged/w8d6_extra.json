@@ -1,0 +1,134 @@
+{
+  "week": 8,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "reassure",
+      "type": "word",
+      "ipa": "/ˌriːəˈʃʊr/",
+      "pos": "v.",
+      "zh": "使放心、安撫",
+      "en": "to tell someone that there is no need to worry",
+      "note": "在這篇文章裡，貸款專員先說明補件要求可能看起來很嚴格，再用 reassure 向客戶保證這些都是此類貸款的標準做法。語氣客氣，用來化解對方的疑慮。",
+      "grammar_note": "reassure 後面先接人，再接 that 子句或 about + 事情（reassure you that…／reassure you about…），不能寫成 reassure that…。",
+      "forms": [
+        { "w": "reassures", "label": "第三人稱單數", "pos": "v.", "zh": "使放心", "ipa": "/ˌriːəˈʃʊrz/", "example": { "en": "Regular communication reassures clients that their projects are on track.", "zh": "定期溝通能讓客戶放心專案進度正常。" } },
+        { "w": "reassured", "label": "過去式／過去分詞", "pos": "v.", "zh": "使放心了", "ipa": "/ˌriːəˈʃʊrd/", "example": { "en": "The manager reassured the nervous team that no jobs would be lost.", "zh": "經理讓緊張的團隊放心，不會有人失業。" } },
+        { "w": "reassured", "label": "形容詞", "pos": "adj.", "zh": "感到放心的", "ipa": "/ˌriːəˈʃʊrd/", "example": { "en": "He left the meeting feeling reassured about the company's future.", "zh": "他離開會議時，對公司的未來感到放心。" } },
+        { "w": "reassuring", "label": "現在分詞／形容詞", "pos": "adj.", "zh": "令人放心的", "ipa": "/ˌriːəˈʃʊrɪŋ/", "example": { "en": "The latest sales figures were reassuring to our shareholders.", "zh": "最新的銷售數字讓我們的股東感到放心。" } }
+      ],
+      "collocations": [
+        { "phrase": "reassure customers", "zh": "讓顧客安心", "example": { "en": "A clear return policy helps reassure customers before they buy.", "zh": "清楚的退貨政策能讓顧客在購買前安心。" } },
+        { "phrase": "reassure investors", "zh": "安撫投資人", "example": { "en": "The bank released a statement to reassure investors.", "zh": "銀行發表聲明來安撫投資人。" } },
+        { "phrase": "reassure someone that", "zh": "向某人保證…使其放心", "example": { "en": "Please reassure the client that the contract will arrive on time.", "zh": "請讓客戶放心，合約會準時送達。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Allow me to reassure you about the safety of our new system.", "zh": "請容我向您保證我們新系統的安全性，讓您放心。" },
+        { "tag": "客服", "en": "The agent called to reassure the client about the delayed shipment.", "zh": "客服人員來電安撫客戶，說明延遲出貨的狀況。" },
+        { "tag": "會議", "en": "The CEO tried to reassure employees after the merger announcement.", "zh": "執行長在宣布合併後試著讓員工安心。" }
+      ],
+      "confusable": [
+        { "word": "ensure", "diff": "ensure 是「確保」某件事會發生，後面接事情；reassure 是讓「人」放心。", "usage": "ensure 的受詞是事情（ensure the quality）；reassure 的受詞是人（reassure the client）。", "example": { "en": "Please ensure that all documents are signed before Friday.", "zh": "請確保所有文件在星期五前簽署完成。" } },
+        { "word": "insure", "diff": "insure 是「投保」，和保險有關，不是安撫人。", "example": { "en": "We plan to insure the shipment against damage during transport.", "zh": "我們打算為這批貨投保，以防運送途中受損。" } }
+      ],
+      "similar": [
+        { "phrase": "put someone at ease", "diff": "put someone at ease 較口語，強調讓人放鬆不緊張；reassure 強調消除擔心。", "example": { "en": "Our friendly staff will put new clients at ease.", "zh": "我們親切的員工會讓新客戶放輕鬆。" } }
+      ],
+      "family": [
+        { "w": "guarantee", "pos": "n.", "zh": "保證", "ipa": "/ˌɡerənˈtiː/", "example": { "en": "The shop offers a two-year guarantee on all products.", "zh": "這家店對所有產品提供兩年保固。" } },
+        { "w": "confidence", "pos": "n.", "zh": "信心", "ipa": "/ˈkɑːnfɪdəns/", "example": { "en": "Clear communication builds client confidence in the bank.", "zh": "清楚的溝通能建立客戶對銀行的信心。" } }
+      ],
+      "derived": [
+        { "w": "assure", "pos": "v.", "zh": "向…保證", "ipa": "/əˈʃʊr/", "link": "基礎動詞，加字首 re- 變成 reassure，再次讓人放心，像 review、rebuild" },
+        { "w": "assurance", "pos": "n.", "zh": "保證、把握", "ipa": "/əˈʃʊrəns/", "link": "assure + -ance，動作變名詞，像 insure → insurance" },
+        { "w": "reassurance", "pos": "n.", "zh": "安慰、保證", "ipa": "/ˌriːəˈʃʊrəns/", "link": "reassure + -ance，讓人放心的話或行動，像 appear → appearance" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "signify",
+      "type": "word",
+      "ipa": "/ˈsɪɡnɪfaɪ/",
+      "pos": "v.",
+      "zh": "意味著、表示",
+      "en": "to mean something or to show that something is true",
+      "note": "在這篇文章裡，銀行說明收到文件「並不代表」核准，只是讓委員會能完成審查。signify 語氣正式，常見於合約、公告與正式信件，用來說明某個動作或標誌的含意。",
+      "grammar_note": "signify 是及物動詞，後面直接接名詞或 that 子句（signify approval／signify that…），不需要加 to。",
+      "forms": [
+        { "w": "signifies", "label": "第三人稱單數", "pos": "v.", "zh": "意味著", "ipa": "/ˈsɪɡnɪfaɪz/", "example": { "en": "A red light on the panel signifies that the machine is overheating.", "zh": "面板上的紅燈表示機器過熱。" } },
+        { "w": "signified", "label": "過去式／過去分詞", "pos": "v.", "zh": "表示了", "ipa": "/ˈsɪɡnɪfaɪd/", "example": { "en": "The board signified its support by voting unanimously for the plan.", "zh": "董事會一致投票支持這項計畫，以此表達支持。" } },
+        { "w": "signifying", "label": "現在分詞", "pos": "v.", "zh": "表示", "ipa": "/ˈsɪɡnɪfaɪɪŋ/", "example": { "en": "He nodded slowly, signifying that he understood the new policy.", "zh": "他慢慢點頭，表示他理解了新政策。" } }
+      ],
+      "collocations": [
+        { "phrase": "signify approval", "zh": "表示核准／同意", "example": { "en": "The manager's smile seemed to signify approval of our proposal.", "zh": "經理的微笑似乎表示認可我們的提案。" } },
+        { "phrase": "signify agreement", "zh": "表示同意", "example": { "en": "Please sign below to signify your agreement with the terms.", "zh": "請在下方簽名，表示你同意這些條款。" } },
+        { "phrase": "signify a change", "zh": "意味著改變", "example": { "en": "A drop in orders may signify a change in market demand.", "zh": "訂單減少可能意味著市場需求的改變。" } }
+      ],
+      "examples": [
+        { "tag": "合約", "en": "Your signature on this form signifies that you have read the terms.", "zh": "你在這份表格上的簽名代表你已閱讀條款。" },
+        { "tag": "市場", "en": "A rise in new orders signifies growing interest in our products.", "zh": "新訂單增加，意味著對我們產品的興趣日益提高。" },
+        { "tag": "報告", "en": "In the chart, the red line signifies last year's results.", "zh": "圖表中，紅線代表去年的結果。" }
+      ],
+      "confusable": [
+        { "word": "specify", "diff": "拼法與發音相近；specify 是「明確指定、載明」，signify 是「意味著」。", "usage": "specify 是你主動把細節寫清楚；signify 是某件事本身帶有的含意。", "example": { "en": "Please specify the amount you wish to borrow.", "zh": "請載明你希望借貸的金額。" } }
+      ],
+      "similar": [
+        { "phrase": "indicate", "diff": "indicate 更常用，指「顯示、指出」；signify 更正式，強調象徵的含意。", "example": { "en": "The report indicates that sales will rise next year.", "zh": "報告顯示明年銷售將會成長。" } },
+        { "phrase": "mean", "diff": "mean 最口語、最常用；signify 用在正式書面。", "example": { "en": "A late payment may mean extra fees for the borrower.", "zh": "延遲付款可能代表借款人要多付費用。" } }
+      ],
+      "family": [
+        { "w": "symbol", "pos": "n.", "zh": "象徵、符號", "ipa": "/ˈsɪmbəl/", "example": { "en": "The logo is a symbol of our company's values.", "zh": "這個標誌象徵著我們公司的價值觀。" } },
+        { "w": "imply", "pos": "v.", "zh": "暗示", "ipa": "/ɪmˈplaɪ/", "example": { "en": "His silence seemed to imply disagreement with the plan.", "zh": "他的沉默似乎暗示不同意這項計畫。" } }
+      ],
+      "derived": [
+        { "w": "sign", "pos": "v.", "zh": "簽名、示意", "ipa": "/saɪn/", "link": "最基本的字根，「簽」或「記號」" },
+        { "w": "signature", "pos": "n.", "zh": "簽名", "ipa": "/ˈsɪɡnətʃər/", "link": "sign + -ature，簽下去留下的名字，像 feature、temperature 的結尾" },
+        { "w": "significant", "pos": "adj.", "zh": "重大的、顯著的", "ipa": "/sɪɡˈnɪfɪkənt/", "link": "signify 的 -ify 換成 -ificant，有重大意義的，像 important" },
+        { "w": "significance", "pos": "n.", "zh": "重要性、意義", "ipa": "/sɪɡˈnɪfɪkəns/", "link": "significant 去掉 t 加 -ce，名詞，像 important → importance" },
+        { "w": "significantly", "pos": "adv.", "zh": "顯著地", "ipa": "/sɪɡˈnɪfɪkəntli/", "link": "significant + -ly，形容詞變副詞，像 quick → quickly" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "意味著、代表", "en": "to mean something; to be a sign of something", "in_passage": true, "example": { "en": "A rise in new orders signifies growing interest in our products.", "zh": "新訂單增加，意味著對我們產品的興趣日益提高。" } },
+        { "pos": "v.", "zh": "（用動作或簽名）表示", "en": "to show a feeling or decision by an action or a sign", "distinguish": "主詞是「人」，用某個動作表達意思；第一個意思的主詞通常是事物。", "example": { "en": "Please raise your hand to signify your agreement with the proposal.", "zh": "請舉手表示你同意這項提案。" } }
+      ]
+    },
+    {
+      "text": "collateral",
+      "type": "word",
+      "ipa": "/kəˈlætərəl/",
+      "pos": "n.",
+      "zh": "擔保品、抵押品",
+      "en": "property that a borrower promises to give the bank if the loan is not repaid",
+      "note": "在這篇文章裡，因為申請人過去曾破產，銀行要求價值不低於貸款金額六成的擔保品，作為風險保障。這是金融與貸款文件的常見字，通常指不動產、設備或存貨。",
+      "grammar_note": "collateral 當「擔保品」時多為不可數名詞，不加 s，前面也不用 a；常寫成 collateral for + 貸款。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "put up collateral", "zh": "提供擔保品", "example": { "en": "Small firms must often put up collateral to get a loan.", "zh": "小型企業常常必須提供擔保品才能取得貸款。" } },
+        { "phrase": "as collateral", "zh": "作為擔保品", "example": { "en": "The company used its delivery trucks as collateral for the loan.", "zh": "這家公司用它的送貨卡車作為貸款的擔保品。" } },
+        { "phrase": "sufficient collateral", "zh": "足夠的擔保品", "example": { "en": "Without sufficient collateral, the bank may reject your request.", "zh": "沒有足夠的擔保品，銀行可能會拒絕你的申請。" } }
+      ],
+      "examples": [
+        { "tag": "銀行", "en": "The bank requires collateral from borrowers with a weak credit history.", "zh": "銀行要求信用紀錄不佳的借款人提供擔保品。" },
+        { "tag": "電子郵件", "en": "Real estate is the most common type of collateral for business loans.", "zh": "不動產是企業貸款最常見的擔保品類型。" },
+        { "tag": "會議", "en": "Without collateral, the interest rate on the loan would be higher.", "zh": "沒有擔保品的話，這筆貸款的利率會比較高。" }
+      ],
+      "confusable": [
+        { "word": "collaborate", "diff": "拼法開頭相近；collaborate 是動詞「合作」，collateral 是名詞「擔保品」。", "usage": "collaborate 是動詞，常接 with；collateral 是名詞。", "example": { "en": "Our two firms will collaborate on the new housing project.", "zh": "我們兩家公司將合作進行新的住宅專案。" } }
+      ],
+      "similar": [
+        { "phrase": "security", "diff": "security 在貸款中也指擔保，但範圍更廣，也可指證券、安全。", "example": { "en": "The bank accepted the property as security for the loan.", "zh": "銀行接受這處房產作為貸款的擔保。" } },
+        { "phrase": "guarantee", "diff": "guarantee 多指某人或公司承諾還款的保證，不一定是實物；collateral 是具體資產。", "example": { "en": "The owner gave a personal guarantee for the company's loan.", "zh": "老闆為公司的貸款提供了個人保證。" } }
+      ],
+      "family": [
+        { "w": "loan", "pos": "n.", "zh": "貸款", "ipa": "/loʊn/", "example": { "en": "The bank approved the loan within two weeks.", "zh": "銀行在兩週內核准了這筆貸款。" } },
+        { "w": "mortgage", "pos": "n.", "zh": "房屋貸款、抵押", "ipa": "/ˈmɔːrɡɪdʒ/", "example": { "en": "They took out a mortgage to buy the office building.", "zh": "他們辦了房貸來買這棟辦公大樓。" } },
+        { "w": "borrower", "pos": "n.", "zh": "借款人", "ipa": "/ˈbɑːroʊər/", "example": { "en": "A borrower must repay the loan with interest.", "zh": "借款人必須連同利息償還貸款。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

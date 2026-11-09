@@ -1,0 +1,198 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "accent",
+      "type": "word",
+      "ipa": "/ˈæksent/",
+      "pos": "n.",
+      "zh": "口音；重音；強調、點綴",
+      "en": "the way a person says words, which shows where they are from",
+      "note": "在多益常出現在電話客服、面試、國際團隊溝通的情境，指說話的口音。也可指單字的重音，或室內設計中的點綴色。",
+      "grammar_note": "accent 以母音開頭，所以說 an accent（an American accent）；說「帶有某種口音」用 speak with a ... accent 或 have a ... accent。",
+      "forms": [
+        { "w": "accents", "label": "複數", "pos": "n.", "zh": "口音（複數）", "ipa": "/ˈæksents/", "example": { "en": "Our call center staff have many different accents.", "zh": "我們客服中心的員工有許多不同的口音。" } },
+        { "w": "accents", "label": "第三人稱單數", "pos": "v.", "zh": "強調", "ipa": "/ˈæksents/", "example": { "en": "The new poster accents the company's green image.", "zh": "這張新海報強調了公司的環保形象。" } },
+        { "w": "accented", "label": "過去式／過去分詞", "pos": "v.", "zh": "強調", "ipa": "/ˈæksentɪd/", "example": { "en": "The manager accented the need to finish on time.", "zh": "經理強調必須準時完成。" } },
+        { "w": "accenting", "label": "現在分詞", "pos": "v.", "zh": "強調", "ipa": "/ˈæksentɪŋ/", "example": { "en": "She is accenting the key points on her slides.", "zh": "她正在她的投影片上強調重點。" } }
+      ],
+      "collocations": [
+        { "phrase": "a strong accent", "zh": "很重的口音", "example": { "en": "Her strong accent made the phone call hard to follow.", "zh": "她很重的口音讓這通電話很難聽懂。" } },
+        { "phrase": "speak with an accent", "zh": "帶著口音說話", "example": { "en": "Many of our engineers speak with an accent.", "zh": "我們許多工程師說話帶有口音。" } },
+        { "phrase": "a regional accent", "zh": "地方口音", "example": { "en": "Sales staff may meet a regional accent in some areas.", "zh": "業務人員在某些地區可能會遇到地方口音。" } },
+        { "phrase": "accent color", "zh": "點綴色", "example": { "en": "We chose green as the accent color for our website.", "zh": "我們選了綠色作為網站的點綴色。" } }
+      ],
+      "examples": [
+        { "tag": "電話客服", "en": "The agent has a clear accent, so callers understand her easily.", "zh": "這位客服人員口音清楚，所以來電者很容易聽懂。" },
+        { "tag": "面試", "en": "He speaks with a Spanish accent, but his English is excellent.", "zh": "他帶有西班牙口音，但英文非常好。" },
+        { "tag": "語言學習", "en": "In the word report, the accent falls on the second syllable.", "zh": "在 report 這個字裡，重音落在第二個音節。" },
+        { "tag": "室內設計", "en": "The pink flowers add a nice accent to the front desk.", "zh": "粉紅色的花為櫃台增添了漂亮的點綴。" }
+      ],
+      "confusable": [
+        { "word": "accept", "diff": "accept 是動詞「接受」，和 accent 只差一個字母，發音也相近。", "usage": "accept 是動詞，重音在第二音節；accent 通常是名詞「口音」，重音在第一音節。", "example": { "en": "We cannot accept orders after five o'clock.", "zh": "五點之後我們無法接受訂單。" } },
+        { "word": "access", "diff": "access 是「進入、取得使用權」，和 accent 拼法相似。", "example": { "en": "Staff need a card to access the server room.", "zh": "員工需要一張卡才能進入伺服器機房。" } }
+      ],
+      "similar": [
+        { "word": "dialect", "diff": "dialect 指一個地區的用字與說法不同的語言變體；accent 只指發音的方式。", "example": { "en": "Each region of the country has its own dialect.", "zh": "這個國家的每個地區都有自己的方言。" } }
+      ],
+      "family": [
+        { "w": "pronunciation", "pos": "n.", "zh": "發音", "ipa": "/prəˌnʌnsiˈeɪʃən/", "example": { "en": "Good pronunciation helps you in phone meetings.", "zh": "好的發音在電話會議中對你很有幫助。" } },
+        { "w": "stress", "pos": "n.", "zh": "重音", "ipa": "/stres/", "example": { "en": "The stress in the word office is on the first syllable.", "zh": "office 這個字的重音在第一個音節。" } },
+        { "w": "tone", "pos": "n.", "zh": "語氣、語調", "ipa": "/toʊn/", "example": { "en": "Her polite tone calmed the angry customer.", "zh": "她有禮貌的語氣讓生氣的客人冷靜下來。" } }
+      ],
+      "derived": [
+        { "w": "accentuate", "pos": "v.", "zh": "強調、使突出", "ipa": "/ækˈsentʃueɪt/", "link": "accent + -uate，把重點加重、讓它突出，意思像 emphasize" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈæksent/", "zh": "口音", "example": { "en": "Many clients here have a strong regional accent.", "zh": "這裡許多客戶有很重的地方口音。" } },
+        { "pos": "v.", "ipa": "/ækˈsent/", "zh": "強調、突顯", "example": { "en": "The report accents the need for faster delivery.", "zh": "這份報告強調需要更快的交貨。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "口音", "en": "the way a person from a place or country says words", "example": { "en": "Her accent shows that she grew up in Scotland.", "zh": "她的口音顯示她在蘇格蘭長大。" } },
+        { "pos": "n.", "zh": "重音", "en": "the part of a word that you say more strongly", "distinguish": "談到單字怎麼唸、音節時，就是「重音」。", "example": { "en": "Please mark the accent on each new word in the list.", "zh": "請在清單上的每個新單字標出重音。" } },
+        { "pos": "n.", "zh": "點綴、強調色", "en": "a small thing that adds color or style to a place", "distinguish": "談到設計、裝潢、顏色時，就是「點綴」。", "example": { "en": "That red chair is the only accent in the plain room.", "zh": "那張紅色椅子是這間素雅房間裡唯一的點綴。" } }
+      ]
+    },
+    {
+      "text": "accountant",
+      "type": "word",
+      "ipa": "/əˈkaʊntənt/",
+      "pos": "n.",
+      "zh": "會計師、會計人員",
+      "en": "a person whose job is to keep and check money records for a company",
+      "note": "多益常出現在財務、稅務與公司內部流程的情境，例如請會計師核對帳目、處理報稅或說明預算。重音在第二音節。",
+      "forms": [
+        { "w": "accountants", "label": "複數", "pos": "n.", "zh": "會計師（複數）", "ipa": "/əˈkaʊntənts/", "example": { "en": "The company hired two new accountants for the finance team.", "zh": "公司為財務部門僱用了兩位新會計師。" } }
+      ],
+      "collocations": [
+        { "phrase": "certified public accountant", "zh": "會計師（CPA）", "example": { "en": "She became a certified public accountant at the age of twenty-six.", "zh": "她二十六歲時成為會計師。" } },
+        { "phrase": "hire an accountant", "zh": "僱用會計師", "example": { "en": "Small businesses often hire an accountant to manage their records.", "zh": "小型企業常僱用會計師來管理帳務紀錄。" } },
+        { "phrase": "tax accountant", "zh": "稅務會計師", "example": { "en": "A tax accountant told us how to lower our tax bill.", "zh": "一位稅務會計師告訴我們如何降低稅額。" } },
+        { "phrase": "chief accountant", "zh": "會計主任、總會計師", "example": { "en": "The chief accountant signs all large payments.", "zh": "總會計師簽核所有大額付款。" } }
+      ],
+      "examples": [
+        { "tag": "財務", "en": "Our accountant checks every expense report before the end of the month.", "zh": "我們的會計師在月底前會檢查每一份費用報告。" },
+        { "tag": "稅務", "en": "We asked an accountant to help us with this year's taxes.", "zh": "我們請會計師幫忙處理今年的稅務。" },
+        { "tag": "徵才", "en": "The firm is looking for a senior accountant with five years of experience.", "zh": "這家公司正在徵求有五年經驗的資深會計師。" },
+        { "tag": "會議", "en": "The accountant will explain the budget at tomorrow's meeting.", "zh": "會計師會在明天的會議上說明預算。" }
+      ],
+      "confusable": [
+        { "word": "accountable", "diff": "accountable 是形容詞「有責任的」，和 accountant 開頭相同，但不是指人。", "usage": "accountable 是形容詞，常用 be accountable for + 事情；accountant 是名詞，指會計師這個人。", "example": { "en": "Every manager is accountable for his or her team's budget.", "zh": "每位經理都要對自己團隊的預算負責。" } }
+      ],
+      "similar": [
+        { "word": "bookkeeper", "diff": "bookkeeper 負責日常記帳；accountant 還會分析數字、報稅，工作比較專業。", "example": { "en": "The bookkeeper records daily sales in the company's system.", "zh": "記帳員把每天的銷售額記錄在公司系統裡。" } },
+        { "word": "auditor", "diff": "auditor 是稽核員，專門檢查帳目是否正確，常是外部的人。", "example": { "en": "An outside auditor will review our financial records next week.", "zh": "外部稽核員下週會檢查我們的財務紀錄。" } }
+      ],
+      "family": [
+        { "w": "budget", "pos": "n.", "zh": "預算", "ipa": "/ˈbʌdʒɪt/", "example": { "en": "The marketing budget was cut by ten percent.", "zh": "行銷預算被削減了百分之十。" } },
+        { "w": "invoice", "pos": "n.", "zh": "發票、請款單", "ipa": "/ˈɪnvɔɪs/", "example": { "en": "Please send the invoice to the accounting office.", "zh": "請把請款單寄到會計部門。" } },
+        { "w": "tax", "pos": "n.", "zh": "稅", "ipa": "/tæks/", "example": { "en": "The price includes tax and shipping.", "zh": "這個價格包含稅和運費。" } }
+      ],
+      "derived": [
+        { "w": "account", "pos": "n.", "zh": "帳戶、帳目", "ipa": "/əˈkaʊnt/", "link": "accountant 的詞幹，「帳目」；加上 -ant 表示做這件事的人，像 assistant、consultant" },
+        { "w": "accounting", "pos": "n.", "zh": "會計（工作、學科）", "ipa": "/əˈkaʊntɪŋ/", "link": "account + -ing，處理帳目這件事，變成「會計」這個工作或科系" },
+        { "w": "accountability", "pos": "n.", "zh": "責任、問責", "ipa": "/əˌkaʊntəˈbɪləti/", "link": "account → accountable（有責任的）+ -ity，變成名詞「責任」，像 ability、possibility" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "accustom",
+      "type": "word",
+      "ipa": "/əˈkʌstəm/",
+      "pos": "v.",
+      "zh": "使習慣於",
+      "en": "to make yourself or someone else used to something new",
+      "note": "多益最常見的是被動形式 be accustomed to + 名詞／V-ing，表示習慣於某事。主動的 accustom oneself to 語氣較正式，常見於新環境、新制度的說明。",
+      "grammar_note": "be accustomed to 和 accustom oneself to 的 to 都是介系詞，後面接名詞或 V-ing，不接原形動詞。",
+      "forms": [
+        { "w": "accustoms", "label": "第三人稱單數", "pos": "v.", "zh": "使習慣於", "ipa": "/əˈkʌstəmz/", "example": { "en": "This course accustoms beginners to basic office software.", "zh": "這門課讓初學者習慣基本的辦公軟體。" } },
+        { "w": "accustomed", "label": "過去式／過去分詞", "pos": "v.", "zh": "使習慣於", "ipa": "/əˈkʌstəmd/", "example": { "en": "The manager accustomed the team to weekly reports.", "zh": "經理讓團隊習慣每週交報告。" } },
+        { "w": "accustomed", "label": "形容詞", "pos": "adj.", "zh": "習慣的", "ipa": "/əˈkʌstəmd/", "example": { "en": "Customers are accustomed to free shipping on large orders.", "zh": "顧客習慣大額訂單可以免運費。" } },
+        { "w": "accustoming", "label": "現在分詞", "pos": "v.", "zh": "使習慣於", "ipa": "/əˈkʌstəmɪŋ/", "example": { "en": "She is accustoming herself to the new software.", "zh": "她正讓自己習慣這套新軟體。" } }
+      ],
+      "collocations": [
+        { "phrase": "be accustomed to", "zh": "習慣於", "example": { "en": "Most of our clients are accustomed to fast delivery.", "zh": "我們大部分的客戶習慣快速交貨。" } },
+        { "phrase": "become accustomed to", "zh": "變得習慣於", "example": { "en": "He soon became accustomed to the long commute.", "zh": "他很快就習慣了長途通勤。" } },
+        { "phrase": "accustom oneself to", "zh": "使自己習慣於", "example": { "en": "She had to accustom herself to working night shifts.", "zh": "她必須讓自己習慣輪值夜班。" } }
+      ],
+      "examples": [
+        { "tag": "教育訓練", "en": "The training will accustom new workers to our safety rules.", "zh": "這個訓練會讓新員工習慣我們的安全規定。" },
+        { "tag": "公司變革", "en": "We must accustom customers to the new online payment method.", "zh": "我們必須讓顧客習慣新的線上付款方式。" },
+        { "tag": "工作環境", "en": "Our team is accustomed to working under tight deadlines.", "zh": "我們的團隊習慣在緊迫的期限下工作。" }
+      ],
+      "confusable": [
+        { "word": "customs", "diff": "customs 當「海關」解釋，和 accustom 的字根相近，但意思完全不同。", "usage": "表示海關時，customs 一定要加 s，常說 go through customs（通過海關）。", "example": { "en": "Our shipment is waiting at customs until Friday.", "zh": "我們的貨物在海關等到星期五。" } }
+      ],
+      "similar": [
+        { "phrase": "get used to", "diff": "get used to 比較口語、更常見，後面同樣接名詞或 V-ing。", "example": { "en": "It takes a month to get used to this software.", "zh": "要花一個月才能習慣這套軟體。" } },
+        { "phrase": "adapt to", "diff": "adapt to 強調為了適應環境而做出調整，不一定已經「習慣」。", "example": { "en": "Staff must adapt to the new work schedule quickly.", "zh": "員工必須快速適應新的工作時程。" } }
+      ],
+      "family": [
+        { "w": "adjust", "pos": "v.", "zh": "調整、適應", "ipa": "/əˈdʒʌst/", "example": { "en": "It took him a week to adjust to the new office.", "zh": "他花了一個星期適應新辦公室。" } },
+        { "w": "familiar", "pos": "adj.", "zh": "熟悉的", "ipa": "/fəˈmɪljər/", "example": { "en": "Are you familiar with our return policy?", "zh": "你熟悉我們的退貨政策嗎？" } },
+        { "w": "habit", "pos": "n.", "zh": "習慣", "ipa": "/ˈhæbɪt/", "example": { "en": "Checking email first thing is a good work habit.", "zh": "一早先查看電子郵件是個好的工作習慣。" } }
+      ],
+      "derived": [
+        { "w": "custom", "pos": "n.", "zh": "習俗、慣例", "ipa": "/ˈkʌstəm/", "link": "accustom 的詞幹，「習慣、慣例」；ac- 加在前面，變成「使習慣於」" },
+        { "w": "customary", "pos": "adj.", "zh": "慣例的、習慣上的", "ipa": "/ˈkʌstəmeri/", "link": "custom + -ary，成為慣例的，像 ordinary、necessary" },
+        { "w": "customer", "pos": "n.", "zh": "顧客", "ipa": "/ˈkʌstəmər/", "link": "custom + -er，經常上門光顧的人，像 worker、manager" },
+        { "w": "customize", "pos": "v.", "zh": "客製化、訂製", "ipa": "/ˈkʌstəmaɪz/", "link": "custom + -ize，使符合客人的需求，像 organize、finalize" },
+        { "w": "unaccustomed", "pos": "adj.", "zh": "不習慣的", "ipa": "/ˌʌnəˈkʌstəmd/", "link": "un- + accustomed，加上 un- 表示相反，不習慣的，像 unhappy、unable" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "advisory",
+      "type": "word",
+      "ipa": "/ədˈvaɪzəri/",
+      "pos": "adj.",
+      "zh": "顧問的、諮詢的；建議性的",
+      "en": "giving advice or a warning, but not making rules",
+      "note": "當形容詞常見於 advisory board、advisory committee，指提供意見的顧問團體。當名詞則指官方發出的提醒或警示通知，如 travel advisory（旅遊警示）。",
+      "grammar_note": "advisory 當形容詞時放在名詞前，如 advisory board；當名詞時是可數名詞，說 a travel advisory 或 travel advisories。",
+      "forms": [
+        { "w": "advisories", "label": "複數", "pos": "n.", "zh": "警示、公告（複數）", "ipa": "/ədˈvaɪzəriz/", "example": { "en": "The airline sent two advisories about the snow today.", "zh": "航空公司今天發了兩則有關降雪的公告。" } }
+      ],
+      "collocations": [
+        { "phrase": "advisory board", "zh": "顧問委員會", "example": { "en": "She was invited to join the company's advisory board.", "zh": "她受邀加入公司的顧問委員會。" } },
+        { "phrase": "travel advisory", "zh": "旅遊警示", "example": { "en": "Check the latest travel advisory before you book your trip.", "zh": "訂行程前請先查看最新的旅遊警示。" } },
+        { "phrase": "advisory committee", "zh": "諮詢委員會", "example": { "en": "The advisory committee will review our plan next week.", "zh": "諮詢委員會下週會審查我們的計畫。" } },
+        { "phrase": "advisory services", "zh": "顧問服務", "example": { "en": "The bank offers free advisory services to new clients.", "zh": "這家銀行為新客戶提供免費的顧問服務。" } }
+      ],
+      "examples": [
+        { "tag": "出差", "en": "The government issued an advisory about travel to the storm area.", "zh": "政府發布了前往暴風雨地區的旅遊警示。" },
+        { "tag": "氣象", "en": "A weather advisory says flights may be delayed this afternoon.", "zh": "天氣警示指出今天下午班機可能會延誤。" },
+        { "tag": "顧問工作", "en": "He works in an advisory role for several small firms.", "zh": "他擔任數家小公司的顧問角色。" },
+        { "tag": "會議", "en": "The committee's vote is advisory, so the manager decides.", "zh": "委員會的投票只是建議性質，所以由經理決定。" }
+      ],
+      "confusable": [
+        { "word": "advice", "diff": "advice 是「建議」，名詞；advisory 是形容詞「顧問的」或名詞「警示」。", "usage": "advice 是不可數名詞，不加 s，一則建議要說 a piece of advice；advisory 則是可數名詞。", "example": { "en": "Thank you for your advice on the new contract.", "zh": "謝謝你對新合約提出的建議。" } }
+      ],
+      "similar": [
+        { "word": "consulting", "diff": "consulting 指專家提供的顧問服務，常是付費的工作；advisory 較強調給建議、不具強制力。", "example": { "en": "We hired a consulting firm to review our costs.", "zh": "我們請了一家顧問公司檢視我們的成本。" } },
+        { "word": "warning", "diff": "warning 是警告，語氣較強；advisory 是較正式、較溫和的提醒通知。", "example": { "en": "The storm warning closed the port for two days.", "zh": "暴風警報讓港口關閉了兩天。" } }
+      ],
+      "family": [
+        { "w": "consultant", "pos": "n.", "zh": "顧問", "ipa": "/kənˈsʌltənt/", "example": { "en": "We asked a consultant to improve our sales plan.", "zh": "我們請顧問改善我們的銷售計畫。" } },
+        { "w": "alert", "pos": "n.", "zh": "警示、通知", "ipa": "/əˈlɝːt/", "example": { "en": "The system sent an alert about the delay.", "zh": "系統發出了有關延誤的警示。" } },
+        { "w": "guidance", "pos": "n.", "zh": "指導、建議", "ipa": "/ˈɡaɪdəns/", "example": { "en": "New staff can ask the manager for guidance.", "zh": "新員工可以向經理尋求指導。" } }
+      ],
+      "derived": [
+        { "w": "advise", "pos": "v.", "zh": "建議、勸告", "ipa": "/ədˈvaɪz/", "link": "advisory 的詞幹，「給建議」；動詞，像 revise、supervise" },
+        { "w": "advisor", "pos": "n.", "zh": "顧問", "ipa": "/ədˈvaɪzər/", "link": "advise + -or，給建議的人，像 visitor、investor（也可拼成 adviser）" },
+        { "w": "advisable", "pos": "adj.", "zh": "明智的、可取的", "ipa": "/ədˈvaɪzəbəl/", "link": "advise + -able，值得被建議的、做起來明智的，像 comfortable、reliable" }
+      ],
+      "pos_uses": [
+        { "pos": "adj.", "ipa": "/ədˈvaɪzəri/", "zh": "顧問的、建議性的", "example": { "en": "The advisory panel gave useful tips on marketing.", "zh": "顧問小組提供了有用的行銷建議。" } },
+        { "pos": "n.", "ipa": "/ədˈvaɪzəri/", "zh": "警示、公告", "example": { "en": "An advisory was sent to all travelers this morning.", "zh": "今天早上已向所有旅客發出一則警示。" } }
+      ],
+      "senses": [
+        { "pos": "adj.", "zh": "顧問的、提供意見的", "en": "giving expert advice to a person or group", "distinguish": "後面接 role、position、panel、team 等人或職位時，指「顧問性質」。", "example": { "en": "He took an advisory position at a large bank.", "zh": "他在一家大銀行擔任顧問職務。" } },
+        { "pos": "adj.", "zh": "僅供建議的、無強制力的", "en": "giving advice only, without the power to make people follow it", "distinguish": "和 only、vote、report 等搭配，強調「只是建議，不具約束力」。", "example": { "en": "The report is advisory only; it does not bind us.", "zh": "這份報告只是建議性質，對我們沒有約束力。" } }
+      ]
+    }
+  ]
+}

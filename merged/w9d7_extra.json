@@ -1,0 +1,764 @@
+{
+  "week": 9,
+  "day": 7,
+  "extra_vocab": [
+    {
+      "text": "embed",
+      "type": "word",
+      "ipa": "/ɪmˈbɛd/",
+      "pos": "v.",
+      "zh": "嵌入、植入；使深植",
+      "en": "to put something firmly inside another thing",
+      "note": "在這篇簡報中，embedding a sensor ... directly into the packaging 說明 ColdLink 的技術特色：感測器直接嵌入包裝內，不需要另外黏貼。這是產品說明與簡報裡常見的正式用字。",
+      "grammar_note": "embed + 物 + in / into + 位置；被動用 be embedded in。",
+      "forms": [
+        {
+          "w": "embeds",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "嵌入",
+          "ipa": "/ɪmˈbɛdz/",
+          "example": {
+            "en": "The designer embeds a small logo into every product label.",
+            "zh": "設計師在每張產品標籤中嵌入一個小標誌。"
+          }
+        },
+        {
+          "w": "embedded",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "嵌入了",
+          "ipa": "/ɪmˈbɛdɪd/",
+          "example": {
+            "en": "The technician embedded the sensors before the boxes were sealed.",
+            "zh": "技術人員在箱子封好前就把感測器嵌入了。"
+          }
+        },
+        {
+          "w": "embedded",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "嵌入式的",
+          "ipa": "/ɪmˈbɛdɪd/",
+          "example": {
+            "en": "An embedded sensor measures the temperature inside the sealed box.",
+            "zh": "嵌入式感測器會測量密封箱內的溫度。"
+          }
+        },
+        {
+          "w": "embedding",
+          "label": "現在分詞／動名詞",
+          "pos": "v.",
+          "zh": "嵌入",
+          "ipa": "/ɪmˈbɛdɪŋ/",
+          "example": {
+            "en": "Embedding sensors early in production lowers the overall cost.",
+            "zh": "在生產初期就嵌入感測器能降低整體成本。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "embed a chip",
+          "zh": "嵌入晶片",
+          "example": {
+            "en": "Some banks embed a chip in every credit card.",
+            "zh": "有些銀行會在每張信用卡中嵌入晶片。"
+          }
+        },
+        {
+          "phrase": "be embedded in",
+          "zh": "被嵌入在…裡",
+          "example": {
+            "en": "The tracking code is embedded in the label itself.",
+            "zh": "追蹤碼就嵌在標籤本身裡面。"
+          }
+        },
+        {
+          "phrase": "embedded software",
+          "zh": "嵌入式軟體",
+          "example": {
+            "en": "Embedded software controls how the machine reads each tag.",
+            "zh": "嵌入式軟體控制機器如何讀取每個標籤。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "產品",
+          "en": "The engineers will embed the tracking device directly into the package.",
+          "zh": "工程師會把追蹤裝置直接嵌入包裝中。"
+        },
+        {
+          "tag": "網站",
+          "en": "You can embed the demo video directly into your web page.",
+          "zh": "您可以把示範影片直接嵌入您的網頁。"
+        },
+        {
+          "tag": "企業文化",
+          "en": "The company wants to embed safety habits into daily routines.",
+          "zh": "公司希望讓安全習慣深植於日常作業。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "embark",
+          "diff": "embed 是「嵌入」；embark 是「著手、登上」，常用 embark on，兩字開頭相同但意思不同。",
+          "example": {
+            "en": "The firm will embark on a new project next month.",
+            "zh": "公司下個月將展開一項新專案。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "install",
+          "diff": "install 是安裝設備或軟體，不一定藏在內部；embed 強調牢牢嵌入其中。",
+          "example": {
+            "en": "The technician will install the sensor system next week.",
+            "zh": "技術人員下週會安裝這套感測系統。"
+          }
+        },
+        {
+          "word": "integrate",
+          "diff": "integrate 是把兩個系統或功能整合在一起；embed 是把物件放進另一個物件裡。",
+          "example": {
+            "en": "We will integrate the tag data with our tracking software.",
+            "zh": "我們會把標籤資料與追蹤軟體整合在一起。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "attach",
+          "pos": "v.",
+          "zh": "貼上、附上",
+          "ipa": "/əˈtætʃ/",
+          "example": {
+            "en": "Please attach the label to the side of the carton.",
+            "zh": "請把標籤貼在紙箱側面。"
+          }
+        },
+        {
+          "w": "insert",
+          "pos": "v.",
+          "zh": "插入",
+          "ipa": "/ɪnˈsɜːrt/",
+          "example": {
+            "en": "Insert the card into the reader and wait for the signal.",
+            "zh": "把卡片插入讀卡機，等候訊號。"
+          }
+        },
+        {
+          "w": "component",
+          "pos": "n.",
+          "zh": "零組件",
+          "ipa": "/kəmˈpoʊnənt/",
+          "example": {
+            "en": "Each component is tested before it goes into the device.",
+            "zh": "每個零組件在放進裝置前都會經過測試。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "嵌入、植入",
+          "en": "to fix something firmly inside another thing",
+          "in_passage": true,
+          "distinguish": "後面接實體物件與位置，如 embed a sensor in the packaging。",
+          "example": {
+            "en": "A tiny battery is embedded inside the smart tag.",
+            "zh": "一顆小電池嵌在這個智慧標籤裡面。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "使深植",
+          "en": "to make an idea or habit a normal part of something",
+          "distinguish": "後面接習慣、價值或文化等抽象的東西，常和 in / into 一起用。",
+          "example": {
+            "en": "Regular training helps embed good safety habits in every employee.",
+            "zh": "定期訓練有助於讓良好的安全習慣深植在每位員工身上。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "expedite",
+      "type": "word",
+      "ipa": "/ˈɛkspɪˌdaɪt/",
+      "pos": "v.",
+      "zh": "加快、促進（處理）",
+      "en": "to make a process or job happen faster",
+      "note": "在這篇簡報中，helped expedite clearance 指電子溫度紀錄讓海關更快放行。expedite 常用在通關、訂單、審核等「手續與流程」，語氣正式，比 speed up 更商務。",
+      "grammar_note": "expedite 是及物動詞，後面直接接受詞（expedite the process），不加 up；意思與 speed up 相近，但更正式。",
+      "forms": [
+        {
+          "w": "expedites",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "加快",
+          "ipa": "/ˈɛkspɪˌdaɪts/",
+          "example": {
+            "en": "A direct flight expedites the transfer of medical supplies.",
+            "zh": "直飛班機加快了醫療物資的運送。"
+          }
+        },
+        {
+          "w": "expedited",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "加快了",
+          "ipa": "/ˈɛkspɪˌdaɪtɪd/",
+          "example": {
+            "en": "The manager expedited the approval so we could start on Monday.",
+            "zh": "經理加快了核准流程，讓我們星期一就能開始。"
+          }
+        },
+        {
+          "w": "expedited",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "加急的",
+          "ipa": "/ˈɛkspɪˌdaɪtɪd/",
+          "example": {
+            "en": "We paid extra for expedited handling of the fragile goods.",
+            "zh": "我們多付費用，讓易碎貨物得到加急處理。"
+          }
+        },
+        {
+          "w": "expediting",
+          "label": "現在分詞／動名詞",
+          "pos": "v.",
+          "zh": "加快",
+          "ipa": "/ˈɛkspɪˌdaɪtɪŋ/",
+          "example": {
+            "en": "Expediting the audit will save the department several days of work.",
+            "zh": "加快稽核能為部門省下好幾天的工作時間。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "expedite the process",
+          "zh": "加快流程",
+          "example": {
+            "en": "Online forms expedite the process of approving new contracts.",
+            "zh": "線上表單加快了核准新合約的流程。"
+          }
+        },
+        {
+          "phrase": "expedite delivery",
+          "zh": "加快出貨、加急配送",
+          "example": {
+            "en": "We can expedite delivery for an extra fee of twenty dollars.",
+            "zh": "加收二十美元，我們可以加急配送。"
+          }
+        },
+        {
+          "phrase": "expedited shipping",
+          "zh": "加急運送",
+          "example": {
+            "en": "Expedited shipping is available for urgent orders only.",
+            "zh": "加急運送僅限緊急訂單使用。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "海關",
+          "en": "Complete documents will expedite the customs clearance for your cargo.",
+          "zh": "文件齊全會加快您貨物的通關。"
+        },
+        {
+          "tag": "採購",
+          "en": "We asked the supplier to expedite the order before the holiday.",
+          "zh": "我們請供應商在假期前加快處理這筆訂單。"
+        },
+        {
+          "tag": "客服",
+          "en": "A new software tool helps expedite refund requests from customers.",
+          "zh": "新的軟體工具有助於加快處理客戶的退款申請。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "expedition",
+          "diff": "expedite 是動詞「加快」；expedition 是名詞「遠征、探險」，拼法相近但用法不同。",
+          "example": {
+            "en": "The company funded an expedition to study ocean temperatures.",
+            "zh": "公司資助了一趟研究海洋溫度的探險。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "speed up",
+          "diff": "speed up 較口語，可用於任何事物；expedite 較正式，專指加快手續、流程或訂單。",
+          "example": {
+            "en": "New equipment will speed up the packing process at the warehouse.",
+            "zh": "新設備將加快倉庫的包裝流程。"
+          }
+        },
+        {
+          "word": "accelerate",
+          "diff": "accelerate 強調速度或成長的加快；expedite 強調讓事情更快辦完。",
+          "example": {
+            "en": "The company hopes to accelerate its expansion into Asia.",
+            "zh": "公司希望加快拓展到亞洲的腳步。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "clearance",
+          "pos": "n.",
+          "zh": "通關、許可",
+          "ipa": "/ˈklɪrəns/",
+          "example": {
+            "en": "Customs clearance usually takes one or two business days.",
+            "zh": "通關通常需要一到兩個工作天。"
+          }
+        },
+        {
+          "w": "priority",
+          "pos": "n.",
+          "zh": "優先事項",
+          "ipa": "/praɪˈɔːrəti/",
+          "example": {
+            "en": "Urgent orders are given priority over regular ones.",
+            "zh": "緊急訂單比一般訂單優先處理。"
+          }
+        },
+        {
+          "w": "streamline",
+          "pos": "v.",
+          "zh": "簡化（流程）",
+          "ipa": "/ˈstriːmˌlaɪn/",
+          "example": {
+            "en": "We plan to streamline the approval steps this year.",
+            "zh": "我們今年打算簡化核准的步驟。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "expeditious",
+          "ipa": "/ˌɛkspɪˈdɪʃəs/",
+          "pos": "adj.",
+          "zh": "迅速的、高效的",
+          "link": "expedite 去掉 -e 加 -ious，變成形容詞「迅速的」，像 ambitious、cautious；多見於正式文件"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "poorly",
+      "type": "word",
+      "ipa": "/ˈpʊrli/",
+      "pos": "adv.",
+      "zh": "差勁地、不良地",
+      "en": "in a bad way, or not well enough",
+      "note": "在這篇簡報中，were poorly produced 是用在被動句裡的副詞，說明商品「製作不良」；作者要強調腐壞的真正原因是運輸溫度，不是品質不好。poorly 常放在過去分詞前，描述品質或做法差。",
+      "grammar_note": "poorly 是副詞，常放在過去分詞前組成 poorly managed 這類說法；修飾名詞要用形容詞 poor（a poor result），不能用 poorly。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "poorly designed",
+          "zh": "設計不良的",
+          "example": {
+            "en": "A poorly designed label confused the warehouse workers.",
+            "zh": "一張設計不良的標籤讓倉庫員工感到困惑。"
+          }
+        },
+        {
+          "phrase": "poorly managed",
+          "zh": "管理不善的",
+          "example": {
+            "en": "Poorly managed projects often run over budget and behind schedule.",
+            "zh": "管理不善的專案常常超出預算又落後進度。"
+          }
+        },
+        {
+          "phrase": "poorly paid",
+          "zh": "薪水低的",
+          "example": {
+            "en": "Many seasonal jobs are poorly paid but easy to learn.",
+            "zh": "許多季節性工作薪水偏低，但很容易學。"
+          }
+        },
+        {
+          "phrase": "poorly attended",
+          "zh": "出席者少的",
+          "example": {
+            "en": "The workshop was poorly attended because of the heavy rain.",
+            "zh": "因為下大雨，這場工作坊的出席人數很少。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "品管",
+          "en": "The batch failed inspection because it was poorly sealed.",
+          "zh": "這批貨沒通過檢查，因為封裝不良。"
+        },
+        {
+          "tag": "管理",
+          "en": "Poorly trained staff can damage a company's reputation quickly.",
+          "zh": "訓練不足的員工很快就會損害公司的名聲。"
+        },
+        {
+          "tag": "活動",
+          "en": "The seminar was poorly organized, so many guests left early.",
+          "zh": "這場研討會籌辦得很差，所以許多賓客提早離開。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "badly",
+          "diff": "badly 也有「差勁地」的意思，另可表示「嚴重地」（badly damaged）；poorly 較強調品質或表現不好。",
+          "example": {
+            "en": "The shipment was badly damaged during the storm.",
+            "zh": "這批貨在暴風雨中嚴重受損。"
+          }
+        },
+        {
+          "word": "inadequately",
+          "diff": "inadequately 較正式，強調「不夠充分」；poorly 範圍更廣，指做得差。",
+          "example": {
+            "en": "The warehouse was inadequately prepared for the sudden increase in orders.",
+            "zh": "倉庫對訂單突然增加的準備並不充分。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "defective",
+          "pos": "adj.",
+          "zh": "有缺陷的",
+          "ipa": "/dɪˈfɛktɪv/",
+          "example": {
+            "en": "Please return any defective items within thirty days.",
+            "zh": "有缺陷的商品請在三十天內退回。"
+          }
+        },
+        {
+          "w": "inferior",
+          "pos": "adj.",
+          "zh": "較差的、劣等的",
+          "ipa": "/ɪnˈfɪriər/",
+          "example": {
+            "en": "Inferior materials will harm the quality of the final product.",
+            "zh": "劣質材料會損害最終產品的品質。"
+          }
+        },
+        {
+          "w": "substandard",
+          "pos": "adj.",
+          "zh": "不合標準的",
+          "ipa": "/ˌsʌbˈstændərd/",
+          "example": {
+            "en": "The inspector rejected the substandard packaging materials.",
+            "zh": "檢查員拒收了不合標準的包裝材料。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "poor",
+          "ipa": "/pʊr/",
+          "pos": "adj.",
+          "zh": "差的、貧窮的",
+          "link": "基本形容詞「差的」；poor + -ly，變成副詞，像 quick → quickly"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adv.",
+          "zh": "差勁地、做得不好",
+          "en": "in a bad way, not well",
+          "in_passage": true,
+          "distinguish": "修飾動詞或過去分詞，指做法或品質差，如 poorly produced。",
+          "example": {
+            "en": "The leaflet was poorly printed, so the text was hard to read.",
+            "zh": "這份傳單印刷品質很差，文字很難閱讀。"
+          }
+        },
+        {
+          "pos": "adv.",
+          "zh": "不充分地、偏少地",
+          "en": "not enough or at a low level",
+          "distinguish": "和 lit、equipped、attended 等字連用，指程度或數量不足。",
+          "example": {
+            "en": "The meeting room was poorly lit, so we moved to another one.",
+            "zh": "會議室的照明不足，所以我們換到另一間。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "superb",
+      "type": "word",
+      "ipa": "/suːˈpɜːrb/",
+      "pos": "adj.",
+      "zh": "極好的、卓越的",
+      "en": "extremely good",
+      "note": "在這篇簡報中，the results were superb 是簡報者讚美試驗成果，語氣強烈正面，用來增加產品的可信度。常見於評價、推薦信與服務品質的描述。",
+      "grammar_note": "superb 本身已是最高級的讚美，不加 very，也不用比較級；要加強語氣可用 absolutely 或 truly。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "superb quality",
+          "zh": "絕佳的品質",
+          "example": {
+            "en": "The jacket is made of superb quality leather.",
+            "zh": "這件夾克是用品質絕佳的皮革製成。"
+          }
+        },
+        {
+          "phrase": "superb service",
+          "zh": "極佳的服務",
+          "example": {
+            "en": "We chose this restaurant for its superb service and fair prices.",
+            "zh": "我們選這間餐廳是因為它的服務極佳且價格公道。"
+          }
+        },
+        {
+          "phrase": "superb performance",
+          "zh": "傑出的表現",
+          "example": {
+            "en": "The team earned a bonus for its superb performance this quarter.",
+            "zh": "團隊因本季的傑出表現而獲得獎金。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "評論",
+          "en": "Customers described the hotel's customer service as simply superb.",
+          "zh": "顧客形容這間飯店的客戶服務簡直太棒了。"
+        },
+        {
+          "tag": "推薦信",
+          "en": "Her presentation skills are superb, and clients always ask for her.",
+          "zh": "她的簡報技巧非常出色，客戶總是指名要她。"
+        },
+        {
+          "tag": "產品",
+          "en": "The camera takes superb photos even in very low light.",
+          "zh": "這台相機即使在很暗的光線下也能拍出絕佳的照片。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "superior",
+          "diff": "superb 是「極好的」，不用於比較；superior 是「較優越的」，常接 to 表示優於某物。",
+          "usage": "superior 後面接 to（superior to…）來做比較；superb 不用於比較，也不接 to。",
+          "example": {
+            "en": "Our new model is superior to the old one in speed.",
+            "zh": "我們的新機型在速度上優於舊機型。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "excellent",
+          "diff": "excellent 更常見、語氣中性；superb 的讚美語氣更強烈。",
+          "example": {
+            "en": "The results of the pilot test were excellent overall.",
+            "zh": "試行測試的結果整體來說非常好。"
+          }
+        },
+        {
+          "word": "outstanding",
+          "diff": "outstanding 強調「出類拔萃、特別突出」；superb 強調「品質極佳」。",
+          "example": {
+            "en": "She received an outstanding employee award last year.",
+            "zh": "她去年獲頒傑出員工獎。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "excellent",
+          "pos": "adj.",
+          "zh": "優秀的",
+          "ipa": "/ˈɛksələnt/",
+          "example": {
+            "en": "Your report was excellent and very easy to follow.",
+            "zh": "您的報告非常出色，也很容易理解。"
+          }
+        },
+        {
+          "w": "outstanding",
+          "pos": "adj.",
+          "zh": "傑出的",
+          "ipa": "/aʊtˈstændɪŋ/",
+          "example": {
+            "en": "The company won an outstanding service award this year.",
+            "zh": "公司今年獲得傑出服務獎。"
+          }
+        },
+        {
+          "w": "impressive",
+          "pos": "adj.",
+          "zh": "令人印象深刻的",
+          "ipa": "/ɪmˈprɛsɪv/",
+          "example": {
+            "en": "The sales growth in the second quarter was impressive.",
+            "zh": "第二季的銷售成長令人印象深刻。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "superbly",
+          "ipa": "/suːˈpɜːrbli/",
+          "pos": "adv.",
+          "zh": "極好地",
+          "link": "superb + -ly，變成副詞，像 quick → quickly，如 superbly organized"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "centimeter",
+      "type": "word",
+      "ipa": "/ˈsɛntɪˌmiːtər/",
+      "pos": "n.",
+      "zh": "公分",
+      "en": "a unit of length; one hundredth of a meter",
+      "note": "在這篇簡報中，only three centimeters wide 用具體數字強調感測器的尺寸很小，方便嵌入包裝。centimeter 是美式拼法，英式拼法是 centimetre。",
+      "grammar_note": "「寬 X 公分」用 X centimeters wide；當形容詞放在名詞前要用連字號且不加 s，如 a three-centimeter gap。",
+      "forms": [
+        {
+          "w": "centimeters",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "公分（複數）",
+          "ipa": "/ˈsɛntɪˌmiːtərz/",
+          "example": {
+            "en": "The two boxes differ by only a few centimeters in height.",
+            "zh": "這兩個箱子的高度只差幾公分。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "square centimeter",
+          "zh": "平方公分",
+          "example": {
+            "en": "The pressure on each square centimeter must stay below the limit.",
+            "zh": "每平方公分承受的壓力必須低於上限。"
+          }
+        },
+        {
+          "phrase": "centimeters wide",
+          "zh": "…公分寬",
+          "example": {
+            "en": "The label is ten centimeters wide and five centimeters tall.",
+            "zh": "這張標籤寬十公分、高五公分。"
+          }
+        },
+        {
+          "phrase": "centimeters thick",
+          "zh": "…公分厚",
+          "example": {
+            "en": "The foam layer must be at least two centimeters thick.",
+            "zh": "泡棉層至少要有兩公分厚。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "規格",
+          "en": "The tag is thicker than one centimeter, so it needs a larger slot.",
+          "zh": "這個標籤厚度超過一公分，所以需要更大的卡槽。"
+        },
+        {
+          "tag": "包裝",
+          "en": "Leave a gap of at least one centimeter between the boxes.",
+          "zh": "箱子之間請至少留一公分的空隙。"
+        },
+        {
+          "tag": "設計",
+          "en": "Each shelf is adjustable by steps of one centimeter.",
+          "zh": "每層架子可以以一公分為單位調整。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "inch",
+          "diff": "inch 是英制單位，一英吋約 2.54 公分；centimeter 是公制單位。",
+          "example": {
+            "en": "The box is ten inches long, or about twenty-five centimeters.",
+            "zh": "這個箱子長十英吋，約二十五公分。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "width",
+          "pos": "n.",
+          "zh": "寬度",
+          "ipa": "/wɪdθ/",
+          "example": {
+            "en": "Please check the width of the door before ordering.",
+            "zh": "訂購前請先確認門的寬度。"
+          }
+        },
+        {
+          "w": "length",
+          "pos": "n.",
+          "zh": "長度",
+          "ipa": "/lɛŋkθ/",
+          "example": {
+            "en": "The length of the cable is two meters.",
+            "zh": "這條電纜的長度是兩公尺。"
+          }
+        },
+        {
+          "w": "dimension",
+          "pos": "n.",
+          "zh": "尺寸",
+          "ipa": "/dɪˈmɛnʃən/",
+          "example": {
+            "en": "The dimensions of the package are printed on the label.",
+            "zh": "包裹的尺寸印在標籤上。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "meter",
+          "ipa": "/ˈmiːtər/",
+          "pos": "n.",
+          "zh": "公尺",
+          "link": "基本長度單位「公尺」；加 centi-（百分之一）就是 centimeter"
+        },
+        {
+          "w": "millimeter",
+          "ipa": "/ˈmɪləˌmiːtər/",
+          "pos": "n.",
+          "zh": "毫米",
+          "link": "milli-（千分之一）+ meter，比 centimeter 更小的單位"
+        },
+        {
+          "w": "kilometer",
+          "ipa": "/kɪˈlɑːmɪtər/",
+          "pos": "n.",
+          "zh": "公里",
+          "link": "kilo-（一千）+ meter，像 kilogram（公斤）"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

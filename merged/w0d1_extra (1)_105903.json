@@ -1,0 +1,391 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "auction",
+      "type": "word",
+      "ipa": "/ˈɔːkʃən/",
+      "pos": "n.",
+      "zh": "拍賣、拍賣會",
+      "en": "a sale where people offer money and the highest offer wins",
+      "note": "多益常見於公司拍賣舊設備、藝術品或慈善活動。也可當動詞，表示「把東西拿去拍賣」，常說 auction off。",
+      "grammar_note": "拍賣掉東西常用 auction off；「在拍賣會上」用 at an auction，「以拍賣方式」用 by auction（不加 a）。",
+      "forms": [
+        { "w": "auctions", "label": "複數", "pos": "n.", "zh": "拍賣會（複數）", "ipa": "/ˈɔːkʃənz/", "example": { "en": "The city holds two auctions every year to sell old equipment.", "zh": "市政府每年舉辦兩場拍賣會來賣舊設備。" } },
+        { "w": "auctions", "label": "第三人稱單數", "pos": "v.", "zh": "拍賣", "ipa": "/ˈɔːkʃənz/", "example": { "en": "The company auctions its used vehicles every spring.", "zh": "這家公司每年春天拍賣它的二手車輛。" } },
+        { "w": "auctioned", "label": "過去式／過去分詞", "pos": "v.", "zh": "拍賣了", "ipa": "/ˈɔːkʃənd/", "example": { "en": "The charity auctioned the painting for ten thousand dollars.", "zh": "慈善機構以一萬美元拍賣了這幅畫。" } },
+        { "w": "auctioning", "label": "現在分詞", "pos": "v.", "zh": "正在拍賣", "ipa": "/ˈɔːkʃənɪŋ/", "example": { "en": "We are auctioning several old computers next week.", "zh": "我們下週要拍賣幾台舊電腦。" } }
+      ],
+      "collocations": [
+        { "phrase": "hold an auction", "zh": "舉辦拍賣會", "example": { "en": "The museum will hold an auction next month to raise money.", "zh": "博物館下個月將舉辦拍賣會來籌款。" } },
+        { "phrase": "at an auction", "zh": "在拍賣會上", "example": { "en": "She bought the antique desk at an auction last week.", "zh": "她上週在拍賣會上買了這張古董桌。" } },
+        { "phrase": "put (something) up for auction", "zh": "把…拿去拍賣", "example": { "en": "The bank put the empty building up for auction.", "zh": "銀行把這棟空建築拿去拍賣。" } },
+        { "phrase": "online auction", "zh": "網路拍賣", "example": { "en": "Many small firms sell used goods through an online auction.", "zh": "許多小公司透過網路拍賣販售二手商品。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Our manager suggested selling the old machines by auction.", "zh": "我們的經理建議用拍賣的方式賣掉舊機器。" },
+        { "tag": "電子郵件", "en": "Please register by Friday if you want to join the auction.", "zh": "如果你想參加拍賣會，請在星期五前登記。" },
+        { "tag": "新聞", "en": "The final price at the auction was higher than expected.", "zh": "拍賣會上的最終價格比預期的高。" },
+        { "tag": "動詞用法", "en": "The firm plans to auction off its extra office furniture.", "zh": "這家公司打算把多餘的辦公家具拍賣掉。" }
+      ],
+      "confusable": [
+        { "word": "action", "diff": "拼法和發音有點像，但 action 是「行動」，和拍賣無關。", "example": { "en": "The team needs to take action before the auction starts.", "zh": "團隊必須在拍賣開始前採取行動。" } }
+      ],
+      "similar": [
+        { "word": "sale", "diff": "sale 是一般的銷售或特賣，價格通常固定；auction 是出價最高者得標。", "example": { "en": "The store has a big sale on office chairs this week.", "zh": "這家店本週辦辦公椅大特賣。" } }
+      ],
+      "family": [
+        { "w": "bid", "ipa": "/bɪd/", "pos": "n.", "zh": "出價、投標", "example": { "en": "Our company made a bid of five thousand dollars.", "zh": "我們公司出價五千美元。" } },
+        { "w": "bidder", "ipa": "/ˈbɪdɚ/", "pos": "n.", "zh": "出價人、投標者", "example": { "en": "The highest bidder will take the painting home.", "zh": "出價最高的人可以把這幅畫帶回家。" } },
+        { "w": "offer", "ipa": "/ˈɔːfɚ/", "pos": "n.", "zh": "出價、提議", "example": { "en": "We made an offer on the used equipment.", "zh": "我們對這批二手設備出了價。" } }
+      ],
+      "derived": [
+        { "w": "auctioneer", "ipa": "/ˌɔːkʃəˈnɪr/", "pos": "n.", "zh": "拍賣官", "link": "auction + -eer，主持拍賣的人，像 engineer（做某種工作的人）" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈɔːkʃən/", "zh": "拍賣、拍賣會", "example": { "en": "The auction starts at ten, so please arrive early.", "zh": "拍賣會十點開始，所以請早點到。" } },
+        { "pos": "v.", "ipa": "/ˈɔːkʃən/", "zh": "拍賣（常說 auction off）", "example": { "en": "They decided to auction off the old trucks.", "zh": "他們決定把舊卡車拍賣掉。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "automobile",
+      "type": "word",
+      "ipa": "/ˈɔːtəməˌbiːl/",
+      "pos": "n.",
+      "zh": "汽車",
+      "en": "a car that people drive on the road",
+      "note": "automobile 是 car 的正式說法，多益常出現在產業、保險、製造相關的商務文章；日常口語多用 car。",
+      "forms": [
+        { "w": "automobiles", "label": "複數", "pos": "n.", "zh": "汽車（複數）", "ipa": "/ˈɔːtəməˌbiːlz/", "example": { "en": "Several automobiles were parked outside the factory entrance.", "zh": "幾輛汽車停在工廠入口外面。" } }
+      ],
+      "collocations": [
+        { "phrase": "automobile industry", "zh": "汽車產業", "example": { "en": "Many jobs in this region depend on the automobile industry.", "zh": "這個地區有許多工作要靠汽車產業。" } },
+        { "phrase": "automobile manufacturer", "zh": "汽車製造商", "example": { "en": "The automobile manufacturer plans to open a new plant.", "zh": "這家汽車製造商計畫開設新工廠。" } },
+        { "phrase": "automobile insurance", "zh": "汽車保險", "example": { "en": "You must show proof of automobile insurance when renting a car.", "zh": "租車時你必須出示汽車保險證明。" } },
+        { "phrase": "automobile parts", "zh": "汽車零件", "example": { "en": "This factory supplies automobile parts to several large companies.", "zh": "這間工廠供應汽車零件給幾家大公司。" } }
+      ],
+      "examples": [
+        { "tag": "產業", "en": "The automobile market grew quickly in Asia last year.", "zh": "去年亞洲的汽車市場成長得很快。" },
+        { "tag": "採購", "en": "We need to buy two automobiles for our sales team.", "zh": "我們需要幫業務團隊買兩輛汽車。" },
+        { "tag": "電子郵件", "en": "Your automobile will be ready for pickup by noon tomorrow.", "zh": "您的汽車明天中午前可以取車。" },
+        { "tag": "會議", "en": "Fuel costs are a major concern for automobile owners.", "zh": "燃料費用是車主主要的擔憂。" }
+      ],
+      "confusable": [
+        { "word": "automatic", "diff": "開頭拼法相近，但 automatic 是「自動的」，不是汽車。", "example": { "en": "The door has an automatic lock for safety.", "zh": "這扇門有自動鎖，確保安全。" } },
+        { "word": "automotive", "diff": "automotive 是「汽車的」，用來修飾名詞。", "usage": "automotive 是形容詞，要放在名詞前，如 automotive industry；automobile 主要是名詞（指汽車本身）。", "example": { "en": "She works for an automotive parts supplier in Taichung.", "zh": "她在台中一家汽車零件供應商工作。" } }
+      ],
+      "similar": [
+        { "word": "car", "diff": "car 是日常最常用的說法，語氣口語；automobile 比較正式。", "example": { "en": "The dealer offered us a discount on three new cars.", "zh": "經銷商給我們三輛新車的折扣。" } },
+        { "word": "vehicle", "diff": "vehicle 泛指各種車輛（包含卡車、貨車），範圍比 automobile 廣。", "example": { "en": "The company bought three new vehicles for its sales staff.", "zh": "公司幫業務人員買了三輛新車輛。" } }
+      ],
+      "family": [
+        { "w": "dealer", "ipa": "/ˈdiːlɚ/", "pos": "n.", "zh": "經銷商", "example": { "en": "The dealer will deliver the new truck on Monday.", "zh": "經銷商星期一會送來新卡車。" } },
+        { "w": "fuel", "ipa": "/ˈfjuːəl/", "pos": "n.", "zh": "燃料", "example": { "en": "Higher fuel prices increased our delivery costs this quarter.", "zh": "較高的燃料價格增加了我們本季的運送成本。" } },
+        { "w": "truck", "ipa": "/trʌk/", "pos": "n.", "zh": "卡車", "example": { "en": "The truck arrives at the warehouse every morning.", "zh": "卡車每天早上抵達倉庫。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "absent",
+      "type": "word",
+      "ipa": "/ˈæbsənt/",
+      "pos": "adj.",
+      "zh": "缺席的、不在的",
+      "en": "not at a place when you are expected to be there",
+      "note": "多益常出現在請假通知、出勤紀錄和會議紀錄中，表示某人沒有出席或沒來上班。",
+      "grammar_note": "absent 後面接 from，不接 in 或 at：be absent from the meeting。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "be absent from work", "zh": "沒來上班", "example": { "en": "He was absent from work because of a bad cold.", "zh": "他因為重感冒沒來上班。" } },
+        { "phrase": "absent from the meeting", "zh": "缺席會議", "example": { "en": "Please tell us why you were absent from the meeting.", "zh": "請告訴我們你為什麼沒有出席會議。" } },
+        { "phrase": "absent due to illness", "zh": "因病缺席", "example": { "en": "Several staff members were absent due to illness last week.", "zh": "上週有幾位員工因病缺席。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Ms. Park will be absent from work until next Monday.", "zh": "朴小姐到下週一前都不會來上班。" },
+        { "tag": "會議", "en": "Two team members were absent from yesterday's meeting.", "zh": "有兩位團隊成員缺席昨天的會議。" },
+        { "tag": "人事", "en": "Employees who are absent must call their supervisor in the morning.", "zh": "缺勤的員工必須在早上打電話給主管。" }
+      ],
+      "confusable": [
+        { "word": "present", "diff": "意思相反：present 是「出席的」，absent 是「缺席的」，兩個字尾音相近容易混。", "example": { "en": "All the team members were present at the training session.", "zh": "所有團隊成員都出席了訓練課程。" } }
+      ],
+      "similar": [
+        { "word": "away", "diff": "away 比較口語，常指人不在座位或出差；absent 較正式，強調沒有出席。", "example": { "en": "Mr. Lee is away on a business trip this week.", "zh": "李先生這週出差去了。" } },
+        { "phrase": "out of the office", "diff": "常用在電話或電子郵件的自動回覆，說明人暫時不在公司。", "example": { "en": "She is out of the office until next Monday.", "zh": "她到下週一前都不在辦公室。" } }
+      ],
+      "family": [
+        { "w": "attend", "ipa": "/əˈtend/", "pos": "v.", "zh": "出席、參加", "example": { "en": "Over fifty people will attend the annual sales meeting.", "zh": "超過五十個人將出席年度業務會議。" } },
+        { "w": "attendance", "ipa": "/əˈtendəns/", "pos": "n.", "zh": "出席（人數）", "example": { "en": "Attendance at the safety training is required for all staff.", "zh": "所有員工都必須參加安全訓練。" } },
+        { "w": "leave", "ipa": "/liːv/", "pos": "n.", "zh": "休假", "example": { "en": "He took a week of leave to visit his family.", "zh": "他請了一週的假去探望家人。" } }
+      ],
+      "derived": [
+        { "w": "absence", "ipa": "/ˈæbsəns/", "pos": "n.", "zh": "缺席", "link": "absent 的 -ent 改成 -ence，變成名詞「缺席」，像 present → presence" },
+        { "w": "absentee", "ipa": "/ˌæbsənˈtiː/", "pos": "n.", "zh": "缺席者", "link": "absent + -ee，表示「缺席的人」，像 employee、trainee" },
+        { "w": "absenteeism", "ipa": "/ˌæbsənˈtiːɪzəm/", "pos": "n.", "zh": "曠職、缺勤現象", "link": "absentee + -ism，表示「現象」，常見於 high absenteeism（高缺勤率）" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "accessible",
+      "type": "word",
+      "ipa": "/əkˈsesəbəl/",
+      "pos": "adj.",
+      "zh": "容易到達的、容易取得的",
+      "en": "easy to reach, get, or use",
+      "note": "多益常用來形容交通方便的地點、容易取得的資料或網站，以及有無障礙設施的場所。",
+      "grammar_note": "「對某人來說容易取得」用 accessible to + 人，如 accessible to all employees；「可搭某交通工具到達」用 accessible by + 交通工具。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "easily accessible", "zh": "很容易取得／到達", "example": { "en": "The documents are easily accessible from any computer in the office.", "zh": "在辦公室的任何一台電腦都能輕易取得這些文件。" } },
+        { "phrase": "accessible by public transportation", "zh": "搭大眾運輸可到達", "example": { "en": "The hotel is accessible by public transportation from the airport.", "zh": "從機場搭大眾運輸就能到這間飯店。" } },
+        { "phrase": "accessible to the public", "zh": "開放給大眾", "example": { "en": "The new library will be accessible to the public next month.", "zh": "新圖書館下個月將開放給大眾使用。" } },
+        { "phrase": "wheelchair accessible", "zh": "輪椅可進出的", "example": { "en": "All meeting rooms in this building are wheelchair accessible.", "zh": "這棟大樓的所有會議室都適合輪椅進出。" } }
+      ],
+      "examples": [
+        { "tag": "地點", "en": "The new office is accessible by bus and subway.", "zh": "新辦公室搭公車和地鐵都能到。" },
+        { "tag": "網站", "en": "All training videos are accessible on the company website.", "zh": "所有訓練影片都能在公司網站上看到。" },
+        { "tag": "會議", "en": "The report must be accessible to everyone on the team.", "zh": "這份報告必須讓團隊裡每個人都看得到。" }
+      ],
+      "confusable": [
+        { "word": "acceptable", "diff": "拼法和字尾很像，但 acceptable 是「可接受的」，不是「容易取得」。", "example": { "en": "The terms of the contract are acceptable to us.", "zh": "合約條款我們可以接受。" } }
+      ],
+      "similar": [
+        { "word": "available", "diff": "available 強調「現在有、可取得或有空」；accessible 強調「容易到達或使用」。", "example": { "en": "The latest report is available on our website now.", "zh": "最新的報告現在可以在我們的網站上取得。" } },
+        { "word": "convenient", "diff": "convenient 強調「方便、省事」；accessible 強調「能不能順利到達或取得」。", "example": { "en": "The hotel has a convenient location near the train station.", "zh": "這間飯店位置方便，就在火車站附近。" } }
+      ],
+      "family": [
+        { "w": "user-friendly", "ipa": "/ˌjuːzɚ ˈfrendli/", "pos": "adj.", "zh": "容易使用的", "example": { "en": "The new software is user-friendly and easy to learn.", "zh": "這套新軟體容易使用，也很好學。" } },
+        { "w": "nearby", "ipa": "/ˌnɪrˈbaɪ/", "pos": "adj.", "zh": "附近的", "example": { "en": "Please use the nearby parking lot during the event.", "zh": "活動期間請使用附近的停車場。" } }
+      ],
+      "derived": [
+        { "w": "access", "ipa": "/ˈækses/", "pos": "n.／v.", "zh": "使用權、進入；存取", "link": "access 是詞幹，加 -ible 變成「可以進入／取得的」" },
+        { "w": "accessibility", "ipa": "/əkˌsesəˈbɪləti/", "pos": "n.", "zh": "可及性、無障礙", "link": "accessible 把 -le 改成 -ility，變成名詞，像 possible → possibility" },
+        { "w": "inaccessible", "ipa": "/ˌɪnəkˈsesəbəl/", "pos": "adj.", "zh": "難以到達的、無法取得的", "link": "in- + accessible，字首 in- 表示「不」，像 inactive、incorrect" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "容易到達的", "en": "easy to get to", "example": { "en": "Our factory is accessible from the main highway.", "zh": "從主要公路就能輕易到達我們的工廠。" } },
+        { "pos": "adj.", "zh": "容易取得或使用的", "en": "easy to get or use", "distinguish": "主詞是資料、服務或系統時，通常是這個意思。", "example": { "en": "The company made its price list accessible to all clients.", "zh": "公司讓所有客戶都能取得它的價目表。" } },
+        { "pos": "adj.", "zh": "容易理解的", "en": "easy to understand", "distinguish": "形容文字、說明書或簡報，後面常接 to beginners 這類對象。", "example": { "en": "The manual uses simple words to make it accessible to beginners.", "zh": "這份手冊用簡單的字，讓初學者容易理解。" } }
+      ]
+    },
+    {
+      "text": "accomplishment",
+      "type": "word",
+      "ipa": "/əˈkɑːmplɪʃmənt/",
+      "pos": "n.",
+      "zh": "成就、成績",
+      "en": "something good that you finished or reached",
+      "note": "多益常見於履歷、績效評估和公司公告，用來說明某人或團隊完成的成果。語氣正面，帶有稱讚的意味。",
+      "grammar_note": "表示一項具體成就時是可數名詞（a great accomplishment）；表示成就感時用不可數（a sense of accomplishment）。",
+      "forms": [
+        { "w": "accomplishments", "label": "複數", "pos": "n.", "zh": "成就（複數）", "ipa": "/əˈkɑːmplɪʃmənts/", "example": { "en": "Her accomplishments at the company were mentioned in the speech.", "zh": "她在公司的成就在演講中被提到。" } }
+      ],
+      "collocations": [
+        { "phrase": "a great accomplishment", "zh": "很大的成就", "example": { "en": "Opening three new stores in one year was a great accomplishment.", "zh": "一年內開三家新店是很大的成就。" } },
+        { "phrase": "a sense of accomplishment", "zh": "成就感", "example": { "en": "Finishing the project early gave everyone a sense of accomplishment.", "zh": "提早完成專案讓大家很有成就感。" } },
+        { "phrase": "key accomplishments", "zh": "主要成就", "example": { "en": "Please include your key accomplishments in the yearly review.", "zh": "請把你的主要成就寫進年度考核。" } }
+      ],
+      "examples": [
+        { "tag": "履歷", "en": "List your main accomplishments in the first section of your resume.", "zh": "請把你的主要成就列在履歷的第一段。" },
+        { "tag": "會議", "en": "The CEO praised the team for its recent accomplishments.", "zh": "執行長稱讚團隊最近的成就。" },
+        { "tag": "電子郵件", "en": "Congratulations on this important accomplishment, and thank you for your hard work.", "zh": "恭喜完成這項重要成就，也謝謝你的努力。" }
+      ],
+      "confusable": [
+        { "word": "accompany", "diff": "拼法開頭很像，但 accompany 是「陪同」。", "usage": "accompany 是動詞，accomplishment 是名詞，不能互換。", "example": { "en": "Mr. Chen will accompany the clients to the factory.", "zh": "陳先生會陪同客戶去工廠。" } }
+      ],
+      "similar": [
+        { "word": "achievement", "diff": "achievement 更常指達成目標或得獎的成果；accomplishment 強調完成了某件事。", "example": { "en": "Winning the contract was a great achievement for our team.", "zh": "贏得合約對我們團隊是很大的成果。" } },
+        { "word": "success", "diff": "success 指好的結果，不一定是個人努力完成的事；accomplishment 強調做完了什麼。", "example": { "en": "The product launch was a big success for the company.", "zh": "這次產品上市對公司來說非常成功。" } }
+      ],
+      "family": [
+        { "w": "goal", "ipa": "/goʊl/", "pos": "n.", "zh": "目標", "example": { "en": "Our main goal this year is to increase sales.", "zh": "我們今年的主要目標是提高銷售額。" } },
+        { "w": "progress", "ipa": "/ˈprɑːɡres/", "pos": "n.", "zh": "進展", "example": { "en": "The team made good progress on the new project.", "zh": "團隊在新專案上有不錯的進展。" } }
+      ],
+      "derived": [
+        { "w": "accomplish", "ipa": "/əˈkɑːmplɪʃ/", "pos": "v.", "zh": "完成、達成", "link": "accomplish 是詞幹，加 -ment 變成名詞，像 pay → payment、agree → agreement" },
+        { "w": "accomplished", "ipa": "/əˈkɑːmplɪʃt/", "pos": "adj.", "zh": "有成就的、很熟練的", "link": "accomplish + -ed，當形容詞表示「有成就的」，像 experienced、skilled" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "成就、成績", "en": "something good that you have finished or reached", "example": { "en": "Finishing the audit on time was her biggest accomplishment.", "zh": "準時完成稽核是她最大的成就。" } },
+        { "pos": "n.", "zh": "完成、達成", "en": "the act of finishing something successfully", "distinguish": "這個意思指「完成這件事的行為」，後面常接 of。", "example": { "en": "The accomplishment of this task will take about three months.", "zh": "完成這項任務大約需要三個月。" } }
+      ]
+    },
+    {
+      "text": "accuracy",
+      "type": "word",
+      "ipa": "/ˈækjərəsi/",
+      "pos": "n.",
+      "zh": "準確度、正確性",
+      "en": "the quality of being correct and without mistakes",
+      "note": "多益常見於財務報告、資料檢查、機器和軟體的描述，強調數字或資訊沒有錯誤。",
+      "grammar_note": "accuracy 當「準確度」時是不可數名詞，不加 s；修飾名詞要用形容詞 accurate（accurate data），不能寫 accuracy data。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "ensure accuracy", "zh": "確保準確", "example": { "en": "We use two checks to ensure accuracy in every invoice.", "zh": "我們用兩道檢查來確保每張發票都正確。" } },
+        { "phrase": "check the accuracy of", "zh": "檢查…的正確性", "example": { "en": "Please check the accuracy of the figures before the meeting.", "zh": "開會前請檢查這些數字是否正確。" } },
+        { "phrase": "with great accuracy", "zh": "非常準確地", "example": { "en": "The software predicts monthly sales with great accuracy.", "zh": "這套軟體能非常準確地預測每月銷售額。" } },
+        { "phrase": "improve accuracy", "zh": "提高準確度", "example": { "en": "Staff training can improve accuracy in customer orders.", "zh": "員工訓練可以提高客戶訂單的準確度。" } }
+      ],
+      "examples": [
+        { "tag": "財務", "en": "Accuracy is very important when you prepare financial reports.", "zh": "準備財務報告時，準確度非常重要。" },
+        { "tag": "電子郵件", "en": "Thank you for your accuracy and speed in handling these orders.", "zh": "謝謝你處理這些訂單時又準又快。" },
+        { "tag": "新聞", "en": "The accuracy of this weather forecast is surprisingly high.", "zh": "這份天氣預報的準確度出乎意料地高。" }
+      ],
+      "confusable": [
+        { "word": "accurate", "diff": "意思相近，但 accurate 是形容詞「準確的」。", "usage": "accuracy 是名詞（the accuracy of the data），accurate 是形容詞（accurate data），填空題要看空格的詞性。", "example": { "en": "We need accurate numbers before we send the final report.", "zh": "寄出最終報告前，我們需要準確的數字。" } }
+      ],
+      "similar": [
+        { "word": "precision", "diff": "precision 強調非常精細、細節到位；accuracy 強調接近正確答案。", "example": { "en": "The machine cuts metal with great precision.", "zh": "這台機器切割金屬非常精準。" } },
+        { "word": "correctness", "diff": "correctness 單純指「對不對」；accuracy 常指程度高低。", "example": { "en": "Please confirm the correctness of the address on this form.", "zh": "請確認這張表格上的地址是否正確。" } }
+      ],
+      "family": [
+        { "w": "error", "ipa": "/ˈerɚ/", "pos": "n.", "zh": "錯誤", "example": { "en": "We found an error in the second page of the report.", "zh": "我們在報告第二頁發現一個錯誤。" } },
+        { "w": "mistake", "ipa": "/mɪˈsteɪk/", "pos": "n.", "zh": "失誤、錯誤", "example": { "en": "A small mistake in the order cost us a client.", "zh": "訂單上一個小失誤讓我們失去了一位客戶。" } }
+      ],
+      "derived": [
+        { "w": "accurate", "ipa": "/ˈækjərət/", "pos": "adj.", "zh": "準確的", "link": "accurate 是詞幹；把 -te 改成 -cy 變名詞，像 private → privacy" },
+        { "w": "accurately", "ipa": "/ˈækjərətli/", "pos": "adv.", "zh": "準確地", "link": "accurate + -ly，變成副詞，像 quickly、clearly" },
+        { "w": "inaccurate", "ipa": "/ɪnˈækjərət/", "pos": "adj.", "zh": "不準確的", "link": "in- + accurate，字首 in- 表示「不」，像 inactive、incorrect" },
+        { "w": "inaccuracy", "ipa": "/ɪnˈækjərəsi/", "pos": "n.", "zh": "不準確、錯誤之處", "link": "in- + accuracy，「不準確」，可數，指具體的錯誤" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "actively",
+      "type": "word",
+      "ipa": "/ˈæktɪvli/",
+      "pos": "adv.",
+      "zh": "積極地、主動地",
+      "en": "in a way that shows you are doing things with energy and interest",
+      "note": "多益常見於招募、行銷和會議情境，如 actively seeking、actively involved。表示不是被動等待，而是主動採取行動。",
+      "grammar_note": "actively 是副詞，通常放在一般動詞前（actively seek new clients），不要插在動詞和受詞之間寫成 seek actively new clients。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "actively seek", "zh": "積極尋找", "example": { "en": "The firm is actively seeking new suppliers in Asia.", "zh": "這家公司正積極在亞洲尋找新供應商。" } },
+        { "phrase": "actively participate in", "zh": "積極參與", "example": { "en": "Employees are encouraged to actively participate in training programs.", "zh": "公司鼓勵員工積極參與訓練課程。" } },
+        { "phrase": "be actively involved in", "zh": "積極投入…", "example": { "en": "Our director is actively involved in every major project.", "zh": "我們的主任積極投入每一個重要專案。" } },
+        { "phrase": "actively encourage", "zh": "積極鼓勵", "example": { "en": "The manager actively encourages staff to share new ideas.", "zh": "經理積極鼓勵員工分享新想法。" } }
+      ],
+      "examples": [
+        { "tag": "招募", "en": "We are actively looking for a new marketing manager.", "zh": "我們正積極尋找新的行銷經理。" },
+        { "tag": "會議", "en": "Everyone should actively take part in the discussion.", "zh": "每個人都應該積極參與討論。" },
+        { "tag": "行銷", "en": "The company actively promotes its products on social media.", "zh": "這家公司在社群媒體上積極推廣產品。" }
+      ],
+      "confusable": [
+        { "word": "active", "diff": "意思相近，但 active 是形容詞「活躍的」。", "usage": "active 是形容詞，修飾名詞（an active member）；actively 是副詞，修飾動詞（actively participate）。", "example": { "en": "We need an active member to lead the project team.", "zh": "我們需要一位活躍的成員來帶領專案團隊。" } },
+        { "word": "actually", "diff": "拼法和發音有點像，但 actually 是「實際上」，用來更正或強調事實。", "example": { "en": "The meeting actually ended earlier than we planned.", "zh": "會議實際上比我們計畫的更早結束。" } }
+      ],
+      "similar": [
+        { "word": "eagerly", "diff": "eagerly 強調熱切期待；actively 強調有採取行動。", "example": { "en": "The staff are eagerly waiting for the new schedule.", "zh": "員工熱切地等著新的時間表。" } },
+        { "word": "enthusiastically", "diff": "enthusiastically 強調態度熱情；actively 強調行動主動。", "example": { "en": "She enthusiastically accepted the offer to lead the team.", "zh": "她熱情地接受了帶領團隊的邀請。" } }
+      ],
+      "family": [
+        { "w": "closely", "ipa": "/ˈkloʊsli/", "pos": "adv.", "zh": "密切地", "example": { "en": "Our team works closely with the design department.", "zh": "我們團隊和設計部門密切合作。" } },
+        { "w": "regularly", "ipa": "/ˈreɡjələrli/", "pos": "adv.", "zh": "定期地", "example": { "en": "We regularly update our website with new product photos.", "zh": "我們定期用新的產品照片更新網站。" } },
+        { "w": "currently", "ipa": "/ˈkɜːrəntli/", "pos": "adv.", "zh": "目前", "example": { "en": "The branch office is currently closed for repairs.", "zh": "分公司目前因整修而關閉。" } }
+      ],
+      "derived": [
+        { "w": "act", "ipa": "/ækt/", "pos": "v.", "zh": "行動、採取行動", "link": "act 是詞幹，表示「行動」，像 action" },
+        { "w": "active", "ipa": "/ˈæktɪv/", "pos": "adj.", "zh": "活躍的、積極的", "link": "act + -ive，形容詞，表示「愛行動的」，像 attractive、creative" },
+        { "w": "activity", "ipa": "/ækˈtɪvəti/", "pos": "n.", "zh": "活動", "link": "active 把 -ive 改成 -ity，變成名詞「活動」，像 creative → creativity" },
+        { "w": "activate", "ipa": "/ˈæktɪˌveɪt/", "pos": "v.", "zh": "啟動、啟用", "link": "active + -ate，動詞字尾，「使變成運作中」，像 operate" },
+        { "w": "inactive", "ipa": "/ɪnˈæktɪv/", "pos": "adj.", "zh": "不活躍的、停用的", "link": "in- + active，字首 in- 表示「不」，像 incorrect" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "administrator",
+      "type": "word",
+      "ipa": "/ədˈmɪnəˌstreɪtɚ/",
+      "pos": "n.",
+      "zh": "行政人員、管理人員、系統管理員",
+      "en": "a person whose job is to manage the daily work of an organization or a system",
+      "note": "多益常見於學校、醫院和公司辦公室的行政職位，也常指電腦的 system administrator。口語常簡稱 admin。",
+      "forms": [
+        { "w": "administrators", "label": "複數", "pos": "n.", "zh": "行政人員（複數）", "ipa": "/ədˈmɪnəˌstreɪtɚz/", "example": { "en": "Administrators from five branches joined the video call.", "zh": "五間分公司的行政人員加入了視訊會議。" } }
+      ],
+      "collocations": [
+        { "phrase": "hospital administrator", "zh": "醫院行政主管", "example": { "en": "The hospital administrator met doctors about the new budget.", "zh": "醫院行政主管和醫師討論了新預算。" } },
+        { "phrase": "school administrator", "zh": "學校行政人員", "example": { "en": "The school administrator sent a notice to all parents.", "zh": "學校行政人員寄了一份通知給所有家長。" } },
+        { "phrase": "network administrator", "zh": "網路管理員", "example": { "en": "Our network administrator fixed the internet problem this morning.", "zh": "我們的網路管理員今天早上修好了網路問題。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Please send your leave request to the office administrator.", "zh": "請把你的請假申請寄給辦公室行政人員。" },
+        { "tag": "會議", "en": "The administrator will explain the new rules at Monday's meeting.", "zh": "行政人員會在星期一的會議上說明新規定。" },
+        { "tag": "IT", "en": "The administrator can reset your password within five minutes.", "zh": "管理員可以在五分鐘內重設你的密碼。" }
+      ],
+      "confusable": [
+        { "word": "administration", "diff": "administration 是「行政管理工作」或「行政部門」，不是指人。", "usage": "administrator 指人，是可數名詞；administration 指事務或部門，通常不可數。", "example": { "en": "The school administration approved the new class schedule.", "zh": "學校行政單位核准了新的課表。" } }
+      ],
+      "similar": [
+        { "word": "manager", "diff": "manager 負責帶領團隊或部門的業務；administrator 偏重行政事務與制度運作。", "example": { "en": "The manager approved the leave request this morning.", "zh": "經理今天早上核准了請假申請。" } },
+        { "word": "executive", "diff": "executive 是高階主管，負責重要決策；administrator 負責日常行政運作。", "example": { "en": "The executive will review the plan before the board meeting.", "zh": "這位主管會在董事會前審閱這份計畫。" } }
+      ],
+      "family": [
+        { "w": "secretary", "ipa": "/ˈsekrəteri/", "pos": "n.", "zh": "秘書", "example": { "en": "The secretary booked a meeting room for Tuesday.", "zh": "秘書預訂了星期二的會議室。" } },
+        { "w": "assistant", "ipa": "/əˈsɪstənt/", "pos": "n.", "zh": "助理", "example": { "en": "My assistant will send you the schedule today.", "zh": "我的助理今天會把時間表寄給你。" } },
+        { "w": "clerk", "ipa": "/klɜːrk/", "pos": "n.", "zh": "職員、店員", "example": { "en": "The clerk checked the invoice and signed the form.", "zh": "職員檢查了發票並在表格上簽名。" } }
+      ],
+      "derived": [
+        { "w": "administer", "ipa": "/ədˈmɪnɪstɚ/", "pos": "v.", "zh": "管理、執行", "link": "administer 是詞幹，表示「管理、執行」，加 -ator 變成做這件事的人" },
+        { "w": "administration", "ipa": "/ədˌmɪnɪˈstreɪʃən/", "pos": "n.", "zh": "行政管理、行政部門", "link": "administer 把 -er 改成 -ation，變成名詞，像 register → registration" },
+        { "w": "administrative", "ipa": "/ədˈmɪnɪˌstreɪtɪv/", "pos": "adj.", "zh": "行政的", "link": "administrate + -ive，形容詞「行政的」，如 administrative assistant（行政助理）" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "行政人員", "en": "a person who manages the daily work of an organization", "example": { "en": "The new administrator will manage our office budget and schedules.", "zh": "新來的行政人員將負責管理我們辦公室的預算和行程。" } },
+        { "pos": "n.", "zh": "系統管理員", "en": "a person who takes care of a computer system", "distinguish": "出現 system、network、password 等電腦相關字時，通常是這個意思。", "example": { "en": "The system administrator updated all company computers overnight.", "zh": "系統管理員在夜間更新了公司所有電腦。" } }
+      ]
+    },
+    {
+      "text": "affordable",
+      "type": "word",
+      "ipa": "/əˈfɔːrdəbəl/",
+      "pos": "adj.",
+      "zh": "負擔得起的、價格合理的",
+      "en": "not too expensive, so people can pay for it",
+      "note": "多益常見於廣告、房價、產品、機票和服務的描述，強調一般人或小公司付得起，語氣正面。",
+      "grammar_note": "affordable 的主詞是東西（價格、服務），不是人；說「某人負擔得起」要用動詞 afford，如 We can afford a new truck。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "affordable price", "zh": "合理的價格", "example": { "en": "The store sells good shoes at an affordable price.", "zh": "這家店以合理的價格賣好鞋。" } },
+        { "phrase": "affordable housing", "zh": "可負擔的住宅", "example": { "en": "The city plans to build more affordable housing downtown.", "zh": "市政府計畫在市中心蓋更多可負擔的住宅。" } },
+        { "phrase": "at an affordable rate", "zh": "以合理的費率", "example": { "en": "The hotel offers meeting rooms at an affordable rate.", "zh": "這間飯店以合理的費率提供會議室。" } },
+        { "phrase": "affordable option", "zh": "負擔得起的選擇", "example": { "en": "A used truck is the most affordable option for us.", "zh": "二手卡車對我們來說是最負擔得起的選擇。" } }
+      ],
+      "examples": [
+        { "tag": "廣告", "en": "This laptop is both powerful and affordable for small businesses.", "zh": "這台筆電功能強大，小型企業也買得起。" },
+        { "tag": "採購", "en": "The buyer is looking for an affordable supplier of paper.", "zh": "採購人員在找價格合理的紙張供應商。" },
+        { "tag": "會議", "en": "Our goal is to keep the service affordable for everyone.", "zh": "我們的目標是讓每個人都負擔得起這項服務。" }
+      ],
+      "confusable": [
+        { "word": "available", "diff": "字尾都是 -able，但 available 是「可取得的、有空的」，和價格無關。", "example": { "en": "The conference room is available from two to four.", "zh": "會議室兩點到四點可以使用。" } }
+      ],
+      "similar": [
+        { "word": "inexpensive", "diff": "inexpensive 只說價格不貴；affordable 強調一般人付得起。", "example": { "en": "These inexpensive chairs are good for small offices.", "zh": "這些不貴的椅子很適合小型辦公室。" } },
+        { "word": "reasonable", "diff": "reasonable 強調價格公道、合理，不一定很便宜。", "example": { "en": "The restaurant offers reasonable prices for business lunches.", "zh": "這家餐廳的商業午餐價格公道。" } },
+        { "word": "cheap", "diff": "cheap 單純指便宜，有時暗示品質不好；affordable 沒有這種負面意思。", "example": { "en": "The cheap printer broke after only two weeks.", "zh": "那台便宜的印表機只用了兩週就壞了。" } }
+      ],
+      "family": [
+        { "w": "budget", "ipa": "/ˈbʌdʒɪt/", "pos": "n.", "zh": "預算", "example": { "en": "Our travel budget is very limited this year.", "zh": "我們今年的差旅預算很有限。" } },
+        { "w": "expensive", "ipa": "/ɪkˈspensɪv/", "pos": "adj.", "zh": "昂貴的", "example": { "en": "The new software is too expensive for our small team.", "zh": "這套新軟體對我們的小團隊來說太貴了。" } },
+        { "w": "discount", "ipa": "/ˈdɪskaʊnt/", "pos": "n.", "zh": "折扣", "example": { "en": "The supplier gave us a ten percent discount on bulk orders.", "zh": "供應商給我們大量訂購九折的優惠。" } }
+      ],
+      "derived": [
+        { "w": "afford", "ipa": "/əˈfɔːrd/", "pos": "v.", "zh": "負擔得起", "link": "afford 是詞幹，加 -able 變成「負擔得起的」，像 available、reasonable" },
+        { "w": "affordability", "ipa": "/əˌfɔːrdəˈbɪləti/", "pos": "n.", "zh": "可負擔性、負擔得起的程度", "link": "affordable 把 -le 改成 -ility，變成名詞，像 possible → possibility" },
+        { "w": "unaffordable", "ipa": "/ˌʌnəˈfɔːrdəbəl/", "pos": "adj.", "zh": "負擔不起的", "link": "un- + affordable，字首 un- 表示「不」，像 unable、unhappy" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

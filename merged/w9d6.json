@@ -1,0 +1,149 @@
+{
+ "week": 9,
+ "day": 6,
+ "tag": "保險與稅務顧問服務徵求提案公告",
+ "subtopic": "保險與稅務",
+ "type": "Reading",
+ "level": {
+  "score": 775,
+  "range": "725-825",
+  "cefr": "B2+",
+  "why": "公告含關係子句、被動語態與條件限制，需整合徵求目的、提案內容與推薦信條件；字彙偏抽象（dependence、diversified、comparable），干擾項取自文中相近資訊。"
+ },
+ "passage": "Notice: Request for Proposals, Insurance and Tax Advisory Services\n\nHarbor Valley Manufacturing is seeking an outside firm to review its corporate insurance policies and to advise on tax planning for the coming fiscal year. Our current arrangement has led to a heavy dependence on a single insurer, and annual premiums have risen faster than our revenue. We therefore want fresh insight into how coverage can be diversified without weakening protection.\n\nInterested firms must submit a proposal that outlines their approach, a fee schedule, and a list of at least three comparable clients. Lead consultants should have practical experience with the national tax code as it applies to manufacturers, and each proposal must include a reference letter from a client executive who has used the firm's services for two years or more. Proposals may not reproduce material from earlier submissions, and the signed confidentiality form must be inserted as the last page of the document.\n\nProposals are due by five in the afternoon on Friday, December 11. Finalists will be invited to present to our finance committee during the following week.",
+ "zh": "公告：保險與稅務顧問服務徵求提案\n\n哈伯谷製造公司正在尋找一家外部事務所，協助檢視公司的企業保險保單，並就來年度的稅務規劃提供建議。我們目前的安排導致對單一保險公司高度依賴，而且年度保費的成長速度已超過營收。因此，我們希望獲得全新的見解，了解如何在不削弱保障的前提下讓承保範圍更多元。\n\n有意參與的事務所必須提交一份提案，內容包含其作法、費用表，以及至少三家類似客戶的名單。主要顧問應具備將國家稅法應用於製造業的實務經驗，而且每份提案都必須附上一封由使用該事務所服務滿兩年以上的客戶主管所出具的推薦信。提案不得重製先前提交案件的內容，簽署完成的保密表格必須放入文件作為最後一頁。\n\n提案截止時間為 12 月 11 日星期五下午五點。入圍者將受邀於隔週向我們的財務委員會簡報。",
+ "vocab": [
+  {
+   "word": "dependence",
+   "ipa": "/dɪˈpɛndəns/",
+   "pos": "n.",
+   "col": "dependence on / heavy dependence",
+   "zh": "依賴；依靠"
+  },
+  {
+   "word": "premium",
+   "ipa": "/ˈprimiəm/",
+   "pos": "n.",
+   "col": "insurance premium / pay a premium",
+   "zh": "保險費；保費"
+  },
+  {
+   "word": "reproduce",
+   "ipa": "/ˌriprəˈdus/",
+   "pos": "v.",
+   "col": "reproduce a document / reproduce results",
+   "zh": "複製；重製"
+  },
+  {
+   "word": "insert",
+   "ipa": "/ɪnˈsɝt/",
+   "pos": "v.",
+   "col": "insert a page / insert a clause",
+   "zh": "插入；放入"
+  }
+ ],
+ "questions": [
+  {
+   "kind": "context",
+   "q": "What is the main purpose of the notice?",
+   "opts": [
+    "To invite firms to propose insurance and tax advisory services",
+    "To announce a change in the company's tax rate",
+    "To report the results of a recent audit",
+    "To introduce a new insurance provider"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：公告徵求外部事務所提出保險與稅務顧問服務的提案。",
+    "錯誤：公司並未宣布稅率變動，稅率也不是公司能決定的。",
+    "錯誤：文中沒有提到稽核結果。",
+    "錯誤：公司是在尋找顧問，並非介紹新保險公司。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What problem does the company mention about its current insurance?",
+   "opts": [
+    "Several claims were denied last year",
+    "It relies heavily on one insurer, and premiums have grown faster than revenue",
+    "It was fined for filing tax documents late",
+    "The coverage will expire at the end of the year"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：文中沒有提到理賠被拒。",
+    "正解：公司高度依賴單一保險公司，保費成長快於營收。",
+    "錯誤：文中沒有提到遲繳稅務文件被罰款。",
+    "錯誤：文中沒有提到保單到期。"
+   ]
+  },
+  {
+   "kind": "context",
+   "q": "What is required of the reference letter?",
+   "opts": [
+    "It must be written by a former employee of the company",
+    "It must come from a government tax officer",
+    "It must be from a client executive who has used the firm's services for at least two years",
+    "It must be signed by the finance committee"
+   ],
+   "ans": 2,
+   "why": [
+    "錯誤：推薦信應來自客戶，而非公司前員工。",
+    "錯誤：文中沒有要求稅務官員出具。",
+    "正解：須由使用事務所服務兩年以上的客戶主管出具。",
+    "錯誤：財務委員會是負責聽取簡報的對象，不是出具推薦信者。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Employees must report any change in marital status ______ the benefits office within thirty days so that their coverage can be updated.",
+   "opts": [
+    "of",
+    "at",
+    "for",
+    "to"
+   ],
+   "ans": 3,
+   "why": [
+    "錯誤：report of 語意與句型不符。",
+    "錯誤：report at 用法不當。",
+    "錯誤：report for 表示報到，語意不符。",
+    "正解：report ... to 表示向某單位通報。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Companies that file their tax returns ______ the deadline may face additional penalties.",
+   "opts": [
+    "after",
+    "until",
+    "during",
+    "since"
+   ],
+   "ans": 0,
+   "why": [
+    "正解：after the deadline 表示逾期，符合語意。",
+    "錯誤：until 表示持續到某時，不適合此處。",
+    "錯誤：during 後接一段期間，deadline 為時間點。",
+    "錯誤：since 表示自…以來，語意不符。"
+   ]
+  },
+  {
+   "kind": "part5",
+   "q": "Insurance ______ for the factory vary depending on its location and size.",
+   "opts": [
+    "premium",
+    "premiums",
+    "premiumed",
+    "premiuming"
+   ],
+   "ans": 1,
+   "why": [
+    "錯誤：premium 為單數，與動詞 vary 不一致。",
+    "正解：主詞需複數名詞 premiums，與 vary 一致。",
+    "錯誤：premiumed 不是常用詞形。",
+    "錯誤：premiuming 不是常用詞形。"
+   ]
+  }
+ ]
+}

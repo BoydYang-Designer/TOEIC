@@ -1,0 +1,328 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "bye",
+      "type": "word",
+      "ipa": "/baɪ/",
+      "pos": "interj.",
+      "zh": "再見",
+      "en": "a word you say when you leave",
+      "note": "多益常出現在電話、會議結束或辦公室對話裡，是比較口語、輕鬆的道別。正式的商務信件結尾通常不用 bye。",
+      "grammar_note": "bye 是口語道別語，書信或正式場合改用 Best regards 或 Sincerely 等結尾語。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "say bye to", "zh": "向…道別", "example": { "en": "Please say bye to the clients before they leave the building.", "zh": "請在客戶離開大樓前向他們道別。" } },
+        { "phrase": "bye for now", "zh": "先這樣，再聊", "example": { "en": "Let's finish here. Bye for now, and talk to you next week.", "zh": "今天先到這裡。先這樣，下週再聊。" } },
+        { "phrase": "bye-bye", "zh": "掰掰（更口語）", "example": { "en": "The receptionist said bye-bye to the guests and closed the door.", "zh": "櫃台人員向訪客說掰掰後把門關上。" } }
+      ],
+      "examples": [
+        { "tag": "電話", "en": "Thank you for calling. Bye, and have a nice day.", "zh": "謝謝您來電。再見，祝您有美好的一天。" },
+        { "tag": "會議", "en": "I have another meeting, so I have to say bye now.", "zh": "我還有另一場會議，所以現在得先道別了。" },
+        { "tag": "辦公室", "en": "She waved and said bye to her coworkers at the door.", "zh": "她在門口揮手，向同事們說再見。" }
+      ],
+      "confusable": [
+        { "word": "buy", "diff": "發音和 bye 完全相同，但 buy 是動詞，意思是「買」。", "usage": "bye 是感嘆詞（道別），buy 是動詞（買東西），只有發音一樣，詞性與意思完全不同。", "example": { "en": "We need to buy new printer paper before the end of the week.", "zh": "我們需要在本週結束前買新的影印紙。" } },
+        { "word": "by", "diff": "發音相同，by 是介系詞，表示「在…之前」或「藉由」。", "usage": "by 後面接時間或方法，bye 單獨使用，不接其他字。", "example": { "en": "Please send the report by five o'clock today.", "zh": "請在今天五點前寄出報告。" } }
+      ],
+      "similar": [
+        { "word": "goodbye", "diff": "意思相同但比 bye 稍正式，客服與接待場合常用。", "example": { "en": "Goodbye, Mr. Lee. Thank you for visiting our office today.", "zh": "李先生再見，謝謝您今天來我們辦公室。" } },
+        { "phrase": "see you later", "diff": "比 bye 多了「待會見」的語氣，通常表示很快會再見面。", "example": { "en": "I have to go now, so see you later at the meeting.", "zh": "我現在得走了，會議上見。" } }
+      ],
+      "family": [
+        { "w": "goodbye", "pos": "interj.", "zh": "再見", "ipa": "/ˌɡʊdˈbaɪ/", "example": { "en": "The manager said goodbye to the team and left early.", "zh": "經理向團隊道別後提早離開了。" } },
+        { "w": "hello", "pos": "interj.", "zh": "哈囉、你好", "ipa": "/həˈloʊ/", "example": { "en": "Hello, this is Anna from the sales department.", "zh": "你好，我是業務部的安娜。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "businessman",
+      "type": "word",
+      "ipa": "/ˈbɪznəsmæn/",
+      "pos": "n.",
+      "zh": "商人、企業家（男性）",
+      "en": "a man who works in business, often as an owner or manager",
+      "note": "多益常見於人物介紹、新聞報導與廣告，指做生意或在公司擔任重要角色的人。現在也常用比較不分性別的 businessperson。",
+      "grammar_note": "指女性用 businesswoman，不分性別可用 businessperson。",
+      "forms": [
+        { "w": "businessmen", "label": "複數", "pos": "n.", "zh": "商人（複數）", "ipa": "/ˈbɪznəsmən/", "example": { "en": "Many businessmen attended the trade show held in Taipei last week.", "zh": "許多商人參加了上週在台北舉辦的貿易展。" } }
+      ],
+      "collocations": [
+        { "phrase": "successful businessman", "zh": "成功的商人", "example": { "en": "He became a successful businessman after he started his own company.", "zh": "他創立自己的公司後成為一位成功的商人。" } },
+        { "phrase": "local businessman", "zh": "當地商人", "example": { "en": "A local businessman donated money to the new community school.", "zh": "一位當地商人捐款給新的社區學校。" } },
+        { "phrase": "retired businessman", "zh": "退休的商人", "example": { "en": "The retired businessman now teaches a class on small business.", "zh": "這位退休的商人現在開設小型企業的課程。" } }
+      ],
+      "examples": [
+        { "tag": "新聞", "en": "The company was started by a young businessman in 2010.", "zh": "這家公司是由一位年輕商人在 2010 年創立的。" },
+        { "tag": "會議", "en": "A well-known businessman will speak at our conference next month.", "zh": "一位知名商人下個月會在我們的研討會上演講。" },
+        { "tag": "電子郵件", "en": "Please introduce yourself to the businessman waiting in the lobby.", "zh": "請向在大廳等候的那位商人自我介紹。" }
+      ],
+      "confusable": [
+        { "word": "business", "diff": "business 是「生意、公司」，businessman 是做生意的「人」。", "example": { "en": "Our business grew quickly after we opened the second store.", "zh": "我們開了第二家店後，生意成長得很快。" } }
+      ],
+      "similar": [
+        { "word": "businessperson", "diff": "意思相同，但不分性別，較中性，現代商務文章更常見。", "example": { "en": "The businessperson signed the contract and shook hands with us.", "zh": "這位商人簽了合約並和我們握手。" } },
+        { "word": "owner", "diff": "owner 強調「擁有」公司或店面；businessman 只說明這個人從事商業。", "example": { "en": "The company owner will join our meeting this afternoon.", "zh": "公司老闆今天下午會參加我們的會議。" } }
+      ],
+      "family": [
+        { "w": "executive", "pos": "n.", "zh": "主管、高階經理人", "ipa": "/ɪɡˈzekjətɪv/", "example": { "en": "The executive approved the new budget this morning.", "zh": "這位主管今天早上核准了新預算。" } },
+        { "w": "manager", "pos": "n.", "zh": "經理", "ipa": "/ˈmænɪdʒɚ/", "example": { "en": "Our manager will explain the new rules at noon.", "zh": "我們的經理中午會說明新規定。" } },
+        { "w": "owner", "pos": "n.", "zh": "所有人、老闆", "ipa": "/ˈoʊnɚ/", "example": { "en": "The owner of the shop is out of town today.", "zh": "這家店的老闆今天出城了。" } }
+      ],
+      "derived": [
+        { "w": "businesswoman", "pos": "n.", "zh": "女商人、女企業家", "ipa": "/ˈbɪznəswʊmən/", "link": "business + woman，做生意的女性，和 businessman 成對，像 chairman、chairwoman" },
+        { "w": "businessperson", "pos": "n.", "zh": "商務人士（不分性別）", "ipa": "/ˈbɪznəspɜːrsn/", "link": "business + person，不分性別的說法，像 salesperson" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "broker",
+      "type": "word",
+      "ipa": "/ˈbroʊkɚ/",
+      "pos": "n.",
+      "zh": "經紀人、仲介",
+      "en": "a person who buys and sells things for other people",
+      "note": "多益常見於保險、房地產、股票與貨運等仲介情境。當動詞時，broker a deal 表示居中促成交易或協議。",
+      "grammar_note": "broker 當動詞時是及物動詞，直接接 a deal 或 an agreement，不加介系詞。",
+      "forms": [
+        { "w": "brokers", "label": "複數", "pos": "n.", "zh": "經紀人（複數）", "ipa": "/ˈbroʊkɚz/", "example": { "en": "Several brokers attended the meeting about the new housing law.", "zh": "幾位仲介參加了關於新住宅法的會議。" } },
+        { "w": "brokers", "label": "第三人稱單數", "pos": "v.", "zh": "居中促成", "ipa": "/ˈbroʊkɚz/", "example": { "en": "She brokers deals between small farms and local supermarkets.", "zh": "她居中促成小農場和當地超市之間的交易。" } },
+        { "w": "brokered", "label": "過去式／過去分詞", "pos": "v.", "zh": "居中促成（過去）", "ipa": "/ˈbroʊkɚd/", "example": { "en": "Our manager brokered the contract between the two firms.", "zh": "我們的經理居中促成了兩家公司之間的合約。" } },
+        { "w": "brokering", "label": "現在分詞", "pos": "v.", "zh": "正在居中促成", "ipa": "/ˈbroʊkɚɪŋ/", "example": { "en": "He is brokering a deal between the factory and the shop.", "zh": "他正在促成工廠與商店之間的交易。" } }
+      ],
+      "collocations": [
+        { "phrase": "insurance broker", "zh": "保險經紀人", "example": { "en": "An insurance broker can compare prices from several companies for you.", "zh": "保險經紀人可以幫你比較好幾家公司的價格。" } },
+        { "phrase": "real estate broker", "zh": "房地產經紀人", "example": { "en": "The real estate broker charges a fee of two percent.", "zh": "這位房地產經紀人收取百分之二的費用。" } },
+        { "phrase": "broker a deal", "zh": "居中促成交易", "example": { "en": "Our lawyer helped broker a deal with the supplier.", "zh": "我們的律師幫忙和供應商談成了一筆交易。" } }
+      ],
+      "examples": [
+        { "tag": "房地產", "en": "Our broker showed us three apartments near the station.", "zh": "我們的仲介帶我們看了車站附近的三間公寓。" },
+        { "tag": "保險", "en": "I called my insurance broker to ask about the new plan.", "zh": "我打電話給保險經紀人詢問新方案。" },
+        { "tag": "證券", "en": "The broker will call you when the stock price changes.", "zh": "股價有變動時，經紀人會打電話給你。" },
+        { "tag": "貨運", "en": "The shipping broker arranged transport for all our goods.", "zh": "貨運仲介為我們所有的貨物安排了運輸。" }
+      ],
+      "confusable": [
+        { "word": "broke", "diff": "只差一個字母，broke 是 break 的過去式，也可指「沒錢的」。", "usage": "broker 是名詞或動詞（仲介、居中促成），broke 是 break 的過去式或形容詞，不能互換。", "example": { "en": "Our printer broke down this morning, so we called a technician.", "zh": "我們的印表機今天早上壞了，所以我們叫了技師。" } }
+      ],
+      "similar": [
+        { "word": "agent", "diff": "agent 泛指代理人或代辦人；broker 多指金融、保險、房地產的買賣仲介。", "example": { "en": "A travel agent booked our flights and hotel rooms.", "zh": "旅行社業務員幫我們訂了機票和飯店。" } },
+        { "word": "middleman", "diff": "middleman 是口語說法，指買賣雙方之間的中間人，有時帶有多一層費用的意思。", "example": { "en": "We cut out the middleman and bought straight from the factory.", "zh": "我們省掉中間商，直接向工廠購買。" } }
+      ],
+      "family": [
+        { "w": "agent", "pos": "n.", "zh": "代理人、業務員", "ipa": "/ˈeɪdʒənt/", "example": { "en": "Our sales agent will visit you on Monday.", "zh": "我們的業務員星期一會去拜訪您。" } },
+        { "w": "dealer", "pos": "n.", "zh": "交易商、經銷商", "ipa": "/ˈdiːlɚ/", "example": { "en": "The car dealer offered us a lower price.", "zh": "汽車經銷商給了我們較低的價格。" } },
+        { "w": "client", "pos": "n.", "zh": "客戶", "ipa": "/ˈklaɪənt/", "example": { "en": "The broker met a new client this afternoon.", "zh": "經紀人今天下午見了一位新客戶。" } }
+      ],
+      "derived": [
+        { "w": "brokerage", "pos": "n.", "zh": "經紀公司；仲介業務", "ipa": "/ˈbroʊkərɪdʒ/", "link": "broker + -age，把仲介的工作或機構變成名詞，像 package、storage" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈbroʊkɚ/", "zh": "經紀人、仲介", "example": { "en": "The broker found a buyer for our old office building.", "zh": "經紀人為我們的舊辦公大樓找到了買家。" } },
+        { "pos": "v.", "ipa": "/ˈbroʊkɚ/", "zh": "居中促成（協議、交易）", "example": { "en": "The consultant offered to broker a new contract between us.", "zh": "顧問提議居中促成我們之間的新合約。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "brake",
+      "type": "word",
+      "ipa": "/breɪk/",
+      "pos": "n.",
+      "zh": "煞車",
+      "en": "a part that makes a car or bike slow down or stop",
+      "note": "多益常見於汽車維修、交通安全與車輛廣告。也常用 put the brakes on 比喻「減緩、暫停」某件事。",
+      "grammar_note": "指煞車裝置常用複數 the brakes；當動詞時是不及物動詞，如 brake hard，後面不直接接受詞。",
+      "forms": [
+        { "w": "brakes", "label": "複數", "pos": "n.", "zh": "煞車（複數）", "ipa": "/breɪks/", "example": { "en": "All the brakes on our delivery vans passed the safety test.", "zh": "我們所有送貨車的煞車都通過了安全檢測。" } },
+        { "w": "brakes", "label": "第三人稱單數", "pos": "v.", "zh": "煞車", "ipa": "/breɪks/", "example": { "en": "She brakes early when the road is wet.", "zh": "路面濕滑時，她會提早煞車。" } },
+        { "w": "braked", "label": "過去式／過去分詞", "pos": "v.", "zh": "煞車（過去）", "ipa": "/breɪkt/", "example": { "en": "The bus braked suddenly, and several passengers almost fell.", "zh": "公車突然煞車，幾位乘客差點跌倒。" } },
+        { "w": "braking", "label": "現在分詞", "pos": "v.", "zh": "正在煞車", "ipa": "/ˈbreɪkɪŋ/", "example": { "en": "Hard braking can wear out your tires faster.", "zh": "急煞車會讓輪胎磨損得更快。" } }
+      ],
+      "collocations": [
+        { "phrase": "brake pedal", "zh": "煞車踏板", "example": { "en": "Press the brake pedal slowly when you stop at the light.", "zh": "在紅燈前停車時，請慢慢踩下煞車踏板。" } },
+        { "phrase": "hit the brakes", "zh": "猛踩煞車", "example": { "en": "He hit the brakes when the truck ahead stopped suddenly.", "zh": "前面的卡車突然停下，他猛踩了煞車。" } },
+        { "phrase": "put the brakes on", "zh": "使減緩、暫停", "example": { "en": "The board put the brakes on the plan to open a new branch.", "zh": "董事會暫緩了開設新分店的計畫。" } }
+      ],
+      "examples": [
+        { "tag": "維修", "en": "The mechanic checked the brakes before returning the car to us.", "zh": "技師在把車還給我們之前檢查了煞車。" },
+        { "tag": "交通", "en": "The driver hit the brake when a child ran across the road.", "zh": "有小孩跑過馬路時，司機踩了煞車。" },
+        { "tag": "廣告", "en": "This model has a new brake system for safer driving.", "zh": "這款車有新的煞車系統，讓駕駛更安全。" },
+        { "tag": "採購", "en": "Please order new brake pads for the delivery trucks.", "zh": "請為送貨卡車訂購新的煞車片。" }
+      ],
+      "confusable": [
+        { "word": "break", "diff": "發音完全相同，但 break 是「打破、中斷」或「休息」，brake 只指煞車。", "example": { "en": "Please take a short break before the next meeting starts.", "zh": "請在下一場會議開始前稍微休息一下。" } }
+      ],
+      "similar": [
+        { "phrase": "slow down", "diff": "slow down 是一般的「減速」，不一定靠煞車；brake 強調用煞車減速或停下。", "example": { "en": "Please slow down when you drive through the parking lot.", "zh": "開車經過停車場時請減速。" } }
+      ],
+      "family": [
+        { "w": "tire", "pos": "n.", "zh": "輪胎", "ipa": "/taɪr/", "example": { "en": "We need to change the front tire before the trip.", "zh": "出發前我們需要更換前輪胎。" } },
+        { "w": "engine", "pos": "n.", "zh": "引擎", "ipa": "/ˈendʒɪn/", "example": { "en": "The engine of this truck is very quiet.", "zh": "這輛卡車的引擎非常安靜。" } },
+        { "w": "wheel", "pos": "n.", "zh": "輪子、方向盤", "ipa": "/wiːl/", "example": { "en": "Keep both hands on the wheel while you drive.", "zh": "開車時請雙手握住方向盤。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/breɪk/", "zh": "煞車", "example": { "en": "The brake on this old bicycle needs to be fixed.", "zh": "這輛舊腳踏車的煞車需要修理。" } },
+        { "pos": "v.", "ipa": "/breɪk/", "zh": "煞車、減速", "example": { "en": "Drivers should brake gently when the road is wet.", "zh": "路面濕滑時，駕駛人應該輕輕煞車。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "煞車裝置", "en": "a part of a vehicle that is used to stop it", "example": { "en": "The technician replaced the brake before the final safety check.", "zh": "技師在最後安全檢查前更換了煞車。" } },
+        { "pos": "n.", "zh": "抑制、阻礙", "en": "something that slows down or limits growth", "distinguish": "從上下文看是 sales、growth、spending 等抽象名詞，就是「抑制」的意思，不是真的車輛零件。", "example": { "en": "The high price acted as a brake on sales growth.", "zh": "高價格抑制了銷售成長。" } }
+      ]
+    },
+    {
+      "text": "bookstore",
+      "type": "word",
+      "ipa": "/ˈbʊkstɔːr/",
+      "pos": "n.",
+      "zh": "書店",
+      "en": "a store that sells books",
+      "note": "多益常見於購物、作者簽書活動與促銷廣告。bookstore 是美式說法，英式常用 bookshop。",
+      "forms": [
+        { "w": "bookstores", "label": "複數", "pos": "n.", "zh": "書店（複數）", "ipa": "/ˈbʊkstɔːrz/", "example": { "en": "Many bookstores now sell coffee and small gifts as well.", "zh": "現在許多書店也販售咖啡和小禮物。" } }
+      ],
+      "collocations": [
+        { "phrase": "online bookstore", "zh": "網路書店", "example": { "en": "You can order the textbook from an online bookstore tonight.", "zh": "你今晚可以從網路書店訂購這本教科書。" } },
+        { "phrase": "local bookstore", "zh": "當地書店", "example": { "en": "Please support your local bookstore by joining the reading event.", "zh": "請參加閱讀活動，支持你附近的書店。" } },
+        { "phrase": "bookstore chain", "zh": "連鎖書店", "example": { "en": "The bookstore chain plans to open five new shops next year.", "zh": "這家連鎖書店計畫明年新開五間分店。" } }
+      ],
+      "examples": [
+        { "tag": "購物", "en": "I bought a travel guide at the bookstore near my office.", "zh": "我在公司附近的書店買了一本旅遊指南。" },
+        { "tag": "活動", "en": "The author will sign copies at the bookstore on Saturday.", "zh": "作者星期六會在書店替讀者簽書。" },
+        { "tag": "廣告", "en": "Our bookstore is having a sale on all business books.", "zh": "我們書店所有商業書籍都在特價。" },
+        { "tag": "工作", "en": "She works part-time at a bookstore on weekends to earn extra money.", "zh": "她週末在書店兼職賺外快。" }
+      ],
+      "confusable": [
+        { "word": "library", "diff": "library 是圖書館，可免費借書；bookstore 是書店，要付錢買書。", "example": { "en": "You can borrow this book from the library for free.", "zh": "你可以免費從圖書館借這本書。" } }
+      ],
+      "similar": [
+        { "word": "bookshop", "diff": "意思相同，bookshop 是英式說法，bookstore 是美式說法。", "example": { "en": "The bookshop on Main Street closes at eight tonight.", "zh": "大街上的書店今晚八點關門。" } }
+      ],
+      "family": [
+        { "w": "library", "pos": "n.", "zh": "圖書館", "ipa": "/ˈlaɪbreri/", "example": { "en": "The library opens at nine and closes at six.", "zh": "圖書館九點開門，六點關門。" } },
+        { "w": "publisher", "pos": "n.", "zh": "出版社、出版商", "ipa": "/ˈpʌblɪʃɚ/", "example": { "en": "The publisher will send us fifty copies next week.", "zh": "出版社下週會寄給我們五十本。" } },
+        { "w": "author", "pos": "n.", "zh": "作者", "ipa": "/ˈɔːθɚ/", "example": { "en": "The author gave a short talk at the event.", "zh": "作者在活動上做了一場簡短的演講。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "boardroom",
+      "type": "word",
+      "ipa": "/ˈbɔːrdruːm/",
+      "pos": "n.",
+      "zh": "董事會會議室",
+      "en": "a large room where a company's directors meet",
+      "note": "多益常見於公司通知與會議安排，比一般會議室正式。也可指公司的最高決策層，如 boardroom decisions。",
+      "forms": [
+        { "w": "boardrooms", "label": "複數", "pos": "n.", "zh": "董事會會議室（複數）", "ipa": "/ˈbɔːrdruːmz/", "example": { "en": "Both boardrooms are already reserved for the whole afternoon.", "zh": "兩間董事會會議室整個下午都已被預約了。" } }
+      ],
+      "collocations": [
+        { "phrase": "boardroom meeting", "zh": "董事會會議", "example": { "en": "The boardroom meeting will start at nine o'clock tomorrow.", "zh": "董事會會議明天九點開始。" } },
+        { "phrase": "in the boardroom", "zh": "在董事會會議室", "example": { "en": "Mr. Chen is waiting for the investors in the boardroom.", "zh": "陳先生正在董事會會議室等投資人。" } },
+        { "phrase": "book the boardroom", "zh": "預約董事會會議室", "example": { "en": "Please book the boardroom for the training session next week.", "zh": "請為下週的訓練課程預約董事會會議室。" } }
+      ],
+      "examples": [
+        { "tag": "會議安排", "en": "The meeting will be held in the boardroom on the fifth floor.", "zh": "會議將在五樓的董事會會議室舉行。" },
+        { "tag": "通知", "en": "Please do not leave any papers in the boardroom after use.", "zh": "使用後請不要在董事會會議室留下任何文件。" },
+        { "tag": "電子郵件", "en": "Could you move the projector into the boardroom before nine?", "zh": "你能在九點前把投影機移到董事會會議室嗎？" },
+        { "tag": "新聞", "en": "Changes in the boardroom may affect the company's future plans.", "zh": "高層的變動可能會影響公司的未來計畫。" }
+      ],
+      "similar": [
+        { "phrase": "conference room", "diff": "conference room 是一般會議室；boardroom 較正式，通常供董事會或高層開會。", "example": { "en": "Let's use the conference room for the weekly team meeting.", "zh": "我們用會議室開每週的團隊會議吧。" } },
+        { "phrase": "meeting room", "diff": "meeting room 是最普通的說法，任何大小的會議室都能用。", "example": { "en": "Meeting room B has a large screen for your presentation.", "zh": "B 會議室有大螢幕可供你簡報。" } }
+      ],
+      "family": [
+        { "w": "board", "pos": "n.", "zh": "董事會", "ipa": "/bɔːrd/", "example": { "en": "The board approved the new budget this morning.", "zh": "董事會今天早上核准了新預算。" } },
+        { "w": "director", "pos": "n.", "zh": "董事、主任", "ipa": "/dəˈrektɚ/", "example": { "en": "The director will talk about next year's goals.", "zh": "主任會談明年的目標。" } },
+        { "w": "conference", "pos": "n.", "zh": "會議、研討會", "ipa": "/ˈkɑːnfərəns/", "example": { "en": "I will attend a sales conference in May.", "zh": "我五月會參加一場業務研討會。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "董事會會議室", "en": "a room where a company's directors hold meetings", "example": { "en": "The directors are waiting for you in the boardroom now.", "zh": "董事們現在正在董事會會議室等你。" } },
+        { "pos": "n.", "zh": "公司決策層", "en": "the people who make the biggest decisions in a company", "distinguish": "後面接 decision、change、level 等字，指的是公司高層，不是真的房間。", "example": { "en": "Decisions made in the boardroom often affect thousands of workers.", "zh": "高層做的決定常常影響數千名員工。" } }
+      ]
+    },
+    {
+      "text": "biology",
+      "type": "word",
+      "ipa": "/baɪˈɑːlədʒi/",
+      "pos": "n.",
+      "zh": "生物學",
+      "en": "the study of living things such as plants and animals",
+      "note": "多益常見於大學課程、研究計畫，以及藥廠或醫療公司的介紹與徵才。這個字通常用來說明學歷或專業背景。",
+      "grammar_note": "biology 是不可數名詞，不加 s；-ology 結尾的學科（geology、psychology）也一樣。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "study biology", "zh": "學習生物學", "example": { "en": "Many students study biology before they enter medical school.", "zh": "許多學生在進入醫學院前會先學生物學。" } },
+        { "phrase": "marine biology", "zh": "海洋生物學", "example": { "en": "He works on a marine biology project near the coast.", "zh": "他在海邊參與一個海洋生物學的研究計畫。" } },
+        { "phrase": "biology lab", "zh": "生物實驗室", "example": { "en": "Safety glasses are required in the biology lab at all times.", "zh": "在生物實驗室內隨時都必須戴護目鏡。" } }
+      ],
+      "examples": [
+        { "tag": "教育", "en": "She studied biology at university before joining the research team.", "zh": "她加入研究團隊之前，在大學讀的是生物學。" },
+        { "tag": "徵才", "en": "We are looking for a teacher with a degree in biology.", "zh": "我們正在尋找具有生物學學位的老師。" },
+        { "tag": "活動", "en": "The museum will hold a free biology workshop for children.", "zh": "博物館將為孩子舉辦免費的生物學工作坊。" },
+        { "tag": "公司", "en": "Our company uses biology research to develop new medicines.", "zh": "我們公司運用生物學研究來開發新藥。" }
+      ],
+      "confusable": [
+        { "word": "biography", "diff": "拼法與發音相近，但 biography 是「傳記」，不是學科。", "example": { "en": "I read a biography of a famous businessman last month.", "zh": "我上個月讀了一本知名商人的傳記。" } }
+      ],
+      "family": [
+        { "w": "chemistry", "pos": "n.", "zh": "化學", "ipa": "/ˈkemɪstri/", "example": { "en": "The chemistry class starts at ten tomorrow morning.", "zh": "化學課明天早上十點開始。" } },
+        { "w": "physics", "pos": "n.", "zh": "物理學", "ipa": "/ˈfɪzɪks/", "example": { "en": "He teaches physics at a high school in Tainan.", "zh": "他在台南的一所高中教物理。" } },
+        { "w": "science", "pos": "n.", "zh": "科學", "ipa": "/ˈsaɪəns/", "example": { "en": "The science fair will be held in the main hall.", "zh": "科學展將在主廳舉行。" } }
+      ],
+      "derived": [
+        { "w": "biologist", "pos": "n.", "zh": "生物學家", "ipa": "/baɪˈɑːlədʒɪst/", "link": "biology + -ist，研究生物學的人，像 artist、scientist" },
+        { "w": "biological", "pos": "adj.", "zh": "生物（學）的", "ipa": "/ˌbaɪəˈlɑːdʒɪkəl/", "link": "biology + -ical，變成形容詞「生物學的」，像 logical、medical" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "beneficial",
+      "type": "word",
+      "ipa": "/ˌbenɪˈfɪʃəl/",
+      "pos": "adj.",
+      "zh": "有益的、有好處的",
+      "en": "good for someone or something; helpful",
+      "note": "多益常見於合約、公司政策、培訓與廣告，語氣比 helpful 正式。最常用的說法是 beneficial to + 人或事物，以及 mutually beneficial。",
+      "grammar_note": "beneficial 後面常接 to + 人或事物（beneficial to employees），也可接 for；不要寫成 beneficial of。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "mutually beneficial", "zh": "互惠的", "example": { "en": "We want a mutually beneficial partnership with every supplier.", "zh": "我們希望與每家供應商建立互惠的合作關係。" } },
+        { "phrase": "beneficial to", "zh": "對…有益", "example": { "en": "Flexible hours are beneficial to workers with young children.", "zh": "彈性工時對有幼兒的員工有好處。" } },
+        { "phrase": "beneficial effect", "zh": "有益的影響", "example": { "en": "The new policy had a beneficial effect on customer service.", "zh": "新政策對客戶服務產生了有益的影響。" } }
+      ],
+      "examples": [
+        { "tag": "合約", "en": "We believe the new contract will be beneficial in the long run.", "zh": "我們相信新合約長期下來會有好處。" },
+        { "tag": "培訓", "en": "The training course was very beneficial for new employees.", "zh": "這門訓練課程對新進員工非常有幫助。" },
+        { "tag": "廣告", "en": "Regular exercise is beneficial, and our gym offers special prices.", "zh": "規律運動有益健康，我們的健身房提供優惠價格。" },
+        { "tag": "採購", "en": "Changing suppliers proved beneficial for our small company.", "zh": "更換供應商對我們這家小公司證明是有益的。" }
+      ],
+      "confusable": [
+        { "word": "beneficiary", "diff": "拼法相近，但 beneficiary 是名詞，指保險或遺產的「受益人」。", "usage": "beneficial 是形容詞（有益的），beneficiary 是名詞（受益人），詞性不同不能互換。", "example": { "en": "The beneficiary of the insurance plan is her husband.", "zh": "這份保險計畫的受益人是她的丈夫。" } }
+      ],
+      "similar": [
+        { "word": "helpful", "diff": "helpful 較口語，常指對人幫得上忙；beneficial 較正式，強調帶來好處。", "example": { "en": "Your advice was very helpful during the meeting.", "zh": "你的建議在會議中非常有幫助。" } },
+        { "word": "useful", "diff": "useful 強調「有用、可使用」；beneficial 強調對整體或長期有好處。", "example": { "en": "This chart is useful for planning next year's budget.", "zh": "這張圖表對規劃明年預算很有用。" } }
+      ],
+      "family": [
+        { "w": "advantage", "pos": "n.", "zh": "優勢、好處", "ipa": "/ədˈvæntɪdʒ/", "example": { "en": "Low prices give us an advantage over other stores.", "zh": "低價讓我們比其他商店更有優勢。" } },
+        { "w": "profit", "pos": "n.", "zh": "利潤", "ipa": "/ˈprɑːfɪt/", "example": { "en": "The company made a large profit this quarter.", "zh": "這間公司本季賺了很多利潤。" } },
+        { "w": "valuable", "pos": "adj.", "zh": "有價值的", "ipa": "/ˈvæljuəbəl/", "example": { "en": "Your feedback is valuable to our team.", "zh": "你的意見對我們團隊很有價值。" } }
+      ],
+      "derived": [
+        { "w": "benefit", "pos": "n.", "zh": "好處、福利", "ipa": "/ˈbenɪfɪt/", "link": "benefit 是基礎字；beneficial 是 benefit 變成形容詞，意思是「帶來好處的」" },
+        { "w": "beneficially", "pos": "adv.", "zh": "有益地", "ipa": "/ˌbenɪˈfɪʃəli/", "link": "beneficial + -ly，變成副詞「有益地」，像 quickly、carefully" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
