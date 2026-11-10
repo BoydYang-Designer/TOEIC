@@ -1,0 +1,342 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "disgust",
+      "type": "word",
+      "ipa": "/dɪsˈɡʌst/",
+      "pos": "n.",
+      "zh": "厭惡、反感",
+      "en": "a very strong feeling of dislike for something",
+      "note": "多益常見於客訴、評價與服務情境，表示對骯髒、品質很差的事物強烈不滿。動詞用法是「使人厭惡」。",
+      "grammar_note": "人感到厭惡用 disgusted（人當主詞），事物令人厭惡用 disgusting（事物當主詞），不要用反。",
+      "forms": [
+        { "w": "disgusts", "label": "第三人稱單數", "pos": "v.", "zh": "使厭惡（第三人稱單數）", "ipa": "/dɪsˈɡʌsts/", "example": { "en": "The terrible smell disgusts everyone who enters the warehouse.", "zh": "這股難聞的氣味讓每個進入倉庫的人都很反感。" } },
+        { "w": "disgusted", "label": "過去式／過去分詞", "pos": "v.", "zh": "使厭惡（過去式）", "ipa": "/dɪsˈɡʌstɪd/", "example": { "en": "The dirty restroom disgusted several visitors at the fair.", "zh": "骯髒的洗手間讓展覽會上好幾位訪客很反感。" } },
+        { "w": "disgusted", "label": "形容詞", "pos": "adj.", "zh": "感到厭惡的", "ipa": "/dɪsˈɡʌstɪd/", "example": { "en": "Many disgusted customers posted bad reviews of the restaurant online.", "zh": "許多感到厭惡的顧客在網路上給了這家餐廳差評。" } },
+        { "w": "disgusting", "label": "形容詞／現在分詞", "pos": "adj.", "zh": "令人厭惡的", "ipa": "/dɪsˈɡʌstɪŋ/", "example": { "en": "The hotel room was disgusting, so we asked for a refund.", "zh": "這間飯店房間很噁心，所以我們要求退款。" } }
+      ],
+      "collocations": [
+        { "phrase": "in disgust", "zh": "厭惡地", "example": { "en": "He threw the old report away in disgust.", "zh": "他厭惡地把舊報告丟掉了。" } },
+        { "phrase": "express disgust", "zh": "表達厭惡", "example": { "en": "Customers expressed their disgust on social media after the incident.", "zh": "事件發生後，顧客在社群媒體上表達了厭惡。" } },
+        { "phrase": "disgust at", "zh": "對…的厭惡", "example": { "en": "Her disgust at the poor service was obvious to everyone.", "zh": "她對糟糕服務的厭惡，大家都看得出來。" } }
+      ],
+      "examples": [
+        { "tag": "客訴", "en": "The customer left in disgust after waiting an hour for service.", "zh": "這位顧客等了一小時還沒人服務，厭惡地離開了。" },
+        { "tag": "飯店", "en": "The strong smell in the hotel lobby disgusted many guests.", "zh": "飯店大廳的濃烈氣味讓許多旅客很反感。" },
+        { "tag": "機場", "en": "The long delays disgusted many passengers at the airport.", "zh": "長時間的延誤讓機場裡許多乘客很不滿。" }
+      ],
+      "confusable": [
+        { "word": "discuss", "diff": "拼法相近，但 discuss 是「討論」，發音是 /dɪˈskʌs/。", "usage": "discuss 是及物動詞，後面直接接受詞，不加 about。", "example": { "en": "We will discuss the new budget at tomorrow's meeting.", "zh": "我們明天的會議會討論新的預算。" } }
+      ],
+      "similar": [
+        { "phrase": "dislike", "diff": "dislike 程度較輕，只是不喜歡；disgust 是強烈的厭惡、噁心。", "example": { "en": "Many customers dislike the new return policy.", "zh": "許多顧客不喜歡新的退貨政策。" } }
+      ],
+      "family": [
+        { "w": "complaint", "pos": "n.", "zh": "抱怨、客訴", "ipa": "/kəmˈpleɪnt/", "example": { "en": "We received a complaint about the dirty tables.", "zh": "我們收到一則關於桌子髒汙的客訴。" } },
+        { "w": "anger", "pos": "n.", "zh": "憤怒", "ipa": "/ˈæŋɡɚ/", "example": { "en": "The customer showed his anger at the front desk.", "zh": "這位顧客在櫃台表現出他的憤怒。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/dɪsˈɡʌst/", "zh": "厭惡、反感", "example": { "en": "She felt disgust when she saw the dirty kitchen.", "zh": "她看到骯髒的廚房時感到厭惡。" } },
+        { "pos": "v.", "ipa": "/dɪsˈɡʌst/", "zh": "使厭惡、使反感", "example": { "en": "The poor food quality disgusted many of our guests.", "zh": "食物品質差讓我們許多客人很反感。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "discard",
+      "type": "word",
+      "ipa": "/dɪˈskɑːrd/",
+      "pos": "v.",
+      "zh": "丟棄、拋棄",
+      "en": "to throw away something you do not need",
+      "note": "多益常見於辦公室、倉儲與使用說明，指把用不到、壞掉或過期的東西丟掉，語氣比 throw away 正式。",
+      "grammar_note": "discard 是及物動詞，直接接受詞，不加 away：discard the files，不說 discard away the files。",
+      "forms": [
+        { "w": "discards", "label": "第三人稱單數", "pos": "v.", "zh": "丟棄（第三人稱單數）", "ipa": "/dɪˈskɑːrdz/", "example": { "en": "She discards expired coupons at the end of each month.", "zh": "她每個月底都會丟掉過期的優惠券。" } },
+        { "w": "discarded", "label": "過去式／過去分詞", "pos": "v.", "zh": "丟棄（過去式）", "ipa": "/dɪˈskɑːrdɪd/", "example": { "en": "He discarded the broken parts and ordered new ones.", "zh": "他把壞掉的零件丟掉，並訂了新的。" } },
+        { "w": "discarded", "label": "形容詞", "pos": "adj.", "zh": "被丟棄的", "ipa": "/dɪˈskɑːrdɪd/", "example": { "en": "Discarded boxes were piled up behind the building.", "zh": "被丟棄的箱子堆在大樓後面。" } },
+        { "w": "discarding", "label": "現在分詞／動名詞", "pos": "v.", "zh": "丟棄中、丟棄", "ipa": "/dɪˈskɑːrdɪŋ/", "example": { "en": "Discarding unused files saved us a lot of storage space.", "zh": "丟掉不用的檔案為我們省下很多儲存空間。" } }
+      ],
+      "collocations": [
+        { "phrase": "discard old files", "zh": "丟棄舊檔案", "example": { "en": "Do not discard old files without the manager's approval.", "zh": "沒有經理的同意，請不要丟掉舊檔案。" } },
+        { "phrase": "discard the packaging", "zh": "丟棄包裝", "example": { "en": "Customers may discard the packaging once the item is working.", "zh": "商品確定可以使用後，顧客可以丟掉包裝。" } },
+        { "phrase": "discard after use", "zh": "使用後丟棄", "example": { "en": "Each cup is designed to be discarded after use.", "zh": "每個杯子都設計成使用後即可丟棄。" } }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "Please discard all old documents before the office move.", "zh": "辦公室搬遷前，請把所有舊文件丟掉。" },
+        { "tag": "倉儲", "en": "Staff must discard any damaged items from the shelves.", "zh": "員工必須把貨架上任何受損的商品丟掉。" },
+        { "tag": "使用說明", "en": "Discard the filter after one month of use.", "zh": "濾網使用一個月後請丟棄。" },
+        { "tag": "規定", "en": "We cannot discard these records for at least seven years.", "zh": "這些紀錄至少七年內不能丟棄。" }
+      ],
+      "similar": [
+        { "phrase": "throw away", "diff": "較口語；discard 較正式，常用在規定與說明書。", "example": { "en": "Please throw away the old magazines in the lobby.", "zh": "請把大廳裡的舊雜誌丟掉。" } },
+        { "phrase": "dispose of", "diff": "強調妥善處理掉（如廢棄物）；discard 只是把東西丟掉。", "example": { "en": "We must dispose of the waste in a safe way.", "zh": "我們必須用安全的方式處理這些廢棄物。" } }
+      ],
+      "family": [
+        { "w": "waste", "pos": "n.", "zh": "廢棄物、浪費", "ipa": "/weɪst/", "example": { "en": "The factory reduced its waste by twenty percent.", "zh": "這間工廠把廢棄物減少了百分之二十。" } },
+        { "w": "recycle", "pos": "v.", "zh": "回收再利用", "ipa": "/riːˈsaɪkəl/", "example": { "en": "Please recycle all paper in the blue bins.", "zh": "請把所有紙類放進藍色回收桶。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "diagnose",
+      "type": "word",
+      "ipa": "/ˌdaɪəɡˈnoʊs/",
+      "pos": "v.",
+      "zh": "診斷、找出（問題的）原因",
+      "en": "to find out what is wrong with a person or a machine",
+      "note": "多益常見於 IT、維修與醫療情境，如 diagnose a problem。除了醫生診斷疾病，也常指技師找出機器或系統的故障原因。",
+      "grammar_note": "常用 diagnose + 問題；病人被診斷出某種病要用 be diagnosed with + 病名。",
+      "forms": [
+        { "w": "diagnoses", "label": "第三人稱單數", "pos": "v.", "zh": "診斷（第三人稱單數）", "ipa": "/ˌdaɪəɡˈnoʊsɪz/", "example": { "en": "She diagnoses system errors for clients across the region.", "zh": "她為整個地區的客戶診斷系統錯誤。" } },
+        { "w": "diagnosed", "label": "過去式／過去分詞", "pos": "v.", "zh": "診斷（過去式）", "ipa": "/ˌdaɪəɡˈnoʊzd/", "example": { "en": "The mechanic diagnosed the engine trouble in ten minutes.", "zh": "技師十分鐘就找出了引擎的問題。" } },
+        { "w": "diagnosing", "label": "現在分詞／動名詞", "pos": "v.", "zh": "診斷中、診斷", "ipa": "/ˌdaɪəɡˈnoʊzɪŋ/", "example": { "en": "Diagnosing the error took longer than fixing it.", "zh": "找出錯誤的原因比修好它花更久的時間。" } }
+      ],
+      "collocations": [
+        { "phrase": "diagnose a problem", "zh": "診斷問題", "example": { "en": "We need an expert to diagnose a problem with the network.", "zh": "我們需要專家來診斷網路的問題。" } },
+        { "phrase": "diagnose the cause", "zh": "找出原因", "example": { "en": "It took two days to diagnose the cause of the delay.", "zh": "花了兩天才找出延誤的原因。" } },
+        { "phrase": "diagnose a fault", "zh": "診斷故障", "example": { "en": "This tool can diagnose a fault in the machine quickly.", "zh": "這個工具可以快速診斷機器的故障。" } }
+      ],
+      "examples": [
+        { "tag": "IT", "en": "The technician will diagnose the problem with your laptop today.", "zh": "技師今天會診斷你筆記型電腦的問題。" },
+        { "tag": "醫療", "en": "It can be difficult to diagnose this illness early.", "zh": "要及早診斷出這種病可能很困難。" },
+        { "tag": "顧問", "en": "Our consultant helps companies diagnose why their sales are falling.", "zh": "我們的顧問協助公司找出業績下滑的原因。" }
+      ],
+      "similar": [
+        { "phrase": "analyze", "diff": "analyze 是分析資料或情況；diagnose 是找出問題的原因。", "example": { "en": "Please analyze the sales data for last quarter.", "zh": "請分析上一季的銷售資料。" } },
+        { "phrase": "identify", "diff": "identify 是指認出來；diagnose 還要判斷問題為什麼發生。", "example": { "en": "Can you identify the source of the error?", "zh": "你能找出錯誤的來源嗎？" } }
+      ],
+      "family": [
+        { "w": "inspect", "pos": "v.", "zh": "檢查、檢驗", "ipa": "/ɪnˈspekt/", "example": { "en": "An engineer will inspect the machines every month.", "zh": "工程師每個月會檢查這些機器。" } },
+        { "w": "examine", "pos": "v.", "zh": "檢查、審查", "ipa": "/ɪɡˈzæmɪn/", "example": { "en": "The doctor will examine the patient this afternoon.", "zh": "醫生今天下午會檢查這位病人。" } }
+      ],
+      "derived": [
+        { "w": "diagnosis", "ipa": "/ˌdaɪəɡˈnoʊsɪs/", "pos": "n.", "zh": "診斷", "link": "diagnose 把字尾 -e 換成 -is 變名詞，像 analyze → analysis" },
+        { "w": "diagnostic", "ipa": "/ˌdaɪəɡˈnɑːstɪk/", "pos": "adj.", "zh": "診斷用的", "link": "diagnos- + -tic，變成形容詞，常見於 diagnostic test（診斷測試）" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "診斷（疾病）", "en": "to say what illness a person has", "distinguish": "旁邊有 doctor、patient、illness 等字時，指醫療診斷。", "example": { "en": "The doctor will diagnose the patient after more tests.", "zh": "醫生會在更多檢查後診斷這位病人。" } },
+        { "pos": "v.", "zh": "找出（故障或問題的）原因", "en": "to find out why a machine or system does not work", "distinguish": "旁邊有 system、engine、fault、problem 等字時，指找出故障原因。", "example": { "en": "Our engineers can diagnose the cause of the power loss.", "zh": "我們的工程師可以找出停電的原因。" } }
+      ]
+    },
+    {
+      "text": "detach",
+      "type": "word",
+      "ipa": "/dɪˈtætʃ/",
+      "pos": "v.",
+      "zh": "拆下、分開",
+      "en": "to take something off another thing",
+      "note": "多益常見於表格、票券與設備說明，如請把下半部撕下寄回，或把線材從機器上拆下來。和 attach（附上、接上）相反。",
+      "grammar_note": "detach 後面接 from：detach A from B（把 A 從 B 拆下）；相反的 attach 接 to。",
+      "forms": [
+        { "w": "detaches", "label": "第三人稱單數", "pos": "v.", "zh": "拆下（第三人稱單數）", "ipa": "/dɪˈtætʃɪz/", "example": { "en": "This button detaches the handle from the main unit.", "zh": "這個按鈕可以把把手從主機上拆下來。" } },
+        { "w": "detached", "label": "過去式／過去分詞", "pos": "v.", "zh": "拆下（過去式）", "ipa": "/dɪˈtætʃt/", "example": { "en": "He detached the file from the email and saved it.", "zh": "他把檔案從電子郵件中取出並存檔。" } },
+        { "w": "detached", "label": "形容詞", "pos": "adj.", "zh": "獨立的、分開的", "ipa": "/dɪˈtætʃt/", "example": { "en": "They bought a detached house near the business district.", "zh": "他們在商業區附近買了一棟獨棟房屋。" } },
+        { "w": "detaching", "label": "現在分詞／動名詞", "pos": "v.", "zh": "拆下中、拆下", "ipa": "/dɪˈtætʃɪŋ/", "example": { "en": "Detaching the battery is easy, but it takes some force.", "zh": "拆下電池很簡單，但需要一點力氣。" } }
+      ],
+      "collocations": [
+        { "phrase": "detach A from B", "zh": "把 A 從 B 拆下", "example": { "en": "Detach the cover from the printer before you clean it.", "zh": "清潔印表機之前，請先把蓋子拆下來。" } },
+        { "phrase": "detach the coupon", "zh": "撕下優惠券", "example": { "en": "Detach the coupon and show it at the cashier.", "zh": "請撕下優惠券並在收銀台出示。" } },
+        { "phrase": "detach and return", "zh": "撕下並寄回", "example": { "en": "Complete the form, then detach and return the bottom half.", "zh": "填完表格後，請撕下下半部並寄回。" } }
+      ],
+      "examples": [
+        { "tag": "表單", "en": "Please detach this form and send it to our office.", "zh": "請撕下這份表格寄到我們辦公室。" },
+        { "tag": "設備", "en": "You can detach the cable from the back of the monitor.", "zh": "你可以把線從螢幕背面拆下來。" },
+        { "tag": "票券", "en": "Detach the bottom part of the ticket and keep it.", "zh": "請撕下票券的下半部並保留。" },
+        { "tag": "包裹", "en": "Do not detach the label from the package.", "zh": "請不要把標籤從包裹上撕下。" }
+      ],
+      "confusable": [
+        { "word": "attach", "diff": "意思相反：attach 是附上、接上；detach 是拆下、分開。", "usage": "attach A to B（把 A 附在 B 上），detach A from B（把 A 從 B 拆下），介系詞不同。", "example": { "en": "Please attach the report to your email.", "zh": "請把報告附加在你的電子郵件裡。" } }
+      ],
+      "similar": [
+        { "phrase": "remove", "diff": "remove 泛指移除；detach 強調把原本連在一起的東西分開。", "example": { "en": "Please remove the cover before you use the machine.", "zh": "使用機器之前，請先取下蓋子。" } }
+      ],
+      "family": [
+        { "w": "separate", "pos": "v.", "zh": "分開", "ipa": "/ˈsepəreɪt/", "example": { "en": "Please separate the paper from the plastic.", "zh": "請把紙類和塑膠分開。" } },
+        { "w": "disconnect", "pos": "v.", "zh": "切斷連接、拔掉", "ipa": "/ˌdɪskəˈnekt/", "example": { "en": "Disconnect the power before you open the machine.", "zh": "打開機器之前，請先切斷電源。" } }
+      ],
+      "derived": [
+        { "w": "detachable", "ipa": "/dɪˈtætʃəbəl/", "pos": "adj.", "zh": "可拆卸的", "link": "detach + -able，可以…的，像 washable、readable" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "desktop",
+      "type": "word",
+      "ipa": "/ˈdesktɑːp/",
+      "pos": "n.",
+      "zh": "桌上型電腦、電腦桌面",
+      "en": "a computer that stays on a desk, or the main screen of a computer",
+      "note": "多益常見於辦公設備、採購與 IT 情境。可以指放在桌上的電腦，也可以指螢幕上的桌面；當形容詞時指「桌上型的」。",
+      "forms": [
+        { "w": "desktops", "label": "複數", "pos": "n.", "zh": "桌上型電腦（複數）", "ipa": "/ˈdesktɑːps/", "example": { "en": "The IT team replaced ten old desktops over the weekend.", "zh": "資訊部門在週末換掉了十台舊的桌上型電腦。" } }
+      ],
+      "collocations": [
+        { "phrase": "desktop computer", "zh": "桌上型電腦", "example": { "en": "Each employee receives a desktop computer on the first day.", "zh": "每位員工第一天都會拿到一台桌上型電腦。" } },
+        { "phrase": "desktop version", "zh": "電腦版", "example": { "en": "The desktop version of the app has more features.", "zh": "這個應用程式的電腦版功能比較多。" } },
+        { "phrase": "desktop icon", "zh": "桌面圖示", "example": { "en": "Click the desktop icon to open the program.", "zh": "點選桌面圖示來開啟程式。" } }
+      ],
+      "examples": [
+        { "tag": "辦公設備", "en": "Our desktop is too slow to run the new software.", "zh": "我們的桌上型電腦太慢，跑不動新的軟體。" },
+        { "tag": "IT", "en": "Save the file on your desktop so you can find it easily.", "zh": "把檔案存在你的桌面上，這樣比較容易找到。" },
+        { "tag": "採購", "en": "Employees can choose either a laptop or a desktop.", "zh": "員工可以選擇筆記型電腦或桌上型電腦。" }
+      ],
+      "similar": [
+        { "phrase": "laptop", "diff": "laptop 是可攜帶的筆記型電腦；desktop 通常固定放在桌上。", "example": { "en": "Please bring your laptop to tomorrow's meeting.", "zh": "請把你的筆記型電腦帶來明天的會議。" } }
+      ],
+      "family": [
+        { "w": "laptop", "pos": "n.", "zh": "筆記型電腦", "ipa": "/ˈlæptɑːp/", "example": { "en": "The sales team uses laptops when they travel.", "zh": "業務團隊出差時使用筆記型電腦。" } },
+        { "w": "monitor", "pos": "n.", "zh": "螢幕", "ipa": "/ˈmɑːnɪtɚ/", "example": { "en": "I need a bigger monitor for my design work.", "zh": "我做設計工作需要一個更大的螢幕。" } },
+        { "w": "keyboard", "pos": "n.", "zh": "鍵盤", "ipa": "/ˈkiːbɔːrd/", "example": { "en": "The keyboard on my computer stopped working this morning.", "zh": "我電腦的鍵盤今天早上壞了。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈdesktɑːp/", "zh": "桌上型電腦、桌面", "example": { "en": "I keep the sales report in a folder on my desktop.", "zh": "我把銷售報告放在桌面上的一個資料夾裡。" } },
+        { "pos": "adj.", "ipa": "/ˈdesktɑːp/", "zh": "桌上型的", "example": { "en": "We sell desktop printers for small home offices.", "zh": "我們販售適合小型居家辦公室的桌上型印表機。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "桌上型電腦", "en": "a computer that stays on a desk", "distinguish": "和 laptop 一起出現，或和 buy、order 等採購動詞連用時，指電腦主機。", "example": { "en": "The company ordered thirty desktops for the new call center.", "zh": "公司為新的客服中心訂了三十台桌上型電腦。" } },
+        { "pos": "n.", "zh": "電腦桌面", "en": "the main screen you see when a computer starts", "distinguish": "和 on、icon、folder、save 等字連用時，指螢幕上的桌面。", "example": { "en": "A new icon appeared on my desktop after the update.", "zh": "更新之後，我的桌面上出現了一個新圖示。" } }
+      ]
+    },
+    {
+      "text": "dissatisfy",
+      "type": "word",
+      "ipa": "/dɪsˈsætɪsfaɪ/",
+      "pos": "v.",
+      "zh": "使不滿意",
+      "en": "to make someone feel unhappy with something",
+      "note": "多益中動詞 dissatisfy 比較少見，常見的是被動說法 be dissatisfied with 和名詞 dissatisfaction，多用在客訴與調查情境。",
+      "grammar_note": "「對…不滿」要用 be dissatisfied with + 事物（人當主詞），不要寫成 dissatisfy 的主動形。",
+      "forms": [
+        { "w": "dissatisfies", "label": "第三人稱單數", "pos": "v.", "zh": "使不滿意（第三人稱單數）", "ipa": "/dɪsˈsætɪsfaɪz/", "example": { "en": "A slow website often dissatisfies visitors and hurts sales.", "zh": "速度慢的網站常讓訪客不滿，並影響銷售。" } },
+        { "w": "dissatisfied", "label": "過去式／過去分詞", "pos": "v.", "zh": "使不滿意（過去式）", "ipa": "/dɪsˈsætɪsfaɪd/", "example": { "en": "The change dissatisfied several long-term customers last year.", "zh": "去年這項改變讓幾位長期客戶很不滿意。" } },
+        { "w": "dissatisfied", "label": "形容詞", "pos": "adj.", "zh": "不滿意的", "ipa": "/dɪsˈsætɪsfaɪd/", "example": { "en": "Dissatisfied customers can ask for a full refund within thirty days.", "zh": "不滿意的顧客可以在三十天內要求全額退款。" } },
+        { "w": "dissatisfying", "label": "現在分詞／動名詞", "pos": "v.", "zh": "使不滿意中", "ipa": "/dɪsˈsætɪsfaɪɪŋ/", "example": { "en": "Dissatisfying a client could cost us the whole contract.", "zh": "讓客戶不滿意可能會讓我們失去整份合約。" } }
+      ],
+      "collocations": [
+        { "phrase": "dissatisfy customers", "zh": "讓顧客不滿意", "example": { "en": "Poor packaging may dissatisfy customers who buy gifts online.", "zh": "不佳的包裝可能讓在網路上買禮物的顧客不滿意。" } },
+        { "phrase": "be dissatisfied with", "zh": "對…不滿意", "example": { "en": "Many clients are dissatisfied with the new billing system.", "zh": "許多客戶對新的帳務系統不滿意。" } },
+        { "phrase": "dissatisfy clients", "zh": "讓客戶不滿意", "example": { "en": "Changing the schedule again would dissatisfy our clients.", "zh": "再改一次時程會讓我們的客戶不滿意。" } }
+      ],
+      "examples": [
+        { "tag": "客訴", "en": "Long waiting times dissatisfy many of our customers.", "zh": "漫長的等待時間讓我們許多顧客不滿意。" },
+        { "tag": "人資", "en": "Unclear instructions can dissatisfy employees and lower their motivation.", "zh": "不清楚的指示可能讓員工不滿，並降低他們的幹勁。" },
+        { "tag": "物流", "en": "The late delivery may dissatisfy clients who need the goods quickly.", "zh": "延遲送貨可能讓急需貨品的客戶不滿意。" }
+      ],
+      "confusable": [
+        { "word": "unsatisfied", "diff": "unsatisfied 偏「需求沒有被滿足」；dissatisfied 偏「感到不滿意」。", "example": { "en": "The unsatisfied customer asked to speak with a manager.", "zh": "這位未被滿足的顧客要求和經理談談。" } }
+      ],
+      "similar": [
+        { "phrase": "displease", "diff": "displease 較正式，指使人不高興，比 dissatisfy 少用。", "example": { "en": "Late replies may displease important clients.", "zh": "太晚回覆可能讓重要客戶不高興。" } },
+        { "phrase": "disappoint", "diff": "disappoint 強調結果不如預期而感到失望。", "example": { "en": "The sales results disappointed our investors.", "zh": "銷售成績讓我們的投資人失望。" } }
+      ],
+      "family": [
+        { "w": "complaint", "pos": "n.", "zh": "抱怨、客訴", "ipa": "/kəmˈpleɪnt/", "example": { "en": "We received a complaint about the late delivery.", "zh": "我們收到一則關於延遲送貨的客訴。" } },
+        { "w": "refund", "pos": "n.", "zh": "退款", "ipa": "/ˈriːfʌnd/", "example": { "en": "You can get a refund if the product is damaged.", "zh": "如果商品受損，你可以申請退款。" } }
+      ],
+      "derived": [
+        { "w": "satisfy", "ipa": "/ˈsætɪsfaɪ/", "pos": "v.", "zh": "使滿意", "link": "最基本的字；dis- + satisfy，不…，像 dislike、disagree" },
+        { "w": "satisfaction", "ipa": "/ˌsætɪsˈfækʃn/", "pos": "n.", "zh": "滿意", "link": "satisfy 去掉 -y 加 -action 變名詞，像 customer satisfaction" },
+        { "w": "satisfactory", "ipa": "/ˌsætɪsˈfæktəri/", "pos": "adj.", "zh": "令人滿意的", "link": "satisfact- + -ory，形容詞，意思是「達到要求的」" },
+        { "w": "dissatisfaction", "ipa": "/dɪsˌsætɪsˈfækʃn/", "pos": "n.", "zh": "不滿", "link": "dis- + satisfaction，不滿意，常見於 customer dissatisfaction" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "disposal",
+      "type": "word",
+      "ipa": "/dɪˈspoʊzəl/",
+      "pos": "n.",
+      "zh": "處理、丟棄；可供使用",
+      "en": "the act of getting rid of something",
+      "note": "多益常見於環保與資產管理，如 waste disposal（廢棄物處理）。另一個常考的用法是 at one's disposal，意思是「任憑某人使用」。",
+      "grammar_note": "at one's disposal 的 one's 要隨人變化，如 at my disposal、at her disposal、at their disposal。",
+      "forms": [
+        { "w": "disposals", "label": "複數", "pos": "n.", "zh": "處理（複數）", "ipa": "/dɪˈspoʊzəlz/", "example": { "en": "Many kitchens now have garbage disposals under the sink.", "zh": "現在許多廚房的水槽下都裝有廚餘處理機。" } }
+      ],
+      "collocations": [
+        { "phrase": "waste disposal", "zh": "廢棄物處理", "example": { "en": "Waste disposal costs have risen sharply this year.", "zh": "今年廢棄物處理的費用大幅上升。" } },
+        { "phrase": "at one's disposal", "zh": "供某人自由使用", "example": { "en": "The manager has a large budget at her disposal.", "zh": "這位經理有一大筆預算可以自由運用。" } },
+        { "phrase": "disposal of", "zh": "…的處理", "example": { "en": "Please follow the guidelines for the disposal of old batteries.", "zh": "請依照規定處理舊電池。" } }
+      ],
+      "examples": [
+        { "tag": "環保", "en": "The company has strict rules for the disposal of chemicals.", "zh": "公司對化學品的處理有嚴格的規定。" },
+        { "tag": "資產", "en": "The disposal of old computers will be done next month.", "zh": "舊電腦的處置將在下個月進行。" },
+        { "tag": "辦公室", "en": "Please use the blue bins for paper disposal in the office.", "zh": "辦公室裡的紙類請丟進藍色回收桶。" }
+      ],
+      "confusable": [
+        { "word": "proposal", "diff": "拼法相近；proposal 是提案、企劃書，和丟棄無關。", "example": { "en": "We sent the client a new proposal yesterday.", "zh": "我們昨天寄給客戶一份新的提案。" } }
+      ],
+      "similar": [
+        { "phrase": "removal", "diff": "removal 是把東西移走；disposal 強調處理掉、丟棄。", "example": { "en": "The removal of old furniture will take two days.", "zh": "移走舊家具需要兩天。" } }
+      ],
+      "family": [
+        { "w": "waste", "pos": "n.", "zh": "廢棄物", "ipa": "/weɪst/", "example": { "en": "The factory must report its waste every month.", "zh": "工廠每個月都必須申報廢棄物。" } },
+        { "w": "recycling", "pos": "n.", "zh": "資源回收", "ipa": "/riːˈsaɪklɪŋ/", "example": { "en": "Recycling is part of our new environmental plan.", "zh": "資源回收是我們新環保計畫的一部分。" } }
+      ],
+      "derived": [
+        { "w": "dispose", "ipa": "/dɪˈspoʊz/", "pos": "v.", "zh": "處理（常用 dispose of）", "link": "最基本的字；dispose + -al 變名詞，像 approve → approval、arrive → arrival" },
+        { "w": "disposable", "ipa": "/dɪˈspoʊzəbəl/", "pos": "adj.", "zh": "用完即丟的", "link": "dispose + -able，可以被丟掉的，像 washable、readable" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "處理、丟棄", "en": "the act of getting rid of something you do not need", "distinguish": "旁邊有 waste、old、chemicals 等字時，指處理掉東西。", "example": { "en": "Safe disposal of old equipment is the company's duty.", "zh": "安全處理舊設備是公司的責任。" } },
+        { "pos": "n.", "zh": "可自由使用（at one's disposal）", "en": "the right to use something as you want", "distinguish": "固定用 at one's disposal，後面常接 money、staff、car 等資源。", "example": { "en": "The hotel puts a free shuttle bus at guests' disposal.", "zh": "飯店提供免費接駁車供旅客使用。" } }
+      ]
+    },
+    {
+      "text": "dock",
+      "type": "word",
+      "ipa": "/dɑːk/",
+      "pos": "n.",
+      "zh": "碼頭、停靠處",
+      "en": "a place where ships stop to load or unload",
+      "note": "多益常見於貨運與物流情境，如 loading dock（裝卸平台）、船隻靠岸。動詞還有「扣（薪水）」的用法，語氣帶有處罰意味。",
+      "grammar_note": "船靠岸時 dock 是不及物動詞，直接說 The ship docked at the port，不接 to。",
+      "forms": [
+        { "w": "docks", "label": "複數／第三人稱單數", "pos": "n.", "zh": "碼頭（複數）", "ipa": "/dɑːks/", "example": { "en": "Our supplier's trucks arrive at the docks before sunrise.", "zh": "我們供應商的貨車在日出前抵達碼頭。" } },
+        { "w": "docked", "label": "過去式／過去分詞", "pos": "v.", "zh": "靠岸（過去式）", "ipa": "/dɑːkt/", "example": { "en": "The ship docked an hour late because of bad weather.", "zh": "這艘船因為天氣不好，晚了一小時靠岸。" } },
+        { "w": "docking", "label": "現在分詞／動名詞", "pos": "v.", "zh": "靠岸中、靠岸", "ipa": "/ˈdɑːkɪŋ/", "example": { "en": "Docking the large ship requires careful planning by the crew.", "zh": "讓大型船隻靠岸需要船員仔細規劃。" } }
+      ],
+      "collocations": [
+        { "phrase": "loading dock", "zh": "裝卸平台", "example": { "en": "Please move the pallets to the loading dock before noon.", "zh": "請在中午前把棧板移到裝卸平台。" } },
+        { "phrase": "dock at", "zh": "停靠在…", "example": { "en": "Ferries dock at Pier 5 every thirty minutes.", "zh": "渡輪每三十分鐘停靠在五號碼頭。" } },
+        { "phrase": "dock employees' pay", "zh": "扣員工薪水", "example": { "en": "Managers cannot dock employees' pay without a clear reason.", "zh": "經理不能在沒有明確理由的情況下扣員工薪水。" } }
+      ],
+      "examples": [
+        { "tag": "物流", "en": "The truck is waiting at the dock to unload the boxes.", "zh": "貨車正在碼頭等著卸下箱子。" },
+        { "tag": "航運", "en": "The cargo ship will dock early tomorrow morning at the port.", "zh": "這艘貨輪明天一早會在港口靠岸。" },
+        { "tag": "人資", "en": "The company may dock your pay if you are late again.", "zh": "如果你再遲到，公司可能會扣你的薪水。" },
+        { "tag": "安全", "en": "No one may park near the dock during unloading hours.", "zh": "卸貨時段任何人都不得把車停在碼頭附近。" }
+      ],
+      "confusable": [
+        { "word": "deck", "diff": "拼法相近；deck 是船的甲板，不是船靠岸的地方。", "example": { "en": "The crew cleaned the deck before the ship arrived.", "zh": "船抵達之前，船員先清潔了甲板。" } }
+      ],
+      "similar": [
+        { "phrase": "pier", "diff": "pier 是伸向海面的碼頭；dock 泛指船靠岸與裝貨的地方。", "example": { "en": "The pier is open to tourists from nine to five.", "zh": "這座碼頭在九點到五點開放給遊客。" } },
+        { "phrase": "deduct", "diff": "deduct 是中性的「扣除」；dock 當「扣薪」時帶有處罰的感覺。", "example": { "en": "The company will deduct the cost from your pay.", "zh": "公司會從你的薪水中扣除這筆費用。" } }
+      ],
+      "family": [
+        { "w": "port", "pos": "n.", "zh": "港口", "ipa": "/pɔːrt/", "example": { "en": "The goods will leave the port on Friday.", "zh": "這批貨物星期五會從港口出發。" } },
+        { "w": "warehouse", "pos": "n.", "zh": "倉庫", "ipa": "/ˈwerhaʊs/", "example": { "en": "We store all our products in a warehouse near the port.", "zh": "我們把所有產品存放在港口附近的倉庫。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/dɑːk/", "zh": "碼頭、停靠處", "example": { "en": "Workers unload the goods at the dock every morning.", "zh": "工人每天早上在碼頭卸貨。" } },
+        { "pos": "v.", "ipa": "/dɑːk/", "zh": "（船）靠岸、停靠", "example": { "en": "The ferry will dock at the island in ten minutes.", "zh": "渡輪十分鐘後會停靠在島上。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "裝卸平台", "en": "a raised area where trucks load or unload goods", "distinguish": "旁邊有 truck、loading、warehouse 等字時，指倉庫旁的裝卸平台，不是海邊碼頭。", "example": { "en": "The delivery truck backed up to the dock at noon.", "zh": "送貨卡車中午倒車靠到裝卸平台旁。" } },
+        { "pos": "v.", "zh": "扣（薪水）", "en": "to take some money away from someone's pay", "distinguish": "後面接 pay、wages 或 salary 時，指扣薪，不是船靠岸。", "example": { "en": "They docked his wages for missing two days of work.", "zh": "因為他缺勤兩天，他們扣了他的薪水。" } }
+      ]
+    }
+  ]
+}

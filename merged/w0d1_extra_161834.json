@@ -1,0 +1,719 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "diagnostic",
+      "type": "word",
+      "ipa": "/ˌdaɪəɡˈnɑːstɪk/",
+      "pos": "adj.",
+      "zh": "診斷的、用來找出問題的",
+      "en": "used to find out what is wrong with something",
+      "note": "多益常見於機器維修、軟體檢查與醫療的情境，指用來找出問題原因的測試或工具，放在名詞前面使用。",
+      "grammar_note": "diagnostic 是形容詞，只放在名詞前面（diagnostic test）；名詞「診斷」是 diagnosis，不要寫成 diagnostic。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "diagnostic test",
+          "zh": "診斷測試",
+          "example": { "en": "The technician ran a diagnostic test on the printer.", "zh": "技術人員對印表機執行了診斷測試。" }
+        },
+        {
+          "phrase": "diagnostic tool",
+          "zh": "診斷工具",
+          "example": { "en": "This diagnostic tool can find network problems quickly.", "zh": "這個診斷工具可以很快找出網路問題。" }
+        },
+        {
+          "phrase": "diagnostic report",
+          "zh": "診斷報告",
+          "example": { "en": "Please attach the diagnostic report to your email.", "zh": "請把診斷報告附在你的電子郵件裡。" }
+        }
+      ],
+      "examples": [
+        { "tag": "維修", "en": "We need a diagnostic check before we repair the machine.", "zh": "修理機器之前，我們需要先做診斷檢查。" },
+        { "tag": "資訊部門", "en": "The diagnostic program showed an error in the system.", "zh": "診斷程式顯示系統中有一個錯誤。" },
+        { "tag": "醫療", "en": "The clinic offers a diagnostic service for new patients.", "zh": "這家診所為新病患提供診斷服務。" }
+      ],
+      "confusable": [
+        {
+          "word": "diagnosis",
+          "diff": "diagnosis 是「診斷的結果或過程」，diagnostic 是形容詞，用來形容跟診斷有關的東西。",
+          "usage": "diagnosis 是名詞（make a diagnosis），diagnostic 是形容詞（a diagnostic tool），不能互換。",
+          "example": { "en": "The doctor gave a clear diagnosis after the test.", "zh": "測試後，醫生做出了明確的診斷。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "inspection",
+          "ipa": "/ɪnˈspekʃn/",
+          "pos": "n.",
+          "zh": "檢查、查驗",
+          "example": { "en": "The inspection of the factory takes two days.", "zh": "這間工廠的查驗需要兩天。" }
+        },
+        {
+          "w": "analysis",
+          "ipa": "/əˈnæləsɪs/",
+          "pos": "n.",
+          "zh": "分析",
+          "example": { "en": "Our analysis shows that sales are rising slowly.", "zh": "我們的分析顯示銷售正緩慢成長。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "diagnose",
+          "ipa": "/ˌdaɪəɡˈnoʊs/",
+          "pos": "v.",
+          "zh": "診斷、找出（問題）",
+          "link": "最基礎的字，動詞，意思是找出原因，像 analyze 分析"
+        },
+        {
+          "w": "diagnosis",
+          "ipa": "/ˌdaɪəɡˈnoʊsɪs/",
+          "pos": "n.",
+          "zh": "診斷",
+          "link": "diagnose 的名詞，字尾改成 -sis，像 analyze → analysis"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "deteriorate",
+      "type": "word",
+      "ipa": "/dɪˈtɪriəreɪt/",
+      "pos": "v.",
+      "zh": "惡化、變差",
+      "en": "to become worse over time",
+      "note": "多益常見於天氣、市場狀況、設備品質與客戶關係的情境，指情況慢慢變差，語氣偏正式。",
+      "grammar_note": "deteriorate 是不及物動詞，不接受詞，也不能用被動；要說「情況變差了」就寫 The situation deteriorated。",
+      "forms": [
+        {
+          "w": "deteriorates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "惡化",
+          "ipa": "/dɪˈtɪriəreɪts/",
+          "example": { "en": "Fresh food quickly deteriorates if it is not kept cold.", "zh": "新鮮食物如果不冷藏，很快就會變質。" }
+        },
+        {
+          "w": "deteriorated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "惡化了",
+          "ipa": "/dɪˈtɪriəreɪtɪd/",
+          "example": { "en": "The weather deteriorated, so the flight was delayed.", "zh": "天氣變差，所以班機延誤了。" }
+        },
+        {
+          "w": "deteriorating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在惡化",
+          "ipa": "/dɪˈtɪriəreɪtɪŋ/",
+          "example": { "en": "The deteriorating road made delivery trucks much slower.", "zh": "日益損壞的道路讓送貨卡車慢了許多。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "deteriorate rapidly",
+          "zh": "迅速惡化",
+          "example": { "en": "The market could deteriorate rapidly next quarter.", "zh": "市場在下一季可能迅速惡化。" }
+        },
+        {
+          "phrase": "deteriorate further",
+          "zh": "進一步惡化",
+          "example": { "en": "Prices may deteriorate further if demand stays low.", "zh": "如果需求持續低迷，價格可能進一步惡化。" }
+        },
+        {
+          "phrase": "deteriorating condition",
+          "zh": "日漸惡化的狀況",
+          "example": { "en": "We must fix the deteriorating condition of the bridge.", "zh": "我們必須處理那座橋日漸惡化的狀況。" }
+        }
+      ],
+      "examples": [
+        { "tag": "設備", "en": "The quality of the old machine began to deteriorate.", "zh": "那台舊機器的品質開始變差。" },
+        { "tag": "客戶關係", "en": "Our relationship with the supplier has deteriorated this year.", "zh": "我們和供應商的關係今年變差了。" },
+        { "tag": "新聞", "en": "Economic conditions continue to deteriorate in the region.", "zh": "這個地區的經濟狀況持續惡化。" }
+      ],
+      "similar": [
+        {
+          "word": "worsen",
+          "diff": "worsen 較簡單、通用；deteriorate 較正式，常強調慢慢變差。",
+          "example": { "en": "The problem may worsen if we do nothing.", "zh": "如果我們什麼都不做，問題可能會惡化。" }
+        },
+        {
+          "word": "decline",
+          "diff": "decline 多指數量、價格或業績下滑；deteriorate 多指品質或狀況變差。",
+          "example": { "en": "Sales declined sharply during the summer months.", "zh": "夏季那幾個月的銷售大幅下滑。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "decline",
+          "ipa": "/dɪˈklaɪn/",
+          "pos": "v.",
+          "zh": "下降、減少",
+          "example": { "en": "Profits will decline if costs keep rising.", "zh": "如果成本持續上升，利潤會下降。" }
+        },
+        {
+          "w": "damage",
+          "ipa": "/ˈdæmɪdʒ/",
+          "pos": "n.",
+          "zh": "損壞、損害",
+          "example": { "en": "The storm caused serious damage to the warehouse.", "zh": "暴風雨對倉庫造成嚴重損害。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "deterioration",
+          "ipa": "/dɪˌtɪriəˈreɪʃn/",
+          "pos": "n.",
+          "zh": "惡化、變質",
+          "link": "deteriorate 去掉 e + -ion，把「惡化」變成名詞，像 decorate → decoration"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "desperate",
+      "type": "word",
+      "ipa": "/ˈdespərət/",
+      "pos": "adj.",
+      "zh": "絕望的、極需的、孤注一擲的",
+      "en": "in a very bad situation and willing to do almost anything",
+      "note": "多益常見於求助、缺人或缺貨的情境，desperate for 表示「非常需要」，語氣比 need 強烈很多。",
+      "grammar_note": "desperate for 後面接名詞（desperate for help），desperate to 後面接原形動詞（desperate to finish）；不要寫成 desperate of。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "desperate for",
+          "zh": "極度需要…",
+          "example": { "en": "The store is desperate for experienced sales staff.", "zh": "這家店極度需要有經驗的銷售人員。" }
+        },
+        {
+          "phrase": "desperate attempt",
+          "zh": "孤注一擲的嘗試",
+          "example": { "en": "It was a desperate attempt to save the project.", "zh": "那是為了挽救專案而孤注一擲的嘗試。" }
+        },
+        {
+          "phrase": "desperate situation",
+          "zh": "絕望的處境",
+          "example": { "en": "The company is in a desperate situation after the loss.", "zh": "公司在這次虧損後處境十分絕望。" }
+        }
+      ],
+      "examples": [
+        { "tag": "人事", "en": "We are desperate to hire someone before the busy season.", "zh": "我們極需在旺季前雇到人。" },
+        { "tag": "電子郵件", "en": "Our customers are desperate for a quick answer from you.", "zh": "我們的客戶很迫切地想從你這裡得到快速回覆。" },
+        { "tag": "新聞", "en": "Many small shops are in desperate need of support.", "zh": "許多小商店非常需要支援。" }
+      ],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "絕望的、走投無路的",
+          "en": "feeling that there is no hope",
+          "example": { "en": "The manager felt desperate when the client left.", "zh": "客戶離開時，經理覺得走投無路。" }
+        },
+        {
+          "pos": "adj.",
+          "zh": "極需的、迫切的",
+          "en": "needing something very much",
+          "distinguish": "後面接 for 或 to V 時，指的是迫切需要，不一定是絕望。",
+          "example": { "en": "I am desperate for a day off this week.", "zh": "我這週非常需要放一天假。" }
+        },
+        {
+          "pos": "adj.",
+          "zh": "非常嚴重的",
+          "en": "very serious or very bad",
+          "distinguish": "放在 need、situation 前面，用來加強嚴重程度。",
+          "example": { "en": "There is a desperate need for clean water here.", "zh": "這裡非常迫切需要乾淨的水。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "separate",
+          "diff": "拼法和發音有點像，但 separate 是「分開的」，desperate 是「絕望的、極需的」。",
+          "example": { "en": "Please keep the two reports in separate folders.", "zh": "請把這兩份報告放在不同的資料夾。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "urgent",
+          "ipa": "/ˈɜːrdʒənt/",
+          "pos": "adj.",
+          "zh": "緊急的",
+          "example": { "en": "This is an urgent request from our biggest client.", "zh": "這是我們最大客戶的緊急要求。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "desperately",
+          "ipa": "/ˈdespərətli/",
+          "pos": "adv.",
+          "zh": "拼命地、極度地",
+          "link": "desperate + -ly，形容詞加 -ly 變副詞，像 quick → quickly"
+        },
+        {
+          "w": "desperation",
+          "ipa": "/ˌdespəˈreɪʃn/",
+          "pos": "n.",
+          "zh": "絕望、孤注一擲",
+          "link": "desperate 去掉 -ate + -ation，變成名詞，像 decorate → decoration"
+        }
+      ],
+      "pos_uses": []
+    },
+    {
+      "text": "depart",
+      "type": "word",
+      "ipa": "/dɪˈpɑːrt/",
+      "pos": "v.",
+      "zh": "出發、離開",
+      "en": "to leave a place, especially to start a trip",
+      "note": "多益常見於機場、車站與出差行程的情境，指班機、火車、巴士出發；語氣比 leave 正式，常用在時刻表與公告。",
+      "grammar_note": "depart 是不及物動詞，離開某地用 depart from + 地點，前往某地用 depart for + 地點；不能直接接地點當受詞，也不能寫 depart to。",
+      "forms": [
+        {
+          "w": "departs",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "出發",
+          "ipa": "/dɪˈpɑːrts/",
+          "example": { "en": "The shuttle bus departs every thirty minutes.", "zh": "接駁巴士每三十分鐘發車一次。" }
+        },
+        {
+          "w": "departed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "出發了",
+          "ipa": "/dɪˈpɑːrtɪd/",
+          "example": { "en": "Our flight departed late because of heavy fog.", "zh": "因為大霧，我們的班機延遲起飛。" }
+        },
+        {
+          "w": "departing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在出發",
+          "ipa": "/dɪˈpɑːrtɪŋ/",
+          "example": { "en": "Passengers departing from Terminal 2 should check in now.", "zh": "從第二航廈出發的旅客現在請辦理登機手續。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "depart from",
+          "zh": "從…出發",
+          "example": { "en": "This train departs from Platform 4 at noon.", "zh": "這班火車中午從四號月台出發。" }
+        },
+        {
+          "phrase": "depart for",
+          "zh": "出發前往…",
+          "example": { "en": "The team will depart for Osaka on Monday.", "zh": "團隊將在週一出發前往大阪。" }
+        },
+        {
+          "phrase": "depart on time",
+          "zh": "準時出發",
+          "example": { "en": "We hope the bus can depart on time today.", "zh": "我們希望巴士今天能準時出發。" }
+        }
+      ],
+      "examples": [
+        { "tag": "出差", "en": "Our flight to Seattle departs at 8:30 tomorrow morning.", "zh": "我們飛往西雅圖的班機明天早上八點半起飛。" },
+        { "tag": "公告", "en": "Guests must depart the hotel before eleven on the last day.", "zh": "房客最後一天必須在十一點前離開飯店。" }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "出發、離開",
+          "en": "to leave a place to go somewhere else",
+          "example": { "en": "The ferry will depart as soon as everyone is on board.", "zh": "大家一上船，渡輪就會出發。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "偏離（原本的計畫）",
+          "en": "to do something different from the usual plan",
+          "distinguish": "後面接 from + 計畫或規定時，指的是偏離，不是出發。",
+          "example": { "en": "We should not depart from the original schedule.", "zh": "我們不應該偏離原本的時程。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "leave",
+          "diff": "leave 較口語，可以直接接地點當受詞（leave the office）；depart 較正式，常搭 from。",
+          "example": { "en": "I usually leave the office at six in the evening.", "zh": "我通常在傍晚六點離開辦公室。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "arrive",
+          "ipa": "/əˈraɪv/",
+          "pos": "v.",
+          "zh": "抵達",
+          "example": { "en": "The guests will arrive at the hotel at noon.", "zh": "賓客將在中午抵達飯店。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "departure",
+          "ipa": "/dɪˈpɑːrtʃɚ/",
+          "pos": "n.",
+          "zh": "出發、離開",
+          "link": "depart + -ure，名詞字尾，像 fail → failure"
+        },
+        {
+          "w": "department",
+          "ipa": "/dɪˈpɑːrtmənt/",
+          "pos": "n.",
+          "zh": "部門",
+          "link": "depart + -ment，把動作變成名詞，像 pay → payment"
+        }
+      ],
+      "pos_uses": []
+    },
+    {
+      "text": "distraction",
+      "type": "word",
+      "ipa": "/dɪˈstrækʃn/",
+      "pos": "n.",
+      "zh": "令人分心的事物、分心",
+      "en": "something that stops you from paying attention",
+      "note": "多益常見於辦公室、開會與工作效率的情境，指手機、噪音、閒聊等讓人無法專心的事物。",
+      "grammar_note": "指「令人分心的事物」是可數名詞，常用複數 distractions，如 avoid distractions；單數可寫 a distraction。",
+      "forms": [
+        {
+          "w": "distractions",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "令人分心的事物（複數）",
+          "ipa": "/dɪˈstrækʃnz/",
+          "example": { "en": "Too many distractions make it hard to finish the report.", "zh": "太多令人分心的事物，讓報告很難完成。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "avoid distractions",
+          "zh": "避免分心",
+          "example": { "en": "Turn off your phone to avoid distractions during the meeting.", "zh": "開會時關掉手機，以避免分心。" }
+        },
+        {
+          "phrase": "a source of distraction",
+          "zh": "分心的來源",
+          "example": { "en": "Loud music can be a source of distraction at work.", "zh": "吵鬧的音樂可能成為工作時分心的來源。" }
+        },
+        {
+          "phrase": "minimize distractions",
+          "zh": "減少干擾",
+          "example": { "en": "A quiet room helps us minimize distractions.", "zh": "安靜的房間幫助我們減少干擾。" }
+        }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "Open offices can be a big distraction for some workers.", "zh": "開放式辦公室對某些員工來說可能是很大的干擾。" },
+        { "tag": "電子郵件", "en": "Constant email alerts are a distraction during busy hours.", "zh": "在忙碌時段，不停跳出的郵件通知是種干擾。" },
+        { "tag": "開車", "en": "Using a phone while driving is a dangerous distraction.", "zh": "開車時使用手機是危險的分心行為。" }
+      ],
+      "confusable": [
+        {
+          "word": "attraction",
+          "diff": "拼法很像，但 attraction 是「吸引人的事物、景點」，distraction 是「讓人分心的事物」。",
+          "example": { "en": "The museum is the main attraction in this city.", "zh": "這間博物館是這座城市的主要景點。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "interruption",
+          "diff": "interruption 指把正在做的事「打斷」；distraction 指讓人無法專心，不一定中斷工作。",
+          "example": { "en": "Phone calls cause many interruptions during my workday.", "zh": "電話在我上班時造成許多打斷。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "concentration",
+          "ipa": "/ˌkɑːnsnˈtreɪʃn/",
+          "pos": "n.",
+          "zh": "專心、專注",
+          "example": { "en": "This task needs a lot of concentration from the team.", "zh": "這項工作需要團隊高度專注。" }
+        },
+        {
+          "w": "focus",
+          "ipa": "/ˈfoʊkəs/",
+          "pos": "n.",
+          "zh": "焦點、專注",
+          "example": { "en": "Our focus this quarter is customer service.", "zh": "我們這一季的重點是客戶服務。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "distract",
+          "ipa": "/dɪˈstrækt/",
+          "pos": "v.",
+          "zh": "使分心",
+          "link": "最基礎的字，動詞，distraction 去掉 -ion 就是它，像 attract → attraction"
+        },
+        {
+          "w": "distracted",
+          "ipa": "/dɪˈstræktɪd/",
+          "pos": "adj.",
+          "zh": "分心的",
+          "link": "distract + -ed，感覺被影響，像 interested、tired"
+        },
+        {
+          "w": "distracting",
+          "ipa": "/dɪˈstræktɪŋ/",
+          "pos": "adj.",
+          "zh": "令人分心的",
+          "link": "distract + -ing，讓人有這種感覺，像 interesting、tiring"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "efficiently",
+      "type": "word",
+      "ipa": "/ɪˈfɪʃntli/",
+      "pos": "adv.",
+      "zh": "有效率地",
+      "en": "in a way that saves time, money, or effort",
+      "note": "多益常見於工作流程、公司管理與設備使用的情境，強調用較少的時間或成本把事情做好，語氣正面。",
+      "grammar_note": "efficiently 是副詞，修飾動詞（work efficiently）；形容詞是 efficient，要放在名詞前（an efficient system）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "work efficiently",
+          "zh": "有效率地工作",
+          "example": { "en": "The new software helps us work efficiently every day.", "zh": "新軟體幫助我們每天有效率地工作。" }
+        },
+        {
+          "phrase": "use resources efficiently",
+          "zh": "有效率地運用資源",
+          "example": { "en": "The plant uses energy and water efficiently.", "zh": "這間工廠有效率地使用能源與水。" }
+        },
+        {
+          "phrase": "run efficiently",
+          "zh": "運作順暢有效率",
+          "example": { "en": "Our new warehouse runs very efficiently this year.", "zh": "我們的新倉庫今年運作得非常有效率。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "We need to use our time more efficiently in meetings.", "zh": "我們需要在會議中更有效率地運用時間。" },
+        { "tag": "客戶服務", "en": "The team handled the complaints quickly and efficiently.", "zh": "團隊快速又有效率地處理了客訴。" },
+        { "tag": "採購", "en": "Ordering online lets us buy supplies more efficiently.", "zh": "線上訂購讓我們能更有效率地購買用品。" }
+      ],
+      "confusable": [
+        {
+          "word": "effectively",
+          "diff": "effectively 強調「有達到想要的結果」；efficiently 強調「花較少時間或成本」。",
+          "example": { "en": "She explained the new plan effectively to the clients.", "zh": "她很有成效地向客戶說明新計畫。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "quickly",
+          "ipa": "/ˈkwɪkli/",
+          "pos": "adv.",
+          "zh": "快速地",
+          "example": { "en": "Please reply to the customer as quickly as possible.", "zh": "請盡快回覆客戶。" }
+        },
+        {
+          "w": "productive",
+          "ipa": "/prəˈdʌktɪv/",
+          "pos": "adj.",
+          "zh": "有生產力的",
+          "example": { "en": "It was a productive meeting with our partners.", "zh": "那是一場與合作夥伴很有成果的會議。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "efficient",
+          "ipa": "/ɪˈfɪʃnt/",
+          "pos": "adj.",
+          "zh": "有效率的",
+          "link": "最基礎的字，形容詞，像 efficiently 去掉 -ly"
+        },
+        {
+          "w": "efficiency",
+          "ipa": "/ɪˈfɪʃnsi/",
+          "pos": "n.",
+          "zh": "效率",
+          "link": "efficient 去掉 t + -cy，變成名詞，像 urgent → urgency"
+        },
+        {
+          "w": "inefficient",
+          "ipa": "/ˌɪnɪˈfɪʃnt/",
+          "pos": "adj.",
+          "zh": "沒有效率的",
+          "link": "in-（不）+ efficient，像 incorrect、inactive"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "editorial",
+      "type": "word",
+      "ipa": "/ˌedɪˈtɔːriəl/",
+      "pos": "adj.",
+      "zh": "編輯的；（n.）社論",
+      "en": "related to editing or to the editors of a newspaper or magazine",
+      "note": "多益常見於報社、雜誌與出版社的情境，當形容詞指「編輯的」，當名詞指報紙上表達意見的「社論」。",
+      "grammar_note": "當形容詞時只放在名詞前面（editorial staff）；當名詞時是可數名詞，可寫 an editorial、editorials。",
+      "forms": [
+        {
+          "w": "editorials",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "社論（複數）",
+          "ipa": "/ˌedɪˈtɔːriəlz/",
+          "example": { "en": "Several editorials praised the company for its new policy.", "zh": "好幾篇社論讚揚這家公司的新政策。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "editorial staff",
+          "zh": "編輯人員",
+          "example": { "en": "The editorial staff meets every Monday morning.", "zh": "編輯團隊每週一早上開會。" }
+        },
+        {
+          "phrase": "editorial board",
+          "zh": "編輯委員會",
+          "example": { "en": "The editorial board will review the article today.", "zh": "編輯委員會今天會審閱這篇文章。" }
+        },
+        {
+          "phrase": "editorial department",
+          "zh": "編輯部",
+          "example": { "en": "Please send your story to the editorial department.", "zh": "請把你的稿件寄到編輯部。" }
+        }
+      ],
+      "examples": [
+        { "tag": "出版", "en": "She got a job on the editorial team of a magazine.", "zh": "她在一家雜誌的編輯團隊找到了工作。" },
+        { "tag": "新聞", "en": "Today's editorial is about changes in the job market.", "zh": "今天的社論談的是就業市場的變化。" }
+      ],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ˌedɪˈtɔːriəl/",
+          "zh": "編輯的",
+          "example": { "en": "We made a few editorial changes to the report.", "zh": "我們對報告做了幾處編輯上的修改。" }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˌedɪˈtɔːriəl/",
+          "zh": "社論",
+          "example": { "en": "The editorial argues that the city needs more parking.", "zh": "這篇社論主張這座城市需要更多停車位。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "editor",
+          "diff": "editor 是「編輯這個人」，editorial 是形容詞，指與編輯有關的，或名詞「社論」。",
+          "usage": "editor 是指人的名詞（the editor of a magazine），editorial 是形容詞或指文章的名詞，不指人。",
+          "example": { "en": "The editor asked me to shorten the article.", "zh": "編輯要求我把這篇文章縮短。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "article",
+          "ipa": "/ˈɑːrtɪkl/",
+          "pos": "n.",
+          "zh": "文章、報導",
+          "example": { "en": "I read an article about the new tax rules.", "zh": "我讀了一篇關於新稅制的文章。" }
+        },
+        {
+          "w": "column",
+          "ipa": "/ˈkɑːləm/",
+          "pos": "n.",
+          "zh": "專欄",
+          "example": { "en": "She writes a weekly column for a business paper.", "zh": "她為一份商業報紙寫每週專欄。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "edit",
+          "ipa": "/ˈedɪt/",
+          "pos": "v.",
+          "zh": "編輯、修改",
+          "link": "最基礎的字，動詞，意思是修改文章"
+        },
+        {
+          "w": "editor",
+          "ipa": "/ˈedɪtɚ/",
+          "pos": "n.",
+          "zh": "編輯",
+          "link": "edit + -or，做事的人，像 actor、visitor"
+        },
+        {
+          "w": "edition",
+          "ipa": "/ɪˈdɪʃn/",
+          "pos": "n.",
+          "zh": "（出版的）版本",
+          "link": "edit + -ion，把動作變成名詞，指出版的一個版本，像 collect → collection"
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "enjoyable",
+      "type": "word",
+      "ipa": "/ɪnˈdʒɔɪəbl/",
+      "pos": "adj.",
+      "zh": "愉快的、有趣的",
+      "en": "giving you pleasure or fun",
+      "note": "多益常見於旅遊、活動、餐廳評論與感謝信的情境，用來形容經驗、活動或時光很愉快，語氣友善正面。",
+      "grammar_note": "enjoyable 用來形容事物或經驗（an enjoyable trip），不用來形容人的感受；說「我很開心」要用 I enjoyed it 或 I am glad，不是 I am enjoyable。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "enjoyable experience",
+          "zh": "愉快的經驗",
+          "example": { "en": "Working with your team was a very enjoyable experience.", "zh": "和你的團隊合作是很愉快的經驗。" }
+        },
+        {
+          "phrase": "enjoyable evening",
+          "zh": "愉快的夜晚",
+          "example": { "en": "Thank you for such an enjoyable evening at the dinner.", "zh": "謝謝你讓我在晚宴度過這麼愉快的夜晚。" }
+        },
+        {
+          "phrase": "enjoyable stay",
+          "zh": "愉快的住宿",
+          "example": { "en": "We hope you have an enjoyable stay at our hotel.", "zh": "希望您在我們飯店住得愉快。" }
+        }
+      ],
+      "examples": [
+        { "tag": "旅遊", "en": "The boat tour was relaxing and very enjoyable.", "zh": "那趟船遊很放鬆，也非常愉快。" },
+        { "tag": "活動", "en": "The company picnic was more enjoyable than we expected.", "zh": "公司野餐比我們預期的更愉快。" },
+        { "tag": "顧客回饋", "en": "Most guests found the new menu enjoyable and affordable.", "zh": "大多數客人覺得新菜單既好吃又實惠。" }
+      ],
+      "similar": [
+        {
+          "word": "pleasant",
+          "diff": "pleasant 指令人舒服、愉快，也可形容人；enjoyable 強調讓人享受、覺得有趣的活動。",
+          "example": { "en": "She is a pleasant person to work with.", "zh": "她是個很好共事的人。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "pleasant",
+          "ipa": "/ˈpleznt/",
+          "pos": "adj.",
+          "zh": "令人愉快的",
+          "example": { "en": "We had a pleasant talk with the new client.", "zh": "我們和新客戶談得很愉快。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "enjoy",
+          "ipa": "/ɪnˈdʒɔɪ/",
+          "pos": "v.",
+          "zh": "享受、喜歡",
+          "link": "最基礎的字，動詞，enjoyable 去掉 -able 就是它"
+        },
+        {
+          "w": "enjoyment",
+          "ipa": "/ɪnˈdʒɔɪmənt/",
+          "pos": "n.",
+          "zh": "樂趣、享受",
+          "link": "enjoy + -ment，把動作變成名詞，像 pay → payment"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

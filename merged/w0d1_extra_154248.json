@@ -1,0 +1,340 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "definite",
+      "type": "word",
+      "ipa": "/ˈdefɪnət/",
+      "pos": "adj.",
+      "zh": "明確的、確定的",
+      "en": "clear and sure, not changing",
+      "note": "多益常見於電子郵件和會議，說明答覆、日期或計畫「已經明確、不含糊」。常和 answer、date、plan 搭配。",
+      "grammar_note": "definite 是形容詞，修飾名詞；要修飾動詞時用副詞 definitely，常放在助動詞後，如 will definitely。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "definite answer", "zh": "明確的答覆", "example": { "en": "Please give us a definite answer by next Monday.", "zh": "請在下週一前給我們明確的答覆。" } },
+        { "phrase": "definite date", "zh": "確定的日期", "example": { "en": "We have not fixed a definite date for the training.", "zh": "我們還沒有確定訓練的日期。" } },
+        { "phrase": "definite plan", "zh": "明確的計畫", "example": { "en": "The team still has no definite plan for the trip.", "zh": "團隊對這趟旅行還沒有明確的計畫。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "I have no definite news about the new contract yet.", "zh": "關於新合約，我還沒有確切的消息。" },
+        { "tag": "會議", "en": "There is a definite improvement in this month's sales figures.", "zh": "這個月的銷售數字有明顯的進步。" },
+        { "tag": "求職", "en": "She has a definite interest in the marketing position.", "zh": "她對行銷職位有明確的興趣。" }
+      ],
+      "confusable": [
+        { "word": "definitive", "diff": "definitive 是「最終的、權威的」，指不會再改的結論；definite 是「明確的」。", "example": { "en": "The report gives the definitive answer on safety rules.", "zh": "這份報告提供了安全規定的最終答案。" } }
+      ],
+      "similar": [
+        { "word": "certain", "diff": "certain 強調說話的人很有把握；definite 強調事情本身已經明確、不含糊。", "example": { "en": "I am certain that the shipment will arrive on time.", "zh": "我確定貨物會準時送到。" } }
+      ],
+      "family": [
+        { "w": "certain", "pos": "adj.", "zh": "確定的", "ipa": "/ˈsɝːtn/", "example": { "en": "Are you certain about the meeting time?", "zh": "你確定開會時間嗎？" } },
+        { "w": "clear", "pos": "adj.", "zh": "清楚的", "ipa": "/klɪr/", "example": { "en": "Her instructions were short and clear.", "zh": "她的說明簡短又清楚。" } },
+        { "w": "final", "pos": "adj.", "zh": "最後的", "ipa": "/ˈfaɪnl/", "example": { "en": "The final decision will be made on Friday.", "zh": "最後的決定將在星期五做出。" } },
+        { "w": "specific", "pos": "adj.", "zh": "具體的", "ipa": "/spəˈsɪfɪk/", "example": { "en": "Please give me a specific example of the problem.", "zh": "請給我一個這個問題的具體例子。" } }
+      ],
+      "derived": [
+        { "w": "definitely", "pos": "adv.", "zh": "一定、明確地", "ipa": "/ˈdefɪnətli/", "link": "definite + -ly，變成副詞，像 certainly、clearly" },
+        { "w": "indefinite", "pos": "adj.", "zh": "不確定的、無限期的", "ipa": "/ɪnˈdefɪnət/", "link": "in-（不）+ definite，不明確的，像 incorrect、inactive" },
+        { "w": "indefinitely", "pos": "adv.", "zh": "無限期地", "ipa": "/ɪnˈdefɪnətli/", "link": "indefinite + -ly，沒有結束時間地，像 slowly、finally" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "delegate",
+      "type": "word",
+      "ipa": "/ˈdelɪgeɪt/",
+      "pos": "v.",
+      "zh": "委派、授權；（n.）代表",
+      "en": "to give work or power to another person",
+      "note": "多益在管理與人事情境常見動詞用法，指主管把工作交給別人；名詞則常見於研討會、會議的「與會代表」。",
+      "grammar_note": "動詞常用 delegate sth to sb（把…交給某人）。名詞唸 /ˈdelɪgət/，動詞唸 /ˈdelɪgeɪt/，字尾發音不同。",
+      "forms": [
+        { "w": "delegates", "label": "複數", "pos": "n.", "zh": "代表（複數）", "ipa": "/ˈdelɪgəts/", "example": { "en": "Delegates from five countries will join the conference.", "zh": "來自五個國家的代表將參加這場會議。" } },
+        { "w": "delegates", "label": "第三人稱單數", "pos": "v.", "zh": "委派", "ipa": "/ˈdelɪgeɪts/", "example": { "en": "Our director delegates most of the daily work to her team.", "zh": "我們的主任把大部分日常工作交給她的團隊。" } },
+        { "w": "delegated", "label": "過去式／過去分詞", "pos": "v.", "zh": "委派了", "ipa": "/ˈdelɪgeɪtɪd/", "example": { "en": "The manager delegated the budget review to her assistant.", "zh": "經理把預算審查交給了她的助理。" } },
+        { "w": "delegating", "label": "現在分詞", "pos": "v.", "zh": "委派中", "ipa": "/ˈdelɪgeɪtɪŋ/", "example": { "en": "He is delegating the new project to two engineers.", "zh": "他正在把新專案交給兩位工程師。" } }
+      ],
+      "collocations": [
+        { "phrase": "delegate tasks", "zh": "分派工作", "example": { "en": "Good leaders delegate tasks and trust their team members.", "zh": "好的領導者會分派工作並信任團隊成員。" } },
+        { "phrase": "delegate authority", "zh": "授權", "example": { "en": "The president may delegate authority to the department heads.", "zh": "總裁可以把權力授予各部門主管。" } },
+        { "phrase": "a delegate from", "zh": "來自…的代表", "example": { "en": "We invited a delegate from the Tokyo office.", "zh": "我們邀請了一位東京辦公室的代表。" } }
+      ],
+      "examples": [
+        { "tag": "管理", "en": "A good manager knows when to delegate work to others.", "zh": "好的主管知道什麼時候該把工作交給別人。" },
+        { "tag": "工作安排", "en": "I plan to delegate the weekly report to a new employee.", "zh": "我打算把每週報告交給一位新進員工。" },
+        { "tag": "研討會", "en": "Each delegate will receive a name badge at the registration desk.", "zh": "每位代表會在報到處領到名牌。" },
+        { "tag": "出差", "en": "Our delegate to the trade show will report back next week.", "zh": "我們出席貿易展的代表下週會回來報告。" }
+      ],
+      "confusable": [
+        { "word": "delicate", "diff": "delicate 是形容詞，意思是易碎的、精緻的；拼法和 delegate 相近。", "usage": "delicate 是形容詞（易碎的），delegate 是動詞或名詞，詞性不同。", "example": { "en": "Please handle the delicate glass items with care.", "zh": "請小心處理這些易碎的玻璃製品。" } }
+      ],
+      "similar": [
+        { "word": "assign", "diff": "assign 是分派一項工作給人；delegate 還包含把決定的權力交給對方。", "example": { "en": "The manager will assign a new project to each team member.", "zh": "經理會分派一個新專案給每位組員。" } },
+        { "word": "representative", "diff": "representative 也是「代表」，但 delegate 多指被派去開會或談判的人。", "example": { "en": "The company sent a representative to the meeting.", "zh": "公司派了一位代表去開會。" } }
+      ],
+      "family": [
+        { "w": "authority", "pos": "n.", "zh": "權力、職權", "ipa": "/əˈθɔːrəti/", "example": { "en": "She has the authority to approve new orders.", "zh": "她有權核准新訂單。" } },
+        { "w": "responsibility", "pos": "n.", "zh": "責任", "ipa": "/rɪˌspɑːnsəˈbɪləti/", "example": { "en": "Safety is the responsibility of every employee.", "zh": "安全是每位員工的責任。" } },
+        { "w": "task", "pos": "n.", "zh": "任務、工作", "ipa": "/tæsk/", "example": { "en": "The first task is to check the customer list.", "zh": "第一項工作是檢查客戶名單。" } },
+        { "w": "assistant", "pos": "n.", "zh": "助理", "ipa": "/əˈsɪstənt/", "example": { "en": "My assistant will send you the schedule today.", "zh": "我的助理今天會把時間表寄給你。" } }
+      ],
+      "derived": [
+        { "w": "delegation", "pos": "n.", "zh": "代表團；授權", "ipa": "/ˌdelɪˈgeɪʃn/", "link": "delegate + -ion，把「委派」變成名詞（一群代表），像 decorate → decoration" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/ˈdelɪgeɪt/", "zh": "委派、授權", "example": { "en": "You should delegate some of these tasks to your team.", "zh": "你應該把其中一些工作交給你的團隊。" } },
+        { "pos": "n.", "ipa": "/ˈdelɪgət/", "zh": "代表、與會者", "example": { "en": "The delegate from our company gave a short speech.", "zh": "我們公司的代表發表了簡短的演說。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "dentist",
+      "type": "word",
+      "ipa": "/ˈdentɪst/",
+      "pos": "n.",
+      "zh": "牙醫",
+      "en": "a doctor who takes care of your teeth",
+      "note": "多益常見於預約、請假、員工保險等情境。電話預約看牙時常出現 dentist's appointment。",
+      "forms": [
+        { "w": "dentists", "label": "複數", "pos": "n.", "zh": "牙醫（複數）", "ipa": "/ˈdentɪsts/", "example": { "en": "Several dentists work together at the new downtown clinic.", "zh": "好幾位牙醫在市中心的新診所一起工作。" } }
+      ],
+      "collocations": [
+        { "phrase": "see a dentist", "zh": "看牙醫", "example": { "en": "You should see a dentist if your tooth still hurts.", "zh": "如果你的牙齒還在痛，應該去看牙醫。" } },
+        { "phrase": "dentist's appointment", "zh": "牙醫的預約", "example": { "en": "I have a dentist's appointment at three o'clock tomorrow.", "zh": "我明天三點有牙醫的預約。" } },
+        { "phrase": "dentist's office", "zh": "牙醫診所", "example": { "en": "The dentist's office is on the second floor of this building.", "zh": "牙醫診所在這棟大樓的二樓。" } },
+        { "phrase": "go to the dentist", "zh": "去看牙醫", "example": { "en": "He goes to the dentist twice a year.", "zh": "他一年去看兩次牙醫。" } }
+      ],
+      "examples": [
+        { "tag": "請假", "en": "May I leave early today to visit my dentist?", "zh": "我今天可以早點離開去看牙醫嗎？" },
+        { "tag": "福利", "en": "Our insurance plan covers visits to the dentist every six months.", "zh": "我們的保險方案涵蓋每六個月一次的牙醫門診。" },
+        { "tag": "閒聊", "en": "My dentist told me to brush my teeth after every meal.", "zh": "我的牙醫要我每餐後都刷牙。" }
+      ],
+      "confusable": [
+        { "word": "dental", "diff": "dental 是形容詞，意思是「牙齒的」；dentist 是人。", "usage": "dentist 是名詞（牙醫），dental 是形容詞，放在名詞前，如 dental insurance。", "example": { "en": "The company offers dental insurance to all full-time staff.", "zh": "公司為所有全職員工提供牙科保險。" } }
+      ],
+      "family": [
+        { "w": "doctor", "pos": "n.", "zh": "醫生", "ipa": "/ˈdɑːktɚ/", "example": { "en": "The doctor will see you in ten minutes.", "zh": "醫生十分鐘後會看你。" } },
+        { "w": "clinic", "pos": "n.", "zh": "診所", "ipa": "/ˈklɪnɪk/", "example": { "en": "The clinic is open until six in the evening.", "zh": "診所開到傍晚六點。" } },
+        { "w": "appointment", "pos": "n.", "zh": "預約", "ipa": "/əˈpɔɪntmənt/", "example": { "en": "I need to change my appointment to next week.", "zh": "我需要把預約改到下週。" } },
+        { "w": "patient", "pos": "n.", "zh": "病人", "ipa": "/ˈpeɪʃnt/", "example": { "en": "Each patient fills out a form at the front desk.", "zh": "每位病人都在櫃檯填一張表格。" } }
+      ],
+      "derived": [
+        { "w": "dentistry", "pos": "n.", "zh": "牙科、牙醫學", "ipa": "/ˈdentɪstri/", "link": "dentist + -ry，表示這個領域，像 chemistry（chemist + -ry）" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "dependable",
+      "type": "word",
+      "ipa": "/dɪˈpendəbl/",
+      "pos": "adj.",
+      "zh": "可靠的、值得信賴的",
+      "en": "able to be trusted to do what is needed",
+      "note": "多益常見於人事推薦、廣告和客戶服務情境，稱讚人或服務「靠得住」。語氣正面，和 reliable 很接近。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "dependable service", "zh": "可靠的服務", "example": { "en": "Customers choose us because we offer dependable service every day.", "zh": "顧客選擇我們，因為我們每天都提供可靠的服務。" } },
+        { "phrase": "dependable partner", "zh": "可靠的夥伴", "example": { "en": "We are looking for a dependable partner in Asia.", "zh": "我們正在亞洲尋找一個可靠的夥伴。" } },
+        { "phrase": "dependable employee", "zh": "可靠的員工", "example": { "en": "Mr. Lin is a dependable employee who always meets deadlines.", "zh": "林先生是個可靠的員工，總是準時完成工作。" } }
+      ],
+      "examples": [
+        { "tag": "推薦信", "en": "She is hard-working, honest, and very dependable at work.", "zh": "她工作認真、誠實，而且非常可靠。" },
+        { "tag": "廣告", "en": "This dependable car starts easily even in cold weather.", "zh": "這輛可靠的車即使在寒冷天氣也容易發動。" },
+        { "tag": "採購", "en": "We need a dependable supplier who can deliver on time.", "zh": "我們需要一個能準時交貨、值得信賴的供應商。" }
+      ],
+      "confusable": [
+        { "word": "dependent", "diff": "dependable 是「可被依賴的」；dependent 是「依賴別人的」。", "usage": "dependable 指值得被依賴；dependent 後面常接 on，表示依賴某人或某事，如 dependent on。", "example": { "en": "Our sales are dependent on the weather this season.", "zh": "我們這一季的銷售要看天氣而定。" } }
+      ],
+      "similar": [
+        { "word": "reliable", "diff": "reliable 是最常見的同義字，用法幾乎相同，也常用於產品與資訊；dependable 多形容人和服務。", "example": { "en": "This reliable machine has not broken down in two years.", "zh": "這台可靠的機器兩年來都沒有故障。" } },
+        { "word": "trustworthy", "diff": "trustworthy 強調人誠實、可以信任；dependable 強調做事靠得住。", "example": { "en": "Our bank is trustworthy and has served customers for decades.", "zh": "我們銀行值得信任，已經服務客戶數十年。" } }
+      ],
+      "family": [
+        { "w": "trust", "pos": "n.", "zh": "信任", "ipa": "/trʌst/", "example": { "en": "Trust is important in any business partnership.", "zh": "信任在任何商業合作中都很重要。" } },
+        { "w": "support", "pos": "n.", "zh": "支援", "ipa": "/səˈpɔːrt/", "example": { "en": "Our technical support is open all day.", "zh": "我們的技術支援全天開放。" } },
+        { "w": "quality", "pos": "n.", "zh": "品質", "ipa": "/ˈkwɑːləti/", "example": { "en": "The quality of our products is checked daily.", "zh": "我們產品的品質每天都會檢查。" } },
+        { "w": "reputation", "pos": "n.", "zh": "名聲", "ipa": "/ˌrepjuˈteɪʃn/", "example": { "en": "The firm has a good reputation for fast delivery.", "zh": "這家公司以快速送貨聞名。" } }
+      ],
+      "derived": [
+        { "w": "depend", "pos": "v.", "zh": "依賴、取決於", "ipa": "/dɪˈpend/", "link": "dependable = depend + -able，可以被依賴的，像 comfortable、reasonable" },
+        { "w": "dependent", "pos": "adj.", "zh": "依賴的", "ipa": "/dɪˈpendənt/", "link": "depend + -ent，依賴別人的，像 different" },
+        { "w": "dependence", "pos": "n.", "zh": "依賴", "ipa": "/dɪˈpendəns/", "link": "depend + -ence，依賴這件事，像 difference、absence" },
+        { "w": "dependably", "pos": "adv.", "zh": "可靠地", "ipa": "/dɪˈpendəbli/", "link": "dependable 去 -le 加 -ly，可靠地，像 comfortably" },
+        { "w": "independent", "pos": "adj.", "zh": "獨立的", "ipa": "/ˌɪndɪˈpendənt/", "link": "in-（不）+ dependent，不依賴別人，像 incorrect、inactive" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "desirable",
+      "type": "word",
+      "ipa": "/dɪˈzaɪrəbl/",
+      "pos": "adj.",
+      "zh": "令人想要的、值得擁有的",
+      "en": "worth having because it is good or useful",
+      "note": "多益常見於徵才廣告、房地產和產品介紹。在徵才廣告中，desirable 表示「有更好」，不是必要條件。",
+      "grammar_note": "常見句型是 It is desirable to + V（最好能…）。在徵才廣告中，desirable 比 required 輕，表示加分條件。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "desirable location", "zh": "理想的地點", "example": { "en": "The hotel has a desirable location near the train station.", "zh": "這間飯店位置理想，就在火車站附近。" } },
+        { "phrase": "desirable skill", "zh": "加分的技能", "example": { "en": "Fluent English is a desirable skill for this job.", "zh": "流利的英文是這份工作的加分技能。" } },
+        { "phrase": "highly desirable", "zh": "非常理想的", "example": { "en": "A college degree is highly desirable for this position.", "zh": "大學學歷對這個職位非常理想。" } }
+      ],
+      "examples": [
+        { "tag": "徵才", "en": "Experience in sales is desirable but not required.", "zh": "有銷售經驗更好，但不是必要條件。" },
+        { "tag": "房地產", "en": "Many buyers find this quiet neighborhood very desirable.", "zh": "許多買家覺得這個安靜的社區很吸引人。" },
+        { "tag": "產品", "en": "The new phone has several desirable features at a low price.", "zh": "這支新手機有幾項吸引人的功能，而且價格低。" }
+      ],
+      "confusable": [
+        { "word": "preferable", "diff": "preferable 是「比較好的、更合適的」，是兩者之間的比較；desirable 是「值得想要的」。", "example": { "en": "Email is preferable to phone calls for sending long documents.", "zh": "寄長文件時，電子郵件比打電話更合適。" } }
+      ],
+      "similar": [
+        { "word": "attractive", "diff": "attractive 強調吸引人、好看或划算；desirable 強調值得擁有、想得到。", "example": { "en": "The company offers an attractive salary and good benefits.", "zh": "公司提供吸引人的薪水和良好的福利。" } }
+      ],
+      "family": [
+        { "w": "attractive", "pos": "adj.", "zh": "有吸引力的", "ipa": "/əˈtræktɪv/", "example": { "en": "The store window looks bright and attractive.", "zh": "商店的櫥窗看起來明亮又吸引人。" } },
+        { "w": "valuable", "pos": "adj.", "zh": "有價值的", "ipa": "/ˈvæljuəbl/", "example": { "en": "Your feedback is valuable to our team.", "zh": "你的意見對我們團隊很有價值。" } },
+        { "w": "popular", "pos": "adj.", "zh": "受歡迎的", "ipa": "/ˈpɑːpjələr/", "example": { "en": "This model is popular with young customers.", "zh": "這個型號很受年輕顧客歡迎。" } },
+        { "w": "useful", "pos": "adj.", "zh": "有用的", "ipa": "/ˈjuːsfl/", "example": { "en": "The guide gives useful tips for new employees.", "zh": "這份指南為新進員工提供有用的建議。" } }
+      ],
+      "derived": [
+        { "w": "desire", "pos": "n.", "zh": "渴望、願望", "ipa": "/dɪˈzaɪɚ/", "link": "desirable = desire（去 e）+ -able，值得被想要的，像 comfortable" },
+        { "w": "undesirable", "pos": "adj.", "zh": "不受歡迎的、不理想的", "ipa": "/ˌʌndɪˈzaɪrəbl/", "link": "un-（不）+ desirable，不理想的，像 unhappy、unable" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "deluxe",
+      "type": "word",
+      "ipa": "/dəˈlʌks/",
+      "pos": "adj.",
+      "zh": "豪華的、高級的",
+      "en": "better and more expensive than the usual kind",
+      "note": "多益常見於飯店房型、旅遊行程和產品版本，常和 standard 對比。看到 deluxe 通常表示等級較高、價格也較高。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "deluxe room", "zh": "豪華客房", "example": { "en": "Please upgrade my booking to a deluxe room.", "zh": "請把我的訂房升級成豪華客房。" } },
+        { "phrase": "deluxe model", "zh": "豪華款", "example": { "en": "The deluxe model costs fifty dollars more than the standard one.", "zh": "豪華款比標準款貴五十美元。" } },
+        { "phrase": "deluxe package", "zh": "豪華套組", "example": { "en": "The deluxe package comes with a two-year warranty.", "zh": "豪華套組附有兩年保固。" } }
+      ],
+      "examples": [
+        { "tag": "飯店", "en": "The hotel offers free breakfast to all deluxe guests.", "zh": "飯店為所有豪華客房的住客提供免費早餐。" },
+        { "tag": "產品", "en": "The deluxe version of this printer includes a second paper tray.", "zh": "這台印表機的豪華版附有第二個紙匣。" },
+        { "tag": "旅遊", "en": "Our deluxe tour includes meals, hotels, and airport transfers.", "zh": "我們的豪華行程包含餐點、住宿和機場接送。" }
+      ],
+      "confusable": [
+        { "word": "luxury", "diff": "luxury 是名詞（奢華），也可放在名詞前當形容詞；deluxe 是形容詞，只用來形容等級較高。", "usage": "luxury 可當名詞，如 enjoy luxury；deluxe 是形容詞，只能放在名詞前，如 deluxe room。", "example": { "en": "The hotel is famous for its luxury and quiet service.", "zh": "這間飯店以奢華和安靜的服務聞名。" } }
+      ],
+      "similar": [
+        { "word": "premium", "diff": "premium 強調品質高、價格也較高；deluxe 強調設備或服務更豪華。", "example": { "en": "Premium members receive free shipping on every order.", "zh": "高級會員每筆訂單都享有免費運送。" } },
+        { "word": "first-class", "diff": "first-class 指最高等級，常用於機票和郵件；deluxe 多用於房型和商品。", "example": { "en": "He booked a first-class seat for the long flight.", "zh": "他為這趟長途飛行訂了頭等艙座位。" } }
+      ],
+      "family": [
+        { "w": "luxury", "pos": "n.", "zh": "奢華", "ipa": "/ˈlʌkʃəri/", "example": { "en": "The resort sells luxury at a fair price.", "zh": "這間度假村以合理的價格提供奢華享受。" } },
+        { "w": "premium", "pos": "adj.", "zh": "高級的", "ipa": "/ˈpriːmiəm/", "example": { "en": "We use only premium materials in our furniture.", "zh": "我們的家具只使用高級材料。" } },
+        { "w": "standard", "pos": "adj.", "zh": "標準的", "ipa": "/ˈstændɚd/", "example": { "en": "The standard room has one double bed.", "zh": "標準房有一張雙人床。" } },
+        { "w": "upgrade", "pos": "v.", "zh": "升級", "ipa": "/ʌpˈgreɪd/", "example": { "en": "You can upgrade your seat for a small fee.", "zh": "你可以付一小筆費用升級座位。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "economically",
+      "type": "word",
+      "ipa": "/ˌekəˈnɑːmɪkli/",
+      "pos": "adv.",
+      "zh": "經濟上地；節省地",
+      "en": "in a way that is about money or saves money",
+      "note": "多益常見於新聞、報告和商務規劃，說明「在經濟層面」的狀況，或表示「節省、不浪費地」使用資源。",
+      "grammar_note": "修飾形容詞時放在形容詞前，如 economically stable；修飾動詞時多放在動詞或受詞後面，如 use energy economically。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "economically sound", "zh": "經濟上可行的", "example": { "en": "The plan is economically sound, so the board approved it.", "zh": "這個計畫在經濟上可行，所以董事會批准了。" } },
+        { "phrase": "economically stable", "zh": "經濟穩定的", "example": { "en": "The region has remained economically stable for many years.", "zh": "這個地區多年來經濟一直很穩定。" } },
+        { "phrase": "use resources economically", "zh": "節省地使用資源", "example": { "en": "Please use office supplies economically to save money.", "zh": "請節省使用辦公用品以省錢。" } }
+      ],
+      "examples": [
+        { "tag": "新聞", "en": "The country is economically stronger than it was last year.", "zh": "這個國家的經濟比去年更強。" },
+        { "tag": "採購", "en": "This machine uses energy economically and saves us money.", "zh": "這台機器節省能源，幫我們省錢。" },
+        { "tag": "規劃", "en": "The plan is not economically possible with this budget.", "zh": "以這個預算來看，這個計畫在經濟上行不通。" }
+      ],
+      "confusable": [
+        { "word": "economical", "diff": "economical 是形容詞，意思是「節省的、划算的」；economically 是副詞。", "usage": "economical 是形容詞（節省的），economic 是形容詞（經濟的），economically 是副詞，三者詞性或意思不同。", "example": { "en": "This small car is economical and easy to park.", "zh": "這輛小車省錢又好停。" } },
+        { "word": "economic", "diff": "economic 是形容詞，意思是「與經濟有關的」，後面接名詞。", "example": { "en": "The economic report will be released next week.", "zh": "經濟報告將在下週公布。" } }
+      ],
+      "similar": [
+        { "word": "cheaply", "diff": "cheaply 只說價錢低，有時帶有品質差的意思；economically 強調聰明地省錢。", "example": { "en": "These chairs were bought cheaply, but they look fine.", "zh": "這些椅子買得很便宜，但看起來不錯。" } },
+        { "word": "efficiently", "diff": "efficiently 強調有效率、不浪費時間或力氣；economically 強調省錢。", "example": { "en": "The new system helps us work more efficiently.", "zh": "新系統幫助我們更有效率地工作。" } }
+      ],
+      "family": [
+        { "w": "cost", "pos": "n.", "zh": "成本、費用", "ipa": "/kɔːst/", "example": { "en": "The cost of shipping has gone up this year.", "zh": "今年運費上漲了。" } },
+        { "w": "save", "pos": "v.", "zh": "節省", "ipa": "/seɪv/", "example": { "en": "Buying in bulk can save us a lot of money.", "zh": "大量採購可以幫我們省很多錢。" } },
+        { "w": "profit", "pos": "n.", "zh": "利潤", "ipa": "/ˈprɑːfɪt/", "example": { "en": "The company made a small profit last quarter.", "zh": "公司上一季賺了少少的利潤。" } },
+        { "w": "budget", "pos": "n.", "zh": "預算", "ipa": "/ˈbʌdʒɪt/", "example": { "en": "Our budget for travel is very limited this year.", "zh": "我們今年的差旅預算很有限。" } }
+      ],
+      "derived": [
+        { "w": "economy", "pos": "n.", "zh": "經濟", "ipa": "/ɪˈkɑːnəmi/", "link": "最基礎的字，指一個國家或地區的經濟" },
+        { "w": "economic", "pos": "adj.", "zh": "經濟的", "ipa": "/ˌekəˈnɑːmɪk/", "link": "economy 去 -y 加 -ic，和經濟有關的，像 basic、public" },
+        { "w": "economical", "pos": "adj.", "zh": "節省的、划算的", "ipa": "/ˌekəˈnɑːmɪkl/", "link": "economic + -al，省錢的，像 medical、electrical" },
+        { "w": "economics", "pos": "n.", "zh": "經濟學", "ipa": "/ˌekəˈnɑːmɪks/", "link": "economic + -s，表示學科，像 physics、statistics" },
+        { "w": "economist", "pos": "n.", "zh": "經濟學家", "ipa": "/ɪˈkɑːnəmɪst/", "link": "econom(y) + -ist，專門研究的人，像 artist、scientist" },
+        { "w": "economize", "pos": "v.", "zh": "節省", "ipa": "/ɪˈkɑːnəmaɪz/", "link": "economy + -ize，變成動詞，像 organize、realize" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adv.", "zh": "經濟上地", "en": "in a way that is about money or the economy", "example": { "en": "The region is growing economically faster than we expected.", "zh": "這個地區在經濟上成長得比我們預期的快。" } },
+        { "pos": "adv.", "zh": "節省地、划算地", "en": "in a way that does not waste money", "distinguish": "旁邊出現 use、travel、operate 等動詞時，通常是「節省地」。", "example": { "en": "We can travel more economically if we book flights early.", "zh": "如果提早訂機票，我們可以旅行得更省錢。" } }
+      ]
+    },
+    {
+      "text": "economist",
+      "type": "word",
+      "ipa": "/ɪˈkɑːnəmɪst/",
+      "pos": "n.",
+      "zh": "經濟學家",
+      "en": "a person who studies money, business, and the economy",
+      "note": "多益常見於新聞報導和財經情境，說明「經濟學家預測…」或「某公司的首席經濟學家」。",
+      "forms": [
+        { "w": "economists", "label": "複數", "pos": "n.", "zh": "經濟學家（複數）", "ipa": "/ɪˈkɑːnəmɪsts/", "example": { "en": "Many economists expect prices to rise slowly next year.", "zh": "許多經濟學家預期明年物價會緩慢上漲。" } }
+      ],
+      "collocations": [
+        { "phrase": "chief economist", "zh": "首席經濟學家", "example": { "en": "The bank's chief economist will speak at the conference.", "zh": "銀行的首席經濟學家將在會議中演講。" } },
+        { "phrase": "leading economist", "zh": "知名經濟學家", "example": { "en": "A leading economist joined our panel discussion this morning.", "zh": "一位知名經濟學家今天早上加入了我們的座談。" } },
+        { "phrase": "work as an economist", "zh": "擔任經濟學家", "example": { "en": "She worked as an economist before starting her own firm.", "zh": "她在創立自己的公司之前當過經濟學家。" } }
+      ],
+      "examples": [
+        { "tag": "新聞", "en": "The economist said the job market would improve this year.", "zh": "這位經濟學家說今年就業市場會改善。" },
+        { "tag": "公司", "en": "Our company hired an economist to study the local market.", "zh": "我們公司聘請了一位經濟學家研究當地市場。" },
+        { "tag": "學術", "en": "He studied to become an economist at a university in London.", "zh": "他在倫敦的一所大學讀書，想成為經濟學家。" }
+      ],
+      "confusable": [
+        { "word": "economics", "diff": "economics 是「經濟學」這門學科；economist 是研究經濟學的人。", "usage": "economics 是學科名稱，雖然字尾有 s，但是不可數名詞，動詞用單數。", "example": { "en": "Economics is one of the most popular majors at our school.", "zh": "經濟學是我們學校最受歡迎的主修之一。" } },
+        { "word": "economy", "diff": "economy 是一個國家或地區的經濟狀況，不是指人，也不是學科。", "example": { "en": "The economy grew by two percent last year.", "zh": "經濟去年成長了百分之二。" } }
+      ],
+      "similar": [
+        { "word": "analyst", "diff": "analyst 是分析師，分析公司、市場或數據；economist 專門研究整體經濟。", "example": { "en": "The analyst checked the company's sales figures carefully.", "zh": "分析師仔細檢查了公司的銷售數字。" } }
+      ],
+      "family": [
+        { "w": "expert", "pos": "n.", "zh": "專家", "ipa": "/ˈekspɝːt/", "example": { "en": "We asked an expert to review our contract.", "zh": "我們請一位專家審閱我們的合約。" } },
+        { "w": "researcher", "pos": "n.", "zh": "研究人員", "ipa": "/rɪˈsɝːtʃɚ/", "example": { "en": "The researcher presented her findings to the board.", "zh": "這位研究人員向董事會報告她的研究結果。" } },
+        { "w": "advisor", "pos": "n.", "zh": "顧問", "ipa": "/ədˈvaɪzɚ/", "example": { "en": "Our financial advisor suggested a safer plan.", "zh": "我們的財務顧問建議了一個較安全的方案。" } },
+        { "w": "forecast", "pos": "n.", "zh": "預測", "ipa": "/ˈfɔːrkæst/", "example": { "en": "The sales forecast for next quarter looks good.", "zh": "下一季的銷售預測看起來不錯。" } }
+      ],
+      "derived": [
+        { "w": "economy", "pos": "n.", "zh": "經濟", "ipa": "/ɪˈkɑːnəmi/", "link": "最基礎的字，economist 就是研究 economy 的人" },
+        { "w": "economic", "pos": "adj.", "zh": "經濟的", "ipa": "/ˌekəˈnɑːmɪk/", "link": "economy 去 -y 加 -ic，和經濟有關的，像 basic、public" },
+        { "w": "economical", "pos": "adj.", "zh": "節省的、划算的", "ipa": "/ˌekəˈnɑːmɪkl/", "link": "economic + -al，省錢的，像 medical、electrical" },
+        { "w": "economics", "pos": "n.", "zh": "經濟學", "ipa": "/ˌekəˈnɑːmɪks/", "link": "economic + -s，表示學科，像 physics、chemistry" },
+        { "w": "economically", "pos": "adv.", "zh": "經濟上地；節省地", "ipa": "/ˌekəˈnɑːmɪkli/", "link": "economic + -ally，變成副詞，像 basically、automatically" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

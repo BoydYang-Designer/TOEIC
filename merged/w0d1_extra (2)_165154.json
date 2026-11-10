@@ -1,0 +1,677 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "heater",
+      "type": "word",
+      "ipa": "/ˈhiːtɚ/",
+      "pos": "n.",
+      "zh": "暖氣機、加熱器",
+      "en": "a machine that makes a room or water warm",
+      "note": "多益常見於辦公室設備、飯店客房與採購維修的情境，指單一的暖氣設備；整套暖氣系統則多用 heating。",
+      "grammar_note": "heater 是可數名詞（a heater、two heaters）；heating 指暖氣系統或供暖，是不可數名詞，不加 s。",
+      "forms": [
+        {
+          "w": "heaters",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "暖氣機（複數）",
+          "ipa": "/ˈhiːtɚz/",
+          "example": { "en": "Several heaters in the building are not working properly.", "zh": "大樓裡有好幾台暖氣機運作不正常。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "turn on the heater",
+          "zh": "打開暖氣",
+          "example": { "en": "Could you turn on the heater in the conference room?", "zh": "你可以把會議室的暖氣打開嗎？" }
+        },
+        {
+          "phrase": "electric heater",
+          "zh": "電暖器",
+          "example": { "en": "An electric heater is safer than a gas one indoors.", "zh": "在室內使用電暖器比瓦斯暖氣機安全。" }
+        },
+        {
+          "phrase": "water heater",
+          "zh": "熱水器",
+          "example": { "en": "The water heater needs to be replaced before winter.", "zh": "熱水器需要在冬天前更換。" }
+        },
+        {
+          "phrase": "space heater",
+          "zh": "小型電暖器",
+          "example": { "en": "Do not leave a space heater on overnight.", "zh": "請勿讓小型電暖器整晚開著。" }
+        }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "The office feels cold, so please turn on the heater.", "zh": "辦公室覺得很冷，所以請打開暖氣。" },
+        { "tag": "採購", "en": "We need to buy a new heater for the meeting room.", "zh": "我們需要為會議室買一台新的暖氣機。" },
+        { "tag": "維修", "en": "The heater stopped working, so we called a repairman.", "zh": "暖氣機壞了，所以我們叫了維修人員。" }
+      ],
+      "confusable": [
+        {
+          "word": "heating",
+          "diff": "heating 指整套暖氣系統或供暖；heater 是單一台暖氣設備。",
+          "usage": "heating 是不可數名詞（the heating），heater 是可數名詞（a heater）。",
+          "example": { "en": "The heating in our building is controlled by a timer.", "zh": "我們大樓的暖氣系統由定時器控制。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "fan",
+          "ipa": "/fæn/",
+          "pos": "n.",
+          "zh": "電風扇",
+          "example": { "en": "Please turn off the fan when you leave the room.", "zh": "離開房間時請關掉電風扇。" }
+        },
+        {
+          "w": "air conditioner",
+          "ipa": "/ˈer kənˌdɪʃənɚ/",
+          "pos": "n.",
+          "zh": "冷氣機",
+          "example": { "en": "The air conditioner in the lobby is too cold.", "zh": "大廳的冷氣太冷了。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "heat",
+          "ipa": "/hiːt/",
+          "pos": "n.",
+          "zh": "熱、熱度",
+          "link": "最基礎的字，heater 是 heat + -er，做事的東西，像 printer、cooler"
+        },
+        {
+          "w": "heating",
+          "ipa": "/ˈhiːtɪŋ/",
+          "pos": "n.",
+          "zh": "暖氣、供暖",
+          "link": "heat + -ing，把「加熱」這件事變成名詞，像 shop → shopping"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "helmet",
+      "type": "word",
+      "ipa": "/ˈhelmɪt/",
+      "pos": "n.",
+      "zh": "安全帽、頭盔",
+      "en": "a hard hat that protects your head",
+      "note": "多益常見於工地、工廠與騎車的安全規定情境，通常和 wear、safety 一起出現，語氣偏規定與提醒。",
+      "grammar_note": "wear a helmet 是「戴著安全帽」的狀態，put on a helmet 才是「戴上」的動作。",
+      "forms": [
+        {
+          "w": "helmets",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "安全帽（複數）",
+          "ipa": "/ˈhelmɪts/",
+          "example": { "en": "Please check that all helmets are stored on the shelf.", "zh": "請確認所有安全帽都收在架子上。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "wear a helmet",
+          "zh": "戴安全帽",
+          "example": { "en": "Employees must wear a helmet in the loading area.", "zh": "員工在裝卸區必須戴安全帽。" }
+        },
+        {
+          "phrase": "safety helmet",
+          "zh": "安全帽",
+          "example": { "en": "A safety helmet protects your head from falling objects.", "zh": "安全帽可以保護你的頭部不被掉落物打到。" }
+        },
+        {
+          "phrase": "bicycle helmet",
+          "zh": "自行車安全帽",
+          "example": { "en": "She always puts on a bicycle helmet before riding.", "zh": "她騎車前一定會戴上自行車安全帽。" }
+        }
+      ],
+      "examples": [
+        { "tag": "工地", "en": "All workers must wear a helmet on the construction site.", "zh": "所有工人在工地都必須戴安全帽。" },
+        { "tag": "外送", "en": "Delivery riders must wear a helmet while riding.", "zh": "外送員騎車時必須戴安全帽。" },
+        { "tag": "採購", "en": "The store sells helmets in many sizes and colors.", "zh": "這家店販售多種尺寸與顏色的安全帽。" }
+      ],
+      "similar": [
+        {
+          "word": "hard hat",
+          "diff": "hard hat 是工地用的硬質安全帽；helmet 範圍較廣，也包含騎車用的頭盔。",
+          "example": { "en": "Visitors must wear a hard hat inside the plant.", "zh": "訪客在廠區內必須戴安全帽。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "safety",
+          "ipa": "/ˈseɪfti/",
+          "pos": "n.",
+          "zh": "安全",
+          "example": { "en": "Safety training is required for all new staff.", "zh": "所有新進員工都必須接受安全訓練。" }
+        },
+        {
+          "w": "uniform",
+          "ipa": "/ˈjuːnɪfɔːrm/",
+          "pos": "n.",
+          "zh": "制服",
+          "example": { "en": "Staff must wear a clean uniform at work.", "zh": "員工上班時必須穿乾淨的制服。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "hiker",
+      "type": "word",
+      "ipa": "/ˈhaɪkɚ/",
+      "pos": "n.",
+      "zh": "健行者、登山客",
+      "en": "a person who goes for a long walk in the countryside",
+      "note": "多益常見於旅遊、戶外活動與公園公告的情境，指到山區或步道健行的人。",
+      "forms": [
+        {
+          "w": "hikers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "健行者（複數）",
+          "ipa": "/ˈhaɪkɚz/",
+          "example": { "en": "Park rangers check that all hikers have a map.", "zh": "公園管理員會確認所有健行者都帶了地圖。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "experienced hiker",
+          "zh": "有經驗的健行者",
+          "example": { "en": "Only an experienced hiker should try this long route.", "zh": "只有有經驗的健行者才應該嘗試這條長路線。" }
+        },
+        {
+          "phrase": "popular with hikers",
+          "zh": "受健行者歡迎",
+          "example": { "en": "This trail is popular with hikers all year round.", "zh": "這條步道一整年都受健行者歡迎。" }
+        },
+        {
+          "phrase": "a group of hikers",
+          "zh": "一群健行者",
+          "example": { "en": "A group of hikers booked rooms at our lodge.", "zh": "一群健行者在我們的山屋訂了房間。" }
+        }
+      ],
+      "examples": [
+        { "tag": "新聞", "en": "The hiker called for help after losing the trail.", "zh": "那位健行者迷路後打電話求救。" },
+        { "tag": "觀光", "en": "Many hikers visit this mountain park in autumn.", "zh": "許多健行者在秋天造訪這座山區公園。" },
+        { "tag": "導覽", "en": "A local hiker guided our team through the forest.", "zh": "一位當地的健行者帶領我們的團隊穿過森林。" }
+      ],
+      "confusable": [
+        {
+          "word": "biker",
+          "diff": "拼法很像，但 biker 是騎腳踏車或摩托車的人，hiker 是徒步健行的人。",
+          "example": { "en": "The biker stopped at the shop to buy water.", "zh": "那位騎車的人在商店停下來買水。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "trail",
+          "ipa": "/treɪl/",
+          "pos": "n.",
+          "zh": "步道",
+          "example": { "en": "The trail closes at sunset for safety reasons.", "zh": "基於安全考量，步道在日落時關閉。" }
+        },
+        {
+          "w": "tourist",
+          "ipa": "/ˈtʊrɪst/",
+          "pos": "n.",
+          "zh": "觀光客",
+          "example": { "en": "Many tourists visit the national park in summer.", "zh": "夏天有許多觀光客造訪國家公園。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "hike",
+          "ipa": "/haɪk/",
+          "pos": "n.",
+          "zh": "健行、長途步行",
+          "link": "最基礎的字，hiker 是 hike + -er，做事的人，像 worker、driver"
+        },
+        {
+          "w": "hiking",
+          "ipa": "/ˈhaɪkɪŋ/",
+          "pos": "n.",
+          "zh": "健行活動",
+          "link": "hike + -ing，把動作變成活動名稱，像 shop → shopping"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "homeless",
+      "type": "word",
+      "ipa": "/ˈhoʊmləs/",
+      "pos": "adj.",
+      "zh": "無家可歸的",
+      "en": "having no place to live",
+      "note": "多益常見於公益活動、新聞與社會議題的情境；the homeless 指一群無家可歸的人，語氣中性、帶關懷。",
+      "grammar_note": "the homeless 指「無家可歸的人們」，視為複數（The homeless are...），不加 s；指單一個人要說 a homeless person。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "homeless shelter",
+          "zh": "遊民收容所",
+          "example": { "en": "The company donated warm blankets to a homeless shelter.", "zh": "公司捐了保暖的毯子給一間遊民收容所。" }
+        },
+        {
+          "phrase": "help the homeless",
+          "zh": "幫助無家可歸者",
+          "example": { "en": "Our volunteers help the homeless find jobs and housing.", "zh": "我們的志工協助無家可歸者找工作與住處。" }
+        },
+        {
+          "phrase": "become homeless",
+          "zh": "變得無家可歸",
+          "example": { "en": "Hundreds of families became homeless after the severe flood last year.", "zh": "去年的嚴重水災後，數百個家庭無家可歸。" }
+        }
+      ],
+      "examples": [
+        { "tag": "新聞", "en": "The city plans to build housing for homeless families.", "zh": "市政府計畫為無家可歸的家庭興建住宅。" },
+        { "tag": "公益", "en": "Our company sponsors a dinner for homeless people every month.", "zh": "我們公司每個月贊助一場給無家可歸者的晚餐。" }
+      ],
+      "confusable": [
+        {
+          "word": "jobless",
+          "diff": "字尾都是 -less，但 jobless 是「沒有工作的」，homeless 是「沒有住處的」。",
+          "example": { "en": "The jobless rate fell slightly in the last quarter.", "zh": "失業率在上一季略微下降。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "shelter",
+          "ipa": "/ˈʃeltɚ/",
+          "pos": "n.",
+          "zh": "收容所、避難處",
+          "example": { "en": "The shelter provides free beds during the cold season.", "zh": "收容所在寒冷季節提供免費床位。" }
+        },
+        {
+          "w": "charity",
+          "ipa": "/ˈtʃærəti/",
+          "pos": "n.",
+          "zh": "慈善機構",
+          "example": { "en": "The charity collects food for families in need.", "zh": "這家慈善機構為有需要的家庭募集食物。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "home",
+          "ipa": "/hoʊm/",
+          "pos": "n.",
+          "zh": "家",
+          "link": "最基礎的字，home + -less（沒有）= homeless，像 careless、useless"
+        },
+        {
+          "w": "homelessness",
+          "ipa": "/ˈhoʊmləsnəs/",
+          "pos": "n.",
+          "zh": "無家可歸的狀態",
+          "link": "homeless + -ness，把形容詞變成名詞，像 happy → happiness"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ˈhoʊmləs/",
+          "zh": "無家可歸的",
+          "example": { "en": "Many homeless people stay in the shelter during winter.", "zh": "許多無家可歸的人冬天會住在收容所。" }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈhoʊmləs/",
+          "zh": "（the homeless）無家可歸者",
+          "example": { "en": "The charity provides free meals for the homeless.", "zh": "這家慈善機構為無家可歸者提供免費餐點。" }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "honestly",
+      "type": "word",
+      "ipa": "/ˈɑːnɪstli/",
+      "pos": "adv.",
+      "zh": "誠實地；老實說、說真的",
+      "en": "in a true and open way",
+      "note": "多益常見於客戶回饋、面試與會議的情境，可以修飾動詞表示「誠實地」，也可放句首表示「老實說」，語氣坦率。",
+      "grammar_note": "放在句首修飾整句時，後面要加逗號（Honestly, I think...）；修飾動詞時放在動詞前後（answer honestly）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "answer honestly",
+          "zh": "誠實回答",
+          "example": { "en": "Please answer all the survey questions honestly.", "zh": "請誠實回答所有問卷問題。" }
+        },
+        {
+          "phrase": "speak honestly",
+          "zh": "坦誠地說",
+          "example": { "en": "I hope we can speak honestly about the problem.", "zh": "我希望我們能坦誠地談這個問題。" }
+        },
+        {
+          "phrase": "honestly believe",
+          "zh": "真心相信",
+          "example": { "en": "I honestly believe this new plan will help our sales.", "zh": "我真心相信這個新計畫會幫助我們的銷售。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Honestly, I think the schedule is too tight for us.", "zh": "老實說，我覺得這個時程對我們來說太緊了。" },
+        { "tag": "客戶溝通", "en": "She honestly explained the mistake to the client.", "zh": "她誠實地向客戶說明了這個錯誤。" },
+        { "tag": "電子郵件", "en": "I honestly do not know when the shipment will arrive.", "zh": "我真的不知道貨物什麼時候會到。" }
+      ],
+      "similar": [
+        {
+          "word": "frankly",
+          "diff": "frankly 較直接，常用來說不太好聽的實話；honestly 語氣較溫和、通用。",
+          "example": { "en": "Frankly, the quality of this product is not good enough.", "zh": "坦白說，這個產品的品質還不夠好。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "sincere",
+          "ipa": "/sɪnˈsɪr/",
+          "pos": "adj.",
+          "zh": "真誠的",
+          "example": { "en": "She sent a sincere apology to the customer.", "zh": "她向顧客寄出了一封誠摯的道歉信。" }
+        },
+        {
+          "w": "frank",
+          "ipa": "/fræŋk/",
+          "pos": "adj.",
+          "zh": "坦白的",
+          "example": { "en": "He gave me a frank opinion about the plan.", "zh": "他對這個計畫給了我坦白的意見。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "honest",
+          "ipa": "/ˈɑːnɪst/",
+          "pos": "adj.",
+          "zh": "誠實的",
+          "link": "最基礎的字，honest + -ly 變副詞，像 quick → quickly"
+        },
+        {
+          "w": "honesty",
+          "ipa": "/ˈɑːnəsti/",
+          "pos": "n.",
+          "zh": "誠實",
+          "link": "honest 去掉 t + -ty，變成名詞，像 safe → safety"
+        },
+        {
+          "w": "dishonest",
+          "ipa": "/dɪsˈɑːnɪst/",
+          "pos": "adj.",
+          "zh": "不誠實的",
+          "link": "dis-（不）+ honest，像 dislike、disagree"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adv.",
+          "zh": "誠實地",
+          "en": "in a way that is true and does not hide anything",
+          "example": { "en": "Employees should report their working hours honestly every week.", "zh": "員工應該每週誠實申報自己的工作時數。" }
+        },
+        {
+          "pos": "adv.",
+          "zh": "老實說、坦白說",
+          "en": "used to say what you really think",
+          "distinguish": "放在句首並加逗號時，是引出真實想法的說法。",
+          "example": { "en": "Honestly, this new software is easier to use than the old one.", "zh": "老實說，這套新軟體比舊的好用。" }
+        },
+        {
+          "pos": "adv.",
+          "zh": "真的（加強語氣）",
+          "en": "used to make a statement stronger",
+          "distinguish": "放在動詞前面加強語氣，常搭配 do not、believe。",
+          "example": { "en": "We honestly cannot finish this order before the deadline.", "zh": "我們真的沒辦法在期限前完成這筆訂單。" }
+        }
+      ]
+    },
+    {
+      "text": "housekeep",
+      "type": "word",
+      "ipa": "/ˈhaʊskiːp/",
+      "pos": "v.",
+      "zh": "打理家務、做房務工作",
+      "en": "to clean and take care of a house or hotel rooms",
+      "note": "housekeep 是較少單獨使用的動詞，多益主要出現的是 housekeeping（房務、家事管理）與 housekeeper（房務員），常見於飯店與住宿的情境。",
+      "grammar_note": "housekeep 當動詞很少用，多半說 do the housekeeping 或 work as a housekeeper；housekeeping 是不可數名詞，不加 s。",
+      "forms": [
+        {
+          "w": "housekeeps",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "打理家務",
+          "ipa": "/ˈhaʊskiːps/",
+          "example": { "en": "She housekeeps for the hotel owner on weekends.", "zh": "她週末替飯店老闆打理房務。" }
+        },
+        {
+          "w": "housekept",
+          "label": "過去式／過去分詞（不規則）",
+          "pos": "v.",
+          "zh": "打理了家務",
+          "ipa": "/ˈhaʊskept/",
+          "example": { "en": "He housekept at a small inn for three years.", "zh": "他在一家小旅店做了三年房務。" }
+        },
+        {
+          "w": "housekeeping",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在打理房務",
+          "ipa": "/ˈhaʊskiːpɪŋ/",
+          "example": { "en": "They are housekeeping the third floor this morning.", "zh": "他們今天早上正在打理三樓的房務。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "housekeeping staff",
+          "zh": "房務人員",
+          "example": { "en": "The housekeeping staff starts work at eight every morning.", "zh": "房務人員每天早上八點開始上班。" }
+        },
+        {
+          "phrase": "housekeeping service",
+          "zh": "房務服務",
+          "example": { "en": "The hotel offers daily housekeeping service for all rooms.", "zh": "飯店為所有房間提供每日房務服務。" }
+        },
+        {
+          "phrase": "housekeeping department",
+          "zh": "房務部",
+          "example": { "en": "Please call the housekeeping department about the broken lamp.", "zh": "關於壞掉的檯燈，請聯絡房務部。" }
+        }
+      ],
+      "examples": [
+        { "tag": "飯店", "en": "Two staff members housekeep the guest rooms every morning.", "zh": "兩位員工每天早上負責打理客房。" },
+        { "tag": "客房", "en": "Housekeeping will clean your room while you are at the meeting.", "zh": "您開會的時候，房務人員會打掃您的房間。" },
+        { "tag": "住宿", "en": "Please ask the housekeeper for extra towels and pillows.", "zh": "需要額外的毛巾和枕頭，請詢問房務員。" }
+      ],
+      "family": [
+        {
+          "w": "clean",
+          "ipa": "/kliːn/",
+          "pos": "v.",
+          "zh": "打掃、清潔",
+          "example": { "en": "The staff will clean the meeting room after lunch.", "zh": "員工會在午餐後打掃會議室。" }
+        },
+        {
+          "w": "laundry",
+          "ipa": "/ˈlɔːndri/",
+          "pos": "n.",
+          "zh": "待洗衣物、洗衣服務",
+          "example": { "en": "The hotel offers same-day laundry for business guests.", "zh": "飯店為商務旅客提供當日送洗服務。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "housekeeper",
+          "ipa": "/ˈhaʊskiːpɚ/",
+          "pos": "n.",
+          "zh": "房務員、管家",
+          "link": "housekeep + -er，做事的人，像 worker、driver"
+        },
+        {
+          "w": "housekeeping",
+          "ipa": "/ˈhaʊskiːpɪŋ/",
+          "pos": "n.",
+          "zh": "房務、家事管理",
+          "link": "housekeep + -ing，把「打理家務」變成名詞，像 shop → shopping"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "hurricane",
+      "type": "word",
+      "ipa": "/ˈhɜːrəkeɪn/",
+      "pos": "n.",
+      "zh": "颶風",
+      "en": "a very strong storm with high winds and heavy rain",
+      "note": "多益常見於新聞、航班取消、保險與災害預警的情境，指大西洋或東北太平洋一帶的強烈風暴。",
+      "forms": [
+        {
+          "w": "hurricanes",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "颶風（複數）",
+          "ipa": "/ˈhɜːrəkeɪnz/",
+          "example": { "en": "Strong hurricanes often form over warm ocean water.", "zh": "強烈的颶風常在溫暖的海面上形成。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "hurricane warning",
+          "zh": "颶風警報",
+          "example": { "en": "The city issued a hurricane warning this morning.", "zh": "市政府今天早上發布了颶風警報。" }
+        },
+        {
+          "phrase": "hurricane season",
+          "zh": "颶風季",
+          "example": { "en": "Insurance costs rise during hurricane season each year.", "zh": "每年颶風季期間，保險費用都會上升。" }
+        },
+        {
+          "phrase": "hit by a hurricane",
+          "zh": "遭颶風侵襲",
+          "example": { "en": "The island was hit by a hurricane last September.", "zh": "這座島去年九月遭颶風侵襲。" }
+        },
+        {
+          "phrase": "hurricane damage",
+          "zh": "颶風災損",
+          "example": { "en": "The company paid for hurricane damage to its stores.", "zh": "公司支付了店面的颶風災損費用。" }
+        }
+      ],
+      "examples": [
+        { "tag": "航空", "en": "The airline canceled all flights because of the hurricane.", "zh": "航空公司因為颶風取消了所有班機。" },
+        { "tag": "新聞", "en": "The hurricane caused heavy damage to the port area.", "zh": "颶風對港區造成嚴重損害。" },
+        { "tag": "飯店", "en": "Hotels near the coast are preparing for the hurricane.", "zh": "沿海的飯店正在為颶風做準備。" }
+      ],
+      "confusable": [
+        {
+          "word": "typhoon",
+          "diff": "typhoon 是發生在西太平洋、東亞一帶的颱風；hurricane 發生在大西洋或東北太平洋。",
+          "example": { "en": "The typhoon forced the factory to close for two days.", "zh": "颱風使工廠停工了兩天。" }
+        },
+        {
+          "word": "tornado",
+          "diff": "tornado 是陸地上的龍捲風，範圍小但風力強；hurricane 是範圍很大的海上風暴。",
+          "example": { "en": "A tornado damaged several buildings near the town center.", "zh": "一場龍捲風損壞了市中心附近的幾棟建築。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "storm",
+          "ipa": "/stɔːrm/",
+          "pos": "n.",
+          "zh": "暴風雨",
+          "example": { "en": "The storm delayed all outdoor events this weekend.", "zh": "暴風雨使這個週末所有的戶外活動延期。" }
+        },
+        {
+          "w": "flood",
+          "ipa": "/flʌd/",
+          "pos": "n.",
+          "zh": "洪水、水災",
+          "example": { "en": "The flood closed several roads around the factory.", "zh": "水災使工廠周圍的幾條道路封閉。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "hygiene",
+      "type": "word",
+      "ipa": "/ˈhaɪdʒiːn/",
+      "pos": "n.",
+      "zh": "衛生",
+      "en": "the practice of keeping yourself and things clean to stay healthy",
+      "note": "多益常見於餐廳、醫院、食品工廠與公司衛生規定的情境，強調為了健康而保持清潔的習慣與標準。",
+      "grammar_note": "hygiene 是不可數名詞，不加 s；形容詞是 hygienic，不要寫成 hygiene food，要說 hygienic food。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "personal hygiene",
+          "zh": "個人衛生",
+          "example": { "en": "Workers should keep good personal hygiene at all times.", "zh": "員工應隨時保持良好的個人衛生。" }
+        },
+        {
+          "phrase": "food hygiene",
+          "zh": "食品衛生",
+          "example": { "en": "All cooks must take a food hygiene course.", "zh": "所有廚師都必須上食品衛生課程。" }
+        },
+        {
+          "phrase": "hygiene standards",
+          "zh": "衛生標準",
+          "example": { "en": "The hotel is proud to meet very high hygiene standards.", "zh": "這間飯店以符合非常高的衛生標準為榮。" }
+        }
+      ],
+      "examples": [
+        { "tag": "餐廳", "en": "Good hygiene is important in every restaurant kitchen.", "zh": "良好的衛生在每間餐廳廚房都很重要。" },
+        { "tag": "稽查", "en": "The inspector checked the hygiene of the food factory.", "zh": "檢查員查驗了這間食品工廠的衛生。" },
+        { "tag": "公司規定", "en": "Staff must follow strict hygiene rules in the lab.", "zh": "員工在實驗室必須遵守嚴格的衛生規定。" }
+      ],
+      "confusable": [
+        {
+          "word": "hygienic",
+          "diff": "hygienic 是形容詞，意思是「衛生的」；hygiene 是名詞「衛生」。",
+          "usage": "hygiene 是名詞（good hygiene），hygienic 是形容詞（a hygienic kitchen），詞性不同不能互換。",
+          "example": { "en": "Please keep the kitchen clean and hygienic at all times.", "zh": "請隨時保持廚房整潔衛生。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "sanitation",
+          "diff": "sanitation 指公共環境、排水與垃圾處理的衛生；hygiene 多指個人與日常的清潔習慣。",
+          "example": { "en": "The city is improving sanitation in the old district.", "zh": "市政府正在改善舊城區的環境衛生。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "cleanliness",
+          "ipa": "/ˈklenlinəs/",
+          "pos": "n.",
+          "zh": "清潔、整潔",
+          "example": { "en": "Cleanliness is very important in a hospital.", "zh": "清潔在醫院裡非常重要。" }
+        },
+        {
+          "w": "safety",
+          "ipa": "/ˈseɪfti/",
+          "pos": "n.",
+          "zh": "安全",
+          "example": { "en": "Food safety checks are done every month.", "zh": "食品安全檢查每個月都會進行。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "hygienic",
+          "ipa": "/haɪˈdʒenɪk/",
+          "pos": "adj.",
+          "zh": "衛生的",
+          "link": "hygiene 去掉 e + -ic，變成形容詞，像 basic、economic"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

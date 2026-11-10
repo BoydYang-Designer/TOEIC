@@ -1,0 +1,641 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "wallet",
+      "type": "word",
+      "ipa": "/ˈwɑːlɪt/",
+      "pos": "n.",
+      "zh": "皮夾、錢包",
+      "en": "a small flat case for money and cards",
+      "note": "多益常見於旅遊、失物招領與購物情境，指放現金、信用卡和證件的皮夾。也常出現在 digital wallet（電子錢包）。",
+      "forms": [
+        {
+          "w": "wallets",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "皮夾（複數）",
+          "ipa": "/ˈwɑːlɪts/",
+          "example": { "en": "The store sells leather wallets in five different colors.", "zh": "這家店販售五種不同顏色的皮夾。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "lose a wallet",
+          "zh": "弄丟皮夾",
+          "example": { "en": "I lost my wallet on the train this morning.", "zh": "我今天早上把皮夾掉在火車上了。" }
+        },
+        {
+          "phrase": "leather wallet",
+          "zh": "皮革皮夾",
+          "example": { "en": "He bought a leather wallet as a gift for his boss.", "zh": "他買了一個皮夾當作送給老闆的禮物。" }
+        },
+        {
+          "phrase": "digital wallet",
+          "zh": "電子錢包",
+          "example": { "en": "You can pay with a digital wallet at this store.", "zh": "你可以在這家店用電子錢包付款。" }
+        }
+      ],
+      "examples": [
+        { "tag": "失物招領", "en": "Please call us if you find a black wallet in the lobby.", "zh": "如果您在大廳發現一個黑色皮夾，請打電話給我們。" },
+        { "tag": "旅遊", "en": "Keep your wallet in a safe place while traveling.", "zh": "旅行時請把皮夾放在安全的地方。" },
+        { "tag": "購物", "en": "She took her credit card out of her wallet.", "zh": "她從皮夾裡拿出了信用卡。" }
+      ],
+      "similar": [
+        {
+          "word": "purse",
+          "diff": "purse 在美式英文常指女用手提包，也可指零錢包；wallet 是放錢和卡片的扁平皮夾。",
+          "example": { "en": "She left her purse on the desk in the meeting room.", "zh": "她把手提包忘在會議室的桌上了。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "cash",
+          "pos": "n.",
+          "zh": "現金",
+          "ipa": "/kæʃ/",
+          "example": { "en": "Do you accept cash or only credit cards?", "zh": "你們收現金，還是只收信用卡？" }
+        },
+        {
+          "w": "receipt",
+          "pos": "n.",
+          "zh": "收據",
+          "ipa": "/rɪˈsiːt/",
+          "example": { "en": "Please keep your receipt in case you need a refund.", "zh": "請保留收據，以防您需要退款。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "windy",
+      "type": "word",
+      "ipa": "/ˈwɪndi/",
+      "pos": "adj.",
+      "zh": "多風的、風大的",
+      "en": "with a lot of wind",
+      "note": "多益常見於天氣預報、戶外活動與航班、渡輪延誤情境，描述風很大的天氣。常和 cold、rainy 一起出現。",
+      "forms": [
+        {
+          "w": "windier",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "風更大的",
+          "ipa": "/ˈwɪndiɚ/",
+          "example": { "en": "Tomorrow will be windier than today along the coast.", "zh": "明天沿海地區的風會比今天更大。" }
+        },
+        {
+          "w": "windiest",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "風最大的",
+          "ipa": "/ˈwɪndiɪst/",
+          "example": { "en": "March is usually the windiest month in this city.", "zh": "三月通常是這座城市風最大的月份。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "windy day",
+          "zh": "風大的日子",
+          "example": { "en": "The ferry was canceled because it was a windy day.", "zh": "因為那天風很大，渡輪停駛了。" }
+        },
+        {
+          "phrase": "windy weather",
+          "zh": "多風的天氣",
+          "example": { "en": "Windy weather made it hard to hold the outdoor event.", "zh": "多風的天氣讓戶外活動很難舉行。" }
+        },
+        {
+          "phrase": "cold and windy",
+          "zh": "又冷又多風",
+          "example": { "en": "It will be cold and windy during the morning commute.", "zh": "早上通勤時間會又冷又多風。" }
+        }
+      ],
+      "examples": [
+        { "tag": "天氣預報", "en": "It will be windy tonight, so please close all the windows.", "zh": "今晚風會很大，請把所有窗戶關好。" },
+        { "tag": "活動", "en": "The windy conditions forced us to move the party indoors.", "zh": "大風的天氣迫使我們把派對移到室內。" }
+      ],
+      "confusable": [
+        {
+          "word": "winding",
+          "diff": "winding 是「蜿蜒的」，指道路或河流彎彎曲曲；windy 是「風大的」。",
+          "example": { "en": "The winding road to the resort takes about an hour.", "zh": "通往度假村的蜿蜒道路大約要開一個小時。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "breezy",
+          "diff": "breezy 指有舒服的微風；windy 的風比較強，可能造成不便。",
+          "example": { "en": "The terrace is breezy and cool in the evening.", "zh": "傍晚時露台涼爽又有微風。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "storm",
+          "pos": "n.",
+          "zh": "暴風雨",
+          "ipa": "/stɔːrm/",
+          "example": { "en": "A storm is expected to reach the city tonight.", "zh": "預計今晚會有暴風雨抵達這座城市。" }
+        },
+        {
+          "w": "forecast",
+          "pos": "n.",
+          "zh": "預報",
+          "ipa": "/ˈfɔːrkæst/",
+          "example": { "en": "The weather forecast is updated every three hours.", "zh": "天氣預報每三小時更新一次。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "wind",
+          "ipa": "/wɪnd/",
+          "pos": "n.",
+          "zh": "風",
+          "link": "windy = wind + -y，有風的，像 rainy、sunny"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "wireless",
+      "type": "word",
+      "ipa": "/ˈwaɪɚləs/",
+      "pos": "adj.",
+      "zh": "無線的",
+      "en": "working without wires or cables",
+      "note": "多益常見於資訊科技、辦公室設備與飯店設施情境，如 wireless network、wireless headphones。意思是不用電線連接。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "wireless network",
+          "zh": "無線網路",
+          "example": { "en": "The hotel offers a free wireless network to all guests.", "zh": "飯店提供所有房客免費的無線網路。" }
+        },
+        {
+          "phrase": "wireless internet",
+          "zh": "無線上網",
+          "example": { "en": "Wireless internet is available throughout the conference center.", "zh": "整個會議中心都有無線上網。" }
+        },
+        {
+          "phrase": "wireless headphones",
+          "zh": "無線耳機",
+          "example": { "en": "Our new wireless headphones last for twenty hours.", "zh": "我們的新款無線耳機可以使用二十個小時。" }
+        },
+        {
+          "phrase": "wireless connection",
+          "zh": "無線連線",
+          "example": { "en": "The wireless connection dropped during the video call.", "zh": "視訊通話期間無線連線中斷了。" }
+        }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "We replaced all cables with wireless devices in the office.", "zh": "我們把辦公室裡所有的線都換成了無線裝置。" },
+        { "tag": "銷售", "en": "This wireless mouse works up to ten meters away.", "zh": "這款無線滑鼠在十公尺外也能使用。" },
+        { "tag": "會議", "en": "Please connect to the wireless system before the meeting starts.", "zh": "請在會議開始前連上無線系統。" }
+      ],
+      "confusable": [
+        {
+          "word": "wired",
+          "diff": "wired 是「有線的」，用電線連接；wireless 是「無線的」，兩者意思相反。",
+          "example": { "en": "The wired connection is faster than the wireless one.", "zh": "有線連線比無線連線更快。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "Wi-Fi",
+          "diff": "Wi-Fi 是一種無線上網技術，當名詞用；wireless 是形容詞，可修飾各種設備。",
+          "example": { "en": "The cafe has free Wi-Fi for all customers.", "zh": "這家咖啡館提供所有顧客免費的 Wi-Fi。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "cable",
+          "pos": "n.",
+          "zh": "電纜、傳輸線",
+          "ipa": "/ˈkeɪbl/",
+          "example": { "en": "Please plug the cable into the back of the monitor.", "zh": "請把線插到螢幕的背面。" }
+        },
+        {
+          "w": "battery",
+          "pos": "n.",
+          "zh": "電池",
+          "ipa": "/ˈbætəri/",
+          "example": { "en": "The battery in this device lasts about ten hours.", "zh": "這個裝置的電池大約可以用十個小時。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "wire",
+          "ipa": "/waɪɚ/",
+          "pos": "n.",
+          "zh": "電線",
+          "link": "wireless = wire + -less，沒有電線的，像 careless、homeless"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "withdrawal",
+      "type": "word",
+      "ipa": "/wɪðˈdrɔːəl/",
+      "pos": "n.",
+      "zh": "提款；撤回、退出",
+      "en": "the act of taking money out of a bank account, or of leaving or taking back something",
+      "note": "多益常見於銀行與帳戶情境，指從戶頭領錢；也出現在商務情境，指撤回提案或退出計畫。是 withdraw 的名詞。",
+      "grammar_note": "withdrawal 是 withdraw 的名詞；withdraw 是不規則動詞，過去式是 withdrew，過去分詞是 withdrawn。",
+      "forms": [
+        {
+          "w": "withdrawals",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "提款（複數）",
+          "ipa": "/wɪðˈdrɔːəlz/",
+          "example": { "en": "Daily withdrawals are limited to five hundred dollars.", "zh": "每日提款上限為五百美元。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "make a withdrawal",
+          "zh": "提款",
+          "example": { "en": "You can make a withdrawal at any branch of our bank.", "zh": "您可以在我們銀行的任何一家分行提款。" }
+        },
+        {
+          "phrase": "withdrawal limit",
+          "zh": "提款上限",
+          "example": { "en": "The withdrawal limit for this account is one thousand dollars.", "zh": "這個帳戶的提款上限是一千美元。" }
+        },
+        {
+          "phrase": "cash withdrawal",
+          "zh": "現金提款",
+          "example": { "en": "A fee applies to every cash withdrawal from foreign machines.", "zh": "在國外的機器每次提領現金都要收手續費。" }
+        },
+        {
+          "phrase": "withdrawal of",
+          "zh": "…的撤回",
+          "example": { "en": "The withdrawal of the offer surprised our partners.", "zh": "這項提案被撤回，讓我們的夥伴很驚訝。" }
+        }
+      ],
+      "examples": [
+        { "tag": "銀行", "en": "Please fill out this form to request a large withdrawal.", "zh": "若要提領大筆款項，請填寫這張表格。" },
+        { "tag": "商務", "en": "The company announced the withdrawal of its old product.", "zh": "公司宣布將舊產品下架。" },
+        { "tag": "專案", "en": "His withdrawal from the project caused a delay.", "zh": "他退出這個專案造成了延誤。" }
+      ],
+      "confusable": [
+        {
+          "word": "withdraw",
+          "diff": "withdraw 是動詞（提款、撤回），withdrawal 是名詞（提款、撤回這件事）。",
+          "usage": "withdraw 是動詞，後面接受詞（withdraw money）；withdrawal 是名詞，常和 make a 搭配。",
+          "example": { "en": "You may withdraw money from this account at any time.", "zh": "您隨時可以從這個帳戶提領資金。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "cancellation",
+          "diff": "cancellation 是取消已安排的事；withdrawal 是把提案、申請等收回或自己退出。",
+          "example": { "en": "The cancellation of the contract was announced on Monday.", "zh": "合約的取消已在星期一宣布。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "deposit",
+          "pos": "n.",
+          "zh": "存款",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "example": { "en": "I made a deposit into my account this morning.", "zh": "我今天早上存了一筆錢到我的帳戶。" }
+        },
+        {
+          "w": "balance",
+          "pos": "n.",
+          "zh": "餘額",
+          "ipa": "/ˈbæləns/",
+          "example": { "en": "Please check the balance of your account online.", "zh": "請上網查看您的帳戶餘額。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "withdraw",
+          "ipa": "/wɪðˈdrɔː/",
+          "pos": "v.",
+          "zh": "提款、撤回",
+          "link": "withdraw + -al，把動作變成名詞，像 arrive → arrival"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "提款",
+          "en": "the act of taking money out of a bank account",
+          "example": { "en": "Each withdrawal from the savings account needs a signature.", "zh": "每次從儲蓄帳戶提款都需要簽名。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "撤回、退出",
+          "en": "the act of taking something back or leaving a group or plan",
+          "distinguish": "句中出現 offer、plan、project、agreement 時，指撤回或退出，不是提款。",
+          "example": { "en": "Their withdrawal from the agreement ended the talks.", "zh": "他們退出協議，結束了會談。" }
+        }
+      ]
+    },
+    {
+      "text": "wildlife",
+      "type": "word",
+      "ipa": "/ˈwaɪldlaɪf/",
+      "pos": "n.",
+      "zh": "野生動物",
+      "en": "animals and plants that live in nature",
+      "note": "多益常見於旅遊、環保與公園導覽情境，泛指在自然環境中生活的動物（有時含植物）。是集合名詞，不指單一動物。",
+      "grammar_note": "wildlife 是不可數名詞，不加 s，後面的動詞用單數；要指一隻動物時用 an animal。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "protect wildlife",
+          "zh": "保護野生動物",
+          "example": { "en": "The law was made to protect wildlife in the area.", "zh": "這項法律是為了保護該地區的野生動物而制定的。" }
+        },
+        {
+          "phrase": "wildlife reserve",
+          "zh": "野生動物保護區",
+          "example": { "en": "The wildlife reserve opens to visitors at nine o'clock.", "zh": "野生動物保護區九點開放給遊客參觀。" }
+        },
+        {
+          "phrase": "wildlife photography",
+          "zh": "野生動物攝影",
+          "example": { "en": "He runs a small business in wildlife photography.", "zh": "他經營一家做野生動物攝影的小公司。" }
+        }
+      ],
+      "examples": [
+        { "tag": "旅遊", "en": "The tour lets guests see wildlife in their natural homes.", "zh": "這個行程讓賓客看到野生動物在自然棲地中的樣子。" },
+        { "tag": "環保", "en": "The new road may harm wildlife near the river.", "zh": "新的道路可能會傷害河邊的野生動物。" },
+        { "tag": "公司", "en": "Our company donates money to wildlife groups every year.", "zh": "我們公司每年都捐款給野生動物保育團體。" }
+      ],
+      "confusable": [
+        {
+          "word": "wildfire",
+          "diff": "wildfire 是「野火、森林大火」，只有後半不同；wildlife 是野生動物。",
+          "example": { "en": "A wildfire forced the hotel to close for a week.", "zh": "一場森林大火迫使這家飯店關閉了一個星期。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "habitat",
+          "pos": "n.",
+          "zh": "棲息地",
+          "ipa": "/ˈhæbɪtæt/",
+          "example": { "en": "The forest is a safe habitat for many birds.", "zh": "這片森林是許多鳥類安全的棲息地。" }
+        },
+        {
+          "w": "environment",
+          "pos": "n.",
+          "zh": "環境",
+          "ipa": "/ɪnˈvaɪrənmənt/",
+          "example": { "en": "We should protect the environment for future generations.", "zh": "我們應該為後代保護環境。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "wild",
+          "ipa": "/waɪld/",
+          "pos": "adj.",
+          "zh": "野生的、野外的",
+          "link": "wildlife = wild（野生的）+ life（生命），野生的生物"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "workforce",
+      "type": "word",
+      "ipa": "/ˈwɝːkfɔːrs/",
+      "pos": "n.",
+      "zh": "勞動力、全體員工",
+      "en": "all the people who work for a company or in a country",
+      "note": "多益常見於人事、公司公告與新聞報導，指一間公司或一個地區的全體員工。常和 reduce、increase、skilled 搭配。",
+      "grammar_note": "workforce 是集合名詞，指整體員工，通常用單數；要指個別員工時用 employee 或 worker。",
+      "forms": [
+        {
+          "w": "workforces",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "勞動力（複數）",
+          "ipa": "/ˈwɝːkfɔːrsɪz/",
+          "example": { "en": "Both companies have large workforces in several countries.", "zh": "這兩家公司在好幾個國家都有龐大的員工團隊。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "reduce the workforce",
+          "zh": "裁減員工",
+          "example": { "en": "The firm had to reduce its workforce by ten percent.", "zh": "這家公司必須裁減百分之十的員工。" }
+        },
+        {
+          "phrase": "skilled workforce",
+          "zh": "技術純熟的勞動力",
+          "example": { "en": "A skilled workforce is the key to our success.", "zh": "技術純熟的員工是我們成功的關鍵。" }
+        },
+        {
+          "phrase": "a workforce of",
+          "zh": "…人的員工規模",
+          "example": { "en": "The factory has a workforce of about two hundred.", "zh": "這間工廠大約有兩百名員工。" }
+        }
+      ],
+      "examples": [
+        { "tag": "人資", "en": "We plan to increase our workforce before the busy season.", "zh": "我們打算在旺季前增加員工人數。" },
+        { "tag": "會議", "en": "The CEO said the workforce is our most valuable asset.", "zh": "執行長說員工是我們最有價值的資產。" },
+        { "tag": "新聞", "en": "Women make up half of the workforce at our company.", "zh": "女性占我們公司員工人數的一半。" }
+      ],
+      "similar": [
+        {
+          "word": "staff",
+          "diff": "staff 指一間公司或單位內的員工，也是集合名詞；workforce 範圍可更大，也可指一個地區或國家的勞動人口。",
+          "example": { "en": "All staff must attend the safety training on Monday.", "zh": "所有員工都必須參加星期一的安全訓練。" }
+        },
+        {
+          "word": "personnel",
+          "diff": "personnel 較正式，常用於公告和人事部門；workforce 強調整體勞動力。",
+          "example": { "en": "Only authorized personnel may enter the server room today.", "zh": "今天只有獲得授權的人員可以進入機房。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "employee",
+          "pos": "n.",
+          "zh": "員工",
+          "ipa": "/ɪmˈplɔɪiː/",
+          "example": { "en": "Each employee must wear a name tag at work.", "zh": "每位員工上班時都必須佩戴名牌。" }
+        },
+        {
+          "w": "labor",
+          "pos": "n.",
+          "zh": "勞動、勞力",
+          "ipa": "/ˈleɪbɚ/",
+          "example": { "en": "Labor costs have risen sharply in the past two years.", "zh": "過去兩年勞動成本大幅上升。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "work",
+          "ipa": "/wɝːk/",
+          "pos": "v.",
+          "zh": "工作",
+          "link": "workforce = work（工作）+ force（力量），工作的力量，也就是全體員工"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "webpage",
+      "type": "word",
+      "ipa": "/ˈwebpeɪdʒ/",
+      "pos": "n.",
+      "zh": "網頁",
+      "en": "one page on a website that you can open on a screen",
+      "note": "多益常見於網站維護、行銷與客服情境，指網站上的單一頁面。也可寫成兩個字 web page。",
+      "forms": [
+        {
+          "w": "webpages",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "網頁（複數）",
+          "ipa": "/ˈwebpeɪdʒɪz/",
+          "example": { "en": "Several webpages on our site need to be updated.", "zh": "我們網站上有幾個網頁需要更新。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "load a webpage",
+          "zh": "載入網頁",
+          "example": { "en": "The webpage takes too long to load on mobile.", "zh": "這個網頁在手機上載入太慢了。" }
+        },
+        {
+          "phrase": "design a webpage",
+          "zh": "設計網頁",
+          "example": { "en": "Our team will design a new webpage for the product.", "zh": "我們的團隊會為這項產品設計新的網頁。" }
+        },
+        {
+          "phrase": "company webpage",
+          "zh": "公司網頁",
+          "example": { "en": "More details are posted on the company webpage this week.", "zh": "更多細節本週會張貼在公司網頁上。" }
+        }
+      ],
+      "examples": [
+        { "tag": "行銷", "en": "The new webpage helped us attract more customers online.", "zh": "新的網頁幫助我們在網路上吸引更多顧客。" },
+        { "tag": "客服", "en": "Please refresh the webpage if the form does not open.", "zh": "如果表單打不開，請重新整理網頁。" },
+        { "tag": "公告", "en": "The schedule is updated on our webpage every Monday.", "zh": "時間表每週一都會在我們的網頁上更新。" }
+      ],
+      "confusable": [
+        {
+          "word": "website",
+          "diff": "website 是整個網站，由許多網頁組成；webpage 只是其中的一頁。",
+          "example": { "en": "Our website has more than fifty pages about our services.", "zh": "我們的網站有五十多頁介紹我們的服務。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "homepage",
+          "diff": "homepage 是網站的首頁；webpage 可以是網站中的任何一頁。",
+          "example": { "en": "Click the logo to return to the homepage.", "zh": "點擊標誌即可回到首頁。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "browser",
+          "pos": "n.",
+          "zh": "瀏覽器",
+          "ipa": "/ˈbraʊzɚ/",
+          "example": { "en": "Please update your browser before you log in.", "zh": "登入前請先更新您的瀏覽器。" }
+        },
+        {
+          "w": "link",
+          "pos": "n.",
+          "zh": "連結",
+          "ipa": "/lɪŋk/",
+          "example": { "en": "Click the link below to open the order form.", "zh": "請點擊下方連結開啟訂購表單。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "web",
+          "ipa": "/web/",
+          "pos": "n.",
+          "zh": "網路、網",
+          "link": "webpage = web（網路）+ page（頁面），網路上的一頁"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "whale",
+      "type": "word",
+      "ipa": "/weɪl/",
+      "pos": "n.",
+      "zh": "鯨魚",
+      "en": "a very large sea animal that breathes air",
+      "note": "多益常見於旅遊、海洋保育與觀光行程情境，指海中的大型哺乳動物。最常見的搭配是 whale watching（賞鯨）。",
+      "forms": [
+        {
+          "w": "whales",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "鯨魚（複數）",
+          "ipa": "/weɪlz/",
+          "example": { "en": "Many whales pass near this coast every spring.", "zh": "每年春天都有許多鯨魚經過這片海岸附近。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "whale watching",
+          "zh": "賞鯨",
+          "example": { "en": "Whale watching is popular among tourists in this port town.", "zh": "賞鯨在這個港口小鎮的遊客之間很受歡迎。" }
+        },
+        {
+          "phrase": "blue whale",
+          "zh": "藍鯨",
+          "example": { "en": "A blue whale is the largest animal on Earth.", "zh": "藍鯨是地球上最大的動物。" }
+        },
+        {
+          "phrase": "go whale watching",
+          "zh": "去賞鯨",
+          "example": { "en": "We plan to go whale watching during our trip.", "zh": "我們打算在旅行期間去賞鯨。" }
+        }
+      ],
+      "examples": [
+        { "tag": "旅遊", "en": "The boat tour gives visitors a chance to see a whale.", "zh": "這個乘船行程讓遊客有機會看到鯨魚。" },
+        { "tag": "環保", "en": "The group works to protect whales from ocean noise.", "zh": "這個團體致力於保護鯨魚免受海洋噪音影響。" },
+        { "tag": "公司", "en": "Our company logo is a blue whale jumping over a wave.", "zh": "我們公司的標誌是一隻躍過浪花的藍鯨。" }
+      ],
+      "confusable": [
+        {
+          "word": "while",
+          "diff": "while 唸 /waɪl/，是連接詞「當…的時候」；whale 唸 /weɪl/，是名詞「鯨魚」。",
+          "usage": "while 是連接詞，後面接子句（while the boat leaves）；whale 是名詞，可前面加 a 或 the。",
+          "example": { "en": "Please stay seated while the boat leaves the harbor.", "zh": "船離開港口時，請留在座位上。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "dolphin",
+          "pos": "n.",
+          "zh": "海豚",
+          "ipa": "/ˈdɑːlfɪn/",
+          "example": { "en": "A dolphin followed our boat for ten minutes.", "zh": "一隻海豚跟著我們的船游了十分鐘。" }
+        },
+        {
+          "w": "ocean",
+          "pos": "n.",
+          "zh": "海洋",
+          "ipa": "/ˈoʊʃn/",
+          "example": { "en": "The hotel has a beautiful view of the ocean.", "zh": "這間飯店有美麗的海景。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

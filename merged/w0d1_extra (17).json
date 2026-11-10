@@ -1,0 +1,183 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "unpaid",
+      "type": "word",
+      "ipa": "/ʌnˈpeɪd/",
+      "pos": "adj.",
+      "zh": "未付款的、無薪的",
+      "en": "not yet paid, or done without being paid",
+      "note": "多益常見於帳務與人資情境：unpaid invoice、unpaid bill 指款項還沒付；unpaid leave、unpaid internship 指沒有薪水。看到前後文談付款就是「未付」，談工作或請假就是「無薪」。",
+      "grammar_note": "unpaid 是形容詞，可放名詞前（an unpaid bill）或接在 be 動詞後（The bill is unpaid）；若要用動詞說法，是 has not been paid。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "unpaid invoice",
+          "zh": "未付的發票",
+          "example": {
+            "en": "Please settle the unpaid invoice by the end of this month.",
+            "zh": "請在本月底前結清未付的發票。"
+          }
+        },
+        {
+          "phrase": "unpaid balance",
+          "zh": "未付餘額",
+          "example": {
+            "en": "The unpaid balance will be added to your next bill.",
+            "zh": "未付的餘額會加到您的下一期帳單中。"
+          }
+        },
+        {
+          "phrase": "unpaid leave",
+          "zh": "無薪假",
+          "example": {
+            "en": "She asked for two weeks of unpaid leave in June.",
+            "zh": "她六月申請了兩週的無薪假。"
+          }
+        },
+        {
+          "phrase": "unpaid internship",
+          "zh": "無薪實習",
+          "example": {
+            "en": "The company offers an unpaid internship for college students.",
+            "zh": "這家公司提供大學生無薪實習的機會。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Our records show that your bill is still unpaid.",
+          "zh": "我們的紀錄顯示您的帳單仍未付款。"
+        },
+        {
+          "tag": "會計",
+          "en": "The accounting team sent reminders for all unpaid accounts.",
+          "zh": "會計部門寄了催繳通知給所有未付款的帳戶。"
+        },
+        {
+          "tag": "人資",
+          "en": "Employees may take unpaid time off with a manager's approval.",
+          "zh": "員工經主管同意後可以請無薪假。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "prepaid",
+          "diff": "prepaid 是「已經先付過錢的」；unpaid 是「還沒付錢的」，意思相反。",
+          "example": {
+            "en": "Customers can buy a prepaid card at the front counter.",
+            "zh": "顧客可以在櫃檯購買預付卡。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "overdue",
+          "diff": "overdue 表示已經超過付款期限；unpaid 只說還沒付，不一定逾期。",
+          "example": {
+            "en": "Your overdue payment will be charged an extra late fee.",
+            "zh": "您逾期的款項將被加收滯納金。"
+          }
+        },
+        {
+          "phrase": "outstanding",
+          "diff": "outstanding 較正式，常用於帳務，指尚未結清的金額；unpaid 較通用。",
+          "example": {
+            "en": "Please pay the outstanding amount before the end of the week.",
+            "zh": "請在本週結束前付清未結的金額。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "payment",
+          "pos": "n.",
+          "zh": "付款",
+          "ipa": "/ˈpeɪmənt/",
+          "example": {
+            "en": "We have not received your payment for last month yet.",
+            "zh": "我們還沒收到您上個月的付款。"
+          }
+        },
+        {
+          "w": "balance",
+          "pos": "n.",
+          "zh": "餘額",
+          "ipa": "/ˈbæləns/",
+          "example": {
+            "en": "You can check your account balance on our website.",
+            "zh": "您可以在我們的網站上查詢帳戶餘額。"
+          }
+        },
+        {
+          "w": "bill",
+          "pos": "n.",
+          "zh": "帳單",
+          "ipa": "/bɪl/",
+          "example": {
+            "en": "The electricity bill arrives at the beginning of each month.",
+            "zh": "電費帳單在每個月初寄達。"
+          }
+        },
+        {
+          "w": "salary",
+          "pos": "n.",
+          "zh": "薪水",
+          "ipa": "/ˈsæləri/",
+          "example": {
+            "en": "The company pays every employee a salary on the last day.",
+            "zh": "公司在月底最後一天發薪水給每位員工。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "pay",
+          "pos": "v.／n.",
+          "zh": "支付、薪水",
+          "ipa": "/peɪ/",
+          "link": "unpaid = un-（不）+ paid（付了的），像 unhappy、unable 的 un-"
+        },
+        {
+          "w": "payment",
+          "pos": "n.",
+          "zh": "付款",
+          "ipa": "/ˈpeɪmənt/",
+          "link": "pay + -ment，把「付錢」變成名詞，像 agreement、management"
+        },
+        {
+          "w": "payable",
+          "pos": "adj.",
+          "zh": "應付的、可支付的",
+          "ipa": "/ˈpeɪəbl/",
+          "link": "pay + -able，可以或該被付的，像 available、reliable"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "未付款的",
+          "en": "not yet paid, as a bill or an invoice",
+          "example": {
+            "en": "We sent a reminder about the unpaid invoice yesterday.",
+            "zh": "我們昨天已寄出未付發票的催繳通知。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "zh": "無薪的",
+          "en": "done without getting money for the work",
+          "distinguish": "出現在人資、實習、請假情境，如 unpaid leave。",
+          "example": {
+            "en": "Interns often do unpaid work in exchange for experience.",
+            "zh": "實習生常以無薪工作換取經驗。"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1126 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "tech",
+      "type": "word",
+      "ipa": "/tek/",
+      "pos": "n.",
+      "zh": "技術人員；科技",
+      "en": "a short word for technology, or a person who fixes computers and machines",
+      "note": "tech 是 technology 或 technician 的口語縮寫。多益常見於 tech support（技術支援）、tech company（科技公司）；指人時是負責維修設備的技術人員。正式文件多寫完整的 technology 或 technician。",
+      "grammar_note": "tech 是口語縮寫；正式的信件或報告中，建議寫 technology（科技）或 technician（技術人員）。",
+      "forms": [
+        {
+          "w": "techs",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "技術人員（複數）",
+          "ipa": "/teks/",
+          "example": {
+            "en": "The company employs ten techs to repair customer computers.",
+            "zh": "這家公司僱用十位技術人員來修理客戶的電腦。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "tech support",
+          "zh": "技術支援",
+          "example": {
+            "en": "You can reach tech support by phone or by email.",
+            "zh": "你可以用電話或電子郵件聯絡技術支援。"
+          }
+        },
+        {
+          "phrase": "tech company",
+          "zh": "科技公司",
+          "example": {
+            "en": "The tech company launched a new app last month.",
+            "zh": "這家科技公司上個月推出了一款新的應用程式。"
+          }
+        },
+        {
+          "phrase": "tech team",
+          "zh": "技術團隊",
+          "example": {
+            "en": "Our tech team fixed the website problem in an hour.",
+            "zh": "我們的技術團隊在一小時內解決了網站的問題。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "維修",
+          "en": "Our tech will visit your office this afternoon to check the server.",
+          "zh": "我們的技術人員今天下午會到你的辦公室檢查伺服器。"
+        },
+        {
+          "tag": "新聞",
+          "en": "The tech industry has grown quickly over the past decade.",
+          "zh": "科技業在過去十年成長得很快。"
+        },
+        {
+          "tag": "求職",
+          "en": "He applied for a job as a lab tech at the hospital.",
+          "zh": "他應徵了這家醫院的實驗室技術員工作。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "technique",
+          "diff": "technique 指做事的方法或技巧，不是指科技或技術人員。",
+          "example": {
+            "en": "She teaches a new sales technique to the staff.",
+            "zh": "她向員工教授一種新的銷售技巧。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "device",
+          "ipa": "/dɪˈvaɪs/",
+          "pos": "n.",
+          "zh": "裝置",
+          "example": {
+            "en": "This device saves energy and costs very little.",
+            "zh": "這個裝置節省能源，而且很便宜。"
+          }
+        },
+        {
+          "w": "software",
+          "ipa": "/ˈsɔːftwer/",
+          "pos": "n.",
+          "zh": "軟體",
+          "example": {
+            "en": "We need to update the software before Monday.",
+            "zh": "我們需要在星期一前更新軟體。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "technology",
+          "ipa": "/tekˈnɑːlədʒi/",
+          "pos": "n.",
+          "zh": "科技",
+          "link": "tech + -nology（學問、技術的整體），像 biology、psychology，指整體的科技"
+        },
+        {
+          "w": "technical",
+          "ipa": "/ˈteknɪkəl/",
+          "pos": "adj.",
+          "zh": "技術上的",
+          "link": "tech + -ical，形容詞字尾，像 medical、practical"
+        },
+        {
+          "w": "technician",
+          "ipa": "/tekˈnɪʃən/",
+          "pos": "n.",
+          "zh": "技術員",
+          "link": "tech + -ician，做專業工作的人，像 musician、electrician"
+        },
+        {
+          "w": "technically",
+          "ipa": "/ˈteknɪkli/",
+          "pos": "adv.",
+          "zh": "技術上；嚴格來說",
+          "link": "technical + -ly，副詞字尾，像 quickly、carefully"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/tek/",
+          "zh": "技術人員",
+          "example": {
+            "en": "The tech replaced the broken screen in ten minutes.",
+            "zh": "技術人員在十分鐘內換好了壞掉的螢幕。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/tek/",
+          "zh": "科技的",
+          "example": {
+            "en": "Tech stocks rose sharply on Monday after the earnings report.",
+            "zh": "財報公布後，科技股在星期一大幅上漲。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "科技；科技業",
+          "en": "technology, or the business of making technology products",
+          "example": {
+            "en": "She works in tech and travels often for business.",
+            "zh": "她在科技業工作，常常出差。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "技術人員",
+          "en": "a person whose job is to fix or check equipment",
+          "distinguish": "前面有 a/the 或後面接 will visit、fix 這類動作時，通常指人；單獨出現且不可數時，多半指科技業。",
+          "example": {
+            "en": "Call the tech if the network goes down again.",
+            "zh": "如果網路又斷線，就打電話給技術人員。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "turnover",
+      "type": "word",
+      "ipa": "/ˈtɜːrnˌoʊvɚ/",
+      "pos": "n.",
+      "zh": "離職率；營業額；週轉率",
+      "en": "the rate at which workers leave a company, or the total money a business earns",
+      "note": "多益最常見的是 staff turnover（員工離職率）；在英式英語財報中也指營業額，美式多用 revenue 或 sales。要靠上下文判斷是人員流動、金額，還是存貨週轉。",
+      "grammar_note": "turnover 當「離職率、營業額」時是不可數名詞，常搭配 high、low 來形容：a high turnover，也可說 high turnover rate。",
+      "forms": [
+        {
+          "w": "turnovers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "週轉率（複數）",
+          "ipa": "/ˈtɜːrnˌoʊvɚz/",
+          "example": {
+            "en": "Several branches reported strong turnovers during the holiday season.",
+            "zh": "好幾間分店在假期期間回報了很高的週轉率。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "staff turnover",
+          "zh": "員工流動率",
+          "example": {
+            "en": "The manager wants to reduce staff turnover this year.",
+            "zh": "經理希望今年降低員工流動率。"
+          }
+        },
+        {
+          "phrase": "annual turnover",
+          "zh": "年營業額",
+          "example": {
+            "en": "Their annual turnover is about five million dollars.",
+            "zh": "他們的年營業額大約是五百萬美元。"
+          }
+        },
+        {
+          "phrase": "turnover rate",
+          "zh": "離職率；週轉率",
+          "example": {
+            "en": "A high turnover rate can raise training costs.",
+            "zh": "高離職率可能會增加訓練成本。"
+          }
+        },
+        {
+          "phrase": "inventory turnover",
+          "zh": "存貨週轉率",
+          "example": {
+            "en": "Better inventory turnover helps the store save space and money.",
+            "zh": "更好的存貨週轉率能幫商店節省空間與金錢。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "人資",
+          "en": "Turnover is high because many workers leave within a year.",
+          "zh": "離職率很高，因為許多員工在一年內就離開。"
+        },
+        {
+          "tag": "財報",
+          "en": "The shop's turnover reached two million dollars last year.",
+          "zh": "這家店去年的營業額達到兩百萬美元。"
+        },
+        {
+          "tag": "倉儲",
+          "en": "Fast turnover means goods do not stay long in the store.",
+          "zh": "週轉快代表商品不會在店裡放太久。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "turn over",
+          "diff": "turn over 是兩個字的動詞片語，意思是翻面或移交；turnover 是名詞。",
+          "usage": "turnover 是名詞，連在一起寫；turn over 是動詞片語，如 turn over the page（翻頁）。",
+          "example": {
+            "en": "Please turn over the page and read the next section.",
+            "zh": "請翻到下一頁，閱讀下一個部分。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "revenue",
+          "diff": "revenue 指公司的收入總額，美式財報最常用；turnover 在英式用法中也可指營業額，另外還能指離職率。",
+          "example": {
+            "en": "Revenue grew by ten percent in the third quarter.",
+            "zh": "第三季的營收成長了百分之十。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "profit",
+          "ipa": "/ˈprɑːfɪt/",
+          "pos": "n.",
+          "zh": "利潤",
+          "example": {
+            "en": "The company made a small profit last year.",
+            "zh": "這家公司去年賺了一小筆利潤。"
+          }
+        },
+        {
+          "w": "sales",
+          "ipa": "/seɪlz/",
+          "pos": "n.",
+          "zh": "銷售額",
+          "example": {
+            "en": "Sales rose quickly after we lowered the price last month.",
+            "zh": "我們降價之後，銷售額上升了。"
+          }
+        },
+        {
+          "w": "staff",
+          "ipa": "/stæf/",
+          "pos": "n.",
+          "zh": "員工",
+          "example": {
+            "en": "The staff meeting starts at nine tomorrow morning.",
+            "zh": "員工會議明天早上九點開始。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "離職率",
+          "en": "the number of workers who leave and are replaced",
+          "example": {
+            "en": "New benefits may lower employee turnover in our call center.",
+            "zh": "新的福利可能會降低我們客服中心的員工流動。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "營業額",
+          "en": "the total amount of money a business earns",
+          "distinguish": "句中出現金額、年度、銷售等字時，多半是營業額。",
+          "example": {
+            "en": "The café's monthly turnover doubled after the new menu launched.",
+            "zh": "新菜單推出後，這家咖啡店的月營業額成長了一倍。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "週轉率",
+          "en": "how fast goods are sold and replaced in a store",
+          "distinguish": "和商品、存貨、庫存一起出現時，指貨賣得多快。",
+          "example": {
+            "en": "Milk has a quick turnover because customers buy it every day.",
+            "zh": "牛奶的週轉很快，因為顧客每天都會買。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "tow",
+      "type": "word",
+      "ipa": "/toʊ/",
+      "pos": "v.",
+      "zh": "拖吊、拖曳（車輛）",
+      "en": "to pull a car or boat behind another vehicle",
+      "note": "tow 指用車輛把另一輛車或船拖走，多益常見於停車場告示、道路救援與違規停車的情境，如 Your car will be towed。",
+      "grammar_note": "tow 後面直接接被拖的車；常搭配 away 或 to：tow a car to the garage。被動寫成 be towed (away)。",
+      "forms": [
+        {
+          "w": "tows",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "拖吊",
+          "ipa": "/toʊz/",
+          "example": {
+            "en": "This company tows illegally parked cars every morning.",
+            "zh": "這家公司每天早上都會拖吊違規停放的車輛。"
+          }
+        },
+        {
+          "w": "towed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "拖吊了",
+          "ipa": "/toʊd/",
+          "example": {
+            "en": "The truck towed the damaged van to the repair shop.",
+            "zh": "那輛卡車把受損的廂型車拖到了修理廠。"
+          }
+        },
+        {
+          "w": "towing",
+          "label": "現在分詞／動名詞",
+          "pos": "v.",
+          "zh": "正在拖吊；拖吊",
+          "ipa": "/ˈtoʊɪŋ/",
+          "example": {
+            "en": "The driver is towing a small boat to the lake.",
+            "zh": "司機正拖著一艘小船前往湖邊。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "tow truck",
+          "zh": "拖吊車",
+          "example": {
+            "en": "A tow truck arrived at the parking lot within twenty minutes.",
+            "zh": "拖吊車在二十分鐘內就到了。"
+          }
+        },
+        {
+          "phrase": "tow away",
+          "zh": "拖走",
+          "example": {
+            "en": "Security may tow away any car blocking the exit.",
+            "zh": "警衛可能會拖走任何擋住出口的車。"
+          }
+        },
+        {
+          "phrase": "tow-away zone",
+          "zh": "禁止停車拖吊區",
+          "example": {
+            "en": "Do not park in the tow-away zone near the entrance.",
+            "zh": "請不要停在入口附近的拖吊區。"
+          }
+        },
+        {
+          "phrase": "towing service",
+          "zh": "拖吊服務",
+          "example": {
+            "en": "The towing service charges fifty dollars per trip.",
+            "zh": "這項拖吊服務每趟收費五十美元。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "道路救援",
+          "en": "We can tow your car to the nearest repair shop.",
+          "zh": "我們可以把你的車拖到最近的修理廠。"
+        },
+        {
+          "tag": "運輸",
+          "en": "Large trucks are needed to tow broken buses off the road.",
+          "zh": "需要大型卡車才能把壞掉的巴士拖離道路。"
+        },
+        {
+          "tag": "服務",
+          "en": "Our service offers a free tow within ten kilometers.",
+          "zh": "我們的服務提供十公里內免費拖吊。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "toe",
+          "diff": "toe 是腳趾，發音和 tow 完全相同，但意思無關。",
+          "example": {
+            "en": "She hurt her toe when a box fell at work.",
+            "zh": "她在工作時被掉下來的箱子砸到腳趾。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "pull",
+          "diff": "pull 是一般的拉；tow 專指用車輛拖著另一輛車或船。",
+          "example": {
+            "en": "Please pull the cart to the back of the store.",
+            "zh": "請把推車拉到店的後方。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "pull",
+          "ipa": "/pʊl/",
+          "pos": "v.",
+          "zh": "拉",
+          "example": {
+            "en": "Pull the door gently because it is very old.",
+            "zh": "請輕輕拉門，因為它很舊了。"
+          }
+        },
+        {
+          "w": "haul",
+          "ipa": "/hɔːl/",
+          "pos": "v.",
+          "zh": "用車運送",
+          "example": {
+            "en": "Trucks haul goods from the port to the factory.",
+            "zh": "卡車把貨物從港口運到工廠。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/toʊ/",
+          "zh": "拖吊、拖曳",
+          "example": {
+            "en": "This truck can tow up to three tons.",
+            "zh": "這輛卡車最多可以拖三噸重。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/toʊ/",
+          "zh": "拖吊、拖曳",
+          "example": {
+            "en": "The driver gave us a tow to the nearest garage.",
+            "zh": "司機把我們拖到了最近的修車廠。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "translator",
+      "type": "word",
+      "ipa": "/trænsˈleɪtɚ/",
+      "pos": "n.",
+      "zh": "翻譯人員；翻譯機",
+      "en": "a person or a device that changes words from one language into another",
+      "note": "translator 多指做文件、合約、說明書的筆譯人員，在會議、客戶接待與求才廣告中很常見；也可以指翻譯軟體或翻譯機。",
+      "forms": [
+        {
+          "w": "translators",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "翻譯人員（複數）",
+          "ipa": "/trænsˈleɪtɚz/",
+          "example": {
+            "en": "Our translators finished the user manual in three days.",
+            "zh": "我們的翻譯人員在三天內完成了使用手冊。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "hire a translator",
+          "zh": "僱用翻譯人員",
+          "example": {
+            "en": "We decided to hire a translator for the new contract.",
+            "zh": "我們決定為新合約僱用一位翻譯人員。"
+          }
+        },
+        {
+          "phrase": "professional translator",
+          "zh": "專業翻譯人員",
+          "example": {
+            "en": "A professional translator checked every page of the report.",
+            "zh": "一位專業翻譯人員檢查了報告的每一頁。"
+          }
+        },
+        {
+          "phrase": "translator app",
+          "zh": "翻譯應用程式",
+          "example": {
+            "en": "The tourist used a translator app to order lunch.",
+            "zh": "這位遊客用翻譯應用程式點了午餐。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "We need a translator for the meeting with our Japanese clients.",
+          "zh": "我們需要一位翻譯，來協助和日本客戶的會議。"
+        },
+        {
+          "tag": "求才",
+          "en": "The agency is looking for a translator who knows Spanish.",
+          "zh": "這間公司正在找懂西班牙文的翻譯人員。"
+        },
+        {
+          "tag": "出差",
+          "en": "This translator works offline, so it is useful on trips.",
+          "zh": "這台翻譯機可以離線使用，所以出差時很方便。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "interpreter",
+          "diff": "interpreter 是口譯，在現場用說的；translator 是筆譯，處理文字資料。",
+          "example": {
+            "en": "The interpreter spoke softly beside the manager during the talk.",
+            "zh": "會談時，口譯人員在經理旁邊輕聲翻譯。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "editor",
+          "ipa": "/ˈedɪtɚ/",
+          "pos": "n.",
+          "zh": "編輯",
+          "example": {
+            "en": "The editor checked the translation before printing it.",
+            "zh": "編輯在印刷前檢查了這份譯文。"
+          }
+        },
+        {
+          "w": "writer",
+          "ipa": "/ˈraɪtɚ/",
+          "pos": "n.",
+          "zh": "作者",
+          "example": {
+            "en": "The writer sent us the final draft today.",
+            "zh": "作者今天寄給我們最終稿。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "translate",
+          "ipa": "/trænsˈleɪt/",
+          "pos": "v.",
+          "zh": "翻譯",
+          "link": "最基礎的動詞，意思是把一種語言換成另一種語言"
+        },
+        {
+          "w": "translation",
+          "ipa": "/trænsˈleɪʃən/",
+          "pos": "n.",
+          "zh": "翻譯；譯文",
+          "link": "translate + -ion，把動作變成名詞，像 reservation、education"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "翻譯人員",
+          "en": "a person whose job is to change written words into another language",
+          "example": {
+            "en": "The translator sent the finished contract back to us on Friday.",
+            "zh": "翻譯人員在星期五把完成的合約寄回給我們。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "翻譯機；翻譯軟體",
+          "en": "a machine or program that changes words into another language",
+          "distinguish": "句中有 app、device、works offline 等字時，指機器或軟體。",
+          "example": {
+            "en": "The pocket translator supports more than forty languages.",
+            "zh": "這台口袋翻譯機支援超過四十種語言。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "tuition",
+      "type": "word",
+      "ipa": "/tuˈɪʃən/",
+      "pos": "n.",
+      "zh": "學費",
+      "en": "the money you pay to attend a school or a course",
+      "note": "tuition 指學校或課程的學費，多益常見於公司補助進修（tuition reimbursement）、學校公告與教育貸款的情境。",
+      "grammar_note": "tuition 是不可數名詞，不加 s，前面也不加 a；說「一筆學費」要用 tuition fee。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "tuition fee",
+          "zh": "學費",
+          "example": {
+            "en": "The tuition fee includes books and exam costs.",
+            "zh": "學費包含書籍和考試費用。"
+          }
+        },
+        {
+          "phrase": "pay tuition",
+          "zh": "繳學費",
+          "example": {
+            "en": "Many students pay tuition in two installments each school year.",
+            "zh": "許多學生分兩期繳交學費。"
+          }
+        },
+        {
+          "phrase": "tuition reimbursement",
+          "zh": "學費補助",
+          "example": {
+            "en": "Tuition reimbursement is offered to all full-time employees.",
+            "zh": "所有全職員工都可以申請學費補助。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "Tuition for the spring term is due by January 15.",
+          "zh": "春季學期的學費須在一月十五日前繳清。"
+        },
+        {
+          "tag": "人資",
+          "en": "Our company will pay your tuition if you pass the course.",
+          "zh": "如果你通過這門課，公司會幫你付學費。"
+        },
+        {
+          "tag": "生活",
+          "en": "She works part-time to cover her tuition and living costs.",
+          "zh": "她打工來支付學費和生活費。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "tutor",
+          "diff": "tutor 是家教或輔導老師（人）；tuition 是學費（錢）。",
+          "example": {
+            "en": "The tutor helps students prepare for the TOEIC test.",
+            "zh": "這位家教老師幫助學生準備多益考試。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "fee",
+          "diff": "fee 是各種費用的統稱；tuition 專指上課的學費。",
+          "example": {
+            "en": "A small fee is charged for late registration.",
+            "zh": "太晚報名要收取一小筆費用。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "scholarship",
+          "ipa": "/ˈskɑːlɚʃɪp/",
+          "pos": "n.",
+          "zh": "獎學金",
+          "example": {
+            "en": "She won a scholarship to study business abroad.",
+            "zh": "她獲得了出國讀商學的獎學金。"
+          }
+        },
+        {
+          "w": "loan",
+          "ipa": "/loʊn/",
+          "pos": "n.",
+          "zh": "貸款",
+          "example": {
+            "en": "He took a loan to pay for school.",
+            "zh": "他貸款來支付學費。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "學費",
+          "en": "money paid for classes at a school or college",
+          "example": {
+            "en": "The college will raise tuition by three percent next year.",
+            "zh": "這所大學明年會調漲百分之三的學費。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "授課；教學（英式）",
+          "en": "teaching given to a person or a small group",
+          "distinguish": "常見於 private tuition（私人授課）；前面有 private、extra 等字時，指教學而不是學費。",
+          "example": {
+            "en": "He offers private tuition in business English on weekends.",
+            "zh": "他在週末提供商用英文的私人授課。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "tablet",
+      "type": "word",
+      "ipa": "/ˈtæblɪt/",
+      "pos": "n.",
+      "zh": "平板電腦；藥片",
+      "en": "a flat computer you use by touching the screen, or a small round medicine",
+      "note": "tablet 在多益最常見是「平板電腦」，出現在辦公、銷售與產品介紹；在醫療或藥局情境則是「藥片」，看上下文判斷。",
+      "forms": [
+        {
+          "w": "tablets",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "平板電腦；藥片（複數）",
+          "ipa": "/ˈtæblɪts/",
+          "example": {
+            "en": "We ordered fifty tablets for the new training program.",
+            "zh": "我們為新的訓練計畫訂購了五十台平板電腦。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "tablet computer",
+          "zh": "平板電腦",
+          "example": {
+            "en": "Each sales rep received a tablet computer for customer visits.",
+            "zh": "每位業務代表都拿到一台平板電腦，用來拜訪客戶。"
+          }
+        },
+        {
+          "phrase": "tablet screen",
+          "zh": "平板螢幕",
+          "example": {
+            "en": "The tablet screen is easy to read outdoors.",
+            "zh": "這台平板的螢幕在戶外也很容易閱讀。"
+          }
+        },
+        {
+          "phrase": "tablet case",
+          "zh": "平板保護套",
+          "example": {
+            "en": "Please buy a tablet case to protect your device.",
+            "zh": "請買一個平板保護套來保護你的裝置。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "辦公",
+          "en": "Staff can use a tablet to check orders in the warehouse.",
+          "zh": "員工可以用平板電腦在倉庫查看訂單。"
+        },
+        {
+          "tag": "藥品",
+          "en": "Take one tablet after each meal with a glass of water.",
+          "zh": "每餐飯後配一杯水服用一片藥。"
+        },
+        {
+          "tag": "銷售",
+          "en": "The new tablet is lighter and cheaper than last year's model.",
+          "zh": "這款新平板比去年的型號更輕也更便宜。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "table",
+          "diff": "table 是桌子或表格；tablet 多了字尾 -let，指平板或藥片。",
+          "example": {
+            "en": "The report is on the table in the meeting room.",
+            "zh": "報告放在會議室的桌上。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "pill",
+          "diff": "pill 是藥丸，口語常用；tablet 是壓製成片的藥，語氣較正式。",
+          "example": {
+            "en": "The doctor told him to take one pill daily.",
+            "zh": "醫師要他每天吃一顆藥。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "laptop",
+          "ipa": "/ˈlæptɑːp/",
+          "pos": "n.",
+          "zh": "筆記型電腦",
+          "example": {
+            "en": "I bring my laptop to every client meeting.",
+            "zh": "我每次和客戶開會都會帶筆電。"
+          }
+        },
+        {
+          "w": "smartphone",
+          "ipa": "/ˈsmɑːrtfoʊn/",
+          "pos": "n.",
+          "zh": "智慧型手機",
+          "example": {
+            "en": "Most of our customers book hotel rooms with their smartphones.",
+            "zh": "大部分客人用智慧型手機訂房。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "平板電腦",
+          "en": "a small flat computer with a touch screen",
+          "example": {
+            "en": "The waiter takes our orders on a tablet.",
+            "zh": "服務生用平板電腦記錄我們的餐點。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "藥片",
+          "en": "a small, hard piece of medicine that you swallow",
+          "distinguish": "和 doctor、pharmacy、take、daily 一起出現時，指藥片。",
+          "example": {
+            "en": "The pharmacy sells vitamin tablets at a discount this week.",
+            "zh": "這間藥局本週的維他命藥片有折扣。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "ton",
+      "type": "word",
+      "ipa": "/tʌn/",
+      "pos": "n.",
+      "zh": "噸",
+      "en": "a unit used to measure the weight of very heavy things like cargo",
+      "note": "ton 是重量單位「噸」，多益常見於貨運、倉儲與環保的數字描述；口語的 a ton of／tons of 則表示「很多」。",
+      "grammar_note": "表示數量時 ton 用複數：five tons of steel；但放在名詞前當形容詞時不加 s：a five-ton truck。",
+      "forms": [
+        {
+          "w": "tons",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "噸（複數）；很多",
+          "ipa": "/tʌnz/",
+          "example": {
+            "en": "Trucks delivered twenty tons of rice to the port.",
+            "zh": "卡車把二十噸的米運到了港口。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "metric ton",
+          "zh": "公噸",
+          "example": {
+            "en": "The factory produces two metric tons of steel daily.",
+            "zh": "這間工廠每天生產兩公噸的鋼鐵。"
+          }
+        },
+        {
+          "phrase": "per ton",
+          "zh": "每噸",
+          "example": {
+            "en": "The price of this steel is eighty dollars per ton.",
+            "zh": "價格是每噸八十美元。"
+          }
+        },
+        {
+          "phrase": "tons of",
+          "zh": "很多（口語）",
+          "example": {
+            "en": "We have tons of orders to process this week.",
+            "zh": "我們這週有一大堆訂單要處理。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "貨運",
+          "en": "The ship can carry up to fifty thousand tons of cargo.",
+          "zh": "這艘船最多可以載運五萬噸的貨物。"
+        },
+        {
+          "tag": "環保",
+          "en": "The plant reduced its waste by ten tons last year.",
+          "zh": "這間工廠去年減少了十噸廢棄物。"
+        },
+        {
+          "tag": "口語",
+          "en": "I have a ton of emails to answer before noon.",
+          "zh": "我中午前有一大堆電子郵件要回。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "tone",
+          "diff": "tone 是語氣或音調，多了字尾 e，發音也不同。",
+          "example": {
+            "en": "She used a polite tone in her email.",
+            "zh": "她在電子郵件中使用了有禮貌的語氣。"
+          }
+        },
+        {
+          "word": "tonne",
+          "diff": "tonne 是英式拼法的公噸，發音和 ton 相同。",
+          "example": {
+            "en": "The report lists emissions in tonnes, not pounds.",
+            "zh": "這份報告用公噸而不是磅來列出排放量。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "kilogram",
+          "ipa": "/ˈkɪləɡræm/",
+          "pos": "n.",
+          "zh": "公斤",
+          "example": {
+            "en": "The shipping box weighs about ten kilograms in total.",
+            "zh": "這個箱子大約重十公斤。"
+          }
+        },
+        {
+          "w": "pound",
+          "ipa": "/paʊnd/",
+          "pos": "n.",
+          "zh": "磅",
+          "example": {
+            "en": "The package for our new client weighs five pounds in total.",
+            "zh": "這個包裹總共重五磅。"
+          }
+        },
+        {
+          "w": "weight",
+          "ipa": "/weɪt/",
+          "pos": "n.",
+          "zh": "重量",
+          "example": {
+            "en": "Please check the weight limit before shipping the package abroad.",
+            "zh": "寄送前請先確認重量限制。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "噸（重量單位）",
+          "en": "a unit of weight for very heavy things",
+          "example": {
+            "en": "The bridge can hold trucks of up to thirty tons.",
+            "zh": "這座橋可以承載最重三十噸的卡車。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "很多（口語）",
+          "en": "a very large amount of something",
+          "distinguish": "常寫成 a ton of 或 tons of，後面接可數或不可數名詞，不是在量重量。",
+          "example": {
+            "en": "There is a ton of work waiting on my desk.",
+            "zh": "我桌上有一大堆工作在等著。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "teller",
+      "type": "word",
+      "ipa": "/ˈtelɚ/",
+      "pos": "n.",
+      "zh": "銀行櫃員",
+      "en": "a person who works at a bank and helps customers with their money",
+      "note": "teller 指銀行櫃檯人員，負責存款、提款與轉帳。多益常見於銀行場景的對話、求才廣告，以及 ATM（automated teller machine）的全名。",
+      "forms": [
+        {
+          "w": "tellers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "銀行櫃員（複數）",
+          "ipa": "/ˈtelɚz/",
+          "example": {
+            "en": "Two tellers were helping customers during the lunch rush.",
+            "zh": "午餐尖峰時段，有兩位櫃員在服務客人。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "bank teller",
+          "zh": "銀行櫃員",
+          "example": {
+            "en": "She worked as a bank teller for five years.",
+            "zh": "她擔任銀行櫃員五年了。"
+          }
+        },
+        {
+          "phrase": "teller window",
+          "zh": "櫃員窗口",
+          "example": {
+            "en": "Please wait in line at the teller window.",
+            "zh": "請在櫃員窗口前排隊等候。"
+          }
+        },
+        {
+          "phrase": "automated teller machine",
+          "zh": "自動櫃員機（ATM）",
+          "example": {
+            "en": "The automated teller machine is outside the main entrance.",
+            "zh": "自動櫃員機在大門外面。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "銀行",
+          "en": "Please give the teller your ID before making a withdrawal.",
+          "zh": "提款前，請先把你的證件交給櫃員。"
+        },
+        {
+          "tag": "求才",
+          "en": "The bank is hiring a full-time teller for its downtown branch.",
+          "zh": "這間銀行正在為市中心的分行徵求一位全職櫃員。"
+        },
+        {
+          "tag": "對話",
+          "en": "The teller asked me to fill out a deposit slip.",
+          "zh": "櫃員請我填寫一張存款單。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "cashier",
+          "diff": "cashier 是商店的收銀員；teller 是在銀行辦理存提款的人。",
+          "example": {
+            "en": "The cashier scanned my items and printed the receipt.",
+            "zh": "收銀員掃描了我的商品，並列印出收據。"
+          }
+        },
+        {
+          "word": "clerk",
+          "diff": "clerk 是辦公室或商店的一般職員，不限於銀行。",
+          "example": {
+            "en": "The hotel clerk gave me a key to my room.",
+            "zh": "飯店櫃檯人員給了我房間鑰匙。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "banker",
+          "ipa": "/ˈbæŋkɚ/",
+          "pos": "n.",
+          "zh": "銀行家；銀行主管",
+          "example": {
+            "en": "The banker explained the interest rate very clearly.",
+            "zh": "銀行主管把利率解釋得很清楚。"
+          }
+        },
+        {
+          "w": "deposit",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "pos": "n.",
+          "zh": "存款",
+          "example": {
+            "en": "She made a deposit at the bank this morning.",
+            "zh": "她今天早上去銀行存了錢。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

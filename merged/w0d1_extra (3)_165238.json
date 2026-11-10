@@ -1,0 +1,819 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "hacker",
+      "type": "word",
+      "ipa": "/ˈhækər/",
+      "pos": "n.",
+      "zh": "駭客",
+      "en": "a person who enters other people's computer systems without permission",
+      "note": "多益常見於資訊安全、公司網路與新聞報導情境，通常指非法闖入電腦系統、竊取資料的人，語氣偏負面。",
+      "forms": [
+        {
+          "w": "hackers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "駭客（複數）",
+          "ipa": "/ˈhækərz/",
+          "example": {
+            "en": "Hackers stole the personal data of thousands of customers.",
+            "zh": "駭客竊取了數千名客戶的個人資料。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "computer hacker",
+          "zh": "電腦駭客",
+          "example": {
+            "en": "A computer hacker entered the bank's system last night.",
+            "zh": "一名電腦駭客昨晚侵入了銀行的系統。"
+          }
+        },
+        {
+          "phrase": "hacker attack",
+          "zh": "駭客攻擊",
+          "example": {
+            "en": "The website closed for two hours after a hacker attack.",
+            "zh": "遭受駭客攻擊後，網站關閉了兩小時。"
+          }
+        },
+        {
+          "phrase": "protect against hackers",
+          "zh": "防範駭客",
+          "example": {
+            "en": "We use strong passwords to protect against hackers.",
+            "zh": "我們使用強度高的密碼來防範駭客。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "資安",
+          "en": "The IT team says hackers often send fake emails to staff.",
+          "zh": "資訊部說駭客常寄假電子郵件給員工。"
+        },
+        {
+          "tag": "新聞",
+          "en": "Police are looking for the hacker who attacked the airline.",
+          "zh": "警方正在尋找攻擊這家航空公司的駭客。"
+        },
+        {
+          "tag": "公司政策",
+          "en": "The company hired experts to stop hackers from reaching its files.",
+          "zh": "公司聘請專家，防止駭客進入公司的檔案。"
+        }
+      ],
+      "family": [
+        {
+          "w": "password",
+          "pos": "n.",
+          "zh": "密碼",
+          "ipa": "/ˈpæswɜːrd/",
+          "example": {
+            "en": "Please change your password every three months.",
+            "zh": "請每三個月更改一次密碼。"
+          }
+        },
+        {
+          "w": "security",
+          "pos": "n.",
+          "zh": "安全、保全",
+          "ipa": "/sɪˈkjʊrəti/",
+          "example": {
+            "en": "Network security is a top priority for our bank.",
+            "zh": "網路安全是我們銀行最優先的事項。"
+          }
+        },
+        {
+          "w": "virus",
+          "pos": "n.",
+          "zh": "病毒",
+          "ipa": "/ˈvaɪrəs/",
+          "example": {
+            "en": "The software found a virus on the office computer.",
+            "zh": "軟體在辦公室電腦上發現了病毒。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "hack",
+          "ipa": "/hæk/",
+          "pos": "v.",
+          "zh": "非法闖入（系統）",
+          "link": "hack 是詞幹動詞；hacker = hack + -er，做這件事的人，像 worker、teacher"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "hardworking",
+      "type": "word",
+      "ipa": "/ˌhɑːrdˈwɜːrkɪŋ/",
+      "pos": "adj.",
+      "zh": "勤奮的、努力工作的",
+      "en": "working with a lot of effort",
+      "note": "多益常見於推薦信、徵才廣告與員工表揚，形容人認真工作，語氣正面。也可寫成 hard-working。",
+      "grammar_note": "hardworking 是形容詞，用來描述人；「努力工作」要說 work hard，不要說 work hardly（hardly 是「幾乎不」）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "hardworking employee",
+          "zh": "勤奮的員工",
+          "example": {
+            "en": "Mr. Park is a hardworking employee who never misses a deadline.",
+            "zh": "朴先生是個勤奮的員工，從不錯過截止日期。"
+          }
+        },
+        {
+          "phrase": "hardworking team",
+          "zh": "努力的團隊",
+          "example": {
+            "en": "Our hardworking team finished the project two days early.",
+            "zh": "我們努力的團隊提早兩天完成了專案。"
+          }
+        },
+        {
+          "phrase": "hardworking and honest",
+          "zh": "勤奮又誠實",
+          "example": {
+            "en": "We are looking for someone who is hardworking and honest.",
+            "zh": "我們正在找一位勤奮又誠實的人。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "推薦信",
+          "en": "She is a hardworking student with excellent communication skills.",
+          "zh": "她是個勤奮的學生，溝通能力很出色。"
+        },
+        {
+          "tag": "徵才",
+          "en": "We need a hardworking assistant to join our sales office.",
+          "zh": "我們需要一位勤奮的助理加入業務辦公室。"
+        },
+        {
+          "tag": "表揚",
+          "en": "The manager thanked every hardworking member of the staff.",
+          "zh": "經理感謝每一位勤奮工作的員工。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "hardly",
+          "diff": "hardly 是「幾乎不」，不是 hard 的副詞形式；hard 本身就可當副詞「努力地」。",
+          "usage": "努力工作要說 work hard；hardly 表示否定，如 hardly ever（幾乎從不）。",
+          "example": {
+            "en": "We hardly have time to read every email today.",
+            "zh": "我們今天幾乎沒有時間讀每一封電子郵件。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "diligent",
+          "diff": "diligent 較正式，強調做事認真仔細；hardworking 較口語。",
+          "example": {
+            "en": "The diligent clerk checks every number twice.",
+            "zh": "這位認真的職員每個數字都檢查兩次。"
+          }
+        },
+        {
+          "word": "dedicated",
+          "diff": "dedicated 強調「投入、全心奉獻」；hardworking 強調「肯下功夫」。",
+          "example": {
+            "en": "She is a dedicated nurse who works long hours.",
+            "zh": "她是位全心投入的護理師，工作時間很長。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "diligent",
+          "pos": "adj.",
+          "zh": "勤勉的",
+          "ipa": "/ˈdɪlɪdʒənt/",
+          "example": {
+            "en": "A diligent worker keeps accurate records.",
+            "zh": "勤勉的員工會保存準確的紀錄。"
+          }
+        },
+        {
+          "w": "dedicated",
+          "pos": "adj.",
+          "zh": "投入的、專注的",
+          "ipa": "/ˈdedɪkeɪtɪd/",
+          "example": {
+            "en": "We have a dedicated team for customer support.",
+            "zh": "我們有一支專責的客戶支援團隊。"
+          }
+        },
+        {
+          "w": "efficient",
+          "pos": "adj.",
+          "zh": "有效率的",
+          "ipa": "/ɪˈfɪʃnt/",
+          "example": {
+            "en": "The new system makes our work more efficient.",
+            "zh": "新系統讓我們的工作更有效率。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "hereby",
+      "type": "word",
+      "ipa": "/hɪrˈbaɪ/",
+      "pos": "adv.",
+      "zh": "特此、茲",
+      "en": "by this letter or by saying this now",
+      "note": "多益常見於正式信函、契約與公告，用來表示「就在這份文件或這句話中」做某個動作，如 I hereby confirm。語氣非常正式，日常口語不用。",
+      "grammar_note": "hereby 多放在主詞和動詞之間，如 I hereby confirm…；後面的動詞多為 confirm、inform、announce、certify 等正式動詞。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "hereby confirm",
+          "zh": "特此確認",
+          "example": {
+            "en": "I hereby confirm that I received the goods on Monday.",
+            "zh": "我特此確認星期一已收到貨物。"
+          }
+        },
+        {
+          "phrase": "hereby inform",
+          "zh": "特此通知",
+          "example": {
+            "en": "We hereby inform you that the office will be closed.",
+            "zh": "我們特此通知您，辦公室將暫停營業。"
+          }
+        },
+        {
+          "phrase": "is hereby",
+          "zh": "特此被…",
+          "example": {
+            "en": "The contract is hereby extended for another twelve months.",
+            "zh": "本合約特此再延長十二個月。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "信函",
+          "en": "I hereby apply for the position of sales manager.",
+          "zh": "我特此應徵業務經理一職。"
+        },
+        {
+          "tag": "契約",
+          "en": "The seller hereby agrees to deliver the goods by June.",
+          "zh": "賣方特此同意在六月前交貨。"
+        },
+        {
+          "tag": "公告",
+          "en": "The board hereby announces a new plan for next year.",
+          "zh": "董事會特此宣布明年的新計畫。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "thereby",
+          "diff": "拼法接近；thereby 是「因此、藉此」，說明前面行動帶來的結果。",
+          "example": {
+            "en": "We cut costs, thereby raising our profit by five percent.",
+            "zh": "我們降低成本，藉此讓利潤提高了百分之五。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "confirm",
+          "pos": "v.",
+          "zh": "確認",
+          "ipa": "/kənˈfɜːrm/",
+          "example": {
+            "en": "Please confirm your booking by email.",
+            "zh": "請用電子郵件確認你的訂位。"
+          }
+        },
+        {
+          "w": "announce",
+          "pos": "v.",
+          "zh": "宣布",
+          "ipa": "/əˈnaʊns/",
+          "example": {
+            "en": "The company will announce the news on Friday.",
+            "zh": "公司將在星期五宣布這個消息。"
+          }
+        },
+        {
+          "w": "notify",
+          "pos": "v.",
+          "zh": "通知",
+          "ipa": "/ˈnoʊtɪfaɪ/",
+          "example": {
+            "en": "We will notify you when the parcel arrives.",
+            "zh": "包裹抵達時我們會通知你。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "hesitation",
+      "type": "word",
+      "ipa": "/ˌhezɪˈteɪʃn/",
+      "pos": "n.",
+      "zh": "猶豫、遲疑",
+      "en": "a short stop before you do or say something because you are not sure",
+      "note": "多益常見於客服信件與談判情境，最重要的用法是 without hesitation（毫不猶豫）；也常見 Please contact us without hesitation。",
+      "grammar_note": "without hesitation 是固定說法，hesitation 前面不加冠詞；相關動詞 hesitate 後面接 to V，如 Do not hesitate to call。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "without hesitation",
+          "zh": "毫不猶豫地",
+          "example": {
+            "en": "Please contact us without hesitation if you have any questions.",
+            "zh": "如果有任何問題，請不要猶豫，直接和我們聯絡。"
+          }
+        },
+        {
+          "phrase": "no hesitation in",
+          "zh": "毫不猶豫地（做某事）",
+          "example": {
+            "en": "I have no hesitation in recommending this supplier to you.",
+            "zh": "我毫不猶豫地向你推薦這家供應商。"
+          }
+        },
+        {
+          "phrase": "a moment of hesitation",
+          "zh": "一時的猶豫",
+          "example": {
+            "en": "After a moment of hesitation, she signed the contract.",
+            "zh": "猶豫了一下之後，她簽了合約。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "客服",
+          "en": "Customers answered the survey without any hesitation.",
+          "zh": "顧客毫不遲疑地回答了問卷。"
+        },
+        {
+          "tag": "談判",
+          "en": "His hesitation made the buyer think the price was too high.",
+          "zh": "他的遲疑讓買方覺得價格太高。"
+        },
+        {
+          "tag": "決策",
+          "en": "The team accepted the new schedule without a second of hesitation.",
+          "zh": "團隊毫不遲疑地接受了新的時程。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "reluctance",
+          "diff": "reluctance 是「不情願」，重點在不想做；hesitation 是「不確定而停頓」。",
+          "example": {
+            "en": "He showed some reluctance to share the sales data.",
+            "zh": "他對分享銷售資料表現出一些不情願。"
+          }
+        },
+        {
+          "word": "doubt",
+          "diff": "doubt 是「懷疑」，內心不相信；hesitation 是表現出來的遲疑。",
+          "example": {
+            "en": "I have no doubt that the plan will work.",
+            "zh": "我毫不懷疑這個計畫會成功。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "doubt",
+          "pos": "n.",
+          "zh": "懷疑",
+          "ipa": "/daʊt/",
+          "example": {
+            "en": "There is no doubt that the product will sell well.",
+            "zh": "這項產品毫無疑問會賣得很好。"
+          }
+        },
+        {
+          "w": "pause",
+          "pos": "n.",
+          "zh": "停頓",
+          "ipa": "/pɔːz/",
+          "example": {
+            "en": "After a short pause, the speaker went on.",
+            "zh": "短暫停頓後，講者繼續說下去。"
+          }
+        },
+        {
+          "w": "reluctant",
+          "pos": "adj.",
+          "zh": "不情願的",
+          "ipa": "/rɪˈlʌktənt/",
+          "example": {
+            "en": "Many staff were reluctant to change their routine.",
+            "zh": "許多員工不願意改變他們的作息。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "hesitate",
+          "ipa": "/ˈhezɪteɪt/",
+          "pos": "v.",
+          "zh": "猶豫",
+          "link": "hesitate 是詞幹動詞；加 -ion 變名詞 hesitation，像 educate → education"
+        },
+        {
+          "w": "hesitant",
+          "ipa": "/ˈhezɪtənt/",
+          "pos": "adj.",
+          "zh": "猶豫的",
+          "link": "hesitate + -ant，形容詞，像 important、assistant"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "homemade",
+      "type": "word",
+      "ipa": "/ˌhoʊmˈmeɪd/",
+      "pos": "adj.",
+      "zh": "自家製的、手工自製的",
+      "en": "made at home, not bought from a shop or factory",
+      "note": "多益常見於餐廳、市集與食品廣告，強調「自己做的、新鮮、有心意」，語氣正面。也可寫成 home-made。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "homemade food",
+          "zh": "自製食物",
+          "example": {
+            "en": "The cafe is popular for its homemade food and low prices.",
+            "zh": "這家咖啡店因自製餐點和低價而受歡迎。"
+          }
+        },
+        {
+          "phrase": "homemade cake",
+          "zh": "自製蛋糕",
+          "example": {
+            "en": "She brought a homemade cake to the office party.",
+            "zh": "她帶了一個自己做的蛋糕到辦公室派對。"
+          }
+        },
+        {
+          "phrase": "homemade gift",
+          "zh": "手作禮物",
+          "example": {
+            "en": "Customers can buy a homemade gift at the weekend market.",
+            "zh": "顧客可以在週末市集買到手作禮物。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "餐廳",
+          "en": "All the soups on our menu are homemade.",
+          "zh": "我們菜單上的所有湯品都是自家製作。"
+        },
+        {
+          "tag": "市集",
+          "en": "The stall sells homemade bread and fresh jam.",
+          "zh": "這個攤位販售自製麵包和新鮮果醬。"
+        },
+        {
+          "tag": "活動",
+          "en": "We served homemade cookies at the open house.",
+          "zh": "我們在開放參觀日提供自製餅乾。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "handmade",
+          "diff": "handmade 強調「用手工做」，如手工藝品；homemade 強調「在家做」，多指食物。",
+          "example": {
+            "en": "The shop sells handmade bags from local artists.",
+            "zh": "這家店販售當地藝術家的手工包包。"
+          }
+        },
+        {
+          "phrase": "freshly made",
+          "diff": "freshly made 強調「剛做好」，不一定是在家做。",
+          "example": {
+            "en": "The bakery sells freshly made bread every morning.",
+            "zh": "這家烘焙坊每天早上賣剛做好的麵包。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "handmade",
+          "pos": "adj.",
+          "zh": "手工的",
+          "ipa": "/ˌhændˈmeɪd/",
+          "example": {
+            "en": "Each handmade box takes about two hours to make.",
+            "zh": "每個手工盒子大約要花兩小時製作。"
+          }
+        },
+        {
+          "w": "fresh",
+          "pos": "adj.",
+          "zh": "新鮮的",
+          "ipa": "/freʃ/",
+          "example": {
+            "en": "We buy fresh vegetables from local farms every day.",
+            "zh": "我們每天向當地農場買新鮮蔬菜。"
+          }
+        },
+        {
+          "w": "local",
+          "pos": "adj.",
+          "zh": "當地的",
+          "ipa": "/ˈloʊkl/",
+          "example": {
+            "en": "The hotel serves local food at every breakfast.",
+            "zh": "飯店每份早餐都供應當地食物。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "hospitality",
+      "type": "word",
+      "ipa": "/ˌhɑːspɪˈtæləti/",
+      "pos": "n.",
+      "zh": "款待、好客；餐旅業",
+      "en": "kind and friendly treatment of guests; or the business of hotels and restaurants",
+      "note": "多益常見於飯店、旅遊與商務接待情境，可指熱情的款待，也可指餐旅業（hospitality industry）。常在感謝信中出現，如 Thank you for your warm hospitality。",
+      "grammar_note": "hospitality 是不可數名詞，不加 s，也不加 a。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "warm hospitality",
+          "zh": "熱情款待",
+          "example": {
+            "en": "Thank you for the warm hospitality during our visit.",
+            "zh": "感謝你在我們拜訪期間的熱情款待。"
+          }
+        },
+        {
+          "phrase": "hospitality industry",
+          "zh": "餐旅業",
+          "example": {
+            "en": "The hospitality industry hires many extra workers in summer.",
+            "zh": "餐旅業在夏天會雇用許多額外人手。"
+          }
+        },
+        {
+          "phrase": "show hospitality",
+          "zh": "招待、款待",
+          "example": {
+            "en": "Our hosts showed great hospitality to every foreign guest.",
+            "zh": "我們的主人對每位外國客人都十分好客。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "感謝信",
+          "en": "We appreciate the hospitality your team gave us in Taipei.",
+          "zh": "我們感謝你的團隊在台北給予我們的款待。"
+        },
+        {
+          "tag": "飯店",
+          "en": "The hotel is famous for its friendly hospitality and clean rooms.",
+          "zh": "這家飯店以親切的款待和乾淨的房間聞名。"
+        },
+        {
+          "tag": "求職",
+          "en": "She has five years of experience in hospitality management.",
+          "zh": "她在餐旅管理方面有五年的經驗。"
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "款待、好客",
+          "en": "kind and friendly treatment of guests",
+          "distinguish": "和 warm、thank、guest 一起出現時，指待客的熱情。",
+          "example": {
+            "en": "The family's hospitality made us feel at home.",
+            "zh": "這家人的好客讓我們賓至如歸。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "餐旅業",
+          "en": "the business of hotels, restaurants, and travel services",
+          "distinguish": "和 industry、management、career 一起出現時，指行業。",
+          "example": {
+            "en": "Many graduates choose a career in hospitality.",
+            "zh": "許多畢業生選擇餐旅業的職涯。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "hospital",
+          "diff": "拼法接近；hospital 是「醫院」。",
+          "example": {
+            "en": "The company's clinic is next to the city hospital.",
+            "zh": "公司的診所就在市立醫院旁邊。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "guest",
+          "pos": "n.",
+          "zh": "客人、房客",
+          "ipa": "/ɡest/",
+          "example": {
+            "en": "Each guest receives a welcome drink at check-in.",
+            "zh": "每位房客辦理入住時都會收到歡迎飲料。"
+          }
+        },
+        {
+          "w": "host",
+          "pos": "n.",
+          "zh": "主人、主辦者",
+          "ipa": "/hoʊst/",
+          "example": {
+            "en": "Our host showed us around the new factory.",
+            "zh": "我們的主人帶我們參觀新工廠。"
+          }
+        },
+        {
+          "w": "tourism",
+          "pos": "n.",
+          "zh": "觀光業",
+          "ipa": "/ˈtʊrɪzəm/",
+          "example": {
+            "en": "Tourism is an important part of the local economy.",
+            "zh": "觀光業是當地經濟的重要部分。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "hospitable",
+          "ipa": "/hɑːˈspɪtəbl/",
+          "pos": "adj.",
+          "zh": "好客的、熱情的",
+          "link": "hospitality 的形容詞，像 comfortable；重音在 -spit- 上，和 hospitality 不同"
+        }
+      ],
+      "pos_uses": []
+    },
+    {
+      "text": "healthful",
+      "type": "word",
+      "ipa": "/ˈhelθfl/",
+      "pos": "adj.",
+      "zh": "有益健康的",
+      "en": "good for your health",
+      "note": "多見於食品、飲食與生活方式的廣告與文章，意思是「對健康有益」，語氣比 healthy 稍正式。多益中 healthy 更常見，healthful 偶爾出現在食品包裝與健康報導。",
+      "grammar_note": "healthful 只形容「對健康有益的事物」（food、diet、habit）；形容人「健康的」要用 healthy。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "healthful diet",
+          "zh": "有益健康的飲食",
+          "example": {
+            "en": "A healthful diet can help workers stay active all day.",
+            "zh": "有益健康的飲食能幫助員工整天保持活力。"
+          }
+        },
+        {
+          "phrase": "healthful food",
+          "zh": "有益健康的食物",
+          "example": {
+            "en": "The cafeteria now offers more healthful food at lunch.",
+            "zh": "自助餐廳現在午餐提供更多有益健康的食物。"
+          }
+        },
+        {
+          "phrase": "healthful lifestyle",
+          "zh": "健康的生活方式",
+          "example": {
+            "en": "The program teaches employees how to live a healthful lifestyle.",
+            "zh": "這項計畫教導員工如何過健康的生活。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "餐廳",
+          "en": "We use only fresh and healthful ingredients in our meals.",
+          "zh": "我們的餐點只使用新鮮又有益健康的食材。"
+        },
+        {
+          "tag": "廣告",
+          "en": "This juice is a healthful choice for busy people.",
+          "zh": "這款果汁是忙碌的人有益健康的選擇。"
+        },
+        {
+          "tag": "公司福利",
+          "en": "The company gives staff healthful snacks every afternoon.",
+          "zh": "公司每天下午提供員工有益健康的點心。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "healthy",
+          "diff": "healthy 可形容人或事物（健康的）；healthful 只形容「對健康有益」的事物。",
+          "usage": "說 a healthy employee（健康的員工）可以，說 a healthful employee 就不對。",
+          "example": {
+            "en": "Regular exercise keeps our employees healthy and happy.",
+            "zh": "規律運動讓我們的員工健康又快樂。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "nutritious",
+          "diff": "nutritious 強調「營養豐富」；healthful 強調「整體對健康有益」。",
+          "example": {
+            "en": "The school serves nutritious meals to all students.",
+            "zh": "學校供應營養豐富的餐點給所有學生。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "nutrition",
+          "pos": "n.",
+          "zh": "營養",
+          "ipa": "/nuːˈtrɪʃn/",
+          "example": {
+            "en": "Good nutrition is important for busy workers.",
+            "zh": "良好的營養對忙碌的工作者很重要。"
+          }
+        },
+        {
+          "w": "diet",
+          "pos": "n.",
+          "zh": "飲食",
+          "ipa": "/ˈdaɪət/",
+          "example": {
+            "en": "Her diet includes plenty of fruit and vegetables.",
+            "zh": "她的飲食包含大量水果和蔬菜。"
+          }
+        },
+        {
+          "w": "fitness",
+          "pos": "n.",
+          "zh": "體適能、健身",
+          "ipa": "/ˈfɪtnəs/",
+          "example": {
+            "en": "The company pays for a fitness class every week.",
+            "zh": "公司每週付費提供一堂健身課。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "health",
+          "ipa": "/helθ/",
+          "pos": "n.",
+          "zh": "健康",
+          "link": "health 是詞幹；healthful = health + -ful，充滿好處的，像 helpful、useful"
+        },
+        {
+          "w": "healthy",
+          "ipa": "/ˈhelθi/",
+          "pos": "adj.",
+          "zh": "健康的",
+          "link": "health + -y，形容詞，像 windy、sunny"
+        },
+        {
+          "w": "unhealthy",
+          "ipa": "/ʌnˈhelθi/",
+          "pos": "adj.",
+          "zh": "不健康的",
+          "link": "un- + healthy，加字首 un- 表示相反，像 unusual"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

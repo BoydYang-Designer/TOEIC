@@ -1,0 +1,308 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "elevate",
+      "type": "word",
+      "ipa": "/ˈelɪveɪt/",
+      "pos": "v.",
+      "zh": "提升、升高",
+      "en": "to make something higher or better",
+      "note": "多益常見於品牌、服務品質和人事升遷情境，表示把品質、地位或水準提高一個層次。語氣比 raise 正式。",
+      "grammar_note": "elevate 是及物動詞，後面直接接受詞；表示提升到某個職位或等級時用 elevate A to B。",
+      "forms": [
+        { "w": "elevates", "label": "第三人稱單數", "pos": "v.", "zh": "提升", "ipa": "/ˈelɪveɪts/", "example": { "en": "This new feature elevates the user experience a great deal.", "zh": "這個新功能大幅提升了使用者體驗。" } },
+        { "w": "elevated", "label": "過去式／過去分詞", "pos": "v.", "zh": "提升了", "ipa": "/ˈelɪveɪtɪd/", "example": { "en": "The CEO elevated safety to the top of the agenda.", "zh": "執行長把安全提升到議程的第一位。" } },
+        { "w": "elevated", "label": "形容詞", "pos": "adj.", "zh": "升高的、提高的", "ipa": "/ˈelɪveɪtɪd/", "example": { "en": "Elevated prices may reduce the number of customers this season.", "zh": "偏高的價格可能會減少本季的顧客人數。" } },
+        { "w": "elevating", "label": "現在分詞", "pos": "v.", "zh": "提升中", "ipa": "/ˈelɪveɪtɪŋ/", "example": { "en": "They are elevating the standard of our customer care.", "zh": "他們正在提高我們客戶服務的標準。" } }
+      ],
+      "collocations": [
+        { "phrase": "elevate the quality", "zh": "提升品質", "example": { "en": "Better training will elevate the quality of our service.", "zh": "更好的訓練會提升我們的服務品質。" } },
+        { "phrase": "elevate A to B", "zh": "把 A 提升為 B", "example": { "en": "The board decided to elevate Ms. Chen to vice president.", "zh": "董事會決定把陳小姐升為副總裁。" } },
+        { "phrase": "elevate one's status", "zh": "提高地位", "example": { "en": "This award will elevate our company's status in the industry.", "zh": "這個獎項會提高我們公司在業界的地位。" } }
+      ],
+      "examples": [
+        { "tag": "品牌", "en": "The new logo helps elevate our brand in the market.", "zh": "新的標誌有助於提升我們在市場上的品牌形象。" },
+        { "tag": "設計", "en": "Soft lighting can elevate the mood of a small restaurant.", "zh": "柔和的燈光可以提升小餐廳的氣氛。" },
+        { "tag": "團隊", "en": "A strong team can elevate any project to a higher level.", "zh": "強大的團隊可以把任何專案帶到更高的水準。" }
+      ],
+      "confusable": [
+        { "word": "evaluate", "diff": "evaluate 是「評估」；elevate 是「提升」，兩個字拼法相近。", "example": { "en": "We will evaluate each supplier before signing the contract.", "zh": "簽約之前，我們會評估每一家供應商。" } }
+      ],
+      "similar": [
+        { "word": "raise", "diff": "raise 是最常用的「提高」，可用於價格、薪水；elevate 較正式，常用於地位或品質。", "example": { "en": "The company plans to raise prices next month.", "zh": "公司計畫下個月調漲價格。" } },
+        { "word": "improve", "diff": "improve 是「改善」，強調變得更好；elevate 強調提升到更高的層次。", "example": { "en": "We need to improve our delivery times this year.", "zh": "我們今年需要改善送貨時間。" } }
+      ],
+      "family": [
+        { "w": "raise", "pos": "v.", "zh": "提高", "ipa": "/reɪz/", "example": { "en": "Please raise your hand if you have a question.", "zh": "如果有問題，請舉手。" } },
+        { "w": "improve", "pos": "v.", "zh": "改善", "ipa": "/ɪmˈpruːv/", "example": { "en": "Sales improved after the new campaign started.", "zh": "新活動開始後，銷售有了改善。" } },
+        { "w": "lift", "pos": "v.", "zh": "舉起、提升", "ipa": "/lɪft/", "example": { "en": "Two workers lifted the heavy box onto the truck.", "zh": "兩位工人把重箱子抬上卡車。" } },
+        { "w": "boost", "pos": "v.", "zh": "促進、提振", "ipa": "/buːst/", "example": { "en": "A good ad can boost sales quickly.", "zh": "好的廣告可以迅速提振銷售。" } }
+      ],
+      "derived": [
+        { "w": "elevator", "pos": "n.", "zh": "電梯", "ipa": "/ˈelɪveɪtɚ/", "link": "elevate + -or，把人升高的機器，像 actor、visitor" },
+        { "w": "elevation", "pos": "n.", "zh": "海拔、提升", "ipa": "/ˌelɪˈveɪʃn/", "link": "elevate 去 e 加 -ion，變成名詞，像 decorate → decoration" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "提升（品質、地位、水準）", "en": "to make something better or higher in level", "example": { "en": "Good design can elevate an ordinary product into a popular one.", "zh": "好的設計可以把普通產品變成受歡迎的產品。" } },
+        { "pos": "v.", "zh": "抬高（實際的位置）", "en": "to lift something to a higher place", "distinguish": "後面接 legs、platform 等實際的物品時，是「抬高」的意思。", "example": { "en": "Please elevate your legs while you rest after the long trip.", "zh": "長途旅行後休息時，請把腳抬高。" } }
+      ]
+    },
+    {
+      "text": "enthusiastically",
+      "type": "word",
+      "ipa": "/ɪnˌθuːziˈæstɪkli/",
+      "pos": "adv.",
+      "zh": "熱情地、熱烈地",
+      "en": "in a way that shows you are very interested and excited",
+      "note": "多益常見於面試、會議和客戶反應的描述，常搭配 respond、accept、welcome 等動詞，表示對某事很積極。",
+      "grammar_note": "副詞通常放在動詞或受詞後面，也可放在動詞前，如 She enthusiastically accepted the offer。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "respond enthusiastically", "zh": "熱烈回應", "example": { "en": "Staff responded enthusiastically to the new training plan.", "zh": "員工對新的訓練計畫反應熱烈。" } },
+        { "phrase": "enthusiastically support", "zh": "熱情支持", "example": { "en": "Our manager enthusiastically supports every new idea from the staff.", "zh": "我們經理熱情支持員工提出的每一個新點子。" } },
+        { "phrase": "speak enthusiastically about", "zh": "熱情地談論", "example": { "en": "He spoke enthusiastically about the company's future plans.", "zh": "他熱情地談論公司未來的計畫。" } }
+      ],
+      "examples": [
+        { "tag": "面試", "en": "She answered every question enthusiastically during the interview.", "zh": "她在面試中熱情地回答每個問題。" },
+        { "tag": "會議", "en": "The team enthusiastically accepted the new sales target.", "zh": "團隊熱情地接受了新的銷售目標。" },
+        { "tag": "客戶", "en": "Customers enthusiastically welcomed the free trial of our new app.", "zh": "顧客熱烈歡迎我們新應用程式的免費試用。" }
+      ],
+      "confusable": [
+        { "word": "enthusiastic", "diff": "enthusiastic 是形容詞，enthusiastically 是副詞。", "usage": "enthusiastic 修飾名詞或接在 be 動詞後，常用 be enthusiastic about；enthusiastically 修飾動詞。", "example": { "en": "The staff are enthusiastic about the new office layout.", "zh": "員工對新的辦公室配置很感興趣。" } }
+      ],
+      "similar": [
+        { "word": "eagerly", "diff": "eagerly 強調迫不及待；enthusiastically 強調充滿熱情。", "example": { "en": "Customers eagerly waited for the new model to arrive.", "zh": "顧客迫不及待地等著新款到貨。" } },
+        { "word": "warmly", "diff": "warmly 多用於歡迎、感謝，語氣友善；enthusiastically 更強調積極投入。", "example": { "en": "The manager warmly welcomed the new employees on Monday.", "zh": "經理星期一熱情歡迎了新進員工。" } }
+      ],
+      "family": [
+        { "w": "eager", "pos": "adj.", "zh": "渴望的", "ipa": "/ˈiːgɚ/", "example": { "en": "We are eager to start the new project.", "zh": "我們渴望開始這個新專案。" } },
+        { "w": "passion", "pos": "n.", "zh": "熱情", "ipa": "/ˈpæʃn/", "example": { "en": "She has a passion for helping customers.", "zh": "她對幫助客戶充滿熱情。" } },
+        { "w": "interest", "pos": "n.", "zh": "興趣", "ipa": "/ˈɪntrəst/", "example": { "en": "He showed great interest in our new service.", "zh": "他對我們的新服務表現出很大的興趣。" } },
+        { "w": "positive", "pos": "adj.", "zh": "正面的", "ipa": "/ˈpɑːzətɪv/", "example": { "en": "We received positive feedback from most customers.", "zh": "我們收到大多數顧客的正面回饋。" } }
+      ],
+      "derived": [
+        { "w": "enthusiasm", "pos": "n.", "zh": "熱情", "ipa": "/ɪnˈθuːziæzəm/", "link": "最基礎的字，指很高的熱情，像 criticism 也以 -ism 結尾" },
+        { "w": "enthusiastic", "pos": "adj.", "zh": "熱情的", "ipa": "/ɪnˌθuːziˈæstɪk/", "link": "enthusiasm + -tic，有熱情的，像 fantastic、realistic" },
+        { "w": "enthusiast", "pos": "n.", "zh": "愛好者", "ipa": "/ɪnˈθuːziæst/", "link": "有熱情的人，像 fan，常見於 sports enthusiast" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "elevator",
+      "type": "word",
+      "ipa": "/ˈelɪveɪtɚ/",
+      "pos": "n.",
+      "zh": "電梯",
+      "en": "a machine that carries people up and down in a building",
+      "note": "多益常見於辦公大樓、飯店和公告情境，例如電梯故障、請搭電梯到幾樓。美式用 elevator，英式用 lift。",
+      "grammar_note": "「搭電梯」用 take the elevator；「搭電梯上去」可說 go up by elevator，by 後面不加 the。",
+      "forms": [
+        { "w": "elevators", "label": "複數", "pos": "n.", "zh": "電梯（複數）", "ipa": "/ˈelɪveɪtɚz/", "example": { "en": "Two elevators serve all twelve floors of our office building.", "zh": "兩部電梯服務我們辦公大樓的十二個樓層。" } }
+      ],
+      "collocations": [
+        { "phrase": "take the elevator", "zh": "搭電梯", "example": { "en": "Let's take the elevator to the fourth floor.", "zh": "我們搭電梯到四樓吧。" } },
+        { "phrase": "out of order", "zh": "故障", "example": { "en": "The elevator is out of order, so please use the stairs.", "zh": "電梯故障，請走樓梯。" } },
+        { "phrase": "freight elevator", "zh": "貨梯", "example": { "en": "Deliveries must use the freight elevator at the back.", "zh": "送貨必須使用後面的貨梯。" } },
+        { "phrase": "elevator pitch", "zh": "電梯簡報（很短的介紹）", "example": { "en": "He gave a short elevator pitch to the investors.", "zh": "他向投資人做了一段簡短的電梯簡報。" } }
+      ],
+      "examples": [
+        { "tag": "大樓", "en": "The elevator is on your right, next to the front desk.", "zh": "電梯在你的右邊，就在櫃檯旁邊。" },
+        { "tag": "公告", "en": "Please do not use the elevator during a fire.", "zh": "發生火災時請勿使用電梯。" },
+        { "tag": "對話", "en": "I will meet you at the elevator on the fifth floor.", "zh": "我會在五樓的電梯那裡和你碰面。" }
+      ],
+      "confusable": [
+        { "word": "escalator", "diff": "escalator 是手扶梯，人站著會自動往上或往下；elevator 是封閉的電梯。", "example": { "en": "The escalator beside the shop goes up to the food court.", "zh": "商店旁邊的手扶梯通往美食街。" } }
+      ],
+      "similar": [
+        { "word": "lift", "diff": "lift 是英式英語的「電梯」；美式英語用 elevator。", "example": { "en": "The lift in our London office is very slow.", "zh": "我們倫敦辦公室的電梯很慢。" } }
+      ],
+      "family": [
+        { "w": "stairs", "pos": "n.", "zh": "樓梯", "ipa": "/sterz/", "example": { "en": "The stairs are next to the main entrance.", "zh": "樓梯在大門旁邊。" } },
+        { "w": "floor", "pos": "n.", "zh": "樓層", "ipa": "/flɔːr/", "example": { "en": "Our office is on the tenth floor.", "zh": "我們的辦公室在十樓。" } },
+        { "w": "lobby", "pos": "n.", "zh": "大廳", "ipa": "/ˈlɑːbi/", "example": { "en": "Please wait for me in the hotel lobby.", "zh": "請在飯店大廳等我。" } },
+        { "w": "building", "pos": "n.", "zh": "建築物", "ipa": "/ˈbɪldɪŋ/", "example": { "en": "The new building opens to staff next month.", "zh": "新大樓下個月對員工開放。" } }
+      ],
+      "derived": [
+        { "w": "elevate", "pos": "v.", "zh": "提升、升高", "ipa": "/ˈelɪveɪt/", "link": "最基礎的字；elevator = elevate + -or，把人升高的機器，像 actor、visitor" },
+        { "w": "elevation", "pos": "n.", "zh": "海拔、提升", "ipa": "/ˌelɪˈveɪʃn/", "link": "elevate 去 e 加 -ion，變成名詞，像 decorate → decoration" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "turn a blind eye to",
+      "type": "phrase",
+      "zh": "對…視而不見、睜一隻眼閉一隻眼",
+      "en": "to know about a problem but pretend not to see it",
+      "note": "指明明知道有問題，卻故意假裝沒看見、不處理。在商務情境常用來批評主管或公司對違規、抱怨置之不理，帶有負面語氣。",
+      "pattern": "turn a blind eye to + N／V-ing",
+      "grammar_note": "這裡的 to 是介系詞，後面接名詞或 V-ing，不接原形動詞。時態變化在 turn 上，如 turned a blind eye to、chose to turn a blind eye to。",
+      "examples": [
+        { "tag": "職場", "en": "She chose to turn a blind eye to the small mistakes in the report.", "zh": "她選擇對報告中的小錯誤視而不見。" },
+        { "tag": "管理", "en": "Managers should not turn a blind eye to unsafe working conditions.", "zh": "主管不應該對不安全的工作環境視而不見。" },
+        { "tag": "採購", "en": "Some firms turn a blind eye to late deliveries from big suppliers.", "zh": "有些公司對大供應商的延遲交貨睜一隻眼閉一隻眼。" },
+        { "tag": "客服", "en": "We cannot turn a blind eye to customer complaints any longer.", "zh": "我們不能再對顧客的抱怨視而不見了。" }
+      ],
+      "similar": [
+        { "phrase": "ignore", "diff": "ignore 只是不理會，不一定知道問題；turn a blind eye to 是明知有問題卻故意不管。", "example": { "en": "Please do not ignore the warning on the screen.", "zh": "請不要忽略螢幕上的警告。" } },
+        { "phrase": "look the other way", "diff": "look the other way 意思很接近，同樣是故意假裝沒看到，語氣更口語。", "example": { "en": "Staff cannot look the other way when they see a safety problem.", "zh": "員工看到安全問題時不能假裝沒看見。" } }
+      ],
+      "confusable": [
+        { "phrase": "turn a deaf ear to", "diff": "turn a deaf ear to 是故意不聽、不理會別人的請求或意見；turn a blind eye to 是故意不看。", "example": { "en": "The manager turned a deaf ear to the workers' requests.", "zh": "經理對員工的要求充耳不聞。" } }
+      ],
+      "nw_done": [
+        { "id": "nmw9b29lh3tt5", "result": "added" }
+      ]
+    },
+    {
+      "text": "make it even",
+      "type": "phrase",
+      "zh": "讓雙方扯平；湊成整數；使平整",
+      "en": "to make two things equal or level",
+      "note": "口語用法，要依上下文判斷意思。談到錢時，常指「付款扯平」或「把金額湊成整數」；談到物品時，指弄平整或對齊。",
+      "pattern": "make it (an) even + 數字／make it even",
+      "grammar_note": "make + it + 形容詞 是「讓它變得…」，這裡的 even 是形容詞（相等的、平的、偶數的），不是副詞。湊整數常說 make it an even + 數字。",
+      "examples": [
+        { "tag": "分攤費用", "en": "You paid for the taxi, so I will pay for lunch to make it even.", "zh": "你付了計程車費，所以午餐我付，這樣就扯平了。" },
+        { "tag": "湊整數", "en": "Our donation is ninety dollars, so let's add ten to make it even.", "zh": "我們的捐款是九十美元，再加十元湊成整數吧。" },
+        { "tag": "整理", "en": "Please trim the edges of the poster to make it even.", "zh": "請把海報的邊緣修齊，讓它平整。" }
+      ],
+      "similar": [
+        { "phrase": "call it even", "diff": "call it even 是口語，表示彼此不欠對方，常用於還人情或分攤費用之後。", "example": { "en": "Thanks for covering my lunch, so let's call it even.", "zh": "謝謝你請我午餐，我們就算扯平了。" } },
+        { "phrase": "round up", "diff": "round up 是把數字進位湊整，只用於數字；make it even 還可以表示扯平或弄平。", "example": { "en": "Please round up the total to the nearest ten dollars.", "zh": "請把總額進位到最接近的十美元。" } }
+      ],
+      "confusable": [
+        { "phrase": "make up for", "diff": "make up for 是補償、彌補過錯或損失；make it even 是讓雙方算帳扯平。", "example": { "en": "I will make up for the delay by sending free samples.", "zh": "我會寄免費樣品來彌補延誤。" } }
+      ]
+    },
+    {
+      "text": "cleanliness",
+      "type": "word",
+      "ipa": "/ˈklenlinəs/",
+      "pos": "n.",
+      "zh": "清潔、整潔",
+      "en": "the state of being clean",
+      "note": "多益常見於飯店、餐廳、工廠和檢查報告，指場所的乾淨程度。常和 hygiene、safety 一起出現。",
+      "grammar_note": "cleanliness 是不可數名詞，不加 s，也不加 a。說好壞時用 high、poor 等形容詞，如 poor cleanliness。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "maintain cleanliness", "zh": "維持清潔", "example": { "en": "All staff must help maintain cleanliness in the kitchen.", "zh": "所有員工都必須協助維持廚房的清潔。" } },
+        { "phrase": "high standard of cleanliness", "zh": "高標準的清潔", "example": { "en": "We keep a high standard of cleanliness in all our stores.", "zh": "我們所有的店都維持高標準的清潔。" } },
+        { "phrase": "cleanliness of", "zh": "…的清潔程度", "example": { "en": "The inspector will check the cleanliness of each room on Monday.", "zh": "檢查員星期一會檢查每個房間的清潔狀況。" } }
+      ],
+      "examples": [
+        { "tag": "評價", "en": "Guests praised the hotel for its cleanliness and friendly staff.", "zh": "住客稱讚這間飯店乾淨，員工又親切。" },
+        { "tag": "食品工廠", "en": "Cleanliness is very important in any food factory.", "zh": "清潔在任何食品工廠都非常重要。" },
+        { "tag": "客訴", "en": "Poor cleanliness caused several complaints from our guests last month.", "zh": "清潔不佳讓我們上個月收到數則住客的抱怨。" }
+      ],
+      "confusable": [
+        { "word": "cleaning", "diff": "cleaning 是「打掃」這個動作；cleanliness 是「乾淨的狀態或程度」。", "usage": "cleaning 指做打掃的工作，如 cleaning service；cleanliness 指乾淨的程度，不可數。", "example": { "en": "The cleaning of the meeting room takes about twenty minutes.", "zh": "打掃會議室大約需要二十分鐘。" } }
+      ],
+      "similar": [
+        { "word": "hygiene", "diff": "hygiene 是衛生，強調預防疾病；cleanliness 只說乾淨、整潔。", "example": { "en": "Good hygiene is required for everyone who works with food.", "zh": "所有處理食物的人都必須注重衛生。" } }
+      ],
+      "family": [
+        { "w": "hygiene", "pos": "n.", "zh": "衛生", "ipa": "/ˈhaɪdʒiːn/", "example": { "en": "The restaurant passed its hygiene check last week.", "zh": "這家餐廳上週通過了衛生檢查。" } },
+        { "w": "safety", "pos": "n.", "zh": "安全", "ipa": "/ˈseɪfti/", "example": { "en": "Safety rules are posted on every floor.", "zh": "每個樓層都張貼了安全規定。" } },
+        { "w": "standard", "pos": "n.", "zh": "標準", "ipa": "/ˈstændɚd/", "example": { "en": "Our hotel meets the highest service standard.", "zh": "我們飯店達到最高的服務標準。" } },
+        { "w": "tidy", "pos": "adj.", "zh": "整齊的", "ipa": "/ˈtaɪdi/", "example": { "en": "Please keep your desk tidy before you leave.", "zh": "離開前請保持你的桌面整齊。" } }
+      ],
+      "derived": [
+        { "w": "clean", "pos": "adj.", "zh": "乾淨的", "ipa": "/kliːn/", "link": "最基礎的字，cleanliness 就是 clean 的名詞" },
+        { "w": "cleaner", "pos": "n.", "zh": "清潔人員、清潔劑", "ipa": "/ˈkliːnɚ/", "link": "clean + -er，做清潔的人，像 teacher、driver" },
+        { "w": "cleanly", "pos": "adv.", "zh": "乾淨地", "ipa": "/ˈkliːnli/", "link": "clean + -ly，變成副詞，像 slowly、clearly" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "cloudy",
+      "type": "word",
+      "ipa": "/ˈklaʊdi/",
+      "pos": "adj.",
+      "zh": "多雲的、陰天的",
+      "en": "full of clouds",
+      "note": "多益常見於天氣預報和活動、出差安排的聽力題，常和 sunny、rainy 一起出現。也可形容液體不清澈。",
+      "forms": [
+        { "w": "cloudier", "label": "比較級", "pos": "adj.", "zh": "更多雲的", "ipa": "/ˈklaʊdiɚ/", "example": { "en": "The sky became cloudier as the afternoon went on.", "zh": "到了下午，天空的雲變得更多了。" } },
+        { "w": "cloudiest", "label": "最高級", "pos": "adj.", "zh": "最多雲的", "ipa": "/ˈklaʊdiɪst/", "example": { "en": "Today was the cloudiest day of our whole trip.", "zh": "今天是我們整趟旅程中最多雲的一天。" } }
+      ],
+      "collocations": [
+        { "phrase": "partly cloudy", "zh": "局部多雲", "example": { "en": "The forecast says it will be partly cloudy all day.", "zh": "預報說今天整天局部多雲。" } },
+        { "phrase": "cloudy sky", "zh": "多雲的天空", "example": { "en": "A cloudy sky made the outdoor photos look dull.", "zh": "多雲的天空讓戶外照片看起來暗沉。" } },
+        { "phrase": "cloudy day", "zh": "陰天", "example": { "en": "The park is quiet on a cloudy day like today.", "zh": "像今天這樣的陰天，公園很安靜。" } }
+      ],
+      "examples": [
+        { "tag": "天氣預報", "en": "It will be cloudy in the morning, with rain in the afternoon.", "zh": "早上多雲，下午會下雨。" },
+        { "tag": "活動", "en": "The outdoor lunch may move indoors if the weather stays cloudy.", "zh": "如果天氣一直多雲，戶外午餐可能會移到室內。" },
+        { "tag": "出差", "en": "Cloudy weather is expected during our trip to Taipei this weekend.", "zh": "預計我們這個週末去台北出差時天氣多雲。" }
+      ],
+      "confusable": [
+        { "word": "foggy", "diff": "foggy 是有霧的，霧在地面附近，看不遠；cloudy 是天上有雲。", "example": { "en": "Foggy weather made it hard to see the road.", "zh": "起霧的天氣讓人很難看清道路。" } }
+      ],
+      "similar": [
+        { "word": "overcast", "diff": "overcast 是整片天空被雲蓋住的陰天，比 cloudy 更陰暗，語氣較正式。", "example": { "en": "The sky stayed overcast during the whole outdoor event.", "zh": "整場戶外活動期間天空都是陰的。" } }
+      ],
+      "family": [
+        { "w": "cloud", "pos": "n.", "zh": "雲", "ipa": "/klaʊd/", "example": { "en": "A dark cloud moved over the stadium.", "zh": "一片烏雲飄到了體育場上方。" } },
+        { "w": "rain", "pos": "n.", "zh": "雨", "ipa": "/reɪn/", "example": { "en": "Heavy rain delayed the flight by two hours.", "zh": "大雨讓班機延誤了兩小時。" } },
+        { "w": "sunny", "pos": "adj.", "zh": "晴朗的", "ipa": "/ˈsʌni/", "example": { "en": "It will be sunny during the whole conference.", "zh": "整個會議期間都會是晴天。" } },
+        { "w": "forecast", "pos": "n.", "zh": "預報", "ipa": "/ˈfɔːrkæst/", "example": { "en": "Check the weather forecast before you leave.", "zh": "出發前請看一下天氣預報。" } }
+      ],
+      "derived": [
+        { "w": "cloud", "pos": "n.", "zh": "雲", "ipa": "/klaʊd/", "link": "cloudy = cloud + -y，有很多雲的，像 rain → rainy、sun → sunny" },
+        { "w": "cloudless", "pos": "adj.", "zh": "無雲的", "ipa": "/ˈklaʊdləs/", "link": "cloud + -less，沒有雲的，像 careless、useless" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "多雲的", "en": "full of clouds", "example": { "en": "Tomorrow will be cloudy, so bring a light jacket.", "zh": "明天多雲，所以請帶一件薄外套。" } },
+        { "pos": "adj.", "zh": "混濁的、不清澈的", "en": "not clear because of small things in it", "distinguish": "形容 water、glass、liquid 等物品時，指混濁、不清澈。", "example": { "en": "The water from the old pipe looked cloudy this morning.", "zh": "今天早上，老水管流出來的水看起來很混濁。" } }
+      ]
+    },
+    {
+      "text": "completion",
+      "type": "word",
+      "ipa": "/kəmˈpliːʃn/",
+      "pos": "n.",
+      "zh": "完成、完工",
+      "en": "the act of finishing something",
+      "note": "多益常見於工程、專案、合約和課程情境，例如 upon completion（完成時）、completion date（完成日期）。語氣正式。",
+      "grammar_note": "completion 後面常用 of 接完成的事，如 completion of the project；upon completion 不加 the。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "upon completion", "zh": "一完成時", "example": { "en": "You will receive a certificate upon completion of the course.", "zh": "完成課程後，你會收到一張證書。" } },
+        { "phrase": "completion date", "zh": "完成日期", "example": { "en": "The estimated completion date is the end of March.", "zh": "預計的完成日期是三月底。" } },
+        { "phrase": "near completion", "zh": "接近完成", "example": { "en": "The new office building is near completion now.", "zh": "新辦公大樓現在接近完工了。" } },
+        { "phrase": "completion of", "zh": "…的完成", "example": { "en": "The completion of the bridge was delayed by rain.", "zh": "橋的完工因為下雨而延誤。" } }
+      ],
+      "examples": [
+        { "tag": "專案", "en": "The manager thanked everyone for the on-time completion of the project.", "zh": "經理感謝大家讓專案準時完成。" },
+        { "tag": "付款", "en": "The final payment will be made after the completion of inspection.", "zh": "最後一筆款項會在檢驗完成後支付。" },
+        { "tag": "慶祝", "en": "We will hold a small party to celebrate the completion.", "zh": "我們會辦一個小派對慶祝完成。" }
+      ],
+      "confusable": [
+        { "word": "competition", "diff": "competition 是「競爭、比賽」；completion 是「完成」，兩個字拼法相近。", "example": { "en": "Competition between the two stores is very strong.", "zh": "這兩家店之間的競爭非常激烈。" } }
+      ],
+      "similar": [
+        { "word": "conclusion", "diff": "conclusion 偏向「結束、收尾」，也可指結論；completion 強調事情做完。", "example": { "en": "At the conclusion of the meeting, we agreed on the date.", "zh": "會議結束時，我們同意了日期。" } }
+      ],
+      "family": [
+        { "w": "deadline", "pos": "n.", "zh": "截止日期", "ipa": "/ˈdedlaɪn/", "example": { "en": "The deadline for the report is next Friday.", "zh": "報告的截止日是下週五。" } },
+        { "w": "finish", "pos": "v.", "zh": "完成", "ipa": "/ˈfɪnɪʃ/", "example": { "en": "Please finish the form before you leave.", "zh": "離開前請填完這份表格。" } },
+        { "w": "progress", "pos": "n.", "zh": "進度", "ipa": "/ˈprɑːgres/", "example": { "en": "We are making good progress on the new website.", "zh": "我們在新網站上進展良好。" } },
+        { "w": "schedule", "pos": "n.", "zh": "時間表", "ipa": "/ˈskedʒuːl/", "example": { "en": "The project is ahead of schedule this month.", "zh": "這個專案這個月進度超前。" } }
+      ],
+      "derived": [
+        { "w": "complete", "pos": "v.", "zh": "完成；（adj.）完整的", "ipa": "/kəmˈpliːt/", "link": "最基礎的字；completion = complete 去 e 加 -ion，像 decorate → decoration" },
+        { "w": "completely", "pos": "adv.", "zh": "完全地", "ipa": "/kəmˈpliːtli/", "link": "complete + -ly，變成副詞，像 slowly、clearly" },
+        { "w": "incomplete", "pos": "adj.", "zh": "不完整的", "ipa": "/ˌɪnkəmˈpliːt/", "link": "in-（不）+ complete，沒完成的，像 incorrect、inactive" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

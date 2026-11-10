@@ -1,0 +1,320 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "cookbook",
+      "type": "word",
+      "ipa": "/ˈkʊkbʊk/",
+      "pos": "n.",
+      "zh": "食譜書",
+      "en": "a book that has many recipes and cooking instructions",
+      "note": "多益常出現在書店、出版、餐飲與行銷情境，指收錄很多道菜做法的書。通常和 chef、publisher、bookstore 一起出現。",
+      "forms": [
+        { "w": "cookbooks", "label": "複數", "pos": "n.", "zh": "食譜書（複數）", "ipa": "/ˈkʊkbʊks/", "example": { "en": "The shop displays several cookbooks near the front entrance.", "zh": "這家店把幾本食譜書陳列在入口附近。" } }
+      ],
+      "collocations": [
+        { "phrase": "write a cookbook", "zh": "寫一本食譜書", "example": { "en": "The chef plans to write a cookbook next year.", "zh": "這位主廚打算明年寫一本食譜書。" } },
+        { "phrase": "vegetarian cookbook", "zh": "素食食譜書", "example": { "en": "We stock a vegetarian cookbook for customers who avoid meat.", "zh": "我們備有素食食譜書，給不吃肉的顧客。" } },
+        { "phrase": "cookbook author", "zh": "食譜書作者", "example": { "en": "The cookbook author will sign copies at the bookstore on Friday.", "zh": "這位食譜書作者星期五會在書店簽書。" } }
+      ],
+      "examples": [
+        { "tag": "禮品", "en": "She gave her team a cookbook as a holiday gift.", "zh": "她送給團隊一本食譜書當作節日禮物。" },
+        { "tag": "採購", "en": "The store ordered fifty copies of the new cookbook.", "zh": "這家店訂了五十本新的食譜書。" },
+        { "tag": "出版", "en": "Our publisher will launch the cookbook at the food fair in May.", "zh": "我們的出版社會在五月的美食展上推出這本食譜書。" }
+      ],
+      "confusable": [
+        { "word": "recipe", "diff": "recipe 是一道菜的做法；cookbook 是收錄很多 recipe 的書。", "example": { "en": "Please email me the recipe for the soup we had at lunch.", "zh": "請把我們午餐喝的那道湯的食譜寄給我。" } }
+      ],
+      "similar": [
+        { "phrase": "recipe book", "diff": "意思幾乎相同，recipe book 說法較直白，cookbook 更常見。", "example": { "en": "Our company printed a recipe book for the charity event.", "zh": "我們公司為慈善活動印了一本食譜書。" } }
+      ],
+      "family": [
+        { "w": "recipe", "pos": "n.", "zh": "食譜、做法", "ipa": "/ˈresəpi/", "example": { "en": "This recipe takes only twenty minutes to prepare.", "zh": "這道食譜只需要二十分鐘準備。" } },
+        { "w": "chef", "pos": "n.", "zh": "主廚", "ipa": "/ʃef/", "example": { "en": "The chef changes the menu every season.", "zh": "主廚每一季都會更換菜單。" } },
+        { "w": "menu", "pos": "n.", "zh": "菜單", "ipa": "/ˈmenjuː/", "example": { "en": "Please check the menu before you place the order.", "zh": "下單之前請先看一下菜單。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "consignment",
+      "type": "word",
+      "ipa": "/kənˈsaɪnmənt/",
+      "pos": "n.",
+      "zh": "託運貨物、寄售",
+      "en": "a group of goods sent to a buyer or a store",
+      "note": "多益常見於物流、倉儲與貿易情境，指一批交給運送方的貨物，語氣正式。另一個常見用法是 on consignment（寄售）。",
+      "grammar_note": "「寄售」要用 on consignment，介系詞用 on，前面不加 a 或 the。",
+      "forms": [
+        { "w": "consignments", "label": "複數", "pos": "n.", "zh": "託運貨物（複數）", "ipa": "/kənˈsaɪnmənts/", "example": { "en": "Two consignments were sent to our Taipei warehouse today.", "zh": "今天有兩批託運貨物送到我們的台北倉庫。" } }
+      ],
+      "collocations": [
+        { "phrase": "a consignment of goods", "zh": "一批貨物", "example": { "en": "A large consignment of goods will be shipped next week.", "zh": "一大批貨物將在下週出貨。" } },
+        { "phrase": "on consignment", "zh": "寄售、委託代售", "example": { "en": "The store takes new products on consignment from small suppliers.", "zh": "這家店向小型供應商以寄售方式進新產品。" } },
+        { "phrase": "consignment note", "zh": "託運單", "example": { "en": "Attach the consignment note to the box before pickup.", "zh": "取貨前請把託運單貼在箱子上。" } }
+      ],
+      "examples": [
+        { "tag": "物流", "en": "The consignment of electronics arrived at the port on Monday.", "zh": "這批電子產品星期一抵達港口。" },
+        { "tag": "倉儲", "en": "Please check the consignment against the packing list before signing.", "zh": "簽收前，請先對照裝箱單檢查這批貨。" },
+        { "tag": "海關", "en": "Customs delayed the consignment because some documents were missing.", "zh": "因為缺少一些文件，海關延誤了這批貨。" }
+      ],
+      "confusable": [
+        { "word": "assignment", "diff": "拼法相近，但 assignment 是被指派的工作或作業，和貨物無關。", "example": { "en": "Our manager gave me a new assignment this morning.", "zh": "我們經理今天早上給了我一項新任務。" } }
+      ],
+      "similar": [
+        { "phrase": "delivery", "diff": "delivery 是送貨這個動作或送到的貨；consignment 較正式，強調交給運送方的一批貨。", "example": { "en": "The delivery will reach your office before noon tomorrow.", "zh": "貨品明天中午前會送到你的辦公室。" } }
+      ],
+      "family": [
+        { "w": "shipment", "pos": "n.", "zh": "出貨、運送的貨物", "ipa": "/ˈʃɪpmənt/", "example": { "en": "The shipment left the factory yesterday afternoon.", "zh": "這批貨昨天下午從工廠出發了。" } },
+        { "w": "cargo", "pos": "n.", "zh": "（船、飛機上的）貨物", "ipa": "/ˈkɑːrɡoʊ/", "example": { "en": "The plane carries cargo to three Asian cities.", "zh": "這架飛機把貨物運往三個亞洲城市。" } },
+        { "w": "freight", "pos": "n.", "zh": "貨運、運費", "ipa": "/freɪt/", "example": { "en": "Air freight costs more than sea freight.", "zh": "空運貨運費比海運貴。" } }
+      ],
+      "derived": [
+        { "w": "consign", "ipa": "/kənˈsaɪn/", "pos": "v.", "zh": "託運、交付", "link": "consign 是動詞，加 -ment 變成名詞，像 pay → payment、ship → shipment" },
+        { "w": "consignor", "ipa": "/kənˈsaɪnɚ/", "pos": "n.", "zh": "託運人、寄售人", "link": "consign + -or，做動作的人，像 actor、visitor" },
+        { "w": "consignee", "ipa": "/ˌkɑːnsaɪˈniː/", "pos": "n.", "zh": "收貨人", "link": "consign + -ee，接受動作的人，像 employee、trainee" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "一批託運的貨物", "en": "a group of goods sent together to a place", "example": { "en": "Our supplier sent a consignment of fabric to the Taipei factory.", "zh": "我們的供應商把一批布料送到台北工廠。" } },
+        { "pos": "n.", "zh": "寄售", "en": "a way of selling in which the shop pays the owner after the goods are sold", "distinguish": "前面有 on 或旁邊有 shop、gallery、unsold 等字時，通常指寄售。", "example": { "en": "The gallery returns unsold paintings if they were left on consignment.", "zh": "寄售的畫作若沒賣出，畫廊會退還。" } }
+      ]
+    },
+    {
+      "text": "consecutive",
+      "type": "word",
+      "ipa": "/kənˈsekjətɪv/",
+      "pos": "adj.",
+      "zh": "連續的、接連的",
+      "en": "happening one after another without a break",
+      "note": "多益常見於財報、排程與獎項情境，如 three consecutive quarters。強調「一個接著一個」，語氣正式。",
+      "grammar_note": "consecutive 後面接複數名詞，如 three consecutive days，不能寫 three consecutive day。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "consecutive days", "zh": "連續幾天", "example": { "en": "The office will be closed for two consecutive days.", "zh": "辦公室將連續休息兩天。" } },
+        { "phrase": "consecutive years", "zh": "連續幾年", "example": { "en": "She won the sales award for three consecutive years.", "zh": "她連續三年拿到業績獎。" } },
+        { "phrase": "the third consecutive month", "zh": "連續第三個月", "example": { "en": "Profits fell for the third consecutive month this spring.", "zh": "今年春天利潤已連續第三個月下滑。" } }
+      ],
+      "examples": [
+        { "tag": "財報", "en": "Our online sales have increased for four consecutive quarters.", "zh": "我們的網路銷售已連續四季成長。" },
+        { "tag": "培訓", "en": "The training will run for five consecutive days next week.", "zh": "這項培訓下週將連續進行五天。" },
+        { "tag": "會議", "en": "This is the second consecutive meeting that he has missed.", "zh": "這是他連續第二次缺席會議。" },
+        { "tag": "工廠", "en": "The factory has operated without an accident for five consecutive years.", "zh": "這間工廠已連續五年沒有發生意外。" }
+      ],
+      "confusable": [
+        { "word": "continuous", "diff": "continuous 是「不間斷地持續」；consecutive 是「一個接著一個、中間有分段」。", "usage": "consecutive 常接複數名詞或序數，如 three consecutive days；continuous 常接不可數名詞，如 continuous improvement。", "example": { "en": "The machine needs continuous power to run all day.", "zh": "這台機器需要不間斷的電力才能整天運轉。" } }
+      ],
+      "similar": [
+        { "phrase": "in a row", "diff": "較口語，放在數字和名詞之後，如 three days in a row。", "example": { "en": "The team won five games in a row this season.", "zh": "這支隊伍本季連贏了五場比賽。" } },
+        { "phrase": "successive", "diff": "較正式，強調一個接著一個，不一定是每天或每期都連著。", "example": { "en": "Three successive managers failed to fix the problem.", "zh": "連續三任經理都沒能解決這個問題。" } }
+      ],
+      "family": [
+        { "w": "sequence", "pos": "n.", "zh": "順序、一連串", "ipa": "/ˈsiːkwəns/", "example": { "en": "Please follow the sequence of steps in the manual.", "zh": "請依照手冊上的步驟順序操作。" } },
+        { "w": "series", "pos": "n.", "zh": "系列、一連串", "ipa": "/ˈsɪriːz/", "example": { "en": "We will hold a series of workshops this month.", "zh": "我們這個月會舉辦一系列工作坊。" } }
+      ],
+      "derived": [
+        { "w": "consecutively", "ipa": "/kənˈsekjətɪvli/", "pos": "adv.", "zh": "連續地、依序地", "link": "consecutive + -ly，形容詞變副詞，像 quick → quickly、recent → recently" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "commonly",
+      "type": "word",
+      "ipa": "/ˈkɑːmənli/",
+      "pos": "adv.",
+      "zh": "通常地、普遍地",
+      "en": "in many cases or by many people",
+      "note": "多益常出現在 commonly used、commonly known 這類說法，用在產品說明、公告與報告中，語氣中性偏正式。",
+      "grammar_note": "commonly 常放在過去分詞前，如 commonly used；一般動詞前、be 動詞後也可以。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "commonly used", "zh": "普遍使用的", "example": { "en": "The form is commonly used for travel requests.", "zh": "這份表格普遍用於出差申請。" } },
+        { "phrase": "commonly asked questions", "zh": "常被問到的問題", "example": { "en": "We posted the most commonly asked questions on our website.", "zh": "我們把最常被問到的問題貼在網站上。" } },
+        { "phrase": "commonly known as", "zh": "一般稱為", "example": { "en": "The device is commonly known as a power bank.", "zh": "這種裝置一般稱為行動電源。" } }
+      ],
+      "examples": [
+        { "tag": "產品說明", "en": "This software is commonly used by small companies.", "zh": "這套軟體普遍被小公司使用。" },
+        { "tag": "客服", "en": "Customers commonly ask about our return policy at the front desk.", "zh": "顧客常在櫃台詢問我們的退貨政策。" },
+        { "tag": "人資", "en": "Job interviews are commonly held on weekday mornings.", "zh": "面試通常安排在平日早上。" },
+        { "tag": "報告", "en": "This type of error is commonly found in new reports.", "zh": "這類錯誤常見於新的報告中。" }
+      ],
+      "similar": [
+        { "phrase": "usually", "diff": "usually 指某人或某處多半的習慣；commonly 指許多人或許多情況都這樣。", "example": { "en": "Our store usually opens at nine in the morning.", "zh": "我們的店通常早上九點開門。" } },
+        { "phrase": "generally", "diff": "generally 是「大致上」，commonly 強調「普遍、常見」。", "example": { "en": "Prices are generally lower in the off season.", "zh": "淡季的價格大致上比較低。" } }
+      ],
+      "family": [
+        { "w": "often", "pos": "adv.", "zh": "經常", "ipa": "/ˈɔːfn/", "example": { "en": "Our team often meets on Monday mornings.", "zh": "我們的團隊常在星期一早上開會。" } },
+        { "w": "typically", "pos": "adv.", "zh": "典型地、通常", "ipa": "/ˈtɪpɪkli/", "example": { "en": "A typical project typically takes about three months.", "zh": "一個一般的專案通常需要約三個月。" } }
+      ],
+      "derived": [
+        { "w": "common", "ipa": "/ˈkɑːmən/", "pos": "adj.", "zh": "常見的、共同的", "link": "最基本的字；common + -ly 變成副詞，像 quick → quickly" },
+        { "w": "uncommon", "ipa": "/ʌnˈkɑːmən/", "pos": "adj.", "zh": "不常見的", "link": "un- + common，不…，像 unhappy、unclear" }
+      ],
+      "forms": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "celebrity",
+      "type": "word",
+      "ipa": "/səˈlebrəti/",
+      "pos": "n.",
+      "zh": "名人、明星",
+      "en": "a famous person, especially in entertainment or sports",
+      "note": "多益常見於廣告、行銷與活動情境，如請名人代言或邀請名人出席。是可數名詞，指「人」。",
+      "forms": [
+        { "w": "celebrities", "label": "複數", "pos": "n.", "zh": "名人（複數）", "ipa": "/səˈlebrətiz/", "example": { "en": "Many celebrities attended the opening of the new hotel.", "zh": "許多名人出席了新飯店的開幕。" } }
+      ],
+      "collocations": [
+        { "phrase": "celebrity endorsement", "zh": "名人代言", "example": { "en": "A celebrity endorsement helped boost sales of our new sneakers.", "zh": "名人代言協助提升了我們新款球鞋的銷量。" } },
+        { "phrase": "celebrity chef", "zh": "名廚", "example": { "en": "The celebrity chef will open a restaurant downtown next month.", "zh": "這位名廚下個月將在市中心開一家餐廳。" } },
+        { "phrase": "celebrity guest", "zh": "名人嘉賓", "example": { "en": "A celebrity guest will speak at the charity dinner.", "zh": "一位名人嘉賓將在慈善晚宴上致詞。" } }
+      ],
+      "examples": [
+        { "tag": "行銷", "en": "The company hired a celebrity to promote its new phone.", "zh": "公司請了一位名人來宣傳它的新手機。" },
+        { "tag": "媒體", "en": "The magazine published an interview with a local celebrity.", "zh": "這本雜誌刊出了對一位本地名人的專訪。" },
+        { "tag": "活動", "en": "Several celebrities will walk the red carpet at the launch party.", "zh": "幾位名人將在發表派對上走紅毯。" }
+      ],
+      "confusable": [
+        { "word": "celebration", "diff": "拼法相近；celebration 是慶祝活動，celebrity 是有名的人。", "example": { "en": "We held a small celebration for the new office.", "zh": "我們為新辦公室辦了一場小小的慶祝會。" } }
+      ],
+      "similar": [
+        { "phrase": "star", "diff": "star 較口語，也可指某個領域特別傑出的人。", "example": { "en": "She is a rising star in the fashion industry.", "zh": "她是時尚界的一顆新星。" } },
+        { "phrase": "public figure", "diff": "較正式，也包含政治人物等，不一定是演藝圈。", "example": { "en": "The mayor is a well-known public figure in our city.", "zh": "市長是我們城市中廣為人知的公眾人物。" } }
+      ],
+      "family": [
+        { "w": "fame", "pos": "n.", "zh": "名聲、名氣", "ipa": "/feɪm/", "example": { "en": "The singer gained fame after her first album.", "zh": "這位歌手在第一張專輯後成名。" } },
+        { "w": "popularity", "pos": "n.", "zh": "受歡迎程度", "ipa": "/ˌpɑːpjuˈlærəti/", "example": { "en": "The popularity of this product keeps growing every year.", "zh": "這項產品的受歡迎程度逐年增加。" } },
+        { "w": "reputation", "pos": "n.", "zh": "名譽、聲譽", "ipa": "/ˌrepjuˈteɪʃn/", "example": { "en": "Our company has a good reputation for fast service.", "zh": "我們公司以快速服務聞名。" } }
+      ],
+      "derived": [
+        { "w": "celebrate", "ipa": "/ˈseləbreɪt/", "pos": "v.", "zh": "慶祝", "link": "同詞幹 celebr-，原意是「很多人一起慶祝、稱讚」" },
+        { "w": "celebration", "ipa": "/ˌseləˈbreɪʃn/", "pos": "n.", "zh": "慶祝活動", "link": "celebrate + -ion，動詞變名詞，像 decorate → decoration" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "developer",
+      "type": "word",
+      "ipa": "/dɪˈveləpɚ/",
+      "pos": "n.",
+      "zh": "開發人員、開發商",
+      "en": "a person or company that makes software or builds new buildings",
+      "note": "多益常見於科技與房地產情境：software developer 是軟體開發人員，property developer 是建商。要看上下文判斷是哪一種。",
+      "forms": [
+        { "w": "developers", "label": "複數", "pos": "n.", "zh": "開發人員（複數）", "ipa": "/dɪˈveləpɚz/", "example": { "en": "Several developers joined the project team late last month.", "zh": "幾位開發人員上個月底加入了專案團隊。" } }
+      ],
+      "collocations": [
+        { "phrase": "software developer", "zh": "軟體開發人員", "example": { "en": "A software developer from our company will lead the workshop.", "zh": "我們公司的一位軟體開發人員將帶領這場工作坊。" } },
+        { "phrase": "property developer", "zh": "房地產開發商", "example": { "en": "The property developer received approval to build new apartments.", "zh": "這家房地產開發商取得了興建新公寓的許可。" } },
+        { "phrase": "app developer", "zh": "應用程式開發人員", "example": { "en": "We hired an app developer to improve our mobile site.", "zh": "我們請了一位應用程式開發人員來改善行動網站。" } }
+      ],
+      "examples": [
+        { "tag": "科技", "en": "The developer fixed the software bug before the deadline.", "zh": "開發人員在截止日前修好了軟體的錯誤。" },
+        { "tag": "徵才", "en": "We are looking for a web developer with two years' experience.", "zh": "我們在徵求有兩年經驗的網頁開發人員。" },
+        { "tag": "房地產", "en": "The developer plans to build an office tower near the station.", "zh": "這家開發商計畫在車站附近蓋一棟辦公大樓。" },
+        { "tag": "會議", "en": "Our developers will present the new app at Monday's meeting.", "zh": "我們的開發人員會在星期一的會議上介紹新的應用程式。" }
+      ],
+      "confusable": [
+        { "word": "designer", "diff": "designer 負責外觀與設計；developer 負責把產品做出來（寫程式或建造）。", "example": { "en": "The designer chose new colors for our company logo.", "zh": "設計師為我們公司的標誌選了新顏色。" } }
+      ],
+      "similar": [
+        { "phrase": "programmer", "diff": "programmer 專指寫程式的人；developer 範圍較廣，包含整個產品的開發。", "example": { "en": "The programmer wrote a short script to sort the data.", "zh": "這位程式設計師寫了一小段程式來整理資料。" } }
+      ],
+      "family": [
+        { "w": "engineer", "pos": "n.", "zh": "工程師", "ipa": "/ˌendʒɪˈnɪr/", "example": { "en": "The engineer checked the system before the launch.", "zh": "工程師在上線前檢查了系統。" } },
+        { "w": "contractor", "pos": "n.", "zh": "承包商", "ipa": "/ˈkɑːntræktɚ/", "example": { "en": "The contractor will finish the repairs by next Friday.", "zh": "承包商會在下週五前完成維修。" } }
+      ],
+      "derived": [
+        { "w": "develop", "ipa": "/dɪˈveləp/", "pos": "v.", "zh": "開發、發展", "link": "最基本的字；develop + -er，做事的人，像 teacher、worker" },
+        { "w": "development", "ipa": "/dɪˈveləpmənt/", "pos": "n.", "zh": "開發、發展", "link": "develop + -ment，動作的結果，像 pay → payment、move → movement" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "軟體開發人員", "en": "a person who makes software or apps", "distinguish": "旁邊有 software、web、app、code 等字時，通常是這個意思。", "example": { "en": "The developer updated the app to fix the login problem.", "zh": "開發人員更新了應用程式來修正登入問題。" } },
+        { "pos": "n.", "zh": "開發商、建商", "en": "a company or person that builds new buildings on land", "distinguish": "旁邊有 property、land、housing、construction 等字時，通常是這個意思。", "example": { "en": "The developer sold all the new apartments within one month.", "zh": "開發商在一個月內賣完了所有新公寓。" } }
+      ]
+    },
+    {
+      "text": "dial",
+      "type": "word",
+      "ipa": "/ˈdaɪəl/",
+      "pos": "v.",
+      "zh": "撥（電話號碼）",
+      "en": "to press the numbers on a phone to call someone",
+      "note": "多益常見於電話與辦公室情境，如 dial an extension、dial 9 for an outside line，也常出現在語音系統：Dial 1 for... 。當名詞時指刻度盤或旋鈕。",
+      "grammar_note": "dial 是及物動詞，直接接號碼，不加 to：dial 555-0123，不寫 dial to 555-0123。",
+      "forms": [
+        { "w": "dials", "label": "第三人稱單數", "pos": "v.", "zh": "撥號（第三人稱單數）", "ipa": "/ˈdaɪəlz/", "example": { "en": "She dials the front desk when guests need help.", "zh": "客人需要協助時，她會撥打櫃台電話。" } },
+        { "w": "dialed", "label": "過去式／過去分詞", "pos": "v.", "zh": "撥號（過去式）", "ipa": "/ˈdaɪəld/", "example": { "en": "He dialed the wrong extension and reached the sales team.", "zh": "他撥錯分機，打到了業務部。" } },
+        { "w": "dialing", "label": "現在分詞／動名詞", "pos": "v.", "zh": "撥號中、撥號", "ipa": "/ˈdaɪəlɪŋ/", "example": { "en": "Dialing the country code first is important for overseas calls.", "zh": "打國際電話時，先撥國碼很重要。" } }
+      ],
+      "collocations": [
+        { "phrase": "dial a number", "zh": "撥號碼", "example": { "en": "Dial a number with the area code if you call another city.", "zh": "打到其他城市時，請連同區碼撥號。" } },
+        { "phrase": "dial an extension", "zh": "撥分機", "example": { "en": "Dial an extension to reach the person you need.", "zh": "請撥分機找你要找的人。" } },
+        { "phrase": "dial in", "zh": "撥入（電話會議）", "example": { "en": "Staff abroad can dial in to the meeting by phone.", "zh": "在國外的員工可以用電話撥入參加會議。" } }
+      ],
+      "examples": [
+        { "tag": "電話", "en": "Please dial the extension number of the sales department.", "zh": "請撥業務部的分機號碼。" },
+        { "tag": "語音系統", "en": "Dial 1 if you want to speak with customer service.", "zh": "如果想和客服人員通話，請按 1。" },
+        { "tag": "辦公室", "en": "To make an outside call from the office, dial nine first.", "zh": "要從辦公室打外線，請先撥九。" },
+        { "tag": "設備", "en": "Turn the dial to adjust the temperature of the oven.", "zh": "轉動旋鈕來調整烤箱的溫度。" }
+      ],
+      "confusable": [
+        { "word": "dialogue", "diff": "拼法相近；dialogue 是兩人以上的對話，和撥電話無關。", "example": { "en": "The dialogue between the two managers was polite and clear.", "zh": "兩位經理之間的對話禮貌又清楚。" } }
+      ],
+      "similar": [
+        { "phrase": "call", "diff": "call 泛指打電話；dial 只指按號碼撥出的動作。", "example": { "en": "Please call me when your flight lands.", "zh": "你的班機降落時，請打電話給我。" } }
+      ],
+      "family": [
+        { "w": "phone", "pos": "n.", "zh": "電話", "ipa": "/foʊn/", "example": { "en": "Please turn off your phone during the meeting.", "zh": "開會時請關掉你的手機。" } },
+        { "w": "extension", "pos": "n.", "zh": "分機", "ipa": "/ɪkˈstenʃn/", "example": { "en": "My extension is 305 if you need me.", "zh": "需要我的話，我的分機是 305。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/ˈdaɪəl/", "zh": "撥（號碼）、打電話", "example": { "en": "Please dial 9 before the number for an outside line.", "zh": "撥外線時，請先在號碼前按 9。" } },
+        { "pos": "n.", "ipa": "/ˈdaɪəl/", "zh": "刻度盤、旋鈕", "example": { "en": "Turn the dial to the right to raise the volume.", "zh": "把旋鈕往右轉來調高音量。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "discrepancy",
+      "type": "word",
+      "ipa": "/dɪˈskrepənsi/",
+      "pos": "n.",
+      "zh": "差異、不一致",
+      "en": "a difference between two things that should be the same",
+      "note": "多益常見於帳務、報告與訂單核對，指兩份資料本來應該一致卻對不起來，語氣正式。",
+      "grammar_note": "discrepancy 後面常接 between A and B 或 in + 資料，不用 among。",
+      "forms": [
+        { "w": "discrepancies", "label": "複數", "pos": "n.", "zh": "差異（複數）", "ipa": "/dɪˈskrepənsiz/", "example": { "en": "The auditors found several discrepancies in last quarter's accounts.", "zh": "稽核人員在上一季的帳目中發現幾處不一致。" } }
+      ],
+      "collocations": [
+        { "phrase": "a discrepancy between A and B", "zh": "A 和 B 之間的差異", "example": { "en": "There is a discrepancy between the two price lists.", "zh": "這兩份價目表之間有出入。" } },
+        { "phrase": "resolve a discrepancy", "zh": "解決不一致的問題", "example": { "en": "The team worked all day to resolve the discrepancy.", "zh": "團隊花了一整天來解決這個不一致的問題。" } },
+        { "phrase": "discrepancy in the figures", "zh": "數字上的出入", "example": { "en": "Any discrepancy in the figures must be reported to finance.", "zh": "數字上若有任何出入，都必須通報財務部。" } }
+      ],
+      "examples": [
+        { "tag": "財務", "en": "The accountant found a discrepancy in the monthly expense report.", "zh": "會計人員在每月的費用報告中發現了不一致。" },
+        { "tag": "物流", "en": "We noticed a discrepancy between the invoice and the actual delivery.", "zh": "我們發現發票和實際送達的貨品有出入。" },
+        { "tag": "電子郵件", "en": "Please explain this discrepancy before we send the report to clients.", "zh": "在我們把報告寄給客戶之前，請說明這個差異。" },
+        { "tag": "人資", "en": "A discrepancy in the dates delayed his travel approval.", "zh": "日期上的不一致延誤了他的出差核准。" }
+      ],
+      "similar": [
+        { "phrase": "difference", "diff": "difference 泛指任何不同；discrepancy 指本該一致卻不一致，語氣較正式。", "example": { "en": "There is a big difference between the two quotes.", "zh": "這兩份報價之間有很大的差別。" } },
+        { "phrase": "inconsistency", "diff": "inconsistency 強調前後矛盾、不一致，不一定是數字對不上。", "example": { "en": "We found an inconsistency in the customer data.", "zh": "我們發現客戶資料有前後不一致的地方。" } }
+      ],
+      "family": [
+        { "w": "error", "pos": "n.", "zh": "錯誤", "ipa": "/ˈerɚ/", "example": { "en": "The system showed an error when I saved the file.", "zh": "我存檔時，系統顯示了錯誤。" } },
+        { "w": "mistake", "pos": "n.", "zh": "失誤、錯誤", "ipa": "/mɪˈsteɪk/", "example": { "en": "I made a mistake on the order form.", "zh": "我在訂購單上填錯了。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

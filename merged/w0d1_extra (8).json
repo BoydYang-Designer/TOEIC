@@ -1,0 +1,702 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "hamburger",
+      "type": "word",
+      "ipa": "/ˈhæmbɝːɡɚ/",
+      "pos": "n.",
+      "zh": "漢堡",
+      "en": "a round sandwich with a meat patty inside",
+      "note": "多益常見於餐廳、員工餐廳與菜單的情境，口語常縮寫成 burger；也常和 fries（薯條）、drink 組成套餐。",
+      "grammar_note": "hamburger 是可數名詞：a hamburger、two hamburgers；指「牛絞肉」時才是不可數（美式用法）。",
+      "forms": [
+        {
+          "w": "hamburgers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "漢堡（複數）",
+          "ipa": "/ˈhæmbɝːɡɚz/",
+          "example": { "en": "The shop sells about two hundred hamburgers every day.", "zh": "這家店每天大約賣出兩百個漢堡。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "order a hamburger",
+          "zh": "點一個漢堡",
+          "example": { "en": "I would like to order a hamburger and a cola.", "zh": "我想點一個漢堡和一杯可樂。" }
+        },
+        {
+          "phrase": "hamburger restaurant",
+          "zh": "漢堡餐廳",
+          "example": { "en": "The new hamburger restaurant opens near the station next week.", "zh": "新的漢堡餐廳下週會在車站附近開幕。" }
+        },
+        {
+          "phrase": "hamburger and fries",
+          "zh": "漢堡配薯條",
+          "example": { "en": "The set meal comes with a hamburger and fries.", "zh": "這份套餐附有漢堡和薯條。" }
+        }
+      ],
+      "examples": [
+        { "tag": "餐廳", "en": "She ordered a hamburger and a cold drink for lunch.", "zh": "她午餐點了一個漢堡和一杯冷飲。" },
+        { "tag": "員工餐廳", "en": "The cafeteria sells a hamburger for only five dollars.", "zh": "員工餐廳的漢堡只賣五美元。" },
+        { "tag": "菜單", "en": "Our menu offers a chicken hamburger for customers who avoid beef.", "zh": "我們的菜單為不吃牛肉的顧客提供雞肉漢堡。" }
+      ],
+      "similar": [
+        {
+          "word": "burger",
+          "diff": "burger 是 hamburger 的口語簡稱，菜單與日常對話中更常見。",
+          "example": { "en": "The cheese burger is our most popular item on the menu.", "zh": "起司漢堡是我們菜單上最受歡迎的品項。" }
+        },
+        {
+          "word": "sandwich",
+          "diff": "sandwich 泛指兩片麵包夾餡料；hamburger 專指夾肉排的圓麵包。",
+          "example": { "en": "He ate a sandwich at his desk during lunch.", "zh": "他午餐時在辦公桌前吃了一個三明治。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "menu",
+          "ipa": "/ˈmenjuː/",
+          "pos": "n.",
+          "zh": "菜單",
+          "example": { "en": "Please look at the menu before you order.", "zh": "點餐前請先看看菜單。" }
+        },
+        {
+          "w": "cafeteria",
+          "ipa": "/ˌkæfəˈtɪriə/",
+          "pos": "n.",
+          "zh": "自助餐廳、員工餐廳",
+          "example": { "en": "The cafeteria is open from noon to two.", "zh": "員工餐廳的營業時間是中午到兩點。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "漢堡",
+          "en": "a sandwich made with a round piece of beef",
+          "example": { "en": "I usually get a hamburger from the shop near my office.", "zh": "我通常在公司附近的店買漢堡。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "牛絞肉（美式）",
+          "en": "beef that has been cut into very small pieces",
+          "distinguish": "出現在食譜或採購清單，前面接重量單位時，指的是絞肉而不是漢堡。",
+          "example": { "en": "The recipe calls for one pound of hamburger.", "zh": "這份食譜需要一磅牛絞肉。" }
+        }
+      ]
+    },
+    {
+      "text": "homeowner",
+      "type": "word",
+      "ipa": "/ˈhoʊmˌoʊnɚ/",
+      "pos": "n.",
+      "zh": "屋主、有自用住宅的人",
+      "en": "a person who owns the house or apartment where they live",
+      "note": "多益常見於房貸、保險、房屋維修與社區公告的情境，指擁有並住在自己房子裡的人。",
+      "grammar_note": "常見的 homeowners association（社區管理委員會）中的 homeowners 不加所有格 's；指個人要寫 a homeowner。",
+      "forms": [
+        {
+          "w": "homeowners",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "屋主（複數）",
+          "ipa": "/ˈhoʊmˌoʊnɚz/",
+          "example": { "en": "Many homeowners called the bank about the new interest rate.", "zh": "許多屋主打電話到銀行詢問新的利率。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "homeowners insurance",
+          "zh": "屋主保險",
+          "example": { "en": "Homeowners insurance covers damage from fire and storms.", "zh": "屋主保險涵蓋火災與暴風雨造成的損失。" }
+        },
+        {
+          "phrase": "first-time homeowner",
+          "zh": "首次購屋者",
+          "example": { "en": "The bank offers a special loan for first-time homeowners.", "zh": "銀行為首次購屋者提供特別貸款。" }
+        },
+        {
+          "phrase": "homeowners association",
+          "zh": "社區管理委員會",
+          "example": { "en": "The homeowners association meets on the first Monday of each month.", "zh": "社區管理委員會每個月第一個週一開會。" }
+        }
+      ],
+      "examples": [
+        { "tag": "房屋維修", "en": "The homeowner asked a contractor to repair the roof.", "zh": "屋主請承包商修理屋頂。" },
+        { "tag": "銀行", "en": "A homeowner must pay property tax every year.", "zh": "屋主每年都必須繳納房屋稅。" },
+        { "tag": "廣告", "en": "Our company helps homeowners save money on energy bills.", "zh": "我們公司幫助屋主節省能源費用。" }
+      ],
+      "confusable": [
+        {
+          "word": "landlord",
+          "diff": "landlord 是把房子出租給別人的房東；homeowner 是擁有並自己住在房子裡的人。",
+          "example": { "en": "The landlord raised the rent for the apartment this month.", "zh": "房東這個月調漲了公寓的租金。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "tenant",
+          "ipa": "/ˈtenənt/",
+          "pos": "n.",
+          "zh": "房客、承租人",
+          "example": { "en": "The tenant must pay the rent by the fifth.", "zh": "房客必須在五號前繳納租金。" }
+        },
+        {
+          "w": "mortgage",
+          "ipa": "/ˈmɔːrɡɪdʒ/",
+          "pos": "n.",
+          "zh": "房屋貸款",
+          "example": { "en": "They pay their mortgage on the first day of the month.", "zh": "他們每個月一號繳房貸。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "home",
+          "ipa": "/hoʊm/",
+          "pos": "n.",
+          "zh": "家",
+          "link": "最基礎的字，homeowner 是 home（家）+ owner（擁有者）合在一起"
+        },
+        {
+          "w": "owner",
+          "ipa": "/ˈoʊnɚ/",
+          "pos": "n.",
+          "zh": "所有人、擁有者",
+          "link": "own（擁有）+ -er，做事的人，像 worker、driver"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "handbook",
+      "type": "word",
+      "ipa": "/ˈhændbʊk/",
+      "pos": "n.",
+      "zh": "手冊、使用指南",
+      "en": "a small book that gives rules or useful information",
+      "note": "多益常見於新進員工說明、公司規定與產品使用的情境，最常見的是 employee handbook（員工手冊）。",
+      "forms": [
+        {
+          "w": "handbooks",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "手冊（複數）",
+          "ipa": "/ˈhændbʊks/",
+          "example": { "en": "We printed five hundred handbooks for the new employees.", "zh": "我們為新進員工印了五百本手冊。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "employee handbook",
+          "zh": "員工手冊",
+          "example": { "en": "The employee handbook explains our rules about vacation days.", "zh": "員工手冊說明了我們關於休假日的規定。" }
+        },
+        {
+          "phrase": "user handbook",
+          "zh": "使用手冊",
+          "example": { "en": "Please read the user handbook before you start the machine.", "zh": "啟動機器之前請先閱讀使用手冊。" }
+        },
+        {
+          "phrase": "student handbook",
+          "zh": "學生手冊",
+          "example": { "en": "The student handbook lists the rules for the library.", "zh": "學生手冊列出了圖書館的規定。" }
+        }
+      ],
+      "examples": [
+        { "tag": "人資", "en": "Every new hire will receive a handbook on the first day.", "zh": "每位新進員工第一天都會拿到一本手冊。" },
+        { "tag": "電子郵件", "en": "The updated handbook is attached to this email for your review.", "zh": "更新後的手冊附在這封郵件中供您參閱。" },
+        { "tag": "安全規定", "en": "You can find the safety rules in the company handbook.", "zh": "你可以在公司手冊中找到安全規定。" }
+      ],
+      "confusable": [
+        {
+          "word": "handout",
+          "diff": "handout 是會議或課堂上發的講義、資料；handbook 是可以長期參考的手冊。",
+          "example": { "en": "I gave each person a handout at the start of the meeting.", "zh": "會議一開始，我給每個人發了一份講義。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "manual",
+          "diff": "manual 多指機器或軟體的操作說明書；handbook 範圍較廣，也包含規定與制度。",
+          "example": { "en": "The manual shows how to repair the printer step by step.", "zh": "說明書逐步說明如何修理印表機。" }
+        },
+        {
+          "word": "guide",
+          "diff": "guide 是指引或導覽，較簡短；handbook 內容較完整、像一本小書。",
+          "example": { "en": "This quick guide explains how to book a meeting room.", "zh": "這份簡易指南說明如何預約會議室。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "policy",
+          "ipa": "/ˈpɑːləsi/",
+          "pos": "n.",
+          "zh": "政策、規定",
+          "example": { "en": "The leave policy is explained on page ten.", "zh": "請假規定在第十頁有說明。" }
+        },
+        {
+          "w": "guideline",
+          "ipa": "/ˈɡaɪdlaɪn/",
+          "pos": "n.",
+          "zh": "指導方針",
+          "example": { "en": "Please follow the guidelines when you write the report.", "zh": "撰寫報告時請遵守指導方針。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "headphone",
+      "type": "word",
+      "ipa": "/ˈhedfoʊn/",
+      "pos": "n.",
+      "zh": "耳機",
+      "en": "a device you wear over your ears to listen to sound",
+      "note": "多益常見於辦公設備、採購與產品介紹的情境，通常用複數 headphones，一副耳機要說 a pair of headphones。",
+      "grammar_note": "指耳機時通常用複數 headphones；一副耳機說 a pair of headphones，動詞用複數（The headphones are...）。單數 headphone 多見於 headphone jack 等搭配。",
+      "forms": [
+        {
+          "w": "headphones",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "耳機（一副）",
+          "ipa": "/ˈhedfoʊnz/",
+          "example": { "en": "Please return the headphones to the front desk after use.", "zh": "使用後請把耳機歸還到櫃台。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "a pair of headphones",
+          "zh": "一副耳機",
+          "example": { "en": "Each call center agent receives a pair of headphones.", "zh": "每位客服中心專員都會領到一副耳機。" }
+        },
+        {
+          "phrase": "wireless headphones",
+          "zh": "無線耳機",
+          "example": { "en": "These wireless headphones can last for twenty hours.", "zh": "這款無線耳機可以使用二十小時。" }
+        },
+        {
+          "phrase": "noise-cancelling headphones",
+          "zh": "抗噪耳機",
+          "example": { "en": "Noise-cancelling headphones help me focus in the open office.", "zh": "抗噪耳機幫助我在開放式辦公室裡專心。" }
+        },
+        {
+          "phrase": "headphone jack",
+          "zh": "耳機孔",
+          "example": { "en": "This laptop has a headphone jack on the left side.", "zh": "這台筆記型電腦的左側有一個耳機孔。" }
+        }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "Many staff wear headphones to concentrate on their work.", "zh": "許多員工戴耳機來專心工作。" },
+        { "tag": "採購", "en": "We bought twenty headphones for the new call center team.", "zh": "我們為新的客服中心團隊買了二十副耳機。" },
+        { "tag": "退貨", "en": "The headphones stopped working after only two weeks of use.", "zh": "這副耳機只用了兩週就壞了。" }
+      ],
+      "confusable": [
+        {
+          "word": "microphone",
+          "diff": "字尾都是 -phone，但 microphone 是麥克風，用來「收音」；headphone 是耳機，用來「聽」。",
+          "example": { "en": "Please speak into the microphone so everyone can hear you.", "zh": "請對著麥克風說話，讓大家都聽得到。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "earphones",
+          "diff": "earphones 是放進耳朵裡的小耳機；headphones 通常是蓋住耳朵的頭戴式耳機。",
+          "example": { "en": "He wore earphones while he waited at the airport.", "zh": "他在機場等候時戴著入耳式耳機。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "speaker",
+          "ipa": "/ˈspiːkɚ/",
+          "pos": "n.",
+          "zh": "喇叭、揚聲器",
+          "example": { "en": "The speaker in the meeting room is too quiet.", "zh": "會議室的喇叭聲音太小了。" }
+        },
+        {
+          "w": "volume",
+          "ipa": "/ˈvɑːljuːm/",
+          "pos": "n.",
+          "zh": "音量",
+          "example": { "en": "Please turn down the volume during the call.", "zh": "通話時請把音量調小。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "heater",
+      "type": "word",
+      "ipa": "/ˈhiːtɚ/",
+      "pos": "n.",
+      "zh": "暖氣機、加熱器",
+      "en": "a machine that makes a room or water warm",
+      "note": "多益常見於辦公室設備、飯店客房與採購維修的情境，指單一的暖氣設備；整套暖氣系統則多用 heating。",
+      "grammar_note": "heater 是可數名詞（a heater、two heaters）；heating 指暖氣系統或供暖，是不可數名詞，不加 s。",
+      "forms": [
+        {
+          "w": "heaters",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "暖氣機（複數）",
+          "ipa": "/ˈhiːtɚz/",
+          "example": { "en": "Several heaters in the building are not working properly.", "zh": "大樓裡有好幾台暖氣機運作不正常。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "turn on the heater",
+          "zh": "打開暖氣",
+          "example": { "en": "Could you turn on the heater in the conference room?", "zh": "你可以把會議室的暖氣打開嗎？" }
+        },
+        {
+          "phrase": "electric heater",
+          "zh": "電暖器",
+          "example": { "en": "An electric heater is safer than a gas one indoors.", "zh": "在室內使用電暖器比瓦斯暖氣機安全。" }
+        },
+        {
+          "phrase": "water heater",
+          "zh": "熱水器",
+          "example": { "en": "The water heater needs to be replaced before winter.", "zh": "熱水器需要在冬天前更換。" }
+        },
+        {
+          "phrase": "space heater",
+          "zh": "小型電暖器",
+          "example": { "en": "Do not leave a space heater on overnight.", "zh": "請勿讓小型電暖器整晚開著。" }
+        }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "The office feels cold, so please turn on the heater.", "zh": "辦公室覺得很冷，所以請打開暖氣。" },
+        { "tag": "採購", "en": "We need to buy a new heater for the meeting room.", "zh": "我們需要為會議室買一台新的暖氣機。" },
+        { "tag": "維修", "en": "The heater stopped working, so we called a repairman.", "zh": "暖氣機壞了，所以我們叫了維修人員。" }
+      ],
+      "confusable": [
+        {
+          "word": "heating",
+          "diff": "heating 指整套暖氣系統或供暖；heater 是單一台暖氣設備。",
+          "usage": "heating 是不可數名詞（the heating），heater 是可數名詞（a heater）。",
+          "example": { "en": "The heating in our building is controlled by a timer.", "zh": "我們大樓的暖氣系統由定時器控制。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "fan",
+          "ipa": "/fæn/",
+          "pos": "n.",
+          "zh": "電風扇",
+          "example": { "en": "Please turn off the fan when you leave the room.", "zh": "離開房間時請關掉電風扇。" }
+        },
+        {
+          "w": "air conditioner",
+          "ipa": "/ˈer kənˌdɪʃənɚ/",
+          "pos": "n.",
+          "zh": "冷氣機",
+          "example": { "en": "The air conditioner in the lobby is too cold.", "zh": "大廳的冷氣太冷了。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "heat",
+          "ipa": "/hiːt/",
+          "pos": "n.",
+          "zh": "熱、熱度",
+          "link": "最基礎的字，heater 是 heat + -er，做事的東西，像 printer、cooler"
+        },
+        {
+          "w": "heating",
+          "ipa": "/ˈhiːtɪŋ/",
+          "pos": "n.",
+          "zh": "暖氣、供暖",
+          "link": "heat + -ing，把「加熱」這件事變成名詞，像 shop → shopping"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "helmet",
+      "type": "word",
+      "ipa": "/ˈhelmɪt/",
+      "pos": "n.",
+      "zh": "安全帽、頭盔",
+      "en": "a hard hat that protects your head",
+      "note": "多益常見於工地、工廠與騎車的安全規定情境，通常和 wear、safety 一起出現，語氣偏規定與提醒。",
+      "grammar_note": "wear a helmet 是「戴著安全帽」的狀態，put on a helmet 才是「戴上」的動作。",
+      "forms": [
+        {
+          "w": "helmets",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "安全帽（複數）",
+          "ipa": "/ˈhelmɪts/",
+          "example": { "en": "Please check that all helmets are stored on the shelf.", "zh": "請確認所有安全帽都收在架子上。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "wear a helmet",
+          "zh": "戴安全帽",
+          "example": { "en": "Employees must wear a helmet in the loading area.", "zh": "員工在裝卸區必須戴安全帽。" }
+        },
+        {
+          "phrase": "safety helmet",
+          "zh": "安全帽",
+          "example": { "en": "A safety helmet protects your head from falling objects.", "zh": "安全帽可以保護你的頭部不被掉落物打到。" }
+        },
+        {
+          "phrase": "bicycle helmet",
+          "zh": "自行車安全帽",
+          "example": { "en": "She always puts on a bicycle helmet before riding.", "zh": "她騎車前一定會戴上自行車安全帽。" }
+        }
+      ],
+      "examples": [
+        { "tag": "工地", "en": "All workers must wear a helmet on the construction site.", "zh": "所有工人在工地都必須戴安全帽。" },
+        { "tag": "外送", "en": "Delivery riders must wear a helmet while riding.", "zh": "外送員騎車時必須戴安全帽。" },
+        { "tag": "採購", "en": "The store sells helmets in many sizes and colors.", "zh": "這家店販售多種尺寸與顏色的安全帽。" }
+      ],
+      "similar": [
+        {
+          "word": "hard hat",
+          "diff": "hard hat 是工地用的硬質安全帽；helmet 範圍較廣，也包含騎車用的頭盔。",
+          "example": { "en": "Visitors must wear a hard hat inside the plant.", "zh": "訪客在廠區內必須戴安全帽。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "safety",
+          "ipa": "/ˈseɪfti/",
+          "pos": "n.",
+          "zh": "安全",
+          "example": { "en": "Safety training is required for all new staff.", "zh": "所有新進員工都必須接受安全訓練。" }
+        },
+        {
+          "w": "uniform",
+          "ipa": "/ˈjuːnɪfɔːrm/",
+          "pos": "n.",
+          "zh": "制服",
+          "example": { "en": "Staff must wear a clean uniform at work.", "zh": "員工上班時必須穿乾淨的制服。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "individually",
+      "type": "word",
+      "ipa": "/ˌɪndɪˈvɪdʒuəli/",
+      "pos": "adv.",
+      "zh": "個別地、單獨地",
+      "en": "one by one, not as a group",
+      "note": "多益常見於商品包裝、銷售方式與人事面談的情境，強調「一個一個分開處理」，而不是整批或一起。",
+      "grammar_note": "individually 是副詞，常放在過去分詞前（individually wrapped）或動詞後（treated individually）；形容詞是 individual（an individual order）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "sold individually",
+          "zh": "單獨販售",
+          "example": { "en": "Accessories are sold individually and not included in the set.", "zh": "配件為單獨販售，不包含在套組內。" }
+        },
+        {
+          "phrase": "individually wrapped",
+          "zh": "獨立包裝的",
+          "example": { "en": "Each cookie is individually wrapped for easy sharing.", "zh": "每片餅乾都是獨立包裝，方便分享。" }
+        },
+        {
+          "phrase": "meet individually",
+          "zh": "個別面談",
+          "example": { "en": "The manager will meet each member individually next week.", "zh": "經理下週會和每位成員個別面談。" }
+        }
+      ],
+      "examples": [
+        { "tag": "出貨", "en": "Each item is individually packed to prevent damage.", "zh": "每件商品都單獨包裝，以避免損壞。" },
+        { "tag": "管理", "en": "The manager talked to each employee individually about goals.", "zh": "經理就目標個別和每位員工談話。" },
+        { "tag": "銷售", "en": "These batteries can be bought individually or in packs.", "zh": "這些電池可以單買，也可以買整包。" }
+      ],
+      "confusable": [
+        {
+          "word": "personally",
+          "diff": "personally 是「親自、就個人而言」；individually 是「一個一個、各自分開」。",
+          "example": { "en": "The director personally thanked every member of the team.", "zh": "主任親自感謝了團隊的每一位成員。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "separately",
+          "diff": "separately 強調「分開處理、不放在一起」；individually 強調「逐一看待每一個」。",
+          "example": { "en": "Please pay the two invoices separately this month.", "zh": "這個月請分開支付這兩張發票。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "group",
+          "ipa": "/ɡruːp/",
+          "pos": "n.",
+          "zh": "團體、一組",
+          "example": { "en": "The group will visit the factory on Friday.", "zh": "這個團體週五會參觀工廠。" }
+        },
+        {
+          "w": "team",
+          "ipa": "/tiːm/",
+          "pos": "n.",
+          "zh": "團隊",
+          "example": { "en": "Our team finished the project ahead of schedule.", "zh": "我們的團隊提前完成了專案。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "individual",
+          "ipa": "/ˌɪndɪˈvɪdʒuəl/",
+          "pos": "adj.",
+          "zh": "個別的、單獨的",
+          "link": "最基礎的字，individual + -ly 變副詞，像 quick → quickly"
+        },
+        {
+          "w": "individuality",
+          "ipa": "/ˌɪndɪˌvɪdʒuˈæləti/",
+          "pos": "n.",
+          "zh": "個性、獨特性",
+          "link": "individual + -ity，變成名詞，像 able → ability"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "inflate",
+      "type": "word",
+      "ipa": "/ɪnˈfleɪt/",
+      "pos": "v.",
+      "zh": "使膨脹、充氣；哄抬、誇大",
+      "en": "to fill something with air, or to make a number or price bigger",
+      "note": "多益常見於輪胎與氣球等充氣的情境，也常指價格、數字被人為抬高或誇大，帶有負面語氣。",
+      "grammar_note": "inflate 是及物動詞，後面要接受詞（inflate a tire）；說「價格被抬高」常用被動：Prices are inflated。通貨膨脹是名詞 inflation。",
+      "forms": [
+        {
+          "w": "inflates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "使膨脹、抬高",
+          "ipa": "/ɪnˈfleɪts/",
+          "example": { "en": "A weak currency often inflates the cost of imports.", "zh": "貨幣疲弱常會推高進口成本。" }
+        },
+        {
+          "w": "inflated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "使膨脹了、抬高了",
+          "ipa": "/ɪnˈfleɪtɪd/",
+          "example": { "en": "The company inflated its profits in the annual report.", "zh": "公司在年度報告中誇大了利潤。" }
+        },
+        {
+          "w": "inflated",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "過高的、膨脹的",
+          "ipa": "/ɪnˈfleɪtɪd/",
+          "example": { "en": "Inflated prices made customers buy fewer products last month.", "zh": "過高的價格讓顧客上個月買得比較少。" }
+        },
+        {
+          "w": "inflating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在使膨脹、抬高",
+          "ipa": "/ɪnˈfleɪtɪŋ/",
+          "example": { "en": "Rising fuel costs are inflating the price of goods.", "zh": "不斷上漲的燃料成本正在推高商品價格。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "inflate prices",
+          "zh": "哄抬價格",
+          "example": { "en": "Some stores inflate prices during the holiday season.", "zh": "有些商店在假期期間哄抬價格。" }
+        },
+        {
+          "phrase": "inflated costs",
+          "zh": "過高的成本",
+          "example": { "en": "We found inflated costs on the supplier's invoice.", "zh": "我們在供應商的發票上發現了過高的成本。" }
+        },
+        {
+          "phrase": "inflate a tire",
+          "zh": "幫輪胎充氣",
+          "example": { "en": "He stopped to inflate a tire on the delivery van.", "zh": "他停下來為送貨車的輪胎充氣。" }
+        }
+      ],
+      "examples": [
+        { "tag": "價格", "en": "The seller inflated the price to make more profit.", "zh": "賣家哄抬價格以賺取更多利潤。" },
+        { "tag": "車輛", "en": "Please inflate the tires before the long trip.", "zh": "長途旅行前請幫輪胎充氣。" },
+        { "tag": "報告", "en": "The report inflated sales figures to impress the investors.", "zh": "這份報告誇大了銷售數字以打動投資人。" }
+      ],
+      "confusable": [
+        {
+          "word": "influence",
+          "diff": "拼法很像，但 influence 是「影響」，inflate 是「使膨脹、抬高」。",
+          "usage": "influence 可當動詞或名詞（influence a decision、a strong influence），inflate 只當動詞。",
+          "example": { "en": "The price of oil can influence our shipping costs.", "zh": "油價可能影響我們的運輸成本。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "exaggerate",
+          "diff": "exaggerate 指把事情說得比實際更嚴重或更好；inflate 常指把數字或價格人為抬高。",
+          "example": { "en": "Do not exaggerate the benefits of the new product.", "zh": "不要誇大新產品的好處。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "raise",
+          "ipa": "/reɪz/",
+          "pos": "v.",
+          "zh": "提高、增加",
+          "example": { "en": "The company will raise its prices next month.", "zh": "公司下個月會調高價格。" }
+        },
+        {
+          "w": "exaggerate",
+          "ipa": "/ɪɡˈzædʒəreɪt/",
+          "pos": "v.",
+          "zh": "誇大",
+          "example": { "en": "The advertisement seems to exaggerate the size of the room.", "zh": "這則廣告似乎誇大了房間的大小。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "inflation",
+          "ipa": "/ɪnˈfleɪʃn/",
+          "pos": "n.",
+          "zh": "通貨膨脹",
+          "link": "inflate 去掉 e + -ion，把「膨脹」變成名詞，像 decorate → decoration"
+        },
+        {
+          "w": "inflatable",
+          "ipa": "/ɪnˈfleɪtəbl/",
+          "pos": "adj.",
+          "zh": "可充氣的",
+          "link": "inflate 去掉 e + -able，意思是「可以被充氣的」，像 comfortable"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "使膨脹、充氣",
+          "en": "to fill something with air or gas",
+          "example": { "en": "Staff will inflate the balloons before the guests arrive.", "zh": "員工會在賓客抵達前把氣球充好氣。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "哄抬、誇大（價格、數字）",
+          "en": "to make a price or number higher than it should be",
+          "distinguish": "受詞是 price、cost、figures 等數字相關的詞時，指的是人為抬高或誇大。",
+          "example": { "en": "Some suppliers inflate their prices when demand is high.", "zh": "有些供應商在需求高的時候會哄抬價格。" }
+        }
+      ]
+    }
+  ]
+}

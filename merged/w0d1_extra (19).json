@@ -1,0 +1,929 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "violation",
+      "type": "word",
+      "ipa": "/ˌvaɪəˈleɪʃən/",
+      "pos": "n.",
+      "zh": "違反；違規",
+      "en": "an act that breaks a rule, a law, or an agreement",
+      "note": "violation 指違反規定、法律或合約的行為，多益常見於交通違規、安全規定、公司政策與合約的公告或信件，語氣正式。",
+      "grammar_note": "「違反某規定」用 violation of + 規定，介系詞用 of，不是 to；in violation of 表示「違反了…」。",
+      "forms": [
+        {
+          "w": "violations",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "違規（複數）",
+          "ipa": "/ˌvaɪəˈleɪʃənz/",
+          "example": {
+            "en": "The inspector found three violations during the factory visit.",
+            "zh": "檢查員在參觀工廠時發現了三項違規。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "traffic violation",
+          "zh": "交通違規",
+          "example": {
+            "en": "He paid a fine for a traffic violation yesterday.",
+            "zh": "他昨天為了一項交通違規繳了罰款。"
+          }
+        },
+        {
+          "phrase": "in violation of",
+          "zh": "違反（規定）",
+          "example": {
+            "en": "Working without a helmet is in violation of company rules.",
+            "zh": "沒戴安全帽工作違反公司規定。"
+          }
+        },
+        {
+          "phrase": "safety violation",
+          "zh": "安全違規",
+          "example": {
+            "en": "The plant was closed after a serious safety violation.",
+            "zh": "這間工廠在發生嚴重的安全違規後被關閉了。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "Any violation of this policy may lead to a penalty.",
+          "zh": "任何違反這項政策的行為都可能受到處罰。"
+        },
+        {
+          "tag": "合約",
+          "en": "The supplier is responsible for any violation of the contract.",
+          "zh": "供應商須為任何違反合約的行為負責。"
+        },
+        {
+          "tag": "資安",
+          "en": "Sharing your password is a clear violation of our security rules.",
+          "zh": "分享你的密碼明顯違反我們的資安規定。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "violence",
+          "diff": "violence 是暴力；violation 是違規，兩個字拼法相近但意思不同。",
+          "example": {
+            "en": "The company has a strict rule against violence at work.",
+            "zh": "公司嚴格禁止在工作場所使用暴力。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "breach",
+          "diff": "breach 常接 of contract、of security，語氣更正式；violation 也可指一般的違規。",
+          "example": {
+            "en": "The company reported a breach of its security system.",
+            "zh": "公司通報了一起資安系統遭突破的事件。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "penalty",
+          "ipa": "/ˈpenəlti/",
+          "pos": "n.",
+          "zh": "處罰；罰款",
+          "example": {
+            "en": "There is a penalty for late payment on every order.",
+            "zh": "逾期付款會被處罰。"
+          }
+        },
+        {
+          "w": "fine",
+          "ipa": "/faɪn/",
+          "pos": "n.",
+          "zh": "罰款",
+          "example": {
+            "en": "The company paid a large fine last year.",
+            "zh": "這間公司去年繳了一筆很大的罰款。"
+          }
+        },
+        {
+          "w": "regulation",
+          "ipa": "/ˌreɡjəˈleɪʃən/",
+          "pos": "n.",
+          "zh": "規定",
+          "example": {
+            "en": "New safety regulations for all factory workers start next month.",
+            "zh": "新的安全規定下個月開始實施。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "violate",
+          "ipa": "/ˈvaɪəleɪt/",
+          "pos": "v.",
+          "zh": "違反",
+          "link": "最基礎的動詞，意思是違反規定、法律"
+        },
+        {
+          "w": "violator",
+          "ipa": "/ˈvaɪəleɪtɚ/",
+          "pos": "n.",
+          "zh": "違規者",
+          "link": "violate + -or，做事的人，像 actor、visitor"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "違規行為",
+          "en": "an act that breaks a rule or a law",
+          "example": {
+            "en": "The driver received a ticket for a parking violation.",
+            "zh": "這位駕駛因為違規停車收到了罰單。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "侵犯（權利、隱私）",
+          "en": "an act that harms a person's rights",
+          "distinguish": "後面接 privacy、rights 等字時，指權利被侵犯。",
+          "example": {
+            "en": "Reading private emails is a violation of employee privacy.",
+            "zh": "讀取私人電子郵件是侵犯員工隱私。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "vend",
+      "type": "word",
+      "ipa": "/vend/",
+      "pos": "v.",
+      "zh": "販賣（尤指用販賣機或在街頭）",
+      "en": "to sell things, often from a machine or on the street",
+      "note": "vend 本身不常單獨使用，多益主要出現在 vending machine（自動販賣機）和 vendor（小販、供應商）。一般說「賣」多用 sell。",
+      "grammar_note": "自動販賣機是 vending machine，用 vending（V-ing 當形容詞），不是 vend machine。",
+      "forms": [
+        {
+          "w": "vends",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "販賣",
+          "ipa": "/vendz/",
+          "example": {
+            "en": "This machine vends hot coffee and cold drinks all day.",
+            "zh": "這台機器全天販售熱咖啡和冷飲。"
+          }
+        },
+        {
+          "w": "vended",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "販賣了",
+          "ipa": "/ˈvendɪd/",
+          "example": {
+            "en": "The company vended snacks in the lobby for two years.",
+            "zh": "這家公司在大廳販售點心有兩年了。"
+          }
+        },
+        {
+          "w": "vending",
+          "label": "現在分詞／動名詞",
+          "pos": "v.",
+          "zh": "販賣中；販賣",
+          "ipa": "/ˈvendɪŋ/",
+          "example": {
+            "en": "Street vending is not allowed near the train station.",
+            "zh": "火車站附近不准在街頭擺攤販賣。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "vending machine",
+          "zh": "自動販賣機",
+          "example": {
+            "en": "The vending machine is next to the break room.",
+            "zh": "自動販賣機就在休息室旁邊。"
+          }
+        },
+        {
+          "phrase": "vending area",
+          "zh": "自動販賣區",
+          "example": {
+            "en": "Please keep the vending area clean after lunch.",
+            "zh": "午餐後請保持自動販賣區的整潔。"
+          }
+        },
+        {
+          "phrase": "vending company",
+          "zh": "自動販賣機業者",
+          "example": {
+            "en": "A vending company fills the machines every Monday morning.",
+            "zh": "自動販賣機業者每週一早上會補貨。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "辦公室",
+          "en": "Our building will vend drinks on the first floor.",
+          "zh": "我們的大樓會在一樓販售飲料。"
+        },
+        {
+          "tag": "街頭",
+          "en": "Some small shops vend fruit and flowers near the market.",
+          "zh": "市場附近有些小店販售水果和花。"
+        },
+        {
+          "tag": "活動",
+          "en": "The festival lets local farmers vend their products for free.",
+          "zh": "這個節慶讓當地農民免費販售他們的產品。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "vent",
+          "diff": "vent 是通風口，拼法只差一個字母，意思與販賣無關。",
+          "example": {
+            "en": "Please do not block the vent in the server room.",
+            "zh": "請不要擋住機房裡的通風口。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "sell",
+          "diff": "sell 是一般用語，什麼場合都能用；vend 多指用販賣機或在街頭賣，較少單獨使用。",
+          "example": {
+            "en": "We sell office supplies to schools and small businesses.",
+            "zh": "我們把辦公用品賣給學校和小型企業。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "sell",
+          "ipa": "/sel/",
+          "pos": "v.",
+          "zh": "賣",
+          "example": {
+            "en": "They plan to sell the old building next year.",
+            "zh": "他們打算明年賣掉這棟舊大樓。"
+          }
+        },
+        {
+          "w": "retail",
+          "ipa": "/ˈriːteɪl/",
+          "pos": "n.",
+          "zh": "零售",
+          "example": {
+            "en": "She works in retail and meets many customers.",
+            "zh": "她在零售業工作，會接觸許多客人。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "vendor",
+          "ipa": "/ˈvendɚ/",
+          "pos": "n.",
+          "zh": "小販；供應商",
+          "link": "vend + -or，做事的人，像 actor、visitor，指賣東西的人或公司"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "violin",
+      "type": "word",
+      "ipa": "/ˌvaɪəˈlɪn/",
+      "pos": "n.",
+      "zh": "小提琴",
+      "en": "a musical instrument with four strings that you play with a bow",
+      "note": "violin 是小提琴，多益常見於音樂會、課程招生、餐廳或活動的公告，也常和 piano、concert 等字一起出現。",
+      "grammar_note": "演奏樂器要加 the：play the violin；球類運動則不加 the，兩者不要搞混。",
+      "forms": [
+        {
+          "w": "violins",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "小提琴（複數）",
+          "ipa": "/ˌvaɪəˈlɪnz/",
+          "example": {
+            "en": "The orchestra bought three new violins for its young players.",
+            "zh": "管弦樂團為年輕的團員買了三把新的小提琴。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "play the violin",
+          "zh": "拉小提琴",
+          "example": {
+            "en": "My manager plays the violin in a small band.",
+            "zh": "我的經理在一個小樂團裡拉小提琴。"
+          }
+        },
+        {
+          "phrase": "violin lesson",
+          "zh": "小提琴課",
+          "example": {
+            "en": "She takes a violin lesson every Saturday afternoon.",
+            "zh": "她每個星期六下午上一堂小提琴課。"
+          }
+        },
+        {
+          "phrase": "violin concert",
+          "zh": "小提琴演奏會",
+          "example": {
+            "en": "Tickets for the violin concert go on sale tomorrow.",
+            "zh": "小提琴演奏會的票明天開始發售。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "音樂會",
+          "en": "The famous violin player will perform at the city hall.",
+          "zh": "這位有名的小提琴家將在市政廳演出。"
+        },
+        {
+          "tag": "餐廳",
+          "en": "A violin plays softly while guests enjoy their dinner.",
+          "zh": "客人用餐時，小提琴聲輕輕地響著。"
+        },
+        {
+          "tag": "招生",
+          "en": "Our music school offers classes in violin and piano for children.",
+          "zh": "我們的音樂學校為兒童開設小提琴和鋼琴課程。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "viola",
+          "diff": "viola 是中提琴，比 violin 稍大，聲音較低沉。",
+          "example": {
+            "en": "The viola player joined the orchestra last spring.",
+            "zh": "這位中提琴手去年春天加入了管弦樂團。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "piano",
+          "ipa": "/piˈænoʊ/",
+          "pos": "n.",
+          "zh": "鋼琴",
+          "example": {
+            "en": "There is a piano in the hotel lobby.",
+            "zh": "飯店大廳裡有一架鋼琴。"
+          }
+        },
+        {
+          "w": "guitar",
+          "ipa": "/ɡɪˈtɑːr/",
+          "pos": "n.",
+          "zh": "吉他",
+          "example": {
+            "en": "He plays the guitar at the company party.",
+            "zh": "他在公司的派對上彈吉他。"
+          }
+        },
+        {
+          "w": "orchestra",
+          "ipa": "/ˈɔːrkɪstrə/",
+          "pos": "n.",
+          "zh": "管弦樂團",
+          "example": {
+            "en": "The orchestra will give a concert next Friday.",
+            "zh": "管弦樂團下週五會舉辦一場音樂會。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "violinist",
+          "ipa": "/ˌvaɪəˈlɪnɪst/",
+          "pos": "n.",
+          "zh": "小提琴家",
+          "link": "violin + -ist，演奏或從事某事的人，像 pianist、artist"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "volleyball",
+      "type": "word",
+      "ipa": "/ˈvɑːlibɔːl/",
+      "pos": "n.",
+      "zh": "排球",
+      "en": "a team sport in which players hit a ball over a net with their hands",
+      "note": "volleyball 是排球，多益常見於公司活動、社團、學校課程與運動中心的公告，常搭配 play、team、court 等字。",
+      "grammar_note": "球類運動前不加 the：play volleyball；樂器才說 play the violin。",
+      "forms": [
+        {
+          "w": "volleyballs",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "排球（球，複數）",
+          "ipa": "/ˈvɑːlibɔːlz/",
+          "example": {
+            "en": "The gym bought six new volleyballs for the summer program.",
+            "zh": "體育館為暑期課程買了六顆新排球。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "play volleyball",
+          "zh": "打排球",
+          "example": {
+            "en": "Our staff play volleyball together every Friday after work.",
+            "zh": "我們的員工每週五下班後會一起打排球。"
+          }
+        },
+        {
+          "phrase": "volleyball team",
+          "zh": "排球隊",
+          "example": {
+            "en": "The school volleyball team won the city contest.",
+            "zh": "學校排球隊贏得了全市比賽。"
+          }
+        },
+        {
+          "phrase": "volleyball court",
+          "zh": "排球場",
+          "example": {
+            "en": "The new volleyball court opens at the sports center today.",
+            "zh": "新的排球場今天在運動中心開放。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公司活動",
+          "en": "The company will hold a volleyball game for all employees.",
+          "zh": "公司將為全體員工舉辦一場排球比賽。"
+        },
+        {
+          "tag": "社團",
+          "en": "Join our volleyball club and make friends after work.",
+          "zh": "加入我們的排球社，下班後交朋友。"
+        },
+        {
+          "tag": "運動中心",
+          "en": "Beginners can take a volleyball class on Tuesday evenings.",
+          "zh": "初學者可以參加週二晚上的排球課。"
+        }
+      ],
+      "family": [
+        {
+          "w": "basketball",
+          "ipa": "/ˈbæskɪtbɔːl/",
+          "pos": "n.",
+          "zh": "籃球",
+          "example": {
+            "en": "We watched a basketball game after the meeting.",
+            "zh": "我們在會議結束後看了一場籃球賽。"
+          }
+        },
+        {
+          "w": "tennis",
+          "ipa": "/ˈtenɪs/",
+          "pos": "n.",
+          "zh": "網球",
+          "example": {
+            "en": "The hotel has a tennis court for guests.",
+            "zh": "這間飯店有提供給住客的網球場。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "排球（運動）",
+          "en": "a sport played by two teams with a net",
+          "example": {
+            "en": "Volleyball is popular among the young staff at our office.",
+            "zh": "排球在我們辦公室的年輕員工之間很受歡迎。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "排球（球）",
+          "en": "the ball used in the sport of volleyball",
+          "distinguish": "前面有 a、the 或數字，或接 buy、pump 等動作時，指球本身。",
+          "example": {
+            "en": "Please put the volleyball back in the storage room.",
+            "zh": "請把排球放回儲藏室。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "vanilla",
+      "type": "word",
+      "ipa": "/vəˈnɪlə/",
+      "pos": "n.",
+      "zh": "香草",
+      "en": "a sweet flavor used in ice cream, cakes, and drinks",
+      "note": "vanilla 是香草，多益常見於餐廳菜單、咖啡店與烘焙食品的介紹，常見於 vanilla ice cream、vanilla latte。",
+      "grammar_note": "vanilla 當「香草」時不可數，不加 s；用來修飾別的名詞時當形容詞，不用改形，如 vanilla cake。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "vanilla ice cream",
+          "zh": "香草冰淇淋",
+          "example": {
+            "en": "The café serves apple pie with vanilla ice cream.",
+            "zh": "這間咖啡店的蘋果派附香草冰淇淋。"
+          }
+        },
+        {
+          "phrase": "vanilla extract",
+          "zh": "香草精",
+          "example": {
+            "en": "Add one teaspoon of vanilla extract to the mixture.",
+            "zh": "請在混合物裡加入一茶匙香草精。"
+          }
+        },
+        {
+          "phrase": "vanilla latte",
+          "zh": "香草拿鐵",
+          "example": {
+            "en": "I would like a vanilla latte with less sugar, please.",
+            "zh": "我想要一杯少糖的香草拿鐵。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "菜單",
+          "en": "Our most popular flavor is vanilla, followed by chocolate.",
+          "zh": "我們最受歡迎的口味是香草，其次是巧克力。"
+        },
+        {
+          "tag": "烘焙",
+          "en": "The cake has a light vanilla taste and a soft texture.",
+          "zh": "這款蛋糕有淡淡的香草味和柔軟的口感。"
+        },
+        {
+          "tag": "採購",
+          "en": "We ordered ten boxes of vanilla cookies for the event.",
+          "zh": "我們為活動訂了十盒香草餅乾。"
+        }
+      ],
+      "family": [
+        {
+          "w": "chocolate",
+          "ipa": "/ˈtʃɔːklət/",
+          "pos": "n.",
+          "zh": "巧克力",
+          "example": {
+            "en": "Customers can add chocolate to their coffee for free.",
+            "zh": "顧客可以免費在咖啡中加巧克力。"
+          }
+        },
+        {
+          "w": "strawberry",
+          "ipa": "/ˈstrɔːberi/",
+          "pos": "n.",
+          "zh": "草莓",
+          "example": {
+            "en": "The shop sells fresh strawberry cake on weekends.",
+            "zh": "這家店週末販售新鮮的草莓蛋糕。"
+          }
+        },
+        {
+          "w": "flavor",
+          "ipa": "/ˈfleɪvɚ/",
+          "pos": "n.",
+          "zh": "口味",
+          "example": {
+            "en": "We will launch a new flavor next month.",
+            "zh": "我們下個月會推出新的口味。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/vəˈnɪlə/",
+          "zh": "香草",
+          "example": {
+            "en": "This dessert is made with real vanilla from Madagascar.",
+            "zh": "這道甜點是用來自馬達加斯加的真香草製成。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/vəˈnɪlə/",
+          "zh": "香草口味的",
+          "example": {
+            "en": "Please order two vanilla cakes for tomorrow's meeting.",
+            "zh": "請為明天的會議訂兩個香草蛋糕。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "violate",
+      "type": "word",
+      "ipa": "/ˈvaɪəleɪt/",
+      "pos": "v.",
+      "zh": "違反；侵犯",
+      "en": "to break a rule, a law, or an agreement",
+      "note": "violate 是正式用字，指違反規定、法律、合約，多益常見於公司政策、安全規定與合約條款的情境。",
+      "grammar_note": "violate 是及物動詞，後面直接接規定或法律，不加 against：violate a rule。",
+      "forms": [
+        {
+          "w": "violates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "違反",
+          "ipa": "/ˈvaɪəleɪts/",
+          "example": {
+            "en": "Any action that violates the law will be reported.",
+            "zh": "任何違反法律的行為都會被通報。"
+          }
+        },
+        {
+          "w": "violated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "違反了",
+          "ipa": "/ˈvaɪəleɪtɪd/",
+          "example": {
+            "en": "The supplier violated several terms of the agreement last year.",
+            "zh": "這位供應商去年違反了合約中的好幾項條款。"
+          }
+        },
+        {
+          "w": "violating",
+          "label": "現在分詞／動名詞",
+          "pos": "v.",
+          "zh": "正在違反；違反",
+          "ipa": "/ˈvaɪəleɪtɪŋ/",
+          "example": {
+            "en": "Employees violating the dress code will receive a warning.",
+            "zh": "違反服裝規定的員工會收到警告。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "violate a rule",
+          "zh": "違反規定",
+          "example": {
+            "en": "Do not violate a rule that protects customer data.",
+            "zh": "不要違反保護客戶資料的規定。"
+          }
+        },
+        {
+          "phrase": "violate the law",
+          "zh": "違法",
+          "example": {
+            "en": "The company was fined for violating the law on safety.",
+            "zh": "這間公司因違反安全相關法律而被罰款。"
+          }
+        },
+        {
+          "phrase": "violate a contract",
+          "zh": "違反合約",
+          "example": {
+            "en": "Paying late may violate a contract with our partner.",
+            "zh": "延遲付款可能違反我們與合作夥伴的合約。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "Employees who violate this policy may lose their jobs.",
+          "zh": "違反這項政策的員工可能會失去工作。"
+        },
+        {
+          "tag": "資安",
+          "en": "Sharing client files with outsiders violates our security rules.",
+          "zh": "把客戶檔案分享給外人違反我們的資安規定。"
+        },
+        {
+          "tag": "隱私",
+          "en": "The app was accused of violating users' privacy.",
+          "zh": "這款應用程式被指控侵犯使用者的隱私。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "violent",
+          "diff": "violent 是形容詞「暴力的」；violate 是動詞「違反」，拼法相近。",
+          "usage": "violent 是形容詞，後面接名詞；violate 是動詞，後面接規定或法律。",
+          "example": {
+            "en": "The company does not allow violent behavior in the workplace.",
+            "zh": "公司不允許在職場有暴力行為。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "break",
+          "diff": "break 是口語常用字，如 break a rule；violate 較正式，常見於公告與法律文件。",
+          "example": {
+            "en": "Please do not break the safety rules in the lab.",
+            "zh": "請不要違反實驗室裡的安全規定。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "policy",
+          "ipa": "/ˈpɑːləsi/",
+          "pos": "n.",
+          "zh": "政策；規定",
+          "example": {
+            "en": "The new policy starts on the first of June.",
+            "zh": "新政策從六月一日開始實施。"
+          }
+        },
+        {
+          "w": "regulation",
+          "ipa": "/ˌreɡjəˈleɪʃən/",
+          "pos": "n.",
+          "zh": "規定",
+          "example": {
+            "en": "Our products follow all safety regulations in the European market.",
+            "zh": "我們的產品遵守所有安全規定。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "violation",
+          "ipa": "/ˌvaɪəˈleɪʃən/",
+          "pos": "n.",
+          "zh": "違反；違規",
+          "link": "violate 去掉 e + -ion，把動作變名詞，像 reservation、education"
+        },
+        {
+          "w": "violator",
+          "ipa": "/ˈvaɪəleɪtɚ/",
+          "pos": "n.",
+          "zh": "違規者",
+          "link": "violate 去掉 e + -or，做事的人，像 actor、visitor"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "違反（規定、法律、合約）",
+          "en": "to break a rule, a law, or an agreement",
+          "example": {
+            "en": "Selling the product without a license violates the national law.",
+            "zh": "沒有執照就販售這項產品違反國家法律。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "侵犯（隱私、權利）",
+          "en": "to harm someone's rights or private life",
+          "distinguish": "受詞是 privacy、rights 這類字時，指侵犯。",
+          "example": {
+            "en": "Recording customers without asking violates their right to privacy.",
+            "zh": "未經詢問就錄下顧客，侵犯了他們的隱私權。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "videoconference",
+      "type": "word",
+      "ipa": "/ˈvɪdioʊˌkɑːnfrəns/",
+      "pos": "n.",
+      "zh": "視訊會議",
+      "en": "a meeting where people in different places see and talk to each other on screens",
+      "note": "videoconference 是視訊會議，多益常見於跨國會議、遠距工作與會議通知，常搭配 hold、join、schedule 等動詞。",
+      "grammar_note": "介系詞用 by 或 via：by videoconference（以視訊會議方式），前面不加冠詞。",
+      "forms": [
+        {
+          "w": "videoconferences",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "視訊會議（複數）",
+          "ipa": "/ˈvɪdioʊˌkɑːnfrənsɪz/",
+          "example": {
+            "en": "We hold two videoconferences each week with our overseas office.",
+            "zh": "我們每週與海外辦公室召開兩次視訊會議。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "hold a videoconference",
+          "zh": "召開視訊會議",
+          "example": {
+            "en": "We will hold a videoconference with the Tokyo team on Monday.",
+            "zh": "我們週一會與東京團隊召開視訊會議。"
+          }
+        },
+        {
+          "phrase": "join a videoconference",
+          "zh": "加入視訊會議",
+          "example": {
+            "en": "Please join the videoconference five minutes before it starts.",
+            "zh": "請在視訊會議開始前五分鐘加入。"
+          }
+        },
+        {
+          "phrase": "by videoconference",
+          "zh": "以視訊會議方式",
+          "example": {
+            "en": "The interview will be conducted by videoconference this Thursday.",
+            "zh": "這次面試將於本週四以視訊會議方式進行。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議通知",
+          "en": "The videoconference link will be sent to you by email.",
+          "zh": "視訊會議的連結會用電子郵件寄給你。"
+        },
+        {
+          "tag": "遠距工作",
+          "en": "A videoconference saves time because nobody has to travel.",
+          "zh": "視訊會議能節省時間，因為沒有人需要出差。"
+        },
+        {
+          "tag": "技術問題",
+          "en": "The sound was poor, so we ended the videoconference early.",
+          "zh": "聲音很差，所以我們提早結束了視訊會議。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "teleconference",
+          "diff": "teleconference 是遠距會議，不一定有畫面，常指電話會議；videoconference 一定有視訊畫面。",
+          "example": {
+            "en": "We held a teleconference by phone because the network was down.",
+            "zh": "網路中斷，所以我們用電話開了遠距會議。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "video call",
+          "diff": "video call 較口語，常指一對一或小組通話；videoconference 較正式，多用於正式會議。",
+          "example": {
+            "en": "I will make a video call to my client tonight.",
+            "zh": "我今晚會跟客戶視訊通話。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "meeting",
+          "ipa": "/ˈmiːtɪŋ/",
+          "pos": "n.",
+          "zh": "會議",
+          "example": {
+            "en": "The meeting starts at ten in the main office.",
+            "zh": "會議在十點於總公司開始。"
+          }
+        },
+        {
+          "w": "conference",
+          "ipa": "/ˈkɑːnfrəns/",
+          "pos": "n.",
+          "zh": "大型會議",
+          "example": {
+            "en": "She will speak at the sales conference next week.",
+            "zh": "她下週會在銷售大會上發言。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "videoconferencing",
+          "ipa": "/ˌvɪdioʊˈkɑːnfrənsɪŋ/",
+          "pos": "n.",
+          "zh": "視訊會議（技術或作業）",
+          "link": "videoconference + -ing，把「開視訊會議」這件事變成名詞"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

@@ -1,0 +1,704 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "sender",
+      "type": "word",
+      "ipa": "/ˈsendɚ/",
+      "pos": "n.",
+      "zh": "寄件者、發送者",
+      "en": "a person or company that sends something",
+      "note": "多益常見於電子郵件、包裹與付款情境，指寄出信件、包裹或訊息的一方，相對於 receiver（收件者）。常看到 sender's address、unknown sender 這類用法。",
+      "forms": [
+        {
+          "w": "senders",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "寄件者（複數）",
+          "ipa": "/ˈsendɚz/",
+          "example": { "en": "Our system blocks emails from unknown senders every day.", "zh": "我們的系統每天都會擋掉不明寄件者的電子郵件。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "sender's address",
+          "zh": "寄件人地址",
+          "example": { "en": "Write the sender's address in the top left corner.", "zh": "請把寄件人地址寫在左上角。" }
+        },
+        {
+          "phrase": "unknown sender",
+          "zh": "不明寄件者",
+          "example": { "en": "Do not reply to messages from an unknown sender.", "zh": "請不要回覆來自不明寄件者的訊息。" }
+        }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Please check the sender before you open any attachment.", "zh": "打開任何附件之前，請先確認寄件者。" },
+        { "tag": "郵寄", "en": "The sender must write a return address on the package.", "zh": "寄件者必須在包裹上寫明退回地址。" },
+        { "tag": "付款", "en": "The bank will send a receipt to the sender of the payment.", "zh": "銀行會把收據寄給這筆款項的匯款人。" },
+        { "tag": "客服", "en": "The sender of this complaint wants a reply by Friday.", "zh": "這封客訴的寄件者希望在星期五之前得到回覆。" }
+      ],
+      "family": [
+        {
+          "w": "receiver",
+          "pos": "n.",
+          "zh": "收件者、接收者",
+          "ipa": "/rɪˈsiːvɚ/",
+          "example": { "en": "The receiver signed for the package at the front desk.", "zh": "收件者在櫃檯簽收了包裹。" }
+        },
+        {
+          "w": "recipient",
+          "pos": "n.",
+          "zh": "收件人、接受者",
+          "ipa": "/rɪˈsɪpiənt/",
+          "example": { "en": "Each recipient will get a copy of the report.", "zh": "每位收件人都會拿到一份報告。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "send",
+          "ipa": "/send/",
+          "pos": "v.",
+          "zh": "寄、送、發送",
+          "link": "send + -er，做「寄」這個動作的人，像 teacher、worker"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "scholarship",
+      "type": "word",
+      "ipa": "/ˈskɑːlɚʃɪp/",
+      "pos": "n.",
+      "zh": "獎學金",
+      "en": "money given to a student to help pay for school",
+      "note": "多益常見於教育、公司贊助與徵才公告，指提供給學生的獎學金。常和 apply for、award、receive 搭配。",
+      "grammar_note": "scholarship 是可數名詞，可說 a scholarship；apply for a scholarship 的 for 不能省略。",
+      "forms": [
+        {
+          "w": "scholarships",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "獎學金（複數）",
+          "ipa": "/ˈskɑːlɚʃɪps/",
+          "example": { "en": "The company offers three scholarships to local students each year.", "zh": "這家公司每年提供三個獎學金給當地學生。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "apply for a scholarship",
+          "zh": "申請獎學金",
+          "example": { "en": "She plans to apply for a scholarship next month.", "zh": "她打算下個月申請獎學金。" }
+        },
+        {
+          "phrase": "win a scholarship",
+          "zh": "獲得獎學金",
+          "example": { "en": "He won a scholarship to study business abroad.", "zh": "他獲得獎學金，可以出國學商業。" }
+        },
+        {
+          "phrase": "scholarship program",
+          "zh": "獎學金計畫",
+          "example": { "en": "The scholarship program helps students pay for college.", "zh": "這個獎學金計畫幫助學生支付大學費用。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "The foundation will announce the scholarship winners next Monday.", "zh": "基金會將在下週一公布獎學金得主。" },
+        { "tag": "申請", "en": "You must send your scholarship form by the end of May.", "zh": "你必須在五月底前寄出獎學金申請表。" },
+        { "tag": "公司贊助", "en": "Our firm created a scholarship for engineering students.", "zh": "我們公司為工程系學生設立了一項獎學金。" }
+      ],
+      "confusable": [
+        {
+          "word": "scholar",
+          "diff": "scholar 是「學者」，指人；scholarship 才是「獎學金」。",
+          "example": { "en": "The scholar gave a talk about global trade at the seminar.", "zh": "這位學者在研討會上發表了關於全球貿易的演講。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "grant",
+          "diff": "grant 是「補助金」，可給研究或計畫，不限於學生；scholarship 專指給學生的錢。",
+          "example": { "en": "The university received a grant to build a new lab.", "zh": "這所大學獲得一筆補助金來興建新實驗室。" }
+        },
+        {
+          "phrase": "financial aid",
+          "diff": "financial aid 泛指學費補助，包含獎學金與貸款；scholarship 不用還錢。",
+          "example": { "en": "Many students need financial aid to pay for school.", "zh": "許多學生需要經濟補助才付得起學費。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "tuition",
+          "pos": "n.",
+          "zh": "學費",
+          "ipa": "/tuˈɪʃn/",
+          "example": { "en": "The tuition at this school rises every year.", "zh": "這所學校的學費每年都在上漲。" }
+        },
+        {
+          "w": "degree",
+          "pos": "n.",
+          "zh": "學位",
+          "ipa": "/dɪˈɡriː/",
+          "example": { "en": "She earned her degree in accounting last year.", "zh": "她去年取得了會計學位。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "scholar",
+          "ipa": "/ˈskɑːlɚ/",
+          "pos": "n.",
+          "zh": "學者",
+          "link": "scholarship 去掉 -ship 就是 scholar（學者）；-ship 像 friendship，表示狀態或資助"
+        },
+        {
+          "w": "scholarly",
+          "ipa": "/ˈskɑːlɚli/",
+          "pos": "adj.",
+          "zh": "學術的、學者風格的",
+          "link": "scholar + -ly，像學者的，就像 friendly 是像朋友的"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "seeker",
+      "type": "word",
+      "ipa": "/ˈsiːkɚ/",
+      "pos": "n.",
+      "zh": "尋找者、追求者",
+      "en": "a person who is looking for something",
+      "note": "多益最常見的是 job seeker（求職者），出現在徵才廣告、人力銀行與職涯講座。seeker 就是「尋找某樣東西的人」。",
+      "forms": [
+        {
+          "w": "seekers",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "尋找者（複數）",
+          "ipa": "/ˈsiːkɚz/",
+          "example": { "en": "Job seekers can upload their resumes on our website.", "zh": "求職者可以在我們的網站上傳履歷。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "job seeker",
+          "zh": "求職者",
+          "example": { "en": "Each job seeker will meet an adviser for ten minutes.", "zh": "每位求職者都會和顧問面談十分鐘。" }
+        },
+        {
+          "phrase": "bargain seeker",
+          "zh": "愛找便宜貨的人",
+          "example": { "en": "A bargain seeker will love this week's sale prices.", "zh": "愛找便宜貨的人會喜歡本週的特價。" }
+        }
+      ],
+      "examples": [
+        { "tag": "求職", "en": "As a job seeker, you should update your resume often.", "zh": "身為求職者，你應該經常更新履歷。" },
+        { "tag": "就業講座", "en": "The workshop teaches job seekers how to write a cover letter.", "zh": "這場工作坊教求職者如何寫求職信。" },
+        { "tag": "旅遊", "en": "The new travel package is perfect for adventure seekers on a budget.", "zh": "這個新的旅遊方案很適合預算有限的冒險愛好者。" }
+      ],
+      "similar": [
+        {
+          "word": "applicant",
+          "diff": "applicant 是已經正式提出申請的人，比 seeker 更具體、更正式。",
+          "example": { "en": "Each applicant must send a resume and two references.", "zh": "每位應徵者都必須寄出履歷和兩封推薦信。" }
+        },
+        {
+          "word": "candidate",
+          "diff": "candidate 是被考慮錄取的人，多用在面試或選拔階段。",
+          "example": { "en": "The company will interview five candidates on Tuesday.", "zh": "公司星期二會面試五位候選人。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "employer",
+          "pos": "n.",
+          "zh": "雇主",
+          "ipa": "/ɪmˈplɔɪɚ/",
+          "example": { "en": "The employer posted three new jobs on the website.", "zh": "雇主在網站上張貼了三個新職缺。" }
+        },
+        {
+          "w": "resume",
+          "pos": "n.",
+          "zh": "履歷",
+          "ipa": "/ˈrezəmeɪ/",
+          "example": { "en": "Please attach your resume to the email.", "zh": "請把你的履歷附在電子郵件裡。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "seek",
+          "ipa": "/siːk/",
+          "pos": "v.",
+          "zh": "尋找、尋求",
+          "link": "seek + -er，尋找的人，像 teacher、worker"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "strictly",
+      "type": "word",
+      "ipa": "/ˈstrɪktli/",
+      "pos": "adv.",
+      "zh": "嚴格地、完全地",
+      "en": "in a way that follows rules exactly",
+      "note": "多益常見於公告、規定與合約，例如 strictly prohibited（嚴禁）、strictly confidential（絕對機密）。語氣正式、態度堅定。",
+      "grammar_note": "strictly 是副詞，放在動詞或過去分詞前（strictly prohibited、strictly follow）；strict 是形容詞，修飾名詞（strict rules）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "strictly prohibited",
+          "zh": "嚴格禁止",
+          "example": { "en": "Smoking is strictly prohibited anywhere inside the factory building.", "zh": "工廠大樓內任何地方都嚴禁吸菸。" }
+        },
+        {
+          "phrase": "strictly confidential",
+          "zh": "絕對機密",
+          "example": { "en": "All employee records must be kept strictly confidential.", "zh": "所有員工資料都必須嚴格保密。" }
+        },
+        {
+          "phrase": "strictly follow",
+          "zh": "嚴格遵守",
+          "example": { "en": "Staff must strictly follow the safety rules at all times.", "zh": "員工必須隨時嚴格遵守安全規定。" }
+        },
+        {
+          "phrase": "strictly speaking",
+          "zh": "嚴格來說",
+          "example": { "en": "Strictly speaking, this report is not due until next week.", "zh": "嚴格來說，這份報告到下週才需要交。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公司規定", "en": "Our company strictly limits the use of personal phones.", "zh": "我們公司嚴格限制使用私人手機。" },
+        { "tag": "會議", "en": "This meeting is strictly for managers, so please do not attend.", "zh": "這場會議僅限經理參加，所以請不要出席。" },
+        { "tag": "公告", "en": "Parking here is strictly reserved for our customers.", "zh": "這裡的停車位僅供我們的顧客使用。" }
+      ],
+      "confusable": [
+        {
+          "word": "strict",
+          "diff": "strict 是形容詞（嚴格的），strictly 是副詞（嚴格地）。",
+          "usage": "strict 修飾名詞，如 strict rules；strictly 修飾動詞或形容詞，如 strictly forbidden。",
+          "example": { "en": "The company has strict rules about using email at work.", "zh": "公司對工作時使用電子郵件有嚴格的規定。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "firmly",
+          "diff": "firmly 強調態度堅定、不退讓；strictly 強調照規則、不放鬆。",
+          "example": { "en": "The manager firmly refused to change the schedule.", "zh": "經理堅決拒絕更改時程。" }
+        },
+        {
+          "word": "only",
+          "diff": "only 單純表示「只有」，沒有規則或禁止的意味。",
+          "example": { "en": "Only members can use the meeting room on Fridays.", "zh": "星期五只有會員可以使用會議室。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "strict",
+          "ipa": "/strɪkt/",
+          "pos": "adj.",
+          "zh": "嚴格的",
+          "link": "strict + -ly，變成副詞，像 quickly、carefully"
+        },
+        {
+          "w": "strictness",
+          "ipa": "/ˈstrɪktnəs/",
+          "pos": "n.",
+          "zh": "嚴格",
+          "link": "strict + -ness，變成名詞，像 kindness"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adv.",
+          "zh": "嚴格地",
+          "en": "in a way that follows rules exactly",
+          "example": { "en": "The factory strictly controls who enters the storage room.", "zh": "工廠嚴格管制誰能進入儲藏室。" }
+        },
+        {
+          "pos": "adv.",
+          "zh": "完全、僅僅",
+          "en": "only; for one purpose or one group",
+          "distinguish": "後面常接 for、on、business 這類限定詞，表示「只限於」，不是在講規則嚴不嚴。",
+          "example": { "en": "These tickets are strictly for employees and their families.", "zh": "這些票僅限員工及其家人使用。" }
+        }
+      ]
+    },
+    {
+      "text": "soap",
+      "type": "word",
+      "ipa": "/soʊp/",
+      "pos": "n.",
+      "zh": "肥皂",
+      "en": "a thing you use with water to wash your body or things",
+      "note": "多益常見於飯店、衛生間、採購與廣告情境，指肥皂或洗手乳。數量常用 a bar of soap 表示。",
+      "grammar_note": "soap 是不可數名詞，不能說 a soap；要算量時用 a bar of soap。指不同種類的肥皂時才會用 soaps。",
+      "forms": [
+        {
+          "w": "soaps",
+          "label": "複數（指不同種類）",
+          "pos": "n.",
+          "zh": "各種肥皂",
+          "ipa": "/soʊps/",
+          "example": { "en": "The hotel gives guests small soaps in every bathroom.", "zh": "飯店在每間浴室都提供客人小塊肥皂。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "a bar of soap",
+          "zh": "一塊肥皂",
+          "example": { "en": "Please put a new bar of soap in each room.", "zh": "請在每間房間放一塊新的肥皂。" }
+        },
+        {
+          "phrase": "soap and water",
+          "zh": "肥皂和水",
+          "example": { "en": "Wash your hands with soap and water before work.", "zh": "上班前請用肥皂和水洗手。" }
+        },
+        {
+          "phrase": "liquid soap",
+          "zh": "洗手乳、液態皂",
+          "example": { "en": "The restroom has liquid soap next to every sink.", "zh": "洗手間的每個洗手台旁都有洗手乳。" }
+        },
+        {
+          "phrase": "soap dispenser",
+          "zh": "給皂機",
+          "example": { "en": "The soap dispenser in the kitchen is empty again.", "zh": "廚房的給皂機又空了。" }
+        }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "We need to order more soap for the staff restrooms.", "zh": "我們需要再訂購一些員工洗手間用的肥皂。" },
+        { "tag": "飯店", "en": "The hotel makes its own soap from natural oils.", "zh": "這家飯店用天然油脂自製肥皂。" },
+        { "tag": "廣告", "en": "Our new soap is gentle enough for sensitive skin.", "zh": "我們的新肥皂溫和到連敏感肌膚都能使用。" }
+      ],
+      "confusable": [
+        {
+          "word": "soup",
+          "diff": "soup 是「湯」，只有一個字母不同，發音也不同（/suːp/）；soap 是肥皂。",
+          "example": { "en": "The restaurant serves a different soup every day.", "zh": "這家餐廳每天供應不同的湯。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "shampoo",
+          "pos": "n.",
+          "zh": "洗髮精",
+          "ipa": "/ʃæmˈpuː/",
+          "example": { "en": "Please buy more shampoo for all the guest bathrooms.", "zh": "請為所有客房浴室多買一些洗髮精。" }
+        },
+        {
+          "w": "towel",
+          "pos": "n.",
+          "zh": "毛巾",
+          "ipa": "/ˈtaʊəl/",
+          "example": { "en": "Please leave a clean towel on the bed in each room.", "zh": "請在每間房的床上放一條乾淨的毛巾。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "soapy",
+          "ipa": "/ˈsoʊpi/",
+          "pos": "adj.",
+          "zh": "沾滿肥皂的、有肥皂味的",
+          "link": "soap + -y，有很多肥皂的，像 rainy、sunny"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "spokesperson",
+      "type": "word",
+      "ipa": "/ˈspoʊksˌpɝːsn/",
+      "pos": "n.",
+      "zh": "發言人",
+      "en": "a person who speaks for a company or group",
+      "note": "多益常見於新聞報導、記者會與公司公告，指代表公司或組織對外說話的人。不分性別，語氣中性。",
+      "grammar_note": "spokesperson 不分性別；複數可用 spokespersons 或 spokespeople，後者較常見。",
+      "forms": [
+        {
+          "w": "spokespersons",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "發言人（複數）",
+          "ipa": "/ˈspoʊksˌpɝːsnz/",
+          "example": { "en": "The company's two spokespersons answered questions from reporters yesterday.", "zh": "公司的兩位發言人昨天回答了記者的提問。" }
+        },
+        {
+          "w": "spokespeople",
+          "label": "複數（不規則，較常用）",
+          "pos": "n.",
+          "zh": "發言人（複數）",
+          "ipa": "/ˈspoʊksˌpiːpl/",
+          "example": { "en": "Several spokespeople will attend the press conference tomorrow.", "zh": "好幾位發言人明天會出席記者會。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "company spokesperson",
+          "zh": "公司發言人",
+          "example": { "en": "A company spokesperson said the factory will reopen soon.", "zh": "一位公司發言人表示工廠很快就會重新開工。" }
+        },
+        {
+          "phrase": "official spokesperson",
+          "zh": "官方發言人",
+          "example": { "en": "The official spokesperson refused to give any more details today.", "zh": "官方發言人今天拒絕提供更多細節。" }
+        },
+        {
+          "phrase": "spokesperson for",
+          "zh": "…的發言人",
+          "example": { "en": "She works as a spokesperson for a large bank.", "zh": "她擔任一家大型銀行的發言人。" }
+        }
+      ],
+      "examples": [
+        { "tag": "新聞", "en": "The spokesperson explained why the product was delayed.", "zh": "發言人說明了產品延期的原因。" },
+        { "tag": "記者會", "en": "Our spokesperson will read a short statement at noon.", "zh": "我們的發言人中午會宣讀一份簡短聲明。" },
+        { "tag": "徵才", "en": "The firm is hiring a spokesperson to deal with the media.", "zh": "這家公司正在徵求一位發言人來應對媒體。" }
+      ],
+      "similar": [
+        {
+          "word": "representative",
+          "diff": "representative 是代表公司處理事務的人，不一定要對外發言；spokesperson 專門負責對外說話。",
+          "example": { "en": "A sales representative will call you this afternoon.", "zh": "一位業務代表今天下午會打電話給你。" }
+        },
+        {
+          "phrase": "press officer",
+          "diff": "press officer 專門負責新聞聯絡與媒體窗口，語氣比較正式。",
+          "example": { "en": "Please contact our press officer for interview requests.", "zh": "採訪請求請聯絡我們的新聞聯絡官。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "representative",
+          "pos": "n.",
+          "zh": "代表",
+          "ipa": "/ˌreprɪˈzentətɪv/",
+          "example": { "en": "Our representative will visit your office on Monday.", "zh": "我們的代表星期一會去拜訪你的辦公室。" }
+        },
+        {
+          "w": "announcement",
+          "pos": "n.",
+          "zh": "公告、宣布",
+          "ipa": "/əˈnaʊnsmənt/",
+          "example": { "en": "The company made an announcement about its new plan.", "zh": "公司發布了關於新計畫的公告。" }
+        },
+        {
+          "w": "reporter",
+          "pos": "n.",
+          "zh": "記者",
+          "ipa": "/rɪˈpɔːrtɚ/",
+          "example": { "en": "Reporters waited outside the main building for hours.", "zh": "記者們在主建築外面等了好幾個小時。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "spokesman",
+          "ipa": "/ˈspoʊksmən/",
+          "pos": "n.",
+          "zh": "男發言人",
+          "link": "spokes + man，說話的男性代表；較舊，現在常改用 spokesperson"
+        },
+        {
+          "w": "spokeswoman",
+          "ipa": "/ˈspoʊksˌwʊmən/",
+          "pos": "n.",
+          "zh": "女發言人",
+          "link": "spokes + woman，說話的女性代表"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "superior",
+      "type": "word",
+      "ipa": "/suːˈpɪriɚ/",
+      "pos": "adj.",
+      "zh": "較優越的、上級的",
+      "en": "better or higher than another thing or person",
+      "note": "多益常見於產品比較（superior to）與職場報告（report to your superior）。形容詞表示「比較好、等級較高」，名詞指「上司」。",
+      "grammar_note": "superior 後面接 to，不接 than：A is superior to B。它本身已有比較的意思，不要再加 more。",
+      "forms": [
+        {
+          "w": "superiors",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "上司（複數）",
+          "ipa": "/suːˈpɪriɚz/",
+          "example": { "en": "Please send this report to your superiors by Friday.", "zh": "請在星期五前把這份報告交給你的上司們。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "superior to",
+          "zh": "優於…",
+          "example": { "en": "Our new model is superior to the old one in speed.", "zh": "我們的新機型在速度上優於舊款。" }
+        },
+        {
+          "phrase": "superior quality",
+          "zh": "優良品質",
+          "example": { "en": "The store is known for its superior quality and service.", "zh": "這家店以優良的品質和服務聞名。" }
+        },
+        {
+          "phrase": "report to a superior",
+          "zh": "向上司報告",
+          "example": { "en": "Please report the problem to your superior right away.", "zh": "請立刻向你的上司報告這個問題。" }
+        }
+      ],
+      "examples": [
+        { "tag": "產品", "en": "This brand offers superior sound quality at a low price.", "zh": "這個品牌以低價提供優異的音質。" },
+        { "tag": "職場", "en": "My superior approved my vacation request this morning.", "zh": "我的上司今天早上批准了我的休假申請。" },
+        { "tag": "徵才", "en": "We are looking for a manager with superior communication skills.", "zh": "我們正在找溝通能力極佳的經理。" }
+      ],
+      "confusable": [
+        {
+          "word": "supervisor",
+          "diff": "supervisor 是「主管、督導」這個職稱；superior 是相對的地位，只要職位比你高就是你的 superior。",
+          "usage": "superior 當名詞時指職位比你高的人，supervisor 是固定職稱，可直接放在名字前。",
+          "example": { "en": "My supervisor checks our work at the end of each day.", "zh": "我的主管每天下班前都會檢查我們的工作。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "senior",
+          "diff": "senior 強調年資或資歷較深、職位較高；後面也可接 to，用法和 superior 很像。",
+          "example": { "en": "She is senior to me in the sales department.", "zh": "她在業務部的資歷比我深。" }
+        },
+        {
+          "word": "better",
+          "diff": "better 口語、通用，沒有等級高低的意思；superior 較正式，後面接 to。",
+          "example": { "en": "Our new software is better than the old system.", "zh": "我們的新軟體比舊系統更好。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "inferior",
+          "pos": "adj.",
+          "zh": "較差的、下級的",
+          "ipa": "/ɪnˈfɪriɚ/",
+          "example": { "en": "The cheaper product was inferior to the original one.", "zh": "比較便宜的產品比原版差。" }
+        },
+        {
+          "w": "manager",
+          "pos": "n.",
+          "zh": "經理",
+          "ipa": "/ˈmænɪdʒɚ/",
+          "example": { "en": "The manager will meet each team member today.", "zh": "經理今天會和每位組員面談。" }
+        },
+        {
+          "w": "boss",
+          "pos": "n.",
+          "zh": "老闆、上司",
+          "ipa": "/bɔːs/",
+          "example": { "en": "My boss asked me to join the call.", "zh": "我的老闆請我加入這通電話。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "superiority",
+          "ipa": "/suːˌpɪriˈɔːrəti/",
+          "pos": "n.",
+          "zh": "優越、優勢",
+          "link": "superior + -ity，變成名詞，像 popularity、quality"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/suːˈpɪriɚ/",
+          "zh": "較優越的、上級的",
+          "example": { "en": "This phone has a superior camera compared with others.", "zh": "和其他手機相比，這支手機的相機更出色。" }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/suːˈpɪriɚ/",
+          "zh": "上司、長官",
+          "example": { "en": "He told his superior about the schedule problem.", "zh": "他向上司說明了時程上的問題。" }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "較好的、較優異的",
+          "en": "better in quality than others",
+          "example": { "en": "Customers say our new tablet is superior in battery life.", "zh": "顧客說我們的新平板在電池續航力上更勝一籌。" }
+        },
+        {
+          "pos": "adj.",
+          "zh": "職位較高的",
+          "en": "higher in rank or position",
+          "distinguish": "如果句中有 officer、rank、position 這類和職位有關的字，指的是職位較高，不是品質較好。",
+          "example": { "en": "Only a superior officer can approve a large purchase.", "zh": "只有職位較高的主管才能批准大額採購。" }
+        }
+      ]
+    },
+    {
+      "text": "statue",
+      "type": "word",
+      "ipa": "/ˈstætʃuː/",
+      "pos": "n.",
+      "zh": "雕像",
+      "en": "a figure of a person or animal made from stone or metal",
+      "note": "多益常見於旅遊、城市導覽、博物館與公共空間情境，指石頭或金屬做成的雕像，也可能出現在公司門口或飯店大廳。",
+      "forms": [
+        {
+          "w": "statues",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "雕像（複數）",
+          "ipa": "/ˈstætʃuːz/",
+          "example": { "en": "The park has several old statues near the main gate.", "zh": "公園大門附近有幾座老雕像。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "bronze statue",
+          "zh": "銅像",
+          "example": { "en": "A bronze statue stands in front of our headquarters.", "zh": "我們總部前面立著一座銅像。" }
+        },
+        {
+          "phrase": "a statue of",
+          "zh": "…的雕像",
+          "example": { "en": "They put up a statue of the founder in the lobby.", "zh": "他們在大廳立了一座創辦人的雕像。" }
+        },
+        {
+          "phrase": "put up a statue",
+          "zh": "立一座雕像",
+          "example": { "en": "The city plans to put up a statue next spring.", "zh": "市政府計畫明年春天立一座雕像。" }
+        }
+      ],
+      "examples": [
+        { "tag": "旅遊", "en": "Tourists took photos in front of the famous statue.", "zh": "遊客在那座著名的雕像前拍照。" },
+        { "tag": "飯店", "en": "A large statue welcomes visitors at the hotel entrance.", "zh": "一座大型雕像在飯店入口迎接訪客。" },
+        { "tag": "博物館", "en": "The museum will move the statue to a new room.", "zh": "博物館會把這座雕像移到新的展間。" }
+      ],
+      "confusable": [
+        {
+          "word": "status",
+          "diff": "status 是「狀態、身分」，拼法只差一個字母，發音也不同（/ˈsteɪtəs/）。",
+          "example": { "en": "Please check the status of your order online.", "zh": "請上網查看你的訂單狀態。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "monument",
+          "pos": "n.",
+          "zh": "紀念碑、古蹟",
+          "ipa": "/ˈmɑːnjumənt/",
+          "example": { "en": "Visitors can see the monument from the hotel window.", "zh": "訪客從飯店窗戶就能看到那座紀念碑。" }
+        },
+        {
+          "w": "sculpture",
+          "pos": "n.",
+          "zh": "雕塑作品",
+          "ipa": "/ˈskʌlptʃɚ/",
+          "example": { "en": "The artist sold a sculpture to the hotel.", "zh": "這位藝術家把一件雕塑賣給了飯店。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

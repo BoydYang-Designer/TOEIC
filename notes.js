@@ -800,6 +800,39 @@ function dnCoreSec(kind) {
       <div class="flex flex-wrap gap-1.5 mt-2">${o.list.map(it => `<button onclick="tslOpen(${o.x.week},${o.x.day},${it.i})" class="text-xs rounded-full px-2.5 py-1 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 cursor-pointer">${esc(it.t)}${it.gaps.length ? `（${it.gaps.map(k => dnFillKeys[k] || k).join('、')}）` : ''}</button>`).join('')}</div></div>`).join('')
     + `</section>`;
 }
+
+/* TSL 字庫：全部沒有詳解的 TSL 單字，依字母挑選後複製通用詳解提示詞 */
+DN.tslLet = DN.tslLet || {}; DN.tslOpenLet = DN.tslOpenLet || '';
+function dnTslNoDetail() {
+  if (typeof TSL_WORDS === 'undefined' || typeof LIB === 'undefined' || !LIB) return [];
+  const cov = new Set();
+  dnArts().forEach(x => dnExtraOf(x).forEach(e => { cov.add(dnKey(e.text || e.word)); dnArr(e.forms).concat(dnArr(e.derived)).forEach(f => { if (f && f.w) cov.add(dnKey(f.w)); }); }));
+  const seen = new Set(), out = [];
+  TSL_WORDS.forEach((w, i) => { const k = dnKey(w); if (seen.has(k) || cov.has(k)) return; seen.add(k); out.push({ w, r: i + 1, k, L: (k.replace(/[^a-z]/g, '')[0] || '#').toUpperCase() }); });
+  return out;
+}
+function dnTslLetOpen(L) { DN.tslOpenLet = DN.tslOpenLet === L ? '' : L; render(); }
+function dnTslLetAll(L, on) { dnTslNoDetail().filter(o => o.L === L).forEach(o => { if (on) DN.tslLet[o.k] = 1; else delete DN.tslLet[o.k]; }); render(); }
+function dnTslTog(k) { if (DN.tslLet[k]) delete DN.tslLet[k]; else DN.tslLet[k] = 1; render(); }
+function dnTslClear() { DN.tslLet = {}; render(); }
+function dnTslCopy() {
+  if (typeof nwLibOn === 'function' && !nwLibOn()) { dnToast('daily.json 裡沒有「TSL 字庫」項目（library:true）'); return; }
+  const pick = dnTslNoDetail().filter(o => DN.tslLet[o.k]); if (!pick.length) { dnToast('先勾選要補詳解的字'); return; }
+  const b = dnBatchPick('tsl', pick.map(o => o.k).join(','), pick.length), cur = pick.slice(b.lo, b.hi), keys = new Set();
+  cur.forEach(o => { const m = dnLibMark(LIB, o.w); keys.add(dnKey(m.text)); });
+  save(); auCopy(dnPrompt(idOf(LIB), keys));
+  dnToast(b.nb > 1 ? dnBatchMsg(b, cur.length) : `已複製通用詳解提示詞（${cur.length} 個），貼給 AI`);
+  render();
+}
+function dnTslSec() {
+  const all = dnTslNoDetail(); if (!all.length) return '';
+  const g = {}; all.forEach(o => (g[o.L] = g[o.L] || []).push(o));
+  const Ls = Object.keys(g).sort(), nSel = all.filter(o => DN.tslLet[o.k]).length, op = DN.tslOpenLet, bs = `${btn} ${dnLine} !py-1 !px-3 text-xs`;
+  const chips = Ls.map(L => { const n = g[L].filter(o => DN.tslLet[o.k]).length; return `<button onclick="dnTslLetOpen('${L}')" class="${btn} !py-1 !px-2.5 text-xs ${op === L ? 'bg-indigo-600 text-white' : n ? 'bg-indigo-100 dark:bg-indigo-900/40' : 'bg-slate-100 dark:bg-slate-800'}">${L} <span class="opacity-70">${n ? n + '/' : ''}${g[L].length}</span></button>`; }).join('');
+  let h = `<section class="${card} p-4 mb-4"><div class="flex flex-wrap items-center justify-between gap-2 mb-2"><div><b class="text-sm">TSL 字庫・尚無詳解</b> <span class="text-xs text-slate-400 ml-1">${all.length} 個，依字母挑</span></div><div class="flex flex-wrap gap-1.5"><button onclick="dnTslCopy()" ${nSel ? '' : 'disabled'} class="${btn} ${dnPri} !py-1.5 text-xs disabled:opacity-40">複製 AI 提示詞（${nSel}${dnCapTag(nSel)}）</button>${nSel ? `<button onclick="dnTslClear()" class="${bs}">清除選取</button>` : ''}</div></div><div class="flex flex-wrap gap-1.5">${chips}</div>`;
+  if (op && g[op]) h += `<div class="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800"><div class="flex gap-2 mb-2"><button onclick="dnTslLetAll('${op}',true)" class="${bs}">全選 ${op}</button><button onclick="dnTslLetAll('${op}',false)" class="${bs}">全不選</button></div><div class="grid grid-cols-2 sm:grid-cols-3 gap-x-3 gap-y-1">${g[op].map(o => `<label class="flex items-center gap-1.5 text-sm cursor-pointer"><input type="checkbox" ${DN.tslLet[o.k] ? 'checked' : ''} onchange="dnTslTog('${o.k.replace(/'/g, "\\'")}')" class="h-4 w-4"><span class="break-words">${esc(o.w)}</span><span class="text-xs text-slate-400">#${o.r}</span></label>`).join('')}</div></div>`;
+  return h + '</section>';
+}
 function dnRenderMarks() {
   if (typeof nwAutoMark === 'function') nwAutoMark(); // 非核心的新單字被文章採用 → 自動入庫
   const all = dnMarks(), pri = all.filter(dnIsPrimary), done = pri.filter(dnMerged).length, todo = pri.length - done; // 同一個字只算一次
@@ -816,7 +849,8 @@ function dnRenderMarks() {
     <p class="text-xs text-slate-500 mt-3 leading-relaxed"><b>流程：</b>① 在文稿選字入庫 → ② 這裡按「複製 AI 提示詞」貼給 AI → ③ AI 回傳的 JSON 存成 <code>w{週}d{天}_extra.json</code>，放在 daily.json 同資料夾 → ④ 執行 json_merge.py（選「每日文章」）合併 → ⑤ 重新整理網頁，該項目就會顯示「詳解已寫回」，點進去看詳解。<br><b>未完整詳解：</b>已寫回、但缺英文解說／搭配例句／詞性變化發音／相關字音標例句／衍生字／易混淆例句的項目。勾選後，在該區「補齊內容」選擇要補哪些，提示詞會連同現有詳解交給 AI，合併時會整筆取代舊的。<br>入庫只存在這個瀏覽器；在手機入庫、電腦合併時，用上面的「匯出／匯入」搬過去。</p></div>`;
   const coreSec = f === 'todo' ? dnCoreSec('none') : f === 'gap' ? dnCoreSec('gap') : ''; h += coreSec;
   if (f !== 'done' && typeof nwSupSec === 'function') h += nwSupSec(); // 🆕 新單字補充區
-  if (!ids.length && !coreSec) h += `<p class="text-sm text-slate-400 text-center py-10">${all.length ? '這個分類沒有項目。' : '還沒有入庫。到文章頁選取不懂的字、片語或句子，按「＋ 入庫」。'}</p>`;
+  const tslSec = f === 'todo' ? dnTslSec() : ''; h += tslSec;
+  if (!ids.length && !coreSec && !tslSec) h += `<p class="text-sm text-slate-400 text-center py-10">${all.length ? '這個分類沒有項目。' : '還沒有入庫。到文章頁選取不懂的字、片語或句子，按「＋ 入庫」。'}</p>`;
   if (DN.mg === 'abc') { // 全域 A–Z：不分週次，來源只用小字標示
     const list = all.filter(vis).filter(dnIsPrimary).slice().sort((a, b) => dnKey(a.text).localeCompare(dnKey(b.text))), g = {};
     list.forEach(m => { const c = (dnKey(m.text).replace(/[^a-z]/g, '')[0] || '#').toUpperCase(); (g[c] = g[c] || []).push(m); });

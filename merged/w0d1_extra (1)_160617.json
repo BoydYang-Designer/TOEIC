@@ -1,0 +1,367 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "dynamic",
+      "type": "word",
+      "ipa": "/daɪˈnæmɪk/",
+      "pos": "adj.",
+      "zh": "充滿活力的、動態的",
+      "en": "full of energy and new ideas",
+      "note": "多益常見於徵才廣告、公司介紹和市場報告，形容人或團隊積極有衝勁，也可形容市場或情況一直在變化。語氣正面。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "dynamic team", "zh": "充滿活力的團隊", "example": { "en": "We are proud of our young and dynamic team.", "zh": "我們以年輕又有活力的團隊為傲。" } },
+        { "phrase": "dynamic market", "zh": "變化快速的市場", "example": { "en": "The mobile phone industry is a dynamic market with fast changes.", "zh": "手機產業是一個變化快速的市場。" } },
+        { "phrase": "dynamic leader", "zh": "有衝勁的領導者", "example": { "en": "The board chose a dynamic leader to guide the company.", "zh": "董事會選了一位有衝勁的領導者來帶領公司。" } }
+      ],
+      "examples": [
+        { "tag": "徵才", "en": "We are looking for a dynamic person to join our sales team.", "zh": "我們正在找一位有活力的人加入銷售團隊。" },
+        { "tag": "廣告", "en": "Our dynamic website updates prices in real time.", "zh": "我們的動態網站會即時更新價格。" },
+        { "tag": "公司介紹", "en": "The company is known for its fast and dynamic culture.", "zh": "這家公司以快速、有活力的文化聞名。" }
+      ],
+      "confusable": [
+        { "word": "dynamics", "diff": "dynamics 是名詞，指團體內部互相影響的方式或變化的力量；dynamic 是形容詞。", "usage": "dynamics 是名詞，常見於 team dynamics（團隊互動）；dynamic 是形容詞，修飾名詞。", "example": { "en": "Good team dynamics help us finish projects on time.", "zh": "良好的團隊互動幫助我們準時完成專案。" } }
+      ],
+      "similar": [
+        { "word": "energetic", "diff": "energetic 強調體力和精神充沛；dynamic 還包含有想法、有衝勁。", "example": { "en": "The energetic trainer kept everyone excited all day.", "zh": "這位精力充沛的訓練師讓大家整天都很興奮。" } },
+        { "word": "active", "diff": "active 是積極參與、常有行動；dynamic 語氣更強，帶有變化與創意。", "example": { "en": "She is an active member of our sales club.", "zh": "她是我們銷售社團的積極成員。" } }
+      ],
+      "family": [
+        { "w": "active", "pos": "adj.", "zh": "積極的", "ipa": "/ˈæktɪv/", "example": { "en": "He plays an active role in every meeting.", "zh": "他在每場會議中都扮演積極的角色。" } },
+        { "w": "energetic", "pos": "adj.", "zh": "精力充沛的", "ipa": "/ˌenɚˈdʒetɪk/", "example": { "en": "The new manager is young and energetic.", "zh": "新經理年輕又精力充沛。" } },
+        { "w": "flexible", "pos": "adj.", "zh": "有彈性的", "ipa": "/ˈfleksəbl/", "example": { "en": "We offer flexible working hours to all staff.", "zh": "我們提供所有員工彈性的上班時間。" } },
+        { "w": "modern", "pos": "adj.", "zh": "現代的", "ipa": "/ˈmɑːdɚn/", "example": { "en": "Our office has a modern design.", "zh": "我們的辦公室有現代的設計。" } }
+      ],
+      "derived": [
+        { "w": "dynamics", "pos": "n.", "zh": "動力、相互作用", "ipa": "/daɪˈnæmɪks/", "link": "dynamic + -s，變成名詞，像 physics、economics" },
+        { "w": "dynamically", "pos": "adv.", "zh": "動態地、有活力地", "ipa": "/daɪˈnæmɪkli/", "link": "dynamic + -ally，變成副詞，像 basically、automatically" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "充滿活力的、有衝勁的", "en": "full of energy and new ideas", "example": { "en": "She is a dynamic speaker who keeps the audience interested.", "zh": "她是個有活力的講者，讓聽眾一直保持興趣。" } },
+        { "pos": "adj.", "zh": "動態的、不斷變化的", "en": "always changing or moving", "distinguish": "旁邊出現 market、system、pricing 等字時，通常指不斷變化的。", "example": { "en": "The system uses dynamic pricing based on how many seats are left.", "zh": "這個系統根據剩餘座位數使用動態定價。" } }
+      ]
+    },
+    {
+      "text": "dull",
+      "type": "word",
+      "ipa": "/dʌl/",
+      "pos": "adj.",
+      "zh": "乏味的、不鋒利的、暗淡的",
+      "en": "not interesting, sharp, or bright",
+      "note": "多益常見於形容簡報、工作乏味，也可形容刀具不利、顏色暗淡或市場不景氣。要依上下文判斷是哪一種意思。",
+      "forms": [
+        { "w": "duller", "label": "比較級", "pos": "adj.", "zh": "更乏味的", "ipa": "/ˈdʌlɚ/", "example": { "en": "The new design looks duller than the old one.", "zh": "新設計看起來比舊的更暗淡乏味。" } },
+        { "w": "dullest", "label": "最高級", "pos": "adj.", "zh": "最乏味的", "ipa": "/ˈdʌlɪst/", "example": { "en": "That was the dullest presentation I have seen this year.", "zh": "那是我今年看過最無聊的簡報。" } },
+        { "w": "dulls", "label": "第三人稱單數", "pos": "v.", "zh": "使變鈍", "ipa": "/dʌlz/", "example": { "en": "Heavy use dulls the blade of this machine within a month.", "zh": "大量使用會讓這台機器的刀片在一個月內變鈍。" } },
+        { "w": "dulled", "label": "過去式／過去分詞", "pos": "v.", "zh": "使減弱了", "ipa": "/dʌld/", "example": { "en": "Long hours of repeated work dulled the staff's interest.", "zh": "長時間的重複工作使員工的興趣減退了。" } },
+        { "w": "dulling", "label": "現在分詞", "pos": "v.", "zh": "使減弱中", "ipa": "/ˈdʌlɪŋ/", "example": { "en": "Cold weather is dulling the shine of the new paint.", "zh": "寒冷的天氣正在讓新油漆的光澤變暗。" } }
+      ],
+      "collocations": [
+        { "phrase": "dull colors", "zh": "暗淡的顏色", "example": { "en": "Dull colors on the poster will not attract young customers.", "zh": "海報上暗淡的顏色無法吸引年輕顧客。" } },
+        { "phrase": "dull pain", "zh": "隱隱作痛", "example": { "en": "He felt a dull pain in his back after the flight.", "zh": "搭完飛機後，他的背隱隱作痛。" } },
+        { "phrase": "dull market", "zh": "不景氣的市場", "example": { "en": "Sales stayed low because of the dull market this winter.", "zh": "因為今年冬天市場不景氣，銷售一直偏低。" } }
+      ],
+      "examples": [
+        { "tag": "培訓", "en": "The training session was long and dull for most staff.", "zh": "這場培訓對大多數員工來說又長又無聊。" },
+        { "tag": "設計", "en": "The packaging looks dull, so we should try something brighter.", "zh": "這個包裝看起來很暗淡，我們應該試試更鮮明的。" },
+        { "tag": "天氣", "en": "A dull grey sky covered the city all week.", "zh": "灰暗的天空整個星期都籠罩著這座城市。" }
+      ],
+      "confusable": [
+        { "word": "dual", "diff": "dual 是「雙重的、兩個的」，發音 /ˈduːəl/；dull 是「乏味的、鈍的」。", "example": { "en": "This room has a dual purpose as an office and a studio.", "zh": "這個房間兼具辦公室和工作室的雙重用途。" } }
+      ],
+      "similar": [
+        { "word": "boring", "diff": "boring 只指「無聊的」，最常見；dull 還可以指不鋒利、不鮮明。", "example": { "en": "The meeting was so boring that I almost fell asleep.", "zh": "這場會議太無聊了，我差點睡著。" } }
+      ],
+      "family": [
+        { "w": "boring", "pos": "adj.", "zh": "無聊的", "ipa": "/ˈbɔːrɪŋ/", "example": { "en": "Some people find data entry boring.", "zh": "有些人覺得資料輸入很無聊。" } },
+        { "w": "bright", "pos": "adj.", "zh": "明亮的", "ipa": "/braɪt/", "example": { "en": "The room is bright and has a nice view.", "zh": "這個房間很明亮，景色也很好。" } },
+        { "w": "sharp", "pos": "adj.", "zh": "鋒利的", "ipa": "/ʃɑːrp/", "example": { "en": "Be careful with the sharp knife in the kitchen.", "zh": "請小心廚房裡的鋒利刀子。" } },
+        { "w": "quiet", "pos": "adj.", "zh": "安靜的、清淡的", "ipa": "/ˈkwaɪət/", "example": { "en": "Business is usually quiet in January.", "zh": "一月的生意通常比較清淡。" } }
+      ],
+      "derived": [
+        { "w": "dullness", "pos": "n.", "zh": "乏味、遲鈍", "ipa": "/ˈdʌlnəs/", "link": "dull + -ness，變成名詞，像 kindness、darkness" },
+        { "w": "dully", "pos": "adv.", "zh": "乏味地、遲鈍地", "ipa": "/ˈdʌlli/", "link": "dull + -ly，變成副詞，像 slowly、badly" }
+      ],
+      "pos_uses": [
+        { "pos": "adj.", "ipa": "/dʌl/", "zh": "乏味的、不鋒利的、暗淡的", "example": { "en": "Many people find routine office work dull after a few years.", "zh": "許多人做了幾年例行的辦公室工作後會覺得乏味。" } },
+        { "pos": "v.", "ipa": "/dʌl/", "zh": "使變鈍、減輕", "example": { "en": "Pain medicine can dull the pain for a few hours.", "zh": "止痛藥可以讓疼痛減輕幾個小時。" } }
+      ],
+      "senses": [
+        { "pos": "adj.", "zh": "乏味的", "en": "not interesting or exciting", "example": { "en": "The report was dull, so many people stopped reading it.", "zh": "這份報告很乏味，所以很多人讀到一半就不看了。" } },
+        { "pos": "adj.", "zh": "不鋒利的", "en": "not sharp", "distinguish": "形容 knife、blade、scissors 等工具時，指不鋒利。", "example": { "en": "A dull knife makes cutting meat slow and unsafe.", "zh": "鈍刀讓切肉又慢又不安全。" } },
+        { "pos": "adj.", "zh": "暗淡的、不鮮明的", "en": "not bright or clear", "distinguish": "形容 color、light、sound 時，指不鮮明、不清楚。", "example": { "en": "The dull light in the hall made reading difficult.", "zh": "大廳裡昏暗的燈光讓閱讀變得困難。" } }
+      ]
+    },
+    {
+      "text": "downtown",
+      "type": "word",
+      "ipa": "/ˌdaʊnˈtaʊn/",
+      "pos": "adj.",
+      "zh": "市中心的；往市中心",
+      "en": "in or toward the main business area of a city",
+      "note": "美式英語常見的字，多益用於辦公室位置、交通和約會情境，例如 downtown office、go downtown。英式英語多說 city centre。",
+      "grammar_note": "downtown 當副詞時前面不加 to 或 in，直接說 go downtown；當形容詞時放在名詞前，如 downtown office。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "downtown area", "zh": "市中心區域", "example": { "en": "Rents in the downtown area are rising every year.", "zh": "市中心地區的租金逐年上漲。" } },
+        { "phrase": "downtown office", "zh": "市中心的辦公室", "example": { "en": "Our downtown office will move to a larger building next spring.", "zh": "我們市中心的辦公室明年春天會搬到更大的大樓。" } },
+        { "phrase": "head downtown", "zh": "前往市中心", "example": { "en": "We will head downtown right after the meeting ends.", "zh": "會議一結束，我們就前往市中心。" } }
+      ],
+      "examples": [
+        { "tag": "對話", "en": "Is there a good restaurant near your downtown hotel?", "zh": "你市中心的飯店附近有好餐廳嗎？" },
+        { "tag": "約見", "en": "I need to go downtown to meet a client at noon.", "zh": "我中午要到市中心去見一位客戶。" },
+        { "tag": "交通", "en": "Traffic downtown is heavy during the lunch hour.", "zh": "午餐時間市中心的交通很壅塞。" }
+      ],
+      "confusable": [
+        { "word": "uptown", "diff": "uptown 指離市中心較遠的住宅區或城市北邊；downtown 是商業中心區。", "example": { "en": "Many families live uptown, away from the busy city center.", "zh": "許多家庭住在遠離繁忙市中心的住宅區。" } }
+      ],
+      "similar": [
+        { "word": "city center", "diff": "city center 意思相近，美英都可用，也可說 town center；downtown 是美式口語。", "example": { "en": "The hotel is in the city center, near the main station.", "zh": "這間飯店位於市中心，靠近主要車站。" } }
+      ],
+      "family": [
+        { "w": "traffic", "pos": "n.", "zh": "交通、車流", "ipa": "/ˈtræfɪk/", "example": { "en": "Traffic was heavy because of the rain.", "zh": "因為下雨，車流很多。" } },
+        { "w": "parking", "pos": "n.", "zh": "停車", "ipa": "/ˈpɑːrkɪŋ/", "example": { "en": "Parking is free for all hotel guests.", "zh": "飯店住客都可免費停車。" } },
+        { "w": "subway", "pos": "n.", "zh": "地鐵", "ipa": "/ˈsʌbweɪ/", "example": { "en": "The subway is the fastest way to the airport.", "zh": "地鐵是去機場最快的方式。" } },
+        { "w": "neighborhood", "pos": "n.", "zh": "社區、鄰近地區", "ipa": "/ˈneɪbɚhʊd/", "example": { "en": "The shop is in a quiet neighborhood.", "zh": "這家店在安靜的社區裡。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "adj.", "ipa": "/ˌdaʊnˈtaʊn/", "zh": "市中心的", "example": { "en": "The downtown branch of our bank opens at nine.", "zh": "我們銀行的市中心分行九點開門。" } },
+        { "pos": "adv.", "ipa": "/ˌdaʊnˈtaʊn/", "zh": "往市中心、在市中心", "example": { "en": "She works downtown, so she takes the subway every day.", "zh": "她在市中心上班，所以每天搭地鐵。" } },
+        { "pos": "n.", "ipa": "/ˈdaʊntaʊn/", "zh": "市中心", "example": { "en": "The mayor has a plan to improve the downtown.", "zh": "市長有一個改善市中心的計畫。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "dose",
+      "type": "word",
+      "ipa": "/doʊs/",
+      "pos": "n.",
+      "zh": "劑量、一次的份量",
+      "en": "the amount of medicine you take at one time",
+      "note": "多益常見於藥品標示、醫療和疫苗情境，指一次要吃或注射的量。也可用來比喻「一點點」某種事物。",
+      "forms": [
+        { "w": "doses", "label": "複數", "pos": "n.", "zh": "劑量（複數）", "ipa": "/ˈdoʊsɪz/", "example": { "en": "The label says to take two doses a day.", "zh": "標籤上寫著一天服用兩次劑量。" } },
+        { "w": "dosed", "label": "過去式／過去分詞", "pos": "v.", "zh": "給藥了", "ipa": "/doʊst/", "example": { "en": "The nurse dosed each patient at the correct time.", "zh": "護理師在正確的時間給每位病人服藥。" } },
+        { "w": "dosing", "label": "現在分詞", "pos": "v.", "zh": "給藥中", "ipa": "/ˈdoʊsɪŋ/", "example": { "en": "The clinic is dosing patients under a doctor's guidance.", "zh": "診所正在醫生的指導下替病人給藥。" } }
+      ],
+      "collocations": [
+        { "phrase": "recommended dose", "zh": "建議劑量", "example": { "en": "Do not take more than the recommended dose.", "zh": "請勿超過建議的劑量服用。" } },
+        { "phrase": "daily dose", "zh": "每日劑量", "example": { "en": "The daily dose is printed on the side of the box.", "zh": "每日劑量印在盒子的側面。" } },
+        { "phrase": "a dose of", "zh": "一劑…、一點…", "example": { "en": "He took a dose of cold medicine before the meeting.", "zh": "他在會議前吃了一劑感冒藥。" } }
+      ],
+      "examples": [
+        { "tag": "藥品", "en": "The label shows the correct dose for adults.", "zh": "標籤上標明了成人的正確劑量。" },
+        { "tag": "醫療", "en": "Take one dose after each meal, as the nurse explained.", "zh": "照護理師說明的，每餐後服用一次劑量。" },
+        { "tag": "疫苗", "en": "The second dose of the vaccine is next month.", "zh": "疫苗的第二劑在下個月。" }
+      ],
+      "confusable": [
+        { "word": "does", "diff": "does 是 do 的第三人稱單數，發音 /dʌz/；dose 發音 /doʊs/，兩字拼法相近。", "usage": "does 是動詞（助動詞），dose 是名詞或動詞；兩者發音不同。", "example": { "en": "The doctor does not allow a double dose.", "zh": "醫生不允許服用兩倍劑量。" } }
+      ],
+      "similar": [
+        { "word": "amount", "diff": "amount 是一般的「數量」；dose 專指藥或輻射一次的規定份量。", "example": { "en": "The amount of medicine in each bottle is the same.", "zh": "每瓶藥的份量都相同。" } }
+      ],
+      "family": [
+        { "w": "medicine", "pos": "n.", "zh": "藥", "ipa": "/ˈmedəsn/", "example": { "en": "Keep the medicine away from children.", "zh": "請把藥放在孩子拿不到的地方。" } },
+        { "w": "tablet", "pos": "n.", "zh": "藥片", "ipa": "/ˈtæblət/", "example": { "en": "Take one tablet with water.", "zh": "請配水服用一顆藥片。" } },
+        { "w": "prescription", "pos": "n.", "zh": "處方", "ipa": "/prɪˈskrɪpʃn/", "example": { "en": "You need a prescription to buy this drug.", "zh": "你需要處方才能買這種藥。" } },
+        { "w": "pharmacy", "pos": "n.", "zh": "藥局", "ipa": "/ˈfɑːrməsi/", "example": { "en": "The pharmacy is open until ten at night.", "zh": "藥局開到晚上十點。" } }
+      ],
+      "derived": [
+        { "w": "dosage", "pos": "n.", "zh": "劑量（規定的份量）", "ipa": "/ˈdoʊsɪdʒ/", "link": "dose + -age，表示規定的劑量，像 package、storage" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/doʊs/", "zh": "劑量", "example": { "en": "A small dose of this medicine is safe for children.", "zh": "小劑量的這種藥對孩子是安全的。" } },
+        { "pos": "v.", "ipa": "/doʊs/", "zh": "給…服藥", "example": { "en": "The nurse will dose each patient twice a day.", "zh": "護理師會每天兩次給每位病人服藥。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "劑量", "en": "the amount of medicine you take at one time", "example": { "en": "Check the dose carefully before you give it to a child.", "zh": "給孩子服藥前，請仔細確認劑量。" } },
+        { "pos": "n.", "zh": "一點點（某種經驗或特質）", "en": "a small amount of something, often something not pleasant", "distinguish": "前面常接 a dose of + 抽象名詞，如 a dose of reality，是比喻用法。", "example": { "en": "The new manager brought a dose of fresh energy to the team.", "zh": "新經理為團隊帶來了一點新的活力。" } }
+      ]
+    },
+    {
+      "text": "donate",
+      "type": "word",
+      "ipa": "/ˈdoʊneɪt/",
+      "pos": "v.",
+      "zh": "捐贈、捐款",
+      "en": "to give money or things to help others",
+      "note": "多益常見於公益活動、公司社會責任和募款情境，捐出金錢、物品、血液或時間。語氣正面。",
+      "grammar_note": "donate 後面用 to 帶出接受者：donate A to B；不能說 donate B A，和 give 不同。",
+      "forms": [
+        { "w": "donates", "label": "第三人稱單數", "pos": "v.", "zh": "捐贈", "ipa": "/ˈdoʊneɪts/", "example": { "en": "The bank donates ten percent of its profit to charity every year.", "zh": "這家銀行每年把百分之十的利潤捐給慈善機構。" } },
+        { "w": "donated", "label": "過去式／過去分詞", "pos": "v.", "zh": "捐贈了", "ipa": "/ˈdoʊneɪtɪd/", "example": { "en": "Several firms donated food and water after the storm.", "zh": "暴風雨後，好幾家公司捐贈了食物和水。" } },
+        { "w": "donating", "label": "現在分詞", "pos": "v.", "zh": "捐贈中", "ipa": "/ˈdoʊneɪtɪŋ/", "example": { "en": "He is donating books to the new community library.", "zh": "他正在把書捐給新的社區圖書館。" } }
+      ],
+      "collocations": [
+        { "phrase": "donate money", "zh": "捐錢", "example": { "en": "Many customers choose to donate money to the new library.", "zh": "許多顧客選擇捐錢給新的圖書館。" } },
+        { "phrase": "donate blood", "zh": "捐血", "example": { "en": "Employees can donate blood at the clinic on Friday.", "zh": "員工星期五可以在診所捐血。" } },
+        { "phrase": "donate A to B", "zh": "把 A 捐給 B", "example": { "en": "We plan to donate our old computers to local schools.", "zh": "我們打算把舊電腦捐給當地學校。" } }
+      ],
+      "examples": [
+        { "tag": "公司", "en": "The company plans to donate part of its profit this year.", "zh": "公司計畫今年捐出部分利潤。" },
+        { "tag": "員工活動", "en": "Staff can donate old clothes at the front desk.", "zh": "員工可以在櫃檯捐出舊衣服。" },
+        { "tag": "志工", "en": "She decided to donate her time as a hospital volunteer.", "zh": "她決定捐出時間，擔任醫院志工。" }
+      ],
+      "confusable": [
+        { "word": "dominate", "diff": "dominate 是「支配、主導」，拼法和 donate 相近，但意思完全不同。", "example": { "en": "Two large firms dominate the local electronics market.", "zh": "兩家大公司主導著當地的電子產品市場。" } }
+      ],
+      "similar": [
+        { "word": "contribute", "diff": "contribute 可以是捐錢，也可以是貢獻時間或意見；donate 主要指免費捐出錢或物品。", "example": { "en": "Each employee contributed ten dollars to the gift.", "zh": "每位員工都出了十美元買禮物。" } },
+        { "word": "give", "diff": "give 是最一般的「給」，可接雙受詞；donate 要用 to，語氣較正式。", "example": { "en": "Please give the old files to the new assistant.", "zh": "請把舊檔案交給新來的助理。" } }
+      ],
+      "family": [
+        { "w": "charity", "pos": "n.", "zh": "慈善機構", "ipa": "/ˈtʃerəti/", "example": { "en": "The charity helps families in need.", "zh": "這個慈善機構幫助有需要的家庭。" } },
+        { "w": "fund", "pos": "n.", "zh": "基金、資金", "ipa": "/fʌnd/", "example": { "en": "We started a fund for the school project.", "zh": "我們為學校專案成立了一個基金。" } },
+        { "w": "volunteer", "pos": "n.", "zh": "志工", "ipa": "/ˌvɑːlənˈtɪr/", "example": { "en": "Volunteers will hand out food at the event.", "zh": "志工會在活動中發放食物。" } },
+        { "w": "gift", "pos": "n.", "zh": "禮物", "ipa": "/gɪft/", "example": { "en": "Each guest received a small gift.", "zh": "每位賓客都收到一份小禮物。" } }
+      ],
+      "derived": [
+        { "w": "donation", "pos": "n.", "zh": "捐贈、捐款", "ipa": "/doʊˈneɪʃn/", "link": "donate 去 e 加 -ion，變成名詞，像 decorate → decoration" },
+        { "w": "donor", "pos": "n.", "zh": "捐贈者", "ipa": "/ˈdoʊnɚ/", "link": "donate 去 -ate 加 -or，捐東西的人，像 actor、visitor" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "dividend",
+      "type": "word",
+      "ipa": "/ˈdɪvɪdend/",
+      "pos": "n.",
+      "zh": "股息、紅利",
+      "en": "money a company pays to people who own its shares",
+      "note": "多益常見於財報、投資和股東通知，指公司把部分利潤分給股東。常搭配動詞 pay、declare、receive。",
+      "grammar_note": "dividend 是可數名詞，常用複數 dividends；常搭配動詞 pay、declare、receive。",
+      "forms": [
+        { "w": "dividends", "label": "複數", "pos": "n.", "zh": "股息（複數）", "ipa": "/ˈdɪvɪdendz/", "example": { "en": "Some companies use profits to pay dividends instead of expanding.", "zh": "有些公司把利潤用來發股息，而不是擴張。" } }
+      ],
+      "collocations": [
+        { "phrase": "pay a dividend", "zh": "發放股息", "example": { "en": "The company will pay a dividend to all shareholders in June.", "zh": "公司將在六月向所有股東發放股息。" } },
+        { "phrase": "quarterly dividend", "zh": "季度股息", "example": { "en": "The quarterly dividend will be paid on the first of March.", "zh": "季度股息將在三月一日發放。" } },
+        { "phrase": "dividend payment", "zh": "股息支付", "example": { "en": "A dividend payment was sent to every shareholder today.", "zh": "股息已在今天寄給每位股東。" } }
+      ],
+      "examples": [
+        { "tag": "財報", "en": "The board announced a higher dividend for this quarter.", "zh": "董事會宣布本季提高股息。" },
+        { "tag": "投資", "en": "Many investors choose this stock because of its steady dividend.", "zh": "許多投資人因為股息穩定而選擇這支股票。" },
+        { "tag": "通知", "en": "Shareholders will receive their dividend by the end of the month.", "zh": "股東會在月底前收到股息。" }
+      ],
+      "confusable": [
+        { "word": "interest", "diff": "interest 是銀行存款或貸款的利息；dividend 是公司給股東的利潤。", "example": { "en": "The bank pays interest on every savings account.", "zh": "銀行對每個儲蓄帳戶支付利息。" } }
+      ],
+      "similar": [
+        { "word": "bonus", "diff": "bonus 是公司給員工的額外獎金；dividend 是公司給股東的利潤。", "example": { "en": "Every employee received a year-end bonus this December.", "zh": "每位員工今年十二月都領到年終獎金。" } }
+      ],
+      "family": [
+        { "w": "shareholder", "pos": "n.", "zh": "股東", "ipa": "/ˈʃerhoʊldɚ/", "example": { "en": "Each shareholder received a copy of the annual report.", "zh": "每位股東都收到一份年度報告。" } },
+        { "w": "stock", "pos": "n.", "zh": "股票", "ipa": "/stɑːk/", "example": { "en": "The stock price rose after the announcement.", "zh": "公告後，股價上漲了。" } },
+        { "w": "profit", "pos": "n.", "zh": "利潤", "ipa": "/ˈprɑːfɪt/", "example": { "en": "The firm made a large profit last year.", "zh": "這家公司去年賺了很大的利潤。" } },
+        { "w": "investment", "pos": "n.", "zh": "投資", "ipa": "/ɪnˈvestmənt/", "example": { "en": "Real estate can be a safe investment.", "zh": "不動產可以是一種安全的投資。" } }
+      ],
+      "derived": [
+        { "w": "divide", "pos": "v.", "zh": "分開、分配", "ipa": "/dɪˈvaɪd/", "link": "最基礎的字；dividend 是把利潤分給股東的錢" },
+        { "w": "division", "pos": "n.", "zh": "部門、分割", "ipa": "/dɪˈvɪʒn/", "link": "divide 去 de 加 -sion，變成名詞，像 decide → decision" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "股息、紅利", "en": "money a company pays to people who own its shares", "example": { "en": "The company has paid a steady dividend for ten years.", "zh": "這家公司十年來都穩定發放股息。" } },
+        { "pos": "n.", "zh": "好處、回報（比喻）", "en": "a good result you get from earlier work", "distinguish": "常用 pay dividends，是比喻用法，意思是「帶來回報」。", "example": { "en": "Training new staff will pay dividends in the long run.", "zh": "培訓新員工長遠來看會帶來回報。" } }
+      ]
+    },
+    {
+      "text": "distractor",
+      "type": "word",
+      "ipa": "/dɪˈstræktɚ/",
+      "pos": "n.",
+      "zh": "使人分心的事物；干擾選項",
+      "en": "something that takes your attention away from what you are doing",
+      "note": "指讓人無法專心的人或事物。在測驗題中，也指看起來正確、其實不對的干擾選項。",
+      "forms": [
+        { "w": "distractors", "label": "複數", "pos": "n.", "zh": "干擾事物（複數）", "ipa": "/dɪˈstræktɚz/", "example": { "en": "Several distractors in the room made it hard to finish the test.", "zh": "房間裡好幾項干擾讓人很難完成測驗。" } }
+      ],
+      "collocations": [
+        { "phrase": "remove distractors", "zh": "排除干擾", "example": { "en": "Remove distractors from your desk before you start the report.", "zh": "開始寫報告前，先把桌上讓你分心的東西移走。" } },
+        { "phrase": "serve as a distractor", "zh": "充當干擾選項", "example": { "en": "The wrong answer serves as a distractor in the listening test.", "zh": "錯誤的答案在聽力測驗中充當干擾選項。" } },
+        { "phrase": "major distractor", "zh": "主要的干擾", "example": { "en": "Social media is a major distractor for many young workers.", "zh": "社群媒體是許多年輕上班族的主要干擾。" } }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "Turn off your phone, because notifications can be a big distractor.", "zh": "請關掉手機，因為通知可能是很大的干擾。" },
+        { "tag": "測驗", "en": "In this multiple-choice test, answer C is a clever distractor.", "zh": "在這份選擇題測驗中，答案 C 是個巧妙的干擾選項。" },
+        { "tag": "學習", "en": "Music with words can become a distractor while you study.", "zh": "有歌詞的音樂在讀書時可能會使人分心。" }
+      ],
+      "confusable": [
+        { "word": "distraction", "diff": "distraction 是「分心」這件事或讓人分心的東西；distractor 更常指刻意造成干擾的選項或事物。", "usage": "distraction 可指分心的狀態，也可數可不可數；distractor 是可數名詞，多指具體的干擾物或選項。", "example": { "en": "The noise outside was a constant distraction during the call.", "zh": "通話期間，外面的噪音一直讓人分心。" } }
+      ],
+      "similar": [
+        { "word": "interruption", "diff": "interruption 是打斷正在做的事；distractor 是讓你注意力跑掉的東西。", "example": { "en": "Phone calls are a constant interruption during meetings.", "zh": "電話一直在會議中造成打斷。" } }
+      ],
+      "family": [
+        { "w": "focus", "pos": "v.", "zh": "專注", "ipa": "/ˈfoʊkəs/", "example": { "en": "Please focus on the main goal of the project.", "zh": "請專注於專案的主要目標。" } },
+        { "w": "attention", "pos": "n.", "zh": "注意力", "ipa": "/əˈtenʃn/", "example": { "en": "Please pay attention to the safety rules.", "zh": "請注意安全規定。" } },
+        { "w": "noise", "pos": "n.", "zh": "噪音", "ipa": "/nɔɪz/", "example": { "en": "Street noise makes it hard to work here.", "zh": "街上的噪音讓人很難在這裡工作。" } },
+        { "w": "concentrate", "pos": "v.", "zh": "集中精神", "ipa": "/ˈkɑːnsntreɪt/", "example": { "en": "I cannot concentrate with the radio on.", "zh": "收音機開著，我沒辦法集中精神。" } }
+      ],
+      "derived": [
+        { "w": "distract", "pos": "v.", "zh": "使分心", "ipa": "/dɪˈstrækt/", "link": "最基礎的字；distractor = distract + -or，造成分心的東西，像 actor、visitor" },
+        { "w": "distraction", "pos": "n.", "zh": "分心、令人分心的事物", "ipa": "/dɪˈstrækʃn/", "link": "distract + -ion，變成名詞，像 attract → attraction" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "使人分心的事物", "en": "something that takes your attention away", "example": { "en": "The loud street became a distractor during the online meeting.", "zh": "在線上會議期間，吵鬧的街道造成了干擾。" } },
+        { "pos": "n.", "zh": "（測驗中的）干擾選項", "en": "a wrong answer that looks like a right one", "distinguish": "出現在 test、question、answer 的上下文時，指干擾選項。", "example": { "en": "The test writer adds a distractor that sounds almost correct.", "zh": "出題者加入一個聽起來幾乎正確的干擾選項。" } }
+      ]
+    },
+    {
+      "text": "dispatch",
+      "type": "word",
+      "ipa": "/dɪˈspætʃ/",
+      "pos": "v.",
+      "zh": "派遣、發送、寄出",
+      "en": "to send someone or something to a place",
+      "note": "多益常見於物流、客服和公司通知，指派人或把貨物、文件送出。名詞也可指快訊、報導。",
+      "grammar_note": "dispatch 當動詞時常接 sb／sth + to + 地點；被動寫成 be dispatched to。",
+      "forms": [
+        { "w": "dispatches", "label": "複數", "pos": "n.", "zh": "快訊、派遣（複數）", "ipa": "/dɪˈspætʃɪz/", "example": { "en": "Daily dispatches from our reporter cover the trade talks.", "zh": "我們記者每天的報導都涵蓋貿易會談。" } },
+        { "w": "dispatches", "label": "第三人稱單數", "pos": "v.", "zh": "派遣、發送", "ipa": "/dɪˈspætʃɪz/", "example": { "en": "The warehouse dispatches about two hundred packages every day.", "zh": "倉庫每天發出大約兩百個包裹。" } },
+        { "w": "dispatched", "label": "過去式／過去分詞", "pos": "v.", "zh": "派遣了、發出了", "ipa": "/dɪˈspætʃt/", "example": { "en": "The goods were dispatched from our Taipei warehouse yesterday.", "zh": "貨物昨天已從我們台北的倉庫發出。" } },
+        { "w": "dispatching", "label": "現在分詞", "pos": "v.", "zh": "派遣中、發送中", "ipa": "/dɪˈspætʃɪŋ/", "example": { "en": "The manager is dispatching extra drivers to the airport today.", "zh": "經理今天正在派額外的司機到機場。" } }
+      ],
+      "collocations": [
+        { "phrase": "dispatch a team", "zh": "派出一個小組", "example": { "en": "The company will dispatch a team to repair the power line.", "zh": "公司會派一個小組去修理電線。" } },
+        { "phrase": "dispatch goods", "zh": "發出貨物", "example": { "en": "We cannot dispatch goods until the payment is confirmed.", "zh": "在確認付款之前，我們無法發出貨物。" } },
+        { "phrase": "dispatch center", "zh": "調度中心", "example": { "en": "Call the dispatch center if the driver is late.", "zh": "如果司機遲到，請打電話給調度中心。" } }
+      ],
+      "examples": [
+        { "tag": "售後服務", "en": "We will dispatch a technician to your office tomorrow morning.", "zh": "我們明天早上會派一位技術人員到你的辦公室。" },
+        { "tag": "物流", "en": "We usually dispatch your order within twenty-four hours.", "zh": "我們通常會在二十四小時內寄出你的訂單。" },
+        { "tag": "新聞", "en": "The reporter sent a short dispatch from the conference in Berlin.", "zh": "記者從柏林的會議現場發回一則簡短的快訊。" }
+      ],
+      "confusable": [
+        { "word": "dispense", "diff": "dispense 是「分發、配（藥）」，拼法和 dispatch 相近；dispatch 是「派遣、寄出」。", "example": { "en": "The machine will dispense a cold drink for one dollar.", "zh": "這台機器一美元就會送出一杯冷飲。" } }
+      ],
+      "similar": [
+        { "word": "send", "diff": "send 是最一般的「寄、送」；dispatch 更正式，強調迅速派出。", "example": { "en": "Please send the signed form to our head office.", "zh": "請把簽好的表格寄到我們總公司。" } },
+        { "word": "ship", "diff": "ship 專指把貨物運送出去；dispatch 還可以指派人。", "example": { "en": "We ship all orders by air within two days.", "zh": "我們兩天內以空運運送所有訂單。" } }
+      ],
+      "family": [
+        { "w": "delivery", "pos": "n.", "zh": "送貨", "ipa": "/dɪˈlɪvəri/", "example": { "en": "Delivery usually takes two to three days.", "zh": "送貨通常需要兩到三天。" } },
+        { "w": "order", "pos": "n.", "zh": "訂單", "ipa": "/ˈɔːrdɚ/", "example": { "en": "Your order will arrive by Friday.", "zh": "你的訂單星期五前會送到。" } },
+        { "w": "shipment", "pos": "n.", "zh": "出貨、貨物", "ipa": "/ˈʃɪpmənt/", "example": { "en": "The shipment left the port this morning.", "zh": "這批貨今天早上離開了港口。" } },
+        { "w": "driver", "pos": "n.", "zh": "司機", "ipa": "/ˈdraɪvɚ/", "example": { "en": "The driver will call you before arriving.", "zh": "司機到達前會先打電話給你。" } }
+      ],
+      "derived": [
+        { "w": "dispatcher", "pos": "n.", "zh": "調度員", "ipa": "/dɪˈspætʃɚ/", "link": "dispatch + -er，負責派遣的人，像 teacher、driver" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/dɪˈspætʃ/", "zh": "派遣、寄出", "example": { "en": "The firm will dispatch a driver as soon as you call.", "zh": "你一打電話，公司就會派司機過去。" } },
+        { "pos": "n.", "ipa": "/dɪˈspætʃ/", "zh": "派遣、發送；快訊", "example": { "en": "The dispatch of new staff to Asia begins in May.", "zh": "派遣新員工到亞洲的工作五月開始。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "派遣、發送", "en": "the act of sending someone or something", "example": { "en": "Same-day dispatch is available for orders placed before noon.", "zh": "中午前下的訂單可以當天寄出。" } },
+        { "pos": "n.", "zh": "快訊、新聞電訊", "en": "a short news report sent from a place", "distinguish": "出現 reporter、news、newspaper 時，指記者發回的報導。", "example": { "en": "The newspaper printed a dispatch from its Paris office.", "zh": "報紙刊登了巴黎辦公室發回的一則快訊。" } }
+      ]
+    }
+  ]
+}

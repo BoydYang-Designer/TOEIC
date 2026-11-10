@@ -1,0 +1,730 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "deadline",
+      "type": "word",
+      "ipa": "/ˈdedlaɪn/",
+      "pos": "n.",
+      "zh": "截止期限、最後期限",
+      "en": "the last day or time to finish something",
+      "note": "多益最常見的商務名詞之一，指報告、報名、付款或專案的最後期限，常和 meet、miss、extend 搭配。",
+      "grammar_note": "deadline 後面常接 for + 名詞，或 to + V：the deadline for the report、the deadline to apply。",
+      "forms": [
+        {
+          "w": "deadlines",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "截止期限（複數）",
+          "ipa": "/ˈdedlaɪnz/",
+          "example": { "en": "We have three deadlines to meet this month.", "zh": "我們這個月有三個截止期限要趕。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "meet a deadline",
+          "zh": "趕上期限",
+          "example": { "en": "We worked overtime to meet the deadline.", "zh": "我們加班以趕上期限。" }
+        },
+        {
+          "phrase": "miss a deadline",
+          "zh": "錯過期限",
+          "example": { "en": "Sorry, I missed the deadline for the budget report.", "zh": "抱歉，我錯過了預算報告的期限。" }
+        },
+        {
+          "phrase": "extend the deadline",
+          "zh": "延長期限",
+          "example": { "en": "Can you extend the deadline by two days?", "zh": "你可以把期限延長兩天嗎？" }
+        },
+        {
+          "phrase": "tight deadline",
+          "zh": "很緊迫的期限",
+          "example": { "en": "The team is working under a tight deadline this week.", "zh": "團隊這週在很緊迫的期限下工作。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The project deadline is next Friday, so we must hurry.", "zh": "專案截止日是下週五，所以我們得加快。" },
+        { "tag": "電子郵件", "en": "Please send me the final draft before the deadline.", "zh": "請在截止日前把最終版本寄給我。" },
+        { "tag": "採購", "en": "The supplier asked us to confirm the order by the deadline.", "zh": "供應商要求我們在期限前確認訂單。" },
+        { "tag": "求職", "en": "The deadline for job applications has been moved to May 10.", "zh": "求職申請的截止日已改到五月十日。" }
+      ],
+      "similar": [
+        {
+          "word": "due date",
+          "diff": "due date 多指帳款、作業的到期日；deadline 強調最後期限，過了就會有後果。",
+          "example": { "en": "The due date on this invoice is March 15.", "zh": "這張發票的到期日是三月十五日。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "schedule",
+          "ipa": "/ˈskedʒuːl/",
+          "pos": "n.",
+          "zh": "時程表、行程",
+          "example": { "en": "Our schedule is full until the end of June.", "zh": "我們的行程到六月底都排滿了。" }
+        },
+        {
+          "w": "delay",
+          "ipa": "/dɪˈleɪ/",
+          "pos": "n.",
+          "zh": "延遲",
+          "example": { "en": "A delay in shipping may cause us to miss the date.", "zh": "出貨延遲可能讓我們趕不上日期。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "decorate",
+      "type": "word",
+      "ipa": "/ˈdekəreɪt/",
+      "pos": "v.",
+      "zh": "裝飾、布置",
+      "en": "to make a place look nice by adding things to it",
+      "note": "多益常出現在公司活動、開幕、節慶布置或辦公室整修的情境，指用物品讓場地更好看。",
+      "grammar_note": "decorate A with B：用 B 裝飾 A，with 後面接用來裝飾的東西，例如 decorate the hall with flowers。",
+      "forms": [
+        {
+          "w": "decorates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "裝飾",
+          "ipa": "/ˈdekəreɪts/",
+          "example": { "en": "Our designer decorates the store window every season.", "zh": "我們的設計師每一季都會布置商店櫥窗。" }
+        },
+        {
+          "w": "decorated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "裝飾了、被裝飾的",
+          "ipa": "/ˈdekəreɪtɪd/",
+          "example": { "en": "The staff decorated the lobby for the anniversary party.", "zh": "員工為週年派對布置了大廳。" }
+        },
+        {
+          "w": "decorating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在裝飾",
+          "ipa": "/ˈdekəreɪtɪŋ/",
+          "example": { "en": "We are decorating the meeting room for the guests.", "zh": "我們正在為來賓布置會議室。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "decorate the office",
+          "zh": "布置辦公室",
+          "example": { "en": "They plan to decorate the office before the new year.", "zh": "他們打算在新年前布置辦公室。" }
+        },
+        {
+          "phrase": "decorate with flowers",
+          "zh": "用花裝飾",
+          "example": { "en": "The hotel decorated the dining hall with fresh flowers.", "zh": "飯店用新鮮的花布置了餐廳大廳。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公司活動", "en": "Could you help us decorate the room for the party?", "zh": "你可以幫我們布置派對的房間嗎？" },
+        { "tag": "開幕", "en": "The shop was decorated in red for the grand opening.", "zh": "商店為了盛大開幕布置成紅色。" },
+        { "tag": "整修", "en": "We hired a company to decorate our new office.", "zh": "我們請了一家公司來裝潢新辦公室。" }
+      ],
+      "confusable": [
+        {
+          "word": "renovate",
+          "diff": "renovate 是整修、翻新建築或空間的結構；decorate 只是用物品或油漆讓它變好看。",
+          "example": { "en": "The company will renovate the old building next year.", "zh": "公司明年會整修那棟舊大樓。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "arrange",
+          "ipa": "/əˈreɪndʒ/",
+          "pos": "v.",
+          "zh": "安排、布置",
+          "example": { "en": "Please arrange the chairs before the meeting starts.", "zh": "請在會議開始前把椅子擺好。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "decoration",
+          "ipa": "/ˌdekəˈreɪʃn/",
+          "pos": "n.",
+          "zh": "裝飾、裝飾品",
+          "link": "decorate 去掉 e + -ion，把「裝飾」變成名詞，像 invite → invitation"
+        },
+        {
+          "w": "decorative",
+          "ipa": "/ˈdekərətɪv/",
+          "pos": "adj.",
+          "zh": "裝飾用的",
+          "link": "decorate + -ive，有「裝飾性質的」意思，像 active、creative"
+        },
+        {
+          "w": "decorator",
+          "ipa": "/ˈdekəreɪtɚ/",
+          "pos": "n.",
+          "zh": "裝潢設計師",
+          "link": "decorate + -or，做事的人，像 actor、visitor"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "裝飾、布置",
+          "en": "to add things to make a place look nice",
+          "example": { "en": "The staff will decorate the hall with balloons.", "zh": "員工會用氣球布置大廳。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "粉刷、裝潢（房間）",
+          "en": "to paint or put paper on the walls of a room",
+          "distinguish": "後面接 room、office，且提到油漆或壁紙時，指的是裝潢施工。",
+          "example": { "en": "We need to decorate the new office before moving in.", "zh": "我們搬進去前得先把新辦公室裝潢好。" }
+        }
+      ]
+    },
+    {
+      "text": "decoration",
+      "type": "word",
+      "ipa": "/ˌdekəˈreɪʃn/",
+      "pos": "n.",
+      "zh": "裝飾、裝飾品",
+      "en": "something added to make a place look nice",
+      "note": "指布置用的物品或裝飾這件事，常見於活動、節慶、開幕與辦公室布置的情境。",
+      "grammar_note": "指「裝飾品」時是可數名詞（a decoration、decorations）；指「裝飾、布置」這件事時不可數，如 interior decoration。",
+      "forms": [
+        {
+          "w": "decorations",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "裝飾品（複數）",
+          "ipa": "/ˌdekəˈreɪʃnz/",
+          "example": { "en": "The decorations for the party arrived this morning.", "zh": "派對用的裝飾品今天早上送到了。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "put up decorations",
+          "zh": "掛上裝飾",
+          "example": { "en": "We put up decorations in the lobby on Monday.", "zh": "我們週一在大廳掛上了裝飾。" }
+        },
+        {
+          "phrase": "holiday decorations",
+          "zh": "節慶裝飾",
+          "example": { "en": "The mall sells holiday decorations at half price.", "zh": "購物中心以半價販售節慶裝飾品。" }
+        },
+        {
+          "phrase": "interior decoration",
+          "zh": "室內裝潢",
+          "example": { "en": "She runs a small company for interior decoration.", "zh": "她經營一家小型室內裝潢公司。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公司活動", "en": "Who is in charge of the decorations for the dinner?", "zh": "晚宴的裝飾由誰負責？" },
+        { "tag": "採購", "en": "We ordered new decorations for the store window.", "zh": "我們為店面櫥窗訂了新的裝飾品。" },
+        { "tag": "開幕", "en": "The simple decoration makes the cafe feel warm.", "zh": "簡單的裝飾讓這家咖啡館感覺很溫暖。" }
+      ],
+      "similar": [
+        {
+          "word": "ornament",
+          "diff": "ornament 多指小型的擺飾；decoration 的範圍較廣，包含整體布置。",
+          "example": { "en": "A small ornament sat on the reception desk.", "zh": "接待櫃台上放著一個小擺飾。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "design",
+          "ipa": "/dɪˈzaɪn/",
+          "pos": "n.",
+          "zh": "設計",
+          "example": { "en": "The design of the new lobby looks very modern.", "zh": "新大廳的設計看起來很現代。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "decorate",
+          "ipa": "/ˈdekəreɪt/",
+          "pos": "v.",
+          "zh": "裝飾、布置",
+          "link": "decoration 去掉 -ion 就是動詞 decorate，像 invitation → invite"
+        },
+        {
+          "w": "decorative",
+          "ipa": "/ˈdekərətɪv/",
+          "pos": "adj.",
+          "zh": "裝飾用的",
+          "link": "decorate + -ive，有「裝飾性質的」意思，像 active、creative"
+        },
+        {
+          "w": "decorator",
+          "ipa": "/ˈdekəreɪtɚ/",
+          "pos": "n.",
+          "zh": "裝潢設計師",
+          "link": "decorate + -or，做事的人，像 actor、visitor"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "裝飾品、擺飾",
+          "en": "a thing used to make a place look nice",
+          "example": { "en": "We stored the old decorations in the warehouse.", "zh": "我們把舊的裝飾品存放在倉庫裡。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "裝飾、布置（行為）",
+          "en": "the act of making a place look nice",
+          "distinguish": "不可數，通常指裝飾這件事本身，而不是某個物品。",
+          "example": { "en": "Decoration of the hall will take about two hours.", "zh": "布置大廳大約需要兩個小時。" }
+        }
+      ]
+    },
+    {
+      "text": "dedication",
+      "type": "word",
+      "ipa": "/ˌdedɪˈkeɪʃn/",
+      "pos": "n.",
+      "zh": "奉獻、敬業精神",
+      "en": "strong effort and time given to a job or goal",
+      "note": "多益常見於表揚員工、感謝團隊或介紹退休同事的情境，帶有正面、肯定的語氣。",
+      "grammar_note": "dedication to 的 to 是介系詞，後面接名詞或 V-ing，不接原形動詞：dedication to customer service。",
+      "forms": [
+        {
+          "w": "dedications",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "奉獻（複數）",
+          "ipa": "/ˌdedɪˈkeɪʃnz/",
+          "example": { "en": "Their dedications to the project were praised by the CEO.", "zh": "他們對專案的付出受到執行長讚揚。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "show dedication",
+          "zh": "展現敬業精神",
+          "example": { "en": "New staff should show dedication from the first day.", "zh": "新員工應該從第一天就展現敬業精神。" }
+        },
+        {
+          "phrase": "dedication to",
+          "zh": "對…的投入",
+          "example": { "en": "Her dedication to quality made our products popular.", "zh": "她對品質的投入讓我們的產品很受歡迎。" }
+        },
+        {
+          "phrase": "thank for dedication",
+          "zh": "感謝付出",
+          "example": { "en": "We would like to thank everyone for their dedication.", "zh": "我們要感謝每個人的付出。" }
+        }
+      ],
+      "examples": [
+        { "tag": "表揚", "en": "Mr. Lee received an award for his dedication to the company.", "zh": "李先生因對公司的奉獻獲得獎項。" },
+        { "tag": "電子郵件", "en": "Thank you for your hard work and dedication this year.", "zh": "謝謝你今年的努力與付出。" },
+        { "tag": "典禮", "en": "The dedication of the new library will be held on Friday.", "zh": "新圖書館的落成啟用典禮將在週五舉行。" }
+      ],
+      "similar": [
+        {
+          "word": "commitment",
+          "diff": "commitment 強調承諾與責任；dedication 強調投入大量時間與心力。",
+          "example": { "en": "The team showed strong commitment to the deadline.", "zh": "團隊對期限展現了強烈的承諾。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "commitment",
+          "ipa": "/kəˈmɪtmənt/",
+          "pos": "n.",
+          "zh": "承諾、投入",
+          "example": { "en": "We value your commitment to our customers.", "zh": "我們重視你對客戶的投入。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "dedicate",
+          "ipa": "/ˈdedɪkeɪt/",
+          "pos": "v.",
+          "zh": "奉獻、致力於",
+          "link": "dedication 去掉 -ion 變動詞，像 decoration → decorate"
+        },
+        {
+          "w": "dedicated",
+          "ipa": "/ˈdedɪkeɪtɪd/",
+          "pos": "adj.",
+          "zh": "敬業的、專用的",
+          "link": "dedicate + -ed，變成形容詞，像 interested、talented"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "奉獻、敬業精神",
+          "en": "hard work and time given to something you care about",
+          "example": { "en": "We admire her dedication to helping our clients.", "zh": "我們欣賞她對協助客戶的投入。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "落成啟用儀式",
+          "en": "a ceremony to open a new building or place",
+          "distinguish": "後面接 ceremony，或前面有 new building、library 等地點時，指的是啟用典禮。",
+          "example": { "en": "The mayor will attend the dedication of the new park.", "zh": "市長會出席新公園的落成儀式。" }
+        }
+      ]
+    },
+    {
+      "text": "dental",
+      "type": "word",
+      "ipa": "/ˈdentl/",
+      "pos": "adj.",
+      "zh": "牙齒的、牙科的",
+      "en": "related to teeth",
+      "note": "多益常見於員工福利與醫療保險的情境，如牙科保險、牙醫診所預約，只放在名詞前面使用。",
+      "grammar_note": "dental 是形容詞，只放在名詞前面（dental care），不能單獨說「I have dental」。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "dental insurance",
+          "zh": "牙科保險",
+          "example": { "en": "Our company offers dental insurance to all full-time staff.", "zh": "我們公司提供全職員工牙科保險。" }
+        },
+        {
+          "phrase": "dental clinic",
+          "zh": "牙醫診所",
+          "example": { "en": "The dental clinic is on the second floor.", "zh": "牙醫診所在二樓。" }
+        },
+        {
+          "phrase": "dental checkup",
+          "zh": "牙齒檢查",
+          "example": { "en": "I have a dental checkup on Tuesday morning.", "zh": "我週二早上要做牙齒檢查。" }
+        }
+      ],
+      "examples": [
+        { "tag": "福利", "en": "The new plan covers medical and dental costs.", "zh": "新方案涵蓋醫療與牙科費用。" },
+        { "tag": "請假", "en": "I need to leave early for a dental appointment.", "zh": "我需要提早離開去看牙醫。" },
+        { "tag": "公告", "en": "Please send your dental care claims to the HR office.", "zh": "請把牙科照護的申請單送到人資辦公室。" }
+      ],
+      "confusable": [
+        {
+          "word": "mental",
+          "diff": "拼法和發音很像，但 mental 是「心理的、精神的」，dental 是「牙齒的」。",
+          "example": { "en": "The plan also covers mental health services.", "zh": "這個方案也涵蓋心理健康服務。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "medical",
+          "ipa": "/ˈmedɪkl/",
+          "pos": "adj.",
+          "zh": "醫療的",
+          "example": { "en": "Medical costs are covered by the company plan.", "zh": "醫療費用由公司方案負擔。" }
+        },
+        {
+          "w": "insurance",
+          "ipa": "/ɪnˈʃʊrəns/",
+          "pos": "n.",
+          "zh": "保險",
+          "example": { "en": "Please check your insurance before you visit the doctor.", "zh": "看醫生前請先確認你的保險。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "dentist",
+          "ipa": "/ˈdentɪst/",
+          "pos": "n.",
+          "zh": "牙醫",
+          "link": "dent（牙）+ -ist，做某種專業的人，像 artist、tourist"
+        },
+        {
+          "w": "dentistry",
+          "ipa": "/ˈdentɪstri/",
+          "pos": "n.",
+          "zh": "牙科學、牙科",
+          "link": "dentist + -ry，表示這個專業領域，像 dentist 的行業"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "demolish",
+      "type": "word",
+      "ipa": "/dɪˈmɑːlɪʃ/",
+      "pos": "v.",
+      "zh": "拆除、拆毀",
+      "en": "to destroy a building on purpose",
+      "note": "多益常見於都市重建、建築工程與新聞報導，指把舊建築拆掉，通常是有計畫的行動。",
+      "grammar_note": "demolish 是及物動詞，後面直接接被拆的東西，不加介系詞：demolish the building。",
+      "forms": [
+        {
+          "w": "demolishes",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "拆除",
+          "ipa": "/dɪˈmɑːlɪʃɪz/",
+          "example": { "en": "The city demolishes unsafe buildings every year.", "zh": "市政府每年都拆除不安全的建築。" }
+        },
+        {
+          "w": "demolished",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "拆除了、被拆除的",
+          "ipa": "/dɪˈmɑːlɪʃt/",
+          "example": { "en": "The old factory was demolished last month.", "zh": "那間舊工廠上個月被拆除了。" }
+        },
+        {
+          "w": "demolishing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在拆除",
+          "ipa": "/dɪˈmɑːlɪʃɪŋ/",
+          "example": { "en": "The crew is demolishing the wall this afternoon.", "zh": "施工人員今天下午要拆除那面牆。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "demolish a building",
+          "zh": "拆除建築物",
+          "example": { "en": "They plan to demolish the building and build a mall.", "zh": "他們計畫拆掉這棟建築，蓋一座購物中心。" }
+        },
+        {
+          "phrase": "be demolished to make way for",
+          "zh": "為了…而被拆除",
+          "example": { "en": "The shops were demolished to make way for a new road.", "zh": "那些店面被拆除，好為新道路讓路。" }
+        }
+      ],
+      "examples": [
+        { "tag": "工程", "en": "The company will demolish the old warehouse in May.", "zh": "公司將在五月拆除舊倉庫。" },
+        { "tag": "新聞", "en": "The council voted to demolish the empty office tower.", "zh": "市議會投票決定拆除那棟空置的辦公大樓。" }
+      ],
+      "similar": [
+        {
+          "phrase": "tear down",
+          "diff": "tear down 是口語、日常的說法；demolish 比較正式，常用在新聞與工程文件。",
+          "example": { "en": "They will tear down the old garage next week.", "zh": "他們下週會拆掉那間舊車庫。" }
+        },
+        {
+          "word": "destroy",
+          "diff": "destroy 指破壞到無法使用，可以是意外或故意；demolish 通常是有計畫的拆除。",
+          "example": { "en": "The fire destroyed most of the warehouse.", "zh": "那場火災毀掉了大部分的倉庫。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "construct",
+          "ipa": "/kənˈstrʌkt/",
+          "pos": "v.",
+          "zh": "建造",
+          "example": { "en": "The firm will construct a new bridge next year.", "zh": "這家公司明年會建造一座新橋。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "demolition",
+          "ipa": "/ˌdeməˈlɪʃn/",
+          "pos": "n.",
+          "zh": "拆除、拆毀",
+          "link": "demolish 去掉 -ish + -ition，把「拆除」變成名詞"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "departmental",
+      "type": "word",
+      "ipa": "/ˌdiːpɑːrtˈmentl/",
+      "pos": "adj.",
+      "zh": "部門的",
+      "en": "related to one department in a company",
+      "note": "多益常見於公司內部通知與會議安排，形容部門層級的事務，如部門會議、部門預算。",
+      "grammar_note": "departmental 是形容詞，只放在名詞前面：a departmental meeting；要說「在部門裡」請用 in the department。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "departmental meeting",
+          "zh": "部門會議",
+          "example": { "en": "The departmental meeting starts at ten tomorrow.", "zh": "部門會議明天十點開始。" }
+        },
+        {
+          "phrase": "departmental budget",
+          "zh": "部門預算",
+          "example": { "en": "We must keep costs under the departmental budget.", "zh": "我們必須把成本控制在部門預算內。" }
+        },
+        {
+          "phrase": "departmental manager",
+          "zh": "部門經理",
+          "example": { "en": "Please ask your departmental manager to approve the request.", "zh": "請請你的部門經理核准這份申請。" }
+        }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "All departmental reports are due by the end of the week.", "zh": "所有部門報告需在本週結束前繳交。" },
+        { "tag": "電子郵件", "en": "I will share the departmental schedule with the team.", "zh": "我會和團隊分享部門時程表。" }
+      ],
+      "confusable": [
+        {
+          "word": "apartment",
+          "diff": "拼法與字尾很像，但 apartment 是「公寓」，departmental 是「部門的」。",
+          "example": { "en": "The company rents an apartment for visiting staff.", "zh": "公司為來訪的員工租了一間公寓。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "division",
+          "ipa": "/dɪˈvɪʒn/",
+          "pos": "n.",
+          "zh": "部門、分部",
+          "example": { "en": "She works in the sales division of our company.", "zh": "她在我們公司的業務部門工作。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "depart",
+          "ipa": "/dɪˈpɑːrt/",
+          "pos": "v.",
+          "zh": "出發、離開",
+          "link": "最基礎的字，de-（離開）+ part（部分），像 part 分開的意思"
+        },
+        {
+          "w": "department",
+          "ipa": "/dɪˈpɑːrtmənt/",
+          "pos": "n.",
+          "zh": "部門",
+          "link": "depart + -ment，把動作變成名詞，像 pay → payment"
+        },
+        {
+          "w": "departure",
+          "ipa": "/dɪˈpɑːrtʃɚ/",
+          "pos": "n.",
+          "zh": "出發、離開",
+          "link": "depart + -ure，名詞字尾，像 fail → failure"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "departure",
+      "type": "word",
+      "ipa": "/dɪˈpɑːrtʃɚ/",
+      "pos": "n.",
+      "zh": "出發、離開",
+      "en": "the act of leaving a place",
+      "note": "多益常見於機場、車站與出差情境，指班機或列車的出發；也可指員工離職。",
+      "grammar_note": "「離開某地」可寫 departure from + 地點；「出發去某地」是 departure for + 地點。departure 是名詞，動詞是 depart。",
+      "forms": [
+        {
+          "w": "departures",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "出發班次（複數）",
+          "ipa": "/dɪˈpɑːrtʃɚz/",
+          "example": { "en": "The board shows all departures for this evening.", "zh": "看板顯示今晚所有的出發班次。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "departure time",
+          "zh": "出發時間",
+          "example": { "en": "Please check the departure time on your ticket.", "zh": "請確認你機票上的出發時間。" }
+        },
+        {
+          "phrase": "departure gate",
+          "zh": "登機門",
+          "example": { "en": "The departure gate for Flight 52 has changed.", "zh": "52 號班機的登機門已更改。" }
+        },
+        {
+          "phrase": "departure date",
+          "zh": "出發日期",
+          "example": { "en": "What is your departure date for the business trip?", "zh": "你出差的出發日期是哪一天？" }
+        },
+        {
+          "phrase": "early departure",
+          "zh": "提早離開",
+          "example": { "en": "Early departure from the meeting requires permission.", "zh": "提早離開會議需要獲得許可。" }
+        }
+      ],
+      "examples": [
+        { "tag": "機場", "en": "Our departure was delayed by one hour because of rain.", "zh": "因為下雨，我們的出發延後了一小時。" },
+        { "tag": "出差", "en": "Please arrive at the airport two hours before departure.", "zh": "請在出發前兩小時抵達機場。" },
+        { "tag": "人事", "en": "Mr. Chen's departure will leave an open position in sales.", "zh": "陳先生的離職會讓業務部出現一個空缺。" }
+      ],
+      "confusable": [
+        {
+          "word": "depart",
+          "diff": "depart 是動詞，departure 是名詞，兩者意思相近但詞性不同。",
+          "usage": "depart 是動詞（The train departs at six.），departure 是名詞（The departure is at six.），不能互換。",
+          "example": { "en": "The train will depart from Platform 3 at noon.", "zh": "火車將在中午從三號月台出發。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "arrival",
+          "ipa": "/əˈraɪvl/",
+          "pos": "n.",
+          "zh": "抵達",
+          "example": { "en": "Our arrival time in Tokyo is 9 a.m.", "zh": "我們抵達東京的時間是早上九點。" }
+        },
+        {
+          "w": "flight",
+          "ipa": "/flaɪt/",
+          "pos": "n.",
+          "zh": "班機",
+          "example": { "en": "Your flight to Seattle leaves at seven tonight.", "zh": "你飛往西雅圖的班機今晚七點起飛。" }
+        },
+        {
+          "w": "gate",
+          "ipa": "/ɡeɪt/",
+          "pos": "n.",
+          "zh": "登機門",
+          "example": { "en": "Please wait at gate 12 until boarding begins.", "zh": "請在 12 號登機門等候直到開始登機。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "depart",
+          "ipa": "/dɪˈpɑːrt/",
+          "pos": "v.",
+          "zh": "出發、離開",
+          "link": "departure 去掉 -ure 就是動詞 depart，像 failure → fail"
+        },
+        {
+          "w": "department",
+          "ipa": "/dɪˈpɑːrtmənt/",
+          "pos": "n.",
+          "zh": "部門",
+          "link": "depart + -ment，把動作變成名詞，像 pay → payment"
+        },
+        {
+          "w": "departmental",
+          "ipa": "/ˌdiːpɑːrtˈmentl/",
+          "pos": "adj.",
+          "zh": "部門的",
+          "link": "department + -al，變成形容詞，像 education → educational"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "出發、起飛",
+          "en": "the time when a plane, train, or bus leaves",
+          "example": { "en": "Flight departure has been moved to gate 8.", "zh": "班機出發已改到 8 號登機門。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "離職、離開（公司）",
+          "en": "the act of leaving a job or a company",
+          "distinguish": "前面出現人名、job 或 company 時，指的是離職而不是班機出發。",
+          "example": { "en": "After her departure, we need a new sales manager.", "zh": "她離職後，我們需要一位新的業務經理。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "偏離、改變（常規）",
+          "en": "a change from the usual way of doing things",
+          "distinguish": "常寫成 a departure from，指與以往做法不同。",
+          "example": { "en": "This plan is a big departure from our old strategy.", "zh": "這個計畫與我們舊的策略有很大的不同。" }
+        }
+      ]
+    }
+  ]
+}

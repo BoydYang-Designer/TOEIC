@@ -1,0 +1,728 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "thunderstorm",
+      "type": "word",
+      "ipa": "/ˈθʌndɚˌstɔːrm/",
+      "pos": "n.",
+      "zh": "雷雨、雷暴",
+      "en": "a storm with thunder, lightning, and heavy rain",
+      "note": "多益常見於天氣預報、航班延誤與活動取消的情境，指伴隨打雷閃電的大雨。常和 severe、warning、delay 一起出現。",
+      "forms": [
+        {
+          "w": "thunderstorms",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "雷雨（複數）",
+          "ipa": "/ˈθʌndɚˌstɔːrmz/",
+          "example": { "en": "Afternoon thunderstorms are common in this area during summer.", "zh": "這個地區夏天午後常有雷雨。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "severe thunderstorm",
+          "zh": "強烈雷雨",
+          "example": { "en": "A severe thunderstorm is expected to hit the city tonight.", "zh": "預計今晚會有強烈雷雨襲擊這座城市。" }
+        },
+        {
+          "phrase": "thunderstorm warning",
+          "zh": "雷雨警報",
+          "example": { "en": "The weather office issued a thunderstorm warning for the coast.", "zh": "氣象局針對沿海地區發布了雷雨警報。" }
+        },
+        {
+          "phrase": "be caught in a thunderstorm",
+          "zh": "遇上雷雨",
+          "example": { "en": "We were caught in a thunderstorm on the way to work.", "zh": "我們在上班途中遇上了雷雨。" }
+        }
+      ],
+      "examples": [
+        { "tag": "航班", "en": "The flight was delayed for two hours because of a thunderstorm.", "zh": "班機因為雷雨延誤了兩個小時。" },
+        { "tag": "活動", "en": "The outdoor concert was canceled due to a sudden thunderstorm.", "zh": "戶外演唱會因為突然的雷雨而取消。" },
+        { "tag": "出差", "en": "A thunderstorm made it hard to drive to the client's office.", "zh": "一場雷雨讓開車去客戶的辦公室變得很困難。" }
+      ],
+      "confusable": [
+        {
+          "word": "thunder",
+          "diff": "thunder 只是「雷聲」；thunderstorm 是整場有雷聲、閃電和大雨的暴風雨。",
+          "example": { "en": "The loud thunder woke everyone in the hotel last night.", "zh": "昨晚的大雷聲把飯店裡的人都吵醒了。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "lightning",
+          "pos": "n.",
+          "zh": "閃電",
+          "ipa": "/ˈlaɪtnɪŋ/",
+          "example": { "en": "Lightning hit a power line near our factory yesterday.", "zh": "昨天閃電擊中了我們工廠附近的電線。" }
+        },
+        {
+          "w": "forecast",
+          "pos": "n.",
+          "zh": "預報",
+          "ipa": "/ˈfɔːrkæst/",
+          "example": { "en": "The forecast says rain will continue until Friday.", "zh": "預報說雨會一直下到星期五。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "thunder",
+          "ipa": "/ˈθʌndɚ/",
+          "pos": "n.",
+          "zh": "雷聲",
+          "link": "thunderstorm = thunder（雷聲）+ storm（暴風雨），打雷的暴風雨"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "transmission",
+      "type": "word",
+      "ipa": "/trænzˈmɪʃn/",
+      "pos": "n.",
+      "zh": "傳輸、傳送；變速箱",
+      "en": "the act of sending a signal, data, or a disease from one place to another",
+      "note": "多益常見於資訊科技、廣播與汽車維修情境：資料或訊號的傳送，也指汽車的變速箱。是 transmit 的名詞。",
+      "forms": [
+        {
+          "w": "transmissions",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "傳輸、傳送（複數）",
+          "ipa": "/trænzˈmɪʃnz/",
+          "example": { "en": "The system records all transmissions between the two offices.", "zh": "系統會記錄兩個辦公室之間所有的傳輸。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "data transmission",
+          "zh": "資料傳輸",
+          "example": { "en": "Data transmission was slow because of the network problem.", "zh": "因為網路問題，資料傳輸很慢。" }
+        },
+        {
+          "phrase": "automatic transmission",
+          "zh": "自排變速箱",
+          "example": { "en": "Most rental cars here have an automatic transmission.", "zh": "這裡大部分的租賃車都是自排。" }
+        },
+        {
+          "phrase": "transmission of",
+          "zh": "…的傳送、傳播",
+          "example": { "en": "The transmission of the signal was cut off by the storm.", "zh": "訊號的傳送被暴風雨中斷了。" }
+        }
+      ],
+      "examples": [
+        { "tag": "資訊科技", "en": "Please check the transmission speed of the new network.", "zh": "請檢查新網路的傳輸速度。" },
+        { "tag": "汽車維修", "en": "We need to repair the transmission before the trip.", "zh": "出發旅行前，我們需要先修理變速箱。" },
+        { "tag": "公共衛生", "en": "Washing hands helps stop the transmission of germs.", "zh": "洗手有助於阻止細菌傳播。" },
+        { "tag": "廣播", "en": "The live transmission of the speech started at noon.", "zh": "演講的實況轉播從中午開始。" }
+      ],
+      "confusable": [
+        {
+          "word": "transition",
+          "diff": "transition 是「轉變、過渡」；transmission 是「傳送」。拼法相近，意思不同。",
+          "example": { "en": "The transition to the new system will take a month.", "zh": "轉換到新系統需要一個月的時間。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "transfer",
+          "diff": "transfer 指把錢、人或東西從一處移到另一處；transmission 偏重訊號、資料的傳送。",
+          "example": { "en": "A bank transfer takes about two business days.", "zh": "銀行轉帳大約需要兩個工作天。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "signal",
+          "pos": "n.",
+          "zh": "訊號",
+          "ipa": "/ˈsɪɡnəl/",
+          "example": { "en": "The phone signal is weak inside this old building.", "zh": "這棟老建築裡的手機訊號很弱。" }
+        },
+        {
+          "w": "network",
+          "pos": "n.",
+          "zh": "網路",
+          "ipa": "/ˈnetwɝːk/",
+          "example": { "en": "The network was down for an hour this morning.", "zh": "今天早上網路中斷了一個小時。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "transmit",
+          "ipa": "/trænzˈmɪt/",
+          "pos": "v.",
+          "zh": "傳送、傳染",
+          "link": "transmit 去掉動詞字尾變成 -ion，把「傳送」這個動作變成名詞，像 permit → permission"
+        },
+        {
+          "w": "transmitter",
+          "ipa": "/trænzˈmɪtɚ/",
+          "pos": "n.",
+          "zh": "發射器、傳送裝置",
+          "link": "transmit + -er，做傳送工作的東西，像 printer、computer"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "傳輸、傳送",
+          "en": "the sending of data or a signal from one place to another",
+          "example": { "en": "The transmission of the video file took ten minutes.", "zh": "傳送這個影片檔花了十分鐘。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "變速箱",
+          "en": "the part of a car that sends power from the engine to the wheels",
+          "distinguish": "句中出現 car、engine、repair、garage 時，指的是汽車的變速箱。",
+          "example": { "en": "The garage found a problem with the van's transmission.", "zh": "修車廠發現這輛廂型車的變速箱有問題。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "傳染、傳播",
+          "en": "the spread of a disease from one person to another",
+          "distinguish": "句中出現 disease、germs、health 時，指的是疾病的傳染。",
+          "example": { "en": "Masks can reduce the transmission of the flu in offices.", "zh": "口罩可以降低辦公室裡流感的傳播。" }
+        }
+      ]
+    },
+    {
+      "text": "transmit",
+      "type": "word",
+      "ipa": "/trænzˈmɪt/",
+      "pos": "v.",
+      "zh": "傳送、傳輸；傳染",
+      "en": "to send a signal, data, or a message to another place or person",
+      "note": "多益常見於資訊科技、通訊與公共衛生情境：傳送資料、訊號、檔案，也可指疾病傳染。語氣比 send 更技術、更正式。",
+      "grammar_note": "transmit 的過去式和 -ing 要重複 t：transmitted、transmitting。",
+      "forms": [
+        {
+          "w": "transmits",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "傳送",
+          "ipa": "/trænzˈmɪts/",
+          "example": { "en": "This device transmits data to the main server every hour.", "zh": "這個裝置每小時會把資料傳送到主伺服器。" }
+        },
+        {
+          "w": "transmitted",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "傳送了",
+          "ipa": "/trænzˈmɪtɪd/",
+          "example": { "en": "The report was transmitted to the client without any errors.", "zh": "這份報告已經順利傳送給客戶，沒有任何錯誤。" }
+        },
+        {
+          "w": "transmitting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在傳送",
+          "ipa": "/trænzˈmɪtɪŋ/",
+          "example": { "en": "The company is transmitting the results to its clients now.", "zh": "公司現在正在把結果傳送給客戶。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "transmit data",
+          "zh": "傳送資料",
+          "example": { "en": "The sensor can transmit data without a cable.", "zh": "這個感測器不用接線也能傳送資料。" }
+        },
+        {
+          "phrase": "transmit a signal",
+          "zh": "發送訊號",
+          "example": { "en": "The tower transmits a signal across the whole city.", "zh": "這座塔把訊號發送到整座城市。" }
+        },
+        {
+          "phrase": "transmit information",
+          "zh": "傳遞資訊",
+          "example": { "en": "Please transmit the information to all branch offices.", "zh": "請把這項資訊傳達給所有分公司。" }
+        }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Please transmit the signed form to our legal team today.", "zh": "請今天把簽好的表格傳送給我們的法務團隊。" },
+        { "tag": "公共衛生", "en": "Washing your hands can stop germs from being transmitted.", "zh": "洗手可以防止細菌被傳染。" },
+        { "tag": "會議", "en": "The meeting will be transmitted live to all branches.", "zh": "這場會議將即時轉播給所有分公司。" }
+      ],
+      "confusable": [
+        {
+          "word": "transfer",
+          "diff": "transfer 是把人、錢或東西轉移到另一處；transmit 是傳送訊號、資料或病菌。",
+          "example": { "en": "She will transfer to our Tokyo office next month.", "zh": "她下個月會調到我們的東京辦公室。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "send",
+          "diff": "send 日常通用；transmit 較技術、較正式，常用於資料、訊號與疾病。",
+          "example": { "en": "Please send the file to me before noon.", "zh": "請在中午前把檔案寄給我。" }
+        },
+        {
+          "phrase": "pass on",
+          "diff": "pass on 較口語，常指把消息或疾病轉告、傳給別人。",
+          "example": { "en": "Please pass on this message to the sales team.", "zh": "請把這則訊息轉告給業務團隊。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "signal",
+          "pos": "n.",
+          "zh": "訊號",
+          "ipa": "/ˈsɪɡnəl/",
+          "example": { "en": "We lost the signal when the train entered the tunnel.", "zh": "火車進入隧道時，我們失去了訊號。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "transmission",
+          "ipa": "/trænzˈmɪʃn/",
+          "pos": "n.",
+          "zh": "傳輸、傳送；變速箱",
+          "link": "transmit 變成 -ion，把「傳送」這個動作變成名詞，像 permit → permission"
+        },
+        {
+          "w": "transmitter",
+          "ipa": "/trænzˈmɪtɚ/",
+          "pos": "n.",
+          "zh": "發射器、傳送裝置",
+          "link": "transmit + -er，做傳送工作的東西，像 printer、computer"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "傳送（資料、訊號）",
+          "en": "to send data or a signal from one place to another",
+          "example": { "en": "The system will transmit the files to the cloud tonight.", "zh": "系統今晚會把檔案傳送到雲端。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "傳染（疾病）",
+          "en": "to pass a disease from one person to another",
+          "distinguish": "句中出現 disease、virus、germs 時，指的是疾病的傳染。",
+          "example": { "en": "Some viruses can be transmitted through shared office equipment.", "zh": "有些病毒可以透過共用的辦公設備傳染。" }
+        }
+      ]
+    },
+    {
+      "text": "tasty",
+      "type": "word",
+      "ipa": "/ˈteɪsti/",
+      "pos": "adj.",
+      "zh": "美味的、好吃的",
+      "en": "having a good flavor that you enjoy",
+      "note": "多益常見於餐廳、飯店、活動餐點與食品廣告，意思是「好吃」。比 delicious 日常、輕鬆。",
+      "forms": [
+        {
+          "w": "tastier",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更美味的",
+          "ipa": "/ˈteɪstiɚ/",
+          "example": { "en": "Our new recipe is tastier than the old one.", "zh": "我們的新食譜比舊的更好吃。" }
+        },
+        {
+          "w": "tastiest",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最美味的",
+          "ipa": "/ˈteɪstiɪst/",
+          "example": { "en": "This is the tastiest dish on the lunch menu.", "zh": "這是午餐菜單上最好吃的一道菜。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "tasty snack",
+          "zh": "美味的點心",
+          "example": { "en": "Employees can enjoy a tasty snack in the break room.", "zh": "員工可以在休息室享用美味的點心。" }
+        },
+        {
+          "phrase": "tasty dish",
+          "zh": "美味的菜餚",
+          "example": { "en": "The chef created a tasty dish with local vegetables.", "zh": "主廚用當地蔬菜做了一道美味的菜。" }
+        },
+        {
+          "phrase": "look tasty",
+          "zh": "看起來很好吃",
+          "example": { "en": "The cakes in the window look very tasty.", "zh": "櫥窗裡的蛋糕看起來很好吃。" }
+        }
+      ],
+      "examples": [
+        { "tag": "餐廳", "en": "The soup was warm and tasty, so we ordered another.", "zh": "這碗湯又熱又好喝，所以我們又點了一碗。" },
+        { "tag": "活動", "en": "The caterer prepared a tasty lunch for all guests.", "zh": "外燴業者為所有賓客準備了美味的午餐。" },
+        { "tag": "廣告", "en": "Our healthy snacks are tasty and easy to carry.", "zh": "我們的健康點心既好吃又方便攜帶。" }
+      ],
+      "confusable": [
+        {
+          "word": "tasteful",
+          "diff": "tasteful 是「有品味的」，形容設計、裝飾等；tasty 才是「好吃的」。",
+          "example": { "en": "The office has tasteful furniture and soft colors.", "zh": "這間辦公室的家具很有品味，色彩也很柔和。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "delicious",
+          "diff": "delicious 語氣更強、更正式，常用於菜單或評論；tasty 較日常。",
+          "example": { "en": "The dessert at the banquet was absolutely delicious.", "zh": "宴會上的甜點真是太美味了。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "flavor",
+          "pos": "n.",
+          "zh": "口味、風味",
+          "ipa": "/ˈfleɪvɚ/",
+          "example": { "en": "The new ice cream comes in three different flavors.", "zh": "這款新冰淇淋有三種不同的口味。" }
+        },
+        {
+          "w": "fresh",
+          "pos": "adj.",
+          "zh": "新鮮的",
+          "ipa": "/freʃ/",
+          "example": { "en": "We only use fresh fruit in our desserts.", "zh": "我們的甜點只用新鮮水果。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "taste",
+          "ipa": "/teɪst/",
+          "pos": "n.",
+          "zh": "味道、品嚐",
+          "link": "tasty = taste + -y，有好味道的，像 salty、sunny"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "terrific",
+      "type": "word",
+      "ipa": "/təˈrɪfɪk/",
+      "pos": "adj.",
+      "zh": "極好的、很棒的",
+      "en": "very good or great",
+      "note": "多益常見於正面的評價與感謝，例如 terrific job、terrific idea、terrific news。語氣熱情、口語，用來誇獎人或事情。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "a terrific job",
+          "zh": "很出色的表現",
+          "example": { "en": "You did a terrific job on the presentation today.", "zh": "你今天的簡報做得非常棒。" }
+        },
+        {
+          "phrase": "a terrific idea",
+          "zh": "極好的點子",
+          "example": { "en": "That is a terrific idea for the new campaign.", "zh": "這對新的宣傳活動來說是個很棒的點子。" }
+        },
+        {
+          "phrase": "terrific news",
+          "zh": "極好的消息",
+          "example": { "en": "We just received terrific news about the new contract.", "zh": "我們剛收到關於新合約的好消息。" }
+        },
+        {
+          "phrase": "terrific service",
+          "zh": "極好的服務",
+          "example": { "en": "The hotel staff gave us terrific service all week.", "zh": "飯店員工整個星期都給我們極好的服務。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The sales results for this quarter are terrific.", "zh": "這一季的銷售成績非常棒。" },
+        { "tag": "電子郵件", "en": "Thank you for your terrific support during the project.", "zh": "謝謝你在專案期間給予的極佳支持。" },
+        { "tag": "旅遊", "en": "The restaurant has a terrific view of the harbor.", "zh": "這家餐廳有極佳的港口景色。" }
+      ],
+      "confusable": [
+        {
+          "word": "terrible",
+          "diff": "terrific 是正面的「很棒」，terrible 是負面的「很糟」，意思幾乎相反。",
+          "example": { "en": "The weather was terrible, so the outdoor event was canceled.", "zh": "天氣很糟，所以戶外活動取消了。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "wonderful",
+          "diff": "wonderful 語氣溫暖、通用；terrific 更口語、更熱情。",
+          "example": { "en": "It was wonderful to meet you at the conference.", "zh": "很高興在研討會上認識你。" }
+        },
+        {
+          "word": "excellent",
+          "diff": "excellent 較正式，常用於書面評價；terrific 較口語。",
+          "example": { "en": "Her excellent report impressed the whole board of directors.", "zh": "她出色的報告讓整個董事會印象深刻。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "terrifically",
+          "ipa": "/təˈrɪfɪkli/",
+          "pos": "adv.",
+          "zh": "非常、極其",
+          "link": "terrific + -ly，變成副詞，像 quickly、carefully"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "tablecloth",
+      "type": "word",
+      "ipa": "/ˈteɪblklɔːθ/",
+      "pos": "n.",
+      "zh": "桌巾",
+      "en": "a cloth that covers a table, especially at meals",
+      "note": "多益常見於餐廳、飯店與宴會佈置情境，指鋪在餐桌上的桌巾。是 table + cloth 組成的複合名詞。",
+      "forms": [
+        {
+          "w": "tablecloths",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "桌巾（複數）",
+          "ipa": "/ˈteɪblklɔːθs/",
+          "example": { "en": "The hotel washes its tablecloths every morning.", "zh": "飯店每天早上都會清洗桌巾。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "spread a tablecloth",
+          "zh": "鋪桌巾",
+          "example": { "en": "Please spread a clean tablecloth over each table.", "zh": "請在每張桌子上鋪一條乾淨的桌巾。" }
+        },
+        {
+          "phrase": "white tablecloth",
+          "zh": "白色桌巾（常指高級餐廳）",
+          "example": { "en": "The restaurant is known for its white tablecloth service.", "zh": "這家餐廳以白色桌巾的高級服務聞名。" }
+        },
+        {
+          "phrase": "change the tablecloth",
+          "zh": "更換桌巾",
+          "example": { "en": "Staff must change the tablecloth after every customer.", "zh": "員工必須在每位客人用完餐後更換桌巾。" }
+        }
+      ],
+      "examples": [
+        { "tag": "餐廳", "en": "A waiter put a tablecloth on the table before dinner.", "zh": "服務生在晚餐前在桌上鋪了一條桌巾。" },
+        { "tag": "宴會", "en": "The tablecloth matched the color of the flowers perfectly.", "zh": "桌巾和花的顏色非常搭。" },
+        { "tag": "採購", "en": "Please order a red tablecloth for the new dining room.", "zh": "請為新的用餐室訂購一條紅色桌巾。" },
+        { "tag": "清潔", "en": "There is a coffee stain on the tablecloth.", "zh": "桌巾上有一塊咖啡漬。" }
+      ],
+      "confusable": [
+        {
+          "word": "tablet",
+          "diff": "tablet 是「平板電腦」或「藥片」，拼法相近，和桌巾無關。",
+          "example": { "en": "Guests can order food from a tablet on the table.", "zh": "客人可以用桌上的平板電腦點餐。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "napkin",
+          "pos": "n.",
+          "zh": "餐巾",
+          "ipa": "/ˈnæpkɪn/",
+          "example": { "en": "Please put a napkin next to each plate.", "zh": "請在每個盤子旁邊放一張餐巾。" }
+        },
+        {
+          "w": "menu",
+          "pos": "n.",
+          "zh": "菜單",
+          "ipa": "/ˈmenjuː/",
+          "example": { "en": "The menu changes every week at this restaurant.", "zh": "這家餐廳的菜單每週都會更換。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "thirsty",
+      "type": "word",
+      "ipa": "/ˈθɝːsti/",
+      "pos": "adj.",
+      "zh": "口渴的",
+      "en": "wanting or needing to drink something",
+      "note": "多益常見於餐飲、活動與旅遊情境，描述人想喝水或飲料。常用 feel thirsty、get thirsty。",
+      "forms": [
+        {
+          "w": "thirstier",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更口渴的",
+          "ipa": "/ˈθɝːstiɚ/",
+          "example": { "en": "After the long walk, I felt thirstier than before.", "zh": "走了很長一段路後，我比之前更渴了。" }
+        },
+        {
+          "w": "thirstiest",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最口渴的",
+          "ipa": "/ˈθɝːstiɪst/",
+          "example": { "en": "The thirstiest runners rushed to the water table after the race.", "zh": "比賽結束後，最口渴的跑者衝向供水站。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "feel thirsty",
+          "zh": "覺得口渴",
+          "example": { "en": "I always feel thirsty after a long meeting.", "zh": "開完長時間的會議後，我總是覺得口渴。" }
+        },
+        {
+          "phrase": "get thirsty",
+          "zh": "變得口渴",
+          "example": { "en": "Guests get thirsty quickly in the hot hall.", "zh": "客人在悶熱的大廳裡很快就會口渴。" }
+        },
+        {
+          "phrase": "thirsty work",
+          "zh": "會讓人口渴的工作",
+          "example": { "en": "Moving boxes in the warehouse all day is thirsty work.", "zh": "整天在倉庫搬箱子是會讓人口渴的工作。" }
+        }
+      ],
+      "examples": [
+        { "tag": "活動", "en": "Please offer cold water to guests who look thirsty.", "zh": "請為看起來口渴的賓客提供冰水。" },
+        { "tag": "銷售", "en": "Our drink machine is perfect for thirsty office workers.", "zh": "我們的飲料機很適合口渴的上班族。" },
+        { "tag": "旅遊", "en": "The tour guide brought extra bottles for thirsty visitors.", "zh": "導遊多帶了幾瓶水給口渴的遊客。" }
+      ],
+      "confusable": [
+        {
+          "word": "thirty",
+          "diff": "thirty 是數字「三十」，/ˈθɝːti/，發音和拼法都和 thirsty 很像，少了 s。",
+          "example": { "en": "The meeting room can hold thirty people at most.", "zh": "這間會議室最多可容納三十人。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "hungry",
+          "pos": "adj.",
+          "zh": "飢餓的",
+          "ipa": "/ˈhʌŋɡri/",
+          "example": { "en": "Many hungry customers lined up outside the cafe.", "zh": "許多餓了的顧客在咖啡館外排隊。" }
+        },
+        {
+          "w": "beverage",
+          "pos": "n.",
+          "zh": "飲料",
+          "ipa": "/ˈbevərɪdʒ/",
+          "example": { "en": "Free beverages are served at the front desk.", "zh": "櫃檯提供免費飲料。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "thirst",
+          "ipa": "/θɝːst/",
+          "pos": "n.",
+          "zh": "口渴",
+          "link": "thirsty = thirst + -y，有口渴感覺的，像 rainy、sunny"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "thrill",
+      "type": "word",
+      "ipa": "/θrɪl/",
+      "pos": "n.",
+      "zh": "興奮、刺激；使興奮",
+      "en": "a strong feeling of excitement and happiness",
+      "note": "多益常見於旅遊、活動與銷售情境。名詞指令人興奮的感覺，動詞指讓人非常興奮；常以 be thrilled to + V 表示「很開心地…」。",
+      "grammar_note": "感到興奮的人用 thrilled，帶來刺激的事物用 thrilling；be thrilled to 後面接原形動詞。",
+      "forms": [
+        {
+          "w": "thrills",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "刺激的事物（複數）",
+          "ipa": "/θrɪlz/",
+          "example": { "en": "The amusement park promises many thrills for young visitors.", "zh": "這座遊樂園承諾為年輕遊客帶來許多刺激。" }
+        },
+        {
+          "w": "thrills",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "使興奮",
+          "ipa": "/θrɪlz/",
+          "example": { "en": "Her speech thrills the audience at every company event.", "zh": "她的演講每次在公司活動上都讓觀眾很興奮。" }
+        },
+        {
+          "w": "thrilled",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "使興奮了",
+          "ipa": "/θrɪld/",
+          "example": { "en": "The news thrilled everyone on the sales team.", "zh": "這個消息讓業務團隊的每個人都很興奮。" }
+        },
+        {
+          "w": "thrilled",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "非常興奮的、很開心的",
+          "ipa": "/θrɪld/",
+          "example": { "en": "The customers were thrilled with the fast service.", "zh": "顧客對快速的服務感到非常滿意。" }
+        },
+        {
+          "w": "thrilling",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "使興奮",
+          "ipa": "/ˈθrɪlɪŋ/",
+          "example": { "en": "The new ride is thrilling visitors from all over Asia.", "zh": "這個新設施讓來自亞洲各地的遊客非常興奮。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "the thrill of",
+          "zh": "…的興奮感",
+          "example": { "en": "She felt the thrill of closing her first big deal.", "zh": "她感受到談成第一筆大生意的興奮。" }
+        },
+        {
+          "phrase": "be thrilled to",
+          "zh": "很開心能…",
+          "example": { "en": "I am thrilled to join your team next month.", "zh": "我很開心下個月能加入你們的團隊。" }
+        },
+        {
+          "phrase": "thrill ride",
+          "zh": "刺激的遊樂設施",
+          "example": { "en": "The thrill ride is the park's most popular attraction.", "zh": "這個刺激的遊樂設施是園區最受歡迎的景點。" }
+        }
+      ],
+      "examples": [
+        { "tag": "銷售", "en": "The thrill of winning a big client keeps him motivated.", "zh": "贏得大客戶的興奮感讓他保持幹勁。" },
+        { "tag": "旅遊", "en": "Visitors come to the park for the thrill and the views.", "zh": "遊客來到這個園區是為了刺激和風景。" },
+        { "tag": "活動", "en": "Skiing offers a thrill that many tourists cannot find elsewhere.", "zh": "滑雪帶來許多遊客在別處找不到的刺激。" }
+      ],
+      "similar": [
+        {
+          "word": "excitement",
+          "diff": "excitement 較一般、範圍廣；thrill 帶有刺激、緊張的快感。",
+          "example": { "en": "The excitement in the room grew before the announcement.", "zh": "宣布之前，房間裡的興奮氣氛越來越濃。" }
+        },
+        {
+          "word": "delight",
+          "diff": "delight 強調開心、愉快；thrill 強調刺激與興奮。",
+          "example": { "en": "The staff read the good news with great delight.", "zh": "員工帶著極大的喜悅讀著這則好消息。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "thriller",
+          "ipa": "/ˈθrɪlɚ/",
+          "pos": "n.",
+          "zh": "驚悚片、懸疑小說",
+          "link": "thrill + -er，讓人興奮緊張的東西，像 teacher、player"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/θrɪl/",
+          "zh": "興奮、刺激",
+          "example": { "en": "Winning the award gave her a big thrill.", "zh": "獲獎讓她感到非常興奮。" }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/θrɪl/",
+          "zh": "使非常興奮",
+          "example": { "en": "The sudden good news will thrill our loyal customers.", "zh": "這個突如其來的好消息會讓我們的忠實顧客很興奮。" }
+        }
+      ],
+      "senses": []
+    }
+  ]
+}

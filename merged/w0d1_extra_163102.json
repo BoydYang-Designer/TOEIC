@@ -1,0 +1,762 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "fatigue",
+      "type": "word",
+      "ipa": "/fəˈtiːɡ/",
+      "pos": "n.",
+      "zh": "疲勞、疲倦",
+      "en": "the feeling of being very tired",
+      "note": "多益常見於工作時數、安全規定與健康福利的情境，指長時間工作或開車後累到無法專心，語氣比 tiredness 正式。",
+      "grammar_note": "fatigue 是不可數名詞，不加 a、也不加 s；常寫成 suffer from fatigue（因疲勞所苦）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "suffer from fatigue",
+          "zh": "飽受疲勞之苦",
+          "example": { "en": "Many night shift workers suffer from fatigue after a few weeks.", "zh": "許多夜班員工幾週後就飽受疲勞之苦。" }
+        },
+        {
+          "phrase": "reduce fatigue",
+          "zh": "減輕疲勞",
+          "example": { "en": "Regular breaks can help reduce fatigue in the workplace.", "zh": "定時休息有助於減輕職場上的疲勞。" }
+        },
+        {
+          "phrase": "chronic fatigue",
+          "zh": "長期疲勞",
+          "example": { "en": "He took sick leave because of chronic fatigue.", "zh": "他因為長期疲勞而請了病假。" }
+        }
+      ],
+      "examples": [
+        { "tag": "安全", "en": "Driver fatigue is a common cause of road accidents.", "zh": "駕駛疲勞是交通事故的常見原因。" },
+        { "tag": "人資", "en": "Long working hours can lead to serious fatigue.", "zh": "工時過長可能造成嚴重的疲勞。" },
+        { "tag": "公告", "en": "Employees who feel fatigue should take a short break.", "zh": "感到疲勞的員工應該稍微休息一下。" }
+      ],
+      "similar": [
+        {
+          "word": "exhaustion",
+          "diff": "exhaustion 是累到極點，程度比 fatigue 更強。",
+          "example": { "en": "The long trip left the manager in a state of exhaustion.", "zh": "這趟長途旅行讓經理累到筋疲力盡。" }
+        },
+        {
+          "word": "tiredness",
+          "diff": "tiredness 是日常用語，較口語；fatigue 較正式，常見於報告和公告。",
+          "example": { "en": "Tiredness is common after a long flight across the ocean.", "zh": "搭乘跨洋長途飛行之後常會感到疲倦。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "tired",
+          "ipa": "/ˈtaɪrd/",
+          "pos": "adj.",
+          "zh": "疲倦的",
+          "example": { "en": "I am tired after the long meeting this afternoon.", "zh": "今天下午開完冗長的會議後，我覺得很累。" }
+        },
+        {
+          "w": "rest",
+          "ipa": "/rest/",
+          "pos": "n.",
+          "zh": "休息",
+          "example": { "en": "Please get some rest before the big presentation.", "zh": "大型簡報之前請先好好休息。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "ferry",
+      "type": "word",
+      "ipa": "/ˈferi/",
+      "pos": "n.",
+      "zh": "渡輪",
+      "en": "a boat that carries people and cars across water",
+      "note": "多益常見於出差、旅遊與交通公告的情境，指在固定航線來回載客與車輛的船；動詞指像渡輪一樣定期接送人或貨物。",
+      "forms": [
+        {
+          "w": "ferries",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "渡輪（複數）",
+          "ipa": "/ˈferiz/",
+          "example": { "en": "Several ferries run between the two cities each day.", "zh": "每天有好幾班渡輪往返這兩座城市。" }
+        },
+        {
+          "w": "ferries",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "接送、運送",
+          "ipa": "/ˈferiz/",
+          "example": { "en": "The shuttle ferries guests from the airport to the hotel.", "zh": "接駁車把賓客從機場載送到飯店。" }
+        },
+        {
+          "w": "ferried",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "接送了、運送了",
+          "ipa": "/ˈferid/",
+          "example": { "en": "Buses ferried the staff to the new office.", "zh": "巴士把員工接送到新辦公室。" }
+        },
+        {
+          "w": "ferrying",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在接送",
+          "ipa": "/ˈferiɪŋ/",
+          "example": { "en": "The boat is ferrying visitors to the island now.", "zh": "那艘船現在正把遊客載往島上。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "take a ferry",
+          "zh": "搭渡輪",
+          "example": { "en": "Passengers can take a ferry across the bay.", "zh": "乘客可以搭渡輪橫渡海灣。" }
+        },
+        {
+          "phrase": "ferry terminal",
+          "zh": "渡輪碼頭",
+          "example": { "en": "The ferry terminal is five minutes from the hotel.", "zh": "渡輪碼頭離飯店只要五分鐘。" }
+        },
+        {
+          "phrase": "ferry schedule",
+          "zh": "渡輪時刻表",
+          "example": { "en": "Please check the ferry schedule before you leave.", "zh": "出發前請先確認渡輪時刻表。" }
+        }
+      ],
+      "examples": [
+        { "tag": "出差", "en": "We took the ferry to the island for the conference.", "zh": "我們搭渡輪到島上參加研討會。" },
+        { "tag": "公告", "en": "The ferry service will stop during the heavy storm.", "zh": "渡輪服務會在暴風雨期間停駛。" },
+        { "tag": "接待", "en": "The company offers a ferry ride for visiting clients.", "zh": "公司為來訪客戶安排了渡輪行程。" }
+      ],
+      "similar": [
+        {
+          "word": "boat",
+          "diff": "boat 是通用的「船」，通常較小；ferry 是在固定航線來回載客的船。",
+          "example": { "en": "We rented a boat for the team trip.", "zh": "我們為團隊旅遊租了一艘船。" }
+        },
+        {
+          "word": "ship",
+          "diff": "ship 指大型船隻，常用來載貨或跨海航行；ferry 是短程固定航線。",
+          "example": { "en": "The ship carries goods to Europe every week.", "zh": "這艘船每週把貨物運往歐洲。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "port",
+          "ipa": "/pɔːrt/",
+          "pos": "n.",
+          "zh": "港口",
+          "example": { "en": "The goods will arrive at the port on Monday.", "zh": "貨物將在週一抵達港口。" }
+        },
+        {
+          "w": "passenger",
+          "ipa": "/ˈpæsndʒɚ/",
+          "pos": "n.",
+          "zh": "乘客",
+          "example": { "en": "Each passenger must show a ticket before boarding.", "zh": "每位乘客登船前都必須出示票券。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈferi/",
+          "zh": "渡輪",
+          "example": { "en": "The last ferry leaves the harbor at ten tonight.", "zh": "最後一班渡輪今晚十點離開港口。" }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ˈferi/",
+          "zh": "接送、運送（往返）",
+          "example": { "en": "The company ferries workers between the two factories every morning.", "zh": "公司每天早上接送員工往返兩間工廠。" }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "faculty",
+      "type": "word",
+      "ipa": "/ˈfæklti/",
+      "pos": "n.",
+      "zh": "（大學的）全體教職員；學院；能力",
+      "en": "the teachers and professors of a school or university",
+      "note": "多益最常見的用法是指大學的教職員，常和 staff、students 一起出現在校園公告或通知中。",
+      "grammar_note": "指教職員這個團體時，美式英文常視為一個整體；指個人要說 a faculty member，不能說 a faculty 來表示一位老師。",
+      "forms": [
+        {
+          "w": "faculties",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "學院、能力（複數）",
+          "ipa": "/ˈfæklˌtiz/",
+          "example": { "en": "Each of the university's faculties has its own budget.", "zh": "這所大學的每個學院都有各自的預算。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "faculty member",
+          "zh": "教職員、教師",
+          "example": { "en": "Each faculty member must submit a yearly report.", "zh": "每位教職員都必須繳交年度報告。" }
+        },
+        {
+          "phrase": "faculty meeting",
+          "zh": "教職員會議",
+          "example": { "en": "The faculty meeting will begin at three o'clock.", "zh": "教職員會議將在三點開始。" }
+        },
+        {
+          "phrase": "faculty and staff",
+          "zh": "教職員工",
+          "example": { "en": "Parking is free for faculty and staff on weekends.", "zh": "週末教職員工可以免費停車。" }
+        }
+      ],
+      "examples": [
+        { "tag": "大學", "en": "The university hired three new faculty members this year.", "zh": "這所大學今年聘了三位新教師。" },
+        { "tag": "公告", "en": "All faculty and students must carry an ID card on campus.", "zh": "所有教職員與學生在校園內都必須攜帶證件。" }
+      ],
+      "confusable": [
+        {
+          "word": "facility",
+          "diff": "拼法很像，但 facility 是「設施、場所」，faculty 是「教職員」。",
+          "usage": "facility 是可數名詞（a facility、facilities），指建築或設備；faculty 指一群教師，兩者不能互換。",
+          "example": { "en": "The new facility has a large training room.", "zh": "新的設施裡有一間很大的訓練室。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "staff",
+          "diff": "staff 泛指公司或機構的全體員工；faculty 專指學校的教師與教授。",
+          "example": { "en": "All staff must wear a badge in the building.", "zh": "所有員工在大樓內都必須佩戴識別證。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "professor",
+          "ipa": "/prəˈfesɚ/",
+          "pos": "n.",
+          "zh": "教授",
+          "example": { "en": "The professor will give a talk on trade next week.", "zh": "那位教授下週會舉辦一場關於貿易的演講。" }
+        },
+        {
+          "w": "campus",
+          "ipa": "/ˈkæmpəs/",
+          "pos": "n.",
+          "zh": "校園",
+          "example": { "en": "The bookstore is on the north side of campus.", "zh": "書店位於校園的北側。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "全體教職員",
+          "en": "all the teachers of a school or university",
+          "example": { "en": "The faculty voted to start the new program next fall.", "zh": "全體教職員投票決定明年秋季開始新課程。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "學院、系所（英式）",
+          "en": "a main part of a university, such as law or arts",
+          "distinguish": "後面接 of law、of arts 等學科名稱時，指的是學院。",
+          "example": { "en": "She studies in the faculty of law at the university.", "zh": "她在這所大學的法學院就讀。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "能力（身心機能）",
+          "en": "a natural ability of the body or mind",
+          "distinguish": "常寫成 mental faculties，指思考與記憶等能力。",
+          "example": { "en": "He kept all his mental faculties well into old age.", "zh": "他到了老年仍保有全部的心智能力。" }
+        }
+      ]
+    },
+    {
+      "text": "fleet",
+      "type": "word",
+      "ipa": "/fliːt/",
+      "pos": "n.",
+      "zh": "車隊、船隊、機隊",
+      "en": "a group of vehicles, ships, or planes owned by one company",
+      "note": "多益常見於運輸、物流與航空公司的情境，指公司擁有或管理的一整批車輛、船隻或飛機。",
+      "grammar_note": "fleet of 後面接複數名詞：a fleet of trucks、a fleet of planes。",
+      "forms": [
+        {
+          "w": "fleets",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "車隊（複數）",
+          "ipa": "/fliːts/",
+          "example": { "en": "Both fleets are being checked before the busy season.", "zh": "兩個車隊在旺季前都在接受檢查。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "a fleet of vehicles",
+          "zh": "一批車輛",
+          "example": { "en": "The hotel has a fleet of vehicles for guests.", "zh": "這間飯店有一批車輛供賓客使用。" }
+        },
+        {
+          "phrase": "company fleet",
+          "zh": "公司車隊",
+          "example": { "en": "Please use a company fleet car for the client visit.", "zh": "拜訪客戶請使用公司車隊的車輛。" }
+        },
+        {
+          "phrase": "fleet management",
+          "zh": "車隊管理",
+          "example": { "en": "Good fleet management can save money on fuel.", "zh": "良好的車隊管理可以節省燃料費用。" }
+        },
+        {
+          "phrase": "expand the fleet",
+          "zh": "擴充車隊",
+          "example": { "en": "We plan to expand the fleet next year.", "zh": "我們計畫明年擴充車隊。" }
+        }
+      ],
+      "examples": [
+        { "tag": "物流", "en": "The company owns a fleet of fifty delivery trucks.", "zh": "這家公司擁有五十輛送貨卡車的車隊。" },
+        { "tag": "管理", "en": "Our fleet manager checks every vehicle each month.", "zh": "我們的車隊經理每個月檢查每一輛車。" },
+        { "tag": "航空", "en": "The airline plans to add ten planes to its fleet.", "zh": "這家航空公司計畫為機隊增加十架飛機。" }
+      ],
+      "confusable": [
+        {
+          "word": "flight",
+          "diff": "flight 是「一趟班機」，fleet 是「一整批車輛或飛機」。",
+          "example": { "en": "Our flight to Tokyo leaves at seven tomorrow morning.", "zh": "我們飛往東京的班機明天早上七點起飛。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "vehicle",
+          "ipa": "/ˈviːəkl/",
+          "pos": "n.",
+          "zh": "車輛",
+          "example": { "en": "Please park your vehicle in the lot behind the office.", "zh": "請把你的車停在辦公室後面的停車場。" }
+        },
+        {
+          "w": "truck",
+          "ipa": "/trʌk/",
+          "pos": "n.",
+          "zh": "卡車",
+          "example": { "en": "The truck will deliver the boxes this afternoon.", "zh": "卡車今天下午會把箱子送到。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "fitness",
+      "type": "word",
+      "ipa": "/ˈfɪtnəs/",
+      "pos": "n.",
+      "zh": "健康、體能；適合",
+      "en": "being healthy and strong, especially from exercise",
+      "note": "多益常見於公司福利、健身房與健康活動的情境，指透過運動保持的體能與健康狀態；也可表示「適合某種用途」。",
+      "grammar_note": "fitness 是不可數名詞，不加 s，也不能說 a fitness；要說「健身中心」用 fitness center。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "fitness center",
+          "zh": "健身中心",
+          "example": { "en": "The hotel has a fitness center on the third floor.", "zh": "這間飯店三樓有一間健身中心。" }
+        },
+        {
+          "phrase": "physical fitness",
+          "zh": "體能",
+          "example": { "en": "Good physical fitness helps you handle stressful work.", "zh": "良好的體能能幫助你應付壓力大的工作。" }
+        },
+        {
+          "phrase": "fitness class",
+          "zh": "健身課程",
+          "example": { "en": "I attend a fitness class after work on Tuesdays.", "zh": "我每週二下班後會上健身課。" }
+        },
+        {
+          "phrase": "fitness program",
+          "zh": "健身計畫",
+          "example": { "en": "Our company runs a fitness program for all staff.", "zh": "我們公司為全體員工舉辦健身計畫。" }
+        }
+      ],
+      "examples": [
+        { "tag": "福利", "en": "The company gives staff a discount on gym fees to support fitness.", "zh": "公司提供員工健身房費用折扣，以鼓勵大家保持體能。" },
+        { "tag": "健康", "en": "Regular exercise improves your fitness and your energy at work.", "zh": "規律運動能提升你的體能與工作精力。" },
+        { "tag": "招募", "en": "Applicants must pass a test of physical fitness for this job.", "zh": "應徵者必須通過這項工作的體能測驗。" }
+      ],
+      "confusable": [
+        {
+          "word": "witness",
+          "diff": "拼法和字尾很像，但 witness 是「目擊者、證人」，fitness 是「體能、健康」。",
+          "example": { "en": "A witness described the accident to the police.", "zh": "一位目擊者向警方描述了這起意外。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "health",
+          "diff": "health 指整體身體狀況；fitness 強調透過運動維持的體能。",
+          "example": { "en": "Regular checkups are important for your health.", "zh": "定期健康檢查對你的健康很重要。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "exercise",
+          "ipa": "/ˈeksɚsaɪz/",
+          "pos": "n.",
+          "zh": "運動",
+          "example": { "en": "Daily exercise can help you feel less stressed.", "zh": "每天運動可以讓你比較不緊張。" }
+        },
+        {
+          "w": "gym",
+          "ipa": "/dʒɪm/",
+          "pos": "n.",
+          "zh": "健身房",
+          "example": { "en": "Many employees go to the gym during lunch.", "zh": "許多員工午休時間會去健身房。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "fit",
+          "ipa": "/fɪt/",
+          "pos": "adj.",
+          "zh": "健康的、合適的",
+          "link": "最基礎的字，fit + -ness 變成名詞，像 happy → happiness"
+        },
+        {
+          "w": "unfit",
+          "ipa": "/ʌnˈfɪt/",
+          "pos": "adj.",
+          "zh": "不適合的、不健康的",
+          "link": "un-（不）+ fit，像 unhappy、unable"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "健康、體能",
+          "en": "being strong and healthy because of exercise",
+          "example": { "en": "She joined a gym to improve her fitness.", "zh": "她加入健身房來提升體能。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "適合、適任",
+          "en": "being good enough for a certain use or job",
+          "distinguish": "後面接 for + 用途或工作時，指的是適合，不是體能。",
+          "example": { "en": "The test shows the machine's fitness for heavy use.", "zh": "測試顯示這台機器適合重度使用。" }
+        }
+      ]
+    },
+    {
+      "text": "foreman",
+      "type": "word",
+      "ipa": "/ˈfɔːrmən/",
+      "pos": "n.",
+      "zh": "工頭、領班",
+      "en": "a worker who is in charge of a group of workers",
+      "note": "多益常見於工廠、工地與施工的情境，指現場帶領工人的領班，通常向經理或工程師回報。",
+      "grammar_note": "foreman 的複數是不規則的 foremen，不是 foremans；重音在第一音節。",
+      "forms": [
+        {
+          "w": "foremen",
+          "label": "複數（不規則）",
+          "pos": "n.",
+          "zh": "工頭（複數）",
+          "ipa": "/ˈfɔːrmən/",
+          "example": { "en": "The foremen met to plan next week's work schedule.", "zh": "領班們開會規劃下週的工作時程。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "factory foreman",
+          "zh": "工廠領班",
+          "example": { "en": "The factory foreman has worked here for twenty years.", "zh": "那位工廠領班在這裡工作了二十年。" }
+        },
+        {
+          "phrase": "site foreman",
+          "zh": "工地領班",
+          "example": { "en": "The site foreman will meet the inspector at nine.", "zh": "工地領班九點會和檢查員碰面。" }
+        }
+      ],
+      "examples": [
+        { "tag": "工廠", "en": "The foreman checks the machines before each shift starts.", "zh": "領班在每個班次開始前都會檢查機器。" },
+        { "tag": "安全", "en": "Please report any safety problem to the foreman.", "zh": "任何安全問題請向領班回報。" },
+        { "tag": "工地", "en": "The foreman told the workers to wear helmets all day.", "zh": "領班要求工人整天都要戴安全帽。" }
+      ],
+      "similar": [
+        {
+          "word": "supervisor",
+          "diff": "supervisor 是各行業都能用的「主管」，較中性；foreman 多指工廠或工地的現場領班。",
+          "example": { "en": "The supervisor approved the overtime request this morning.", "zh": "主管今天早上核准了加班申請。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "worker",
+          "ipa": "/ˈwɜːrkɚ/",
+          "pos": "n.",
+          "zh": "工人、員工",
+          "example": { "en": "Each worker must wear a badge in the plant.", "zh": "每位工人在廠區內都必須佩戴識別證。" }
+        },
+        {
+          "w": "manager",
+          "ipa": "/ˈmænɪdʒɚ/",
+          "pos": "n.",
+          "zh": "經理",
+          "example": { "en": "The foreman reports to the plant manager every day.", "zh": "領班每天向廠長回報。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "franchise",
+      "type": "word",
+      "ipa": "/ˈfræntʃaɪz/",
+      "pos": "n.",
+      "zh": "加盟經營權、加盟店",
+      "en": "the right to sell a company's products or use its name",
+      "note": "多益常見於連鎖餐廳、零售與創業的情境，指向總公司買下使用品牌與經營方式的權利，也可指這樣的店。",
+      "forms": [
+        {
+          "w": "franchises",
+          "label": "複數／第三人稱單數",
+          "pos": "n.",
+          "zh": "加盟店（複數）",
+          "ipa": "/ˈfræntʃaɪzɪz/",
+          "example": { "en": "The company sold franchises to owners in five countries.", "zh": "這家公司把加盟權賣給五個國家的店主。" }
+        },
+        {
+          "w": "franchised",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "授權加盟了",
+          "ipa": "/ˈfræntʃaɪzd/",
+          "example": { "en": "The brand franchised its stores across Asia last year.", "zh": "這個品牌去年在亞洲各地開放了加盟店。" }
+        },
+        {
+          "w": "franchising",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "授權加盟中",
+          "ipa": "/ˈfræntʃaɪzɪŋ/",
+          "example": { "en": "The chain is franchising its shops to small investors.", "zh": "這家連鎖店正把店面授權給小型投資人加盟。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "open a franchise",
+          "zh": "開一家加盟店",
+          "example": { "en": "He saved money to open a franchise last year.", "zh": "他去年存錢準備開一家加盟店。" }
+        },
+        {
+          "phrase": "franchise fee",
+          "zh": "加盟金",
+          "example": { "en": "New owners must pay a large franchise fee at the start.", "zh": "新店主一開始必須支付一大筆加盟金。" }
+        },
+        {
+          "phrase": "franchise agreement",
+          "zh": "加盟合約",
+          "example": { "en": "Please read the franchise agreement carefully before signing.", "zh": "簽約前請仔細閱讀加盟合約。" }
+        }
+      ],
+      "examples": [
+        { "tag": "創業", "en": "She plans to open a coffee shop franchise downtown.", "zh": "她打算在市區開一家咖啡店加盟店。" },
+        { "tag": "管理", "en": "Franchise owners must follow the company's rules and standards.", "zh": "加盟店主必須遵守公司的規定與標準。" }
+      ],
+      "similar": [
+        {
+          "word": "license",
+          "diff": "license 是「許可證」，範圍較廣；franchise 除了使用品牌，還包含經營方式與支援。",
+          "example": { "en": "You need a license to sell food here.", "zh": "你需要有許可證才能在這裡賣食物。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "chain",
+          "ipa": "/tʃeɪn/",
+          "pos": "n.",
+          "zh": "連鎖店",
+          "example": { "en": "The coffee chain has stores in ten cities.", "zh": "這家連鎖咖啡店在十個城市有分店。" }
+        },
+        {
+          "w": "brand",
+          "ipa": "/brænd/",
+          "pos": "n.",
+          "zh": "品牌",
+          "example": { "en": "This brand is very popular among young customers in Asia.", "zh": "這個品牌在亞洲的年輕顧客之間非常受歡迎。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "franchisee",
+          "ipa": "/ˌfræntʃaɪˈziː/",
+          "pos": "n.",
+          "zh": "加盟店主",
+          "link": "franchise + -ee，接受的人，像 employee、trainee"
+        },
+        {
+          "w": "franchisor",
+          "ipa": "/ˈfræntʃaɪzɔːr/",
+          "pos": "n.",
+          "zh": "加盟總公司",
+          "link": "franchise + -or，給予的人，像 actor、visitor"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈfræntʃaɪz/",
+          "zh": "加盟經營權、加盟店",
+          "example": { "en": "She bought the franchise for a well-known pizza brand.", "zh": "她買下了一個知名披薩品牌的加盟權。" }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ˈfræntʃaɪz/",
+          "zh": "授權加盟",
+          "example": { "en": "The firm decided to franchise its restaurants overseas.", "zh": "這家公司決定在海外開放餐廳加盟。" }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "加盟經營權",
+          "en": "the right to use a company's name and sell its products",
+          "example": { "en": "The franchise costs about fifty thousand dollars to buy.", "zh": "這項加盟經營權大約要花五萬美元購買。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "加盟店",
+          "en": "a store that is run under a company's name",
+          "distinguish": "前面出現 local、this 或接營業時間時，指的是一家實體加盟店。",
+          "example": { "en": "This franchise is open every day until ten at night.", "zh": "這間加盟店每天營業到晚上十點。" }
+        }
+      ]
+    },
+    {
+      "text": "frustrate",
+      "type": "word",
+      "ipa": "/ˈfrʌstreɪt/",
+      "pos": "v.",
+      "zh": "使沮喪、使受挫；阻撓",
+      "en": "to make someone feel upset because they cannot do something",
+      "note": "多益常見於客戶服務、顧客抱怨與工作效率的情境，指事情不順利讓人覺得煩躁或無力。",
+      "grammar_note": "「人」感到沮喪用 frustrated（I am frustrated），「事物」令人沮喪用 frustrating（The delay is frustrating），不要用反。",
+      "forms": [
+        {
+          "w": "frustrates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "使沮喪",
+          "ipa": "/ˈfrʌstreɪts/",
+          "example": { "en": "Every delay frustrates the customers waiting in line.", "zh": "每一次延誤都讓排隊的顧客感到沮喪。" }
+        },
+        {
+          "w": "frustrated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "使沮喪了",
+          "ipa": "/ˈfrʌstreɪtɪd/",
+          "example": { "en": "The long delay frustrated everyone waiting at the gate.", "zh": "漫長的延誤讓每位在登機門等候的人都很沮喪。" }
+        },
+        {
+          "w": "frustrated",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "感到沮喪的",
+          "ipa": "/ˈfrʌstreɪtɪd/",
+          "example": { "en": "Several frustrated customers called the help desk today.", "zh": "今天有好幾位感到沮喪的顧客打電話到服務台。" }
+        },
+        {
+          "w": "frustrating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在使沮喪",
+          "ipa": "/ˈfrʌstreɪtɪŋ/",
+          "example": { "en": "Constant errors are frustrating the whole sales team.", "zh": "不斷出現的錯誤讓整個業務團隊很沮喪。" }
+        },
+        {
+          "w": "frustrating",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "令人沮喪的",
+          "ipa": "/ˈfrʌstreɪtɪŋ/",
+          "example": { "en": "It was a frustrating day for the support staff.", "zh": "對客服人員來說，那是令人沮喪的一天。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "frustrate customers",
+          "zh": "讓顧客感到沮喪",
+          "example": { "en": "Complicated forms can frustrate customers and lower sales.", "zh": "複雜的表格可能讓顧客沮喪並降低銷售。" }
+        },
+        {
+          "phrase": "frustrate efforts",
+          "zh": "阻撓努力",
+          "example": { "en": "Budget cuts may frustrate our efforts to hire more staff.", "zh": "預算刪減可能阻礙我們增聘人手的努力。" }
+        },
+        {
+          "phrase": "feel frustrated",
+          "zh": "感到沮喪",
+          "example": { "en": "Many users feel frustrated when the website is slow.", "zh": "網站很慢時，許多使用者會感到沮喪。" }
+        }
+      ],
+      "examples": [
+        { "tag": "客戶服務", "en": "Long waiting times often frustrate our customers.", "zh": "漫長的等待時間常讓我們的顧客感到沮喪。" },
+        { "tag": "採購", "en": "Slow replies from suppliers frustrate the whole team.", "zh": "供應商的回覆太慢讓整個團隊很沮喪。" },
+        { "tag": "活動", "en": "Bad weather frustrated our plans for the outdoor event.", "zh": "壞天氣讓我們的戶外活動計畫落空。" }
+      ],
+      "similar": [
+        {
+          "word": "disappoint",
+          "diff": "disappoint 強調結果不如預期；frustrate 強調做不到想做的事而感到煩躁。",
+          "example": { "en": "The poor sales results disappointed the whole team.", "zh": "糟糕的銷售結果讓整個團隊失望。" }
+        },
+        {
+          "word": "annoy",
+          "diff": "annoy 只是讓人覺得煩，程度比 frustrate 輕。",
+          "example": { "en": "Loud phone calls in the office annoy many workers.", "zh": "辦公室裡很大聲的電話讓許多員工覺得煩。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "complaint",
+          "ipa": "/kəmˈpleɪnt/",
+          "pos": "n.",
+          "zh": "抱怨、客訴",
+          "example": { "en": "We received a complaint about the late delivery.", "zh": "我們收到一則關於延遲送貨的客訴。" }
+        },
+        {
+          "w": "stress",
+          "ipa": "/stres/",
+          "pos": "n.",
+          "zh": "壓力",
+          "example": { "en": "Heavy workloads cause stress for many employees.", "zh": "繁重的工作量給許多員工帶來壓力。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "frustration",
+          "ipa": "/frʌˈstreɪʃn/",
+          "pos": "n.",
+          "zh": "挫折感、沮喪",
+          "link": "frustrate 去掉 e + -ion，把「沮喪」變成名詞，像 decorate → decoration"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "使沮喪、使受挫",
+          "en": "to make someone feel upset or helpless",
+          "example": { "en": "Unclear instructions frustrate new employees on their first day.", "zh": "不清楚的指示讓新員工在第一天就感到挫折。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "阻撓、使落空",
+          "en": "to stop a plan from working",
+          "distinguish": "受詞是 plans、efforts 等事物時，指的是阻撓，不是讓人沮喪。",
+          "example": { "en": "A late shipment frustrated our plan to open on time.", "zh": "貨物延遲讓我們準時開幕的計畫落空了。" }
+        }
+      ]
+    }
+  ]
+}

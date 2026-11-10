@@ -1,0 +1,373 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "caution",
+      "type": "word",
+      "ipa": "/ˈkɔːʃən/",
+      "pos": "n.",
+      "zh": "小心、謹慎；警告",
+      "en": "great care to avoid danger or mistakes",
+      "note": "多益常見於公告、安全提醒和商務電子郵件，提醒對方小心或注意風險。語氣比 warning 溫和。",
+      "grammar_note": "caution 當「小心」時是不可數名詞，不加 s；當「一則警告」時可加 a。動詞用法常接 sb about sth 或 sb to V。",
+      "forms": [
+        { "w": "cautions", "label": "複數", "pos": "n.", "zh": "警告、提醒（複數）", "ipa": "/ˈkɔːʃənz/", "example": { "en": "The safety cautions are printed on the back of the box.", "zh": "安全警告印在盒子背面。" } },
+        { "w": "cautions", "label": "第三人稱單數", "pos": "v.", "zh": "警告", "ipa": "/ˈkɔːʃənz/", "example": { "en": "The report cautions that sales may drop next year.", "zh": "報告提醒明年銷售可能下滑。" } },
+        { "w": "cautioned", "label": "過去式／過去分詞", "pos": "v.", "zh": "警告了", "ipa": "/ˈkɔːʃənd/", "example": { "en": "Our lawyer cautioned us not to sign the form yet.", "zh": "我們的律師提醒我們先不要簽這份表格。" } },
+        { "w": "cautioning", "label": "現在分詞", "pos": "v.", "zh": "警告中", "ipa": "/ˈkɔːʃənɪŋ/", "example": { "en": "She is cautioning the staff about the new security rules.", "zh": "她正在提醒員工注意新的安全規定。" } }
+      ],
+      "collocations": [
+        { "phrase": "use caution", "zh": "小心行事", "example": { "en": "Drivers must use caution near the construction site.", "zh": "駕駛人在施工地點附近必須小心。" } },
+        { "phrase": "exercise caution", "zh": "保持謹慎", "example": { "en": "Please exercise caution when you open emails from unknown senders.", "zh": "打開陌生寄件者的郵件時請保持謹慎。" } },
+        { "phrase": "proceed with caution", "zh": "謹慎進行", "example": { "en": "We will proceed with caution until the contract is signed.", "zh": "在合約簽署之前，我們會謹慎進行。" } },
+        { "phrase": "a word of caution", "zh": "一句提醒", "example": { "en": "A word of caution: check the total before you pay.", "zh": "提醒一下：付款前請先確認總額。" } }
+      ],
+      "examples": [
+        { "tag": "公共場所", "en": "Please use care and watch your step on the wet floor.", "zh": "濕地板請小心，注意腳步。" },
+        { "tag": "會議", "en": "The manager gave us a caution about spending too much this quarter.", "zh": "經理提醒我們本季不要花太多。" },
+        { "tag": "電子郵件", "en": "I want to caution you that the price may change next month.", "zh": "我想提醒你，價格下個月可能會變。" },
+        { "tag": "出差", "en": "The airline posted a caution about heavy traffic near the airport.", "zh": "航空公司公告機場附近交通壅塞。" }
+      ],
+      "confusable": [
+        { "word": "careful", "diff": "careful 是形容詞，指做事小心的人；caution 是名詞，指小心的態度或警告。", "usage": "caution 是名詞（或動詞），careful 是形容詞，所以說 be careful，不說 be caution。", "example": { "en": "Be careful with the glass boxes in the warehouse.", "zh": "倉庫裡的玻璃盒請小心處理。" } }
+      ],
+      "similar": [
+        { "phrase": "warning", "diff": "warning 語氣比 caution 強，通常表示危險已經存在或問題很嚴重。", "example": { "en": "The company sent a warning letter about late payments.", "zh": "公司寄出了關於逾期付款的警告信。" } },
+        { "phrase": "heads-up", "diff": "heads-up 是口語的提前通知，語氣輕鬆，不一定有危險。", "example": { "en": "Thanks for the heads-up about the schedule change.", "zh": "謝謝你提前告知時間表有變動。" } }
+      ],
+      "family": [
+        { "w": "warning", "pos": "n.", "zh": "警告", "ipa": "/ˈwɔːrnɪŋ/", "example": { "en": "There is a warning sign near the machine.", "zh": "機器旁邊有一個警告標誌。" } },
+        { "w": "care", "pos": "n.", "zh": "小心、照顧", "ipa": "/ker/", "example": { "en": "Please handle these samples with care.", "zh": "請小心處理這些樣品。" } },
+        { "w": "risk", "pos": "n.", "zh": "風險", "ipa": "/rɪsk/", "example": { "en": "Every new project has some risk.", "zh": "每個新專案都有一些風險。" } },
+        { "w": "safety", "pos": "n.", "zh": "安全", "ipa": "/ˈseɪfti/", "example": { "en": "Safety is our first priority at the factory.", "zh": "工廠裡安全是我們的第一要務。" } }
+      ],
+      "derived": [
+        { "w": "cautious", "pos": "adj.", "zh": "小心的、謹慎的", "ipa": "/ˈkɔːʃəs/", "link": "caution + -ous，充滿小心的，像 famous、nervous" },
+        { "w": "cautiously", "pos": "adv.", "zh": "小心地", "ipa": "/ˈkɔːʃəsli/", "link": "cautious + -ly，變成副詞，像 slowly、carefully" },
+        { "w": "precaution", "pos": "n.", "zh": "預防措施", "ipa": "/prɪˈkɔːʃən/", "link": "pre-（事先）+ caution，事先小心的做法，像 prepare、prevent" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈkɔːʃən/", "zh": "小心、謹慎", "example": { "en": "Investors showed caution before the company announced its results.", "zh": "公司公布結果之前，投資人表現得很謹慎。" } },
+        { "pos": "v.", "ipa": "/ˈkɔːʃən/", "zh": "警告、提醒", "example": { "en": "I must caution you about the risks of this plan.", "zh": "我必須提醒你這個計畫的風險。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "小心謹慎", "en": "care taken to avoid danger or mistakes", "example": { "en": "Please handle the new equipment with great caution.", "zh": "請非常小心地操作這台新設備。" } },
+        { "pos": "n.", "zh": "警告、提醒", "en": "a warning given to someone", "distinguish": "前面有 a／the 或 gave／received 等動詞時，通常是「一則警告」的意思。", "example": { "en": "The store gave him a caution for repeated late deliveries.", "zh": "商店因為他一再延遲送貨給了他一次警告。" } }
+      ]
+    },
+    {
+      "text": "cashier",
+      "type": "word",
+      "ipa": "/kæˈʃɪr/",
+      "pos": "n.",
+      "zh": "收銀員",
+      "en": "a person who takes payment from customers in a store",
+      "note": "多益購物與付款情境很常見，指商店、超市或餐廳在櫃檯收錢的人。常出現在「請到收銀台結帳」這類對話。",
+      "forms": [
+        { "w": "cashiers", "label": "複數", "pos": "n.", "zh": "收銀員（複數）", "ipa": "/kæˈʃɪrz/", "example": { "en": "Two cashiers are working at the front of the store today.", "zh": "今天店門口有兩位收銀員在工作。" } }
+      ],
+      "collocations": [
+        { "phrase": "work as a cashier", "zh": "擔任收銀員", "example": { "en": "She works as a cashier at a grocery store.", "zh": "她在一家雜貨店當收銀員。" } },
+        { "phrase": "pay the cashier", "zh": "付錢給收銀員", "example": { "en": "You can pay the cashier by credit card.", "zh": "你可以用信用卡付錢給收銀員。" } },
+        { "phrase": "ask the cashier", "zh": "詢問收銀員", "example": { "en": "Please ask the cashier for a refund form at the counter.", "zh": "請到櫃檯向收銀員索取退款表格。" } },
+        { "phrase": "cashier's check", "zh": "銀行本票", "example": { "en": "The bank issued a cashier's check for the full amount.", "zh": "銀行開出了全額的本票。" } }
+      ],
+      "examples": [
+        { "tag": "購物", "en": "Please take your items to the cashier on the left.", "zh": "請把你的商品拿到左邊的收銀員那裡。" },
+        { "tag": "付款", "en": "The cashier asked if I wanted a paper bag.", "zh": "收銀員問我要不要紙袋。" },
+        { "tag": "徵才", "en": "We are hiring a part-time cashier for the weekend shift.", "zh": "我們正在徵求週末班的兼職收銀員。" },
+        { "tag": "餐廳", "en": "The cashier gave me a receipt and my change.", "zh": "收銀員給了我收據和找零。" }
+      ],
+      "confusable": [
+        { "word": "teller", "diff": "teller 是銀行櫃員，cashier 是商店或餐廳的收銀員。", "example": { "en": "The bank teller helped me deposit the check today.", "zh": "銀行櫃員今天幫我存入了支票。" } }
+      ],
+      "similar": [
+        { "phrase": "clerk", "diff": "clerk 範圍較廣，可指店員，也可指辦公室的文書人員，不一定負責收錢。", "example": { "en": "The sales clerk checked the stock for me.", "zh": "店員幫我查了庫存。" } }
+      ],
+      "family": [
+        { "w": "customer", "pos": "n.", "zh": "顧客", "ipa": "/ˈkʌstəmɚ/", "example": { "en": "Each customer received a small gift at the register.", "zh": "每位顧客在櫃檯都收到一份小禮物。" } },
+        { "w": "receipt", "pos": "n.", "zh": "收據", "ipa": "/rɪˈsiːt/", "example": { "en": "Keep your receipt if you want to return the item.", "zh": "如果想退貨，請保留收據。" } },
+        { "w": "register", "pos": "n.", "zh": "收銀機", "ipa": "/ˈredʒɪstɚ/", "example": { "en": "The cash register is next to the front door.", "zh": "收銀機在大門旁邊。" } },
+        { "w": "counter", "pos": "n.", "zh": "櫃檯", "ipa": "/ˈkaʊntɚ/", "example": { "en": "Please wait at the counter until your name is called.", "zh": "請在櫃檯等到叫你的名字。" } }
+      ],
+      "derived": [
+        { "w": "cash", "pos": "n.", "zh": "現金", "ipa": "/kæʃ/", "link": "cashier = cash + -ier，管現金的人，像 engineer、banker" },
+        { "w": "cashless", "pos": "adj.", "zh": "無現金的", "ipa": "/ˈkæʃləs/", "link": "cash + -less，沒有現金的，像 careless、useless" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "carrier",
+      "type": "word",
+      "ipa": "/ˈkæriɚ/",
+      "pos": "n.",
+      "zh": "運輸業者、航空公司、電信業者",
+      "en": "a company or person that carries goods, people, or messages",
+      "note": "多益常見於貨運、航空與電信情境，指負責運送或提供服務的公司。看到 shipping carrier、mobile carrier 時要依上下文判斷是哪一種。",
+      "forms": [
+        { "w": "carriers", "label": "複數", "pos": "n.", "zh": "運輸業者（複數）", "ipa": "/ˈkæriɚz/", "example": { "en": "Several carriers can ship our packages to Europe overnight.", "zh": "有幾家業者可以隔夜把我們的包裹寄到歐洲。" } }
+      ],
+      "collocations": [
+        { "phrase": "shipping carrier", "zh": "貨運業者", "example": { "en": "Choose a shipping carrier before you print the label.", "zh": "列印標籤之前，請先選好貨運業者。" } },
+        { "phrase": "air carrier", "zh": "航空公司", "example": { "en": "The air carrier cancelled two flights because of the storm.", "zh": "這家航空公司因為暴風雨取消了兩個航班。" } },
+        { "phrase": "mobile carrier", "zh": "行動電話業者", "example": { "en": "Your mobile carrier may charge extra for roaming.", "zh": "你的行動電話業者可能會額外收漫遊費。" } }
+      ],
+      "examples": [
+        { "tag": "貨運", "en": "We changed our shipping partner to save money.", "zh": "我們換了運送合作夥伴來省錢。" },
+        { "tag": "航空", "en": "This carrier offers several daily flights between Taipei and Tokyo.", "zh": "這家航空公司每天有數班往返台北和東京的航班。" },
+        { "tag": "電信", "en": "Which carrier do you use for your mobile phone?", "zh": "你的手機用哪一家電信業者？" },
+        { "tag": "採購", "en": "The carrier will deliver the goods within three business days.", "zh": "運輸業者會在三個工作天內送達貨物。" }
+      ],
+      "confusable": [
+        { "word": "career", "diff": "career 是職涯、職業生涯，發音是 /kəˈrɪr/；carrier 是運送業者，兩個字拼法相近。", "example": { "en": "She wants to build a career in marketing.", "zh": "她想在行銷領域發展職涯。" } }
+      ],
+      "similar": [
+        { "phrase": "courier", "diff": "courier 指快遞員或快遞公司，強調急件與專人遞送；carrier 範圍更廣。", "example": { "en": "We sent the contract by courier this morning.", "zh": "我們今天早上用快遞寄出了合約。" } }
+      ],
+      "family": [
+        { "w": "freight", "pos": "n.", "zh": "貨運、貨物", "ipa": "/freɪt/", "example": { "en": "The freight arrived at the port on Monday.", "zh": "貨物星期一抵達了港口。" } },
+        { "w": "delivery", "pos": "n.", "zh": "送貨", "ipa": "/dɪˈlɪvəri/", "example": { "en": "Delivery usually takes two to three days.", "zh": "送貨通常需要兩到三天。" } },
+        { "w": "shipment", "pos": "n.", "zh": "出貨、貨物", "ipa": "/ˈʃɪpmənt/", "example": { "en": "The next shipment will leave the warehouse on Friday.", "zh": "下一批貨星期五會從倉庫出發。" } },
+        { "w": "parcel", "pos": "n.", "zh": "包裹", "ipa": "/ˈpɑːrsəl/", "example": { "en": "A large parcel is waiting for you at the front desk.", "zh": "有一個大包裹在櫃檯等你。" } }
+      ],
+      "derived": [
+        { "w": "carry", "pos": "v.", "zh": "攜帶、運送", "ipa": "/ˈkæri/", "link": "carrier = carry（y 變 i）+ -er，搬運的人或公司，像 teacher、driver" },
+        { "w": "carriage", "pos": "n.", "zh": "運輸、運費", "ipa": "/ˈkærɪdʒ/", "link": "carry + -age，運送這件事（也指運費），像 package、storage" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "貨運或客運公司", "en": "a company that moves goods or people", "example": { "en": "The carrier offers free delivery for large orders.", "zh": "這家運輸業者對大額訂單提供免費送貨。" } },
+        { "pos": "n.", "zh": "電信業者", "en": "a company that provides phone or data service", "distinguish": "旁邊出現 phone、plan、network 等字時，通常指電信業者。", "example": { "en": "Our carrier is upgrading its network this weekend.", "zh": "我們的電信業者這個週末要升級網路。" } },
+        { "pos": "n.", "zh": "送信的人（郵差）", "en": "a person who brings mail to homes and offices", "distinguish": "常說 mail carrier，指郵差。", "example": { "en": "The mail carrier delivers letters to our office every morning.", "zh": "郵差每天早上把信送到我們辦公室。" } }
+      ]
+    },
+    {
+      "text": "captain",
+      "type": "word",
+      "ipa": "/ˈkæptən/",
+      "pos": "n.",
+      "zh": "機長、船長、隊長",
+      "en": "the person in charge of a plane, a ship, or a team",
+      "note": "多益常見於機場、登機廣播和旅遊情境，機上廣播常聽到 This is your captain speaking。也可指運動隊伍的隊長。",
+      "forms": [
+        { "w": "captains", "label": "複數", "pos": "n.", "zh": "隊長（複數）", "ipa": "/ˈkæptənz/", "example": { "en": "Both team captains shook hands before the game.", "zh": "兩位隊長在比賽前握了手。" } },
+        { "w": "captains", "label": "第三人稱單數", "pos": "v.", "zh": "擔任隊長", "ipa": "/ˈkæptənz/", "example": { "en": "She captains the company volleyball team every summer.", "zh": "她每年夏天擔任公司排球隊的隊長。" } },
+        { "w": "captained", "label": "過去式／過去分詞", "pos": "v.", "zh": "擔任了隊長", "ipa": "/ˈkæptənd/", "example": { "en": "He captained the national team for five years.", "zh": "他擔任國家隊隊長五年。" } },
+        { "w": "captaining", "label": "現在分詞", "pos": "v.", "zh": "擔任隊長中", "ipa": "/ˈkæptənɪŋ/", "example": { "en": "She is captaining the project team this quarter.", "zh": "她這一季帶領專案團隊。" } }
+      ],
+      "collocations": [
+        { "phrase": "team captain", "zh": "隊長", "example": { "en": "She was chosen as team captain last month.", "zh": "她上個月被選為隊長。" } },
+        { "phrase": "the captain of a ship", "zh": "船長", "example": { "en": "He has been the captain of this ship for ten years.", "zh": "他擔任這艘船的船長已經十年了。" } },
+        { "phrase": "the captain's announcement", "zh": "機長廣播", "example": { "en": "Please listen to the captain's announcement before takeoff.", "zh": "起飛前請注意聽機長廣播。" } }
+      ],
+      "examples": [
+        { "tag": "航空", "en": "The captain announced that the flight would be delayed.", "zh": "機長宣布班機會延誤。" },
+        { "tag": "運動", "en": "The captain of the soccer team thanked the fans.", "zh": "足球隊隊長感謝了球迷。" },
+        { "tag": "旅遊", "en": "The ship's captain welcomed all guests on board.", "zh": "船長歡迎所有賓客上船。" },
+        { "tag": "機艙廣播", "en": "The captain asked passengers to fasten their seat belts.", "zh": "機長請乘客繫好安全帶。" }
+      ],
+      "confusable": [
+        { "word": "caption", "diff": "caption 是圖片或照片下方的說明文字，發音 /ˈkæpʃən/；captain 是機長或隊長。", "example": { "en": "Please add a caption under each photo.", "zh": "請在每張照片下方加上說明文字。" } }
+      ],
+      "similar": [
+        { "phrase": "chief", "diff": "chief 是各種組織的首長或主管，不限於船或飛機。", "example": { "en": "The chief of security called a meeting.", "zh": "安全主管召開了會議。" } },
+        { "phrase": "leader", "diff": "leader 是通用的領導者，可用於任何團隊；captain 多用於船、飛機和運動隊。", "example": { "en": "Our team leader sent the schedule on Monday.", "zh": "我們的組長星期一寄出了時間表。" } }
+      ],
+      "family": [
+        { "w": "pilot", "pos": "n.", "zh": "飛行員", "ipa": "/ˈpaɪlət/", "example": { "en": "The pilot checked the controls before takeoff.", "zh": "飛行員在起飛前檢查了操控裝置。" } },
+        { "w": "crew", "pos": "n.", "zh": "全體機組人員", "ipa": "/kruː/", "example": { "en": "The crew prepared the cabin for the passengers.", "zh": "機組人員為乘客準備好機艙。" } },
+        { "w": "leader", "pos": "n.", "zh": "領導者", "ipa": "/ˈliːdɚ/", "example": { "en": "A good leader listens to the whole team.", "zh": "好的領導者會傾聽整個團隊。" } },
+        { "w": "passenger", "pos": "n.", "zh": "乘客", "ipa": "/ˈpæsɪndʒɚ/", "example": { "en": "Each passenger must show a passport at the gate.", "zh": "每位乘客都必須在登機門出示護照。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈkæptən/", "zh": "機長、船長、隊長", "example": { "en": "The captain checked the weather report before the flight left.", "zh": "機長在班機起飛前查看了天氣報告。" } },
+        { "pos": "v.", "ipa": "/ˈkæptən/", "zh": "擔任隊長、帶領", "example": { "en": "I will captain the team during the sales contest.", "zh": "銷售競賽期間我會擔任隊長。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "機長、船長", "en": "the person in charge of a plane or ship", "example": { "en": "The captain landed the plane safely in heavy rain.", "zh": "機長在大雨中安全降落了飛機。" } },
+        { "pos": "n.", "zh": "隊長", "en": "the leader of a sports team", "distinguish": "旁邊出現 team、game、players 時，通常指隊長。", "example": { "en": "Our team captain organized practice every Friday.", "zh": "我們的隊長每週五安排練習。" } }
+      ]
+    },
+    {
+      "text": "circuit",
+      "type": "word",
+      "ipa": "/ˈsɝːkɪt/",
+      "pos": "n.",
+      "zh": "電路；巡迴",
+      "en": "a path that electricity moves along",
+      "note": "多益常見於電子產品、停電和維修情境，例如 circuit board、circuit breaker。也可指一連串固定的巡迴活動。",
+      "forms": [
+        { "w": "circuits", "label": "複數", "pos": "n.", "zh": "電路（複數）", "ipa": "/ˈsɝːkɪts/", "example": { "en": "The new phone has smaller circuits and a longer battery life.", "zh": "這支新手機的電路更小，電池續航也更長。" } }
+      ],
+      "collocations": [
+        { "phrase": "short circuit", "zh": "短路", "example": { "en": "A short circuit started the small fire in the office.", "zh": "短路引起了辦公室裡的小火災。" } },
+        { "phrase": "circuit breaker", "zh": "斷路器", "example": { "en": "Reset the circuit breaker if the power goes off.", "zh": "如果停電，請重新開啟斷路器。" } },
+        { "phrase": "circuit board", "zh": "電路板", "example": { "en": "The engineer replaced the damaged circuit board in the printer.", "zh": "工程師更換了印表機裡損壞的電路板。" } },
+        { "phrase": "electrical circuit", "zh": "電路", "example": { "en": "Do not touch the electrical circuit with wet hands.", "zh": "不要用濕手碰電路。" } }
+      ],
+      "examples": [
+        { "tag": "技術", "en": "The technician checked the circuit before turning on the machine.", "zh": "技術人員在開機前檢查了電路。" },
+        { "tag": "維修", "en": "The power went out because the circuit was overloaded.", "zh": "因為電路超載，所以停電了。" },
+        { "tag": "演講", "en": "The speaker travels the conference circuit every autumn.", "zh": "這位講者每年秋天都巡迴各個研討會。" },
+        { "tag": "運動", "en": "She is a top player on the international tennis circuit.", "zh": "她是國際網球巡迴賽的頂尖選手。" }
+      ],
+      "confusable": [
+        { "word": "circle", "diff": "circle 是圓圈或一群人圍成的圈；circuit 是繞一圈的路線，或電流走的電路。", "example": { "en": "Please sit in a circle for the team meeting.", "zh": "團隊會議請圍成一圈坐。" } }
+      ],
+      "similar": [
+        { "phrase": "tour", "diff": "tour 指旅行或巡演，比 circuit 更常見；circuit 強調固定重複的路線或系列活動。", "example": { "en": "The band will go on tour in spring.", "zh": "這個樂團春天會去巡迴演出。" } }
+      ],
+      "family": [
+        { "w": "wire", "pos": "n.", "zh": "電線", "ipa": "/ˈwaɪɚ/", "example": { "en": "A loose wire caused the problem with the lights.", "zh": "一條鬆脫的電線造成了燈的問題。" } },
+        { "w": "power", "pos": "n.", "zh": "電力", "ipa": "/ˈpaʊɚ/", "example": { "en": "The power was off for two hours this morning.", "zh": "今天早上停電了兩個小時。" } },
+        { "w": "battery", "pos": "n.", "zh": "電池", "ipa": "/ˈbætəri/", "example": { "en": "The battery needs to be charged before the trip.", "zh": "出差前電池需要先充電。" } },
+        { "w": "switch", "pos": "n.", "zh": "開關", "ipa": "/swɪtʃ/", "example": { "en": "Turn off the main switch before you leave.", "zh": "離開前請關掉總開關。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "電路", "en": "a path that electricity moves along", "example": { "en": "The circuit inside this machine is easy to repair.", "zh": "這台機器裡的電路很容易修理。" } },
+        { "pos": "n.", "zh": "巡迴（一連串固定的場地或活動）", "en": "a regular series of places or events visited in order", "distinguish": "旁邊出現 speaker、tennis、conference 等字時，通常是「巡迴」的意思。", "example": { "en": "He spent ten years on the lecture circuit.", "zh": "他有十年時間在各地巡迴演講。" } }
+      ]
+    },
+    {
+      "text": "chemistry",
+      "type": "word",
+      "ipa": "/ˈkemɪstri/",
+      "pos": "n.",
+      "zh": "化學；默契",
+      "en": "the science of what things are made of and how they change",
+      "note": "多益常見於實驗室、製造與教育情境。在人事或團隊情境中，chemistry 也可指人與人之間合得來的感覺。",
+      "grammar_note": "chemistry 當學科是不可數名詞，不加 s，也不加 a，動詞用單數，例如 Chemistry is difficult。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "chemistry lab", "zh": "化學實驗室", "example": { "en": "The chemistry lab opens at nine every morning.", "zh": "化學實驗室每天早上九點開門。" } },
+        { "phrase": "good chemistry", "zh": "很有默契", "example": { "en": "The two partners have good chemistry and work well together.", "zh": "這兩位夥伴很有默契，合作順利。" } },
+        { "phrase": "team chemistry", "zh": "團隊默契", "example": { "en": "Team chemistry is important when we start a new project.", "zh": "開始新專案時，團隊默契很重要。" } }
+      ],
+      "examples": [
+        { "tag": "學術", "en": "He studied chemistry at university before joining our lab.", "zh": "他在加入我們實驗室之前，在大學主修化學。" },
+        { "tag": "製造", "en": "The company uses chemistry to make safer cleaning products.", "zh": "這家公司運用化學製造更安全的清潔用品。" },
+        { "tag": "團隊", "en": "You can feel the chemistry in this team during meetings.", "zh": "開會時你可以感受到這個團隊的默契。" }
+      ],
+      "confusable": [
+        { "word": "chemical", "diff": "chemistry 是學科名稱；chemical 是「化學的」或「化學物質」。", "usage": "chemistry 是名詞（學科）；chemical 可當形容詞（化學的）或名詞（化學物質），可數。", "example": { "en": "The factory stores each chemical in a safe place.", "zh": "工廠把每種化學物質存放在安全的地方。" } },
+        { "word": "chemist", "diff": "chemist 是化學家；在英式英語中也指藥局或藥劑師。", "example": { "en": "The chemist explained how the new product works.", "zh": "這位化學家說明了新產品的原理。" } }
+      ],
+      "similar": [
+        { "phrase": "teamwork", "diff": "teamwork 強調大家合作做事；chemistry 強調人與人之間合得來的感覺。", "example": { "en": "Good teamwork helped us finish the project early.", "zh": "良好的團隊合作幫助我們提早完成專案。" } }
+      ],
+      "family": [
+        { "w": "science", "pos": "n.", "zh": "科學", "ipa": "/ˈsaɪəns/", "example": { "en": "She works in a science museum downtown.", "zh": "她在市中心的科學博物館工作。" } },
+        { "w": "physics", "pos": "n.", "zh": "物理學", "ipa": "/ˈfɪzɪks/", "example": { "en": "He teaches physics at a local high school.", "zh": "他在當地一所高中教物理。" } },
+        { "w": "laboratory", "pos": "n.", "zh": "實驗室", "ipa": "/ˈlæbrətɔːri/", "example": { "en": "The laboratory tests every product before it is sold.", "zh": "實驗室會在產品販售前測試每一項產品。" } },
+        { "w": "experiment", "pos": "n.", "zh": "實驗", "ipa": "/ɪkˈsperɪmənt/", "example": { "en": "The first experiment was a success.", "zh": "第一次實驗成功了。" } }
+      ],
+      "derived": [
+        { "w": "chemical", "pos": "adj.", "zh": "化學的；（n.）化學物質", "ipa": "/ˈkemɪkəl/", "link": "chem- 加 -ical，和化學有關的，像 medical、electrical" },
+        { "w": "chemist", "pos": "n.", "zh": "化學家", "ipa": "/ˈkemɪst/", "link": "chem- + -ist，專門做這件事的人，像 artist、scientist" },
+        { "w": "chemically", "pos": "adv.", "zh": "化學上地", "ipa": "/ˈkemɪkli/", "link": "chemical + -ly，變成副詞，像 electrically、basically" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "化學", "en": "the science of what things are made of and how they change", "example": { "en": "Chemistry is one of the courses required for this program.", "zh": "化學是這個課程的必修科目之一。" } },
+        { "pos": "n.", "zh": "默契、合得來的感覺", "en": "the good feeling between people who work well together", "distinguish": "旁邊出現 team、partners、players 等人物時，通常是「默契」的意思。", "example": { "en": "The new coach quickly built chemistry among the players.", "zh": "新教練很快就在球員之間建立了默契。" } }
+      ]
+    },
+    {
+      "text": "checkup",
+      "type": "word",
+      "ipa": "/ˈtʃekʌp/",
+      "pos": "n.",
+      "zh": "健康檢查、檢查",
+      "en": "a regular visit to a doctor to see if you are healthy",
+      "note": "多益常見於醫療、員工福利和預約情境。也可指對機器或設備的例行檢查。",
+      "grammar_note": "「做健康檢查」常說 have／get a checkup 或 go in for a checkup，介系詞用 for。",
+      "forms": [
+        { "w": "checkups", "label": "複數", "pos": "n.", "zh": "健康檢查（複數）", "ipa": "/ˈtʃekʌps/", "example": { "en": "Free checkups are offered to everyone in our department.", "zh": "我們部門的每個人都能做免費健康檢查。" } }
+      ],
+      "collocations": [
+        { "phrase": "have a checkup", "zh": "做健康檢查", "example": { "en": "I have a checkup at the clinic on Friday.", "zh": "我星期五要去診所做健康檢查。" } },
+        { "phrase": "annual checkup", "zh": "年度健康檢查", "example": { "en": "The annual checkup is part of our health plan.", "zh": "年度健康檢查是我們健康方案的一部分。" } },
+        { "phrase": "medical checkup", "zh": "醫療檢查", "example": { "en": "A medical checkup is required before the overseas assignment.", "zh": "外派之前必須做醫療檢查。" } },
+        { "phrase": "schedule a checkup", "zh": "預約檢查", "example": { "en": "Please schedule a checkup before the end of the month.", "zh": "請在月底前預約檢查。" } }
+      ],
+      "examples": [
+        { "tag": "福利", "en": "All employees can take a day off for a checkup.", "zh": "所有員工都可以請一天假去做健康檢查。" },
+        { "tag": "醫療", "en": "My doctor said my checkup results look normal.", "zh": "我的醫生說我的檢查結果看起來正常。" },
+        { "tag": "設備", "en": "The technician gave the copy machine a full checkup.", "zh": "技術人員為影印機做了完整的檢查。" },
+        { "tag": "預約", "en": "Please make an appointment for your dental checkup.", "zh": "請預約你的牙齒檢查。" }
+      ],
+      "confusable": [
+        { "word": "check up", "diff": "checkup 是名詞（一個字）；check up 是動詞片語，分開寫，常接 on。", "usage": "名詞寫成一個字 checkup；動詞片語分開寫成 check up，常用 check up on + 人或事。", "example": { "en": "I will check up on the shipping status this afternoon.", "zh": "我今天下午會確認一下貨運狀態。" } }
+      ],
+      "similar": [
+        { "phrase": "physical exam", "diff": "physical 是 physical examination 的簡稱，專指身體檢查，範圍比 checkup 窄。", "example": { "en": "He passed the physical exam for the new job.", "zh": "他通過了新工作的體檢。" } },
+        { "phrase": "inspection", "diff": "inspection 多指對設備、場所或產品的正式檢查，不用於人的健康。", "example": { "en": "The inspection of the factory starts on Monday.", "zh": "工廠的檢查星期一開始。" } }
+      ],
+      "family": [
+        { "w": "doctor", "pos": "n.", "zh": "醫生", "ipa": "/ˈdɑːktɚ/", "example": { "en": "The doctor will see you in ten minutes.", "zh": "醫生十分鐘後會看你。" } },
+        { "w": "clinic", "pos": "n.", "zh": "診所", "ipa": "/ˈklɪnɪk/", "example": { "en": "The clinic is open until six in the evening.", "zh": "診所開到傍晚六點。" } },
+        { "w": "appointment", "pos": "n.", "zh": "預約", "ipa": "/əˈpɔɪntmənt/", "example": { "en": "I need to change my appointment to next week.", "zh": "我需要把預約改到下週。" } },
+        { "w": "health", "pos": "n.", "zh": "健康", "ipa": "/helθ/", "example": { "en": "Our company cares about the health of its staff.", "zh": "我們公司很關心員工的健康。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "健康檢查", "en": "a visit to a doctor to see if you are healthy", "example": { "en": "She went for a checkup before starting her new job.", "zh": "她在開始新工作之前去做了健康檢查。" } },
+        { "pos": "n.", "zh": "（設備的）例行檢查", "en": "a regular check to make sure a machine works well", "distinguish": "旁邊出現 car、machine、system 等物品時，指設備檢查。", "example": { "en": "The car needs a checkup before the long business trip.", "zh": "出長途差之前，這輛車需要做檢查。" } }
+      ]
+    },
+    {
+      "text": "clap",
+      "type": "word",
+      "ipa": "/klæp/",
+      "pos": "v.",
+      "zh": "拍手、鼓掌",
+      "en": "to hit your hands together to show you like something",
+      "note": "多益常見於演講、頒獎、活動和聽力 Part 1 的人物動作題。看到人群面向台上拍手時，常用 clap 或 applaud 描述。",
+      "grammar_note": "「為某人鼓掌」用 clap for + 人，不說 clap + 人；拍手的動作可直接說 clap your hands。",
+      "forms": [
+        { "w": "claps", "label": "第三人稱單數", "pos": "v.", "zh": "拍手", "ipa": "/klæps/", "example": { "en": "The manager always claps after each short presentation.", "zh": "經理每次簡短報告後都會鼓掌。" } },
+        { "w": "claps", "label": "複數", "pos": "n.", "zh": "拍手聲（複數）", "ipa": "/klæps/", "example": { "en": "The speech ended with loud claps from the audience.", "zh": "演講在觀眾響亮的掌聲中結束。" } },
+        { "w": "clapped", "label": "過去式／過去分詞", "pos": "v.", "zh": "拍了手", "ipa": "/klæpt/", "example": { "en": "The guests clapped when the CEO walked onto the stage.", "zh": "執行長走上舞台時，賓客們鼓掌了。" } },
+        { "w": "clapping", "label": "現在分詞", "pos": "v.", "zh": "拍手中", "ipa": "/ˈklæpɪŋ/", "example": { "en": "The staff are clapping for the new team leader.", "zh": "員工們正在為新的組長鼓掌。" } }
+      ],
+      "collocations": [
+        { "phrase": "clap one's hands", "zh": "拍手", "example": { "en": "The trainer asked us to clap our hands twice.", "zh": "訓練師請我們拍兩次手。" } },
+        { "phrase": "clap for", "zh": "為…鼓掌", "example": { "en": "Let's clap for our guest speaker from the head office.", "zh": "讓我們為來自總公司的客座講者鼓掌。" } },
+        { "phrase": "clap along", "zh": "跟著拍手", "example": { "en": "Visitors were invited to clap along with the band.", "zh": "遊客受邀跟著樂團一起拍手。" } }
+      ],
+      "examples": [
+        { "tag": "簡報", "en": "The audience began to clap when the speaker finished.", "zh": "講者講完時，觀眾開始鼓掌。" },
+        { "tag": "活動", "en": "Everyone will clap for the winner at the award dinner.", "zh": "頒獎晚宴上，大家會為得獎者鼓掌。" },
+        { "tag": "名詞", "en": "We heard a loud clap of thunder outside the office.", "zh": "我們在辦公室外聽到一聲響亮的雷聲。" }
+      ],
+      "confusable": [
+        { "word": "clamp", "diff": "clamp 是夾緊固定的工具或動作；clap 是拍手，兩個字只差一個字母。", "example": { "en": "Use a clamp to hold the board in place.", "zh": "用夾具把木板固定好。" } }
+      ],
+      "similar": [
+        { "phrase": "applaud", "diff": "applaud 比較正式，除了拍手，也可表示公開稱讚。", "example": { "en": "The board will applaud the team's excellent results.", "zh": "董事會會稱讚這個團隊的優秀成績。" } },
+        { "phrase": "cheer", "diff": "cheer 是歡呼，通常會發出聲音；clap 只是用手拍。", "example": { "en": "Staff cheer loudly when the sales target is reached.", "zh": "達成銷售目標時，員工會大聲歡呼。" } }
+      ],
+      "family": [
+        { "w": "applause", "pos": "n.", "zh": "掌聲", "ipa": "/əˈplɔːz/", "example": { "en": "The speaker received warm applause at the end.", "zh": "講者在結束時獲得熱烈掌聲。" } },
+        { "w": "audience", "pos": "n.", "zh": "觀眾、聽眾", "ipa": "/ˈɔːdiəns/", "example": { "en": "The audience filled the hall before the show.", "zh": "表演開始前，觀眾坐滿了大廳。" } },
+        { "w": "speech", "pos": "n.", "zh": "演講", "ipa": "/spiːtʃ/", "example": { "en": "The president gave a short speech at the party.", "zh": "總裁在派對上做了簡短的演講。" } },
+        { "w": "award", "pos": "n.", "zh": "獎項", "ipa": "/əˈwɔːrd/", "example": { "en": "She won an award for the best sales record.", "zh": "她因最佳銷售紀錄獲得了獎項。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/klæp/", "zh": "拍手、鼓掌", "example": { "en": "Everyone started to clap after the president's final announcement.", "zh": "總裁做完最後宣布後，大家開始鼓掌。" } },
+        { "pos": "n.", "ipa": "/klæp/", "zh": "拍手聲、拍擊聲", "example": { "en": "Let's give our new partners a big clap.", "zh": "讓我們為新夥伴大大地鼓掌。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "拍手鼓掌", "en": "to hit your hands together to show you like something", "example": { "en": "Please clap quietly so we can hear the next speaker.", "zh": "請輕聲鼓掌，讓我們聽得到下一位講者。" } },
+        { "pos": "v.", "zh": "輕拍（肩膀或背）", "en": "to hit someone lightly with your open hand", "distinguish": "後面接人加 on the back／shoulder 時，是拍肩膀的意思，不是鼓掌。", "example": { "en": "The boss will clap you on the back for that result.", "zh": "老闆會為了那個成績拍拍你的背稱讚你。" } }
+      ]
+    }
+  ]
+}

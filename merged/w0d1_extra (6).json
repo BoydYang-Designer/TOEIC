@@ -1,0 +1,280 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "hungry", "type": "word", "ipa": "/ˈhʌŋɡri/", "pos": "adj.", "zh": "餓的、飢餓的",
+      "en": "wanting to eat food",
+      "note": "多益常見於餐廳、茶點、午餐會議與餐飲廣告的情境，指肚子餓。也可比喻「渴望」，如 hungry for success。",
+      "grammar_note": "表示渴望某事用 hungry for + 名詞（hungry for success），不用 hungry of。",
+      "forms": [
+        { "w": "hungrier", "label": "比較級", "pos": "adj.", "zh": "更餓的", "ipa": "/ˈhʌŋɡriɚ/", "example": { "en": "Staff get hungrier when the meeting runs past noon.", "zh": "會議拖到中午以後，員工會變得更餓。" } },
+        { "w": "hungriest", "label": "最高級", "pos": "adj.", "zh": "最餓的", "ipa": "/ˈhʌŋɡriɪst/", "example": { "en": "The hungriest guests lined up early at the buffet table.", "zh": "最餓的客人很早就在自助餐檯前排隊。" } }
+      ],
+      "collocations": [
+        { "phrase": "feel hungry", "zh": "覺得餓", "example": { "en": "Many people feel hungry before the lunch break begins.", "zh": "許多人在午休開始前就覺得餓了。" } },
+        { "phrase": "go hungry", "zh": "挨餓", "example": { "en": "No employee should go hungry during a long night shift.", "zh": "沒有員工應該在漫長的夜班期間挨餓。" } },
+        { "phrase": "hungry for success", "zh": "渴望成功", "example": { "en": "The young team is hungry for success this year.", "zh": "這支年輕的團隊今年渴望成功。" } }
+      ],
+      "examples": [
+        { "tag": "餐廳", "en": "If you are hungry, we can order food now.", "zh": "如果你餓了，我們現在就可以點餐。" },
+        { "tag": "會議", "en": "Everyone looks hungry, so let's take a lunch break.", "zh": "大家看起來都餓了，我們休息吃午餐吧。" },
+        { "tag": "廣告", "en": "Come hungry, because our buffet has over fifty dishes.", "zh": "請空著肚子來，因為我們的自助餐有五十多道菜。" }
+      ],
+      "confusable": [
+        { "word": "angry", "diff": "hungry 是肚子餓，angry 是生氣，兩個字都以 -ngry 結尾，很容易看錯。", "usage": "hungry 可接 for 表示渴望；angry 接 about 某事或 with 某人，不接 for。", "example": { "en": "The customer was angry about the late delivery.", "zh": "客戶對延遲送貨感到生氣。" } }
+      ],
+      "family": [
+        { "w": "thirsty", "pos": "adj.", "zh": "口渴的", "ipa": "/ˈθɜːrsti/", "example": { "en": "The workers were thirsty after the long walk outside.", "zh": "工人們在戶外走了很久後覺得口渴。" } },
+        { "w": "full", "pos": "adj.", "zh": "吃飽的", "ipa": "/fʊl/", "example": { "en": "I am full, so I will skip dessert today.", "zh": "我已經吃飽了，今天不吃甜點了。" } }
+      ],
+      "derived": [
+        { "w": "hunger", "ipa": "/ˈhʌŋɡɚ/", "pos": "n.", "zh": "飢餓", "link": "hungry 去掉 -y 就是名詞 hunger，像 health → healthy" },
+        { "w": "hungrily", "ipa": "/ˈhʌŋɡrəli/", "pos": "adv.", "zh": "飢餓地、貪婪地", "link": "hungry 的 y 變 i + -ly，像 happy → happily" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "餓的", "en": "wanting to eat food", "example": { "en": "The guests were hungry after the long business trip.", "zh": "客人們在長途出差後肚子很餓。" } },
+        { "pos": "adj.", "zh": "渴望的", "en": "wanting something very much", "distinguish": "後面接 for + 名詞（hungry for success）時，指渴望而不是肚子餓。", "example": { "en": "She is hungry for a promotion and works very hard.", "zh": "她渴望升遷，所以工作非常努力。" } }
+      ]
+    },
+    {
+      "text": "highway", "type": "word", "ipa": "/ˈhaɪweɪ/", "pos": "n.", "zh": "公路、高速公路",
+      "en": "a wide main road for fast traffic between cities",
+      "note": "多益常見於通勤、路況報導、物流運輸與路邊商店廣告的情境。美式英文中常指連接城市的主要大馬路。",
+      "forms": [
+        { "w": "highways", "label": "複數", "pos": "n.", "zh": "公路（複數）", "ipa": "/ˈhaɪweɪz/", "example": { "en": "New highways will connect the port to the city center.", "zh": "新的公路會把港口連接到市中心。" } }
+      ],
+      "collocations": [
+        { "phrase": "highway exit", "zh": "高速公路出口", "example": { "en": "Take the next highway exit for the factory.", "zh": "請在下一個高速公路出口下去，就能到工廠。" } },
+        { "phrase": "highway construction", "zh": "公路工程", "example": { "en": "Highway construction will slow traffic until the end of May.", "zh": "公路工程會讓交通變慢，一直到五月底。" } },
+        { "phrase": "highway rest stop", "zh": "高速公路休息站", "example": { "en": "Let's stop at the next highway rest stop for coffee.", "zh": "我們在下一個高速公路休息站停下來喝咖啡吧。" } }
+      ],
+      "examples": [
+        { "tag": "通勤", "en": "The highway is busy during the morning rush hour.", "zh": "早上的尖峰時段，公路上很擁擠。" },
+        { "tag": "物流", "en": "Trucks use the highway to deliver goods between the two cities.", "zh": "卡車利用公路在兩個城市之間運送貨物。" },
+        { "tag": "廣告", "en": "Our new store is just two minutes from the highway.", "zh": "我們的新店離高速公路只要兩分鐘。" },
+        { "tag": "路況", "en": "Please avoid the highway today because of heavy rain.", "zh": "因為下大雨，今天請避開高速公路。" }
+      ],
+      "confusable": [
+        { "word": "hallway", "diff": "highway 是室外的大馬路，hallway 是建築物裡的走廊，兩字拼法和發音都很像。", "example": { "en": "Please do not leave boxes in the hallway.", "zh": "請不要把箱子放在走廊上。" } }
+      ],
+      "similar": [
+        { "word": "freeway", "diff": "freeway 指沒有紅綠燈、不收費的高速道路；highway 的範圍更廣，也可指一般主要道路。", "example": { "en": "The freeway is faster than the local road at night.", "zh": "晚上走高速公路比走地方道路更快。" } }
+      ],
+      "family": [
+        { "w": "traffic", "pos": "n.", "zh": "交通、車流", "ipa": "/ˈtræfɪk/", "example": { "en": "Heavy traffic made us late for the client meeting.", "zh": "車流量很大，害我們趕不上客戶會議。" } },
+        { "w": "toll", "pos": "n.", "zh": "過路費", "ipa": "/toʊl/", "example": { "en": "The toll on this bridge is two dollars per car.", "zh": "這座橋每輛車的過路費是兩美元。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "invoice", "type": "word", "ipa": "/ˈɪnvɔɪs/", "pos": "n.", "zh": "發票、請款單",
+      "en": "a document that lists what was sold and how much to pay",
+      "note": "多益常見於採購、付款與會計情境，指賣方寄給買方、列出品項與應付金額的請款單。通常先收到 invoice，付款後才拿到 receipt。",
+      "grammar_note": "invoice 也可當動詞，句型是 invoice + 人 + for + 品項（invoice the client for the service）。",
+      "forms": [
+        { "w": "invoices", "label": "複數", "pos": "n.", "zh": "發票（複數）", "ipa": "/ˈɪnvɔɪsɪz/", "example": { "en": "Please send all invoices to the finance department by Friday.", "zh": "請在星期五前把所有發票寄給財務部。" } },
+        { "w": "invoices", "label": "第三人稱單數", "pos": "v.", "zh": "開立發票", "ipa": "/ˈɪnvɔɪsɪz/", "example": { "en": "The supplier invoices us at the end of every month.", "zh": "供應商在每個月底向我們開立請款單。" } },
+        { "w": "invoiced", "label": "過去式／過去分詞", "pos": "v.", "zh": "開立發票（過去）", "ipa": "/ˈɪnvɔɪst/", "example": { "en": "We invoiced the client for the repair work last week.", "zh": "我們上週已為維修工作向客戶開立請款單。" } },
+        { "w": "invoicing", "label": "現在分詞", "pos": "v.", "zh": "開立發票（進行中）", "ipa": "/ˈɪnvɔɪsɪŋ/", "example": { "en": "The accounting team is invoicing customers for May orders.", "zh": "會計團隊正在為五月的訂單向客戶開立請款單。" } }
+      ],
+      "collocations": [
+        { "phrase": "send an invoice", "zh": "寄發票", "example": { "en": "Please send an invoice once the work is finished.", "zh": "工作完成後，請寄一份請款單給我們。" } },
+        { "phrase": "pay an invoice", "zh": "付發票款項", "example": { "en": "We will pay the invoice within thirty days.", "zh": "我們會在三十天內支付這張請款單。" } },
+        { "phrase": "invoice number", "zh": "發票號碼", "example": { "en": "Please write the invoice number on your payment.", "zh": "請在您的付款資料上寫下發票號碼。" } },
+        { "phrase": "overdue invoice", "zh": "逾期未付的請款單", "example": { "en": "The overdue invoice has been unpaid for two months.", "zh": "這張逾期的請款單已經兩個月沒有付款。" } }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "The invoice shows the price and quantity of each item.", "zh": "發票上列出了每項商品的價格和數量。" },
+        { "tag": "電子郵件", "en": "I have attached the invoice for your recent order.", "zh": "我已附上您最近訂單的請款單。" },
+        { "tag": "會計", "en": "Accounting needs the invoice before it can approve payment.", "zh": "會計部需要有發票才能核准付款。" },
+        { "tag": "核對", "en": "There is a mistake on the invoice, so please check it.", "zh": "發票上有錯誤，所以請檢查一下。" }
+      ],
+      "confusable": [
+        { "word": "receipt", "diff": "receipt 是付款後拿到的收據；invoice 是付款前收到的請款單。", "example": { "en": "Please keep the receipt as proof of payment.", "zh": "請保留收據作為付款證明。" } },
+        { "word": "quote", "diff": "quote 是買賣前的報價；invoice 是交易之後的請款單。", "example": { "en": "We sent the client a quote before the invoice.", "zh": "我們在開請款單之前先寄了報價給客戶。" } }
+      ],
+      "similar": [
+        { "word": "bill", "diff": "bill 較口語，常用於水電費、餐廳；invoice 較正式，用於公司之間的買賣。", "example": { "en": "The waiter brought the bill to our table after dinner.", "zh": "晚餐後，服務生把帳單拿到我們桌上。" } }
+      ],
+      "family": [
+        { "w": "payment", "pos": "n.", "zh": "付款", "ipa": "/ˈpeɪmənt/", "example": { "en": "We have not received your payment for the March order.", "zh": "我們還沒有收到您三月訂單的款項。" } },
+        { "w": "statement", "pos": "n.", "zh": "對帳單", "ipa": "/ˈsteɪtmənt/", "example": { "en": "The bank sends a statement to customers every month.", "zh": "銀行每個月都會寄對帳單給客戶。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈɪnvɔɪs/", "zh": "發票、請款單", "example": { "en": "The supplier sent us a new invoice for the March order.", "zh": "供應商寄給我們一張三月訂單的新請款單。" } },
+        { "pos": "v.", "ipa": "/ˈɪnvɔɪs/", "zh": "開發票給（某人）", "example": { "en": "Please invoice our company for the extra service fee.", "zh": "請就額外的服務費向我們公司開立請款單。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "infer", "type": "word", "ipa": "/ɪnˈfɜːr/", "pos": "v.", "zh": "推論、推斷",
+      "en": "to decide that something is true from the facts you have",
+      "note": "多益閱讀測驗常見「推論題」，如 What can be inferred about…?，意思是從文章線索推出沒有直接寫出的結論。",
+      "grammar_note": "常用 infer + that 子句，或 infer A from B（從 B 推斷出 A）；主詞是做推論的人，不是資料本身。",
+      "forms": [
+        { "w": "infers", "label": "第三人稱單數", "pos": "v.", "zh": "推論", "ipa": "/ɪnˈfɜːrz/", "example": { "en": "The reader infers that the store is closing soon.", "zh": "讀者推斷這家店很快就要關門。" } },
+        { "w": "inferred", "label": "過去式／過去分詞（r 要重複）", "pos": "v.", "zh": "推論（過去）", "ipa": "/ɪnˈfɜːrd/", "example": { "en": "From the schedule, we inferred that the event was canceled.", "zh": "從時間表來看，我們推斷活動已經取消了。" } },
+        { "w": "inferring", "label": "現在分詞（r 要重複）", "pos": "v.", "zh": "推論（進行中）", "ipa": "/ɪnˈfɜːrɪŋ/", "example": { "en": "She is inferring the cause from last month's sales figures.", "zh": "她正在從上個月的銷售數字推斷原因。" } }
+      ],
+      "collocations": [
+        { "phrase": "infer from", "zh": "從…推斷", "example": { "en": "We can infer the answer from the customer's email.", "zh": "我們可以從客戶的電子郵件推斷出答案。" } },
+        { "phrase": "can be inferred", "zh": "可以被推論出", "example": { "en": "It can be inferred that sales will rise this year.", "zh": "可以推論出今年的銷售額將會上升。" } },
+        { "phrase": "infer that", "zh": "推斷…", "example": { "en": "From his tone, I infer that he is unhappy.", "zh": "從他的語氣，我推斷他不高興。" } }
+      ],
+      "examples": [
+        { "tag": "閱讀測驗", "en": "What can we infer about Ms. Lee from this letter?", "zh": "從這封信，我們可以推論出關於 Lee 女士的什麼事？" },
+        { "tag": "行銷", "en": "Customers may infer a price rise from the new signs.", "zh": "顧客可能從新的標示推斷價格將上漲。" },
+        { "tag": "電子郵件", "en": "From your message, I infer you need the files today.", "zh": "從您的訊息，我推斷您今天就需要這些檔案。" }
+      ],
+      "confusable": [
+        { "word": "imply", "diff": "imply 是說話或寫字的人暗示；infer 是聽或讀的人推斷。", "usage": "imply 的主詞是說話或寫作的人；infer 的主詞是接收訊息、做推論的人。", "example": { "en": "The manager implied that the project may end early.", "zh": "經理暗示這個專案可能會提早結束。" } }
+      ],
+      "similar": [
+        { "word": "conclude", "diff": "conclude 強調最後得出結論；infer 強調根據線索推出沒有明說的事。", "example": { "en": "We concluded that the new plan was too expensive.", "zh": "我們得出結論：新計畫太貴了。" } }
+      ],
+      "family": [
+        { "w": "guess", "pos": "v.", "zh": "猜測", "ipa": "/ɡes/", "example": { "en": "I guess the shipment will arrive on Tuesday.", "zh": "我猜貨物會在星期二到。" } },
+        { "w": "assume", "pos": "v.", "zh": "假設、認為", "ipa": "/əˈsuːm/", "example": { "en": "Do not assume that every client will agree with us.", "zh": "不要認為每位客戶都會同意我們。" } }
+      ],
+      "derived": [
+        { "w": "inference", "ipa": "/ˈɪnfərəns/", "pos": "n.", "zh": "推論", "link": "infer + -ence，動詞變名詞，像 refer → reference" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "inference", "type": "word", "ipa": "/ˈɪnfərəns/", "pos": "n.", "zh": "推論、推斷",
+      "en": "a conclusion you reach from facts or signs",
+      "note": "多益閱讀測驗的推論題（inference questions）常見的名詞，指根據文章線索得出、但文章沒有直接寫出的結論。",
+      "grammar_note": "inference 是可數名詞；「做出推論」用 make／draw an inference，依據用 inference from，主題用 inference about。",
+      "forms": [
+        { "w": "inferences", "label": "複數", "pos": "n.", "zh": "推論（複數）", "ipa": "/ˈɪnfərənsɪz/", "example": { "en": "Good inferences come from clear facts, not from guesses.", "zh": "好的推論來自清楚的事實，而不是猜測。" } }
+      ],
+      "collocations": [
+        { "phrase": "make an inference", "zh": "做出推論", "example": { "en": "Managers often make an inference from small changes in sales.", "zh": "經理常常從銷售的小變化做出推論。" } },
+        { "phrase": "draw an inference", "zh": "得出推論", "example": { "en": "The auditor drew an inference from the missing records.", "zh": "稽核員從缺少的紀錄得出了一個推論。" } },
+        { "phrase": "logical inference", "zh": "合乎邏輯的推論", "example": { "en": "Her logical inference was that the order was lost.", "zh": "她合乎邏輯的推論是訂單遺失了。" } }
+      ],
+      "examples": [
+        { "tag": "閱讀測驗", "en": "Which inference is supported by the information in the email?", "zh": "電子郵件中的資訊支持哪一項推論？" },
+        { "tag": "市場分析", "en": "This inference is based on the customer survey results.", "zh": "這個推論是根據客戶問卷調查的結果。" },
+        { "tag": "討論", "en": "Your inference sounds reasonable, but we need more facts.", "zh": "你的推論聽起來合理，但我們還需要更多事實。" }
+      ],
+      "confusable": [
+        { "word": "reference", "diff": "reference 是參考資料或推薦人；inference 是推論。兩字結尾都是 -ference。", "example": { "en": "Please include a reference from your last employer.", "zh": "請附上一封來自前雇主的推薦資料。" } },
+        { "word": "interference", "diff": "interference 是干擾、妨礙；inference 是推論，兩字拼法相近。", "example": { "en": "Radio interference caused problems during the phone call.", "zh": "無線電干擾讓這通電話出了問題。" } }
+      ],
+      "family": [
+        { "w": "conclusion", "pos": "n.", "zh": "結論", "ipa": "/kənˈkluːʒn/", "example": { "en": "The report ends with a clear conclusion and next steps.", "zh": "這份報告最後有清楚的結論和後續步驟。" } },
+        { "w": "assumption", "pos": "n.", "zh": "假設", "ipa": "/əˈsʌmpʃn/", "example": { "en": "Our plan is based on a wrong assumption about prices.", "zh": "我們的計畫是建立在對價格的錯誤假設上。" } }
+      ],
+      "derived": [
+        { "w": "infer", "ipa": "/ɪnˈfɜːr/", "pos": "v.", "zh": "推論", "link": "inference 去掉 -ence 就是動詞 infer，像 reference → refer" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "ingredient", "type": "word", "ipa": "/ɪnˈɡriːdiənt/", "pos": "n.", "zh": "原料、食材、成分",
+      "en": "one of the foods or materials used to make something",
+      "note": "多益常見於餐廳、食品標示與製造情境，指做出食物或產品所需的原料。也可比喻成功所需的「要素」。",
+      "forms": [
+        { "w": "ingredients", "label": "複數", "pos": "n.", "zh": "原料（複數）", "ipa": "/ɪnˈɡriːdiənts/", "example": { "en": "The label lists all ingredients used in this snack.", "zh": "標籤上列出了這款點心使用的所有原料。" } }
+      ],
+      "collocations": [
+        { "phrase": "key ingredient", "zh": "關鍵成分", "example": { "en": "Fresh fruit is the key ingredient in our new drink.", "zh": "新鮮水果是我們新飲料的關鍵成分。" } },
+        { "phrase": "fresh ingredients", "zh": "新鮮食材", "example": { "en": "The chef only buys fresh ingredients from local farms.", "zh": "這位主廚只向當地農場購買新鮮食材。" } },
+        { "phrase": "list of ingredients", "zh": "成分表", "example": { "en": "Please read the list of ingredients before you eat.", "zh": "食用前請先閱讀成分表。" } }
+      ],
+      "examples": [
+        { "tag": "餐廳", "en": "All ingredients for the menu arrive early every morning.", "zh": "菜單上所有的食材每天一大早就送到。" },
+        { "tag": "產品標示", "en": "This soap has no artificial ingredients and is safe for skin.", "zh": "這款肥皂沒有人工成分，對皮膚很安全。" },
+        { "tag": "採購", "en": "We must order more ingredients before the weekend rush.", "zh": "我們必須在週末的尖峰時段前多訂一些食材。" }
+      ],
+      "similar": [
+        { "word": "component", "diff": "component 多指機器或系統的零件；ingredient 多指食物或產品的原料。", "example": { "en": "Each component is checked before it leaves the factory.", "zh": "每個零件在離開工廠前都會經過檢查。" } },
+        { "word": "material", "diff": "material 較泛指材料，如布料、建材；ingredient 較常用於食品、化妝品等的成分。", "example": { "en": "The company reduced waste by using recycled materials.", "zh": "公司使用回收材料來減少浪費。" } }
+      ],
+      "family": [
+        { "w": "recipe", "pos": "n.", "zh": "食譜、配方", "ipa": "/ˈresəpi/", "example": { "en": "The chef shared the recipe with the kitchen staff.", "zh": "主廚把食譜分享給廚房員工。" } },
+        { "w": "flavor", "pos": "n.", "zh": "口味", "ipa": "/ˈfleɪvɚ/", "example": { "en": "This tea comes in three different flavors this season.", "zh": "這種茶本季有三種不同的口味。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "原料、食材", "en": "one of the foods or materials used to make something", "example": { "en": "The factory buys its main ingredients from two suppliers.", "zh": "這家工廠的主要原料向兩家供應商購買。" } },
+        { "pos": "n.", "zh": "要素", "en": "an important part needed for something to happen", "distinguish": "談食物、產品時指原料；談成功、計畫時指必備的要素。", "example": { "en": "Good teamwork is an important ingredient in any successful project.", "zh": "良好的團隊合作是任何成功專案的重要要素。" } }
+      ]
+    },
+    {
+      "text": "indoor", "type": "word", "ipa": "/ˈɪndɔːr/", "pos": "adj.", "zh": "室內的",
+      "en": "inside a building",
+      "note": "多益常見於活動場地、運動設施、天氣與購物中心廣告的情境。只放在名詞前面，如 indoor pool、indoor parking。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "indoor pool", "zh": "室內游泳池", "example": { "en": "The hotel has an indoor pool open until ten.", "zh": "這間飯店有一座開放到十點的室內游泳池。" } },
+        { "phrase": "indoor activities", "zh": "室內活動", "example": { "en": "We plan indoor activities in case it rains.", "zh": "我們計畫了室內活動，以防下雨。" } },
+        { "phrase": "indoor parking", "zh": "室內停車場", "example": { "en": "The mall offers free indoor parking for all customers.", "zh": "這家購物中心提供所有顧客免費室內停車。" } }
+      ],
+      "examples": [
+        { "tag": "活動", "en": "Because of the rain, we moved the event to an indoor stadium.", "zh": "因為下雨，我們把活動移到室內體育館。" },
+        { "tag": "運動設施", "en": "Our gym has an indoor track for winter training.", "zh": "我們的健身房有一條供冬季訓練用的室內跑道。" },
+        { "tag": "餐廳廣告", "en": "Enjoy indoor and outdoor seating at our new café.", "zh": "來我們的新咖啡店享用室內與戶外座位。" }
+      ],
+      "confusable": [
+        { "word": "indoors", "diff": "indoors 是副詞，意思是「在室內」；indoor 是形容詞，意思是「室內的」。", "usage": "indoor 是形容詞，放在名詞前（an indoor pool）；indoors 是副詞，放在動詞後（stay indoors）。", "example": { "en": "Please stay indoors until the storm passes tonight.", "zh": "今晚暴風雨過去之前，請待在室內。" } }
+      ],
+      "similar": [
+        { "word": "inside", "diff": "inside 可當介系詞、副詞或名詞，指在裡面；indoor 只能當形容詞修飾名詞。", "example": { "en": "Please wait inside the building until we call you.", "zh": "請在大樓裡等候，我們會叫您。" } }
+      ],
+      "family": [
+        { "w": "outdoor", "pos": "adj.", "zh": "戶外的", "ipa": "/ˈaʊtdɔːr/", "example": { "en": "We hold the outdoor concert every summer in the park.", "zh": "我們每年夏天都在公園舉辦戶外音樂會。" } },
+        { "w": "facility", "pos": "n.", "zh": "設施", "ipa": "/fəˈsɪləti/", "example": { "en": "The sports facility is open from six in the morning.", "zh": "這座運動設施從早上六點開放。" } }
+      ],
+      "derived": [
+        { "w": "indoors", "ipa": "/ˌɪnˈdɔːrz/", "pos": "adv.", "zh": "在室內", "link": "indoor + -s，變成副詞「在室內」，像 upstairs、downstairs" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "innovative", "type": "word", "ipa": "/ˈɪnəveɪtɪv/", "pos": "adj.", "zh": "創新的",
+      "en": "using new ideas or new ways of doing things",
+      "note": "多益常見於產品廣告、公司介紹與提案的情境，是正面的稱讚，常形容 design、product、approach、idea。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "innovative design", "zh": "創新的設計", "example": { "en": "The innovative design of this phone won three awards.", "zh": "這支手機的創新設計獲得三個獎項。" } },
+        { "phrase": "innovative idea", "zh": "創新的點子", "example": { "en": "She presented an innovative idea at the strategy meeting.", "zh": "她在策略會議上提出了一個創新的點子。" } },
+        { "phrase": "innovative approach", "zh": "創新的做法", "example": { "en": "We need a more innovative approach to online marketing.", "zh": "我們在網路行銷上需要更創新的做法。" } }
+      ],
+      "examples": [
+        { "tag": "廣告", "en": "Our innovative software saves users hours of work every week.", "zh": "我們創新的軟體每週為使用者省下數小時的工作時間。" },
+        { "tag": "公司介紹", "en": "The firm is known for its innovative products.", "zh": "這家公司以創新的產品聞名。" },
+        { "tag": "會議", "en": "Thank you for such an innovative proposal for our team.", "zh": "謝謝你為我們團隊提出這麼創新的提案。" }
+      ],
+      "confusable": [
+        { "word": "inventive", "diff": "inventive 強調聰明地想出新點子；innovative 強調帶來新的產品或方法。", "example": { "en": "The inventive engineer found a cheap way to fix the machine.", "zh": "這位有巧思的工程師想出了便宜的修理機器的方法。" } }
+      ],
+      "similar": [
+        { "word": "creative", "diff": "creative 強調想像力與創意；innovative 強調真的引進新方法或新產品。", "example": { "en": "The creative team designed a fun poster for the sale.", "zh": "創意團隊為這次特賣設計了一張有趣的海報。" } }
+      ],
+      "family": [
+        { "w": "modern", "pos": "adj.", "zh": "現代的", "ipa": "/ˈmɑːdɚn/", "example": { "en": "The company moved into a modern office downtown.", "zh": "公司搬進了市中心一間現代化的辦公室。" } },
+        { "w": "original", "pos": "adj.", "zh": "原創的", "ipa": "/əˈrɪdʒənl/", "example": { "en": "The designer is looking for original ideas for the campaign.", "zh": "設計師正在為這次活動尋找原創的點子。" } }
+      ],
+      "derived": [
+        { "w": "innovate", "ipa": "/ˈɪnəveɪt/", "pos": "v.", "zh": "創新", "link": "innovative 去掉 -ive 就是動詞 innovate，像 create → creative" },
+        { "w": "innovation", "ipa": "/ˌɪnəˈveɪʃn/", "pos": "n.", "zh": "創新", "link": "innovate + -ion，動詞變名詞，像 educate → education" },
+        { "w": "innovator", "ipa": "/ˈɪnəveɪtɚ/", "pos": "n.", "zh": "創新者", "link": "innovate + -or，做創新的人，像 actor、visitor" },
+        { "w": "innovatively", "ipa": "/ˈɪnəveɪtɪvli/", "pos": "adv.", "zh": "創新地", "link": "innovative + -ly，變成副詞，像 quick → quickly" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

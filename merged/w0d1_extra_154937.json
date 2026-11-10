@@ -1,0 +1,153 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "turn a blind eye to",
+      "type": "phrase",
+      "zh": "對…視而不見、睜一隻眼閉一隻眼",
+      "en": "to know about a problem but act as if you do not see it",
+      "note": "多益常用來描述公司、主管或員工明知有問題或違規卻不處理，語氣偏負面，帶有「縱容」的意味。日常對話中也可用在人際關係上。",
+      "pattern": "turn a blind eye to + N / V-ing",
+      "grammar_note": "to 是介系詞，後面接名詞或 V-ing，不接原形動詞；blind eye 固定用單數 eye。時態變化只改 turn（turned、turning）。",
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "The manager turned a blind eye to the late reports.",
+          "zh": "經理對那些遲交的報告睜一隻眼閉一隻眼。"
+        },
+        {
+          "tag": "公司規定",
+          "en": "We cannot turn a blind eye to safety problems in the factory.",
+          "zh": "我們不能對工廠的安全問題視而不見。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please do not turn a blind eye to customer complaints.",
+          "zh": "請不要對客戶的抱怨視而不見。"
+        },
+        {
+          "tag": "V-ing 用法",
+          "en": "Some staff turn a blind eye to wasting paper in the office.",
+          "zh": "有些員工對辦公室浪費紙張的行為視而不見。"
+        },
+        {
+          "tag": "人際關係",
+          "en": "She chose to turn a blind eye to her husband's betrayal.",
+          "zh": "她選擇對丈夫的背叛視而不見。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "overlook",
+          "diff": "可以是不小心沒注意到，也可以是故意不追究；turn a blind eye to 一定是「明知故犯式」的假裝沒看見。",
+          "example": {
+            "en": "The team overlooked a small error in the contract.",
+            "zh": "團隊漏看了合約中的一個小錯誤。"
+          }
+        },
+        {
+          "phrase": "ignore",
+          "diff": "直接不理會，語氣較強、較明顯；turn a blind eye to 多指對錯事假裝沒看到。",
+          "example": {
+            "en": "He ignored the warning and kept using the old machine.",
+            "zh": "他無視警告，繼續使用那台舊機器。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "see eye to eye",
+          "diff": "意思是「看法一致」，和 turn a blind eye to 的「假裝沒看見」完全不同。",
+          "example": {
+            "en": "Our team does not always see eye to eye on prices.",
+            "zh": "我們團隊對價格的看法並不總是一致。"
+          }
+        },
+        {
+          "word": "keep an eye on",
+          "diff": "意思是「留意、盯著」，剛好和 turn a blind eye to 相反。",
+          "example": {
+            "en": "Please keep an eye on the budget this month.",
+            "zh": "這個月請留意一下預算。"
+          }
+        }
+      ],
+      "nw_done": [
+        {
+          "id": "nmw9b29lh3tt5",
+          "result": "added"
+        }
+      ]
+    },
+    {
+      "text": "make it even",
+      "type": "phrase",
+      "zh": "湊成整數／偶數；讓雙方扯平",
+      "en": "to change something so the numbers or amounts are equal or balanced",
+      "note": "多益中常見三種語感：把金額湊成整數、讓人數或數量成偶數、或讓雙方互不虧欠（扯平）。要看前後文判斷是哪一種。",
+      "pattern": "make it even / make + N + even",
+      "grammar_note": "make it even 是「make + 受詞 + 形容詞」句型，even 在這裡是形容詞，意思是「平均的、相等的」；it 指前面提到的金額、人數或狀況。",
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "Let's make it even at $500 to keep things simple.",
+          "zh": "我們湊成整數五百美元，簡單一點。"
+        },
+        {
+          "tag": "帳務",
+          "en": "Let me pay the taxi fare to make it even.",
+          "zh": "讓我付計程車費，這樣我們就扯平了。"
+        },
+        {
+          "tag": "會議",
+          "en": "Can we make it even by sharing the cost equally?",
+          "zh": "我們可以平均分攤費用來打平嗎？"
+        },
+        {
+          "tag": "活動安排",
+          "en": "Please invite one more person to make it even.",
+          "zh": "請再邀請一個人，湊成偶數。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "split evenly",
+          "diff": "專指把費用或工作平均分開；make it even 範圍較廣，也可指湊整數或扯平。",
+          "example": {
+            "en": "We split the hotel bill evenly after the trip.",
+            "zh": "旅程結束後，我們平均分攤了旅館費用。"
+          }
+        },
+        {
+          "phrase": "round up",
+          "diff": "專指把數字往上湊成整數；make it even 也可以只是湊成好算的整數。",
+          "example": {
+            "en": "Please round up the total to the nearest dollar.",
+            "zh": "請把總額進位到最接近的整數美元。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "break even",
+          "diff": "指公司或生意「損益兩平」，不賺也不賠；make it even 沒有賺賠的意思。",
+          "usage": "break even 是不及物動詞片語，不接受詞；make it even 的 it 是受詞。",
+          "example": {
+            "en": "The new store should break even by the end of the year.",
+            "zh": "這家新店應該在年底前達到損益兩平。"
+          }
+        },
+        {
+          "word": "get even",
+          "diff": "指「報復、討回公道」，語氣負面；make it even 只是讓雙方不虧欠。",
+          "usage": "get even (with someone) 帶有報復的意味，商務情境要小心使用。",
+          "example": {
+            "en": "He wanted to get even with the rival company.",
+            "zh": "他想對那家競爭公司報復。"
+          }
+        }
+      ]
+    }
+  ]
+}

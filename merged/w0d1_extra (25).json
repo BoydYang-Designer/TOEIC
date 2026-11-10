@@ -1,0 +1,977 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "ward",
+      "type": "word",
+      "ipa": "/wɔːrd/",
+      "pos": "n.",
+      "zh": "病房；行政區",
+      "en": "a large room in a hospital where patients stay",
+      "note": "ward 在多益最常見於醫院情境，指有多張病床的病房區，如 maternity ward（產房）；城市介紹或新聞中也可指市內的行政區。",
+      "forms": [
+        {
+          "w": "wards",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "病房（複數）",
+          "ipa": "/wɔːrdz/",
+          "example": {
+            "en": "The hospital opened two new wards for patients last month.",
+            "zh": "這家醫院上個月為病患開設了兩間新病房。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "hospital ward",
+          "zh": "醫院病房",
+          "example": {
+            "en": "Visitors must wash their hands before entering a hospital ward.",
+            "zh": "訪客進入醫院病房前必須先洗手。"
+          }
+        },
+        {
+          "phrase": "maternity ward",
+          "zh": "產科病房",
+          "example": {
+            "en": "She works as a nurse in the maternity ward.",
+            "zh": "她在產科病房擔任護理師。"
+          }
+        },
+        {
+          "phrase": "children's ward",
+          "zh": "兒童病房",
+          "example": {
+            "en": "A famous singer visited the children's ward on Sunday.",
+            "zh": "一位知名歌手週日探訪了兒童病房。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "醫院",
+          "en": "The nurse checks every patient in the ward twice a day.",
+          "zh": "護理師每天檢查病房裡的每位病人兩次。"
+        },
+        {
+          "tag": "公告",
+          "en": "Visiting hours for the surgery ward start at two p.m.",
+          "zh": "外科病房的探病時間從下午兩點開始。"
+        },
+        {
+          "tag": "新聞",
+          "en": "The new clinic will serve more than ten thousand people in our ward.",
+          "zh": "這間新診所將服務我們行政區內一萬多人。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "word",
+          "diff": "word 是「單字」，拼法只差一個字母，發音也不同（/wɜːrd/）。",
+          "example": {
+            "en": "Please check every word in the report before sending it.",
+            "zh": "寄出前請檢查報告裡的每一個單字。"
+          }
+        },
+        {
+          "word": "award",
+          "diff": "award 是「獎；頒獎」，字尾也是 -ward，但意思完全不同。",
+          "example": {
+            "en": "The company won an award for its new product.",
+            "zh": "這間公司的新產品獲得了一個獎項。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "room",
+          "diff": "room 是一般的房間；ward 是醫院裡有多張病床的大病房。",
+          "example": {
+            "en": "The patient was moved to a private room yesterday.",
+            "zh": "病人昨天被轉到了單人病房。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "hospital",
+          "ipa": "/ˈhɑːspɪtl/",
+          "pos": "n.",
+          "zh": "醫院",
+          "example": {
+            "en": "The hospital is open to patients all day.",
+            "zh": "這家醫院全天候接待病人。"
+          }
+        },
+        {
+          "w": "nurse",
+          "ipa": "/nɜːrs/",
+          "pos": "n.",
+          "zh": "護理師",
+          "example": {
+            "en": "A nurse will bring your medicine to the room soon.",
+            "zh": "護理師很快就會把你的藥送來。"
+          }
+        },
+        {
+          "w": "patient",
+          "ipa": "/ˈpeɪʃənt/",
+          "pos": "n.",
+          "zh": "病人",
+          "example": {
+            "en": "Each patient receives a card with a room number.",
+            "zh": "每位病人都會拿到一張寫有房號的卡片。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "病房",
+          "en": "a part of a hospital where patients stay",
+          "example": {
+            "en": "The patient was moved to the surgery ward this morning.",
+            "zh": "病人今天早上被轉到外科病房。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "行政區（城市的區）",
+          "en": "one of the areas a city is divided into",
+          "distinguish": "和 city、vote、council 等字一起出現時，指城市的行政區。",
+          "example": {
+            "en": "Each ward in the city elects one member to the council.",
+            "zh": "市內每個行政區選出一位議員進入市議會。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "wheelchair",
+      "type": "word",
+      "ipa": "/ˈwiːltʃer/",
+      "pos": "n.",
+      "zh": "輪椅",
+      "en": "a chair with wheels for a person who cannot walk easily",
+      "note": "wheelchair 是輪椅，多益常見於無障礙設施、醫院與公共場所的公告，如 wheelchair access（輪椅可通行）、wheelchair ramp（輪椅坡道）。",
+      "grammar_note": "「坐在輪椅上」介系詞用 in：in a wheelchair；不說 on a wheelchair。",
+      "forms": [
+        {
+          "w": "wheelchairs",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "輪椅（複數）",
+          "ipa": "/ˈwiːltʃerz/",
+          "example": {
+            "en": "The hospital lends wheelchairs to visitors free of charge.",
+            "zh": "醫院免費借輪椅給訪客使用。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "wheelchair access",
+          "zh": "輪椅可通行的設施",
+          "example": {
+            "en": "The new office building has full wheelchair access.",
+            "zh": "這棟新辦公大樓有完整的輪椅通行設施。"
+          }
+        },
+        {
+          "phrase": "wheelchair ramp",
+          "zh": "輪椅坡道",
+          "example": {
+            "en": "A wheelchair ramp was built beside the main entrance.",
+            "zh": "大門旁邊蓋了一條輪椅坡道。"
+          }
+        },
+        {
+          "phrase": "wheelchair user",
+          "zh": "輪椅使用者",
+          "example": {
+            "en": "Each wheelchair user can enter through the side door.",
+            "zh": "每位輪椅使用者都可以從側門進入。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公共場所",
+          "en": "Please keep this area clear for people in a wheelchair.",
+          "zh": "請保持這個區域暢通，供坐輪椅的人使用。"
+        },
+        {
+          "tag": "旅館",
+          "en": "Our hotel can provide a wheelchair on request at the front desk.",
+          "zh": "我們的飯店可依需求在櫃檯提供輪椅。"
+        },
+        {
+          "tag": "醫院",
+          "en": "A staff member pushed the patient out in a wheelchair.",
+          "zh": "一位工作人員用輪椅推著病人出去。"
+        }
+      ],
+      "family": [
+        {
+          "w": "ramp",
+          "ipa": "/ræmp/",
+          "pos": "n.",
+          "zh": "坡道",
+          "example": {
+            "en": "Use the ramp on the left side of the building.",
+            "zh": "請使用大樓左側的坡道。"
+          }
+        },
+        {
+          "w": "elevator",
+          "ipa": "/ˈelɪveɪtɚ/",
+          "pos": "n.",
+          "zh": "電梯",
+          "example": {
+            "en": "The elevator is next to the front desk.",
+            "zh": "電梯就在櫃檯旁邊。"
+          }
+        },
+        {
+          "w": "accessible",
+          "ipa": "/əkˈsesəbəl/",
+          "pos": "adj.",
+          "zh": "易進入的；無障礙的",
+          "example": {
+            "en": "All rooms in the hotel are accessible by elevator.",
+            "zh": "飯店所有房間都可以搭電梯抵達。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "whoever",
+      "type": "word",
+      "ipa": "/huˈevɚ/",
+      "pos": "pron.",
+      "zh": "無論是誰；任何…的人",
+      "en": "any person who; no matter who",
+      "note": "whoever 用來指「不論是誰」，常出現在公告、規定與電子郵件，如 Whoever is responsible...。語氣比 anyone who 稍微正式。",
+      "grammar_note": "whoever 引導名詞子句，在子句中當主詞，後面直接接動詞：Whoever calls first... 的 whoever 不能換成 whomever，除非它是子句中的受詞。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "whoever is responsible",
+          "zh": "不論誰負責",
+          "example": {
+            "en": "Whoever is responsible for the error must tell the manager.",
+            "zh": "不論是誰造成這個錯誤，都必須告訴經理。"
+          }
+        },
+        {
+          "phrase": "whoever wants to",
+          "zh": "任何想要…的人",
+          "example": {
+            "en": "Whoever wants to join the trip should sign up today.",
+            "zh": "任何想參加旅行的人，今天就要報名。"
+          }
+        },
+        {
+          "phrase": "whoever comes first",
+          "zh": "先到的人",
+          "example": {
+            "en": "Seats are given to whoever comes first at the door.",
+            "zh": "座位會給先到門口的人。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "Whoever finds the missing key should call the front desk.",
+          "zh": "不論誰找到遺失的鑰匙，都請打電話給櫃檯。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please send this file to whoever needs it for the project.",
+          "zh": "請把這個檔案寄給任何專案中需要它的人。"
+        },
+        {
+          "tag": "會議",
+          "en": "We will choose whoever has the best plan for the budget.",
+          "zh": "我們會選擇預算計畫最好的人。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "whomever",
+          "diff": "whomever 是 whoever 的受格，只用在子句裡當受詞，較正式，口語很少用。",
+          "usage": "whoever 在子句中當主詞；whomever 在子句中當受詞，如 You may invite whomever you like.",
+          "example": {
+            "en": "You may invite whomever you like to the company dinner.",
+            "zh": "你可以邀請任何你喜歡的人參加公司晚宴。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "anyone who",
+          "diff": "anyone who 意思相同但是兩個字，口語常用；whoever 更簡短，語氣稍正式。",
+          "example": {
+            "en": "Anyone who needs help can ask the staff at the desk.",
+            "zh": "任何需要幫忙的人都可以詢問櫃檯的工作人員。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "whatever",
+          "ipa": "/wʌtˈevɚ/",
+          "pos": "pron.",
+          "zh": "無論什麼",
+          "example": {
+            "en": "Whatever you decide, please tell us by Friday.",
+            "zh": "不論你怎麼決定，請在週五前告訴我們。"
+          }
+        },
+        {
+          "w": "whenever",
+          "ipa": "/wenˈevɚ/",
+          "pos": "conj.",
+          "zh": "無論何時",
+          "example": {
+            "en": "Call me whenever you have a question about the order.",
+            "zh": "不論何時你對訂單有問題，都請打給我。"
+          }
+        },
+        {
+          "w": "wherever",
+          "ipa": "/werˈevɚ/",
+          "pos": "conj.",
+          "zh": "無論何處",
+          "example": {
+            "en": "You can work wherever you have a stable internet connection.",
+            "zh": "只要網路穩定，你在哪裡都可以工作。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "wool",
+      "type": "word",
+      "ipa": "/wʊl/",
+      "pos": "n.",
+      "zh": "羊毛；毛料",
+      "en": "the soft thick hair of sheep, used to make clothes",
+      "note": "wool 是羊毛，多益常見於服飾店、產品介紹與採購的情境，如 wool coat、100% wool，也常出現在洗滌標示。",
+      "grammar_note": "wool 是不可數名詞，不加 s，也不說 a wool；放在名詞前可直接當修飾語：a wool coat。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "wool coat",
+          "zh": "羊毛大衣",
+          "example": {
+            "en": "This wool coat is on sale for half price today.",
+            "zh": "這件羊毛大衣今天半價特價。"
+          }
+        },
+        {
+          "phrase": "pure wool",
+          "zh": "純羊毛",
+          "example": {
+            "en": "All of our scarves are made of pure wool.",
+            "zh": "我們所有的圍巾都是純羊毛製成的。"
+          }
+        },
+        {
+          "phrase": "wool sweater",
+          "zh": "羊毛毛衣",
+          "example": {
+            "en": "Customers like our wool sweaters because they keep them warm.",
+            "zh": "顧客喜歡我們的羊毛毛衣，因為很保暖。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "服飾店",
+          "en": "These socks are made of soft wool and cotton.",
+          "zh": "這些襪子是用柔軟的羊毛和棉製成的。"
+        },
+        {
+          "tag": "洗滌標示",
+          "en": "Wash wool clothes by hand in cold water.",
+          "zh": "羊毛衣物請用冷水手洗。"
+        },
+        {
+          "tag": "採購",
+          "en": "We import wool from Australia for our winter products.",
+          "zh": "我們從澳洲進口羊毛來製作冬季商品。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "wood",
+          "diff": "wood 是木頭，發音（/wʊd/）和 wool 很接近，要看字尾 d 和 l 分辨。",
+          "example": {
+            "en": "The desk is made of wood, not metal.",
+            "zh": "這張桌子是木頭做的，不是金屬。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "cotton",
+          "ipa": "/ˈkɑːtn/",
+          "pos": "n.",
+          "zh": "棉",
+          "example": {
+            "en": "This shirt is made of soft cotton from our own farm.",
+            "zh": "這件襯衫是用柔軟的棉製成的。"
+          }
+        },
+        {
+          "w": "silk",
+          "ipa": "/sɪlk/",
+          "pos": "n.",
+          "zh": "絲",
+          "example": {
+            "en": "The company sells silk ties and scarves online.",
+            "zh": "這間公司在網路上販售絲質領帶和圍巾。"
+          }
+        },
+        {
+          "w": "fabric",
+          "ipa": "/ˈfæbrɪk/",
+          "pos": "n.",
+          "zh": "布料",
+          "example": {
+            "en": "We chose a strong fabric for the uniforms.",
+            "zh": "我們為制服選了耐用的布料。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "woolen",
+          "ipa": "/ˈwʊlən/",
+          "pos": "adj.",
+          "zh": "羊毛製的",
+          "link": "wool + -en，用某種材料做的，像 wooden（木製的）、golden（金色的）"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "wrinkle",
+      "type": "word",
+      "ipa": "/ˈrɪŋkəl/",
+      "pos": "n.",
+      "zh": "皺紋；皺褶",
+      "en": "a small line or fold in skin or cloth",
+      "note": "wrinkle 的 w 不發音。多益常見於衣物、洗衣與保養品的情境，如 wrinkle-free shirts（免燙襯衫）；動詞也可指「使起皺」。",
+      "forms": [
+        {
+          "w": "wrinkles",
+          "label": "複數／第三人稱單數",
+          "pos": "n.",
+          "zh": "皺紋（複數）",
+          "ipa": "/ˈrɪŋkəlz/",
+          "example": {
+            "en": "This cream can reduce wrinkles around your eyes in a month.",
+            "zh": "這款乳霜可以在一個月內減少你眼周的皺紋。"
+          }
+        },
+        {
+          "w": "wrinkled",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "使起皺",
+          "ipa": "/ˈrɪŋkəld/",
+          "example": {
+            "en": "The long trip wrinkled my suit and my shirt.",
+            "zh": "長途旅行把我的西裝和襯衫都弄皺了。"
+          }
+        },
+        {
+          "w": "wrinkled",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "皺的",
+          "ipa": "/ˈrɪŋkəld/",
+          "example": {
+            "en": "Please do not wear a wrinkled shirt to the interview.",
+            "zh": "面試時請不要穿皺掉的襯衫。"
+          }
+        },
+        {
+          "w": "wrinkling",
+          "label": "現在分詞／動名詞",
+          "pos": "v.",
+          "zh": "起皺",
+          "ipa": "/ˈrɪŋkəlɪŋ/",
+          "example": {
+            "en": "Fold the clothes carefully to avoid wrinkling them in the bag.",
+            "zh": "請小心折衣服，避免它們在袋子裡起皺。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "wrinkle-free",
+          "zh": "免燙的",
+          "example": {
+            "en": "These wrinkle-free shirts are popular with business travelers.",
+            "zh": "這些免燙襯衫很受商務旅客歡迎。"
+          }
+        },
+        {
+          "phrase": "iron out wrinkles",
+          "zh": "把皺褶燙平",
+          "example": {
+            "en": "The hotel can iron out wrinkles in your suit.",
+            "zh": "飯店可以幫你把西裝的皺褶燙平。"
+          }
+        },
+        {
+          "phrase": "wrinkle cream",
+          "zh": "抗皺乳霜",
+          "example": {
+            "en": "The store sells wrinkle cream made from natural ingredients.",
+            "zh": "這家店販售天然成分製成的抗皺乳霜。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "洗衣",
+          "en": "Hang the dress right away to prevent a wrinkle.",
+          "zh": "請立刻把洋裝掛起來，以免起皺。"
+        },
+        {
+          "tag": "保養品",
+          "en": "The ad says the cream makes every wrinkle less visible.",
+          "zh": "廣告說這款乳霜讓每一條皺紋都不那麼明顯。"
+        },
+        {
+          "tag": "出差",
+          "en": "I found a wrinkle on my jacket right before the meeting.",
+          "zh": "我在會議前才發現外套上有一處皺褶。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "crease",
+          "diff": "crease 指衣服或紙被折出的線條，可以是刻意的；wrinkle 通常是不整齊的皺紋。",
+          "example": {
+            "en": "The tailor pressed a sharp crease into the pants.",
+            "zh": "裁縫師把褲子燙出了一條清楚的褲線。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "iron",
+          "ipa": "/ˈaɪɚn/",
+          "pos": "v.",
+          "zh": "熨燙",
+          "example": {
+            "en": "Please iron my shirt before the meeting tomorrow.",
+            "zh": "請在明天的會議前幫我燙好襯衫。"
+          }
+        },
+        {
+          "w": "fabric",
+          "ipa": "/ˈfæbrɪk/",
+          "pos": "n.",
+          "zh": "布料",
+          "example": {
+            "en": "This fabric does not wrinkle easily when it is washed.",
+            "zh": "這種布料洗過後不容易起皺。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "wrinkly",
+          "ipa": "/ˈrɪŋkli/",
+          "pos": "adj.",
+          "zh": "多皺紋的",
+          "link": "wrinkle + -y，充滿某東西的，像 rainy、sunny"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈrɪŋkəl/",
+          "zh": "皺紋；皺褶",
+          "example": {
+            "en": "There is a small wrinkle on the front of the tablecloth.",
+            "zh": "桌巾的正面有一處小皺褶。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ˈrɪŋkəl/",
+          "zh": "使起皺",
+          "example": {
+            "en": "Do not sit on the dress, or it may wrinkle.",
+            "zh": "不要坐在洋裝上，否則它可能會起皺。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "皺紋（臉上的）",
+          "en": "a line on the skin of the face",
+          "example": {
+            "en": "The company sells products that reduce wrinkles on the face.",
+            "zh": "這間公司販售能減少臉上皺紋的產品。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "皺褶（衣服、紙）",
+          "en": "a fold or line in cloth or paper",
+          "distinguish": "和 shirt、dress、cloth、iron 等字一起出現時，指衣物的皺褶。",
+          "example": {
+            "en": "The steam machine removes every wrinkle from the curtains.",
+            "zh": "蒸氣機能去除窗簾上的每一處皺褶。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "willingness",
+      "type": "word",
+      "ipa": "/ˈwɪlɪŋnəs/",
+      "pos": "n.",
+      "zh": "意願；願意",
+      "en": "the feeling that you are ready and happy to do something",
+      "note": "willingness 表示「願意做某事的態度」，多益常見於求職信、面試、員工評語與談判情境，如 willingness to learn（願意學習）。",
+      "grammar_note": "willingness 後面接 to + 原形動詞：willingness to work late；表示「某人的意願」時可用 one's willingness。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "willingness to learn",
+          "zh": "學習的意願",
+          "example": {
+            "en": "Her willingness to learn impressed the whole training team.",
+            "zh": "她願意學習的態度讓整個訓練團隊印象深刻。"
+          }
+        },
+        {
+          "phrase": "show willingness",
+          "zh": "表現出意願",
+          "example": {
+            "en": "Both companies showed willingness to sign the agreement soon.",
+            "zh": "兩家公司都表現出盡快簽署協議的意願。"
+          }
+        },
+        {
+          "phrase": "lack of willingness",
+          "zh": "缺乏意願",
+          "example": {
+            "en": "The manager worried about the team's lack of willingness to change.",
+            "zh": "經理擔心團隊缺乏改變的意願。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "求職",
+          "en": "I am writing to show my willingness to join your company.",
+          "zh": "我寫這封信是想表達我願意加入貴公司。"
+        },
+        {
+          "tag": "面試",
+          "en": "The interviewer asked about our willingness to travel abroad.",
+          "zh": "面試官問了我們是否願意出國出差。"
+        },
+        {
+          "tag": "談判",
+          "en": "Thank you for your willingness to work with us on this project.",
+          "zh": "感謝你願意與我們合作這個專案。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "eagerness",
+          "diff": "eagerness 是「很期待、很熱切」，比 willingness 的「願意」更強烈。",
+          "example": {
+            "en": "His eagerness to start the project made everyone smile.",
+            "zh": "他迫不及待想開始這個專案，讓大家都笑了。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "attitude",
+          "ipa": "/ˈætɪtuːd/",
+          "pos": "n.",
+          "zh": "態度",
+          "example": {
+            "en": "A positive attitude is important for every sales team.",
+            "zh": "正面的態度對每個業務團隊都很重要。"
+          }
+        },
+        {
+          "w": "effort",
+          "ipa": "/ˈefɚt/",
+          "pos": "n.",
+          "zh": "努力",
+          "example": {
+            "en": "We appreciate your effort on the new campaign.",
+            "zh": "我們很感謝你在新的行銷活動上的努力。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "willing",
+          "ipa": "/ˈwɪlɪŋ/",
+          "pos": "adj.",
+          "zh": "願意的",
+          "link": "will（意願）+ -ing，變成形容詞；willingness 就是 willing + -ness"
+        },
+        {
+          "w": "willingly",
+          "ipa": "/ˈwɪlɪŋli/",
+          "pos": "adv.",
+          "zh": "樂意地",
+          "link": "willing + -ly，副詞字尾，像 quickly、carefully"
+        },
+        {
+          "w": "unwilling",
+          "ipa": "/ʌnˈwɪlɪŋ/",
+          "pos": "adj.",
+          "zh": "不願意的",
+          "link": "un- + willing，否定，像 unhappy、unable"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "wristwatch",
+      "type": "word",
+      "ipa": "/ˈrɪstwɑːtʃ/",
+      "pos": "n.",
+      "zh": "手錶",
+      "en": "a small clock that you wear on your wrist",
+      "note": "wristwatch 是手錶，wrist 的 w 不發音。多益常見於商品介紹、百貨公司與失物招領的情境，口語常簡稱 watch。",
+      "forms": [
+        {
+          "w": "wristwatches",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "手錶（複數）",
+          "ipa": "/ˈrɪstwɑːtʃɪz/",
+          "example": {
+            "en": "The shop sells wristwatches for both men and women.",
+            "zh": "這家店販售男女都適用的手錶。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "wear a wristwatch",
+          "zh": "戴手錶",
+          "example": {
+            "en": "Our manager always wears a wristwatch to every meeting.",
+            "zh": "我們的經理每次開會都戴著手錶。"
+          }
+        },
+        {
+          "phrase": "digital wristwatch",
+          "zh": "電子手錶",
+          "example": {
+            "en": "This digital wristwatch also records your daily steps.",
+            "zh": "這支電子手錶還能記錄你每天的步數。"
+          }
+        },
+        {
+          "phrase": "wristwatch strap",
+          "zh": "錶帶",
+          "example": {
+            "en": "The wristwatch strap broke, so I bought a new one.",
+            "zh": "錶帶斷了，所以我買了一條新的。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "商品介紹",
+          "en": "This wristwatch is waterproof and works for up to three years.",
+          "zh": "這支手錶防水，而且能使用長達三年。"
+        },
+        {
+          "tag": "失物招領",
+          "en": "A silver wristwatch was found in the meeting room today.",
+          "zh": "今天在會議室裡找到一支銀色手錶。"
+        },
+        {
+          "tag": "禮品",
+          "en": "The company gave each retiring worker a wristwatch as a gift.",
+          "zh": "公司送給每位退休員工一支手錶當作禮物。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "watch",
+          "diff": "watch 是口語常用的簡稱，也可當動詞「看」；wristwatch 明確指戴在手腕上的錶。",
+          "example": {
+            "en": "I left my watch on the desk this morning.",
+            "zh": "我今天早上把手錶忘在桌上了。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "clock",
+          "ipa": "/klɑːk/",
+          "pos": "n.",
+          "zh": "時鐘",
+          "example": {
+            "en": "The clock on the wall is five minutes late.",
+            "zh": "牆上的時鐘慢了五分鐘。"
+          }
+        },
+        {
+          "w": "alarm",
+          "ipa": "/əˈlɑːrm/",
+          "pos": "n.",
+          "zh": "鬧鐘；警報",
+          "example": {
+            "en": "I set the alarm for six before my trip.",
+            "zh": "出差前我把鬧鐘設在六點。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "wellness",
+      "type": "word",
+      "ipa": "/ˈwelnəs/",
+      "pos": "n.",
+      "zh": "健康；身心健康",
+      "en": "the state of being healthy in your body and mind",
+      "note": "wellness 強調身心都健康的生活方式，多益常見於企業福利、健身中心與保健產品的情境，如 employee wellness program（員工健康計畫）。",
+      "grammar_note": "wellness 是不可數名詞，不加 s，前面也不加 a。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "wellness program",
+          "zh": "健康計畫",
+          "example": {
+            "en": "Our wellness program offers free yoga classes every Wednesday.",
+            "zh": "我們的健康計畫每週三提供免費瑜伽課。"
+          }
+        },
+        {
+          "phrase": "wellness center",
+          "zh": "健康中心",
+          "example": {
+            "en": "The new wellness center opens on the third floor.",
+            "zh": "新的健康中心將在三樓開幕。"
+          }
+        },
+        {
+          "phrase": "health and wellness",
+          "zh": "健康與保健",
+          "example": {
+            "en": "She works in the health and wellness industry.",
+            "zh": "她在健康保健產業工作。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "企業福利",
+          "en": "The company cares about the wellness of its employees.",
+          "zh": "公司很關心員工的身心健康。"
+        },
+        {
+          "tag": "廣告",
+          "en": "This tea is a simple way to support your wellness every day.",
+          "zh": "這款茶是每天維護身心健康的簡單方法。"
+        },
+        {
+          "tag": "公告",
+          "en": "Join our wellness day to learn about healthy food and sleep.",
+          "zh": "歡迎參加我們的健康日，了解健康飲食和睡眠。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "illness",
+          "diff": "illness 是「疾病」，字尾也是 -ness，但意思和 wellness 相反。",
+          "example": {
+            "en": "A long illness kept him away from work for a month.",
+            "zh": "一場長期的疾病讓他一個月沒辦法上班。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "health",
+          "diff": "health 是一般的健康狀態；wellness 更強調主動維持身心良好的生活方式。",
+          "example": {
+            "en": "Regular exercise is good for your health and your mood.",
+            "zh": "規律運動對你的健康和心情都有好處。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "fitness",
+          "ipa": "/ˈfɪtnəs/",
+          "pos": "n.",
+          "zh": "體能；健身",
+          "example": {
+            "en": "The hotel has a fitness room open all night.",
+            "zh": "這間飯店有一間整晚開放的健身房。"
+          }
+        },
+        {
+          "w": "exercise",
+          "ipa": "/ˈeksɚsaɪz/",
+          "pos": "n.",
+          "zh": "運動",
+          "example": {
+            "en": "Staff can take a short exercise break at noon.",
+            "zh": "員工可以在中午做一小段運動休息。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "well",
+          "ipa": "/wel/",
+          "pos": "adj.",
+          "zh": "健康的",
+          "link": "最基礎的字，well 當形容詞指身體健康，wellness 是 well + -ness"
+        },
+        {
+          "w": "unwell",
+          "ipa": "/ʌnˈwel/",
+          "pos": "adj.",
+          "zh": "身體不舒服的",
+          "link": "un- + well，否定，像 unhappy、unable"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
