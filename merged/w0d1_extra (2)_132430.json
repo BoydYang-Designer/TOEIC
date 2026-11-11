@@ -1,0 +1,746 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "suite",
+      "type": "word",
+      "ipa": "/swiːt/",
+      "pos": "n.",
+      "zh": "套房、成套的東西",
+      "en": "a set of connected rooms, or a group of things used together",
+      "note": "多益最常見於飯店訂房（hotel suite）、辦公室租賃與軟體產品（a suite of software）。注意發音與 sweet 相同，不是 suit。",
+      "grammar_note": "suite 唸 /swiːt/，與 sweet 同音；a suite of + 名詞 表示「一整套…」。",
+      "forms": [
+        {
+          "w": "suites",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "套房（複數）",
+          "ipa": "/swiːts/",
+          "example": {
+            "en": "The hotel has twenty suites, and each one has a kitchen.",
+            "zh": "這間飯店有二十間套房，每間都有廚房。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "hotel suite",
+          "zh": "飯店套房",
+          "example": {
+            "en": "The hotel suite has a large desk and a meeting area.",
+            "zh": "這間飯店套房有大書桌和一個會議區。"
+          }
+        },
+        {
+          "phrase": "executive suite",
+          "zh": "行政套房",
+          "example": {
+            "en": "The executive suite is on the top floor of the building.",
+            "zh": "行政套房位於大樓的頂樓。"
+          }
+        },
+        {
+          "phrase": "office suite",
+          "zh": "辦公室套間",
+          "example": {
+            "en": "Our new office suite includes four meeting rooms.",
+            "zh": "我們新的辦公室套間包含四間會議室。"
+          }
+        },
+        {
+          "phrase": "software suite",
+          "zh": "套裝軟體",
+          "example": {
+            "en": "The software suite includes email, calendar, and document tools.",
+            "zh": "這套軟體包含電子郵件、行事曆和文件工具。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "訂房",
+          "en": "We booked a suite on the top floor for the CEO.",
+          "zh": "我們為執行長訂了頂樓的一間套房。"
+        },
+        {
+          "tag": "租辦公室",
+          "en": "Our company rents a suite of offices on the fifth floor.",
+          "zh": "我們公司租了五樓的一整套辦公室。"
+        },
+        {
+          "tag": "軟體",
+          "en": "The company sells a suite of accounting software tools.",
+          "zh": "這家公司販售一套會計軟體工具。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "suit",
+          "diff": "suit 唸 /suːt/，是「西裝」或動詞「適合」；suite 唸 /swiːt/，是「套房」。",
+          "usage": "suit 是西裝（名詞）或「適合」（動詞）；suite 是套房或一套東西，兩者拼法與發音都不同。",
+          "example": {
+            "en": "He wore a dark suit to the interview.",
+            "zh": "他穿著深色西裝去面試。"
+          }
+        },
+        {
+          "word": "sweet",
+          "diff": "sweet 是「甜的」，與 suite 同音但意思完全不同。",
+          "example": {
+            "en": "The dessert at the conference dinner was too sweet for me.",
+            "zh": "會議晚宴的甜點對我來說太甜了。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "lobby",
+          "pos": "n.",
+          "zh": "大廳",
+          "ipa": "/ˈlɑːbi/",
+          "example": {
+            "en": "Please wait for the guests in the hotel lobby.",
+            "zh": "請在飯店大廳等候客人。"
+          }
+        },
+        {
+          "w": "reservation",
+          "pos": "n.",
+          "zh": "預約、訂位",
+          "ipa": "/ˌrezɚˈveɪʃən/",
+          "example": {
+            "en": "I made a reservation for a suite for two nights.",
+            "zh": "我預訂了一間套房，住兩晚。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "（飯店）套房",
+          "en": "a set of connected rooms in a hotel",
+          "example": {
+            "en": "The manager upgraded our room to a suite at no extra cost.",
+            "zh": "經理免費把我們的房間升級為套房。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "辦公室套間",
+          "en": "a group of offices used by one company",
+          "distinguish": "常用 suite of offices；看到辦公室或租賃情境就是這個意思。",
+          "example": {
+            "en": "Their law firm moved into a larger suite downtown.",
+            "zh": "他們的律師事務所搬進市中心較大的辦公室套間。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "套裝軟體、一套（相關物品）",
+          "en": "a set of computer programs sold together",
+          "distinguish": "常接 of + 軟體或工具；看到軟體或產品組合就是這個意思。",
+          "example": {
+            "en": "This suite of programs is popular with small businesses.",
+            "zh": "這套程式在小型企業中很受歡迎。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "salad",
+      "type": "word",
+      "ipa": "/ˈsæləd/",
+      "pos": "n.",
+      "zh": "沙拉",
+      "en": "a cold dish made with raw vegetables",
+      "note": "多益常出現在餐廳點餐、會議餐點與員工餐廳的情境。可以單點一份（a salad），也可當配菜（side salad）。",
+      "forms": [
+        {
+          "w": "salads",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "沙拉（複數）",
+          "ipa": "/ˈsæləds/",
+          "example": {
+            "en": "The café sells three kinds of salads at lunchtime.",
+            "zh": "這家咖啡館午餐時間販售三種沙拉。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "green salad",
+          "zh": "蔬菜沙拉",
+          "example": {
+            "en": "The restaurant serves a fresh green salad with every main dish.",
+            "zh": "這家餐廳每道主餐都附一份新鮮蔬菜沙拉。"
+          }
+        },
+        {
+          "phrase": "chicken salad",
+          "zh": "雞肉沙拉",
+          "example": {
+            "en": "She ordered a chicken salad for lunch during the training.",
+            "zh": "她在訓練課程的午餐時點了一份雞肉沙拉。"
+          }
+        },
+        {
+          "phrase": "salad bar",
+          "zh": "沙拉吧",
+          "example": {
+            "en": "Our cafeteria has a salad bar open from noon to two.",
+            "zh": "我們的員工餐廳有沙拉吧，中午到兩點開放。"
+          }
+        },
+        {
+          "phrase": "side salad",
+          "zh": "附餐沙拉",
+          "example": {
+            "en": "Would you like a side salad with your sandwich?",
+            "zh": "您的三明治要加一份附餐沙拉嗎？"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "餐廳",
+          "en": "I'd like a chicken salad and a glass of water, please.",
+          "zh": "我想點一份雞肉沙拉和一杯水。"
+        },
+        {
+          "tag": "會議午餐",
+          "en": "The caterer will bring sandwiches and salad for the lunch meeting.",
+          "zh": "外燴業者會為午餐會議送來三明治和沙拉。"
+        },
+        {
+          "tag": "員工餐廳",
+          "en": "The cafeteria now offers a fresh salad every day.",
+          "zh": "員工餐廳現在每天提供新鮮沙拉。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "salary",
+          "diff": "salary 是「薪水」；salad 是「沙拉」，拼法前半相似。",
+          "example": {
+            "en": "Her salary will increase after the yearly review.",
+            "zh": "年度考核後，她的薪水會調漲。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "sandwich",
+          "pos": "n.",
+          "zh": "三明治",
+          "ipa": "/ˈsænwɪtʃ/",
+          "example": {
+            "en": "The meeting room was filled with sandwiches and coffee.",
+            "zh": "會議室裡擺滿了三明治和咖啡。"
+          }
+        },
+        {
+          "w": "soup",
+          "pos": "n.",
+          "zh": "湯",
+          "ipa": "/suːp/",
+          "example": {
+            "en": "Today's lunch special comes with soup and bread.",
+            "zh": "今天的午餐特餐附湯和麵包。"
+          }
+        },
+        {
+          "w": "dessert",
+          "pos": "n.",
+          "zh": "甜點",
+          "ipa": "/dɪˈzɜːrt/",
+          "example": {
+            "en": "The dinner includes a main dish and a dessert.",
+            "zh": "這份晚餐包含一道主餐和一份甜點。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "stack",
+      "type": "word",
+      "ipa": "/stæk/",
+      "pos": "n.",
+      "zh": "一疊、一堆；堆疊",
+      "en": "a group of things that are put on top of each other",
+      "note": "多益常見於辦公室（一疊文件）與倉庫（堆放貨物）的情境。名詞用 a stack of + 名詞，動詞指把東西整齊地疊起來。",
+      "grammar_note": "a stack of papers 的主詞是 stack，動詞要用單數：A stack of papers is on the desk.",
+      "forms": [
+        {
+          "w": "stacks",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "一疊（複數）",
+          "ipa": "/stæks/",
+          "example": {
+            "en": "Stacks of paper covered the table after the audit.",
+            "zh": "審計結束後，一疊疊的紙張堆滿了桌子。"
+          }
+        },
+        {
+          "w": "stacks",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "堆疊（第三人稱單數）",
+          "ipa": "/stæks/",
+          "example": {
+            "en": "The clerk stacks the new magazines near the entrance.",
+            "zh": "店員把新雜誌堆放在入口附近。"
+          }
+        },
+        {
+          "w": "stacked",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "堆疊（過去式）",
+          "ipa": "/stækt/",
+          "example": {
+            "en": "She stacked the files neatly before the manager arrived.",
+            "zh": "她在經理到達前把檔案整齊地疊好。"
+          }
+        },
+        {
+          "w": "stacking",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "堆疊（現在分詞）",
+          "ipa": "/ˈstækɪŋ/",
+          "example": {
+            "en": "Stacking boxes too high can be dangerous in a warehouse.",
+            "zh": "在倉庫把箱子堆得太高可能很危險。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "a stack of",
+          "zh": "一疊…",
+          "example": {
+            "en": "There is a stack of unread letters on her desk.",
+            "zh": "她的桌上有一疊還沒讀的信。"
+          }
+        },
+        {
+          "phrase": "stack the shelves",
+          "zh": "把貨品補上貨架",
+          "example": {
+            "en": "Part-time workers stack the shelves before the store opens.",
+            "zh": "兼職員工在店面開門前把貨品補上貨架。"
+          }
+        },
+        {
+          "phrase": "be stacked with",
+          "zh": "堆滿…",
+          "example": {
+            "en": "The warehouse was stacked with boxes of new products.",
+            "zh": "倉庫裡堆滿了新產品的箱子。"
+          }
+        },
+        {
+          "phrase": "stack up against",
+          "zh": "與…相比",
+          "example": {
+            "en": "How does our product stack up against the competition?",
+            "zh": "我們的產品與競爭對手相比如何？"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "辦公室",
+          "en": "Please put the stack of invoices on my desk.",
+          "zh": "請把那疊發票放在我的桌上。"
+        },
+        {
+          "tag": "倉庫",
+          "en": "Do not stack more than five boxes on top of each other.",
+          "zh": "請不要把超過五個箱子疊在一起。"
+        },
+        {
+          "tag": "研討會",
+          "en": "He stacked the chairs in the corner after the seminar.",
+          "zh": "研討會結束後，他把椅子疊在角落。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "stock",
+          "diff": "stock 是「庫存」或「股票」；stack 是「一疊」，拼法相近。",
+          "usage": "stock 指庫存或股票，不可數；stack 指整齊堆起來的一疊，可數。",
+          "example": {
+            "en": "We keep extra stock in the warehouse for busy seasons.",
+            "zh": "我們在倉庫多存一些庫存以因應旺季。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "pile",
+          "diff": "pile 是隨意堆成一堆；stack 通常指整齊地一層一層疊起來。",
+          "example": {
+            "en": "There is a pile of mail on the front desk.",
+            "zh": "櫃檯上有一堆郵件。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "shelf",
+          "pos": "n.",
+          "zh": "架子",
+          "ipa": "/ʃelf/",
+          "example": {
+            "en": "Please place the new books on the top shelf.",
+            "zh": "請把新書放在最上層的架子。"
+          }
+        },
+        {
+          "w": "box",
+          "pos": "n.",
+          "zh": "箱子",
+          "ipa": "/bɑːks/",
+          "example": {
+            "en": "Each box contains twenty printer cartridges for the office.",
+            "zh": "每個箱子裡有二十個給辦公室用的印表機墨水匣。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/stæk/",
+          "zh": "一疊、一堆",
+          "example": {
+            "en": "A stack of contracts is waiting for your signature.",
+            "zh": "一疊合約正等著你簽名。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/stæk/",
+          "zh": "堆疊、堆放",
+          "example": {
+            "en": "Please stack the chairs against the wall after the meeting.",
+            "zh": "會議結束後，請把椅子疊靠在牆邊。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "（整齊的）一疊",
+          "en": "a neat pile of things on top of each other",
+          "example": {
+            "en": "He carried a stack of reports into the meeting room.",
+            "zh": "他拿著一疊報告走進會議室。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "大量（口語，常用 stacks of）",
+          "en": "a large amount of something",
+          "distinguish": "stacks of + 名詞 是口語說法，指「很多」；一般的 a stack of 才是指實際疊起來的東西。",
+          "example": {
+            "en": "I have stacks of work to finish before Friday.",
+            "zh": "我在星期五前有一大堆工作要完成。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "salesperson",
+      "type": "word",
+      "ipa": "/ˈseɪlzpɝːsən/",
+      "pos": "n.",
+      "zh": "銷售人員",
+      "en": "a person whose job is to sell things",
+      "note": "多益常見於店面、汽車展售與公司業務部門的情境，不分性別，可取代 salesman 和 saleswoman。",
+      "grammar_note": "salesperson 的複數是 salespeople，不是 salespeoples；salespersons 也可用但較少見。",
+      "forms": [
+        {
+          "w": "salespeople",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "銷售人員（複數）",
+          "ipa": "/ˈseɪlzpiːpəl/",
+          "example": {
+            "en": "All salespeople must attend the product training on Monday.",
+            "zh": "所有銷售人員都必須參加星期一的產品訓練。"
+          }
+        },
+        {
+          "w": "salespersons",
+          "label": "複數（較少用）",
+          "pos": "n.",
+          "zh": "銷售人員（複數）",
+          "ipa": "/ˈseɪlzpɝːsənz/",
+          "example": {
+            "en": "The store hired three new salespersons last month.",
+            "zh": "這家店上個月新聘了三位銷售人員。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "experienced salesperson",
+          "zh": "有經驗的銷售人員",
+          "example": {
+            "en": "An experienced salesperson can explain the product clearly.",
+            "zh": "有經驗的銷售人員能清楚解釋產品。"
+          }
+        },
+        {
+          "phrase": "top salesperson",
+          "zh": "頂尖銷售人員",
+          "example": {
+            "en": "She was named the top salesperson of the year.",
+            "zh": "她被評為年度頂尖銷售人員。"
+          }
+        },
+        {
+          "phrase": "ask a salesperson",
+          "zh": "詢問銷售人員",
+          "example": {
+            "en": "You can ask a salesperson to check the stock.",
+            "zh": "你可以請銷售人員查一下庫存。"
+          }
+        },
+        {
+          "phrase": "car salesperson",
+          "zh": "汽車銷售員",
+          "example": {
+            "en": "The car salesperson offered us a discount on the new model.",
+            "zh": "汽車銷售員給了我們新車款的折扣。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "店面",
+          "en": "The salesperson showed the customer three different laptops.",
+          "zh": "銷售人員向顧客展示了三台不同的筆記型電腦。"
+        },
+        {
+          "tag": "徵才",
+          "en": "We are looking for a salesperson with two years of experience.",
+          "zh": "我們在找有兩年經驗的銷售人員。"
+        },
+        {
+          "tag": "獎金",
+          "en": "Each salesperson receives a bonus when he or she reaches the target.",
+          "zh": "每位銷售人員達成目標時都能領到獎金。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "sales representative",
+          "diff": "sales representative 常指拜訪客戶、談業務的業務代表，語氣較正式。",
+          "example": {
+            "en": "A sales representative will visit your office on Thursday.",
+            "zh": "一位業務代表星期四會拜訪你的辦公室。"
+          }
+        },
+        {
+          "phrase": "salesman",
+          "diff": "salesman 指男性銷售員；salesperson 不分性別，現在較常用。",
+          "example": {
+            "en": "He has worked as a salesman at the car shop for years.",
+            "zh": "他在這家汽車行當銷售員已有多年。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "customer",
+          "pos": "n.",
+          "zh": "顧客",
+          "ipa": "/ˈkʌstəmɚ/",
+          "example": {
+            "en": "The salesperson helped the customer choose a new phone.",
+            "zh": "銷售人員協助顧客挑選新手機。"
+          }
+        },
+        {
+          "w": "client",
+          "pos": "n.",
+          "zh": "客戶",
+          "ipa": "/ˈklaɪənt/",
+          "example": {
+            "en": "Our sales team is meeting a new client tomorrow.",
+            "zh": "我們的業務團隊明天要與新客戶見面。"
+          }
+        },
+        {
+          "w": "target",
+          "pos": "n.",
+          "zh": "目標",
+          "ipa": "/ˈtɑːrɡɪt/",
+          "example": {
+            "en": "The team reached its sales target in June.",
+            "zh": "這個團隊在六月達成了銷售目標。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "sale",
+          "pos": "n.",
+          "zh": "銷售、特價",
+          "ipa": "/seɪl/",
+          "link": "sale 是詞幹，是 sell 的名詞；salesperson = sales + person。"
+        },
+        {
+          "w": "sales",
+          "pos": "n.",
+          "zh": "銷售額、業務",
+          "ipa": "/seɪlz/",
+          "link": "sale + -s，指整體的銷售或業務，如 sales department。"
+        },
+        {
+          "w": "salesman",
+          "pos": "n.",
+          "zh": "男性銷售員",
+          "ipa": "/ˈseɪlzmən/",
+          "link": "sales + man，像 policeman、businessman。"
+        },
+        {
+          "w": "saleswoman",
+          "pos": "n.",
+          "zh": "女性銷售員",
+          "ipa": "/ˈseɪlzwʊmən/",
+          "link": "sales + woman，像 businesswoman。"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "spite",
+      "type": "word",
+      "ipa": "/spaɪt/",
+      "pos": "n.",
+      "zh": "惡意；（in spite of）儘管",
+      "en": "a bad feeling that makes you want to hurt someone",
+      "note": "多益幾乎都以 in spite of（儘管）的形式出現，與 despite 同義。單獨使用的 spite 較少見，指惡意，常見於 out of spite。",
+      "grammar_note": "in spite of 是介系詞片語，後面接名詞或 V-ing，不接完整子句；要接子句請用 although 或 in spite of the fact that。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "in spite of",
+          "zh": "儘管",
+          "example": {
+            "en": "In spite of the delay, the team finished the project on time.",
+            "zh": "儘管有延遲，團隊仍準時完成了專案。"
+          }
+        },
+        {
+          "phrase": "in spite of the fact that",
+          "zh": "儘管…的事實",
+          "example": {
+            "en": "In spite of the fact that sales fell, the team stayed positive.",
+            "zh": "儘管銷售下滑，團隊仍保持樂觀。"
+          }
+        },
+        {
+          "phrase": "out of spite",
+          "zh": "出於惡意",
+          "example": {
+            "en": "He refused to help her out of spite after the argument.",
+            "zh": "吵架後，他出於惡意拒絕幫助她。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "活動",
+          "en": "In spite of the bad weather, the conference was a big success.",
+          "zh": "儘管天氣不好，這場會議仍非常成功。"
+        },
+        {
+          "tag": "營運",
+          "en": "The store stayed open in spite of the power problem.",
+          "zh": "儘管有電力問題，這家店仍繼續營業。"
+        },
+        {
+          "tag": "職場",
+          "en": "The manager felt the email was written out of spite.",
+          "zh": "經理覺得那封電子郵件是出於惡意寫的。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "spice",
+          "diff": "spice 是「香料」；spite 是「惡意」，只有最後一個字母不同。",
+          "example": {
+            "en": "The restaurant buys spice from local farmers every week.",
+            "zh": "這間餐廳每週向當地農民購買香料。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "despite",
+          "diff": "despite 與 in spite of 同義、較簡短，後面直接接名詞，不加 of。",
+          "example": {
+            "en": "Despite the delay, the shipment arrived before the deadline.",
+            "zh": "儘管有延遲，貨物仍在期限前送達。"
+          }
+        },
+        {
+          "phrase": "although",
+          "diff": "although 是連接詞，後面要接完整子句，而 in spite of 後面接名詞。",
+          "example": {
+            "en": "Although the price was high, we still bought the machine.",
+            "zh": "雖然價格很高，我們還是買了這台機器。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "however",
+          "pos": "adv.",
+          "zh": "然而",
+          "ipa": "/haʊˈevɚ/",
+          "example": {
+            "en": "The plan is good; however, it costs too much.",
+            "zh": "這個計畫很好；然而，它花費太高。"
+          }
+        },
+        {
+          "w": "anger",
+          "pos": "n.",
+          "zh": "憤怒",
+          "ipa": "/ˈæŋɡɚ/",
+          "example": {
+            "en": "The customer's anger grew after the second delay.",
+            "zh": "第二次延遲後，顧客的怒氣更大了。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "spiteful",
+          "pos": "adj.",
+          "zh": "懷有惡意的",
+          "ipa": "/ˈspaɪtfəl/",
+          "link": "spite + -ful，充滿…的，像 helpful、careful。"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

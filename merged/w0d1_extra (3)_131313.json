@@ -1,0 +1,322 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "pant",
+      "type": "word",
+      "ipa": "/pænt/",
+      "pos": "n.",
+      "zh": "褲子（常用複數 pants）",
+      "en": "clothing that covers your legs from the waist to the feet",
+      "note": "多益最常見的是複數 pants，照片題常用來描述人物穿著；單數 pant 多出現在服飾業的商品說明（如 pant leg）。pant 也可當動詞，表示喘氣。",
+      "grammar_note": "pants 是只有複數形的名詞，當主詞時動詞用複數（These pants are on sale.）；算數量要說 a pair of pants，不說 two pants。",
+      "forms": [
+        { "w": "pants", "label": "複數", "pos": "n.", "zh": "褲子（複數）", "ipa": "/pænts/", "example": { "en": "The new pants arrived at our store on Monday morning.", "zh": "新的褲子星期一早上送到了我們店裡。" } },
+        { "w": "pants", "label": "第三人稱單數", "pos": "v.", "zh": "喘氣", "ipa": "/pænts/", "example": { "en": "The runner pants loudly after he crosses the finish line.", "zh": "跑者越過終點線後大聲喘氣。" } },
+        { "w": "panted", "label": "過去式／過去分詞", "pos": "v.", "zh": "喘氣", "ipa": "/ˈpæntɪd/", "example": { "en": "She panted after climbing the stairs to the office.", "zh": "她爬樓梯到辦公室後喘著氣。" } },
+        { "w": "panting", "label": "現在分詞", "pos": "v.", "zh": "喘氣", "ipa": "/ˈpæntɪŋ/", "example": { "en": "He came into the meeting room panting and out of breath.", "zh": "他喘著氣、上氣不接下氣地走進會議室。" } }
+      ],
+      "collocations": [
+        { "phrase": "a pair of pants", "zh": "一條褲子", "example": { "en": "I bought a pair of pants for the interview next week.", "zh": "我為下週的面試買了一條褲子。" } },
+        { "phrase": "pant leg", "zh": "褲管", "example": { "en": "The tailor will shorten the pant leg by two centimeters.", "zh": "裁縫師會把褲管縮短兩公分。" } },
+        { "phrase": "dress pants", "zh": "西裝褲", "example": { "en": "He wears dress pants and a white shirt to work.", "zh": "他穿西裝褲和白襯衫上班。" } }
+      ],
+      "examples": [
+        { "tag": "零售", "en": "This pant comes in black and navy, and it is on sale.", "zh": "這款褲子有黑色和藏青色，而且正在特價。" },
+        { "tag": "照片描述", "en": "The man is wearing a gray jacket and dark pants.", "zh": "那名男子穿著灰色外套和深色褲子。" },
+        { "tag": "動詞", "en": "After running to the meeting room, she began to pant.", "zh": "跑到會議室後，她開始喘氣。" }
+      ],
+      "confusable": [
+        { "word": "paint", "diff": "paint 是油漆、塗漆，發音 /peɪnt/；pant 發音是 /pænt/。", "example": { "en": "The workers will paint the office walls white this weekend.", "zh": "工人這個週末會把辦公室的牆漆成白色。" } }
+      ],
+      "similar": [
+        { "word": "trousers", "diff": "意思和 pants 相同，較偏英式用法，語氣稍正式。", "example": { "en": "The store sells wool trousers for men and women.", "zh": "這家店販售男女適穿的羊毛長褲。" } },
+        { "word": "slacks", "diff": "指休閒或半正式的長褲，比 pants 更像上班穿的款式。", "example": { "en": "Employees may wear slacks on casual Fridays.", "zh": "員工在休閒星期五可以穿休閒長褲。" } }
+      ],
+      "family": [
+        { "w": "shorts", "pos": "n.", "zh": "短褲", "ipa": "/ʃɔːrts/", "example": { "en": "Staff at the beach resort wear white shorts.", "zh": "海灘度假村的員工穿白色短褲。" } },
+        { "w": "jeans", "pos": "n.", "zh": "牛仔褲", "ipa": "/dʒiːnz/", "example": { "en": "Jeans are not allowed in the main office.", "zh": "主辦公室不可以穿牛仔褲。" } },
+        { "w": "skirt", "pos": "n.", "zh": "裙子", "ipa": "/skɝːt/", "example": { "en": "She chose a blue skirt for the presentation.", "zh": "她選了一條藍色裙子參加簡報。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/pænt/", "zh": "褲子（多用複數 pants）", "example": { "en": "The tag says this pant is made of cotton.", "zh": "標籤上寫著這條褲子是棉製的。" } },
+        { "pos": "v.", "ipa": "/pænt/", "zh": "喘氣", "example": { "en": "Many people pant when they run up to the platform.", "zh": "很多人跑上月台時會喘氣。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "projector",
+      "type": "word",
+      "ipa": "/prəˈdʒektɚ/",
+      "pos": "n.",
+      "zh": "投影機",
+      "en": "a machine that shows pictures or slides on a screen or wall",
+      "note": "多益會議與簡報情境的高頻字，常見於設備故障、借用設備、會前準備的對話。照片題常見「有人在投影幕旁簡報」的畫面。",
+      "forms": [
+        { "w": "projectors", "label": "複數", "pos": "n.", "zh": "投影機（複數）", "ipa": "/prəˈdʒektɚz/", "example": { "en": "Both projectors in the training room need new bulbs.", "zh": "訓練室的兩台投影機都需要換新燈泡。" } }
+      ],
+      "collocations": [
+        { "phrase": "set up a projector", "zh": "架設投影機", "example": { "en": "Could you set up a projector before the client arrives?", "zh": "你能在客戶抵達前架好投影機嗎？" } },
+        { "phrase": "turn on the projector", "zh": "打開投影機", "example": { "en": "Please turn on the projector so we can begin the meeting.", "zh": "請打開投影機，我們好開始開會。" } },
+        { "phrase": "projector screen", "zh": "投影幕", "example": { "en": "The projector screen is too small for the whole room.", "zh": "這片投影幕對整間會議室來說太小了。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The projector is not working, so we will use a laptop.", "zh": "投影機壞了，所以我們會改用筆電。" },
+        { "tag": "借用設備", "en": "You can borrow a projector from the front desk for free.", "zh": "你可以向櫃檯免費借用投影機。" },
+        { "tag": "採購", "en": "We plan to buy a new projector for the conference room.", "zh": "我們打算為會議室買一台新的投影機。" }
+      ],
+      "confusable": [
+        { "word": "protector", "diff": "拼法相近，但 protector 是保護者或保護用的東西，和投影無關。", "example": { "en": "Please put a screen protector on every new tablet.", "zh": "請在每一台新平板上貼螢幕保護貼。" } }
+      ],
+      "family": [
+        { "w": "screen", "pos": "n.", "zh": "螢幕、投影幕", "ipa": "/skriːn/", "example": { "en": "Please stand next to the screen during your talk.", "zh": "演講時請站在螢幕旁邊。" } },
+        { "w": "laptop", "pos": "n.", "zh": "筆記型電腦", "ipa": "/ˈlæptɑːp/", "example": { "en": "Connect your laptop to the projector with this cable.", "zh": "請用這條線把你的筆電接到投影機。" } },
+        { "w": "microphone", "pos": "n.", "zh": "麥克風", "ipa": "/ˈmaɪkrəfoʊn/", "example": { "en": "The speaker tested the microphone before the event.", "zh": "講者在活動前測試了麥克風。" } }
+      ],
+      "derived": [
+        { "w": "project", "pos": "n.", "zh": "專案、計畫", "ipa": "/ˈprɑːdʒekt/", "link": "project 當動詞有「投射」的意思，projector + -or 就是「把影像投射出去的機器」，像 actor、visitor" },
+        { "w": "projected", "pos": "adj.", "zh": "預計的", "ipa": "/prəˈdʒektɪd/", "link": "project + -ed，被「推測出去」的數字，也就是預計的數字，如 projected sales" },
+        { "w": "projection", "pos": "n.", "zh": "預測、投影", "ipa": "/prəˈdʒekʃn/", "link": "project + -ion，變成名詞，指預測數字或投射出來的影像，像 decision、production" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "pharmacy",
+      "type": "word",
+      "ipa": "/ˈfɑːrməsi/",
+      "pos": "n.",
+      "zh": "藥局",
+      "en": "a place where you buy medicine",
+      "note": "多益常見於購物、健康與地點指引的對話，例如「藥局在轉角」或「去藥局拿處方藥」。美式英文也常說 drugstore，兩者在日常情境意思很接近。",
+      "forms": [
+        { "w": "pharmacies", "label": "複數", "pos": "n.", "zh": "藥局（複數）", "ipa": "/ˈfɑːrməsiz/", "example": { "en": "Most pharmacies in this area close at nine o'clock.", "zh": "這一區大部分的藥局九點關門。" } }
+      ],
+      "collocations": [
+        { "phrase": "a local pharmacy", "zh": "當地藥局", "example": { "en": "You can get this medicine at a local pharmacy nearby.", "zh": "你可以在附近的當地藥局買到這種藥。" } },
+        { "phrase": "fill a prescription at the pharmacy", "zh": "在藥局配處方藥", "example": { "en": "I need to fill a prescription at the pharmacy after work.", "zh": "我下班後得去藥局配處方藥。" } },
+        { "phrase": "pharmacy counter", "zh": "藥局櫃檯", "example": { "en": "Please wait at the pharmacy counter until your name is called.", "zh": "請在藥局櫃檯等候，直到叫到您的名字。" } }
+      ],
+      "examples": [
+        { "tag": "指路", "en": "The pharmacy is on the corner, next to the bank.", "zh": "藥局在轉角，銀行的隔壁。" },
+        { "tag": "電子郵件", "en": "Our new pharmacy will open in the shopping center in March.", "zh": "我們的新藥局三月會在購物中心開幕。" },
+        { "tag": "出差", "en": "The hotel clerk told me where to find a pharmacy.", "zh": "飯店櫃檯人員告訴我哪裡可以找到藥局。" }
+      ],
+      "confusable": [
+        { "word": "pharmacist", "diff": "pharmacy 是「藥局」這個地方，pharmacist 是在藥局工作的「藥師」。", "example": { "en": "The pharmacist explained how to take the medicine.", "zh": "藥師說明了這種藥該怎麼吃。" } }
+      ],
+      "similar": [
+        { "word": "drugstore", "diff": "美式說法，除了藥品，也賣日用品和零食；pharmacy 比較強調配藥。", "example": { "en": "I bought some shampoo and snacks at the drugstore.", "zh": "我在藥妝店買了一些洗髮精和零食。" } },
+        { "word": "chemist's", "diff": "英式說法，意思與 pharmacy 相近，多益偶爾出現在英式發音的對話。", "example": { "en": "There is a chemist's across the street from the station.", "zh": "車站對面有一家藥局。" } }
+      ],
+      "family": [
+        { "w": "prescription", "pos": "n.", "zh": "處方箋", "ipa": "/prɪˈskrɪpʃn/", "example": { "en": "You need a prescription to buy this medicine.", "zh": "你需要處方箋才能買這種藥。" } },
+        { "w": "medicine", "pos": "n.", "zh": "藥", "ipa": "/ˈmedɪsn/", "example": { "en": "Please take this medicine twice a day.", "zh": "這種藥請一天吃兩次。" } },
+        { "w": "clinic", "pos": "n.", "zh": "診所", "ipa": "/ˈklɪnɪk/", "example": { "en": "The clinic is next door to the pharmacy.", "zh": "診所就在藥局隔壁。" } }
+      ],
+      "derived": [
+        { "w": "pharmacist", "pos": "n.", "zh": "藥師", "ipa": "/ˈfɑːrməsɪst/", "link": "pharmacy + -ist，做這行的人，像 artist、dentist" },
+        { "w": "pharmaceutical", "pos": "adj.", "zh": "製藥的", "ipa": "/ˌfɑːrməˈsuːtɪkl/", "link": "同樣來自 pharmac- 這個詞幹，指和藥有關的，常見於 pharmaceutical company（製藥公司）" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "patience",
+      "type": "word",
+      "ipa": "/ˈpeɪʃns/",
+      "pos": "n.",
+      "zh": "耐心",
+      "en": "the ability to wait calmly without getting angry",
+      "note": "多益最常見的固定用語是 Thank you for your patience，用在道歉、公告或客服信件，請對方多等一下。也常見於客服與管理情境，形容有耐心的人。",
+      "grammar_note": "patience 是不可數名詞，不加 s，也不加 a；「對某人有耐心」用 patience with + 人。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "thank you for your patience", "zh": "感謝您的耐心等候", "example": { "en": "Thank you for your patience while we fix the problem.", "zh": "感謝您在我們處理問題期間耐心等候。" } },
+        { "phrase": "lose patience", "zh": "失去耐心", "example": { "en": "Some customers lose patience when the line is too long.", "zh": "隊伍太長時，有些客人會失去耐心。" } },
+        { "phrase": "have patience with", "zh": "對…有耐心", "example": { "en": "Please have patience with our new staff members.", "zh": "請對我們的新進員工多一點耐心。" } },
+        { "phrase": "run out of patience", "zh": "耐心用完", "example": { "en": "The manager ran out of patience after the third delay.", "zh": "第三次延誤後，經理耐心用完了。" } }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "We appreciate your patience during the system update tonight.", "zh": "我們感謝您在今晚系統更新期間的耐心。" },
+        { "tag": "客服", "en": "Customer service work takes a lot of patience.", "zh": "客服工作需要很多耐心。" },
+        { "tag": "電子郵件", "en": "We ask for your patience as we move to the new office.", "zh": "在我們搬到新辦公室的期間，懇請您耐心等候。" }
+      ],
+      "confusable": [
+        { "word": "patients", "diff": "發音幾乎一樣，但 patients 是「病人們」，是 patient 的複數。", "example": { "en": "The clinic sees about forty patients every day.", "zh": "這間診所每天大約看四十位病人。" } },
+        { "word": "patient", "diff": "patient 當形容詞是「有耐心的」，當名詞是「病人」；patience 是「耐心」這個名詞。", "usage": "patience 是名詞，patient 才能當形容詞：be patient，不能說 be patience。", "example": { "en": "Please be patient while the staff checks your order.", "zh": "請耐心等候，工作人員正在確認您的訂單。" } }
+      ],
+      "similar": [
+        { "word": "understanding", "diff": "常和 patience 一起出現（your patience and understanding），understanding 有「體諒」的意思，語氣更重視理解對方的處境。", "example": { "en": "Thank you for your understanding about the schedule change.", "zh": "感謝您體諒時程的更動。" } }
+      ],
+      "family": [
+        { "w": "delay", "pos": "n.", "zh": "延誤", "ipa": "/dɪˈleɪ/", "example": { "en": "We are sorry for the delay in your order.", "zh": "您的訂單延誤了，我們深感抱歉。" } },
+        { "w": "wait", "pos": "v.", "zh": "等待", "ipa": "/weɪt/", "example": { "en": "Please wait here until the manager is ready.", "zh": "請在這裡等到經理準備好。" } },
+        { "w": "apology", "pos": "n.", "zh": "道歉", "ipa": "/əˈpɑːlədʒi/", "example": { "en": "Please accept our apology for the late delivery.", "zh": "對於延遲送達，請接受我們的道歉。" } }
+      ],
+      "derived": [
+        { "w": "patient", "pos": "adj.", "zh": "有耐心的", "ipa": "/ˈpeɪʃnt/", "link": "patience 把字尾 -ce 換成 -t，變成形容詞，另外也可當名詞表示病人" },
+        { "w": "patiently", "pos": "adv.", "zh": "耐心地", "ipa": "/ˈpeɪʃntli/", "link": "patient + -ly，形容詞變副詞，像 quickly、clearly" },
+        { "w": "impatient", "pos": "adj.", "zh": "不耐煩的", "ipa": "/ɪmˈpeɪʃnt/", "link": "im- 表示「不」，im + patient，像 impossible、incorrect" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "postcard",
+      "type": "word",
+      "ipa": "/ˈpoʊstkɑːrd/",
+      "pos": "n.",
+      "zh": "明信片",
+      "en": "a card you write on and send by mail without an envelope",
+      "note": "多益常見於出差旅遊、郵局與商店情境，例如寄明信片給客戶或同事、在紀念品店買明信片。也常見於公司寄給顧客的宣傳明信片。",
+      "forms": [
+        { "w": "postcards", "label": "複數", "pos": "n.", "zh": "明信片（複數）", "ipa": "/ˈpoʊstkɑːrdz/", "example": { "en": "The gift shop sells postcards of the city and the harbor.", "zh": "禮品店販售這座城市和港口的明信片。" } }
+      ],
+      "collocations": [
+        { "phrase": "send a postcard", "zh": "寄明信片", "example": { "en": "I will send a postcard to the team from Tokyo.", "zh": "我會從東京寄一張明信片給團隊。" } },
+        { "phrase": "write a postcard", "zh": "寫明信片", "example": { "en": "She wrote a postcard to her client during the trip.", "zh": "她在旅途中寫了一張明信片給客戶。" } },
+        { "phrase": "a postcard from", "zh": "來自…的明信片", "example": { "en": "I got a postcard from our supplier in Spain.", "zh": "我收到一張來自我們西班牙供應商的明信片。" } }
+      ],
+      "examples": [
+        { "tag": "出差", "en": "I bought several postcards at the airport before my flight.", "zh": "我在登機前於機場買了幾張明信片。" },
+        { "tag": "行銷", "en": "The company mailed a postcard to every customer in the area.", "zh": "公司寄了一張明信片給這一區的每位客戶。" },
+        { "tag": "郵局", "en": "You need a stamp to mail this postcard overseas.", "zh": "你需要貼郵票才能把這張明信片寄到國外。" }
+      ],
+      "confusable": [
+        { "word": "poster", "diff": "拼法相近，但 poster 是貼在牆上的海報，postcard 是用來寄的小卡片。", "example": { "en": "We will put a poster of the sale on the front door.", "zh": "我們會把特價海報貼在前門上。" } }
+      ],
+      "similar": [
+        { "phrase": "greeting card", "diff": "賀卡，通常裝在信封裡寄出；postcard 沒有信封，直接寄。", "example": { "en": "We send a greeting card to our clients every December.", "zh": "我們每年十二月都會寄賀卡給客戶。" } }
+      ],
+      "family": [
+        { "w": "letter", "pos": "n.", "zh": "信件", "ipa": "/ˈletɚ/", "example": { "en": "Please send the letter by express mail today.", "zh": "請今天用快捷郵件寄出這封信。" } },
+        { "w": "envelope", "pos": "n.", "zh": "信封", "ipa": "/ˈenvəloʊp/", "example": { "en": "Put the contract in a large envelope.", "zh": "把合約放進一個大信封裡。" } },
+        { "w": "stamp", "pos": "n.", "zh": "郵票", "ipa": "/stæmp/", "example": { "en": "Where can I buy a stamp for this package?", "zh": "我可以在哪裡買到這個包裹要用的郵票？" } }
+      ],
+      "derived": [
+        { "w": "postage", "pos": "n.", "zh": "郵資", "ipa": "/ˈpoʊstɪdʒ/", "link": "post（郵寄）+ -age，寄東西要付的費用，像 baggage、package" },
+        { "w": "postal", "pos": "adj.", "zh": "郵政的", "ipa": "/ˈpoʊstl/", "link": "post + -al，和郵寄有關的，像 postal service、postal code" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "performer",
+      "type": "word",
+      "ipa": "/pɚˈfɔːrmɚ/",
+      "pos": "n.",
+      "zh": "表演者",
+      "en": "a person who sings, plays music, or acts in front of people",
+      "note": "多益照片題與活動公告常見，指街頭藝人、音樂會的表演者。在職場情境也可指「工作表現好或不好的人」，如 top performer。",
+      "forms": [
+        { "w": "performers", "label": "複數", "pos": "n.", "zh": "表演者（複數）", "ipa": "/pɚˈfɔːrmɚz/", "example": { "en": "Several performers will play music at the opening party.", "zh": "幾位表演者將在開幕派對上演奏音樂。" } }
+      ],
+      "collocations": [
+        { "phrase": "street performer", "zh": "街頭藝人", "example": { "en": "A street performer is playing the guitar near the station.", "zh": "一位街頭藝人正在車站附近彈吉他。" } },
+        { "phrase": "top performer", "zh": "表現最優異的人", "example": { "en": "Maria was named the top performer in our sales team.", "zh": "瑪莉亞被評為我們業務團隊中表現最優異的人。" } },
+        { "phrase": "live performer", "zh": "現場表演者", "example": { "en": "The restaurant hires a live performer every Friday evening.", "zh": "這家餐廳每週五晚上都會聘請一位現場表演者。" } }
+      ],
+      "examples": [
+        { "tag": "活動", "en": "The performer thanked the audience after the last song.", "zh": "表演者在最後一首歌之後向觀眾致謝。" },
+        { "tag": "公告", "en": "All performers should arrive at the theater by six o'clock.", "zh": "所有表演者請在六點前抵達劇院。" },
+        { "tag": "人事", "en": "He is a strong performer and may get a promotion.", "zh": "他是個工作表現很好的人，可能會獲得晉升。" }
+      ],
+      "confusable": [
+        { "word": "performance", "diff": "performer 是「人」，performance 是「表演」或「表現」這件事。", "example": { "en": "The performance starts at eight, and tickets are still available.", "zh": "表演八點開始，票還有剩。" } }
+      ],
+      "similar": [
+        { "word": "entertainer", "diff": "指以唱歌、跳舞、說笑話等娛樂觀眾的人；performer 範圍更廣，也包含演奏者。", "example": { "en": "The hotel hired an entertainer for the holiday party.", "zh": "飯店為假日派對聘請了一位藝人。" } }
+      ],
+      "family": [
+        { "w": "actor", "pos": "n.", "zh": "演員", "ipa": "/ˈæktɚ/", "example": { "en": "The actor will visit our city for the film festival.", "zh": "這位演員將為電影節造訪我們的城市。" } },
+        { "w": "singer", "pos": "n.", "zh": "歌手", "ipa": "/ˈsɪŋɚ/", "example": { "en": "The singer will sign CDs after the concert.", "zh": "歌手會在演唱會後為 CD 簽名。" } },
+        { "w": "musician", "pos": "n.", "zh": "音樂家、樂手", "ipa": "/mjuˈzɪʃn/", "example": { "en": "Three musicians play at the cafe every weekend.", "zh": "每個週末都有三位樂手在咖啡館演奏。" } }
+      ],
+      "derived": [
+        { "w": "perform", "pos": "v.", "zh": "表演、執行", "ipa": "/pɚˈfɔːrm/", "link": "perform + -er，做表演的人，像 worker、teacher" },
+        { "w": "performance", "pos": "n.", "zh": "表演、表現、績效", "ipa": "/pɚˈfɔːrməns/", "link": "perform + -ance，變成名詞，指做出來的表演或表現，像 importance、attendance" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "表演者", "en": "a person who sings, plays music, or acts for an audience", "example": { "en": "The best performer received a prize at the festival.", "zh": "最佳表演者在藝術節上獲得了獎項。" } },
+        { "pos": "n.", "zh": "（工作）表現…的人", "en": "a person who does a job well or badly", "distinguish": "前面常有 top、strong、poor 等形容詞，出現在職場或績效評估情境。", "example": { "en": "Our manager says Tom is a poor performer this quarter.", "zh": "我們的經理說湯姆這一季表現不佳。" } }
+      ]
+    },
+    {
+      "text": "pharmacist",
+      "type": "word",
+      "ipa": "/ˈfɑːrməsɪst/",
+      "pos": "n.",
+      "zh": "藥師",
+      "en": "a person who prepares and sells medicine",
+      "note": "多益常見於藥局、診所與健康相關的對話，例如請教藥師藥該怎麼吃。照片題也可能出現藥師在櫃檯遞藥給顧客的畫面。",
+      "forms": [
+        { "w": "pharmacists", "label": "複數", "pos": "n.", "zh": "藥師（複數）", "ipa": "/ˈfɑːrməsɪsts/", "example": { "en": "Two pharmacists work at the counter on weekday mornings.", "zh": "平日早上有兩位藥師在櫃檯工作。" } }
+      ],
+      "collocations": [
+        { "phrase": "ask the pharmacist", "zh": "請教藥師", "example": { "en": "If you have questions about the medicine, ask the pharmacist.", "zh": "如果你對這種藥有問題，請教藥師。" } },
+        { "phrase": "a licensed pharmacist", "zh": "有執照的藥師", "example": { "en": "We are looking for a licensed pharmacist to join our store.", "zh": "我們正在找一位有執照的藥師加入我們的店。" } },
+        { "phrase": "consult a pharmacist", "zh": "諮詢藥師", "example": { "en": "Please consult a pharmacist before you take two medicines together.", "zh": "兩種藥一起吃之前，請先諮詢藥師。" } }
+      ],
+      "examples": [
+        { "tag": "藥局", "en": "The pharmacist handed the medicine to the customer.", "zh": "藥師把藥遞給顧客。" },
+        { "tag": "徵才", "en": "Our pharmacy is hiring a full-time pharmacist this spring.", "zh": "我們的藥局今年春天要徵一位全職藥師。" },
+        { "tag": "健康", "en": "The pharmacist told me to take the pills after meals.", "zh": "藥師要我飯後吃這些藥丸。" }
+      ],
+      "confusable": [
+        { "word": "physician", "diff": "拼法與發音有些像，但 physician 是看病開藥的醫師，pharmacist 是配藥、賣藥的藥師。", "example": { "en": "The physician will see you after the nurse checks your weight.", "zh": "護理師量完你的體重後，醫師會為你看診。" } }
+      ],
+      "similar": [
+        { "word": "chemist", "diff": "英式用法，指藥局的藥師；在美式英文中 chemist 通常指化學家。", "example": { "en": "The chemist on Main Street can order that medicine for you.", "zh": "主街上的藥師可以為你訂購那種藥。" } }
+      ],
+      "family": [
+        { "w": "doctor", "pos": "n.", "zh": "醫生", "ipa": "/ˈdɑːktɚ/", "example": { "en": "The doctor gave me a prescription for the cough.", "zh": "醫生為我的咳嗽開了處方箋。" } },
+        { "w": "nurse", "pos": "n.", "zh": "護理師", "ipa": "/nɝːs/", "example": { "en": "The nurse will call you when the doctor is ready.", "zh": "醫生準備好時，護理師會叫你。" } },
+        { "w": "prescription", "pos": "n.", "zh": "處方箋", "ipa": "/prɪˈskrɪpʃn/", "example": { "en": "Show your prescription to the pharmacist at the counter.", "zh": "請把處方箋拿給櫃檯的藥師看。" } }
+      ],
+      "derived": [
+        { "w": "pharmacy", "pos": "n.", "zh": "藥局", "ipa": "/ˈfɑːrməsi/", "link": "pharmacist 去掉 -ist 就是 pharmacy，藥師工作的地方" },
+        { "w": "pharmaceutical", "pos": "adj.", "zh": "製藥的", "ipa": "/ˌfɑːrməˈsuːtɪkl/", "link": "同樣來自 pharmac- 這個詞幹，指和藥有關的，常見於 pharmaceutical company（製藥公司）" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "pizza",
+      "type": "word",
+      "ipa": "/ˈpiːtsə/",
+      "pos": "n.",
+      "zh": "披薩",
+      "en": "a flat round food with cheese and other things on top",
+      "note": "多益餐廳、外送與公司活動情境的常見字，例如訂披薩、員工聚餐、辦公室的 pizza party。照片題也常出現人們在桌前吃披薩的畫面。",
+      "grammar_note": "pizza 可數：a pizza、two pizzas；泛指食物時不加冠詞（I like pizza）；一片要說 a slice of pizza。",
+      "forms": [
+        { "w": "pizzas", "label": "複數", "pos": "n.", "zh": "披薩（複數）", "ipa": "/ˈpiːtsəz/", "example": { "en": "We ordered three pizzas for the whole team at lunch.", "zh": "我們午餐為整個團隊訂了三個披薩。" } }
+      ],
+      "collocations": [
+        { "phrase": "order a pizza", "zh": "訂披薩", "example": { "en": "Let's order a pizza while we finish the report.", "zh": "我們一邊完成報告，一邊訂個披薩吧。" } },
+        { "phrase": "a slice of pizza", "zh": "一片披薩", "example": { "en": "He took a slice of pizza and returned to his desk.", "zh": "他拿了一片披薩，回到自己的座位。" } },
+        { "phrase": "pizza delivery", "zh": "披薩外送", "example": { "en": "The pizza delivery arrived at the office in thirty minutes.", "zh": "披薩外送三十分鐘就送到辦公室了。" } },
+        { "phrase": "pizza party", "zh": "披薩派對", "example": { "en": "The manager planned a pizza party to thank the team.", "zh": "經理安排了披薩派對來感謝團隊。" } }
+      ],
+      "examples": [
+        { "tag": "餐廳", "en": "This restaurant is famous for its wood-fired pizza.", "zh": "這家餐廳以柴燒披薩聞名。" },
+        { "tag": "公司活動", "en": "Free pizza will be served after the staff meeting.", "zh": "員工會議後將提供免費披薩。" },
+        { "tag": "照片描述", "en": "Some people are sitting at a table and eating pizza.", "zh": "有些人坐在桌前吃披薩。" }
+      ],
+      "family": [
+        { "w": "pasta", "pos": "n.", "zh": "義大利麵", "ipa": "/ˈpɑːstə/", "example": { "en": "The cafe serves fresh pasta at lunch.", "zh": "這家咖啡館午餐供應新鮮的義大利麵。" } },
+        { "w": "sandwich", "pos": "n.", "zh": "三明治", "ipa": "/ˈsænwɪtʃ/", "example": { "en": "I usually eat a sandwich at my desk.", "zh": "我通常在座位上吃三明治。" } },
+        { "w": "salad", "pos": "n.", "zh": "沙拉", "ipa": "/ˈsæləd/", "example": { "en": "Would you like a salad with your meal?", "zh": "您的餐點要加沙拉嗎？" } }
+      ],
+      "derived": [
+        { "w": "pizzeria", "pos": "n.", "zh": "披薩店", "ipa": "/ˌpiːtsəˈriːə/", "link": "pizza + -eria（義大利文表示「店」的字尾），賣披薩的店" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

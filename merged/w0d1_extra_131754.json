@@ -1,0 +1,351 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "publish",
+      "type": "word",
+      "ipa": "/ˈpʌblɪʃ/",
+      "pos": "v.",
+      "zh": "出版、發行、公布",
+      "en": "to make a book, article, or news available to the public",
+      "note": "多益常見於出版社、公司網站與公告情境，指把文章、報告、時間表或結果「刊登、公開」。常和 report、article、results、schedule 一起出現。",
+      "grammar_note": "publish 是及物動詞，後面直接接受詞；「刊登在某雜誌上」要用被動：be published in + 刊物。",
+      "forms": [
+        { "w": "publishes", "label": "第三人稱單數", "pos": "v.", "zh": "出版、公布", "ipa": "/ˈpʌblɪʃɪz/", "example": { "en": "Our department publishes a short newsletter every month.", "zh": "我們部門每個月出版一份簡短的通訊。" } },
+        { "w": "published", "label": "過去式／過去分詞", "pos": "v.", "zh": "出版了、公布了", "ipa": "/ˈpʌblɪʃt/", "example": { "en": "The newspaper published our press release on Tuesday morning.", "zh": "報紙在星期二早上刊登了我們的新聞稿。" } },
+        { "w": "published", "label": "形容詞", "pos": "adj.", "zh": "已出版的", "ipa": "/ˈpʌblɪʃt/", "example": { "en": "She is a published author of two management books.", "zh": "她是兩本管理書籍的出版作者。" } },
+        { "w": "publishing", "label": "現在分詞", "pos": "v.", "zh": "正在出版、公布", "ipa": "/ˈpʌblɪʃɪŋ/", "example": { "en": "We are publishing the new price list this afternoon.", "zh": "我們今天下午會公布新的價目表。" } }
+      ],
+      "collocations": [
+        { "phrase": "publish a report", "zh": "發表報告", "example": { "en": "The agency will publish a report on housing prices soon.", "zh": "該機構即將發表一份房價報告。" } },
+        { "phrase": "publish an article", "zh": "刊登文章", "example": { "en": "He hopes to publish an article in a trade magazine.", "zh": "他希望在一本行業雜誌上刊登一篇文章。" } },
+        { "phrase": "publish results", "zh": "公布結果", "example": { "en": "The lab will publish results after two more tests.", "zh": "實驗室會在再做兩次測試後公布結果。" } },
+        { "phrase": "publish a notice", "zh": "發布通知", "example": { "en": "Please publish a notice about the office closing on Friday.", "zh": "請發布一則星期五辦公室休息的通知。" } }
+      ],
+      "examples": [
+        { "tag": "出版", "en": "Our firm plans to publish a guide for new employees.", "zh": "我們公司打算出版一本新進員工手冊。" },
+        { "tag": "網站", "en": "Please publish the updated schedule on the company website today.", "zh": "請今天把更新後的時間表公布在公司網站上。" },
+        { "tag": "會議", "en": "Let's publish the meeting notes so everyone can read them.", "zh": "我們把會議記錄公開，讓大家都能閱讀。" },
+        { "tag": "行銷", "en": "The marketing team wants to publish a story about our new store.", "zh": "行銷團隊想刊登一篇關於我們新店的報導。" }
+      ],
+      "confusable": [
+        { "word": "punish", "diff": "拼法有點像，但 punish 是「處罰」，和出版、公布完全無關。", "example": { "en": "The company will punish workers who ignore the safety rules.", "zh": "公司會處罰無視安全規定的員工。" } }
+      ],
+      "similar": [
+        { "word": "release", "diff": "release 偏「推出、釋出」產品、新聞稿或軟體；publish 偏刊登文字內容。", "example": { "en": "The company will release the new software next month.", "zh": "公司下個月會推出新軟體。" } },
+        { "word": "announce", "diff": "announce 是「宣布」消息，可以用說的；publish 是用印刷或網路刊出。", "example": { "en": "The manager will announce the new rules at the meeting.", "zh": "經理會在會議上宣布新規定。" } }
+      ],
+      "family": [
+        { "w": "print", "pos": "v.", "zh": "印刷、列印", "ipa": "/prɪnt/", "example": { "en": "Please print ten copies of the schedule for the meeting.", "zh": "請為會議列印十份時間表。" } },
+        { "w": "edit", "pos": "v.", "zh": "編輯、修改", "ipa": "/ˈedɪt/", "example": { "en": "I will edit the article before we send it out.", "zh": "我會在寄出前先編輯這篇文章。" } },
+        { "w": "article", "pos": "n.", "zh": "文章", "ipa": "/ˈɑːrtɪkəl/", "example": { "en": "Did you read the article about our company in the paper?", "zh": "你有讀到報紙上關於我們公司的那篇文章嗎？" } },
+        { "w": "magazine", "pos": "n.", "zh": "雜誌", "ipa": "/ˈmæɡəziːn/", "example": { "en": "The magazine is looking for writers who know about finance.", "zh": "這本雜誌正在找懂財經的作者。" } }
+      ],
+      "derived": [
+        { "w": "publisher", "ipa": "/ˈpʌblɪʃɚ/", "pos": "n.", "zh": "出版社、出版者", "link": "publish + -er，做這件事的人或公司，像 teacher、worker" },
+        { "w": "publication", "ipa": "/ˌpʌblɪˈkeɪʃən/", "pos": "n.", "zh": "出版品、出版", "link": "publish 的名詞形，字尾變成 -cation，指出版這件事或出版的刊物，像 education" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "出版、發行", "en": "to print or release a book, magazine, or article for readers", "example": { "en": "Our company publishes travel books for business people.", "zh": "我們公司出版給商務人士看的旅遊書。" } },
+        { "pos": "v.", "zh": "公開、公布", "en": "to make information known to everyone", "distinguish": "受詞是書或雜誌時是「出版」；受詞是時間表、結果、通知等資訊時是「公布」。", "example": { "en": "The airline will publish its new flight times on Monday.", "zh": "航空公司將在星期一公布新的航班時間。" } }
+      ]
+    },
+    {
+      "text": "preview",
+      "type": "word",
+      "ipa": "/ˈpriːvjuː/",
+      "pos": "n.",
+      "zh": "預覽、預告、試映",
+      "en": "a chance to see something before it is finished or open to everyone",
+      "note": "多益常見於電腦的「預覽」功能、產品或活動的搶先看，以及寄文件前先看一遍。名詞和動詞同形。",
+      "grammar_note": "preview 當動詞時是及物動詞，直接接受詞，不加 of：preview a file；當名詞才說 a preview of + 東西。",
+      "forms": [
+        { "w": "previews", "label": "複數", "pos": "n.", "zh": "預覽（複數）", "ipa": "/ˈpriːvjuːz/", "example": { "en": "The website offers short previews of all its online courses.", "zh": "這個網站提供所有線上課程的簡短預覽。" } },
+        { "w": "previews", "label": "第三人稱單數", "pos": "v.", "zh": "預覽", "ipa": "/ˈpriːvjuːz/", "example": { "en": "She previews each document before it goes to the manager.", "zh": "她在每份文件送給經理前都先預覽。" } },
+        { "w": "previewed", "label": "過去式／過去分詞", "pos": "v.", "zh": "預覽了", "ipa": "/ˈpriːvjuːd/", "example": { "en": "The team previewed the new design for the sales staff.", "zh": "團隊向業務人員預先展示了新的設計。" } },
+        { "w": "previewing", "label": "現在分詞", "pos": "v.", "zh": "正在預覽", "ipa": "/ˈpriːvjuːɪŋ/", "example": { "en": "I am previewing the invitation before I send it out.", "zh": "我正在預覽邀請函，之後才會寄出。" } }
+      ],
+      "collocations": [
+        { "phrase": "print preview", "zh": "預覽列印", "example": { "en": "Use print preview to check the page layout first.", "zh": "先用預覽列印檢查頁面版面。" } },
+        { "phrase": "a preview of", "zh": "…的預覽、搶先看", "example": { "en": "Here is a preview of next quarter's sales plan.", "zh": "這是下一季銷售計畫的搶先看。" } },
+        { "phrase": "preview a file", "zh": "預覽檔案", "example": { "en": "Please preview a file first so you can check the format.", "zh": "請先預覽檔案，這樣你就能檢查格式。" } },
+        { "phrase": "free preview", "zh": "免費試看", "example": { "en": "Visitors can read a free preview of the first chapter.", "zh": "訪客可以免費閱讀第一章的試讀內容。" } }
+      ],
+      "examples": [
+        { "tag": "電腦", "en": "Click this button to see a preview before you print.", "zh": "列印前請按這個按鈕查看預覽。" },
+        { "tag": "產品", "en": "Customers can get a preview of the new phone at the store.", "zh": "顧客可以在店裡搶先看這支新手機。" },
+        { "tag": "電子郵件", "en": "I will send you a preview of the report by noon.", "zh": "我中午前會寄給你報告的預覽版。" },
+        { "tag": "活動", "en": "The gallery will hold a preview for members on Friday evening.", "zh": "藝廊會在星期五晚上為會員舉辦預展。" },
+        { "tag": "文件", "en": "Let me preview the file before I send it to everyone.", "zh": "在寄給大家前，讓我先預覽這個檔案。" }
+      ],
+      "confusable": [
+        { "word": "review", "diff": "review 是仔細檢查或評論已經有的內容；preview 是在正式使用前先看。", "example": { "en": "Please review the contract carefully before you sign it.", "zh": "簽約前請仔細審閱這份合約。" } },
+        { "word": "overview", "diff": "overview 是整體的重點摘要；preview 是在正式發布前先看一眼。", "example": { "en": "The first slide gives an overview of the whole project.", "zh": "第一張投影片說明整個專案的概要。" } }
+      ],
+      "similar": [
+        { "phrase": "sneak peek", "diff": "語氣較口語輕鬆，常用在行銷宣傳；preview 則較中性，也用於電腦功能。", "example": { "en": "Our blog shares a sneak peek of the new product.", "zh": "我們的部落格分享了新產品的搶先看。" } }
+      ],
+      "family": [
+        { "w": "sample", "pos": "n.", "zh": "樣品", "ipa": "/ˈsæmpəl/", "example": { "en": "The supplier sent us a free sample of the fabric.", "zh": "供應商寄給我們一份免費的布料樣品。" } },
+        { "w": "draft", "pos": "n.", "zh": "草稿", "ipa": "/dræft/", "example": { "en": "Please send me the first draft of the proposal.", "zh": "請把提案的初稿寄給我。" } },
+        { "w": "trial", "pos": "n.", "zh": "試用", "ipa": "/ˈtraɪəl/", "example": { "en": "The software comes with a thirty-day free trial.", "zh": "這個軟體附有三十天的免費試用。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈpriːvjuː/", "zh": "預覽、預告", "example": { "en": "The preview shows how the flyer will look when printed.", "zh": "預覽畫面顯示傳單印出來的樣子。" } },
+        { "pos": "v.", "ipa": "/ˈpriːvjuː/", "zh": "預覽、預先查看", "example": { "en": "Please preview the contract before you sign it today.", "zh": "今天簽約前請先預覽這份合約。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "預覽（內容）", "en": "a first look at a file or page before it is final", "example": { "en": "Click preview to see how the email will look.", "zh": "按預覽就能看到這封電子郵件的樣子。" } },
+        { "pos": "n.", "zh": "試映、預展", "en": "a special show of a movie or event before the public sees it", "distinguish": "和電腦、文件有關時是「預覽」；和電影、展覽、活動有關時是「試映、預展」。", "example": { "en": "Employees were invited to a preview of the company film.", "zh": "員工受邀參加公司影片的試映。" } }
+      ]
+    },
+    {
+      "text": "precede",
+      "type": "word",
+      "ipa": "/prɪˈsiːd/",
+      "pos": "v.",
+      "zh": "在…之前、先於",
+      "en": "to come before something else in time or order",
+      "note": "較正式的用字，多益常見於議程、文件順序與時間先後，例如午餐在工作坊之前。被動 be preceded by 很常考。",
+      "grammar_note": "precede 是及物動詞，後面直接接受詞，不加 to；常見被動是 be preceded by + 先發生的事物。",
+      "forms": [
+        { "w": "precedes", "label": "第三人稱單數", "pos": "v.", "zh": "在…之前", "ipa": "/prɪˈsiːdz/", "example": { "en": "A short video precedes each speaker at the conference.", "zh": "會議中每位講者之前都會先播一段短片。" } },
+        { "w": "preceded", "label": "過去式／過去分詞", "pos": "v.", "zh": "在…之前（過去）", "ipa": "/prɪˈsiːdɪd/", "example": { "en": "Two training days preceded the start of the project.", "zh": "專案開始之前先有兩天的訓練。" } },
+        { "w": "preceding", "label": "現在分詞", "pos": "v.", "zh": "正在先於", "ipa": "/prɪˈsiːdɪŋ/", "example": { "en": "The manager preceding me in this job left last year.", "zh": "在我之前擔任這份工作的經理去年離職了。" } },
+        { "w": "preceding", "label": "形容詞", "pos": "adj.", "zh": "前面的、上一個的", "ipa": "/prɪˈsiːdɪŋ/", "example": { "en": "Please check the notes on the preceding page.", "zh": "請查看前一頁的註記。" } }
+      ],
+      "collocations": [
+        { "phrase": "precede the meeting", "zh": "在會議之前", "example": { "en": "Coffee and snacks will precede the meeting at nine.", "zh": "咖啡和點心會在九點的會議之前供應。" } },
+        { "phrase": "be preceded by", "zh": "之前先有…", "example": { "en": "Each sales report is preceded by a short summary.", "zh": "每份銷售報告前面都有一段簡短摘要。" } },
+        { "phrase": "the preceding month", "zh": "前一個月", "example": { "en": "Prices fell slightly compared with the preceding month.", "zh": "價格比前一個月略微下降。" } }
+      ],
+      "examples": [
+        { "tag": "議程", "en": "A short lunch will precede the afternoon workshop.", "zh": "下午的工作坊之前會先有簡短的午餐。" },
+        { "tag": "文件", "en": "The summary page should precede the main part of the report.", "zh": "摘要頁應該放在報告主體之前。" },
+        { "tag": "公告", "en": "The announcement was preceded by weeks of planning.", "zh": "這項公告之前已經規劃了好幾週。" }
+      ],
+      "confusable": [
+        { "word": "proceed", "diff": "拼法和發音很像，但 proceed 是「繼續進行、前往」，precede 是「在…之前」。", "usage": "precede 是及物動詞，直接接受詞；proceed 是不及物動詞，常接 to 或 with，例如 proceed with the plan。", "example": { "en": "After the break, we will proceed with the second topic.", "zh": "休息之後，我們會繼續進行第二個主題。" } }
+      ],
+      "similar": [
+        { "phrase": "come before", "diff": "come before 較口語常見；precede 較正式，常用在書面、議程與報告。", "example": { "en": "Safety training comes before the first day on the factory floor.", "zh": "安全訓練排在工廠現場上班的第一天之前。" } }
+      ],
+      "family": [
+        { "w": "follow", "pos": "v.", "zh": "接在…之後", "ipa": "/ˈfɑːloʊ/", "example": { "en": "The question session will follow the main presentation.", "zh": "問答時間會接在主要簡報之後。" } },
+        { "w": "prior", "pos": "adj.", "zh": "事先的、先前的", "ipa": "/ˈpraɪɚ/", "example": { "en": "Please get prior approval from your manager before traveling.", "zh": "出差前請先取得經理的事先核准。" } }
+      ],
+      "derived": [
+        { "w": "precedent", "ipa": "/ˈpresɪdənt/", "pos": "n.", "zh": "先例", "link": "precede 變成 -ent 結尾，指「之前已經發生過的事」，字尾像 student、incident；注意重音移到第一音節" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "passport",
+      "type": "word",
+      "ipa": "/ˈpæspɔːrt/",
+      "pos": "n.",
+      "zh": "護照",
+      "en": "an official paper you need to travel to other countries",
+      "note": "多益出差與旅遊情境很常見，例如訂機票、報到、入境都要護照資料。常和 visa、ticket、boarding pass 一起出現。",
+      "grammar_note": "passport 是可數名詞，單數前要加 a 或 your；「護照號碼」是 passport number，直接兩個名詞連用，不加 of。",
+      "forms": [
+        { "w": "passports", "label": "複數", "pos": "n.", "zh": "護照（複數）", "ipa": "/ˈpæspɔːrts/", "example": { "en": "Please send me copies of your passports by Friday.", "zh": "請在星期五前把你們護照的影本寄給我。" } }
+      ],
+      "collocations": [
+        { "phrase": "renew a passport", "zh": "換發護照", "example": { "en": "He needs to renew his passport before the business trip.", "zh": "他在出差前需要換發護照。" } },
+        { "phrase": "passport number", "zh": "護照號碼", "example": { "en": "Please write your passport number on the registration form.", "zh": "請把你的護照號碼寫在登記表上。" } },
+        { "phrase": "valid passport", "zh": "有效護照", "example": { "en": "You must hold a valid passport to enter that country.", "zh": "你必須持有有效護照才能進入那個國家。" } },
+        { "phrase": "passport control", "zh": "護照查驗處", "example": { "en": "Lines at passport control were long after the late flight.", "zh": "晚班飛機抵達後，護照查驗處排了很長的隊。" } }
+      ],
+      "examples": [
+        { "tag": "出差", "en": "Please bring your passport when you check in at the airport.", "zh": "在機場辦理登機時請攜帶你的護照。" },
+        { "tag": "訂票", "en": "I need your passport number to book the flight.", "zh": "我需要你的護照號碼來訂機票。" },
+        { "tag": "入境", "en": "The officer checked my passport at the border.", "zh": "移民官在邊境檢查了我的護照。" }
+      ],
+      "confusable": [
+        { "word": "password", "diff": "拼法前半相同，但 password 是登入帳號用的密碼，passport 是出國用的護照。", "example": { "en": "Enter your password to log in to the booking site.", "zh": "請輸入你的密碼以登入訂位網站。" } },
+        { "word": "visa", "diff": "visa 是進入某國的「簽證」，passport 是證明身分的「護照」。", "example": { "en": "Do I need a visa to visit Japan for work?", "zh": "去日本出差我需要簽證嗎？" } }
+      ],
+      "family": [
+        { "w": "ticket", "pos": "n.", "zh": "機票、票", "ipa": "/ˈtɪkɪt/", "example": { "en": "I booked a plane ticket to Singapore for Monday.", "zh": "我訂了星期一飛新加坡的機票。" } },
+        { "w": "luggage", "pos": "n.", "zh": "行李", "ipa": "/ˈlʌɡɪdʒ/", "example": { "en": "Please keep your luggage with you at all times.", "zh": "請隨時把你的行李帶在身邊。" } },
+        { "w": "passenger", "pos": "n.", "zh": "乘客", "ipa": "/ˈpæsɪndʒɚ/", "example": { "en": "Every passenger must go through security before boarding.", "zh": "每位乘客登機前都必須通過安檢。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "photocopy",
+      "type": "word",
+      "ipa": "/ˈfoʊtoʊkɑːpi/",
+      "pos": "n.",
+      "zh": "影印本；影印",
+      "en": "a paper copy made by a machine, or to make such a copy",
+      "note": "多益辦公室情境高頻字，常見於影印文件、附上證件影本、影印機故障等。名詞和動詞同形。",
+      "grammar_note": "photocopy 當動詞是及物動詞，直接接受詞；名詞複數是 photocopies（y 改 ies），「影印兩份」可說 make two photocopies。",
+      "forms": [
+        { "w": "photocopies", "label": "複數", "pos": "n.", "zh": "影印本（複數）", "ipa": "/ˈfoʊtoʊkɑːpiz/", "example": { "en": "She keeps photocopies of all invoices in a folder.", "zh": "她把所有發票的影本收在一個資料夾裡。" } },
+        { "w": "photocopies", "label": "第三人稱單數", "pos": "v.", "zh": "影印", "ipa": "/ˈfoʊtoʊkɑːpiz/", "example": { "en": "He photocopies the report for each team member every week.", "zh": "他每週替每位組員影印報告。" } },
+        { "w": "photocopied", "label": "過去式／過去分詞", "pos": "v.", "zh": "影印了", "ipa": "/ˈfoʊtoʊkɑːpid/", "example": { "en": "The assistant photocopied the form and sent it to HR.", "zh": "助理影印了這份表格並寄給人資部門。" } },
+        { "w": "photocopying", "label": "現在分詞", "pos": "v.", "zh": "正在影印", "ipa": "/ˈfoʊtoʊkɑːpiɪŋ/", "example": { "en": "I am photocopying the handouts for tomorrow's training session.", "zh": "我正在為明天的訓練課影印講義。" } }
+      ],
+      "collocations": [
+        { "phrase": "make a photocopy", "zh": "影印一份", "example": { "en": "Can you make a photocopy of my passport, please?", "zh": "可以請你幫我影印護照嗎？" } },
+        { "phrase": "photocopy machine", "zh": "影印機", "example": { "en": "The photocopy machine on the second floor is out of order.", "zh": "二樓的影印機壞了。" } },
+        { "phrase": "photocopy a document", "zh": "影印文件", "example": { "en": "You may not photocopy a document marked confidential.", "zh": "標示為機密的文件不可以影印。" } }
+      ],
+      "examples": [
+        { "tag": "辦公室", "en": "Please make a photocopy of this contract for the files.", "zh": "請把這份合約影印一份放入檔案。" },
+        { "tag": "申請", "en": "Attach a photocopy of your ID to the application form.", "zh": "請在申請表上附上你的身分證影本。" },
+        { "tag": "動詞", "en": "Could you photocopy these pages before the meeting starts?", "zh": "你可以在會議開始前影印這幾頁嗎？" },
+        { "tag": "會議", "en": "I'll photocopy the agenda for everyone in the room.", "zh": "我會幫房裡的每個人影印議程。" }
+      ],
+      "confusable": [
+        { "word": "photograph", "diff": "photo- 開頭很像，但 photograph 是用相機拍的「照片」，photocopy 是機器複印的「影本」。", "example": { "en": "The photograph on the cover shows our new office building.", "zh": "封面上的照片是我們的新辦公大樓。" } }
+      ],
+      "similar": [
+        { "word": "copy", "diff": "copy 範圍較廣，可以是影本、副本或檔案複製；photocopy 特指用影印機複印紙本。", "example": { "en": "I made a copy of the contract for you.", "zh": "我幫你複製了一份合約。" } }
+      ],
+      "family": [
+        { "w": "copy", "pos": "n.", "zh": "副本、一份", "ipa": "/ˈkɑːpi/", "example": { "en": "Please bring two copies of your resume to the interview.", "zh": "面試時請帶兩份履歷。" } },
+        { "w": "scan", "pos": "v.", "zh": "掃描", "ipa": "/skæn/", "example": { "en": "I will scan the signed form and email it to you.", "zh": "我會掃描簽好的表格並用電子郵件寄給你。" } },
+        { "w": "print", "pos": "v.", "zh": "列印", "ipa": "/prɪnt/", "example": { "en": "Please print the invoice and give it to the manager.", "zh": "請列印發票並交給經理。" } },
+        { "w": "fax", "pos": "n.", "zh": "傳真", "ipa": "/fæks/", "example": { "en": "The bank asked us to send the form by fax.", "zh": "銀行要我們用傳真寄出這份表格。" } }
+      ],
+      "derived": [
+        { "w": "photocopier", "ipa": "/ˈfoʊtoʊkɑːpiɚ/", "pos": "n.", "zh": "影印機", "link": "photocopy 把 y 換成 -ier，指做影印的機器，字尾 -er 表示做事的人或物，像 copier、printer" }
+      ],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈfoʊtoʊkɑːpi/", "zh": "影印本、影本", "example": { "en": "Send me a photocopy of the signed page, please.", "zh": "請寄給我簽名頁的影本。" } },
+        { "pos": "v.", "ipa": "/ˈfoʊtoʊkɑːpi/", "zh": "影印", "example": { "en": "Please photocopy the invoice before you mail it out.", "zh": "寄出發票前請先影印。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "provider",
+      "type": "word",
+      "ipa": "/prəˈvaɪdɚ/",
+      "pos": "n.",
+      "zh": "提供者、供應商、業者",
+      "en": "a person or company that gives a service or product to others",
+      "note": "多益常見於電信、網路、醫療與服務合約情境，例如 service provider、Internet provider。指「提供服務的一方」。",
+      "grammar_note": "provider 是可數名詞；「…的提供者」用 provider of + 服務，例如 a provider of cleaning services。",
+      "forms": [
+        { "w": "providers", "label": "複數", "pos": "n.", "zh": "提供者（複數）", "ipa": "/prəˈvaɪdɚz/", "example": { "en": "Several providers sent us offers for the office equipment.", "zh": "好幾家業者寄給我們辦公設備的報價。" } }
+      ],
+      "collocations": [
+        { "phrase": "service provider", "zh": "服務提供者", "example": { "en": "We have used the same service provider for five years.", "zh": "我們已經使用同一家服務業者五年了。" } },
+        { "phrase": "Internet service provider", "zh": "網路服務供應商", "example": { "en": "Call your Internet service provider if the connection fails.", "zh": "如果連線中斷，請打電話給你的網路服務供應商。" } },
+        { "phrase": "health care provider", "zh": "醫療服務提供者", "example": { "en": "Employees can choose a health care provider from this list.", "zh": "員工可以從這份名單中選擇醫療服務提供者。" } },
+        { "phrase": "provider of", "zh": "…的提供者", "example": { "en": "The firm is a leading provider of software for banks.", "zh": "這家公司是銀行軟體的主要供應商。" } }
+      ],
+      "examples": [
+        { "tag": "電信", "en": "Our Internet provider will fix the network problem today.", "zh": "我們的網路業者今天會修好網路問題。" },
+        { "tag": "採購", "en": "We are looking for a new provider of cleaning services.", "zh": "我們正在找新的清潔服務業者。" },
+        { "tag": "比價", "en": "The new provider offers lower prices and faster delivery.", "zh": "新的業者提供更低的價格和更快的交貨。" },
+        { "tag": "電子郵件", "en": "Please ask the provider to send a new quote by Monday.", "zh": "請業者在星期一前寄來新的報價。" }
+      ],
+      "confusable": [
+        { "word": "producer", "diff": "拼法開頭很像，但 producer 是「製造者、製作人」，provider 是提供服務或資源的一方。", "example": { "en": "The producer of these chairs also sells them online.", "zh": "這些椅子的製造商也在網路上販售。" } }
+      ],
+      "similar": [
+        { "word": "supplier", "diff": "supplier 多指供應原料、零件或貨品的公司；provider 常指提供服務。", "example": { "en": "Our main supplier delivers parts to the factory every week.", "zh": "我們的主要供應商每週把零件送到工廠。" } },
+        { "word": "vendor", "diff": "vendor 是賣東西給公司的廠商，常出現在採購與付款情境。", "example": { "en": "Each vendor must send an invoice before we pay.", "zh": "每家廠商都必須在我們付款前先寄發票。" } }
+      ],
+      "family": [
+        { "w": "carrier", "pos": "n.", "zh": "電信業者、運輸業者", "ipa": "/ˈkæriɚ/", "example": { "en": "The mobile carrier offers a cheap plan for small firms.", "zh": "這家行動電信業者為小公司提供便宜的方案。" } },
+        { "w": "contractor", "pos": "n.", "zh": "承包商", "ipa": "/ˈkɑːntræktɚ/", "example": { "en": "The contractor will finish the new office by June.", "zh": "承包商會在六月前完成新辦公室。" } }
+      ],
+      "derived": [
+        { "w": "provide", "ipa": "/prəˈvaɪd/", "pos": "v.", "zh": "提供", "link": "provider 去掉 -r 就是 provide，動作本身；provider 就是做這個動作的人或公司" },
+        { "w": "provision", "ipa": "/prəˈvɪʒən/", "pos": "n.", "zh": "提供、條款", "link": "provide 的名詞形，變成 -sion，像 decide → decision" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "photographer",
+      "type": "word",
+      "ipa": "/fəˈtɑːɡrəfɚ/",
+      "pos": "n.",
+      "zh": "攝影師",
+      "en": "a person who takes photos, often as a job",
+      "note": "多益常見於公司活動、產品拍攝、網站與宣傳資料製作情境，例如請攝影師拍活動照片。注意重音在第二音節。",
+      "forms": [
+        { "w": "photographers", "label": "複數", "pos": "n.", "zh": "攝影師（複數）", "ipa": "/fəˈtɑːɡrəfɚz/", "example": { "en": "Two photographers are needed to cover the entire conference.", "zh": "需要兩位攝影師來拍攝整場會議。" } }
+      ],
+      "collocations": [
+        { "phrase": "hire a photographer", "zh": "聘請攝影師", "example": { "en": "We plan to hire a photographer for the product launch.", "zh": "我們打算為新品發表會聘請一位攝影師。" } },
+        { "phrase": "professional photographer", "zh": "專業攝影師", "example": { "en": "Ms. Lee works as a professional photographer in Taipei.", "zh": "李小姐在台北擔任專業攝影師。" } },
+        { "phrase": "freelance photographer", "zh": "自由接案攝影師", "example": { "en": "As a freelance photographer, he sets his own working hours.", "zh": "身為自由接案攝影師，他可以自己決定工作時間。" } }
+      ],
+      "examples": [
+        { "tag": "活動", "en": "We hired a photographer for the company anniversary party.", "zh": "我們為公司週年派對聘請了一位攝影師。" },
+        { "tag": "網站", "en": "The photographer will take pictures of our new store tomorrow.", "zh": "攝影師明天會拍攝我們新店的照片。" },
+        { "tag": "雜誌", "en": "A well-known photographer is visiting our office this week.", "zh": "一位知名攝影師本週會來我們辦公室參觀。" },
+        { "tag": "電子郵件", "en": "Please send the photographer the schedule for Saturday's event.", "zh": "請把星期六活動的時程表寄給攝影師。" }
+      ],
+      "confusable": [
+        { "word": "photograph", "diff": "photograph 是拍出來的「照片」，photographer 是「拍照的人」；重音位置也不同。", "example": { "en": "The photograph on our brochure was taken by Mr. Chen.", "zh": "我們手冊上的照片是陳先生拍的。" } },
+        { "word": "photography", "diff": "photography 是「攝影」這門技術或活動，不是人。", "usage": "photography 是不可數名詞，不加 s，前面也不加 a。", "example": { "en": "Photography is a useful skill for a marketing job.", "zh": "攝影是行銷工作中很有用的技能。" } }
+      ],
+      "similar": [
+        { "word": "cameraman", "diff": "cameraman 多指操作攝影機拍影片的人；photographer 多指拍靜態照片的人。", "example": { "en": "The cameraman filmed the whole speech for the company video.", "zh": "攝影師把整場演講拍進公司影片中。" } }
+      ],
+      "family": [
+        { "w": "camera", "pos": "n.", "zh": "相機", "ipa": "/ˈkæmrə/", "example": { "en": "This camera takes clear pictures even in low light.", "zh": "這台相機即使在光線不足時也能拍出清晰的照片。" } },
+        { "w": "photo", "pos": "n.", "zh": "照片", "ipa": "/ˈfoʊtoʊ/", "example": { "en": "Please attach a photo to your application form.", "zh": "請在申請表上附上一張照片。" } },
+        { "w": "designer", "pos": "n.", "zh": "設計師", "ipa": "/dɪˈzaɪnɚ/", "example": { "en": "The designer chose three photos for the brochure cover.", "zh": "設計師為手冊封面選了三張照片。" } }
+      ],
+      "derived": [
+        { "w": "photograph", "ipa": "/ˈfoʊtəɡræf/", "pos": "n.", "zh": "照片", "link": "photo 是光，graph 是畫、記錄，用光記錄下來就是照片；加 -er 才變成拍照的人" },
+        { "w": "photography", "ipa": "/fəˈtɑːɡrəfi/", "pos": "n.", "zh": "攝影", "link": "photograph 字尾換成 -y，指攝影這門技術或活動，像 biography" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "password",
+      "type": "word",
+      "ipa": "/ˈpæswɜːrd/",
+      "pos": "n.",
+      "zh": "密碼",
+      "en": "a secret word or set of letters and numbers used to open an account",
+      "note": "多益常見於電腦、網路帳號與資訊安全通知，例如重設密碼、密碼即將到期。常和 username、login、account 一起出現。",
+      "forms": [
+        { "w": "passwords", "label": "複數", "pos": "n.", "zh": "密碼（複數）", "ipa": "/ˈpæswɜːrdz/", "example": { "en": "Employees should use different passwords for each online account.", "zh": "員工應該為每個線上帳號使用不同的密碼。" } }
+      ],
+      "collocations": [
+        { "phrase": "reset a password", "zh": "重設密碼", "example": { "en": "The IT team can reset a password within five minutes.", "zh": "資訊部門可以在五分鐘內重設密碼。" } },
+        { "phrase": "strong password", "zh": "強度高的密碼", "example": { "en": "Choose a strong password with letters and numbers.", "zh": "請選擇一個包含字母和數字的強度高的密碼。" } },
+        { "phrase": "password protected", "zh": "有密碼保護的", "example": { "en": "The file is password protected, so ask Ms. Kim for access.", "zh": "這個檔案有密碼保護，請向金小姐詢問如何開啟。" } },
+        { "phrase": "log in with a password", "zh": "用密碼登入", "example": { "en": "You can log in with a password or a fingerprint.", "zh": "你可以用密碼或指紋登入。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Your password will expire in seven days, so please change it.", "zh": "你的密碼將在七天後到期，請更換密碼。" },
+        { "tag": "帳號", "en": "Please enter your password to open the company account.", "zh": "請輸入你的密碼以開啟公司帳號。" },
+        { "tag": "資訊安全", "en": "Do not share your password with anyone outside the team.", "zh": "請不要把你的密碼告訴團隊以外的任何人。" },
+        { "tag": "客服", "en": "Click this link if you forgot your password.", "zh": "如果你忘記密碼，請點選這個連結。" }
+      ],
+      "confusable": [
+        { "word": "passport", "diff": "拼法前半相同，但 passport 是出國用的「護照」，password 是登入用的「密碼」。", "example": { "en": "I left my passport and my laptop in the hotel room.", "zh": "我把護照和筆電留在飯店房間裡了。" } }
+      ],
+      "similar": [
+        { "word": "passcode", "diff": "passcode 多半是數字組成，常用在手機或門禁；password 常是帳號網站用的字母數字組合。", "example": { "en": "Enter the passcode on the keypad to unlock the office door.", "zh": "在按鍵板上輸入密碼即可開啟辦公室的門。" } }
+      ],
+      "family": [
+        { "w": "username", "pos": "n.", "zh": "使用者名稱", "ipa": "/ˈjuːzɚneɪm/", "example": { "en": "Your username is the same as your company email address.", "zh": "你的使用者名稱和你的公司電子郵件地址相同。" } },
+        { "w": "account", "pos": "n.", "zh": "帳號、帳戶", "ipa": "/əˈkaʊnt/", "example": { "en": "I opened a new account on the booking website.", "zh": "我在訂位網站上開了一個新帳號。" } },
+        { "w": "login", "pos": "n.", "zh": "登入", "ipa": "/ˈlɔːɡɪn/", "example": { "en": "The login page is not working on my computer.", "zh": "我的電腦上登入頁面無法使用。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

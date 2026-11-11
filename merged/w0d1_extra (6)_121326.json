@@ -1,0 +1,1252 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "receipt",
+      "type": "word",
+      "ipa": "/rɪˈsiːt/",
+      "pos": "n.",
+      "zh": "收據；收到",
+      "en": "a paper that shows you paid for something",
+      "note": "多益常見於購物、報帳與退貨情境，指付款後拿到的「收據」；在正式信件中也常用 receipt of 表示「收到…」。",
+      "grammar_note": "receipt 的 p 不發音，唸 /rɪˈsiːt/；on／upon receipt of 後面接名詞，表示「一收到…就」。",
+      "forms": [
+        {
+          "w": "receipts",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "收據（複數）",
+          "ipa": "/rɪˈsiːts/",
+          "example": {
+            "en": "Staff must save all travel receipts for the accounting office.",
+            "zh": "員工必須保存所有差旅收據交給會計部門。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "keep the receipt",
+          "zh": "保留收據",
+          "example": {
+            "en": "Keep the receipt because we cannot refund without it.",
+            "zh": "請保留收據，因為沒有收據我們無法退款。"
+          }
+        },
+        {
+          "phrase": "receipt for",
+          "zh": "…的收據",
+          "example": {
+            "en": "Do you have a receipt for this purchase?",
+            "zh": "你有這筆購買的收據嗎？"
+          }
+        },
+        {
+          "phrase": "upon receipt of",
+          "zh": "一收到…就",
+          "example": {
+            "en": "We will ship the order upon receipt of your payment.",
+            "zh": "我們一收到您的款項就會出貨。"
+          }
+        },
+        {
+          "phrase": "confirm receipt",
+          "zh": "確認收到",
+          "example": {
+            "en": "Please confirm receipt of this email by tomorrow morning.",
+            "zh": "請在明天早上前回信確認收到這封郵件。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "報帳",
+          "en": "Attach every receipt to your expense report before submitting it.",
+          "zh": "提交費用報告前，請把每張收據都附上。"
+        },
+        {
+          "tag": "零售",
+          "en": "The clerk handed me a receipt after I paid the bill.",
+          "zh": "我付完帳後，店員遞給我一張收據。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Thank you for your payment. A receipt will be emailed to you.",
+          "zh": "感謝您的付款，收據將以電子郵件寄給您。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "invoice",
+          "diff": "invoice 是賣方要求付款的請款單，通常付款前收到；receipt 是付款後拿到的收據。",
+          "example": {
+            "en": "After we pay the invoice, please send us a receipt.",
+            "zh": "我們付完請款單之後，請寄一張收據給我們。"
+          }
+        },
+        {
+          "word": "recipe",
+          "diff": "recipe 是食譜，唸 /ˈresəpi/；兩個字拼法相近，但意思和發音都不同。",
+          "example": {
+            "en": "The chef shared a recipe for a simple vegetable soup.",
+            "zh": "主廚分享了一道簡單蔬菜湯的食譜。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "proof of purchase",
+          "diff": "proof of purchase 是較正式的說法，可指收據或其他購買證明。",
+          "example": {
+            "en": "Show proof of purchase if you want to return the product.",
+            "zh": "如果想退貨，請出示購買證明。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "invoice",
+          "pos": "n.",
+          "zh": "請款單",
+          "ipa": "/ˈɪnvɔɪs/",
+          "example": {
+            "en": "The invoice must be paid within thirty days.",
+            "zh": "這張請款單必須在三十天內付清。"
+          }
+        },
+        {
+          "w": "bill",
+          "pos": "n.",
+          "zh": "帳單",
+          "ipa": "/bɪl/",
+          "example": {
+            "en": "The restaurant bill was higher than we expected.",
+            "zh": "餐廳的帳單比我們預期的高。"
+          }
+        },
+        {
+          "w": "refund",
+          "pos": "n.",
+          "zh": "退款",
+          "ipa": "/ˈriːfʌnd/",
+          "example": {
+            "en": "You will get a full refund within seven days.",
+            "zh": "您將在七天內收到全額退款。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "收據",
+          "en": "a paper that shows you paid for something",
+          "example": {
+            "en": "The receipt shows that the laptop cost nine hundred dollars.",
+            "zh": "收據顯示這台筆電花了九百美元。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "收到",
+          "en": "the act of getting something",
+          "distinguish": "常出現在 on receipt of、receipt of 後面接物品或款項，指「收到」這個動作。",
+          "example": {
+            "en": "Receipt of the shipment was delayed by bad weather.",
+            "zh": "貨物的收取因壞天氣而延遲。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "reception",
+      "type": "word",
+      "ipa": "/rɪˈsepʃn/",
+      "pos": "n.",
+      "zh": "接待處、櫃檯；招待會；反應；收訊",
+      "en": "the place in a building where visitors first check in",
+      "note": "多益常見於公司與飯店的訪客接待，也常指歡迎會或婚宴；描述新產品、新政策的「反應」與手機「收訊」時也會用到。",
+      "forms": [
+        {
+          "w": "receptions",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "招待會（複數）",
+          "ipa": "/rɪˈsepʃnz/",
+          "example": {
+            "en": "The hotel hosts several receptions for business groups each month.",
+            "zh": "這間飯店每個月為商務團體舉辦數場招待會。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "reception desk",
+          "zh": "接待櫃檯",
+          "example": {
+            "en": "Please sign in at the reception desk when you arrive.",
+            "zh": "抵達時請在接待櫃檯簽到。"
+          }
+        },
+        {
+          "phrase": "welcome reception",
+          "zh": "歡迎會",
+          "example": {
+            "en": "The company will hold a welcome reception for guests tonight.",
+            "zh": "公司今晚將為賓客舉辦歡迎會。"
+          }
+        },
+        {
+          "phrase": "warm reception",
+          "zh": "熱烈的歡迎",
+          "example": {
+            "en": "The new manager got a warm reception from the team.",
+            "zh": "新經理受到團隊熱烈的歡迎。"
+          }
+        },
+        {
+          "phrase": "poor reception",
+          "zh": "收訊不良",
+          "example": {
+            "en": "I missed your call because the reception was poor in the elevator.",
+            "zh": "電梯裡收訊不良，所以我錯過了你的來電。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "訪客",
+          "en": "Visitors should check in at the reception on the first floor.",
+          "zh": "訪客應該在一樓的接待處登記。"
+        },
+        {
+          "tag": "活動",
+          "en": "The wedding reception will begin at six in the hotel garden.",
+          "zh": "婚宴將在六點於飯店花園開始。"
+        },
+        {
+          "tag": "市場反應",
+          "en": "The new product received a positive reception from customers.",
+          "zh": "這項新產品受到顧客的正面回應。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "receipt",
+          "diff": "receipt /rɪˈsiːt/ 是收據；reception /rɪˈsepʃn/ 是接待處或招待會，兩字拼法相近。",
+          "example": {
+            "en": "Ask for a receipt at the reception desk after you pay.",
+            "zh": "付完錢後，請向接待櫃檯索取收據。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "front desk",
+          "diff": "front desk 常用在飯店與辦公室，語氣比較口語；reception 還可以指招待會。",
+          "example": {
+            "en": "Please leave the keys at the front desk when you leave.",
+            "zh": "離開時請把鑰匙留在櫃檯。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "lobby",
+          "pos": "n.",
+          "zh": "大廳",
+          "ipa": "/ˈlɑːbi/",
+          "example": {
+            "en": "Please wait in the lobby until your name is called.",
+            "zh": "請在大廳等候，直到叫到您的名字。"
+          }
+        },
+        {
+          "w": "guest",
+          "pos": "n.",
+          "zh": "賓客",
+          "ipa": "/ɡest/",
+          "example": {
+            "en": "Each guest will receive a name tag at the entrance.",
+            "zh": "每位賓客在入口處都會拿到一張名牌。"
+          }
+        },
+        {
+          "w": "appointment",
+          "pos": "n.",
+          "zh": "預約",
+          "ipa": "/əˈpɔɪntmənt/",
+          "example": {
+            "en": "Do you have an appointment with Ms. Lee this morning?",
+            "zh": "你今天早上和李小姐有預約嗎？"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "receptionist",
+          "pos": "n.",
+          "zh": "櫃檯接待人員",
+          "ipa": "/rɪˈsepʃənɪst/",
+          "link": "reception + -ist，做這種工作的人，像 artist、tourist"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "接待處、櫃檯",
+          "en": "the place where visitors first check in at a company or hotel",
+          "example": {
+            "en": "Please leave your package at reception and we will deliver it.",
+            "zh": "請把包裹留在接待處，我們會幫您送達。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "招待會",
+          "en": "a formal party to welcome people",
+          "distinguish": "前面常有 wedding、welcome 等字，或接 held、attend 等動詞。",
+          "example": {
+            "en": "The mayor attended a reception for foreign business leaders.",
+            "zh": "市長出席了為外國企業領袖舉辦的招待會。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "反應、評價",
+          "en": "the way people react to something new",
+          "distinguish": "常搭配 warm、positive、mixed 等形容詞，主詞多為產品、計畫或政策。",
+          "example": {
+            "en": "The new policy had a mixed reception among employees.",
+            "zh": "這項新政策在員工之間反應不一。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "收訊",
+          "en": "the quality of a phone or radio signal",
+          "distinguish": "和 good、poor、weak 連用，談的是手機或廣播訊號。",
+          "example": {
+            "en": "The reception is weak in the conference room.",
+            "zh": "會議室裡的收訊很弱。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "receptionist",
+      "type": "word",
+      "ipa": "/rɪˈsepʃənɪst/",
+      "pos": "n.",
+      "zh": "櫃檯接待人員",
+      "en": "a person who greets visitors and answers phone calls at an office or hotel",
+      "note": "多益常見於辦公室、飯店與診所情境，負責接待訪客、接電話和轉達訊息；也常出現在徵才廣告中。",
+      "forms": [
+        {
+          "w": "receptionists",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "櫃檯接待人員（複數）",
+          "ipa": "/rɪˈsepʃənɪsts/",
+          "example": {
+            "en": "All receptionists must attend the customer service training on Monday.",
+            "zh": "所有櫃檯接待人員都必須參加星期一的客服訓練。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "hotel receptionist",
+          "zh": "飯店櫃檯人員",
+          "example": {
+            "en": "She has worked as a hotel receptionist for three years.",
+            "zh": "她擔任飯店櫃檯人員已經三年了。"
+          }
+        },
+        {
+          "phrase": "ask the receptionist",
+          "zh": "詢問櫃檯人員",
+          "example": {
+            "en": "If you are lost, ask the receptionist for directions.",
+            "zh": "如果你迷路了，可以向櫃檯人員問路。"
+          }
+        },
+        {
+          "phrase": "front desk receptionist",
+          "zh": "前台接待人員",
+          "example": {
+            "en": "The front desk receptionist will print your visitor badge.",
+            "zh": "前台接待人員會幫你列印訪客證。"
+          }
+        },
+        {
+          "phrase": "leave a message with the receptionist",
+          "zh": "留言給櫃檯人員",
+          "example": {
+            "en": "Please leave a message with the receptionist if I am out.",
+            "zh": "如果我外出，請留言給櫃檯人員。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "辦公室",
+          "en": "The receptionist greeted the visitors and gave them name tags.",
+          "zh": "櫃檯人員歡迎訪客並給了他們名牌。"
+        },
+        {
+          "tag": "電話",
+          "en": "Our receptionist answers calls and directs them to the right person.",
+          "zh": "我們的櫃檯人員負責接電話並轉給適當的人。"
+        },
+        {
+          "tag": "徵才",
+          "en": "We are looking for a friendly receptionist to join our office.",
+          "zh": "我們正在尋找友善的櫃檯人員加入辦公室。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "secretary",
+          "diff": "secretary 主要協助主管處理行程與文件；receptionist 負責接待訪客與接電話。",
+          "example": {
+            "en": "The secretary booked the meeting room for our manager.",
+            "zh": "秘書為我們的經理預約了會議室。"
+          }
+        },
+        {
+          "phrase": "front desk clerk",
+          "diff": "front desk clerk 常指飯店櫃檯的服務人員，包含辦理入住與退房。",
+          "example": {
+            "en": "The front desk clerk gave us two keys for the room.",
+            "zh": "飯店櫃檯人員給了我們兩把房間鑰匙。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "assistant",
+          "pos": "n.",
+          "zh": "助理",
+          "ipa": "/əˈsɪstənt/",
+          "example": {
+            "en": "My assistant will send you the meeting notes today.",
+            "zh": "我的助理今天會把會議記錄寄給你。"
+          }
+        },
+        {
+          "w": "clerk",
+          "pos": "n.",
+          "zh": "店員、職員",
+          "ipa": "/klɜːrk/",
+          "example": {
+            "en": "The clerk checked the price before scanning the item.",
+            "zh": "店員在掃描商品前先確認了價格。"
+          }
+        },
+        {
+          "w": "visitor",
+          "pos": "n.",
+          "zh": "訪客",
+          "ipa": "/ˈvɪzɪtər/",
+          "example": {
+            "en": "Every visitor must wear a badge inside the building.",
+            "zh": "每位訪客在大樓內都必須配戴識別證。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "reception",
+          "pos": "n.",
+          "zh": "接待處、櫃檯",
+          "ipa": "/rɪˈsepʃn/",
+          "link": "receptionist 去掉 -ist 就是 reception；加上 -ist 表示做這種工作的人，像 artist、tourist"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "recycle",
+      "type": "word",
+      "ipa": "/ˌriːˈsaɪkl/",
+      "pos": "v.",
+      "zh": "回收、再利用",
+      "en": "to collect used things and make them into new things",
+      "note": "多益常見於環保公告、公司政策與製造情境，指把紙、塑膠、玻璃等回收再製；常搭配 recycled materials 與 recycling program。",
+      "forms": [
+        {
+          "w": "recycles",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "回收",
+          "ipa": "/ˌriːˈsaɪklz/",
+          "example": {
+            "en": "Our company recycles all paper and plastic waste every week.",
+            "zh": "我們公司每週都回收所有紙類和塑膠廢棄物。"
+          }
+        },
+        {
+          "w": "recycled",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "回收了",
+          "ipa": "/ˌriːˈsaɪkld/",
+          "example": {
+            "en": "The company recycled over ten tons of paper last year.",
+            "zh": "這家公司去年回收了超過十噸的紙。"
+          }
+        },
+        {
+          "w": "recycling",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "回收中；回收（動名詞）",
+          "ipa": "/ˌriːˈsaɪklɪŋ/",
+          "example": {
+            "en": "We are recycling old computers instead of throwing them away.",
+            "zh": "我們正在回收舊電腦，而不是把它們丟掉。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "recycle paper",
+          "zh": "回收紙張",
+          "example": {
+            "en": "Our office tries to recycle paper whenever it can.",
+            "zh": "我們辦公室盡可能回收紙張。"
+          }
+        },
+        {
+          "phrase": "recycled materials",
+          "zh": "再生材料",
+          "example": {
+            "en": "All of our shopping bags are made from recycled materials.",
+            "zh": "我們所有的購物袋都是用再生材料製成的。"
+          }
+        },
+        {
+          "phrase": "recycling bin",
+          "zh": "回收桶",
+          "example": {
+            "en": "Put empty bottles in the recycling bin next to the door.",
+            "zh": "請把空瓶放進門旁的回收桶。"
+          }
+        },
+        {
+          "phrase": "recycling program",
+          "zh": "回收計畫",
+          "example": {
+            "en": "The city started a recycling program for local businesses.",
+            "zh": "市政府為當地企業推出了回收計畫。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "環保公告",
+          "en": "Please recycle paper and plastic bottles in the blue bins.",
+          "zh": "請把紙和塑膠瓶丟進藍色回收桶。"
+        },
+        {
+          "tag": "製造",
+          "en": "The factory recycles water to lower its production costs.",
+          "zh": "這間工廠回收用水以降低生產成本。"
+        },
+        {
+          "tag": "零售",
+          "en": "Customers can recycle old phones at any of our stores.",
+          "zh": "顧客可以在我們任何一間門市回收舊手機。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "reuse",
+          "diff": "reuse 是直接再用一次，不必加工；recycle 是把舊東西加工做成新東西。",
+          "example": {
+            "en": "We reuse shipping boxes instead of buying new ones every time.",
+            "zh": "我們重複使用運送用的紙箱，而不是每次都買新的。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "waste",
+          "pos": "n.",
+          "zh": "廢棄物、浪費",
+          "ipa": "/weɪst/",
+          "example": {
+            "en": "The new system helps reduce waste in the kitchen.",
+            "zh": "新系統有助於減少廚房的廢棄物。"
+          }
+        },
+        {
+          "w": "environment",
+          "pos": "n.",
+          "zh": "環境",
+          "ipa": "/ɪnˈvaɪrənmənt/",
+          "example": {
+            "en": "Our new factory is designed to protect the environment.",
+            "zh": "我們的新工廠設計上是為了保護環境。"
+          }
+        },
+        {
+          "w": "reduce",
+          "pos": "v.",
+          "zh": "減少",
+          "ipa": "/rɪˈduːs/",
+          "example": {
+            "en": "We plan to reduce packaging costs by ten percent.",
+            "zh": "我們計畫把包裝成本降低百分之十。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "recyclable",
+          "pos": "adj.",
+          "zh": "可回收的",
+          "ipa": "/ˌriːˈsaɪkləbl/",
+          "link": "recycle + -able，可以被回收的，像 washable、readable"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/ˌriːˈsaɪkl/",
+          "zh": "回收、再利用",
+          "example": {
+            "en": "Glass bottles are easy to recycle in this city.",
+            "zh": "在這座城市，玻璃瓶很容易回收。"
+          }
+        },
+        {
+          "w": "recycled",
+          "pos": "adj.",
+          "ipa": "/ˌriːˈsaɪkld/",
+          "zh": "再生的、回收製成的",
+          "example": {
+            "en": "We print our brochures on recycled paper to protect nature.",
+            "zh": "我們把宣傳冊印在再生紙上以保護自然。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "recipient",
+      "type": "word",
+      "ipa": "/rɪˈsɪpiənt/",
+      "pos": "n.",
+      "zh": "收件人、接收者、獲獎者",
+      "en": "a person who gets something, such as a letter, a gift, or an award",
+      "note": "多益常見於電子郵件、物流與頒獎情境，指「收到東西的人」，與寄件人 sender 相對；常搭配 of 說明收到什麼。",
+      "grammar_note": "recipient 後面常接 of 說明收到的東西（the recipient of an award）；和寄件人相對時用 sender。",
+      "forms": [
+        {
+          "w": "recipients",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "收件人（複數）",
+          "ipa": "/rɪˈsɪpiənts/",
+          "example": {
+            "en": "All recipients must reply to this email by Friday afternoon.",
+            "zh": "所有收件人都必須在星期五下午前回覆這封郵件。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "intended recipient",
+          "zh": "預定的收件人",
+          "example": {
+            "en": "This message is only for the intended recipient.",
+            "zh": "這則訊息僅供預定的收件人閱讀。"
+          }
+        },
+        {
+          "phrase": "recipient of",
+          "zh": "…的接受者",
+          "example": {
+            "en": "The company was the recipient of a large government grant.",
+            "zh": "這家公司獲得了一筆龐大的政府補助。"
+          }
+        },
+        {
+          "phrase": "award recipient",
+          "zh": "獲獎者",
+          "example": {
+            "en": "The award recipient will give a short speech tonight.",
+            "zh": "獲獎者今晚將發表簡短的演說。"
+          }
+        },
+        {
+          "phrase": "email recipient",
+          "zh": "電子郵件收件人",
+          "example": {
+            "en": "You can add more than one email recipient in this field.",
+            "zh": "你可以在這一欄加入不只一位電子郵件收件人。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Please make sure the recipient's address is correct before you send it.",
+          "zh": "寄出前請確認收件人的地址正確。"
+        },
+        {
+          "tag": "物流",
+          "en": "The courier asked the recipient to sign for the package.",
+          "zh": "快遞員請收件人簽收包裹。"
+        },
+        {
+          "tag": "福利",
+          "en": "Each recipient will receive a gift card by the end of the month.",
+          "zh": "每位受贈者將在月底前收到一張禮物卡。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "receipt",
+          "diff": "recipient 是收到東西的「人」；receipt 是付款後拿到的「收據」，是物品。",
+          "example": {
+            "en": "The recipient signed the form, and the driver gave him a receipt.",
+            "zh": "收件人在表格上簽名，司機則給了他一張收據。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "receiver",
+          "diff": "receiver 也可指接收的人或設備（如電話聽筒）；recipient 多指收到信件、獎金或物品的人。",
+          "example": {
+            "en": "The receiver of the package was not at home yesterday.",
+            "zh": "包裹的收件人昨天不在家。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "sender",
+          "pos": "n.",
+          "zh": "寄件人",
+          "ipa": "/ˈsendər/",
+          "example": {
+            "en": "The sender's name is printed on the back of the envelope.",
+            "zh": "寄件人的姓名印在信封背面。"
+          }
+        },
+        {
+          "w": "address",
+          "pos": "n.",
+          "zh": "地址",
+          "ipa": "/ˈædres/",
+          "example": {
+            "en": "Please write your home address clearly on the form.",
+            "zh": "請在表格上清楚寫下你的住家地址。"
+          }
+        },
+        {
+          "w": "package",
+          "pos": "n.",
+          "zh": "包裹",
+          "ipa": "/ˈpækɪdʒ/",
+          "example": {
+            "en": "The package will arrive at your office on Wednesday.",
+            "zh": "包裹星期三會送到你的辦公室。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "rewrite",
+      "type": "word",
+      "ipa": "/ˌriːˈraɪt/",
+      "pos": "v.",
+      "zh": "重寫、改寫",
+      "en": "to write something again so that it is better",
+      "note": "多益常見於辦公室與編輯情境，指因主管或客戶的意見而「重寫」報告、信件、合約或文案；也可以當名詞表示「改寫稿」。",
+      "grammar_note": "rewrite 是不規則動詞：rewrite – rewrote – rewritten，變化和 write 相同，不加 -ed。",
+      "forms": [
+        {
+          "w": "rewrites",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "重寫",
+          "ipa": "/ˌriːˈraɪts/",
+          "example": {
+            "en": "He rewrites every speech until it sounds natural and clear.",
+            "zh": "他會一直重寫每篇演講稿，直到聽起來自然又清楚。"
+          }
+        },
+        {
+          "w": "rewrote",
+          "label": "過去式",
+          "pos": "v.",
+          "zh": "重寫了",
+          "ipa": "/ˌriːˈroʊt/",
+          "example": {
+            "en": "She rewrote the report after the manager gave feedback.",
+            "zh": "經理給了意見後，她重寫了這份報告。"
+          }
+        },
+        {
+          "w": "rewritten",
+          "label": "過去分詞",
+          "pos": "v.",
+          "zh": "已重寫的",
+          "ipa": "/ˌriːˈrɪtn/",
+          "example": {
+            "en": "The contract has been rewritten and is ready for review.",
+            "zh": "合約已經重寫完成，可以審閱了。"
+          }
+        },
+        {
+          "w": "rewriting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "重寫中",
+          "ipa": "/ˌriːˈraɪtɪŋ/",
+          "example": {
+            "en": "I am rewriting the user guide to make it simpler.",
+            "zh": "我正在重寫使用手冊，讓它更簡單易懂。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "rewrite from scratch",
+          "zh": "從頭重寫",
+          "example": {
+            "en": "We decided to rewrite the whole proposal from scratch.",
+            "zh": "我們決定把整份提案從頭重寫。"
+          }
+        },
+        {
+          "phrase": "rewrite a report",
+          "zh": "重寫報告",
+          "example": {
+            "en": "I need to rewrite this report before the meeting.",
+            "zh": "我必須在會議前重寫這份報告。"
+          }
+        },
+        {
+          "phrase": "rewrite the draft",
+          "zh": "重寫草稿",
+          "example": {
+            "en": "Could you rewrite the draft by tomorrow noon?",
+            "zh": "你能在明天中午前重寫草稿嗎？"
+          }
+        },
+        {
+          "phrase": "a complete rewrite",
+          "zh": "全面改寫",
+          "example": {
+            "en": "The old website needs a complete rewrite, not small fixes.",
+            "zh": "舊網站需要全面改寫，而不是小幅修補。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Please rewrite this email in a more polite tone.",
+          "zh": "請用更有禮貌的語氣重寫這封電子郵件。"
+        },
+        {
+          "tag": "行銷",
+          "en": "We may have to rewrite the ad if the client says no.",
+          "zh": "如果客戶不同意，我們可能得重寫這則廣告。"
+        },
+        {
+          "tag": "文件",
+          "en": "Don't rewrite the whole document; just fix the numbers.",
+          "zh": "不用重寫整份文件，只要修正數字就好。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "revise",
+          "diff": "revise 是修改其中一部分內容；rewrite 是大幅度甚至整個重寫。",
+          "example": {
+            "en": "Please revise the schedule if any dates have changed.",
+            "zh": "如果有日期變動，請修改時程表。"
+          }
+        },
+        {
+          "phrase": "edit",
+          "diff": "edit 是整理文字、修正錯誤，不一定要重寫句子。",
+          "example": {
+            "en": "Our assistant will edit the report for spelling mistakes.",
+            "zh": "我們的助理會檢查並修改報告裡的拼字錯誤。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "draft",
+          "pos": "n.",
+          "zh": "草稿",
+          "ipa": "/dræft/",
+          "example": {
+            "en": "Please send me the first draft by Monday morning.",
+            "zh": "請在星期一早上前把初稿寄給我。"
+          }
+        },
+        {
+          "w": "version",
+          "pos": "n.",
+          "zh": "版本",
+          "ipa": "/ˈvɜːrʒn/",
+          "example": {
+            "en": "The latest version of the file is on the shared drive.",
+            "zh": "這份檔案的最新版本在共用硬碟上。"
+          }
+        },
+        {
+          "w": "document",
+          "pos": "n.",
+          "zh": "文件",
+          "ipa": "/ˈdɑːkjumənt/",
+          "example": {
+            "en": "Please save the document before you close the program.",
+            "zh": "關閉程式前請先儲存文件。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/ˌriːˈraɪt/",
+          "zh": "重寫、改寫",
+          "example": {
+            "en": "Please rewrite the first paragraph so it sounds more formal.",
+            "zh": "請重寫第一段，讓它聽起來更正式。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈriːraɪt/",
+          "zh": "改寫稿、重寫",
+          "example": {
+            "en": "The manager asked for a quick rewrite of the notice.",
+            "zh": "經理要求盡快改寫這份通知。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "respondent",
+      "type": "word",
+      "ipa": "/rɪˈspɑːndənt/",
+      "pos": "n.",
+      "zh": "受訪者、問卷填答者",
+      "en": "a person who answers questions in a survey",
+      "note": "多益常見於市場調查與問卷報告，指「回答問卷的人」，常以複數出現，如 respondents said、most respondents。",
+      "grammar_note": "respond 後面用 to（respond to a survey）；respondent 也常說 respondents to the survey，不是 respondents of。",
+      "forms": [
+        {
+          "w": "respondents",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "受訪者（複數）",
+          "ipa": "/rɪˈspɑːndənts/",
+          "example": {
+            "en": "About seventy respondents completed the online customer survey.",
+            "zh": "大約七十位受訪者填完了線上顧客問卷。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "survey respondent",
+          "zh": "問卷填答者",
+          "example": {
+            "en": "Survey respondents were asked about their shopping habits.",
+            "zh": "問卷填答者被問到他們的購物習慣。"
+          }
+        },
+        {
+          "phrase": "majority of respondents",
+          "zh": "大多數受訪者",
+          "example": {
+            "en": "The majority of respondents prefer working from home.",
+            "zh": "大多數受訪者比較喜歡在家工作。"
+          }
+        },
+        {
+          "phrase": "number of respondents",
+          "zh": "受訪者人數",
+          "example": {
+            "en": "The number of respondents rose after we sent a reminder.",
+            "zh": "我們寄出提醒後，受訪者人數增加了。"
+          }
+        },
+        {
+          "phrase": "respondents to",
+          "zh": "對…作答的人",
+          "example": {
+            "en": "Respondents to the survey gave our service high scores.",
+            "zh": "填答問卷的人給我們的服務很高的分數。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "市調",
+          "en": "Each respondent answered ten questions about our new mobile app.",
+          "zh": "每位受訪者都回答了十個關於我們新手機應用程式的問題。"
+        },
+        {
+          "tag": "獎勵",
+          "en": "Every respondent will receive a small gift card for their time.",
+          "zh": "每位受訪者都會收到一張小禮物卡作為謝禮。"
+        },
+        {
+          "tag": "報告",
+          "en": "The respondent said the training was clear and very useful.",
+          "zh": "這位受訪者說這場訓練很清楚也很有用。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "correspondent",
+          "diff": "correspondent 是特派記者或書信往來的人；respondent 是回答問卷或問題的人。",
+          "example": {
+            "en": "The newspaper's London correspondent reported on the new trade rules.",
+            "zh": "報社駐倫敦的記者報導了新的貿易規定。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "participant",
+          "diff": "participant 泛指參加活動或研究的人；respondent 專指回答問卷或問題的人。",
+          "example": {
+            "en": "Each participant received a name tag at the workshop.",
+            "zh": "工作坊上每位參加者都拿到一張名牌。"
+          }
+        },
+        {
+          "phrase": "interviewee",
+          "diff": "interviewee 是被面談的人，多半是一對一；respondent 多半是填問卷的人。",
+          "example": {
+            "en": "The interviewee answered all questions with great confidence.",
+            "zh": "這位受訪者非常有自信地回答所有問題。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "survey",
+          "pos": "n.",
+          "zh": "問卷調查",
+          "ipa": "/ˈsɜːrveɪ/",
+          "example": {
+            "en": "The survey takes only five minutes to complete.",
+            "zh": "這份問卷只需要五分鐘就能填完。"
+          }
+        },
+        {
+          "w": "questionnaire",
+          "pos": "n.",
+          "zh": "問卷",
+          "ipa": "/ˌkwestʃəˈner/",
+          "example": {
+            "en": "Please fill out the questionnaire before you leave.",
+            "zh": "離開前請填寫問卷。"
+          }
+        },
+        {
+          "w": "feedback",
+          "pos": "n.",
+          "zh": "意見回饋",
+          "ipa": "/ˈfiːdbæk/",
+          "example": {
+            "en": "We welcome feedback from every customer about our service.",
+            "zh": "我們歡迎每位顧客對我們的服務提供意見。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "respond",
+          "pos": "v.",
+          "zh": "回應、回覆",
+          "ipa": "/rɪˈspɑːnd/",
+          "link": "respond 是詞幹；respondent 是 respond + -ent，回答的人，像 student、assistant"
+        },
+        {
+          "w": "response",
+          "pos": "n.",
+          "zh": "回覆、反應",
+          "ipa": "/rɪˈspɑːns/",
+          "link": "respond 的名詞形，-d 換成 -se，像 defend → defense"
+        },
+        {
+          "w": "responsive",
+          "pos": "adj.",
+          "zh": "反應迅速的",
+          "ipa": "/rɪˈspɑːnsɪv/",
+          "link": "response + -ive，有反應的，像 active、creative"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "recipe",
+      "type": "word",
+      "ipa": "/ˈresəpi/",
+      "pos": "n.",
+      "zh": "食譜；秘訣",
+      "en": "a set of steps and ingredients for cooking a dish",
+      "note": "多益常見於餐廳、食品公司與雜誌報導情境，指料理的「食譜」；也常用 a recipe for success 比喻「成功的秘訣」。",
+      "grammar_note": "recipe 後面用 for 說明是什麼料理或目標：a recipe for chocolate cake、a recipe for success。",
+      "forms": [
+        {
+          "w": "recipes",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "食譜（複數）",
+          "ipa": "/ˈresəpiz/",
+          "example": {
+            "en": "We collected recipes from local chefs for our new cookbook.",
+            "zh": "我們為新的食譜書蒐集了當地主廚的食譜。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "follow a recipe",
+          "zh": "照著食譜做",
+          "example": {
+            "en": "Follow the recipe carefully, or the cake may not rise.",
+            "zh": "請仔細照著食譜做，否則蛋糕可能不會膨起來。"
+          }
+        },
+        {
+          "phrase": "secret recipe",
+          "zh": "秘方",
+          "example": {
+            "en": "The bakery has kept its secret recipe for fifty years.",
+            "zh": "這家麵包店的秘方已經保密了五十年。"
+          }
+        },
+        {
+          "phrase": "recipe book",
+          "zh": "食譜書",
+          "example": {
+            "en": "She bought a recipe book for her new cooking class.",
+            "zh": "她為新的烹飪課買了一本食譜書。"
+          }
+        },
+        {
+          "phrase": "recipe for success",
+          "zh": "成功的秘訣",
+          "example": {
+            "en": "Clear goals and teamwork are a recipe for success.",
+            "zh": "明確的目標和團隊合作是成功的秘訣。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "餐飲",
+          "en": "This recipe needs only five ingredients and thirty minutes.",
+          "zh": "這道食譜只需要五種食材和三十分鐘。"
+        },
+        {
+          "tag": "媒體",
+          "en": "The magazine prints a new recipe in every monthly issue.",
+          "zh": "這本雜誌每個月的每一期都刊登一道新食譜。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "receipt",
+          "diff": "receipt 是收據，唸 /rɪˈsiːt/；recipe 是食譜，唸 /ˈresəpi/，兩字只差 p 的位置。",
+          "example": {
+            "en": "Don't lose the receipt for the food you bought for the recipe.",
+            "zh": "別弄丟你為了這道食譜買食材的收據。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "formula",
+          "diff": "formula 常指產品配方或公式，較技術性；recipe 是料理的食譜。",
+          "example": {
+            "en": "The lab developed a new formula for the energy drink.",
+            "zh": "實驗室為這款能量飲料研發了新配方。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "ingredient",
+          "pos": "n.",
+          "zh": "食材、成分",
+          "ipa": "/ɪnˈɡriːdiənt/",
+          "example": {
+            "en": "Fresh ingredients make the dish taste much better.",
+            "zh": "新鮮的食材讓這道菜的味道好很多。"
+          }
+        },
+        {
+          "w": "dish",
+          "pos": "n.",
+          "zh": "菜餚",
+          "ipa": "/dɪʃ/",
+          "example": {
+            "en": "The chef's signature dish is grilled salmon with rice.",
+            "zh": "主廚的招牌菜是烤鮭魚佐白飯。"
+          }
+        },
+        {
+          "w": "menu",
+          "pos": "n.",
+          "zh": "菜單",
+          "ipa": "/ˈmenjuː/",
+          "example": {
+            "en": "The restaurant changes its menu every spring.",
+            "zh": "這家餐廳每年春天都會更換菜單。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "食譜",
+          "en": "a set of steps and ingredients for cooking a dish",
+          "example": {
+            "en": "The chef shared his recipe on the cooking show.",
+            "zh": "主廚在烹飪節目上分享了他的食譜。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "秘訣、方法",
+          "en": "a way to get a certain result",
+          "distinguish": "後面常接 for 加目標（recipe for growth），談的不是料理而是做事的方法。",
+          "example": {
+            "en": "Their recipe for fast growth is simple: listen to customers.",
+            "zh": "他們快速成長的秘訣很簡單：傾聽顧客。"
+          }
+        }
+      ]
+    }
+  ]
+}

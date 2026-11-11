@@ -1,0 +1,304 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "midnight", "type": "word", "ipa": "/ˈmɪdnaɪt/", "pos": "n.", "zh": "午夜、半夜十二點",
+      "en": "twelve o'clock at night",
+      "note": "多益常見於截止時間、系統維護公告、航班與加班情境，如 by midnight、until midnight。",
+      "grammar_note": "「在午夜」用 at midnight，不加 the；「最遲在午夜前」用 by midnight，「一直到午夜」用 until midnight。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "at midnight", "zh": "在午夜", "example": { "en": "The system automatically updates at midnight every Tuesday.", "zh": "系統每週二午夜會自動更新。" } },
+        { "phrase": "by midnight", "zh": "最遲在午夜前", "example": { "en": "Please send the final report by midnight tonight.", "zh": "請在今晚午夜前寄出最後報告。" } },
+        { "phrase": "until midnight", "zh": "直到午夜", "example": { "en": "The staff worked until midnight to finish the order.", "zh": "員工工作到午夜，才完成這筆訂單。" } }
+      ],
+      "examples": [
+        { "tag": "截止", "en": "Applications must reach our office before midnight on Friday.", "zh": "申請文件必須在星期五午夜前送達我們辦公室。" },
+        { "tag": "航班", "en": "My flight leaves just after midnight, so I need a late taxi.", "zh": "我的班機在午夜剛過後起飛，所以需要一輛晚班計程車。" },
+        { "tag": "系統維護", "en": "The website will be down for repairs from midnight to six.", "zh": "網站將在午夜到六點之間停機維修。" },
+        { "tag": "加班", "en": "Several engineers stayed in the office past midnight.", "zh": "有幾位工程師在辦公室待到過了午夜。" }
+      ],
+      "confusable": [
+        { "word": "midday", "diff": "midday 是白天中午十二點前後，midnight 是夜裡十二點。", "example": { "en": "We usually have a short staff meeting at midday.", "zh": "我們通常在中午開一個簡短的員工會議。" } }
+      ],
+      "similar": [
+        { "phrase": "12 a.m.", "diff": "12 a.m. 是時間表上的數字寫法；但容易讓人搞不清是午夜還是中午，midnight 比較清楚。", "example": { "en": "The store closes at 12 a.m. on weekdays.", "zh": "這家店平日在凌晨十二點關門。" } }
+      ],
+      "family": [
+        { "w": "noon", "pos": "n.", "zh": "中午", "ipa": "/nuːn/", "example": { "en": "The package will arrive before noon tomorrow.", "zh": "包裹明天中午前會送達。" } },
+        { "w": "evening", "pos": "n.", "zh": "傍晚、晚上", "ipa": "/ˈiːvnɪŋ/", "example": { "en": "The welcome dinner starts at seven in the evening.", "zh": "歡迎晚宴在晚上七點開始。" } },
+        { "w": "deadline", "pos": "n.", "zh": "截止期限", "ipa": "/ˈdedlaɪn/", "example": { "en": "The deadline for the proposal is next Monday.", "zh": "提案的截止期限是下週一。" } },
+        { "w": "overnight", "pos": "adj./adv.", "zh": "隔夜的；一夜之間", "ipa": "/ˌoʊvɚˈnaɪt/", "example": { "en": "We chose overnight delivery for the urgent documents.", "zh": "我們替緊急文件選了隔夜送達。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈmɪdnaɪt/", "zh": "午夜", "example": { "en": "The meeting ended near midnight, so we all took taxis home.", "zh": "會議在接近午夜時結束，所以我們都搭計程車回家。" } },
+        { "pos": "adj.", "ipa": "/ˈmɪdnaɪt/", "zh": "午夜的、深夜的", "example": { "en": "She caught a midnight train to the airport.", "zh": "她搭午夜的火車去機場。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "machinery", "type": "word", "ipa": "/məˈʃiːnɚi/", "pos": "n.", "zh": "機械、機器設備（總稱）",
+      "en": "machines, especially large ones used in factories",
+      "note": "多益常見於工廠、採購、進口與工作安全情境，是機器的「總稱」。",
+      "grammar_note": "machinery 是不可數名詞，不加 s、不加 a；要說「一台」用 a machine 或 a piece of machinery。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "heavy machinery", "zh": "重型機械", "example": { "en": "Only trained staff may operate heavy machinery on this site.", "zh": "在這個工地，只有受過訓練的人員可以操作重型機械。" } },
+        { "phrase": "install new machinery", "zh": "安裝新機器設備", "example": { "en": "The plant will install new machinery next month.", "zh": "工廠下個月會安裝新的機器設備。" } },
+        { "phrase": "maintain the machinery", "zh": "維護機器設備", "example": { "en": "We hire a team to maintain the machinery every month.", "zh": "我們每個月請一個團隊來維護機器設備。" } }
+      ],
+      "examples": [
+        { "tag": "工廠", "en": "The factory bought new machinery to increase its production.", "zh": "工廠買了新機械來提高產量。" },
+        { "tag": "安全", "en": "Workers must wear helmets when they are near the machinery.", "zh": "工人靠近機械時必須戴安全帽。" },
+        { "tag": "採購", "en": "We are comparing prices for packaging machinery from three suppliers.", "zh": "我們正在比較三家供應商的包裝機械價格。" },
+        { "tag": "進口", "en": "The company imports most of its machinery from Germany.", "zh": "這家公司大部分的機械都從德國進口。" }
+      ],
+      "confusable": [
+        { "word": "machine", "diff": "machine 是一台一台的機器，machinery 是機器的總稱。", "usage": "machine 是可數名詞（a machine、two machines）；machinery 是不可數，不加 s。", "example": { "en": "This machine can pack five hundred boxes per hour.", "zh": "這台機器每小時可以包裝五百個箱子。" } }
+      ],
+      "similar": [
+        { "phrase": "equipment", "diff": "equipment 也是不可數，範圍更廣，包含工具與辦公設備；machinery 專指會運轉的機器。", "example": { "en": "The office needs new equipment for the training room.", "zh": "辦公室需要為訓練教室添購新設備。" } }
+      ],
+      "family": [
+        { "w": "factory", "pos": "n.", "zh": "工廠", "ipa": "/ˈfæktri/", "example": { "en": "The factory produces about two thousand units a day.", "zh": "這間工廠一天生產約兩千個產品。" } },
+        { "w": "engine", "pos": "n.", "zh": "引擎", "ipa": "/ˈendʒɪn/", "example": { "en": "The truck needs a new engine before the trip.", "zh": "這輛卡車出發前需要換新引擎。" } },
+        { "w": "tool", "pos": "n.", "zh": "工具", "ipa": "/tuːl/", "example": { "en": "Each worker receives a set of safety tools.", "zh": "每位工人都會拿到一組安全工具。" } },
+        { "w": "repair", "pos": "v.", "zh": "修理", "ipa": "/rɪˈper/", "example": { "en": "A technician will repair the printer this afternoon.", "zh": "技術人員今天下午會修理印表機。" } }
+      ],
+      "derived": [
+        { "w": "machine", "pos": "n.", "zh": "機器", "ipa": "/məˈʃiːn/", "link": "最基礎的字，「一台機器」；加 -ery 變成機器的總稱，像 scenery（風景總稱）" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "memorandum", "type": "word", "ipa": "/ˌmeməˈrændəm/", "pos": "n.", "zh": "備忘錄、公司內部公文",
+      "en": "a short written message sent inside a company",
+      "note": "多益常見於公司內部通知、新規定公告與協議文件。口語和電子郵件常縮寫成 memo；複數 memoranda 是拉丁文變化，要特別記。",
+      "forms": [
+        { "w": "memoranda", "label": "複數", "pos": "n.", "zh": "備忘錄（複數）", "ipa": "/ˌmeməˈrændə/", "example": { "en": "Several memoranda about the new policy were sent to all departments.", "zh": "好幾份有關新政策的備忘錄被寄給所有部門。" } },
+        { "w": "memorandums", "label": "複數（另一種拼法）", "pos": "n.", "zh": "備忘錄（複數）", "ipa": "/ˌmeməˈrændəmz/", "example": { "en": "We filed all the old memorandums in the cabinet.", "zh": "我們把所有舊的備忘錄都歸檔在櫃子裡。" } }
+      ],
+      "collocations": [
+        { "phrase": "issue a memorandum", "zh": "發出備忘錄", "example": { "en": "The CEO will issue a memorandum to all employees today.", "zh": "執行長今天會向全體員工發出備忘錄。" } },
+        { "phrase": "memorandum of understanding", "zh": "合作備忘錄（MOU）", "example": { "en": "The two firms signed a memorandum of understanding yesterday.", "zh": "兩家公司昨天簽署了合作備忘錄。" } },
+        { "phrase": "internal memorandum", "zh": "內部備忘錄", "example": { "en": "This internal memorandum should not be shared outside the company.", "zh": "這份內部備忘錄不應該流傳到公司以外。" } }
+      ],
+      "examples": [
+        { "tag": "內部通知", "en": "The manager sent a memorandum about the new parking rules.", "zh": "經理寄出了一份關於新停車規定的備忘錄。" },
+        { "tag": "公告", "en": "A memorandum on holiday schedules was posted on the bulletin board.", "zh": "一份關於假期時程的備忘錄貼在公佈欄上。" },
+        { "tag": "會議", "en": "Please read the attached memorandum before tomorrow's meeting.", "zh": "請在明天的會議前閱讀附件的備忘錄。" },
+        { "tag": "合作", "en": "Both companies signed a memorandum to start the joint project.", "zh": "兩家公司簽了備忘錄，開始合作專案。" }
+      ],
+      "confusable": [
+        { "word": "memorial", "diff": "拼法相近，但 memorial 是紀念碑或紀念性的，和公文無關。", "example": { "en": "The company built a memorial to honor its founder.", "zh": "公司蓋了一座紀念碑來紀念創辦人。" } }
+      ],
+      "similar": [
+        { "phrase": "memo", "diff": "memo 是 memorandum 的簡稱，較口語，日常內部短訊最常用；memorandum 比較正式。", "example": { "en": "I wrote a short memo to the team about the delay.", "zh": "我寫了一份簡短的備忘錄，告訴團隊延誤的事。" } }
+      ],
+      "family": [
+        { "w": "notice", "pos": "n.", "zh": "通知、公告", "ipa": "/ˈnoʊtɪs/", "example": { "en": "A notice about the fire drill is on the door.", "zh": "關於消防演習的通知貼在門上。" } },
+        { "w": "announcement", "pos": "n.", "zh": "公告、宣布", "ipa": "/əˈnaʊnsmənt/", "example": { "en": "The announcement about the new office came this morning.", "zh": "關於新辦公室的公告今天早上發布了。" } },
+        { "w": "minutes", "pos": "n.", "zh": "會議紀錄", "ipa": "/ˈmɪnɪts/", "example": { "en": "Please send me the minutes of yesterday's meeting.", "zh": "請把昨天會議的紀錄寄給我。" } },
+        { "w": "report", "pos": "n.", "zh": "報告", "ipa": "/rɪˈpɔːrt/", "example": { "en": "The monthly report is due on the fifth.", "zh": "月報告的截止日是五號。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "meantime", "type": "word", "ipa": "/ˈmiːntaɪm/", "pos": "n.", "zh": "其間、同時",
+      "en": "the time between two events",
+      "note": "幾乎都用在 in the meantime（在此期間、在那之前），常見於電子郵件與通知，後面接「等待時先做的事」。",
+      "grammar_note": "meantime 是名詞，前面要有 the，固定說 in the meantime；不要單獨把 meantime 當副詞放句首，那是 meanwhile 的用法。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "in the meantime", "zh": "在此期間", "example": { "en": "Please sign the form first. In the meantime, I will prepare your badge.", "zh": "請先簽表格，這段時間我會準備你的識別證。" } },
+        { "phrase": "for the meantime", "zh": "暫時", "example": { "en": "We will use the old printer for the meantime.", "zh": "我們暫時會先用舊的印表機。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "The manager is away. In the meantime, please contact her assistant.", "zh": "經理不在，這段期間請聯絡她的助理。" },
+        { "tag": "會議", "en": "The meeting starts at three. In the meantime, please review the agenda.", "zh": "會議三點開始，在這之前請先看一下議程。" },
+        { "tag": "客服", "en": "We are fixing the problem. In the meantime, please use the old system.", "zh": "我們正在修正問題，這段期間請先使用舊系統。" },
+        { "tag": "出差", "en": "My flight is delayed, so in the meantime I will answer emails.", "zh": "我的班機延誤了，所以我先趁這段時間回信。" }
+      ],
+      "similar": [
+        { "phrase": "meanwhile", "diff": "meanwhile 是副詞，可直接放句首後加逗號；meantime 要說 in the meantime。meanwhile 也能表示「同一時間另一邊」的對比。", "example": { "en": "The team is testing the software. Meanwhile, I will write the manual.", "zh": "團隊正在測試軟體，同時我來寫使用手冊。" } },
+        { "phrase": "for now", "diff": "for now 強調「目前、暫時」，不一定在等某件事發生。", "example": { "en": "We will keep the old schedule for now.", "zh": "目前我們會先維持舊的時程。" } }
+      ],
+      "family": [
+        { "w": "period", "pos": "n.", "zh": "期間", "ipa": "/ˈpɪriəd/", "example": { "en": "The sale will run for a short period.", "zh": "這次特賣只會進行一小段時間。" } },
+        { "w": "interval", "pos": "n.", "zh": "間隔", "ipa": "/ˈɪntɚvəl/", "example": { "en": "There is a ten-minute interval between the two sessions.", "zh": "兩場議程之間有十分鐘的休息時間。" } },
+        { "w": "temporary", "pos": "adj.", "zh": "暫時的", "ipa": "/ˈtempəreri/", "example": { "en": "We found a temporary office near the station.", "zh": "我們在車站附近找到一間臨時辦公室。" } },
+        { "w": "delay", "pos": "n.", "zh": "延誤", "ipa": "/dɪˈleɪ/", "example": { "en": "The delay was caused by heavy traffic.", "zh": "延誤是因為交通壅塞。" } }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "merge", "type": "word", "ipa": "/mɝːdʒ/", "pos": "v.", "zh": "合併",
+      "en": "to join two or more things into one",
+      "note": "多益常見於公司併購、部門整併與檔案資料合併；開車情境則指「併入車道」。",
+      "grammar_note": "merge with + 對象（與…合併），merge A with B 或 merge A and B（把 A 和 B 合併）；被動 be merged into 表示被併入某個整體。",
+      "forms": [
+        { "w": "merges", "label": "第三人稱單數", "pos": "v.", "zh": "合併", "ipa": "/ˈmɝːdʒɪz/", "example": { "en": "The software merges the two data sheets automatically.", "zh": "這套軟體會自動合併兩份資料表。" } },
+        { "w": "merged", "label": "過去式／過去分詞", "pos": "v.", "zh": "合併了", "ipa": "/mɝːdʒd/", "example": { "en": "The two airlines merged to reduce their operating costs.", "zh": "兩家航空公司合併以降低營運成本。" } },
+        { "w": "merging", "label": "現在分詞", "pos": "v.", "zh": "正在合併", "ipa": "/ˈmɝːdʒɪŋ/", "example": { "en": "Our company is merging with a firm from Japan.", "zh": "我們公司正在和一家日本公司合併。" } }
+      ],
+      "collocations": [
+        { "phrase": "merge with", "zh": "與…合併", "example": { "en": "Our company will merge with a larger firm next spring.", "zh": "我們公司明年春天會與一家更大的公司合併。" } },
+        { "phrase": "merge into", "zh": "併入", "example": { "en": "The two teams will merge into one department in March.", "zh": "這兩個團隊三月會併成一個部門。" } },
+        { "phrase": "merge files", "zh": "合併檔案", "example": { "en": "You can merge files in this program with one click.", "zh": "你可以在這個程式中一鍵合併檔案。" } }
+      ],
+      "examples": [
+        { "tag": "企業併購", "en": "The two banks plan to merge by the end of next year.", "zh": "這兩家銀行計畫在明年底前合併。" },
+        { "tag": "辦公室", "en": "The company decided to merge its two small offices in Taipei.", "zh": "公司決定把台北的兩間小辦公室合併。" },
+        { "tag": "資料", "en": "Please merge the customer lists before you send the emails.", "zh": "寄信之前，請先把客戶名單合併。" },
+        { "tag": "交通", "en": "Cars must merge carefully when the third lane closes.", "zh": "第三線車道封閉時，車輛必須小心併入車道。" }
+      ],
+      "confusable": [
+        { "word": "emerge", "diff": "只差一個字母，但 emerge 是「出現、浮現」，merge 是「合併」。", "example": { "en": "Several new problems emerged during the first week.", "zh": "第一週出現了好幾個新問題。" } }
+      ],
+      "similar": [
+        { "phrase": "combine", "diff": "combine 泛指結合，不一定變成一個；merge 是融合成一個整體。", "example": { "en": "We should combine the two meetings into one session.", "zh": "我們應該把兩場會議合成一場。" } },
+        { "phrase": "join", "diff": "join 是加入或連接，不一定變成一個整體。", "example": { "en": "She will join our team in the Boston office next month.", "zh": "她下個月會加入我們波士頓辦公室的團隊。" } }
+      ],
+      "family": [
+        { "w": "acquire", "pos": "v.", "zh": "收購、取得", "ipa": "/əˈkwaɪɚ/", "example": { "en": "Our firm plans to acquire a small software company.", "zh": "我們公司計畫收購一家小型軟體公司。" } },
+        { "w": "takeover", "pos": "n.", "zh": "接管、收購", "ipa": "/ˈteɪkoʊvɚ/", "example": { "en": "The takeover was announced at a press conference.", "zh": "這項收購案在記者會上公布。" } },
+        { "w": "partnership", "pos": "n.", "zh": "合夥關係", "ipa": "/ˈpɑːrtnɚʃɪp/", "example": { "en": "The two firms formed a partnership last year.", "zh": "這兩家公司去年建立了合夥關係。" } },
+        { "w": "competitor", "pos": "n.", "zh": "競爭對手", "ipa": "/kəmˈpetɪtɚ/", "example": { "en": "Our main competitor lowered its prices again.", "zh": "我們的主要競爭對手又降價了。" } }
+      ],
+      "derived": [
+        { "w": "merger", "pos": "n.", "zh": "（公司）合併案", "ipa": "/ˈmɝːdʒɚ/", "link": "merge + -er，指「合併」這件事（併購案），不是做事的人，和 teacher 不一樣" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "（公司、組織）合併", "en": "to join together as one company or group", "distinguish": "主詞是公司、銀行、部門時，多半是這個意思", "example": { "en": "The two small banks merged to become a stronger company.", "zh": "兩家小銀行合併，成為更強的公司。" } },
+        { "pos": "v.", "zh": "合併（資料、檔案）", "en": "to combine files or data into one", "distinguish": "受詞是 files、data、lists 時，多半是這個意思", "example": { "en": "I merged the sales data from all five offices.", "zh": "我把五個辦公室的銷售資料合併了。" } },
+        { "pos": "v.", "zh": "（車輛）併入車道", "en": "to move into a line of cars on a road", "distinguish": "情境在道路、車道、高速公路時，多半是這個意思", "example": { "en": "Please merge into the left lane after the toll booth.", "zh": "過了收費站後，請併入左線車道。" } }
+      ]
+    },
+    {
+      "text": "mask", "type": "word", "ipa": "/mæsk/", "pos": "n.", "zh": "口罩、面具；掩蓋",
+      "en": "something worn over the face; or to hide something",
+      "note": "名詞多指防護用的口罩，也指活動中的面具；動詞表示「掩蓋、蓋過」，如 mask a problem（掩蓋問題）。多益常見於工廠安全、醫療與商業報導。",
+      "forms": [
+        { "w": "masks", "label": "複數", "pos": "n.", "zh": "口罩（複數）", "ipa": "/mæsks/", "example": { "en": "All visitors must wear masks inside the factory.", "zh": "所有訪客在工廠內都必須戴口罩。" } },
+        { "w": "masks", "label": "第三人稱單數", "pos": "v.", "zh": "掩蓋", "ipa": "/mæsks/", "example": { "en": "Good packaging sometimes masks the poor quality of a product.", "zh": "好的包裝有時會掩蓋產品品質不佳的事實。" } },
+        { "w": "masked", "label": "過去式／過去分詞", "pos": "v.", "zh": "掩蓋了", "ipa": "/mæskt/", "example": { "en": "The loud music masked the noise from the machines.", "zh": "大聲的音樂蓋過了機器的噪音。" } },
+        { "w": "masking", "label": "現在分詞", "pos": "v.", "zh": "正在掩蓋", "ipa": "/ˈmæskɪŋ/", "example": { "en": "The new paint is masking the old damage on the wall.", "zh": "新油漆正在遮住牆上舊的損壞。" } }
+      ],
+      "collocations": [
+        { "phrase": "wear a mask", "zh": "戴口罩", "example": { "en": "Please wear a mask when you enter the laboratory.", "zh": "進入實驗室時請戴口罩。" } },
+        { "phrase": "face mask", "zh": "口罩", "example": { "en": "The store sells face masks at the entrance.", "zh": "這家店在入口處販售口罩。" } },
+        { "phrase": "mask a problem", "zh": "掩蓋問題", "example": { "en": "A low price cannot mask a problem with quality.", "zh": "低價無法掩蓋品質上的問題。" } }
+      ],
+      "examples": [
+        { "tag": "工廠安全", "en": "Visitors must put on a dust mask before entering the factory floor.", "zh": "訪客進入工廠生產區前，必須戴上防塵口罩。" },
+        { "tag": "醫療", "en": "Hospital staff change their masks after every patient.", "zh": "醫院人員在每位病患之後都會換口罩。" },
+        { "tag": "活動", "en": "Guests at the party wore colorful masks and costumes.", "zh": "派對上的賓客戴著彩色面具、穿著戲服。" },
+        { "tag": "商業", "en": "The company used a new logo to mask its financial problems.", "zh": "公司用新的標誌來掩蓋財務問題。" }
+      ],
+      "confusable": [
+        { "word": "task", "diff": "拼法與發音相近，但 task 是「工作、任務」。", "example": { "en": "Our main task this week is to finish the budget.", "zh": "我們這週的主要任務是完成預算。" } },
+        { "word": "mark", "diff": "mark 是「記號、標記」，也能當動詞「做記號」，和遮蓋無關。", "example": { "en": "Please mark the correct answer on the sheet.", "zh": "請在答案紙上標出正確答案。" } }
+      ],
+      "similar": [
+        { "phrase": "cover", "diff": "cover 是一般的「蓋住」；mask 強調蓋住後讓人看不出（或聽不出、聞不出）原本的樣子。", "example": { "en": "Please cover the machine before you leave tonight.", "zh": "今晚離開前，請把機器蓋起來。" } },
+        { "phrase": "hide", "diff": "hide 是把東西藏起來不讓人看到或找到；mask 比較常是用別的東西蓋過去。", "example": { "en": "She tried to hide the mistake from her boss.", "zh": "她試圖對老闆隱瞞這個錯誤。" } }
+      ],
+      "family": [
+        { "w": "gloves", "pos": "n.", "zh": "手套", "ipa": "/ɡlʌvz/", "example": { "en": "Staff must wear gloves in the food area.", "zh": "食品區的員工必須戴手套。" } },
+        { "w": "helmet", "pos": "n.", "zh": "安全帽", "ipa": "/ˈhelmɪt/", "example": { "en": "Everyone on the site must wear a helmet.", "zh": "工地上的每個人都必須戴安全帽。" } },
+        { "w": "safety", "pos": "n.", "zh": "安全", "ipa": "/ˈseɪfti/", "example": { "en": "The safety training starts at nine tomorrow morning.", "zh": "安全訓練明天早上九點開始。" } },
+        { "w": "protect", "pos": "v.", "zh": "保護", "ipa": "/prəˈtekt/", "example": { "en": "These glasses protect your eyes from dust.", "zh": "這副眼鏡可以保護你的眼睛不受灰塵傷害。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/mæsk/", "zh": "口罩、面具", "example": { "en": "The nurse gave each patient a clean mask.", "zh": "護理師給每位病人一個乾淨的口罩。" } },
+        { "pos": "v.", "ipa": "/mæsk/", "zh": "掩蓋、遮住", "example": { "en": "Strong perfume cannot mask the smell of smoke.", "zh": "濃烈的香水蓋不住煙味。" } }
+      ],
+      "senses": []
+    },
+    {
+      "text": "microscope", "type": "word", "ipa": "/ˈmaɪkrəskoʊp/", "pos": "n.", "zh": "顯微鏡",
+      "en": "a tool that makes very small things look bigger",
+      "note": "多益常見於實驗室、研究、醫療與科技公司情境。under the microscope 也可比喻「被仔細檢視」。",
+      "forms": [
+        { "w": "microscopes", "label": "複數", "pos": "n.", "zh": "顯微鏡（複數）", "ipa": "/ˈmaɪkrəskoʊps/", "example": { "en": "The laboratory has three microscopes for the new staff.", "zh": "實驗室有三台顯微鏡給新進人員使用。" } }
+      ],
+      "collocations": [
+        { "phrase": "under a microscope", "zh": "在顯微鏡下", "example": { "en": "The sample looks very different under a microscope.", "zh": "這份樣本在顯微鏡下看起來很不一樣。" } },
+        { "phrase": "electron microscope", "zh": "電子顯微鏡", "example": { "en": "The lab uses an electron microscope to study tiny parts.", "zh": "實驗室用電子顯微鏡研究微小的零件。" } },
+        { "phrase": "look through a microscope", "zh": "透過顯微鏡觀看", "example": { "en": "Students look through a microscope to study small plants.", "zh": "學生透過顯微鏡觀察小型植物。" } }
+      ],
+      "examples": [
+        { "tag": "實驗室", "en": "Each lab desk has a microscope and a small lamp.", "zh": "每張實驗桌上都有一台顯微鏡和一盞小燈。" },
+        { "tag": "研究", "en": "The research team bought a new microscope for the project.", "zh": "研究團隊為這個專案買了一台新的顯微鏡。" },
+        { "tag": "採購", "en": "We ordered a microscope from a supplier in Germany.", "zh": "我們向一家德國供應商訂了一台顯微鏡。" },
+        { "tag": "教育", "en": "Students use a microscope in the science class every week.", "zh": "學生每週在自然課使用顯微鏡。" },
+        { "tag": "商務（比喻）", "en": "The new policy is under the microscope after customer complaints.", "zh": "在客戶抱怨之後，新政策正受到嚴格檢視。" }
+      ],
+      "confusable": [
+        { "word": "telescope", "diff": "telescope 是望遠鏡，看遠處的東西；microscope 是顯微鏡，看很小的東西。", "example": { "en": "The astronomer used a telescope to study the planet.", "zh": "天文學家用望遠鏡觀察這顆行星。" } },
+        { "word": "microphone", "diff": "microphone 是麥克風，用來收音；microscope 是顯微鏡，用來看。", "example": { "en": "Please speak into the microphone so everyone can hear.", "zh": "請對著麥克風說話，讓大家都聽得到。" } }
+      ],
+      "family": [
+        { "w": "laboratory", "pos": "n.", "zh": "實驗室", "ipa": "/ˈlæbrətɔːri/", "example": { "en": "The laboratory opens at eight every morning.", "zh": "實驗室每天早上八點開門。" } },
+        { "w": "lens", "pos": "n.", "zh": "鏡片、鏡頭", "ipa": "/lenz/", "example": { "en": "Please clean the lens before you use the camera.", "zh": "使用相機前，請先把鏡頭擦乾淨。" } },
+        { "w": "researcher", "pos": "n.", "zh": "研究人員", "ipa": "/rɪˈsɝːtʃɚ/", "example": { "en": "The researcher will present her results on Friday.", "zh": "這位研究人員星期五會報告她的研究結果。" } },
+        { "w": "experiment", "pos": "n.", "zh": "實驗", "ipa": "/ɪkˈsperɪmənt/", "example": { "en": "The experiment took three weeks to complete.", "zh": "這項實驗花了三週才完成。" } }
+      ],
+      "derived": [
+        { "w": "microscopic", "pos": "adj.", "zh": "微小的、顯微鏡才看得到的", "ipa": "/ˌmaɪkrəˈskɑːpɪk/", "link": "microscope + -ic，變成形容詞，像 scientific、economic" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "mislead", "type": "word", "ipa": "/mɪsˈliːd/", "pos": "v.", "zh": "誤導",
+      "en": "to make someone believe something that is not true",
+      "note": "多益常見於廣告、財務報告與法規情境，如 mislead customers（誤導顧客）。不一定是故意的，可以只是說明不清楚。",
+      "grammar_note": "mislead 是不規則動詞，過去式與過去分詞是 misled（不是 misleaded）；常用被動 be misled by + 名詞，形容詞「誤導的」用 misleading。",
+      "forms": [
+        { "w": "misleads", "label": "第三人稱單數", "pos": "v.", "zh": "誤導", "ipa": "/mɪsˈliːdz/", "example": { "en": "This chart misleads readers because the scale starts at fifty.", "zh": "這張圖表會誤導讀者，因為刻度從五十開始。" } },
+        { "w": "misled", "label": "過去式／過去分詞", "pos": "v.", "zh": "誤導了", "ipa": "/mɪsˈled/", "example": { "en": "The old price list misled several new customers.", "zh": "舊的價目表誤導了幾位新客戶。" } },
+        { "w": "misleading", "label": "現在分詞", "pos": "v.", "zh": "正在誤導", "ipa": "/mɪsˈliːdɪŋ/", "example": { "en": "Some websites are misleading shoppers with fake reviews.", "zh": "有些網站用假評論誤導購物者。" } },
+        { "w": "misleading", "label": "形容詞", "pos": "adj.", "zh": "誤導的、容易讓人誤解的", "ipa": "/mɪsˈliːdɪŋ/", "example": { "en": "The title of the report was misleading and confusing.", "zh": "這份報告的標題容易讓人誤解，也很令人困惑。" } }
+      ],
+      "collocations": [
+        { "phrase": "mislead customers", "zh": "誤導顧客", "example": { "en": "The ad was changed because it might mislead customers.", "zh": "這則廣告被修改了，因為可能會誤導顧客。" } },
+        { "phrase": "mislead the public", "zh": "誤導大眾", "example": { "en": "The company was fined for trying to mislead the public.", "zh": "這家公司因為試圖誤導大眾而被罰款。" } },
+        { "phrase": "be misled by", "zh": "被…誤導", "example": { "en": "Many buyers were misled by the cheap price.", "zh": "許多買家被低價誤導了。" } }
+      ],
+      "examples": [
+        { "tag": "廣告", "en": "The label on the box could mislead buyers about its size.", "zh": "盒子上的標籤可能讓買家誤會它的大小。" },
+        { "tag": "財務報告", "en": "Some figures in the report may mislead readers.", "zh": "報告中的一些數字可能會誤導讀者。" },
+        { "tag": "法規", "en": "Companies must not mislead shoppers with false discount signs.", "zh": "公司不可以用不實的折扣標示誤導購物者。" },
+        { "tag": "客戶服務", "en": "I do not want to mislead you, so I will check again.", "zh": "我不想誤導你，所以我會再確認一次。" }
+      ],
+      "confusable": [
+        { "word": "mislay", "diff": "mislay 是把東西放錯地方、一時找不到；mislead 是讓人誤會。", "example": { "en": "I think I mislaid the contract on my desk.", "zh": "我想我把合約放在桌上，一時找不到了。" } },
+        { "word": "misread", "diff": "misread 是自己讀錯、看錯；mislead 是讓別人搞錯。", "example": { "en": "She misread the date and came to the wrong meeting.", "zh": "她看錯日期，來錯了會議。" } }
+      ],
+      "similar": [
+        { "phrase": "deceive", "diff": "deceive 通常是故意欺騙；mislead 不一定是故意，也可能只是說明不清楚。", "example": { "en": "The seller tried to deceive buyers about the product's age.", "zh": "賣方試圖欺騙買家關於產品的年份。" } }
+      ],
+      "family": [
+        { "w": "confuse", "pos": "v.", "zh": "使困惑", "ipa": "/kənˈfjuːz/", "example": { "en": "The long form may confuse new customers.", "zh": "這份很長的表格可能會讓新客戶感到困惑。" } },
+        { "w": "false", "pos": "adj.", "zh": "不實的、錯誤的", "ipa": "/fɔːls/", "example": { "en": "The company removed all false claims from its website.", "zh": "公司從網站上移除了所有不實的說法。" } },
+        { "w": "claim", "pos": "n.", "zh": "宣稱、主張", "ipa": "/kleɪm/", "example": { "en": "The claim in the advertisement is not true.", "zh": "這則廣告中的宣稱並不屬實。" } },
+        { "w": "accurate", "pos": "adj.", "zh": "準確的", "ipa": "/ˈækjərət/", "example": { "en": "Please make sure the numbers are accurate.", "zh": "請確認這些數字是正確的。" } }
+      ],
+      "derived": [
+        { "w": "lead", "pos": "v.", "zh": "帶領、引導", "ipa": "/liːd/", "link": "最基礎的字，「帶領」；mis-（錯誤）+ lead，就是「帶錯方向」，像 mistake、misunderstand 的 mis-" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
