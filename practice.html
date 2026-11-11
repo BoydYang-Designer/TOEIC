@@ -120,7 +120,20 @@ function table(L){
   const rows=L.filter(STF[st][1]).sort(SORT[sort][1]),row=x=>{const p=P[x.k]||{},s=x.sp;
     return `<a href="daily.html#vocab=${encodeURIComponent(x.k)}" class="flex flex-wrap items-center gap-x-3 gap-y-0.5 ${bd} bg-white dark:bg-slate-900 px-3 py-2 text-sm hover:border-indigo-400"><b>${esc(x.w)}</b><span class="text-slate-400 truncate">${esc(x.zh)}</span><span class="text-[0.7rem] text-slate-400">${x.tsl?'TSL':'入庫'}${x.nw?'·新':''}</span>
     <span class="ml-auto ${s.done?'text-emerald-600 dark:text-emerald-400':'text-amber-600 dark:text-amber-400'}">語音 ${s.done?`${s.pct}%・已練 ${s.done}/${s.total} 項`:'未練（0/'+s.total+' 項）'}</span><span class="${p.n?(p.c/p.n<.6?'text-rose-500':'text-slate-500'):'text-slate-400'}">測驗 ${p.n?`${p.n} 次・${Math.round(p.c/p.n*100)}%`:'未考'}</span></a>`};
-  return `<div class="flex flex-wrap gap-2 mb-3 text-sm items-center">${sel('fst',Object.entries(STF).map(([k,v])=>[k,v[0]]),st)}${sel('fso',Object.entries(SORT).map(([k,v])=>[k,'排序：'+v[0]]),sort)}<span class="text-slate-400">${rows.length} 字・點一列到單字卡練語音</span></div><div class="space-y-1.5">${rows.map(row).join('')||'<p class="text-slate-500 text-sm">沒有符合的字。</p>'}</div>`}
+  return `<div class="flex flex-wrap gap-2 mb-3 text-sm items-center">${sel('fst',Object.entries(STF).map(([k,v])=>[k,v[0]]),st)}${sel('fso',Object.entries(SORT).map(([k,v])=>[k,'排序：'+v[0]]),sort)}<span class="text-slate-400">${rows.length} 字・點一列到單字卡練語音${sort==='az'?'・依字母分組，可展開／收合':''}</span></div>${sort==='az'?azHtml(rows,row):`<div class="space-y-1.5">${rows.map(row).join('')||'<p class="text-slate-500 text-sm">沒有符合的字。</p>'}</div>`}`}
+/* A–Z 分組：排序為「字母」時，總表依字首字母分組，可個別展開／收合、字母列跳轉、全部展開／收合；展開狀態記在這台裝置 */
+const AZK='practiceAzOpenV1',AZL=[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ','#'];let AZO=new Set();try{AZO=new Set(JSON.parse(localStorage.getItem(AZK)||'[]'))}catch(e){}
+const azSave=()=>{try{localStorage.setItem(AZK,JSON.stringify([...AZO]))}catch(e){}};
+const azOf=x=>{const c=String(x.k||'').charAt(0).toUpperCase();return/[A-Z]/.test(c)?c:'#'};
+const azId=c=>'azg-'+(c==='#'?'num':c);
+function azHtml(rows,row){
+  if(!rows.length)return '<p class="text-slate-500 text-sm">沒有符合的字。</p>';
+  const g=new Map();rows.forEach(x=>{const c=azOf(x);if(!g.has(c))g.set(c,[]);g.get(c).push(x)});
+  const bar=AZL.map(c=>g.has(c)?`<button data-azj="${c}" class="min-w-[1.75rem] h-7 px-1 rounded ${bd} bg-white dark:bg-slate-900 text-xs font-semibold hover:border-indigo-400 hover:text-indigo-600">${c}</button>`:`<span class="min-w-[1.75rem] h-7 px-1 inline-flex items-center justify-center text-xs text-slate-300 dark:text-slate-700">${c}</span>`).join('');
+  const body=AZL.filter(c=>g.has(c)).map(c=>{const l=g.get(c),open=AZO.has(c),sp=l.filter(x=>x.sp.done).length;
+    return `<section id="${azId(c)}" class="mb-1.5 scroll-mt-24"><button data-az="${c}" aria-expanded="${open}" class="w-full flex items-center gap-2 ${bd} bg-slate-100 dark:bg-slate-800 px-3 py-2 text-left hover:border-indigo-400"><span class="text-slate-500 w-4">${open?'▾':'▸'}</span><b class="text-base">${c}</b><span class="text-xs text-slate-500">${l.length} 字・語音已練 ${sp}</span></button>${open?`<div class="space-y-1.5 mt-1.5">${l.map(row).join('')}</div>`:''}</section>`}).join('');
+  return `<div class="sticky top-0 z-10 -mx-1 px-1 py-2 bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur"><div class="flex flex-wrap items-center gap-1">${bar}<span class="ml-auto flex gap-1.5"><button data-azall="1" class="${bd} px-2 py-1 text-xs hover:bg-slate-100 dark:hover:bg-slate-800">全部展開</button><button data-azall="0" class="${bd} px-2 py-1 text-xs hover:bg-slate-100 dark:hover:bg-slate-800">全部收合</button></span></div></div>${body}`}
+function azRepaint(jump){const y=window.scrollY;paint();if(jump){const el=document.getElementById(azId(jump));if(el)el.scrollIntoView({block:'start'})}else scrollTo(0,y)}
 function quiz(L){
   if(R&&R.i>=R.q.length){const bad=R.bad;return `<div class="${bd} bg-white dark:bg-slate-900 p-4"><p class="text-xl font-bold">本輪完成：${R.ok} / ${R.q.length}（${Math.round(R.ok/R.q.length*100)}%）</p>${bad.length?`<p class="mt-3 text-sm text-slate-500">答錯或忘記的字（明天會再出現）：</p><div class="mt-1 space-y-1">${bad.map(x=>`<a class="block text-sm underline" href="daily.html#vocab=${encodeURIComponent(x.k)}">${esc(x.w)} <span class="text-slate-400">${esc(x.zh)}</span></a>`).join('')}</div>`:'<p class="mt-2 text-emerald-600">全部答對</p>'}<button data-new="1" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-2">回到設定，再來一輪</button></div>`}
   if(R)return '<div id="card" class="'+bd+' bg-white dark:bg-slate-900 p-4 md:p-6 min-h-[16rem]"></div>';
@@ -175,6 +188,9 @@ const adv=()=>{stopL();R.i++;shown=false;done=false;paint()};
 document.addEventListener('change',e=>{const i=e.target.id;if(i==='fst')st=e.target.value;else if(i==='fso')sort=e.target.value;else if(i==='ford')ord=e.target.value;else if(i==='fcnt')cnt=+e.target.value;else if(i==='fart'){art=e.target.value;R=null}else return;paint()});
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;
   if(d.t){tab=d.t;R=null;paint()}else if(d.s){src=d.s;R=null;paint()}else if(d.m){mode=d.m;paint()}else if(d.go)go();else if(d.new){R=null;paint()}
+  else if(d.az!==undefined){AZO.has(d.az)?AZO.delete(d.az):AZO.add(d.az);azSave();azRepaint()}
+  else if(d.azj!==undefined){AZO.add(d.azj);azSave();azRepaint(d.azj)}
+  else if(d.azall!==undefined){AZO=d.azall==='1'?new Set(AZL):new Set();azSave();azRepaint()}
   else if(d.show){shown=true;card()}
   else if(d.r!==undefined){const x=R.q[R.i],g=+d.r;rec(x.k,g===2,g);g===2?R.ok++:R.bad.push(x);adv()}
   else if(d.mic)listen()
