@@ -490,8 +490,7 @@ function enterSec(s) {
   if (s === 'maint' && from === 'day' && find(keep.w, keep.d)) return openItem(keep.w, keep.d); // 學習某篇 → 立刻變成該篇的維護
   SEC = s;
   if (s === 'maint') cur = Object.assign(keep, { nw: keep.w, view: 'maint' });
-  else if (isMobile()) cur = Object.assign(keep, { nw: keep.w, view: 'home' });
-  else { const l = S.last && find(S.last.w, S.last.d) ? S.last : keep; cur = { w: l.w, d: l.d, nw: l.w, view: 'day', showTranscript: false }; }
+  else { const l = S.last && find(S.last.w, S.last.d) ? S.last : keep; cur = { w: l.w, d: l.d, nw: l.w, view: 'home', showTranscript: false }; } // 進學習區一律先看「▦ 總表（進度）」（手機、電腦相同）
   if (from === 'launch') push();
   render(); window.scrollTo({ top: 0 });
 }
