@@ -11,6 +11,7 @@
   python scan_index.py --rel              只看「腳本 ↔ 資料檔」關聯表（所有根目錄的 .py）
   python scan_index.py --list             列出所有範圍名稱
   python scan_index.py --maint            維護總檢查：列出每篇文章缺什麼（mp3／timing），並告訴你下一步做什麼（直接印在畫面上）
+  python scan_index.py --audio            單字練習音檔檢查：practice.html 會找的 mp3（例句 vocab/、單字 words/）有沒有、index.json 有沒有登記、缺哪些 → scan_output/audio_*.md
   python scan_index.py --diag w2d8-1      單篇診斷：mp3 長度、timing 涵蓋範圍、漏掉的句子、原因與處理方式 → scan_output/diag_*.md（可多篇：--diag w2d8-1,w1d3）
 
 輸出：scan_output/scan_<範圍>_<時間>.md → 整份貼給 AI，或直接上傳。
@@ -49,8 +50,9 @@ MODULES = {
                  'files': ['practice*.html', 'practice*.js', 'practice*.json', 'practice*.md',   # 練習頁；檔案還沒建立時這幾項不會出現
                            'daily.json', 'tsl.js', 'newwords.js', 'vocab_index.json', 'tsl_extra.json',   # 題庫來源：入庫詳解／TSL 字表／新單字／索引
                            'daily.js', 'notes.js', 'speak.js', 'pron.js', 'cloud-sync.js', 'style.css',   # 入庫 marks、口說評分、同步、樣式
-                           'vocab.html', 'index.html', 'Scan總表與音檔.py', 'json_merge.py'],
-                 'dirs': []},
+                           'vocab.html', 'index.html', 'Scan總表與音檔.py', 'json_merge.py',
+                           'audio/daily/vocab/index.json', 'audio/daily/words/index.json'],   # 音檔清單（practice 靠它判斷有沒有 mp3）
+                 'dirs': ['audio/daily/vocab', 'audio/daily/words']},
 }
 for _n in range(1, 8):   # part1 … part7：同樣的檔案結構
     MODULES['part%d' % _n] = {'title': 'Part %d（part%d.html／.js／.json＋音檔清單）' % (_n, _n),
@@ -448,13 +450,121 @@ def do_diag(ids):
     print('\n已存：scan_output/%s（要我協助就把這份貼給我）' % name)
 
 
+# ===== 單字練習音檔檢查（--audio）：用和 practice.html 完全相同的規則，算出它「會去找」哪些 mp3，再比對實際檔案與 index.json =====
+def _js_norm(s):      # = practice.html 的 dnNorm
+    return re.sub(r'\s+', ' ', str('' if s is None else s).strip().lower())
+
+
+def _fnv6(s):         # = dnFnv6（FNV-1a 32 bit，取前 6 碼）
+    h = 0x811c9dc5
+    for b in s.encode('utf-8'):
+        h ^= b
+        h = (h * 0x01000193) & 0xFFFFFFFF
+    return ('%08x' % h)[:6]
+
+
+def _slug(t):         # = dnSlug
+    k = _js_norm(t)
+    s = re.sub(r'^-+|-+$', '', re.sub(r'[^a-z0-9]+', '-', k))
+    if s and len(s) <= 40:
+        return s
+    return re.sub(r'-+$', '', s[:40]) + ('-' if s else '') + _fnv6(k)
+
+
+def _pnorm(s):        # = practice.html 的 norm（去重音、小寫）
+    import unicodedata
+    return re.sub('[\u0300-\u036f]', '', unicodedata.normalize('NFD', str(s or '').lower())).strip()
+
+
+def do_audio():
+    import difflib
+    items = _daily_items()
+    if not items:
+        return
+    seen, pool = set(), []
+    for it in items:                      # 與 practice.html boot() 的 extra_vocab 篩選相同
+        for e in (it.get('extra_vocab') or []):
+            if not isinstance(e, dict):
+                continue
+            k = _pnorm(e.get('text'))
+            if not k or k in seen:
+                continue
+            if not e.get('zh') or not (e.get('type') in ('word', 'phrase') or not e.get('type')):
+                continue
+            seen.add(k)
+            exs = []
+            for i, z in enumerate(e.get('examples') or [], 1):
+                en = z if isinstance(z, str) else (z or {}).get('en')
+                if en:
+                    exs.append((i, en))
+            pool.append(dict(w=e.get('text'), at=e.get('at'), exs=exs, week=it.get('week'), day=it.get('day')))
+    # 例句檔：vocab/{slug(at 或 word)}_e{N}.mp3；單字檔：words/{slug(word)}.mp3
+    exp_v = {}
+    for x in pool:
+        for i, en in x['exs']:
+            exp_v[_slug(x['at'] or x['w']) + '_e%d.mp3' % i] = (x['w'], en)
+    exp_w = {_slug(x['w']) + '.mp3': (x['w'], '') for x in pool}
+    parts = ['# 單字練習音檔檢查', '產生時間：%s' % time.strftime('%Y-%m-%d %H:%M:%S'),
+             '題庫（和 practice.html 相同規則）：%d 個單字／片語，例句 %d 句' % (len(pool), len(exp_v)), '']
+    screen = ['單字練習音檔檢查：題庫 %d 個單字／片語，例句 %d 句' % (len(pool), len(exp_v))]
+    for label, sub, exp in (('例句（聽寫／克漏字／聽讀用）', 'audio/daily/vocab', exp_v), ('單字（閃卡 🔊 用）', 'audio/daily/words', exp_w)):
+        d = os.path.join(ROOT, sub.replace('/', os.sep))
+        disk = set(f for f in os.listdir(d) if f.lower().endswith('.mp3')) if os.path.isdir(d) else set()
+        ip = os.path.join(d, 'index.json')
+        idx, ver, idx_state = set(), '', ''
+        if not os.path.isfile(ip):
+            idx_state = '沒有 index.json（practice.html 因此一律退回語音合成！）'
+        else:
+            try:
+                with open(ip, encoding='utf-8-sig') as f:
+                    j = json.load(f)
+                idx, ver = set(j.get('files') or []), str(j.get('v') or '')
+                idx_state = 'index.json 登記 %d 個，v=%s' % (len(idx), ver or '（無）')
+            except Exception as e:
+                idx_state = 'index.json 讀取失敗：%s' % e
+        ok = [f for f in exp if f in disk and f in idx]
+        only_disk = [f for f in exp if f in disk and f not in idx]
+        only_idx = [f for f in exp if f in idx and f not in disk]
+        miss = [f for f in exp if f not in disk and f not in idx]
+        orphan = sorted(disk - set(exp))
+        parts += ['## %s　`%s/`' % (label, sub),
+                  '- 資料夾實際 mp3：%d 個；%s' % (len(disk), idx_state),
+                  '- 需要 %d 個：✔ 可播放 %d　⚠ 檔案在但 index.json 沒登記 %d　⚠ index.json 有登記但檔案不在 %d　✖ 完全沒有 %d' % (len(exp), len(ok), len(only_disk), len(only_idx), len(miss)),
+                  '- 資料夾裡有、但題庫不會去找的檔案：%d 個（可能是檔名對不上）' % len(orphan), '']
+        screen += ['', '【%s】%s/' % (label, sub), '  實際 mp3 %d 個；%s' % (len(disk), idx_state),
+                   '  需要 %d：可播放 %d｜在資料夾但沒登記 index.json %d｜登記了但檔案不在 %d｜完全沒有 %d｜多出來對不上的檔案 %d' % (len(exp), len(ok), len(only_disk), len(only_idx), len(miss), len(orphan))]
+
+        def block(title, names, n=40):
+            if names:
+                parts.append('### %s（共 %d，列前 %d）' % (title, len(names), min(n, len(names))))
+                parts.append(fence('', '\n'.join('%s    ← %s %s' % (f, exp[f][0], cap(exp[f][1])[:60]) for f in sorted(names)[:n])))
+                parts.append('')
+        block('檔案在、但 index.json 沒登記（會退回語音合成）', only_disk)
+        block('index.json 有登記、但檔案不在', only_idx)
+        block('完全沒有（需要補 mp3）', miss)
+        if orphan:
+            rows, pool_names = [], list(exp)
+            for f in orphan[:40]:
+                c = difflib.get_close_matches(f, pool_names, n=1, cutoff=0.6)
+                rows.append('%s    ≈ 題庫要的：%s' % (f, c[0] if c else '（找不到相近的）'))
+            parts += ['### 多出來的檔案與最像的題庫檔名（共 %d，列前 %d）' % (len(orphan), len(rows)), fence('', '\n'.join(rows)), '']
+        parts.append('')
+    od = os.path.join(ROOT, 'scan_output')
+    os.makedirs(od, exist_ok=True)
+    name = 'audio_%s.md' % time.strftime('%Y%m%d_%H%M%S')
+    with open(os.path.join(od, name), 'w', encoding='utf-8') as f:
+        f.write('\n'.join(parts) + '\n')
+    print('\n'.join(screen))
+    print('\n已存：scan_output/%s（把這份貼給我）' % name)
+
+
 def menu():
     names = list(MODULES)
     print('專案：%s\n\n要掃哪些範圍？' % ROOT)
     for i, n in enumerate(names, 1):
         print('  %2d. %-8s %s' % (i, n, MODULES[n]['title']))
     print('   m. 維護診斷：列出每篇文章缺什麼、該做什麼（不產生 AI 用的程式碼文件）')
-    s = input('\n輸入編號或名稱（可多個，用空白分開；a＝全部；m＝維護診斷；或直接貼 --diag／--grep／--file 指令）：').strip()
+    s = input('\n輸入編號或名稱（可多個，用空白分開；a＝全部；m＝維護診斷；或直接貼 --audio／--diag／--grep／--file 指令）：').strip()
     if s.lower() == 'm':
         return None
     if s.startswith('--') or s.lower().startswith('python'):   # 把指令貼在這裡也可以（例如 --diag w2d8-1、--grep "d8"）
@@ -495,6 +605,8 @@ def main():
             pass
         elif t == '--maint':
             do_maint(); return
+        elif t == '--audio':
+            do_audio(); return
         elif t == '--diag' and i + 1 < len(a):
             ids = [v for v in re.split(r'[,\s]+', a[i + 1]) if v]
             j = i + 2

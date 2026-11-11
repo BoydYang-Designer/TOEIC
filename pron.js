@@ -242,6 +242,11 @@ const prShort = s => String(s || '').split('?')[0].split('/').pop().slice(-40);
 const PR_EX_SETTLE = 900; // 範例播放的 AudioContext 關閉完成後，再等這麼久才允許錄音
 const PR_D = (() => { try { const P = HTMLMediaElement.prototype; return { src: Object.getOwnPropertyDescriptor(P, 'src'), cur: Object.getOwnPropertyDescriptor(P, 'currentSrc') }; } catch (e) { return {}; } })();
 const prCanPlay = () => PR.st === 'idle' && PR.ex === '' && !prPlaying() && !SK.mineRel;
+function prPendFlush() { // 上一個音檔關閉完成後，補播「播放中／關閉中」時你點的那顆 🔊（5 秒內有效、只補最後一次點的）
+  const b = PR.pendBtn; PR.pendBtn = null;
+  if (!b || Date.now() - (PR.pendAt || 0) > 5000 || !b.isConnected || !prCanPlay()) return;
+  setTimeout(() => { try { b.click(); } catch (e) {} }, 0);
+}
 function prAudioForPlay() { // 播放前的音訊準備：常駐麥克風開著就完全不動它（沿用語音練習）；沒有串流時才切 playback（走喇叭、音量正常）
   if (SK.keepSt && prKeepOn()) return;
   try { skKeepFree(); } catch (e) {}
@@ -363,7 +368,7 @@ function prExFinish(silent) { // 播完／按停止／被打斷：停掉聲音 �
   if (n) { n.onended = null; try { n.stop(); } catch (e) {} try { n.disconnect(); } catch (e) {} }
   if (tts) { try { speechSynthesis.cancel(); } catch (e) {} }
   prElDone(el);
-  if (!c && !tts) { PR.ex = ''; skLog('PR 範例沒有播放'); if (!silent && document.getElementById('pron-ov')) prRender(); return; }
+  if (!c && !tts) { PR.ex = ''; skLog('PR 範例沒有播放'); if (!silent && document.getElementById('pron-ov')) prRender(); prPendFlush(); return; }
   PR.ex = 'settle';
   skLog('PR 範例播放結束，等待 AudioContext 關閉');
   let fin = false;
@@ -374,7 +379,8 @@ function prExFinish(silent) { // 播完／按停止／被打斷：停掉聲音 �
       if (!SK.playing) skAudioSession('play-and-record');
       SK.lastEnd = Date.now(); PR.ex = ''; skLog('PR 範例播放已完整關閉');
       if (document.getElementById('pron-ov')) prRender();
-    }, PR_EX_SETTLE);
+      prPendFlush();
+    }, PR.pendBtn ? 250 : PR_EX_SETTLE); // 有人等著接著播：只多等一下；沒人等才用完整的 900ms（那是給「接著錄音」用的）
   };
   if (c) { try { const p = c.close(); if (p && p.then) p.then(done, done); else setTimeout(done, 0); } catch (e) { done(); } PR.exT = setTimeout(done, 1500); }
   else done();
@@ -394,8 +400,18 @@ document.addEventListener('click', e => { // capture：在 vplay／speakPhrase �
   const b = e.target && e.target.closest && e.target.closest('button[onclick^="vplay("],button[onclick^="speakPhrase("]');
   if (!b || (b.closest && b.closest('#pron-ov'))) return;
   if (typeof cur !== 'undefined' && cur.view === 'speak') return; // 語音練習頁有自己的播放流程
-  if (PR.ex === 'play') { prExFinish(); prGateArm(0, 'swallow'); return; }          // 播放中再按＝停止（這次的播放丟掉）
-  if (!prCanPlay()) { prGateArm(0, 'swallow'); try { dnToast('音檔還在關閉或錄音中，請稍後再播'); } catch (e) {} return; }
+  if (PR.ex === 'play') { // 播放中：按同一顆＝停止；按別顆＝停掉目前的，關閉完成後自動播你新點的那一個
+    const same = b === PR.exBtn; prExFinish(); prGateArm(0, 'swallow');
+    if (!same) { PR.pendBtn = b; PR.pendAt = Date.now(); }
+    return;
+  }
+  if (!prCanPlay()) {
+    prGateArm(0, 'swallow');
+    if (PR.ex === 'settle') { PR.pendBtn = b; PR.pendAt = Date.now(); } // 上一個音檔還在關閉：不跳提示，關好就自動播這一個
+    else { try { dnToast('音檔還在關閉或錄音中，請稍後再播'); } catch (e) {} } // 錄音／辨識／回放自己的錄音中：維持原本的擋法
+    return;
+  }
+  PR.exBtn = b; PR.pendBtn = null;
   prExBegin(false);
 }, true);
 

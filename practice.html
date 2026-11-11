@@ -67,6 +67,19 @@ function itemKeys(e0,it0){const vm=VM.get(dnKey(e0.text)),it=vm?vm.it:it0,e=Obje
 const spOf=x=>{const say=(P[x.k]||{}).say||{};let sum=0,done=0;x.items.forEach(k=>{const b=Math.max(pronBest(k),say[k]||0);if(b){sum+=b;done++}});
   return{done,total:x.items.length,pct:x.items.length?Math.round(sum/x.items.length):0}};
 
+/* 原有音檔（與詳解頁 vplay 同一套）：例句 audio/daily/vocab/{單字slug}_e{N}.mp3、單字 audio/daily/words/{單字slug}.mp3；找不到就退回語音合成 */
+const dnNorm=s=>String(s==null?'':s).trim().toLowerCase().replace(/\s+/g,' ');
+function dnFnv6(s){let h=0x811c9dc5;for(const b of new TextEncoder().encode(s)){h^=b;h=Math.imul(h,0x01000193)>>>0}return h.toString(16).padStart(8,'0').slice(0,6)}
+function dnSlug(t){const k=dnNorm(t),s=k.replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');return s&&s.length<=40?s:s.slice(0,40).replace(/-+$/,'')+(s?'-':'')+dnFnv6(k)}
+const VA={files:null,v:''},VW={files:null,v:''};
+fetch('audio/daily/vocab/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&Array.isArray(j.files)){VA.files=new Set(j.files);VA.v=j.v||''}}).catch(()=>{});
+fetch('audio/daily/words/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&Array.isArray(j.files)){VW.files=new Set(j.files);VW.v=j.v||''}}).catch(()=>{});
+let QA=null;
+function stopQ(){try{if(QA){QA.onerror=null;QA.pause();QA=null}speechSynthesis.cancel()}catch(e){}}
+function playUrl(u,fb){stopQ();const a=QA=new Audio(u);a.onerror=()=>speak(fb);a.play().catch(()=>speak(fb))}
+function playQ(x){const q=x&&x.q;if(!q)return;const f=dnSlug(x.e.at||x.w)+(q.suf||'')+'.mp3';if(q.suf&&VA.files&&VA.files.has(f))playUrl('audio/daily/vocab/'+f+(VA.v?'?v='+VA.v:''),q.en);else{stopQ();speak(q.en)}}
+function playW(w){const f=dnSlug(w)+'.mp3';if(VW.files&&VW.files.has(f))playUrl('audio/daily/words/'+f+(VW.v?'?v='+VW.v:''),w);else{stopQ();speak(w)}}
+let dh=false;try{dh=localStorage.getItem('practiceDhV1')==='1'}catch(e){}
 const SRC=[['all','全部'],['tsl','TSL'],['bank','入庫（非 TSL）'],['nw','新單字']],MODES=[['flash','閃卡'],['cloze','例句克漏字'],['dict','聽寫'],['say','🎤 聽讀（他說我念）']];
 const ORD={combo:['建議：沒考過的先，其中語音練得最多的最先',x=>((P[x.k]||{}).n?10:0)-x.sp.pct/100-x.sp.done/1000],due:['到期複習優先',x=>(P[x.k]||{due:0}).due],sp_hi:['語音總分高的先考',x=>-x.sp.pct],fresh:['沒考過的先（考過的放後面）',x=>(P[x.k]||{n:0}).n],
   low:['累計正確率低的先',x=>{const p=P[x.k];return p&&p.n?p.c/p.n:2}],old:['最久沒考的先',x=>(P[x.k]||{last:0}).last],rand:['隨機',x=>0]};
@@ -74,13 +87,14 @@ const STF={all:['全部',x=>1],nosp:['語音還沒練',x=>!x.sp.done],sp:['語�
 const SORT={az:['字母',(a,b)=>a.k.localeCompare(b.k)],sp_hi:['語音總分 高→低',(a,b)=>b.sp.pct-a.sp.pct],sp_lo:['語音總分 低→高',(a,b)=>a.sp.pct-b.sp.pct],acc:['測驗正確率 低→高',(a,b)=>acc(a)-acc(b)],n:['測驗次數 少→多',(a,b)=>((P[a.k]||{}).n||0)-((P[b.k]||{}).n||0)]};
 const acc=x=>{const p=P[x.k];return p&&p.n?p.c/p.n:2};
 const okFor=x=>mode==='flash'||(mode==='say'?x.ex.length>0:x.cl.length>0);
+let fdir='zh';try{fdir=localStorage.getItem('practiceFdirV1')==='en'?'en':'zh'}catch(e){}
 let POOL=[],tab='table',src='all',art='all',mode='flash',ord='combo',cnt=10,st='all',sort='az',R=null,shown=false,done=false;
 const match=x=>(art==='all'||x.froms.has(art))&&(src==='all'||(src==='tsl'&&x.tsl)||(src==='bank'&&!x.tsl)||(src==='nw'&&x.nw));
 const speak=t=>{try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;speechSynthesis.speak(u)}catch(e){}};
 const rec=(k,ok,g)=>{const p=P[k]||(P[k]={b:0,due:0,n:0,c:0});p.n++;if(ok)p.c++;p.last=Date.now();
   if(g!==undefined){p.b=g===2?Math.min(5,p.b+1):g===1?p.b:0;p.due=Date.now()+(g===0?1:GAP[p.b]||1)*DAY}else{p.b=ok?Math.min(5,p.b+1):0;p.due=Date.now()+(ok?GAP[p.b]:1)*DAY}save()};
 function cloze(x){const fm=[x.w,...x.forms].sort((a,b)=>b.length-a.length),out=[];
-  x.ex.forEach(e=>{for(const f of fm){const m=new RegExp('\\b'+f.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','i').exec(e.en||'');if(m){out.push({en:e.en,zh:e.zh,ans:m[0],i:m.index});break}}});return out}
+  x.ex.forEach(e=>{for(const f of fm){const m=new RegExp('\\b'+f.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','i').exec(e.en||'');if(m){out.push({en:e.en,zh:e.zh,ans:m[0],i:m.index,suf:e.suf});break}}});return out}
 /* 記住畫面狀態：點進詳解後按上一頁，回到剛剛的分頁、篩選、排序、捲動位置（測驗進行中也會接著做）。存在 sessionStorage，只在這個分頁有效 */
 const UK='practiceUiV1';let UI=null,uiOn=false;
 function uiSave(){if(!uiOn)return;try{sessionStorage.setItem(UK,JSON.stringify({tab,src,art,mode,ord,cnt,st,sort,y:Math.round(window.scrollY),R:R?{q:R.q.map(x=>x.k),i:R.i,ok:R.ok,bad:R.bad.map(x=>x.k)}:null}))}catch(e){}}
@@ -102,7 +116,7 @@ async function boot(){let j=null;try{j=await(await fetch('daily.json',{cache:'no
   VM=new Map();(j.items||j).forEach(it=>(it.vocab||[]).forEach(v=>{const k=v&&dnKey(v.word);if(k&&!VM.has(k))VM.set(k,{it,v})}));
   const seen=new Map();(j.items||j).forEach(it=>(it.extra_vocab||[]).forEach(e=>{const k=norm(e.text);if(!k)return;if(seen.has(k)){seen.get(k).froms.add('W'+it.week+'D'+it.day);return}if(!e.zh||!(e.type==='word'||e.type==='phrase'||!e.type))return;
     const forms=(e.forms||[]).map(f=>f.w).filter(Boolean);
-    const x={k,w:e.text,zh:e.zh,en:e.en||'',ipa:e.ipa||'',pos:e.pos||'',ex:(e.examples||[]).filter(z=>z.en),forms,wrong:[...(e.confusable||[]).map(c=>c.word),...(e.similar||[]).map(c=>c.phrase)].filter(Boolean),
+    const x={k,w:e.text,zh:e.zh,en:e.en||'',ipa:e.ipa||'',pos:e.pos||'',ex:(e.examples||[]).map((z,i)=>Object.assign({},typeof z==='string'?{en:z}:z,{suf:'_e'+(i+1)})).filter(z=>z.en),forms,wrong:[...(e.confusable||[]).map(c=>c.word),...(e.similar||[]).map(c=>c.phrase)].filter(Boolean),
       tsl:TS.has(k)||forms.some(f=>TS.has(norm(f))),nw:!!(e.nw_done&&e.nw_done.length)||NW.has(k)||forms.some(f=>NW.has(norm(f))),from:'W'+it.week+'D'+it.day};
     x.e=e;x.it=it;x.items=itemKeys(e,it);x.cl=cloze(x);x.sp=spOf(x);x.froms=new Set([x.from]);seen.set(k,x);POOL.push(x)}));
   updDbg();uiLoad();paint();if(UI&&UI.y)requestAnimationFrame(()=>{scrollTo(0,UI.y);uiOn=true});else uiOn=true}
@@ -135,26 +149,28 @@ function azHtml(rows,row){
   return `<div class="sticky top-0 z-10 -mx-1 px-1 py-2 bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur"><div class="flex flex-wrap items-center gap-1">${bar}<span class="ml-auto flex gap-1.5"><button data-azall="1" class="${bd} px-2 py-1 text-xs hover:bg-slate-100 dark:hover:bg-slate-800">全部展開</button><button data-azall="0" class="${bd} px-2 py-1 text-xs hover:bg-slate-100 dark:hover:bg-slate-800">全部收合</button></span></div></div>${body}`}
 function azRepaint(jump){const y=window.scrollY;paint();if(jump){const el=document.getElementById(azId(jump));if(el)el.scrollIntoView({block:'start'})}else scrollTo(0,y)}
 function quiz(L){
-  if(R&&R.i>=R.q.length){const bad=R.bad;return `<div class="${bd} bg-white dark:bg-slate-900 p-4"><p class="text-xl font-bold">本輪完成：${R.ok} / ${R.q.length}（${Math.round(R.ok/R.q.length*100)}%）</p>${bad.length?`<p class="mt-3 text-sm text-slate-500">答錯或忘記的字（明天會再出現）：</p><div class="mt-1 space-y-1">${bad.map(x=>`<a class="block text-sm underline" href="daily.html#vocab=${encodeURIComponent(x.k)}">${esc(x.w)} <span class="text-slate-400">${esc(x.zh)}</span></a>`).join('')}</div>`:'<p class="mt-2 text-emerald-600">全部答對</p>'}<button data-new="1" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-2">回到設定，再來一輪</button></div>`}
+  if(R&&R.i>=R.q.length){const bad=R.bad;return `<div class="${bd} bg-white dark:bg-slate-900 p-4"><p class="text-xl font-bold">本輪完成：${R.ok} / ${R.q.length}（${Math.round(R.ok/R.q.length*100)}%）</p>${bad.length?`<p class="mt-3 text-sm text-slate-500">答錯或忘記的字（明天會再出現）：</p><div class="mt-1 space-y-1">${bad.map(x=>`<a class="block text-sm underline" href="daily.html#vocab=${encodeURIComponent(x.k)}">${esc(x.w)} <span class="text-slate-400">${esc(x.zh)}</span></a>`).join('')}</div>`:'<p class="mt-2 text-emerald-600">全部答對</p>'}${bad.length?`<button data-retry="1" class="mt-4 w-full rounded-lg bg-rose-600 text-white py-2">只練答錯的（${bad.length}）</button>`:''}<button data-new="1" class="mt-3 w-full rounded-lg bg-indigo-600 text-white py-2">回到設定，再來一輪</button></div>`}
   if(R)return '<div id="card" class="'+bd+' bg-white dark:bg-slate-900 p-4 md:p-6 min-h-[16rem]"></div>';
   const n=L.filter(x=>okFor(x)).length;
   return `<div class="${bd} bg-white dark:bg-slate-900 p-4 space-y-3 text-sm"><div class="flex rounded-lg border border-slate-300 dark:border-slate-700 overflow-hidden">${seg(MODES,mode,'m').replace(/px-3 py-1.5/g,'flex-1 py-2')}</div>
-  <div class="flex flex-wrap gap-2 items-center"><span>出題順序</span>${sel('ford',Object.entries(ORD).map(([k,v])=>[k,v[0]]),ord)}<span>題數</span>${sel('fcnt',[[10,'10'],[20,'20'],[0,'全部']],cnt)}</div>
+  <div class="flex flex-wrap gap-2 items-center"><span>出題順序</span>${sel('ford',Object.entries(ORD).map(([k,v])=>[k,v[0]]),ord)}<span>題數</span>${sel('fcnt',[[10,'10'],[20,'20'],[0,'全部']],cnt)}${mode==='flash'?`<span>方向</span>${sel('fdir',[['zh','中文→英文'],['en','英文→中文']],fdir)}`:''}</div>
   <p class="text-slate-400">範圍內可出題 ${n} 字${mode==='say'?'（需有例句；念完要手動按「念完了」；第一次會跳出麥克風權限）':mode!=='flash'?'（需例句裡出現該字）':''}。建議的順序＝沒考過的先，其中語音練得最多的排最前面；考過的放後面。「正確率低的先」專攻弱點。</p>
   <button data-go="1" ${n?'':'disabled'} class="w-full rounded-lg bg-indigo-600 text-white py-2 disabled:opacity-40">開始測驗</button></div>`}
 function card(){
-  const c=document.getElementById('card');if(!c||!R)return;const x=R.q[R.i],head=`<div class="text-xs text-slate-400 mb-3">${R.i+1} / ${R.q.length}・${x.tsl?'TSL':'入庫'}${x.nw?'・新單字':''}・${x.from}</div>`;
-  if(mode==='flash'){c.innerHTML=head+`<div class="text-xl font-bold">${esc(x.zh)} <span class="text-sm font-normal text-slate-400">${esc(x.pos)}</span></div>`+(shown?`<div class="mt-4 text-2xl font-bold">${esc(x.w)} <button data-say="${esc(x.w)}" class="text-base">🔊</button></div><div class="text-sm text-slate-400">${esc(x.ipa)}</div><p class="mt-2 text-sm italic text-slate-500">${esc(x.en)}</p>${x.ex[0]?`<p class="mt-3">${esc(x.ex[0].en)}<br><span class="text-sm text-slate-400">${esc(x.ex[0].zh||'')}</span></p>`:''}<div class="grid grid-cols-3 gap-2 mt-4">${[['忘了',0,'border-rose-400 text-rose-600'],['模糊',1,'border-amber-400 text-amber-600'],['記得',2,'border-emerald-400 text-emerald-600']].map(([t,g,cl])=>`<button data-r="${g}" class="rounded-lg border py-2 ${cl}">${t}</button>`).join('')}</div>`:`<p class="mt-4 text-slate-400 text-sm">先在心裡想出英文，再翻面。</p><button data-show="1" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-2">顯示答案</button>`);return}
-  if(mode==='say'){const q=x.q={en:x.ex[0].en,zh:x.ex[0].zh};
-    c.innerHTML=head+`<p class="text-sm text-slate-400">聽句子，按 🎤 開始念，念完再按「念完了」（${esc(x.zh)}）</p><div class="flex gap-2 mt-3"><button data-say="${esc(q.en)}" class="${bd} px-4 py-2">🔊 再聽一次</button><button data-mic="1" id="mic" class="rounded-lg bg-rose-600 text-white px-4 py-2">🎤 開始念</button></div><p id="tgt" class="mt-4 text-lg leading-relaxed blur-sm select-none">${esc(q.en)}</p><div id="fb" class="mt-3 text-sm"></div><button data-skip="1" class="mt-3 text-xs text-slate-400 underline">跳過這題（算沒過）</button>`;setTimeout(()=>speak(q.en),150);return}
-  const q=x.q=x.cl[(x._i=(x._i+1||0)%x.cl.length)];
-  if(mode==='cloze'){const w=shuf([...x.wrong.filter(v=>norm(v)!==x.k),...shuf(POOL.filter(y=>y.k!==x.k).map(y=>y.w))]).slice(0,3),o=shuf([q.ans,...w]);
-    c.innerHTML=head+`<p class="text-lg leading-relaxed">${esc(q.en.slice(0,q.i))}<b class="px-2 border-b-2 border-indigo-500">＿＿＿</b>${esc(q.en.slice(q.i+q.ans.length))}</p><p class="text-sm text-slate-400 mt-1">${esc(q.zh||'')}（${esc(x.zh)}）</p><div class="grid gap-2 mt-4">${o.map(v=>`<button data-o="${esc(v)}" class="text-left ${bd} px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800">${esc(v)}</button>`).join('')}</div><div id="fb" class="mt-3"></div>`}
-  else{c.innerHTML=head+`<button data-say="${esc(q.en)}" class="${bd} px-4 py-2">🔊 播放例句</button><p class="text-sm text-slate-400 mt-2">聽句子，打出缺的那個字（${esc(x.zh)}）</p><input id="ans" autocomplete="off" autocapitalize="off" class="mt-3 w-full ${bd} bg-white dark:bg-slate-900 px-3 py-2" placeholder="輸入單字"><button data-chk="1" class="mt-3 w-full rounded-lg bg-indigo-600 text-white py-2">檢查</button><div id="fb" class="mt-3"></div>`;setTimeout(()=>speak(q.en),150)}}
-function result(ok){if(done)return;done=true;const x=R.q[R.i],q=x.q;rec(x.k,ok);ok?R.ok++:R.bad.push(x);
-  document.getElementById('fb').innerHTML=`<p class="${ok?'text-emerald-600':'text-rose-600'} font-semibold">${ok?'答對了':'答案：'+esc(q.ans)}</p><p class="text-sm mt-1">${esc(q.en)}<br><span class="text-slate-400">${esc(q.zh||'')}</span></p><button data-next="1" class="mt-3 w-full rounded-lg bg-indigo-600 text-white py-2">下一題</button>`}
+  const c=document.getElementById('card');if(!c||!R)return;const x=R.q[R.i],head=`<div class="mb-3"><div class="flex justify-between text-xs text-slate-400 mb-1"><span>${R.i+1} / ${R.q.length}・${x.tsl?'TSL':'入庫'}${x.nw?'・新單字':''}・${x.from}</span><span>答對 ${R.ok}</span></div><div class="h-1.5 rounded bg-slate-200 dark:bg-slate-800 overflow-hidden"><div class="h-full bg-indigo-500" style="width:${Math.round(R.i/R.q.length*100)}%"></div></div></div>`;
+  if(mode==='flash'){const en=fdir==='en',zh=`<div class="text-xl font-bold">${esc(x.zh)} <span class="text-sm font-normal text-slate-400">${esc(x.pos)}</span></div>`,w=`<div class="text-2xl font-bold">${esc(x.w)} <button data-sw="${esc(x.w)}" class="text-base">🔊</button></div><div class="text-sm text-slate-400">${esc(x.ipa)}</div>`;
+    c.innerHTML=head+(en?w:zh)+(shown?`<div class="mt-4">${en?zh:w}</div><p class="mt-2 text-sm italic text-slate-500">${esc(x.en)}</p>${x.ex[0]?`<p class="mt-3">${esc(x.ex[0].en)} <button data-sf="1" class="text-base align-middle" title="播放例句">🔊</button><br><span class="text-sm text-slate-400">${esc(x.ex[0].zh||'')}</span></p>`:''}<div class="grid grid-cols-3 gap-2 mt-4">${[['忘了',0,'border-rose-400 text-rose-600'],['模糊',1,'border-amber-400 text-amber-600'],['記得',2,'border-emerald-400 text-emerald-600']].map(([t,g,cl])=>`<button data-r="${g}" class="rounded-lg border py-2 ${cl}">${t}<span class="ml-1 text-xs opacity-50">${g+1}</span></button>`).join('')}</div>`:`<p class="mt-4 text-slate-400 text-sm">${en?'先想想中文意思，再翻面。':'先在心裡想出英文，再翻面。'}（空白鍵翻面）</p><button data-show="1" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-2">顯示答案</button>`);return}
+  if(mode==='say'){const q=x.q={en:x.ex[0].en,zh:x.ex[0].zh,suf:x.ex[0].suf};
+    c.innerHTML=head+`<p class="text-sm text-slate-400">聽句子，按 🎤 開始念，念完再按「念完了」（${esc(x.zh)}）</p><div class="flex gap-2 mt-3"><button data-sq="1" class="${bd} px-4 py-2">🔊 再聽一次</button><button data-mic="1" id="mic" class="rounded-lg bg-rose-600 text-white px-4 py-2">🎤 開始念</button></div><p id="tgt" class="mt-4 text-lg leading-relaxed blur-sm select-none">${esc(q.en)}</p><div id="fb" class="mt-3 text-sm"></div><button data-skip="1" class="mt-3 text-xs text-slate-400 underline">跳過這題（算沒過）</button>`;setTimeout(()=>playQ(x),150);return}
+  let q;if(x._fix&&x.q)q=x.q;else{q=x.q=x.cl[(x._i=(x._i+1||0)%x.cl.length)];x._hint=false;x._fix=true}
+  if(mode==='cloze'){const sn=new Set([norm(q.ans)]),w=[...shuf(x.wrong.filter(v=>norm(v)!==x.k)),...shuf(POOL.filter(y=>y.k!==x.k&&y.pos&&y.pos===x.pos).map(y=>y.w)),...shuf(POOL.filter(y=>y.k!==x.k).map(y=>y.w))].filter(v=>{const n=norm(v);if(sn.has(n))return false;sn.add(n);return true}).slice(0,3),o=shuf([q.ans,...w]);
+    c.innerHTML=head+`<p class="text-lg leading-relaxed">${esc(q.en.slice(0,q.i))}<b class="px-2 border-b-2 border-indigo-500">＿＿＿</b>${esc(q.en.slice(q.i+q.ans.length))}</p><p class="text-sm text-slate-400 mt-1">${esc(q.zh||'')}（${esc(x.zh)}）</p><div class="grid gap-2 mt-4">${o.map((v,i)=>`<button data-o="${esc(v)}" class="text-left ${bd} px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800"><span class="text-xs text-slate-400 mr-2">${i+1}</span>${esc(v)}</button>`).join('')}</div><div id="fb" class="mt-3"></div>`}
+  else{const sn=dh?`<p class="mt-3 text-sm text-slate-400">句子已隱藏：只聽音檔，打出缺的字（${esc(x.zh)}）</p>`:`<p class="mt-3 text-lg leading-relaxed">${esc(q.en.slice(0,q.i))}<b class="px-2 border-b-2 border-indigo-500">＿＿＿</b>${esc(q.en.slice(q.i+q.ans.length))}</p><p class="text-sm text-slate-400 mt-1">${esc(q.zh||'')}（${esc(x.zh)}）</p>`;
+    c.innerHTML=head+`<div class="flex flex-wrap items-center gap-2"><button data-sq="1" class="${bd} px-4 py-2">🔊 播放例句</button><button data-hint="1" class="${bd} px-4 py-2">💡 提示</button><button data-dh="1" class="${bd} px-3 py-2 text-xs">${dh?'顯示句子':'隱藏句子'}</button><span id="hint" class="font-mono text-slate-500"></span></div>${sn}<input id="ans" autocomplete="off" autocapitalize="off" class="mt-3 w-full ${bd} bg-white dark:bg-slate-900 px-3 py-2" placeholder="輸入缺的那個字"><button data-chk="1" class="mt-3 w-full rounded-lg bg-indigo-600 text-white py-2">檢查</button><div id="fb" class="mt-3"></div>`;setTimeout(()=>playQ(x),150);const an=document.getElementById('ans');if(an)an.focus()}}
+function result(ok){if(done)return;done=true;const x=R.q[R.i],q=x.q;if(mode==='cloze')setTimeout(()=>playQ(x),200);const hn=!!x._hint,good=ok&&!hn;x._hint=false;rec(x.k,good);good?R.ok++:R.bad.push(x);
+  document.getElementById('fb').innerHTML=`<p class="${ok?'text-emerald-600':'text-rose-600'} font-semibold">${ok?(hn?'答對了（有用提示，明天會再出現）':'答對了'):'答案：'+esc(q.ans)}</p><p class="text-sm mt-1">${esc(q.en)} <button data-sq="1" class="text-base">🔊</button><br><span class="text-slate-400">${esc(q.zh||'')}</span></p><button data-next="1" class="mt-3 w-full rounded-lg bg-indigo-600 text-white py-2">下一題</button>`}
 function go(){const L=POOL.filter(x=>match(x)&&(okFor(x))).map(x=>({x,r:Math.random()})),f=ORD[ord][1];L.sort((a,b)=>f(a.x)-f(b.x)||a.r-b.r);
-  R={q:L.slice(0,cnt||L.length).map(o=>o.x),i:0,ok:0,bad:[]};shown=false;done=false;paint()}
+  R={q:L.slice(0,cnt||L.length).map(o=>o.x),i:0,ok:0,bad:[]};R.q.forEach(x=>{x._fix=false});shown=false;done=false;paint()}
 /* 聽讀：只開語音辨識（不同時錄音檔，避免手機搶麥克風）；辨識結束才評分 */
 let SRO=null,STOP=false;const tk=s=>norm(s).replace(/[^a-z0-9' ]+/g,' ').split(/\s+/).filter(Boolean);
 function stopL(){STOP=true;if(SRO){const r=SRO;SRO=null;r.onresult=r.onend=r.onerror=null;try{r.abort()}catch(e){}}}
@@ -184,21 +200,34 @@ function judge(heard){const x=R.q[R.i],T=tk(x.q.en),H=tk(heard),fb=document.getE
   done=true;rec(x.k,ok);const q=P[x.k];q.say=q.say||{};{const kk=pk(x.q.en);q.say[kk]=Math.max(q.say[kk]||0,sc)}save();x.sp=spOf(x);ok?R.ok++:R.bad.push(x);
   document.getElementById('tgt').classList.remove('blur-sm');document.getElementById('tgt').innerHTML=html;
   fb.innerHTML=`<p class="${ok?'text-emerald-600':'text-rose-600'} font-semibold">${sc} 分${ok?'・通過':'・再練一次（紅字是沒念到的）'}</p><p class="text-slate-400">聽到：${esc(heard)}</p><button data-next="1" class="mt-3 w-full rounded-lg bg-indigo-600 text-white py-2">下一題</button>`}
-const adv=()=>{stopL();R.i++;shown=false;done=false;paint()};
-document.addEventListener('change',e=>{const i=e.target.id;if(i==='fst')st=e.target.value;else if(i==='fso')sort=e.target.value;else if(i==='ford')ord=e.target.value;else if(i==='fcnt')cnt=+e.target.value;else if(i==='fart'){art=e.target.value;R=null}else return;paint()});
+const adv=()=>{stopL();stopQ();if(R.q[R.i])R.q[R.i]._fix=false;R.i++;shown=false;done=false;paint()};
+document.addEventListener('change',e=>{const i=e.target.id;if(i==='fst')st=e.target.value;else if(i==='fso')sort=e.target.value;else if(i==='ford')ord=e.target.value;else if(i==='fcnt')cnt=+e.target.value;else if(i==='fdir'){fdir=e.target.value==='en'?'en':'zh';try{localStorage.setItem('practiceFdirV1',fdir)}catch(err){}}else if(i==='fart'){art=e.target.value;R=null}else return;paint()});
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;
   if(d.t){tab=d.t;R=null;paint()}else if(d.s){src=d.s;R=null;paint()}else if(d.m){mode=d.m;paint()}else if(d.go)go();else if(d.new){R=null;paint()}
   else if(d.az!==undefined){AZO.has(d.az)?AZO.delete(d.az):AZO.add(d.az);azSave();azRepaint()}
   else if(d.azj!==undefined){AZO.add(d.azj);azSave();azRepaint(d.azj)}
   else if(d.azall!==undefined){AZO=d.azall==='1'?new Set(AZL):new Set();azSave();azRepaint()}
+  else if(d.sf){const x=R.q[R.i],e0=x.ex[0];if(e0){x.q={en:e0.en,zh:e0.zh,suf:e0.suf};playQ(x)}}
+  else if(d.sq)playQ(R.q[R.i])
+  else if(d.sw)playW(d.sw)
+  else if(d.dh){dh=!dh;try{localStorage.setItem('practiceDhV1',dh?'1':'0')}catch(e){}card()}
+  else if(d.hint){const x=R.q[R.i],a=x.q.ans;x._hint=true;document.getElementById('hint').textContent=a.charAt(0)+' '+'＿ '.repeat(Math.max(0,a.length-1)).trim()+'（'+a.length+' 個字母）'}
+  else if(d.retry){const b2=R.bad.slice();R={q:shuf(b2),i:0,ok:0,bad:[]};R.q.forEach(x=>{x._fix=false});shown=false;done=false;paint()}
   else if(d.show){shown=true;card()}
   else if(d.r!==undefined){const x=R.q[R.i],g=+d.r;rec(x.k,g===2,g);g===2?R.ok++:R.bad.push(x);adv()}
   else if(d.mic)listen()
   else if(d.skip){const x=R.q[R.i];if(!done){done=true;rec(x.k,false);R.bad.push(x)}adv()}
   else if(d.say)speak(d.say)
-  else if(d.o!==undefined){document.querySelectorAll('[data-o]').forEach(v=>v.disabled=true);result(norm(d.o)===norm(R.q[R.i].q.ans))}
+  else if(d.o!==undefined){document.querySelectorAll('[data-o]').forEach(v=>{v.disabled=true;if(norm(v.dataset.o)===norm(R.q[R.i].q.ans))v.classList.add('border-emerald-500','bg-emerald-50','dark:bg-emerald-950');else if(v===b)v.classList.add('border-rose-500','bg-rose-50','dark:bg-rose-950')});result(norm(d.o)===norm(R.q[R.i].q.ans))}
   else if(d.chk){const v=norm(document.getElementById('ans').value);if(v)result(v===norm(R.q[R.i].q.ans))}
   else if(d.next)adv()});
+/* 鍵盤快捷鍵（測驗進行中）：閃卡 空白鍵翻面、1／2／3 忘了／模糊／記得；克漏字 1–4 選答案；聽寫 Enter 檢查／下一題；Enter 或空白鍵＝下一題 */
+document.addEventListener('keydown',e=>{if(tab!=='quiz'||!R||R.i>=R.q.length||e.ctrlKey||e.metaKey||e.altKey)return;
+  const t=e.target,typing=t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName),click=q=>{const el=document.querySelector(q);if(el&&!el.disabled){e.preventDefault();el.click();return true}return false};
+  if(typing){if(e.key==='Enter'&&t.tagName==='INPUT'){if(!click('[data-next]'))click('[data-chk]')}return}
+  if(mode==='flash'){if(e.key===' '||e.key==='Enter'){if(!click('[data-show]'))click('[data-next]')}else if(/^[1-3]$/.test(e.key))click('[data-r="'+(+e.key-1)+'"]')}
+  else if(mode==='cloze'){if(/^[1-4]$/.test(e.key)){const o=document.querySelectorAll('[data-o]')[+e.key-1];if(o&&!o.disabled){e.preventDefault();o.click()}}else if(e.key==='Enter'||e.key===' ')click('[data-next]')}
+  else if(e.key==='Enter'||e.key===' ')click('[data-next]')});
 boot();
 </script>
 </body>
