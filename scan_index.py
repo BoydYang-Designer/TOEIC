@@ -11,6 +11,7 @@
   python scan_index.py --rel              只看「腳本 ↔ 資料檔」關聯表（所有根目錄的 .py）
   python scan_index.py --list             列出所有範圍名稱
   python scan_index.py --maint            維護總檢查：列出每篇文章缺什麼（mp3／timing），並告訴你下一步做什麼（直接印在畫面上）
+  python scan_index.py --quiz             單字練習出題資料盤點：詳解各欄位（forms／derived／family／collocations／confusable／similar／senses／paraphrase…）有多少字有資料、各種新題型能出幾題、欄位實際長相 → scan_output/quiz_*.md
   python scan_index.py --audio            單字練習音檔檢查：practice.html 會找的 mp3（例句 vocab/、單字 words/）有沒有、index.json 有沒有登記、缺哪些 → scan_output/audio_*.md
   python scan_index.py --diag w2d8-1      單篇診斷：mp3 長度、timing 涵蓋範圍、漏掉的句子、原因與處理方式 → scan_output/diag_*.md（可多篇：--diag w2d8-1,w1d3）
 
@@ -558,13 +559,122 @@ def do_audio():
     print('\n已存：scan_output/%s（把這份貼給我）' % name)
 
 
+# ===== 單字練習出題資料盤點（--quiz）：看詳解（extra_vocab）各欄位有多少資料，能支援哪些測驗題型 =====
+def _qarr(a):
+    return a if isinstance(a, list) else ([a] if a else [])
+
+
+def _qobjs(a):
+    return [o for o in _qarr(a) if isinstance(o, dict)]
+
+
+def _qex(o):   # 項目裡的例句英文（example 可能是 dict{en,zh} 或字串）
+    ex = o.get('example') if isinstance(o, dict) else None
+    return (ex.get('en') if isinstance(ex, dict) else ex if isinstance(ex, str) else '') or ''
+
+
+def do_quiz():
+    from collections import Counter
+    items = _daily_items()
+    if not items:
+        return
+    seen, pool = set(), []
+    for it in items:   # 與 practice.html 題庫相同的篩選與去重
+        for e in (it.get('extra_vocab') or []):
+            if not isinstance(e, dict):
+                continue
+            k = _pnorm(e.get('text'))
+            if not k or k in seen:
+                continue
+            if not e.get('zh') or not (e.get('type') in ('word', 'phrase') or not e.get('type')):
+                continue
+            seen.add(k)
+            pool.append(e)
+    kind = lambda e: 'phrase' if (e.get('type') == 'phrase' or (not e.get('type') and ' ' in str(e.get('text')).strip())) else 'word'
+    groups = {'word': [e for e in pool if kind(e) == 'word'], 'phrase': [e for e in pool if kind(e) == 'phrase']}
+
+    def ex_list(e):
+        return [(z if isinstance(z, str) else (z or {}).get('en')) for z in _qarr(e.get('examples')) if (z if isinstance(z, str) else (z or {}).get('en'))]
+
+    def metrics(e):
+        m = {}
+        m['examples≥1'] = len(ex_list(e)) >= 1
+        m['examples≥2'] = len(ex_list(e)) >= 2
+        fo, de, fa = _qobjs(e.get('forms')), _qobjs(e.get('derived')), _qobjs(e.get('family'))
+        m['forms'] = any(o.get('w') for o in fo)
+        m['forms 有例句'] = any(o.get('w') and _qex(o) for o in fo)
+        m['derived'] = any(o.get('w') for o in de)
+        m['family'] = any(o.get('w') for o in fa)
+        m['family 有例句'] = any(o.get('w') and _qex(o) for o in fa)
+        fam = {_pnorm(e.get('text')), _pnorm(e.get('lemma'))} | {_pnorm(o.get('w')) for o in fo + de + fa if o.get('w')}
+        fam.discard('')
+        m['字族≥3 個不同字（詞性變化題）'] = len(fam) >= 3 and kind(e) == 'word'
+        co = _qarr(e.get('collocations'))
+        cph = [c if isinstance(c, str) else (c.get('phrase') or c.get('p') or '') for c in co if isinstance(c, (str, dict))]
+        m['collocations'] = any(cph)
+        m['collocations 有例句'] = any(isinstance(c, dict) and _qex(c) for c in co)
+        m['搭配≥2 個（搭配題）'] = len([p for p in cph if p]) >= 2
+        for nm, fld in (('confusable', 'confusable'), ('similar', 'similar')):
+            ob = _qobjs(e.get(fld))
+            m[nm] = bool(ob)
+            m[nm + ' 有例句'] = any(_qex(o) for o in ob)
+            m[nm + ' 有 diff'] = any(o.get('diff') for o in ob)
+        m['易混淆／近義 例句＋diff（辨析題）'] = any(_qex(o) and o.get('diff') for o in _qobjs(e.get('confusable')) + _qobjs(e.get('similar')))
+        pu, se = _qobjs(e.get('pos_uses')), _qobjs(e.get('senses'))
+        m['pos_uses≥2'] = len(pu) >= 2
+        m['senses≥2'] = len(se) >= 2
+        m['多詞性／多義 有例句（多義題）'] = (len(pu) >= 2 and sum(1 for o in pu if _qex(o)) >= 2) or (len(se) >= 2 and sum(1 for o in se if _qex(o)) >= 2)
+        m['paraphrase 有 en'] = any((o.get('en') if isinstance(o, dict) else o) for o in _qarr(e.get('paraphrase')))
+        m['note（說明）'] = bool(e.get('note'))
+        m['grammar_note'] = bool(e.get('grammar_note'))
+        m['key_words'] = bool(_qarr(e.get('key_words')))
+        m['lemma（原形）'] = bool(e.get('lemma'))
+        m['ipa'] = bool(e.get('ipa'))
+        m['en（英文定義）'] = bool(e.get('en'))
+        m['pattern（句型）'] = bool(e.get('pattern'))
+        return m
+    ms = {g: [metrics(e) for e in lst] for g, lst in groups.items()}
+    names = list(ms['word'][0].keys()) if ms['word'] else (list(ms['phrase'][0].keys()) if ms['phrase'] else [])
+    rows = ['%-34s %12s %12s' % ('欄位／條件', '單字(%d)' % len(groups['word']), '片語(%d)' % len(groups['phrase']))]
+    for n in names:
+        cells = []
+        for g in ('word', 'phrase'):
+            tot = len(ms[g]); c = sum(1 for m in ms[g] if m[n])
+            cells.append('%d (%d%%)' % (c, round(100.0 * c / tot)) if tot else '-')
+        rows.append('%-34s %12s %12s' % (n, cells[0], cells[1]))
+    # 欄位實際長相：每個欄位找第一筆有資料的，印出結構（讓 AI 知道怎麼寫題）
+    keys = Counter(k for e in pool for k in e)
+    shapes = []
+    for fld in ('forms', 'derived', 'family', 'collocations', 'confusable', 'similar', 'pos_uses', 'senses', 'paraphrase', 'key_words', 'examples'):
+        sub = Counter()
+        sample = None
+        for e in pool:
+            for o in _qarr(e.get(fld)):
+                sub[('str' if isinstance(o, str) else 'dict:' + ','.join(sorted(o.keys())) if isinstance(o, dict) else type(o).__name__)] += 1
+                if sample is None and o:
+                    sample = o
+        if sub:
+            shapes.append('%s：%s\n    例：%s' % (fld, '；'.join('%s ×%d' % (k, v) for k, v in sub.most_common(4)), json.dumps(sample, ensure_ascii=False)[:420]))
+    rich = max(pool, key=lambda e: len(json.dumps(e, ensure_ascii=False))) if pool else {}
+    parts = ['# 單字練習出題資料盤點', '產生時間：%s' % time.strftime('%Y-%m-%d %H:%M:%S'), '題庫（與 practice.html 相同規則）：%d 筆（單字 %d、片語 %d）' % (len(pool), len(groups['word']), len(groups['phrase'])), '',
+             '## 各欄位有資料的數量', fence('', '\n'.join(rows)), '', '## 詳解頂層欄位出現次數', fence('', '\n'.join('%-18s %d' % (k, v) for k, v in keys.most_common())), '',
+             '## 各欄位項目的實際結構與範例', fence('', '\n'.join(shapes)), '', '## 資料最完整的一筆（截斷）', fence('json', json.dumps(rich, ensure_ascii=False, indent=1)[:3500])]
+    od = os.path.join(ROOT, 'scan_output')
+    os.makedirs(od, exist_ok=True)
+    name = 'quiz_%s.md' % time.strftime('%Y%m%d_%H%M%S')
+    with open(os.path.join(od, name), 'w', encoding='utf-8') as f:
+        f.write('\n'.join(parts) + '\n')
+    print('單字練習出題資料盤點：題庫 %d 筆\n' % len(pool) + '\n'.join(rows))
+    print('\n已存：scan_output/%s（把這份貼給我）' % name)
+
+
 def menu():
     names = list(MODULES)
     print('專案：%s\n\n要掃哪些範圍？' % ROOT)
     for i, n in enumerate(names, 1):
         print('  %2d. %-8s %s' % (i, n, MODULES[n]['title']))
     print('   m. 維護診斷：列出每篇文章缺什麼、該做什麼（不產生 AI 用的程式碼文件）')
-    s = input('\n輸入編號或名稱（可多個，用空白分開；a＝全部；m＝維護診斷；或直接貼 --audio／--diag／--grep／--file 指令）：').strip()
+    s = input('\n輸入編號或名稱（可多個，用空白分開；a＝全部；m＝維護診斷；或直接貼 --quiz／--audio／--diag／--grep／--file 指令）：').strip()
     if s.lower() == 'm':
         return None
     if s.startswith('--') or s.lower().startswith('python'):   # 把指令貼在這裡也可以（例如 --diag w2d8-1、--grep "d8"）
@@ -607,6 +717,8 @@ def main():
             do_maint(); return
         elif t == '--audio':
             do_audio(); return
+        elif t == '--quiz':
+            do_quiz(); return
         elif t == '--diag' and i + 1 < len(a):
             ids = [v for v in re.split(r'[,\s]+', a[i + 1]) if v]
             j = i + 2
