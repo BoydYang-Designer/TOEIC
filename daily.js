@@ -2148,7 +2148,9 @@ async function boot() {
   } catch (e) { return bootFail(e); }
   try {
     try { sigSync(); mkRelink(); } catch (e) { console.error(e); }
-    cur.view = 'launch'; render(); try { if (typeof nwMigrate === 'function') nwMigrate(); } catch (e) { console.error(e); }
+    if (/^#(tsl|maint|learn|nw|vocab=)/.test(location.hash)) cur.view = 'launch'; // 帶有指定去處的連結：維持原本流程
+    else { const l = S.last && find(S.last.w, S.last.d) ? S.last : { w: cur.w, d: cur.d }; SEC = 'learn'; cur = { w: l.w, d: l.d, nw: l.w, view: 'home', showTranscript: false }; } // 預設：直接進「▦ 總表（進度）」
+    render(); try { if (typeof nwMigrate === 'function') nwMigrate(); } catch (e) { console.error(e); }
     if (location.hash === '#tsl') { enterSec('maint'); setTimeout(() => { const e = document.getElementById('tsl-sec'); if (e) e.scrollIntoView({ block: 'start' }); }, 50); } else if (location.hash === '#maint') enterSec('maint'); else if (location.hash === '#learn') enterSec('learn'); else if (location.hash === '#nw') dnFromLaunch('nw');
     else if (/^#vocab=/.test(location.hash)) openVocabByHash();
   } catch (e) { console.error(e); main.innerHTML = `<div class="${card} p-8 text-center text-sm text-rose-600">畫面渲染失敗：${esc(e.message)}（請按 F12 看 Console）</div>`; }
