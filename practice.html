@@ -16,6 +16,14 @@
   <a href="index.html" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline">← 回首頁</a>
   <h1 class="text-2xl font-bold mt-1">🧠 單字練習</h1>
   <p id="sum" class="text-sm text-slate-500 dark:text-slate-400 mt-1">載入中…</p>
+  <div id="sbox" class="my-3">
+    <div class="relative">
+      <input id="wsq" type="search" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="🔍 搜尋單字（英文或中文），例如 accommodate、預訂"
+        class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 pr-9 text-sm">
+      <button data-sclr="1" id="wsclr" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 px-1" title="清除">✕</button>
+    </div>
+    <div id="wsr" class="mt-2 space-y-1.5 text-sm"></div>
+  </div>
   <div id="ftab" class="flex rounded-lg border border-slate-300 dark:border-slate-700 overflow-hidden text-sm my-3"></div>
   <div id="fsrc" class="flex flex-wrap gap-1.5 mb-3 text-sm"></div>
   <div id="view"></div>
@@ -88,7 +96,7 @@ const SORT={az:['字母',(a,b)=>a.k.localeCompare(b.k)],sp_hi:['語音總分 高
 const acc=x=>{const p=P[x.k];return p&&p.n?p.c/p.n:2};
 const okFor=x=>mode==='flash'||(mode==='say'?x.ex.length>0:x.cl.length>0);
 let fdir='zh';try{fdir=localStorage.getItem('practiceFdirV1')==='en'?'en':'zh'}catch(e){}
-let POOL=[],tab='table',src='all',art='all',mode='flash',ord='combo',cnt=10,st='all',sort='az',R=null,shown=false,done=false;
+let ALLIT=[],POOL=[],tab='table',src='all',art='all',mode='flash',ord='combo',cnt=10,st='all',sort='az',R=null,shown=false,done=false;
 const match=x=>(art==='all'||x.froms.has(art))&&(src==='all'||(src==='tsl'&&x.tsl)||(src==='bank'&&!x.tsl)||(src==='nw'&&x.nw));
 const speak=t=>{try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;speechSynthesis.speak(u)}catch(e){}};
 const rec=(k,ok,g)=>{const p=P[k]||(P[k]={b:0,due:0,n:0,c:0});p.n++;if(ok)p.c++;p.last=Date.now();
@@ -97,14 +105,14 @@ function cloze(x){const fm=[x.w,...x.forms].sort((a,b)=>b.length-a.length),out=[
   x.ex.forEach(e=>{for(const f of fm){const m=new RegExp('\\b'+f.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','i').exec(e.en||'');if(m){out.push({en:e.en,zh:e.zh,ans:m[0],i:m.index,suf:e.suf});break}}});return out}
 /* 記住畫面狀態：點進詳解後按上一頁，回到剛剛的分頁、篩選、排序、捲動位置（測驗進行中也會接著做）。存在 sessionStorage，只在這個分頁有效 */
 const UK='practiceUiV1';let UI=null,uiOn=false;
-function uiSave(){if(!uiOn)return;try{sessionStorage.setItem(UK,JSON.stringify({tab,src,art,mode,ord,cnt,st,sort,y:Math.round(window.scrollY),R:R?{q:R.q.map(x=>x.k),i:R.i,ok:R.ok,bad:R.bad.map(x=>x.k)}:null}))}catch(e){}}
+function uiSave(){if(!uiOn)return;try{sessionStorage.setItem(UK,JSON.stringify({tab,src,art,mode,ord,cnt,st,sort,q:(document.getElementById('wsq')||{}).value||'',y:Math.round(window.scrollY),R:R?{q:R.q.map(x=>x.k),i:R.i,ok:R.ok,bad:R.bad.map(x=>x.k)}:null}))}catch(e){}}
 function uiLoad(){try{UI=JSON.parse(sessionStorage.getItem(UK)||'null')}catch(e){UI=null}if(!UI)return;
   if(['table','quiz'].includes(UI.tab))tab=UI.tab;if(SRC.some(v=>v[0]===UI.src))src=UI.src;if(UI.art)art=UI.art;if(MODES.some(v=>v[0]===UI.mode))mode=UI.mode;
   if(ORD[UI.ord])ord=UI.ord;if(UI.cnt!=null)cnt=+UI.cnt;if(STF[UI.st])st=UI.st;if(SORT[UI.sort])sort=UI.sort;
   if(UI.R&&Array.isArray(UI.R.q)){const m=new Map(POOL.map(x=>[x.k,x])),q=UI.R.q.map(k=>m.get(k)).filter(Boolean);
     if(q.length===UI.R.q.length){R={q,i:Math.min(+UI.R.i||0,q.length),ok:+UI.R.ok||0,bad:(UI.R.bad||[]).map(k=>m.get(k)).filter(Boolean)};shown=false;done=false}}}
 let uiT=0;window.addEventListener('scroll',()=>{clearTimeout(uiT);uiT=setTimeout(uiSave,150)},{passive:true});
-window.addEventListener('pagehide',uiSave);document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('a'))uiSave()},true);
+window.addEventListener('pagehide',uiSave);document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a');if(a){uiSave();if(/^daily\.html#vocab=/.test(a.getAttribute('href')||''))try{sessionStorage.setItem('vocabFromV1','practice.html')}catch(err){}}},true);
 function updDbg(){const n=Object.keys(S.pron||{}).length,hit=POOL.filter(x=>x.sp.done).length;
   document.getElementById('dbg').textContent=n?`語音紀錄：讀到 ${n} 筆（toeicCoachV2 的 pron），其中 ${hit} 個題庫單字有練習紀錄。文章原句是依入庫標註或文稿推算，少數字的項目數可能與單字卡差一項。`:'語音紀錄：沒有讀到。請確認是在同一個瀏覽器、同一個網址開啟，而且已用單字卡的 🎤 練習過。'}
 function refresh(){loadS();try{P=JSON.parse(localStorage.getItem(PK)||'{}')}catch(e){}const y=window.scrollY;POOL.forEach(x=>{x.items=itemKeys(x.e,x.it);x.sp=spOf(x)});updDbg();if(!(tab==='quiz'&&R&&R.i<R.q.length)){paint();scrollTo(0,y)}}
@@ -113,13 +121,13 @@ window.addEventListener('pageshow',e=>{if(e.persisted&&POOL.length)refresh()});
 window.addEventListener('storage',e=>{if((e.key===KEY||e.key===PK)&&POOL.length)refresh()});
 async function boot(){let j=null;try{j=await(await fetch('daily.json',{cache:'no-store'})).json()}catch(e){}
   if(!j){document.getElementById('sum').textContent='讀不到 daily.json，請從網站網址開啟（不要直接雙擊檔案）。';return}
-  VM=new Map();(j.items||j).forEach(it=>(it.vocab||[]).forEach(v=>{const k=v&&dnKey(v.word);if(k&&!VM.has(k))VM.set(k,{it,v})}));
+  ALLIT=(j.items||j).filter(it=>!it.library);VM=new Map();(j.items||j).forEach(it=>(it.vocab||[]).forEach(v=>{const k=v&&dnKey(v.word);if(k&&!VM.has(k))VM.set(k,{it,v})}));
   const seen=new Map();(j.items||j).forEach(it=>(it.extra_vocab||[]).forEach(e=>{const k=norm(e.text);if(!k)return;if(seen.has(k)){seen.get(k).froms.add('W'+it.week+'D'+it.day);return}if(!e.zh||!(e.type==='word'||e.type==='phrase'||!e.type))return;
     const forms=(e.forms||[]).map(f=>f.w).filter(Boolean);
     const x={k,w:e.text,zh:e.zh,en:e.en||'',ipa:e.ipa||'',pos:e.pos||'',ex:(e.examples||[]).map((z,i)=>Object.assign({},typeof z==='string'?{en:z}:z,{suf:'_e'+(i+1)})).filter(z=>z.en),forms,wrong:[...(e.confusable||[]).map(c=>c.word),...(e.similar||[]).map(c=>c.phrase)].filter(Boolean),
       tsl:TS.has(k)||forms.some(f=>TS.has(norm(f))),nw:!!(e.nw_done&&e.nw_done.length)||NW.has(k)||forms.some(f=>NW.has(norm(f))),from:'W'+it.week+'D'+it.day};
     x.e=e;x.it=it;x.items=itemKeys(e,it);x.cl=cloze(x);x.sp=spOf(x);x.froms=new Set([x.from]);seen.set(k,x);POOL.push(x)}));
-  updDbg();uiLoad();paint();if(UI&&UI.y)requestAnimationFrame(()=>{scrollTo(0,UI.y);uiOn=true});else uiOn=true}
+  updDbg();uiLoad();paint();if(UI&&UI.q){const wi=document.getElementById('wsq');if(wi&&!(tab==='quiz'&&R&&R.i<R.q.length)){wi.value=UI.q;wsSearch()}}if(UI&&UI.y)requestAnimationFrame(()=>{scrollTo(0,UI.y);uiOn=true});else uiOn=true}
 const seg=(arr,on,k)=>arr.map(([v,t])=>`<button data-${k}="${v}" class="px-3 py-1.5 ${on===v?'bg-indigo-600 text-white':'hover:bg-slate-100 dark:hover:bg-slate-800'}">${t}</button>`).join('');
 const sel=(id,o,on)=>`<select id="${id}" class="rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5">${o.map(([v,t])=>`<option value="${v}"${String(on)===String(v)?' selected':''}>${t}</option>`).join('')}</select>`;
 const bd='rounded-lg border border-slate-300 dark:border-slate-700';
@@ -129,6 +137,7 @@ function paint(){
   document.getElementById('ftab').innerHTML=seg([['table','📋 練習狀態總表'],['quiz','📝 測驗']],tab,'t').replace(/px-3 py-1.5/g,'flex-1 py-2');
   document.getElementById('fsrc').innerHTML=SRC.map(([v,t])=>`<button data-s="${v}" class="${bd} px-3 py-1.5 ${src===v?'bg-indigo-600 border-indigo-600 text-white':'hover:bg-slate-100 dark:hover:bg-slate-800'}">${t} ${cnts[v]}</button>`).join('')+sel('fart',[['all','全部文章'],...[...new Set(POOL.flatMap(x=>[...x.froms]))].sort((a,b)=>{const f=s=>s.match(/\d+/g).map(Number);return f(a)[0]-f(b)[0]||f(a)[1]-f(b)[1]}).map(v=>[v,v+' 這一篇'])],art);
   document.getElementById('view').innerHTML=tab==='table'?table(L):quiz(L);
+  {const sb=document.getElementById('sbox');if(sb)sb.style.display=(tab==='quiz'&&R&&R.i<R.q.length)?'none':''}
   if(tab==='quiz'&&R&&R.i<R.q.length)card();uiSave()}
 function table(L){
   const rows=L.filter(STF[st][1]).sort(SORT[sort][1]),row=x=>{const p=P[x.k]||{},s=x.sp;
@@ -220,6 +229,9 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
   else if(d.say)speak(d.say)
   else if(d.o!==undefined){document.querySelectorAll('[data-o]').forEach(v=>{v.disabled=true;if(norm(v.dataset.o)===norm(R.q[R.i].q.ans))v.classList.add('border-emerald-500','bg-emerald-50','dark:bg-emerald-950');else if(v===b)v.classList.add('border-rose-500','bg-rose-50','dark:bg-rose-950')});result(norm(d.o)===norm(R.q[R.i].q.ans))}
   else if(d.chk){const v=norm(document.getElementById('ans').value);if(v)result(v===norm(R.q[R.i].q.ans))}
+  else if(d.sclr){const i=document.getElementById('wsq');i.value='';wsSearch();i.focus()}
+  else if(d.sjump!==undefined){const i=document.getElementById('wsq');i.value=d.sjump;wsSearch()}
+  else if(d.ssave!==undefined)wsSave(d.ssave)
   else if(d.next)adv()});
 /* 鍵盤快捷鍵（測驗進行中）：閃卡 空白鍵翻面、1／2／3 忘了／模糊／記得；克漏字 1–4 選答案；聽寫 Enter 檢查／下一題；Enter 或空白鍵＝下一題 */
 document.addEventListener('keydown',e=>{if(tab!=='quiz'||!R||R.i>=R.q.length||e.ctrlKey||e.metaKey||e.altKey)return;
@@ -228,6 +240,56 @@ document.addEventListener('keydown',e=>{if(tab!=='quiz'||!R||R.i>=R.q.length||e.
   if(mode==='flash'){if(e.key===' '||e.key==='Enter'){if(!click('[data-show]'))click('[data-next]')}else if(/^[1-3]$/.test(e.key))click('[data-r="'+(+e.key-1)+'"]')}
   else if(mode==='cloze'){if(/^[1-4]$/.test(e.key)){const o=document.querySelectorAll('[data-o]')[+e.key-1];if(o&&!o.disabled){e.preventDefault();o.click()}}else if(e.key==='Enter'||e.key===' ')click('[data-next]')}
   else if(e.key==='Enter'||e.key===' ')click('[data-next]')});
+
+/* ===== 單字搜尋：查題庫（英文單字／變化形／中文），查無且沒拼錯 → 問要不要存入「新單字」（toeicNewWordsV1，與 daily 的新單字頁同一份資料） ===== */
+const NWK='toeicNewWordsV1';
+const nwNormText=t=>{t=String(t||'').trim().replace(/\s+/g,' ');return /^[A-Z][a-z'’-]+$/.test(t)?t.toLowerCase():t};
+const lev=(a,b,max)=>{if(Math.abs(a.length-b.length)>max)return max+1;let p=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i<=a.length;i++){const c=[i];let mn=i;for(let j=1;j<=b.length;j++){const v=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));c[j]=v;if(v<mn)mn=v}if(mn>max)return max+1;p=c}return p[b.length]};
+let wsTok=0,wsT=0;
+function wsLocalSim(q){const max=q.length<=3?0:q.length<=6?1:2;if(!max)return[];const seen=new Set(),out=[];
+  const add=w=>{const n=norm(w);if(!n||seen.has(n)||n===q||/\s/.test(n))return;seen.add(n);const d=lev(q,n,max);if(d<=max)out.push([d,w])};
+  POOL.forEach(x=>{add(x.w);x.forms.forEach(add)});TS.forEach(add);NW.forEach(add);
+  return out.sort((a,b)=>a[0]-b[0]||a[1].length-b[1].length).slice(0,4).map(o=>o[1])}
+async function wsSpell(q){ // → {ok:true|false|null, sug:[]}；ok:null＝沒辦法確認（離線）
+  const local=wsLocalSim(q);if(!/^[a-z][a-z'-]*$/.test(q))return{ok:null,sug:local};
+  let on=null;try{const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),3500);
+    const r=await fetch('https://api.datamuse.com/words?sp='+encodeURIComponent(q)+'&max=6',{signal:ac.signal});clearTimeout(tm);on=await r.json()}catch(e){}
+  if(Array.isArray(on)){if(on.some(o=>String(o.word).toLowerCase()===q))return{ok:true,sug:[]};
+    const sug=[...new Set([...local,...on.map(o=>o.word).filter(w=>!/\s/.test(w))])].slice(0,5);return{ok:false,sug}}
+  return local.length?{ok:false,sug:local}:{ok:null,sug:[]}}
+function wsFind(q){const zh=/[\u4e00-\u9fff]/.test(q),sg=dnKey(q),sc=x=>{const w=x.k;if(w===q||dnKey(w)===sg)return 0;if(x.forms.some(f=>norm(f)===q||dnKey(f)===sg))return 1;if(!zh&&w.startsWith(q))return 2;if(!zh&&x.forms.some(f=>norm(f).startsWith(q)))return 3;
+    if(zh)return String(x.zh).includes(q)?4:99;return w.includes(q)?5:(String(x.zh).toLowerCase().includes(q)?6:99)};
+  return POOL.map(x=>({x,s:sc(x)})).filter(o=>o.s<99).sort((a,b)=>a.s-b.s||a.x.k.localeCompare(b.x.k))}
+const wsRow=x=>{const p=P[x.k]||{},s=x.sp;return `<div class="flex items-center gap-2 ${bd} bg-white dark:bg-slate-900 px-3 py-2 hover:border-indigo-400"><a href="daily.html#vocab=${encodeURIComponent(x.k)}" class="flex-1 min-w-0 flex flex-wrap items-center gap-x-3 gap-y-0.5"><b>${esc(x.w)}</b><span class="text-slate-400 truncate">${esc(x.zh)}</span><span class="text-[0.7rem] text-slate-400">${x.tsl?'TSL':'入庫'}${x.nw?'·新':''}・${esc(x.from)}</span><span class="ml-auto text-xs ${s.done?'text-emerald-600 dark:text-emerald-400':'text-amber-600 dark:text-amber-400'}">語音 ${s.done?s.pct+'%':'未練'}</span><span class="text-xs ${p.n?(p.c/p.n<.6?'text-rose-500':'text-slate-500'):'text-slate-400'}">測驗 ${p.n?p.n+' 次・'+Math.round(p.c/p.n*100)+'%':'未考'}</span></a><button data-sw="${esc(x.w)}" class="text-base" title="發音">🔊</button></div>`};
+function wsSearch(){clearTimeout(wsT);const inp=document.getElementById('wsq'),box=document.getElementById('wsr'),clr=document.getElementById('wsclr');if(!inp||!box)return;
+  const raw=inp.value.trim(),q=norm(raw).replace(/\s+/g,' ');clr.classList.toggle('hidden',!raw);const my=++wsTok;
+  if(!q){box.innerHTML='';return}
+  const hits=wsFind(q),zh=/[\u4e00-\u9fff]/.test(q);
+  if(hits.length){box.innerHTML=`<p class="text-xs text-slate-400">找到 ${hits.length} 個${hits.length>12?'（只列前 12 個）':''}</p>`+hits.slice(0,12).map(o=>wsRow(o.x)).join('');
+    if(!(zh||hits[0].s===0))wsMissCheck(q,raw,my,true);return}
+  if(zh||!/[a-z]/.test(q)){box.innerHTML=`<p class="${bd} bg-white dark:bg-slate-900 px-3 py-2 text-slate-500">題庫裡沒有符合「${esc(raw)}」的字。${zh?'（中文只能搜尋題庫已有的字；要新增請輸入英文單字）':''}</p>`;return}
+  wsMissCheck(q,raw,my,false)}
+async function wsMissCheck(q,raw,my,hasHits){const box=document.getElementById('wsr');
+  const inNW=NW.has(q)||NW.has(dnKey(q)),inTS=TS.has(q)||TS.has(dnKey(q)),w=nwNormText(raw);
+  if(hasHits){ // 有部分符合，但輸入的字本身不在題庫：附一行「存入新單字」的選項（等拼字檢查完才顯示）
+    if(inNW)return;const r=await wsSpell(q);if(my!==wsTok)return;if(r.ok===false)return;
+    box.insertAdjacentHTML('beforeend',`<div class="${bd} border-dashed px-3 py-2 text-slate-500">題庫沒有完全相同的「${esc(w)}」。<button data-ssave="${esc(w)}" class="ml-1 underline text-indigo-600 dark:text-indigo-400">存入新單字</button></div>`);return}
+  if(inNW){box.innerHTML=`<p class="${bd} bg-white dark:bg-slate-900 px-3 py-2">「${esc(w)}」已經在新單字清單裡，還在等詳解。</p>`;return}
+  box.innerHTML=`<p class="${bd} bg-white dark:bg-slate-900 px-3 py-2 text-slate-500">題庫查無「${esc(raw)}」，檢查拼字中…</p>`;
+  if(/\s/.test(q)){box.innerHTML=wsAsk(w,'題庫查無這個片語。',inTS);return}
+  const r=await wsSpell(q);if(my!==wsTok)return;
+  if(r.ok===false){box.innerHTML=`<div class="${bd} bg-white dark:bg-slate-900 px-3 py-2"><p>查無「${esc(raw)}」，是不是拼錯了？</p><div class="flex flex-wrap gap-1.5 mt-2">${r.sug.map(v=>`<button data-sjump="${esc(v)}" class="${bd} px-3 py-1 hover:bg-slate-100 dark:hover:bg-slate-800">${esc(v)}</button>`).join('')}</div><p class="mt-2 text-xs text-slate-400">拼法沒錯（例如專有名詞、冷僻字）？<button data-ssave="${esc(w)}" class="underline text-indigo-600 dark:text-indigo-400">仍要存入「${esc(w)}」</button></p></div>`;return}
+  box.innerHTML=wsAsk(w,r.ok===null?'題庫查無此字（目前無法連線檢查拼字，請自行確認拼法）。':'題庫查無此字，拼字沒問題。',inTS)}
+const wsAsk=(w,msg,inTS)=>`<div class="${bd} bg-white dark:bg-slate-900 px-3 py-2"><p>${esc(msg)}${inTS?'（它是 TSL 核心單字，但還沒有詳解）':''}</p><p class="mt-1">要把 <b>${esc(w)}</b> 存入「新單字」嗎？</p><button data-ssave="${esc(w)}" class="mt-2 w-full rounded-lg bg-indigo-600 text-white py-2">存入新單字</button></div>`;
+function wsSave(text){const t=nwNormText(text),box=document.getElementById('wsr');if(!t||!/[A-Za-z]/.test(t)||/[\u4e00-\u9fff]/.test(t)||t.length>80)return;
+  let L=[];try{L=JSON.parse(localStorage.getItem(NWK)||'[]')}catch(e){}if(!Array.isArray(L))L=[];
+  if(L.some(n=>n&&dnKey(n.text||n.word||n.w)===dnKey(t))){box.innerHTML=`<p class="${bd} bg-white dark:bg-slate-900 px-3 py-2">「${esc(t)}」已經在新單字清單裡。</p>`;return}
+  const now=Date.now();L.push({id:'n'+now.toString(36)+Math.random().toString(36).slice(2,6),text:t,type:/\s/.test(t)?'phrase':'word',note:'',created:now,updated:now,t:now,base:ALLIT.map(artId)});
+  try{localStorage.setItem(NWK,JSON.stringify(L))}catch(e){box.innerHTML=`<p class="text-rose-600 px-3 py-2">存檔失敗（瀏覽器儲存空間不足或被封鎖）。</p>`;return}
+  NW.add(norm(t));
+  box.innerHTML=`<p class="${bd} bg-emerald-50 dark:bg-emerald-950 border-emerald-400 px-3 py-2 text-emerald-700 dark:text-emerald-300">✔ 已存入新單字：<b>${esc(t)}</b>。之後到 daily 的「新單字」頁可以加備註，並請 AI 補詳解。</p>`}
+document.getElementById('wsq').addEventListener('input',()=>{clearTimeout(wsT);wsT=setTimeout(()=>{wsSearch();uiSave()},180)});
+document.getElementById('wsq').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();wsSearch()}else if(e.key==='Escape'){e.target.value='';wsSearch()}});
 boot();
 </script>
 </body>

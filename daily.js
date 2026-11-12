@@ -469,7 +469,7 @@ function showLaunch() { SEC = null; cur = Object.assign({}, cur, { view: 'launch
 /* 從 vocab.html（TSL 單字總表）點進來：記住進入的那一天，之後「返回」就回到總表（總表會自動還原篩選與捲動位置） */
 let VBACK = null;
 const vFrom = () => !!VBACK && VBACK.w == cur.w && VBACK.d == cur.d;
-function backToVocab() { VBACK = null; location.href = 'vocab.html'; }
+function backToVocab() { const pg = (VBACK && VBACK.page) || 'vocab.html'; VBACK = null; location.href = pg; } // 從 practice.html（單字練習）進來就回單字練習，其餘回 TSL 總表
 function up() { // 往上一層
   const v = cur.view, m = isMobile();
   if (v === 'launch') return;
@@ -2110,6 +2110,11 @@ function pickJson(input) {
   const r = new FileReader(); r.onload = () => loadFromText(r.result); r.readAsText(f, 'utf-8');
 }
 /* 從 vocab.html 連過來：#vocab=單字 → 開到該單字所在那天，並打開核心單字詳解 */
+function vbPage() { // 來源頁：practice.html 點連結前會在 sessionStorage 留下 vocabFromV1，這裡讀一次就清掉（沒有就是 vocab.html）
+  let f = ''; try { f = sessionStorage.getItem('vocabFromV1') || ''; sessionStorage.removeItem('vocabFromV1'); } catch (e) {}
+  if (!f && /\/practice\.html(\?|#|$)/.test(document.referrer || '')) f = 'practice.html';
+  return f === 'practice.html' ? 'practice.html' : 'vocab.html';
+}
 function openVocabByHash() {
   const m = location.hash.match(/^#vocab=(.+)$/); if (!m) return false;
   const nz = s => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
@@ -2118,7 +2123,7 @@ function openVocabByHash() {
   const near = (a, b) => { if (!a || !b || a === b) return false; const s = a.length <= b.length ? a : b, l = s === a ? b : a; return s.length >= 5 && l.startsWith(s) && l.length - s.length <= 3; };
   const open = (x, i, e) => {
     SEC = 'learn'; cur = { w: x.week, d: x.day, nw: isLib(x) ? 1 : x.week, view: isLib(x) ? 'launch' : 'day', showTranscript: false }; // 字庫沒有內文頁：停在選單，直接疊上詳解頁
-    VBACK = { w: x.week, d: x.day };
+    VBACK = { w: x.week, d: x.day, page: vbPage() };
     render();
     if (i >= 0) dnOpenVocab(i);                       // 核心單字 → 開詳解
     else if (e) dnOpenExtra(idOf(x), e.text || e.word); // 入庫單字（extra_vocab）→ 也開詳解
