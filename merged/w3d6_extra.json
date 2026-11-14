@@ -1,0 +1,499 @@
+{
+  "week": 3,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "result in",
+      "type": "phrase",
+      "zh": "導致、造成",
+      "en": "to cause something to happen",
+      "note": "後面接「結果」，主詞則是原因。合約和通知裡常用它說明違反規定會有什麼後果，語氣客觀、正式。",
+      "pattern": "原因 + result in + 結果（N／V-ing）",
+      "grammar_note": "result in 後面接結果，result from 則接原因，方向剛好相反；in 是介系詞，後面接名詞或 V-ing，不接 to V。",
+      "examples": [
+        { "tag": "合約", "en": "Missing the deadline will result in a penalty fee.", "zh": "錯過期限將導致罰款。" },
+        { "tag": "電子郵件", "en": "Please note that late payment may result in extra charges.", "zh": "請注意，逾期付款可能會產生額外費用。" },
+        { "tag": "會議", "en": "The new schedule resulted in fewer delays last quarter.", "zh": "新的時程讓上一季的延誤變少了。" },
+        { "tag": "採購", "en": "Poor packaging often results in damaged goods during shipping.", "zh": "包裝不良常導致貨物在運送途中受損。" }
+      ],
+      "similar": [
+        {
+          "phrase": "lead to",
+          "diff": "意思很接近，lead to 較口語，也可以接過程中的下一步；result in 強調直接造成的結果。",
+          "example": { "en": "Poor planning can lead to higher costs for the company.", "zh": "規劃不良可能讓公司成本變高。" }
+        },
+        {
+          "word": "cause",
+          "diff": "cause 是及物動詞，後面直接接結果，不需要介系詞 in。",
+          "example": { "en": "Heavy rain can cause long delays in delivery.", "zh": "大雨可能造成配送嚴重延誤。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "result from",
+          "diff": "result from 表示「起因於」，後面接原因；result in 後面接結果。",
+          "example": { "en": "The extra cost results from a late order change.", "zh": "這筆額外費用是因為訂單太晚更改。" }
+        }
+      ]
+    },
+    {
+      "text": "penalize",
+      "type": "word",
+      "ipa": "/ˈpiːnəlaɪz/",
+      "pos": "v.",
+      "zh": "處罰、對…罰款",
+      "en": "to make someone pay or suffer because they broke a rule",
+      "note": "這篇對話在問提早取消合約會不會有 penalty。penalize 是對應的動詞，指對違約的一方罰款或處分。",
+      "grammar_note": "常用 penalize + 人 + for + 行為，被動則用 be penalized for。",
+      "forms": [
+        {
+          "w": "penalizes",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "處罰（第三人稱單數）",
+          "ipa": "/ˈpiːnəlaɪzɪz/",
+          "example": { "en": "The contract penalizes any company that delivers goods after the deadline.", "zh": "合約會處罰任何在期限後交貨的公司。" }
+        },
+        {
+          "w": "penalized",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "處罰（過去式）",
+          "ipa": "/ˈpiːnəlaɪzd/",
+          "example": { "en": "Our team was penalized for submitting the report late.", "zh": "我們的團隊因為太晚交報告而被處罰。" }
+        },
+        {
+          "w": "penalizing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "處罰（現在分詞）",
+          "ipa": "/ˈpiːnəlaɪzɪŋ/",
+          "example": { "en": "Penalizing suppliers for small delays may hurt the business relationship.", "zh": "因小延誤就處罰供應商，可能傷害合作關係。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "penalize someone for",
+          "zh": "因…處罰某人",
+          "example": { "en": "The vendor penalizes customers for paying after the due date.", "zh": "廠商會對超過到期日才付款的客戶罰款。" }
+        },
+        {
+          "phrase": "be penalized for",
+          "zh": "因…被處罰",
+          "example": { "en": "Staff will not be penalized for honest mistakes in reports.", "zh": "員工不會因為報告中的無心之過而被處罰。" }
+        },
+        {
+          "phrase": "penalize late payments",
+          "zh": "對逾期付款罰款",
+          "example": { "en": "Some banks penalize late payments with high interest charges.", "zh": "有些銀行用高額利息處罰逾期付款。" }
+        }
+      ],
+      "examples": [
+        { "tag": "合約", "en": "The agreement penalizes either side that ends the contract early.", "zh": "協議會處罰任何一方提早終止合約。" },
+        { "tag": "會議", "en": "We should not penalize customers who pay only a few days late.", "zh": "我們不該處罰只晚付幾天的客戶。" },
+        { "tag": "電子郵件", "en": "As noted in my email, the policy penalizes late submissions.", "zh": "如我信中所述，該政策會處罰逾期提交。" }
+      ],
+      "confusable": [
+        {
+          "word": "punish",
+          "diff": "punish 是一般的「懲罰」，常針對人和行為；penalize 多指依規則扣款、罰款或處分。",
+          "example": { "en": "The manager chose not to punish him for the honest mistake.", "zh": "經理決定不因這個無心之過懲罰他。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "fine",
+          "pos": "n.",
+          "zh": "罰款",
+          "ipa": "/faɪn/",
+          "example": { "en": "The company paid a fine for breaking safety rules.", "zh": "公司因違反安全規定而繳了罰款。" }
+        },
+        {
+          "w": "fee",
+          "pos": "n.",
+          "zh": "費用",
+          "ipa": "/fiː/",
+          "example": { "en": "A late fee is added if you pay after Friday.", "zh": "如果星期五之後才付款，會加收逾期費。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "penalty",
+          "ipa": "/ˈpenəlti/",
+          "pos": "n.",
+          "zh": "處罰、罰款",
+          "link": "penalize 是「處罰」這個動作，penalty 是它的名詞，指處罰的內容或罰款，像 safety、party 一樣以 -ty／-y 結尾"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "termination penalty",
+      "type": "phrase",
+      "zh": "解約罰款、提前終止合約的違約金",
+      "en": "money you must pay if you end a contract early",
+      "note": "對話裡男士請同事查「提早取消會不會有罰款」，講的就是 termination penalty。維護、租賃、服務合約裡很常見。",
+      "pattern": "a termination penalty + for / of + 金額或條件",
+      "grammar_note": "termination penalty 是名詞加名詞的複合名詞，前面的 termination 不加 s，也不要寫成 terminations penalty。",
+      "examples": [
+        { "tag": "合約", "en": "The contract includes a termination penalty of two months' fees.", "zh": "合約中包含相當於兩個月費用的解約罰款。" },
+        { "tag": "會議", "en": "Is there a termination penalty if we cancel after one year?", "zh": "如果我們滿一年後取消，會有解約罰款嗎？" },
+        { "tag": "電子郵件", "en": "Please confirm whether a termination penalty applies to our current plan.", "zh": "請確認我們目前的方案是否適用解約罰款。" },
+        { "tag": "採購", "en": "We chose the cheaper plan because it has no termination penalty.", "zh": "我們選了較便宜的方案，因為它沒有解約罰款。" }
+      ],
+      "similar": [
+        {
+          "phrase": "early termination fee",
+          "diff": "意思幾乎相同，fee 較常見於電信、租賃等客戶合約；penalty 比較像合約條文的用語。",
+          "example": { "en": "The early termination fee is waived after the first year.", "zh": "滿第一年後，提前解約費用就免收。" }
+        },
+        {
+          "phrase": "cancellation fee",
+          "diff": "取消訂單、預約或服務時收的費用，不一定是整份長期合約。",
+          "example": { "en": "The hotel charges a cancellation fee for changes within two days.", "zh": "兩天內更改行程，飯店會收取取消費。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "expiration",
+          "diff": "expiration 是合約自然到期；termination 是在到期前由某一方提前終止。",
+          "example": { "en": "Our contract reaches expiration in June, so no penalty will apply.", "zh": "我們的合約六月到期，所以不會有罰款。" }
+        }
+      ]
+    },
+    {
+      "text": "due date",
+      "type": "phrase",
+      "zh": "到期日、截止日",
+      "en": "the day when something must be paid or finished",
+      "note": "在「A late penalty of five percent applies after the due date.」中，指付款的最後一天，超過就算逾期。多益常見於帳單、發票和繳交文件。",
+      "pattern": "before / by / after + the due date",
+      "grammar_note": "介系詞要看意思：by the due date 是最晚到那天，on the due date 是剛好當天，after the due date 是過了之後；不要寫 in the due date。",
+      "examples": [
+        { "tag": "帳單", "en": "Please pay the invoice before the due date to avoid fees.", "zh": "請在到期日前付發票款，以免產生費用。" },
+        { "tag": "專案", "en": "The due date for the sales report is next Friday.", "zh": "銷售報告的截止日是下週五。" },
+        { "tag": "會議", "en": "Can we move the due date back by two days?", "zh": "我們可以把截止日往後延兩天嗎？" },
+        { "tag": "電子郵件", "en": "Our records show that the due date has already passed.", "zh": "我們的紀錄顯示到期日已經過了。" },
+        { "tag": "採購", "en": "The supplier agreed to extend the due date by one week.", "zh": "供應商同意把到期日延長一週。" }
+      ],
+      "similar": [
+        {
+          "phrase": "deadline",
+          "diff": "deadline 較常用於工作、申請和專案的最後期限；due date 更常用於帳單、付款和歸還。",
+          "example": { "en": "We must send the proposal before the deadline on Monday.", "zh": "我們必須在星期一的截止時間前寄出提案。" }
+        },
+        {
+          "phrase": "cutoff date",
+          "diff": "cutoff date 是受理的最後一天，過了就不再接受，用於報名、訂單和申請。",
+          "example": { "en": "The cutoff date for registration is the end of this month.", "zh": "報名的截止日是本月底。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "expiration date",
+          "diff": "expiration date 是有效期限（優惠、保固、產品失效的日子），不是要付款或完成工作的日子。",
+          "example": { "en": "The expiration date of the warranty is printed on the card.", "zh": "保固的到期日印在卡片上。" }
+        }
+      ]
+    },
+    {
+      "text": "surcharge",
+      "type": "word",
+      "ipa": "/ˈsɜːrtʃɑːrdʒ/",
+      "pos": "n.",
+      "zh": "額外費用、附加費",
+      "en": "an extra amount of money added to the usual price",
+      "note": "這篇談到 installation fee 可能被免收，surcharge 則是另一種常見的附加費。議價時要問清楚有沒有額外加收。",
+      "grammar_note": "surcharge 是可數名詞；後面常接 on + 商品或服務，或 for + 原因，例如 a surcharge on weekend deliveries。",
+      "forms": [
+        {
+          "w": "surcharges",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "附加費（複數）",
+          "ipa": "/ˈsɜːrtʃɑːrdʒɪz/",
+          "example": { "en": "The invoice lists two surcharges that we did not expect.", "zh": "發票上列了兩項我們沒預期到的附加費。" }
+        },
+        {
+          "w": "surcharges",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "加收費用（第三人稱單數）",
+          "ipa": "/ˈsɜːrtʃɑːrdʒɪz/",
+          "example": { "en": "Our carrier surcharges every package shipped after the deadline.", "zh": "我們的貨運公司對截止後寄出的每個包裹加收費用。" }
+        },
+        {
+          "w": "surcharged",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "加收費用（過去式）",
+          "ipa": "/ˈsɜːrtʃɑːrdʒd/",
+          "example": { "en": "The shipping company surcharged us for the oversized package.", "zh": "貨運公司因為包裹過大而向我們加收費用。" }
+        },
+        {
+          "w": "surcharging",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "加收費用（現在分詞）",
+          "ipa": "/ˈsɜːrtʃɑːrdʒɪŋ/",
+          "example": { "en": "Some airlines are surcharging passengers for checked bags this year.", "zh": "有些航空公司今年開始對託運行李加收費用。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "add a surcharge",
+          "zh": "加收附加費",
+          "example": { "en": "Some restaurants add a surcharge on holiday weekends.", "zh": "有些餐廳在假日週末會加收附加費。" }
+        },
+        {
+          "phrase": "waive the surcharge",
+          "zh": "免收附加費",
+          "example": { "en": "The vendor agreed to waive the surcharge for new customers.", "zh": "廠商同意對新客戶免收附加費。" }
+        },
+        {
+          "phrase": "a surcharge of + 金額",
+          "zh": "…元的附加費",
+          "example": { "en": "There is a surcharge of ten dollars for rush delivery.", "zh": "急件配送要加收十美元的附加費。" }
+        }
+      ],
+      "examples": [
+        { "tag": "帳單", "en": "The surcharge on this invoice was not in our agreement.", "zh": "這張發票上的附加費不在我們的協議中。" },
+        { "tag": "出差", "en": "A surcharge applies to bags over twenty kilograms.", "zh": "超過二十公斤的行李要加收附加費。" },
+        { "tag": "採購", "en": "Ask the supplier whether any surcharge applies to rush orders.", "zh": "請問供應商急單是否有任何附加費。" },
+        { "tag": "會議", "en": "Let's compare the total price, including any surcharge.", "zh": "我們來比較含所有附加費的總價吧。" }
+      ],
+      "confusable": [
+        {
+          "word": "discount",
+          "diff": "surcharge 是在原價之外多加費用；discount 是從原價扣掉一部分，方向相反。",
+          "example": { "en": "The vendor offered a discount instead of adding a surcharge.", "zh": "廠商提供折扣，而不是加收附加費。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "fee",
+          "pos": "n.",
+          "zh": "費用",
+          "ipa": "/fiː/",
+          "example": { "en": "The installation fee is included in the price.", "zh": "安裝費已包含在價格裡。" }
+        },
+        {
+          "w": "charge",
+          "pos": "n.",
+          "zh": "收費",
+          "ipa": "/tʃɑːrdʒ/",
+          "example": { "en": "There is no extra charge for online payment.", "zh": "線上付款不另外收費。" }
+        },
+        {
+          "w": "tax",
+          "pos": "n.",
+          "zh": "稅",
+          "ipa": "/tæks/",
+          "example": { "en": "The total price includes tax and all shipping costs.", "zh": "總價包含稅金和運費。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈsɜːrtʃɑːrdʒ/",
+          "zh": "額外費用、附加費",
+          "in_passage": true,
+          "example": { "en": "A small surcharge is added to all credit card payments.", "zh": "所有信用卡付款都會加收一筆小額附加費。" }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ˈsɜːrtʃɑːrdʒ/",
+          "zh": "加收費用",
+          "example": { "en": "The shop surcharges customers who pay by credit card.", "zh": "這家店對用信用卡付款的客人加收費用。" }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "fuel surcharge",
+      "type": "phrase",
+      "zh": "燃油附加費",
+      "en": "an extra fee added to the price when fuel costs go up",
+      "note": "是附加費的一種，常出現在運輸、航空和物流帳單。談合約時，要確認報價是否已含這筆費用。",
+      "pattern": "A fuel surcharge + be added to + N",
+      "grammar_note": "fuel surcharge 是可數名詞，常用被動 be added to the bill，或用 apply 表示「適用」；fuel 不加 s。",
+      "examples": [
+        { "tag": "帳單", "en": "A fuel surcharge was added to this month's bill.", "zh": "本月帳單加收了一筆燃油附加費。" },
+        { "tag": "運輸", "en": "The shipping company charges a fuel surcharge on all overseas deliveries.", "zh": "這家貨運公司對所有海外配送加收燃油附加費。" },
+        { "tag": "會議", "en": "Does the quoted price include the fuel surcharge?", "zh": "報價有包含燃油附加費嗎？" },
+        { "tag": "電子郵件", "en": "Please note that the fuel surcharge changes every month.", "zh": "請注意，燃油附加費每個月都會調整。" },
+        { "tag": "出差", "en": "The airline raised its fuel surcharge on long flights.", "zh": "航空公司調高了長程航班的燃油附加費。" }
+      ],
+      "similar": [
+        {
+          "phrase": "fuel adjustment charge",
+          "diff": "名稱比較正式，常見於貨運和能源合約，意思幾乎相同。",
+          "example": { "en": "A fuel adjustment charge appears on every freight invoice.", "zh": "每張貨運發票上都有燃油調整費。" }
+        },
+        {
+          "phrase": "extra charge",
+          "diff": "extra charge 泛指任何額外費用，不限燃油。",
+          "example": { "en": "There is no extra charge for standard delivery.", "zh": "標準配送不另外收費。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "fuel cost",
+          "diff": "fuel cost 是燃油成本，是公司自己付的；fuel surcharge 是公司另外向客戶加收的費用。",
+          "example": { "en": "Fuel costs rose, so the carrier added a surcharge.", "zh": "燃油成本上漲，所以貨運公司加收了附加費。" }
+        }
+      ]
+    },
+    {
+      "text": "deposit",
+      "type": "word",
+      "ipa": "/dɪˈpɑːzɪt/",
+      "pos": "n.",
+      "zh": "訂金、押金",
+      "en": "money you pay first to keep something or as a promise",
+      "note": "談合約時常見的先付款項。提早取消時，訂金可能不退，所以要先看條款，這和對話裡擔心的 penalty 有關。",
+      "grammar_note": "訂金用 a deposit on／for + 東西，例如 a deposit on the equipment；把錢存進帳戶則用 deposit + 金額 + into + 帳戶。",
+      "forms": [
+        {
+          "w": "deposits",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "訂金（複數）",
+          "ipa": "/dɪˈpɑːzɪts/",
+          "example": { "en": "The contract lists two deposits, one now and one later.", "zh": "合約列出兩筆訂金，一筆現在付，一筆之後付。" }
+        },
+        {
+          "w": "deposits",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "存入（第三人稱單數）",
+          "ipa": "/dɪˈpɑːzɪts/",
+          "example": { "en": "Our finance team deposits customer checks every Friday morning.", "zh": "我們的財務團隊每週五早上存入客戶的支票。" }
+        },
+        {
+          "w": "deposited",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "存入（過去式）",
+          "ipa": "/dɪˈpɑːzɪtɪd/",
+          "example": { "en": "I deposited the payment into your account this morning.", "zh": "我今天早上已把款項存入您的帳戶。" }
+        },
+        {
+          "w": "depositing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "存入（現在分詞）",
+          "ipa": "/dɪˈpɑːzɪtɪŋ/",
+          "example": { "en": "Depositing the full amount today will secure your booking.", "zh": "今天存入全額就能保住您的預約。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "pay a deposit",
+          "zh": "付訂金",
+          "example": { "en": "Customers must pay a deposit to reserve the meeting room.", "zh": "客戶必須付訂金才能預約會議室。" }
+        },
+        {
+          "phrase": "refundable deposit",
+          "zh": "可退還的押金",
+          "example": { "en": "The deposit is refundable if you cancel within seven days.", "zh": "七天內取消的話，訂金可以退還。" }
+        },
+        {
+          "phrase": "security deposit",
+          "zh": "押金、保證金",
+          "example": { "en": "A security deposit is required before you rent the office.", "zh": "租辦公室之前需要先付押金。" }
+        },
+        {
+          "phrase": "make a deposit",
+          "zh": "存款",
+          "example": { "en": "She made a deposit at the bank before lunch.", "zh": "她午餐前去銀行存了款。" }
+        }
+      ],
+      "examples": [
+        { "tag": "採購", "en": "The supplier asked for a thirty percent deposit before production.", "zh": "供應商要求在生產前先付三成訂金。" },
+        { "tag": "會議", "en": "If we sign for three years, can they reduce the deposit?", "zh": "如果我們簽三年，他們可以降低訂金嗎？" },
+        { "tag": "電子郵件", "en": "We received your deposit and will confirm the order tomorrow.", "zh": "我們已收到您的訂金，明天會確認訂單。" },
+        { "tag": "出差", "en": "The hotel will keep the deposit if you cancel late.", "zh": "如果您太晚取消，飯店會扣留訂金。" }
+      ],
+      "confusable": [
+        {
+          "word": "payment",
+          "diff": "payment 是任何一次付款；deposit 是為了保留或保證而先付的那一筆。",
+          "example": { "en": "The final payment is due after the equipment is installed.", "zh": "尾款在設備安裝完成後到期。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "refund",
+          "pos": "n.",
+          "zh": "退款",
+          "ipa": "/ˈriːfʌnd/",
+          "example": { "en": "We will send a full refund within five business days.", "zh": "我們會在五個工作天內寄出全額退款。" }
+        },
+        {
+          "w": "balance",
+          "pos": "n.",
+          "zh": "餘額、尾款",
+          "ipa": "/ˈbæləns/",
+          "example": { "en": "Please pay the remaining balance by the end of the month.", "zh": "請在月底前付清剩餘的尾款。" }
+        },
+        {
+          "w": "installment",
+          "pos": "n.",
+          "zh": "分期付款",
+          "ipa": "/ɪnˈstɔːlmənt/",
+          "example": { "en": "You can pay the fee in three monthly installments.", "zh": "您可以分三個月分期支付這筆費用。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "depositor",
+          "ipa": "/dɪˈpɑːzɪtər/",
+          "pos": "n.",
+          "zh": "存款人",
+          "link": "deposit + -or，做這個動作的人，像 actor、visitor"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "zh": "訂金、押金；存款",
+          "in_passage": true,
+          "example": { "en": "A small deposit secures your seat at the training seminar.", "zh": "付一小筆訂金就能保住您在培訓講座的座位。" }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "zh": "存入；付訂金",
+          "example": { "en": "Please deposit the cash into the company account by noon.", "zh": "請在中午前把現金存入公司帳戶。" }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "訂金",
+          "en": "money you pay first to hold an order or a booking",
+          "in_passage": true,
+          "example": { "en": "We paid a deposit to hold the conference room.", "zh": "我們付了訂金來保留會議室。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "押金",
+          "en": "money you give first and get back if nothing is damaged",
+          "distinguish": "押金通常會退還，用於租賃或借用設備；訂金則是買東西或預約時先付、之後算進總價。",
+          "example": { "en": "The office rental requires a deposit that we get back later.", "zh": "租辦公室需要付一筆之後會退還的押金。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "存款",
+          "en": "money that you put into a bank account",
+          "distinguish": "和 bank、account 一起出現時是存款；和 reserve、rent、order 一起出現時是訂金或押金。",
+          "example": { "en": "The bank confirmed your deposit of two thousand dollars.", "zh": "銀行確認了您兩千美元的存款。" }
+        }
+      ]
+    }
+  ]
+}

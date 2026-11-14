@@ -1,0 +1,164 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "shift",
+      "type": "word",
+      "ipa": "/ʃɪft/",
+      "pos": "n.",
+      "zh": "輪班、班次；轉變",
+      "en": "a set period of work time, or a change from one thing to another",
+      "note": "多益最常出現在人事與排班情境，指「一班」工作時間，如 day shift、night shift；也常指策略、市場或習慣的轉變，後面用 in 或 to 帶出變化的內容。當動詞時表示「改變、轉移」。",
+      "grammar_note": "shift 當「班次」是可數名詞，要說 a shift、the night shift；表示「在某個班次工作」用 on，如 on the night shift。",
+      "forms": [
+        {
+          "w": "shifts",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "班次、輪班（複數）",
+          "ipa": "/ʃɪfts/",
+          "example": { "en": "Workers can choose between two shifts at the new plant.", "zh": "工人可以在新工廠的兩個班次之間選擇。" }
+        },
+        {
+          "w": "shifts",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "改變、轉移",
+          "ipa": "/ʃɪfts/",
+          "example": { "en": "Our manager shifts the deadline whenever the client changes plans.", "zh": "每當客戶更改計畫，我們的經理就會調整截止日期。" }
+        },
+        {
+          "w": "shifted",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "改變、轉移",
+          "ipa": "/ˈʃɪftɪd/",
+          "example": { "en": "The company shifted its production to a cheaper location last year.", "zh": "公司去年把生產轉移到成本較低的地點。" }
+        },
+        {
+          "w": "shifting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "改變、轉移",
+          "ipa": "/ˈʃɪftɪŋ/",
+          "example": { "en": "We are shifting the sales meeting to a later time.", "zh": "我們正把業務會議改到較晚的時間。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "night shift",
+          "zh": "夜班",
+          "example": { "en": "Employees on the night shift receive extra pay.", "zh": "上夜班的員工會拿到額外薪資。" }
+        },
+        {
+          "phrase": "work a shift",
+          "zh": "上一個班",
+          "example": { "en": "Anna agreed to work a shift for a sick coworker.", "zh": "安娜同意替生病的同事上一個班。" }
+        },
+        {
+          "phrase": "shift change",
+          "zh": "換班、交接班",
+          "example": { "en": "Please report any safety problems during the shift change.", "zh": "請在交接班時回報任何安全問題。" }
+        },
+        {
+          "phrase": "swap shifts",
+          "zh": "換班",
+          "example": { "en": "Staff may swap shifts if the manager approves.", "zh": "經主管同意，員工可以互相換班。" }
+        },
+        {
+          "phrase": "shift focus to",
+          "zh": "把重心轉到…",
+          "example": { "en": "We should shift our focus to online customers.", "zh": "我們應該把重心轉到線上顧客。" }
+        }
+      ],
+      "examples": [
+        { "tag": "排班", "en": "The factory added a third shift to meet holiday orders.", "zh": "工廠增加第三個班次來趕上假期訂單。" },
+        { "tag": "會議", "en": "Today's agenda includes the shift in our marketing strategy.", "zh": "今天的議程包含我們行銷策略的轉變。" },
+        { "tag": "電子郵件", "en": "Could you cover my Friday shift? I have a client visit.", "zh": "你可以代我上星期五的班嗎？我要拜訪客戶。" },
+        { "tag": "人力資源", "en": "Overtime pay is higher for the late shift than the day shift.", "zh": "晚班的加班費比白班高。" },
+        { "tag": "公司調動", "en": "We will shift two team members to the Taipei office in June.", "zh": "我們六月會把兩位組員調到台北辦公室。" }
+      ],
+      "confusable": [
+        {
+          "word": "shirt",
+          "diff": "shirt 是「襯衫」，拼法只差一個字母，發音也不同（/ʃɜːrt/）。",
+          "example": { "en": "All staff must wear a clean shirt on client visit days.", "zh": "客戶來訪日，所有員工都必須穿乾淨的襯衫。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "change",
+          "diff": "change 範圍最廣；shift 強調方向或位置的轉移，也可指班次。",
+          "example": { "en": "The new manager wants to change the way we handle complaints.", "zh": "新經理想改變我們處理客訴的方式。" }
+        },
+        {
+          "word": "rotation",
+          "diff": "rotation 指大家輪流做同一件事的安排；shift 指其中一個工作時段。",
+          "example": { "en": "The weekend rotation gives everyone a fair share of extra work.", "zh": "週末輪值讓每個人公平分擔額外的工作。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "schedule",
+          "pos": "n.",
+          "zh": "時間表、排程",
+          "ipa": "/ˈskedʒuːl/",
+          "example": { "en": "Please check the new work schedule before Monday.", "zh": "請在星期一前確認新的工作時間表。" }
+        },
+        {
+          "w": "overtime",
+          "pos": "n.",
+          "zh": "加班（時間）",
+          "ipa": "/ˈoʊvərtaɪm/",
+          "example": { "en": "Most staff worked overtime to finish the audit report.", "zh": "大多數員工加班趕完稽核報告。" }
+        },
+        {
+          "w": "payroll",
+          "pos": "n.",
+          "zh": "薪資發放名冊、薪資作業",
+          "ipa": "/ˈpeɪroʊl/",
+          "example": { "en": "The payroll department records every employee's working hours.", "zh": "薪資部門會記錄每位員工的工作時數。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ʃɪft/",
+          "zh": "輪班、班次",
+          "example": { "en": "The night shift starts at ten and ends at six.", "zh": "夜班從十點開始，到六點結束。" }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ʃɪft/",
+          "zh": "轉移、改變",
+          "example": { "en": "The firm plans to shift its budget to overseas markets.", "zh": "公司打算把預算轉移到海外市場。" }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "輪班時段",
+          "en": "a fixed period of time when a group of people work",
+          "distinguish": "前後文有 day、night、twelve-hour 或 work 時，通常是指班次。",
+          "example": { "en": "Each shift lasts eight hours, with a break in the middle.", "zh": "每個班次八小時，中間有休息時間。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "轉變、改變",
+          "en": "a change in the way something is done or thought",
+          "distinguish": "後面常接 in、toward 或 to，例如 a shift in demand。",
+          "example": { "en": "A shift in customer habits hurt our store sales.", "zh": "顧客習慣的轉變影響了我們的店面銷售。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "同一班的員工",
+          "en": "the group of workers who work during one shift",
+          "distinguish": "常和 take over、arrive、leave 等動詞一起出現，指的是人而不是時間。",
+          "example": { "en": "The next shift will take over the line at noon.", "zh": "下一班人員會在中午接手生產線。" }
+        }
+      ]
+    }
+  ]
+}

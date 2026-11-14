@@ -92162,6 +92162,244 @@
           "derived": [],
           "pos_uses": [],
           "senses": []
+        },
+        {
+          "text": "shift",
+          "type": "word",
+          "ipa": "/ʃɪft/",
+          "pos": "n.",
+          "zh": "輪班、班次；轉變",
+          "en": "a set period of work time, or a change from one thing to another",
+          "note": "多益最常出現在人事與排班情境，指「一班」工作時間，如 day shift、night shift；也常指策略、市場或習慣的轉變，後面用 in 或 to 帶出變化的內容。當動詞時表示「改變、轉移」。",
+          "grammar_note": "shift 當「班次」是可數名詞，要說 a shift、the night shift；表示「在某個班次工作」用 on，如 on the night shift。",
+          "forms": [
+            {
+              "w": "shifts",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "班次、輪班（複數）",
+              "ipa": "/ʃɪfts/",
+              "example": {
+                "en": "Workers can choose between two shifts at the new plant.",
+                "zh": "工人可以在新工廠的兩個班次之間選擇。"
+              }
+            },
+            {
+              "w": "shifts",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "改變、轉移",
+              "ipa": "/ʃɪfts/",
+              "example": {
+                "en": "Our manager shifts the deadline whenever the client changes plans.",
+                "zh": "每當客戶更改計畫，我們的經理就會調整截止日期。"
+              }
+            },
+            {
+              "w": "shifted",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "改變、轉移",
+              "ipa": "/ˈʃɪftɪd/",
+              "example": {
+                "en": "The company shifted its production to a cheaper location last year.",
+                "zh": "公司去年把生產轉移到成本較低的地點。"
+              }
+            },
+            {
+              "w": "shifting",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "改變、轉移",
+              "ipa": "/ˈʃɪftɪŋ/",
+              "example": {
+                "en": "We are shifting the sales meeting to a later time.",
+                "zh": "我們正把業務會議改到較晚的時間。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "night shift",
+              "zh": "夜班",
+              "example": {
+                "en": "Employees on the night shift receive extra pay.",
+                "zh": "上夜班的員工會拿到額外薪資。"
+              }
+            },
+            {
+              "phrase": "work a shift",
+              "zh": "上一個班",
+              "example": {
+                "en": "Anna agreed to work a shift for a sick coworker.",
+                "zh": "安娜同意替生病的同事上一個班。"
+              }
+            },
+            {
+              "phrase": "shift change",
+              "zh": "換班、交接班",
+              "example": {
+                "en": "Please report any safety problems during the shift change.",
+                "zh": "請在交接班時回報任何安全問題。"
+              }
+            },
+            {
+              "phrase": "swap shifts",
+              "zh": "換班",
+              "example": {
+                "en": "Staff may swap shifts if the manager approves.",
+                "zh": "經主管同意，員工可以互相換班。"
+              }
+            },
+            {
+              "phrase": "shift focus to",
+              "zh": "把重心轉到…",
+              "example": {
+                "en": "We should shift our focus to online customers.",
+                "zh": "我們應該把重心轉到線上顧客。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "排班",
+              "en": "The factory added a third shift to meet holiday orders.",
+              "zh": "工廠增加第三個班次來趕上假期訂單。"
+            },
+            {
+              "tag": "會議",
+              "en": "Today's agenda includes the shift in our marketing strategy.",
+              "zh": "今天的議程包含我們行銷策略的轉變。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Could you cover my Friday shift? I have a client visit.",
+              "zh": "你可以代我上星期五的班嗎？我要拜訪客戶。"
+            },
+            {
+              "tag": "人力資源",
+              "en": "Overtime pay is higher for the late shift than the day shift.",
+              "zh": "晚班的加班費比白班高。"
+            },
+            {
+              "tag": "公司調動",
+              "en": "We will shift two team members to the Taipei office in June.",
+              "zh": "我們六月會把兩位組員調到台北辦公室。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "shirt",
+              "diff": "shirt 是「襯衫」，拼法只差一個字母，發音也不同（/ʃɜːrt/）。",
+              "example": {
+                "en": "All staff must wear a clean shirt on client visit days.",
+                "zh": "客戶來訪日，所有員工都必須穿乾淨的襯衫。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "change",
+              "diff": "change 範圍最廣；shift 強調方向或位置的轉移，也可指班次。",
+              "example": {
+                "en": "The new manager wants to change the way we handle complaints.",
+                "zh": "新經理想改變我們處理客訴的方式。"
+              }
+            },
+            {
+              "word": "rotation",
+              "diff": "rotation 指大家輪流做同一件事的安排；shift 指其中一個工作時段。",
+              "example": {
+                "en": "The weekend rotation gives everyone a fair share of extra work.",
+                "zh": "週末輪值讓每個人公平分擔額外的工作。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "schedule",
+              "pos": "n.",
+              "zh": "時間表、排程",
+              "ipa": "/ˈskedʒuːl/",
+              "example": {
+                "en": "Please check the new work schedule before Monday.",
+                "zh": "請在星期一前確認新的工作時間表。"
+              }
+            },
+            {
+              "w": "overtime",
+              "pos": "n.",
+              "zh": "加班（時間）",
+              "ipa": "/ˈoʊvərtaɪm/",
+              "example": {
+                "en": "Most staff worked overtime to finish the audit report.",
+                "zh": "大多數員工加班趕完稽核報告。"
+              }
+            },
+            {
+              "w": "payroll",
+              "pos": "n.",
+              "zh": "薪資發放名冊、薪資作業",
+              "ipa": "/ˈpeɪroʊl/",
+              "example": {
+                "en": "The payroll department records every employee's working hours.",
+                "zh": "薪資部門會記錄每位員工的工作時數。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/ʃɪft/",
+              "zh": "輪班、班次",
+              "example": {
+                "en": "The night shift starts at ten and ends at six.",
+                "zh": "夜班從十點開始，到六點結束。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/ʃɪft/",
+              "zh": "轉移、改變",
+              "example": {
+                "en": "The firm plans to shift its budget to overseas markets.",
+                "zh": "公司打算把預算轉移到海外市場。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "輪班時段",
+              "en": "a fixed period of time when a group of people work",
+              "distinguish": "前後文有 day、night、twelve-hour 或 work 時，通常是指班次。",
+              "example": {
+                "en": "Each shift lasts eight hours, with a break in the middle.",
+                "zh": "每個班次八小時，中間有休息時間。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "轉變、改變",
+              "en": "a change in the way something is done or thought",
+              "distinguish": "後面常接 in、toward 或 to，例如 a shift in demand。",
+              "example": {
+                "en": "A shift in customer habits hurt our store sales.",
+                "zh": "顧客習慣的轉變影響了我們的店面銷售。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "同一班的員工",
+              "en": "the group of workers who work during one shift",
+              "distinguish": "常和 take over、arrive、leave 等動詞一起出現，指的是人而不是時間。",
+              "example": {
+                "en": "The next shift will take over the line at noon.",
+                "zh": "下一班人員會在中午接手生產線。"
+              }
+            }
+          ]
         }
       ]
     },
@@ -113481,6 +113719,399 @@
           ],
           "pos_uses": [],
           "senses": []
+        },
+        {
+          "text": "company restructuring",
+          "type": "phrase",
+          "zh": "公司重組",
+          "en": "a big change in how a company is organized",
+          "note": "指公司調整組織架構，常伴隨部門合併、人事異動或裁員，所以常和合約、僱傭終止一起出現。多益常見於人事公告與新聞報導，多和 during、after、following 連用。",
+          "pattern": "during / after / following + the company restructuring",
+          "grammar_note": "restructuring 在這裡是不可數名詞，不寫成 restructurings；動詞 restructure 後面直接接受詞，如 restructure the sales team。",
+          "examples": [
+            {
+              "tag": "人事公告",
+              "en": "Several managers left the firm after the company restructuring.",
+              "zh": "公司重組後，有幾位經理離開了公司。"
+            },
+            {
+              "tag": "會議",
+              "en": "The board will discuss the company restructuring at Monday's meeting.",
+              "zh": "董事會將在星期一的會議討論公司重組。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Because of the company restructuring, the finance and accounting teams will merge.",
+              "zh": "由於公司重組，財務與會計團隊將合併。"
+            },
+            {
+              "tag": "新聞",
+              "en": "Analysts expect the company restructuring to save about ten percent in costs.",
+              "zh": "分析師預期公司重組能節省約百分之十的成本。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "reorganization",
+              "diff": "reorganization 較中性，指一般的部門或流程調整；restructuring 常暗示降低成本或裁員。",
+              "example": {
+                "en": "The reorganization moved all sales staff into one department.",
+                "zh": "這次重整把所有業務人員併入同一個部門。"
+              }
+            },
+            {
+              "phrase": "downsizing",
+              "diff": "downsizing 專指縮減人員或規模，範圍比 restructuring 窄。",
+              "example": {
+                "en": "The downsizing left the branch with only five employees.",
+                "zh": "縮編之後，這間分公司只剩五名員工。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "reconstruction",
+              "diff": "reconstruction 是「重建」，多指建築或設施；restructuring 是組織或制度的重組。",
+              "example": {
+                "en": "Reconstruction of the warehouse will take about six months.",
+                "zh": "倉庫的重建大約需要六個月。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "termination notice",
+          "type": "phrase",
+          "zh": "終止通知（解約或解僱通知書）",
+          "en": "a written message saying that a contract or job will end",
+          "note": "和這篇的 early termination 條款直接相關：一方要提前結束合約時，要先寄出書面的 termination notice。用在僱傭關係時，則是公司通知員工將被解僱。",
+          "pattern": "give / send / receive + a termination notice",
+          "grammar_note": "「一份通知書」是可數名詞 a termination notice；但「提前通知」的 notice 是不可數，例如 give thirty days' notice、at short notice。",
+          "examples": [
+            {
+              "tag": "合約",
+              "en": "The client sent a termination notice two weeks before the contract ended.",
+              "zh": "客戶在合約結束前兩週寄出了終止通知。"
+            },
+            {
+              "tag": "人事",
+              "en": "Employees must receive a written termination notice at least thirty days in advance.",
+              "zh": "員工必須至少提前三十天收到書面終止通知。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please attach the signed termination notice to your reply.",
+              "zh": "請把已簽名的終止通知附在你的回覆中。"
+            },
+            {
+              "tag": "採購",
+              "en": "We issued a termination notice to the supplier after repeated delays.",
+              "zh": "由於一再延遲，我們向供應商發出了終止通知。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "notice of termination",
+              "diff": "意思相同，但較正式，常見於法律或合約文件；of 後面接要終止的事物。",
+              "example": {
+                "en": "The lawyer prepared a notice of termination for the landlord.",
+                "zh": "律師為房東準備了一份終止通知書。"
+              }
+            },
+            {
+              "phrase": "cancellation notice",
+              "diff": "cancellation notice 較常用於訂單、保險、服務等取消；termination notice 多用於合約與僱傭。",
+              "example": {
+                "en": "The insurance company mailed a cancellation notice to every customer.",
+                "zh": "保險公司寄了取消通知給每位客戶。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "resignation letter",
+              "diff": "resignation letter 是員工自己遞出的辭呈；termination notice 通常由公司或合約另一方發出。",
+              "example": {
+                "en": "Tom handed his resignation letter to the director this morning.",
+                "zh": "湯姆今天早上把辭呈交給了主任。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "termination of employment",
+          "type": "phrase",
+          "zh": "終止僱傭關係（離職、解僱）",
+          "en": "the end of a person's job at a company",
+          "note": "正式文件與合約中，用來說明員工與公司的僱傭關係結束，不特別指是誰提出的。和 termination notice 搭配時，常會規定要提前多久通知。",
+          "pattern": "termination of employment + 日期 / 原因 / 條件",
+          "grammar_note": "termination 後面用 of 接名詞，如 termination of the contract；動詞 terminate 是及物動詞，直接接受詞，不加 of。",
+          "examples": [
+            {
+              "tag": "人事",
+              "en": "Termination of employment requires thirty days' written notice.",
+              "zh": "終止僱傭關係需要三十天的書面通知。"
+            },
+            {
+              "tag": "合約",
+              "en": "The contract explains the reasons for termination of employment.",
+              "zh": "合約說明了終止僱傭關係的原因。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please return your ID card before the termination of employment.",
+              "zh": "請在終止僱傭關係之前歸還你的識別證。"
+            },
+            {
+              "tag": "薪資",
+              "en": "After termination of employment, workers receive their final salary within a week.",
+              "zh": "終止僱傭關係後，員工會在一週內收到最後一筆薪資。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "dismissal",
+              "diff": "dismissal 專指被公司開除，語氣比 termination of employment 直接、負面。",
+              "example": {
+                "en": "His dismissal followed several warnings about late reports.",
+                "zh": "在多次因報告延遲被警告之後，他被解僱了。"
+              }
+            },
+            {
+              "phrase": "resignation",
+              "diff": "resignation 是員工自己提出離職；termination of employment 不限定是誰提出。",
+              "example": {
+                "en": "Her resignation will be effective at the end of the month.",
+                "zh": "她的辭職將在月底生效。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "determination",
+              "diff": "determination 是「決心、決定」，只是拼法和 termination 很像，字首不同，意思無關。",
+              "example": {
+                "en": "Her determination helped the team finish the project early.",
+                "zh": "她的決心幫助團隊提早完成了專案。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "take effect",
+          "type": "phrase",
+          "zh": "生效、開始實施",
+          "en": "to start to be used or to become official",
+          "note": "用在規定、政策、合約或價格調整開始適用的時間點，是多益公告與合約情境的高頻片語。這篇中的合約條款、付款規定與終止日期都可能用 take effect 說明何時開始適用。",
+          "pattern": "N（政策／合約／變更）+ will take effect + on / from + 日期",
+          "grammar_note": "take effect 是不及物片語，主詞是規定、合約等事物，不用被動；日期前通常用 on，也可用 from 或 as of。",
+          "examples": [
+            {
+              "tag": "政策",
+              "en": "The new travel policy will take effect on July 1.",
+              "zh": "新的差旅政策將在七月一日生效。"
+            },
+            {
+              "tag": "價格",
+              "en": "Higher shipping fees take effect next month, so please order early.",
+              "zh": "較高的運費下個月生效，所以請提早下單。"
+            },
+            {
+              "tag": "合約",
+              "en": "The agreement takes effect as soon as both parties sign it.",
+              "zh": "雙方一簽署，協議就生效。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "When does the new pay schedule take effect?",
+              "zh": "新的發薪時程什麼時候生效？"
+            },
+            {
+              "tag": "公告",
+              "en": "The change takes effect immediately, so please update your files.",
+              "zh": "這項變更立即生效，請更新你的檔案。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "come into effect",
+              "diff": "意思相同，較正式，常見於法律與法規；後面不直接接日期以外的受詞。",
+              "example": {
+                "en": "The new tax law comes into effect in January.",
+                "zh": "新稅法在一月開始生效。"
+              }
+            },
+            {
+              "phrase": "go into effect",
+              "diff": "意思相同，美式英文常用，語氣比 come into effect 口語一些。",
+              "example": {
+                "en": "The discount will go into effect after midnight.",
+                "zh": "折扣將在午夜過後生效。"
+              }
+            },
+            {
+              "phrase": "become effective",
+              "diff": "較正式，常見於合約文件，後面常接 as of + 日期。",
+              "example": {
+                "en": "The contract becomes effective as of the signing date.",
+                "zh": "合約自簽署日起生效。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "take place",
+              "diff": "take place 是「舉行、發生」，主詞是活動或事件；take effect 的主詞是規定或變更。",
+              "example": {
+                "en": "The training session will take place in Room 3.",
+                "zh": "訓練課程將在三號會議室舉行。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "expiration",
+          "type": "word",
+          "ipa": "/ˌekspəˈreɪʃn/",
+          "pos": "n.",
+          "zh": "到期、期滿",
+          "en": "the end of the time when a contract or a document can be used",
+          "note": "在合約情境中，expiration 是期限自然結束；early termination 則是期限未到就提前結束，兩者要分清楚。合約、執照、保固、會員資格都可以用。",
+          "grammar_note": "expiration 後面用 of 接到期的事物，如 expiration of the contract；動詞 expire 是不及物，不能說 expire the contract。",
+          "forms": [
+            {
+              "w": "expirations",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "到期（複數）",
+              "ipa": "/ˌekspəˈreɪʃnz/",
+              "example": {
+                "en": "The system sends alerts about upcoming expirations of all insurance policies.",
+                "zh": "系統會針對所有保單即將到期發出提醒。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "expiration date",
+              "zh": "到期日",
+              "example": {
+                "en": "Check the expiration date before you renew the license.",
+                "zh": "續約執照之前，請先確認到期日。"
+              }
+            },
+            {
+              "phrase": "upon expiration",
+              "zh": "一到期就、期滿時",
+              "example": {
+                "en": "All rights return to the owner upon expiration of the lease.",
+                "zh": "租約期滿時，所有權利都歸還給所有人。"
+              }
+            },
+            {
+              "phrase": "prior to expiration",
+              "zh": "到期之前",
+              "example": {
+                "en": "Please renew your membership prior to expiration to keep the discount.",
+                "zh": "請在到期前續辦會員資格，以保留折扣。"
+              }
+            },
+            {
+              "phrase": "expiration of the contract",
+              "zh": "合約期滿",
+              "example": {
+                "en": "The expiration of the contract gives us a chance to negotiate.",
+                "zh": "合約期滿讓我們有機會重新談判。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "合約",
+              "en": "We will review the terms again at the expiration of this agreement.",
+              "zh": "這份協議期滿時，我們會再次檢視條款。"
+            },
+            {
+              "tag": "採購",
+              "en": "The supplier warned us about the expiration of the warranty.",
+              "zh": "供應商提醒我們保固即將到期。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Your software license is nearing expiration. Please contact us to renew.",
+              "zh": "您的軟體授權即將到期，請聯絡我們辦理續約。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "expectation",
+              "diff": "expectation 是「期待、預期」，拼法與 expiration 很像，但意思無關。",
+              "example": {
+                "en": "Our sales exceeded the expectation of the board this quarter.",
+                "zh": "本季我們的銷售額超出了董事會的預期。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "expiry",
+              "diff": "意思相同，英式英文較常用；美式英文多用 expiration。",
+              "example": {
+                "en": "The expiry of the lease is set for the end of June.",
+                "zh": "租約將在六月底到期。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "deadline",
+              "pos": "n.",
+              "zh": "截止日期",
+              "ipa": "/ˈdedlaɪn/",
+              "example": {
+                "en": "The deadline for the budget report is next Friday.",
+                "zh": "預算報告的截止日期是下星期五。"
+              }
+            },
+            {
+              "w": "renewal",
+              "pos": "n.",
+              "zh": "續約、更新",
+              "ipa": "/rɪˈnuːəl/",
+              "example": {
+                "en": "The renewal of our service contract is due in March.",
+                "zh": "我們的服務合約將在三月續約。"
+              }
+            },
+            {
+              "w": "warranty",
+              "pos": "n.",
+              "zh": "保固",
+              "ipa": "/ˈwɔːrənti/",
+              "example": {
+                "en": "The printer comes with a two-year warranty.",
+                "zh": "這台印表機附有兩年保固。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "expire",
+              "ipa": "/ɪkˈspaɪər/",
+              "pos": "v.",
+              "zh": "到期、期滿",
+              "link": "最基礎的動詞；expire + -ation 變成名詞，像 inform → information、organize → organization"
+            },
+            {
+              "w": "expiry",
+              "ipa": "/ɪkˈspaɪəri/",
+              "pos": "n.",
+              "zh": "到期（英式）",
+              "link": "expire + -y，變成名詞，意思和 expiration 相同，像 inquire → inquiry"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
         }
       ],
       "prosody": {
@@ -119053,6 +119684,65 @@
           ],
           "pos_uses": [],
           "senses": []
+        },
+        {
+          "text": "marketing campaign",
+          "type": "phrase",
+          "zh": "行銷活動、行銷企劃",
+          "en": "a planned set of actions to promote a product or service over a period of time",
+          "note": "在這個句子裡，委員會審查的是三份「行銷活動」的提案。marketing campaign 通常有明確的目標、預算和時間，所以常出現在提案、簡報和預算會議中，和這篇的新專案提案很像。",
+          "pattern": "launch / run / plan + a marketing campaign + for + 產品",
+          "grammar_note": "campaign 是可數名詞，單數要加 a 或 the；說「為了某個目標而發起的活動」可用 campaign to + V 或 campaign for + N。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "We will discuss the budget for the spring marketing campaign today.",
+              "zh": "我們今天會討論春季行銷活動的預算。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please send me the schedule for the new marketing campaign by Friday.",
+              "zh": "請在星期五之前把新行銷活動的時程表寄給我。"
+            },
+            {
+              "tag": "簡報",
+              "en": "The marketing campaign increased our online sales by twenty percent last quarter.",
+              "zh": "這個行銷活動讓我們上一季的網路銷售成長了百分之二十。"
+            },
+            {
+              "tag": "人事",
+              "en": "Ms. Lee will lead the marketing campaign for our new product line.",
+              "zh": "李小姐將負責帶領我們新產品系列的行銷活動。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "advertising campaign",
+              "diff": "只強調廣告（電視、網路廣告等）；marketing campaign 範圍更廣，還包括活動、促銷和社群經營。",
+              "example": {
+                "en": "The advertising campaign will run on television and the Internet next month.",
+                "zh": "這個廣告活動下個月將在電視和網路上播出。"
+              }
+            },
+            {
+              "phrase": "promotional campaign",
+              "diff": "強調促銷（折扣、贈品），目的是在短期內提高銷量。",
+              "example": {
+                "en": "Our promotional campaign offers free delivery on all orders this month.",
+                "zh": "我們的促銷活動本月所有訂單都免運費。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "marketing strategy",
+              "diff": "strategy 是長期的整體方向與計畫；campaign 是依照策略執行的一次具體活動。",
+              "example": {
+                "en": "Our marketing strategy focuses on young customers, so the campaign uses social media.",
+                "zh": "我們的行銷策略以年輕顧客為主，所以這次活動使用社群媒體。"
+              }
+            }
+          ]
         }
       ],
       "prosody": {
@@ -313956,6 +314646,557 @@
               }
             }
           ]
+        },
+        {
+          "text": "complementary",
+          "type": "word",
+          "ipa": "/ˌkɑːmpləˈmentri/",
+          "pos": "adj.",
+          "zh": "互補的、相輔相成的",
+          "en": "working well together because each one adds something the other does not have",
+          "note": "這篇廣告裡實際出現的是 complimentary（免費贈送的），不是 complementary。兩個字發音幾乎一樣，只差一個母音：complimentary = 免費的、讚美的；complementary = 互補的。多益聽力常利用這種近音字設陷阱，要靠上下文判斷。",
+          "grammar_note": "complementary 常用 be complementary to + N，或 A and B are complementary（A 與 B 互補）。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "complementary skills",
+              "zh": "互補的技能",
+              "example": {
+                "en": "Our two team leaders have complementary skills, so they work well together.",
+                "zh": "我們兩位組長的技能互補，所以合作得很順利。"
+              }
+            },
+            {
+              "phrase": "complementary products",
+              "zh": "互補產品",
+              "example": {
+                "en": "We sell chairs and complementary products such as desks and lamps.",
+                "zh": "我們販售椅子，以及書桌和檯燈等互補產品。"
+              }
+            },
+            {
+              "phrase": "complementary services",
+              "zh": "互補的服務",
+              "example": {
+                "en": "The hotel offers complementary services like a spa and a fitness center.",
+                "zh": "這間飯店提供水療和健身中心等相輔相成的服務。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "These two software tools are complementary, so we plan to use both.",
+              "zh": "這兩套軟體可以互補，所以我們打算兩套都用。"
+            },
+            {
+              "tag": "採購",
+              "en": "The new service is complementary to our existing product line.",
+              "zh": "這項新服務與我們現有的產品線相輔相成。"
+            },
+            {
+              "tag": "招聘",
+              "en": "We want a designer whose skills are complementary to the rest of the team.",
+              "zh": "我們想找一位技能能與團隊其他成員互補的設計師。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "complimentary",
+              "diff": "complimentary /ˌkɑːmplɪˈmentri/ 是「免費贈送的」或「讚美的」；complementary 是「互補的」。",
+              "usage": "可用詞幹記：compliment（稱讚）→ complimentary（免費、稱讚）；complement（補足）→ complementary（互補）。",
+              "example": {
+                "en": "Guests receive a complimentary breakfast, which is included in the room price.",
+                "zh": "住客可享免費早餐，費用已包含在房價中。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "matching",
+              "ipa": "/ˈmætʃɪŋ/",
+              "pos": "adj.",
+              "zh": "搭配的、相配的",
+              "example": {
+                "en": "The sofa and the matching chairs arrive on Monday.",
+                "zh": "沙發和相配的椅子星期一會送到。"
+              }
+            },
+            {
+              "w": "compatible",
+              "ipa": "/kəmˈpætəbəl/",
+              "pos": "adj.",
+              "zh": "相容的",
+              "example": {
+                "en": "This software is compatible with all of our office computers.",
+                "zh": "這套軟體與我們所有的辦公室電腦相容。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "complement",
+              "ipa": "/ˈkɑːmpləmənt/",
+              "pos": "n.",
+              "zh": "補充物；補足（動詞唸 /ˈkɑːmpləment/）",
+              "link": "complement 是詞幹（補足），加 -ary 變成形容詞「互補的」，像 element → elementary"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "business associate",
+          "type": "phrase",
+          "zh": "生意夥伴、業務往來的人",
+          "en": "a person you know through work or do business with",
+          "note": "這句的意思是「他介紹我認識一位來自首爾的生意夥伴」。business associate 的語氣比 friend 正式，比 business partner 鬆，不一定是合夥人，只要是工作上往來的人都可以用。",
+          "pattern": "introduce + 人 + to + a business associate",
+          "grammar_note": "introduce 的結構是 introduce + 被介紹的人 + to + 對象，被介紹的人是直接受詞，to 後面才是對象。",
+          "examples": [
+            {
+              "tag": "社交",
+              "en": "I will meet a business associate for lunch at noon tomorrow.",
+              "zh": "我明天中午要和一位生意夥伴吃午餐。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please send this file to our business associate in Tokyo today.",
+              "zh": "請今天把這個檔案寄給我們在東京的生意夥伴。"
+            },
+            {
+              "tag": "出差",
+              "en": "During the trip, I visited several business associates in Chicago.",
+              "zh": "出差期間，我拜訪了幾位在芝加哥的生意夥伴。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "business partner",
+              "diff": "partner 常指一起經營、共同負責事業的夥伴；associate 的關係較鬆，只是工作上有往來。",
+              "example": {
+                "en": "She and her business partner opened a small design firm last year.",
+                "zh": "她和她的事業夥伴去年開了一間小型設計公司。"
+              }
+            },
+            {
+              "phrase": "business contact",
+              "diff": "contact 強調「認識、可以聯絡」的人脈，關係通常比 associate 更淺。",
+              "example": {
+                "en": "He is a business contact I met at the trade show.",
+                "zh": "他是我在商展上認識的業務人脈。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "colleague",
+              "diff": "colleague 是同公司或同行的同事；business associate 通常是公司外、有生意往來的人。",
+              "example": {
+                "en": "My colleague in the finance department will join the meeting.",
+                "zh": "我財務部的同事會參加這場會議。"
+              }
+            },
+            {
+              "phrase": "sales associate",
+              "diff": "sales associate 是賣場的銷售人員或店員，不是生意往來的對象。",
+              "example": {
+                "en": "The sales associate helped me choose a new phone.",
+                "zh": "店員協助我挑選了一支新手機。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "sales associate",
+          "type": "phrase",
+          "zh": "銷售人員、店員",
+          "en": "a person who works in a store and helps customers buy things",
+          "note": "在這則廣播廣告裡，是提醒顧客向「任何一位店員」詢問活動詳情。associate 是美國零售業常用的禮貌稱呼，聽起來比 clerk 更正式、更有禮貌。",
+          "pattern": "speak with / ask + a sales associate",
+          "grammar_note": "speak with（或 talk to）後面直接接人；sales associate 是可數名詞，單數要加 a 或 any，不能單獨寫 sales associate。",
+          "examples": [
+            {
+              "tag": "賣場",
+              "en": "Please ask a sales associate if you need a different size.",
+              "zh": "如果需要不同尺寸，請詢問店員。"
+            },
+            {
+              "tag": "招聘",
+              "en": "We are hiring a full-time sales associate for our downtown store.",
+              "zh": "我們的市中心門市正在徵求一名全職銷售人員。"
+            },
+            {
+              "tag": "會議",
+              "en": "Every sales associate must complete the training before the sale begins.",
+              "zh": "每位銷售人員都必須在特賣開始前完成訓練。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "salesperson",
+              "diff": "泛指賣東西的人，不一定在店裡工作；sales associate 多半指賣場的店員。",
+              "example": {
+                "en": "The salesperson explained the warranty before I signed the contract.",
+                "zh": "業務人員在我簽約前說明了保固內容。"
+              }
+            },
+            {
+              "phrase": "sales representative",
+              "diff": "representative 通常指代表公司外出拜訪客戶的業務代表，常見於對企業的銷售。",
+              "example": {
+                "en": "Our sales representative will visit your office on Tuesday morning.",
+                "zh": "我們的業務代表星期二早上會去拜訪您的辦公室。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "business associate",
+              "diff": "business associate 是有生意往來的人，不是在店裡服務顧客的店員。",
+              "example": {
+                "en": "Our business associate in Seoul will call us about the order.",
+                "zh": "我們在首爾的生意夥伴會打電話來談這筆訂單。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "name badges",
+          "type": "phrase",
+          "zh": "名牌（戴或別在胸前）",
+          "en": "small cards or tags that show a person's name, worn on clothing",
+          "note": "這句說明店員戴名牌的目的：讓顧客容易找到他們。name badges 是複數，因為每位員工都戴一個；常見於賣場、活動和會議的場合。",
+          "pattern": "N + wear + name badges + so (that) + 子句",
+          "grammar_note": "wear 表示「戴著」的狀態，put on 才是「戴上」的動作；so (that) 後面接完整子句，表示目的。",
+          "examples": [
+            {
+              "tag": "活動",
+              "en": "Visitors must wear name badges at all times inside the building.",
+              "zh": "訪客在大樓內必須隨時佩戴名牌。"
+            },
+            {
+              "tag": "會議",
+              "en": "Please pick up your name badge at the front desk.",
+              "zh": "請到櫃台領取您的名牌。"
+            },
+            {
+              "tag": "公司",
+              "en": "New employees will receive name badges on their first day.",
+              "zh": "新進員工第一天會拿到名牌。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "name tags",
+              "diff": "較口語，常是貼紙或活動用的簡單名牌；name badge 通常較正式、可重複使用。",
+              "example": {
+                "en": "Please put on a name tag before you enter the conference room.",
+                "zh": "進入會議室之前，請先戴上名牌。"
+              }
+            },
+            {
+              "phrase": "ID badge",
+              "diff": "ID badge 是附照片的員工證，常可用來刷卡進出大樓；name badge 主要是讓人看到名字。",
+              "example": {
+                "en": "Employees must show their ID badges to enter the building.",
+                "zh": "員工必須出示識別證才能進入大樓。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "business cards",
+              "diff": "名片是遞給別人帶走的；name badge 是戴在身上，讓人當場看到名字。",
+              "example": {
+                "en": "I handed my business card to every guest after the meeting.",
+                "zh": "會議結束後，我把名片遞給每位來賓。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "representative",
+          "type": "word",
+          "ipa": "/ˌreprɪˈzentətɪv/",
+          "pos": "n.",
+          "zh": "代表、業務代表",
+          "en": "a person who speaks or acts for a group or a company",
+          "note": "這個字和 sales associate 一樣，都是稱呼「人員」的商務用語。representative 指代表公司或團體對外溝通的人，sales representative、customer service representative 在多益很常見，口語常縮寫成 rep。",
+          "grammar_note": "representative 當名詞是可數名詞，指人時要加 a／the 或用複數；當形容詞時用 be representative of + N，表示「有代表性」。",
+          "forms": [
+            {
+              "w": "representatives",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "代表（複數）",
+              "ipa": "/ˌreprɪˈzentətɪvz/",
+              "example": {
+                "en": "Our representatives will contact each customer within two business days.",
+                "zh": "我們的代表會在兩個工作天內聯絡每位顧客。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "sales representative",
+              "zh": "業務代表",
+              "example": {
+                "en": "A sales representative called me about the new price list.",
+                "zh": "一位業務代表打電話跟我說明新的價目表。"
+              }
+            },
+            {
+              "phrase": "customer service representative",
+              "zh": "客服人員",
+              "example": {
+                "en": "The customer service representative answered all of my questions politely.",
+                "zh": "客服人員有禮貌地回答了我所有的問題。"
+              }
+            },
+            {
+              "phrase": "company representative",
+              "zh": "公司代表",
+              "example": {
+                "en": "A company representative will attend the trade show next week.",
+                "zh": "公司代表下週會出席這場商展。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "客服",
+              "en": "Please hold, and a representative will be with you soon.",
+              "zh": "請稍候，會有專員馬上為您服務。"
+            },
+            {
+              "tag": "會議",
+              "en": "Each department will send one representative to the planning meeting.",
+              "zh": "每個部門會派一位代表參加規劃會議。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "I am writing on behalf of our regional representative, Mr. Brown.",
+              "zh": "我代表我們的區域代表布朗先生來寫這封信。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "presenter",
+              "diff": "presenter 是負責做簡報的人；representative 是代表整個團體或公司的人。",
+              "example": {
+                "en": "The presenter showed the sales results on a large screen.",
+                "zh": "簡報者把銷售結果投影在大螢幕上。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "agent",
+              "ipa": "/ˈeɪdʒənt/",
+              "pos": "n.",
+              "zh": "代理人、經紀人",
+              "example": {
+                "en": "Our travel agent booked the flights and the hotel for us.",
+                "zh": "我們的旅行業者幫我們訂好了機票和飯店。"
+              }
+            },
+            {
+              "w": "spokesperson",
+              "ipa": "/ˈspoʊkspɝːsn/",
+              "pos": "n.",
+              "zh": "發言人",
+              "example": {
+                "en": "The company spokesperson will answer questions after the meeting.",
+                "zh": "公司發言人會在會議後回答問題。"
+              }
+            },
+            {
+              "w": "delegate",
+              "ipa": "/ˈdeləɡət/",
+              "pos": "n.",
+              "zh": "與會代表",
+              "example": {
+                "en": "Each delegate received a copy of the conference schedule.",
+                "zh": "每位與會代表都拿到一份會議時程表。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "represent",
+              "ipa": "/ˌreprɪˈzent/",
+              "pos": "v.",
+              "zh": "代表",
+              "link": "represent 是動詞「代表」，加 -ative 變成「代表的人／具代表性的」，像 relate → relative"
+            },
+            {
+              "w": "representation",
+              "ipa": "/ˌreprɪzenˈteɪʃən/",
+              "pos": "n.",
+              "zh": "代表、代理",
+              "link": "represent + -ation，動詞變名詞，像 present → presentation、inform → information"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˌreprɪˈzentətɪv/",
+              "zh": "代表、業務員",
+              "in_passage": true,
+              "example": {
+                "en": "Our representative will visit your office next Monday.",
+                "zh": "我們的代表下星期一會去拜訪您的辦公室。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "ipa": "/ˌreprɪˈzentətɪv/",
+              "zh": "具代表性的",
+              "example": {
+                "en": "These survey results are representative of our whole customer base.",
+                "zh": "這些調查結果能代表我們的整體客群。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "代表人",
+              "en": "a person who speaks or acts for a group, company, or country",
+              "in_passage": true,
+              "example": {
+                "en": "Each store will send a representative to the training session.",
+                "zh": "每間門市都會派一位代表參加訓練課程。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "業務員、客服人員",
+              "en": "an employee who sells products or helps customers for a company",
+              "distinguish": "前面有 sales、customer service 等字，就是業務員或客服；單獨出現時多半指團體的代表。",
+              "example": {
+                "en": "A customer service representative helped me change my order.",
+                "zh": "一位客服人員協助我更改了訂單。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "carrying case",
+          "type": "phrase",
+          "zh": "攜帶盒、提袋（用來保護電腦或設備）",
+          "en": "a case or bag used to carry and protect a device",
+          "note": "在這篇廣告裡，這是送給新會員的贈品，和 laptops and tablets 搭配，指保護電腦或平板的盒子或袋子。前面的 complimentary 是「免費贈送的」。",
+          "pattern": "a + (free) carrying case + for + 裝置",
+          "grammar_note": "carrying 說明箱子的用途（用來攜帶的），這種 V-ing + 名詞的複合名詞，後面的名詞用單數 case；複數是 carrying cases。",
+          "examples": [
+            {
+              "tag": "購物",
+              "en": "The tablet comes with a carrying case and a charger.",
+              "zh": "這台平板附有攜帶盒和充電器。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Customers who order today will receive a free carrying case.",
+              "zh": "今天下單的顧客會收到一個免費的攜帶盒。"
+            },
+            {
+              "tag": "出差",
+              "en": "Please put the projector in its carrying case before the trip.",
+              "zh": "出差前請把投影機放進它的攜帶盒裡。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "laptop bag",
+              "diff": "指專門放筆電的包包，通常有背帶，可以肩背或手提。",
+              "example": {
+                "en": "He packed the laptop in a laptop bag before leaving.",
+                "zh": "他離開前把筆電收進電腦包裡。"
+              }
+            },
+            {
+              "phrase": "protective case",
+              "diff": "強調「保護」功能，常指包住裝置本身的保護殼，不一定用來提著走。",
+              "example": {
+                "en": "We recommend a protective case to keep your tablet safe.",
+                "zh": "我們建議使用保護殼，讓您的平板更安全。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "briefcase",
+              "diff": "briefcase 是放文件的公事包；carrying case 是專門裝某種設備的保護盒或袋子。",
+              "example": {
+                "en": "She carried a briefcase full of contracts into the meeting.",
+                "zh": "她提著裝滿合約的公事包走進會議室。"
+              }
+            },
+            {
+              "phrase": "carry-on",
+              "diff": "carry-on 是搭飛機時可帶上機的隨身行李，不是裝設備的盒子。",
+              "example": {
+                "en": "You may bring one carry-on bag on the plane.",
+                "zh": "您可以帶一件隨身行李登機。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "Customer Appreciation Sale",
+          "type": "phrase",
+          "zh": "顧客感恩特賣",
+          "en": "a special sale to thank customers for shopping at a store",
+          "note": "這是廣播中的活動名稱。appreciation 是「感謝」，所以這類特賣通常是回饋老顧客或會員，並搭配 exclusive discounts（專屬折扣）。活動名稱每個主要字母都要大寫。",
+          "pattern": "our + Customer Appreciation + Sale / Day / Event",
+          "grammar_note": "appreciation 是不可數名詞，不加 s；Customer Appreciation 放在 Sale 前面當形容詞用，所以 customer 也用單數。",
+          "examples": [
+            {
+              "tag": "廣告",
+              "en": "Join our Customer Appreciation Sale and enjoy special prices on all items.",
+              "zh": "歡迎參加我們的顧客感恩特賣，所有商品都有特價。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Members will receive an invitation to the Customer Appreciation Sale next week.",
+              "zh": "會員下週會收到顧客感恩特賣的邀請函。"
+            },
+            {
+              "tag": "會議",
+              "en": "The marketing team is preparing this year's Customer Appreciation Sale.",
+              "zh": "行銷團隊正在籌備今年的顧客感恩特賣。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "Customer Appreciation Day",
+              "diff": "是一天的感恩活動，可能送禮物或餐點，不一定有折扣；Sale 一定是打折促銷。",
+              "example": {
+                "en": "We will give free coffee on Customer Appreciation Day this Friday.",
+                "zh": "這個星期五的顧客感恩日，我們會招待免費咖啡。"
+              }
+            },
+            {
+              "phrase": "Member Appreciation Event",
+              "diff": "只針對會員舉辦，範圍比 Customer 活動更窄。",
+              "example": {
+                "en": "The Member Appreciation Event is open only to registered members.",
+                "zh": "會員感恩活動只開放給已註冊的會員。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "clearance sale",
+              "diff": "clearance sale 是清倉特賣，目的是賣掉剩餘庫存；Customer Appreciation Sale 的目的是感謝顧客。",
+              "example": {
+                "en": "The clearance sale ends Sunday, and all remaining items are half price.",
+                "zh": "清倉特賣到星期日結束，所有剩下的商品都半價。"
+              }
+            }
+          ]
         }
       ],
       "prosody": {
@@ -317280,6 +318521,768 @@
           ],
           "pos_uses": [],
           "senses": []
+        },
+        {
+          "text": "result in",
+          "type": "phrase",
+          "zh": "導致、造成",
+          "en": "to cause something to happen",
+          "note": "後面接「結果」，主詞則是原因。合約和通知裡常用它說明違反規定會有什麼後果，語氣客觀、正式。",
+          "pattern": "原因 + result in + 結果（N／V-ing）",
+          "grammar_note": "result in 後面接結果，result from 則接原因，方向剛好相反；in 是介系詞，後面接名詞或 V-ing，不接 to V。",
+          "examples": [
+            {
+              "tag": "合約",
+              "en": "Missing the deadline will result in a penalty fee.",
+              "zh": "錯過期限將導致罰款。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please note that late payment may result in extra charges.",
+              "zh": "請注意，逾期付款可能會產生額外費用。"
+            },
+            {
+              "tag": "會議",
+              "en": "The new schedule resulted in fewer delays last quarter.",
+              "zh": "新的時程讓上一季的延誤變少了。"
+            },
+            {
+              "tag": "採購",
+              "en": "Poor packaging often results in damaged goods during shipping.",
+              "zh": "包裝不良常導致貨物在運送途中受損。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "lead to",
+              "diff": "意思很接近，lead to 較口語，也可以接過程中的下一步；result in 強調直接造成的結果。",
+              "example": {
+                "en": "Poor planning can lead to higher costs for the company.",
+                "zh": "規劃不良可能讓公司成本變高。"
+              }
+            },
+            {
+              "word": "cause",
+              "diff": "cause 是及物動詞，後面直接接結果，不需要介系詞 in。",
+              "example": {
+                "en": "Heavy rain can cause long delays in delivery.",
+                "zh": "大雨可能造成配送嚴重延誤。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "result from",
+              "diff": "result from 表示「起因於」，後面接原因；result in 後面接結果。",
+              "example": {
+                "en": "The extra cost results from a late order change.",
+                "zh": "這筆額外費用是因為訂單太晚更改。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "penalize",
+          "type": "word",
+          "ipa": "/ˈpiːnəlaɪz/",
+          "pos": "v.",
+          "zh": "處罰、對…罰款",
+          "en": "to make someone pay or suffer because they broke a rule",
+          "note": "這篇對話在問提早取消合約會不會有 penalty。penalize 是對應的動詞，指對違約的一方罰款或處分。",
+          "grammar_note": "常用 penalize + 人 + for + 行為，被動則用 be penalized for。",
+          "forms": [
+            {
+              "w": "penalizes",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "處罰（第三人稱單數）",
+              "ipa": "/ˈpiːnəlaɪzɪz/",
+              "example": {
+                "en": "The contract penalizes any company that delivers goods after the deadline.",
+                "zh": "合約會處罰任何在期限後交貨的公司。"
+              }
+            },
+            {
+              "w": "penalized",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "處罰（過去式）",
+              "ipa": "/ˈpiːnəlaɪzd/",
+              "example": {
+                "en": "Our team was penalized for submitting the report late.",
+                "zh": "我們的團隊因為太晚交報告而被處罰。"
+              }
+            },
+            {
+              "w": "penalizing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "處罰（現在分詞）",
+              "ipa": "/ˈpiːnəlaɪzɪŋ/",
+              "example": {
+                "en": "Penalizing suppliers for small delays may hurt the business relationship.",
+                "zh": "因小延誤就處罰供應商，可能傷害合作關係。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "penalize someone for",
+              "zh": "因…處罰某人",
+              "example": {
+                "en": "The vendor penalizes customers for paying after the due date.",
+                "zh": "廠商會對超過到期日才付款的客戶罰款。"
+              }
+            },
+            {
+              "phrase": "be penalized for",
+              "zh": "因…被處罰",
+              "example": {
+                "en": "Staff will not be penalized for honest mistakes in reports.",
+                "zh": "員工不會因為報告中的無心之過而被處罰。"
+              }
+            },
+            {
+              "phrase": "penalize late payments",
+              "zh": "對逾期付款罰款",
+              "example": {
+                "en": "Some banks penalize late payments with high interest charges.",
+                "zh": "有些銀行用高額利息處罰逾期付款。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "合約",
+              "en": "The agreement penalizes either side that ends the contract early.",
+              "zh": "協議會處罰任何一方提早終止合約。"
+            },
+            {
+              "tag": "會議",
+              "en": "We should not penalize customers who pay only a few days late.",
+              "zh": "我們不該處罰只晚付幾天的客戶。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "As noted in my email, the policy penalizes late submissions.",
+              "zh": "如我信中所述，該政策會處罰逾期提交。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "punish",
+              "diff": "punish 是一般的「懲罰」，常針對人和行為；penalize 多指依規則扣款、罰款或處分。",
+              "example": {
+                "en": "The manager chose not to punish him for the honest mistake.",
+                "zh": "經理決定不因這個無心之過懲罰他。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "fine",
+              "pos": "n.",
+              "zh": "罰款",
+              "ipa": "/faɪn/",
+              "example": {
+                "en": "The company paid a fine for breaking safety rules.",
+                "zh": "公司因違反安全規定而繳了罰款。"
+              }
+            },
+            {
+              "w": "fee",
+              "pos": "n.",
+              "zh": "費用",
+              "ipa": "/fiː/",
+              "example": {
+                "en": "A late fee is added if you pay after Friday.",
+                "zh": "如果星期五之後才付款，會加收逾期費。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "penalty",
+              "ipa": "/ˈpenəlti/",
+              "pos": "n.",
+              "zh": "處罰、罰款",
+              "link": "penalize 是「處罰」這個動作，penalty 是它的名詞，指處罰的內容或罰款，像 safety、party 一樣以 -ty／-y 結尾"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "termination penalty",
+          "type": "phrase",
+          "zh": "解約罰款、提前終止合約的違約金",
+          "en": "money you must pay if you end a contract early",
+          "note": "對話裡男士請同事查「提早取消會不會有罰款」，講的就是 termination penalty。維護、租賃、服務合約裡很常見。",
+          "pattern": "a termination penalty + for / of + 金額或條件",
+          "grammar_note": "termination penalty 是名詞加名詞的複合名詞，前面的 termination 不加 s，也不要寫成 terminations penalty。",
+          "examples": [
+            {
+              "tag": "合約",
+              "en": "The contract includes a termination penalty of two months' fees.",
+              "zh": "合約中包含相當於兩個月費用的解約罰款。"
+            },
+            {
+              "tag": "會議",
+              "en": "Is there a termination penalty if we cancel after one year?",
+              "zh": "如果我們滿一年後取消，會有解約罰款嗎？"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please confirm whether a termination penalty applies to our current plan.",
+              "zh": "請確認我們目前的方案是否適用解約罰款。"
+            },
+            {
+              "tag": "採購",
+              "en": "We chose the cheaper plan because it has no termination penalty.",
+              "zh": "我們選了較便宜的方案，因為它沒有解約罰款。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "early termination fee",
+              "diff": "意思幾乎相同，fee 較常見於電信、租賃等客戶合約；penalty 比較像合約條文的用語。",
+              "example": {
+                "en": "The early termination fee is waived after the first year.",
+                "zh": "滿第一年後，提前解約費用就免收。"
+              }
+            },
+            {
+              "phrase": "cancellation fee",
+              "diff": "取消訂單、預約或服務時收的費用，不一定是整份長期合約。",
+              "example": {
+                "en": "The hotel charges a cancellation fee for changes within two days.",
+                "zh": "兩天內更改行程，飯店會收取取消費。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "expiration",
+              "diff": "expiration 是合約自然到期；termination 是在到期前由某一方提前終止。",
+              "example": {
+                "en": "Our contract reaches expiration in June, so no penalty will apply.",
+                "zh": "我們的合約六月到期，所以不會有罰款。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "due date",
+          "type": "phrase",
+          "zh": "到期日、截止日",
+          "en": "the day when something must be paid or finished",
+          "note": "在「A late penalty of five percent applies after the due date.」中，指付款的最後一天，超過就算逾期。多益常見於帳單、發票和繳交文件。",
+          "pattern": "before / by / after + the due date",
+          "grammar_note": "介系詞要看意思：by the due date 是最晚到那天，on the due date 是剛好當天，after the due date 是過了之後；不要寫 in the due date。",
+          "examples": [
+            {
+              "tag": "帳單",
+              "en": "Please pay the invoice before the due date to avoid fees.",
+              "zh": "請在到期日前付發票款，以免產生費用。"
+            },
+            {
+              "tag": "專案",
+              "en": "The due date for the sales report is next Friday.",
+              "zh": "銷售報告的截止日是下週五。"
+            },
+            {
+              "tag": "會議",
+              "en": "Can we move the due date back by two days?",
+              "zh": "我們可以把截止日往後延兩天嗎？"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Our records show that the due date has already passed.",
+              "zh": "我們的紀錄顯示到期日已經過了。"
+            },
+            {
+              "tag": "採購",
+              "en": "The supplier agreed to extend the due date by one week.",
+              "zh": "供應商同意把到期日延長一週。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "deadline",
+              "diff": "deadline 較常用於工作、申請和專案的最後期限；due date 更常用於帳單、付款和歸還。",
+              "example": {
+                "en": "We must send the proposal before the deadline on Monday.",
+                "zh": "我們必須在星期一的截止時間前寄出提案。"
+              }
+            },
+            {
+              "phrase": "cutoff date",
+              "diff": "cutoff date 是受理的最後一天，過了就不再接受，用於報名、訂單和申請。",
+              "example": {
+                "en": "The cutoff date for registration is the end of this month.",
+                "zh": "報名的截止日是本月底。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "expiration date",
+              "diff": "expiration date 是有效期限（優惠、保固、產品失效的日子），不是要付款或完成工作的日子。",
+              "example": {
+                "en": "The expiration date of the warranty is printed on the card.",
+                "zh": "保固的到期日印在卡片上。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "surcharge",
+          "type": "word",
+          "ipa": "/ˈsɜːrtʃɑːrdʒ/",
+          "pos": "n.",
+          "zh": "額外費用、附加費",
+          "en": "an extra amount of money added to the usual price",
+          "note": "這篇談到 installation fee 可能被免收，surcharge 則是另一種常見的附加費。議價時要問清楚有沒有額外加收。",
+          "grammar_note": "surcharge 是可數名詞；後面常接 on + 商品或服務，或 for + 原因，例如 a surcharge on weekend deliveries。",
+          "forms": [
+            {
+              "w": "surcharges",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "附加費（複數）",
+              "ipa": "/ˈsɜːrtʃɑːrdʒɪz/",
+              "example": {
+                "en": "The invoice lists two surcharges that we did not expect.",
+                "zh": "發票上列了兩項我們沒預期到的附加費。"
+              }
+            },
+            {
+              "w": "surcharges",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "加收費用（第三人稱單數）",
+              "ipa": "/ˈsɜːrtʃɑːrdʒɪz/",
+              "example": {
+                "en": "Our carrier surcharges every package shipped after the deadline.",
+                "zh": "我們的貨運公司對截止後寄出的每個包裹加收費用。"
+              }
+            },
+            {
+              "w": "surcharged",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "加收費用（過去式）",
+              "ipa": "/ˈsɜːrtʃɑːrdʒd/",
+              "example": {
+                "en": "The shipping company surcharged us for the oversized package.",
+                "zh": "貨運公司因為包裹過大而向我們加收費用。"
+              }
+            },
+            {
+              "w": "surcharging",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "加收費用（現在分詞）",
+              "ipa": "/ˈsɜːrtʃɑːrdʒɪŋ/",
+              "example": {
+                "en": "Some airlines are surcharging passengers for checked bags this year.",
+                "zh": "有些航空公司今年開始對託運行李加收費用。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "add a surcharge",
+              "zh": "加收附加費",
+              "example": {
+                "en": "Some restaurants add a surcharge on holiday weekends.",
+                "zh": "有些餐廳在假日週末會加收附加費。"
+              }
+            },
+            {
+              "phrase": "waive the surcharge",
+              "zh": "免收附加費",
+              "example": {
+                "en": "The vendor agreed to waive the surcharge for new customers.",
+                "zh": "廠商同意對新客戶免收附加費。"
+              }
+            },
+            {
+              "phrase": "a surcharge of + 金額",
+              "zh": "…元的附加費",
+              "example": {
+                "en": "There is a surcharge of ten dollars for rush delivery.",
+                "zh": "急件配送要加收十美元的附加費。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "帳單",
+              "en": "The surcharge on this invoice was not in our agreement.",
+              "zh": "這張發票上的附加費不在我們的協議中。"
+            },
+            {
+              "tag": "出差",
+              "en": "A surcharge applies to bags over twenty kilograms.",
+              "zh": "超過二十公斤的行李要加收附加費。"
+            },
+            {
+              "tag": "採購",
+              "en": "Ask the supplier whether any surcharge applies to rush orders.",
+              "zh": "請問供應商急單是否有任何附加費。"
+            },
+            {
+              "tag": "會議",
+              "en": "Let's compare the total price, including any surcharge.",
+              "zh": "我們來比較含所有附加費的總價吧。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "discount",
+              "diff": "surcharge 是在原價之外多加費用；discount 是從原價扣掉一部分，方向相反。",
+              "example": {
+                "en": "The vendor offered a discount instead of adding a surcharge.",
+                "zh": "廠商提供折扣，而不是加收附加費。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "fee",
+              "pos": "n.",
+              "zh": "費用",
+              "ipa": "/fiː/",
+              "example": {
+                "en": "The installation fee is included in the price.",
+                "zh": "安裝費已包含在價格裡。"
+              }
+            },
+            {
+              "w": "charge",
+              "pos": "n.",
+              "zh": "收費",
+              "ipa": "/tʃɑːrdʒ/",
+              "example": {
+                "en": "There is no extra charge for online payment.",
+                "zh": "線上付款不另外收費。"
+              }
+            },
+            {
+              "w": "tax",
+              "pos": "n.",
+              "zh": "稅",
+              "ipa": "/tæks/",
+              "example": {
+                "en": "The total price includes tax and all shipping costs.",
+                "zh": "總價包含稅金和運費。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˈsɜːrtʃɑːrdʒ/",
+              "zh": "額外費用、附加費",
+              "in_passage": true,
+              "example": {
+                "en": "A small surcharge is added to all credit card payments.",
+                "zh": "所有信用卡付款都會加收一筆小額附加費。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/ˈsɜːrtʃɑːrdʒ/",
+              "zh": "加收費用",
+              "example": {
+                "en": "The shop surcharges customers who pay by credit card.",
+                "zh": "這家店對用信用卡付款的客人加收費用。"
+              }
+            }
+          ],
+          "senses": []
+        },
+        {
+          "text": "fuel surcharge",
+          "type": "phrase",
+          "zh": "燃油附加費",
+          "en": "an extra fee added to the price when fuel costs go up",
+          "note": "是附加費的一種，常出現在運輸、航空和物流帳單。談合約時，要確認報價是否已含這筆費用。",
+          "pattern": "A fuel surcharge + be added to + N",
+          "grammar_note": "fuel surcharge 是可數名詞，常用被動 be added to the bill，或用 apply 表示「適用」；fuel 不加 s。",
+          "examples": [
+            {
+              "tag": "帳單",
+              "en": "A fuel surcharge was added to this month's bill.",
+              "zh": "本月帳單加收了一筆燃油附加費。"
+            },
+            {
+              "tag": "運輸",
+              "en": "The shipping company charges a fuel surcharge on all overseas deliveries.",
+              "zh": "這家貨運公司對所有海外配送加收燃油附加費。"
+            },
+            {
+              "tag": "會議",
+              "en": "Does the quoted price include the fuel surcharge?",
+              "zh": "報價有包含燃油附加費嗎？"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please note that the fuel surcharge changes every month.",
+              "zh": "請注意，燃油附加費每個月都會調整。"
+            },
+            {
+              "tag": "出差",
+              "en": "The airline raised its fuel surcharge on long flights.",
+              "zh": "航空公司調高了長程航班的燃油附加費。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "fuel adjustment charge",
+              "diff": "名稱比較正式，常見於貨運和能源合約，意思幾乎相同。",
+              "example": {
+                "en": "A fuel adjustment charge appears on every freight invoice.",
+                "zh": "每張貨運發票上都有燃油調整費。"
+              }
+            },
+            {
+              "phrase": "extra charge",
+              "diff": "extra charge 泛指任何額外費用，不限燃油。",
+              "example": {
+                "en": "There is no extra charge for standard delivery.",
+                "zh": "標準配送不另外收費。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "fuel cost",
+              "diff": "fuel cost 是燃油成本，是公司自己付的；fuel surcharge 是公司另外向客戶加收的費用。",
+              "example": {
+                "en": "Fuel costs rose, so the carrier added a surcharge.",
+                "zh": "燃油成本上漲，所以貨運公司加收了附加費。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "deposit",
+          "type": "word",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "pos": "n.",
+          "zh": "訂金、押金",
+          "en": "money you pay first to keep something or as a promise",
+          "note": "談合約時常見的先付款項。提早取消時，訂金可能不退，所以要先看條款，這和對話裡擔心的 penalty 有關。",
+          "grammar_note": "訂金用 a deposit on／for + 東西，例如 a deposit on the equipment；把錢存進帳戶則用 deposit + 金額 + into + 帳戶。",
+          "forms": [
+            {
+              "w": "deposits",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "訂金（複數）",
+              "ipa": "/dɪˈpɑːzɪts/",
+              "example": {
+                "en": "The contract lists two deposits, one now and one later.",
+                "zh": "合約列出兩筆訂金，一筆現在付，一筆之後付。"
+              }
+            },
+            {
+              "w": "deposits",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "存入（第三人稱單數）",
+              "ipa": "/dɪˈpɑːzɪts/",
+              "example": {
+                "en": "Our finance team deposits customer checks every Friday morning.",
+                "zh": "我們的財務團隊每週五早上存入客戶的支票。"
+              }
+            },
+            {
+              "w": "deposited",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "存入（過去式）",
+              "ipa": "/dɪˈpɑːzɪtɪd/",
+              "example": {
+                "en": "I deposited the payment into your account this morning.",
+                "zh": "我今天早上已把款項存入您的帳戶。"
+              }
+            },
+            {
+              "w": "depositing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "存入（現在分詞）",
+              "ipa": "/dɪˈpɑːzɪtɪŋ/",
+              "example": {
+                "en": "Depositing the full amount today will secure your booking.",
+                "zh": "今天存入全額就能保住您的預約。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "pay a deposit",
+              "zh": "付訂金",
+              "example": {
+                "en": "Customers must pay a deposit to reserve the meeting room.",
+                "zh": "客戶必須付訂金才能預約會議室。"
+              }
+            },
+            {
+              "phrase": "refundable deposit",
+              "zh": "可退還的押金",
+              "example": {
+                "en": "The deposit is refundable if you cancel within seven days.",
+                "zh": "七天內取消的話，訂金可以退還。"
+              }
+            },
+            {
+              "phrase": "security deposit",
+              "zh": "押金、保證金",
+              "example": {
+                "en": "A security deposit is required before you rent the office.",
+                "zh": "租辦公室之前需要先付押金。"
+              }
+            },
+            {
+              "phrase": "make a deposit",
+              "zh": "存款",
+              "example": {
+                "en": "She made a deposit at the bank before lunch.",
+                "zh": "她午餐前去銀行存了款。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "採購",
+              "en": "The supplier asked for a thirty percent deposit before production.",
+              "zh": "供應商要求在生產前先付三成訂金。"
+            },
+            {
+              "tag": "會議",
+              "en": "If we sign for three years, can they reduce the deposit?",
+              "zh": "如果我們簽三年，他們可以降低訂金嗎？"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We received your deposit and will confirm the order tomorrow.",
+              "zh": "我們已收到您的訂金，明天會確認訂單。"
+            },
+            {
+              "tag": "出差",
+              "en": "The hotel will keep the deposit if you cancel late.",
+              "zh": "如果您太晚取消，飯店會扣留訂金。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "payment",
+              "diff": "payment 是任何一次付款；deposit 是為了保留或保證而先付的那一筆。",
+              "example": {
+                "en": "The final payment is due after the equipment is installed.",
+                "zh": "尾款在設備安裝完成後到期。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "refund",
+              "pos": "n.",
+              "zh": "退款",
+              "ipa": "/ˈriːfʌnd/",
+              "example": {
+                "en": "We will send a full refund within five business days.",
+                "zh": "我們會在五個工作天內寄出全額退款。"
+              }
+            },
+            {
+              "w": "balance",
+              "pos": "n.",
+              "zh": "餘額、尾款",
+              "ipa": "/ˈbæləns/",
+              "example": {
+                "en": "Please pay the remaining balance by the end of the month.",
+                "zh": "請在月底前付清剩餘的尾款。"
+              }
+            },
+            {
+              "w": "installment",
+              "pos": "n.",
+              "zh": "分期付款",
+              "ipa": "/ɪnˈstɔːlmənt/",
+              "example": {
+                "en": "You can pay the fee in three monthly installments.",
+                "zh": "您可以分三個月分期支付這筆費用。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "depositor",
+              "ipa": "/dɪˈpɑːzɪtər/",
+              "pos": "n.",
+              "zh": "存款人",
+              "link": "deposit + -or，做這個動作的人，像 actor、visitor"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/dɪˈpɑːzɪt/",
+              "zh": "訂金、押金；存款",
+              "in_passage": true,
+              "example": {
+                "en": "A small deposit secures your seat at the training seminar.",
+                "zh": "付一小筆訂金就能保住您在培訓講座的座位。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/dɪˈpɑːzɪt/",
+              "zh": "存入；付訂金",
+              "example": {
+                "en": "Please deposit the cash into the company account by noon.",
+                "zh": "請在中午前把現金存入公司帳戶。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "n.",
+              "zh": "訂金",
+              "en": "money you pay first to hold an order or a booking",
+              "in_passage": true,
+              "example": {
+                "en": "We paid a deposit to hold the conference room.",
+                "zh": "我們付了訂金來保留會議室。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "押金",
+              "en": "money you give first and get back if nothing is damaged",
+              "distinguish": "押金通常會退還，用於租賃或借用設備；訂金則是買東西或預約時先付、之後算進總價。",
+              "example": {
+                "en": "The office rental requires a deposit that we get back later.",
+                "zh": "租辦公室需要付一筆之後會退還的押金。"
+              }
+            },
+            {
+              "pos": "n.",
+              "zh": "存款",
+              "en": "money that you put into a bank account",
+              "distinguish": "和 bank、account 一起出現時是存款；和 reserve、rent、order 一起出現時是訂金或押金。",
+              "example": {
+                "en": "The bank confirmed your deposit of two thousand dollars.",
+                "zh": "銀行確認了您兩千美元的存款。"
+              }
+            }
+          ]
         }
       ],
       "prosody": {

@@ -1,0 +1,250 @@
+{
+  "week": 1,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "company restructuring",
+      "type": "phrase",
+      "zh": "公司重組",
+      "en": "a big change in how a company is organized",
+      "note": "指公司調整組織架構，常伴隨部門合併、人事異動或裁員，所以常和合約、僱傭終止一起出現。多益常見於人事公告與新聞報導，多和 during、after、following 連用。",
+      "pattern": "during / after / following + the company restructuring",
+      "grammar_note": "restructuring 在這裡是不可數名詞，不寫成 restructurings；動詞 restructure 後面直接接受詞，如 restructure the sales team。",
+      "examples": [
+        { "tag": "人事公告", "en": "Several managers left the firm after the company restructuring.", "zh": "公司重組後，有幾位經理離開了公司。" },
+        { "tag": "會議", "en": "The board will discuss the company restructuring at Monday's meeting.", "zh": "董事會將在星期一的會議討論公司重組。" },
+        { "tag": "電子郵件", "en": "Because of the company restructuring, the finance and accounting teams will merge.", "zh": "由於公司重組，財務與會計團隊將合併。" },
+        { "tag": "新聞", "en": "Analysts expect the company restructuring to save about ten percent in costs.", "zh": "分析師預期公司重組能節省約百分之十的成本。" }
+      ],
+      "similar": [
+        {
+          "phrase": "reorganization",
+          "diff": "reorganization 較中性，指一般的部門或流程調整；restructuring 常暗示降低成本或裁員。",
+          "example": { "en": "The reorganization moved all sales staff into one department.", "zh": "這次重整把所有業務人員併入同一個部門。" }
+        },
+        {
+          "phrase": "downsizing",
+          "diff": "downsizing 專指縮減人員或規模，範圍比 restructuring 窄。",
+          "example": { "en": "The downsizing left the branch with only five employees.", "zh": "縮編之後，這間分公司只剩五名員工。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "reconstruction",
+          "diff": "reconstruction 是「重建」，多指建築或設施；restructuring 是組織或制度的重組。",
+          "example": { "en": "Reconstruction of the warehouse will take about six months.", "zh": "倉庫的重建大約需要六個月。" }
+        }
+      ]
+    },
+    {
+      "text": "termination notice",
+      "type": "phrase",
+      "zh": "終止通知（解約或解僱通知書）",
+      "en": "a written message saying that a contract or job will end",
+      "note": "和這篇的 early termination 條款直接相關：一方要提前結束合約時，要先寄出書面的 termination notice。用在僱傭關係時，則是公司通知員工將被解僱。",
+      "pattern": "give / send / receive + a termination notice",
+      "grammar_note": "「一份通知書」是可數名詞 a termination notice；但「提前通知」的 notice 是不可數，例如 give thirty days' notice、at short notice。",
+      "examples": [
+        { "tag": "合約", "en": "The client sent a termination notice two weeks before the contract ended.", "zh": "客戶在合約結束前兩週寄出了終止通知。" },
+        { "tag": "人事", "en": "Employees must receive a written termination notice at least thirty days in advance.", "zh": "員工必須至少提前三十天收到書面終止通知。" },
+        { "tag": "電子郵件", "en": "Please attach the signed termination notice to your reply.", "zh": "請把已簽名的終止通知附在你的回覆中。" },
+        { "tag": "採購", "en": "We issued a termination notice to the supplier after repeated delays.", "zh": "由於一再延遲，我們向供應商發出了終止通知。" }
+      ],
+      "similar": [
+        {
+          "phrase": "notice of termination",
+          "diff": "意思相同，但較正式，常見於法律或合約文件；of 後面接要終止的事物。",
+          "example": { "en": "The lawyer prepared a notice of termination for the landlord.", "zh": "律師為房東準備了一份終止通知書。" }
+        },
+        {
+          "phrase": "cancellation notice",
+          "diff": "cancellation notice 較常用於訂單、保險、服務等取消；termination notice 多用於合約與僱傭。",
+          "example": { "en": "The insurance company mailed a cancellation notice to every customer.", "zh": "保險公司寄了取消通知給每位客戶。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "resignation letter",
+          "diff": "resignation letter 是員工自己遞出的辭呈；termination notice 通常由公司或合約另一方發出。",
+          "example": { "en": "Tom handed his resignation letter to the director this morning.", "zh": "湯姆今天早上把辭呈交給了主任。" }
+        }
+      ]
+    },
+    {
+      "text": "termination of employment",
+      "type": "phrase",
+      "zh": "終止僱傭關係（離職、解僱）",
+      "en": "the end of a person's job at a company",
+      "note": "正式文件與合約中，用來說明員工與公司的僱傭關係結束，不特別指是誰提出的。和 termination notice 搭配時，常會規定要提前多久通知。",
+      "pattern": "termination of employment + 日期 / 原因 / 條件",
+      "grammar_note": "termination 後面用 of 接名詞，如 termination of the contract；動詞 terminate 是及物動詞，直接接受詞，不加 of。",
+      "examples": [
+        { "tag": "人事", "en": "Termination of employment requires thirty days' written notice.", "zh": "終止僱傭關係需要三十天的書面通知。" },
+        { "tag": "合約", "en": "The contract explains the reasons for termination of employment.", "zh": "合約說明了終止僱傭關係的原因。" },
+        { "tag": "電子郵件", "en": "Please return your ID card before the termination of employment.", "zh": "請在終止僱傭關係之前歸還你的識別證。" },
+        { "tag": "薪資", "en": "After termination of employment, workers receive their final salary within a week.", "zh": "終止僱傭關係後，員工會在一週內收到最後一筆薪資。" }
+      ],
+      "similar": [
+        {
+          "phrase": "dismissal",
+          "diff": "dismissal 專指被公司開除，語氣比 termination of employment 直接、負面。",
+          "example": { "en": "His dismissal followed several warnings about late reports.", "zh": "在多次因報告延遲被警告之後，他被解僱了。" }
+        },
+        {
+          "phrase": "resignation",
+          "diff": "resignation 是員工自己提出離職；termination of employment 不限定是誰提出。",
+          "example": { "en": "Her resignation will be effective at the end of the month.", "zh": "她的辭職將在月底生效。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "determination",
+          "diff": "determination 是「決心、決定」，只是拼法和 termination 很像，字首不同，意思無關。",
+          "example": { "en": "Her determination helped the team finish the project early.", "zh": "她的決心幫助團隊提早完成了專案。" }
+        }
+      ]
+    },
+    {
+      "text": "take effect",
+      "type": "phrase",
+      "zh": "生效、開始實施",
+      "en": "to start to be used or to become official",
+      "note": "用在規定、政策、合約或價格調整開始適用的時間點，是多益公告與合約情境的高頻片語。這篇中的合約條款、付款規定與終止日期都可能用 take effect 說明何時開始適用。",
+      "pattern": "N（政策／合約／變更）+ will take effect + on / from + 日期",
+      "grammar_note": "take effect 是不及物片語，主詞是規定、合約等事物，不用被動；日期前通常用 on，也可用 from 或 as of。",
+      "examples": [
+        { "tag": "政策", "en": "The new travel policy will take effect on July 1.", "zh": "新的差旅政策將在七月一日生效。" },
+        { "tag": "價格", "en": "Higher shipping fees take effect next month, so please order early.", "zh": "較高的運費下個月生效，所以請提早下單。" },
+        { "tag": "合約", "en": "The agreement takes effect as soon as both parties sign it.", "zh": "雙方一簽署，協議就生效。" },
+        { "tag": "電子郵件", "en": "When does the new pay schedule take effect?", "zh": "新的發薪時程什麼時候生效？" },
+        { "tag": "公告", "en": "The change takes effect immediately, so please update your files.", "zh": "這項變更立即生效，請更新你的檔案。" }
+      ],
+      "similar": [
+        {
+          "phrase": "come into effect",
+          "diff": "意思相同，較正式，常見於法律與法規；後面不直接接日期以外的受詞。",
+          "example": { "en": "The new tax law comes into effect in January.", "zh": "新稅法在一月開始生效。" }
+        },
+        {
+          "phrase": "go into effect",
+          "diff": "意思相同，美式英文常用，語氣比 come into effect 口語一些。",
+          "example": { "en": "The discount will go into effect after midnight.", "zh": "折扣將在午夜過後生效。" }
+        },
+        {
+          "phrase": "become effective",
+          "diff": "較正式，常見於合約文件，後面常接 as of + 日期。",
+          "example": { "en": "The contract becomes effective as of the signing date.", "zh": "合約自簽署日起生效。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "take place",
+          "diff": "take place 是「舉行、發生」，主詞是活動或事件；take effect 的主詞是規定或變更。",
+          "example": { "en": "The training session will take place in Room 3.", "zh": "訓練課程將在三號會議室舉行。" }
+        }
+      ]
+    },
+    {
+      "text": "expiration",
+      "type": "word",
+      "ipa": "/ˌekspəˈreɪʃn/",
+      "pos": "n.",
+      "zh": "到期、期滿",
+      "en": "the end of the time when a contract or a document can be used",
+      "note": "在合約情境中，expiration 是期限自然結束；early termination 則是期限未到就提前結束，兩者要分清楚。合約、執照、保固、會員資格都可以用。",
+      "grammar_note": "expiration 後面用 of 接到期的事物，如 expiration of the contract；動詞 expire 是不及物，不能說 expire the contract。",
+      "forms": [
+        {
+          "w": "expirations",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "到期（複數）",
+          "ipa": "/ˌekspəˈreɪʃnz/",
+          "example": { "en": "The system sends alerts about upcoming expirations of all insurance policies.", "zh": "系統會針對所有保單即將到期發出提醒。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "expiration date",
+          "zh": "到期日",
+          "example": { "en": "Check the expiration date before you renew the license.", "zh": "續約執照之前，請先確認到期日。" }
+        },
+        {
+          "phrase": "upon expiration",
+          "zh": "一到期就、期滿時",
+          "example": { "en": "All rights return to the owner upon expiration of the lease.", "zh": "租約期滿時，所有權利都歸還給所有人。" }
+        },
+        {
+          "phrase": "prior to expiration",
+          "zh": "到期之前",
+          "example": { "en": "Please renew your membership prior to expiration to keep the discount.", "zh": "請在到期前續辦會員資格，以保留折扣。" }
+        },
+        {
+          "phrase": "expiration of the contract",
+          "zh": "合約期滿",
+          "example": { "en": "The expiration of the contract gives us a chance to negotiate.", "zh": "合約期滿讓我們有機會重新談判。" }
+        }
+      ],
+      "examples": [
+        { "tag": "合約", "en": "We will review the terms again at the expiration of this agreement.", "zh": "這份協議期滿時，我們會再次檢視條款。" },
+        { "tag": "採購", "en": "The supplier warned us about the expiration of the warranty.", "zh": "供應商提醒我們保固即將到期。" },
+        { "tag": "電子郵件", "en": "Your software license is nearing expiration. Please contact us to renew.", "zh": "您的軟體授權即將到期，請聯絡我們辦理續約。" }
+      ],
+      "confusable": [
+        {
+          "word": "expectation",
+          "diff": "expectation 是「期待、預期」，拼法與 expiration 很像，但意思無關。",
+          "example": { "en": "Our sales exceeded the expectation of the board this quarter.", "zh": "本季我們的銷售額超出了董事會的預期。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "expiry",
+          "diff": "意思相同，英式英文較常用；美式英文多用 expiration。",
+          "example": { "en": "The expiry of the lease is set for the end of June.", "zh": "租約將在六月底到期。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "deadline",
+          "pos": "n.",
+          "zh": "截止日期",
+          "ipa": "/ˈdedlaɪn/",
+          "example": { "en": "The deadline for the budget report is next Friday.", "zh": "預算報告的截止日期是下星期五。" }
+        },
+        {
+          "w": "renewal",
+          "pos": "n.",
+          "zh": "續約、更新",
+          "ipa": "/rɪˈnuːəl/",
+          "example": { "en": "The renewal of our service contract is due in March.", "zh": "我們的服務合約將在三月續約。" }
+        },
+        {
+          "w": "warranty",
+          "pos": "n.",
+          "zh": "保固",
+          "ipa": "/ˈwɔːrənti/",
+          "example": { "en": "The printer comes with a two-year warranty.", "zh": "這台印表機附有兩年保固。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "expire",
+          "ipa": "/ɪkˈspaɪər/",
+          "pos": "v.",
+          "zh": "到期、期滿",
+          "link": "最基礎的動詞；expire + -ation 變成名詞，像 inform → information、organize → organization"
+        },
+        {
+          "w": "expiry",
+          "ipa": "/ɪkˈspaɪəri/",
+          "pos": "n.",
+          "zh": "到期（英式）",
+          "link": "expire + -y，變成名詞，意思和 expiration 相同，像 inquire → inquiry"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

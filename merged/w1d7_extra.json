@@ -1,0 +1,40 @@
+{
+  "week": 1,
+  "day": 7,
+  "extra_vocab": [
+    {
+      "text": "marketing campaign",
+      "type": "phrase",
+      "zh": "行銷活動、行銷企劃",
+      "en": "a planned set of actions to promote a product or service over a period of time",
+      "note": "在這個句子裡，委員會審查的是三份「行銷活動」的提案。marketing campaign 通常有明確的目標、預算和時間，所以常出現在提案、簡報和預算會議中，和這篇的新專案提案很像。",
+      "pattern": "launch / run / plan + a marketing campaign + for + 產品",
+      "grammar_note": "campaign 是可數名詞，單數要加 a 或 the；說「為了某個目標而發起的活動」可用 campaign to + V 或 campaign for + N。",
+      "examples": [
+        { "tag": "會議", "en": "We will discuss the budget for the spring marketing campaign today.", "zh": "我們今天會討論春季行銷活動的預算。" },
+        { "tag": "電子郵件", "en": "Please send me the schedule for the new marketing campaign by Friday.", "zh": "請在星期五之前把新行銷活動的時程表寄給我。" },
+        { "tag": "簡報", "en": "The marketing campaign increased our online sales by twenty percent last quarter.", "zh": "這個行銷活動讓我們上一季的網路銷售成長了百分之二十。" },
+        { "tag": "人事", "en": "Ms. Lee will lead the marketing campaign for our new product line.", "zh": "李小姐將負責帶領我們新產品系列的行銷活動。" }
+      ],
+      "similar": [
+        {
+          "phrase": "advertising campaign",
+          "diff": "只強調廣告（電視、網路廣告等）；marketing campaign 範圍更廣，還包括活動、促銷和社群經營。",
+          "example": { "en": "The advertising campaign will run on television and the Internet next month.", "zh": "這個廣告活動下個月將在電視和網路上播出。" }
+        },
+        {
+          "phrase": "promotional campaign",
+          "diff": "強調促銷（折扣、贈品），目的是在短期內提高銷量。",
+          "example": { "en": "Our promotional campaign offers free delivery on all orders this month.", "zh": "我們的促銷活動本月所有訂單都免運費。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "marketing strategy",
+          "diff": "strategy 是長期的整體方向與計畫；campaign 是依照策略執行的一次具體活動。",
+          "example": { "en": "Our marketing strategy focuses on young customers, so the campaign uses social media.", "zh": "我們的行銷策略以年輕顧客為主，所以這次活動使用社群媒體。" }
+        }
+      ]
+    }
+  ]
+}
