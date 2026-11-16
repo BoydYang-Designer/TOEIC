@@ -1,0 +1,284 @@
+{
+  "week": 3,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "exempt",
+      "type": "word",
+      "ipa": "/ɪɡˈzempt/",
+      "pos": "adj.",
+      "zh": "被免除的、不受…約束的",
+      "en": "not required to pay or follow a rule that others must",
+      "note": "這篇在談免收安裝費、免除罰款，exempt 是類似的概念：依規定，某人或某項目不用付費或不必遵守。常見於稅金、費用和規定。",
+      "grammar_note": "常用 be exempt from + 名詞／V-ing，介系詞用 from，不用 of；當動詞時是 exempt A from B。",
+      "forms": [
+        {
+          "w": "exempts",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "免除（第三人稱單數）",
+          "ipa": "/ɪɡˈzempts/",
+          "example": { "en": "The new rule exempts small businesses from the filing fee.", "zh": "新規定讓小型企業免繳申報費。" }
+        },
+        {
+          "w": "exempted",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "免除（過去式）",
+          "ipa": "/ɪɡˈzemptɪd/",
+          "example": { "en": "Nonprofit groups were exempted from the registration fee this year.", "zh": "今年非營利團體免繳登記費。" }
+        },
+        {
+          "w": "exempting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "免除（現在分詞）",
+          "ipa": "/ɪɡˈzemptɪŋ/",
+          "example": { "en": "Exempting early customers from the deposit may attract more orders.", "zh": "讓早期客戶免付訂金，可能會吸引更多訂單。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "exempt from tax",
+          "zh": "免稅",
+          "example": { "en": "Educational materials are exempt from tax in this region.", "zh": "教育教材在這個地區免稅。" }
+        },
+        {
+          "phrase": "exempt from the fee",
+          "zh": "免繳費用",
+          "example": { "en": "Members are exempt from the annual service fee.", "zh": "會員免繳年度服務費。" }
+        },
+        {
+          "phrase": "tax-exempt",
+          "zh": "免稅的",
+          "example": { "en": "The foundation is a tax-exempt organization that supports schools.", "zh": "這個基金會是支持學校的免稅組織。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Are existing customers exempt from the new fuel surcharge?", "zh": "現有客戶可以免收新的燃油附加費嗎？" },
+        { "tag": "電子郵件", "en": "Employees in this department are exempt from the new policy.", "zh": "這個部門的員工不適用新政策。" },
+        { "tag": "採購", "en": "Medical supplies may be exempt from import duties.", "zh": "醫療用品可能免繳進口關稅。" }
+      ],
+      "confusable": [
+        {
+          "word": "except",
+          "diff": "except 是「除了」，exempt 是「被免除的」，拼法相近。",
+          "usage": "except 是介系詞，後面直接接名詞；exempt 是形容詞，常用 be exempt from。",
+          "example": { "en": "All items are included except the installation fee.", "zh": "除了安裝費以外，所有項目都包含在內。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "waive",
+          "diff": "waive 的主詞是收費的一方，主動放棄收取；exempt 是依規定讓某人不適用。",
+          "example": { "en": "The bank will waive the fee for new accounts.", "zh": "銀行會對新帳戶免收費用。" }
+        },
+        {
+          "phrase": "excused from",
+          "diff": "excused 多指被允許不用做某事，例如出席會議或工作，語氣較個人。",
+          "example": { "en": "Staff are excused from the meeting if they are traveling.", "zh": "出差中的員工可以不用參加會議。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "tax",
+          "pos": "n.",
+          "zh": "稅",
+          "ipa": "/tæks/",
+          "example": { "en": "The price does not include tax or delivery charges.", "zh": "價格不含稅金和運費。" }
+        },
+        {
+          "w": "duty",
+          "pos": "n.",
+          "zh": "關稅、職責",
+          "ipa": "/ˈduːti/",
+          "example": { "en": "Import duty is added to goods from overseas.", "zh": "來自海外的商品會加收進口關稅。" }
+        },
+        {
+          "w": "regulation",
+          "pos": "n.",
+          "zh": "規定",
+          "ipa": "/ˌreɡjuˈleɪʃn/",
+          "example": { "en": "The new regulation applies to all companies in the city.", "zh": "新規定適用於這個城市的所有公司。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "exemption",
+          "ipa": "/ɪɡˈzempʃn/",
+          "pos": "n.",
+          "zh": "免除、豁免",
+          "link": "exempt + -ion，名詞字尾，把「免除」變成名詞，像 collect → collection"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ɪɡˈzempt/",
+          "zh": "被免除的",
+          "in_passage": true,
+          "example": { "en": "Orders over five hundred dollars are exempt from the shipping charge.", "zh": "超過五百美元的訂單免收運費。" }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ɪɡˈzempt/",
+          "zh": "免除（某人的義務或費用）",
+          "example": { "en": "The company decided to exempt long-term customers from the setup fee.", "zh": "公司決定讓長期客戶免繳設定費。" }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "suspect",
+      "type": "word",
+      "ipa": "/səˈspekt/",
+      "pos": "v.",
+      "zh": "猜想、懷疑（可能是…）",
+      "en": "to think something is probably true, but you are not sure",
+      "note": "男士用 I suspect 提出一個憑經驗的猜測：廠商可能會接受較低的費率。這裡不是「懷疑某人做壞事」，而是委婉、不確定的推測，用來提出議價的想法。",
+      "grammar_note": "suspect + (that) 子句 表示「猜想」；suspect + 人 + of + 名詞／V-ing 才是「懷疑某人做了…」，例如 suspect him of fraud。",
+      "forms": [
+        {
+          "w": "suspects",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "猜想（第三人稱單數）",
+          "ipa": "/səˈspekts/",
+          "example": { "en": "She suspects that the supplier will lower its prices soon.", "zh": "她猜想供應商很快會降價。" }
+        },
+        {
+          "w": "suspected",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "猜想（過去式）",
+          "ipa": "/səˈspektɪd/",
+          "example": { "en": "We suspected the invoice contained an error, so we checked it.", "zh": "我們懷疑發票有錯誤，所以檢查了一下。" }
+        },
+        {
+          "w": "suspecting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "猜想（現在分詞）",
+          "ipa": "/səˈspektɪŋ/",
+          "example": { "en": "Suspecting a billing error, she called the vendor right away.", "zh": "她懷疑帳單有誤，立刻打電話給廠商。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "suspect that + 子句",
+          "zh": "猜想…",
+          "example": { "en": "I suspect that the delay was caused by bad weather.", "zh": "我猜延誤是壞天氣造成的。" }
+        },
+        {
+          "phrase": "suspect a problem",
+          "zh": "懷疑有問題",
+          "example": { "en": "We suspect a problem with the new payment system.", "zh": "我們懷疑新的付款系統有問題。" }
+        },
+        {
+          "phrase": "suspect someone of",
+          "zh": "懷疑某人做了…",
+          "example": { "en": "The bank suspects the customer of using a false identity.", "zh": "銀行懷疑這位客戶使用假身分。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "I suspect our competitor will lower its prices next month.", "zh": "我猜我們的競爭對手下個月會降價。" },
+        { "tag": "電子郵件", "en": "We suspect that your account has been used without permission.", "zh": "我們懷疑您的帳戶被未經許可使用。" },
+        { "tag": "採購", "en": "I suspect the shipment is late because of the storm.", "zh": "我猜這批貨延遲是因為暴風雨。" }
+      ],
+      "confusable": [
+        {
+          "word": "expect",
+          "diff": "expect 是合理地預期某事會發生；suspect 是憑直覺或線索猜測，沒有把握。",
+          "example": { "en": "We expect the vendor to accept a lower rate.", "zh": "我們預期廠商會接受較低的費率。" }
+        },
+        {
+          "word": "inspect",
+          "diff": "inspect 是仔細檢查；suspect 是憑感覺猜想，兩者字尾相同，容易搞混。",
+          "example": { "en": "Please inspect the equipment before you sign the delivery form.", "zh": "簽收單據前，請先檢查設備。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "assume",
+          "diff": "assume 是把某件事當成事實先假設；suspect 則帶有「不太確定」的懷疑感。",
+          "example": { "en": "I assume the contract includes free repairs for two years.", "zh": "我假設合約包含兩年的免費維修。" }
+        },
+        {
+          "word": "guess",
+          "diff": "guess 較口語，可以是隨便猜；suspect 通常有一些依據或經驗。",
+          "example": { "en": "I guess they will agree if we offer a longer term.", "zh": "我猜如果我們提出較長的期限，他們會同意。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "doubt",
+          "pos": "v.",
+          "zh": "懷疑、不太相信",
+          "ipa": "/daʊt/",
+          "example": { "en": "I doubt the supplier will accept such a low price.", "zh": "我懷疑供應商不會接受這麼低的價格。" }
+        },
+        {
+          "w": "believe",
+          "pos": "v.",
+          "zh": "相信、認為",
+          "ipa": "/bɪˈliːv/",
+          "example": { "en": "I believe the contract can be renewed this week.", "zh": "我相信合約這週可以續約。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "suspicion",
+          "ipa": "/səˈspɪʃn/",
+          "pos": "n.",
+          "zh": "懷疑、疑心",
+          "link": "suspect 的名詞形，拼法稍有變化（-ect 換成 -icion），指「起疑」的感覺"
+        },
+        {
+          "w": "suspicious",
+          "ipa": "/səˈspɪʃəs/",
+          "pos": "adj.",
+          "zh": "可疑的、起疑的",
+          "link": "suspicion 去掉 -ion 換成 -ious，變形容詞，像 delicious、serious"
+        },
+        {
+          "w": "suspiciously",
+          "ipa": "/səˈspɪʃəsli/",
+          "pos": "adv.",
+          "zh": "可疑地、懷疑地",
+          "link": "suspicious + -ly，變副詞，像 quickly、carefully"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/səˈspekt/",
+          "zh": "猜想、懷疑",
+          "in_passage": true,
+          "example": { "en": "We suspect that some invoices were sent to the wrong address.", "zh": "我們猜想有些發票寄到了錯誤的地址。" }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈsʌspekt/",
+          "zh": "嫌疑人",
+          "example": { "en": "Police arrested a suspect in the office theft case.", "zh": "警方逮捕了辦公室竊盜案的嫌疑人。" }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "猜想、認為可能",
+          "en": "to think something is probably true, but you are not sure",
+          "in_passage": true,
+          "example": { "en": "I suspect the new plan will cost more than expected.", "zh": "我猜新方案會比預期花更多錢。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "懷疑（某人做壞事）",
+          "en": "to think a person has done something wrong",
+          "distinguish": "看句型：suspect + 人 + of + 行為，才是懷疑某人；suspect + that 子句通常是中性的猜測。",
+          "example": { "en": "The company suspects a former employee of leaking the plans.", "zh": "公司懷疑一名前員工洩漏了計畫。" }
+        }
+      ]
+    }
+  ]
+}

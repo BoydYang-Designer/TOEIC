@@ -1,0 +1,128 @@
+{
+  "week": 1,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "maintain",
+      "type": "word",
+      "ipa": "/meɪnˈteɪn/",
+      "pos": "v.",
+      "zh": "維持、保養、維修",
+      "en": "to keep something in good condition or at the same level",
+      "note": "這篇通知裡出現的是名詞 maintenance（年度維護費），maintain 就是它的動詞：持續保養、維修，讓軟體能正常運作。多益裡 maintain 常和設備、系統、品質、關係搭配。",
+      "grammar_note": "maintain 是及物動詞，後面一定要接受詞；表示「主張」時用 maintain that + 子句。名詞是 maintenance，不是 maintainance。",
+      "forms": [
+        { "w": "maintains", "label": "第三人稱單數", "pos": "v.", "zh": "維持、保養", "ipa": "/meɪnˈteɪnz/", "example": { "en": "She maintains all the servers in our main office.", "zh": "她負責維護我們總公司的所有伺服器。" } },
+        { "w": "maintained", "label": "過去式／過去分詞", "pos": "v.", "zh": "維持、保養", "ipa": "/meɪnˈteɪnd/", "example": { "en": "The old printer was well maintained, so it still works.", "zh": "那台舊印表機保養得很好，所以還能使用。" } },
+        { "w": "maintaining", "label": "現在分詞／動名詞", "pos": "v.", "zh": "維持、保養", "ipa": "/meɪnˈteɪnɪŋ/", "example": { "en": "Maintaining customer trust is important for every sales team.", "zh": "維持顧客的信任對每個業務團隊都很重要。" } }
+      ],
+      "collocations": [
+        { "phrase": "maintain equipment", "zh": "保養設備", "example": { "en": "Technicians maintain the equipment in the factory every week.", "zh": "技術人員每週都會保養工廠裡的設備。" } },
+        { "phrase": "maintain a good relationship", "zh": "維持良好的關係", "example": { "en": "It is important to maintain a good relationship with our suppliers.", "zh": "與供應商維持良好的關係很重要。" } },
+        { "phrase": "maintain quality", "zh": "維持品質", "example": { "en": "The company maintains quality by checking every product before shipping.", "zh": "公司在出貨前檢查每件產品，以維持品質。" } },
+        { "phrase": "maintain records", "zh": "保存紀錄", "example": { "en": "Employees must maintain accurate records of all expenses.", "zh": "員工必須準確記錄所有的費用。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Our goal is to maintain steady growth throughout the year.", "zh": "我們的目標是全年維持穩定的成長。" },
+        { "tag": "電子郵件", "en": "We aim to maintain a response time of under one day.", "zh": "我們的目標是將回覆時間維持在一天以內。" },
+        { "tag": "客服", "en": "Customers expect us to maintain our promises about delivery dates.", "zh": "顧客期待我們遵守對送貨日期的承諾。" }
+      ],
+      "confusable": [
+        {
+          "word": "remain",
+          "diff": "remain 是「維持在某種狀態」，maintain 是「刻意去維持某件事物」。",
+          "usage": "remain 是不及物動詞，後面直接接形容詞（remain stable）；maintain 是及物動詞，後面要接受詞（maintain prices）。",
+          "example": { "en": "Prices remained stable last quarter, so we did not change them.", "zh": "上一季價格維持穩定，所以我們沒有調整。" }
+        },
+        {
+          "word": "retain",
+          "diff": "retain 是「保留住、不讓流失」（人才、顧客）；maintain 是讓事物持續保持原狀或良好狀態。",
+          "example": { "en": "We offer discounts to retain our best customers.", "zh": "我們提供折扣來留住最好的顧客。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "keep",
+          "diff": "keep 較口語、用途很廣；maintain 較正式，常用於設備、品質、關係等。",
+          "example": { "en": "Please keep the office clean and the files in order.", "zh": "請保持辦公室整潔，檔案要整理好。" }
+        },
+        {
+          "word": "keep up",
+          "diff": "keep up 強調「持續不中斷地維持」某種水準或速度，語氣比 maintain 口語。",
+          "example": { "en": "We must keep up the pace to finish the project on time.", "zh": "我們必須維持速度，才能準時完成專案。" }
+        }
+      ],
+      "family": [
+        { "w": "repair", "ipa": "/rɪˈper/", "pos": "v.", "zh": "修理", "example": { "en": "The technician will repair the copy machine this afternoon.", "zh": "技術人員今天下午會修理影印機。" } },
+        { "w": "inspect", "ipa": "/ɪnˈspekt/", "pos": "v.", "zh": "檢查、查驗", "example": { "en": "An engineer inspects the equipment before each shift begins.", "zh": "工程師在每個班次開始前檢查設備。" } },
+        { "w": "upgrade", "ipa": "/ˈʌpɡreɪd/", "pos": "n.", "zh": "升級", "example": { "en": "The software upgrade will be installed on Monday morning.", "zh": "軟體升級會在星期一早上安裝。" } }
+      ],
+      "derived": [
+        { "w": "maintenance", "ipa": "/ˈmeɪntənəns/", "pos": "n.", "zh": "維護、保養", "link": "maintain 的名詞拼成 maintenance（不是 maintainance），像 perform → performance，常見：maintenance fee（維護費）" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "v.", "zh": "保養、維修", "en": "to keep a machine or system working well by checking and fixing it", "in_passage": true, "example": { "en": "The vendor will maintain the software for the next three years.", "zh": "供應商未來三年會負責維護這套軟體。" } },
+        { "pos": "v.", "zh": "維持", "en": "to keep something at the same level or in the same state", "distinguish": "受詞是價格、品質、關係等抽象事物時，就是「維持」。", "example": { "en": "We must maintain high quality while we reduce production costs.", "zh": "我們在降低生產成本的同時，必須維持高品質。" } },
+        { "pos": "v.", "zh": "主張、堅稱", "en": "to say firmly that something is true", "distinguish": "後面接 that 子句時，就是「主張」。", "example": { "en": "The supplier maintains that the delay was caused by the weather.", "zh": "供應商堅稱延誤是天氣造成的。" } }
+      ]
+    },
+    {
+      "text": "offline",
+      "type": "word",
+      "ipa": "/ˌɔːfˈlaɪn/",
+      "pos": "adj.",
+      "zh": "離線的、未連線的、停止運作的",
+      "en": "not connected to the Internet or a computer system",
+      "note": "這句是通知：星期六進行維護，所以系統會「離線」，暫時無法使用。will be offline 是商務公告常見的說法，提醒大家這段時間不能登入或使用系統。",
+      "grammar_note": "offline 當形容詞時放在 be 動詞後（be offline）或名詞前（offline sales）；當副詞時放在動詞後，如 work offline。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "go offline", "zh": "離線、停止運作", "example": { "en": "The server will go offline at midnight for repairs.", "zh": "伺服器會在午夜離線進行維修。" } },
+        { "phrase": "work offline", "zh": "離線作業", "example": { "en": "Our app lets you work offline without a connection.", "zh": "我們的應用程式讓您不用連線也能作業。" } },
+        { "phrase": "take ... offline", "zh": "讓…下線、停止運作", "example": { "en": "We had to take the website offline during the update.", "zh": "更新期間我們必須讓網站暫時下線。" } },
+        { "phrase": "offline mode", "zh": "離線模式", "example": { "en": "Switch to offline mode if the Internet connection is weak.", "zh": "如果網路連線不穩，請切換成離線模式。" } }
+      ],
+      "examples": [
+        { "tag": "公告", "en": "The online store will be offline for two hours tonight.", "zh": "線上商店今晚會有兩個小時停止運作。" },
+        { "tag": "會議", "en": "Let's discuss the schedule offline after the meeting ends.", "zh": "我們會議結束後再私下討論時程。" },
+        { "tag": "客服", "en": "Our payment system was offline, so we accepted cash only.", "zh": "我們的付款系統離線了，所以只能收現金。" }
+      ],
+      "confusable": [
+        {
+          "word": "online",
+          "diff": "online 是 offline 的反義字：online 是「連上網路的、線上的」，offline 是「離線的」。",
+          "example": { "en": "All employees must complete the online training by Friday.", "zh": "所有員工必須在星期五前完成線上訓練。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "out of service",
+          "diff": "指設備或服務暫停使用，不限於網路，也可用於電梯、機器等。",
+          "example": { "en": "The elevator is out of service until Monday morning.", "zh": "電梯在星期一早上之前暫停使用。" }
+        },
+        {
+          "word": "unavailable",
+          "diff": "較正式，只說「無法使用」，不特別說明是不是因為離線。",
+          "example": { "en": "The system will be unavailable during maintenance on Saturday.", "zh": "系統在星期六維護期間將無法使用。" }
+        }
+      ],
+      "family": [
+        { "w": "server", "ipa": "/ˈsɝːvɚ/", "pos": "n.", "zh": "伺服器", "example": { "en": "The new server stores all of our customer data.", "zh": "新的伺服器儲存我們所有的客戶資料。" } },
+        { "w": "outage", "ipa": "/ˈaʊtɪdʒ/", "pos": "n.", "zh": "停機、（服務）中斷", "example": { "en": "A power outage stopped production for nearly two hours.", "zh": "停電讓生產中斷了將近兩個小時。" } },
+        { "w": "network", "ipa": "/ˈnetwɝːk/", "pos": "n.", "zh": "網路、網絡", "example": { "en": "Please connect your laptop to the office network.", "zh": "請把您的筆電連上辦公室網路。" } }
+      ],
+      "derived": [
+        { "w": "online", "ipa": "/ˌɑːnˈlaɪn/", "pos": "adj.", "zh": "線上的、連線的", "link": "on + line，「連在線上」；offline 是 off + line，「離開線上」，兩者相反" }
+      ],
+      "pos_uses": [
+        { "pos": "adj.", "ipa": "/ˌɔːfˈlaɪn/", "zh": "離線的、未連線的", "in_passage": true, "example": { "en": "The printer is offline, so please restart it.", "zh": "印表機離線了，請重新啟動。" } },
+        { "pos": "adv.", "ipa": "/ˌɔːfˈlaɪn/", "zh": "離線地；（會議外）私下地", "example": { "en": "You can read the documents offline after you download them.", "zh": "下載之後，您可以離線閱讀這些文件。" } }
+      ],
+      "senses": [
+        { "pos": "adj.", "zh": "離線的、停止運作的", "en": "not connected to the Internet or a computer system", "in_passage": true, "example": { "en": "Our email system was offline for most of the morning.", "zh": "我們的電子郵件系統整個早上大部分時間都離線。" } },
+        { "pos": "adj.", "zh": "線下的、實體的", "en": "not done on the Internet but in real life", "distinguish": "前面是 sales、store、event 等名詞時，指「線下實體」，不是系統狀態。", "example": { "en": "Offline sales still make up half of our total revenue.", "zh": "線下銷售仍占我們總營收的一半。" } }
+      ]
+    }
+  ]
+}

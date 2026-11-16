@@ -1,0 +1,500 @@
+{
+  "week": 3,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "renovate",
+      "type": "word",
+      "ipa": "/ˈrenəveɪt/",
+      "pos": "v.",
+      "zh": "翻新、整修",
+      "en": "to repair and improve a building or room so it looks new",
+      "note": "這篇主題是合約與租約續約，租賃的場地常會遇到整修。renovate 指整修建築或辦公空間，讓它變得像新的一樣。",
+      "forms": [
+        {
+          "w": "renovates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "整修（第三人稱單數）",
+          "ipa": "/ˈrenəveɪts/",
+          "example": { "en": "The company renovates old offices and sells them each year.", "zh": "這家公司每年整修舊辦公室後再出售。" }
+        },
+        {
+          "w": "renovated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "整修（過去式）",
+          "ipa": "/ˈrenəveɪtɪd/",
+          "example": { "en": "The hotel renovated all of its meeting rooms last spring.", "zh": "這家飯店去年春天整修了所有會議室。" }
+        },
+        {
+          "w": "renovating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "整修（現在分詞）",
+          "ipa": "/ˈrenəveɪtɪŋ/",
+          "example": { "en": "We are renovating the lobby, so please use the side door.", "zh": "我們正在整修大廳，請走側門。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "renovate a building",
+          "zh": "整修建築物",
+          "example": { "en": "The firm plans to renovate the building next year.", "zh": "這家公司打算明年整修這棟大樓。" }
+        },
+        {
+          "phrase": "newly renovated",
+          "zh": "剛整修好的",
+          "example": { "en": "Our newly renovated office has a larger meeting room.", "zh": "我們剛整修好的辦公室有一間更大的會議室。" }
+        },
+        {
+          "phrase": "renovate the office",
+          "zh": "整修辦公室",
+          "example": { "en": "We will renovate the office during the summer break.", "zh": "我們會在暑假期間整修辦公室。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Should we renovate the kitchen before renewing the lease?", "zh": "我們是否該在續約前先整修廚房？" },
+        { "tag": "採購", "en": "The contractor will renovate three floors for the new tenant.", "zh": "承包商會為新房客整修三個樓層。" },
+        { "tag": "電子郵件", "en": "The store will close next week to renovate its entrance.", "zh": "這家店下週將暫停營業來整修入口。" }
+      ],
+      "confusable": [
+        {
+          "word": "renew",
+          "diff": "renew 是續約或更新期限，renovate 是整修空間，拼法相近但意思不同。",
+          "example": { "en": "We decided to renew the lease for another two years.", "zh": "我們決定再續約兩年的租約。" }
+        },
+        {
+          "word": "innovate",
+          "diff": "innovate 是創新、推出新做法；renovate 是把舊的建築或空間整修好。",
+          "example": { "en": "The firm must innovate to stay ahead of its competitors.", "zh": "這家公司必須創新，才能領先競爭對手。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "remodel",
+          "diff": "remodel 偏重改變格局和外觀；renovate 偏重把舊的地方整修成新的。",
+          "example": { "en": "They plan to remodel the lobby and add a reception desk.", "zh": "他們打算改造大廳並增設接待櫃台。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "repair",
+          "pos": "v.",
+          "zh": "修理",
+          "ipa": "/rɪˈper/",
+          "example": { "en": "The technician will repair the air conditioner this afternoon.", "zh": "技師今天下午會修理冷氣機。" }
+        },
+        {
+          "w": "maintain",
+          "pos": "v.",
+          "zh": "維護、保養",
+          "ipa": "/meɪnˈteɪn/",
+          "example": { "en": "Our team maintains all the equipment in the building.", "zh": "我們的團隊負責維護大樓裡的所有設備。" }
+        },
+        {
+          "w": "construct",
+          "pos": "v.",
+          "zh": "建造",
+          "ipa": "/kənˈstrʌkt/",
+          "example": { "en": "The company will construct a new warehouse next year.", "zh": "公司明年會建造一座新倉庫。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "renovation",
+          "ipa": "/ˌrenəˈveɪʃn/",
+          "pos": "n.",
+          "zh": "翻新、整修工程",
+          "link": "renovate 去掉 e 再加 -ion，把「整修」變成名詞，像 create → creation"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "subscription",
+      "type": "word",
+      "ipa": "/səbˈskrɪpʃn/",
+      "pos": "n.",
+      "zh": "訂閱、定期付費的服務",
+      "en": "an arrangement to pay regularly to receive a service or product",
+      "note": "這篇的維護合約也是定期付費的服務，subscription 的概念很像：定期付款，到期時要決定是否續訂。常見於軟體、雜誌和會員服務。",
+      "grammar_note": "「訂閱某樣東西」的介系詞用 to，例如 a subscription to the magazine，不用 for。",
+      "forms": [
+        {
+          "w": "subscriptions",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "訂閱（複數）",
+          "ipa": "/səbˈskrɪpʃnz/",
+          "example": { "en": "Our company pays for ten software subscriptions each month.", "zh": "我們公司每個月支付十個軟體訂閱的費用。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "renew a subscription",
+          "zh": "續訂",
+          "example": { "en": "Please renew your subscription before it expires on Friday.", "zh": "請在星期五到期前續訂。" }
+        },
+        {
+          "phrase": "cancel a subscription",
+          "zh": "取消訂閱",
+          "example": { "en": "You can cancel the subscription at any time online.", "zh": "您可以隨時在線上取消訂閱。" }
+        },
+        {
+          "phrase": "annual subscription",
+          "zh": "年度訂閱",
+          "example": { "en": "An annual subscription costs less than paying every month.", "zh": "年度訂閱比每個月付款便宜。" }
+        },
+        {
+          "phrase": "subscription fee",
+          "zh": "訂閱費",
+          "example": { "en": "The monthly subscription fee includes free technical support and updates.", "zh": "每月訂閱費包含免費的技術支援和更新。" }
+        }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Thank you for your subscription to our business newsletter.", "zh": "感謝您訂閱我們的商業電子報。" },
+        { "tag": "會議", "en": "We should compare subscription plans before choosing a software vendor.", "zh": "我們應該先比較訂閱方案，再選軟體廠商。" },
+        { "tag": "採購", "en": "Does the subscription include a free trial period first?", "zh": "這個訂閱方案一開始有包含免費試用期嗎？" }
+      ],
+      "confusable": [
+        {
+          "word": "description",
+          "diff": "description 是「描述、說明」，和 subscription 的字尾相同，容易看錯；subscription 是訂閱。",
+          "example": { "en": "Please read the product description before you place an order.", "zh": "下訂單前，請先閱讀產品說明。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "membership",
+          "diff": "membership 是成為會員的資格；subscription 強調定期付費取得服務或內容。",
+          "example": { "en": "Gold membership includes free shipping on all orders.", "zh": "金卡會員資格包含所有訂單免運費。" }
+        },
+        {
+          "phrase": "service plan",
+          "diff": "service plan 是服務方案，著重內容和價格組合；subscription 著重定期付費這件事。",
+          "example": { "en": "Which service plan gives us the lowest monthly rate?", "zh": "哪個服務方案能給我們最低的月費？" }
+        }
+      ],
+      "family": [
+        {
+          "w": "plan",
+          "pos": "n.",
+          "zh": "方案",
+          "ipa": "/plæn/",
+          "example": { "en": "The basic plan costs twenty dollars per month.", "zh": "基本方案每個月二十美元。" }
+        },
+        {
+          "w": "renewal",
+          "pos": "n.",
+          "zh": "續約、續訂",
+          "ipa": "/rɪˈnuːəl/",
+          "example": { "en": "Automatic renewal can be turned off in your account.", "zh": "自動續訂功能可以在您的帳戶中關閉。" }
+        },
+        {
+          "w": "trial",
+          "pos": "n.",
+          "zh": "試用",
+          "ipa": "/ˈtraɪəl/",
+          "example": { "en": "We offer a thirty-day free trial for new users.", "zh": "我們提供新用戶三十天的免費試用。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "subscribe",
+          "ipa": "/səbˈskraɪb/",
+          "pos": "v.",
+          "zh": "訂閱",
+          "link": "subscribe 是動詞原形；變名詞時字尾變成 -ription，像 describe → description"
+        },
+        {
+          "w": "subscriber",
+          "ipa": "/səbˈskraɪbər/",
+          "pos": "n.",
+          "zh": "訂閱者、用戶",
+          "link": "subscribe + -r，做這件事的人，像 driver、manager"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "訂閱（服務、雜誌、軟體）",
+          "en": "regular payment to receive a magazine, a service, or software",
+          "in_passage": true,
+          "example": { "en": "My subscription to the trade magazine ends in December.", "zh": "我訂閱的行業雜誌在十二月結束。" }
+        },
+        {
+          "pos": "n.",
+          "zh": "會費",
+          "en": "money you pay regularly to belong to a club or group",
+          "distinguish": "指加入俱樂部或協會定期繳的費用，英式用法較常見；訂閱則針對雜誌、軟體或服務。",
+          "example": { "en": "The annual club subscription is due at the start of January.", "zh": "俱樂部的年費在一月初到期。" }
+        }
+      ]
+    },
+    {
+      "text": "in terms of",
+      "type": "phrase",
+      "zh": "就…方面來說、以…而言",
+      "en": "when you talk about one part of something",
+      "note": "在談判或比較方案時，用來限定討論的面向，例如 in terms of price（就價格而言）或 in terms of contract length。注意它和合約裡的 terms（條款）是不同的用法。",
+      "pattern": "in terms of + N（價格／品質／時間）, S + V",
+      "grammar_note": "terms 一定要加 s，不能寫 in term of；of 是介系詞，後面接名詞或 V-ing。",
+      "examples": [
+        { "tag": "會議", "en": "In terms of price, the second vendor is clearly better.", "zh": "就價格而言，第二家廠商明顯比較好。" },
+        { "tag": "電子郵件", "en": "We are satisfied in terms of both quality and delivery.", "zh": "就品質與交貨兩方面，我們都很滿意。" },
+        { "tag": "採購", "en": "The new model is better in terms of energy use.", "zh": "就能源使用而言，新型號比較好。" },
+        { "tag": "出差", "en": "In terms of location, this hotel is very convenient.", "zh": "就地點而言，這家飯店非常方便。" }
+      ],
+      "similar": [
+        {
+          "phrase": "regarding",
+          "diff": "regarding 是「關於」，用來引出話題；in terms of 則是限定要比較或評估的面向。",
+          "example": { "en": "I am writing regarding the delay in your order.", "zh": "我來信是關於您訂單的延誤。" }
+        },
+        {
+          "phrase": "when it comes to",
+          "diff": "語氣較口語，意思是「說到…」，to 是介系詞，後面接名詞或 V-ing。",
+          "example": { "en": "When it comes to pricing, our supplier is flexible.", "zh": "說到定價，我們的供應商很有彈性。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "under the terms of",
+          "diff": "under the terms of 是「依據…的條款」，指合約規定；in terms of 是「就…方面」。",
+          "example": { "en": "Under the terms of the contract, we can cancel early.", "zh": "依據合約條款，我們可以提前取消。" }
+        }
+      ]
+    },
+    {
+      "text": "terms and conditions",
+      "type": "phrase",
+      "zh": "條款與條件、使用條款",
+      "en": "the rules and details that both sides agree to in a contract",
+      "note": "對話裡女士說 I'll review the terms，指的就是檢視合約條款；terms and conditions 是更完整的說法，常縮寫成 T&C，在網站和合約中都很常見。",
+      "pattern": "read / accept / review + the terms and conditions",
+      "grammar_note": "terms and conditions 通常視為複數，動詞用 are／apply，例如 The terms and conditions are listed below。",
+      "examples": [
+        { "tag": "合約", "en": "Please read the terms and conditions carefully before signing.", "zh": "簽名前請仔細閱讀條款與條件。" },
+        { "tag": "會議", "en": "The vendor refused to change the terms and conditions.", "zh": "廠商拒絕更改條款與條件。" },
+        { "tag": "電子郵件", "en": "The updated terms and conditions will take effect next month.", "zh": "更新後的條款與條件將於下個月生效。" },
+        { "tag": "採購", "en": "Check whether the terms and conditions include free repairs.", "zh": "請確認條款與條件是否包含免費維修。" },
+        { "tag": "網站", "en": "You must accept the terms and conditions to create an account.", "zh": "您必須接受條款與條件才能建立帳戶。" }
+      ],
+      "similar": [
+        {
+          "phrase": "terms of service",
+          "diff": "terms of service 多指網站或線上服務的使用規範；terms and conditions 範圍更廣，也包含一般合約。",
+          "example": { "en": "By using this app, you agree to the terms of service.", "zh": "使用這個應用程式，即表示您同意服務條款。" }
+        },
+        {
+          "phrase": "contract terms",
+          "diff": "contract terms 專指合約內的條款，不一定包含「條件」的說法。",
+          "example": { "en": "We need to review the contract terms before signing.", "zh": "我們簽約前需要先審閱合約條款。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "term",
+          "diff": "單數 term 常指期限，複數 terms 才是條款。",
+          "usage": "說「條款」時一定用複數 terms；單數 term 多指期限或學期，如 a longer term。",
+          "example": { "en": "A longer term could lower the monthly rate.", "zh": "較長的期限可能降低月費。" }
+        }
+      ]
+    },
+    {
+      "text": "landlord",
+      "type": "word",
+      "ipa": "/ˈlændlɔːrd/",
+      "pos": "n.",
+      "zh": "房東、出租人",
+      "en": "a person or company that owns a building and rents it to others",
+      "note": "在「The landlord waived the late payment penalty for this month.」中，landlord 是收租金、決定要不要免除罰款的一方，角色就像這篇對話裡可議價的 vendor。",
+      "forms": [
+        {
+          "w": "landlords",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "房東（複數）",
+          "ipa": "/ˈlændlɔːrdz/",
+          "example": { "en": "Some landlords offer discounts to tenants who sign longer leases.", "zh": "有些房東會給簽較長租約的房客折扣。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "landlord and tenant",
+          "zh": "房東與房客",
+          "example": { "en": "The landlord and tenant signed a new two-year lease.", "zh": "房東與房客簽了一份新的兩年租約。" }
+        },
+        {
+          "phrase": "contact the landlord",
+          "zh": "聯絡房東",
+          "example": { "en": "Please contact the landlord about the broken heater.", "zh": "請就壞掉的暖氣聯絡房東。" }
+        },
+        {
+          "phrase": "the landlord's approval",
+          "zh": "房東的同意",
+          "example": { "en": "We need the landlord's approval before we change the layout.", "zh": "更改格局前，我們需要房東的同意。" }
+        }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The landlord agreed to lower the rent by five percent.", "zh": "房東同意把租金降低百分之五。" },
+        { "tag": "電子郵件", "en": "I sent the landlord a copy of the signed lease.", "zh": "我寄了一份已簽署的租約給房東。" },
+        { "tag": "採購", "en": "The landlord is responsible for repairing the roof and walls.", "zh": "房東負責修繕屋頂和牆壁。" }
+      ],
+      "confusable": [
+        {
+          "word": "tenant",
+          "diff": "tenant 是承租人、房客；landlord 是出租人，兩者角色相反。",
+          "example": { "en": "The tenant must pay the rent by the first of the month.", "zh": "房客必須在每月一日前繳租金。" }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "property owner",
+          "diff": "property owner 是「物業擁有者」，語氣較中性，不一定有出租給別人。",
+          "example": { "en": "The property owner will visit the office on Monday.", "zh": "物業所有人星期一會到辦公室來。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "lease",
+          "pos": "n.",
+          "zh": "租約",
+          "ipa": "/liːs/",
+          "example": { "en": "The lease ends in June, so we must decide soon.", "zh": "租約六月到期，所以我們必須儘快決定。" }
+        },
+        {
+          "w": "rent",
+          "pos": "n.",
+          "zh": "租金",
+          "ipa": "/rent/",
+          "example": { "en": "The rent for this office rose by eight percent.", "zh": "這間辦公室的租金上漲了百分之八。" }
+        },
+        {
+          "w": "property",
+          "pos": "n.",
+          "zh": "房地產、物業",
+          "ipa": "/ˈprɑːpərti/",
+          "example": { "en": "The company owns several properties in the city center.", "zh": "這家公司在市中心擁有幾處物業。" }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "If we signed for three years instead of one, they might even waive the installation fee.",
+      "type": "sentence",
+      "zh": "如果我們簽三年而不是一年，他們甚至可能免收安裝費。",
+      "note": "女士順著男士的想法，推測簽長約可以換到更多優惠。用 might even 讓語氣保守，帶有「說不定還能…」的期待。",
+      "chunks": [
+        { "en": "If we signed", "zh": "如果我們簽約" },
+        { "en": "for three years", "zh": "簽三年" },
+        { "en": "instead of one,", "zh": "而不是一年" },
+        { "en": "they might even waive", "zh": "他們甚至可能免除" },
+        { "en": "the installation fee.", "zh": "安裝費" }
+      ],
+      "structure": "If + S + 過去式（假設）, S + might + (even) + V + O",
+      "grammar": [
+        {
+          "point": "if + 過去式, might + 原形",
+          "explain": "用過去式 signed 表示「假設的情況」，不是指過去；主要子句用 might（或 would）加原形，說出可能的結果，語氣比 will 更保守。"
+        },
+        {
+          "point": "instead of + N",
+          "explain": "instead of 後面接名詞或 V-ing，表示「而不是…」；這裡的 one 是代替 year，避免重複 for one year。"
+        },
+        {
+          "point": "might even",
+          "explain": "even 放在 might 後面、動詞前，加強語氣，表示「甚至可能」，暗示結果比預期更好。"
+        }
+      ],
+      "pattern": "If + S + 過去式 + 條件, S + might even + V + 結果",
+      "paraphrase": [
+        { "en": "A three-year contract, not a one-year one, might even get us free installation.", "zh": "三年的合約，而不是一年的，說不定還能讓我們免費安裝。" },
+        { "en": "The vendor might not charge us for installation if we choose three years over one.", "zh": "如果我們選三年而不是一年，廠商可能不會收安裝費。" }
+      ],
+      "examples": [
+        { "en": "If we paid in advance, they might even give us a discount.", "zh": "如果我們預先付款，他們甚至可能給我們折扣。" },
+        { "en": "If you ordered fifty units, the supplier might even offer free shipping.", "zh": "如果您訂五十件，供應商甚至可能提供免運費。" }
+      ],
+      "key_words": [
+        { "w": "waive", "ipa": "/weɪv/", "pos": "v.", "zh": "免除、放棄（費用或權利）" },
+        { "w": "installation fee", "zh": "安裝費" },
+        { "w": "instead of", "zh": "而不是、代替" }
+      ]
+    },
+    {
+      "text": "waive the penalty",
+      "type": "phrase",
+      "zh": "免除罰款",
+      "en": "to say that someone does not have to pay a penalty",
+      "note": "在「We are happy to waive the penalty because this was our mistake.」中，是公司主動承認錯誤並免除罰款，語氣客氣、有誠意，常見於道歉信或客服回覆。",
+      "pattern": "waive + the penalty／fee／charge",
+      "grammar_note": "waive 是及物動詞，直接接費用當受詞（waive the penalty），不加 on 或 for；對象用 for + 人，如 waive the penalty for the customer。",
+      "examples": [
+        { "tag": "電子郵件", "en": "We will waive the penalty if payment arrives by Friday.", "zh": "如果款項在星期五前到，我們會免除罰款。" },
+        { "tag": "會議", "en": "Could the vendor waive the penalty for the first delay?", "zh": "廠商可以免除第一次延誤的罰款嗎？" },
+        { "tag": "客服", "en": "As a favor, the bank agreed to waive the penalty.", "zh": "銀行基於通融，同意免除罰款。" },
+        { "tag": "合約", "en": "The agreement allows us to waive the penalty in special cases.", "zh": "協議允許我們在特殊情況下免除罰款。" }
+      ],
+      "similar": [
+        {
+          "phrase": "remove the penalty",
+          "diff": "較口語，只是把罰款拿掉；waive 則有「放棄收取的權利」的正式語感。",
+          "example": { "en": "The manager decided to remove the penalty from the invoice.", "zh": "經理決定把發票上的罰款拿掉。" }
+        },
+        {
+          "phrase": "waive the late fee",
+          "diff": "結構相同，只是對象換成逾期費，指付款晚了才加收的費用。",
+          "example": { "en": "The landlord agreed to waive the late fee this month.", "zh": "房東同意這個月免收逾期費。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "wave",
+          "diff": "wave 與 waive 發音相同，但 wave 是揮手、波浪；waive 才是免除。",
+          "example": { "en": "He gave a quick wave and left the meeting room.", "zh": "他快速揮了揮手，離開了會議室。" }
+        }
+      ]
+    },
+    {
+      "text": "fee waiver",
+      "type": "phrase",
+      "zh": "費用減免、免收費用的許可",
+      "en": "an approval to not pay a fee that others must pay",
+      "note": "在「Students can apply for a fee waiver on the website.」中，fee waiver 是名詞，指經申請後可以不用繳費的資格，常見於學費、報名費和安裝費。",
+      "pattern": "apply for / request / get + a fee waiver",
+      "grammar_note": "waiver 是名詞，fee waiver 是可數名詞，可加 a 或 s；表示「免收」這個動作要用動詞 waive，如 waive the fee。",
+      "examples": [
+        { "tag": "電子郵件", "en": "You may request a fee waiver by replying to this email.", "zh": "您可以回覆這封電子郵件申請費用減免。" },
+        { "tag": "會議", "en": "A fee waiver would make the three-year plan more attractive.", "zh": "免收費用會讓三年的方案更有吸引力。" },
+        { "tag": "採購", "en": "The vendor offered a fee waiver for the first installation.", "zh": "廠商為第一次安裝提供了費用減免。" },
+        { "tag": "人資", "en": "Employees can get a fee waiver for approved training courses.", "zh": "員工參加核准的培訓課程可以獲得費用減免。" }
+      ],
+      "similar": [
+        {
+          "phrase": "fee exemption",
+          "diff": "exemption 是依規定本來就不用繳；waiver 是對方同意放棄收取。",
+          "example": { "en": "Nonprofit groups receive a fee exemption under the new rule.", "zh": "依新規定，非營利團體可免繳費用。" }
+        },
+        {
+          "phrase": "fee reduction",
+          "diff": "只是減少費用，不是完全免除；fee waiver 則是整筆不用付。",
+          "example": { "en": "The vendor offered a fee reduction of ten percent.", "zh": "廠商提供了百分之十的費用減免。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "waver",
+          "diff": "waver 是動詞，指猶豫不決；waiver 是名詞，指免除。拼法很接近。",
+          "usage": "waiver 是名詞（a waiver），waver 是動詞（waver on a decision），詞性不同，不能互換。",
+          "example": { "en": "The team began to waver after the price went up.", "zh": "價格上漲後，團隊開始猶豫了。" }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "before I knew it",
+      "type": "phrase",
+      "zh": "不知不覺就…、一轉眼就…",
+      "en": "very quickly, before I noticed that time had passed",
+      "note": "常放在句首，後面接逗號和一件很快發生或結束的事，語氣口語、自然，常用於回顧工作或行程。多益聽力與閱讀的對話、信件中偶爾出現，意思是「時間過得很快」。",
+      "pattern": "Before I knew it, + 主詞 + 過去式動詞 + …",
+      "grammar_note": "這是過去的事，所以逗號後面的子句用過去式（或過去完成式）；主詞可依情況換成 we、he、she，如 before we knew it。",
+      "examples": [
+        { "tag": "出差", "en": "Before I knew it, the business trip was over.", "zh": "不知不覺，這趟出差就結束了。" },
+        { "tag": "會議", "en": "Before I knew it, the meeting had run an hour late.", "zh": "一轉眼，會議就拖晚了一個小時。" },
+        { "tag": "專案", "en": "We started the project in May, and before we knew it, it was October.", "zh": "我們五月開始這個專案，轉眼就十月了。" },
+        { "tag": "職涯", "en": "Before I knew it, I had worked at this company for ten years.", "zh": "不知不覺，我已經在這家公司工作十年了。" }
+      ],
+      "similar": [
+        {
+          "phrase": "in no time",
+          "diff": "in no time 強調「很快就完成或到達」，常用於未來或完成的事；before I knew it 強調沒注意到時間過去。",
+          "example": { "en": "The new system will be ready in no time.", "zh": "新系統很快就會準備好。" }
+        },
+        {
+          "phrase": "before long",
+          "diff": "before long 是「不久之後」，語氣較客觀，不帶「沒發現」的感覺。",
+          "example": { "en": "Before long, the new branch was making a profit.", "zh": "不久之後，新分公司就開始獲利了。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "before I know it",
+          "diff": "knew 是過去式，說的是已發生的事；know 是現在式，說的是未來「一轉眼就會…」。",
+          "example": { "en": "Summer will be over before I know it, so I must plan now.", "zh": "夏天一轉眼就會結束，所以我現在就得規劃。" }
+        }
+      ]
+    }
+  ]
+}
