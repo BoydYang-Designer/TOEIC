@@ -30,6 +30,13 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
            audio/daily/words/{單字}.mp3，同一個字只錄一次；例句與句子放 vocab/（檔名不含文章 id）
 
 聲音：美式四個（Ava／Andrew／Emma／Brian）和字母、詳解用 Azure DragonHD（HD）聲音；英式、澳式維持標準 Neural（TOEIC 聽力有多種口音）。
+  ※ 音質分三級（程式會「由高到低依序嘗試」，前一級被拒絕或這個區域沒有，才退到下一級）：
+       高：① Dragon HD Omni（最新、預覽版；TRY_OMNI 控制要不要先試）→ ② Dragon HD（DragonHDLatest）
+       中：③ Multilingual Neural
+       低：④ 標準 Neural
+     每個檔的記錄行尾會標〔高·Omni〕〔高·HD〕〔中〕〔低〕；整批跑完會印「本次語音版本」報告：每一級用了幾段、哪些降級、
+     哪個版本被這個區域拒絕。沒有降級＝全部都是你設定的等級或更好。voices-log.json 會同時記「想用」與「實際用」的聲音。
+     --no-omni 這次不試 Omni；--omni 強制試 Omni。HD_FALLBACK = False 則「不准降到比設定差」，不能用就直接報錯。
   ※ HD 聲音不支援 <prosody>，所以 HD 聲音不套用語速設定（rate／VOCAB_RATE／PASSAGE_RATE 只對標準聲音有效）。
   ※ HD 每百萬字元價格約為標準的兩倍，估算費用已分開計算（PRICE_HD_USD_PER_M_CHARS）。
   ※ 換聲音後想把舊檔換成新聲音：加 --redo（聲音不同的檔）或 --redo-all（連沒有紀錄的舊檔）。edge-tts 不支援 HD 名稱。
@@ -40,7 +47,7 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
 
 Azure 設定：金鑰與區域只從 Windows 環境變數讀取（絕不寫進程式或專案資料夾）：
   setx SPEECH_KEY "你的金鑰"      setx SPEECH_REGION "eastasia"（小寫、無空格），設定後重開終端機／重新登入
-  python auto-speech.py --check-azure   檢查金鑰、區域、8 個聲音是否可用（只合成 5 個字元）
+  python auto-speech.py --check-azure   檢查金鑰、區域，並逐一測試每個聲音的 高→低 各級是否可用（只合成幾個字元），告訴你實際會用到哪一級
 
 參數：--cli 強制使用文字模式（沒有 tkinter 時會自動使用）；--dry 只列清單不產生；--manifest 只重建 daily 的 vocab/index.json。
 
@@ -92,9 +99,10 @@ AZURE_FORMAT = "audio-24khz-48kbitrate-mono-mp3"   # 輸出格式（和原本 ed
 AZURE_RETRIES = 5             # 每個檔最多嘗試幾次（429／5xx／網路錯誤才重試）
 PAUSE_MS = 300                # Part 7 多人聊天：不同人說話之間停幾毫秒
 PRICE_USD_PER_M_CHARS = 15.0  # 只用來「估算」費用（標準 Neural 每百萬字元）；請對照 Azure 定價頁自行修改
-PRICE_HD_USD_PER_M_CHARS = 30.0   # HD（DragonHD）聲音每百萬字元的估算價（第三方資料，請對照 Azure 定價頁自行修改）
+PRICE_HD_USD_PER_M_CHARS = 30.0   # HD（DragonHD／Omni）聲音每百萬字元的估算價（第三方資料；Omni 價格未確認，暫用同價，請對照 Azure 定價頁自行修改）
 HD_MARK = ":DragonHD"         # 聲音名稱含這串就視為 HD 聲音
-HD_FALLBACK = True         # HD 聲音被拒絕（例如這個區域沒有 HD）時，自動改用同名的 Multilingual 標準聲音，不讓整批失敗
+HD_FALLBACK = True         # HD 聲音被拒絕（例如這個區域沒有 HD）時，依序降級：Multilingual（中）→ 標準 Neural（低），不讓整批失敗。False＝不准降到比設定差
+TRY_OMNI = True            # 設定是 DragonHD 的聲音，先試更新的 Dragon HD Omni（預覽版）；這個區域不支援就自動退回 DragonHD（被拒絕 2 次且從未成功就不再試）
 HD_PARAMS = "temperature=0.7" # HD 聲音的隨機度（0～1，越低越穩定、每次念法越一致；預設 1.0）。設成 "" 就不加
 LOG_NAME = "voices-log.json"  # 版本紀錄檔（和題庫 json 放同一層）：記每個 mp3 用過的聲音／語速／日期
 
@@ -184,12 +192,16 @@ def need(path, sig, rate):
     rec = STATE["log"].get(rel_key(path))
     if rec is None:
         return "redo" if STATE["redo"] >= 2 else None
-    same = rec.get("engine") == ENGINE and rec.get("voice") == sig and (rec.get("rate") or "") == (rate or "")
+    # 想用的聲音（want）要和現在設定相同；實際用的聲音只要「同一個人、等級不比設定差」就算新（Omni 成功＝比設定好，不重錄；降到中／低＝重錄）
+    want = rec.get("want", rec.get("voice"))
+    same = (rec.get("engine") == ENGINE and want == sig and sig_ok(rec.get("voice") or "", sig)
+            and (rec.get("rate") or "") == (rate or ""))
     return None if same else "redo"
 
 
-def record(path, sig, rate):
-    STATE["log"][rel_key(path)] = dict(voice=sig, rate=rate or "", engine=ENGINE,
+def record(path, sig, rate, want=None):
+    """sig＝實際用的聲音；want＝設定想用的聲音（沒傳＝同 sig）。"""
+    STATE["log"][rel_key(path)] = dict(voice=sig, want=want or sig, rate=rate or "", engine=ENGINE,
                                        date=datetime.now().strftime("%Y-%m-%d %H:%M"))
     STATE["dirty"] += 1
 
@@ -207,10 +219,66 @@ def is_hd(v):
     return HD_MARK in v
 
 
+def is_omni(v):
+    return ":DragonHDOmni" in v
+
+
 def short(v):
+    if is_omni(v):
+        return v.split("-")[-1].split(":")[0] + " Omni"
     if is_hd(v):
         return v.split("-")[-1].split(":")[0] + " HD"
     return v.split("-")[-1].replace("Neural", "")
+
+
+# ------------------------------- 音質等級（高／中／低）-------------------------------
+TIER_TAG = {0: "高·Omni", 1: "高·HD", 2: "中", 3: "低"}
+TIER_NAME = {0: ("高", "Dragon HD Omni"), 1: ("高", "Dragon HD"), 2: ("中", "Multilingual Neural"), 3: ("低", "標準 Neural")}
+
+
+def tier_of(v):
+    """回傳 0＝Omni／1＝Dragon HD／2＝Multilingual／3＝標準 Neural（數字越小音質越高）。"""
+    if is_omni(v):
+        return 0
+    if is_hd(v):
+        return 1
+    if "Multilingual" in v:
+        return 2
+    return 3
+
+
+def speaker_of(v):
+    """en-US-Ava:DragonHDLatestNeural／en-US-AvaMultilingualNeural／en-US-AvaNeural → en-US-Ava"""
+    b = v.split(":")[0]
+    for suf in ("MultilingualNeural", "Neural"):
+        if b.endswith(suf):
+            return b[: -len(suf)]
+    return b
+
+
+def sig_ok(actual, wanted):
+    """actual／wanted＝聲音簽名（多人用 | 相連）：同一個人、且實際等級不比想用的差。"""
+    a, w = actual.split("|"), wanted.split("|")
+    return len(a) == len(w) and all(speaker_of(x) == speaker_of(y) and tier_of(x) <= tier_of(y) for x, y in zip(a, w))
+
+
+def voice_chain(v):
+    """這個聲音「由高到低」的嘗試順序。標準 Neural（英式、澳式）沒有更高版本，就只有它自己。"""
+    if not is_hd(v):
+        return [v]
+    base = v.split(":")[0]
+    omni, hd = base + ":DragonHDOmniLatestNeural", base + ":DragonHDLatestNeural"
+    ch = [omni] if (TRY_OMNI and not is_omni(v)) else []
+    ch.append(v)
+    if is_omni(v) and HD_FALLBACK:
+        ch.append(hd)
+    if HD_FALLBACK:
+        ch += [base + "MultilingualNeural", base + "Neural"]
+    return list(dict.fromkeys(ch))
+
+
+# 本次執行的統計（generate() 開始時清空）：VSTAT＝每個聲音版本在這個區域成功／被拒絕幾次；STATS＝實際使用（實際聲音, 想用的聲音）→ 段數
+VSTAT, STATS = {}, {}
 
 
 def match_key(key, p):
@@ -1054,9 +1122,9 @@ def job_chars(job):
     return sum(len(clean_text(t)) for t, _ in parts)
 
 
-def job_cost(job):
-    """估算單一檔的費用（USD）：HD 聲音和標準聲音分開計價。"""
-    parts = job.get("parts") or [(job["text"], job["voice"])]
+def job_cost(job, parts=None):
+    """估算單一檔的費用（USD）：HD 聲音和標準聲音分開計價。parts＝實際使用的聲音（降級後和原本不同時傳入）。"""
+    parts = parts or job.get("parts") or [(job["text"], job["voice"])]
     return sum(len(clean_text(t)) * (PRICE_HD_USD_PER_M_CHARS if is_hd(v) else PRICE_USD_PER_M_CHARS) for t, v in parts) / 1e6
 
 
@@ -1070,20 +1138,45 @@ def azure_request(key, region, ssml, timeout):
         return r.read()
 
 
-def hd_fallback_voice(v):
-    """en-US-Ava:DragonHDLatestNeural → en-US-AvaMultilingualNeural"""
-    return v.split(":")[0] + "MultilingualNeural" if is_hd(v) else v
+def voice_dead(v):
+    """這一次執行裡，這個聲音版本被拒絕 2 次以上、而且從未成功 → 不再浪費請求去試。"""
+    st = VSTAT.get(v)
+    return bool(st and st["bad"] >= 2 and st["ok"] == 0)
+
+
+def vmark(vs, key, err=""):
+    for v in set(vs):
+        st = VSTAT.setdefault(v, dict(ok=0, bad=0, err=""))
+        st[key] += 1
+        if err and key == "bad":
+            st["err"] = err
 
 
 async def azure_synth(parts, rate, timeout, conf):
-    """回傳 (mp3 bytes, 實際使用的 parts)。HD 聲音被拒絕（HTTP 400）時，若 HD_FALLBACK 就改用標準聲音重試一次。"""
-    try:
-        return await azure_synth1(parts, rate, timeout, conf), parts
-    except ValueError:
-        if not (HD_FALLBACK and any(is_hd(v) for _, v in parts)):
-            raise
-        parts2 = [(t, hd_fallback_voice(v)) for t, v in parts]
-        return await azure_synth1(parts2, rate, timeout, conf), parts2
+    """回傳 (mp3 bytes, 實際使用的 parts)。依 voice_chain 由高到低逐級嘗試：某一級被拒絕（HTTP 400）才退到下一級。
+    多人聊天（Part 7）一次請求含多個聲音，整份一起降級，這樣同一份檔的音質一致。"""
+    chains = [voice_chain(v) for _, v in parts]
+    attempts = []
+    for k in range(max(len(c) for c in chains)):
+        vs = [c[min(k, len(c) - 1)] for c in chains]
+        if vs not in attempts:
+            attempts.append(vs)
+    failed, last = [], None
+    for idx, vs in enumerate(attempts):
+        if idx < len(attempts) - 1 and any(voice_dead(v) for v in vs):
+            continue                                   # 已知這個區域不支援，直接跳下一級
+        used = [(t, v) for (t, _), v in zip(parts, vs)]
+        try:
+            data = await azure_synth1(used, rate, timeout, conf)
+        except ValueError as e:
+            last = e
+            failed.append((vs, str(e)))
+            continue
+        vmark(vs, "ok")
+        for fvs, msg in failed:                        # 較高一級失敗、較低一級成功＝是聲音版本的問題（不是文字的問題），才算它被拒絕
+            vmark([v for v in fvs if v not in vs], "bad", msg[:160])
+        return data, used
+    raise last if last else ValueError("沒有可用的聲音")
 
 
 async def azure_synth1(parts, rate, timeout, conf):
@@ -1133,24 +1226,33 @@ async def synth(job, spec, sem, st, log, conf):
         tmp = job["path"].with_suffix(".tmp")
         parts = job.get("parts") or [(job["text"], job["voice"])]   # [(文字, 聲音), ...]；多段在同一份 SSML 內依序朗讀
         rate = job.get("rate") or spec.cfg["rate"]
-        sig = "|".join(v for _, v in parts)             # 版本紀錄用的聲音簽名（和 plan 裡的 need() 一致）
+        sig = "|".join(v for _, v in parts)             # 想用的聲音簽名（和 plan 裡的 need() 一致）
+        want = sig
         timeout = spec.cfg["timeout"]
         try:
             data, used = await azure_synth(parts, rate, timeout, conf)
-            if used is not parts:                        # HD 被拒絕，已改用標準聲音
-                sig = "|".join(v for _, v in used)
-                log(f"⚠ {job['name']}  HD 聲音被拒絕（這個區域可能沒有 HD），改用標準聲音 {short(used[0][1])}")
+            sig = "|".join(v for _, v in used)           # 實際用的聲音
+            worst = max(tier_of(v) for _, v in used)
+            for (_, w), (_, a) in zip(parts, used):
+                STATS[(a, w)] = STATS.get((a, w), 0) + 1
+            drop = [(w, a) for (_, w), (_, a) in zip(parts, used) if tier_of(a) > tier_of(w)]
             if len(data) <= 1000:
                 raise RuntimeError("產生的檔案太小")
             tmp.write_bytes(data)
             tmp.replace(job["path"])
             st["ok"] += 1
             USAGE["session"] += job_chars(job)
-            USAGE["usd"] += job_cost(job)
-            record(job["path"], sig, rate)
+            USAGE["usd"] += job_cost(job, used)
+            record(job["path"], sig, rate, want)
             if STATE["dirty"] >= 20:                     # 每 20 筆存一次，中途當掉也不會全部遺失
                 save_log()
-            log(f"{'↻' if job.get('redo') else '✓'} {job['name']}  {spec.log_text(job)}")
+            log(f"{'↻' if job.get('redo') else '✓'} {job['name']}  {spec.log_text(job)}  〔{TIER_TAG[worst]}〕")
+            if drop:
+                st["drop_n"] = st.get("drop_n", 0) + 1
+                if st["drop_n"] <= 5:
+                    w0, a0 = drop[0]
+                    log(f"   ⚠ 降級：想用 {short(w0)}（{TIER_NAME[tier_of(w0)][0]}）→ 實際用 {short(a0)}（{TIER_NAME[tier_of(a0)][0]}）"
+                        + ("　（之後的降級只列在最後的報告）" if st["drop_n"] == 5 else ""))
         except AzureFatal as e:
             st["bad"] += 1
             log(f"✗ 失敗 {job['name']}  ({e})")
@@ -1168,6 +1270,59 @@ async def synth(job, spec, sem, st, log, conf):
                 pass
 
 
+def voice_report(region):
+    """整批跑完的「本次語音版本」報告：每一級用了幾段、哪些降級、哪個版本被這個區域拒絕。"""
+    tot = sum(STATS.values())
+    if not tot:
+        return ""
+    by_tier = {0: 0, 1: 0, 2: 0, 3: 0}
+    drop = {0: 0, 1: 0, 2: 0, 3: 0}
+    std_orig = 0
+    by_voice = {}
+    for (a, w), n in STATS.items():
+        t = tier_of(a)
+        by_tier[t] += n
+        by_voice[a] = by_voice.get(a, 0) + n
+        if t > tier_of(w):
+            drop[t] += n
+        elif t == 3 and tier_of(w) == 3:
+            std_orig += n
+    L = [f"━━━━━━━━ 本次語音版本（Azure　區域 {region}）━━━━━━━━", f"共 {tot} 段聲音（Part 7 多人聊天每個人算一段）"]
+    for t in (0, 1, 2, 3):
+        lv, nm = TIER_NAME[t]
+        extra = []
+        if drop[t]:
+            extra.append(f"⚠ 其中 {drop[t]} 段是降級")
+        if t == 3 and std_orig:
+            extra.append(f"{std_orig} 段是原定的標準聲音（英式／澳式，不算降級）")
+        L.append(f"  {lv}　{by_tier[t]:>4} 段　{nm}" + ("　" + "；".join(extra) if extra else ""))
+    L.append("聲音明細：")
+    for a, n in sorted(by_voice.items(), key=lambda kv: (tier_of(kv[0]), -kv[1])):
+        L.append(f"  〔{TIER_TAG[tier_of(a)]}〕 {a}　{n} 段")
+    skipped = [(v, st) for v, st in VSTAT.items() if st["bad"]]
+    if skipped:
+        L.append("被拒絕的版本（已自動改用下一級）：")
+        for v, st in sorted(skipped):
+            L.append(f"  ✗ {v}　被拒絕 {st['bad']} 次、成功 {st['ok']} 次" + ("（之後不再嘗試）" if voice_dead(v) else "")
+                     + (f"\n      原因：{st['err']}" if st["err"] else ""))
+        omni_dead = any(is_omni(v) and voice_dead(v) for v, _ in skipped)
+        hd_dead = any(is_hd(v) and not is_omni(v) and voice_dead(v) for v, _ in skipped)
+        if omni_dead and not hd_dead:
+            L.append(f"  → {region} 可能還沒有 Dragon HD Omni（預覽版只在部分區域），所以目前實際最高等級是 Dragon HD。")
+        elif hd_dead:
+            L.append(f"  → {region} 連 Dragon HD 都被拒絕：可能這個區域不支援 HD，或名稱／參數有問題。請執行 --check-azure；必要時改用 eastus／westeurope／southeastasia 的 Speech 資源。")
+    nd = sum(drop.values())
+    best_t = min(t for t, n in by_tier.items() if n)
+    top = max((t for t in (0, 1, 2) if by_tier[t]), key=lambda t: by_tier[t], default=None)
+    if nd:
+        L.append(f"結論：⚠ 有 {nd} 段比你設定的等級差。可先執行 --check-azure 看哪一級在 {region} 可用；修好後用 --redo 重錄這些檔。")
+    else:
+        L.append("結論：✔ 沒有降級，全部都是設定的等級或更好。")
+    if top is not None:
+        L.append(f"本次最主要使用：{TIER_NAME[top][0]}（{TIER_NAME[top][1]}）；最高到：{TIER_NAME[best_t][0]}（{TIER_NAME[best_t][1]}）。")
+    return "\n".join(L)
+
+
 def generate(jobs, spec, log, progress, stop, root=None):
     """同步執行（給文字模式或背景執行緒呼叫）。回傳 (成功, 失敗, 略過)"""
     if root is not None:
@@ -1179,6 +1334,9 @@ def generate(jobs, spec, log, progress, stop, root=None):
         log(m)
         progress(st["ok"] + st["bad"], total)
 
+    region = ""
+    VSTAT.clear()
+    STATS.clear()
     if ENGINE == "azure":
         key, region, err = azure_conf()
         if err:
@@ -1223,11 +1381,15 @@ def generate(jobs, spec, log, progress, stop, root=None):
                 log(credit_line(STATE["root"]))
             except OSError as e:
                 log(f"✗ 無法寫入用量紀錄 {USAGE_NAME}：{e}")
+        if ENGINE == "azure":
+            rpt = voice_report(region)
+            if rpt:
+                log(rpt)
     return st["ok"], st["bad"], st["skipped"]
 
 
 def check_azure():
-    """--check-azure：驗證金鑰／區域，列出 8 個聲音是否存在，並實際合成一次很短的句子。"""
+    """--check-azure：驗證金鑰／區域，逐一測試每個聲音由高到低各級是否可用，並說明實際會用哪一級。"""
     key, region, err = azure_conf()
     if err:
         print("✗", err)
@@ -1244,27 +1406,46 @@ def check_azure():
     except Exception as e:
         print(f"✗ 連線失敗：{type(e).__name__} {e}")
         return 1
-    bad = 0
-    for v in dict.fromkeys(VOICES + [LETTER_VOICE, VOCAB_VOICE]):
-        ok = v in have
-        note = ""
-        if not ok and is_hd(v):          # HD 聲音可能不在清單裡，直接合成一次確認
-            global HD_PARAMS
-            try:
-                azure_request(key, region, build_ssml([("Hello.", v)], "-5%"), 30)
-                ok = True
-            except Exception as e1:
+    def probe(v):
+        global HD_PARAMS
+        """→ (可用?, 備註)。標準聲音看清單；HD／Omni 清單常不列，直接合成一次確認。"""
+        if v in have and not is_hd(v):
+            return True, ""
+        try:
+            azure_request(key, region, build_ssml([("Hi.", v)], "-5%"), 30)
+            return True, ""
+        except Exception as e1:
+            if is_hd(v) and HD_PARAMS:
                 saved = HD_PARAMS
                 HD_PARAMS = ""
                 try:
-                    azure_request(key, region, build_ssml([("Hello.", v)], "-5%"), 30)
-                    ok, note = True, "　（可用，但 HD_PARAMS 被拒絕，請把 HD_PARAMS 設成 \"\"）"
+                    azure_request(key, region, build_ssml([("Hi.", v)], "-5%"), 30)
+                    return True, "（可用，但 HD_PARAMS 被拒絕，請把 HD_PARAMS 設成 \"\"）"
                 except Exception:
-                    note = f"　（{region} 不支援這個 HD 聲音或名稱不對：{type(e1).__name__}；可改用 eastus／westeurope／southeastasia 的 Speech 資源）"
+                    pass
                 finally:
                     HD_PARAMS = saved
-        bad += (not ok)
-        print(f"  {'✓' if ok else '✗'} {v}{note}")
+            return False, f"（{type(e1).__name__}）"
+
+    bad = 0
+    print(f"Omni 先試：{'是（TRY_OMNI）' if TRY_OMNI else '否'}　降級：{'允許（HD_FALLBACK）' if HD_FALLBACK else '不允許，不能用就報錯'}")
+    for v in dict.fromkeys(VOICES + [LETTER_VOICE, VOCAB_VOICE]):
+        chain = voice_chain(v)
+        print(f"\n● 設定：{v}　（設定等級：{TIER_NAME[tier_of(v)][0]}）")
+        eff = None
+        for c in chain:
+            ok, note = probe(c)
+            tag = f"{TIER_NAME[tier_of(c)][0]}·{TIER_NAME[tier_of(c)][1]}"
+            print(f"    {'✓' if ok else '✗'} {tag:<30}{c}{note}")
+            if ok and eff is None:
+                eff = c
+        if eff is None:
+            bad += 1
+            print("    → 這個聲音所有等級都不能用！")
+        else:
+            drop = tier_of(eff) > tier_of(v)
+            bad += drop
+            print(f"    → 實際會用：{short(eff)}（{TIER_NAME[tier_of(eff)][0]}）" + ("　⚠ 比設定差" if drop else "　✔" + ("（比設定更好）" if tier_of(eff) < tier_of(v) else "")))
     try:
         data = azure_request(key, region, build_ssml([("Hello.", VOICES[-1])], "-5%"), 30)   # 用標準聲音測金鑰／區域
         print(f"✓ 合成測試成功（{len(data):,} bytes，約 6 個字元）")
@@ -1272,7 +1453,7 @@ def check_azure():
         print(f"✗ 合成測試失敗：{type(e).__name__} {e}")
         return 1
     print(credit_line(find_root() or HERE))
-    print("全部可用。" if not bad else f"有 {bad} 個聲音在 {region} 不可用，請改用別的聲音或區域。")
+    print("\n全部都能用到設定的等級或更好。" if not bad else f"\n有 {bad} 個聲音在 {region} 用不到設定的等級，請改用別的聲音／區域（例如 eastus／westeurope／southeastasia 的 Speech 資源）。")
     return 1 if bad else 0
 
 
@@ -1735,7 +1916,11 @@ def pick_part_cli(root: Path):
 def main():
     args = sys.argv[1:]
     flags = {a for a in args if a.startswith("--")}
-    global ENGINE
+    global ENGINE, TRY_OMNI
+    if "--no-omni" in flags:
+        TRY_OMNI = False
+    elif "--omni" in flags:
+        TRY_OMNI = True
     if "--edge" in flags:
         ENGINE = "edge-tts"
     elif "--azure" in flags:
