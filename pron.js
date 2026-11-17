@@ -76,18 +76,18 @@ function prMicMark(m, k) { // 詳解頁：練習過的字，麥克風位置改�
 /* ---------- 單字卡百分比：這個字「詳解頁」所有語音練習項目的總分 ----------
    項目＝詳解頁每個 🎙（單字、原形、詞性、多義、屈折、同字族、搭配、同義改寫、例句、重點字詞、易混淆、近義、相關字…，
    寫法與 notes.js 的 dnRenderDetail 一致；相同文字只算一項）。總分＝各項最高分加總 ÷ 全部項目數，沒練習的算 0；
-   一項都沒練習過就回傳 null（不顯示）。 */
+   一項都沒練習過＝0（照樣顯示 0，不隱藏）。核心單字卡、我的入庫卡、入庫總覽列、詳解頁標題的 🔊 旁邊都是這個總分（卡片的 🔊 帶 data-vq＝文章 id，再加 data-vi＝核心單字序號 或 data-vw＝單字文字）。 */
 function prDetailKeys(x, v) {
   const ex = dnFindExtraAny(x, v.word), e = Object.assign({}, v, ex || {});
   e.text = v.word;
-  const T = (ex && ex.type) || (/\s/.test(v.word) ? 'phrase' : 'word'), out = new Map();
+  const m = dnMarksOf(idOf(x)).find(q => dnKey(q.text) === dnKey(v.word));
+  const T = (ex && ex.type) || (m && m.type) || (/\s/.test(v.word) ? 'phrase' : 'word'), out = new Map();
   const add = t => { t = String(t == null ? '' : t).replace(/\s+/g, ' ').trim(); if (/[A-Za-z0-9]/.test(t)) out.set(prNorm(t), t); };
   const arr = a => Array.isArray(a) ? a : (a ? [a] : []);
   const obj = a => arr(a).filter(o => o && typeof o === 'object');
   const exEn = o => { if (o && o.example && o.example.en) add(o.example.en); };
   add(e.text);
   if (e.en) add(e.en);
-  const m = dnMarksOf(idOf(x)).find(q => dnKey(q.text) === dnKey(v.word));
   let ctx = m && m.ctx;
   if (!ctx && T !== 'sentence') { const p = String(x.passage || ''), i = p.toLowerCase().indexOf(String(e.text).toLowerCase()); if (i >= 0) ctx = dnCtxOf(p, i, i + e.text.length, e.text); }
   if (ctx && T !== 'sentence') add(ctx);
@@ -107,25 +107,28 @@ function prDetailKeys(x, v) {
   obj(e.family).forEach(o => { if (o.w) add(o.w); exEn(o); });
   return [...out.keys()];
 }
-function prDetailPct(qid, i) { // → { pct, done, total } 或 null（還沒練習過）
+function prDetailPct(qid, i, w) { // → { pct, done, total }；沒練習過＝pct 0。只有找不到這個項目時回傳 null。w＝單字文字（入庫卡／總覽用）；否則用核心單字序號 i
   try {
-    const x = dnArt(qid), v = x && x.vocab && x.vocab[i]; if (!v) return null;
+    const x = dnArt(qid); if (!x) return null;
+    const v = (w != null && w !== '') ? { word: w } : (x.vocab && x.vocab[i]); if (!v) return null;
     const ks = prDetailKeys(x, v), total = ks.length; if (!total) return null;
     let sum = 0, done = 0; ks.forEach(k => { const b = prBest(k); if (b) { sum += b; done++; } });
-    return done ? { pct: Math.round(sum / total), done, total } : null;
+    return { pct: Math.round(sum / total), done, total };
   } catch (e) { return null; }
 }
-const prCardBadge = (qid, i) => { // 核心單字卡右上角：詳解語音練習總分；一項都沒練習就隱藏
-  const r = prDetailPct(qid, i);
-  return `<span class="pr-badge pr-total ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ${r ? skPctCls(r.pct) : 'hidden'}" data-vq="${esc(qid)}" data-vi="${i}" title="${r ? `詳解語音練習總分（已練習 ${r.done}／${r.total} 項，沒練習的算 0 分）` : ''}">${r ? r.pct : ''}</span>`;
+const prTotCls = r => r ? (r.pct > 0 ? skPctCls(r.pct) : 'bg-slate-200 text-slate-500 dark:bg-slate-800 dark:text-slate-400') : 'hidden'; // 0 分用灰色
+const prTotTitle = r => r ? `詳解語音練習總分（已練習 ${r.done}／${r.total} 項，沒練習的算 0 分）` : '';
+const prCardBadge = (qid, i, w) => { // 單字卡／入庫卡：詳解語音練習總分（沒練習＝0）
+  const r = prDetailPct(qid, i, w);
+  return `<span class="pr-badge pr-total ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ${prTotCls(r)}" data-vq="${esc(qid)}"${w != null && w !== '' ? ` data-vw="${esc(w)}"` : ` data-vi="${i}"`} title="${prTotTitle(r)}">${r ? r.pct : ''}</span>`;
 };
 function prRefreshBadges() {
   document.querySelectorAll('button.pr-mic').forEach(m => prMicMark(m, prNorm(m.dataset.pt)));
   document.querySelectorAll('.pr-badge').forEach(el => {
     if (el.dataset.vq != null) { // 單字卡：詳解總分
-      const r = prDetailPct(el.dataset.vq, +el.dataset.vi);
-      el.className = 'pr-badge pr-total ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ' + (r ? skPctCls(r.pct) : 'hidden');
-      el.textContent = r ? r.pct : ''; el.title = r ? `詳解語音練習總分（已練習 ${r.done}／${r.total} 項，沒練習的算 0 分）` : '';
+      const r = prDetailPct(el.dataset.vq, +el.dataset.vi, el.dataset.vw);
+      el.className = 'pr-badge pr-total ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ' + prTotCls(r);
+      el.textContent = r ? r.pct : ''; el.title = prTotTitle(r);
       return;
     }
     const b = prBest(el.dataset.k);
@@ -157,7 +160,7 @@ function prInject(root) {
     m.addEventListener('click', ev => { ev.stopPropagation(); prOpen(text, b); });
     b.after(m);
     prMicMark(m, k);
-    m.insertAdjacentHTML('afterend', b.dataset.vq != null ? prCardBadge(b.dataset.vq, +b.dataset.vi) : prBadge(k)); // 核心單字卡的 🔊 帶 data-vq／data-vi：徽章顯示詳解總分
+    m.insertAdjacentHTML('afterend', b.dataset.vq != null ? prCardBadge(b.dataset.vq, +b.dataset.vi, b.dataset.vw) : prBadge(k)); // 🔊 帶 data-vq（＋data-vi 或 data-vw）：徽章顯示詳解總分
   });
 }
 (function () {

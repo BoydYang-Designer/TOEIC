@@ -1,0 +1,604 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "greasy",
+      "type": "word",
+      "ipa": "/ˈɡriːsi/",
+      "pos": "adj.",
+      "zh": "油膩的",
+      "en": "full of oil or fat, so it feels or tastes heavy",
+      "note": "多半用在餐廳評論與食堂情境，形容食物太油，語氣偏負面。也可形容沾滿油的手、地板或設備。",
+      "forms": [
+        {
+          "w": "greasier",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更油膩的",
+          "ipa": "/ˈɡriːsiər/",
+          "example": { "en": "The fried chicken here is greasier than at the other shop.", "zh": "這裡的炸雞比另一家店更油膩。" }
+        },
+        {
+          "w": "greasiest",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最油膩的",
+          "ipa": "/ˈɡriːsiɪst/",
+          "example": { "en": "It was the greasiest burger on the whole menu.", "zh": "那是整份菜單裡最油膩的漢堡。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "greasy food",
+          "zh": "油膩的食物",
+          "example": { "en": "Our company cafeteria serves less greasy food than before.", "zh": "我們公司的自助餐廳供應的食物比以前不油膩。" }
+        },
+        {
+          "phrase": "greasy smell",
+          "zh": "油膩的味道",
+          "example": { "en": "A greasy smell filled the office after lunch.", "zh": "午餐後，辦公室裡充滿了油膩的味道。" }
+        },
+        {
+          "phrase": "greasy fingerprints",
+          "zh": "油膩的指紋",
+          "example": { "en": "Please wipe the greasy fingerprints off the glass door.", "zh": "請把玻璃門上油膩的指紋擦掉。" }
+        }
+      ],
+      "examples": [
+        { "tag": "餐廳評論", "en": "The service was fast, but the fries were too greasy.", "zh": "服務很快，但薯條太油了。" },
+        { "tag": "食堂", "en": "Many employees asked for fewer greasy dishes at the cafeteria.", "zh": "許多員工要求食堂減少油膩的菜色。" },
+        { "tag": "設備", "en": "The kitchen floor was greasy, so staff wore non-slip shoes.", "zh": "廚房地板很滑膩，所以員工穿了防滑鞋。" }
+      ],
+      "confusable": [
+        {
+          "word": "greedy",
+          "diff": "greedy 是「貪心的」，拼法相近，但和油膩無關。",
+          "example": { "en": "A greedy supplier raised prices twice this year.", "zh": "一家貪心的供應商今年漲價兩次。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "oily",
+          "diff": "oily 只說明含油或有油，語氣較中性；greasy 通常帶著「太油、不舒服」的感覺。",
+          "example": { "en": "The oily sauce stained the tablecloth.", "zh": "油油的醬汁弄髒了桌布。" }
+        },
+        {
+          "word": "fatty",
+          "diff": "fatty 指食物含脂肪多，常用在健康與飲食建議；greasy 強調吃起來的油膩感。",
+          "example": { "en": "Doctors advise us to eat less fatty food.", "zh": "醫生建議我們少吃高脂肪的食物。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "fried",
+          "pos": "adj.",
+          "zh": "油炸的、煎炒的",
+          "ipa": "/fraɪd/",
+          "example": { "en": "The restaurant is known for its fried fish.", "zh": "這家餐廳以炸魚聞名。" }
+        },
+        {
+          "w": "cafeteria",
+          "pos": "n.",
+          "zh": "自助餐廳、員工餐廳",
+          "ipa": "/ˌkæfəˈtɪriə/",
+          "example": { "en": "Let us meet in the cafeteria at noon.", "zh": "我們中午在員工餐廳碰面吧。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "grease",
+          "ipa": "/ɡriːs/",
+          "pos": "n.",
+          "zh": "油脂、潤滑油",
+          "link": "最基礎的字；grease + -y 變成形容詞「油膩的」，像 salt → salty"
+        },
+        {
+          "w": "greasiness",
+          "ipa": "/ˈɡriːsinəs/",
+          "pos": "n.",
+          "zh": "油膩程度",
+          "link": "greasy + -ness，形容詞變名詞，像 kind → kindness"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "（食物）太油的",
+          "en": "having too much oil or fat",
+          "distinguish": "前後文有 food、fries、burger 時，指食物太油。",
+          "example": { "en": "The pizza was so greasy that the box turned soft.", "zh": "這個披薩太油，連紙盒都變軟了。" }
+        },
+        {
+          "pos": "adj.",
+          "zh": "沾滿油的、滑膩的",
+          "en": "covered with oil, so it feels slippery",
+          "distinguish": "前後文有 hands、floor、tools 時，指物體表面沾了油。",
+          "example": { "en": "Wash your greasy hands before you touch the keyboard.", "zh": "碰鍵盤之前，請先洗掉手上的油。" }
+        }
+      ]
+    },
+    {
+      "text": "overpriced",
+      "type": "word",
+      "ipa": "/ˌoʊvərˈpraɪst/",
+      "pos": "adj.",
+      "zh": "定價過高的、貴得不值的",
+      "en": "costing more than it is worth",
+      "note": "常見於評論、採購與比價情境，表示價格高過它應有的價值，語氣是批評。不等於單純的「貴」，重點是「不值這個價錢」。",
+      "grammar_note": "overpriced 是形容詞，可放在名詞前或 be 動詞後；比較時用 more overpriced，不說 overpricedder。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "grossly overpriced",
+          "zh": "貴得離譜",
+          "example": { "en": "Several customers said the hotel breakfast was grossly overpriced.", "zh": "幾位顧客表示這間飯店的早餐貴得離譜。" }
+        },
+        {
+          "phrase": "overpriced for what you get",
+          "zh": "以得到的東西來說太貴",
+          "example": { "en": "The tour package felt overpriced for what you get.", "zh": "以你得到的內容來說，這個旅遊方案太貴了。" }
+        },
+        {
+          "phrase": "seem overpriced",
+          "zh": "似乎定價過高",
+          "example": { "en": "The new model seems overpriced compared with similar products.", "zh": "和類似產品相比，新型號似乎定價過高。" }
+        }
+      ],
+      "examples": [
+        { "tag": "評論", "en": "Most reviewers called the coffee machine overpriced and hard to use.", "zh": "大多數評論者說這台咖啡機太貴又難用。" },
+        { "tag": "採購", "en": "We rejected the offer because the parts were overpriced.", "zh": "因為零件定價過高，我們拒絕了這個報價。" },
+        { "tag": "會議", "en": "Some members think the conference tickets are overpriced this year.", "zh": "有些成員認為今年的研討會門票太貴。" }
+      ],
+      "confusable": [
+        {
+          "word": "overpaid",
+          "diff": "overpaid 是「薪水或款項付得太多」，主詞是人；overpriced 是東西的價格太高。",
+          "example": { "en": "The report says some managers are overpaid.", "zh": "報告指出有些經理的薪水過高。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "expensive",
+          "diff": "expensive 只說價格高，不一定不值得；overpriced 表示價格超過價值。",
+          "example": { "en": "The system is expensive, but it saves us time.", "zh": "這個系統很貴，但能幫我們省時間。" }
+        },
+        {
+          "word": "overcharged",
+          "diff": "overcharged 是被多收了錢（動作或結果）；overpriced 是定價本身偏高。",
+          "example": { "en": "We were overcharged for shipping on the last order.", "zh": "上一筆訂單的運費被多收了。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "value",
+          "pos": "n.",
+          "zh": "價值",
+          "ipa": "/ˈvæljuː/",
+          "example": { "en": "Customers care about value as much as price.", "zh": "顧客對價值的重視不亞於價格。" }
+        },
+        {
+          "w": "discount",
+          "pos": "n.",
+          "zh": "折扣",
+          "ipa": "/ˈdɪskaʊnt/",
+          "example": { "en": "We offer a ten percent discount on bulk orders.", "zh": "大量訂購我們提供九折優惠。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "overprice",
+          "ipa": "/ˌoʊvərˈpraɪs/",
+          "pos": "v.",
+          "zh": "定價過高",
+          "link": "over-（過度）+ price（定價），像 overwork、overtime 的 over-"
+        },
+        {
+          "w": "underpriced",
+          "ipa": "/ˌʌndərˈpraɪst/",
+          "pos": "adj.",
+          "zh": "定價過低的",
+          "link": "under-（低於）+ priced，和 over- 相反"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "worth the wait",
+      "type": "phrase",
+      "zh": "值得等待",
+      "en": "good enough that waiting for it is fine",
+      "note": "多用在餐廳、產品上市、服務與活動的評論，表示雖然等了很久，但結果很值得。語氣正面，常放在句尾當結論。",
+      "pattern": "N / It + is / was + worth the wait",
+      "grammar_note": "worth 後面接名詞或 V-ing，不接 to V：worth the wait、worth waiting；不能說 worth to wait。",
+      "examples": [
+        { "tag": "餐廳評論", "en": "The line was long, but the food was worth the wait.", "zh": "排隊很久，但餐點值得等待。" },
+        { "tag": "產品上市", "en": "The new phone arrived late, but it was worth the wait.", "zh": "新手機雖然晚到，但值得等待。" },
+        { "tag": "客服", "en": "Thank you for your patience. We believe the upgrade is worth the wait.", "zh": "感謝您的耐心。我們相信這次升級值得等待。" },
+        { "tag": "行銷", "en": "Our fresh bread is worth the wait, so please order early.", "zh": "我們的新鮮麵包值得等待，所以請提早訂購。" }
+      ],
+      "similar": [
+        {
+          "phrase": "worth it",
+          "diff": "worth it 範圍更廣，可指金錢、努力、時間；worth the wait 專指等待。",
+          "example": { "en": "The extra training cost was worth it for the team.", "zh": "額外的訓練費用對團隊來說很值得。" }
+        },
+        {
+          "phrase": "worth the effort",
+          "diff": "worth the effort 強調付出的力氣值得，不一定是等待。",
+          "example": { "en": "Writing a clear report is worth the effort.", "zh": "寫一份清楚的報告是值得花力氣的。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "worthwhile",
+          "diff": "worthwhile 是單獨使用的形容詞「值得的」，後面不接受詞。",
+          "usage": "worthwhile 是形容詞，單獨使用，如 a worthwhile trip；worth 後面一定要接名詞或 V-ing，如 worth the trip。",
+          "example": { "en": "Joining the workshop was worthwhile for the whole team.", "zh": "參加工作坊對整個團隊來說都很值得。" }
+        }
+      ]
+    },
+    {
+      "text": "itemize",
+      "type": "word",
+      "ipa": "/ˈaɪtəmaɪz/",
+      "pos": "v.",
+      "zh": "逐項列出",
+      "en": "to write each thing on a list one by one",
+      "note": "多益常見於帳單、報帳、預算與報價情境，要求把費用或項目一項一項分開寫清楚。常用被動或分詞 itemized 修飾名詞，如 an itemized bill。",
+      "grammar_note": "itemize 是及物動詞，直接接受詞：itemize the costs，不加 of；當形容詞用 itemized。",
+      "forms": [
+        {
+          "w": "itemizes",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "逐項列出",
+          "ipa": "/ˈaɪtəmaɪzɪz/",
+          "example": { "en": "The statement itemizes every charge from the past month.", "zh": "這份對帳單逐項列出過去一個月的每筆費用。" }
+        },
+        {
+          "w": "itemized",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "逐項列出",
+          "ipa": "/ˈaɪtəmaɪzd/",
+          "example": { "en": "The accountant itemized all travel expenses for the audit.", "zh": "會計為了稽核，逐項列出了所有差旅費用。" }
+        },
+        {
+          "w": "itemizing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "逐項列出",
+          "ipa": "/ˈaɪtəmaɪzɪŋ/",
+          "example": { "en": "Itemizing each cost makes the budget easier to check.", "zh": "逐項列出每筆成本，讓預算更容易檢查。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "itemize expenses",
+          "zh": "逐項列出費用",
+          "example": { "en": "Please itemize your expenses before sending the claim form.", "zh": "寄出請款單之前，請逐項列出你的費用。" }
+        },
+        {
+          "phrase": "itemized invoice",
+          "zh": "逐項明細的發票",
+          "example": { "en": "The client asked for an itemized invoice with unit prices.", "zh": "客戶要求附有單價的逐項明細發票。" }
+        },
+        {
+          "phrase": "itemized list",
+          "zh": "逐項清單",
+          "example": { "en": "Attach an itemized list of the office supplies you need.", "zh": "請附上你需要的辦公用品逐項清單。" }
+        }
+      ],
+      "examples": [
+        { "tag": "報帳", "en": "Employees must itemize every meal when they submit a claim.", "zh": "員工提出報帳時，必須逐項列出每一餐。" },
+        { "tag": "報價", "en": "Could you itemize the repair costs in your quotation?", "zh": "你可以在報價單裡逐項列出維修費用嗎？" },
+        { "tag": "預算", "en": "The finance team will itemize the budget by department.", "zh": "財務團隊會依部門逐項列出預算。" }
+      ],
+      "confusable": [
+        {
+          "word": "summarize",
+          "diff": "summarize 是把內容濃縮成重點；itemize 是不省略地一項一項列出。",
+          "example": { "en": "Please summarize the report in three short points.", "zh": "請用三個簡短重點摘要這份報告。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "list",
+          "diff": "list 是比較廣的「列出」，不一定要細分；itemize 強調每項分開、通常含金額。",
+          "example": { "en": "Please list the names of all attendees.", "zh": "請列出所有出席者的姓名。" }
+        },
+        {
+          "phrase": "break down",
+          "diff": "break down 是把總數拆成細項說明，常和 into 連用；比 itemize 口語。",
+          "example": { "en": "Can you break down the total cost for us?", "zh": "你可以幫我們拆解一下總費用嗎？" }
+        }
+      ],
+      "family": [
+        {
+          "w": "invoice",
+          "pos": "n.",
+          "zh": "發票、請款單",
+          "ipa": "/ˈɪnvɔɪs/",
+          "example": { "en": "The invoice lists each service and its price.", "zh": "這張請款單列出了每項服務和價格。" }
+        },
+        {
+          "w": "expense",
+          "pos": "n.",
+          "zh": "費用、開銷",
+          "ipa": "/ɪkˈspens/",
+          "example": { "en": "Travel expense reports are due every Friday.", "zh": "差旅費用報告每週五要交。" }
+        },
+        {
+          "w": "receipt",
+          "pos": "n.",
+          "zh": "收據",
+          "ipa": "/rɪˈsiːt/",
+          "example": { "en": "Keep every receipt for your business trip.", "zh": "請保留出差的每一張收據。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "item",
+          "ipa": "/ˈaɪtəm/",
+          "pos": "n.",
+          "zh": "項目、品項",
+          "link": "最基礎的字；item + -ize，變成「做成一項一項」的動詞，像 organ → organize"
+        },
+        {
+          "w": "itemization",
+          "ipa": "/ˌaɪtəmaɪˈzeɪʃn/",
+          "pos": "n.",
+          "zh": "逐項列出（的明細）",
+          "link": "itemize + -ation，動詞變名詞，像 organize → organization"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "Third-party vendor",
+      "type": "phrase",
+      "zh": "第三方供應商",
+      "en": "a company outside your own company that sells goods or services to you",
+      "note": "常見於採購、資訊安全、電商平台與外包情境，指不是自己公司、也不是客戶的另一家外部業者，例如物流、付款或軟體供應商。",
+      "pattern": "work with / hire / rely on + a third-party vendor",
+      "grammar_note": "third-party 當形容詞時要加連字號，複數只在名詞加 s：third-party vendors；不寫成 thirds-party。",
+      "examples": [
+        { "tag": "採購", "en": "We use a third-party vendor to deliver all online orders.", "zh": "我們用第三方供應商配送所有網路訂單。" },
+        { "tag": "資訊安全", "en": "Every third-party vendor must follow our data protection rules.", "zh": "每家第三方供應商都必須遵守我們的資料保護規定。" },
+        { "tag": "電子商務", "en": "Several third-party vendors sell their products on our website.", "zh": "有幾家第三方供應商在我們的網站上銷售產品。" },
+        { "tag": "合約", "en": "Please send us the contract with the third-party vendor.", "zh": "請把與第三方供應商簽的合約寄給我們。" }
+      ],
+      "similar": [
+        {
+          "phrase": "outside supplier",
+          "diff": "outside supplier 是更口語的說法，意思接近，但沒有「第三方」的法律與合約語氣。",
+          "example": { "en": "We buy packaging from an outside supplier in Vietnam.", "zh": "我們向越南的外部供應商購買包裝材料。" }
+        },
+        {
+          "phrase": "contractor",
+          "diff": "contractor 是承包商，多提供勞務或工程；vendor 是賣東西或服務給你的業者。",
+          "example": { "en": "The contractor will finish the office repairs by May.", "zh": "承包商會在五月前完成辦公室的修繕。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "third party",
+          "diff": "third party 是名詞「第三方」，沒有連字號；third-party 是形容詞，用來修飾名詞。",
+          "usage": "third party 單獨當名詞，如 a third party；放在名詞前面修飾時要寫成 third-party，如 third-party vendor。",
+          "example": { "en": "The contract bans sharing data with any third party.", "zh": "合約禁止與任何第三方分享資料。" }
+        }
+      ]
+    },
+    {
+      "text": "customs regulations",
+      "type": "phrase",
+      "zh": "海關規定",
+      "en": "the rules about what you can bring into or out of a country",
+      "note": "常見於進出口、貨運、出差與電商情境，說明貨物或行李通關時要遵守的規定，常和 comply with、follow、check 一起出現。",
+      "pattern": "comply with / follow / check + customs regulations",
+      "grammar_note": "「海關」的 customs 固定加 s；單數 custom 是「習俗、慣例」。customs regulations 中 customs 不變，regulations 才是複數。",
+      "examples": [
+        { "tag": "進出口", "en": "All exporters must comply with customs regulations in each country.", "zh": "所有出口商都必須遵守各國的海關規定。" },
+        { "tag": "出差", "en": "Please check the customs regulations before you bring samples abroad.", "zh": "帶樣品出國前，請先確認海關規定。" },
+        { "tag": "物流", "en": "The shipment was delayed because of new customs regulations.", "zh": "這批貨因為新的海關規定而延誤。" },
+        { "tag": "電子郵件", "en": "Our agent will explain the customs regulations by email today.", "zh": "我們的代理商今天會用電子郵件說明海關規定。" }
+      ],
+      "similar": [
+        {
+          "phrase": "import rules",
+          "diff": "import rules 只涵蓋進口的規定；customs regulations 同時涵蓋進出口與通關程序。",
+          "example": { "en": "The import rules changed for food products last month.", "zh": "食品類產品的進口規定上個月改了。" }
+        },
+        {
+          "phrase": "customs requirements",
+          "diff": "customs requirements 強調要準備的文件或條件；customs regulations 指規定本身。",
+          "example": { "en": "Please read the customs requirements before you ship the goods.", "zh": "出貨前請先閱讀海關要求。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "customs duties",
+          "diff": "customs duties 是要繳的關稅（費用）；customs regulations 是通關的規定。",
+          "example": { "en": "Customs duties depend on the type of goods.", "zh": "關稅取決於貨物的種類。" }
+        }
+      ]
+    },
+    {
+      "text": "patronize",
+      "type": "word",
+      "ipa": "/ˈpeɪtrənaɪz/",
+      "pos": "v.",
+      "zh": "光顧；以高人一等的態度對待",
+      "en": "to use a shop or service often, or to treat someone as if they know less than you",
+      "note": "接店家或餐廳時是正式用語「光顧」；接人時是負面意思，表示用居高臨下的態度對待對方，如 Don't patronize me。受詞是什麼，決定它是哪個意思。",
+      "grammar_note": "patronize 是及物動詞，後面直接接受詞：受詞是店家或餐廳時指「光顧」，受詞是人時指「瞧不起、居高臨下對待」。",
+      "forms": [
+        {
+          "w": "patronizes",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "光顧；居高臨下對待",
+          "ipa": "/ˈpeɪtrənaɪzɪz/",
+          "example": { "en": "Our director often patronizes the small bakery near the station.", "zh": "我們主任常光顧車站附近的小麵包店。" }
+        },
+        {
+          "w": "patronized",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "光顧；居高臨下對待",
+          "ipa": "/ˈpeɪtrənaɪzd/",
+          "example": { "en": "Several junior staff felt patronized by the senior manager.", "zh": "有幾位資淺員工覺得被資深經理瞧不起。" }
+        },
+        {
+          "w": "patronizing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "光顧；居高臨下對待",
+          "ipa": "/ˈpeɪtrənaɪzɪŋ/",
+          "example": { "en": "Many tourists are patronizing the new shops near the harbor.", "zh": "許多遊客正光顧港口附近的新商店。" }
+        },
+        {
+          "w": "patronizing",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "居高臨下的、傲慢的",
+          "ipa": "/ˈpeɪtrənaɪzɪŋ/",
+          "example": { "en": "His patronizing tone upset the new employees.", "zh": "他居高臨下的語氣讓新進員工很不舒服。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "patronize local businesses",
+          "zh": "光顧當地商家",
+          "example": { "en": "We encourage staff to patronize local businesses during the trip.", "zh": "我們鼓勵員工在旅途中光顧當地商家。" }
+        },
+        {
+          "phrase": "patronizing tone",
+          "zh": "居高臨下的語氣",
+          "example": { "en": "Avoid a patronizing tone when you reply to customers.", "zh": "回覆顧客時，請避免使用居高臨下的語氣。" }
+        },
+        {
+          "phrase": "patronize a restaurant",
+          "zh": "光顧餐廳",
+          "example": { "en": "Business travelers often patronize a restaurant near their hotel.", "zh": "出差的人常光顧飯店附近的餐廳。" }
+        }
+      ],
+      "examples": [
+        { "tag": "商店", "en": "Many office workers patronize the cafe next to our building.", "zh": "許多上班族光顧我們大樓旁的咖啡館。" },
+        { "tag": "職場", "en": "Please don't patronize me. I understand the contract terms.", "zh": "請不要瞧不起我，我了解合約條款。" },
+        { "tag": "客服", "en": "Agents should explain the policy without patronizing the customer.", "zh": "客服人員解釋政策時，不應該對顧客擺出高高在上的態度。" }
+      ],
+      "confusable": [
+        {
+          "word": "flatter",
+          "diff": "flatter 是為了討好而說好聽話；patronize（對人）是態度高高在上，把對方當成不懂的人。",
+          "example": { "en": "He tried to flatter the client to win the deal.", "zh": "他想靠奉承客戶來談成這筆生意。" }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "talk down to",
+          "diff": "talk down to 是口語說法，意思接近 patronize 的第二義，專指說話時居高臨下。",
+          "example": { "en": "Managers should never talk down to new staff.", "zh": "主管絕不應該用居高臨下的態度對新進員工說話。" }
+        },
+        {
+          "phrase": "shop at",
+          "diff": "shop at 是日常說法，等於 patronize 的第一義「光顧」，但沒有正式感。",
+          "example": { "en": "Many families shop at the market on weekends.", "zh": "許多家庭週末都會到這個市場購物。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "customer",
+          "pos": "n.",
+          "zh": "顧客",
+          "ipa": "/ˈkʌstəmər/",
+          "example": { "en": "Every customer receives a small gift with the order.", "zh": "每位顧客的訂單都會附贈一份小禮物。" }
+        },
+        {
+          "w": "client",
+          "pos": "n.",
+          "zh": "客戶",
+          "ipa": "/ˈklaɪənt/",
+          "example": { "en": "We will meet the client at ten tomorrow.", "zh": "我們明天十點要和客戶見面。" }
+        },
+        {
+          "w": "loyal",
+          "pos": "adj.",
+          "zh": "忠誠的",
+          "ipa": "/ˈlɔɪəl/",
+          "example": { "en": "Loyal customers get early access to every sale.", "zh": "忠實顧客可以提早參加每一次特賣。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "patron",
+          "ipa": "/ˈpeɪtrən/",
+          "pos": "n.",
+          "zh": "顧客、常客；贊助者",
+          "link": "最基礎的字；patron + -ize 變成動詞，像 modern → modernize"
+        },
+        {
+          "w": "patronage",
+          "ipa": "/ˈpeɪtrənɪdʒ/",
+          "pos": "n.",
+          "zh": "光顧、惠顧；贊助",
+          "link": "patron + -age，表示「顧客的行為或支持」，像 usage、package 的 -age"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "光顧（店家、餐廳）",
+          "en": "to buy things or use services from a shop often",
+          "distinguish": "受詞是 store、restaurant、business 時，是這個意思，語氣正式。",
+          "example": { "en": "The hotel guests patronize the gift shop in the lobby.", "zh": "飯店房客會光顧大廳的禮品店。" }
+        },
+        {
+          "pos": "v.",
+          "zh": "以高人一等的態度對待（人）",
+          "en": "to treat someone as if they know less than you",
+          "distinguish": "受詞是人，或句子有 tone、attitude 時，是這個負面意思。",
+          "example": { "en": "Don't patronize me; I have handled this account for years.", "zh": "不要瞧不起我，這個客戶我已經處理很多年了。" }
+        }
+      ],
+      "nw_done": [
+        { "id": "nmwhxh0f60alw", "result": "added" }
+      ]
+    },
+    {
+      "text": "there i was",
+      "type": "phrase",
+      "zh": "就這樣，我人在…（講故事時帶出當時的處境）",
+      "en": "words used in a story to show what the speaker was doing at that time",
+      "note": "口語敘事的開場或轉折，用來帶出一個尷尬、好笑或戲劇性的場景，後面常接 V-ing、地點或 when 子句。多益書信與文章較少見，但在對談、演講和故事式文章會出現。",
+      "pattern": "There I was, + V-ing / 地點 / 狀態, when + 子句",
+      "grammar_note": "There I was 的主詞是 I，後面是過去式 was，講的是過去的場景；主詞可換成 he、she、we，如 there we were。",
+      "examples": [
+        { "tag": "出差", "en": "There I was, waiting at the gate, when my flight was canceled.", "zh": "那時我正在登機口等候，航班卻被取消了。" },
+        { "tag": "簡報", "en": "There I was, ready to present, and my laptop would not start.", "zh": "那時我準備好要簡報，筆電卻怎麼都開不了機。" },
+        { "tag": "面試", "en": "There I was, in a new suit, and the office was empty.", "zh": "那時我穿著新西裝，辦公室裡卻一個人也沒有。" },
+        { "tag": "專案", "en": "There we were, one hour before the launch, with no samples.", "zh": "那時距離發表會只剩一小時，我們卻沒有樣品。" }
+      ],
+      "similar": [
+        {
+          "phrase": "picture this",
+          "diff": "picture this 是請聽眾「想像一下」這個場景，通常用現在式；there I was 是直接講自己過去的經歷。",
+          "example": { "en": "Picture this: forty customers waiting and no staff at the door.", "zh": "想像一下：四十位顧客在等，門口卻沒有人員。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "here I am",
+          "diff": "here I am 說的是現在此刻的狀態；there I was 是敘述過去發生的場景。",
+          "example": { "en": "Here I am, ready to start the first session.", "zh": "我來了，準備好開始第一場會議。" }
+        }
+      ]
+    }
+  ]
+}

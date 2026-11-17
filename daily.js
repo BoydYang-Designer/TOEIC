@@ -1451,7 +1451,7 @@ function renderBook() {
           <div class="flex items-center gap-2">
             <b class="text-base">${esc(w.word)}</b>
             <span class="text-xs text-slate-400">${esc(w.pos)} ${esc(w.ipa)}</span>
-            <button onclick="vplay('${idOf(x)}', this.dataset.w, '', this.dataset.w)" data-w="${esc(w.word)}" class="text-sm">🔊</button>
+            <button onclick="vplay('${idOf(x)}', this.dataset.w, '', this.dataset.w)" data-w="${esc(w.word)}" data-vq="${idOf(x)}" data-vi="${idx}" class="text-sm">🔊</button>
           </div>
           <p class="text-sm font-medium mt-1">${esc(w.zh)}</p>
           <p class="text-xs text-slate-500 mt-1">搭配詞：${esc(w.col)}</p>

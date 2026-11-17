@@ -478,7 +478,7 @@ function dnMyCard(m) { // 我的入庫卡片：版型與核心多益單字一致
           <button onclick="dnOpenMark('${m.id}')" class="text-base font-bold text-left break-words underline decoration-dotted decoration-slate-400 underline-offset-4 hover:text-indigo-600 cursor-pointer">${esc(full && m.text.length > 80 ? m.text.slice(0, 80) + '…' : m.text)}</button>${pos}
           <span class="ml-1 align-middle text-[0.625rem] rounded px-1.5 py-0.5 ${DNTC[m.type]}">${DNT[m.type]}</span>${m.own ? '<span class="ml-1 align-middle text-[0.625rem] rounded px-1.5 py-0.5 bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300">複習用</span>' : ''}${sp}
         </div>
-        <button onclick="vplay('${m.qid}', this.dataset.w, '', this.dataset.w)" data-w="${esc(m.text)}" class="text-slate-400 hover:text-indigo-600 text-lg shrink-0">🔊</button>
+        <button onclick="vplay('${m.qid}', this.dataset.w, '', this.dataset.w)" data-w="${esc(m.text)}" data-vq="${m.qid}" data-vw="${esc(m.text)}" class="text-slate-400 hover:text-indigo-600 text-lg shrink-0">🔊</button>
       </div>
       ${body}
     </div>
@@ -993,7 +993,7 @@ function dnRenderDetail() {
   const list = (arr, fn) => arr.length ? `<ul class="space-y-1.5 text-sm">${arr.map(fn).join('')}</ul>` : '';
   const ex2 = dnArr(e.examples).map(o => typeof o === 'string' ? { en: o } : o);
   let h = `<header class="mb-4 flex items-start justify-between gap-2"><div class="min-w-0"><div class="flex flex-wrap items-center gap-2"><span class="${dnChip} ${DNTC[T]}">${DNT[T]}</span><span class="text-xs text-slate-500">${isLib(x) ? 'TSL 字庫（通用詳解）' : `W${x.week} · D${x.day} ${esc(x.tag || '')}`}</span>${lvBadge(x)}</div>
-    <h2 class="${T === 'sentence' ? 'text-lg leading-relaxed' : 'text-2xl'} font-bold mt-2 break-words">${esc(e.text)} <button onclick="vplay('${idOf(xs)}', this.dataset.w, '', this.dataset.w)" data-w="${esc(e.text)}" class="text-slate-400 hover:text-indigo-600 text-xl align-middle" aria-label="發音">🔊</button></h2>
+    <h2 class="${T === 'sentence' ? 'text-lg leading-relaxed' : 'text-2xl'} font-bold mt-2 break-words">${esc(e.text)} <button onclick="vplay('${idOf(xs)}', this.dataset.w, '', this.dataset.w)" data-w="${esc(e.text)}" data-vq="${idOf(x)}" data-vw="${esc(e.text)}" class="text-slate-400 hover:text-indigo-600 text-xl align-middle" aria-label="發音">🔊</button></h2>
     ${e.ipa || e.pos ? `<p class="text-sm text-slate-500 mt-1">${esc(e.ipa || '')} ${e.pos ? `<i>${esc(e.pos)}</i>` : ''}</p>` : ''}
     ${e.zh ? `<p class="text-base font-semibold mt-2">${esc(e.zh)}</p>` : ''}${e.en ? `<p class="text-sm text-slate-500 italic mt-1 leading-relaxed">${esc(e.en)} ${dnSpk(xs, e, '_en', e.en)}</p>` : ''}</div><div class="flex flex-col items-end gap-1.5 shrink-0">${dnBackBtn()}${dnTrailBackBtn()}</div></header>`;
   if (!ex) {
@@ -1073,7 +1073,7 @@ function dnBankHay(it) {
 }
 function dnBankRow(it) {
   const e = it.e || {}, k = dnBankKind(it), mu = dnMulti(e), T = esc(it.text), tag = 'text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300';
-  const spk = `<button onclick="vplay('${it.qid}', this.dataset.t, '', this.dataset.t)" data-t="${T}" class="text-slate-400 hover:text-indigo-600 shrink-0 mt-0.5" aria-label="發音">🔊</button>`;
+  const spk = `<button onclick="vplay('${it.qid}', this.dataset.t, '', this.dataset.t)" data-t="${T}" data-vq="${it.qid}" data-vw="${T}" class="text-slate-400 hover:text-indigo-600 shrink-0 mt-0.5" aria-label="發音">🔊</button>`;
   let body;
   if (!it.merged && it.core && DN.bk.tab !== 'todo') { // 單字／片語分頁裡「還沒有詳解的核心單字」：顯示卡片上的基本資料，點開看核心單字卡
     const b = it.base || {};

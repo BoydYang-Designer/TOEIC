@@ -1,0 +1,261 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "it all started when...",
+      "type": "phrase",
+      "zh": "一切都是從…開始的",
+      "en": "words used to tell how a story or a problem began",
+      "note": "用來開頭說明一件事的起因，常見於口頭報告、經驗分享與故事式的對話。後面接 when 子句，交代最初發生了什麼事。",
+      "pattern": "It all started when + 主詞 + 過去式動詞",
+      "grammar_note": "when 後面接一個完整子句，講的是過去的起因，所以動詞用過去式，不用 will。",
+      "examples": [
+        { "tag": "專案", "en": "It all started when our main supplier raised its prices.", "zh": "一切都是從我們的主要供應商漲價開始的。" },
+        { "tag": "客訴", "en": "It all started when a customer sent a complaint by email.", "zh": "一切都是從一位顧客用電子郵件寄來投訴開始的。" },
+        { "tag": "出差", "en": "It all started when my flight to Tokyo was delayed.", "zh": "一切都是從我飛東京的班機延誤開始的。" },
+        { "tag": "職涯", "en": "It all started when I joined the sales team in 2015.", "zh": "一切都是從我二○一五年加入業務團隊開始的。" }
+      ],
+      "similar": [
+        {
+          "phrase": "it all began with",
+          "diff": "意思相同，但 with 後面接名詞，不接子句。",
+          "example": { "en": "It all began with a simple idea from one intern.", "zh": "一切都是從一位實習生的簡單點子開始的。" }
+        },
+        {
+          "phrase": "the problem began when",
+          "diff": "專指問題或麻煩的起因，語氣比 it all started when 更明確、偏負面。",
+          "example": { "en": "The problem began when we changed our software provider.", "zh": "問題是從我們更換軟體供應商時開始的。" }
+        }
+      ]
+    },
+    {
+      "text": "you will never guess what happened",
+      "type": "phrase",
+      "zh": "你絕對猜不到發生了什麼事",
+      "en": "words used to tell someone you have surprising news",
+      "note": "很口語，常用來吊對方胃口，再說出令人意外的消息。適合同事閒聊，不適合正式書信或報告。",
+      "pattern": "You will never guess + what / who / how + 子句",
+      "grammar_note": "guess 後面是間接問句，what happened 用肯定句語序，不要倒裝成 what did happen。",
+      "examples": [
+        { "tag": "同事閒聊", "en": "You will never guess what happened at the client meeting today.", "zh": "你絕對猜不到今天客戶會議上發生了什麼事。" },
+        { "tag": "公司消息", "en": "You will never guess who just joined our team.", "zh": "你絕對猜不到誰剛加入了我們的團隊。" },
+        { "tag": "維修", "en": "You will never guess how much the repair cost.", "zh": "你絕對猜不到修理花了多少錢。" }
+      ],
+      "similar": [
+        {
+          "phrase": "guess what",
+          "diff": "更短、更口語，直接用來開頭說出消息。",
+          "example": { "en": "Guess what? We won the contract with the airline.", "zh": "你知道嗎？我們拿下了航空公司的合約。" }
+        },
+        {
+          "phrase": "you won't believe what happened",
+          "diff": "意思接近，重點是「你不會相信」，語氣更誇張。",
+          "example": { "en": "You won't believe what happened to our shipment.", "zh": "你不會相信我們的貨發生了什麼事。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "I guess",
+          "diff": "I guess 是「我猜、我想」，是說話者自己的推測，不是請對方猜。",
+          "example": { "en": "I guess the meeting will start late today.", "zh": "我想今天的會議會晚點開始。" }
+        }
+      ]
+    },
+    {
+      "text": "one thing led to another",
+      "type": "phrase",
+      "zh": "事情就這樣一步步發展下去",
+      "en": "one event caused the next event, until something bigger happened",
+      "note": "敘述經過時省略中間細節，表示一連串事件之後導致某個結果，後面常接 and 加結果。語氣口語、帶一點輕鬆。",
+      "pattern": "One thing led to another, and + 主詞 + 過去式動詞",
+      "grammar_note": "led 是 lead 的過去式與過去分詞（lead–led–led），lead to 後面接名詞或事件。",
+      "examples": [
+        { "tag": "合作", "en": "We had a short chat, one thing led to another, and we signed a deal.", "zh": "我們短暫聊了一下，事情一步步發展，最後簽了合約。" },
+        { "tag": "出貨", "en": "A late shipment came in, one thing led to another, and we lost a client.", "zh": "一批貨延遲到達，事情一步步發展，最後我們失去了一位客戶。" },
+        { "tag": "職涯", "en": "One thing led to another, and he became our regional manager.", "zh": "事情一步步發展，最後他成了我們的區域經理。" }
+      ],
+      "similar": [
+        {
+          "phrase": "as a result",
+          "diff": "較正式，直接說明因果；one thing led to another 較口語，把中間過程帶過。",
+          "example": { "en": "As a result, we changed our supplier last month.", "zh": "因此，我們上個月更換了供應商。" }
+        },
+        {
+          "phrase": "that led to",
+          "diff": "後面直接接結果名詞，說明前面的事造成了什麼。",
+          "example": { "en": "That led to a long discussion about our budget.", "zh": "那引發了一場關於預算的長時間討論。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "lead",
+          "diff": "lead /liːd/ 是現在式「帶領」；led /led/ 才是過去式。",
+          "usage": "lead 是不規則動詞，三態是 lead–led–led；說過去的事要用 led，不能寫成 leaded。",
+          "example": { "en": "Good managers lead by example every single day.", "zh": "好的主管每一天都以身作則。" }
+        }
+      ]
+    },
+    {
+      "text": "out of nowhere",
+      "type": "phrase",
+      "zh": "突然、毫無預兆地",
+      "en": "suddenly, without any warning",
+      "note": "用來形容突然出現或發生的人、事、物，如突然的訂單、競爭對手或消息。語氣口語，常放在句尾。",
+      "pattern": "N + came / appeared / arrived + out of nowhere",
+      "grammar_note": "nowhere 是一個字，不能寫成 no where；out of nowhere 是副詞片語，後面不接受詞。",
+      "examples": [
+        { "tag": "訂單", "en": "A large order came in out of nowhere on Friday.", "zh": "星期五突然冒出一筆大訂單。" },
+        { "tag": "市場", "en": "A new competitor appeared out of nowhere last spring.", "zh": "去年春天，一個新的競爭對手突然冒了出來。" },
+        { "tag": "電子郵件", "en": "An email from the CEO arrived out of nowhere this morning.", "zh": "今天早上，執行長的一封電子郵件毫無預兆地寄來。" }
+      ],
+      "similar": [
+        {
+          "phrase": "all of a sudden",
+          "diff": "意思接近，常放句首，強調突然改變；out of nowhere 還有「不知從哪冒出來」的感覺。",
+          "example": { "en": "All of a sudden, the screen went black.", "zh": "螢幕突然一片黑。" }
+        },
+        {
+          "phrase": "without warning",
+          "diff": "強調事先沒有任何通知，語氣比 out of nowhere 正式。",
+          "example": { "en": "The factory closed without warning last week.", "zh": "工廠上週在沒有預警的情況下關閉了。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "nowhere near",
+          "diff": "nowhere near 是「差得遠」，用來比較程度，和「突然」無關。",
+          "example": { "en": "Our sales are nowhere near last year's level.", "zh": "我們的銷售額遠遠不及去年的水準。" }
+        }
+      ],
+      "nw_done": [
+        { "id": "nmwhyfvt32jg1", "result": "added", "word_fix": "out of nowhere" }
+      ]
+    },
+    {
+      "text": "the next thing I knew",
+      "type": "phrase",
+      "zh": "接著我就發現…、轉眼之間",
+      "en": "a short time later, something had already happened",
+      "note": "敘事時用來表示事情發展得很快，自己幾乎沒注意到。後面接過去式子句，說出突然發現的結果。",
+      "pattern": "The next thing I knew, + 主詞 + 過去式動詞",
+      "grammar_note": "knew 是 know 的過去式，後面的子句也用過去式；I 可換成 we、he、she。",
+      "examples": [
+        { "tag": "工作", "en": "I opened the file, and the next thing I knew, it was noon.", "zh": "我打開檔案，轉眼間就已經中午了。" },
+        { "tag": "接待", "en": "The next thing I knew, the client was waiting at the door.", "zh": "我才一轉眼，客戶就已經站在門口等了。" },
+        { "tag": "會議", "en": "We started the discussion, and the next thing we knew, it was five o'clock.", "zh": "我們開始討論，轉眼間就五點了。" }
+      ],
+      "similar": [
+        {
+          "phrase": "before I knew it",
+          "diff": "更強調時間過得很快；the next thing I knew 強調突然發現一個新狀況。",
+          "example": { "en": "Before I knew it, the quarter was over.", "zh": "不知不覺，這一季就結束了。" }
+        },
+        {
+          "phrase": "suddenly",
+          "diff": "單字副詞，只說「突然」，沒有「自己沒注意到」的敘事感。",
+          "example": { "en": "Suddenly, the phone rang during the meeting.", "zh": "會議中電話突然響了。" }
+        }
+      ]
+    },
+    {
+      "text": "to my surprise",
+      "type": "phrase",
+      "zh": "令我驚訝的是",
+      "en": "used to say that a result was not what you expected",
+      "note": "放在句首或句中，說明結果出乎意料，常用於工作回顧、報告與評論。主詞可以換成 her、his、everyone's 等。",
+      "pattern": "To my surprise, + 子句",
+      "grammar_note": "surprise 在這裡是名詞，所以是 to my surprise，不是 to my surprised；人稱可換成 to our、to her、to everyone's surprise。",
+      "examples": [
+        { "tag": "談判", "en": "To my surprise, the client accepted our first offer.", "zh": "令我驚訝的是，客戶接受了我們的第一個報價。" },
+        { "tag": "專案", "en": "To her surprise, the report was finished two days early.", "zh": "令她驚訝的是，報告提早兩天完成了。" },
+        { "tag": "業績", "en": "To everyone's surprise, sales rose during the winter months.", "zh": "令所有人驚訝的是，冬季幾個月的銷售額上升了。" }
+      ],
+      "similar": [
+        {
+          "phrase": "surprisingly",
+          "diff": "副詞，語氣較客觀，不特別強調說話者的感受。",
+          "example": { "en": "Surprisingly, the new software was easy to install.", "zh": "令人意外的是，新軟體很容易安裝。" }
+        },
+        {
+          "phrase": "much to my surprise",
+          "diff": "加了 much，語氣更強烈，驚訝程度更高。",
+          "example": { "en": "Much to my surprise, the meeting ended early.", "zh": "讓我大感意外的是，會議提早結束了。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "take someone by surprise",
+          "diff": "指突然發生的事讓人措手不及，主詞是事件；to my surprise 是說自己覺得意外。",
+          "example": { "en": "The sudden rule change took the staff by surprise.", "zh": "突然改變規則，讓員工措手不及。" }
+        }
+      ]
+    },
+    {
+      "text": "believe it or not",
+      "type": "phrase",
+      "zh": "信不信由你",
+      "en": "used before something true that is hard to believe",
+      "note": "用來引出一件真實但令人意外的事，口語自然，可放句首、句中或句尾。常用在介紹有趣的數據或經驗。",
+      "pattern": "Believe it or not, + 子句",
+      "grammar_note": "它是插入語，用逗號與句子隔開，不影響後面的語序；後面說的是真實的事，不是要對方懷疑。",
+      "examples": [
+        { "tag": "業績", "en": "Believe it or not, our smallest store earns the most profit.", "zh": "信不信由你，我們最小的店賺最多錢。" },
+        { "tag": "專案", "en": "Believe it or not, the project finished under budget.", "zh": "信不信由你，這個專案竟然在預算內完成。" },
+        { "tag": "訓練", "en": "We trained the new staff for only two days, believe it or not.", "zh": "信不信由你，我們只花兩天訓練新員工。" }
+      ],
+      "similar": [
+        {
+          "phrase": "strange as it may seem",
+          "diff": "較正式、較書面，語氣比 believe it or not 穩重。",
+          "example": { "en": "Strange as it may seem, customers prefer the older design.", "zh": "說來奇怪，顧客比較喜歡舊的設計。" }
+        },
+        {
+          "phrase": "surprisingly enough",
+          "diff": "副詞片語，語氣較客觀，不帶「信不信」的對話感。",
+          "example": { "en": "Surprisingly enough, the cheaper model lasted longer.", "zh": "說來令人意外，比較便宜的型號用得更久。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "believe in",
+          "diff": "believe in 是相信某人或某種做法有價值，不是「信不信由你」。",
+          "example": { "en": "We believe in giving every employee a fair chance.", "zh": "我們相信要給每位員工公平的機會。" }
+        }
+      ]
+    },
+    {
+      "text": "As it turns out",
+      "type": "phrase",
+      "zh": "結果發現、後來才知道",
+      "en": "used to introduce a fact that you learned later",
+      "note": "放在句首，引出後來才知道、常常出乎意料的事實。在報告、郵件與故事裡都常見，語氣比 believe it or not 更中性。",
+      "pattern": "As it turns out, + 主詞 + 動詞",
+      "grammar_note": "turn out 是不及物片語，主詞用 it；說過去才發現的事時可用 as it turned out，後面也可接 turn out to be + 名詞或形容詞。",
+      "examples": [
+        { "tag": "稽核", "en": "As it turns out, the error was in the original invoice.", "zh": "結果發現，錯誤出在最初的發票上。" },
+        { "tag": "客戶", "en": "As it turns out, our biggest client lives near our office.", "zh": "結果發現，我們最大的客戶就住在辦公室附近。" },
+        { "tag": "行程", "en": "As it turned out, the meeting was moved to Friday.", "zh": "後來才知道，會議被改到星期五了。" }
+      ],
+      "similar": [
+        {
+          "phrase": "it turns out that",
+          "diff": "意思相同，that 後面接完整子句，不一定放句首。",
+          "example": { "en": "It turns out that the supplier had sent two packages.", "zh": "結果發現供應商寄了兩個包裹。" }
+        },
+        {
+          "phrase": "in fact",
+          "diff": "in fact 是「事實上」，用來補充或糾正，不一定表示後來才發現。",
+          "example": { "en": "In fact, we have already finished the report.", "zh": "事實上，我們已經完成報告了。" }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "turn up",
+          "diff": "turn up 是「出現」或「調大音量」，和「結果發現」不同。",
+          "example": { "en": "Several guests turned up an hour early.", "zh": "有幾位賓客提早一小時出現。" }
+        }
+      ]
+    }
+  ]
+}
