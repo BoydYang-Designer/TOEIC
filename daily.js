@@ -1344,17 +1344,19 @@ function renderDay() {
   const pp = Array.isArray(x.presentation_phrases) ? x.presentation_phrases : [];
   if (pp.length) {
     const pOpen = !!cur.phrasesOpen;
-    h += `<div class="flex items-center justify-between ${pOpen ? 'mb-3' : 'mb-8'} gap-2"><button onclick="toggleSec('phrases')" class="font-bold text-lg cursor-pointer">${pOpen ? '▾' : '▸'} ${x.day > CORE_DAYS ? '常用句型' : '簡報常用句型'}（${pp.length}）</button></div>`;
+    const ppMiss = pOpen && typeof dnPPMissing === 'function' ? dnPPMissing(x).length : 0;
+    h += `<div class="flex items-center justify-between ${pOpen ? 'mb-3' : 'mb-8'} gap-2 flex-wrap"><button onclick="toggleSec('phrases')" class="font-bold text-lg cursor-pointer">${pOpen ? '▾' : '▸'} ${x.day > CORE_DAYS ? '常用句型' : '簡報常用句型'}（${pp.length}）</button>${ppMiss ? `<button onclick="dnPPCopy('${id}')" class="${btn} text-xs border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800">複製 AI 提示詞（${ppMiss} 句還沒有詳解）</button>` : ''}</div>`;
     if (pOpen) {
       h += `<div class="grid sm:grid-cols-2 gap-3 mb-8">`;
       pp.forEach((p, i) => {
         h += `<div class="${card} p-4">
           <div class="flex items-start justify-between gap-2">
-            <p class="font-bold text-sm">${esc(p.phrase)}</p>
+            <button onclick="dnOpenPP(${i})" class="font-bold text-sm text-left underline decoration-dotted decoration-slate-400 underline-offset-4 hover:text-indigo-600 cursor-pointer">${esc(p.phrase)}</button>
             <button onclick="speakPhrase(${i})" class="text-slate-400 hover:text-indigo-600 text-lg shrink-0" aria-label="播放發音">🔊</button>
           </div>
           <p class="mt-1 text-sm font-semibold text-slate-700 dark:text-slate-300">${esc(p.meaning)}</p>
           <p class="text-xs mt-1 text-slate-500 dark:text-slate-400">${esc(p.usage)}</p>
+          <button onclick="dnOpenPP(${i})" class="${btn} mt-3 text-xs w-full border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800">詳解 ›${typeof dnFindExtraAny === 'function' && !dnFindExtraAny(x, p.phrase) ? ' <span class="text-slate-400">（待補）</span>' : ''}</button>
         </div>`;
       });
       h += `</div>`;

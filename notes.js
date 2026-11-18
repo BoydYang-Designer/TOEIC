@@ -916,6 +916,33 @@ function dnImportMarks(input) {
 
 /* ======================= 詳解頁 ======================= */
 function dnOpenVocab(i) { const x = find(cur.w, cur.d); if (!x || !x.vocab[i]) return; const pd = cur.det; cur.det = { kind: 'vocab', i }; dnNav('detail', pd); }
+function dnOpenPP(i) { // 常用句型（presentation_phrases）→ 詳解頁：沒有 extra_vocab 時先顯示句型卡的中文意思與用法
+  const x = find(cur.w, cur.d), p = x && x.presentation_phrases && x.presentation_phrases[i]; if (!p) return;
+  const pd = cur.det; cur.det = { kind: 'pp', i, text: p.phrase }; dnNav('detail', pd);
+}
+const dnPPOf = x => (Array.isArray(x && x.presentation_phrases) ? x.presentation_phrases : []).filter(p => p && typeof p.phrase === 'string' && p.phrase.trim());
+const dnPPMissing = x => dnPPOf(x).filter(p => !dnFindExtraAny(x, p.phrase)); // 這篇還沒有詳解的句型
+function dnPPMark(x, p) { // 句型 → 暫時的入庫項目（type=sentence、整句就是 text）；不存檔
+  const now = Date.now();
+  return { id: dnId('m'), qid: idOf(x), text: p.phrase, type: 'sentence', ctx: p.phrase, from: 0, to: 0, src: 'detail', head: '', note: '', created: now, updated: now };
+}
+function dnTempPromptPP(qid, pps) { // 句型：不入庫，直接產生提示詞（暫時掛上去、產生完就移除、不存檔）
+  const x = dnArt(qid); if (!x) return '';
+  const added = [], only = new Set();
+  pps.forEach(p => { const had = dnMarks().some(m => m.qid === qid && dnKey(m.text) === dnKey(p.phrase)); if (!had) { const m = dnPPMark(x, p); dnMarks().push(m); added.push(m); } only.add(dnKey(p.phrase)); });
+  try { return dnPrompt(qid, only, false); } finally { S.marks = dnMarks().filter(m => !added.includes(m)); }
+}
+function dnPPCopy(qid) { // 這篇所有「還沒有詳解」的句型 → 一份 AI 提示詞（超過每批上限會分批，連按換下一批）
+  const x = dnArt(qid); if (!x) return;
+  const ms = dnPPMissing(x); if (!ms.length) { dnToast('這篇的句型都已經有詳解'); return; }
+  const b = dnBatchPick('pp:' + qid, ms.map(p => p.phrase).join('|'), ms.length), part = b.nb > 1 ? ms.slice(b.lo, b.hi) : ms;
+  auCopy(dnTempPromptPP(qid, part)); dnToast(b.nb > 1 ? dnBatchMsg(b, part.length) : `已複製 ${part.length} 句句型的提示詞，貼給 AI`);
+}
+function dnAddFromPP(i) { // 句型沒有詳解時：一鍵入庫（之後到「📌 入庫彙整」產生提示詞）
+  const x = find(cur.w, cur.d), p = x && x.presentation_phrases && x.presentation_phrases[i]; if (!p) return;
+  if (dnMarks().some(m => m.qid === idOf(x) && dnKey(m.text) === dnKey(p.phrase))) { if (!dnAskStudy(p.phrase)) dnToast('已經入庫了'); return; }
+  dnMarks().push(dnPPMark(x, p)); save(); dnToast('已入庫，可到「📌 入庫彙整」產生提示詞'); render();
+}
 function dnOpenExtra(qid, text) { const x = dnArt(qid); if (!x) return; if (cur.w != x.week || cur.d != x.day) { cur.w = x.week; cur.d = x.day; } const pd = cur.det; cur.det = { kind: 'extra', text }; dnNav('detail', pd); }
 function dnAddFromVocab(i) { // 核心單字沒有詳解時：一鍵入庫（之後用提示詞請 AI 補）
   const x = find(cur.w, cur.d), v = x && x.vocab[i]; if (!v) return;
@@ -939,10 +966,12 @@ const dnArr = v => Array.isArray(v) ? v : (v ? [v] : []);
 function dnDetailData() {
   const x = find(cur.w, cur.d), d = cur.det || {}; if (!x) return null;
   let base = null, text;
-  if (d.kind === 'vocab') { base = x.vocab[d.i]; if (!base) return null; text = base.word; } else text = d.text;
+  if (d.kind === 'vocab') { base = x.vocab[d.i]; if (!base) return null; text = base.word; }
+  else if (d.kind === 'pp') { const p = (x.presentation_phrases || [])[d.i]; if (!p) return null; base = { zh: p.meaning, note: p.usage }; text = p.phrase; } // 句型卡：meaning／usage 當作還沒有詳解時的內容
+  else text = d.text;
   const ex = dnFindExtraAny(x, text), src = ex ? dnExtraSrc(x, text) : null, m = dnMarksOf(idOf(x)).find(q => dnKey(q.text) === dnKey(text));
-  const e = Object.assign({}, base || {}, ex || {}); e.text = text; e.at = (ex && (ex.text || ex.word)) || text; e.type = (ex && ex.type) || (base ? (/\s/.test(text) ? 'phrase' : 'word') : (m && m.type) || 'word');
-  return { x, e, base, ex, m, src, i: d.i };
+  const e = Object.assign({}, base || {}, ex || {}); e.text = text; e.at = (ex && (ex.text || ex.word)) || text; e.type = (ex && ex.type) || (d.kind === 'pp' ? 'sentence' : base ? (/\s/.test(text) ? 'phrase' : 'word') : (m && m.type) || 'word');
+  return { x, e, base, ex, m, src, i: d.i, kind: d.kind };
 }
 function dnHiCtx(ctx, text, x) { // 詳解頁「在文章裡」：本字黃底；傳入 x（所在文章）時，同一句裡本篇已入庫的片語另外畫紫色底線，點一下開該片語詳解
   const c = String(ctx), lc = c.toLowerCase(), i = lc.indexOf(String(text).toLowerCase());
@@ -980,6 +1009,7 @@ function dnCopyOne() { // 詳解頁：只為這個字複製 AI 提示詞（核�
   const D = dnDetailData(); if (!D) return;
   const fresh = !D.m && !D.base && isLib(D.x); if (fresh) D.m = dnLibMark(D.x, D.e.text); // 字庫的字：按下就順便入庫
   if (D.m) { save(); auCopy(dnPrompt(idOf(D.x), new Set([dnKey(D.m.text)]))); }
+  else if (D.kind === 'pp') auCopy(dnTempPromptPP(idOf(D.x), [(D.x.presentation_phrases || [])[D.i]]));
   else if (D.base) auCopy(dnTempPrompt(idOf(D.x), [D.base], false));
   else return;
   dnToast('已複製這個字的提示詞，貼給 AI');
@@ -997,8 +1027,8 @@ function dnRenderDetail() {
     ${e.ipa || e.pos ? `<p class="text-sm text-slate-500 mt-1">${esc(e.ipa || '')} ${e.pos ? `<i>${esc(e.pos)}</i>` : ''}</p>` : ''}
     ${e.zh ? `<p class="text-base font-semibold mt-2">${esc(e.zh)}</p>` : ''}${e.en ? `<p class="text-sm text-slate-500 italic mt-1 leading-relaxed">${esc(e.en)} ${dnSpk(xs, e, '_en', e.en)}</p>` : ''}</div><div class="flex flex-col items-end gap-1.5 shrink-0">${dnBackBtn()}${dnTrailBackBtn()}</div></header>`;
   if (!ex) {
-    h += `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 leading-relaxed">這個項目還沒有補充詳解（${D.base ? '目前只顯示核心單字卡的內容' : '待補'}）。${m ? '已在入庫，請到「📌 入庫彙整」複製 AI 提示詞，合併回 daily.json 後就會出現。' : isLib(x) ? '這個字還沒有出現在任何文章裡。按「複製 AI 提示詞」會順便把它加入入庫彙整；貼給 AI → 檔案存成 w0d1_extra.json → json_merge.py 合併 → 重新執行 Scan 腳本，這裡就會有通用詳解。' : '按下面的按鈕入庫，再到「📌 入庫彙整」產生 AI 提示詞。'}
-      <div class="mt-2 flex flex-wrap gap-2">${(m || D.base || isLib(x)) ? `<button onclick="dnCopyOne()" class="text-xs rounded-lg px-2.5 py-1 ${dnPri} cursor-pointer">複製 AI 提示詞（這個字）</button>` : ''}${m ? `<button onclick="dnNav('marks')" class="${dnSm}">前往 📌 入庫彙整</button>` : D.base ? `<button onclick="dnAddFromVocab(${D.i})" class="${dnSm}">＋ 入庫（請 AI 補詳解）</button>` : ''}</div></div>`;
+    h += `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 leading-relaxed">這個項目還沒有補充詳解（${D.kind === 'pp' ? '目前只顯示句型卡的中文意思與用法' : D.base ? '目前只顯示核心單字卡的內容' : '待補'}）。${m ? '已在入庫，請到「📌 入庫彙整」複製 AI 提示詞，合併回 daily.json 後就會出現。' : isLib(x) ? '這個字還沒有出現在任何文章裡。按「複製 AI 提示詞」會順便把它加入入庫彙整；貼給 AI → 檔案存成 w0d1_extra.json → json_merge.py 合併 → 重新執行 Scan 腳本，這裡就會有通用詳解。' : '按下面的按鈕入庫，再到「📌 入庫彙整」產生 AI 提示詞。'}
+      <div class="mt-2 flex flex-wrap gap-2">${(m || D.base || isLib(x)) ? `<button onclick="dnCopyOne()" class="text-xs rounded-lg px-2.5 py-1 ${dnPri} cursor-pointer">複製 AI 提示詞（這個字）</button>` : ''}${m ? `<button onclick="dnNav('marks')" class="${dnSm}">前往 📌 入庫彙整</button>` : D.base ? `<button onclick="${D.kind === 'pp' ? 'dnAddFromPP' : 'dnAddFromVocab'}(${D.i})" class="${dnSm}">＋ 入庫（請 AI 補詳解）</button>` : ''}</div></div>`;
   }
   if (ex && src && src !== x) h += `<p class="rounded-lg bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 text-xs px-3 py-2 mb-3">${isLib(src) ? '這個字的詳解來自「TSL 字庫」（通用說明），這裡沿用同一份。' : `這個字已在 ${dnLabel(src)} 入庫並寫好詳解，這裡沿用同一份。「說明」寫的是當時那篇的用法。`}</p>`;
   h += sec('在文章裡', ctx ? `<div class="flex items-start gap-2"><p class="text-sm leading-relaxed flex-1">${dnHiCtx(ctx, e.text, T === 'sentence' ? null : x)}</p>${T === 'sentence' ? '' : `<button onclick="vplay('${idOf(x)}', this.dataset.t, '_ctx', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(ctx)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button>`}</div>${T !== 'sentence' && dnCtxPhrases(ctx, e.text, x).length ? '<p class="mt-1.5 text-[0.6875rem] text-slate-400">紫色底線＝這一句裡本篇已入庫的片語，點一下看詳解</p>' : ''}` : '');
