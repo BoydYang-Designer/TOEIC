@@ -1,0 +1,286 @@
+{
+  "week": 6,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "shared folder",
+      "type": "phrase",
+      "zh": "共用資料夾",
+      "en": "a folder on a computer or online that many people can open and use",
+      "note": "辦公室與 IT 情境的高頻詞，團隊把報告、合約、會議紀錄放在共用資料夾，大家都能開啟。這篇文章談「不小心」造成的失誤，誤刪共用資料夾裡的檔案就是很典型的情境。",
+      "pattern": "V + N + in / to / from + the shared folder",
+      "grammar_note": "「放進共用資料夾」用 save … in 或 upload … to，「從裡面拿」用 from；folder 是可數名詞，要寫 the shared folder 或 a shared folder。",
+      "examples": [
+        { "tag": "辦公室", "en": "Please save the final report in the shared folder.", "zh": "請把最終報告存放在共用資料夾裡。" },
+        { "tag": "會議", "en": "I put the meeting notes in the shared folder this morning.", "zh": "我今天早上把會議紀錄放進共用資料夾了。" },
+        { "tag": "資訊安全", "en": "Only team members can open files in the shared folder.", "zh": "只有團隊成員可以開啟共用資料夾裡的檔案。" },
+        { "tag": "失誤", "en": "Someone moved my file out of the shared folder by mistake.", "zh": "有人不小心把我的檔案從共用資料夾移走了。" }
+      ],
+      "similar": [
+        { "phrase": "shared drive", "diff": "drive 指整個共用的雲端硬碟或磁碟，裡面可以有很多資料夾；shared folder 範圍較小。", "example": { "en": "Our team keeps all contracts on the shared drive.", "zh": "我們團隊把所有合約都放在共用硬碟上。" } },
+        { "phrase": "team folder", "diff": "強調這個資料夾屬於某個團隊，語氣比 shared folder 更口語。", "example": { "en": "Upload your photos to the team folder before noon.", "zh": "請在中午前把你的照片上傳到團隊資料夾。" } }
+      ],
+      "confusable": [
+        { "phrase": "public folder", "diff": "public folder 是任何人都能看到的資料夾；shared folder 是只分享給特定的人。", "example": { "en": "Anyone in the company can read the public folder.", "zh": "公司裡的任何人都可以讀取公開資料夾。" } }
+      ]
+    },
+    {
+      "text": "draft",
+      "type": "word",
+      "ipa": "/dræft/",
+      "pos": "n.",
+      "zh": "草稿、草案",
+      "en": "a first version of a document that you may change later",
+      "note": "指還沒定稿的文件、信件或合約，最常見的說法是 the first draft（初稿）。這篇文章談「不小心」寄出信件的失誤，把還沒寫完的草稿誤寄給全部門就是常見的情境。",
+      "grammar_note": "draft 當名詞是可數名詞，要寫 a draft 或 the draft；當動詞時是「起草」，後面直接接文件，如 draft a letter。",
+      "forms": [
+        { "w": "drafts", "label": "複數", "pos": "n.", "zh": "草稿（複數）", "ipa": "/dræfts/", "example": { "en": "I saved three drafts of the proposal on my laptop.", "zh": "我把這份提案的三份草稿存在筆電上。" } },
+        { "w": "drafts", "label": "第三人稱單數", "pos": "v.", "zh": "起草", "ipa": "/dræfts/", "example": { "en": "Our lawyer drafts every contract before the client reads it.", "zh": "我們的律師在客戶閱讀之前會先起草每一份合約。" } },
+        { "w": "drafted", "label": "過去式／過去分詞", "pos": "v.", "zh": "起草", "ipa": "/ˈdræftɪd/", "example": { "en": "She drafted a short reply and sent it to her manager.", "zh": "她擬了一封簡短的回信，寄給她的經理。" } },
+        { "w": "drafting", "label": "現在分詞", "pos": "v.", "zh": "起草", "ipa": "/ˈdræftɪŋ/", "example": { "en": "We are drafting a new policy for remote work.", "zh": "我們正在起草一項新的遠距工作政策。" } }
+      ],
+      "collocations": [
+        { "phrase": "first draft", "zh": "初稿", "example": { "en": "Please send me the first draft of the report by noon.", "zh": "請在中午前把報告的初稿寄給我。" } },
+        { "phrase": "final draft", "zh": "最終稿", "example": { "en": "The final draft needs approval from the legal team.", "zh": "最終稿需要法務團隊的核准。" } },
+        { "phrase": "draft a proposal", "zh": "起草提案", "example": { "en": "She will draft a proposal for the new project this week.", "zh": "她這週會為新專案起草一份提案。" } },
+        { "phrase": "draft agreement", "zh": "協議草案", "example": { "en": "Both companies are reading the draft agreement carefully.", "zh": "兩家公司正在仔細閱讀這份協議草案。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "I accidentally sent the draft to the wrong person.", "zh": "我不小心把草稿寄給了錯誤的人。" },
+        { "tag": "會議", "en": "Could you review the draft before tomorrow's meeting?", "zh": "你可以在明天的會議之前先看一下草稿嗎？" },
+        { "tag": "法務", "en": "The draft contract still has several mistakes in it.", "zh": "這份合約草稿裡還有好幾個錯誤。" }
+      ],
+      "confusable": [
+        { "word": "drought", "diff": "拼法和發音都有點像，但 drought 是「乾旱」，和文件無關。", "example": { "en": "The drought hurt our farm sales this year.", "zh": "乾旱影響了我們農場今年的銷售。" } }
+      ],
+      "similar": [
+        { "word": "outline", "diff": "outline 是只列出重點的大綱，比 draft 更簡略；draft 已經是完整寫出來的第一版。", "example": { "en": "Send me an outline of your talk before Friday.", "zh": "星期五之前請先寄給我你演講的大綱。" } }
+      ],
+      "family": [
+        { "w": "version", "pos": "n.", "zh": "版本", "ipa": "/ˈvɝːʒn/", "example": { "en": "Please use the latest version of the form.", "zh": "請使用最新版本的表格。" } },
+        { "w": "revise", "pos": "v.", "zh": "修訂", "ipa": "/rɪˈvaɪz/", "example": { "en": "We need to revise the schedule after the delay.", "zh": "延誤之後，我們需要修訂時程。" } },
+        { "w": "edit", "pos": "v.", "zh": "編輯、修改", "ipa": "/ˈedɪt/", "example": { "en": "Can you edit this email before I send it?", "zh": "你可以在我寄出之前修改這封郵件嗎？" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/dræft/", "zh": "草稿", "in_passage": true, "example": { "en": "The first draft of the speech was too long.", "zh": "這篇演講稿的初稿太長了。" } },
+        { "pos": "v.", "ipa": "/dræft/", "zh": "起草", "example": { "en": "I will draft a reply to the customer today.", "zh": "我今天會起草給顧客的回覆。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "草稿", "en": "a first version of a document that you may change later", "in_passage": true, "example": { "en": "Please check the draft and mark any errors you find.", "zh": "請檢查這份草稿，並標出你發現的任何錯誤。" } },
+        { "pos": "n.", "zh": "匯票", "en": "a written order to pay money from a bank", "distinguish": "通常和 bank 連用（a bank draft），出現在付款、貿易或銀行的情境。", "example": { "en": "The supplier asked for a bank draft instead of a check.", "zh": "供應商要求用銀行匯票，而不是支票。" } },
+        { "pos": "n.", "zh": "（室內的）冷風、氣流", "en": "a flow of cold air in a room", "distinguish": "出現在抱怨窗戶或門縫有風的對話，前面常有 cold。", "example": { "en": "There is a cold draft coming from the office window.", "zh": "辦公室的窗戶吹進來一陣冷風。" } }
+      ]
+    },
+    {
+      "text": "incidentally",
+      "type": "word",
+      "ipa": "/ˌɪnsɪˈdentəli/",
+      "pos": "adv.",
+      "zh": "順帶一提；附帶地",
+      "en": "used to add something that is not the main subject",
+      "note": "最常放在句首，用來轉到一個附帶的話題，意思像 by the way。注意它和 accidentally（不小心）拼法接近、但意思不同；在這篇談「不小心」的內容裡，要小心別把兩個字搞混。",
+      "grammar_note": "放在句首當連接用的副詞時，後面要加逗號：Incidentally, the meeting is at three.",
+      "forms": [],
+      "examples": [
+        { "tag": "電子郵件", "en": "Incidentally, the new price list will be ready on Monday.", "zh": "順帶一提，新的價目表星期一會準備好。" },
+        { "tag": "會議", "en": "Incidentally, have you seen the sales report from last month?", "zh": "順帶一提，你看過上個月的銷售報告了嗎？" },
+        { "tag": "電話", "en": "Our new manager, incidentally, used to work at your company.", "zh": "順帶一提，我們的新經理以前在你們公司工作過。" },
+        { "tag": "說明", "en": "The error was only found incidentally during a regular check.", "zh": "這個錯誤只是在例行檢查時附帶發現的。" }
+      ],
+      "confusable": [
+        { "word": "accidentally", "diff": "accidentally 是「不小心、無意中」，描述動作；incidentally 是「順帶一提」，用來轉換話題。", "usage": "accidentally 修飾動詞（accidentally deleted）；incidentally 通常放句首或句中，當作連接用語，不表示失誤。", "example": { "en": "I accidentally deleted the file from my computer.", "zh": "我不小心把這個檔案從我的電腦刪掉了。" } }
+      ],
+      "similar": [
+        { "phrase": "by the way", "diff": "意思幾乎一樣，但 by the way 更口語；incidentally 比較書面，也適合放在正式的信件裡。", "example": { "en": "By the way, our office will close early on Friday.", "zh": "順帶一提，我們辦公室星期五會提早關門。" } },
+        { "phrase": "on a related note", "diff": "用來引入「和剛才話題有關」的補充，incidentally 則可以是無關的小事。", "example": { "en": "On a related note, we also updated our return policy.", "zh": "與此相關的是，我們也更新了退貨政策。" } }
+      ],
+      "family": [
+        { "w": "anyway", "pos": "adv.", "zh": "無論如何、話說回來", "ipa": "/ˈeniweɪ/", "example": { "en": "Anyway, let's get back to the budget plan.", "zh": "話說回來，我們回到預算計畫吧。" } },
+        { "w": "besides", "pos": "adv.", "zh": "此外", "ipa": "/bɪˈsaɪdz/", "example": { "en": "Besides, the cost of shipping is already included.", "zh": "此外，運費已經包含在內了。" } },
+        { "w": "meanwhile", "pos": "adv.", "zh": "同時、在此期間", "ipa": "/ˈmiːnwaɪl/", "example": { "en": "Meanwhile, the sales team will contact the clients.", "zh": "同時，業務團隊會聯絡客戶。" } }
+      ],
+      "derived": [
+        { "w": "incident", "pos": "n.", "zh": "事件", "ipa": "/ˈɪnsɪdənt/", "link": "最基礎的字，指發生的一件事，如 a safety incident（安全事件）" },
+        { "w": "incidental", "pos": "adj.", "zh": "附帶的、次要的", "ipa": "/ˌɪnsɪˈdentl/", "link": "incident + -al，形容詞字尾，像 national、traditional，指「順帶發生的」，如 incidental costs（雜費）" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adv.", "zh": "順帶一提", "en": "used to add something that is not the main subject", "example": { "en": "Incidentally, I will be out of the office on Thursday.", "zh": "順帶一提，我星期四不會在辦公室。" } },
+        { "pos": "adv.", "zh": "附帶地、順便地", "en": "as a small extra result of something else", "distinguish": "放在動詞或過去分詞附近，說明某事是做別件事時順便發生或發現的。", "example": { "en": "The problem was discovered incidentally while we updated the system.", "zh": "這個問題是我們在更新系統時順便發現的。" } }
+      ]
+    },
+    {
+      "text": "by accident",
+      "type": "phrase",
+      "zh": "意外地、不小心",
+      "en": "without planning or meaning to",
+      "note": "和這篇的 accidentally purchased 意思相同，用來說明某件事不是故意做的。在客服信件、退款申請與道歉信裡，by accident 能表達「這是失誤，不是我的本意」。",
+      "pattern": "V + N + by accident",
+      "grammar_note": "by accident 中間不加冠詞，不能寫成 by an accident；通常放在句尾，也可以放在句首強調。",
+      "examples": [
+        { "tag": "電子郵件", "en": "I deleted the invoice by accident, so please send it again.", "zh": "我不小心把發票刪掉了，所以請再寄一次。" },
+        { "tag": "客服", "en": "The customer says he ordered two items by accident.", "zh": "這位顧客說他不小心訂了兩件商品。" },
+        { "tag": "會議", "en": "She opened the wrong file by accident during the meeting.", "zh": "她在會議中不小心打開了錯的檔案。" },
+        { "tag": "退款", "en": "If you bought the plan by accident, you can ask for a refund.", "zh": "如果你是不小心買了這個方案，可以申請退款。" }
+      ],
+      "similar": [
+        { "phrase": "by mistake", "diff": "強調「弄錯了」，常指拿錯、寄錯、搞錯；by accident 強調「不是故意的」。", "example": { "en": "The package was sent to the wrong address by mistake.", "zh": "這個包裹被誤寄到錯誤的地址。" } },
+        { "phrase": "accidentally", "diff": "意思相同，但是副詞，放在動詞前面（accidentally sent）；by accident 是片語，通常放句尾。", "example": { "en": "He accidentally pressed the send button too early.", "zh": "他不小心太早按下了傳送鍵。" } }
+      ],
+      "confusable": [
+        { "word": "by chance", "diff": "by chance 是「碰巧、湊巧」，不一定是失誤，也常是好事；by accident 多半是不好的失誤。", "example": { "en": "We met the client by chance at the airport.", "zh": "我們在機場碰巧遇到了客戶。" } }
+      ]
+    },
+    {
+      "text": "unintentionally",
+      "type": "word",
+      "ipa": "/ˌʌnɪnˈtenʃənəli/",
+      "pos": "adv.",
+      "zh": "無意地、非故意地",
+      "en": "in a way that you did not plan or mean to",
+      "note": "比 accidentally 更正式，常出現在道歉信、公告與說明失誤原因的書面文字裡。這篇的 accidentally purchased 也可以改寫成 unintentionally purchased，語氣會更正式一點。",
+      "grammar_note": "unintentionally 是副詞，修飾動詞（unintentionally deleted）；後面接名詞要改用形容詞 unintentional（an unintentional error）。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "unintentionally cause", "zh": "無意間造成", "example": { "en": "Our small changes may unintentionally cause new delays for customers.", "zh": "我們的小調整可能在無意間給客戶造成新的延誤。" } },
+        { "phrase": "unintentionally mislead", "zh": "無意間誤導", "example": { "en": "The old chart could unintentionally mislead new readers about sales.", "zh": "舊的圖表可能在無意間誤導新讀者對銷售狀況的判斷。" } },
+        { "phrase": "unintentionally miss", "zh": "無意間錯過", "example": { "en": "She unintentionally missed the deadline because of the time difference.", "zh": "她因為時差，無意間錯過了截止時間。" } }
+      ],
+      "examples": [
+        { "tag": "道歉信", "en": "We may have unintentionally offended you during yesterday's call.", "zh": "我們在昨天的電話中，可能無意間冒犯了您。" },
+        { "tag": "會議", "en": "He unintentionally deleted the customer list from the shared drive.", "zh": "他無意間把顧客名單從共用硬碟刪除了。" },
+        { "tag": "公告", "en": "The new rule unintentionally made the process slower for everyone.", "zh": "這項新規定在無意間讓每個人的流程都變慢了。" }
+      ],
+      "confusable": [
+        { "word": "intentionally", "diff": "意思相反：intentionally 是「故意地」，unintentionally 是「非故意地」。", "example": { "en": "The firm intentionally delayed the launch to improve quality.", "zh": "這家公司為了提升品質，故意延後了上市。" } }
+      ],
+      "similar": [
+        { "word": "accidentally", "diff": "意思幾乎相同，但 accidentally 較口語、常見；unintentionally 較正式，常出現在書面說明中。", "example": { "en": "I accidentally sent the message to the whole team.", "zh": "我不小心把訊息傳給了整個團隊。" } },
+        { "phrase": "without meaning to", "diff": "口語說法，常放在句尾，語氣比 unintentionally 輕鬆。", "example": { "en": "I spoke too loudly without meaning to during the meeting.", "zh": "我在會議中不是故意的，說話聲音太大了。" } }
+      ],
+      "family": [
+        { "w": "error", "pos": "n.", "zh": "錯誤", "ipa": "/ˈerɚ/", "example": { "en": "We found an error in the second page.", "zh": "我們在第二頁發現了一個錯誤。" } },
+        { "w": "careless", "pos": "adj.", "zh": "粗心的", "ipa": "/ˈkerləs/", "example": { "en": "A careless mistake cost the company a lot of money.", "zh": "一個粗心的失誤讓公司損失了很多錢。" } },
+        { "w": "apologize", "pos": "v.", "zh": "道歉", "ipa": "/əˈpɑːlədʒaɪz/", "example": { "en": "We apologize for the problem with your order.", "zh": "對於您訂單的問題，我們深感抱歉。" } }
+      ],
+      "derived": [
+        { "w": "intend", "pos": "v.", "zh": "打算、意圖", "ipa": "/ɪnˈtend/", "link": "最基礎的動詞，intend to V 表示打算做某事" },
+        { "w": "intention", "pos": "n.", "zh": "意圖、打算", "ipa": "/ɪnˈtenʃn/", "link": "intend + -tion，動作變名詞，像 decide → decision" },
+        { "w": "intentional", "pos": "adj.", "zh": "故意的", "ipa": "/ɪnˈtenʃənl/", "link": "intention + -al，形容詞字尾，像 national、traditional" },
+        { "w": "unintentional", "pos": "adj.", "zh": "非故意的", "ipa": "/ˌʌnɪnˈtenʃənl/", "link": "un-（不）+ intentional，像 unable、unhappy" },
+        { "w": "intentionally", "pos": "adv.", "zh": "故意地", "ipa": "/ɪnˈtenʃənəli/", "link": "intentional + -ly，形容詞變副詞，像 quickly、clearly" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "left out",
+      "type": "phrase",
+      "zh": "遺漏、漏掉；被排除在外",
+      "en": "did not include something or someone",
+      "note": "left out 是 leave out 的過去式，表示把該放進去的東西漏掉了，常用在報告、合約或清單的失誤。這篇談的是「不小心」造成的問題，漏掉重要資料就是很常見的一種失誤。",
+      "pattern": "leave + N + out / leave out + N / leave + A + out of + B",
+      "grammar_note": "受詞是名詞時，可以放中間或後面（left the figures out / left out the figures）；受詞是代名詞時一定要放中間（left them out），不能說 left out them。",
+      "examples": [
+        { "tag": "合約", "en": "Sorry, I left out the last page of the contract.", "zh": "抱歉，我漏掉了合約的最後一頁。" },
+        { "tag": "報告", "en": "Don't leave out any important details in your summary.", "zh": "你的摘要裡不要漏掉任何重要的細節。" },
+        { "tag": "人事", "en": "Several workers felt left out of the planning process.", "zh": "有幾位員工覺得自己被排除在規劃過程之外。" },
+        { "tag": "電子郵件", "en": "Please don't leave me out of the email list.", "zh": "請不要把我從電子郵件名單中漏掉。" }
+      ],
+      "similar": [
+        { "phrase": "omit", "diff": "意思相近，但 omit 更正式，多用在書面；後面直接接名詞，沒有 out。", "example": { "en": "The list omits two of our biggest customers.", "zh": "這份名單漏列了我們最大的兩位客戶。" } },
+        { "phrase": "exclude", "diff": "exclude 常是「刻意排除」；left out 則多半是不小心漏掉。", "example": { "en": "We excluded late orders from this month's total.", "zh": "我們把逾期的訂單排除在本月總數之外。" } }
+      ],
+      "confusable": [
+        { "phrase": "left over", "diff": "left over 是「剩下的」，指用完之後多出來的東西，不是漏掉。", "example": { "en": "We have three boxes left over from the event.", "zh": "活動結束後，我們還剩下三箱東西。" } },
+        { "phrase": "left behind", "diff": "left behind 是「遺留、忘了帶走」，指人或東西被留在原地。", "example": { "en": "He left his laptop behind at the hotel.", "zh": "他把筆電忘在飯店了。" } }
+      ]
+    },
+    {
+      "text": "figures",
+      "type": "word",
+      "lemma": "figure",
+      "ipa": "/ˈfɪɡjɚz/",
+      "pos": "n.",
+      "zh": "數字、數據",
+      "en": "numbers that show an amount, a price, or a result",
+      "note": "在報告、財務與銷售的情境裡，figures 指表格或報告中的數字資料，如 sales figures。例句中 left out two key figures 是說報告漏掉了兩個重要數字。figure 也可以當動詞，意思是「認為、估計」。",
+      "grammar_note": "「數字」的意思常用複數 figures；單數 figure 多半指「一個金額或數字」（the final figure）。figure out 是「想出、算出」，受詞是代名詞時放中間（figure it out）。",
+      "forms": [
+        { "w": "figured", "label": "過去式／過去分詞", "pos": "v.", "zh": "估計、認為", "ipa": "/ˈfɪɡjɚd/", "example": { "en": "She figured the total would be about two thousand dollars.", "zh": "她估計總額大約是兩千美元。" } },
+        { "w": "figuring", "label": "現在分詞", "pos": "v.", "zh": "估算、思考", "ipa": "/ˈfɪɡjɚɪŋ/", "example": { "en": "I am figuring out how much we need to order.", "zh": "我正在算我們需要訂多少。" } }
+      ],
+      "collocations": [
+        { "phrase": "sales figures", "zh": "銷售數字", "example": { "en": "The sales figures for March look better than we expected.", "zh": "三月的銷售數字比我們預期的還要好。" } },
+        { "phrase": "financial figures", "zh": "財務數字", "example": { "en": "Please check the financial figures before you send the report.", "zh": "寄出報告之前，請先檢查財務數字。" } },
+        { "phrase": "figure out", "zh": "想出、弄清楚", "example": { "en": "We need to figure out why sales dropped in May.", "zh": "我們需要弄清楚五月銷售為什麼下滑。" } },
+        { "phrase": "a key figure", "zh": "關鍵人物", "example": { "en": "He is a key figure in the company's growth.", "zh": "他是公司成長的關鍵人物。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "Can you check these figures before the meeting starts?", "zh": "會議開始前，你可以檢查一下這些數字嗎？" },
+        { "tag": "報告", "en": "The report shows the figures for each region in a clear table.", "zh": "這份報告用一個清楚的表格列出各地區的數字。" },
+        { "tag": "電子郵件", "en": "I will send you the updated figures by the end of today.", "zh": "我今天下班前會寄給你更新後的數字。" }
+      ],
+      "similar": [
+        { "word": "numbers", "diff": "更口語，泛指所有數字；figures 比較正式，多指報告中有意義的財務或統計數字。", "example": { "en": "The numbers in this chart are not correct.", "zh": "這張圖表裡的數字不正確。" } },
+        { "word": "data", "diff": "data 是尚未整理的資料，包含文字與數字；figures 只指數字。", "example": { "en": "We collected data from over five hundred customers.", "zh": "我們蒐集了超過五百位顧客的資料。" } }
+      ],
+      "family": [
+        { "w": "total", "pos": "n.", "zh": "總數、總額", "ipa": "/ˈtoʊtl/", "example": { "en": "The total for this order is four hundred dollars.", "zh": "這筆訂單的總額是四百美元。" } },
+        { "w": "amount", "pos": "n.", "zh": "金額、數量", "ipa": "/əˈmaʊnt/", "example": { "en": "Please check the amount on your invoice.", "zh": "請確認您發票上的金額。" } },
+        { "w": "percentage", "pos": "n.", "zh": "百分比", "ipa": "/pɚˈsentɪdʒ/", "example": { "en": "A large percentage of customers pay online.", "zh": "很大比例的顧客用網路付款。" } },
+        { "w": "statistics", "pos": "n.", "zh": "統計數據", "ipa": "/stəˈtɪstɪks/", "example": { "en": "The statistics show that online orders are rising.", "zh": "統計數據顯示網路訂單正在增加。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈfɪɡjɚ/", "zh": "數字、數據", "example": { "en": "This figure shows our profit for the first quarter.", "zh": "這個數字顯示了我們第一季的獲利。" } },
+        { "pos": "v.", "ipa": "/ˈfɪɡjɚ/", "zh": "認為、估計", "example": { "en": "I figure we will finish the project by Friday.", "zh": "我估計我們星期五前能完成這個專案。" } }
+      ],
+      "senses": [
+        { "pos": "n.", "zh": "數字、數據", "en": "a number, especially one that shows an amount or a price", "in_passage": true, "example": { "en": "The final figure was lower than last year's total.", "zh": "最後的數字比去年的總額還低。" } },
+        { "pos": "n.", "zh": "重要人物", "en": "an important person", "distinguish": "前面常有 key、public、leading 等形容詞，句子在談人而不是數字。", "example": { "en": "She is a leading figure in the retail industry.", "zh": "她是零售業的領導人物。" } },
+        { "pos": "n.", "zh": "圖、圖表", "en": "a picture or chart in a document", "distinguish": "通常大寫並加上編號，如 Figure 3，出現在報告或手冊裡。", "example": { "en": "See Figure 3 for the sales results by region.", "zh": "各地區的銷售結果請見圖 3。" } }
+      ]
+    },
+    {
+      "text": "mistakenly",
+      "type": "word",
+      "ipa": "/mɪˈsteɪkənli/",
+      "pos": "adv.",
+      "zh": "錯誤地、誤",
+      "en": "in a way that is wrong because of a mistake",
+      "note": "和 accidentally 一樣表示「誤…」，但更強調「搞錯了、判斷錯了」，所以常搭配 believe、think、send、charge。這篇的內容是誤買方案後要求退款，如果寫成「誤被收費」就是 mistakenly charged。",
+      "grammar_note": "mistakenly 是副詞，放在動詞前（mistakenly sent）；不能寫成 mistakingly。形容詞是 mistaken，用法是 be mistaken about…。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "mistakenly believe", "zh": "誤以為", "example": { "en": "Many users mistakenly believe the service is free.", "zh": "很多使用者誤以為這項服務是免費的。" } },
+        { "phrase": "mistakenly send", "zh": "誤寄", "example": { "en": "I mistakenly sent the file to everyone on the list.", "zh": "我誤把檔案寄給了名單上的每個人。" } },
+        { "phrase": "mistakenly think", "zh": "誤認為", "example": { "en": "Some staff mistakenly think the deadline is next week.", "zh": "有些員工誤認為截止日期是下週。" } }
+      ],
+      "examples": [
+        { "tag": "客服", "en": "We were mistakenly charged twice for the same order.", "zh": "我們同一筆訂單被誤收了兩次費用。" },
+        { "tag": "電子郵件", "en": "The invoice was mistakenly addressed to the wrong customer.", "zh": "這張發票誤寫成寄給錯誤的顧客。" },
+        { "tag": "會議", "en": "She mistakenly assumed the offer was still valid.", "zh": "她誤以為這個優惠還有效。" }
+      ],
+      "confusable": [
+        { "word": "mistaken", "diff": "mistaken 是形容詞，「錯誤的、搞錯的」；mistakenly 是副詞，修飾動詞。", "usage": "形容詞 mistaken 常用 be mistaken about / be mistaken in 的句型，主詞通常是人；副詞 mistakenly 放在動詞前面。", "example": { "en": "I was mistaken about the date of the meeting.", "zh": "我搞錯了會議的日期。" } }
+      ],
+      "similar": [
+        { "word": "wrongly", "diff": "意思接近，但 wrongly 只說「錯誤地」，不一定是不小心；mistakenly 暗示是搞錯了。", "example": { "en": "The package was wrongly marked as delivered.", "zh": "這個包裹被錯誤地標示為已送達。" } },
+        { "phrase": "by mistake", "diff": "意思相同，但 by mistake 是片語，通常放在句尾；mistakenly 放在動詞前。", "example": { "en": "I opened your email by mistake this morning.", "zh": "我今天早上不小心打開了你的郵件。" } }
+      ],
+      "family": [
+        { "w": "wrong", "pos": "adj.", "zh": "錯的", "ipa": "/rɔːŋ/", "example": { "en": "This is the wrong address for the client.", "zh": "這是客戶的錯誤地址。" } },
+        { "w": "incorrect", "pos": "adj.", "zh": "不正確的", "ipa": "/ˌɪnkəˈrekt/", "example": { "en": "The price on the tag is incorrect.", "zh": "標籤上的價格是不正確的。" } },
+        { "w": "refund", "pos": "n.", "zh": "退款", "ipa": "/ˈriːfʌnd/", "example": { "en": "You will receive a full refund within a week.", "zh": "您將在一週內收到全額退款。" } }
+      ],
+      "derived": [
+        { "w": "mistake", "pos": "n.", "zh": "錯誤", "ipa": "/mɪˈsteɪk/", "link": "最基礎的字，make a mistake 表示犯錯" },
+        { "w": "mistaken", "pos": "adj.", "zh": "搞錯的、錯誤的", "ipa": "/mɪˈsteɪkən/", "link": "mistake 的過去分詞變成形容詞，像 broken、written" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
