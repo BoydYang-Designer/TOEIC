@@ -323,6 +323,7 @@ function skPlay(x, seg, key) {
   SK.playing = 'model'; SK.pk = key;
   const done = () => { if (tk !== SK.tk) return; SK.playing = null; SK.pk = null; SK.hl = -1; skAfter(); };
   const tts = () => {
+    try { if (typeof ttsNote === 'function') ttsNote(seg ? seg.t : x.passage, '語音練習：沒有 mp3 或對時'); } catch (e) {}
     try {
       const u = new SpeechSynthesisUtterance(skStrip(seg ? seg.t : String(x.passage || '')));
       setVoice(u); u.rate = 0.9 * SK.rate; u.onend = done; u.onerror = done;

@@ -82,8 +82,18 @@ function spSetSpeed(v) {
   else Sp.cps = 0;
   spUI();
 }
-const speak = (text, ext) => { // 單字發音（一次性，不含控制列）；ext＝呼叫端已建立的「結束脈動」函式
+/* 機器發音提示：只要走到語音合成（沒有 mp3），就跳一個 🤖 提示並記進 TTS_LOG。
+   在 Console 輸入 ttsLog() 可看到這次開啟頁面以來「哪些字／句是機器念的」與原因，方便你去補 mp3。 */
+const TTS_LOG = []; let _ttsAt = 0;
+function ttsNote(text, why) {
+  try { TTS_LOG.push({ t: new Date().toLocaleTimeString(), why: why || '沒有 mp3', text: String(text || '').slice(0, 80) }); } catch (e) {}
+  const n = Date.now(); if (n - _ttsAt < 1200) return; _ttsAt = n; // 連續觸發（例如逐句點播）不洗版
+  if (typeof dnToast === 'function') dnToast('🤖 機器發音：' + (why || '沒有 mp3'));
+}
+window.ttsLog = () => { console.table(TTS_LOG); return TTS_LOG.map(r => r.text).join('\n'); };
+const speak = (text, ext, why) => { // 單字發音（一次性，不含控制列）；ext＝呼叫端已建立的「結束脈動」函式；why＝為什麼用機器念
   const done = ext || spkBtn();
+  ttsNote(text, why);
   try { spStop(); const u = new SpeechSynthesisUtterance(text); setVoice(u); u.rate=0.9; u.onend = u.onerror = done; speechSynthesis.speak(u); }
   catch(e) { done(); alert('您的瀏覽器不支援即時語音朗讀'); }
 };
@@ -115,7 +125,8 @@ function spRun(from, end) { // end＝只念到這個字元位置就暫停（單�
 function spAudioFail(au) { // 找不到／無法播放 mp3 → 自動改用瀏覽器語音合成
   if (Sp.au !== au) return;
   Sp.au = null; Sp.mode = 'tts'; spRun(0);
-  if (typeof dnToast === 'function') dnToast('mp3 讀不到，改用語音合成播放');
+  try { TTS_LOG.push({ t: new Date().toLocaleTimeString(), why: 'mp3 讀不到', text: Sp.id + '（整篇）' }); } catch (e) {}
+  if (typeof dnToast === 'function') dnToast('🤖 mp3 讀不到，改用機器發音');
 }
 function spToggle(id, startAt, stopAt, quiet) {
   spQuiet = !!quiet; Sp.endIdx = null; // 播放／暫停／繼續；startAt = 從指定秒數開始（點句子時使用）
@@ -213,7 +224,7 @@ function spHtml(id) {
       <div class="grid grid-cols-[2fr_2fr_3fr_2fr] gap-1.5 w-full md:flex md:items-center md:gap-1 md:w-auto">
         ${ib('spPrev()', '⏮', '', !mine, '重播本句（已播完）／回上一句（未播完）（鍵盤 ↑）')}
         ${ib('spBack()', '⏪', '4', !mine, '倒轉 4 秒（鍵盤 ←）')}
-        <button onclick="spToggle('${id}')" title="${mine ? tip : ''}（鍵盤 空白鍵）" class="${playing || loading ? on : soft} gap-1.5 px-2 w-full md:w-auto md:px-3 md:min-w-[5.5rem]${loading ? ' animate-pulse' : ''}"><span class="text-base leading-none">${loading ? '⏳' : playing ? '⏸' : '▶'}</span><span>${loading ? '載入' : playing ? '暫停' : (mine ? '繼續' : '播放')}</span></button>
+        <button onclick="spToggle('${id}')" title="${mine ? tip : ''}（鍵盤 空白鍵）" class="${playing || loading ? on : soft} gap-1.5 px-2 w-full md:w-auto md:px-3 md:min-w-[5.5rem]${loading ? ' animate-pulse' : ''}"><span class="text-base leading-none">${loading ? '⏳' : playing ? '⏸' : '▶'}</span><span>${loading ? '載入' : playing ? '暫停' : (mine ? '繼續' : '播放')}</span>${mine && Sp.mode === 'tts' ? '<span class=\"text-[0.6875rem] font-bold\" title=\"沒有 mp3，目前是機器發音\">🤖機器</span>' : ''}</button>
         ${ib('spStop()', '⏹', '', !mine, '停止')}
       </div>
       <div class="flex flex-nowrap items-center justify-between gap-1.5 w-full md:contents">
@@ -316,7 +327,7 @@ function myphAdd(qid, from, to) {
 function myPlay(id) {
   const o = myAll().find(a => a.id === id); if (!o) return;
   const x = DATA.find(d => idOf(d) === o.qid); if (!x) return;
-  if (!dyHas(x) || !o.e) { speak(o.text); return; }
+  if (!dyHas(x) || !o.e) { speak(o.text, null, '常用句沒有對時音檔'); return; }
   const t0 = Math.max(0, o.s + o.ds), t1 = o.e + o.de + SP_TAIL;
   Sp.jumpIdx = -1; Sp.endIdx = null; spQuiet = true; spJumpUpdate();
   if (Sp.id === o.qid && Sp.mode === 'audio' && Sp.au) {

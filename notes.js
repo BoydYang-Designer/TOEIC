@@ -365,15 +365,15 @@ function vplay(qid, text, suf, fallback) {
     try { if (typeof spStop === 'function') spStop(); speechSynthesis.cancel(); } catch (e) {}
     const a = dnAu = new Audio('audio/daily/words/' + wf + (VW.v ? '?v=' + VW.v : ''));
     a.onended = a.onpause = done;
-    a.onerror = () => speak(fallback, done);
-    a.play().catch(() => speak(fallback, done));
+    a.onerror = () => speak(fallback, done, 'words/' + wf + ' 讀不到');
+    a.play().catch(() => speak(fallback, done, 'words/' + wf + ' 播放失敗'));
   } else if (f) {
     try { if (typeof spStop === 'function') spStop(); speechSynthesis.cancel(); } catch (e) {}
     const a = dnAu = new Audio('audio/daily/vocab/' + f + (VA.v ? '?v=' + VA.v : ''));
     a.onended = a.onpause = done;
-    a.onerror = () => speak(fallback, done);
-    a.play().catch(() => speak(fallback, done));
-  } else speak(fallback, done);
+    a.onerror = () => speak(fallback, done, 'vocab/' + f + ' 讀不到');
+    a.play().catch(() => speak(fallback, done, 'vocab/' + f + ' 播放失敗'));
+  } else speak(fallback, done, '沒有 mp3：' + (wf || nf));
 }
 function dnGoExtra(el) { // 入庫列的「看詳解」：核心單字（data-i）開核心單字詳解，其他開入庫單字的詳解
   dnSelClear();

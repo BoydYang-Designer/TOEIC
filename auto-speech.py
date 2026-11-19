@@ -844,6 +844,25 @@ def plan_daily(root: Path):
             if jobs:
                 kind = {"word": "單字", "phrase": "片語", "sentence": "句子"}.get(e["type"], "單字")
                 groups.append(dict(key=f"{e['qid']}:{e['text']}", kind=kind, total=len(want), voice=VOCAB_VOICE, jobs=jobs))
+        if MAKE_CTX:   # 核心單字（vocab）在「該篇文章」裡的所在句：詳解沿用他篇時，網頁仍會播本篇那一句，所以要另外補錄
+            for x in items:
+                p_ = str(x.get("passage") or "").strip()
+                if not p_ or x.get("library"):
+                    continue
+                jobs = []
+                for v in x.get("vocab") or []:
+                    w = str((v or {}).get("word") or "").strip() if isinstance(v, dict) else ""
+                    s = sentence_of(p_, w) if w else None
+                    if not s:
+                        continue
+                    p = vdir / f"{slug(s)}.mp3"
+                    r = need(p, VOCAB_VOICE, VOCAB_RATE)
+                    if not r or p in seen:
+                        continue
+                    seen.add(p)
+                    jobs.append(dict(name=p.name, text=s, voice=VOCAB_VOICE, rate=VOCAB_RATE, path=p, redo=(r == "redo")))
+                if jobs:
+                    groups.append(dict(key=f"{art_id(x)}:核心單字所在句", kind="句子", total=len(jobs), voice=VOCAB_VOICE, jobs=jobs))
         if MAKE_PHRASES:   # 簡報常用句型：每篇一組，整句 mp3 放 vocab/，檔名＝句型內容的 slug（同一句只錄一次）
             for x in items:
                 pps = [p.get("phrase") for p in (x.get("presentation_phrases") or []) if isinstance(p, dict)]

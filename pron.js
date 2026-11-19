@@ -353,6 +353,7 @@ async function prExPlayWeb(src, tk, seg) {
   }
 }
 function prExTts(tk) { // 沒有 mp3（或 Web Audio 失敗）時用語音合成念
+  try { if (typeof ttsNote === 'function') ttsNote(PR.text, '發音練習範例沒有 mp3'); } catch (e) {}
   try {
     const u = new SpeechSynthesisUtterance(PR.text || ''); u.lang = 'en-US';
     PR.exTts = true;
