@@ -1,0 +1,562 @@
+{
+  "week": 6,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "associated with",
+      "type": "phrase",
+      "zh": "與…有關的、與…相關聯的",
+      "en": "connected to or linked with something",
+      "note": "在這篇文章裡，associated with invoice G198494551 放在 plan 後面修飾它，意思是「和這張發票有關的（方案）」。這是客服信常見的說法，用來精準指出是哪一筆費用或帳戶。",
+      "pattern": "N + associated with + N",
+      "grammar_note": "associated with 是過去分詞片語，放在名詞後面修飾（the plan associated with the invoice）；介系詞固定用 with，不用 to。",
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Please send the files associated with this order number.",
+          "zh": "請寄出與這個訂單編號相關的檔案。"
+        },
+        {
+          "tag": "會計",
+          "en": "The costs associated with shipping are listed on the invoice.",
+          "zh": "與運送相關的費用列在發票上。"
+        },
+        {
+          "tag": "會議",
+          "en": "We discussed the risks associated with the new payment system.",
+          "zh": "我們討論了與新付款系統相關的風險。"
+        },
+        {
+          "tag": "客服",
+          "en": "I could not find any account associated with this email address.",
+          "zh": "我找不到與這個電子郵件地址相關的任何帳戶。"
+        },
+        {
+          "tag": "行銷",
+          "en": "The brand is strongly associated with high quality service.",
+          "zh": "這個品牌與高品質服務有很強的連結。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "related to",
+          "diff": "related to 較口語、範圍較廣；associated with 常用來指和帳戶、費用、風險等連結的項目。",
+          "example": {
+            "en": "Questions related to billing should go to the finance team.",
+            "zh": "與帳務相關的問題請交給財務團隊。"
+          }
+        },
+        {
+          "phrase": "linked to",
+          "diff": "linked to 強調兩件事之間有明確的連結或因果關係。",
+          "example": {
+            "en": "The error is linked to a recent software update.",
+            "zh": "這個錯誤與最近的軟體更新有關。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "affiliated with",
+          "diff": "affiliated with 指「隸屬於、附屬於」某個組織；associated with 只表示有關聯。",
+          "example": {
+            "en": "She is affiliated with a local trade association.",
+            "zh": "她隸屬於一個地方商業協會。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "prorated",
+      "type": "word",
+      "lemma": "prorate",
+      "ipa": "/ˈproʊˌreɪtɪd/",
+      "pos": "adj.",
+      "zh": "按比例計算的",
+      "en": "worked out as a part of the full price, based on the time used",
+      "note": "在這篇文章裡，prorated refund 指依實際使用天數按比例算出的退款。信中提醒：取消方案本身不會產生這種退款，當月剩餘期間的費用仍須支付。",
+      "grammar_note": "prorated 放在名詞前當形容詞（a prorated refund）；動詞 prorate 常用被動，如 be prorated。",
+      "forms": [
+        {
+          "w": "prorates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "按比例計算",
+          "ipa": "/ˈproʊˌreɪts/",
+          "example": {
+            "en": "The company prorates the fee for customers who join mid-month.",
+            "zh": "公司會替月中加入的客戶按比例計算費用。"
+          }
+        },
+        {
+          "w": "prorating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "按比例計算（進行中）",
+          "ipa": "/ˈproʊˌreɪtɪŋ/",
+          "example": {
+            "en": "We are prorating your charge based on the days you used.",
+            "zh": "我們正依你的使用天數按比例計算費用。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "prorated refund",
+          "zh": "按比例退款",
+          "example": {
+            "en": "Customers who cancel early can request a prorated refund within thirty days.",
+            "zh": "提早取消的客戶可在三十天內申請按比例退款。"
+          }
+        },
+        {
+          "phrase": "prorated amount",
+          "zh": "按比例計算的金額",
+          "example": {
+            "en": "Please check the prorated amount on the attached statement.",
+            "zh": "請查看附件帳單上按比例計算的金額。"
+          }
+        },
+        {
+          "phrase": "on a prorated basis",
+          "zh": "按比例計算地",
+          "example": {
+            "en": "Fees are charged on a prorated basis during the first month.",
+            "zh": "第一個月的費用按比例計收。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "You will receive a prorated refund for the unused days.",
+          "zh": "你會收到未使用天數的按比例退款。"
+        },
+        {
+          "tag": "會計",
+          "en": "The first invoice shows a prorated amount for twelve days.",
+          "zh": "第一張發票顯示十二天按比例計算的金額。"
+        },
+        {
+          "tag": "租賃",
+          "en": "Rent is prorated if you move in after the first of the month.",
+          "zh": "如果你在月初之後搬入，租金會按比例計算。"
+        },
+        {
+          "tag": "人資",
+          "en": "Part-time staff receive prorated benefits based on their working hours.",
+          "zh": "兼職員工依工時按比例享有福利。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "proportional",
+          "diff": "proportional 是「成比例的」，描述兩個數量之間的關係；prorated 是依時間或比例實際算出的金額。",
+          "example": {
+            "en": "Bonuses are proportional to each employee's sales results.",
+            "zh": "獎金與每位員工的業績成比例。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "refund",
+          "pos": "n.",
+          "zh": "退款",
+          "ipa": "/ˈriːfʌnd/",
+          "example": {
+            "en": "The refund will reach your account within five business days.",
+            "zh": "退款會在五個工作天內進到你的帳戶。"
+          }
+        },
+        {
+          "w": "charge",
+          "pos": "n.",
+          "zh": "費用",
+          "ipa": "/tʃɑːrdʒ/",
+          "example": {
+            "en": "There is no charge for the first month of service.",
+            "zh": "服務的第一個月不收費。"
+          }
+        },
+        {
+          "w": "fee",
+          "pos": "n.",
+          "zh": "費用、手續費",
+          "ipa": "/fiː/",
+          "example": {
+            "en": "A small fee applies if you cancel after the deadline.",
+            "zh": "如果在期限後取消，會收取一筆小額費用。"
+          }
+        },
+        {
+          "w": "partial",
+          "pos": "adj.",
+          "zh": "部分的",
+          "ipa": "/ˈpɑːrʃəl/",
+          "example": {
+            "en": "We offered a partial refund because the trial was half used.",
+            "zh": "因為試用期已使用一半，我們提供部分退款。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "proration",
+          "pos": "n.",
+          "zh": "按比例分攤、按比例計算",
+          "ipa": "/proʊˈreɪʃən/",
+          "link": "prorate + -ion，把「按比例計算」變成名詞，像 donate → donation"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "adj.",
+          "w": "prorated",
+          "ipa": "/ˈproʊˌreɪtɪd/",
+          "zh": "按比例計算的",
+          "in_passage": true,
+          "example": {
+            "en": "The bank will send a prorated bill for the first month.",
+            "zh": "銀行會寄出第一個月按比例計算的帳單。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ˈproʊˌreɪt/",
+          "zh": "按比例分攤、按比例計算",
+          "example": {
+            "en": "We prorate the annual fee when a customer joins in July.",
+            "zh": "客戶七月加入時，我們會按比例計算年費。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "remainder",
+      "type": "word",
+      "ipa": "/rɪˈmeɪndər/",
+      "pos": "n.",
+      "zh": "剩餘部分、其餘",
+      "en": "the part that is left after the rest is used or taken",
+      "note": "在這篇文章裡，the remainder of the month 指這個月還沒過完的那段時間。信中說明取消後仍須支付當月剩餘期間的費用。",
+      "grammar_note": "表示「剩下的時間」要用 for the remainder of + 時間，of 不可省略，前面通常加 the。",
+      "forms": [
+        {
+          "w": "remainders",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "剩餘物（複數）",
+          "ipa": "/rɪˈmeɪndərz/",
+          "example": {
+            "en": "The remainders from each shipment were returned to the supplier.",
+            "zh": "每批貨剩下的東西都退回給供應商了。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "for the remainder of the year",
+          "zh": "在今年剩下的時間",
+          "example": {
+            "en": "The office will stay closed for the remainder of the year.",
+            "zh": "辦公室在今年剩下的時間都會關閉。"
+          }
+        },
+        {
+          "phrase": "the remainder of the budget",
+          "zh": "預算的剩餘部分",
+          "example": {
+            "en": "Please save the remainder of the budget for next quarter.",
+            "zh": "請把剩下的預算留到下一季。"
+          }
+        },
+        {
+          "phrase": "pay the remainder",
+          "zh": "付清餘額",
+          "example": {
+            "en": "Please pay the remainder when the goods arrive.",
+            "zh": "貨物送達時請付清餘款。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "You will be billed for the remainder of the billing period.",
+          "zh": "你會被收取本計費期間剩餘時間的費用。"
+        },
+        {
+          "tag": "會議",
+          "en": "I will explain the remainder of the plan after the break.",
+          "zh": "休息後我會說明計畫的其餘部分。"
+        },
+        {
+          "tag": "出差",
+          "en": "We spent the remainder of the trip visiting client offices.",
+          "zh": "我們把出差剩下的時間用來拜訪客戶辦公室。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "reminder",
+          "diff": "reminder 是「提醒（通知）」；remainder 是「剩下的部分」，兩字只差幾個字母。",
+          "example": {
+            "en": "Please send a reminder to everyone before the Friday meeting.",
+            "zh": "請在星期五的會議前向大家發出提醒。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "balance",
+          "pos": "n.",
+          "zh": "餘額",
+          "ipa": "/ˈbæləns/",
+          "example": {
+            "en": "The balance on your account is now zero.",
+            "zh": "你帳戶的餘額現在是零。"
+          }
+        },
+        {
+          "w": "rest",
+          "pos": "n.",
+          "zh": "其餘部分",
+          "ipa": "/rest/",
+          "example": {
+            "en": "I will send the rest of the files tomorrow morning.",
+            "zh": "我明天早上會寄出其餘的檔案。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "remain",
+          "pos": "v.",
+          "zh": "剩下、保持",
+          "ipa": "/rɪˈmeɪn/",
+          "link": "remain 是基礎動詞「剩下」；remainder 就是「剩下的東西」"
+        },
+        {
+          "w": "remaining",
+          "pos": "adj.",
+          "zh": "剩下的",
+          "ipa": "/rɪˈmeɪnɪŋ/",
+          "link": "remain + -ing，當形容詞用，表示「剩下的」，像 the remaining balance"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "encounter",
+      "type": "word",
+      "ipa": "/ɪnˈkaʊntər/",
+      "pos": "v.",
+      "zh": "遇到（困難、問題）",
+      "en": "to meet or find something, often a problem",
+      "note": "在這篇文章裡，encounter any issues 是客氣的說法，指在取消方案過程中「遇到任何問題」。if 子句用現在式，後面接祈使句請對方提供截圖。",
+      "grammar_note": "encounter 是及物動詞，後面直接接受詞，不加介系詞（不要寫 encounter with）。",
+      "forms": [
+        {
+          "w": "encounters",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "遇到",
+          "ipa": "/ɪnˈkaʊntərz/",
+          "example": {
+            "en": "Our team often encounters delays when shipping goods overseas.",
+            "zh": "我們的團隊在海外運送貨物時常遇到延誤。"
+          }
+        },
+        {
+          "w": "encounters",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "遭遇、接觸（複數）",
+          "ipa": "/ɪnˈkaʊntərz/",
+          "example": {
+            "en": "His encounters with difficult customers taught him to stay calm.",
+            "zh": "他與難搞客戶的接觸教會他保持冷靜。"
+          }
+        },
+        {
+          "w": "encountered",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "遇到（過去）",
+          "ipa": "/ɪnˈkaʊntərd/",
+          "example": {
+            "en": "Several users encountered errors while updating the payment details.",
+            "zh": "有幾位使用者在更新付款資料時遇到錯誤。"
+          }
+        },
+        {
+          "w": "encountering",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "遇到（進行中）",
+          "ipa": "/ɪnˈkaʊntərɪŋ/",
+          "example": {
+            "en": "Customers encountering login errors should contact the help desk.",
+            "zh": "遇到登入錯誤的客戶應聯絡服務台。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "encounter a problem",
+          "zh": "遇到問題",
+          "example": {
+            "en": "Please call us if you encounter a problem with your order.",
+            "zh": "如果你的訂單出現問題，請打電話給我們。"
+          }
+        },
+        {
+          "phrase": "encounter difficulties",
+          "zh": "遇到困難",
+          "example": {
+            "en": "New staff may encounter difficulties during the first week.",
+            "zh": "新進員工在第一週可能會遇到困難。"
+          }
+        },
+        {
+          "phrase": "encounter an error",
+          "zh": "遇到錯誤",
+          "example": {
+            "en": "If you encounter an error message, please take a screenshot.",
+            "zh": "如果你看到錯誤訊息，請截圖。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Let us know if you encounter any trouble with the website.",
+          "zh": "如果你在使用網站時遇到任何麻煩，請告訴我們。"
+        },
+        {
+          "tag": "客服",
+          "en": "Customers sometimes encounter long wait times during holiday sales.",
+          "zh": "假日特賣期間，客戶有時會遇到很長的等待時間。"
+        },
+        {
+          "tag": "出差",
+          "en": "We encountered heavy traffic on the way to the client meeting.",
+          "zh": "我們在前往客戶會議的路上遇到嚴重塞車。"
+        },
+        {
+          "tag": "專案",
+          "en": "The team encountered unexpected costs while building the new office.",
+          "zh": "團隊在建造新辦公室時遇到了意料之外的費用。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "encourage",
+          "diff": "encourage 是「鼓勵」；encounter 是「遇到」，兩字拼法開頭相近。",
+          "usage": "encounter 後面直接接受詞（遇到的問題或人）；encourage 要用 encourage + 人 + to V。",
+          "example": {
+            "en": "The manager will encourage staff to share their ideas.",
+            "zh": "經理會鼓勵員工分享他們的想法。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "run into",
+          "diff": "run into 較口語，可指遇到問題或偶然遇見人；encounter 較正式，適合書信。",
+          "example": {
+            "en": "We ran into some problems while updating the customer database.",
+            "zh": "我們在更新客戶資料庫時遇到了一些問題。"
+          }
+        },
+        {
+          "phrase": "face",
+          "diff": "face 強調「面對」困難或挑戰，語氣比 encounter 更直接。",
+          "example": {
+            "en": "Many small businesses face high costs this year.",
+            "zh": "許多小型企業今年面臨高成本。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "problem",
+          "pos": "n.",
+          "zh": "問題",
+          "ipa": "/ˈprɑːbləm/",
+          "example": {
+            "en": "We solved the problem before the customer called again.",
+            "zh": "我們在客戶再次來電前就解決了問題。"
+          }
+        },
+        {
+          "w": "difficulty",
+          "pos": "n.",
+          "zh": "困難",
+          "ipa": "/ˈdɪfɪkəlti/",
+          "example": {
+            "en": "She had difficulty logging in to the payment portal.",
+            "zh": "她登入付款入口網站時遇到困難。"
+          }
+        },
+        {
+          "w": "issue",
+          "pos": "n.",
+          "zh": "問題、議題",
+          "ipa": "/ˈɪʃuː/",
+          "example": {
+            "en": "Please describe the issue in as much detail as possible.",
+            "zh": "請盡量詳細描述這個問題。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/ɪnˈkaʊntər/",
+          "zh": "遇到（困難、問題）",
+          "in_passage": true,
+          "example": {
+            "en": "Employees may encounter problems when they first use the new system.",
+            "zh": "員工第一次使用新系統時可能會遇到問題。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈɛnˌkaʊntər/",
+          "zh": "遭遇、接觸",
+          "example": {
+            "en": "The first encounter with the client went very smoothly.",
+            "zh": "第一次與客戶接觸進行得非常順利。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "遇到（困難、問題）",
+          "en": "to meet a problem or difficulty while doing something",
+          "in_passage": true,
+          "example": {
+            "en": "Users may encounter delays when the server is busy.",
+            "zh": "伺服器忙碌時，使用者可能會遇到延遲。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "偶然遇見（人）",
+          "en": "to meet someone without planning to",
+          "distinguish": "後面接 problem、error 等是「遇到」；接人是「偶然遇見」。",
+          "example": {
+            "en": "I encountered an old colleague at the airport yesterday.",
+            "zh": "我昨天在機場巧遇一位老同事。"
+          }
+        }
+      ]
+    }
+  ]
+}

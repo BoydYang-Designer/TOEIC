@@ -1,0 +1,339 @@
+{
+  "week": 6,
+  "day": 11,
+  "extra_vocab": [
+    {
+      "text": "resolved",
+      "type": "word",
+      "lemma": "resolve",
+      "ipa": "/rɪˈzɑːlvd/",
+      "pos": "v.",
+      "zh": "解決",
+      "en": "solved a problem or ended a disagreement",
+      "note": "在這篇文章裡，the issue has been resolved 是現在完成式被動，表示問題已經解決，所以客戶確認後就可以結案。",
+      "grammar_note": "resolve 當「解決」時是及物動詞，被動 be resolved 表示「已解決」；resolve to V 則是「決心要…」，意思不同。",
+      "forms": [
+        {
+          "w": "resolves",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "解決",
+          "ipa": "/rɪˈzɑːlvz/",
+          "example": {
+            "en": "The new system resolves most login errors without help from staff.",
+            "zh": "新系統不需員工協助就能解決多數登入錯誤。"
+          }
+        },
+        {
+          "w": "resolving",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "解決（進行中）",
+          "ipa": "/rɪˈzɑːlvɪŋ/",
+          "example": {
+            "en": "We are resolving the billing error and will update you soon.",
+            "zh": "我們正在處理帳單錯誤，很快會向你更新進度。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "resolve an issue",
+          "zh": "解決問題",
+          "example": {
+            "en": "Our team worked overnight to resolve the issue with the server.",
+            "zh": "我們的團隊徹夜工作以解決伺服器的問題。"
+          }
+        },
+        {
+          "phrase": "resolve a dispute",
+          "zh": "解決爭議",
+          "example": {
+            "en": "Both companies agreed to resolve the dispute without going to court.",
+            "zh": "兩家公司同意不經法院解決這項爭議。"
+          }
+        },
+        {
+          "phrase": "resolve a complaint",
+          "zh": "處理客訴",
+          "example": {
+            "en": "The manager promised to resolve the complaint within three days.",
+            "zh": "經理承諾在三天內處理這項客訴。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "I am glad to inform you that your problem has been resolved.",
+          "zh": "我很高興通知你，你的問題已經解決了。"
+        },
+        {
+          "tag": "客服",
+          "en": "Has your question been resolved to your satisfaction today?",
+          "zh": "你的問題今天已經解決到讓你滿意了嗎？"
+        },
+        {
+          "tag": "會議",
+          "en": "The remaining issues must be resolved before the launch date.",
+          "zh": "其餘問題必須在上市日之前解決。"
+        },
+        {
+          "tag": "專案",
+          "en": "Once the delay is resolved, we can restart production.",
+          "zh": "延誤一解決，我們就能重新開始生產。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "solve",
+          "diff": "solve 較通用，用於問題、謎題、計算；resolve 較正式，常用於爭議、客訴與正式問題。",
+          "example": {
+            "en": "Can you solve this problem before the client calls again?",
+            "zh": "你能在客戶再來電前解決這個問題嗎？"
+          }
+        },
+        {
+          "word": "settle",
+          "diff": "settle 常指雙方協議後結束爭議或付清款項。",
+          "example": {
+            "en": "The two firms settled the dispute out of court.",
+            "zh": "兩家公司在庭外和解了爭議。"
+          }
+        },
+        {
+          "word": "fix",
+          "diff": "fix 較口語，多指修好壞掉的東西或簡單的錯誤。",
+          "example": {
+            "en": "The technician fixed the printer in ten minutes.",
+            "zh": "技術人員十分鐘就修好了印表機。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "solution",
+          "pos": "n.",
+          "zh": "解決方案",
+          "ipa": "/səˈluːʃən/",
+          "example": {
+            "en": "We found a simple solution to the billing problem.",
+            "zh": "我們找到了帳單問題的簡單解決方法。"
+          }
+        },
+        {
+          "w": "dispute",
+          "pos": "n.",
+          "zh": "爭議",
+          "ipa": "/dɪˈspjuːt/",
+          "example": {
+            "en": "The dispute over the contract lasted three months.",
+            "zh": "合約爭議持續了三個月。"
+          }
+        },
+        {
+          "w": "complaint",
+          "pos": "n.",
+          "zh": "客訴、抱怨",
+          "ipa": "/kəmˈpleɪnt/",
+          "example": {
+            "en": "We received a complaint about the late delivery.",
+            "zh": "我們收到一則關於延遲送貨的客訴。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "resolution",
+          "pos": "n.",
+          "zh": "解決、決議",
+          "ipa": "/ˌrezəˈluːʃən/",
+          "link": "resolve 變名詞，像 solve → solution，指「解決」或「決議」"
+        },
+        {
+          "w": "unresolved",
+          "pos": "adj.",
+          "zh": "未解決的",
+          "ipa": "/ˌʌnrɪˈzɑːlvd/",
+          "link": "un- 不 + resolved，像 unfinished、unpaid"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "解決（問題、爭議）",
+          "en": "to find an answer to a problem",
+          "in_passage": true,
+          "example": {
+            "en": "We resolved the payment error before the end of business.",
+            "zh": "我們在下班前解決了付款錯誤。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "決議、決心",
+          "en": "to decide something formally or firmly",
+          "distinguish": "後面接 to V 或 that 子句，表示決定要做某事時，是「決議」。",
+          "example": {
+            "en": "The board resolved to increase the training budget next year.",
+            "zh": "董事會決議明年增加培訓預算。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "re-open",
+      "type": "word",
+      "ipa": "/riˈoʊpən/",
+      "pos": "v.",
+      "zh": "重新開啟",
+      "en": "to open something again",
+      "note": "在這篇文章裡，re-open this case 指重新開啟已結案的案件。信中請對方直接回覆（reply all）這封信，就可以重啟案件。",
+      "grammar_note": "re-open 也常寫成 reopen（不加連字號）；後面直接接受詞，如 re-open a case。",
+      "forms": [
+        {
+          "w": "re-opens",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "重新開啟",
+          "ipa": "/riˈoʊpənz/",
+          "example": {
+            "en": "The store re-opens on Monday after the long holiday.",
+            "zh": "這家店在長假後的星期一重新開門。"
+          }
+        },
+        {
+          "w": "re-opened",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "重新開啟（過去）",
+          "ipa": "/riˈoʊpənd/",
+          "example": {
+            "en": "They re-opened the investigation after new evidence appeared.",
+            "zh": "新證據出現後，他們重新展開調查。"
+          }
+        },
+        {
+          "w": "re-opening",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "重新開啟（進行中）",
+          "ipa": "/riˈoʊpənɪŋ/",
+          "example": {
+            "en": "We are re-opening the case after the customer replied.",
+            "zh": "客戶回覆後，我們正在重啟這個案件。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "re-open a case",
+          "zh": "重啟案件",
+          "example": {
+            "en": "The court agreed to re-open a case from last year.",
+            "zh": "法院同意重啟去年的一個案件。"
+          }
+        },
+        {
+          "phrase": "re-open a ticket",
+          "zh": "重新開啟服務單",
+          "example": {
+            "en": "Customers can re-open a ticket if the problem comes back.",
+            "zh": "如果問題再次出現，客戶可以重新開啟服務單。"
+          }
+        },
+        {
+          "phrase": "re-open negotiations",
+          "zh": "重啟談判",
+          "example": {
+            "en": "Both sides plan to re-open negotiations next month.",
+            "zh": "雙方計畫下個月重啟談判。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "客服",
+          "en": "If the error returns, reply here and we will re-open your request.",
+          "zh": "如果錯誤再次出現，請在此回覆，我們會重新開啟你的申請。"
+        },
+        {
+          "tag": "零售",
+          "en": "The shop will re-open on Monday after the renovation.",
+          "zh": "這家店整修後將在星期一重新開幕。"
+        },
+        {
+          "tag": "專案",
+          "en": "We should not re-open this topic until the budget is approved.",
+          "zh": "預算核准之前，我們不該重提這個議題。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "reactivate",
+          "diff": "reactivate 指重新啟用帳戶、服務或功能；re-open 指重新開啟案件或場所。",
+          "example": {
+            "en": "You can reactivate your account by logging in again.",
+            "zh": "你重新登入就可以重新啟用你的帳戶。"
+          }
+        },
+        {
+          "word": "restart",
+          "diff": "restart 是重新開始一個流程或程式；re-open 是把已關閉的東西再打開。",
+          "example": {
+            "en": "Please restart the process if the system stops working.",
+            "zh": "如果系統停止運作，請重新啟動流程。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "close",
+          "pos": "v.",
+          "zh": "關閉、結案",
+          "ipa": "/kloʊz/",
+          "example": {
+            "en": "We will close the case once you confirm.",
+            "zh": "你確認後，我們就會結案。"
+          }
+        },
+        {
+          "w": "resume",
+          "pos": "v.",
+          "zh": "恢復、繼續",
+          "ipa": "/rɪˈzuːm/",
+          "example": {
+            "en": "Service will resume as soon as the repair is finished.",
+            "zh": "維修完成後，服務就會立即恢復。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "open",
+          "pos": "v.",
+          "zh": "開啟",
+          "ipa": "/ˈoʊpən/",
+          "link": "open 是基礎字；加字首 re- 表示「再次」，變成 re-open"
+        },
+        {
+          "w": "opening",
+          "pos": "n.",
+          "zh": "開幕、職缺",
+          "ipa": "/ˈoʊpənɪŋ/",
+          "link": "open + -ing，變成名詞，指「開始」或「空缺」"
+        },
+        {
+          "w": "openly",
+          "pos": "adv.",
+          "zh": "公開地、坦白地",
+          "ipa": "/ˈoʊpənli/",
+          "link": "open + -ly，變成副詞，像 quickly、clearly"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

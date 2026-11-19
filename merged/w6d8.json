@@ -1,0 +1,750 @@
+[
+  {
+    "week": 6,
+    "day": 8,
+    "type": "Reading",
+    "tag": "Refund Request Email",
+    "project": "Azure退款專案",
+    "level": {
+      "score": 750,
+      "range": "700-800",
+      "cefr": "B1",
+      "why": "商務郵件，含正式用語（per、associated with、prorated）與五步驟操作指示，句子偏長但結構清楚，屬中高階閱讀。"
+    },
+    "zh": "我不小心購買了 Azure Developer 支援方案（發票 G198494551，TWD 987，於 2026-11-10 收費）。我沒有使用過任何支援服務。快速退款申請不符合資格，因此我提交這份要求，請人工審核。請取消此方案並退還該筆費用。\n\n楊先生 您好，\n\nMicrosoft Azure 向您致意！\n\n我是 Prasanna，是 Microsoft 的支援工程師，將負責處理您的案件。\n\n根據您的問題描述，我了解到您不慎購買了與發票 G198494551 相關的 Azure Developer 支援方案，金額為 TWD 987，於 2026 年 11 月 10 日收費。您也提到尚未使用任何支援服務，並希望取消此方案並申請退款。\n\n審查您的要求後，為了進一步審核這些費用並協助您處理退款申請，煩請您先從您的端取消 Azure Developer 支援方案。\n\n您可以依照以下步驟取消 Azure 支援方案：\n\n1. 前往 Azure 入口網站中的「成本管理 + 計費」概觀頁面。\n\n2. 選擇「所有計費訂閱」。\n\n3. 選擇您想取消的支援方案，開啟「支援方案詳細資料」頁面。\n\n4. 選擇「取消」，滑出面板就會出現。\n\n5. 將自動續訂選項設為「關閉」，這樣支援方案到期時就不會再自動續訂。\n\n供您參考，請參閱以下 Microsoft Learn 文件以取得更多指引：\n\n取消並刪除您的 Azure 訂用帳戶 - Microsoft 成本管理 | Microsoft Learn\n\n請注意，如果您取消 Azure 支援方案，仍須支付當月剩餘期間的費用，且取消本身不會產生按比例計算的退款。\n\n完成取消後，請回覆此郵件並告知確認。收到您的確認後，我們就能審核相關費用並進一步協助您處理退款申請。\n\n如果您在嘗試取消支援方案時遇到任何問題，請提供您收到的錯誤訊息截圖，以便我們檢視並進一步協助您。\n\n我由衷感謝您的理解與配合。如果您在取消支援方案時遇到任何困難，或對上述步驟有任何疑問，請隨時告訴我。\n\n感謝您的耐心與配合。\n\n注意：回覆時請使用「全部回覆」選項。請勿編輯或移除「收件者」和「副本」中的電子郵件地址。",
+    "passage": "I accidentally purchased the Azure Developer Support plan (invoice G198494551, TWD 987, charged 2026-11-10). I have not used any support service. The fast refund request was not eligible, so I am submitting this request for manual review. Please cancel the plan and refund the charge.\n\nHello Mr. Yang,\n\nGreetings from Microsoft Azure!\n\nMy name is Prasanna, and I am the Support Engineer at Microsoft who will be working on your case.\n\nPer the issue description, I understand that you accidentally purchased the Azure Developer Support plan associated with invoice G198494551, for an amount of TWD 987, charged on November 10, 2026. You have also mentioned that you have not used any support services and would like to cancel the plan and request a refund.\n\nAfter reviewing your request, to proceed further with reviewing the charges and assisting you with the refund request, I kindly request you to first cancel the Azure Developer Support plan from your end.\n\nYou can cancel your Azure Support plan by following the steps below:\n\n1. Navigate to the Cost Management + Billing Overview page in the Azure portal.\n\n2. Select All Billing Subscriptions.\n\n3. Select the support plan that you want to cancel to open the Support plan details page.\n\n4. Select Cancel for the fly-out to appear.\n\n5. Set the auto-renewal option to Off so that the support plan will stop auto-renewing when it expires.\n\nFor your reference, please refer to the following Microsoft Learn document for additional guidance:\n\nCancel and delete your Azure subscription - Microsoft Cost Management | Microsoft Learn\n\nPlease note that if you cancel an Azure Support plan, you are billed for the remainder of the month, and cancellation itself does not result in a prorated refund.\n\nOnce you have completed the cancellation, please reply to this email with the confirmation. Upon receiving your confirmation, we will be able to review the associated charges and assist you further with the refund request.\n\nIf you encounter any issues while trying to cancel the support plan, please share a screenshot of the error message you receive so that we can review it and assist you further.\n\nI truly appreciate your understanding and cooperation. Please let me know if you face any difficulties while cancelling the support plan or require any clarification regarding the steps above.\n\nThank you for your patience and cooperation.\n\nNote: Please use “reply-all” option while reverting. Refrain to edit/remove email ID’s from “to” and “cc”",
+    "vocab": [
+      {
+        "word": "accidentally",
+        "ipa": "/ˌæksɪˈdentəli/",
+        "pos": "adv.",
+        "zh": "不小心地、意外地",
+        "col": "accidentally delete / accidentally send / accidentally click",
+        "example": "I accidentally deleted the file.",
+        "example_zh": "我不小心把檔案刪掉了。"
+      },
+      {
+        "word": "eligible",
+        "ipa": "/ˈelɪdʒəbəl/",
+        "pos": "adj.",
+        "zh": "符合資格的",
+        "col": "eligible for a refund / be eligible to apply / eligible customers",
+        "example": "Only full-time staff are eligible for the bonus.",
+        "example_zh": "只有全職員工才符合領取獎金的資格。"
+      },
+      {
+        "word": "associated with",
+        "ipa": "/əˈsoʊʃieɪtɪd wɪð/",
+        "pos": "phr.",
+        "zh": "與…相關的",
+        "col": "costs associated with / risks associated with / associated charges",
+        "example": "Any costs associated with shipping will be refunded.",
+        "example_zh": "任何與運送相關的費用都會退還。"
+      },
+      {
+        "word": "prorated",
+        "ipa": "/ˌproʊˈreɪtɪd/",
+        "pos": "adj.",
+        "zh": "按比例計算的",
+        "col": "prorated refund / prorated fee / prorated amount",
+        "example": "The refund is prorated based on the days left.",
+        "example_zh": "退款是依剩餘天數按比例計算的。"
+      },
+      {
+        "word": "remainder",
+        "ipa": "/rɪˈmeɪndɚ/",
+        "pos": "n.",
+        "zh": "剩餘部分",
+        "col": "the remainder of the month / the remainder of the contract / the remainder of the balance",
+        "example": "You will pay for the remainder of the contract.",
+        "example_zh": "您需支付合約剩餘期間的費用。"
+      },
+      {
+        "word": "encounter",
+        "ipa": "/ɪnˈkaʊntɚ/",
+        "pos": "v.",
+        "zh": "遇到、碰到",
+        "col": "encounter a problem / encounter an error / encounter difficulties",
+        "example": "If you encounter a problem, please contact us.",
+        "example_zh": "如果您遇到問題，請與我們聯絡。"
+      }
+    ],
+    "questions": [
+      {
+        "kind": "context",
+        "q": "What does the writer of the first message want to do?",
+        "opts": [
+          "Upgrade to a higher support plan.",
+          "Cancel a support plan and get a refund.",
+          "Report a problem with an Azure service.",
+          "Ask for a copy of an invoice."
+        ],
+        "ans": 1,
+        "why": [
+          "不是這個：作者是誤購方案，想取消而不是升級。",
+          "正解：作者說自己不小心購買 Developer 支援方案、沒有使用過任何支援服務，並請對方取消方案並退費。",
+          "不是這個：文中沒有提到任何 Azure 服務故障或技術問題。",
+          "不是這個：發票編號只是用來指出是哪一筆費用，並不是要索取副本。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "What does the support engineer ask the customer to do first?",
+        "opts": [
+          "Pay the remainder of the month.",
+          "Send a copy of the invoice.",
+          "Cancel the support plan.",
+          "Open a new support request."
+        ],
+        "ans": 2,
+        "why": [
+          "不是這個：剩餘月份的費用是取消後仍會被收的，並不是工程師要求的第一步。",
+          "不是這個：發票編號客戶已在信中提供，工程師沒有要求再寄。",
+          "正解：工程師說要先從客戶端取消 Azure Developer 支援方案，才能進一步審核費用與退款。",
+          "不是這個：這封信就是在既有案件中的回覆，不需要另開新案件。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "According to the engineer, what happens when a support plan is cancelled?",
+        "opts": [
+          "The customer is still billed for the rest of the month.",
+          "The customer receives a prorated refund.",
+          "The customer's whole account is deleted.",
+          "The customer must pay a cancellation fee."
+        ],
+        "ans": 0,
+        "why": [
+          "正解：文中說取消後仍會被收當月剩餘期間的費用，且取消本身不會產生按比例退款。",
+          "不是這個：文中明確說取消本身不會產生按比例計算的退款。",
+          "不是這個：文中沒有提到帳戶會被刪除。",
+          "不是這個：文中沒有提到任何取消手續費。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The finance team will ______ all charges on the invoice before approving the refund.",
+        "opts": [
+          "reviewing",
+          "reviewed",
+          "reviews",
+          "review"
+        ],
+        "ans": 3,
+        "why": [
+          "不是這個：will 之後要接原形動詞，不能接 -ing 形式。",
+          "不是這個：過去式不能接在助動詞 will 之後。",
+          "不是這個：will 之後的動詞不加 -s。",
+          "正解：will 後面接原形動詞 review，表示未來會審核。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The bank agreed to ______ the duplicate charge.",
+        "opts": [
+          "reserve",
+          "reverse",
+          "rehearse",
+          "refrain"
+        ],
+        "ans": 1,
+        "why": [
+          "不是這個：reserve 是預訂、保留，不能搭配 charge 表示沖銷。",
+          "正解：reverse a charge 是沖銷、撤銷一筆費用，符合語意。",
+          "不是這個：rehearse 是排練，語意不通。",
+          "不是這個：refrain 是節制，通常接 from，也不能直接接受詞。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "Please keep your receipt ______ you need to return the item later.",
+        "opts": [
+          "even if",
+          "in order",
+          "in case",
+          "so that"
+        ],
+        "ans": 2,
+        "why": [
+          "不是這個：even if 是「即使」，語意變成「即使需要退貨也保留」，不合邏輯。",
+          "不是這個：in order 後面要接 to + 動詞，不能直接接子句。",
+          "正解：in case 表示「以防萬一」，保留收據以防日後要退貨。",
+          "不是這個：so that 表示目的，後面接「需要退貨」語意不通。"
+        ]
+      }
+    ],
+    "presentation_phrases": [
+      {
+        "phrase": "I accidentally purchased …",
+        "meaning": "我不小心購買了…",
+        "usage": "向客服說明誤購時的開場句，後面可接商品與發票資訊。"
+      },
+      {
+        "phrase": "I have not used any support service.",
+        "meaning": "我沒有使用過任何支援服務。",
+        "usage": "申請退款時強調尚未使用服務，增加退款的合理性。"
+      },
+      {
+        "phrase": "Please cancel the plan and refund the charge.",
+        "meaning": "請取消此方案並退還該筆費用。",
+        "usage": "把訴求一句話講清楚，適合放在信件結尾。"
+      },
+      {
+        "phrase": "Per the issue description, I understand that …",
+        "meaning": "根據問題描述，我了解到…",
+        "usage": "客服用來複述並確認對方的問題，寫信時也可用來引用先前內容。"
+      },
+      {
+        "phrase": "I kindly request you to first cancel …",
+        "meaning": "煩請您先取消…",
+        "usage": "禮貌地要求對方先完成某個步驟，比 Please 更正式。"
+      },
+      {
+        "phrase": "Once you have completed the cancellation, please reply to this email.",
+        "meaning": "完成取消後，請回覆此郵件。",
+        "usage": "指示對方完成動作後回報的常用句型。"
+      },
+      {
+        "phrase": "Please share a screenshot of the error message.",
+        "meaning": "請提供錯誤訊息的截圖。",
+        "usage": "客服請對方提供證據以便排查問題時使用。"
+      },
+      {
+        "phrase": "Please let me know if you face any difficulties.",
+        "meaning": "如果您遇到任何困難，請告訴我。",
+        "usage": "信件結尾提供進一步協助的客氣說法。"
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "day": 9,
+    "type": "Reading",
+    "tag": "Refund Confirmation",
+    "project": "Azure退款專案",
+    "level": {
+      "score": 700,
+      "range": "650-750",
+      "cefr": "B1",
+      "why": "三封短郵件串成一條流程（回報取消、客服受理、退款完成），句型重複且清楚，適合練習客服郵件固定用語。"
+    },
+    "zh": "我已取消 Developer 支援方案，並將自動續訂設為「關閉」（附上截圖）。請告知發票 G198494551 的退款狀態。\n\n楊先生 您好，\n\nMicrosoft Azure 向您致意！\n\n感謝您確認已取消 Azure Developer 支援方案。\n\n我確認支援方案已取消，且自動續訂已關閉。因此，下一個計費週期不會自動續訂此方案。\n\n關於您的退款申請，我現在會請我們的內部業務窗口（Internal Business Desk）審核這些費用與您的退款申請。\n\n我會隨時向您更新進度，並盡快告知退款的最新情況。\n\n感謝您的耐心與配合。\n\n注意：回覆時請使用「全部回覆」選項。請勿編輯或移除「收件者」和「副本」中的電子郵件地址。\n\n楊先生 您好，\n\nMicrosoft Azure 向您致意！\n\n我要通知您，您的退款申請已成功處理，已發出已付款項的全額退款。\n\n請您從您的端查證退款，並在收到後告知確認。\n\n如果您對退款或您的支援要求還有任何疑問或顧慮，請隨時告訴我，我很樂意進一步協助您。\n\n如果一切正常、沒有其他顧慮，煩請提供您的確認，以便我們進行支援案件的結案。\n\n感謝您在整個過程中的耐心與配合。\n\n注意：回覆時請使用「全部回覆」選項。請勿編輯或移除「收件者」和「副本」中的電子郵件地址。",
+    "passage": "I have cancelled the Developer Support plan and set auto-renewal to Off (screenshot attached). Please let me know the refund status for invoice G198494551.\n\nHello Mr. Yang,\n\nGreetings from Microsoft Azure!\n\nThank you for your confirmation regarding the cancellation of the Azure Developer Support plan.\n\nI can confirm that the support plan has been canceled and auto-renewal has been turned off. Therefore, the plan will not automatically renew for the next billing cycle.\n\nRegarding your refund request, I will now engage our Internal Business Desk to review the charges and your refund request.\n\nI will keep you updated on the progress and share an update regarding the refund as soon as possible.\n\nThank you for your patience and cooperation.\n\nNote: Please use “reply-all” option while reverting. Refrain to edit/remove email ID’s from “to” and “cc”\n\nHello Mr. Yang,\n\nGreetings from Microsoft Azure!\n\nI would like to inform you that your refund request has been successfully processed, and a full refund of the paid amount has been issued.\n\nKindly verify the refund from your end and confirm once you have received it.\n\nIf you have any further questions or concerns regarding the refund or your support request, please feel free to let me know, and I will be happy to assist you further.\n\nIf everything is working as expected and there are no further concerns, kindly provide your confirmation so that we can proceed with the closure of the support case.\n\nThank you for your patience and cooperation throughout the process.\n\nNote: Please use “reply-all” option while reverting. Refrain to edit/remove email ID’s from “to” and “cc”",
+    "vocab": [
+      {
+        "word": "renew",
+        "ipa": "/rɪˈnuː/",
+        "pos": "v.",
+        "zh": "續約、續訂",
+        "col": "renew a subscription / renew automatically / renew a contract",
+        "example": "The membership will renew automatically each year.",
+        "example_zh": "會員資格每年會自動續約。"
+      },
+      {
+        "word": "billing cycle",
+        "ipa": "/ˈbɪlɪŋ ˈsaɪkəl/",
+        "pos": "n.",
+        "zh": "計費週期",
+        "col": "monthly billing cycle / next billing cycle / end of the billing cycle",
+        "example": "You are charged once per billing cycle.",
+        "example_zh": "每個計費週期會收費一次。"
+      },
+      {
+        "word": "engage",
+        "ipa": "/ɪnˈɡeɪdʒ/",
+        "pos": "v.",
+        "zh": "請（某人）處理、聘用",
+        "col": "engage a consultant / engage a vendor / engage with customers",
+        "example": "We will engage an outside auditor to review the accounts.",
+        "example_zh": "我們會聘請外部稽核人員審查帳目。"
+      },
+      {
+        "word": "issued",
+        "ipa": "/ˈɪʃuːd/",
+        "pos": "v. (pp.)",
+        "zh": "發出、核發",
+        "col": "issue a refund / issue an invoice / issue a receipt",
+        "example": "The receipt was issued right after payment.",
+        "example_zh": "收據在付款後立刻開立。"
+      },
+      {
+        "word": "verify",
+        "ipa": "/ˈverɪfaɪ/",
+        "pos": "v.",
+        "zh": "查證、核實",
+        "col": "verify your identity / verify the information / verify a payment",
+        "example": "Please verify your address before ordering.",
+        "example_zh": "下單前請先確認您的地址。"
+      },
+      {
+        "word": "closure",
+        "ipa": "/ˈkloʊʒɚ/",
+        "pos": "n.",
+        "zh": "結案、關閉",
+        "col": "case closure / account closure / closure notice",
+        "example": "The closure of the account takes two days.",
+        "example_zh": "帳戶關閉需要兩天。"
+      }
+    ],
+    "questions": [
+      {
+        "kind": "context",
+        "q": "What will the support engineer do after confirming the cancellation?",
+        "opts": [
+          "Close the support case immediately.",
+          "Ask the customer to sign in again.",
+          "Send the refund request to another team for review.",
+          "Cancel the customer's subscription."
+        ],
+        "ans": 2,
+        "why": [
+          "不是這個：這時退款還沒審核，案件尚未結案。",
+          "不是這個：文中沒有要求客戶重新登入。",
+          "正解：工程師說會請 Internal Business Desk 審核費用與退款申請，也就是交給另一個內部單位。",
+          "不是這個：方案已由客戶自己取消，工程師要做的不是取消訂閱。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "What is the customer asked to do in the last message?",
+        "opts": [
+          "Check that the refund has arrived and confirm.",
+          "Cancel the support plan again.",
+          "Send a screenshot of an error message.",
+          "Contact the Internal Business Desk."
+        ],
+        "ans": 0,
+        "why": [
+          "正解：最後一封信請客戶查證是否收到退款，並回覆確認，以便結案。",
+          "不是這個：方案早在第一封信後就已取消。",
+          "不是這個：整個過程沒有出現錯誤訊息。",
+          "不是這個：Internal Business Desk 是工程師要聯絡的內部單位，不是客戶。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The company will ______ a confirmation email once your payment has been received.",
+        "opts": [
+          "sending",
+          "sent",
+          "sends",
+          "send"
+        ],
+        "ans": 3,
+        "why": [
+          "不是這個：will 後面不能接 -ing 形式。",
+          "不是這個：過去式不能接在助動詞 will 之後。",
+          "不是這個：will 後的動詞不加 -s。",
+          "正解：will + 原形動詞 send，表示付款後會寄出確認信。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The refund should appear on your statement ______ five to ten business days.",
+        "opts": [
+          "since",
+          "within",
+          "during",
+          "while"
+        ],
+        "ans": 1,
+        "why": [
+          "不是這個：since 後面接過去的起點時間，不能表示「在…天內」。",
+          "正解：within 表示在某段時間之內，符合「五到十個工作天內入帳」。",
+          "不是這個：during 後面通常接特定期間或事件，不接「幾天」的數量。",
+          "不是這個：while 是連接詞，後面要接子句。"
+        ]
+      }
+    ],
+    "presentation_phrases": [
+      {
+        "phrase": "I have cancelled the plan and set auto-renewal to Off (screenshot attached).",
+        "meaning": "我已取消方案並關閉自動續訂（附上截圖）。",
+        "usage": "回報已完成客服要求的動作時，順帶附上證據。"
+      },
+      {
+        "phrase": "Please let me know the refund status for invoice …",
+        "meaning": "請告知發票…的退款狀態。",
+        "usage": "追問退款進度的簡短句型。"
+      },
+      {
+        "phrase": "I will keep you updated on the progress.",
+        "meaning": "我會隨時向您更新進度。",
+        "usage": "客服承諾後續會回報進度的固定用語。"
+      },
+      {
+        "phrase": "Kindly verify the refund from your end.",
+        "meaning": "請您從您的端查證退款。",
+        "usage": "請對方自行確認款項是否入帳。"
+      },
+      {
+        "phrase": "Please use the “reply-all” option when replying.",
+        "meaning": "回覆時請使用「全部回覆」。",
+        "usage": "企業信件要求保留所有收件人與副本時使用。"
+      },
+      {
+        "phrase": "Thank you for your patience and cooperation.",
+        "meaning": "感謝您的耐心與配合。",
+        "usage": "客服信件最常見的結尾感謝句。"
+      },
+      {
+        "phrase": "If there are no further concerns, kindly provide your confirmation.",
+        "meaning": "如果沒有其他顧慮，煩請提供您的確認。",
+        "usage": "請對方確認後才能結案時使用。"
+      },
+      {
+        "phrase": "I have received the full refund. Everything is resolved.",
+        "meaning": "我已收到全額退款，一切都已解決。",
+        "usage": "向客服回報問題已解決，可直接用於結案確認信。"
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "day": 10,
+    "type": "Listening",
+    "tag": "Support Phone Call",
+    "project": "Azure退款專案",
+    "level": {
+      "score": 600,
+      "range": "550-650",
+      "cefr": "B1",
+      "why": "日常客服電話對話，句子短、語速可放慢，包含請對方說慢一點、以電子郵件確認等實用情境。"
+    },
+    "zh": "Prasanna：您好，請問是楊先生嗎？我是 Microsoft Azure 支援的 Prasanna。\n\n楊先生：是的，我就是。這通電話跟退款有關嗎？\n\nPrasanna：是的。我是為了您的支援案件（編號 2611110060001044）來電。今天早上我也寄了一封相關的電子郵件給您。\n\n楊先生：不好意思，我的英文聽力不太好。可以請您說慢一點嗎？\n\nPrasanna：當然可以。您的退款已經處理完成，全額款項已退回您的卡片。可以請您查看信用卡對帳單，確認是否已收到嗎？\n\n楊先生：我明白了。您可以寄電子郵件給我。我要怎麼給您確認呢？用電子郵件嗎？\n\nPrasanna：您直接在這通電話中向我確認就可以了。我們需要您的確認，才能結案。\n\n楊先生：好的。我查了信用卡對帳單，已經收到全額退款了。一切都沒問題。\n\nPrasanna：太好了。還有其他我可以協助您的事嗎？\n\n楊先生：沒有了，就這樣。謝謝您的協助。\n\nPrasanna：不客氣。我現在就結案，並寄一份摘要給您。祝您有美好的一天！",
+    "passage": "Prasanna: Hello, may I speak to Mr. Yang? This is Prasanna from Microsoft Azure Support.\n\nMr. Yang: Yes, speaking. Is this call related to the refund?\n\nPrasanna: Yes, it is. I'm calling about your support case, number 2611110060001044. I also sent you an email about it this morning.\n\nMr. Yang: I'm sorry, my English listening is not very good. Could you speak a little more slowly, please?\n\nPrasanna: Of course. Your refund has been processed, and the full amount was sent back to your card. Could you check your card statement and confirm that you received it?\n\nMr. Yang: I see. You can email me. How can I give you my confirmation? By email?\n\nPrasanna: You can simply confirm with me on this call. We need your confirmation so that we can close the case.\n\nMr. Yang: All right. I checked my card statement, and I received the full refund. Everything is fine.\n\nPrasanna: Wonderful. Is there anything else I can help you with?\n\nMr. Yang: No, that's all. Thank you for your help.\n\nPrasanna: You're welcome. I will close the case now and send you a summary by email. Have a nice day!",
+    "vocab": [
+      {
+        "word": "processed",
+        "ipa": "/ˈprɑːsest/",
+        "pos": "v. (pp.)",
+        "zh": "（款項、申請）已處理",
+        "col": "process a payment / process a refund / process an order",
+        "example": "Your payment has been processed.",
+        "example_zh": "您的付款已處理完成。"
+      },
+      {
+        "word": "statement",
+        "ipa": "/ˈsteɪtmənt/",
+        "pos": "n.",
+        "zh": "對帳單",
+        "col": "bank statement / credit card statement / monthly statement",
+        "example": "Please check your bank statement.",
+        "example_zh": "請查看您的銀行對帳單。"
+      },
+      {
+        "word": "confirmation",
+        "ipa": "/ˌkɑːnfɚˈmeɪʃən/",
+        "pos": "n.",
+        "zh": "確認、確認函",
+        "col": "confirmation email / confirmation number / written confirmation",
+        "example": "You will receive a confirmation by email.",
+        "example_zh": "您會收到一封電子郵件確認。"
+      },
+      {
+        "word": "summary",
+        "ipa": "/ˈsʌməri/",
+        "pos": "n.",
+        "zh": "摘要",
+        "col": "brief summary / summary of the meeting / executive summary",
+        "example": "Please send me a summary of the meeting.",
+        "example_zh": "請寄給我會議摘要。"
+      },
+      {
+        "word": "related to",
+        "ipa": "/rɪˈleɪtɪd tuː/",
+        "pos": "phr.",
+        "zh": "與…有關",
+        "col": "closely related to / issues related to billing / be related to",
+        "example": "Is your question related to billing?",
+        "example_zh": "您的問題與帳務有關嗎？"
+      }
+    ],
+    "questions": [
+      {
+        "kind": "context",
+        "q": "Why is Prasanna calling Mr. Yang?",
+        "opts": [
+          "To offer a new support plan.",
+          "To report a problem with his card.",
+          "To follow up on his refund.",
+          "To ask him to cancel a plan."
+        ],
+        "ans": 2,
+        "why": [
+          "不是這個：電話內容跟新方案完全無關。",
+          "不是這個：卡片沒有問題，是退款已經退回卡片。",
+          "正解：Prasanna 說明退款已處理，並請他確認是否收到。",
+          "不是這個：方案先前已取消，這通電話是在確認退款。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "What does Mr. Yang ask Prasanna to do?",
+        "opts": [
+          "Speak more slowly.",
+          "Call again tomorrow.",
+          "Send him the invoice.",
+          "Transfer him to a manager."
+        ],
+        "ans": 0,
+        "why": [
+          "正解：Mr. Yang 說英文聽力不太好，請對方說慢一點。",
+          "不是這個：他沒有要求明天再打。",
+          "不是這個：對話中沒有索取發票。",
+          "不是這個：沒有要求轉接主管。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "I would like to ______ that I have received the full refund.",
+        "opts": [
+          "confirming",
+          "confirmed",
+          "confirms",
+          "confirm"
+        ],
+        "ans": 3,
+        "why": [
+          "不是這個：would like to 後面要接原形動詞，不能接 -ing。",
+          "不是這個：to 後面不能接過去式。",
+          "不是這個：to 後面的動詞不加 -s。",
+          "正解：would like to + 原形動詞 confirm，語氣禮貌。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The agent apologized ______ the delay in processing the refund.",
+        "opts": [
+          "to",
+          "for",
+          "with",
+          "at"
+        ],
+        "ans": 1,
+        "why": [
+          "不是這個：apologize to 後面接「人」，不接事件。",
+          "正解：apologize for + 事件，表示為某事道歉。",
+          "不是這個：apologize with 不是固定搭配。",
+          "不是這個：apologize at 不是固定搭配。"
+        ]
+      }
+    ],
+    "presentation_phrases": [
+      {
+        "phrase": "Is this call related to the refund?",
+        "meaning": "這通電話跟退款有關嗎？",
+        "usage": "接到不確定來意的電話時，先確認對方目的。"
+      },
+      {
+        "phrase": "Could you tell me the case number?",
+        "meaning": "可以告訴我案件編號嗎？",
+        "usage": "確認對方身分時使用，真正的客服會知道案件編號。"
+      },
+      {
+        "phrase": "Could you speak a little more slowly, please?",
+        "meaning": "可以請您說慢一點嗎？",
+        "usage": "聽不清楚時，禮貌請對方放慢語速。"
+      },
+      {
+        "phrase": "I'm sorry, could you repeat that?",
+        "meaning": "抱歉，可以再說一次嗎？",
+        "usage": "沒聽懂時請對方重複。"
+      },
+      {
+        "phrase": "Could you send the details by email?",
+        "meaning": "可以請您把細節寄到我的電子郵件嗎？",
+        "usage": "不方便電話溝通時，要求改用書面。"
+      },
+      {
+        "phrase": "How can I give you my confirmation?",
+        "meaning": "我要怎麼給您確認呢？",
+        "usage": "詢問確認的方式（電話、電子郵件等）。"
+      },
+      {
+        "phrase": "I checked my card statement, and I received the full refund.",
+        "meaning": "我查了信用卡對帳單，已收到全額退款。",
+        "usage": "回報退款已入帳的完整句子。"
+      },
+      {
+        "phrase": "Is there anything else I can help you with?",
+        "meaning": "還有其他我可以協助您的事嗎？",
+        "usage": "客服結束通話前的固定問句。"
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "day": 11,
+    "type": "Reading",
+    "tag": "Case Closure",
+    "project": "Azure退款專案",
+    "level": {
+      "score": 800,
+      "range": "750-850",
+      "cefr": "B2",
+      "why": "結案信包含完整案件摘要，句子較長且用到 regarding、as agreed、consent 等正式用語，適合練習長句閱讀。"
+    },
+    "zh": "楊先生 您好，\n\nMicrosoft Azure 向您致意！\n\n如同我們通話時的約定，問題已經解決，您也已確認結案。我現在就進行此支援要求的結案。\n\n感謝您願意針對此支援事件處理過程中所獲得的支援提供意見回饋！\n\n簡要摘要：您與我們聯絡，是因為不慎購買了與發票 G198494551 相關的 Azure Developer 支援方案，金額為 TWD 987，於 2026 年 11 月 10 日收費。由於您並未使用任何支援服務，您要求取消該方案並退還已收費用。我們請您從您的端取消支援方案並關閉自動續訂。取消完成後，我們審核了您的退款申請，並已成功處理已付款項的全額退款。您確認一切都已解決，並同意結案。\n\n如果您對您的要求還有其他疑問或問題，請隨時與我聯絡。我個人保證，我或我的團隊成員會持續協助您。如果我不在辦公室或沒有及時回覆，請聯絡我的主管 v-stac@microsoft.com\n\n如果您需要重新開啟此案件，請「全部回覆」此郵件。我的主管或我會盡快協助。若要從 Azure 入口網站重新開啟案件，請依照「管理 Azure 支援要求」中「傳送訊息」的步驟操作。\n\n很高興與您合作，希望未來還有機會與您合作。",
+    "passage": "Hello Mr. Yang,\n\nGreetings from Microsoft Azure!\n\nAs agreed during our call, the issue has been resolved and you have confirmed the closure of the case. I’m now proceeding with closing this support request.\n\nThank you for your consideration of providing feedback about the support you received during the processing of this support incident!\n\nBrief summary: You contacted us regarding the accidental purchase of the Azure Developer Support plan associated with invoice G198494551 for TWD 987, charged on November 10, 2026. As you had not used any support services, you requested cancellation of the plan and a refund of the charged amount. We requested that you cancel the support plan and turn off auto-renewal from your end. After the cancellation was completed, we reviewed your refund request, and a full refund of the paid amount was successfully processed. You confirmed that everything is resolved and provided your consent to close the support case.\n\nIf you have more questions or issues regarding your request, please do not hesitate to contact me. You have my personal guarantee that I or someone from my team will continue to assist you. If I am out of the office or do not respond promptly, please contact my manager at v-stac@microsoft.com\n\nIf you need to re-open this case, “reply all” to this email. My manager or I will help as soon as possible. To re-open a case from the Azure portal, please follow the steps to “Send a message” in Manage an Azure support request.\n\nIt was a pleasure working with you and I hope to work with you again in the future.",
+    "vocab": [
+      {
+        "word": "resolved",
+        "ipa": "/rɪˈzɑːlvd/",
+        "pos": "v. (pp.)",
+        "zh": "已解決的",
+        "col": "resolve an issue / the problem is resolved / resolve a complaint",
+        "example": "The complaint was resolved within a day.",
+        "example_zh": "該投訴在一天內就解決了。"
+      },
+      {
+        "word": "guarantee",
+        "ipa": "/ˌɡerənˈtiː/",
+        "pos": "n.",
+        "zh": "保證",
+        "col": "money-back guarantee / personal guarantee / no guarantee",
+        "example": "We offer a money-back guarantee.",
+        "example_zh": "我們提供退款保證。"
+      },
+      {
+        "word": "promptly",
+        "ipa": "/ˈprɑːmptli/",
+        "pos": "adv.",
+        "zh": "迅速地、立即地",
+        "col": "respond promptly / reply promptly / pay promptly",
+        "example": "Please respond promptly to all requests.",
+        "example_zh": "請迅速回覆所有要求。"
+      },
+      {
+        "word": "feedback",
+        "ipa": "/ˈfiːdbæk/",
+        "pos": "n.",
+        "zh": "意見回饋",
+        "col": "provide feedback / customer feedback / positive feedback",
+        "example": "We value your feedback.",
+        "example_zh": "我們重視您的意見回饋。"
+      },
+      {
+        "word": "re-open",
+        "ipa": "/riːˈoʊpən/",
+        "pos": "v.",
+        "zh": "重新開啟",
+        "col": "re-open a case / re-open a ticket / re-open an account",
+        "example": "You can re-open a closed ticket by replying to it.",
+        "example_zh": "您可以回覆已結案的案件來重新開啟。"
+      }
+    ],
+    "questions": [
+      {
+        "kind": "context",
+        "q": "Why is the engineer closing the case?",
+        "opts": [
+          "The customer asked to speak to a manager.",
+          "The refund request was denied.",
+          "The customer stopped replying.",
+          "The issue was resolved and the customer agreed to close it."
+        ],
+        "ans": 3,
+        "why": [
+          "不是這個：信末提供主管聯絡方式只是備用，客戶並沒有要求找主管。",
+          "不是這個：信中說已成功處理全額退款，沒有被拒絕。",
+          "不是這個：客戶有確認，並不是停止回覆。",
+          "正解：信中說依照通話約定，問題已解決，客戶也同意結案。"
+        ]
+      },
+      {
+        "kind": "context",
+        "q": "How can the customer re-open the case?",
+        "opts": [
+          "By calling the manager.",
+          "By replying all to the email.",
+          "By submitting a new invoice.",
+          "By waiting for a survey."
+        ],
+        "ans": 1,
+        "why": [
+          "不是這個：主管信箱是工程師沒有及時回覆時聯絡用，並非重新開啟案件的方式。",
+          "正解：信中說若要重新開啟案件，請「全部回覆」此郵件。",
+          "不是這個：文中沒有提到要提交新的發票。",
+          "不是這個：意見回饋是請客戶評價服務，與重新開啟案件無關。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The manager can be ______ by email if the engineer is out of the office.",
+        "opts": [
+          "reached",
+          "reaching",
+          "reach",
+          "to reach"
+        ],
+        "ans": 0,
+        "why": [
+          "正解：can be + 過去分詞 reached，表示可以被聯絡到（被動語態）。",
+          "不是這個：can be 之後接 -ing 會變成進行式，語意不通。",
+          "不是這個：can be 之後不能接原形動詞。",
+          "不是這個：can be 之後不能接 to 不定詞。"
+        ]
+      },
+      {
+        "kind": "part5",
+        "q": "The case will stay open ______ the customer confirms that the problem is solved.",
+        "opts": [
+          "while",
+          "since",
+          "until",
+          "despite"
+        ],
+        "ans": 2,
+        "why": [
+          "不是這個：while 表示「在…期間」，語意不符合「直到確認為止」。",
+          "不是這個：since 表示「自從」，不能表示未來的終點。",
+          "正解：until 表示「直到…為止」，案件會一直開著，直到客戶確認問題解決。",
+          "不是這個：despite 是介系詞，後面不能接完整子句。"
+        ]
+      }
+    ],
+    "presentation_phrases": [
+      {
+        "phrase": "As agreed during our call, …",
+        "meaning": "如同我們通話時的約定，…",
+        "usage": "引用先前電話內容作為後續動作的依據。"
+      },
+      {
+        "phrase": "I'm now proceeding with closing this request.",
+        "meaning": "我現在就進行此要求的結案。",
+        "usage": "宣布正在處理結案的正式說法。"
+      },
+      {
+        "phrase": "Brief summary: You contacted us regarding …",
+        "meaning": "簡要摘要：您與我們聯絡，是因為…",
+        "usage": "結案信用來整理整個案件經過的開頭句。"
+      },
+      {
+        "phrase": "Please do not hesitate to contact me.",
+        "meaning": "請隨時與我聯絡。",
+        "usage": "信末鼓勵對方有問題再聯絡的固定句型。"
+      },
+      {
+        "phrase": "If I do not respond promptly, please contact my manager.",
+        "meaning": "如果我沒有及時回覆，請聯絡我的主管。",
+        "usage": "提供升級窗口，讓對方在沒回應時有其他管道。"
+      },
+      {
+        "phrase": "If you need to re-open this case, “reply all” to this email.",
+        "meaning": "如果需要重新開啟案件，請「全部回覆」此郵件。",
+        "usage": "說明重開案件方式的指示句。"
+      },
+      {
+        "phrase": "Thank you for providing feedback about the support you received.",
+        "meaning": "感謝您針對所獲得的支援提供意見回饋。",
+        "usage": "請客戶填寫滿意度或意見的客氣用法。"
+      },
+      {
+        "phrase": "It was a pleasure working with you.",
+        "meaning": "很高興與您合作。",
+        "usage": "專案或案件結束時的禮貌結語。"
+      }
+    ]
+  }
+]

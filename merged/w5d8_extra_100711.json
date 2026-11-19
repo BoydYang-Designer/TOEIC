@@ -1,0 +1,88 @@
+{
+  "week": 5,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "head in",
+      "type": "phrase",
+      "zh": "朝…方向前進",
+      "en": "to move or go toward a direction",
+      "note": "文章說 the direction that you may head in：策略思考能改變你前進的方向，用「走哪個方向」比喻公司或職涯的走向。這裡的 in 是介系詞，留在關係子句的句尾。",
+      "pattern": "head in + a／the + 形容詞 + direction",
+      "grammar_note": "head in a direction 是「朝某方向前進」，前往某地用 head for／to + 地點；the direction (that) you head in 的 in 留在句尾，等於 head in that direction。",
+      "examples": [
+        { "tag": "策略", "en": "The company decided to head in a new direction this year.", "zh": "公司今年決定朝新的方向前進。" },
+        { "tag": "專案", "en": "Please tell me which direction the project is likely to head in.", "zh": "請告訴我這個專案可能會往哪個方向走。" },
+        { "tag": "業績", "en": "Sales are heading in the right direction after the new campaign.", "zh": "新活動推出後，銷售正朝正確的方向前進。" },
+        { "tag": "物流", "en": "The truck will head in the direction of the port after lunch.", "zh": "卡車午餐後會朝港口的方向出發。" }
+      ],
+      "similar": [
+        { "phrase": "head for", "diff": "head for 後面接地點（head for the airport），指前往某個目的地；head in 後面接方向。", "example": { "en": "The delegation will head for the airport at six.", "zh": "代表團六點會前往機場。" } },
+        { "phrase": "move toward", "diff": "move toward 更一般，也常用在抽象目標；head in 帶有「選擇方向」的口語感。", "example": { "en": "Our company plans to move toward online sales next year.", "zh": "我們公司計畫明年轉向網路銷售。" } }
+      ],
+      "confusable": [
+        { "phrase": "head into", "diff": "head into 是進入某個時期或狀況（head into the busy season）；head in 是朝某個方向前進。", "example": { "en": "The team will head into the busy season next month.", "zh": "這個團隊下個月就要進入旺季。" } },
+        { "word": "ahead", "diff": "ahead 是副詞或形容詞，指「在前方、領先」；head in 是動詞片語。", "example": { "en": "We are ahead of schedule on the new project.", "zh": "我們在這個新專案上進度超前。" } }
+      ]
+    },
+    {
+      "text": "akin to",
+      "type": "phrase",
+      "zh": "類似於、和…相近",
+      "en": "similar to something else",
+      "note": "文章用了兩次 akin to：先說策略思考像把目的地輸入導航，再說也像看天氣預報來做規劃。用熟悉的情境做類比，語氣比 similar to 更書面。",
+      "pattern": "A is akin to + N／V-ing",
+      "grammar_note": "akin 一定接 to，to 是介系詞，後面接名詞或 V-ing（akin to popping）；不說 akin with，也不說 akin than。",
+      "examples": [
+        { "tag": "比喻", "en": "Managing a project is akin to driving a long road trip.", "zh": "管理專案就像開一趟長途旅行。" },
+        { "tag": "評論", "en": "His idea is akin to what our competitor did last year.", "zh": "他的點子和我們的競爭對手去年做的很類似。" },
+        { "tag": "培訓", "en": "Learning a new system is akin to learning a new language.", "zh": "學習新系統就像學習一種新語言。" }
+      ],
+      "similar": [
+        { "phrase": "similar to", "diff": "similar to 最常用，口語和書面都可以；akin to 較書面，常用在比喻。", "example": { "en": "This process is similar to the one we used last year.", "zh": "這個流程和我們去年用的很相似。" } },
+        { "phrase": "comparable to", "diff": "comparable to 強調兩者程度或水準相當、可以相比；akin to 強調性質相近。", "example": { "en": "Their service is comparable to ours in price and quality.", "zh": "他們的服務在價格和品質上與我們的不相上下。" } }
+      ],
+      "confusable": [
+        { "word": "alike", "diff": "alike 是「相像的」；akin to 後面要接比較的對象，alike 則不接 to。", "usage": "A and B are alike（A 和 B 很像）；A is akin to B（A 像 B）。alike 不接 to，akin 一定接 to。", "example": { "en": "The two offers are alike in price and quality.", "zh": "這兩份報價在價格和品質上很像。" } }
+      ]
+    },
+    {
+      "text": "satellite",
+      "type": "word",
+      "ipa": "/ˈsætəlaɪt/",
+      "pos": "n.",
+      "zh": "衛星；衛星的",
+      "en": "an object in space that sends information back to Earth",
+      "note": "文章裡的 sat-nav 就是 satellite navigation（衛星導航）的縮寫，sat 指的就是 satellite。衛星提供定位訊號，導航才知道你在哪裡、該往哪走。",
+      "grammar_note": "satellite 當形容詞時放在名詞前，本身不加 s：satellite offices（衛星辦公室）、satellite images（衛星影像）。",
+      "forms": [
+        { "w": "satellites", "label": "複數", "pos": "n.", "zh": "衛星（複數）", "ipa": "/ˈsætəlaɪts/", "example": { "en": "Several satellites support the global navigation system we use.", "zh": "好幾顆衛星支援著我們使用的全球導航系統。" } }
+      ],
+      "collocations": [
+        { "phrase": "satellite navigation", "zh": "衛星導航", "example": { "en": "Satellite navigation helps drivers find the fastest route.", "zh": "衛星導航幫助駕駛人找到最快的路線。" } },
+        { "phrase": "satellite office", "zh": "衛星辦公室、分部", "example": { "en": "The firm opened a satellite office in Singapore last year.", "zh": "這間公司去年在新加坡開了一間分部。" } },
+        { "phrase": "satellite TV", "zh": "衛星電視", "example": { "en": "The hotel offers satellite TV channels in every room.", "zh": "這間飯店每個房間都提供衛星電視頻道。" } },
+        { "phrase": "launch a satellite", "zh": "發射衛星", "example": { "en": "The agency plans to launch a satellite next spring.", "zh": "這個機構計畫明年春天發射一顆衛星。" } }
+      ],
+      "examples": [
+        { "tag": "通訊", "en": "The company uses satellite signals to track its trucks.", "zh": "這間公司利用衛星訊號追蹤自己的卡車。" },
+        { "tag": "氣象", "en": "Satellite images help the airline avoid bad weather.", "zh": "衛星影像幫助航空公司避開惡劣天氣。" },
+        { "tag": "新聞", "en": "The new satellite will improve phone and internet service.", "zh": "這顆新衛星將改善電話和網路服務。" }
+      ],
+      "confusable": [
+        { "word": "sat-nav", "diff": "sat-nav 是車上的導航裝置，sat 是 satellite 的縮寫；satellite 則是太空中的衛星本身。", "example": { "en": "Our sat-nav said the office was two kilometers ahead.", "zh": "我們的導航顯示辦公室在前方兩公里處。" } }
+      ],
+      "family": [
+        { "w": "signal", "pos": "n.", "zh": "訊號", "ipa": "/ˈsɪɡnəl/", "example": { "en": "The signal is weak inside the parking garage.", "zh": "停車場裡面的訊號很弱。" } },
+        { "w": "navigation", "pos": "n.", "zh": "導航", "ipa": "/ˌnævɪˈɡeɪʃən/", "example": { "en": "The app has a built-in navigation system for drivers.", "zh": "這個應用程式為駕駛人內建了導航系統。" } },
+        { "w": "network", "pos": "n.", "zh": "網路、通訊網", "ipa": "/ˈnetwɜːrk/", "example": { "en": "The mobile network is down in the north area.", "zh": "北部地區的行動網路中斷了。" } }
+      ],
+      "derived": [],
+      "pos_uses": [
+        { "pos": "n.", "ipa": "/ˈsætəlaɪt/", "zh": "人造衛星", "example": { "en": "The satellite sends weather data to the airline every hour.", "zh": "這顆衛星每小時把氣象資料傳給航空公司。" } },
+        { "pos": "adj.", "ipa": "/ˈsætəlaɪt/", "zh": "衛星的、附屬的", "example": { "en": "Our satellite branch serves customers in the northern area.", "zh": "我們的分部服務北區的顧客。" } }
+      ],
+      "senses": []
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "week": 6,
+  "day": 9,
+  "extra_vocab": [
+    {
+      "text": "billing cycle",
+      "type": "phrase",
+      "zh": "計費週期、帳單週期",
+      "en": "the regular period of time for which a bill is made",
+      "note": "在這篇文章裡，the next billing cycle 指下一個計費週期。自動續訂關閉後，方案從下一期開始就不會再續約或自動扣款。",
+      "pattern": "for/in + the + next/current/monthly + billing cycle",
+      "grammar_note": "billing 是用來修飾 cycle 的名詞，不加 s；billing cycle 是可數名詞，常見 in the current billing cycle、for the next billing cycle。",
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Your invoice will be sent at the end of each billing cycle.",
+          "zh": "你的發票會在每個計費週期結束時寄出。"
+        },
+        {
+          "tag": "客服",
+          "en": "You can change your plan before the next billing cycle starts.",
+          "zh": "你可以在下一個計費週期開始前更改方案。"
+        },
+        {
+          "tag": "會計",
+          "en": "The current billing cycle ends on the last day of the month.",
+          "zh": "目前的計費週期在這個月最後一天結束。"
+        },
+        {
+          "tag": "訂閱",
+          "en": "Cancel before the billing cycle ends to avoid another charge.",
+          "zh": "請在計費週期結束前取消，以免再被收費。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "billing period",
+          "diff": "意思幾乎相同；billing period 強調一段期間，billing cycle 強調週期性重複。",
+          "example": {
+            "en": "The billing period for this plan is thirty days.",
+            "zh": "這個方案的計費期間是三十天。"
+          }
+        },
+        {
+          "phrase": "payment cycle",
+          "diff": "payment cycle 側重多久付一次款，常用在公司付供應商的時程。",
+          "example": {
+            "en": "Suppliers are paid on a monthly payment cycle.",
+            "zh": "供應商依每月付款週期收到款項。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "business cycle",
+          "diff": "business cycle 是「景氣循環」，指經濟的起伏；billing cycle 是帳單的週期。",
+          "example": {
+            "en": "The business cycle affects how much customers spend each year.",
+            "zh": "景氣循環會影響客戶每年的消費金額。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "issued",
+      "type": "word",
+      "lemma": "issue",
+      "ipa": "/ˈɪʃuːd/",
+      "pos": "v.",
+      "zh": "發出、開立",
+      "en": "given or sent out officially",
+      "note": "在這篇文章裡，a full refund ... has been issued 是現在完成式被動，表示全額退款已經正式開立並撥出。語氣正式，常見於客服通知信。",
+      "grammar_note": "issue a refund 的受詞是 refund；改成被動時 refund 變主詞，寫成 a refund has been issued，不要再加受詞。",
+      "forms": [
+        {
+          "w": "issues",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "發出、開立",
+          "ipa": "/ˈɪʃuːz/",
+          "example": {
+            "en": "The bank issues a new card within five working days.",
+            "zh": "銀行會在五個工作天內發出新卡。"
+          }
+        },
+        {
+          "w": "issues",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "問題、議題（複數）",
+          "ipa": "/ˈɪʃuːz/",
+          "example": {
+            "en": "Several billing issues were reported by customers last week.",
+            "zh": "上週有數位客戶回報了幾個帳單問題。"
+          }
+        },
+        {
+          "w": "issuing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "發出（進行中）",
+          "ipa": "/ˈɪʃuːɪŋ/",
+          "example": {
+            "en": "We are issuing refunds to all affected customers today.",
+            "zh": "我們今天正在向所有受影響的客戶發放退款。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "issue a refund",
+          "zh": "發放退款",
+          "example": {
+            "en": "The company will issue a refund within ten days.",
+            "zh": "公司會在十天內發放退款。"
+          }
+        },
+        {
+          "phrase": "issue an invoice",
+          "zh": "開立發票",
+          "example": {
+            "en": "Please issue an invoice in the company's name.",
+            "zh": "請以公司名義開立發票。"
+          }
+        },
+        {
+          "phrase": "be issued by",
+          "zh": "由…發出",
+          "example": {
+            "en": "The receipt was issued by the accounting department.",
+            "zh": "這張收據是由會計部門開立的。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "A new invoice was issued yesterday, so please check your inbox.",
+          "zh": "新的發票昨天已開立，請查看你的收件匣。"
+        },
+        {
+          "tag": "公告",
+          "en": "The company issued a statement about the delayed shipment.",
+          "zh": "公司針對延遲出貨發表了聲明。"
+        },
+        {
+          "tag": "財務",
+          "en": "Refunds are issued to the original payment method.",
+          "zh": "退款會退回原本的付款方式。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "release",
+          "diff": "release 強調把款項、產品或消息放出；issue 強調正式開立或發出文件、款項。",
+          "example": {
+            "en": "The finance team released the full payment to the supplier this morning.",
+            "zh": "財務團隊今天早上已將全額款項撥給供應商。"
+          }
+        },
+        {
+          "word": "send out",
+          "diff": "send out 是較口語的說法，只表示寄出，不強調正式。",
+          "example": {
+            "en": "We sent out all the refund notices on Monday.",
+            "zh": "我們星期一寄出了所有退款通知。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "receipt",
+          "pos": "n.",
+          "zh": "收據",
+          "ipa": "/rɪˈsiːt/",
+          "example": {
+            "en": "Keep the receipt in case you need a refund.",
+            "zh": "請保留收據，以防需要退款。"
+          }
+        },
+        {
+          "w": "invoice",
+          "pos": "n.",
+          "zh": "發票、請款單",
+          "ipa": "/ˈɪnvɔɪs/",
+          "example": {
+            "en": "Please pay the invoice within thirty days of receiving it.",
+            "zh": "請在收到發票後三十天內付款。"
+          }
+        },
+        {
+          "w": "notice",
+          "pos": "n.",
+          "zh": "通知",
+          "ipa": "/ˈnoʊtɪs/",
+          "example": {
+            "en": "You will get a notice when the order is ready.",
+            "zh": "訂單準備好時你會收到通知。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "issuer",
+          "pos": "n.",
+          "zh": "發行者、發卡機構",
+          "ipa": "/ˈɪʃuːər/",
+          "link": "issue + -er，做事的人，像 worker、manager；card issuer 是發卡銀行"
+        },
+        {
+          "w": "issuance",
+          "pos": "n.",
+          "zh": "發出、發行",
+          "ipa": "/ˈɪʃuːəns/",
+          "link": "issue + -ance，把動作變成名詞，像 assist → assistance"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/ˈɪʃuː/",
+          "zh": "發出、開立",
+          "in_passage": true,
+          "example": {
+            "en": "The company will issue a refund once the form is received.",
+            "zh": "收到表格後，公司就會發放退款。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈɪʃuː/",
+          "zh": "問題、議題",
+          "example": {
+            "en": "We are working to fix the billing issue today.",
+            "zh": "我們今天正在處理這個帳單問題。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "發出、開立（款項或文件）",
+          "en": "to officially give or send out money or a document",
+          "in_passage": true,
+          "example": {
+            "en": "The bank issued the full refund to your credit card.",
+            "zh": "銀行已把全額退款退到你的信用卡。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "配發（物品給人）",
+          "en": "to give someone something to use for work",
+          "distinguish": "後面接「人」再接物品，或用被動 be issued + 物品時，是配發的意思。",
+          "example": {
+            "en": "The IT team issues a laptop to every new employee.",
+            "zh": "資訊團隊會配發筆電給每位新進員工。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "發布（公告、聲明）",
+          "en": "to say something officially to the public",
+          "distinguish": "受詞是 statement、warning、apology 等話語時，是正式發布。",
+          "example": {
+            "en": "The airline issued an apology to passengers after the delay.",
+            "zh": "航空公司在延誤後向乘客發出道歉聲明。"
+          }
+        }
+      ]
+    }
+  ]
+}
