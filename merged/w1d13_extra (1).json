@@ -1,0 +1,459 @@
+{
+  "week": 1,
+  "day": 13,
+  "extra_vocab": [
+    {
+      "text": "prevent",
+      "type": "word",
+      "ipa": "/prɪˈvɛnt/",
+      "pos": "v.",
+      "zh": "防止；阻止",
+      "en": "to stop something from happening",
+      "note": "文中 use a mechanical stop to prevent it from rotating too far forward 指用機械擋塊防止握把向前轉過頭，句型為 prevent + 受詞 + from + V-ing。",
+      "grammar_note": "prevent + 受詞 + from + V-ing；不說 prevent + 受詞 + to V。",
+      "forms": [
+        {
+          "w": "prevents",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "防止",
+          "ipa": "/prɪˈvɛnts/",
+          "example": {
+            "en": "A strong lock prevents unauthorized staff from entering the room.",
+            "zh": "堅固的鎖可防止未經授權的員工進入房間。"
+          }
+        },
+        {
+          "w": "prevented",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "阻止了",
+          "ipa": "/prɪˈvɛntɪd/",
+          "example": {
+            "en": "Heavy rain prevented the trucks from reaching the warehouse.",
+            "zh": "大雨使卡車無法抵達倉庫。"
+          }
+        },
+        {
+          "w": "preventing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在防止",
+          "ipa": "/prɪˈvɛntɪŋ/",
+          "example": {
+            "en": "We are preventing delays by checking orders early.",
+            "zh": "我們藉由提早檢查訂單來避免延誤。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "prevent damage",
+          "zh": "防止損壞",
+          "example": {
+            "en": "Extra foam padding will prevent damage during long-distance shipping.",
+            "zh": "額外的泡棉墊可防止長途運送中的損壞。"
+          }
+        },
+        {
+          "phrase": "prevent accidents",
+          "zh": "防止意外",
+          "example": {
+            "en": "Clear signs help prevent accidents in the loading area.",
+            "zh": "清楚的標示有助於防止裝貨區發生意外。"
+          }
+        },
+        {
+          "phrase": "prevent ... from",
+          "zh": "防止…發生",
+          "example": {
+            "en": "Regular software updates prevent the system from crashing unexpectedly.",
+            "zh": "定期的軟體更新可防止系統意外當機。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "設備",
+          "en": "This cover is designed to prevent dust from entering the motor.",
+          "zh": "這個護蓋的設計是為了防止灰塵進入馬達。"
+        },
+        {
+          "tag": "公告",
+          "en": "Please lock your computer to prevent data loss.",
+          "zh": "請鎖定您的電腦以防止資料遺失。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "avoid",
+          "diff": "avoid 是自己主動避開，後接 V-ing；prevent 是阻止某件事發生",
+          "kind": [
+            "meaning"
+          ],
+          "usage": "avoid 後面直接接名詞或 V-ing（avoid delays）；prevent 要說 prevent A from V-ing。",
+          "example": {
+            "en": "We should avoid scheduling meetings on Friday afternoons.",
+            "zh": "我們應避免把會議排在週五下午。"
+          }
+        },
+        {
+          "word": "protect",
+          "diff": "protect A from B 是保護 A 不受 B 傷害；prevent B 是阻止 B 發生",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "This case will protect your tablet from scratches.",
+            "zh": "這個保護殼能保護您的平板不被刮傷。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "stop",
+          "diff": "stop 較口語，後面接 stop A from V-ing 與 prevent 同義",
+          "example": {
+            "en": "Please stop the machine before you open the cover.",
+            "zh": "開啟護蓋前請先讓機器停止運轉。"
+          }
+        },
+        {
+          "phrase": "keep ... from",
+          "diff": "keep A from V-ing 與 prevent A from V-ing 意思相同，較口語",
+          "example": {
+            "en": "A wide base keeps the shelf from tipping over.",
+            "zh": "寬大的底座讓架子不會翻倒。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "block",
+          "pos": "v.",
+          "zh": "阻擋；封鎖",
+          "ipa": "/blɑk/",
+          "example": {
+            "en": "A parked truck blocked the main entrance this morning.",
+            "zh": "一輛停放的卡車今天早上擋住了正門。"
+          }
+        },
+        {
+          "w": "reduce",
+          "pos": "v.",
+          "zh": "減少",
+          "ipa": "/rɪˈdus/",
+          "example": {
+            "en": "Better training helps reduce errors in the warehouse.",
+            "zh": "更好的訓練有助於減少倉庫裡的錯誤。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "prevention",
+          "ipa": "/prɪˈvɛnʃən/",
+          "pos": "n.",
+          "zh": "預防",
+          "link": "prevent + -ion，名詞字尾，像 education、decision"
+        },
+        {
+          "w": "preventive",
+          "ipa": "/prɪˈvɛntɪv/",
+          "pos": "adj.",
+          "zh": "預防性的",
+          "link": "prevent + -ive（具有…性質的），像 active、creative"
+        },
+        {
+          "w": "preventable",
+          "ipa": "/prɪˈvɛntəbəl/",
+          "pos": "adj.",
+          "zh": "可預防的",
+          "link": "prevent + -able（可…的），像 available、comfortable"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "benefit",
+      "type": "word",
+      "ipa": "/ˈbɛnəfɪt/",
+      "pos": "n.",
+      "zh": "好處；優點；福利",
+      "en": "something good that you get from something",
+      "note": "文中 three main benefits 指替代設計的三項優點，說話者用 First、Second、Third 逐項條列，是簡報整理論點的常見做法。",
+      "grammar_note": "benefit 當動詞時，「從…受益」用 benefit from；「使…受益」則直接接受詞（benefit all employees）。",
+      "forms": [
+        {
+          "w": "benefits",
+          "label": "複數（名詞）",
+          "pos": "n.",
+          "zh": "好處；福利",
+          "ipa": "/ˈbɛnəfɪts/",
+          "example": {
+            "en": "We outlined the benefits of switching to a new supplier.",
+            "zh": "我們概述了更換新供應商的好處。"
+          }
+        },
+        {
+          "w": "benefits",
+          "label": "第三人稱單數（動詞）",
+          "pos": "v.",
+          "zh": "使受益",
+          "ipa": "/ˈbɛnəfɪts/",
+          "example": {
+            "en": "This training benefits every new member of the sales team.",
+            "zh": "這項訓練使業務團隊每位新成員受益。"
+          }
+        },
+        {
+          "w": "benefited",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "受益",
+          "ipa": "/ˈbɛnəˌfɪtɪd/",
+          "example": {
+            "en": "Small shops benefited from the lower shipping rates.",
+            "zh": "小型商店因較低的運費而受益。"
+          }
+        },
+        {
+          "w": "benefiting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在受益",
+          "ipa": "/ˈbɛnəˌfɪtɪŋ/",
+          "example": {
+            "en": "Many customers are benefiting from the extended warranty.",
+            "zh": "許多客戶正受益於延長保固。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "main benefit",
+          "zh": "主要優點",
+          "example": {
+            "en": "The main benefit of this plan is lower maintenance cost.",
+            "zh": "這項計畫的主要優點是維護成本較低。"
+          }
+        },
+        {
+          "phrase": "employee benefits",
+          "zh": "員工福利",
+          "example": {
+            "en": "Our employee benefits include health insurance and paid vacation.",
+            "zh": "我們的員工福利包括健保與有薪假。"
+          }
+        },
+        {
+          "phrase": "benefit from",
+          "zh": "從…受益",
+          "example": {
+            "en": "Small firms can benefit from government support programs.",
+            "zh": "小型公司可以從政府的扶助計畫中受益。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "簡報",
+          "en": "The key benefit of this design is its simple structure.",
+          "zh": "這個設計的主要優點是結構簡單。"
+        },
+        {
+          "tag": "人資",
+          "en": "New employees receive full benefits after three months of service.",
+          "zh": "新進員工在任職三個月後可享有完整福利。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "profit",
+          "diff": "profit 是金錢上的「利潤」；benefit 是廣義的「好處」",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "The company reported a higher profit this quarter.",
+            "zh": "公司本季的獲利較高。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "advantage",
+          "diff": "advantage 強調比別人有利的優勢；benefit 強調得到的好處",
+          "example": {
+            "en": "Low prices give us an advantage over our competitors.",
+            "zh": "低價讓我們比競爭對手更有優勢。"
+          }
+        },
+        {
+          "word": "perk",
+          "diff": "perk 口語，指職位附帶的小福利",
+          "example": {
+            "en": "Free parking is one of the perks of this job.",
+            "zh": "免費停車是這份工作的福利之一。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "bonus",
+          "pos": "n.",
+          "zh": "獎金",
+          "ipa": "/ˈboʊnəs/",
+          "example": {
+            "en": "Staff received a bonus after the record sales year.",
+            "zh": "員工在創紀錄的銷售年度後領到獎金。"
+          }
+        },
+        {
+          "w": "allowance",
+          "pos": "n.",
+          "zh": "津貼",
+          "ipa": "/əˈlaʊəns/",
+          "example": {
+            "en": "The company pays a monthly travel allowance to sales staff.",
+            "zh": "公司每月發給業務人員差旅津貼。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "beneficial",
+          "ipa": "/ˌbɛnəˈfɪʃəl/",
+          "pos": "adj.",
+          "zh": "有益的",
+          "link": "benefit 的形容詞形（-ial：有…性質的），像 financial"
+        },
+        {
+          "w": "beneficiary",
+          "ipa": "/ˌbɛnəˈfɪʃiˌɛri/",
+          "pos": "n.",
+          "zh": "受益人",
+          "link": "bene-（好）+ -ficiary，得到好處的人，如保險受益人"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈbɛnəfɪt/",
+          "zh": "好處；優點",
+          "in_passage": true,
+          "example": {
+            "en": "One clear benefit of remote work is shorter commuting time.",
+            "zh": "遠距工作的一個明顯好處是通勤時間縮短。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ˈbɛnəfɪt/",
+          "zh": "對…有益；受益",
+          "example": {
+            "en": "The new policy will benefit all part-time staff.",
+            "zh": "新政策將使所有兼職員工受益。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "好處；優點",
+          "en": "an advantage or good result from something",
+          "in_passage": true,
+          "distinguish": "泛指從某事得到的好處",
+          "example": {
+            "en": "Online ordering has many benefits for busy customers.",
+            "zh": "線上訂購對忙碌的客戶有許多好處。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "福利",
+          "en": "extra things a company gives to its workers",
+          "distinguish": "常用複數 benefits，指健保、休假等",
+          "example": {
+            "en": "The job offers health benefits and a yearly bonus.",
+            "zh": "這份工作提供健康福利和年度獎金。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "subject to",
+      "type": "phrase",
+      "zh": "須經…；以…為前提；受…約束",
+      "en": "depending on something, or needing it first",
+      "note": "文中 subject to review by our patent team 表示這個方案要先經專利團隊審閱才算數，是商務文件中常用來保留條件的說法。",
+      "pattern": "N + subject to + N（approval / review / change）",
+      "grammar_note": "subject to 的 to 是介系詞，後面接名詞或 V-ing（subject to approval），不接原形動詞。",
+      "examples": [
+        {
+          "tag": "合約",
+          "en": "This offer is subject to approval by the finance department.",
+          "zh": "這項報價須經財務部門核准。"
+        },
+        {
+          "tag": "公告",
+          "en": "All schedules are subject to change without prior notice.",
+          "zh": "所有時程表可能不經事先通知而變更。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Delivery is subject to stock availability at the time of order.",
+          "zh": "交貨須視下單時的庫存而定。"
+        },
+        {
+          "tag": "法規",
+          "en": "Imported goods are subject to inspection at the border.",
+          "zh": "進口貨物須在邊境接受檢查。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "pending",
+          "diff": "pending 當介系詞指「在…之前、等待…」，偏程序上暫時等待；subject to 強調以…為條件",
+          "example": {
+            "en": "The order is on hold pending final payment.",
+            "zh": "這筆訂單在最後付款完成前暫時保留。"
+          }
+        },
+        {
+          "phrase": "depending on",
+          "diff": "depending on 表示「視…而定」，不一定有「須先取得」的意思",
+          "example": {
+            "en": "Prices vary depending on the quantity you order.",
+            "zh": "價格會依訂購數量而不同。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "due to",
+          "diff": "due to 是「因為」，subject to 是「須視…而定、受…約束」",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "The flight was delayed due to heavy fog.",
+            "zh": "班機因濃霧而延誤。"
+          }
+        },
+        {
+          "word": "prone to",
+          "diff": "prone to 指「容易發生（多半是負面的事）」",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "Old devices are prone to overheating during long use.",
+            "zh": "舊裝置在長時間使用時容易過熱。"
+          }
+        }
+      ]
+    }
+  ]
+}

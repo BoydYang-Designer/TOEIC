@@ -1,0 +1,68 @@
+{
+  "week": 2,
+  "day": 12,
+  "extra_vocab": [
+    {
+      "text": "sum up",
+      "type": "phrase",
+      "zh": "總結、概括",
+      "en": "to say the main points of something in a short way",
+      "note": "在這篇裡，To sum up 是講者在簡報最後的收尾用語，用來引出三個重點，是商務簡報很常見的結尾說法。",
+      "pattern": "To sum up, + 句子 / sum up + N",
+      "grammar_note": "受詞是名詞時可放中間或後面（sum up the results / sum the results up）；受詞是代名詞時一定要放中間，說 sum it up，不說 sum up it。",
+      "examples": [
+        {
+          "tag": "簡報",
+          "en": "To sum up, our new plan will save time and money.",
+          "zh": "總結來說，我們的新計畫能省時間也省錢。"
+        },
+        {
+          "tag": "會議",
+          "en": "Let me sum up what we agreed on today.",
+          "zh": "讓我總結一下我們今天同意的事項。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Could you sum up the report in one page?",
+          "zh": "你可以把這份報告總結成一頁嗎？"
+        },
+        {
+          "tag": "報告",
+          "en": "I will sum up the main results in the last slide.",
+          "zh": "我會在最後一張投影片總結主要結果。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "in conclusion",
+          "diff": "語氣較正式，多用在報告或演講的最後；to sum up 在一般會議與簡報中都很常用。",
+          "example": {
+            "en": "In conclusion, we recommend moving the launch to May.",
+            "zh": "總結來說，我們建議把上市時間改到五月。"
+          }
+        },
+        {
+          "phrase": "to summarize",
+          "diff": "意思和 to sum up 幾乎相同，但 to summarize 比較書面，sum up 較口語自然。",
+          "example": {
+            "en": "To summarize, the project is on time and on budget.",
+            "zh": "總結來說，專案準時完成，也沒有超出預算。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "add up",
+          "diff": "add up 是「把數字加起來、合計」；sum up 是用幾句話「總結重點」。",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "Please add up the costs before sending the final quote.",
+            "zh": "寄出最終報價前，請先把成本加總。"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1226,6 +1226,7 @@ function mtItems() {
   return [
     { on: "dnNav('marks')", on_: v === 'marks', t: '📌 入庫彙整', sub: dnMarks().length + ' 個字' },
     { on: "dnNav('nw')", on_: v === 'nw', t: '🆕 新單字', sub: nwN + ' 個' },
+    { on: "dnNav('groups')", on_: v === 'groups', t: '🔗 深入詳解', sub: typeof gpCounts === 'function' ? '待生成 ' + gpCounts().todo : '', cls: typeof gpCounts === 'function' && gpCounts().todo ? amber : '' },
     { on: 'openAudio()', on_: v === 'audio', t: '🎧 音檔／Timing', sub: aud == null ? '未讀到 mp3 清單' : '未完成 ' + aud, cls: aud ? amber : '' },
     { on: "dnNav('reports')", on_: v === 'reports', t: '⚑ 回報彙整', sub: '待處理 ' + dnOpenRpN(), cls: dnOpenRpN() ? warn : '' },
     { on: 'openTrash()', on_: v === 'trash', t: '🗑 Trash', sub: trItems().length + ' 筆' },
@@ -1933,7 +1934,7 @@ function render() {
   document.documentElement.classList.toggle('dark', S.dark);
   document.body.dataset.view = cur.view; // 供 CSS 依頁面調整（例如詳解頁的 🔊／🎙 加大）
   renderSide();
-  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, trash: renderTrash, recs: skRecsRender, drafts: renderDrafts, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail, nw: nwRender };
+  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, trash: renderTrash, recs: skRecsRender, drafts: renderDrafts, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail, nw: nwRender, groups: gpRender };
   (V[cur.view] || renderDay)();
   if (Sp.mode === 'audio' && Sp.au && Sp.id) spHl(Sp.id, Sp.au.currentTime);
   dnSyncBar();

@@ -1,0 +1,68 @@
+{
+ "week": 6,
+ "day": 9,
+ "extra_vocab": [
+  {
+   "text": "billing cycle",
+   "type": "phrase",
+   "zh": "計費週期、帳單週期",
+   "en": "the regular period of time for which a bill is made",
+   "note": "在這篇文章裡，the next billing cycle 指下一個計費週期。自動續訂關閉後，方案從下一期開始就不會再續約或自動扣款。",
+   "pattern": "for/in + the + next/current/monthly + billing cycle",
+   "grammar_note": "billing 是用來修飾 cycle 的名詞，不加 s；billing cycle 是可數名詞，常見 in the current billing cycle、for the next billing cycle。",
+   "examples": [
+    {
+     "tag": "電子郵件",
+     "en": "Your invoice will be sent at the end of each billing cycle.",
+     "zh": "你的發票會在每個計費週期結束時寄出。"
+    },
+    {
+     "tag": "客服",
+     "en": "You can change your plan before the next billing cycle starts.",
+     "zh": "你可以在下一個計費週期開始前更改方案。"
+    },
+    {
+     "tag": "會計",
+     "en": "The current billing cycle ends on the last day of the month.",
+     "zh": "目前的計費週期在這個月最後一天結束。"
+    },
+    {
+     "tag": "訂閱",
+     "en": "Cancel before the billing cycle ends to avoid another charge.",
+     "zh": "請在計費週期結束前取消，以免再被收費。"
+    }
+   ],
+   "similar": [
+    {
+     "phrase": "billing period",
+     "diff": "意思幾乎相同；billing period 強調一段期間，billing cycle 強調週期性重複。",
+     "example": {
+      "en": "The billing period for this plan is thirty days.",
+      "zh": "這個方案的計費期間是三十天。"
+     }
+    },
+    {
+     "phrase": "payment cycle",
+     "diff": "payment cycle 側重多久付一次款，常用在公司付供應商的時程。",
+     "example": {
+      "en": "Suppliers are paid on a monthly payment cycle.",
+      "zh": "供應商依每月付款週期收到款項。"
+     }
+    }
+   ],
+   "confusable": [
+    {
+     "phrase": "business cycle",
+     "diff": "business cycle 是「景氣循環」，指經濟的起伏；billing cycle 是帳單的週期。",
+     "kind": [
+      "meaning"
+     ],
+     "example": {
+      "en": "The business cycle affects how much customers spend each year.",
+      "zh": "景氣循環會影響客戶每年的消費金額。"
+     }
+    }
+   ]
+  }
+ ]
+}

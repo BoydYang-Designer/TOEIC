@@ -1,0 +1,354 @@
+{
+ "week": 3,
+ "day": 11,
+ "extra_vocab": [
+  {
+   "text": "arrive",
+   "type": "word",
+   "ipa": "/əˈraɪv/",
+   "pos": "v.",
+   "zh": "到達",
+   "en": "to get to a place",
+   "note": "文章用的是 arrives（第三人稱單數）：a family arrives at their destination，指家庭抵達旅遊地點的時間點，接著引出租車的情境。",
+   "grammar_note": "arrive 是不及物動詞，後面不能直接接地點：小地點用 arrive at（the airport），大地方用 arrive in（Taipei）。想直接接地點可改用 reach。",
+   "forms": [
+    {
+     "w": "arrives",
+     "label": "第三人稱單數",
+     "pos": "v.",
+     "zh": "到達",
+     "ipa": "/əˈraɪvz/",
+     "example": {
+      "en": "The train arrives at the station at nine every morning.",
+      "zh": "這班火車每天早上九點到站。"
+     }
+    },
+    {
+     "w": "arrived",
+     "label": "過去式／過去分詞",
+     "pos": "v.",
+     "zh": "到達了",
+     "ipa": "/əˈraɪvd/",
+     "example": {
+      "en": "Our guests arrived early, so the meeting started on time.",
+      "zh": "我們的客人提早到，所以會議準時開始。"
+     }
+    },
+    {
+     "w": "arriving",
+     "label": "現在分詞",
+     "pos": "v.",
+     "zh": "正在到達、將到達",
+     "ipa": "/əˈraɪvɪŋ/",
+     "example": {
+      "en": "Customers arriving after six will need to wait outside.",
+      "zh": "六點之後到的顧客需要在外面等候。"
+     }
+    }
+   ],
+   "collocations": [
+    {
+     "phrase": "arrive at",
+     "zh": "到達（某地點）",
+     "example": {
+      "en": "Guests arrive at the hotel between two and four.",
+      "zh": "客人會在兩點到四點之間抵達飯店。"
+     }
+    },
+    {
+     "phrase": "arrive on time",
+     "zh": "準時抵達",
+     "example": {
+      "en": "The trains here always arrive on time.",
+      "zh": "這裡的火車總是準時抵達。"
+     }
+    },
+    {
+     "phrase": "arrive late",
+     "zh": "遲到",
+     "example": {
+      "en": "Staff who arrive late must sign in at reception.",
+      "zh": "遲到的員工必須到櫃檯簽到。"
+     }
+    }
+   ],
+   "examples": [
+    {
+     "tag": "出差",
+     "en": "We will arrive in Singapore on Monday morning.",
+     "zh": "我們會在星期一早上抵達新加坡。"
+    },
+    {
+     "tag": "物流",
+     "en": "The shipment should arrive within three business days.",
+     "zh": "這批貨應該會在三個工作天內送達。"
+    },
+    {
+     "tag": "會議",
+     "en": "Please arrive ten minutes early to register at the desk.",
+     "zh": "請提早十分鐘到，在櫃檯完成報到。"
+    }
+   ],
+   "confusable": [
+    {
+     "word": "arise",
+     "diff": "arise 是「（問題、狀況）出現」，主詞通常是 problem、issue；arrive 是人或物到達某地。",
+     "kind": [
+      "spell",
+      "sound"
+     ],
+     "example": {
+      "en": "If any problems arise, please call me right away.",
+      "zh": "如果出現任何問題，請立刻打給我。"
+     }
+    }
+   ],
+   "similar": [
+    {
+     "phrase": "reach",
+     "diff": "reach 是及物動詞，後面直接接地點，不加 at / in。",
+     "example": {
+      "en": "We should reach the factory before noon.",
+      "zh": "我們應該在中午前抵達工廠。"
+     }
+    },
+    {
+     "phrase": "get to",
+     "diff": "get to 比較口語，日常對話中常用。",
+     "example": {
+      "en": "We got to the office before the clients did.",
+      "zh": "我們比客戶早到辦公室。"
+     }
+    }
+   ],
+   "family": [
+    {
+     "w": "depart",
+     "pos": "v.",
+     "zh": "出發、離開",
+     "ipa": "/dɪˈpɑːrt/",
+     "example": {
+      "en": "The flight departs from Gate 12 at six.",
+      "zh": "這班飛機六點從十二號登機門起飛。"
+     }
+    },
+    {
+     "w": "land",
+     "pos": "v.",
+     "zh": "降落",
+     "ipa": "/lænd/",
+     "example": {
+      "en": "Our plane will land in Seoul at noon.",
+      "zh": "我們的飛機中午會降落在首爾。"
+     }
+    }
+   ],
+   "derived": [
+    {
+     "w": "arrival",
+     "pos": "n.",
+     "zh": "到達",
+     "ipa": "/əˈraɪvəl/",
+     "link": "arrive + -al，動詞變名詞，像 approve → approval"
+    }
+   ],
+   "pos_uses": [],
+   "senses": [
+    {
+     "pos": "v.",
+     "zh": "到達（某地）",
+     "en": "to get to a place",
+     "in_passage": true,
+     "example": {
+      "en": "Delegates arrived from five countries for the trade fair.",
+      "zh": "代表們從五個國家來參加貿易展。"
+     }
+    },
+    {
+     "pos": "v.",
+     "zh": "得出（決定、結論）",
+     "en": "to reach a decision after thinking or talking",
+     "distinguish": "後面接 a decision / a conclusion 時，不是移動，而是「做出決定」。",
+     "example": {
+      "en": "After a long meeting, we arrived at a decision.",
+      "zh": "開了很久的會之後，我們做出了決定。"
+     }
+    },
+    {
+     "pos": "v.",
+     "zh": "送到、上市",
+     "en": "to be delivered or to become available",
+     "distinguish": "主詞是物品或產品時，表示送達或開始販售。",
+     "example": {
+      "en": "The new model will arrive in stores next month.",
+      "zh": "新機型下個月會在店裡上市。"
+     }
+    }
+   ]
+  },
+  {
+   "text": "current",
+   "type": "word",
+   "ipa": "/ˈkɜːrənt/",
+   "pos": "adj.",
+   "zh": "目前的、現行的",
+   "en": "happening or being used now",
+   "note": "在這篇是 our current prototype（目前的原型機），暗示它還在改良中，所以後面才說兩側可能不會同時釋放。",
+   "grammar_note": "current 是形容詞，修飾名詞（our current prototype）；要修飾動詞或整句時用副詞 currently。",
+   "forms": [],
+   "collocations": [
+    {
+     "phrase": "current version",
+     "zh": "目前的版本",
+     "example": {
+      "en": "Make sure you are using the current version of the software.",
+      "zh": "請確認你使用的是軟體的目前版本。"
+     }
+    },
+    {
+     "phrase": "current status",
+     "zh": "目前狀態",
+     "example": {
+      "en": "Please report the current status of the order by noon.",
+      "zh": "請在中午前回報訂單目前的狀態。"
+     }
+    },
+    {
+     "phrase": "current customers",
+     "zh": "現有客戶",
+     "example": {
+      "en": "We offer a special discount to our current customers.",
+      "zh": "我們對現有客戶提供特別折扣。"
+     }
+    },
+    {
+     "phrase": "current trends",
+     "zh": "目前的趨勢",
+     "example": {
+      "en": "The report describes current trends in online shopping.",
+      "zh": "這份報告說明了網路購物的目前趨勢。"
+     }
+    }
+   ],
+   "examples": [
+    {
+     "tag": "會議",
+     "en": "Let's review our current sales figures before we plan.",
+     "zh": "在我們做計畫之前，先檢視目前的銷售數字。"
+    },
+    {
+     "tag": "電子郵件",
+     "en": "Please update your current address in the customer system.",
+     "zh": "請在客戶系統中更新你目前的地址。"
+    },
+    {
+     "tag": "產品",
+     "en": "The current model uses less energy than the old one.",
+     "zh": "現行機型比舊款更省電。"
+    }
+   ],
+   "confusable": [
+    {
+     "word": "recent",
+     "diff": "recent 指「不久前才發生的」；current 指「現在正在進行或使用的」。",
+     "kind": [
+      "meaning"
+     ],
+     "example": {
+      "en": "We received a recent report about customer complaints.",
+      "zh": "我們收到一份關於客戶抱怨的近期報告。"
+     }
+    },
+    {
+     "word": "actual",
+     "diff": "actual 是「實際的、真實的」，不是「現在的」；中文常誤把「實際」當成 current。",
+     "kind": [
+      "zhsame"
+     ],
+     "example": {
+      "en": "The actual cost was higher than our estimate.",
+      "zh": "實際成本比我們的估計高。"
+     }
+    }
+   ],
+   "similar": [
+    {
+     "phrase": "present",
+     "diff": "present 當「目前的」較正式，通常放在名詞前。",
+     "example": {
+      "en": "The present situation requires a quick decision.",
+      "zh": "目前的情況需要盡快做決定。"
+     }
+    },
+    {
+     "phrase": "existing",
+     "diff": "existing 強調「已經存在、現有的」，常和 new 相對。",
+     "example": {
+      "en": "We will first improve our existing products.",
+      "zh": "我們會先改善現有的產品。"
+     }
+    }
+   ],
+   "family": [
+    {
+     "w": "latest",
+     "pos": "adj.",
+     "zh": "最新的",
+     "ipa": "/ˈleɪtɪst/",
+     "example": {
+      "en": "Have you seen the latest sales report?",
+      "zh": "你看過最新的銷售報告了嗎？"
+     }
+    },
+    {
+     "w": "ongoing",
+     "pos": "adj.",
+     "zh": "進行中的",
+     "ipa": "/ˈɑːnɡoʊɪŋ/",
+     "example": {
+      "en": "We have an ongoing project with this supplier.",
+      "zh": "我們和這家供應商有一個進行中的專案。"
+     }
+    }
+   ],
+   "derived": [
+    {
+     "w": "currently",
+     "pos": "adv.",
+     "zh": "目前、現在",
+     "ipa": "/ˈkɜːrəntli/",
+     "link": "current + -ly，變成副詞，像 quick → quickly"
+    },
+    {
+     "w": "currency",
+     "pos": "n.",
+     "zh": "貨幣",
+     "ipa": "/ˈkɜːrənsi/",
+     "link": "current + -cy，像 accurate → accuracy；本來是「流通的東西」，後來指貨幣"
+    }
+   ],
+   "pos_uses": [
+    {
+     "pos": "adj.",
+     "ipa": "/ˈkɜːrənt/",
+     "zh": "目前的、現行的",
+     "in_passage": true,
+     "example": {
+      "en": "What is the current status of the project?",
+      "zh": "這個專案目前的進度如何？"
+     }
+    },
+    {
+     "pos": "n.",
+     "ipa": "/ˈkɜːrənt/",
+     "zh": "電流、水流",
+     "example": {
+      "en": "The device stops working if the electric current is too high.",
+      "zh": "電流太大時，這個裝置就會停止運作。"
+     }
+    }
+   ],
+   "senses": []
+  }
+ ]
+}

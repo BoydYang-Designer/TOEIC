@@ -1,0 +1,438 @@
+{
+  "week": 1,
+  "day": 10,
+  "extra_vocab": [
+    {
+      "text": "disengage",
+      "type": "word",
+      "ipa": "/ˌdɪsɪnˈɡeɪdʒ/",
+      "pos": "v.",
+      "zh": "解除（連結或鎖定）、鬆開",
+      "en": "to make one part come apart from another part",
+      "note": "在這篇文章裡，press a release button to disengage the hook 指按下釋放按鈕，讓掛鉤鬆開。講者說明這款推車沒有掛鉤，所以展開前不需要這個步驟。",
+      "grammar_note": "disengage 的 dis- 表示相反，是 engage（接合）的反義。可直接接受詞（disengage the hook），也可用 disengage from 表示脫離。",
+      "forms": [
+        {
+          "w": "disengages",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "鬆開",
+          "ipa": "/ˌdɪsɪnˈɡeɪdʒɪz/",
+          "example": {
+            "en": "The lock disengages when you press the green button.",
+            "zh": "你按下綠色按鈕時，鎖就會鬆開。"
+          }
+        },
+        {
+          "w": "disengaged",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "鬆開了",
+          "ipa": "/ˌdɪsɪnˈɡeɪdʒd/",
+          "example": {
+            "en": "The driver disengaged the brake before moving the truck.",
+            "zh": "司機在移動卡車前先放開了煞車。"
+          }
+        },
+        {
+          "w": "disengaging",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在鬆開",
+          "ipa": "/ˌdɪsɪnˈɡeɪdʒɪŋ/",
+          "example": {
+            "en": "Disengaging the lock too fast may damage the frame.",
+            "zh": "太快鬆開鎖可能會損壞車架。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "disengage the lock",
+          "zh": "解除鎖定",
+          "example": {
+            "en": "Pull the lever to disengage the lock before opening the cover.",
+            "zh": "打開蓋子前，請拉動拉桿來解除鎖定。"
+          }
+        },
+        {
+          "phrase": "disengage the clutch",
+          "zh": "鬆開離合器",
+          "example": {
+            "en": "Drivers should disengage the clutch before changing gears.",
+            "zh": "駕駛在換檔前應該先鬆開離合器。"
+          }
+        },
+        {
+          "phrase": "disengage from",
+          "zh": "脫離、不再參與",
+          "example": {
+            "en": "Some workers disengage from meetings when the goals are unclear.",
+            "zh": "目標不明確時，有些員工會不再投入會議。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "設備",
+          "en": "Press the red button to disengage the safety lock on the machine.",
+          "zh": "按下紅色按鈕，就能解除機器上的安全鎖。"
+        },
+        {
+          "tag": "職場",
+          "en": "Staff may disengage from their work when they feel ignored.",
+          "zh": "員工覺得被忽視時，可能會對工作失去投入。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "engage",
+          "diff": "engage 是「接合、使參與」，和 disengage 意思相反。",
+          "kind": [
+            "root"
+          ],
+          "example": {
+            "en": "Press the pedal to engage the brake on the cart.",
+            "zh": "踩下踏板，讓推車的煞車接合。"
+          }
+        },
+        {
+          "word": "disagree",
+          "diff": "disagree 是「不同意」，拼法開頭相近，和鬆開機構無關。",
+          "kind": [
+            "spell"
+          ],
+          "example": {
+            "en": "Some managers disagree with the new work schedule.",
+            "zh": "有些主管不同意新的工作時程。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "release",
+          "diff": "release 是「放開、釋放」，語氣較一般；disengage 強調解除機構的連結。",
+          "example": {
+            "en": "Release the lock by turning the knob to the left.",
+            "zh": "把旋鈕向左轉，就能放開鎖。"
+          }
+        },
+        {
+          "word": "detach",
+          "diff": "detach 是把某部分整個拆下來，disengage 只是鬆開連結，不一定拆下。",
+          "example": {
+            "en": "You can detach the cover to wash it.",
+            "zh": "你可以把護套拆下來清洗。"
+          }
+        },
+        {
+          "word": "unlock",
+          "diff": "unlock 通常指用鑰匙或密碼開鎖，disengage 多用於機械的鎖定機構。",
+          "example": {
+            "en": "Use the key to unlock the cabinet door.",
+            "zh": "用鑰匙把櫃門打開。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "engage",
+          "pos": "v.",
+          "zh": "接合、吸引",
+          "ipa": "/ɪnˈɡeɪdʒ/",
+          "example": {
+            "en": "The new design aims to engage young customers.",
+            "zh": "這個新設計的目標是吸引年輕顧客。"
+          }
+        },
+        {
+          "w": "connect",
+          "pos": "v.",
+          "zh": "連接",
+          "ipa": "/kəˈnekt/",
+          "example": {
+            "en": "Connect the cable to the port on the back.",
+            "zh": "請把纜線接到背面的連接埠。"
+          }
+        },
+        {
+          "w": "detach",
+          "pos": "v.",
+          "zh": "拆下、分開",
+          "ipa": "/dɪˈtætʃ/",
+          "example": {
+            "en": "Detach the form at the bottom and keep one copy.",
+            "zh": "請撕下底部的表格並保留一份。"
+          }
+        },
+        {
+          "w": "unlock",
+          "pos": "v.",
+          "zh": "解鎖",
+          "ipa": "/ʌnˈlɑːk/",
+          "example": {
+            "en": "Staff can unlock the door with their ID cards.",
+            "zh": "員工可以用識別證打開門鎖。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "engage",
+          "ipa": "/ɪnˈɡeɪdʒ/",
+          "pos": "v.",
+          "zh": "接合、使參與",
+          "link": "最基礎的詞幹；加 dis- 表示相反，像 connect → disconnect"
+        },
+        {
+          "w": "disengagement",
+          "ipa": "/ˌdɪsɪnˈɡeɪdʒmənt/",
+          "pos": "n.",
+          "zh": "脫離、鬆開",
+          "link": "disengage + -ment，把動作變成名詞，像 agree → agreement"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "zh": "解開、鬆開（機械）",
+          "en": "to make a part come apart from another part",
+          "in_passage": true,
+          "example": {
+            "en": "Press the button to disengage the hook.",
+            "zh": "按下按鈕就能讓掛鉤鬆開。"
+          }
+        },
+        {
+          "pos": "v.",
+          "zh": "抽離、不再投入",
+          "en": "to stop being involved in something",
+          "distinguish": "主詞是人、受詞是工作或活動時，指心理或行動上的抽離。",
+          "example": {
+            "en": "Some employees disengage from work when goals keep changing.",
+            "zh": "目標一直改變時，有些員工會對工作失去投入。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "reverse",
+      "type": "word",
+      "ipa": "/rɪˈvɜːrs/",
+      "pos": "n.",
+      "zh": "相反、反向",
+      "en": "the opposite way or order of something",
+      "note": "在這篇文章裡，Unfolding is simply the reverse of the folding process 指展開的步驟就是把摺疊步驟反過來做，所以不需要另外學一套流程。reverse 在這裡是名詞，前面有 the。",
+      "grammar_note": "the reverse of 後面接名詞或動名詞，表示「…的相反」；in reverse 表示「以相反的順序或方向」。",
+      "forms": [
+        {
+          "w": "reverses",
+          "label": "第三人稱單數／複數",
+          "pos": "v.",
+          "zh": "倒轉",
+          "ipa": "/rɪˈvɜːrsɪz/",
+          "example": {
+            "en": "The manager reverses the order of the slides for each new group.",
+            "zh": "經理會為每個新團體把投影片的順序倒過來。"
+          }
+        },
+        {
+          "w": "reversed",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "倒轉了",
+          "ipa": "/rɪˈvɜːrst/",
+          "example": {
+            "en": "The company reversed its decision about the new price list.",
+            "zh": "公司推翻了關於新價目表的決定。"
+          }
+        },
+        {
+          "w": "reversing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在倒轉",
+          "ipa": "/rɪˈvɜːrsɪŋ/",
+          "example": {
+            "en": "Reversing the truck into the loading area requires great care.",
+            "zh": "把卡車倒進裝貨區需要非常小心。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "the reverse of",
+          "zh": "…的相反",
+          "example": {
+            "en": "The result was the reverse of what the team expected.",
+            "zh": "結果和團隊預期的正好相反。"
+          }
+        },
+        {
+          "phrase": "in reverse order",
+          "zh": "以相反的順序",
+          "example": {
+            "en": "The files are listed in reverse order, starting with the newest.",
+            "zh": "檔案以相反的順序列出，最新的排在最前面。"
+          }
+        },
+        {
+          "phrase": "reverse side",
+          "zh": "背面",
+          "example": {
+            "en": "Please sign the reverse side of the form before you return it.",
+            "zh": "交回表格前，請在背面簽名。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "流程",
+          "en": "To cancel the change, simply follow the steps in reverse.",
+          "zh": "要取消這項變更，只要把步驟反過來做即可。"
+        },
+        {
+          "tag": "表格",
+          "en": "Please read the notes on the reverse of this page.",
+          "zh": "請閱讀這一頁背面的說明。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "reserve",
+          "diff": "reserve 是「預訂、保留」，拼法與發音相近，和反向無關。",
+          "kind": [
+            "spell",
+            "sound"
+          ],
+          "example": {
+            "en": "I would like to reserve a table for six people tonight.",
+            "zh": "我想預訂今晚六個人的位子。"
+          }
+        },
+        {
+          "word": "revise",
+          "diff": "revise 是「修訂」，拼法開頭相近，意思和 reverse 不同。",
+          "kind": [
+            "spell"
+          ],
+          "example": {
+            "en": "Please revise the schedule before the meeting begins.",
+            "zh": "請在會議開始前修訂時程表。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "opposite",
+          "diff": "opposite 是「相反的事物」，常用來比較；reverse 強調順序或方向反過來。",
+          "example": {
+            "en": "The opposite of increase is decrease in this sales report.",
+            "zh": "在這份銷售報告中，increase 的相反是 decrease。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "opposite",
+          "pos": "adj.",
+          "zh": "相反的",
+          "ipa": "/ˈɑːpəzɪt/",
+          "example": {
+            "en": "The two offices are on opposite sides of the building.",
+            "zh": "這兩間辦公室位於大樓的相反兩側。"
+          }
+        },
+        {
+          "w": "backward",
+          "pos": "adv.",
+          "zh": "向後地",
+          "ipa": "/ˈbækwɚd/",
+          "example": {
+            "en": "Please do not move the cart backward in the hallway.",
+            "zh": "請不要在走廊上把推車往後推。"
+          }
+        },
+        {
+          "w": "undo",
+          "pos": "v.",
+          "zh": "取消、復原",
+          "ipa": "/ʌnˈduː/",
+          "example": {
+            "en": "Click here to undo your last change to the file.",
+            "zh": "點擊這裡可取消你對檔案所做的最後一次變更。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "reversal",
+          "ipa": "/rɪˈvɜːrsl/",
+          "pos": "n.",
+          "zh": "逆轉、反轉",
+          "link": "reverse + -al，把動作變成名詞，像 arrive → arrival"
+        },
+        {
+          "w": "reversible",
+          "ipa": "/rɪˈvɜːrsəbl/",
+          "pos": "adj.",
+          "zh": "可反過來的",
+          "link": "reverse + -ible，可以…的，像 comfortable、flexible"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/rɪˈvɜːrs/",
+          "zh": "相反、反向",
+          "in_passage": true,
+          "example": {
+            "en": "The result was the reverse of what we had planned.",
+            "zh": "結果與我們原本的計畫正好相反。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/rɪˈvɜːrs/",
+          "zh": "倒轉、推翻",
+          "example": {
+            "en": "The company decided to reverse its earlier decision about the price.",
+            "zh": "公司決定推翻先前關於價格的決定。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/rɪˈvɜːrs/",
+          "zh": "相反的、反向的",
+          "example": {
+            "en": "The files are listed in reverse order, starting with the newest.",
+            "zh": "檔案以相反順序列出，最新的排在最前面。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "zh": "相反、反向",
+          "en": "the opposite of something",
+          "in_passage": true,
+          "example": {
+            "en": "Folding is the reverse of unfolding.",
+            "zh": "摺疊是展開的相反動作。"
+          }
+        },
+        {
+          "pos": "n.",
+          "zh": "背面",
+          "en": "the back side of something",
+          "distinguish": "後面常接物品（如 check、card、page），指另一面。",
+          "example": {
+            "en": "Sign your name on the reverse of the check.",
+            "zh": "請在支票背面簽名。"
+          }
+        }
+      ]
+    }
+  ]
+}

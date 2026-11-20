@@ -1,0 +1,190 @@
+{
+  "week": 1,
+  "day": 12,
+  "extra_vocab": [
+    {
+      "text": "simplify",
+      "type": "word",
+      "ipa": "/ˈsɪmpləˌfaɪ/",
+      "pos": "v.",
+      "zh": "簡化；使變簡單",
+      "en": "to make something easier or less complicated",
+      "note": "文中說要 simplify the mechanism，指減少零件與步驟，讓機構更簡單。是簡報中說明設計改善好處時很常用的動詞。",
+      "forms": [
+        {
+          "w": "simplifies",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "簡化",
+          "ipa": "/ˈsɪmpləˌfaɪz/",
+          "example": {
+            "en": "This new template simplifies the way we report monthly sales.",
+            "zh": "這個新範本簡化了我們回報每月銷售的方式。"
+          }
+        },
+        {
+          "w": "simplified",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "簡化了",
+          "ipa": "/ˈsɪmpləˌfaɪd/",
+          "example": {
+            "en": "The team simplified the checkout process last quarter.",
+            "zh": "團隊上一季簡化了結帳流程。"
+          }
+        },
+        {
+          "w": "simplifying",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在簡化",
+          "ipa": "/ˈsɪmpləˌfaɪɪŋ/",
+          "example": {
+            "en": "We are simplifying our price list to avoid confusion.",
+            "zh": "我們正在簡化價目表以避免混淆。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "simplify the process",
+          "zh": "簡化流程",
+          "example": {
+            "en": "A shared calendar will simplify the process of booking meeting rooms.",
+            "zh": "共用行事曆會簡化預約會議室的流程。"
+          }
+        },
+        {
+          "phrase": "simplify the design",
+          "zh": "簡化設計",
+          "example": {
+            "en": "Engineers plan to simplify the design to reduce production costs.",
+            "zh": "工程師計畫簡化設計以降低生產成本。"
+          }
+        },
+        {
+          "phrase": "simplify the procedure",
+          "zh": "簡化程序",
+          "example": {
+            "en": "Please simplify the procedure so new staff can follow it easily.",
+            "zh": "請簡化程序，讓新進員工能輕鬆照著做。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Our goal is to simplify daily work for every department.",
+          "zh": "我們的目標是簡化每個部門的日常工作。"
+        },
+        {
+          "tag": "產品開發",
+          "en": "Using fewer parts would simplify assembly and lower our costs.",
+          "zh": "使用較少的零件會簡化組裝並降低我們的成本。"
+        },
+        {
+          "tag": "客服",
+          "en": "Can we simplify the refund form to help customers finish faster?",
+          "zh": "我們能簡化退款表單，幫客戶更快填完嗎？"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "simple",
+          "diff": "simple 是形容詞「簡單的」，simplify 是動詞「使變簡單」",
+          "kind": [
+            "root"
+          ],
+          "usage": "simple 是形容詞（a simple design）；simplify 是動詞，後面接受詞（simplify the design）。",
+          "example": {
+            "en": "The instructions are simple, so anyone can follow them.",
+            "zh": "說明很簡單，所以任何人都能照做。"
+          }
+        },
+        {
+          "word": "simply",
+          "diff": "simply 是副詞，常表示「只是、僅僅」，不是「簡化」",
+          "kind": [
+            "root"
+          ],
+          "example": {
+            "en": "We simply need your signature to finish the order.",
+            "zh": "我們只需要您的簽名就能完成訂單。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "streamline",
+          "diff": "streamline 偏重讓流程更順暢有效率；simplify 偏重讓事情不那麼複雜",
+          "example": {
+            "en": "We need to streamline the ordering process to save time.",
+            "zh": "我們需要精簡訂購流程以節省時間。"
+          }
+        },
+        {
+          "phrase": "make easier",
+          "diff": "make ... easier 是較口語的說法，意思和 simplify 接近",
+          "example": {
+            "en": "Online forms make it easier for clients to apply.",
+            "zh": "線上表單讓客戶更容易申請。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "reduce",
+          "pos": "v.",
+          "zh": "減少",
+          "ipa": "/rɪˈdus/",
+          "example": {
+            "en": "Simpler packaging can reduce our shipping costs by ten percent.",
+            "zh": "更簡單的包裝可以讓我們的運費減少百分之十。"
+          }
+        },
+        {
+          "w": "improve",
+          "pos": "v.",
+          "zh": "改善",
+          "ipa": "/ɪmˈpruv/",
+          "example": {
+            "en": "The update should improve the speed of the whole system.",
+            "zh": "這次更新應該能提升整個系統的速度。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "simple",
+          "ipa": "/ˈsɪmpəl/",
+          "pos": "adj.",
+          "zh": "簡單的",
+          "link": "simple 是詞幹；simplify = simple + -ify（使變成…），像 clarify（使清楚）"
+        },
+        {
+          "w": "simply",
+          "ipa": "/ˈsɪmpli/",
+          "pos": "adv.",
+          "zh": "簡單地；只是",
+          "link": "simple + -ly 變副詞，像 quickly、easily"
+        },
+        {
+          "w": "simplicity",
+          "ipa": "/sɪmˈplɪsəti/",
+          "pos": "n.",
+          "zh": "簡單；簡易",
+          "link": "simple 變名詞，表示「簡單的狀態」"
+        },
+        {
+          "w": "simplification",
+          "ipa": "/ˌsɪmpləfəˈkeɪʃən/",
+          "pos": "n.",
+          "zh": "簡化",
+          "link": "simplify 去 y 加 -ication，像 apply → application"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "week": 6,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "🎙prorate",
+      "type": "word",
+      "ipa": "/ˌproʊˈreɪt/",
+      "pos": "v.",
+      "zh": "按比例分配、按比例計算",
+      "en": "to divide or charge an amount by how much time or how much of something is used",
+      "note": "文章裡的 prorated refund（按比例退款）就是由這個動詞變來的，prorated 是它的過去分詞當形容詞用。意思是只算使用的那一段時間，如按天或按月計算費用、薪資、租金與保險費。",
+      "grammar_note": "prorate 是及物動詞，商務文件裡常用被動：The fee will be prorated；說明依據時用 based on 或 by + 時間單位，如 prorated by the day。",
+      "forms": [
+        {
+          "w": "prorates",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "按比例計算",
+          "ipa": "/ˌproʊˈreɪts/",
+          "example": { "en": "Our billing system automatically prorates the cost of mid-month upgrades.", "zh": "我們的計費系統會自動按比例計算月中升級的費用。" }
+        },
+        {
+          "w": "prorated",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "按比例計算",
+          "ipa": "/ˌproʊˈreɪtɪd/",
+          "example": { "en": "The accountant prorated the insurance cost over the remaining six months.", "zh": "會計把保險費按比例分攤到剩下的六個月。" }
+        },
+        {
+          "w": "prorated",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "按比例計算的",
+          "ipa": "/ˌproʊˈreɪtɪd/",
+          "example": { "en": "You will see a prorated charge on your next invoice.", "zh": "您會在下一張發票上看到一筆按比例計算的費用。" }
+        },
+        {
+          "w": "prorating",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "按比例計算",
+          "ipa": "/ˌproʊˈreɪtɪŋ/",
+          "example": { "en": "Prorating the fees by the day makes the bill fairer.", "zh": "按天依比例計算費用，讓帳單更公平。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "prorate the fee",
+          "zh": "按比例計算費用",
+          "example": { "en": "The company will prorate the fee when you upgrade your plan.", "zh": "您升級方案時，公司會按比例計算費用。" }
+        },
+        {
+          "phrase": "be prorated",
+          "zh": "被按比例計算",
+          "example": { "en": "The annual fee will be prorated if you join in July.", "zh": "如果你七月加入，年費會按比例計算。" }
+        },
+        {
+          "phrase": "prorate based on",
+          "zh": "依…按比例計算",
+          "example": { "en": "Refunds are prorated based on the number of unused days.", "zh": "退款依未使用的天數按比例計算。" }
+        }
+      ],
+      "examples": [
+        { "tag": "帳單", "en": "We will prorate the fee for the days you used the service.", "zh": "我們會依您使用服務的天數按比例計費。" },
+        { "tag": "租約", "en": "The landlord agreed to prorate the rent for the first month.", "zh": "房東同意把第一個月的租金按比例計算。" },
+        { "tag": "薪資", "en": "Payroll will prorate your salary if you start on the fifteenth.", "zh": "如果你從十五號開始上班，薪資部門會按比例計算你的薪水。" },
+        { "tag": "保險", "en": "Insurers usually prorate the premium when a policy is canceled early.", "zh": "保單提早取消時，保險公司通常會按比例計算保費。" }
+      ],
+      "confusable": [
+        {
+          "word": "promote",
+          "diff": "promote /prəˈmoʊt/ 是「升遷、促銷」，拼法開頭都是 pro-，但意思完全不同。",
+          "example": { "en": "The company plans to promote two managers next month.", "zh": "公司計畫下個月升遷兩位經理。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "apportion",
+          "diff": "apportion 是「分配、分攤」，較正式，重點在分給各方；prorate 重點在依時間或比例計算金額。",
+          "example": { "en": "Costs are apportioned among the three departments.", "zh": "成本由三個部門分攤。" }
+        },
+        {
+          "word": "split",
+          "diff": "split 是口語的「分攤」，不一定依比例，常是平分；prorate 一定按比例。",
+          "example": { "en": "We will split the cost of the venue equally.", "zh": "我們會平分場地的費用。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "calculate",
+          "pos": "v.",
+          "zh": "計算",
+          "ipa": "/ˈkælkjəleɪt/",
+          "example": { "en": "The system calculates the total cost automatically.", "zh": "系統會自動計算總費用。" }
+        },
+        {
+          "w": "adjust",
+          "pos": "v.",
+          "zh": "調整",
+          "ipa": "/əˈdʒʌst/",
+          "example": { "en": "We adjust the price when the order size changes.", "zh": "訂單數量改變時，我們會調整價格。" }
+        },
+        {
+          "w": "fee",
+          "pos": "n.",
+          "zh": "費用",
+          "ipa": "/fiː/",
+          "example": { "en": "A small service fee applies to every transaction.", "zh": "每筆交易都要收取少額服務費。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "proration",
+          "ipa": "/proʊˈreɪʃn/",
+          "pos": "n.",
+          "zh": "按比例分配、按比例計算",
+          "link": "prorate 去掉 e + -ion，動詞變名詞，像 create → creation"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
