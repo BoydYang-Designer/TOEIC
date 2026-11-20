@@ -3,223 +3,166 @@
   "day": 8,
   "extra_vocab": [
     {
-      "text": "analogy",
+      "text": "acknowledge",
       "type": "word",
-      "ipa": "/əˈnælədʒi/",
-      "pos": "n.",
-      "zh": "類比、比喻",
-      "en": "a comparison that explains one thing by showing how it is like another",
-      "note": "講者用 analogy 引出「開車旅行」的比喻，來說明批判思考和策略思考的差別。在商務簡報與培訓中，analogy 常用來把抽象的概念講得好懂。",
-      "grammar_note": "常用 an analogy 或 use an analogy；「A 和 B 的類比」是 an analogy between A and B，介系詞用 between，不用 of。",
+      "ipa": "/əkˈnɑːlɪdʒ/",
+      "pos": "v.",
+      "zh": "承認；確認收到；表示感謝",
+      "en": "to accept or say that something is true, or to say you have received it",
+      "note": "在商務情境裡語氣中性又正式：可以是承認問題或錯誤，也可以是「確認收到」某封信或訂單。讀到 acknowledge 時，先看後面接的是事實、錯誤，還是 receipt。",
+      "grammar_note": "acknowledge 後面可接名詞、that 子句或 V-ing（如 acknowledge receiving），不接 to V。",
       "forms": [
-        { "w": "analogies", "label": "複數", "pos": "n.", "zh": "類比（複數）", "ipa": "/əˈnælədʒiz/", "example": { "en": "The trainer used simple analogies to explain the new sales plan.", "zh": "培訓講師用簡單的比喻來說明新的銷售計畫。" } }
+        { "w": "acknowledges", "label": "第三人稱單數", "pos": "v.", "zh": "確認、承認", "ipa": "/əkˈnɑːlɪdʒɪz/", "example": { "en": "The system acknowledges every order as soon as it arrives.", "zh": "系統一收到訂單就會確認每一筆。" } },
+        { "w": "acknowledged", "label": "過去式／過去分詞", "pos": "v.", "zh": "承認了、確認了", "ipa": "/əkˈnɑːlɪdʒd/", "example": { "en": "The manager acknowledged the delay and apologized to the client.", "zh": "經理承認有延誤，並向客戶道歉。" } },
+        { "w": "acknowledging", "label": "現在分詞", "pos": "v.", "zh": "確認、承認（進行中）", "ipa": "/əkˈnɑːlɪdʒɪŋ/", "example": { "en": "Thank you for acknowledging our request so quickly.", "zh": "謝謝你這麼快就回覆確認我們的要求。" } }
       ],
       "collocations": [
-        { "phrase": "use an analogy", "zh": "使用類比", "example": { "en": "She used an analogy to explain how the budget works.", "zh": "她用了一個比喻來解釋預算是怎麼運作的。" } },
-        { "phrase": "draw an analogy", "zh": "做類比", "example": { "en": "Managers often draw an analogy between a team and a sports club.", "zh": "經理們常把團隊和運動俱樂部做類比。" } },
-        { "phrase": "an analogy between A and B", "zh": "A 與 B 之間的類比", "example": { "en": "There is an analogy between running a store and driving a car.", "zh": "經營一家店和開車之間可以做類比。" } }
+        { "phrase": "acknowledge receipt of", "zh": "確認收到……", "example": { "en": "Please acknowledge receipt of this email by replying today.", "zh": "請於今天回信，確認收到這封郵件。" } },
+        { "phrase": "acknowledge a mistake", "zh": "承認錯誤", "example": { "en": "It is important to acknowledge a mistake and fix it quickly.", "zh": "承認錯誤並盡快改正很重要。" } },
+        { "phrase": "acknowledge the importance of", "zh": "肯定……的重要性", "example": { "en": "The team acknowledged the importance of clear communication with clients.", "zh": "團隊肯定與客戶清楚溝通的重要性。" } },
+        { "phrase": "acknowledge that + 子句", "zh": "承認／認同……", "example": { "en": "We acknowledge that the delivery was late this month.", "zh": "我們承認本月的出貨延遲了。" } }
       ],
       "examples": [
-        { "tag": "簡報", "en": "Let me give you an analogy to make this idea clearer.", "zh": "讓我舉個比喻，讓這個想法更清楚。" },
-        { "tag": "培訓", "en": "The analogy helped new staff understand the company's long-term plan.", "zh": "這個比喻幫助新進員工了解公司的長期計畫。" },
-        { "tag": "會議", "en": "That analogy is not perfect, but it shows the main point.", "zh": "這個比喻並不完美，但能說明重點。" }
+        { "tag": "電子郵件", "en": "We acknowledge your order and will ship it on Monday.", "zh": "我們已確認收到您的訂單，會在星期一出貨。" },
+        { "tag": "會議", "en": "The director acknowledged that the project needed more time.", "zh": "主管承認這個專案需要更多時間。" },
+        { "tag": "客服", "en": "The company acknowledged the problem and offered a full refund.", "zh": "公司承認有問題，並提供全額退款。" },
+        { "tag": "公告", "en": "I would like to acknowledge everyone who helped on this project.", "zh": "我想感謝所有協助這個專案的人。" }
       ],
       "confusable": [
-        { "word": "analysis", "diff": "拼法開頭很像，但 analysis 是「分析」，analogy 是「用另一件事來比喻」。", "example": { "en": "The analysis of last year's sales shows a clear trend.", "zh": "去年銷售額的分析顯示出一個明顯的趨勢。" } }
+        { "word": "knowledge", "diff": "knowledge 是名詞「知識」；acknowledge 是動詞「承認、確認」，字裡包含 knowledge，容易拼錯。", "kind": ["spell", "sound", "root"], "usage": "knowledge 是不可數名詞，不加 s；acknowledge 是動詞，前面多了 ac-。", "example": { "en": "Her knowledge of the market helped us win the contract.", "zh": "她對市場的了解幫助我們贏得合約。" } }
       ],
       "similar": [
-        { "word": "metaphor", "diff": "metaphor 是直接說 A 就是 B 的修辭；analogy 則會比較兩者的相似處，用來解釋道理。", "example": { "en": "He called the project a bridge, which is a useful metaphor.", "zh": "他把這個專案稱為一座橋，這是個很好用的比喻。" } },
-        { "word": "comparison", "diff": "comparison 只是把兩件事放在一起比較，不一定用來解釋；analogy 通常是為了說明一個概念。", "example": { "en": "A comparison of the two prices shows a big difference.", "zh": "這兩個價格的比較顯示出很大的差異。" } }
+        { "word": "admit", "diff": "admit 多半指承認不好的事（錯誤、失敗）；acknowledge 較中性、較正式，也能表示確認收到。", "example": { "en": "He admitted that the report had several serious errors.", "zh": "他承認這份報告有幾個嚴重的錯誤。" } },
+        { "word": "recognize", "diff": "recognize 常指認出某人或肯定某人的價值；acknowledge 重點在公開承認或表示收到。", "example": { "en": "The company recognized her work with a special award.", "zh": "公司以特別獎肯定她的工作表現。" } }
       ],
       "family": [
-        { "w": "metaphor", "pos": "n.", "zh": "隱喻", "ipa": "/ˈmetəfɔːr/", "example": { "en": "The speaker used a metaphor to describe the market.", "zh": "講者用一個隱喻來描述市場。" } },
-        { "w": "example", "pos": "n.", "zh": "例子", "ipa": "/ɪɡˈzæmpl/", "example": { "en": "Can you give me an example of good service?", "zh": "你可以給我一個好服務的例子嗎？" } },
-        { "w": "comparison", "pos": "n.", "zh": "比較", "ipa": "/kəmˈpærɪsn/", "example": { "en": "This chart makes the comparison between the two plans easy.", "zh": "這張圖表讓兩個方案的比較變得很容易。" } }
-      ],
-      "derived": [],
-      "pos_uses": [],
-      "senses": []
-    },
-    {
-      "text": "operational",
-      "type": "word",
-      "ipa": "/ˌɑːpəˈreɪʃənl/",
-      "pos": "adj.",
-      "zh": "營運的、作業上的",
-      "en": "related to the daily work of running a business",
-      "note": "文中說批判思考是 very operational，指它處理的是每天的日常工作與眼前的問題，和長遠的策略相對。operational 在多益常見於營運、成本、流程相關的句子。",
-      "grammar_note": "operational 放在名詞前面（operational costs），也可以放在 be 動詞後面（The system is operational），後者意思是「已經可以運作」。",
-      "forms": [],
-      "collocations": [
-        { "phrase": "operational costs", "zh": "營運成本", "example": { "en": "We must cut operational costs by ten percent this year.", "zh": "我們今年必須把營運成本降低百分之十。" } },
-        { "phrase": "operational efficiency", "zh": "營運效率", "example": { "en": "The new software will improve our operational efficiency.", "zh": "新的軟體將提高我們的營運效率。" } },
-        { "phrase": "operational issue", "zh": "營運上的問題", "example": { "en": "An operational issue delayed the shipment by two days.", "zh": "一個營運上的問題使貨物延遲了兩天。" } },
-        { "phrase": "fully operational", "zh": "完全可運作的", "example": { "en": "The new warehouse will be fully operational by March.", "zh": "新倉庫將在三月前全面開始運作。" } }
-      ],
-      "examples": [
-        { "tag": "會議", "en": "Our main concern this quarter is operational, not financial.", "zh": "我們這一季主要的考量是營運面，而不是財務面。" },
-        { "tag": "電子郵件", "en": "The operational team will update you on the delay tomorrow.", "zh": "營運團隊明天會向您說明延誤的最新狀況。" },
-        { "tag": "公告", "en": "The factory is operational again after the repair work.", "zh": "工廠在維修之後又恢復運作了。" }
-      ],
-      "confusable": [
-        { "word": "operation", "diff": "operation 是名詞，意思是「營運、操作、手術」；operational 是形容詞，用來修飾名詞。", "usage": "operation 是名詞（an operation），operational 是形容詞，後面接名詞時要用 operational costs，不能說 operation costs 來表示同樣的語氣。", "example": { "en": "The operation of the new machine is very simple.", "zh": "這台新機器的操作非常簡單。" } }
-      ],
-      "similar": [
-        { "word": "day-to-day", "diff": "強調「每天的」例行工作，口語感比 operational 強；operational 更偏商業用語。", "example": { "en": "She handles the day-to-day work of the sales office.", "zh": "她負責業務辦公室每天的日常工作。" } }
-      ],
-      "family": [
-        { "w": "daily", "pos": "adj.", "zh": "每日的", "ipa": "/ˈdeɪli/", "example": { "en": "Please send me a daily report by five o'clock.", "zh": "請在五點前寄給我一份每日報告。" } },
-        { "w": "practical", "pos": "adj.", "zh": "實際的", "ipa": "/ˈpræktɪkl/", "example": { "en": "We need a practical plan that the team can follow.", "zh": "我們需要一個團隊可以遵循的實際計畫。" } },
-        { "w": "routine", "pos": "adj.", "zh": "例行的", "ipa": "/ruːˈtiːn/", "example": { "en": "Routine checks take place every Monday morning.", "zh": "例行檢查在每週一早上進行。" } }
+        { "w": "confirm", "pos": "v.", "zh": "確認", "ipa": "/kənˈfɜːrm/", "example": { "en": "Please confirm the meeting time by tomorrow morning.", "zh": "請在明天早上前確認會議時間。" } },
+        { "w": "accept", "pos": "v.", "zh": "接受", "ipa": "/əkˈsept/", "example": { "en": "The client accepted our offer after a short discussion.", "zh": "客戶在簡短討論後接受了我們的報價。" } },
+        { "w": "respond", "pos": "v.", "zh": "回應", "ipa": "/rɪˈspɑːnd/", "example": { "en": "Please respond to this email as soon as you can.", "zh": "請盡快回覆這封電子郵件。" } },
+        { "w": "appreciate", "pos": "v.", "zh": "感謝；重視", "ipa": "/əˈpriːʃieɪt/", "example": { "en": "We appreciate your patience while we fix the problem.", "zh": "感謝您在我們處理問題期間的耐心。" } }
       ],
       "derived": [
-        { "w": "operate", "pos": "v.", "zh": "運作、操作", "ipa": "/ˈɑːpəreɪt/", "link": "最基礎的動詞，指機器運轉或公司營運，如 operate a machine" },
-        { "w": "operation", "pos": "n.", "zh": "營運、操作", "ipa": "/ˌɑːpəˈreɪʃn/", "link": "operate + -ion，動作變名詞，像 decide → decision" },
-        { "w": "operator", "pos": "n.", "zh": "操作員、接線生", "ipa": "/ˈɑːpəreɪtɚ/", "link": "operate + -or，做事的人，像 actor、visitor" },
-        { "w": "operationally", "pos": "adv.", "zh": "在營運上", "ipa": "/ˌɑːpəˈreɪʃənəli/", "link": "operational + -ly，形容詞變副詞，像 quickly、clearly" }
+        { "w": "acknowledgment", "pos": "n.", "zh": "確認（通知）；承認；致謝", "ipa": "/əkˈnɑːlɪdʒmənt/", "link": "acknowledge + -ment，把動作變成名詞，像 payment、agreement。也可拼成 acknowledgement。" }
       ],
       "pos_uses": [],
       "senses": [
-        { "pos": "adj.", "zh": "營運的、作業的", "en": "related to the daily work of running a business", "in_passage": true, "example": { "en": "Operational problems often come up during the busy season.", "zh": "旺季期間常會出現營運上的問題。" } },
-        { "pos": "adj.", "zh": "可運作的、已啟用的", "en": "working and ready to be used", "distinguish": "通常放在 be 動詞後面，說明機器、系統或設施能正常使用。", "example": { "en": "The new printer is operational and ready for everyone.", "zh": "新的印表機已經可以使用了，大家都能用。" } }
+        { "pos": "v.", "zh": "承認（事實、錯誤）", "en": "to say that something is true, especially something bad", "example": { "en": "The CEO acknowledged that sales had dropped last quarter.", "zh": "執行長承認上一季的銷售下滑了。" } },
+        { "pos": "v.", "zh": "確認收到", "en": "to tell someone you have received their message or package", "distinguish": "後面通常接 receipt of 或信件、訂單等名詞。", "example": { "en": "Please acknowledge the package as soon as it arrives.", "zh": "包裹一到，請立刻確認收到。" } },
+        { "pos": "v.", "zh": "感謝、肯定（貢獻）", "en": "to thank someone or show that you value their work", "distinguish": "後面接人或貢獻，情境多為致謝或表揚。", "example": { "en": "The report acknowledges the help of the finance team.", "zh": "這份報告對財務團隊的協助表示感謝。" } }
       ]
     },
     {
-      "text": "assess",
-      "type": "word",
-      "ipa": "/əˈses/",
-      "pos": "v.",
-      "zh": "評估、評定",
-      "en": "to think carefully about something to decide how good or serious it is",
-      "note": "文中 assessing the current situation 指批判思考是在「判斷眼前的狀況」。assess 在多益常見於風險、損害、員工表現的評估，語氣比 check 更慎重。",
-      "grammar_note": "assess 是及物動詞，後面直接接受詞（assess the risk），不需要加 on 或 about。",
-      "forms": [
-        { "w": "assesses", "label": "第三人稱單數", "pos": "v.", "zh": "評估", "ipa": "/əˈsesɪz/", "example": { "en": "The manager assesses each project before the budget meeting.", "zh": "經理在預算會議之前會評估每一個專案。" } },
-        { "w": "assessed", "label": "過去式／過去分詞", "pos": "v.", "zh": "評估", "ipa": "/əˈsest/", "example": { "en": "The engineers assessed the damage to the building yesterday.", "zh": "工程師昨天評估了大樓的受損情形。" } },
-        { "w": "assessing", "label": "現在分詞", "pos": "v.", "zh": "評估", "ipa": "/əˈsesɪŋ/", "example": { "en": "We are assessing three suppliers for the new contract.", "zh": "我們正在評估三家供應商來簽新合約。" } }
-      ],
-      "collocations": [
-        { "phrase": "assess the risk", "zh": "評估風險", "example": { "en": "We need to assess the risk before we sign the deal.", "zh": "簽約之前，我們需要先評估風險。" } },
-        { "phrase": "assess the damage", "zh": "評估損失", "example": { "en": "An inspector will visit the store to assess the damage.", "zh": "檢查員會到店裡去評估損失。" } },
-        { "phrase": "assess performance", "zh": "評估績效", "example": { "en": "Managers assess performance twice a year in this company.", "zh": "在這家公司，主管每年評估兩次績效。" } },
-        { "phrase": "assess the situation", "zh": "評估情況", "example": { "en": "Let's assess the situation before we make a decision.", "zh": "我們先評估一下情況再做決定。" } }
-      ],
+      "text": "come up",
+      "type": "phrase",
+      "zh": "出現、發生（問題）；被提起；即將到來",
+      "en": "to happen or appear, often without a plan",
+      "note": "文章裡 when something comes up 指工作中「臨時冒出來」的問題，這時需要 critical thinking 來處理。口語也常用 something came up 表示「臨時有事」。",
+      "pattern": "N + come(s) up / if something comes up",
+      "grammar_note": "if 或 when 子句裡用現在式代替未來式，如 If something comes up, call me（不說 will come up）。",
       "examples": [
-        { "tag": "會議", "en": "The team will assess the results of the survey next week.", "zh": "團隊下週會評估這份調查的結果。" },
-        { "tag": "人事", "en": "How do you assess the skills of new employees?", "zh": "你們如何評估新進員工的能力？" },
-        { "tag": "客服", "en": "We must first assess the problem before we offer a solution.", "zh": "我們必須先評估問題，才能提出解決方案。" }
-      ],
-      "confusable": [
-        { "word": "access", "diff": "拼法很像，但 access 是「取得、進入（的權限）」，assess 才是「評估」。", "usage": "access 可當名詞（have access to）或動詞（access a file）；assess 只當動詞，且後面直接接受詞。", "example": { "en": "Only staff members can access the files on this server.", "zh": "只有員工可以存取這台伺服器上的檔案。" } },
-        { "word": "assist", "diff": "發音和拼法接近，但 assist 是「協助」，和判斷好壞無關。", "example": { "en": "Two employees will assist the customers at the front desk.", "zh": "兩位員工會在櫃檯協助顧客。" } }
+        { "tag": "會議", "en": "A new problem came up during the meeting this morning.", "zh": "今天早上開會時出現了一個新問題。" },
+        { "tag": "電子郵件", "en": "Sorry, something came up, so I need to move our call.", "zh": "抱歉，臨時有事，我需要改一下通話時間。" },
+        { "tag": "會議", "en": "The budget question came up again in today's discussion.", "zh": "預算的問題在今天的討論中又被提起了。" },
+        { "tag": "行程", "en": "Our busiest season is coming up in the next two weeks.", "zh": "我們最忙的季節在接下來兩週就要到了。" },
+        { "tag": "客戶服務", "en": "If any questions come up, please contact me directly.", "zh": "如果有任何問題，請直接與我聯絡。" }
       ],
       "similar": [
-        { "word": "evaluate", "diff": "意思很接近，evaluate 更強調「給出價值或好壞的判斷」，常用於產品、員工表現。", "example": { "en": "The committee will evaluate all the proposals by Friday.", "zh": "委員會會在星期五之前評估所有的提案。" } },
-        { "word": "review", "diff": "review 是「重新檢視、審查」，著重再看一遍；assess 是看完後做出判斷。", "example": { "en": "Please review the contract before you sign it.", "zh": "簽約之前請先審閱合約。" } }
+        { "phrase": "arise", "diff": "arise 較正式，常用在書面；come up 比較口語自然。", "example": { "en": "Problems may arise if we change the schedule again.", "zh": "如果我們再改一次時程，可能會出現問題。" } },
+        { "phrase": "happen", "diff": "happen 單純指事情發生；come up 常指臨時冒出、需要處理的事。", "example": { "en": "Something happened at the factory, so we closed early.", "zh": "工廠發生了一些事，所以我們提早關門。" } }
       ],
-      "family": [
-        { "w": "evaluate", "pos": "v.", "zh": "評價、評估", "ipa": "/ɪˈvæljueɪt/", "example": { "en": "We evaluate every supplier once a year.", "zh": "我們每年評估每一家供應商一次。" } },
-        { "w": "measure", "pos": "v.", "zh": "衡量、測量", "ipa": "/ˈmeʒɚ/", "example": { "en": "How do you measure the success of a campaign?", "zh": "你們如何衡量一個活動的成功？" } },
-        { "w": "inspect", "pos": "v.", "zh": "檢查、視察", "ipa": "/ɪnˈspekt/", "example": { "en": "An officer will inspect the kitchen next Monday.", "zh": "下週一會有人員來檢查廚房。" } }
-      ],
-      "derived": [
-        { "w": "assessment", "pos": "n.", "zh": "評估、評量", "ipa": "/əˈsesmənt/", "link": "assess + -ment，動作變成名詞，像 payment、agreement" },
-        { "w": "reassess", "pos": "v.", "zh": "重新評估", "ipa": "/ˌriːəˈses/", "link": "re-（再一次）+ assess，像 rewrite、rebuild" }
-      ],
-      "pos_uses": [],
-      "senses": []
+      "confusable": [
+        { "phrase": "come up with", "diff": "come up with 是「想出（點子、方案）」；come up 單獨用是「出現、發生」。", "kind": ["meaning"], "usage": "come up with 後面一定要接受詞（想出的東西）；come up 是不及物，後面不接受詞。", "example": { "en": "She came up with a clever plan to cut shipping costs.", "zh": "她想出了一個降低運費的聰明辦法。" } },
+        { "phrase": "come across", "diff": "come across 是偶然遇見或發現；come up 是事情出現或被提起。", "kind": ["meaning"], "example": { "en": "I came across an old file while cleaning my desk.", "zh": "我在整理桌面時偶然發現一個舊檔案。" } }
+      ]
     },
     {
-      "text": "transition",
+      "text": "practical",
       "type": "word",
-      "ipa": "/trænˈzɪʃn/",
-      "pos": "n.",
-      "zh": "轉變、過渡",
-      "en": "a change from one way of doing things to another",
-      "note": "文中 make that transition 指從「批判思考」轉換到「策略思考」的過程，講者說很多人覺得這一步很難。transition 在多益常見於工作轉換、制度改變與新系統導入。",
-      "grammar_note": "transition 常搭配 from A to B 或 transition to + N；當名詞時「做轉變」多說 make a transition 或 go through a transition。",
-      "forms": [
-        { "w": "transitions", "label": "複數", "pos": "n.", "zh": "轉變（複數）", "ipa": "/trænˈzɪʃnz/", "example": { "en": "Big transitions like a merger can be hard for staff.", "zh": "像合併這樣的大轉變，對員工來說可能很困難。" } },
-        { "w": "transitioned", "label": "過去式／過去分詞", "pos": "v.", "zh": "轉變、過渡", "ipa": "/trænˈzɪʃnd/", "example": { "en": "The company transitioned to a new payment system in May.", "zh": "公司在五月轉換到新的付款系統。" } },
-        { "w": "transitioning", "label": "現在分詞", "pos": "v.", "zh": "轉變、過渡", "ipa": "/trænˈzɪʃnɪŋ/", "example": { "en": "We are transitioning from paper files to digital records.", "zh": "我們正在從紙本檔案轉換為電子紀錄。" } }
-      ],
+      "ipa": "/ˈpræktɪkl/",
+      "pos": "adj.",
+      "zh": "實用的；實際的；務實的",
+      "en": "useful and sensible in real situations",
+      "note": "文章裡提到 strategic thinking 需要多練習（practice）。practical 和 practice 同字族，意思是「在實際情況中有用、可行」，常拿來和 theory（理論）對比。",
+      "grammar_note": "practical 是形容詞，修飾名詞；名詞或動詞「練習」是 practice，不要寫成 practical。",
+      "forms": [],
       "collocations": [
-        { "phrase": "make a transition", "zh": "完成轉變", "example": { "en": "It took her six months to make the transition to manager.", "zh": "她花了六個月才完成轉任經理的過渡。" } },
-        { "phrase": "a smooth transition", "zh": "順利的過渡", "example": { "en": "We hope for a smooth transition to the new office.", "zh": "我們希望順利過渡到新辦公室。" } },
-        { "phrase": "transition from A to B", "zh": "從 A 轉變成 B", "example": { "en": "The transition from paper to email saved us a lot of time.", "zh": "從紙本改成電子郵件為我們省了很多時間。" } },
-        { "phrase": "transition period", "zh": "過渡期", "example": { "en": "During the transition period, both systems will be available.", "zh": "在過渡期間，兩套系統都可以使用。" } }
+        { "phrase": "practical experience", "zh": "實務經驗", "example": { "en": "The job requires two years of practical experience in sales.", "zh": "這份工作需要兩年的銷售實務經驗。" } },
+        { "phrase": "practical solution", "zh": "可行的解決辦法", "example": { "en": "We found a practical solution to the delivery problem.", "zh": "我們找到了解決出貨問題的可行辦法。" } },
+        { "phrase": "practical advice", "zh": "實用的建議", "example": { "en": "The workshop gave us practical advice on time management.", "zh": "這場工作坊給了我們時間管理的實用建議。" } },
+        { "phrase": "practical skills", "zh": "實作技能", "example": { "en": "Training should build practical skills, not just theory.", "zh": "訓練應該培養實作技能，而不只是理論。" } }
       ],
       "examples": [
-        { "tag": "公告", "en": "The transition to the new system will begin on Monday.", "zh": "轉換到新系統的工作將在星期一開始。" },
-        { "tag": "人事", "en": "Good training can make the transition easier for new employees.", "zh": "好的訓練可以讓新員工的適應更容易。" },
-        { "tag": "電子郵件", "en": "Thank you for your help during this difficult transition.", "zh": "感謝您在這段困難的過渡期間所給的協助。" }
+        { "tag": "會議", "en": "Let's choose the most practical way to reduce our costs.", "zh": "我們來選一個最可行的方法降低成本。" },
+        { "tag": "採購", "en": "This tool is small, light, and very practical for travel.", "zh": "這個工具又小又輕，出差帶著非常實用。" },
+        { "tag": "電子郵件", "en": "Thank you for your practical suggestions on the new schedule.", "zh": "謝謝你對新時程提出實用的建議。" }
       ],
       "confusable": [
-        { "word": "transaction", "diff": "拼法開頭很像，但 transaction 是「交易」，和轉變無關。", "example": { "en": "Every transaction is recorded in the company's system.", "zh": "每一筆交易都記錄在公司的系統裡。" } },
-        { "word": "translation", "diff": "拼法接近，但 translation 是「翻譯」。", "example": { "en": "We need a translation of this contract by Friday.", "zh": "我們星期五之前需要這份合約的翻譯。" } }
+        { "word": "practice", "diff": "practice 是名詞或動詞「練習、實務」；practical 是形容詞「實用的」。", "kind": ["spell", "sound", "root"], "usage": "practice 當動詞時，英式拼成 practise；practical 只能當形容詞，後面接名詞。", "example": { "en": "Regular practice helps new staff learn the system faster.", "zh": "規律的練習能幫助新員工更快學會系統。" } }
       ],
       "similar": [
-        { "word": "change", "diff": "change 是最一般的「改變」；transition 強調從一個狀態「慢慢過渡」到另一個。", "example": { "en": "A change in the schedule surprised everyone in the office.", "zh": "時程的更動讓辦公室裡的每個人都很意外。" } },
-        { "word": "shift", "diff": "shift 常指方向或做法上的轉移，語氣比 transition 更直接、更快。", "example": { "en": "The company made a shift toward online sales last year.", "zh": "公司去年轉向了網路銷售。" } }
+        { "word": "realistic", "diff": "realistic 強調符合現實、不誇張；practical 強調好用、做得到。", "example": { "en": "We set a realistic goal for next quarter's sales.", "zh": "我們為下一季的銷售設定了切合實際的目標。" } },
+        { "word": "useful", "diff": "useful 是一般的「有用」；practical 更強調實際可行、好操作。", "example": { "en": "This report is useful for planning next year's budget.", "zh": "這份報告對規劃明年預算很有用。" } }
       ],
       "family": [
-        { "w": "change", "pos": "n.", "zh": "改變", "ipa": "/tʃeɪndʒ/", "example": { "en": "The change in policy starts next month.", "zh": "政策的改變下個月開始。" } },
-        { "w": "shift", "pos": "n.", "zh": "轉變、輪班", "ipa": "/ʃɪft/", "example": { "en": "There was a big shift in customer taste.", "zh": "顧客的口味出現了很大的轉變。" } },
-        { "w": "adjust", "pos": "v.", "zh": "調整、適應", "ipa": "/əˈdʒʌst/", "example": { "en": "New staff need time to adjust to the work.", "zh": "新進員工需要時間來適應工作。" } }
+        { "w": "convenient", "pos": "adj.", "zh": "方便的", "ipa": "/kənˈviːniənt/", "example": { "en": "The new office is convenient for staff who take the train.", "zh": "新辦公室對搭火車的員工很方便。" } },
+        { "w": "helpful", "pos": "adj.", "zh": "有幫助的", "ipa": "/ˈhelpfl/", "example": { "en": "Your comments on the draft were very helpful.", "zh": "你對草稿的意見很有幫助。" } },
+        { "w": "sensible", "pos": "adj.", "zh": "明智的、合理的", "ipa": "/ˈsensəbl/", "example": { "en": "Cutting waste is a sensible way to save money.", "zh": "減少浪費是省錢的明智方法。" } },
+        { "w": "efficient", "pos": "adj.", "zh": "有效率的", "ipa": "/ɪˈfɪʃnt/", "example": { "en": "An efficient process saves time for the whole team.", "zh": "有效率的流程能替整個團隊省時間。" } }
       ],
       "derived": [
-        { "w": "transitional", "pos": "adj.", "zh": "過渡的", "ipa": "/trænˈzɪʃənl/", "link": "transition + -al，形容詞字尾，像 national、traditional" }
+        { "w": "practice", "pos": "n./v.", "zh": "練習；實務；練習", "ipa": "/ˈpræktɪs/", "link": "這是詞幹。practice + -al，變成「和實務有關的」，也就是 practical。" },
+        { "w": "practically", "pos": "adv.", "zh": "實際上；幾乎", "ipa": "/ˈpræktɪkli/", "link": "practical + -ly，形容詞變副詞，像 quickly、carefully。" },
+        { "w": "practicality", "pos": "n.", "zh": "實用性、可行性", "ipa": "/ˌpræktɪˈkæləti/", "link": "practical + -ity，變成名詞，像 quality、ability。" },
+        { "w": "impractical", "pos": "adj.", "zh": "不切實際的、不實用的", "ipa": "/ɪmˈpræktɪkl/", "link": "im- 表示「不」，像 impossible，加在 practical 前面變相反。" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "adj.", "zh": "實用的、好用的", "en": "useful and easy to use in daily life", "example": { "en": "A small desk lamp is practical for working late.", "zh": "小型桌燈很適合晚上加班時使用。" } },
+        { "pos": "adj.", "zh": "實際的（相對於理論）", "en": "about real actions, not only ideas", "distinguish": "常與 theory、theoretical 對比。", "example": { "en": "The course offers practical training instead of only theory.", "zh": "這門課提供實作訓練，而不只是理論。" } },
+        { "pos": "adj.", "zh": "務實的（人）", "en": "good at dealing with real problems in a sensible way", "distinguish": "修飾的是人，如 a practical person。", "example": { "en": "Our manager is practical and always asks about the budget.", "zh": "我們經理很務實，總是會問預算。" } }
+      ]
+    },
+    {
+      "text": "absolutely",
+      "type": "word",
+      "ipa": "/ˈæbsəluːtli/",
+      "pos": "adv.",
+      "zh": "完全地、絕對地；當然（回答用）",
+      "en": "completely, in every way",
+      "note": "文章裡 you absolutely need that as a skill 用 absolutely 加強語氣，表示「絕對需要」。它放在動詞 need 前面，讓這句話更強烈。",
+      "grammar_note": "absolutely 常搭配 essential、necessary、certain 這類本身已很強的字；不和 very 連用，也不說 absolutely small 這種分級形容詞。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "absolutely necessary", "zh": "絕對必要的", "example": { "en": "It is absolutely necessary to back up the data every day.", "zh": "每天備份資料是絕對必要的。" } },
+        { "phrase": "absolutely essential", "zh": "絕對不可或缺的", "example": { "en": "Clear communication is absolutely essential for a remote team.", "zh": "對遠端團隊來說，清楚的溝通絕對不可或缺。" } },
+        { "phrase": "absolutely certain", "zh": "完全確定", "example": { "en": "I am absolutely certain that the payment was sent.", "zh": "我完全確定款項已經寄出了。" } },
+        { "phrase": "absolutely not", "zh": "絕對不行", "example": { "en": "Can we skip the safety check? Absolutely not.", "zh": "我們可以跳過安全檢查嗎？絕對不行。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "We absolutely must finish the plan before the end of the month.", "zh": "我們絕對必須在月底前完成計畫。" },
+        { "tag": "電子郵件", "en": "Absolutely! I can send you the report this afternoon.", "zh": "沒問題！我今天下午就可以把報告寄給你。" },
+        { "tag": "客戶服務", "en": "You are absolutely right, and we are sorry for the mistake.", "zh": "您說得完全正確，對於這個錯誤我們深感抱歉。" }
+      ],
+      "confusable": [
+        { "word": "absolute", "diff": "absolute 是形容詞「絕對的、完全的」；absolutely 是副詞，修飾動詞或形容詞。", "kind": ["spell", "root"], "usage": "absolute 放在名詞前（absolute trust）；absolutely 放在動詞前或形容詞前。", "example": { "en": "We have absolute trust in our new supplier.", "zh": "我們對新供應商有絕對的信任。" } }
+      ],
+      "similar": [
+        { "word": "definitely", "diff": "definitely 表示「肯定地、一定」，用來確認或保證；absolutely 的語氣更強，表示完全。", "example": { "en": "I will definitely call you after the client meeting.", "zh": "客戶會議結束後，我一定會打電話給你。" } },
+        { "word": "totally", "diff": "totally 較口語；absolutely 在書面和口語都能用，語氣較正式。", "example": { "en": "I totally agree with your plan for the launch.", "zh": "我完全同意你對產品上市的規劃。" } }
+      ],
+      "family": [
+        { "w": "completely", "pos": "adv.", "zh": "完全地", "ipa": "/kəmˈpliːtli/", "example": { "en": "The old system was completely replaced last week.", "zh": "舊系統上週已被完全換掉。" } },
+        { "w": "entirely", "pos": "adv.", "zh": "整個地、完全", "ipa": "/ɪnˈtaɪərli/", "example": { "en": "The delay was entirely caused by bad weather.", "zh": "這次延誤完全是壞天氣造成的。" } },
+        { "w": "extremely", "pos": "adv.", "zh": "極度地", "ipa": "/ɪkˈstriːmli/", "example": { "en": "The deadline is extremely tight for the whole team.", "zh": "這個期限對整個團隊來說極度緊迫。" } },
+        { "w": "fully", "pos": "adv.", "zh": "充分地、完全地", "ipa": "/ˈfʊli/", "example": { "en": "The room is fully booked for the training session.", "zh": "這間會議室已被培訓課程完全訂滿。" } }
+      ],
+      "derived": [
+        { "w": "absolute", "pos": "adj.", "zh": "絕對的、完全的", "ipa": "/ˈæbsəluːt/", "link": "這是詞幹。absolute + -ly，形容詞變副詞，像 quick → quickly。" }
       ],
       "pos_uses": [
-        { "pos": "n.", "ipa": "/trænˈzɪʃn/", "zh": "轉變、過渡", "in_passage": true, "example": { "en": "The transition to remote work was easy for our team.", "zh": "轉成遠距工作對我們團隊來說很容易。" } },
-        { "pos": "v.", "ipa": "/trænˈzɪʃn/", "zh": "轉變、過渡", "example": { "en": "Our department will transition to the new software this spring.", "zh": "我們部門今年春天會轉換到新的軟體。" } }
+        { "pos": "adv.", "ipa": "/ˈæbsəluːtli/", "zh": "完全地、絕對地", "in_passage": true, "example": { "en": "We absolutely need your approval before we start the work.", "zh": "開工前我們絕對需要您的核准。" } },
+        { "pos": "interj.", "ipa": "/ˌæbsəˈluːtli/", "zh": "當然、完全同意（回答用）", "example": { "en": "Can you join the call? Absolutely, I will be there.", "zh": "你能加入通話嗎？當然，我會到。" } }
       ],
-      "senses": []
-    },
-    {
-      "text": "transform",
-      "type": "word",
-      "ipa": "/trænsˈfɔːrm/",
-      "pos": "v.",
-      "zh": "使轉變、徹底改變",
-      "en": "to change something completely, usually in a good way",
-      "note": "文中 completely transform the direction 表示策略思考可以讓你的職涯或公司方向整個改變。transform 比 change 更強，常有「大幅度、徹底」的語感，多益常見於公司改革與新技術。",
-      "grammar_note": "transform 常用 transform A into B（把 A 變成 B）；後面也可以只接受詞，如 transform the way we work。",
-      "forms": [
-        { "w": "transforms", "label": "第三人稱單數", "pos": "v.", "zh": "使轉變", "ipa": "/trænsˈfɔːrmz/", "example": { "en": "This software transforms the way our teams share files.", "zh": "這個軟體改變了我們團隊分享檔案的方式。" } },
-        { "w": "transformed", "label": "過去式／過去分詞", "pos": "v.", "zh": "使轉變", "ipa": "/trænsˈfɔːrmd/", "example": { "en": "The new manager transformed our small shop into a big brand.", "zh": "新經理把我們的小店變成了一個大品牌。" } },
-        { "w": "transforming", "label": "現在分詞", "pos": "v.", "zh": "使轉變", "ipa": "/trænsˈfɔːrmɪŋ/", "example": { "en": "Online shopping is transforming how people buy daily goods.", "zh": "網路購物正在改變人們購買日用品的方式。" } }
-      ],
-      "collocations": [
-        { "phrase": "transform A into B", "zh": "把 A 變成 B", "example": { "en": "They plan to transform the old factory into an office.", "zh": "他們打算把舊工廠改造成辦公室。" } },
-        { "phrase": "transform the way", "zh": "改變…的方式", "example": { "en": "New tools can transform the way we serve customers.", "zh": "新的工具可以改變我們服務顧客的方式。" } },
-        { "phrase": "completely transform", "zh": "徹底改變", "example": { "en": "The new design will completely transform our product line.", "zh": "新的設計將徹底改變我們的產品線。" } },
-        { "phrase": "digitally transform", "zh": "數位轉型", "example": { "en": "Many banks want to digitally transform their services.", "zh": "許多銀行想要將服務數位轉型。" } }
-      ],
-      "examples": [
-        { "tag": "會議", "en": "This project could transform our business over the next five years.", "zh": "這個專案可能在未來五年改變我們的事業。" },
-        { "tag": "行銷", "en": "A good advertisement can transform how people see a brand.", "zh": "一則好的廣告可以改變人們看待品牌的方式。" },
-        { "tag": "訓練", "en": "The training course transformed her from a worker into a leader.", "zh": "這個訓練課程把她從一名員工變成了領導者。" }
-      ],
-      "confusable": [
-        { "word": "transfer", "diff": "拼法開頭很像，但 transfer 是「轉移、調動、轉帳」，指從一處移到另一處，不是改變本質。", "usage": "transfer 是把人或東西「從 A 移到 B」，不改變它的樣子；transform 是「改變本身的樣子」。", "example": { "en": "Please transfer the money to our account by Friday.", "zh": "請在星期五之前把錢轉到我們的帳戶。" } },
-        { "word": "transport", "diff": "transport 是「運送」，只是把東西搬到別的地方。", "example": { "en": "Trucks transport our goods to every store in the city.", "zh": "卡車把我們的貨物運送到城裡的每一家店。" } }
-      ],
-      "similar": [
-        { "word": "change", "diff": "change 範圍最廣，可大可小；transform 指大幅度、徹底的改變。", "example": { "en": "We changed the meeting time to Tuesday afternoon.", "zh": "我們把會議時間改到星期二下午。" } },
-        { "word": "convert", "diff": "convert 指把某物改成另一種形式或用途（如 convert a room into an office）；transform 強調改變得很徹底。", "example": { "en": "The company will convert the garage into a storage room.", "zh": "公司會把車庫改成一間儲藏室。" } }
-      ],
-      "family": [
-        { "w": "change", "pos": "v.", "zh": "改變", "ipa": "/tʃeɪndʒ/", "example": { "en": "We plan to change our logo next year.", "zh": "我們計畫明年換掉我們的標誌。" } },
-        { "w": "improve", "pos": "v.", "zh": "改善", "ipa": "/ɪmˈpruːv/", "example": { "en": "This training will improve your speaking skills.", "zh": "這個訓練會改善你的口語能力。" } },
-        { "w": "convert", "pos": "v.", "zh": "轉換", "ipa": "/kənˈvɝːt/", "example": { "en": "You can convert this file into a PDF.", "zh": "你可以把這個檔案轉成 PDF。" } }
-      ],
-      "derived": [
-        { "w": "transformation", "pos": "n.", "zh": "轉變、轉型", "ipa": "/ˌtrænsfɚˈmeɪʃn/", "link": "transform + -ation，動作變名詞，像 information、organization" },
-        { "w": "transformer", "pos": "n.", "zh": "變壓器", "ipa": "/trænsˈfɔːrmɚ/", "link": "transform + -er，做轉變的東西，像 worker、printer" },
-        { "w": "transformative", "pos": "adj.", "zh": "帶來徹底改變的", "ipa": "/trænsˈfɔːrmətɪv/", "link": "transform + -ative，形容詞，有「會帶來改變」的意思，像 creative" }
-      ],
-      "pos_uses": [],
       "senses": []
     }
   ]

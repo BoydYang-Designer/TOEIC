@@ -100970,6 +100970,67 @@
                 "en": "Members will elect a new committee chairperson next month.",
                 "zh": "會員下個月將選出新的委員會主席。"
               }
+            },
+            {
+              "word": "illegible",
+              "diff": "illegible 是「字跡潦草、無法辨認的」；字尾與 eligible 幾乎相同，只差開頭，很容易看錯或聽錯。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "His signature was illegible, so we asked him to sign again.",
+                "zh": "他的簽名無法辨認，所以我們請他重新簽名。"
+              }
+            },
+            {
+              "word": "liable",
+              "diff": "liable 是「有法律責任的、很可能會…的」；eligible 是「有資格的」，兩者字尾相近但意思不同。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "usage": "liable 常用 be liable for + 名詞（對…負責）或 be liable to + V（很可能…）；eligible 是 be eligible for / to + V，表示有資格。",
+              "example": {
+                "en": "The company is liable for any damage that happens during delivery.",
+                "zh": "公司要為運送過程中發生的任何損壞負責。"
+              }
+            },
+            {
+              "word": "legitimate",
+              "diff": "legitimate 是「合法的、正當的」；eligible 是「符合條件而有資格」，前者看是否合理合法，後者看是否符合規定。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "She gave a legitimate reason for missing the morning meeting.",
+                "zh": "她為錯過早上的會議提出了正當的理由。"
+              }
+            },
+            {
+              "word": "criteria",
+              "diff": "criteria 是名詞「條件、標準」；eligible 是形容詞，表示符合這些條件而有資格，兩者常一起出現。",
+              "kind": [
+                "meaning"
+              ],
+              "usage": "criteria 是 criterion 的複數，後面接複數動詞（The criteria are…）；eligible 是形容詞，不能當名詞用。",
+              "example": {
+                "en": "You must meet three criteria to become eligible for the loan.",
+                "zh": "你必須符合三項條件，才有資格申請這筆貸款。"
+              }
+            },
+            {
+              "word": "credible",
+              "diff": "credible 是「可信的、值得相信的」；字尾 -ible 與 eligible 相近，但和資格無關。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The report gives credible evidence that sales will grow next year.",
+                "zh": "這份報告提供了可信的證據，顯示明年銷售會成長。"
+              }
             }
           ],
           "family": [
@@ -101015,6 +101076,10 @@
           "nw_done": [
             {
               "id": "nmwoz3u952vft",
+              "result": "added"
+            },
+            {
+              "id": "nmwozsmbsceh0",
               "result": "added"
             }
           ]
@@ -499370,6 +499435,671 @@
           ],
           "pos_uses": [],
           "senses": []
+        },
+        {
+          "text": "acknowledge",
+          "type": "word",
+          "ipa": "/əkˈnɑːlɪdʒ/",
+          "pos": "v.",
+          "zh": "承認；確認收到；表示感謝",
+          "en": "to accept or say that something is true, or to say you have received it",
+          "note": "在商務情境裡語氣中性又正式：可以是承認問題或錯誤，也可以是「確認收到」某封信或訂單。讀到 acknowledge 時，先看後面接的是事實、錯誤，還是 receipt。",
+          "grammar_note": "acknowledge 後面可接名詞、that 子句或 V-ing（如 acknowledge receiving），不接 to V。",
+          "forms": [
+            {
+              "w": "acknowledges",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "確認、承認",
+              "ipa": "/əkˈnɑːlɪdʒɪz/",
+              "example": {
+                "en": "The system acknowledges every order as soon as it arrives.",
+                "zh": "系統一收到訂單就會確認每一筆。"
+              }
+            },
+            {
+              "w": "acknowledged",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "承認了、確認了",
+              "ipa": "/əkˈnɑːlɪdʒd/",
+              "example": {
+                "en": "The manager acknowledged the delay and apologized to the client.",
+                "zh": "經理承認有延誤，並向客戶道歉。"
+              }
+            },
+            {
+              "w": "acknowledging",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "確認、承認（進行中）",
+              "ipa": "/əkˈnɑːlɪdʒɪŋ/",
+              "example": {
+                "en": "Thank you for acknowledging our request so quickly.",
+                "zh": "謝謝你這麼快就回覆確認我們的要求。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "acknowledge receipt of",
+              "zh": "確認收到……",
+              "example": {
+                "en": "Please acknowledge receipt of this email by replying today.",
+                "zh": "請於今天回信，確認收到這封郵件。"
+              }
+            },
+            {
+              "phrase": "acknowledge a mistake",
+              "zh": "承認錯誤",
+              "example": {
+                "en": "It is important to acknowledge a mistake and fix it quickly.",
+                "zh": "承認錯誤並盡快改正很重要。"
+              }
+            },
+            {
+              "phrase": "acknowledge the importance of",
+              "zh": "肯定……的重要性",
+              "example": {
+                "en": "The team acknowledged the importance of clear communication with clients.",
+                "zh": "團隊肯定與客戶清楚溝通的重要性。"
+              }
+            },
+            {
+              "phrase": "acknowledge that + 子句",
+              "zh": "承認／認同……",
+              "example": {
+                "en": "We acknowledge that the delivery was late this month.",
+                "zh": "我們承認本月的出貨延遲了。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "We acknowledge your order and will ship it on Monday.",
+              "zh": "我們已確認收到您的訂單，會在星期一出貨。"
+            },
+            {
+              "tag": "會議",
+              "en": "The director acknowledged that the project needed more time.",
+              "zh": "主管承認這個專案需要更多時間。"
+            },
+            {
+              "tag": "客服",
+              "en": "The company acknowledged the problem and offered a full refund.",
+              "zh": "公司承認有問題，並提供全額退款。"
+            },
+            {
+              "tag": "公告",
+              "en": "I would like to acknowledge everyone who helped on this project.",
+              "zh": "我想感謝所有協助這個專案的人。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "knowledge",
+              "diff": "knowledge 是名詞「知識」；acknowledge 是動詞「承認、確認」，字裡包含 knowledge，容易拼錯。",
+              "kind": [
+                "spell",
+                "sound",
+                "root"
+              ],
+              "usage": "knowledge 是不可數名詞，不加 s；acknowledge 是動詞，前面多了 ac-。",
+              "example": {
+                "en": "Her knowledge of the market helped us win the contract.",
+                "zh": "她對市場的了解幫助我們贏得合約。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "admit",
+              "diff": "admit 多半指承認不好的事（錯誤、失敗）；acknowledge 較中性、較正式，也能表示確認收到。",
+              "example": {
+                "en": "He admitted that the report had several serious errors.",
+                "zh": "他承認這份報告有幾個嚴重的錯誤。"
+              }
+            },
+            {
+              "word": "recognize",
+              "diff": "recognize 常指認出某人或肯定某人的價值；acknowledge 重點在公開承認或表示收到。",
+              "example": {
+                "en": "The company recognized her work with a special award.",
+                "zh": "公司以特別獎肯定她的工作表現。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "confirm",
+              "pos": "v.",
+              "zh": "確認",
+              "ipa": "/kənˈfɜːrm/",
+              "example": {
+                "en": "Please confirm the meeting time by tomorrow morning.",
+                "zh": "請在明天早上前確認會議時間。"
+              }
+            },
+            {
+              "w": "accept",
+              "pos": "v.",
+              "zh": "接受",
+              "ipa": "/əkˈsept/",
+              "example": {
+                "en": "The client accepted our offer after a short discussion.",
+                "zh": "客戶在簡短討論後接受了我們的報價。"
+              }
+            },
+            {
+              "w": "respond",
+              "pos": "v.",
+              "zh": "回應",
+              "ipa": "/rɪˈspɑːnd/",
+              "example": {
+                "en": "Please respond to this email as soon as you can.",
+                "zh": "請盡快回覆這封電子郵件。"
+              }
+            },
+            {
+              "w": "appreciate",
+              "pos": "v.",
+              "zh": "感謝；重視",
+              "ipa": "/əˈpriːʃieɪt/",
+              "example": {
+                "en": "We appreciate your patience while we fix the problem.",
+                "zh": "感謝您在我們處理問題期間的耐心。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "acknowledgment",
+              "pos": "n.",
+              "zh": "確認（通知）；承認；致謝",
+              "ipa": "/əkˈnɑːlɪdʒmənt/",
+              "link": "acknowledge + -ment，把動作變成名詞，像 payment、agreement。也可拼成 acknowledgement。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "v.",
+              "zh": "承認（事實、錯誤）",
+              "en": "to say that something is true, especially something bad",
+              "example": {
+                "en": "The CEO acknowledged that sales had dropped last quarter.",
+                "zh": "執行長承認上一季的銷售下滑了。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "確認收到",
+              "en": "to tell someone you have received their message or package",
+              "distinguish": "後面通常接 receipt of 或信件、訂單等名詞。",
+              "example": {
+                "en": "Please acknowledge the package as soon as it arrives.",
+                "zh": "包裹一到，請立刻確認收到。"
+              }
+            },
+            {
+              "pos": "v.",
+              "zh": "感謝、肯定（貢獻）",
+              "en": "to thank someone or show that you value their work",
+              "distinguish": "後面接人或貢獻，情境多為致謝或表揚。",
+              "example": {
+                "en": "The report acknowledges the help of the finance team.",
+                "zh": "這份報告對財務團隊的協助表示感謝。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "come up",
+          "type": "phrase",
+          "zh": "出現、發生（問題）；被提起；即將到來",
+          "en": "to happen or appear, often without a plan",
+          "note": "文章裡 when something comes up 指工作中「臨時冒出來」的問題，這時需要 critical thinking 來處理。口語也常用 something came up 表示「臨時有事」。",
+          "pattern": "N + come(s) up / if something comes up",
+          "grammar_note": "if 或 when 子句裡用現在式代替未來式，如 If something comes up, call me（不說 will come up）。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "A new problem came up during the meeting this morning.",
+              "zh": "今天早上開會時出現了一個新問題。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Sorry, something came up, so I need to move our call.",
+              "zh": "抱歉，臨時有事，我需要改一下通話時間。"
+            },
+            {
+              "tag": "會議",
+              "en": "The budget question came up again in today's discussion.",
+              "zh": "預算的問題在今天的討論中又被提起了。"
+            },
+            {
+              "tag": "行程",
+              "en": "Our busiest season is coming up in the next two weeks.",
+              "zh": "我們最忙的季節在接下來兩週就要到了。"
+            },
+            {
+              "tag": "客戶服務",
+              "en": "If any questions come up, please contact me directly.",
+              "zh": "如果有任何問題，請直接與我聯絡。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "arise",
+              "diff": "arise 較正式，常用在書面；come up 比較口語自然。",
+              "example": {
+                "en": "Problems may arise if we change the schedule again.",
+                "zh": "如果我們再改一次時程，可能會出現問題。"
+              }
+            },
+            {
+              "phrase": "happen",
+              "diff": "happen 單純指事情發生；come up 常指臨時冒出、需要處理的事。",
+              "example": {
+                "en": "Something happened at the factory, so we closed early.",
+                "zh": "工廠發生了一些事，所以我們提早關門。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "come up with",
+              "diff": "come up with 是「想出（點子、方案）」；come up 單獨用是「出現、發生」。",
+              "kind": [
+                "meaning"
+              ],
+              "usage": "come up with 後面一定要接受詞（想出的東西）；come up 是不及物，後面不接受詞。",
+              "example": {
+                "en": "She came up with a clever plan to cut shipping costs.",
+                "zh": "她想出了一個降低運費的聰明辦法。"
+              }
+            },
+            {
+              "phrase": "come across",
+              "diff": "come across 是偶然遇見或發現；come up 是事情出現或被提起。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "I came across an old file while cleaning my desk.",
+                "zh": "我在整理桌面時偶然發現一個舊檔案。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "practical",
+          "type": "word",
+          "ipa": "/ˈpræktɪkl/",
+          "pos": "adj.",
+          "zh": "實用的；實際的；務實的",
+          "en": "useful and sensible in real situations",
+          "note": "文章裡提到 strategic thinking 需要多練習（practice）。practical 和 practice 同字族，意思是「在實際情況中有用、可行」，常拿來和 theory（理論）對比。",
+          "grammar_note": "practical 是形容詞，修飾名詞；名詞或動詞「練習」是 practice，不要寫成 practical。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "practical experience",
+              "zh": "實務經驗",
+              "example": {
+                "en": "The job requires two years of practical experience in sales.",
+                "zh": "這份工作需要兩年的銷售實務經驗。"
+              }
+            },
+            {
+              "phrase": "practical solution",
+              "zh": "可行的解決辦法",
+              "example": {
+                "en": "We found a practical solution to the delivery problem.",
+                "zh": "我們找到了解決出貨問題的可行辦法。"
+              }
+            },
+            {
+              "phrase": "practical advice",
+              "zh": "實用的建議",
+              "example": {
+                "en": "The workshop gave us practical advice on time management.",
+                "zh": "這場工作坊給了我們時間管理的實用建議。"
+              }
+            },
+            {
+              "phrase": "practical skills",
+              "zh": "實作技能",
+              "example": {
+                "en": "Training should build practical skills, not just theory.",
+                "zh": "訓練應該培養實作技能，而不只是理論。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "Let's choose the most practical way to reduce our costs.",
+              "zh": "我們來選一個最可行的方法降低成本。"
+            },
+            {
+              "tag": "採購",
+              "en": "This tool is small, light, and very practical for travel.",
+              "zh": "這個工具又小又輕，出差帶著非常實用。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Thank you for your practical suggestions on the new schedule.",
+              "zh": "謝謝你對新時程提出實用的建議。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "practice",
+              "diff": "practice 是名詞或動詞「練習、實務」；practical 是形容詞「實用的」。",
+              "kind": [
+                "spell",
+                "sound",
+                "root"
+              ],
+              "usage": "practice 當動詞時，英式拼成 practise；practical 只能當形容詞，後面接名詞。",
+              "example": {
+                "en": "Regular practice helps new staff learn the system faster.",
+                "zh": "規律的練習能幫助新員工更快學會系統。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "realistic",
+              "diff": "realistic 強調符合現實、不誇張；practical 強調好用、做得到。",
+              "example": {
+                "en": "We set a realistic goal for next quarter's sales.",
+                "zh": "我們為下一季的銷售設定了切合實際的目標。"
+              }
+            },
+            {
+              "word": "useful",
+              "diff": "useful 是一般的「有用」；practical 更強調實際可行、好操作。",
+              "example": {
+                "en": "This report is useful for planning next year's budget.",
+                "zh": "這份報告對規劃明年預算很有用。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "convenient",
+              "pos": "adj.",
+              "zh": "方便的",
+              "ipa": "/kənˈviːniənt/",
+              "example": {
+                "en": "The new office is convenient for staff who take the train.",
+                "zh": "新辦公室對搭火車的員工很方便。"
+              }
+            },
+            {
+              "w": "helpful",
+              "pos": "adj.",
+              "zh": "有幫助的",
+              "ipa": "/ˈhelpfl/",
+              "example": {
+                "en": "Your comments on the draft were very helpful.",
+                "zh": "你對草稿的意見很有幫助。"
+              }
+            },
+            {
+              "w": "sensible",
+              "pos": "adj.",
+              "zh": "明智的、合理的",
+              "ipa": "/ˈsensəbl/",
+              "example": {
+                "en": "Cutting waste is a sensible way to save money.",
+                "zh": "減少浪費是省錢的明智方法。"
+              }
+            },
+            {
+              "w": "efficient",
+              "pos": "adj.",
+              "zh": "有效率的",
+              "ipa": "/ɪˈfɪʃnt/",
+              "example": {
+                "en": "An efficient process saves time for the whole team.",
+                "zh": "有效率的流程能替整個團隊省時間。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "practice",
+              "pos": "n./v.",
+              "zh": "練習；實務；練習",
+              "ipa": "/ˈpræktɪs/",
+              "link": "這是詞幹。practice + -al，變成「和實務有關的」，也就是 practical。"
+            },
+            {
+              "w": "practically",
+              "pos": "adv.",
+              "zh": "實際上；幾乎",
+              "ipa": "/ˈpræktɪkli/",
+              "link": "practical + -ly，形容詞變副詞，像 quickly、carefully。"
+            },
+            {
+              "w": "practicality",
+              "pos": "n.",
+              "zh": "實用性、可行性",
+              "ipa": "/ˌpræktɪˈkæləti/",
+              "link": "practical + -ity，變成名詞，像 quality、ability。"
+            },
+            {
+              "w": "impractical",
+              "pos": "adj.",
+              "zh": "不切實際的、不實用的",
+              "ipa": "/ɪmˈpræktɪkl/",
+              "link": "im- 表示「不」，像 impossible，加在 practical 前面變相反。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "adj.",
+              "zh": "實用的、好用的",
+              "en": "useful and easy to use in daily life",
+              "example": {
+                "en": "A small desk lamp is practical for working late.",
+                "zh": "小型桌燈很適合晚上加班時使用。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "zh": "實際的（相對於理論）",
+              "en": "about real actions, not only ideas",
+              "distinguish": "常與 theory、theoretical 對比。",
+              "example": {
+                "en": "The course offers practical training instead of only theory.",
+                "zh": "這門課提供實作訓練，而不只是理論。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "zh": "務實的（人）",
+              "en": "good at dealing with real problems in a sensible way",
+              "distinguish": "修飾的是人，如 a practical person。",
+              "example": {
+                "en": "Our manager is practical and always asks about the budget.",
+                "zh": "我們經理很務實，總是會問預算。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "absolutely",
+          "type": "word",
+          "ipa": "/ˈæbsəluːtli/",
+          "pos": "adv.",
+          "zh": "完全地、絕對地；當然（回答用）",
+          "en": "completely, in every way",
+          "note": "文章裡 you absolutely need that as a skill 用 absolutely 加強語氣，表示「絕對需要」。它放在動詞 need 前面，讓這句話更強烈。",
+          "grammar_note": "absolutely 常搭配 essential、necessary、certain 這類本身已很強的字；不和 very 連用，也不說 absolutely small 這種分級形容詞。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "absolutely necessary",
+              "zh": "絕對必要的",
+              "example": {
+                "en": "It is absolutely necessary to back up the data every day.",
+                "zh": "每天備份資料是絕對必要的。"
+              }
+            },
+            {
+              "phrase": "absolutely essential",
+              "zh": "絕對不可或缺的",
+              "example": {
+                "en": "Clear communication is absolutely essential for a remote team.",
+                "zh": "對遠端團隊來說，清楚的溝通絕對不可或缺。"
+              }
+            },
+            {
+              "phrase": "absolutely certain",
+              "zh": "完全確定",
+              "example": {
+                "en": "I am absolutely certain that the payment was sent.",
+                "zh": "我完全確定款項已經寄出了。"
+              }
+            },
+            {
+              "phrase": "absolutely not",
+              "zh": "絕對不行",
+              "example": {
+                "en": "Can we skip the safety check? Absolutely not.",
+                "zh": "我們可以跳過安全檢查嗎？絕對不行。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "We absolutely must finish the plan before the end of the month.",
+              "zh": "我們絕對必須在月底前完成計畫。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Absolutely! I can send you the report this afternoon.",
+              "zh": "沒問題！我今天下午就可以把報告寄給你。"
+            },
+            {
+              "tag": "客戶服務",
+              "en": "You are absolutely right, and we are sorry for the mistake.",
+              "zh": "您說得完全正確，對於這個錯誤我們深感抱歉。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "absolute",
+              "diff": "absolute 是形容詞「絕對的、完全的」；absolutely 是副詞，修飾動詞或形容詞。",
+              "kind": [
+                "spell",
+                "root"
+              ],
+              "usage": "absolute 放在名詞前（absolute trust）；absolutely 放在動詞前或形容詞前。",
+              "example": {
+                "en": "We have absolute trust in our new supplier.",
+                "zh": "我們對新供應商有絕對的信任。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "definitely",
+              "diff": "definitely 表示「肯定地、一定」，用來確認或保證；absolutely 的語氣更強，表示完全。",
+              "example": {
+                "en": "I will definitely call you after the client meeting.",
+                "zh": "客戶會議結束後，我一定會打電話給你。"
+              }
+            },
+            {
+              "word": "totally",
+              "diff": "totally 較口語；absolutely 在書面和口語都能用，語氣較正式。",
+              "example": {
+                "en": "I totally agree with your plan for the launch.",
+                "zh": "我完全同意你對產品上市的規劃。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "completely",
+              "pos": "adv.",
+              "zh": "完全地",
+              "ipa": "/kəmˈpliːtli/",
+              "example": {
+                "en": "The old system was completely replaced last week.",
+                "zh": "舊系統上週已被完全換掉。"
+              }
+            },
+            {
+              "w": "entirely",
+              "pos": "adv.",
+              "zh": "整個地、完全",
+              "ipa": "/ɪnˈtaɪərli/",
+              "example": {
+                "en": "The delay was entirely caused by bad weather.",
+                "zh": "這次延誤完全是壞天氣造成的。"
+              }
+            },
+            {
+              "w": "extremely",
+              "pos": "adv.",
+              "zh": "極度地",
+              "ipa": "/ɪkˈstriːmli/",
+              "example": {
+                "en": "The deadline is extremely tight for the whole team.",
+                "zh": "這個期限對整個團隊來說極度緊迫。"
+              }
+            },
+            {
+              "w": "fully",
+              "pos": "adv.",
+              "zh": "充分地、完全地",
+              "ipa": "/ˈfʊli/",
+              "example": {
+                "en": "The room is fully booked for the training session.",
+                "zh": "這間會議室已被培訓課程完全訂滿。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "absolute",
+              "pos": "adj.",
+              "zh": "絕對的、完全的",
+              "ipa": "/ˈæbsəluːt/",
+              "link": "這是詞幹。absolute + -ly，形容詞變副詞，像 quick → quickly。"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "adv.",
+              "ipa": "/ˈæbsəluːtli/",
+              "zh": "完全地、絕對地",
+              "in_passage": true,
+              "example": {
+                "en": "We absolutely need your approval before we start the work.",
+                "zh": "開工前我們絕對需要您的核准。"
+              }
+            },
+            {
+              "pos": "interj.",
+              "ipa": "/ˌæbsəˈluːtli/",
+              "zh": "當然、完全同意（回答用）",
+              "example": {
+                "en": "Can you join the call? Absolutely, I will be there.",
+                "zh": "你能加入通話嗎？當然，我會到。"
+              }
+            }
+          ],
+          "senses": []
         }
       ]
     },
@@ -546984,6 +547714,235 @@
           ],
           "pos_uses": [],
           "senses": []
+        },
+        {
+          "text": "eligibility",
+          "type": "word",
+          "ipa": "/ˌelɪdʒəˈbɪləti/",
+          "pos": "n.",
+          "zh": "資格、符合條件",
+          "en": "the state of meeting the rules to get or do something",
+          "note": "文章開頭說快速退款申請 was not eligible，eligibility 就是它的名詞形，指「有沒有資格申請退款」。在客服信件、保險、福利說明裡很常見。",
+          "grammar_note": "eligibility 是不可數名詞，不加 s；後面常接 for + 名詞，或 to + 動詞原形（eligibility to apply）。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "eligibility for",
+              "zh": "……的資格",
+              "example": {
+                "en": "Your eligibility for a refund depends on the purchase date.",
+                "zh": "您是否有退款資格取決於購買日期。"
+              }
+            },
+            {
+              "phrase": "eligibility criteria",
+              "zh": "資格標準",
+              "example": {
+                "en": "The eligibility criteria are listed on our website.",
+                "zh": "資格標準列在我們的網站上。"
+              }
+            },
+            {
+              "phrase": "check your eligibility",
+              "zh": "確認你的資格",
+              "example": {
+                "en": "Please check your eligibility before you fill out the form.",
+                "zh": "填寫表格之前，請先確認您的資格。"
+              }
+            },
+            {
+              "phrase": "determine eligibility",
+              "zh": "判斷是否符合資格",
+              "example": {
+                "en": "The team will determine eligibility within five business days.",
+                "zh": "團隊會在五個工作天內判斷是否符合資格。"
+              }
+            },
+            {
+              "phrase": "confirm eligibility",
+              "zh": "確認具備資格",
+              "example": {
+                "en": "We need a valid ID to confirm eligibility for the discount.",
+                "zh": "我們需要有效證件來確認您有資格享有折扣。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "We are reviewing your eligibility and will reply by Friday.",
+              "zh": "我們正在審核您的資格，會在星期五前回覆。"
+            },
+            {
+              "tag": "人資",
+              "en": "Eligibility for the bonus starts after six months of service.",
+              "zh": "獎金資格在到職滿六個月後開始。"
+            },
+            {
+              "tag": "保險",
+              "en": "The company explained the eligibility rules for the new health plan.",
+              "zh": "公司說明了新健康保險方案的資格規定。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "legibility",
+              "diff": "legibility 是「（字跡）清楚易讀」；eligibility 是「資格」，兩字字尾相近但意思完全不同。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The legibility of the handwritten form made it hard to process.",
+                "zh": "手寫表單字跡不易辨認，讓處理變得困難。"
+              }
+            },
+            {
+              "word": "liability",
+              "diff": "liability 是「法律責任」；eligibility 是「資格」，字尾都是 -bility，發音節奏也相似。",
+              "kind": [
+                "sound"
+              ],
+              "example": {
+                "en": "The contract limits the company's liability for late delivery.",
+                "zh": "合約限制了公司對延遲交貨的責任。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "qualification",
+              "diff": "qualification 常指個人的條件或證書；eligibility 指是否符合某個項目的規定。",
+              "example": {
+                "en": "Her qualifications make her a strong candidate for the job.",
+                "zh": "她的資歷讓她成為這份工作的強力人選。"
+              }
+            },
+            {
+              "word": "entitlement",
+              "diff": "entitlement 強調依規定「有權得到」的東西；eligibility 強調「是否符合條件」。",
+              "example": {
+                "en": "Every employee has an entitlement to ten days of paid leave.",
+                "zh": "每位員工都享有十天的帶薪假。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "requirement",
+              "pos": "n.",
+              "zh": "要求、條件",
+              "ipa": "/rɪˈkwaɪərmənt/",
+              "example": {
+                "en": "A valid passport is a requirement for this trip.",
+                "zh": "有效護照是這趟行程的必備條件。"
+              }
+            },
+            {
+              "w": "criteria",
+              "pos": "n.",
+              "zh": "標準（複數）",
+              "ipa": "/kraɪˈtɪriə/",
+              "example": {
+                "en": "We use clear criteria to choose our suppliers.",
+                "zh": "我們用明確的標準來選擇供應商。"
+              }
+            },
+            {
+              "w": "approval",
+              "pos": "n.",
+              "zh": "核准",
+              "ipa": "/əˈpruːvl/",
+              "example": {
+                "en": "The refund needs approval from the finance manager.",
+                "zh": "這筆退款需要財務經理核准。"
+              }
+            },
+            {
+              "w": "refund",
+              "pos": "n.",
+              "zh": "退款",
+              "ipa": "/ˈriːfʌnd/",
+              "example": {
+                "en": "You will receive a full refund within ten days.",
+                "zh": "您將在十天內收到全額退款。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "eligible",
+              "pos": "adj.",
+              "zh": "有資格的、符合條件的",
+              "ipa": "/ˈelɪdʒəbl/",
+              "link": "這是詞幹。eligible + -ity，形容詞變抽象名詞，像 able → ability。"
+            },
+            {
+              "w": "ineligible",
+              "pos": "adj.",
+              "zh": "沒有資格的",
+              "ipa": "/ɪnˈelɪdʒəbl/",
+              "link": "in- 表示「不」，像 incorrect、incomplete，加在 eligible 前面變相反。"
+            },
+            {
+              "w": "ineligibility",
+              "pos": "n.",
+              "zh": "不具資格",
+              "ipa": "/ɪnˌelɪdʒəˈbɪləti/",
+              "link": "ineligible + -ity，變成名詞，指「沒有資格這件事」。"
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "eligibility requirements",
+          "type": "phrase",
+          "zh": "資格條件、申請資格要求",
+          "en": "the rules you must meet to be allowed to get or do something",
+          "note": "這個片語用在退款、補助、保險、報名等情境，說明誰可以申請。文章中的 not eligible 就是「不符合這類資格條件」的意思。",
+          "pattern": "meet the eligibility requirements for + N",
+          "grammar_note": "requirements 通常用複數；搭配的動詞用 meet 或 satisfy，不說 match。",
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "Please read the eligibility requirements before you submit your request.",
+              "zh": "提交申請前，請先閱讀資格條件。"
+            },
+            {
+              "tag": "客戶服務",
+              "en": "Your request does not meet the eligibility requirements for a fast refund.",
+              "zh": "您的申請不符合快速退款的資格條件。"
+            },
+            {
+              "tag": "人資",
+              "en": "The eligibility requirements for the training program are on the intranet.",
+              "zh": "培訓計畫的資格條件登載在公司內部網站上。"
+            },
+            {
+              "tag": "報名",
+              "en": "We may change the eligibility requirements without giving advance notice.",
+              "zh": "我們可能在不事先通知的情況下更改資格條件。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "eligibility criteria",
+              "diff": "criteria 是「判斷標準」，語氣較中性；requirements 強調「必須達到的要求」。",
+              "example": {
+                "en": "The eligibility criteria are the same for every applicant.",
+                "zh": "每位申請人的資格標準都相同。"
+              }
+            },
+            {
+              "phrase": "entry requirements",
+              "diff": "entry requirements 常指入學、入境或加入活動的門檻；eligibility requirements 範圍更廣，如福利、退款。",
+              "example": {
+                "en": "The entry requirements for this course include two years of experience.",
+                "zh": "這門課的報名條件包括兩年經驗。"
+              }
+            }
+          ]
         }
       ]
     },
