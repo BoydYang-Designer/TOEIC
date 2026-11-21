@@ -272,3 +272,78 @@ function cfSave(ai) { // ai＝1：請 AI 依 5 類自己找（可以不輸入字
   dnToast((ai ? '已請 AI 依 ' + (kinds.length ? kinds.map(k => DN_KIND[k]).join('、') : '5 ') + '類尋找' + (ws.length ? '，並加入：' + ws.join('、') : '') : '已加入：' + ws.join('、')) + (skip.length ? '（略過 ' + skip.join('、') + '）' : '') + '。到「🆕 新單字 → 待補充詳解」複製提示詞');
   render();
 }
+
+
+/* ======================= ＋ 補充詳解區塊（詳解頁「字」旁的 ＋）=======================
+   和「易混淆」的 ＋ 同一套做法，不新增補丁類型：按 ＋ → 看這個字「缺哪些區塊」→ 勾要補的 → 建一筆新單字待辦（備註＝要 AI 補哪些區塊，sup:1、supk:[區塊]）。
+   到「🆕 新單字 → 待補充詳解」複製提示詞給 AI → 回傳存成 w{週}d{天}_extra.json → json_merge.py 合併。AI 回 nw_done 後這筆就變「已更新」。
+   缺的區塊只是列出來給你選，預設都不勾；不需要的（例如某個字本來就不需要文法說明）不勾就好。
+   狀態：1＝有內容；2＝欄位存在但是空陣列（AI 當時已確認「沒有」）；0＝沒有這個欄位。 */
+const spArr = f => e => { const a = e[f]; return Array.isArray(a) ? (a.length ? 1 : 2) : 0; };
+const spStr = f => e => String(e[f] || '').trim() ? 1 : 0;
+const SP_BLK = [
+  { k: 'en', t: ['word', 'phrase'], lab: '英文解說 en', has: spStr('en'), ins: 'en（英文解說）：用同程度的簡單英文一句話解釋' },
+  { k: 'grammar_note', t: ['word', 'phrase'], lab: '文法說明 grammar_note', has: spStr('grammar_note'), ins: 'grammar_note（文法說明）：我明確想要這個區塊，請寫出這個字最實用、最容易用錯的文法點（一到兩句繁體中文，具體、可直接套用，例如詞性與用法、可數或不可數、後面接的介系詞或句型）；只有真的完全沒有可說的，才不寫並在 nw_done 填 covered' },
+  { k: 'pattern', t: ['phrase', 'sentence'], lab: '句型模板 pattern', has: spStr('pattern'), ins: 'pattern（句型模板）：抽成可重複使用的模板，可替換的部分用 V、N、時間、人物 等標示' },
+  { k: 'pos_uses', t: ['word'], lab: '多詞性 pos_uses', has: spArr('pos_uses'), ins: 'pos_uses（多詞性）：每個常見詞性一筆，含 pos、ipa、zh、example；只有單一詞性就輸出 []' },
+  { k: 'senses', t: ['word'], lab: '多義 senses', has: spArr('senses'), ins: 'senses（多義）：同詞性內不同意思，每筆含 pos、zh、en、example；只有單一意思就輸出 []' },
+  { k: 'forms', t: ['word'], lab: '屈折變化 forms', has: spArr('forms'), ins: 'forms（屈折變化）：每筆含 w、label、pos、zh、ipa、example；沒有屈折變化就輸出 []' },
+  { k: 'derived', t: ['word'], lab: '同字族 derived', has: spArr('derived'), ins: 'derived（衍生字）：每筆含 w、ipa、pos、zh、link（記憶連結）；沒有常見衍生字就輸出 []' },
+  { k: 'collocations', t: ['word'], lab: '常用搭配 collocations', has: spArr('collocations'), ins: 'collocations（常用搭配）：2–5 個，每個都要有 phrase、zh 與自己的 example' },
+  { k: 'examples', t: ['word', 'phrase', 'sentence'], lab: '例句 examples', has: spArr('examples'), ins: 'examples（例句）：每句 8–15 字、商務情境，加 tag 標示情境；不要與原有例句重複' },
+  { k: 'confusable', t: ['word', 'phrase'], lab: '易混淆 confusable', has: spArr('confusable'), ins: 'confusable（易混淆）：依 spell／sound／meaning／root／zhsame 5 類逐一比對，每筆含 word（片語用 phrase）、diff、kind、example；沒有合適的字就不加，不要硬湊' },
+  { k: 'similar', t: ['word', 'phrase'], lab: '近義片語 similar', has: spArr('similar'), ins: 'similar（近義片語）：每筆含 phrase（單字用 word）、diff、example；真的沒有就不加' },
+  { k: 'family', t: ['word'], lab: '相關字 family', has: spArr('family'), ins: 'family（相關字）：最多 4 個，每個含 w、ipa、pos、zh、example' },
+  { k: 'chunks', t: ['sentence'], lab: '意群斷句 chunks', has: spArr('chunks'), ins: 'chunks（意群斷句）：3–8 個意群，每筆 en＋zh；所有 en 依序接起來必須剛好等於整句' },
+  { k: 'structure', t: ['sentence'], lab: '句型結構 structure', has: spStr('structure'), ins: 'structure（句型結構）：用一行拆解句型' },
+  { k: 'grammar', t: ['sentence'], lab: '文法重點 grammar', has: spArr('grammar'), ins: 'grammar（文法重點）：1–3 個這句真正值得學的文法點，每筆 point＋explain（繁體中文、具體）' },
+  { k: 'paraphrase', t: ['sentence'], lab: '同義改寫 paraphrase', has: spArr('paraphrase'), ins: 'paraphrase（同義改寫）：1–2 句，意思相同、換一種說法，每筆 en＋zh' },
+  { k: 'key_words', t: ['sentence'], lab: '重點字詞 key_words', has: spArr('key_words'), ins: 'key_words（重點字詞）：2–5 個，每筆含 w、zh；單字還要 ipa、pos；沒有值得註記的就輸出 []' }
+];
+const spCan = e => !!e && (e.type === 'word' || e.type === 'phrase' || e.type === 'sentence');
+const spBlocks = e => SP_BLK.filter(b => b.t.includes(e.type));
+const spPending = e => { const k = dnKey(cfOwnText(e)); return nwList().filter(n => n.sup && dnKey(n.text) === k && !nwIsDone(n)); };
+function spBtn(e) { // 放在詳解頁標題的字旁邊
+  return spCan(e) ? `<button onclick="spOpen()" class="ml-1 w-7 h-7 inline-flex items-center justify-center rounded-md border border-slate-300 dark:border-slate-700 text-slate-500 hover:text-indigo-600 hover:border-indigo-400 text-base leading-none align-middle cursor-pointer" aria-label="補充詳解區塊" title="看這個字缺哪些區塊，補上去">＋</button>` : '';
+}
+function spBanner(e) { // 標題下方：已加入、等 AI 補的區塊
+  if (!spCan(e)) return '';
+  const pend = spPending(e); if (!pend.length) return '';
+  const lab = {}; SP_BLK.forEach(b => { lab[b.k] = b.lab.replace(/ .*$/, ''); });
+  const ks = [...new Set(pend.reduce((a, n) => a.concat(n.supk || []), []))].map(k => lab[k] || k);
+  return `<p class="text-xs text-amber-700 dark:text-amber-300 mb-3">⏳ 待 AI 補充：${esc(ks.join('、') || '（已加入）')}　<button onclick="dnNav('nw');nwTab('todo')" class="underline cursor-pointer">到 🆕 新單字 → 待補充詳解複製提示詞</button></p>`;
+}
+function spOpen() {
+  const D = typeof dnDetailData === 'function' ? dnDetailData() : null; if (!D || !D.ex || !spCan(D.e)) return;
+  const e = D.e, bs = spBlocks(e), by = s => bs.filter(b => b.has(e) === s);
+  const row = (b, m) => `<label class="flex items-start gap-2 text-sm py-1 cursor-pointer"><input type="checkbox" data-spk="${b.k}" data-spm="${m}" class="w-4 h-4 mt-0.5"><b>${esc(b.lab)}</b></label>`;
+  const miss = by(0), conf = by(2), have = by(1);
+  const sub = (t, arr, m, open) => arr.length ? `<details class="mb-3" ${open ? 'open' : ''}><summary class="text-xs text-slate-500 cursor-pointer select-none mb-1">${t}（${arr.length}）</summary>${arr.map(b => row(b, m)).join('')}</details>` : '';
+  dnModal(`<div class="${card} w-full max-w-lg p-4 md:p-5 max-h-[90vh] overflow-y-auto"><div class="flex items-center justify-between mb-3"><h2 class="font-bold">＋ 補充詳解區塊</h2><button onclick="dnClose()" class="text-slate-400 hover:text-slate-600 text-xl leading-none cursor-pointer" aria-label="關閉">×</button></div>
+    <p class="text-lg font-bold mb-1 break-words">${esc(cfOwnText(e))}</p>
+    <p class="text-xs text-slate-500 mb-3">下面列出這個字目前沒有的區塊；要補的才勾，不需要的（例如這個字本來就不需要文法說明）不勾就好。</p>
+    ${miss.length ? `<p class="text-xs font-semibold text-rose-600 dark:text-rose-400 mb-1">目前沒有（${miss.length}）</p><div class="mb-3">${miss.map(b => row(b, 'm')).join('')}</div>` : '<p class="text-sm text-emerald-600 dark:text-emerald-400 mb-3">所有區塊都有了。想加更多，可以展開下面「已有的區塊」。</p>'}
+    ${sub('AI 當時已確認「沒有」的區塊（想要仍可勾，請 AI 重新評估）', conf, 'c', false)}
+    ${sub('已有的區塊（想補強、再多加幾筆時勾）', have, 'h', false)}
+    <label class="block text-xs text-slate-500 mb-1">備註（選填，例如想特別釐清哪裡）</label><textarea id="sp-n" rows="3" class="${dnInp} mb-3"></textarea>
+    <p class="text-xs text-slate-500 leading-relaxed mb-4">按「加入待辦」後，到「🆕 新單字 → 待補充詳解」複製 AI 提示詞，AI 回傳存成 <code>w{週}d{天}_extra.json</code>，再用 json_merge.py 合併。原有內容一律保留，只會新增。</p>
+    <div class="flex justify-end gap-2"><button onclick="dnClose()" class="${btn} ${dnLine}">取消</button><button onclick="spSave()" class="${btn} ${dnPri}">加入待辦</button></div></div>`);
+}
+function spNote(own, picks, remark) {
+  const way = { m: '新增', c: '重新評估後新增', h: '保留原有內容、再補充（不要重複）' };
+  const lines = picks.map((p, i) => `${i + 1}）${way[p.m]} ${p.b.ins}`);
+  return `請替「${own}」的詳解補上以下區塊。沒有列出的欄位、以及原有內容一律逐字原樣保留：${lines.join('；')}。` + (remark ? `我的說明：${remark}` : '');
+}
+function spSave() {
+  const D = typeof dnDetailData === 'function' ? dnDetailData() : null; if (!D || !D.ex || !spCan(D.e)) return dnClose();
+  const e = D.e, own = cfOwnText(e), bs = spBlocks(e);
+  const picks = Array.from(document.querySelectorAll('[data-spk]')).filter(c => c.checked).map(c => ({ b: bs.find(b => b.k === c.dataset.spk), m: c.dataset.spm })).filter(p => p.b);
+  if (!picks.length) { dnToast('請先勾選要補的區塊'); return; }
+  const remark = String((document.getElementById('sp-n') || {}).value || '').trim().replace(/\s+/g, ' '), note = spNote(own, picks, remark);
+  if (nwList().some(n => dnKey(n.text) === dnKey(own) && String(n.note || '').trim() === note && !nwIsDone(n))) { dnToast('這個已經加過了，等 AI 補充'); return; }
+  const now = Date.now();
+  nwList().push({ id: dnId('n'), text: own, type: /\s/.test(own) ? 'phrase' : 'word', note, sup: 1, supk: picks.map(p => p.b.k), created: now, updated: now, t: now, base: DATA.map(idOf) });
+  nwSave(); dnClose();
+  dnToast('已加入：' + picks.map(p => p.b.lab.replace(/ .*$/, '')).join('、') + '。到「🆕 新單字 → 待補充詳解」複製提示詞');
+  render();
+}
