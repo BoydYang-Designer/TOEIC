@@ -1,0 +1,75 @@
+{
+  "week": 6,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "manual review",
+      "type": "phrase",
+      "zh": "人工審查、人工審核",
+      "en": "a check that is done by a person, not by a computer system",
+      "note": "在這篇文章裡，快速退款（fast refund）是系統自動處理，但這筆不符合資格，所以改成 manual review，也就是請真人客服逐筆檢查。語氣正式、客氣，常見於客服與財務信件。",
+      "pattern": "submit / send + N + for manual review",
+      "grammar_note": "manual 是形容詞，放在名詞 review 前面；for manual review 的 for 表示目的。不要把 manually（副詞）放在名詞前，manually 是用來修飾動詞，如 check manually。",
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Your request has been sent to our team for manual review.",
+          "zh": "您的申請已送交我們的團隊進行人工審核。"
+        },
+        {
+          "tag": "財務",
+          "en": "The finance team does a manual review of all refund requests over $500.",
+          "zh": "財務團隊會人工審核所有超過 500 美元的退款申請。"
+        },
+        {
+          "tag": "會議",
+          "en": "Large orders need manual review before the system approves the payment.",
+          "zh": "大額訂單在系統核准付款之前，需要經過人工審查。"
+        },
+        {
+          "tag": "客服",
+          "en": "Please allow three business days for the manual review to finish.",
+          "zh": "請預留三個工作天讓人工審核完成。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "manual check",
+          "diff": "manual check 較口語，泛指用人工檢查；manual review 較正式，常指有流程的審核或核准。",
+          "example": {
+            "en": "We do a manual check when the system finds a problem.",
+            "zh": "當系統發現問題時，我們會做人工檢查。"
+          }
+        },
+        {
+          "phrase": "human review",
+          "diff": "human review 強調「由真人而不是機器」來審核；manual review 強調「不是自動處理」。",
+          "example": {
+            "en": "Every complaint receives a human review within two business days.",
+            "zh": "每一件客訴都會在兩個工作天內由真人審核。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "annual review",
+          "diff": "annual /ˈænjuəl/ 是「每年的」，annual review 是年度考核；manual /ˈmænjuəl/ 是「人工的」，兩者只差一個字母。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "Your annual review will take place in January with your manager.",
+            "zh": "你的年度考核會在一月與主管進行。"
+          }
+        },
+        {
+          "word": "revise",
+          "diff": "review 是檢查、評估；revise 是修改、更正內容，兩者字形與意思都容易搞混。",
+          "kind": ["spell", "meaning"],
+          "example": {
+            "en": "Please revise the report after the manager finishes her review.",
+            "zh": "主管看完之後，請修改這份報告。"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,475 @@
+{
+  "week": 7,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "look over",
+      "type": "phrase",
+      "zh": "瀏覽、檢查（大致看一遍）",
+      "en": "to check or read something quickly to see if it is correct or good",
+      "note": "本篇文章沒有直接出現這個片語，但它在商務情境很常見，指把文件、報告或合約快速看過，確認有沒有問題。語氣中性，適合用在請同事幫忙檢查的場合。",
+      "pattern": "look over + N（文件／報告／合約）",
+      "grammar_note": "look over 是可分開的片語：受詞是名詞時可放中間或後面（look over the report／look the report over）；受詞是代名詞時通常放中間（look it over），不說 look over it。",
+      "examples": [
+        { "tag": "會議", "en": "Please look over the agenda before tomorrow's meeting.", "zh": "請在明天的會議前先看一下議程。" },
+        { "tag": "電子郵件", "en": "Could you look over my report before I send it out?", "zh": "你可以在我寄出報告前幫我看一下嗎？" },
+        { "tag": "合約", "en": "Our lawyer will look the contract over this afternoon.", "zh": "我們的律師今天下午會把合約看過一遍。" },
+        { "tag": "採購", "en": "I looked over the supplier's price list yesterday.", "zh": "我昨天瀏覽了供應商的價目表。" },
+        { "tag": "簡報", "en": "Let me look it over once more before the presentation.", "zh": "簡報之前讓我再把它看過一次。" }
+      ],
+      "similar": [
+        {
+          "phrase": "go over",
+          "diff": "go over 是從頭到尾逐項檢查或說明，常用在「一起把內容講一遍」；look over 較像快速看過。",
+          "example": { "en": "Let's go over the budget together at 3 p.m.", "zh": "我們下午三點一起把預算過一遍。" }
+        },
+        {
+          "word": "review",
+          "diff": "review 是單字，語氣較正式，表示認真檢討並給出意見；look over 較口語、較快。",
+          "example": { "en": "The manager will review the budget report on Friday.", "zh": "經理星期五會審閱預算報告。" }
+        },
+        {
+          "phrase": "check over",
+          "diff": "check over 更強調要找出錯誤或問題；look over 只是大致看看。",
+          "example": { "en": "Please check over the figures before you send the invoice.", "zh": "寄出發票前請再檢查一遍數字。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "overlook",
+          "diff": "overlook 是一個單字，意思是「沒注意到、忽略」；look over 是「檢查、看一遍」，兩者字形相反、意思也不同。",
+          "kind": ["spell"],
+          "usage": "overlook 是及物動詞，受詞放後面（overlook a mistake）；look over 是片語動詞，可以分開使用。",
+          "example": { "en": "We overlooked one small error in the first report.", "zh": "我們漏看了第一份報告裡的一個小錯誤。" }
+        },
+        {
+          "phrase": "look into",
+          "diff": "look into 是「調查、研究（問題的原因）」；look over 只是「瀏覽或檢查文件」。",
+          "kind": ["meaning"],
+          "example": { "en": "Our team will look into the delay and call you back.", "zh": "我們的團隊會調查延誤的原因，再回電給您。" }
+        }
+      ]
+    },
+    {
+      "text": "neglect",
+      "type": "word",
+      "ipa": "/nɪˈɡlɛkt/",
+      "pos": "v.",
+      "zh": "忽略、疏忽、忽視",
+      "en": "to not give enough care or attention to something that needs it",
+      "note": "本篇談到我們常把身邊的小事和人當作理所當然。neglect 就是「該照顧、該注意卻沒做到」，語氣比 ignore 更有「失職、疏忽」的意味。",
+      "grammar_note": "neglect 是及物動詞，後面直接接受詞（neglect your health），不加 of；也可接 to V 或 V-ing，表示「忘了做該做的事」。",
+      "forms": [
+        { "w": "neglects", "label": "第三人稱單數", "pos": "v.", "zh": "忽略", "ipa": "/nɪˈɡlɛkts/", "example": { "en": "Our competitor neglects customer service, so clients are leaving.", "zh": "我們的競爭對手忽略客戶服務，所以客戶正在流失。" } },
+        { "w": "neglected", "label": "過去式／過去分詞", "pos": "v.", "zh": "忽略了", "ipa": "/nɪˈɡlɛktɪd/", "example": { "en": "Last year, we neglected our smaller clients and lost two accounts.", "zh": "去年我們忽略了較小的客戶，結果失去兩個帳戶。" } },
+        { "w": "neglected", "label": "形容詞", "pos": "adj.", "zh": "被忽視的、失修的", "ipa": "/nɪˈɡlɛktɪd/", "example": { "en": "This neglected building needs repairs before we can rent it.", "zh": "這棟失修的大樓在出租前需要先修繕。" } },
+        { "w": "neglecting", "label": "現在分詞", "pos": "v.", "zh": "忽略（進行中）", "ipa": "/nɪˈɡlɛktɪŋ/", "example": { "en": "Neglecting regular maintenance can lead to expensive repairs.", "zh": "忽略定期保養可能導致昂貴的維修費用。" } }
+      ],
+      "collocations": [
+        { "phrase": "neglect one's duties", "zh": "疏忽職責", "example": { "en": "She never neglects her duties, even on busy days.", "zh": "即使在忙碌的日子，她也從不疏忽自己的職責。" } },
+        { "phrase": "neglect to + V", "zh": "疏忽而沒做…", "example": { "en": "Please do not neglect to sign the form before leaving.", "zh": "離開前請不要忘了在表格上簽名。" } },
+        { "phrase": "neglect maintenance", "zh": "忽略保養", "example": { "en": "Companies that neglect maintenance often face higher repair costs.", "zh": "忽略保養的公司常常要面對更高的維修成本。" } },
+        { "phrase": "neglect one's health", "zh": "忽視自己的健康", "example": { "en": "Many managers neglect their health during the year-end rush.", "zh": "許多經理在年底忙碌期忽視自己的健康。" } }
+      ],
+      "examples": [
+        { "tag": "行銷", "en": "Don't neglect your regular customers while looking for new ones.", "zh": "在尋找新客戶時，別忽略你的老客戶。" },
+        { "tag": "製造", "en": "The factory neglected safety checks, so the machine broke down.", "zh": "工廠疏忽了安全檢查，所以機器故障了。" },
+        { "tag": "財務", "en": "He neglected the invoice, so payment came a month late.", "zh": "他疏忽了那張發票，所以款項晚了一個月才到。" },
+        { "tag": "工作與生活", "en": "Working late every night, he began to neglect his family.", "zh": "每晚都加班，他開始忽略自己的家人。" }
+      ],
+      "confusable": [
+        {
+          "word": "ignore",
+          "diff": "ignore 是「明明知道卻不理會」；neglect 是「該照顧或該做卻沒做好」，常帶有疏忽、失職的意思。",
+          "kind": ["meaning"],
+          "example": { "en": "The manager ignored the warning and kept the old schedule.", "zh": "經理不理會警告，繼續使用舊的時程表。" }
+        },
+        {
+          "word": "overlook",
+          "diff": "overlook 是「不小心沒看到」；neglect 是「長期沒有照顧或沒去做」。",
+          "kind": ["meaning"],
+          "example": { "en": "We overlooked a small error in the contract.", "zh": "我們漏看了合約裡的一個小錯誤。" }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "fail to",
+          "diff": "fail to + V 是「沒能做到」，可能是做不到；neglect to + V 偏向「疏忽而沒做」。",
+          "example": { "en": "The supplier failed to deliver the parts on time.", "zh": "供應商沒能準時交付零件。" }
+        },
+        {
+          "phrase": "take for granted",
+          "diff": "take for granted 是把某事當作理所當然而不珍惜；neglect 是沒有好好照顧或處理。",
+          "example": { "en": "We often take good service for granted until it stops.", "zh": "我們常把好服務視為理所當然，直到它消失。" }
+        }
+      ],
+      "family": [
+        { "w": "ignore", "pos": "v.", "zh": "不理會", "ipa": "/ɪɡˈnɔːr/", "example": { "en": "Please do not ignore the safety rules in the factory.", "zh": "請不要不理會工廠裡的安全規定。" } },
+        { "w": "overlook", "pos": "v.", "zh": "沒注意到", "ipa": "/ˌoʊvɚˈlʊk/", "example": { "en": "It is easy to overlook small details in a long contract.", "zh": "在很長的合約裡很容易漏看小細節。" } },
+        { "w": "careless", "pos": "adj.", "zh": "粗心的", "ipa": "/ˈkɛrləs/", "example": { "en": "A careless mistake caused a delay in shipping.", "zh": "一個粗心的錯誤造成了出貨延誤。" } },
+        { "w": "attention", "pos": "n.", "zh": "注意、關注", "ipa": "/əˈtɛnʃən/", "example": { "en": "Customer complaints need quick attention from the team.", "zh": "客戶的抱怨需要團隊迅速處理。" } }
+      ],
+      "derived": [
+        { "w": "neglectful", "pos": "adj.", "zh": "疏忽的、不盡責的", "ipa": "/nɪˈɡlɛktfəl/", "link": "neglect + -ful，充滿疏忽的，像 careful、helpful 的 -ful" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/nɪˈɡlɛkt/", "zh": "忽略、疏忽", "in_passage": true, "example": { "en": "Some managers neglect small problems until they become serious.", "zh": "有些經理忽略小問題，直到它們變嚴重。" } },
+        { "pos": "n.", "ipa": "/nɪˈɡlɛkt/", "zh": "疏忽、失修", "example": { "en": "Years of neglect left the old building in poor condition.", "zh": "多年的失修讓這棟老建築狀況很差。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "沒有好好照顧或關心", "en": "to not take care of someone or something", "in_passage": true, "example": { "en": "The company neglected its old customers after the merger.", "zh": "合併之後，公司忽略了老客戶。" } },
+        { "pos": "v.", "zh": "疏忽而沒做（該做的事）", "en": "to forget or fail to do something you should do", "distinguish": "後面接 to V 或 V-ing 時，多半是這個意思。", "example": { "en": "She neglected to attach the file to her email.", "zh": "她忘了把檔案附在電子郵件裡。" } }
+      ]
+    },
+    {
+      "text": "craftsmanship",
+      "type": "word",
+      "ipa": "/ˈkræftsmənʃɪp/",
+      "pos": "n.",
+      "zh": "工藝、手藝、做工",
+      "en": "the skill of making things well, especially by hand",
+      "note": "這句說要花時間才能欣賞這件作品的做工。craftsmanship 指製作者的技術與用心，是不可數名詞，常用來稱讚產品的品質。",
+      "grammar_note": "craftsmanship 是不可數名詞，不加 a、不加 s；要說「一件作品」可用 a piece of work，不說 a craftsmanship。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "fine craftsmanship", "zh": "精緻的工藝", "example": { "en": "The hotel is famous for its fine craftsmanship in every room.", "zh": "這間飯店以每個房間的精緻工藝聞名。" } },
+        { "phrase": "quality craftsmanship", "zh": "高品質的做工", "example": { "en": "We use quality craftsmanship and strong materials in every chair.", "zh": "我們每張椅子都用上高品質的做工和堅固的材料。" } },
+        { "phrase": "a sign of craftsmanship", "zh": "好手藝的象徵", "example": { "en": "Smooth edges and neat stitching are a sign of craftsmanship.", "zh": "平滑的邊緣和整齊的縫線是好手藝的象徵。" } },
+        { "phrase": "take pride in one's craftsmanship", "zh": "對自己的手藝感到自豪", "example": { "en": "Our workers take great pride in their craftsmanship.", "zh": "我們的工人對自己的手藝非常自豪。" } }
+      ],
+      "examples": [
+        { "tag": "產品介紹", "en": "Each watch shows the excellent craftsmanship of our design team.", "zh": "每支手錶都展現出我們設計團隊的絕佳工藝。" },
+        { "tag": "行銷", "en": "Customers pay more for craftsmanship that lasts for many years.", "zh": "顧客願意為能用很多年的好手藝多付錢。" },
+        { "tag": "評論", "en": "The reviews praise the beautiful craftsmanship of the new desk.", "zh": "評論稱讚這張新書桌的精美做工。" },
+        { "tag": "展覽", "en": "Visitors admired the craftsmanship of the handmade furniture at the fair.", "zh": "參觀者在展覽會上欣賞手工家具的精湛手藝。" }
+      ],
+      "confusable": [
+        {
+          "word": "craftsman",
+          "diff": "craftsman 是「工匠」（人）；craftsmanship 是「手藝、工藝」（技術或品質）。",
+          "kind": ["spell", "root"],
+          "usage": "craftsman 是可數名詞（a craftsman、複數 craftsmen）；craftsmanship 是不可數名詞，不加 a 或 s。",
+          "example": { "en": "The craftsman spent three weeks making this table.", "zh": "這位工匠花了三週做這張桌子。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "workmanship",
+          "diff": "workmanship 偏重做工的完成度與品質（常見在保固、品質檢查）；craftsmanship 更強調手藝與用心。",
+          "example": { "en": "The warranty covers poor workmanship for two years.", "zh": "保固涵蓋兩年內的做工不良。" }
+        },
+        {
+          "word": "skill",
+          "diff": "skill 泛指各種能力，不一定和製作東西有關；craftsmanship 專指製作物品的手藝。",
+          "example": { "en": "Making this table by hand takes great skill.", "zh": "手工做這張桌子需要很高的技術。" }
+        }
+      ],
+      "family": [
+        { "w": "quality", "pos": "n.", "zh": "品質", "ipa": "/ˈkwɑːləti/", "example": { "en": "We check the quality of every product before shipping.", "zh": "我們在出貨前檢查每件產品的品質。" } },
+        { "w": "handmade", "pos": "adj.", "zh": "手工製的", "ipa": "/ˌhændˈmeɪd/", "example": { "en": "Handmade bags are popular in our online store.", "zh": "手工包在我們的網路商店很受歡迎。" } },
+        { "w": "talent", "pos": "n.", "zh": "才能、人才", "ipa": "/ˈtælənt/", "example": { "en": "The company hires young talent from local design schools.", "zh": "公司從當地設計學校聘請年輕人才。" } }
+      ],
+      "derived": [
+        { "w": "craft", "pos": "n.", "zh": "手工藝、技藝", "ipa": "/kræft/", "link": "craftsmanship 去掉 -sman 與 -ship 就是 craft（手工技藝），這是最基本的詞幹" },
+        { "w": "craftsman", "pos": "n.", "zh": "工匠", "ipa": "/ˈkræftsmən/", "link": "craft + -s + man，做手藝的人，像 salesman；再加 -ship 就變成 craftsmanship（技術水準），像 friendship、leadership" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "Property",
+      "type": "word",
+      "ipa": "/ˈprɑːpɚti/",
+      "pos": "n.",
+      "zh": "房地產、不動產；財產",
+      "en": "land and buildings, or things that someone owns",
+      "note": "這句說這個地區的房地產預期未來十年會升值。Property 在句首所以大寫，這裡是不可數的「房地產」，不是「特性」；句中的 appreciate 也不是「欣賞」，而是「升值」。",
+      "grammar_note": "property 指「房地產／財產」時是不可數名詞，不加 a、不加 s；指一筆具體的房產才用 a property，多筆則用 properties。",
+      "forms": [
+        { "w": "properties", "label": "複數", "pos": "n.", "zh": "房產（多筆）", "ipa": "/ˈprɑːpɚtiz/", "example": { "en": "The company owns several properties near the city center.", "zh": "這家公司在市中心附近擁有數筆房產。" } },
+        { "w": "properties", "label": "複數（特性）", "pos": "n.", "zh": "特性、性質", "ipa": "/ˈprɑːpɚtiz/", "example": { "en": "The properties of this material make it safe for outdoor use.", "zh": "這種材料的特性讓它適合安全地用在戶外。" } }
+      ],
+      "collocations": [
+        { "phrase": "property value", "zh": "房產價值", "example": { "en": "The new park raised the property value of our building.", "zh": "新公園提高了我們大樓的房產價值。" } },
+        { "phrase": "property tax", "zh": "房地產稅", "example": { "en": "Business owners must pay property tax once a year.", "zh": "企業主每年必須繳一次房地產稅。" } },
+        { "phrase": "commercial property", "zh": "商用不動產", "example": { "en": "We are looking for commercial property near the station.", "zh": "我們正在車站附近找商用不動產。" } },
+        { "phrase": "damage to property", "zh": "財物損失", "example": { "en": "The insurance covers damage to property caused by storms.", "zh": "保險涵蓋暴風雨造成的財物損失。" } }
+      ],
+      "examples": [
+        { "tag": "新聞", "en": "Property prices in the city center rose sharply this year.", "zh": "今年市中心的房價大幅上漲。" },
+        { "tag": "失物招領", "en": "Please report any lost property to the front desk.", "zh": "任何遺失的物品請向櫃台報告。" },
+        { "tag": "租賃", "en": "The company rents out property to small businesses.", "zh": "這家公司把房地產出租給小型企業。" },
+        { "tag": "公告", "en": "This is private property, so visitors must sign in.", "zh": "這是私人土地，所以訪客必須登記。" }
+      ],
+      "confusable": [
+        {
+          "word": "properly",
+          "diff": "properly 是副詞，意思是「適當地、正確地」；property 是名詞，指房地產或財產。",
+          "kind": ["spell", "root"],
+          "usage": "properly 用來修飾動詞（work properly）；property 是名詞，不能放在動詞前面修飾它。",
+          "example": { "en": "The machine is not working properly after the update.", "zh": "更新之後，這台機器沒有正常運作。" }
+        },
+        {
+          "word": "profit",
+          "diff": "profit 是做生意賺到的利潤；property 是房地產或財產。",
+          "kind": ["spell", "sound"],
+          "example": { "en": "The company made a small profit last quarter.", "zh": "這家公司上一季賺了一點小利潤。" }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "real estate",
+          "diff": "real estate 專指土地與建物（也指房地產業），常用在買賣與仲介；property 範圍較廣，也包含一般財產。",
+          "example": { "en": "She works for a real estate company in Taipei.", "zh": "她在台北的一家房地產公司工作。" }
+        },
+        {
+          "word": "belongings",
+          "diff": "belongings 指個人隨身的物品，通常用複數；property 可指房地產，也可指財物。",
+          "example": { "en": "Please keep your belongings with you at all times.", "zh": "請隨時把您的隨身物品帶在身邊。" }
+        }
+      ],
+      "family": [
+        { "w": "land", "pos": "n.", "zh": "土地", "ipa": "/lænd/", "example": { "en": "The company bought land near the airport last year.", "zh": "公司去年在機場附近買了土地。" } },
+        { "w": "building", "pos": "n.", "zh": "建築物、大樓", "ipa": "/ˈbɪldɪŋ/", "example": { "en": "Our office building is only five minutes from the station.", "zh": "我們的辦公大樓離車站只要五分鐘。" } },
+        { "w": "tenant", "pos": "n.", "zh": "房客、租戶", "ipa": "/ˈtɛnənt/", "example": { "en": "The tenant pays the rent on the first day of each month.", "zh": "房客在每個月的第一天繳房租。" } }
+      ],
+      "derived": [
+        { "w": "proper", "pos": "adj.", "zh": "適當的、正確的", "ipa": "/ˈprɑːpɚ/", "link": "property 去掉 -ty 就是 proper；-ty 是名詞字尾，像 safe → safety、able → ability" },
+        { "w": "properly", "pos": "adv.", "zh": "適當地、正確地", "ipa": "/ˈprɑːpɚli/", "link": "proper + -ly，變成副詞，像 quick → quickly" },
+        { "w": "improper", "pos": "adj.", "zh": "不適當的", "ipa": "/ɪmˈprɑːpɚ/", "link": "im- + proper，im- 表示否定，像 possible → impossible" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "房地產、不動產", "en": "land and buildings that belong to someone", "in_passage": true, "example": { "en": "The company sold its property in the city center.", "zh": "公司賣掉了位於市中心的房地產。" } },
+        { "pos": "n.", "zh": "財產、所有物", "en": "things that someone owns", "distinguish": "指個人或公司擁有的東西，常見於 lost property、personal property。", "example": { "en": "Visitors should not leave personal property in the meeting room.", "zh": "訪客不應把個人物品留在會議室裡。" } },
+        { "pos": "n.", "zh": "特性、性質", "en": "a quality that something has", "distinguish": "常用複數 properties，後面常接 of + 物質或產品。", "example": { "en": "This cleaner has special properties that remove oil quickly.", "zh": "這款清潔劑有特殊的特性，能快速去除油污。" } }
+      ]
+    },
+    {
+      "text": "thankful",
+      "type": "word",
+      "ipa": "/ˈθæŋkfəl/",
+      "pos": "adj.",
+      "zh": "感謝的、感恩的、慶幸的",
+      "en": "feeling glad because something good happened or someone helped you",
+      "note": "文章最後呼籲大家 be more grateful（多懷抱感恩）。thankful 和 grateful 意思相近，但更口語，也常表示「慶幸（事情沒有變得更糟）」。",
+      "grammar_note": "感謝的對象是人時用 thankful to + 人，是事情時用 thankful for + 名詞；說明原因可接 that 子句（thankful that ...）。",
+      "forms": [],
+      "collocations": [
+        { "phrase": "be thankful for", "zh": "對…心懷感謝", "example": { "en": "We are thankful for your quick reply to our request.", "zh": "我們很感謝您迅速回覆我們的請求。" } },
+        { "phrase": "thankful to", "zh": "感謝（某人）", "example": { "en": "I am thankful to the whole team for their hard work.", "zh": "我很感謝整個團隊的辛勤付出。" } },
+        { "phrase": "be thankful that", "zh": "慶幸／感謝…", "example": { "en": "We are thankful that no one was hurt in the accident.", "zh": "我們慶幸這場意外中沒有人受傷。" } }
+      ],
+      "examples": [
+        { "tag": "電子郵件", "en": "Please let your staff know how thankful we are.", "zh": "請讓您的員工知道我們有多感謝他們。" },
+        { "tag": "致詞", "en": "The founder looked thankful as the crowd stood up to clap.", "zh": "群眾起立鼓掌時，創辦人看起來充滿感激。" },
+        { "tag": "會議", "en": "The team was thankful when the deadline moved to next week.", "zh": "截止日期延到下週時，團隊鬆了一口氣、很慶幸。" },
+        { "tag": "客服", "en": "Many customers feel thankful when problems are solved quickly.", "zh": "問題被迅速解決時，許多客戶會心懷感謝。" }
+      ],
+      "confusable": [
+        {
+          "word": "thoughtful",
+          "diff": "thoughtful 是「體貼的、考慮周到的」；thankful 是「感謝的」。",
+          "kind": ["spell", "sound"],
+          "example": { "en": "It was thoughtful of you to send flowers to the client.", "zh": "你送花給客戶，真是體貼。" }
+        },
+        {
+          "word": "helpful",
+          "diff": "helpful 是「有幫助的」，形容人或物；thankful 是「感謝的」，形容說話者的感受。",
+          "kind": ["spell"],
+          "example": { "en": "The staff were very helpful during our hotel stay.", "zh": "我們住宿期間，飯店員工非常樂於協助。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "grateful",
+          "diff": "grateful 較正式，常用在書信與致謝（I would be grateful if ...）；thankful 較口語，也常表示慶幸。",
+          "example": { "en": "We would be grateful if you could reply by Friday.", "zh": "若您能在星期五前回覆，我們會非常感激。" }
+        },
+        {
+          "word": "relieved",
+          "diff": "relieved 是擔心消失後鬆一口氣；thankful that 也能表示慶幸，但多了感恩的語氣。",
+          "example": { "en": "The manager was relieved when the shipment finally arrived.", "zh": "貨物終於抵達時，經理鬆了一口氣。" }
+        }
+      ],
+      "family": [
+        { "w": "appreciate", "pos": "v.", "zh": "感激、欣賞", "ipa": "/əˈpriːʃieɪt/", "example": { "en": "We appreciate your patience during the repair work.", "zh": "我們感謝您在維修期間的耐心。" } },
+        { "w": "lucky", "pos": "adj.", "zh": "幸運的", "ipa": "/ˈlʌki/", "example": { "en": "We were lucky to find a good supplier so quickly.", "zh": "我們很幸運這麼快就找到好的供應商。" } },
+        { "w": "glad", "pos": "adj.", "zh": "高興的", "ipa": "/ɡlæd/", "example": { "en": "I'm glad to hear the project is on schedule.", "zh": "很高興聽到專案進度符合預期。" } }
+      ],
+      "derived": [
+        { "w": "thank", "pos": "v.", "zh": "感謝", "ipa": "/θæŋk/", "link": "thankful 去掉 -ful 就是 thank（謝謝），像 helpful ← help" },
+        { "w": "thankfully", "pos": "adv.", "zh": "幸好、感激地", "ipa": "/ˈθæŋkfəli/", "link": "thankful + -ly，變成副詞，像 careful → carefully" },
+        { "w": "thankfulness", "pos": "n.", "zh": "感謝之情", "ipa": "/ˈθæŋkfəlnəs/", "link": "thankful + -ness，變成名詞，像 happy → happiness" }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "lies",
+      "type": "word",
+      "lemma": "lie",
+      "ipa": "/laɪz/",
+      "pos": "v.",
+      "zh": "在於；位於；躺著（lie 的第三人稱單數）",
+      "en": "to be found in something; to be in a certain place or position",
+      "note": "句中的 lies in 表示「（價值）在於…」，用來說明人生真正的價值是什麼。lies 是 lie 的第三人稱單數，因為主詞 its true value 是單數。",
+      "grammar_note": "lie 有兩組變化：「躺、在於」是 lie–lay–lain–lying；「說謊」是 lie–lied–lied–lying。另外 lay（放置）是及物動詞，變化是 lay–laid–laid，很容易和 lie 的過去式 lay 搞混。",
+      "forms": [
+        { "w": "lay", "label": "過去式（躺／在於）", "pos": "v.", "zh": "躺著、位於（過去）", "ipa": "/leɪ/", "example": { "en": "The documents lay on his desk for a whole week.", "zh": "那些文件在他桌上放了整整一個星期。" } },
+        { "w": "lain", "label": "過去分詞（躺／在於）", "pos": "v.", "zh": "躺著、放著（完成）", "ipa": "/leɪn/", "example": { "en": "The old files have lain in the storage room for years.", "zh": "那些舊檔案已經在儲藏室放了好幾年。" } },
+        { "w": "lying", "label": "現在分詞", "pos": "v.", "zh": "躺著、放著（進行中）", "ipa": "/ˈlaɪɪŋ/", "example": { "en": "Several boxes are lying near the entrance of the warehouse.", "zh": "幾個箱子放在倉庫入口附近。" } },
+        { "w": "lied", "label": "過去式／過去分詞（說謊）", "pos": "v.", "zh": "說了謊", "ipa": "/laɪd/", "example": { "en": "The supplier lied about the delivery date last month.", "zh": "供應商上個月謊報了交貨日期。" } }
+      ],
+      "collocations": [
+        { "phrase": "lie in", "zh": "在於", "example": { "en": "Our advantage may lie in faster delivery times.", "zh": "我們的優勢可能在於更快的交貨時間。" } },
+        { "phrase": "lie ahead", "zh": "在前方、即將來臨", "example": { "en": "Many challenges lie ahead for the sales team.", "zh": "銷售團隊前方還有許多挑戰。" } },
+        { "phrase": "lie to + 人", "zh": "對某人說謊", "example": { "en": "Never lie to a client about the schedule.", "zh": "絕對不要對客戶謊報時程。" } }
+      ],
+      "examples": [
+        { "tag": "會議", "en": "The real value of this plan lies in its low cost.", "zh": "這個計畫真正的價值在於它的低成本。" },
+        { "tag": "地點", "en": "The warehouse lies about two miles north of the port.", "zh": "倉庫位於港口以北約兩英里處。" },
+        { "tag": "簡報", "en": "A long road lies ahead, but the team is ready.", "zh": "前面還有一段長路，但團隊已經準備好了。" },
+        { "tag": "辦公室", "en": "A copy of the contract lies on your desk.", "zh": "一份合約副本放在你的桌上。" },
+        { "tag": "說謊", "en": "He never lies about the numbers in his sales report.", "zh": "他從不在銷售報告的數字上說謊。" }
+      ],
+      "confusable": [
+        {
+          "word": "lay",
+          "diff": "lay 是「放置」，lie 是「躺著、在於」；而且 lay 同時也是 lie 的過去式，很容易搞混。",
+          "kind": ["spell", "sound", "meaning"],
+          "usage": "lay 是及物動詞，後面要接受詞（lay the report on the desk），變化是 lay–laid–laid；lie 是不及物動詞，後面不直接接受詞。",
+          "example": { "en": "Please lay the contract on the manager's desk.", "zh": "請把合約放在經理的桌上。" }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "depend on",
+          "diff": "depend on 是「取決於」，說明結果受什麼影響；lie in 是說明「本質或原因在哪裡」。",
+          "example": { "en": "The price depends on the size of the order.", "zh": "價格取決於訂單的大小。" }
+        },
+        {
+          "phrase": "come down to",
+          "diff": "come down to 是「歸根結底在於」，口語、帶有總結的語氣；lie in 較書面。",
+          "example": { "en": "In the end, the decision comes down to cost.", "zh": "最後，這個決定歸根結底取決於成本。" }
+        }
+      ],
+      "family": [
+        { "w": "locate", "pos": "v.", "zh": "把…設在、找出位置", "ipa": "/ˈloʊkeɪt/", "example": { "en": "We plan to locate the new office near the station.", "zh": "我們打算把新辦公室設在車站附近。" } },
+        { "w": "remain", "pos": "v.", "zh": "仍然是、保持", "ipa": "/rɪˈmeɪn/", "example": { "en": "Prices remain stable in the market this quarter.", "zh": "本季市場價格維持穩定。" } },
+        { "w": "exist", "pos": "v.", "zh": "存在", "ipa": "/ɪɡˈzɪst/", "example": { "en": "These problems still exist in many small companies.", "zh": "這些問題在許多小公司裡仍然存在。" } }
+      ],
+      "derived": [
+        { "w": "liar", "pos": "n.", "zh": "說謊的人", "ipa": "/ˈlaɪɚ/", "link": "lie + -ar，做某事的人（這裡指說謊的人），-ar 的功能像 teacher、visitor 的字尾" }
+      ],
+      "pos_uses": [
+        { "pos": "v.", "ipa": "/laɪ/", "zh": "在於；位於；躺", "in_passage": true, "example": { "en": "The success of this event lies in good planning.", "zh": "這次活動的成功在於良好的規劃。" } },
+        { "pos": "n.", "ipa": "/laɪ/", "zh": "謊言", "example": { "en": "Telling a lie to a client can damage trust.", "zh": "對客戶說謊會破壞信任。" } }
+      ],
+      "senses": [
+        { "pos": "v.", "zh": "在於", "en": "to be found in something; to have it as the main reason", "in_passage": true, "example": { "en": "The strength of our company lies in its loyal customers.", "zh": "我們公司的優勢在於忠實的客戶。" } },
+        { "pos": "v.", "zh": "躺、平放", "en": "to rest flat on a surface", "distinguish": "後面常接 on、in、at 等地點，主詞通常是物品或人。", "example": { "en": "The sample lies on the table next to the window.", "zh": "樣品放在靠窗的桌子上。" } },
+        { "pos": "v.", "zh": "位於", "en": "to be in a certain place", "distinguish": "常用來描述地點與距離，主詞是建築或地區。", "example": { "en": "The hotel lies five minutes from the airport.", "zh": "這間飯店離機場只要五分鐘。" } },
+        { "pos": "v.", "zh": "說謊", "en": "to say something that is not true", "distinguish": "後面常接 about 或 to；過去式是 lied，不是 lay。", "example": { "en": "The seller lied about the age of the machine.", "zh": "賣家謊報了這台機器的使用年限。" } }
+      ]
+    },
+    {
+      "text": "sight",
+      "type": "word",
+      "ipa": "/saɪt/",
+      "pos": "n.",
+      "zh": "視線、看見、視野",
+      "en": "the act of seeing something, or the area where you can see",
+      "note": "never lose sight of... 是抽象用法，意思是「永遠不要忘記、不要忽略（重要的人事物）」。這裡不是真的看不見，而是提醒我們別忘了什麼才是人生的重點。",
+      "grammar_note": "lose sight of 是固定搭配，sight 前面不加 a 或 the，後面一定接 of + 名詞；不要寫成 lose the sight of。",
+      "forms": [
+        { "w": "sights", "label": "複數", "pos": "n.", "zh": "景點、名勝", "ipa": "/saɪts/", "example": { "en": "We visited the famous sights of Kyoto after the conference.", "zh": "會議結束後，我們參觀了京都的著名景點。" } }
+      ],
+      "collocations": [
+        { "phrase": "lose sight of", "zh": "忘記、不再注意到", "example": { "en": "Don't lose sight of our main goal while we change plans.", "zh": "在我們改變計畫時，別忘了我們的主要目標。" } },
+        { "phrase": "out of sight", "zh": "看不見", "example": { "en": "The delivery truck was soon out of sight.", "zh": "送貨卡車很快就看不見了。" } },
+        { "phrase": "catch sight of", "zh": "瞥見", "example": { "en": "I caught sight of our CEO in the lobby.", "zh": "我在大廳瞥見了我們的執行長。" } },
+        { "phrase": "in sight", "zh": "在視線內；即將達成", "example": { "en": "The end of the project is finally in sight.", "zh": "專案的終點終於在望了。" } }
+      ],
+      "examples": [
+        { "tag": "出差", "en": "The hotel is within sight of the train station.", "zh": "這間飯店就在火車站看得到的範圍內。" },
+        { "tag": "健康", "en": "Long hours at the computer can hurt your sight.", "zh": "長時間使用電腦可能傷害你的視力。" },
+        { "tag": "評估", "en": "At first sight, the plan looked too expensive.", "zh": "乍看之下，這個計畫似乎太貴了。" },
+        { "tag": "零售", "en": "The new store is a welcome sight on this busy street.", "zh": "這家新店在這條繁忙的街上是個受歡迎的景象。" }
+      ],
+      "confusable": [
+        {
+          "word": "site",
+          "diff": "site 是「地點、網站」（construction site、website）；sight 是「視線、視力、景象」。兩者發音完全相同。",
+          "kind": ["sound", "spell"],
+          "example": { "en": "The new factory site is near the highway.", "zh": "新的工廠用地在高速公路附近。" }
+        },
+        {
+          "word": "cite",
+          "diff": "cite 是動詞，意思是「引用、舉出」；sight 是名詞，指視線或景象。兩者發音相同。",
+          "kind": ["sound", "spell"],
+          "usage": "cite 是動詞，後面接資料或例子；sight 和 site 都是名詞。",
+          "example": { "en": "Please cite your sources at the end of the report.", "zh": "請在報告的最後列出你的資料來源。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "view",
+          "diff": "view 常指從某處看到的景色或個人看法；sight 偏重「看得見的範圍」或「視力」。",
+          "example": { "en": "Our office has a great view of the river.", "zh": "我們的辦公室有很棒的河景。" }
+        },
+        {
+          "phrase": "lose track of",
+          "diff": "lose track of 是不再掌握進度或位置等細節；lose sight of 是忘了重要的目標或原則。",
+          "example": { "en": "Don't lose track of the invoices during the move.", "zh": "搬遷期間別弄丟發票的進度。" }
+        }
+      ],
+      "family": [
+        { "w": "vision", "pos": "n.", "zh": "視力；願景", "ipa": "/ˈvɪʒən/", "example": { "en": "The company has a clear vision for the next five years.", "zh": "公司對未來五年有清楚的願景。" } },
+        { "w": "glance", "pos": "n.", "zh": "匆匆一瞥", "ipa": "/ɡlæns/", "example": { "en": "She took a quick glance at the schedule.", "zh": "她很快瞥了一眼時間表。" } }
+      ],
+      "derived": [
+        { "w": "sightseeing", "pos": "n.", "zh": "觀光", "ipa": "/ˈsaɪtˌsiːɪŋ/", "link": "sight + seeing（看），去看景點，就是觀光" },
+        { "w": "eyesight", "pos": "n.", "zh": "視力", "ipa": "/ˈaɪsaɪt/", "link": "eye + sight，眼睛的視力" },
+        { "w": "insight", "pos": "n.", "zh": "洞察力", "ipa": "/ˈɪnsaɪt/", "link": "in（往內）+ sight，看進事情裡面，像 inside" }
+      ],
+      "pos_uses": [],
+      "senses": [
+        { "pos": "n.", "zh": "視線、看見", "en": "the act of seeing, or the area where you can see", "in_passage": true, "distinguish": "常出現在 lose sight of、out of sight、in sight 等片語。", "example": { "en": "A tall tower came into sight as we reached the city.", "zh": "我們抵達城市時，一座高塔映入眼簾。" } },
+        { "pos": "n.", "zh": "視力", "en": "the ability to see", "distinguish": "指眼睛的能力，也常說 eyesight。", "example": { "en": "His sight is poor, so he uses large print.", "zh": "他的視力不好，所以使用大字體。" } },
+        { "pos": "n.", "zh": "景點、名勝", "en": "an interesting place that tourists visit", "distinguish": "常用複數 sights，常與 see、visit 搭配。", "example": { "en": "The tour guide showed us the main sights of the city.", "zh": "導遊帶我們看了這座城市的主要景點。" } }
+      ]
+    },
+    {
+      "text": "life doesn't always unfold the way we expect",
+      "type": "sentence",
+      "zh": "人生並不總是照著我們預期的方式展開。",
+      "note": "這句話出現在文章中段，承接「我們一直追求目標與成功」的想法，帶出「也會有失望與意外」的轉折。語氣溫和，是在提醒讀者人生不可能事事如意。",
+      "chunks": [
+        { "en": "life doesn't always unfold", "zh": "人生並不總是展開" },
+        { "en": "the way", "zh": "按照…的方式" },
+        { "en": "we expect", "zh": "我們所預期的" }
+      ],
+      "structure": "主詞 life + 部分否定 doesn't always + 不及物動詞 unfold + the way + S + V（修飾子句，省略 that／in which）",
+      "grammar": [
+        { "point": "doesn't always（部分否定）", "explain": "not always 是「不一定、不總是」，只否定一部分，不是完全否定。doesn't always unfold 表示「有時不會照預期發展」，不是「從來不會」。" },
+        { "point": "the way + 子句", "explain": "the way 後面可直接接 S + V（the way we expect），意思是「按照…的方式」，等於 in the way that 或 how。不要寫成 the way how。" },
+        { "point": "unfold 是不及物動詞", "explain": "unfold 在這裡是「展開、發展」，後面不接受詞，也不用被動式；人生是主詞，自己慢慢展開。" }
+      ],
+      "pattern": "N + doesn't always + V + the way + S + V",
+      "paraphrase": [
+        { "en": "Life does not always go as we expect.", "zh": "人生並不總是照著我們的預期進行。" },
+        { "en": "Our lives do not always develop in the way we planned.", "zh": "我們的人生不一定按照我們計畫的方式發展。" }
+      ],
+      "examples": [
+        { "en": "Our sales don't always grow the way we predict.", "zh": "我們的銷售並不總是照著預測的方式成長。" },
+        { "en": "Meetings don't always end the way the manager expects.", "zh": "會議的結果並不總是如經理所預期。" }
+      ],
+      "key_words": [
+        { "w": "unfold", "ipa": "/ʌnˈfoʊld/", "pos": "v.", "zh": "展開、發展" },
+        { "w": "expect", "ipa": "/ɪkˈspɛkt/", "pos": "v.", "zh": "預期、期待" },
+        { "w": "doesn't always", "zh": "不一定、不總是（部分否定）" }
+      ]
+    }
+  ]
+}

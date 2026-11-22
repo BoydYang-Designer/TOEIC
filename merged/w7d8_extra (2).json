@@ -1,0 +1,127 @@
+{
+  "week": 7,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "lose sight of the people",
+      "type": "phrase",
+      "zh": "忘了（最重要的）人、不再把人放在心上",
+      "en": "to stop paying attention to the people who are important",
+      "note": "文章用 lose sight of 提醒我們：忙著追求目標時，別忘了身邊重要的人。語氣溫和，帶有勸告的意味。",
+      "pattern": "lose sight of + N",
+      "grammar_note": "sight 是不可數名詞，前面不加 a，也不加 s；of 後面可接名詞或 V-ing。過去式是 lost sight of。",
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "We must not lose sight of our customers during the budget talks.",
+          "zh": "在預算討論時，我們不能忘了我們的客戶。"
+        },
+        {
+          "tag": "專案",
+          "en": "The team lost sight of the deadline while fixing small problems.",
+          "zh": "團隊忙著解決小問題，結果忘了截止日期。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please don't lose sight of the main goal when you revise the plan.",
+          "zh": "修改計畫時，請不要忘了主要目標。"
+        },
+        {
+          "tag": "管理",
+          "en": "Good managers never lose sight of the people who do the work.",
+          "zh": "好的主管從不忘記實際做事的人。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "overlook",
+          "diff": "overlook 是「沒注意到、漏看」，通常是無意間忽略；lose sight of 是原本重視、後來忘了它的重要性。",
+          "example": {
+            "en": "We overlooked one small error in the sales report.",
+            "zh": "我們漏看了銷售報告中的一個小錯誤。"
+          }
+        },
+        {
+          "phrase": "forget about",
+          "diff": "forget about 是一般的「忘記、不再想」；lose sight of 強調在忙碌中偏離了重點或目標。",
+          "example": {
+            "en": "Please don't forget about the meeting with our supplier tomorrow.",
+            "zh": "請別忘了明天和供應商的會議。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "lose track of",
+          "diff": "lose track of 是不再掌握某事的位置或進度；lose sight of 是忘了重點、目標或重要的事。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "I lost track of the orders when the system was down.",
+            "zh": "系統當機時，我就搞不清楚訂單的進度了。"
+          }
+        },
+        {
+          "word": "site",
+          "diff": "site 和 sight 發音相同，但 site 是「地點、網站」，sight 是「視線、景象」。",
+          "kind": ["sound", "spell"],
+          "usage": "site 是可數名詞（a building site、a web site）；lose sight of 裡的 sight 不可數。",
+          "example": {
+            "en": "Our engineers will visit the building site on Monday morning.",
+            "zh": "我們的工程師星期一早上會去建築工地。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "Let's be more present",
+      "type": "sentence",
+      "zh": "讓我們更專注於當下吧。",
+      "note": "這是文章結尾的呼籲，和後面的 Let's be more grateful 一起使用排比句型，語氣溫暖、像在邀請聽眾一起做。",
+      "chunks": [
+        { "en": "Let's", "zh": "讓我們" },
+        { "en": "be", "zh": "變得" },
+        { "en": "more present", "zh": "更專注於當下" }
+      ],
+      "structure": "Let's + be + more + 形容詞（提議一起做某事）",
+      "grammar": [
+        {
+          "point": "Let's + 原形動詞",
+          "explain": "Let's 是 Let us 的縮寫，用來提議「我們一起…吧」，後面一定接原形動詞，這句的動詞是 be。否定時寫 Let's not + 原形動詞。"
+        },
+        {
+          "point": "be present",
+          "explain": "present 在這裡是形容詞，意思是「在場的、專注於當下的」。be present 指人在這裡，心也在這裡，不是想著過去或未來。"
+        },
+        {
+          "point": "more + 形容詞",
+          "explain": "more 加形容詞表示「更…一點」。沒有出現 than 時，是和「現在的自己」相比。"
+        }
+      ],
+      "pattern": "Let's be more + 形容詞",
+      "paraphrase": [
+        {
+          "en": "Let's pay more attention to the moment we are in.",
+          "zh": "讓我們多留意自己現在所處的這一刻。"
+        },
+        {
+          "en": "Let's focus on what is happening right now.",
+          "zh": "讓我們專心在現在發生的事上。"
+        }
+      ],
+      "examples": [
+        {
+          "en": "Let's be more careful with the numbers in this report.",
+          "zh": "我們對這份報告裡的數字要更小心一點。"
+        },
+        {
+          "en": "Let's be more open about problems during team meetings.",
+          "zh": "在團隊會議中，讓我們更坦白地談問題。"
+        }
+      ],
+      "key_words": [
+        { "w": "present", "ipa": "/ˈprezənt/", "pos": "adj.", "zh": "專注於當下的、在場的" },
+        { "w": "be present", "zh": "活在當下、人在心也在" }
+      ]
+    }
+  ]
+}
