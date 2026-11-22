@@ -475,8 +475,40 @@ function prPlayMine() {
   prRender();
 }
 
+/* ---------- 上一句／下一句：依畫面順序，切換到目前頁面（詳解、核心單字、生詞本、句型…）的上一個／下一個 🎙 項目 ----------
+   清單＝#main 裡所有 🎙 按鈕（畫面順序）；目前這一項＝🔊 就在它前面的那顆 🎙（找不到就用文字比對）。
+   跳過同一段文字（同一句在頁面上出現多次）和被收合起來看不到的項目。常用句（有 seg、不是從頁面 🔊 開的）沒有清單，不顯示。 */
+function prNavList() {
+  const root = document.getElementById('main'), L = [];
+  if (!root) return { L, ci: -1 };
+  root.querySelectorAll('button.pr-mic').forEach(m => { if (m.dataset.pt) L.push(m); });
+  let ci = PR.src ? L.findIndex(m => m.previousElementSibling === PR.src) : -1;
+  if (ci < 0 && PR.src && !PR.seg) ci = L.findIndex(m => prNorm(m.dataset.pt) === PR.key);
+  return { L, ci };
+}
+const prNavOk = m => m.offsetParent !== null && prNorm(m.dataset.pt) !== PR.key;
+function prNavInfo() { // → { pos, total, prev, next }；不在清單裡（常用句）或清單只有這一項 → null
+  const { L, ci } = prNavList(); if (ci < 0) return null;
+  const seen = new Set(); let pos = 0;
+  L.forEach((m, i) => { if (m.offsetParent === null && i !== ci) return; const k = prNorm(m.dataset.pt); seen.add(k); if (i === ci) pos = [...seen].indexOf(k) + 1; });
+  const has = d => { for (let j = ci + d; j >= 0 && j < L.length; j += d) if (prNavOk(L[j])) return true; return false; };
+  const o = { pos, total: seen.size, prev: has(-1), next: has(1) };
+  return o.total > 1 ? o : null;
+}
+function prNav(dir) { // dir＝-1 上一句／+1 下一句；已經是頭尾就只提示
+  const { L, ci } = prNavList(); if (ci < 0) return;
+  for (let j = ci + dir; j >= 0 && j < L.length; j += dir) {
+    const m = L[j]; if (!prNavOk(m)) continue;
+    try { m.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) {} // 讓頁面也跟著捲到這一項（視窗關掉後就在這裡）
+    prOpen(m.dataset.pt, m.previousElementSibling);
+    return;
+  }
+  try { dnToast(dir < 0 ? '已經是第一句' : '已經是最後一句'); } catch (e) {}
+}
+
 function prRender() {
   const ov = document.getElementById('pron-ov'); if (!ov) return;
+  const nv = prNavInfo();
   const rec = PR.st === 'rec', prep = PR.st === 'prep', proc = PR.st === 'proc', r = PR.res, rc = (S.pron || {})[PR.key] || {}, long = prWc(PR.text) > 3;
   const warn = [];
   if (!window.isSecureContext) warn.push('麥克風需要 https 或 localhost；直接雙擊（file://）開啟時無法錄音。');
@@ -501,7 +533,7 @@ function prRender() {
     : `<div class="mt-3 text-center"><button onclick="prDbg()" class="text-xs text-slate-400 underline underline-offset-2 cursor-pointer">🐞 除錯記錄</button></div>`;
   ov.innerHTML = `<div class="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/50" onclick="if(event.target===this)prClose()">
     <div class="w-full md:max-w-xl max-h-[92vh] overflow-y-auto rounded-t-2xl md:rounded-2xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 p-5 shadow-xl" style="padding-bottom:max(1.25rem,env(safe-area-inset-bottom))">
-      <div class="flex items-center justify-between gap-2 mb-3"><h3 class="font-bold">🎙 發音練習</h3>
+      <div class="flex items-center justify-between gap-2 mb-3"><h3 class="font-bold">🎙 發音練習${nv ? ` <span class="text-xs font-normal text-slate-400">${nv.pos}/${nv.total}</span>` : ''}</h3>
         <span class="text-xs text-slate-500">${rc.b ? `🏆 最高 <b class="rounded px-1.5 py-0.5 ${skPctCls(rc.b)}">${rc.b}%</b> · 練習 ${rc.n} 次` : '還沒練習過'}</span>
         <button onclick="prClose()" class="text-slate-400 hover:text-slate-600 text-2xl leading-none px-1 cursor-pointer" aria-label="關閉">×</button></div>
       <p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>${(() => { const ip = prIpaOf(PR.text); return ip ? `<p class="-mt-2 mb-3 text-base text-slate-500">${esc(ip)}</p>` : ''; })()}
@@ -511,11 +543,11 @@ function prRender() {
       <section class="sticky top-0 z-10 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-md px-3 py-2 mb-2"><div class="flex items-center gap-3">
         <button onclick="prToggle()" ${busy ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${micCls}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>
         <div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
-          <p id="pr-heard" class="text-xs text-slate-500 italic break-words line-clamp-2 empty:hidden">${rec ? esc((PR.final + ' ' + PR.interim).trim()) : ''}</p></div></div></section>
+          <p id="pr-heard" class="text-xs text-slate-500 italic break-words line-clamp-2 empty:hidden">${rec ? esc((PR.final + ' ' + PR.interim).trim()) : ''}</p></div>${nv ? [[-1, '⏮', nv.prev, '上一句'], [1, '⏭', nv.next, '下一句']].map(([d, ic, ok, nm]) => `<button onclick="prNav(${d})" ${ok ? '' : 'disabled'} class="h-10 w-10 shrink-0 rounded-full text-base bg-slate-100 dark:bg-slate-800 ${ok ? 'hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer' : 'opacity-40'}" aria-label="${nm}" title="${nm}（鍵盤 ${d < 0 ? '←' : '→'}）">${ic}</button>`).join('') : ''}</div></section>
       <div class="mb-3 flex flex-col items-center gap-2">${PR.err ? `<p class="text-xs text-rose-600 dark:text-rose-400 text-center">${esc(PR.err)}</p>` : ''}${reset}${mrRow}</div>
       ${res ? `<div class="mt-3 pt-4 border-t border-slate-200 dark:border-slate-800 text-left">${res}</div>` : ''}
       ${dbg}
-      <p class="mt-3 text-[0.6875rem] text-slate-400 text-center">快捷鍵：空白鍵＝錄音／停止，Enter＝聽範例，Esc＝關閉</p>
+      <p class="mt-3 text-[0.6875rem] text-slate-400 text-center">快捷鍵：空白鍵＝錄音／停止，Enter＝聽範例，P＝聽我的錄音，←／→＝上一句／下一句，Esc＝關閉</p>
     </div></div>`;
 }
 function prLevel(v) { S.spkLevel = v; save(); if (PR.cands) prScore(false); prRender(); }
@@ -742,6 +774,8 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { e.preventDefault(); prClose(); }
   else if (e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); prToggle(); }
   else if (e.key === 'Enter') { e.preventDefault(); prListen(); }
+  else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); prNav(e.key === 'ArrowLeft' ? -1 : 1); } // ← 上一句／→ 下一句
+  else if (e.key === 'p' || e.key === 'P') { e.preventDefault(); if (PR.blob) prPlayMine(); else { try { dnToast('還沒有錄音，先錄一次再聽'); } catch (x) {} } } // P＝聽我的錄音（再按一次停止）
 }, true);
 document.addEventListener('keyup', e => { if (document.getElementById('pron-ov') && (e.key === ' ' || e.key === 'Spacebar')) e.preventDefault(); }, true);
 document.addEventListener('visibilitychange', () => { if (document.hidden) { if (PR.ex === 'play') prExFinish(true); if (document.getElementById('pron-ov')) { prCancel(); prRender(); } } });
