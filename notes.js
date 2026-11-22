@@ -78,7 +78,11 @@ function dnSnapOf(qid, ref) {
   const r = S.ans[qid], s = r && r.sel ? r.sel[qi] : null;
   return { q: q.q, opts: q.opts.slice(), ans: q.ans, sel: s == null ? null : s, why: (q.why || []).slice() };
 }
-function dnOpenReport(qid, ref, kind) { DN.rp = { mode: 'new', qid, ref: ref || '', kind: kind || 'other', note: '', reporter: S.reporter || '', snap: dnSnapOf(qid, ref) }; dnRpModal(); }
+function dnOpenReport(qid, ref, kind) {
+  const D = cur.view === 'detail' && kind === 'vocab' ? dnDetailData() : null, t = D && D.e && D.e.text ? String(D.e.text) : ''; // 從詳解頁來：位置先帶入這個字；已有詳解就多出「重整詳解」區塊
+  DN.rp = { mode: 'new', qid, ref: ref || (t && t.length <= 20 ? t : ''), kind: kind || 'other', note: '', reporter: S.reporter || '', snap: dnSnapOf(qid, ref), rv: !!(D && D.ex) };
+  dnRpModal();
+}
 function dnEditReport(id) { const r = dnReports().find(q => q.id === id); if (!r) return; DN.rp = Object.assign({ mode: 'edit' }, JSON.parse(JSON.stringify(r))); dnRpModal(); }
 function dnRpModal() {
   const p = DN.rp; if (!p) return;
@@ -92,6 +96,7 @@ function dnRpModal() {
     ${edit ? `<label class="block text-xs text-slate-500 mb-1">處理狀態</label><select id="dn-s" class="${dnInp} mb-3">${opt(DRS, p.status)}</select>
     <label class="block text-xs text-slate-500 mb-1">管理員備註（例如：已改 daily.json）</label><textarea id="dn-a" rows="2" class="${dnInp} mb-3">${esc(p.adminNote || '')}</textarea>` : ''}
     ${sn ? `<details class="text-xs text-slate-500 mb-3"><summary class="cursor-pointer">回報當下的題目內容</summary><p class="mt-1">${esc(sn.q)}</p><ul class="mt-1 space-y-0.5">${sn.opts.map((o, i) => `<li>${L[i]}. ${esc(o)}${sn.ans === i ? ' <b class="text-emerald-600">✓ 正解</b>' : ''}${sn.sel === i ? ' <span class="text-rose-500">（使用者選）</span>' : ''}</li>`).join('')}</ul></details>` : ''}
+    ${p.rv && !edit ? dnReviseBox() : ''}
     <div class="flex gap-2 justify-end"><button onclick="dnClose()" class="${btn} ${dnLine}">取消</button><button onclick="dnSaveReport()" class="${btn} ${dnPri}">${edit ? '儲存變更' : '送出回報'}</button></div></div>`);
   setTimeout(() => { const e = document.getElementById('dn-n'); if (e) e.focus(); }, 50);
 }
@@ -1031,6 +1036,58 @@ function dnCfSelfRow(xs, e, ex2, cols) {
   return `<li class="rounded-lg bg-indigo-50 dark:bg-indigo-950/40 px-2 py-1.5"><div class="flex items-start gap-2">${dnSpk(xs, e, '', own)}<div><b>${esc(own)}</b> <span class="${dnChip} !bg-indigo-100 !text-indigo-800 dark:!bg-indigo-900 dark:!text-indigo-200">本字</span> <span class="text-slate-500">${e.ipa ? esc(e.ipa) : ''} ${e.pos ? `<i>${esc(e.pos)}</i>` : ''}</span>${e.zh ? `　${esc(e.zh)}` : ''}</div></div>${pick ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, pick.suf, pick.o.en)}<div><p>${dnHiCtx(pick.o.en, own)}</p>${pick.o.zh ? `<p class="text-xs text-slate-500">${esc(pick.o.zh)}</p>` : ''}</div></div>` : ''}</li>`;
 }
 function dnCfWrap(row, html) { return html && row ? html.replace('<ul class="space-y-1.5 text-sm">', m => m + row) : html; }
+/* ---------- 重整這個字的詳解（詳解頁按「⚑ 回報」→ 視窗裡的「🔧 重整…的詳解」）----------
+   ⬇ 下載現有詳解：{ week, day, extra_vocab:[這一筆] }，格式和 AI 回傳的 w?d?_extra.json 完全一樣（week／day＝這個字的詳解目前放在哪一篇）。
+   📋 複製重整提示詞：沿用「入庫彙整」那一份提示詞的全部規則，再附上「現有詳解」和你寫的問題；AI 回傳 w?d?_extra.json → json_merge.py 合併，
+      同一個 text 會整筆取代舊的（全題庫同一個字只留一筆）。不需要改 json_merge.py。 */
+function dnReviseCtx() { // → { s: 詳解所在那一篇, ex: 現有詳解, text, type, ctx }；這個字還沒有詳解 → null
+  const D = dnDetailData(); if (!D || !D.ex || !D.src) return null;
+  const s0 = D.src, ex = D.ex, text = String(ex.text || ex.word || D.e.text || '').trim(); if (!text) return null;
+  const type = ex.type || D.e.type || (/\s/.test(text) ? 'phrase' : 'word');
+  let ctx = '';
+  if (type !== 'sentence' && !isLib(s0)) { const p = String(s0.passage || ''), i = p.toLowerCase().indexOf(text.toLowerCase()); if (i >= 0) ctx = dnCtxOf(p, i, i + text.length, text); }
+  if (!ctx && type !== 'sentence' && D.m && D.m.ctx) ctx = D.m.ctx;
+  return { s: s0, ex, text, type, ctx };
+}
+const dnReviseJson = C => JSON.stringify({ week: C.s.week, day: C.s.day, extra_vocab: [C.ex] }, null, 2);
+function dnReviseDl() { // ⬇ 下載現有詳解
+  const C = dnReviseCtx(); if (!C) return;
+  const slug = C.text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'item';
+  dnDownload(`w${C.s.week}d${C.s.day}_${slug}_current.json`, dnReviseJson(C), 'application/json');
+  dnToast('已下載「' + C.text + '」現有詳解');
+}
+function dnReviseCopyJson() { const C = dnReviseCtx(); if (!C) return; auCopy(dnReviseJson(C)); dnToast('已複製現有詳解 JSON'); }
+function dnRevisePrompt(note) {
+  const C = dnReviseCtx(); if (!C) return '';
+  const now = Date.now(), m = { id: '~rv', qid: idOf(C.s), text: C.text, type: C.type, ctx: C.ctx, from: 0, to: 0, note: '', created: now, updated: now };
+  const base = dnPrompt(idOf(C.s), new Set(), false, [{ m, fill: null }]); if (!base) return '';
+  const block = [
+    '【重整任務（這個字已經有詳解，但有問題，要重新整理）】',
+    '- 上面的規則一律照用；但這次不是從零開始，而是「修正下面的現有詳解」。',
+    '- 我發現的問題：' + (String(note || '').trim() || '（沒有特別指出；請依上面所有規則逐欄位檢查，找出錯誤、缺漏、程度不符或與規則不一致的地方並修正）'),
+    '- 有問題的地方請修正或重寫；沒有問題的欄位請逐字原樣抄回，不要順便潤飾、改順序或改寫。',
+    '- 輸出「完整的一筆」（會用 text 整筆取代舊的，所以不能只寫改過的欄位）；text 必須與現有詳解的 text 完全相同。現有詳解裡的 nw_done 一併保留。',
+    '- 聊天裡用 2–5 行說明你改了哪些欄位、為什麼；檔案裡不要放說明文字。',
+    '',
+    '【現有詳解（JSON）】',
+    FENCE + 'json',
+    JSON.stringify(C.ex, null, 2),
+    FENCE
+  ].join('\n');
+  return base.replace('【輸出格式】', () => block + '\n\n【輸出格式】');
+}
+function dnReviseCopy() {
+  const t = dnRevisePrompt((document.getElementById('dn-n') || {}).value); if (!t) return; // dn-n＝回報視窗的「描述問題」
+  auCopy(t); dnToast('已複製重整提示詞（含現有詳解），貼給 AI');
+}
+function dnReviseBox() { // 放在「⚑ 回報問題」視窗裡（從詳解頁按回報、而且這個字已有詳解時才有）；上面「描述問題」的內容會一起寫進提示詞
+  const C = dnReviseCtx(); if (!C) return '';
+  const b = 'text-xs rounded-lg px-2.5 py-1';
+  return `<details open class="rounded-lg border border-indigo-200 dark:border-indigo-900 bg-indigo-50/50 dark:bg-indigo-950/20 p-3 mb-3"><summary class="cursor-pointer select-none text-sm font-semibold text-indigo-700 dark:text-indigo-300">🔧 重整「${esc(C.text)}」的詳解（請 AI 修正後重新合併）</summary>
+    <p class="mt-2 text-xs text-slate-500 leading-relaxed">上面「描述問題」寫的內容會一起放進提示詞；不寫＝請 AI 全面檢查。這個視窗不用關，也可以同時送出回報。</p>
+    <div class="flex flex-wrap gap-2 mt-2"><button onclick="dnReviseCopy()" class="${b} ${dnPri} cursor-pointer">複製重整提示詞（含現有詳解）</button><button onclick="dnReviseDl()" class="${dnSm}">⬇ 下載現有詳解 JSON</button><button onclick="dnReviseCopyJson()" class="${dnSm}">複製現有詳解 JSON</button></div>
+    <p class="mt-2 text-[0.6875rem] text-slate-400 leading-relaxed">流程：複製提示詞 → 貼給 AI → AI 回傳 w${C.s.week}d${C.s.day}_extra.json → 放進 json_merge.py 所在資料夾合併（同一個字整筆取代舊的）。「下載」是把現在這筆存成同格式的檔案，可當附件給 AI 或備份。</p></details>`;
+}
 function dnRenderDetail() {
   const D = dnDetailData();
   if (!D) { main.innerHTML = `<div class="${card} p-8 text-center text-sm text-slate-500">找不到這個項目。<br><button onclick="up()" class="${btn} ${dnLine} mt-4">← 返回</button></div>`; return; }
