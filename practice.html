@@ -134,7 +134,7 @@ const bd='rounded-lg border border-slate-300 dark:border-slate-700';
 function paint(){
   const L=POOL.filter(match),cnts={all:POOL.length,tsl:POOL.filter(x=>x.tsl).length,bank:POOL.filter(x=>!x.tsl).length,nw:POOL.filter(x=>x.nw).length};
   document.getElementById('sum').textContent=`題庫 ${POOL.length} 字（只含已有詳解的字）・目前範圍 ${L.length} 字・語音還沒練 ${L.filter(STF.nosp[1]).length}・還沒考過 ${L.filter(STF.nt[1]).length}`;
-  document.getElementById('ftab').innerHTML=seg([['today','🎯 今日 5+5'],['table','📋 總表'],['quiz','📝 測驗']],tab,'t').replace(/px-3 py-1.5/g,'flex-1 py-2');
+  document.getElementById('ftab').innerHTML=seg([['today','🎯 今日推薦'],['table','📋 總表'],['quiz','📝 測驗']],tab,'t').replace(/px-3 py-1.5/g,'flex-1 py-2');
   document.getElementById('fsrc').innerHTML=SRC.map(([v,t])=>`<button data-s="${v}" class="${bd} px-3 py-1.5 ${src===v?'bg-indigo-600 border-indigo-600 text-white':'hover:bg-slate-100 dark:hover:bg-slate-800'}">${t} ${cnts[v]}</button>`).join('')+sel('fart',[['all','全部文章'],...[...new Set(POOL.flatMap(x=>[...x.froms]))].sort((a,b)=>{const f=s=>s.match(/\d+/g).map(Number);return f(a)[0]-f(b)[0]||f(a)[1]-f(b)[1]}).map(v=>[v,v+' 這一篇'])],art);
   document.getElementById('fsrc').style.display=tab==='today'?'none':'';document.getElementById('view').innerHTML=tab==='table'?table(L):tab==='today'?todayView():quiz(L);
   {const sb=document.getElementById('sbox');if(sb)sb.style.display=((tab==='quiz'||tab==='today')&&R&&R.i<R.q.length)?'none':''}
@@ -291,11 +291,11 @@ function wsSave(text){const t=nwNormText(text),box=document.getElementById('wsr'
 document.getElementById('wsq').addEventListener('input',()=>{clearTimeout(wsT);wsT=setTimeout(()=>{wsSearch();uiSave()},180)});
 document.getElementById('wsq').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();wsSearch()}else if(e.key==='Escape'){e.target.value='';wsSearch()}});
 
-/* ===== 今日推薦：5 個新字 + 5 個複習字 =====
+/* ===== 今日推薦：5 個新字 + 10 個複習字 =====
    存檔：toeicDailyPickV1 ＝ {date, rounds:[{nw:[字],rv:[字]}], done:[字]}（鍵名 toeic 開頭，會被 cloud-sync 同步）。
    當天第一次打開時決定名單並存起來，重新整理不會換字；「再來 5+5」會新增一輪。
    複習字：沿用 P[k]={b 熟練度,due 到期日,n,c} 的間隔重複。先挑已到期（逾期越久、越弱越優先），不夠用「答錯過」補，再不夠才提前複習。
-   新字：還沒考過的字，分數 ＝ 新單字(+3) + TSL 核心(+2) + 出現在多篇(+1) + 文章越新越高(0~2) + 當天固定的小亂數；同詞性最多 3 個、拼字太像的不同批。
+   新字：還沒考過的字，分數 ＝ 新單字(+3) + TSL 核心(+2) + 出現在多篇(+1) + 入庫時間越近越高(0~3，60 天內遞減；查不到入庫時間才改用文章新舊) + 當天固定的小亂數；同詞性最多 3 個、拼字太像的不同批。
    流程：新字閃卡 → 複習字（克漏字） → 新字克漏字。新字當天第二次練習只在答錯時降級，不會一天內連升兩級。 */
 const dayStr=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const dayStart=()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()};
@@ -321,14 +321,20 @@ function pickReview(n,ex,relax){const now=Date.now(),t0=dayStart();
   out=out.concat(fresh.filter(x=>!out.includes(x)&&P[x.k].c<P[x.k].n).sort((a,b)=>weakOf(b)-weakOf(a)||P[a.k].due-P[b.k].due)).slice(0,n);
   if(relax&&out.length<n)out=out.concat(fresh.filter(x=>!out.includes(x)).sort((a,b)=>P[a.k].due-P[b.k].due)).slice(0,n);
   return out}
-function pickNew(n,ex){const pool=POOL.filter(x=>!ex.has(x.k)&&!(P[x.k]||{}).n),ord=x=>(+x.it.week||0)*100+(+x.it.day||0),mx=Math.max(1,...pool.map(ord)),day=dayStr();
-  const sc=new Map(pool.map(x=>[x,(x.nw?3:0)+(x.tsl?2:0)+(x.froms.size>1?1:0)+ord(x)/mx*2+hs(day+x.k)*.3]));
+function stamps(){const m=new Map(),put=(t,c)=>{const k=dnKey(t);c=+c||0;if(k&&c>(m.get(k)||0))m.set(k,c)};
+  (Array.isArray(S.marks)?S.marks:[]).forEach(q=>{if(q)put(q.text,q.created||q.t)});
+  try{JSON.parse(localStorage.getItem('toeicNewWordsV1')||'[]').forEach(n=>{if(n)put(n.text||n.word||n.w,n.created||n.t)})}catch(e){}
+  return m}
+const savedAt=(x,m)=>Math.max(m.get(dnKey(x.w))||0,...x.forms.map(f=>m.get(dnKey(f))||0));
+function pickNew(n,ex){const pool=POOL.filter(x=>!ex.has(x.k)&&!(P[x.k]||{}).n),ord=x=>(+x.it.week||0)*100+(+x.it.day||0),mx=Math.max(1,...pool.map(ord)),day=dayStr(),stm=stamps(),now=Date.now();
+  const sc=new Map(pool.map(x=>{const t=savedAt(x,stm);return[x,(x.nw?3:0)+(x.tsl?2:0)+(x.froms.size>1?1:0)+(t?Math.max(0,1-(now-t)/(60*DAY))*3:ord(x)/mx)+hs(day+x.k)*.3]}));
   return diversify(pool.sort((a,b)=>sc.get(b)-sc.get(a)),n)}
-function dpBuild(ex){let rv=pickReview(5,ex,false),nw=pickNew(5,ex);
-  if(rv.length<5)nw=pickNew(10-rv.length,ex);
-  if(nw.length<5)rv=pickReview(10-nw.length,ex,true);
+const DP_NW=5,DP_RV=10;
+function dpBuild(ex){let rv=pickReview(DP_RV,ex,false),nw=pickNew(DP_NW,ex);
+  if(rv.length<DP_RV)nw=pickNew(Math.min(2*DP_NW,DP_NW+DP_RV-rv.length),ex);
+  if(nw.length<DP_NW)rv=pickReview(DP_NW+DP_RV-nw.length,ex,true);
   return{nw:nw.map(x=>x.k),rv:rv.map(x=>x.k)}}
-const nwWhy=x=>[x.nw?'新單字':'',x.tsl?'TSL 核心':'',x.froms.size>1?'出現在 '+x.froms.size+' 篇':'',x.from].filter(Boolean).join('・');
+const nwWhy=x=>[(()=>{const t=savedAt(x,stamps());if(!t)return'';const d=Math.floor((Date.now()-t)/DAY);return d<=0?'今天入庫':d+' 天前入庫'})(),x.nw?'新單字':'',x.tsl?'TSL 核心':'',x.froms.size>1?'出現在 '+x.froms.size+' 篇':'',x.from].filter(Boolean).join('・');
 const rvWhy=x=>{const p=P[x.k]||{},now=Date.now(),t=[];if(p.due&&p.due<=now){const d=Math.floor((now-p.due)/DAY);t.push(d>0?'逾期 '+d+' 天':'今天到期')}else t.push('提前複習');
   if(p.n&&p.c/p.n<.6)t.push('正確率 '+Math.round(p.c/p.n*100)+'%');if(x.sp.done&&x.sp.pct<60)t.push('語音 '+x.sp.pct+'%');return t.join('・')};
 function todayView(){
@@ -344,7 +350,7 @@ function todayView(){
     <div class="h-1.5 rounded bg-slate-200 dark:bg-slate-800 overflow-hidden mt-2"><div class="h-full bg-indigo-500" style="width:${Math.round(fin/tot*100)}%"></div></div>
     ${sect('🆕 新字',nw,nwWhy)}${sect('🔁 複習',rv,rvWhy)}
     <p class="mt-4 text-xs text-slate-400">流程：新字閃卡 → 複習字克漏字 → 新字克漏字。名單今天固定，重新整理不會換；今天已做完的字不會再出現。</p>
-    ${left?`<button data-dpgo="1" class="mt-3 w-full rounded-lg bg-indigo-600 text-white py-2">${fin?'繼續':'開始'}（還剩 ${left} 字）</button>`:`<p class="mt-3 text-emerald-600 font-semibold">🎉 今日完成！</p><button data-dpmore="1" class="mt-2 w-full rounded-lg bg-indigo-600 text-white py-2">再來 5 新 + 5 複習</button>`}</div>`}
+    ${left?`<button data-dpgo="1" class="mt-3 w-full rounded-lg bg-indigo-600 text-white py-2">${fin?'繼續':'開始'}（還剩 ${left} 字）</button>`:`<p class="mt-3 text-emerald-600 font-semibold">🎉 今日完成！</p><button data-dpmore="1" class="mt-2 w-full rounded-lg bg-indigo-600 text-white py-2">再來 5 新 + 10 複習</button>`}</div>`}
 function dpStart(){const rd=DP.rounds[DP.rounds.length-1];if(!rd)return;const todo=a=>a.map(pitem).filter(x=>x&&!DP.done.includes(x.k)),nw=todo(rd.nw),rv=todo(rd.rv),
     q=[],plan=[],sec=[],last=[],kind=[],add=(x,m,s,l,kd)=>{q.push(x);plan.push(m);sec.push(s);last.push(l);kind.push(kd)};
   nw.forEach(x=>add(x,'flash',false,!x.cl.length,'n'));
@@ -354,7 +360,7 @@ function dpStart(){const rd=DP.rounds[DP.rounds.length-1];if(!rd)return;const to
   R={q,i:0,ok:0,bad:[],dp:{plan,sec,last,kind,pm:mode}};R.q.forEach(x=>{x._fix=false});shown=false;done=false;paint()}
 function dpMore(){leaveDp();R=null;const ex=new Set(DP.rounds.flatMap(r=>[...r.nw,...r.rv]));DP.rounds.push(dpBuild(ex));dpSave();paint()}
 function dpDone(){const bad=[...new Map(R.bad.map(x=>[x.k,x])).values()];
-  return `<div class="${bd} bg-white dark:bg-slate-900 p-4"><p class="text-xl font-bold">🎉 今日完成 ${DP.done.length} 字</p><p class="mt-1 text-sm text-slate-500">這一輪答對 ${R.ok} / ${R.q.length} 題</p>${bad.length?`<p class="mt-3 text-sm text-slate-500">答錯或忘記的字（明天會再出現）：</p><div class="mt-1 space-y-1">${bad.map(x=>`<a class="block text-sm underline" href="daily.html#vocab=${encodeURIComponent(x.k)}">${esc(x.w)} <span class="text-slate-400">${esc(x.zh)}</span></a>`).join('')}</div>`:'<p class="mt-2 text-emerald-600">全部答對</p>'}<button data-dpmore="1" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-2">再來 5 新 + 5 複習</button><button data-dpback="1" class="mt-2 w-full rounded-lg border border-slate-300 dark:border-slate-700 py-2">回到今日清單</button></div>`}
+  return `<div class="${bd} bg-white dark:bg-slate-900 p-4"><p class="text-xl font-bold">🎉 今日完成 ${DP.done.length} 字</p><p class="mt-1 text-sm text-slate-500">這一輪答對 ${R.ok} / ${R.q.length} 題</p>${bad.length?`<p class="mt-3 text-sm text-slate-500">答錯或忘記的字（明天會再出現）：</p><div class="mt-1 space-y-1">${bad.map(x=>`<a class="block text-sm underline" href="daily.html#vocab=${encodeURIComponent(x.k)}">${esc(x.w)} <span class="text-slate-400">${esc(x.zh)}</span></a>`).join('')}</div>`:'<p class="mt-2 text-emerald-600">全部答對</p>'}<button data-dpmore="1" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-2">再來 5 新 + 10 複習</button><button data-dpback="1" class="mt-2 w-full rounded-lg border border-slate-300 dark:border-slate-700 py-2">回到今日清單</button></div>`}
 boot();
 </script>
 </body>
