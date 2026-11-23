@@ -1,0 +1,827 @@
+{
+  "week": 1,
+  "day": 3,
+  "extra_vocab": [
+    {
+      "text": "held",
+      "type": "word",
+      "lemma": "hold",
+      "ipa": "/held/",
+      "pos": "v.",
+      "zh": "舉行、舉辦（hold 的過去式／過去分詞）",
+      "en": "had a meeting, party, or other event",
+      "note": "在這個句子裡，held 是 hold 的過去式，意思是「舉辦」晚宴。多益常見 hold 用來說舉行會議、活動、研討會，被動 be held 也很常考。",
+      "grammar_note": "hold 是不規則動詞，過去式和過去分詞都是 held（hold–held–held），不能寫成 holded。",
+      "forms": [
+        {
+          "w": "holds",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "舉行、持有",
+          "ipa": "/hoʊldz/",
+          "example": {
+            "en": "She holds a weekly meeting with the sales team.",
+            "zh": "她每週和業務團隊開一次會。"
+          }
+        },
+        {
+          "w": "holding",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在舉行",
+          "ipa": "/ˈhoʊldɪŋ/",
+          "example": {
+            "en": "We are holding the training session in Room 5.",
+            "zh": "我們正在五號會議室舉行培訓課程。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "hold a meeting",
+          "zh": "召開會議",
+          "example": {
+            "en": "The board will hold a meeting to discuss next year's budget.",
+            "zh": "董事會將開會討論明年的預算。"
+          }
+        },
+        {
+          "phrase": "hold an event",
+          "zh": "舉辦活動",
+          "example": {
+            "en": "We plan to hold an event for our best customers in June.",
+            "zh": "我們打算六月為最好的客戶舉辦一場活動。"
+          }
+        },
+        {
+          "phrase": "hold the line",
+          "zh": "（電話）請稍候",
+          "example": {
+            "en": "Please hold the line while I connect you to Ms. Lin.",
+            "zh": "請稍候，我幫您轉接林小姐。"
+          }
+        },
+        {
+          "phrase": "hold a position",
+          "zh": "擔任職位",
+          "example": {
+            "en": "She hopes to hold a senior position in the company soon.",
+            "zh": "她希望不久後能在公司擔任高階職位。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "活動",
+          "en": "The workshop will be held at our Taipei office on May 3.",
+          "zh": "研討會將於五月三日在我們台北辦公室舉行。"
+        },
+        {
+          "tag": "會議",
+          "en": "We held the quarterly review in the main conference room.",
+          "zh": "我們在大會議室舉行了季度檢討會。"
+        },
+        {
+          "tag": "人事",
+          "en": "She held the post of sales manager for five years.",
+          "zh": "她擔任業務經理五年。"
+        },
+        {
+          "tag": "訂房",
+          "en": "The hotel will hold your room until six this evening.",
+          "zh": "飯店會替您保留房間到今晚六點。"
+        },
+        {
+          "tag": "倉儲",
+          "en": "The warehouse holds enough stock for the next three months.",
+          "zh": "倉庫的存貨足夠未來三個月使用。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "host",
+          "ipa": "/hoʊst/",
+          "diff": "host 強調以主人身分招待客人；hold 只是說活動「舉行」，不一定有主人。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "Our company will host a welcome dinner for the visiting clients.",
+            "zh": "我們公司將為來訪的客戶主辦歡迎晚宴。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "organize",
+          "ipa": "/ˈɔːrɡənaɪz/",
+          "diff": "organize 強調籌備、安排活動；held 強調活動實際舉行。",
+          "example": {
+            "en": "Ms. Chen will organize the annual sales meeting this spring.",
+            "zh": "陳小姐將負責籌辦今年春天的年度業務會議。"
+          }
+        },
+        {
+          "word": "conduct",
+          "ipa": "/kənˈdʌkt/",
+          "diff": "conduct 較正式，常搭配 interview、survey、training 等進行的活動。",
+          "example": {
+            "en": "The HR team will conduct job interviews on Friday morning.",
+            "zh": "人資團隊星期五早上將進行面試。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "keep",
+          "pos": "v.",
+          "zh": "保留、保管",
+          "ipa": "/kiːp/",
+          "example": {
+            "en": "Please keep all receipts for your business trip expenses.",
+            "zh": "請保留所有出差費用的收據。"
+          }
+        },
+        {
+          "w": "contain",
+          "pos": "v.",
+          "zh": "包含、容納",
+          "ipa": "/kənˈteɪn/",
+          "example": {
+            "en": "The box contains samples of our newest products.",
+            "zh": "這個箱子裡裝有我們最新產品的樣品。"
+          }
+        },
+        {
+          "w": "own",
+          "pos": "v.",
+          "zh": "擁有",
+          "ipa": "/oʊn/",
+          "example": {
+            "en": "Ms. Lee owns a small shipping company in Kaohsiung.",
+            "zh": "李小姐在高雄擁有一家小型貨運公司。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "holder",
+          "pos": "n.",
+          "zh": "持有人",
+          "ipa": "/ˈhoʊldər/",
+          "link": "hold + -er，持有東西的人，像 worker、teacher"
+        },
+        {
+          "w": "shareholder",
+          "pos": "n.",
+          "zh": "股東",
+          "ipa": "/ˈʃerhoʊldər/",
+          "link": "share（股份）+ holder（持有人），持有公司股份的人"
+        },
+        {
+          "w": "withhold",
+          "pos": "v.",
+          "zh": "扣留、保留不給",
+          "ipa": "/wɪθˈhoʊld/",
+          "link": "with-（向後、留住）+ hold，握住不交出去，常見於 withhold tax（預扣稅款）"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/hoʊld/",
+          "zh": "舉行、握住、持有",
+          "in_passage": true,
+          "example": {
+            "en": "The firm holds a training course every month.",
+            "zh": "這家公司每個月都舉辦一次培訓課程。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/hoʊld/",
+          "zh": "（on hold）暫停、保留",
+          "example": {
+            "en": "Your order is on hold until we receive the payment.",
+            "zh": "在我們收到款項之前，您的訂單暫時擱置。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "v.",
+          "ipa": "/hoʊld/",
+          "zh": "舉行、舉辦",
+          "en": "to have a meeting or event",
+          "in_passage": true,
+          "example": {
+            "en": "The company held an annual picnic for all staff last June.",
+            "zh": "公司去年六月為全體員工舉辦了年度野餐。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/hoʊld/",
+          "zh": "持有、擁有（股份、學位）",
+          "en": "to own something such as shares or a degree",
+          "distinguish": "後面接 shares、degree、license 等名詞時，通常是「擁有」。",
+          "example": {
+            "en": "Mr. Park holds ten percent of the company's shares.",
+            "zh": "朴先生持有公司百分之十的股份。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/hoʊld/",
+          "zh": "容納",
+          "en": "to have enough space for a number of people or things",
+          "distinguish": "主詞是房間、容器、車輛，後面接人數或數量時，就是「容納」。",
+          "example": {
+            "en": "The new conference room can hold up to fifty people.",
+            "zh": "新的會議室最多可以容納五十個人。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/hoʊld/",
+          "zh": "保留",
+          "en": "to keep something for someone until later",
+          "distinguish": "後面接 room、seat、item，再加 until，通常是「幫…保留」。",
+          "example": {
+            "en": "The store will hold the jacket for you until Friday.",
+            "zh": "店家會替您把這件外套保留到星期五。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "elect",
+      "type": "word",
+      "ipa": "/ɪˈlekt/",
+      "pos": "v.",
+      "zh": "選舉、推選",
+      "en": "to choose someone by voting",
+      "note": "多益常見於公司或團體投票選出主席、代表、董事等，也常用被動 be elected。另一個常見用法是 elect to + V，較正式，意思是「選擇做某事」。",
+      "grammar_note": "elect + 人 + 職稱時，職稱前不加 the，例如 They elected Ms. Lin chairperson。被動則寫 be elected (as) + 職稱。",
+      "forms": [
+        {
+          "w": "elects",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "選出",
+          "ipa": "/ɪˈlekts/",
+          "example": {
+            "en": "Each branch elects one delegate for the yearly sales meeting.",
+            "zh": "每個分公司為年度業務會議選出一位代表。"
+          }
+        },
+        {
+          "w": "elected",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "選出了",
+          "ipa": "/ɪˈlektɪd/",
+          "example": {
+            "en": "Shareholders elected three new directors at the annual meeting.",
+            "zh": "股東在年度會議上選出三位新董事。"
+          }
+        },
+        {
+          "w": "elected",
+          "label": "形容詞",
+          "pos": "adj.",
+          "zh": "經選舉產生的",
+          "ipa": "/ɪˈlektɪd/",
+          "example": {
+            "en": "The elected members of the committee will meet on Monday.",
+            "zh": "委員會的當選成員將在星期一開會。"
+          }
+        },
+        {
+          "w": "electing",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在選舉",
+          "ipa": "/ɪˈlektɪŋ/",
+          "example": {
+            "en": "The union is electing its new officers this week.",
+            "zh": "工會本週正在選出新的幹部。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "elect a president",
+          "zh": "選出總裁／會長",
+          "example": {
+            "en": "The board will elect a new president in March.",
+            "zh": "董事會將在三月選出新的總裁。"
+          }
+        },
+        {
+          "phrase": "be elected chairperson",
+          "zh": "被選為主席",
+          "example": {
+            "en": "Ms. Kim was elected chairperson by a large majority.",
+            "zh": "金小姐以高票當選主席。"
+          }
+        },
+        {
+          "phrase": "elect a representative",
+          "zh": "推選代表",
+          "example": {
+            "en": "Each department will elect a representative to the safety team.",
+            "zh": "每個部門將推選一位代表加入安全小組。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Members will vote to elect a new secretary on Friday.",
+          "zh": "成員將在星期五投票選出新的祕書。"
+        },
+        {
+          "tag": "公告",
+          "en": "Employees will elect one person to speak for the whole team.",
+          "zh": "員工將推選一人代表整個團隊發言。"
+        },
+        {
+          "tag": "福利",
+          "en": "Customers may elect to receive their bills by e-mail.",
+          "zh": "客戶可以選擇用電子郵件收取帳單。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "select",
+          "ipa": "/sɪˈlekt/",
+          "diff": "select 是從幾個選項中挑選（人或物），不一定投票；elect 通常指用投票選人。",
+          "kind": ["spell", "sound", "root", "meaning"],
+          "example": {
+            "en": "Please select one meeting room from the list below.",
+            "zh": "請從下方清單挑選一間會議室。"
+          }
+        },
+        {
+          "word": "erect",
+          "ipa": "/ɪˈrekt/",
+          "diff": "erect 是「建造、豎立」，和投票選人無關，但拼法與發音很像 elect。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "The builders will erect a new sign in front of the store.",
+            "zh": "工人將在店面前豎立一塊新招牌。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "vote for",
+          "diff": "vote for 是「投票支持某人或某案」，說的是投票的動作；elect 說的是投票後「選出」。",
+          "example": {
+            "en": "Most members voted for Ms. Lin at the meeting.",
+            "zh": "多數成員在會議上投給林小姐。"
+          }
+        },
+        {
+          "word": "choose",
+          "ipa": "/tʃuːz/",
+          "diff": "choose 是一般的選擇，不需要投票；elect 比較正式，多用於選出職位人選。",
+          "example": {
+            "en": "The team will choose a new leader on Friday.",
+            "zh": "團隊將在星期五選出新的領導者。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "vote",
+          "pos": "v.",
+          "zh": "投票",
+          "ipa": "/voʊt/",
+          "example": {
+            "en": "All members can vote by e-mail before Monday.",
+            "zh": "所有成員可在星期一前以電子郵件投票。"
+          }
+        },
+        {
+          "w": "appoint",
+          "pos": "v.",
+          "zh": "任命、指派",
+          "ipa": "/əˈpɔɪnt/",
+          "example": {
+            "en": "The CEO appointed Mr. Chen as the new sales director.",
+            "zh": "執行長任命陳先生為新的業務總監。"
+          }
+        },
+        {
+          "w": "nominate",
+          "pos": "v.",
+          "zh": "提名",
+          "ipa": "/ˈnɑːməneɪt/",
+          "example": {
+            "en": "Staff may nominate a coworker for the service award.",
+            "zh": "員工可以提名一位同事角逐服務獎。"
+          }
+        },
+        {
+          "w": "candidate",
+          "pos": "n.",
+          "zh": "候選人、應徵者",
+          "ipa": "/ˈkændɪdeɪt/",
+          "example": {
+            "en": "Each candidate gave a short speech to the members.",
+            "zh": "每位候選人都對成員發表了簡短演說。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "election",
+          "pos": "n.",
+          "zh": "選舉",
+          "ipa": "/ɪˈlekʃən/",
+          "link": "elect + -ion，把「選舉」的動作變成名詞，像 collect → collection"
+        },
+        {
+          "w": "reelect",
+          "pos": "v.",
+          "zh": "再次選出、連任",
+          "ipa": "/ˌriːɪˈlekt/",
+          "link": "re-（再一次）+ elect，像 rewrite、restart"
+        },
+        {
+          "w": "elective",
+          "pos": "adj.",
+          "zh": "選修的、可選擇的",
+          "ipa": "/ɪˈlektɪv/",
+          "link": "elect + -ive，變成形容詞，表示「可以自己選的」，像 active、creative"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "v.",
+          "ipa": "/ɪˈlekt/",
+          "zh": "選舉、推選",
+          "en": "to choose someone for a job by voting",
+          "in_passage": true,
+          "example": {
+            "en": "Staff members will elect a leader by secret vote.",
+            "zh": "員工將以不記名投票選出一位領導者。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ɪˈlekt/",
+          "zh": "選擇（做某事）",
+          "en": "to decide to do something when you have a choice",
+          "distinguish": "後面接 to + 原形動詞，而且沒有投票的情境時，是較正式的「選擇」。",
+          "example": {
+            "en": "Employees may elect to join the health plan after six months.",
+            "zh": "員工可以在六個月後選擇加入健康計畫。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "committee",
+      "type": "word",
+      "ipa": "/kəˈmɪti/",
+      "pos": "n.",
+      "zh": "委員會",
+      "en": "a group of people chosen to make decisions or do a special job",
+      "note": "指公司或團體中負責某項決定或工作的小組，如 planning committee（企劃委員會）。多益常出現在會議、公告、活動籌備的情境，後面常接 chairperson、member。",
+      "grammar_note": "committee 拼字有雙 m、雙 t、雙 e，容易拼錯。它是集合名詞，美式英文多視為單數，如 The committee has decided。",
+      "forms": [
+        {
+          "w": "committees",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "委員會（複數）",
+          "ipa": "/kəˈmɪtiz/",
+          "example": {
+            "en": "Several committees will review the new safety rules this month.",
+            "zh": "幾個委員會本月將審查新的安全規定。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "committee member",
+          "zh": "委員",
+          "example": {
+            "en": "Every committee member received a copy of the final report.",
+            "zh": "每位委員都收到一份最終報告。"
+          }
+        },
+        {
+          "phrase": "committee meeting",
+          "zh": "委員會會議",
+          "example": {
+            "en": "The next committee meeting will start at ten o'clock.",
+            "zh": "下一次委員會會議將在十點開始。"
+          }
+        },
+        {
+          "phrase": "serve on a committee",
+          "zh": "擔任委員",
+          "example": {
+            "en": "Mr. Lee agreed to serve on a committee for the new project.",
+            "zh": "李先生同意為新專案擔任委員。"
+          }
+        },
+        {
+          "phrase": "set up a committee",
+          "zh": "成立委員會",
+          "example": {
+            "en": "The company set up a committee to improve office safety.",
+            "zh": "公司成立了一個委員會來改善辦公室安全。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "The committee will meet on Tuesday to review the proposal.",
+          "zh": "委員會將在星期二開會審查這份提案。"
+        },
+        {
+          "tag": "公告",
+          "en": "The planning committee has approved the new office design.",
+          "zh": "企劃委員會已核准新的辦公室設計。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please send your ideas to the event committee by Friday.",
+          "zh": "請在星期五前把你的想法寄給活動委員會。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "commission",
+          "ipa": "/kəˈmɪʃən/",
+          "diff": "commission 常指「佣金」，也可指政府設立的官方委員會；committee 多是公司或團體內部的小組。",
+          "kind": ["spell", "sound", "meaning"],
+          "example": {
+            "en": "Sales staff earn a commission on every contract they sign.",
+            "zh": "業務人員每簽一份合約都能領到佣金。"
+          }
+        },
+        {
+          "word": "commitment",
+          "ipa": "/kəˈmɪtmənt/",
+          "diff": "commitment 是「承諾、投入」，和 committee 都來自 commit，但意思不同。",
+          "kind": ["root", "spell"],
+          "example": {
+            "en": "The company shows a strong commitment to customer service.",
+            "zh": "這家公司展現了對客戶服務的堅定承諾。"
+          }
+        },
+        {
+          "word": "community",
+          "ipa": "/kəˈmjuːnəti/",
+          "diff": "community 是「社區、社群」，拼法和發音的開頭與結尾都和 committee 很像。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "Our firm supports several projects in the local community.",
+            "zh": "我們公司支持當地社區的好幾項計畫。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "board",
+          "ipa": "/bɔːrd/",
+          "diff": "board 多指董事會或理事會，層級較高；committee 是負責特定工作的小組。",
+          "example": {
+            "en": "The board approved the budget at yesterday's meeting.",
+            "zh": "董事會在昨天的會議上核准了預算。"
+          }
+        },
+        {
+          "word": "panel",
+          "ipa": "/ˈpænəl/",
+          "diff": "panel 常指受邀來評審或討論的專家小組；committee 則是長期或固定的工作小組。",
+          "example": {
+            "en": "A panel of experts will judge the design contest.",
+            "zh": "一組專家將評審這次的設計比賽。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "member",
+          "pos": "n.",
+          "zh": "成員",
+          "ipa": "/ˈmembər/",
+          "example": {
+            "en": "Each member must attend the meeting on Monday.",
+            "zh": "每位成員都必須出席星期一的會議。"
+          }
+        },
+        {
+          "w": "chairperson",
+          "pos": "n.",
+          "zh": "主席、會議主持人",
+          "ipa": "/ˈtʃerpɜːrsən/",
+          "example": {
+            "en": "The chairperson opened the meeting with a short welcome.",
+            "zh": "主席以簡短的歡迎詞開啟會議。"
+          }
+        },
+        {
+          "w": "council",
+          "pos": "n.",
+          "zh": "理事會、議會",
+          "ipa": "/ˈkaʊnsəl/",
+          "example": {
+            "en": "The city council will discuss the new parking rules.",
+            "zh": "市議會將討論新的停車規定。"
+          }
+        },
+        {
+          "w": "agenda",
+          "pos": "n.",
+          "zh": "議程",
+          "ipa": "/əˈdʒendə/",
+          "example": {
+            "en": "Please check the agenda before the committee meeting starts.",
+            "zh": "請在委員會會議開始前先看議程。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "subcommittee",
+          "pos": "n.",
+          "zh": "小組委員會",
+          "ipa": "/ˈsʌbkəmɪti/",
+          "link": "sub-（在下面）+ committee，委員會底下再分出的小組，像 subway（地下鐵）"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "illegible",
+      "type": "word",
+      "ipa": "/ɪˈledʒəbəl/",
+      "pos": "adj.",
+      "zh": "難以辨認的、字跡看不清的",
+      "en": "very hard or impossible to read",
+      "note": "多用來形容手寫字、簽名、傳真或影本等「看不清楚」。商務情境常見於表格、收據、合約被退回，原因就是 illegible。注意它不是「不合法」。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "illegible handwriting",
+          "zh": "難以辨認的字跡",
+          "example": {
+            "en": "Her illegible handwriting caused several mistakes in the order form.",
+            "zh": "她難以辨認的字跡讓訂購單出現了好幾個錯誤。"
+          }
+        },
+        {
+          "phrase": "illegible signature",
+          "zh": "看不清楚的簽名",
+          "example": {
+            "en": "An illegible signature may delay the approval of your claim.",
+            "zh": "簽名看不清楚可能會延後您的理賠核准。"
+          }
+        },
+        {
+          "phrase": "completely illegible",
+          "zh": "完全無法辨認",
+          "example": {
+            "en": "The old receipt was completely illegible after it got wet.",
+            "zh": "那張舊收據被弄濕後完全看不清楚了。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Your fax is illegible. Could you please send it again?",
+          "zh": "您的傳真看不清楚，可以請您再傳一次嗎？"
+        },
+        {
+          "tag": "文件",
+          "en": "The text on the copy is too small and nearly illegible.",
+          "zh": "這份影本上的字太小，幾乎看不清楚。"
+        },
+        {
+          "tag": "審核",
+          "en": "Forms with illegible entries will be returned to the sender.",
+          "zh": "填寫內容看不清楚的表格將退回給寄件人。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "illegal",
+          "ipa": "/ɪˈliːɡəl/",
+          "diff": "illegal 是「不合法的」，形容行為；illegible 是「看不清楚的」，形容文字。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "It is illegal to copy the software without a license.",
+            "zh": "沒有授權就複製這套軟體是違法的。"
+          }
+        },
+        {
+          "word": "ineligible",
+          "ipa": "/ɪnˈelɪdʒəbəl/",
+          "diff": "ineligible 是「不符合資格的」，常見於福利、申請的情境。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "Part-time staff are ineligible for the health program.",
+            "zh": "兼職員工不符合健康計畫的資格。"
+          }
+        },
+        {
+          "word": "legible",
+          "ipa": "/ˈledʒəbəl/",
+          "diff": "legible 是 illegible 的反義字，意思是「清楚易讀的」。",
+          "kind": ["root", "spell"],
+          "example": {
+            "en": "Please write in legible letters so we can read your address.",
+            "zh": "請用清楚的字體書寫，讓我們看得懂您的地址。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "unreadable",
+          "ipa": "/ʌnˈriːdəbəl/",
+          "diff": "unreadable 範圍較廣，也可指檔案打不開或內容太難讀；illegible 專指字跡看不清。",
+          "example": {
+            "en": "The file was unreadable after the computer system crashed.",
+            "zh": "電腦系統當機後，那個檔案就無法讀取了。"
+          }
+        },
+        {
+          "word": "unclear",
+          "ipa": "/ʌnˈklɪr/",
+          "diff": "unclear 可指意思、聲音或影像不清楚，不限於字跡。",
+          "example": {
+            "en": "The instructions in the manual are unclear to most users.",
+            "zh": "手冊裡的說明對大多數使用者來說不清楚。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "handwriting",
+          "pos": "n.",
+          "zh": "筆跡、手寫字",
+          "ipa": "/ˈhændraɪtɪŋ/",
+          "example": {
+            "en": "Your handwriting is neat and easy to read.",
+            "zh": "你的字跡整齊又好讀。"
+          }
+        },
+        {
+          "w": "blurry",
+          "pos": "adj.",
+          "zh": "模糊的",
+          "ipa": "/ˈblɜːri/",
+          "example": {
+            "en": "The photo of the receipt is too blurry to read.",
+            "zh": "這張收據的照片太模糊，看不清楚。"
+          }
+        },
+        {
+          "w": "faint",
+          "pos": "adj.",
+          "zh": "淡的、微弱的",
+          "ipa": "/feɪnt/",
+          "example": {
+            "en": "The printer made the text faint on every page.",
+            "zh": "印表機把每一頁的文字都印得很淡。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "legible",
+          "pos": "adj.",
+          "zh": "清楚易讀的",
+          "ipa": "/ˈledʒəbəl/",
+          "link": "illegible 去掉否定字首 il-，就是 legible，意思相反"
+        },
+        {
+          "w": "legibility",
+          "pos": "n.",
+          "zh": "清晰度、易讀性",
+          "ipa": "/ˌledʒəˈbɪləti/",
+          "link": "legible + -ity，把形容詞變成名詞，像 able → ability"
+        },
+        {
+          "w": "illegibly",
+          "pos": "adv.",
+          "zh": "難以辨認地",
+          "ipa": "/ɪˈledʒəbli/",
+          "link": "illegible 的 -ble 改成 -bly，變成副詞，像 possible → possibly"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "shutdown",
+      "type": "word",
+      "ipa": "/ˈʃʌtdaʊn/",
+      "pos": "n.",
+      "zh": "停工、停機、（水電）暫停供應",
+      "en": "a time when a machine, system, or service is stopped",
+      "note": "多益常見於大樓、工廠或公司的公告，通知住戶或員工某項服務（如水、電、系統）會暫時停止。常搭配 scheduled、temporary 等字，後面常接 of 或 for + 時間。",
+      "grammar_note": "名詞 shutdown 寫成一個字；動詞片語是兩個字 shut down，例如 The system will shut down at nine。",
+      "forms": [
+        {
+          "w": "shutdowns",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "停工、停機（複數）",
+          "ipa": "/ˈʃʌtdaʊnz/",
+          "example": {
+            "en": "Several shutdowns last year caused delays in the production schedule.",
+            "zh": "去年的幾次停工造成生產進度延誤。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "scheduled shutdown",
+          "zh": "預定的停機（停供）",
+          "example": {
+            "en": "A scheduled shutdown of the elevators will begin at noon.",
+            "zh": "電梯的預定停用將從中午開始。"
+          }
+        },
+        {
+          "phrase": "temporary shutdown",
+          "zh": "暫時停工",
+          "example": {
+            "en": "The plant announced a temporary shutdown for machine repairs.",
+            "zh": "工廠宣布為了維修機器而暫時停工。"
+          }
+        },
+        {
+          "phrase": "system shutdown",
+          "zh": "系統關機（停機）",
+          "example": {
+            "en": "A system shutdown is planned for the weekend upgrade.",
+            "zh": "週末升級時預計要讓系統停機。"
+          }
+        },
+        {
+          "phrase": "emergency shutdown",
+          "zh": "緊急停機",
+          "example": {
+            "en": "An emergency shutdown stopped all machines in the factory.",
+            "zh": "一次緊急停機讓工廠裡所有機器都停了下來。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "Tenants should store water before the shutdown on Sunday morning.",
+          "zh": "住戶請在星期日早上停水前先儲水。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please save your files before the system shutdown begins at nine.",
+          "zh": "請在九點系統停機開始前先儲存您的檔案。"
+        },
+        {
+          "tag": "工廠",
+          "en": "The factory shutdown lasted two weeks because of the machine problem.",
+          "zh": "因為機器出問題，工廠停工了兩個星期。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "breakdown",
+          "ipa": "/ˈbreɪkdaʊn/",
+          "diff": "breakdown 是意外的故障或失靈；shutdown 常是有計畫地讓它停止。",
+          "kind": ["meaning", "spell"],
+          "example": {
+            "en": "A breakdown of the printer delayed the monthly report.",
+            "zh": "印表機故障使月報告延誤了。"
+          }
+        },
+        {
+          "word": "slowdown",
+          "ipa": "/ˈsloʊdaʊn/",
+          "diff": "slowdown 是速度或業務「變慢」，並沒有完全停止；shutdown 是完全停止。",
+          "kind": ["spell", "meaning"],
+          "example": {
+            "en": "A slowdown in sales worried the management team this quarter.",
+            "zh": "本季銷售放緩讓管理團隊很擔心。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "outage",
+          "ipa": "/ˈaʊtɪdʒ/",
+          "diff": "outage 多指停電、斷網等突然發生的中斷；shutdown 常是事先通知的停止。",
+          "example": {
+            "en": "A power outage stopped work in the office for an hour.",
+            "zh": "一次停電讓辦公室停工了一個小時。"
+          }
+        },
+        {
+          "word": "stoppage",
+          "ipa": "/ˈstɑːpɪdʒ/",
+          "diff": "stoppage 多指工作或生產被迫停下來，常說 work stoppage（停工）。",
+          "example": {
+            "en": "A work stoppage at the port delayed all our shipments.",
+            "zh": "港口的停工讓我們所有的貨運都延誤了。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "closure",
+          "pos": "n.",
+          "zh": "關閉、封閉",
+          "ipa": "/ˈkloʊʒər/",
+          "example": {
+            "en": "The closure of the road will last for three days.",
+            "zh": "這條路的封閉將持續三天。"
+          }
+        },
+        {
+          "w": "maintenance",
+          "pos": "n.",
+          "zh": "維修、保養",
+          "ipa": "/ˈmeɪntənəns/",
+          "example": {
+            "en": "Routine maintenance of the elevators starts next Monday.",
+            "zh": "電梯的例行保養從下星期一開始。"
+          }
+        },
+        {
+          "w": "suspension",
+          "pos": "n.",
+          "zh": "暫停、中止",
+          "ipa": "/səˈspenʃən/",
+          "example": {
+            "en": "The suspension of service will end on Friday evening.",
+            "zh": "服務暫停將在星期五晚上結束。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}

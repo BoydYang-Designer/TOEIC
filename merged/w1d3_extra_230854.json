@@ -1,0 +1,1137 @@
+{
+  "week": 1,
+  "day": 3,
+  "extra_vocab": [
+    {
+      "text": "entries",
+      "type": "word",
+      "lemma": "entry",
+      "ipa": "/ˈentriz/",
+      "pos": "n.",
+      "zh": "（表格上填寫的）項目、內容",
+      "en": "pieces of information written in a form or a list",
+      "note": "在這句裡，entries 指表格上填寫的內容，也就是每一格寫進去的字。多益常見於表格、帳冊、資料庫的說明或審核通知。",
+      "grammar_note": "entry 的複數是把 y 改成 i 再加 es，寫成 entries，不是 entrys。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "data entry",
+          "zh": "資料輸入",
+          "example": {
+            "en": "She works in data entry at the finance department.",
+            "zh": "她在財務部門做資料輸入的工作。"
+          }
+        },
+        {
+          "phrase": "entry form",
+          "zh": "報名表、參加表格",
+          "example": {
+            "en": "Please return the entry form to the front desk by noon.",
+            "zh": "請在中午前把報名表交回櫃檯。"
+          }
+        },
+        {
+          "phrase": "entry fee",
+          "zh": "入場費、報名費",
+          "example": {
+            "en": "The entry fee for the trade show is twenty dollars.",
+            "zh": "這場貿易展的入場費是二十美元。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "表格",
+          "en": "Please correct any wrong entries before you submit the form.",
+          "zh": "送出表格之前，請先更正任何錯誤的內容。"
+        },
+        {
+          "tag": "帳務",
+          "en": "Each entry in the account book must show a clear date.",
+          "zh": "帳冊裡的每一筆記錄都必須有清楚的日期。"
+        },
+        {
+          "tag": "資料庫",
+          "en": "The system will delete duplicate entries every Sunday night.",
+          "zh": "系統每個星期日晚上會刪除重複的資料。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "entrance",
+          "ipa": "/ˈentrəns/",
+          "diff": "entrance 指「入口」或進入的地方；entry 常指填寫的項目、記錄，或進入的動作與權利。",
+          "kind": ["root", "spell", "meaning"],
+          "example": {
+            "en": "The entrance to the parking lot is on Main Street.",
+            "zh": "停車場的入口在主街上。"
+          }
+        },
+        {
+          "word": "entity",
+          "ipa": "/ˈentəti/",
+          "diff": "entity 是「實體、機構」，拼法和發音都很像 entry，但意思完全不同。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "The new branch is a separate entity from the main company.",
+            "zh": "新分公司是一個獨立於總公司的單位。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "item",
+          "ipa": "/ˈaɪtəm/",
+          "diff": "item 是清單上的一項東西或事項；entry 強調「寫進去的那一筆內容」。",
+          "example": {
+            "en": "Please check each item on the list before shipping.",
+            "zh": "出貨之前，請檢查清單上的每一個項目。"
+          }
+        },
+        {
+          "word": "record",
+          "ipa": "/ˈrekərd/",
+          "diff": "record 是完整的一份記錄；entry 是記錄裡的一筆。",
+          "example": {
+            "en": "Please keep a record of every payment you make.",
+            "zh": "請保留你所付的每一筆款項的記錄。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "field",
+          "pos": "n.",
+          "zh": "（表單的）欄位",
+          "ipa": "/fiːld/",
+          "example": {
+            "en": "Please fill in every required field on the form.",
+            "zh": "請填寫表單上每一個必填欄位。"
+          }
+        },
+        {
+          "w": "data",
+          "pos": "n.",
+          "zh": "資料、數據",
+          "ipa": "/ˈdeɪtə/",
+          "example": {
+            "en": "The data in this table is updated every morning.",
+            "zh": "這張表裡的資料每天早上更新。"
+          }
+        },
+        {
+          "w": "form",
+          "pos": "n.",
+          "zh": "表格",
+          "ipa": "/fɔːrm/",
+          "example": {
+            "en": "Please sign the form and return it to HR.",
+            "zh": "請在表格上簽名後交回人資部門。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "enter",
+          "pos": "v.",
+          "zh": "進入、輸入",
+          "ipa": "/ˈentər/",
+          "link": "entry 的動詞形式，「進去」或「把資料輸入」"
+        },
+        {
+          "w": "entrance",
+          "pos": "n.",
+          "zh": "入口、進入",
+          "ipa": "/ˈentrəns/",
+          "link": "enter + -ance，進去的地方或動作，像 appear → appearance"
+        },
+        {
+          "w": "entrant",
+          "pos": "n.",
+          "zh": "參加者、參賽者",
+          "ipa": "/ˈentrənt/",
+          "link": "enter + -ant，進入比賽的人，像 assistant、applicant"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈentri/",
+          "zh": "（填寫的）項目、記錄",
+          "en": "one item of information written in a list, form, or record",
+          "in_passage": true,
+          "example": {
+            "en": "Please check each entry in the sales report carefully.",
+            "zh": "請仔細檢查銷售報告裡的每一筆記錄。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈentri/",
+          "zh": "進入、入場",
+          "en": "the act of going into a place",
+          "distinguish": "後面常接 to + 地點，或出現 no entry 的告示，指「進入」這個動作。",
+          "example": {
+            "en": "Entry to the laboratory requires a security badge.",
+            "zh": "進入實驗室需要使用安全識別證。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈentri/",
+          "zh": "入口",
+          "en": "a door or gate where you go in",
+          "distinguish": "指實際的門或通道，前面常有 main、side 等字。",
+          "example": {
+            "en": "The main entry is closed for repairs until Friday.",
+            "zh": "主要入口因維修關閉到星期五。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈentri/",
+          "zh": "參賽作品、報名",
+          "en": "something you send in to join a contest",
+          "distinguish": "出現在 contest、competition 的情境，指送出去參加的作品或報名。",
+          "example": {
+            "en": "We received over two hundred entries for the design contest.",
+            "zh": "我們為這次設計比賽收到了兩百多件參賽作品。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "unreadable",
+      "type": "word",
+      "ipa": "/ʌnˈriːdəbəl/",
+      "pos": "adj.",
+      "zh": "無法閱讀的、看不清楚的",
+      "en": "too hard to read or impossible to read",
+      "note": "多益常見於說文件、影本、傳真或檔案「看不清楚」或「無法讀取」。語氣直接，用來說明為什麼要請對方重寄或重新列印。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "unreadable text",
+          "zh": "無法閱讀的文字",
+          "example": {
+            "en": "The small unreadable text at the bottom confused many customers.",
+            "zh": "底部那些看不清楚的小字讓許多客戶感到困惑。"
+          }
+        },
+        {
+          "phrase": "unreadable file",
+          "zh": "無法讀取的檔案",
+          "example": {
+            "en": "The unreadable file could not be opened by any computer.",
+            "zh": "那個無法讀取的檔案在任何一台電腦上都打不開。"
+          }
+        },
+        {
+          "phrase": "become unreadable",
+          "zh": "變得看不清楚",
+          "example": {
+            "en": "The label may become unreadable if it gets wet.",
+            "zh": "標籤如果弄濕，可能會變得看不清楚。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "The fax was unreadable. Could you send the contract again?",
+          "zh": "那份傳真看不清楚，可以請你再寄一次合約嗎？"
+        },
+        {
+          "tag": "文件",
+          "en": "Several pages of the report were unreadable after printing.",
+          "zh": "報告列印後，有好幾頁看不清楚。"
+        },
+        {
+          "tag": "客服",
+          "en": "Your attachment is unreadable on our system, so please resend it.",
+          "zh": "您的附件在我們的系統上無法讀取，請重新寄送。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "unreasonable",
+          "ipa": "/ʌnˈriːzənəbəl/",
+          "diff": "unreasonable 是「不合理的」，開頭 unrea- 和 unreadable 很像，但意思無關。",
+          "kind": ["sound", "spell"],
+          "example": {
+            "en": "The customer made an unreasonable request for a full refund.",
+            "zh": "那位客戶提出了不合理的全額退款要求。"
+          }
+        },
+        {
+          "word": "unreliable",
+          "ipa": "/ˌʌnrɪˈlaɪəbəl/",
+          "diff": "unreliable 是「不可靠的」，拼法結構和 unreadable 相似，但說的是人或物不可信。",
+          "kind": ["spell"],
+          "example": {
+            "en": "The old printer is unreliable and often stops during big jobs.",
+            "zh": "舊印表機不可靠，處理大量工作時常常停住。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "illegible",
+          "ipa": "/ɪˈledʒəbəl/",
+          "diff": "illegible 專指字跡看不清；unreadable 範圍較廣，也可指檔案無法讀取。",
+          "example": {
+            "en": "The signature on the form is illegible, so we cannot approve it.",
+            "zh": "表格上的簽名看不清楚，所以我們無法核准。"
+          }
+        },
+        {
+          "word": "unclear",
+          "ipa": "/ʌnˈklɪr/",
+          "diff": "unclear 是「不清楚」，可用在說明、聲音、畫面；unreadable 專指字或內容讀不了。",
+          "example": {
+            "en": "The instructions in the manual are unclear to most users.",
+            "zh": "手冊裡的說明對大多數使用者來說不清楚。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "blurry",
+          "pos": "adj.",
+          "zh": "模糊的",
+          "ipa": "/ˈblɜːri/",
+          "example": {
+            "en": "The scanned image is too blurry to use in the report.",
+            "zh": "這張掃描圖太模糊，無法用在報告裡。"
+          }
+        },
+        {
+          "w": "clear",
+          "pos": "adj.",
+          "zh": "清楚的",
+          "ipa": "/klɪr/",
+          "example": {
+            "en": "Please send a clear copy of your passport.",
+            "zh": "請寄一份清楚的護照影本。"
+          }
+        },
+        {
+          "w": "damaged",
+          "pos": "adj.",
+          "zh": "損壞的",
+          "ipa": "/ˈdæmɪdʒd/",
+          "example": {
+            "en": "The damaged label made the box number hard to see.",
+            "zh": "受損的標籤讓箱子的編號很難看清楚。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "reader",
+          "pos": "n.",
+          "zh": "讀者",
+          "ipa": "/ˈriːdər/",
+          "link": "read + -er，讀東西的人，像 worker、teacher"
+        },
+        {
+          "w": "readable",
+          "pos": "adj.",
+          "zh": "容易閱讀的",
+          "ipa": "/ˈriːdəbəl/",
+          "link": "read + -able，可以被讀的，像 comfortable、available；加 un- 就是 unreadable"
+        },
+        {
+          "w": "readability",
+          "pos": "n.",
+          "zh": "易讀性",
+          "ipa": "/ˌriːdəˈbɪləti/",
+          "link": "readable + -ity，把形容詞變成名詞，像 able → ability"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ʌnˈriːdəbəl/",
+          "zh": "（字、畫面）看不清楚的",
+          "en": "too unclear to read with your eyes",
+          "in_passage": true,
+          "example": {
+            "en": "The date on the receipt is unreadable.",
+            "zh": "收據上的日期看不清楚。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ʌnˈriːdəbəl/",
+          "zh": "（檔案、資料）無法讀取的",
+          "en": "not able to be opened or read by a computer",
+          "distinguish": "主詞是 file、disk、data 時，指機器讀不了。",
+          "example": {
+            "en": "The disk became unreadable after the power problem.",
+            "zh": "電力出問題後，這張磁碟就無法讀取了。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ʌnˈriːdəbəl/",
+          "zh": "（內容）難讀的、枯燥的",
+          "en": "too boring or too hard to enjoy reading",
+          "distinguish": "主詞是 report、article，語氣是評論內容寫得不好。",
+          "example": {
+            "en": "The long contract was so complex that it felt unreadable.",
+            "zh": "這份冗長的合約太複雜，讀起來很吃力。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "faint",
+      "type": "word",
+      "ipa": "/feɪnt/",
+      "pos": "adj.",
+      "zh": "淡的、微弱的、模糊的",
+      "en": "not strong or clear",
+      "note": "多益常用來形容印出來的字太淡、聲音很小、味道很輕，或機會不大。用在文件上時，意思接近「看起來很淡、不太清楚」。",
+      "forms": [
+        {
+          "w": "fainter",
+          "label": "比較級",
+          "pos": "adj.",
+          "zh": "更淡的、更微弱的",
+          "ipa": "/ˈfeɪntər/",
+          "example": {
+            "en": "The print on the second page is fainter than the first.",
+            "zh": "第二頁的印刷比第一頁更淡。"
+          }
+        },
+        {
+          "w": "faintest",
+          "label": "最高級",
+          "pos": "adj.",
+          "zh": "最淡的、最微弱的",
+          "ipa": "/ˈfeɪntɪst/",
+          "example": {
+            "en": "This is the faintest copy we have received from the vendor.",
+            "zh": "這是我們從供應商那裡收到最淡的一份影本。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "faint print",
+          "zh": "淡淡的印刷字",
+          "example": {
+            "en": "The faint print on the receipt is hard to read.",
+            "zh": "收據上淡淡的印刷字很難讀。"
+          }
+        },
+        {
+          "phrase": "faint sound",
+          "zh": "微弱的聲音",
+          "example": {
+            "en": "A faint sound came from the machine before it stopped.",
+            "zh": "機器停止之前傳出一個微弱的聲音。"
+          }
+        },
+        {
+          "phrase": "faint chance",
+          "zh": "渺茫的機會",
+          "example": {
+            "en": "There is only a faint chance that we will win the contract.",
+            "zh": "我們拿到這份合約的機會很渺茫。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "文件",
+          "en": "The copy is too faint, so please scan the original.",
+          "zh": "這份影本太淡了，請掃描原件。"
+        },
+        {
+          "tag": "印表機",
+          "en": "The printer ink is low, and the text looks faint.",
+          "zh": "印表機的墨水快沒了，文字看起來很淡。"
+        },
+        {
+          "tag": "電話",
+          "en": "Your voice is faint on the phone. Could you speak louder?",
+          "zh": "你的聲音在電話裡很小聲，可以大聲一點嗎？"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "paint",
+          "ipa": "/peɪnt/",
+          "diff": "paint 是「油漆、塗漆」，和 faint 只差第一個字母，發音也只差開頭，但意思無關。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "The workers will paint the lobby walls this weekend.",
+            "zh": "工人這個週末要粉刷大廳的牆壁。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "dim",
+          "ipa": "/dɪm/",
+          "diff": "dim 多形容光線昏暗；faint 可以形容字、聲音、味道，範圍較廣。",
+          "example": {
+            "en": "The meeting room was dim because one light was broken.",
+            "zh": "會議室很暗，因為有一盞燈壞了。"
+          }
+        },
+        {
+          "word": "slight",
+          "ipa": "/slaɪt/",
+          "diff": "slight 是「輕微的」，用在變化或問題；faint 是「淡、弱」，用在感官。",
+          "example": {
+            "en": "There is a slight delay in the delivery schedule.",
+            "zh": "出貨時程有輕微的延誤。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "clear",
+          "pos": "adj.",
+          "zh": "清楚的",
+          "ipa": "/klɪr/",
+          "example": {
+            "en": "Please send a clear copy of the signed contract.",
+            "zh": "請寄一份清楚的已簽名合約影本。"
+          }
+        },
+        {
+          "w": "visible",
+          "pos": "adj.",
+          "zh": "看得見的",
+          "ipa": "/ˈvɪzəbəl/",
+          "example": {
+            "en": "The company logo should be visible on every page.",
+            "zh": "公司商標應該在每一頁都看得到。"
+          }
+        },
+        {
+          "w": "weak",
+          "pos": "adj.",
+          "zh": "微弱的、弱的",
+          "ipa": "/wiːk/",
+          "example": {
+            "en": "The Wi-Fi signal is weak in the back office.",
+            "zh": "後面辦公室的無線網路訊號很弱。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "faintly",
+          "pos": "adv.",
+          "zh": "隱約地、微弱地",
+          "ipa": "/ˈfeɪntli/",
+          "link": "faint + -ly，變成副詞，像 slow → slowly"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "ipa": "/feɪnt/",
+          "zh": "淡的、模糊的（字跡、顏色）",
+          "en": "not easy to see because it is light in color",
+          "in_passage": true,
+          "example": {
+            "en": "The stamp on the form is so faint that we cannot read it.",
+            "zh": "表格上的印章太淡，我們讀不出來。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/feɪnt/",
+          "zh": "微弱的（聲音、味道、可能性）",
+          "en": "weak and not easy to hear, smell, or feel",
+          "distinguish": "主詞是聲音、味道或 hope、chance 時，指「微弱、渺茫」。",
+          "example": {
+            "en": "We heard a faint noise from the storage room.",
+            "zh": "我們聽到倉庫傳來一個微弱的聲音。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "legitimate",
+      "type": "word",
+      "ipa": "/ləˈdʒɪtəmət/",
+      "pos": "adj.",
+      "zh": "合法的、正當的、合理的",
+      "en": "real, fair, or allowed by the rules",
+      "note": "多益常見於說明申請、投訴、網站或公司是正當可信的，語氣正式。注意 -ate 在形容詞裡念 /ət/，尾音很輕。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "legitimate business",
+          "zh": "合法的生意、正當的企業",
+          "example": {
+            "en": "The bank only works with legitimate business owners.",
+            "zh": "這家銀行只和正當經營的企業主往來。"
+          }
+        },
+        {
+          "phrase": "legitimate reason",
+          "zh": "正當的理由",
+          "example": {
+            "en": "You need a legitimate reason to ask for a refund.",
+            "zh": "你需要一個正當的理由才能要求退款。"
+          }
+        },
+        {
+          "phrase": "legitimate claim",
+          "zh": "合理的索賠",
+          "example": {
+            "en": "The insurance company paid every legitimate claim within two weeks.",
+            "zh": "保險公司在兩週內賠付了每一筆合理的索賠。"
+          }
+        },
+        {
+          "phrase": "legitimate source",
+          "zh": "可信的來源",
+          "example": {
+            "en": "Please get your data from a legitimate source.",
+            "zh": "請從可信的來源取得你的資料。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "Please make sure the website is legitimate before entering your password.",
+          "zh": "輸入密碼之前，請先確認這個網站是正規的。"
+        },
+        {
+          "tag": "客服",
+          "en": "We will check whether your complaint is legitimate within three days.",
+          "zh": "我們會在三天內確認您的投訴是否合理。"
+        },
+        {
+          "tag": "採購",
+          "en": "The buyer asked for proof that the supplier is a legitimate company.",
+          "zh": "採購人員要求提供證明，確認這家供應商是正規公司。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "legal",
+          "ipa": "/ˈliːɡəl/",
+          "diff": "legal 指「符合法律的」；legitimate 範圍較廣，也指正當、合理、真實可信。",
+          "kind": ["meaning", "spell"],
+          "example": {
+            "en": "Our legal team will check the contract before we sign it.",
+            "zh": "簽約前，我們的法務團隊會先審查合約。"
+          }
+        },
+        {
+          "word": "legible",
+          "ipa": "/ˈledʒəbəl/",
+          "diff": "legible 是「清楚易讀的」，拼法開頭 leg- 與發音 /dʒ/ 都和 legitimate 像，但意思無關。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "Please write in legible letters so we can read your address.",
+            "zh": "請用清楚的字體書寫，讓我們看得懂您的地址。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "valid",
+          "ipa": "/ˈvælɪd/",
+          "diff": "valid 強調「有效的」，如證件、票券、理由；legitimate 強調「正當、合法」。",
+          "example": {
+            "en": "Your passport must be valid for at least six months.",
+            "zh": "您的護照必須至少有六個月的效期。"
+          }
+        },
+        {
+          "word": "genuine",
+          "ipa": "/ˈdʒenjuɪn/",
+          "diff": "genuine 強調「真的、不是假的」；legitimate 強調符合規定、正當可信。",
+          "example": {
+            "en": "We only sell genuine leather products in our stores.",
+            "zh": "我們的店只賣真皮製品。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "lawful",
+          "pos": "adj.",
+          "zh": "合法的",
+          "ipa": "/ˈlɔːfəl/",
+          "example": {
+            "en": "It is lawful to work here with a valid permit.",
+            "zh": "持有有效許可證就可以合法在這裡工作。"
+          }
+        },
+        {
+          "w": "proper",
+          "pos": "adj.",
+          "zh": "適當的、正確的",
+          "ipa": "/ˈprɑːpər/",
+          "example": {
+            "en": "Please follow the proper steps when you file a complaint.",
+            "zh": "提出申訴時，請依照正確的步驟進行。"
+          }
+        },
+        {
+          "w": "official",
+          "pos": "adj.",
+          "zh": "正式的、官方的",
+          "ipa": "/əˈfɪʃəl/",
+          "example": {
+            "en": "You will receive an official letter from the bank next week.",
+            "zh": "您下週會收到銀行寄來的正式信函。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "legitimately",
+          "pos": "adv.",
+          "zh": "合法地、正當地",
+          "ipa": "/ləˈdʒɪtəmətli/",
+          "link": "legitimate + -ly，變成副詞，像 clear → clearly"
+        },
+        {
+          "w": "legitimacy",
+          "pos": "n.",
+          "zh": "合法性、正當性",
+          "ipa": "/ləˈdʒɪtəməsi/",
+          "link": "legitimate 的 -ate 改成 -acy，變成名詞，像 private → privacy 的概念"
+        },
+        {
+          "w": "illegitimate",
+          "pos": "adj.",
+          "zh": "不合法的、不正當的",
+          "ipa": "/ˌɪləˈdʒɪtəmət/",
+          "link": "il-（不）+ legitimate，和 illegal 一樣的字首，意思相反"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ləˈdʒɪtəmət/",
+          "zh": "合法的、正規的",
+          "en": "allowed by law or by the rules",
+          "in_passage": true,
+          "example": {
+            "en": "Only legitimate companies can apply for this government program.",
+            "zh": "只有正規的公司才能申請這項政府計畫。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ləˈdʒɪtəmət/",
+          "zh": "正當的、合理的",
+          "en": "fair and reasonable",
+          "distinguish": "後面是 reason、concern、complaint 時，指「合理的」。",
+          "example": {
+            "en": "The manager has legitimate concerns about the project schedule.",
+            "zh": "經理對專案時程有合理的擔憂。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ləˈdʒɪtəmət/",
+          "zh": "真實可信的",
+          "en": "real and not false",
+          "distinguish": "主詞是 website、email、offer 時，指「不是假的」。",
+          "example": {
+            "en": "This looks like a legitimate offer from a trusted supplier.",
+            "zh": "這看起來是可信供應商提出的真實報價。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "credible",
+      "type": "word",
+      "ipa": "/ˈkredəbəl/",
+      "pos": "adj.",
+      "zh": "可信的、可靠的",
+      "en": "easy to believe or trust",
+      "note": "多益常用來形容消息來源、證據、說明或人「值得相信」，語氣正式。常出現在報告、新聞、調查與企劃審核的情境。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "credible source",
+          "zh": "可信的消息來源",
+          "example": {
+            "en": "Our report uses data only from a credible source.",
+            "zh": "我們的報告只使用來自可信來源的資料。"
+          }
+        },
+        {
+          "phrase": "credible evidence",
+          "zh": "可信的證據",
+          "example": {
+            "en": "The manager asked for credible evidence before changing the policy.",
+            "zh": "經理要求在修改政策前，先提出可信的證據。"
+          }
+        },
+        {
+          "phrase": "credible plan",
+          "zh": "可行可信的計畫",
+          "example": {
+            "en": "The investors want a credible plan for the next two years.",
+            "zh": "投資人想看一份可信的未來兩年計畫。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "報告",
+          "en": "A credible report must show where each number comes from.",
+          "zh": "一份可信的報告必須說明每個數字的出處。"
+        },
+        {
+          "tag": "會議",
+          "en": "Her explanation was clear, and the board found it credible.",
+          "zh": "她的說明很清楚，董事會認為很可信。"
+        },
+        {
+          "tag": "行銷",
+          "en": "Customers trust brands that give credible information about their products.",
+          "zh": "客戶信任提供可信產品資訊的品牌。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "creditable",
+          "ipa": "/ˈkredɪtəbəl/",
+          "diff": "creditable 是「值得稱讚的」，指表現不錯；credible 是「可信的」。",
+          "kind": ["spell", "sound", "root"],
+          "example": {
+            "en": "The new team made a creditable effort in its first quarter.",
+            "zh": "新團隊在第一季表現出值得稱讚的努力。"
+          }
+        },
+        {
+          "word": "credit",
+          "ipa": "/ˈkredɪt/",
+          "diff": "credit 是名詞「信用、賒帳、功勞」，和 credible 同字根，但不是形容詞。",
+          "kind": ["root", "spell"],
+          "usage": "credit 可以當名詞或動詞，credible 只能當形容詞。",
+          "example": {
+            "en": "You can pay by credit card or by bank transfer.",
+            "zh": "您可以用信用卡或銀行轉帳付款。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "reliable",
+          "ipa": "/rɪˈlaɪəbəl/",
+          "diff": "reliable 強調「穩定可靠、可以依靠」；credible 強調「值得相信」。",
+          "example": {
+            "en": "We need a reliable supplier who delivers on time.",
+            "zh": "我們需要一個準時交貨的可靠供應商。"
+          }
+        },
+        {
+          "word": "trustworthy",
+          "ipa": "/ˈtrʌstwɜːrði/",
+          "diff": "trustworthy 多形容人或公司「值得信任」；credible 也可形容說法與證據。",
+          "example": {
+            "en": "Our clients see the firm as honest and trustworthy.",
+            "zh": "我們的客戶認為這家公司誠實又值得信任。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "source",
+          "pos": "n.",
+          "zh": "來源",
+          "ipa": "/sɔːrs/",
+          "example": {
+            "en": "Please list the source of every figure in the report.",
+            "zh": "請列出報告中每個數字的來源。"
+          }
+        },
+        {
+          "w": "evidence",
+          "pos": "n.",
+          "zh": "證據",
+          "ipa": "/ˈevɪdəns/",
+          "example": {
+            "en": "We need more evidence before we change the plan.",
+            "zh": "更改計畫前，我們需要更多證據。"
+          }
+        },
+        {
+          "w": "reputation",
+          "pos": "n.",
+          "zh": "名聲、聲譽",
+          "ipa": "/ˌrepjuˈteɪʃən/",
+          "example": {
+            "en": "The company has a good reputation for fast delivery.",
+            "zh": "這家公司以快速交貨而有好名聲。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "credibility",
+          "pos": "n.",
+          "zh": "可信度",
+          "ipa": "/ˌkredəˈbɪləti/",
+          "link": "credible + -ity，把形容詞變成名詞，像 able → ability"
+        },
+        {
+          "w": "credibly",
+          "pos": "adv.",
+          "zh": "可信地",
+          "ipa": "/ˈkredəbli/",
+          "link": "credible 的 -ble 改成 -bly，變成副詞，像 possible → possibly"
+        },
+        {
+          "w": "incredible",
+          "pos": "adj.",
+          "zh": "難以置信的、極好的",
+          "ipa": "/ɪnˈkredəbəl/",
+          "link": "in-（不）+ credible，不可信，所以是「難以置信」，也可表示「好得驚人」"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "loan",
+      "type": "word",
+      "ipa": "/loʊn/",
+      "pos": "n.",
+      "zh": "貸款、借款",
+      "en": "money that a bank or company lends to you",
+      "note": "在這句裡，loan 是銀行貸款，句子說明要符合三項條件，才有資格申請。多益常見於銀行、房貸、企業融資的情境，常搭配 apply for、approve、repay。",
+      "forms": [
+        {
+          "w": "loans",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "貸款（複數）",
+          "ipa": "/loʊnz/",
+          "example": {
+            "en": "The bank offers low-interest loans to small businesses.",
+            "zh": "這家銀行提供低利貸款給小型企業。"
+          }
+        },
+        {
+          "w": "loaned",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "借出了",
+          "ipa": "/loʊnd/",
+          "example": {
+            "en": "The firm loaned its equipment to a partner last month.",
+            "zh": "公司上個月把設備借給了一家合作夥伴。"
+          }
+        },
+        {
+          "w": "loaning",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "正在借出",
+          "ipa": "/ˈloʊnɪŋ/",
+          "example": {
+            "en": "The bank is loaning money to local stores this year.",
+            "zh": "銀行今年正把資金貸給當地商店。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "apply for a loan",
+          "zh": "申請貸款",
+          "example": {
+            "en": "You can apply for a loan online or at any branch.",
+            "zh": "您可以在線上或任何一家分行申請貸款。"
+          }
+        },
+        {
+          "phrase": "take out a loan",
+          "zh": "辦理貸款",
+          "example": {
+            "en": "The company took out a loan to build a new factory.",
+            "zh": "公司辦了一筆貸款來蓋新工廠。"
+          }
+        },
+        {
+          "phrase": "repay a loan",
+          "zh": "償還貸款",
+          "example": {
+            "en": "We plan to repay the loan within five years.",
+            "zh": "我們計畫在五年內還清這筆貸款。"
+          }
+        },
+        {
+          "phrase": "loan application",
+          "zh": "貸款申請",
+          "example": {
+            "en": "Your loan application will be reviewed within three business days.",
+            "zh": "您的貸款申請將在三個工作天內審核完成。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "銀行",
+          "en": "Our company needs a loan to open a second store.",
+          "zh": "我們公司需要一筆貸款來開第二家店。"
+        },
+        {
+          "tag": "財務",
+          "en": "The interest rate on this loan is lower than last year's.",
+          "zh": "這筆貸款的利率比去年低。"
+        },
+        {
+          "tag": "政府",
+          "en": "Small businesses can get a low-interest loan from the city.",
+          "zh": "小型企業可以向市政府申請低利貸款。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "load",
+          "ipa": "/loʊd/",
+          "diff": "load 是「負載、裝載」；loan 是「貸款」，只差最後一個字母，發音也只差尾音。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "The truck can carry a heavy load of boxes.",
+            "zh": "這輛卡車可以載運一大批重的箱子。"
+          }
+        },
+        {
+          "word": "borrow",
+          "ipa": "/ˈbɑːroʊ/",
+          "diff": "loan 當動詞是「借出」；borrow 是「借入」，兩者中文都可以翻成「借」。",
+          "kind": ["zhsame"],
+          "example": {
+            "en": "We had to borrow money from the bank to expand.",
+            "zh": "我們必須向銀行借錢來擴張業務。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "lend",
+          "ipa": "/lend/",
+          "diff": "lend 是更常用的動詞「借出」；loan 當動詞較少用，多在美式英文中使用。",
+          "example": {
+            "en": "The bank will lend us fifty thousand dollars.",
+            "zh": "銀行願意借我們五萬美元。"
+          }
+        },
+        {
+          "word": "mortgage",
+          "ipa": "/ˈmɔːrɡɪdʒ/",
+          "diff": "mortgage 是用房子當擔保的「房屋貸款」；loan 是各種貸款。",
+          "example": {
+            "en": "She pays her mortgage to the bank on the first of every month.",
+            "zh": "她每個月一號把房貸付給銀行。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "debt",
+          "pos": "n.",
+          "zh": "債務",
+          "ipa": "/det/",
+          "example": {
+            "en": "The company paid off its debt ahead of schedule.",
+            "zh": "公司提前還清了債務。"
+          }
+        },
+        {
+          "w": "interest",
+          "pos": "n.",
+          "zh": "利息",
+          "ipa": "/ˈɪntrəst/",
+          "example": {
+            "en": "The interest on the loan is paid every month.",
+            "zh": "這筆貸款的利息每個月繳一次。"
+          }
+        },
+        {
+          "w": "credit",
+          "pos": "n.",
+          "zh": "信用、賒帳",
+          "ipa": "/ˈkredɪt/",
+          "example": {
+            "en": "A good credit history helps you get a bank loan.",
+            "zh": "良好的信用紀錄有助於取得銀行貸款。"
+          }
+        },
+        {
+          "w": "deposit",
+          "pos": "n.",
+          "zh": "存款、訂金",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "example": {
+            "en": "You must pay a deposit before the bank approves the loan.",
+            "zh": "銀行核准貸款之前，您必須先付訂金。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/loʊn/",
+          "zh": "貸款",
+          "in_passage": true,
+          "example": {
+            "en": "The bank approved our loan after a short review.",
+            "zh": "銀行在簡短審核後核准了我們的貸款。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/loʊn/",
+          "zh": "借出、貸給",
+          "example": {
+            "en": "Can you loan me your laptop for tomorrow's meeting?",
+            "zh": "你可以把筆電借我明天開會用嗎？"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/loʊn/",
+          "zh": "貸款、借款",
+          "en": "money that you borrow and must pay back",
+          "in_passage": true,
+          "example": {
+            "en": "The loan must be paid back over a period of ten years.",
+            "zh": "這筆貸款必須在十年內還清。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/loʊn/",
+          "zh": "借出、出借的物品（on loan）",
+          "en": "something that is given to someone for a short time",
+          "distinguish": "出現在 on loan 時，指東西被暫時借出，不一定是錢。",
+          "example": {
+            "en": "The laptop is on loan to the sales team until May.",
+            "zh": "這台筆電借給業務團隊用到五月。"
+          }
+        }
+      ]
+    }
+  ]
+}
