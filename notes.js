@@ -366,8 +366,7 @@ function vplay(qid, text, suf, fallback) {
   /* vocab/ 檔名（不含文章 id，詳解搬家或文章刪除都不受影響）：
      _ctx 所在句、整句（無後綴）→ 依「句子內容」：{句子slug}.mp3（所在句與入庫的整句是同一句時共用一檔）
      例句等（_c1／_e1／_fx1…）→ 依單字：{單字slug}{後綴}.mp3（qid 參數保留給呼叫端，已不參與檔名） */
-  const wf = fallback && DN_WORD_SUF.test(suf) ? `${dnSlug(fallback)}.mp3` : ''; // 單字類：先找共用庫 words/，再找 vocab/，最後語音合成
-  const nf = suf === '_ctx' ? dnSlug(fallback) + '.mp3' : dnSlug(text) + suf + '.mp3', f = VA.files && VA.files.has(nf) ? nf : '';
+  const { wf, nf } = dnAuFiles(text, suf, fallback), f = VA.files && VA.files.has(nf) ? nf : ''; // 單字類：先找共用庫 words/，再找 vocab/，最後語音合成（檔名規則在 dnAuFiles）
   try { if (dnAu) { dnAu.pause(); dnAu = null; } } catch (e) {}
   if (wf && VW.files && VW.files.has(wf)) {
     try { if (typeof spStop === 'function') spStop(); speechSynthesis.cancel(); } catch (e) {}
@@ -382,6 +381,97 @@ function vplay(qid, text, suf, fallback) {
     a.onerror = () => speak(fallback, done, 'vocab/' + f + ' 讀不到');
     a.play().catch(() => speak(fallback, done, 'vocab/' + f + ' 播放失敗'));
   } else speak(fallback, done, '沒有 mp3：' + (wf || nf));
+}
+/* ======================= 🔧 音檔修復（詳解頁，回報旁邊）=======================
+   做什麼：掃描目前詳解頁上每一個 🔊，列出「哪一句文字 ↔ 哪個 mp3 ↔ 路徑 ↔ 錄音時間」，
+   並找出這個字名下「現在詳解已經用不到」的舊 mp3（孤兒），方便手動試聽、刪除後重錄。
+   檔名規則直接共用 vplay 的 dnAuFiles（改一處就好，不會和實際播放不同步）。 */
+const DN_AUSUF = { '': '單字本身', _lm: '原形', _ctx: '所在句', _en: '英文解說', _e: '例句', _c: '搭配例句', _cp: '搭配片語', _f: '屈折變化的字', _fx: '屈折變化例句',
+  _m: '相關字', _mx: '相關字例句', _d: '衍生字', _p: '詞性例句', _pw: '詞性單字', _s: '多義例句', _sw: '多義單字', _cf: '易混淆例句', _cw: '易混淆單字',
+  _sm: '近義片語', _sx: '近義片語例句', _kw: '值得注意的字', _pr: '同義改寫' };
+function dnAuFiles(text, suf, fallback) { // vplay 與修復面板共用：回傳 { wf: words/ 的檔名（單字類才有）, nf: vocab/ 的檔名 }
+  suf = suf || '';
+  return { wf: fallback && DN_WORD_SUF.test(suf) ? `${dnSlug(fallback)}.mp3` : '', nf: suf === '_ctx' ? dnSlug(fallback) + '.mp3' : dnSlug(text) + suf + '.mp3' };
+}
+const dnAuLabel = suf => { const m = /^(_[a-z]+)(\d*)$/.exec(suf || ''); return m ? (DN_AUSUF[m[1]] || m[1]) + (m[2] ? ' #' + m[2] : '') : '單字本身'; };
+DN.au = null; DN.auLog = undefined; DN.auPlay = 0;
+function dnAuSlots() { // 從目前畫面上的 🔊 讀出每一格：和使用者實際按到的完全一致
+  const root = document.getElementById('detail-text'); if (!root) return [];
+  const out = [];
+  root.querySelectorAll('button[aria-label="發音"]').forEach(b => {
+    const m = /vplay\('[^']*',\s*this\.dataset\.(\w),\s*'([^']*)',\s*this\.dataset\.w\)/.exec(b.getAttribute('onclick') || ''); if (!m) return;
+    const suf = m[2], t = m[1] === 't' ? b.dataset.t : b.dataset.w, fb = b.dataset.w, f = dnAuFiles(t, suf, fb);
+    const inW = f.wf && VW.files && VW.files.has(f.wf), inV = VA.files && VA.files.has(f.nf);
+    const dir = inW ? 'audio/daily/words/' : 'audio/daily/vocab/', name = inW ? f.wf : f.nf, shared = !!f.wf;
+    out.push({ suf, label: dnAuLabel(suf), text: fb, base: t, dir: shared && !inV ? 'audio/daily/words/' : dir, name: shared && !inW && !inV ? f.wf : name, tag: inW ? '共用單字庫' : inV ? '詳解例句庫' : '無 mp3', has: !!(inW || inV) });
+  });
+  const seen = new Set(); return out.filter(r => { const k = r.dir + r.name + '|' + r.suf + '|' + r.text; if (seen.has(k)) return false; seen.add(k); return true; });
+}
+function dnAuOrphans(slots) { // 這個字名下、檔名像 {單字slug}_xx 的 mp3，但目前詳解沒有任何 🔊 會用到它
+  const D = dnDetailData(); if (!D || !VA.files) return [];
+  const bases = new Set([dnSlug(D.e.at || D.e.text), dnSlug(D.e.text)]), used = new Set(slots.map(r => r.name)), out = [];
+  VA.files.forEach(f => { const m = /^(.*?)(_(?:e|c|cf|cp|cw|f|fx|m|mx|d|p|pw|s|sw|sm|sx|kw|pr|en|lm)\d*)\.mp3$/.exec(f); if (m && bases.has(m[1]) && !used.has(f)) out.push(f); });
+  return out.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+}
+async function dnAuMeta(r) { // HEAD 取得檔案大小與修改時間（只有透過 http 開啟時才有）
+  try { const x = await fetch(r.dir + r.name, { method: 'HEAD', cache: 'no-cache' }); if (!x.ok) return {}; const lm = x.headers.get('Last-Modified'), len = +x.headers.get('Content-Length'); return { size: len || 0, mtime: lm ? new Date(lm).getTime() : 0 }; } catch (e) { return {}; }
+}
+async function dnAuLoadLog() { if (DN.auLog !== undefined) return DN.auLog; try { const x = await fetch('voices-log.json', { cache: 'no-cache' }); DN.auLog = x.ok ? ((await x.json()).files || {}) : null; } catch (e) { DN.auLog = null; } return DN.auLog; }
+async function dnOpenAudioFix() {
+  const D = dnDetailData(); if (!D) return;
+  dnModal(`<div class="${card} w-full max-w-4xl p-5 text-sm text-slate-500">掃描音檔中…</div>`);
+  const slots = dnAuSlots(), orph = dnAuOrphans(slots), log = await dnAuLoadLog();
+  await Promise.all(slots.filter(r => r.has).map(async r => { Object.assign(r, await dnAuMeta(r)); const rec = log && log[r.dir + r.name]; if (rec) { r.rec = rec.date || ''; r.voice = rec.voice || ''; } }));
+  for (const f of orph) { const r = { dir: 'audio/daily/vocab/', name: f }; Object.assign(r, await dnAuMeta(r)); const rec = log && log[r.dir + f]; if (rec) r.rec = rec.date || ''; orph[orph.indexOf(f)] = r; }
+  const fam = s => String(s).replace(/\d+$/, ''), grp = {}; // 同一組（例如 _fx1~_fx5）錄音時間差太多＝可能只補錄了一部分
+  slots.forEach(r => { if (r.has && r.suf) { const t = r.rec ? new Date(r.rec.replace(' ', 'T')).getTime() : r.mtime; if (t) (grp[fam(r.suf)] = grp[fam(r.suf)] || []).push(t); } });
+  const odd = new Set(Object.keys(grp).filter(k => grp[k].length > 1 && Math.max(...grp[k]) - Math.min(...grp[k]) > 30 * 60 * 1000));
+  slots.forEach(r => { r.odd = r.has && odd.has(fam(r.suf)); });
+  DN.au = { slots, orph, hasLog: !!log, e: D.e.text, odd };
+  dnAuRender();
+}
+function dnAuRender() {
+  const A = DN.au; if (!A) return;
+  const fm = t => t ? dnTime(t) : '—', kb = n => n ? Math.round(n / 1024) + ' KB' : '—';
+  const miss = A.slots.filter(r => !r.has).length, oddN = A.slots.filter(r => r.odd).length;
+  const rows = A.slots.map((r, i) => `<tr class="border-t border-slate-200 dark:border-slate-800 ${r.odd ? 'bg-amber-50 dark:bg-amber-950/30' : ''}" id="dn-au-r${i}">
+    <td class="p-1.5"><input type="checkbox" class="dn-au-ck" data-i="${i}" ${r.has ? '' : 'disabled'}></td>
+    <td class="p-1.5 whitespace-nowrap"><span class="${dnChip}">${esc(r.label)}</span>${r.odd ? ' <span title="同一組的錄音時間差很多，可能只補錄了一部分，請聽聽看" class="text-amber-600">⚠</span>' : ''}</td>
+    <td class="p-1.5 min-w-[12rem]">${esc(r.text)}</td>
+    <td class="p-1.5"><button onclick="dnAuPlayOne(${i})" class="${dnSm}" ${r.has ? '' : 'disabled'}>▶</button></td>
+    <td class="p-1.5 text-xs break-all"><span class="${r.has ? 'text-slate-500' : 'text-rose-500 font-semibold'}">${esc(r.tag)}</span><br><code>${esc(r.dir + r.name)}</code></td>
+    <td class="p-1.5 text-xs whitespace-nowrap text-slate-500">${r.has ? `${r.rec ? '錄 ' + esc(r.rec) : '改 ' + fm(r.mtime)}<br>${kb(r.size)}${r.voice ? '<br>' + esc(r.voice.replace('en-US-', '').replace(':DragonHDLatestNeural', ' HD').replace('MultilingualNeural', ' Multi')) : ''}` : '—'}</td></tr>`).join('');
+  const orows = A.orph.map(r => `<li class="flex flex-wrap items-center gap-2"><input type="checkbox" class="dn-au-ok" data-n="${esc(r.name)}"><code class="text-xs">${esc(r.dir + r.name)}</code><span class="text-xs text-slate-500">${r.rec ? '錄 ' + esc(r.rec) : r.mtime ? '改 ' + fm(r.mtime) : ''} ${kb(r.size)}</span><button onclick="dnAuPlayFile('${esc(r.dir + r.name)}')" class="${dnSm}">▶</button></li>`).join('');
+  dnModal(`<div class="${card} w-full max-w-4xl p-4 md:p-5"><div class="flex items-center justify-between mb-2"><h2 class="font-bold">🔧 音檔修復 · ${esc(A.e)}</h2><button onclick="dnAuStop();dnClose()" class="text-slate-400 hover:text-slate-600 text-xl leading-none cursor-pointer" aria-label="關閉">×</button></div>
+    <p class="text-xs text-slate-500 mb-2 leading-relaxed">▶ 只播 mp3 本身（不會退回語音合成），聽到的內容和左邊文字不同＝這個檔過期了。${A.hasLog ? '' : '（讀不到 voices-log.json，錄音時間改用檔案修改時間；用 file:// 開啟則兩者都沒有。）'}</p>
+    <div class="flex flex-wrap items-center gap-2 mb-2"><button onclick="dnAuPlayAll()" class="${dnSm}">▶ 依序播放全部</button><button onclick="dnAuStop()" class="${dnSm}">■ 停止</button>
+      <button onclick="dnAuCk(true)" class="${dnSm}">勾選有異常的</button><button onclick="dnAuCopy('path')" class="${dnSm}">複製勾選的路徑</button><button onclick="dnAuCopy('del')" class="${dnSm}">複製刪除指令（勾選）</button>
+      <span class="text-xs text-slate-500">共 ${A.slots.length} 個 🔊；<b class="${miss ? 'text-rose-500' : ''}">沒有 mp3 ${miss}</b>；<b class="${oddN ? 'text-amber-600' : ''}">時間不一致 ${oddN}</b>；孤兒 ${A.orph.length}</span></div>
+    <div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr class="text-xs text-slate-400 text-left"><th class="p-1.5"></th><th class="p-1.5">位置</th><th class="p-1.5">念的文字</th><th class="p-1.5"></th><th class="p-1.5">實際播放的檔案</th><th class="p-1.5">錄音</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <h3 class="text-xs font-bold text-slate-400 mt-4 mb-1">孤兒檔（在 vocab/ 裡、名字屬於這個字，但目前詳解沒有任何 🔊 用到它）</h3>
+    ${orows ? `<ul class="space-y-1">${orows}</ul>` : '<p class="text-xs text-slate-400">沒有。</p>'}
+    <p class="text-[0.6875rem] text-slate-400 mt-3 leading-relaxed">修法：確認是過期檔後，勾選 → 複製刪除指令 → 貼到專案根目錄的命令提示字元執行 → <code>python auto-speech.py daily</code> 勾選詳解重錄（缺檔會自動補，並重建 index.json）→ 網頁 Ctrl+F5。</p></div>`);
+}
+function dnAuStop() { DN.auPlay++; try { if (dnAu) { dnAu.pause(); dnAu = null; } } catch (e) {} document.querySelectorAll('[id^="dn-au-r"]').forEach(tr => tr.style.outline = ''); }
+function dnAuPlayFile(path) { return new Promise(res => { dnAuStop(); const a = dnAu = new Audio(path + '?t=' + Date.now()); a.onended = () => res(true); a.onerror = () => { dnToast('讀不到 ' + path); res(false); }; a.play().catch(() => res(false)); }); }
+function dnAuPlayOne(i) { const r = DN.au && DN.au.slots[i]; if (r && r.has) dnAuPlayFile(r.dir + r.name); }
+async function dnAuPlayAll() {
+  const A = DN.au; if (!A) return; dnAuStop(); const my = ++DN.auPlay;
+  for (let i = 0; i < A.slots.length; i++) {
+    const r = A.slots[i]; if (!r.has) continue; if (my !== DN.auPlay) return;
+    const tr = document.getElementById('dn-au-r' + i); if (tr) { tr.style.outline = '2px solid #6366f1'; tr.scrollIntoView({ block: 'nearest' }); }
+    await new Promise(res => { const a = dnAu = new Audio(r.dir + r.name + '?t=' + Date.now()); a.onended = a.onerror = () => res(); a.play().catch(() => res()); });
+    if (tr) tr.style.outline = ''; if (my !== DN.auPlay) return; await new Promise(res => setTimeout(res, 500));
+  }
+}
+function dnAuCk(odd) { const A = DN.au; if (!A) return; document.querySelectorAll('.dn-au-ck').forEach(c => { const r = A.slots[+c.dataset.i]; c.checked = !!(r && r.odd); }); document.querySelectorAll('.dn-au-ok').forEach(c => c.checked = true); }
+function dnAuCopy(mode) {
+  const A = DN.au; if (!A) return;
+  const ps = [...document.querySelectorAll('.dn-au-ck:checked')].map(c => A.slots[+c.dataset.i]).map(r => r.dir + r.name)
+    .concat([...document.querySelectorAll('.dn-au-ok:checked')].map(c => 'audio/daily/vocab/' + c.dataset.n));
+  const uniq = [...new Set(ps)]; if (!uniq.length) { dnToast('請先勾選'); return; }
+  const txt = mode === 'del' ? uniq.map(p => `del "${p.replace(/\//g, '\\')}"`).join('\r\n') : uniq.join('\r\n');
+  (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(() => dnToast(`已複製 ${uniq.length} 筆`), () => { dnDownload('audio-fix.txt', txt, 'text/plain'); dnToast('已下載 audio-fix.txt'); });
 }
 function dnGoExtra(el) { // 入庫列的「看詳解」：核心單字（data-i）開核心單字詳解，其他開入庫單字的詳解
   dnSelClear();
@@ -1118,7 +1208,7 @@ function dnRenderDetail() {
   let h = `<header class="mb-4 flex items-start justify-between gap-2"><div class="min-w-0"><div class="flex flex-wrap items-center gap-2"><span class="${dnChip} ${DNTC[T]}">${DNT[T]}</span><span class="text-xs text-slate-500">${isLib(x) ? 'TSL 字庫（通用詳解）' : `W${x.week} · D${x.day} ${esc(x.tag || '')}`}</span>${lvBadge(x)}</div>
     <h2 class="${T === 'sentence' ? 'text-lg leading-relaxed' : 'text-2xl'} font-bold mt-2 break-words">${esc(e.text)} <button onclick="vplay('${idOf(xs)}', this.dataset.w, '', this.dataset.w)" data-w="${esc(e.text)}" data-vq="${idOf(x)}" data-vw="${esc(e.text)}" class="text-slate-400 hover:text-indigo-600 text-xl align-middle" aria-label="發音">🔊</button>${ex && typeof spBtn === 'function' ? spBtn(e) : ''}</h2>
     ${e.ipa || e.pos ? `<p class="text-sm text-slate-500 mt-1">${esc(e.ipa || '')} ${e.pos ? `<i>${esc(e.pos)}</i>` : ''}</p>` : ''}
-    ${e.zh ? `<p class="text-base font-semibold mt-2">${esc(e.zh)}</p>` : ''}${e.en ? `<p class="text-sm text-slate-500 italic mt-1 leading-relaxed">${esc(e.en)} ${dnSpk(xs, e, '_en', e.en)}</p>` : ''}</div><div class="flex flex-col items-end gap-1.5 shrink-0">${dnBackBtn()}${dnTrailBackBtn()}</div></header>`;
+    ${e.zh ? `<p class="text-base font-semibold mt-2">${esc(e.zh)}</p>` : ''}${e.en ? `<p class="text-sm text-slate-500 italic mt-1 leading-relaxed">${esc(e.en)} ${dnSpk(xs, e, '_en', e.en)}</p>` : ''}${e.en2 ? `<p class="text-sm text-slate-500 italic mt-1 leading-relaxed">${esc(e.en2)} ${dnSpk(xs, e, '_en2', e.en2)}</p>` : ''}</div><div class="flex flex-col items-end gap-1.5 shrink-0">${dnBackBtn()}${dnTrailBackBtn()}</div></header>`;
   if (ex && typeof spBanner === 'function') h += spBanner(e);
   if (!ex) {
     h += `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 leading-relaxed">這個項目還沒有補充詳解（${D.kind === 'pp' ? '目前只顯示句型卡的中文意思與用法' : D.base ? '目前只顯示核心單字卡的內容' : '待補'}）。${m ? '已在入庫，請到「📌 入庫彙整」複製 AI 提示詞，合併回 daily.json 後就會出現。' : isLib(x) ? '這個字還沒有出現在任何文章裡。按「複製 AI 提示詞」會順便把它加入入庫彙整；貼給 AI → 檔案存成 w0d1_extra.json → json_merge.py 合併 → 重新執行 Scan 腳本，這裡就會有通用詳解。' : '按下面的按鈕入庫，再到「📌 入庫彙整」產生 AI 提示詞。'}
@@ -1160,7 +1250,7 @@ function dnRenderDetail() {
   h += typeof gpBar === 'function' ? gpBar(e) : '';
   h += sec('近義片語', list(dnArr(e.similar), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${(o.phrase || o.word) ? dnSpk(xs, e, '_sm' + (i + 1), o.phrase || o.word) : ''}<div><b>${esc(o.phrase || o.word || '')}</b>${o.diff ? `　${esc(o.diff)}` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_sx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}</li>`));
   h += sec('相關字（語意相近）', list(dnArr(e.family), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${o.w ? dnSpk(xs, e, '_m' + (i + 1), o.w) : ''}<div><b>${esc(o.w || '')}</b> <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''} ${o.pos ? `<i>${esc(o.pos)}</i>` : ''}</span>${o.zh ? `　${esc(o.zh)}` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_mx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}</li>`));
-  h += `<div class="flex flex-wrap gap-2 mt-4"><button onclick="up()" class="${btn} ${dnLine}">← 返回</button>${dnRpBtn(idOf(x), '', 'vocab')}</div>`;
+  h += `<div class="flex flex-wrap gap-2 mt-4"><button onclick="up()" class="${btn} ${dnLine}">← 返回</button>${dnRpBtn(idOf(x), '', 'vocab')}${ex ? `<button onclick="dnOpenAudioFix()" class="${dnSm}">🔧 音檔修復</button>` : ''}</div>`;
   main.innerHTML = `<div id="detail-text">${h}</div><p class="mt-3 text-[0.6875rem] text-slate-400">💡 選取例句或說明裡的英文字、片語或句子，下方會跳出「＋ 入庫」；入庫的字不分週次，全域共用。</p>`;
 }
 

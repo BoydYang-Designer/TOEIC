@@ -25,7 +25,7 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
          詳解項目的檔名（不含文章 id，詳解搬到別篇或文章被刪都不會變孤兒；舊的 {文章id}-… 檔名請先用 migrate_vocab_names.py 轉換）：
           ‧ 跟著單字：{單字slug}{後綴}.mp3；‧ 跟著句子內容：入庫的整句與「所在句」＝{句子slug}.mp3（無後綴，同一句只錄一次）
           詳解項目的檔名後綴：（無）整句或所在句、_e 例句、_cp／_c 搭配與其例句、_f 屈折變化的字、_fx 屈折變化的例句、_m／_mx 相關字與例句、_cf 易混淆例句（易混淆的字本身走共用庫 words/）、
-         _sm／_sx 近義片語與例句、_en 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句
+         _sm／_sx 近義片語與例句、_en／_en2 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句
          ※ 單字類（單字本身、原形、屈折變化、同字族、相關字、搭配片語、多詞性／多義的單字）改放共用庫
            audio/daily/words/{單字}.mp3，同一個字只錄一次；例句與句子放 vocab/（檔名不含文章 id）
 
@@ -689,7 +689,7 @@ def collect_entries(root, items):
                                             collocations=v.get("collocations") or [], forms=v.get("forms") or [],
                                             family=v.get("family") or [], derived=v.get("derived") or [],
                                             confusable=v.get("confusable") or [], similar=v.get("similar") or [],
-                                            en=str(v.get("en") or "").strip(), key_words=v.get("key_words") or [], paraphrase=v.get("paraphrase") or [],
+                                            en=str(v.get("en") or "").strip(), en2=str(v.get("en2") or "").strip(), key_words=v.get("key_words") or [], paraphrase=v.get("paraphrase") or [],
                                             pos_uses=v.get("pos_uses") or [], senses=v.get("senses") or [],
                                             lemma=str(v.get("lemma") or "").strip())
     for f in sorted(root.glob("daily-marks*.json")):
@@ -795,6 +795,8 @@ def plan_daily(root: Path):
                         want.append((f"{base}_cf{k}.mp3", en.strip()))
             if MAKE_EN and e.get("en"):   # 英文解說整句：逐篇存放，檔名 _en，與 notes.js 的 🔊 一致
                 want.append((f"{base}_en.mp3", str(e["en"]).strip()))
+            if MAKE_EN and e.get("en2"):  # 英文解說的第二句（第二個意思）：檔名 _en2，與 notes.js 的 🔊 一致
+                want.append((f"{base}_en2.mp3", str(e["en2"]).strip()))
             if MAKE_PARA:                 # 句子的同義改寫：逐篇存放，檔名 _pr{k}，與 notes.js 的 🔊 一致
                 for k, o in enumerate(e.get("paraphrase") or [], 1):
                     en = o.get("en") if isinstance(o, dict) else (o if isinstance(o, str) else None)

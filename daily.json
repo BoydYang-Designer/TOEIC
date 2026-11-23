@@ -457166,6 +457166,17 @@
               }
             },
             {
+              "w": "absorbed",
+              "label": "形容詞",
+              "pos": "adj.",
+              "zh": "全神貫注的",
+              "ipa": "/əbˈzɔːrbd/",
+              "example": {
+                "en": "He was so absorbed in the budget report that he missed the call.",
+                "zh": "他太專注於預算報告，結果沒接到電話。"
+              }
+            },
+            {
               "w": "absorbing",
               "label": "現在分詞",
               "pos": "v.",
@@ -457224,6 +457235,10 @@
             {
               "word": "observe",
               "diff": "拼法與字首相近，但 observe 是「觀察、遵守」，absorb 是「吸收、承擔」。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
               "example": {
                 "en": "All staff must observe the safety rules in the warehouse.",
                 "zh": "所有員工都必須遵守倉庫的安全規定。"
@@ -616651,11 +616666,11 @@
         {
           "text": "caught up",
           "type": "phrase",
-          "zh": "被捲入、深陷其中（get caught up in）；趕上進度（be all caught up）",
+          "zh": "被捲入、深陷其中（get caught up in）；趕上進度、了解最新狀況（be caught up on）；追上（caught up with）",
           "en": "to become so involved in something that it is hard to stop or think about other things",
           "note": "文章用 get caught up in an endless cycle of responsibilities，指被工作與期待一直推著走、身不由己地深陷其中，帶有「不知不覺被捲進去」的語感。單獨說 I'm all caught up 則是另一個意思：進度已經跟上了。",
-          "pattern": "get / be caught up in + N（或 V-ing）",
-          "grammar_note": "get／be caught up in（被捲入）的介系詞固定用 in，後接名詞或 V-ing；get 強調「變成被捲入」的過程，be 強調目前的狀態。若是「趕上進度」的 caught up，才搭配 on 或 with（caught up on emails）。",
+          "pattern": "get / be caught up in + N（或 V-ing）；be (all) caught up on / with + N",
+          "grammar_note": "get／be caught up in（被捲入）的介系詞固定用 in，後接名詞或 V-ing；get 強調「變成被捲入」的過程，be 強調目前的狀態。若是「趕上進度」的 caught up，才搭配 on 或 with（caught up on emails）；追上對手用 caught up with；get + 人 + caught up on 是「讓某人了解最新狀況」。",
           "examples": [
             {
               "tag": "工作",
@@ -616676,6 +616691,16 @@
               "tag": "進度",
               "en": "Give me an hour, and I will be all caught up.",
               "zh": "給我一個小時，我的進度就會全部跟上。"
+            },
+            {
+              "tag": "會議",
+              "en": "Let me get you caught up on yesterday's meeting.",
+              "zh": "我來讓你了解昨天會議的最新狀況。"
+            },
+            {
+              "tag": "市場",
+              "en": "Our rivals have caught up with us in market share.",
+              "zh": "我們的對手在市占率上已經追上我們了。"
             }
           ],
           "similar": [
@@ -616694,6 +616719,14 @@
                 "en": "She was so absorbed in the data that she forgot lunch.",
                 "zh": "她太專注在數據上，連午餐都忘了。"
               }
+            },
+            {
+              "phrase": "up to date",
+              "diff": "up to date 只表示資訊或進度是最新的，對應 caught up on 的意思，沒有「被捲入」的意思。",
+              "example": {
+                "en": "Please keep me up to date on the shipping schedule.",
+                "zh": "請隨時讓我了解出貨時程的最新狀況。"
+              }
             }
           ],
           "confusable": [
@@ -616708,8 +616741,20 @@
                 "en": "I need to catch up on my emails after the business trip.",
                 "zh": "出差回來後，我需要補看積壓的電子郵件。"
               }
+            },
+            {
+              "phrase": "catch on",
+              "diff": "catch on 是「流行起來」或「搞懂」，不是「趕上進度」；拼法只差一個介系詞。",
+              "kind": [
+                "spell"
+              ],
+              "example": {
+                "en": "The new app caught on quickly among young customers.",
+                "zh": "這款新應用程式很快在年輕客戶間流行起來。"
+              }
             }
-          ]
+          ],
+          "en2": "It can also mean to be up to date on work or news, or to reach the same level as someone."
         },
         {
           "text": "grateful",
@@ -620178,7 +620223,7 @@
           "en": "giving all your attention to something",
           "note": "和文章的 caught up in 意思接近，都有「投入其中」的感覺；absorbed in 偏正面，指全神貫注、忘了周圍，caught up in 常有被事情拖著走的感覺。",
           "pattern": "be absorbed in + N／V-ing",
-          "grammar_note": "absorbed in 的 in 是介系詞，後面接名詞或 V-ing；主詞通常是人，不是事情。",
+          "grammar_note": "absorbed in 的 in 是介系詞，後面接名詞或 V-ing；主詞通常是人，常用 be／get／become absorbed in。原形 absorb 要用反身形式 absorb oneself in（如 absorb himself in work），但較少見，日常多用 absorbed in。",
           "examples": [
             {
               "tag": "工作",

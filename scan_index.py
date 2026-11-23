@@ -13,7 +13,13 @@
   python scan_index.py --maint            維護總檢查：列出每篇文章缺什麼（mp3／timing），並告訴你下一步做什麼（直接印在畫面上）
   python scan_index.py --quiz             單字練習出題資料盤點：詳解各欄位（forms／derived／family／collocations／confusable／similar／senses／paraphrase…）有多少字有資料、各種新題型能出幾題、欄位實際長相 → scan_output/quiz_*.md
   python scan_index.py --audio            單字練習音檔檢查：practice.html 會找的 mp3（例句 vocab/、單字 words/）有沒有、index.json 有沒有登記、缺哪些 → scan_output/audio_*.md
+  python scan_index.py --ls audio/daily/vocab audio/daily/words   資料夾「完整檔名清單」（檔名＋大小＋修改時間，不截斷）→ scan_output/ls_*.md
   python scan_index.py --diag w2d8-1      單篇診斷：mp3 長度、timing 涵蓋範圍、漏掉的句子、原因與處理方式 → scan_output/diag_*.md（可多篇：--diag w2d8-1,w1d3）
+
+【連續模式】不會跑一次就關閉：每個指令跑完會回到「下一個 >」提示，可以一直貼指令，直到輸入 q 才結束。
+  - 一次貼多個指令：用 && 隔開，例如  --ls audio/daily/vocab && --audio && --maint
+  - 提示列可貼完整指令（python scan_index.py … 或只貼 --xxx …）、範圍名稱（daily part7）、m（維護診斷）、
+    直接按 Enter＝顯示完整選單、q＝離開。每個指令各自產生一份 scan_output/*.md。
 
 輸出：scan_output/scan_<範圍>_<時間>.md → 整份貼給 AI，或直接上傳。
 安全：金鑰／token／密碼樣式的字串會自動換成 ***REDACTED***；SKIP 清單內的檔案完全不讀。
@@ -668,6 +674,34 @@ def do_quiz():
     print('\n已存：scan_output/%s（把這份貼給我）' % name)
 
 
+def do_ls(dirs):
+    """資料夾完整檔名清單（只列檔名／大小／修改時間；不讀內容，所以 mp3 也可以列）。"""
+    parts = ['# 資料夾檔名清單', '產生時間：%s' % time.strftime('%Y-%m-%d %H:%M:%S')]
+    for d in dirs:
+        p = os.path.join(ROOT, d.replace('/', os.sep))
+        if not os.path.isdir(p):
+            print('找不到資料夾：%s' % d)
+            parts += ['', '## `%s/`：不存在' % d]
+            continue
+        rows = []
+        for f in sorted(os.listdir(p)):
+            fp = os.path.join(p, f)
+            if os.path.isfile(fp):
+                st = os.stat(fp)
+                rows.append('%s\t%d\t%s' % (f, st.st_size, time.strftime('%m-%d %H:%M', time.localtime(st.st_mtime))))
+        subs = [f for f in sorted(os.listdir(p)) if os.path.isdir(os.path.join(p, f))]
+        parts += ['', '## `%s/`（%d 個檔案）' % (d, len(rows)), '欄位：檔名 ⇥ 大小(bytes) ⇥ 修改時間', fence('', '\n'.join(rows))]
+        if subs:
+            parts.append('子資料夾：' + '、'.join(subs))
+        print('%s/：%d 個檔案' % (d, len(rows)))
+    od = os.path.join(ROOT, 'scan_output')
+    os.makedirs(od, exist_ok=True)
+    name = 'ls_%s_%s.md' % ('-'.join(re.sub(r'[^\w]+', '_', d.strip('/')) for d in dirs)[:50], time.strftime('%Y%m%d_%H%M%S'))
+    with open(os.path.join(od, name), 'w', encoding='utf-8') as f:
+        f.write('\n'.join(parts) + '\n')
+    print('\n已存：scan_output/%s（把這份貼給我）' % name)
+
+
 def menu():
     names = list(MODULES)
     print('專案：%s\n\n要掃哪些範圍？' % ROOT)
@@ -681,6 +715,9 @@ def menu():
         return ('ARGS', s)
     chosen = names if s.lower() == 'a' else [names[int(t) - 1] if t.isdigit() and 1 <= int(t) <= len(names) else t for t in s.split()]
     chosen = [c for c in chosen if c in MODULES]
+    if not chosen:
+        print('沒有選到任何範圍。')
+        return 'NONE'
     m = input('程式碼要多完整？  1＝骨架（小檔完整、大檔只列結構，較短）  2＝全部完整（預設 1）：').strip()
     extra = input('要另外指定檔案或行數嗎？（例如 daily.js:1200-1300，可多個用空白分開；Enter 略過）：').split()
     task = input('這次想請 AI 做什麼？（一行即可，會寫在文件最前面；Enter 略過）：').strip()
@@ -719,6 +756,12 @@ def main():
             do_audio(); return
         elif t == '--quiz':
             do_quiz(); return
+        elif t == '--ls' and i + 1 < len(a):
+            ds = []
+            j = i + 1
+            while j < len(a) and not a[j].startswith('--'):   # --ls audio/daily/vocab audio/daily/words（也可用逗號分隔）
+                ds += [v for v in a[j].split(',') if v]; j += 1
+            do_ls(ds); return
         elif t == '--diag' and i + 1 < len(a):
             ids = [v for v in re.split(r'[,\s]+', a[i + 1]) if v]
             j = i + 2
@@ -734,6 +777,8 @@ def main():
         r = menu()
         if r is None:
             do_maint()
+            return
+        if r == 'NONE':
             return
         if r[0] == 'ARGS':
             import shlex
@@ -784,15 +829,76 @@ def main():
     print('請把整份內容貼給 AI（或上傳）。記得把 scan_output/ 加進 .gitignore。')
 
 
-if __name__ == '__main__':
+def run_tokens(toks):
+    """跑一個指令（toks＝參數清單）。任何錯誤只印出來，不會讓整個程式結束。"""
+    if toks and toks[0].lower() == 'm':
+        toks = ['--maint']
+    sys.argv = [SCRIPT] + toks
     try:
         main()
+    except KeyboardInterrupt:
+        print('\n（已中斷這個指令）')
+    except EOFError:
+        raise
+    except SystemExit:
+        pass
+    except Exception:
+        import traceback
+        traceback.print_exc()
+
+
+def run_line(line):
+    """一行輸入 → 一個或多個指令（用 && 隔開）。可以直接貼 python scan_index.py … 整行。"""
+    import shlex
+    try:
+        toks = shlex.split(line)
+    except ValueError as e:
+        print('指令格式錯誤：%s（引號沒有成對？）' % e)
+        return
+    toks = [t for t in toks if t.lower() not in ('python', 'py', 'python3', 'scan_index.py')]
+    cmds, cur = [], []
+    for t in toks:
+        if t == '&&':
+            if cur:
+                cmds.append(cur)
+            cur = []
+        else:
+            cur.append(t)
+    if cur:
+        cmds.append(cur)
+    for n, c in enumerate(cmds, 1):
+        if len(cmds) > 1:
+            print('\n━━ 第 %d／%d 個指令：%s ━━' % (n, len(cmds), ' '.join(c)))
+        run_tokens(c)
+
+
+SCRIPT = sys.argv[0] if sys.argv else 'scan_index.py'
+
+
+def loop():
+    first = sys.argv[1:]
+    run_tokens(first)          # 沒帶參數＝顯示選單；有帶參數＝直接執行
+    while True:
+        print('\n' + '─' * 64)
+        print('還可以繼續下一個指令（視窗不會關）：貼 --ls／--grep／--file／--audio／--maint… 或範圍名稱；多個用 && 隔開')
+        print('Enter＝顯示完整選單　　q＝離開')
+        s = input('下一個 > ').strip()
+        if s.lower() in ('q', 'quit', 'exit', '離開'):
+            break
+        if not s:
+            run_tokens([])
+        else:
+            run_line(s)
+
+
+if __name__ == '__main__':
+    try:
+        loop()
     except (EOFError, KeyboardInterrupt):
         pass
     except Exception:   # 出錯時印出完整錯誤，不要讓視窗一閃而過
         import traceback
         traceback.print_exc()
-    finally:            # 雙擊執行時，結束前停住視窗，才看得到結果或錯誤
         try:
             input('\n按 Enter 關閉視窗…')
         except Exception:
