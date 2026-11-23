@@ -1,0 +1,249 @@
+{
+  "week": 5,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "individual contributors",
+      "type": "phrase",
+      "zh": "個人貢獻者（沒有帶人的一般職員）",
+      "en": "workers who do their own tasks and do not manage other people",
+      "note": "在這篇裡和 managers 放在一起比較：individual contributors 是自己完成工作的員工，managers 是帶人的主管。兩種人都需要批判性思考來處理眼前的問題。",
+      "pattern": "individual contributor(s) and managers",
+      "grammar_note": "individual 開頭是母音音，單數要寫 an individual contributor，不要寫成 a individual contributor。",
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "Individual contributors will report to the new team leader.",
+          "zh": "個人貢獻者將向新的組長報告。"
+        },
+        {
+          "tag": "人資",
+          "en": "She moved from individual contributor to manager after two years.",
+          "zh": "兩年後，她從一般職員升為主管。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "This training is open to managers and individual contributors alike.",
+          "zh": "這項訓練對主管和一般職員都開放。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "team member",
+          "diff": "team member 泛指團隊成員，可以包含主管；individual contributor 特別指沒有帶人的職員。",
+          "example": {
+            "en": "Every team member should update the shared schedule weekly.",
+            "zh": "每位團隊成員都應該每週更新共用的行程表。"
+          }
+        },
+        {
+          "phrase": "staff member",
+          "diff": "staff member 只是說明身分是員工，沒有區分有沒有管理職。",
+          "example": {
+            "en": "A staff member will meet you at the front desk.",
+            "zh": "一位員工會在櫃檯與您會面。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "individual contribution",
+          "diff": "individual contributor 是「人」；individual contribution 是「個人的貢獻」這件事。",
+          "kind": [
+            "root"
+          ],
+          "example": {
+            "en": "Her individual contribution helped the team win the contract.",
+            "zh": "她個人的貢獻幫助團隊拿下了合約。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "critical",
+      "type": "word",
+      "ipa": "/ˈkrɪtɪkəl/",
+      "pos": "adj.",
+      "zh": "關鍵的、至關重要的；批判的",
+      "en": "very important; or judging something carefully",
+      "note": "在 They are both critical to success 裡，critical 是「至關重要的」。文章前面的 critical thinking 則是「批判性思考」，同一個字在這篇有兩種意思。",
+      "grammar_note": "「關鍵的」用 critical to／for + N（critical to success）；「批評的」用 critical of + N，介系詞不同，意思也不同。",
+      "forms": [
+        {
+          "w": "critically",
+          "label": "副詞",
+          "pos": "adv.",
+          "zh": "極為；批判地",
+          "ipa": "/ˈkrɪtɪkli/",
+          "example": {
+            "en": "The project is critically important to our growth plan.",
+            "zh": "這個專案對我們的成長計畫極為重要。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "critical to success",
+          "zh": "對成功至關重要",
+          "example": {
+            "en": "Good communication is critical to success in any team.",
+            "zh": "良好的溝通對任何團隊的成功都至關重要。"
+          }
+        },
+        {
+          "phrase": "critical thinking",
+          "zh": "批判性思考",
+          "example": {
+            "en": "Critical thinking helps us review the data before deciding.",
+            "zh": "批判性思考幫助我們在決定前檢視數據。"
+          }
+        },
+        {
+          "phrase": "play a critical role",
+          "zh": "扮演關鍵角色",
+          "example": {
+            "en": "Our suppliers play a critical role in on-time delivery.",
+            "zh": "我們的供應商在準時交貨上扮演關鍵角色。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "專案",
+          "en": "It is critical to finish the safety check before launch.",
+          "zh": "上線前完成安全檢查是非常重要的。"
+        },
+        {
+          "tag": "回饋",
+          "en": "She gave us critical feedback, but it was very helpful.",
+          "zh": "她給了我們批評性的意見，但非常有幫助。"
+        },
+        {
+          "tag": "客服",
+          "en": "Many customers were critical of the slow delivery service.",
+          "zh": "許多客人批評送貨服務太慢。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "clinical",
+          "diff": "拼法與發音相近（都是 -ical 結尾、重音在第一音節），但 clinical 是「臨床的」，與醫療研究有關。",
+          "kind": [
+            "spell",
+            "sound"
+          ],
+          "example": {
+            "en": "The clinical trial results will be released next month.",
+            "zh": "臨床試驗的結果將在下個月公布。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "crucial",
+          "diff": "crucial 語氣更強，只有「關鍵」的意思，不能用來表示「批判」。",
+          "example": {
+            "en": "Clear goals are crucial for every new project.",
+            "zh": "明確的目標對每個新專案都至關重要。"
+          }
+        },
+        {
+          "word": "essential",
+          "diff": "essential 強調「不可缺少」，缺了它事情就做不成。",
+          "example": {
+            "en": "A valid ID is essential for entering the building.",
+            "zh": "進入這棟大樓一定要有有效證件。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "important",
+          "pos": "adj.",
+          "zh": "重要的",
+          "ipa": "/ɪmˈpɔːrtənt/",
+          "example": {
+            "en": "It is important to keep every receipt for the audit.",
+            "zh": "為了查帳，保留每一張收據很重要。"
+          }
+        },
+        {
+          "w": "vital",
+          "pos": "adj.",
+          "zh": "不可或缺的",
+          "ipa": "/ˈvaɪtl/",
+          "example": {
+            "en": "Cash flow is vital for any small business.",
+            "zh": "現金流對任何小公司都不可或缺。"
+          }
+        },
+        {
+          "w": "analyze",
+          "pos": "v.",
+          "zh": "分析",
+          "ipa": "/ˈænəlaɪz/",
+          "example": {
+            "en": "Please analyze the sales data before Friday's meeting.",
+            "zh": "請在週五的會議前分析銷售數據。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "critic",
+          "ipa": "/ˈkrɪtɪk/",
+          "pos": "n.",
+          "zh": "評論家、批評者",
+          "link": "critic + -al 就是 critical；critic 指「做評論的人」，像 actor、visitor 都是「人」"
+        },
+        {
+          "w": "criticize",
+          "ipa": "/ˈkrɪtɪsaɪz/",
+          "pos": "v.",
+          "zh": "批評",
+          "link": "critic + -ize，變成動詞，像 organ → organize"
+        },
+        {
+          "w": "criticism",
+          "ipa": "/ˈkrɪtɪsɪzəm/",
+          "pos": "n.",
+          "zh": "批評、評論",
+          "link": "critic + -ism，變成名詞，像 tourist → tourism"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "zh": "關鍵的、至關重要的",
+          "en": "very important for the result",
+          "in_passage": true,
+          "example": {
+            "en": "Meeting the deadline is critical for this contract.",
+            "zh": "趕上期限對這份合約至關重要。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "zh": "批判性的、分析的",
+          "en": "using careful thinking to judge something",
+          "distinguish": "後面接 thinking、look、review 這類字時，是「仔細判斷」的意思。",
+          "example": {
+            "en": "We need staff who can take a critical look at the data.",
+            "zh": "我們需要能用批判角度檢視數據的員工。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "zh": "批評的、不滿的",
+          "en": "saying that something is bad or wrong",
+          "distinguish": "常接 of + 人或事，如 critical of the plan。",
+          "example": {
+            "en": "Some customers were critical of the new return policy.",
+            "zh": "有些客人對新的退貨政策不滿。"
+          }
+        }
+      ]
+    }
+  ]
+}

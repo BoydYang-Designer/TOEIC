@@ -1,0 +1,339 @@
+{
+  "week": 7,
+  "day": 8,
+  "extra_vocab": [
+    {
+      "text": "trade war",
+      "type": "phrase",
+      "zh": "貿易戰",
+      "en": "a fight between countries that put extra taxes on each other's goods",
+      "note": "文章沒有直接出現這個詞。它是新聞與商務裡很常見的說法，指國家之間互相加稅、限制進口。",
+      "pattern": "a trade war between A and B／start a trade war",
+      "grammar_note": "trade war 是可數名詞，常寫成 a trade war between A and B，或 a trade war with + 國家。",
+      "examples": [
+        {
+          "tag": "新聞",
+          "en": "The trade war has made imported parts more expensive.",
+          "zh": "貿易戰讓進口零件變貴了。"
+        },
+        {
+          "tag": "會議",
+          "en": "We need a plan in case the trade war gets worse.",
+          "zh": "萬一貿易戰惡化，我們需要一個計畫。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "A trade war between the two countries may delay our shipments.",
+          "zh": "兩國之間的貿易戰可能會延遲我們的出貨。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "trade dispute",
+          "diff": "trade dispute 是貿易爭端，語氣較輕，不一定已經互相加稅。",
+          "example": {
+            "en": "The trade dispute ended after two months of talks.",
+            "zh": "經過兩個月的談判，這場貿易爭端結束了。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "price war",
+          "diff": "price war 是公司之間互相降價搶客人；trade war 是國家之間用關稅互相打擊。",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "The two airlines are in a price war on short flights.",
+            "zh": "這兩家航空公司在短程航班上打價格戰。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "bidding war",
+      "type": "phrase",
+      "zh": "競標大戰、搶標戰",
+      "en": "a situation where many buyers keep offering higher prices for the same thing",
+      "note": "文章沒有直接出現這個詞。多用在房地產、公司收購或拍賣，表示好幾個買家互相喊價，價格越抬越高。",
+      "pattern": "a bidding war for／over + N",
+      "grammar_note": "bidding war 後面用 for 或 over 接標的，如 a bidding war for the building；常搭配 start、join、win 這類動詞。",
+      "examples": [
+        {
+          "tag": "房地產",
+          "en": "Two buyers started a bidding war for the small office building.",
+          "zh": "兩位買家為了那棟小型辦公大樓展開搶標大戰。"
+        },
+        {
+          "tag": "採購",
+          "en": "A bidding war pushed the price of the land much higher.",
+          "zh": "搶標大戰讓這塊土地的價格高出許多。"
+        },
+        {
+          "tag": "會議",
+          "en": "We decided not to join the bidding war for that company.",
+          "zh": "我們決定不參加搶購那家公司的競標大戰。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "competitive bidding",
+          "diff": "competitive bidding 是正式的競爭投標流程，不一定是價格一直往上喊。",
+          "example": {
+            "en": "The city chose a builder through competitive bidding last year.",
+            "zh": "市政府去年透過競爭投標選出了營造商。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "price war",
+          "diff": "price war 是賣方互相降價；bidding war 是買方互相出高價。",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "The new store started a price war with its rivals.",
+            "zh": "這家新店和對手打起了價格戰。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "catch up on",
+      "type": "phrase",
+      "zh": "補做（落下的事）、了解近況",
+      "en": "to do or learn things you did not have time for before",
+      "note": "文章沒有直接出現這個詞。常用來說把落下的工作、睡眠或消息補回來，也可以用在老朋友聊聊近況。",
+      "pattern": "catch up on + N（work／emails／news）",
+      "grammar_note": "catch up on 的 on 是介系詞，後面接名詞或 V-ing，如 catch up on reading，不接 to V。",
+      "examples": [
+        {
+          "tag": "工作",
+          "en": "I need to catch up on my emails after the trip.",
+          "zh": "出差回來後，我得把郵件補看完。"
+        },
+        {
+          "tag": "會議",
+          "en": "Let's catch up on the project status before the meeting starts.",
+          "zh": "會議開始前，我們先了解一下專案的進度。"
+        },
+        {
+          "tag": "人際",
+          "en": "We had coffee to catch up on each other's news.",
+          "zh": "我們喝咖啡聊彼此的近況。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "make up for",
+          "diff": "make up for 是彌補損失或錯過的時間，後面接損失或不足的事。",
+          "example": {
+            "en": "We worked overtime to make up for the lost time.",
+            "zh": "我們加班來彌補損失的時間。"
+          }
+        },
+        {
+          "phrase": "get up to date on",
+          "diff": "get up to date on 偏重把資訊更新到最新，語氣較正式。",
+          "example": {
+            "en": "Please get up to date on the new safety rules.",
+            "zh": "請先了解最新的安全規定。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "catch up with",
+          "diff": "catch up with 是「追上」人或進度；catch up on 是「補做」事情。",
+          "kind": [
+            "meaning"
+          ],
+          "usage": "catch up with 後面接人或進度對象，如 catch up with the team；catch up on 後面接要補的事情。",
+          "example": {
+            "en": "Our sales team finally caught up with the leading company.",
+            "zh": "我們的業務團隊終於追上了領先的公司。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "catch on",
+      "type": "phrase",
+      "zh": "流行起來；理解、開竅",
+      "en": "to become popular, or to start to understand something",
+      "note": "文章沒有直接出現這個詞。有兩個常見意思：產品或想法開始流行，或是慢慢搞懂某件事。",
+      "pattern": "N + catch on（with 人）／catch on to + N",
+      "grammar_note": "catch on 是不及物片語動詞，後面不直接接受詞；要說「理解某事」時用 catch on to + N。",
+      "examples": [
+        {
+          "tag": "市場",
+          "en": "The new app quickly caught on with young customers.",
+          "zh": "這個新應用程式很快在年輕客人之間流行起來。"
+        },
+        {
+          "tag": "市場",
+          "en": "It took time for online shopping to catch on in small towns.",
+          "zh": "網路購物花了一段時間才在小鎮流行起來。"
+        },
+        {
+          "tag": "培訓",
+          "en": "New staff usually catch on to the system within a week.",
+          "zh": "新進員工通常一週內就能搞懂這個系統。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "take off",
+          "diff": "take off 指突然大賣或快速成長，比 catch on 更強調速度。",
+          "example": {
+            "en": "Sales of the new model began to take off in May.",
+            "zh": "新款的銷量在五月開始大幅成長。"
+          }
+        },
+        {
+          "phrase": "figure out",
+          "diff": "figure out 是主動想出答案；catch on 是慢慢開竅。",
+          "example": {
+            "en": "We finally figured out why the system kept crashing.",
+            "zh": "我們終於找出系統一直當機的原因。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "catch up on",
+          "diff": "catch on 是流行或理解；catch up on 是補做落下的事。",
+          "kind": [
+            "spell",
+            "meaning"
+          ],
+          "example": {
+            "en": "I will catch up on the reports during the long flight.",
+            "zh": "我會在長途飛行中把報告補看完。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "ungrateful",
+      "type": "word",
+      "ipa": "/ʌnˈɡreɪtfəl/",
+      "pos": "adj.",
+      "zh": "不知感恩的、忘恩負義的",
+      "en": "not showing thanks for what someone has done for you",
+      "note": "文章結尾說 Let's be more grateful，ungrateful 就是 grateful 的反義，指別人幫了忙卻不懂得感謝。",
+      "grammar_note": "ungrateful 常接 for + 事情或 to + 人，如 ungrateful for the help、ungrateful to the staff。",
+      "forms": [
+        {
+          "w": "ungratefully",
+          "label": "副詞",
+          "pos": "adv.",
+          "zh": "不知感恩地",
+          "ipa": "/ʌnˈɡreɪtfəli/",
+          "example": {
+            "en": "He replied ungratefully and never thanked the team.",
+            "zh": "他不領情地回覆，也從沒謝過團隊。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "sound ungrateful",
+          "zh": "聽起來不知感恩",
+          "example": {
+            "en": "I don't want to sound ungrateful, but the schedule is too tight.",
+            "zh": "我不想聽起來不知感恩，但這個時程太緊了。"
+          }
+        },
+        {
+          "phrase": "ungrateful for",
+          "zh": "對…不知感恩",
+          "example": {
+            "en": "Some customers seem ungrateful for the extra service we offer.",
+            "zh": "有些客人似乎不感謝我們提供的額外服務。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "商務",
+          "en": "It would be ungrateful to refuse the offer after all their help.",
+          "zh": "受了他們那麼多幫忙還拒絕這個提議，會顯得不知感恩。"
+        },
+        {
+          "tag": "團隊",
+          "en": "Don't call the new staff ungrateful; they just need more time.",
+          "zh": "別說新員工不知感恩，他們只是需要多一點時間。"
+        },
+        {
+          "tag": "客戶",
+          "en": "An ungrateful client can make even a small project feel difficult.",
+          "zh": "不懂感恩的客戶會讓小專案也變得很難做。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "regretful",
+          "diff": "拼法與音節相近，但 regretful 是「後悔的、遺憾的」，ungrateful 是「不知感恩的」。",
+          "kind": [
+            "spell",
+            "sound"
+          ],
+          "example": {
+            "en": "She was regretful about missing the deadline and apologized.",
+            "zh": "她對錯過截止日期感到後悔，並且道了歉。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "thankful",
+          "pos": "adj.",
+          "zh": "感謝的",
+          "ipa": "/ˈθæŋkfəl/",
+          "example": {
+            "en": "We are thankful for your support this quarter.",
+            "zh": "我們感謝您本季的支持。"
+          }
+        },
+        {
+          "w": "appreciate",
+          "pos": "v.",
+          "zh": "感激",
+          "ipa": "/əˈpriːʃieɪt/",
+          "example": {
+            "en": "We appreciate your quick reply to our request.",
+            "zh": "我們感謝您很快回覆我們的請求。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "grateful",
+          "ipa": "/ˈɡreɪtfəl/",
+          "pos": "adj.",
+          "zh": "感激的",
+          "link": "ungrateful 去掉 un-（不），就是 grateful，像 unhappy → happy"
+        },
+        {
+          "w": "gratefully",
+          "ipa": "/ˈɡreɪtfəli/",
+          "pos": "adv.",
+          "zh": "感激地",
+          "link": "grateful + -ly，變成副詞，像 careful → carefully"
+        },
+        {
+          "w": "gratitude",
+          "ipa": "/ˈɡrætətuːd/",
+          "pos": "n.",
+          "zh": "感激之情",
+          "link": "grat- 表示感謝，加 -itude 變名詞，像 attitude"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    }
+  ]
+}
