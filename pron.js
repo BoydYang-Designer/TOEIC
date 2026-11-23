@@ -88,7 +88,7 @@ function prDetailKeys(x, v) {
   const exEn = o => { if (o && o.example && o.example.en) add(o.example.en); };
   add(e.text);
   if (e.en) add(e.en);
-  let ctx = m && m.ctx;
+  let ctx = typeof dnFullCtx === 'function' ? dnFullCtx(x, e.text, m, T) : (m && m.ctx); // 與 notes.js 詳解頁同一份判斷（完整一句）
   if (!ctx && T !== 'sentence') { const p = String(x.passage || ''), i = p.toLowerCase().indexOf(String(e.text).toLowerCase()); if (i >= 0) ctx = dnCtxOf(p, i, i + e.text.length, e.text); }
   if (ctx && T !== 'sentence') add(ctx);
   if (e.lemma && String(e.lemma).trim().toLowerCase() !== String(e.text).trim().toLowerCase()) add(e.lemma);

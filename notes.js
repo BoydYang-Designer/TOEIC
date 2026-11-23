@@ -173,7 +173,10 @@ function dnImportReports(input) {
 }
 
 /* ======================= 入庫（在英文文稿選字） ======================= */
-const dnMarks = () => S.marks || (S.marks = []);
+/* 選字時 blk.textContent 會連 pron.js 加在畫面上的 🔊🎙0＋ 按鈕文字一起抓進來（入庫的所在句變成「caught up 🔊🎙0＋」）→ 一律先清掉 */
+function dnCleanUi(t) { return String(t == null ? '' : t).replace(/\s*[🔊🎙⏹]\uFE0F?(?:\s*[🔊🎙⏹]\uFE0F?)*\s*\d{0,3}\s*[＋+]?/gu, '').replace(/\s+/g, ' ').trim(); }
+let DN_MKFIX = false; // 修復一次：以前已經被存進去的所在句（ctx）有 🔊🎙 的，清乾淨並存回
+const dnMarks = () => { const a = S.marks || (S.marks = []); if (!DN_MKFIX && a.length) { DN_MKFIX = true; let n = 0; a.forEach(m => { if (m && typeof m.ctx === 'string' && /[🔊🎙]/u.test(m.ctx)) { m.ctx = dnCleanUi(m.ctx); n++; } }); if (n) { try { save(); } catch (e) {} } } return a; };
 const dnMarksOf = qid => dnMarks().filter(m => m.qid === qid);
 const dnExtraOf = x => Array.isArray(x && x.extra_vocab) ? x.extra_vocab : [];
 const dnFindExtra = (x, text) => dnExtraOf(x).find(e => dnKey(e.text || e.word) === dnKey(text)); // 只找本篇
@@ -226,11 +229,11 @@ function dnSelDetail() { // 詳解頁：選取例句／說明裡的英文字、�
   if (sn.nodeType === 3) { const t = sn.nodeValue; while (so > 0 && wc.test(t[so - 1]) && wc.test(t[so] || '')) so--; }      // 選到字的一半 → 補成整個字
   if (en.nodeType === 3) { const t = en.nodeValue; while (eo < t.length && wc.test(t[eo - 1] || '') && wc.test(t[eo])) eo++; }
   const r2 = document.createRange(); try { r2.setStart(sn, so); r2.setEnd(en, eo); } catch (e) { return; }
-  let text = r2.toString().replace(/\s+/g, ' ').replace(/^[\s,;:"“”()]+|[\s,;:"“”()]+$/g, '');
+  let text = dnCleanUi(r2.toString()).replace(/^[\s,;:"“”()]+|[\s,;:"“”()]+$/g, '');
   if (dnWordN(text) <= 6) text = text.replace(/[.!?]+$/, '');
   if (!text || !/[A-Za-z]/.test(text) || /[\u4e00-\u9fff]/.test(text) || text.length > 300) return;
   const host = (sn.nodeType === 3 ? sn.parentElement : sn), blk = host && (host.closest('p') || host.closest('li') || host.closest('h2'));
-  let ctx = blk ? blk.textContent.replace(/\s+/g, ' ').trim() : text;
+  let ctx = blk ? (() => { const c = blk.cloneNode(true); c.querySelectorAll('button,.pr-badge').forEach(q => q.remove()); return dnCleanUi(c.textContent); })() : text; // 先拿掉 🔊／🎙／分數／＋ 這些按鈕再取文字
   if (/[\u4e00-\u9fff]/.test(ctx) || ctx.length > 400) ctx = text;
   const n = dnWordN(text);
   DN.sel = { qid: idOf(D.x), text, type: n <= 1 ? 'word' : n <= 6 ? 'phrase' : 'sentence', ctx, src: 'detail', head: D.e.text };
@@ -659,7 +662,7 @@ const DNF = {
   skw: '補齊 key_words（重點字詞）：每一筆都要有 w、zh；w 是單字時還要有 ipa（美式）與 pos；w 是片語時不用 ipa、pos；既有的項目保留並補齊缺的；真的沒有值得註記的字就輸出空陣列 []；其他欄位一律原樣保留',
   sim: '補齊 similar（近義片語）：每一筆都保留原有的 phrase（單字用 word）與 diff，並各加一句 example { en, zh }：例句必須真的用到該近義片語、8–15 字、商務情境、同程度，且要讓人看得出它和本片語的差異；缺的筆數也要補；其他欄位一律原樣保留',
   ckind: '補上 confusable 每一筆的 kind（易混淆分類，陣列、可複選，值只能是 spell／sound／meaning／root／zhsame；定義見下方「內容規則」的 kind 說明）；只加 kind，每一筆原有的 word（phrase）、diff、usage、example 一律逐字原樣保留，不要改寫；已有合法 kind 的筆數也原樣保留',
-  nwnote: '依「新單字備註」補充：先判斷備註有沒有打錯字、真正想問什麼；若現有詳解已涵蓋就不要硬加新的；需要時才在最合適的欄位新增或微調內容（例如 note、grammar_note、examples、collocations、confusable、similar、pos_uses、senses…），其餘欄位原樣保留；並依「新單字備註」規則加上 nw_done'
+  nwnote: '依「新單字備註」補充：先判斷備註有沒有打錯字、真正想問什麼；若現有詳解已涵蓋就不要硬加新的；需要時才在最合適的欄位新增或微調內容（例如 note、grammar_note、examples、collocations、confusable、similar、pos_uses、senses…），其餘欄位原樣保留；若備註是「另一篇又出現」，要加／更新 usages（見「另一篇的用法」規則）；並依「新單字備註」規則加上 nw_done'
 };
 function dnPromptItems(qid, only, fillAll) { // fillAll＝true：連已寫回但缺內容的也一併補（核心單字直接複製用） // only＝Set(單字小寫)：只取這些字的新項目（TSL 缺詳解用）；省略則依勾選 // 要寫進提示詞的項目：新項目＝全寫；已寫回但缺內容的＝只補缺的
   const out = [];
@@ -725,8 +728,8 @@ function dnPrompt(qid, only, fillAll, extraIts, rng) { // extraIts：額外的�
       '【補齊規則】',
       '- 標示【補齊】的項目，請輸出「完整的一筆」：保留現有詳解的所有內容（text、zh、note、examples 等一律不要改動，即使你覺得可以寫得更好），再加上「要補」的部分。',
       '- 輸出會用 text 整筆取代舊的，所以不能只寫新增的欄位。',
-      ...(its.some(o => o.fill && o.fill.includes('nwnote')) ? ['- 例外：「要補」寫著「依新單字備註補充」的項目，可以依備註在相關欄位新增或微調內容，但只動備註需要的地方、仍要符合程度規則；其他欄位一律原樣抄回；nw_done 既有的保留，再加上這次的。'] : []),
-      '- 「要補」沒有列出的欄位（zh、ipa、pos、en、note、forms、collocations、examples、confusable、family、derived、pos_uses、senses、grammar_note、confusable 的 usage 與 kind、chunks、structure、grammar、pattern、paraphrase、key_words 等），必須逐字原樣抄回，不可改寫、刪減、重新排序或「順便優化」；只有「要補」列出的欄位可以新增或補齊。',
+      ...(its.some(o => o.fill && o.fill.includes('nwnote')) ? ['- 例外：「要補」寫著「依新單字備註補充」的項目，可以依備註在相關欄位新增或微調內容（含新增 usages），但只動備註需要的地方、仍要符合程度規則；其他欄位一律原樣抄回；nw_done 既有的保留，再加上這次的。'] : []),
+      '- 「要補」沒有列出的欄位（zh、ipa、pos、en、note、forms、collocations、examples、confusable、family、derived、pos_uses、senses、grammar_note、confusable 的 usage 與 kind、chunks、structure、grammar、pattern、paraphrase、key_words、usages 等），必須逐字原樣抄回，不可改寫、刪減、重新排序或「順便優化」；只有「要補」列出的欄位可以新增或補齊。',
       ''
     ] : []),
     '【輸出格式】',
@@ -1088,11 +1091,28 @@ function dnReviseBox() { // 放在「⚑ 回報問題」視窗裡（從詳解頁
     <div class="flex flex-wrap gap-2 mt-2"><button onclick="dnReviseCopy()" class="${b} ${dnPri} cursor-pointer">複製重整提示詞（含現有詳解）</button><button onclick="dnReviseDl()" class="${dnSm}">⬇ 下載現有詳解 JSON</button><button onclick="dnReviseCopyJson()" class="${dnSm}">複製現有詳解 JSON</button></div>
     <p class="mt-2 text-[0.6875rem] text-slate-400 leading-relaxed">流程：複製提示詞 → 貼給 AI → AI 回傳 w${C.s.week}d${C.s.day}_extra.json → 放進 json_merge.py 所在資料夾合併（同一個字整筆取代舊的）。「下載」是把現在這筆存成同格式的檔案，可當附件給 AI 或備份。</p></details>`;
 }
+/* 詳解頁「在文章裡」要顯示的所在句：入庫時存的 ctx 若沒有、或只是文章裡那一句的片段（例如只存「caught up」），改用文章裡這個字所在的完整一句。
+   詳解頁（dnRenderDetail）與語音練習計分（pron.js 的 prDetailKeys）共用這一份，顯示的句子、🔊 的 mp3、評分的項目才會是同一句。 */
+function dnFullCtx(x, text, m, T) {
+  let ctx = m && m.ctx ? dnCleanUi(m.ctx) : (m && m.ctx);
+  if (T !== 'sentence') { // 所在句要是文章裡完整的一句：沒存、或只存了片段（例如只存「caught up」）→ 從文章找出這個字所在的整句，和同一句裡的片語（caught up）顯示同一句；🔊 是依句子內容找 mp3，所以也念同一個檔
+    const p = String(x.passage || ''), lp = p.toLowerCase(), lt = String(text).toLowerCase(), i = m && m.to > m.from && lp.slice(m.from, m.to) === lt ? m.from : lp.indexOf(lt);
+    if (i >= 0) {
+      let full = dnCtxOf(p, i, i + text.length, text);
+      if (full.length <= String(text).length) { // 切句函式沒有切到（回傳的只有字本身）→ 自己用標點切出這一句
+        const a = Math.max(p.lastIndexOf('.', i - 1), p.lastIndexOf('?', i - 1), p.lastIndexOf('!', i - 1), p.lastIndexOf('\n', i - 1)) + 1, r = /[.!?]+(?=\s|$)|\n/.exec(p.slice(i)), b = r ? i + r.index + (r[0] === '\n' ? 0 : r[0].length) : p.length;
+        full = p.slice(a, b).trim() || full;
+      }
+      if (!ctx || (full.length > String(ctx).length && full.toLowerCase().includes(String(ctx).trim().toLowerCase()))) ctx = full;
+    }
+  }
+  return ctx;
+}
 function dnRenderDetail() {
   const D = dnDetailData();
   if (!D) { main.innerHTML = `<div class="${card} p-8 text-center text-sm text-slate-500">找不到這個項目。<br><button onclick="up()" class="${btn} ${dnLine} mt-4">← 返回</button></div>`; return; }
   const { x, e, ex, m, src } = D, xs = src || x, T = e.type, sec = (t, body) => body ? `<section class="${card} p-4 md:p-5 mb-3"><h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">${t}</h3>${body}</section>` : '';
-  let ctx = m && m.ctx; if (!ctx && T !== 'sentence') { const p = String(x.passage || ''), i = p.toLowerCase().indexOf(String(e.text).toLowerCase()); if (i >= 0) ctx = dnCtxOf(p, i, i + e.text.length, e.text); }
+  const ctx = dnFullCtx(x, e.text, m, T);
   const list = (arr, fn) => arr.length ? `<ul class="space-y-1.5 text-sm">${arr.map(fn).join('')}</ul>` : '';
   const ex2 = dnArr(e.examples).map(o => typeof o === 'string' ? { en: o } : o);
   let h = `<header class="mb-4 flex items-start justify-between gap-2"><div class="min-w-0"><div class="flex flex-wrap items-center gap-2"><span class="${dnChip} ${DNTC[T]}">${DNT[T]}</span><span class="text-xs text-slate-500">${isLib(x) ? 'TSL 字庫（通用詳解）' : `W${x.week} · D${x.day} ${esc(x.tag || '')}`}</span>${lvBadge(x)}</div>
@@ -1106,6 +1126,16 @@ function dnRenderDetail() {
   }
   if (ex && src && src !== x) h += `<p class="rounded-lg bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 text-xs px-3 py-2 mb-3">${isLib(src) ? '這個字的詳解來自「TSL 字庫」（通用說明），這裡沿用同一份。' : `這個字已在 ${dnLabel(src)} 入庫並寫好詳解，這裡沿用同一份。「說明」寫的是當時那篇的用法。`}</p>`;
   h += sec('在文章裡', ctx ? `<div class="flex items-start gap-2"><p class="text-sm leading-relaxed flex-1">${dnHiCtx(ctx, e.text, T === 'sentence' ? null : x)}</p>${T === 'sentence' ? '' : `<button onclick="vplay('${idOf(x)}', this.dataset.t, '_ctx', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(ctx)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button>`}</div>${T !== 'sentence' && dnCtxPhrases(ctx, e.text, x).length ? '<p class="mt-1.5 text-[0.6875rem] text-slate-400">紫色底線＝這一句裡本篇已入庫的片語，點一下看詳解</p>' : ''}` : '');
+  { // 其他文章的用法：usages＝AI 依「新單字備註」寫回的各篇所在句＋解說；別篇已入庫、AI 還沒寫回的，先列所在句並標「待 AI 補解說」
+    const uk = t => { const mm = /W(\d+)\D+(\d+)/i.exec(String(t || '')); return mm ? mm[1] + '-' + mm[2] : String(t || '').trim(); };
+    const us = T === 'sentence' ? [] : dnArr(e.usages).filter(u => u && typeof u === 'object' && (u.zh || u.ctx));
+    const done = new Set(us.map(u => uk(u.src))), owner = idOf(xs), kk = dnKey(e.text);
+    const pend = T === 'sentence' ? [] : dnMarks().filter(q => q.type !== 'sentence' && dnKey(q.text) === kk && dnArt(q.qid) && !isLib(dnArt(q.qid)) && q.qid !== owner && !done.has(uk(dnLabel(dnArt(q.qid)))));
+    const row = (lab, a, ctx, zh, wait) => `<li class="border-l-2 border-indigo-300 dark:border-indigo-700 pl-3"><div class="flex flex-wrap items-center gap-1.5 mb-0.5">${a ? `<button onclick="dnGoArt('${idOf(a)}')" class="${dnChip} underline cursor-pointer">${esc(lab)}</button>` : `<span class="${dnChip}">${esc(lab)}</span>`}${a && idOf(a) === idOf(x) ? '<span class="text-[0.6875rem] text-slate-400">（本篇）</span>' : ''}${wait ? '<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">待 AI 補解說</span>' : ''}</div>${ctx ? `<p class="text-sm leading-relaxed">${dnHiCtx(ctx, e.text)}</p>` : ''}${zh ? `<p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed whitespace-pre-line">${esc(zh)}</p>` : ''}</li>`;
+    const rows = us.map(u => { const mm = /W(\d+)\D+(\d+)/i.exec(String(u.src || '')), a = mm ? find(+mm[1], +mm[2]) : null; return row(a ? dnLabel(a) : String(u.src || '另一篇'), a, u.ctx, u.zh, false); })
+      .concat(pend.map(q => row(dnLabel(dnArt(q.qid)), dnArt(q.qid), q.ctx, '', true)));
+    h += sec('其他文章的用法', rows.length ? `<ul class="space-y-3">${rows.join('')}</ul>` : '');
+  }
   h += sec(T === 'sentence' ? '語氣與用途' : '說明', e.note ? `<p class="text-sm leading-relaxed whitespace-pre-line">${esc(e.note)}</p>` : '');
   const chs = dnArr(e.chunks).filter(c => c && typeof c === 'object' && c.en);
   h += sec('意群斷句', chs.length ? `<p class="text-sm font-semibold mb-2 leading-relaxed">${chs.map(c => esc(c.en)).join(' <span class="text-slate-400">/</span> ')}</p>${list(chs, c => `<li><b>${esc(c.en)}</b>${c.zh ? `　${esc(c.zh)}` : ''}</li>`)}` : '');
