@@ -30,7 +30,7 @@
   <p id="dbg" class="text-xs text-slate-400 mt-4"></p>
 </div>
 <script>
-const KEY='toeicCoachV2',PK='toeicPracticeV1',DAY=864e5,GAP=[0,1,3,7,14,30];
+const KEY='toeicCoachV2',PK='toeicPracticeV1',DPK='toeicDailyPickV1',DAY=864e5,GAP=[0,1,3,7,14,30];
 let S={},P={};try{S=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
 try{P=JSON.parse(localStorage.getItem(PK)||'{}')}catch(e){}
 document.documentElement.classList.toggle('dark',!!S.dark);
@@ -96,29 +96,29 @@ const SORT={az:['字母',(a,b)=>a.k.localeCompare(b.k)],sp_hi:['語音總分 高
 const acc=x=>{const p=P[x.k];return p&&p.n?p.c/p.n:2};
 const okFor=x=>mode==='flash'||(mode==='say'?x.ex.length>0:x.cl.length>0);
 let fdir='zh';try{fdir=localStorage.getItem('practiceFdirV1')==='en'?'en':'zh'}catch(e){}
-let ALLIT=[],POOL=[],tab='table',src='all',art='all',mode='flash',ord='combo',cnt=10,st='all',sort='az',R=null,shown=false,done=false;
+let ALLIT=[],POOL=[],tab='today',src='all',art='all',mode='flash',ord='combo',cnt=10,st='all',sort='az',R=null,shown=false,done=false;
 const match=x=>(art==='all'||x.froms.has(art))&&(src==='all'||(src==='tsl'&&x.tsl)||(src==='bank'&&!x.tsl)||(src==='nw'&&x.nw));
 const speak=t=>{try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;speechSynthesis.speak(u)}catch(e){}};
-const rec=(k,ok,g)=>{const p=P[k]||(P[k]={b:0,due:0,n:0,c:0});p.n++;if(ok)p.c++;p.last=Date.now();
+const rec=(k,ok,g)=>{const p=P[k]||(P[k]={b:0,due:0,n:0,c:0});p.n++;if(ok)p.c++;p.last=Date.now();if(R&&R.dp&&R.dp.sec[R.i]){if(!ok){p.b=0;p.due=Date.now()+DAY}save();return}
   if(g!==undefined){p.b=g===2?Math.min(5,p.b+1):g===1?p.b:0;p.due=Date.now()+(g===0?1:GAP[p.b]||1)*DAY}else{p.b=ok?Math.min(5,p.b+1):0;p.due=Date.now()+(ok?GAP[p.b]:1)*DAY}save()};
 function cloze(x){const fm=[x.w,...x.forms].sort((a,b)=>b.length-a.length),out=[];
   x.ex.forEach(e=>{for(const f of fm){const m=new RegExp('\\b'+f.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','i').exec(e.en||'');if(m){out.push({en:e.en,zh:e.zh,ans:m[0],i:m.index,suf:e.suf});break}}});return out}
 /* 記住畫面狀態：點進詳解後按上一頁，回到剛剛的分頁、篩選、排序、捲動位置（測驗進行中也會接著做）。存在 sessionStorage，只在這個分頁有效 */
 const UK='practiceUiV1';let UI=null,uiOn=false;
-function uiSave(){if(!uiOn)return;try{sessionStorage.setItem(UK,JSON.stringify({tab,src,art,mode,ord,cnt,st,sort,q:(document.getElementById('wsq')||{}).value||'',y:Math.round(window.scrollY),R:R?{q:R.q.map(x=>x.k),i:R.i,ok:R.ok,bad:R.bad.map(x=>x.k)}:null}))}catch(e){}}
+function uiSave(){if(!uiOn)return;try{sessionStorage.setItem(UK,JSON.stringify({tab,src,art,mode,ord,cnt,st,sort,q:(document.getElementById('wsq')||{}).value||'',y:Math.round(window.scrollY),R:R?{q:R.q.map(x=>x.k),i:R.i,ok:R.ok,bad:R.bad.map(x=>x.k),dp:R.dp||null}:null}))}catch(e){}}
 function uiLoad(){try{UI=JSON.parse(sessionStorage.getItem(UK)||'null')}catch(e){UI=null}if(!UI)return;
-  if(['table','quiz'].includes(UI.tab))tab=UI.tab;if(SRC.some(v=>v[0]===UI.src))src=UI.src;if(UI.art)art=UI.art;if(MODES.some(v=>v[0]===UI.mode))mode=UI.mode;
+  if(['today','table','quiz'].includes(UI.tab))tab=UI.tab;if(SRC.some(v=>v[0]===UI.src))src=UI.src;if(UI.art)art=UI.art;if(MODES.some(v=>v[0]===UI.mode))mode=UI.mode;
   if(ORD[UI.ord])ord=UI.ord;if(UI.cnt!=null)cnt=+UI.cnt;if(STF[UI.st])st=UI.st;if(SORT[UI.sort])sort=UI.sort;
   if(UI.R&&Array.isArray(UI.R.q)){const m=new Map(POOL.map(x=>[x.k,x])),q=UI.R.q.map(k=>m.get(k)).filter(Boolean);
-    if(q.length===UI.R.q.length){R={q,i:Math.min(+UI.R.i||0,q.length),ok:+UI.R.ok||0,bad:(UI.R.bad||[]).map(k=>m.get(k)).filter(Boolean)};shown=false;done=false}}}
+    if(q.length===UI.R.q.length){R={q,i:Math.min(+UI.R.i||0,q.length),ok:+UI.R.ok||0,bad:(UI.R.bad||[]).map(k=>m.get(k)).filter(Boolean),dp:(UI.R.dp&&Array.isArray(UI.R.dp.plan)&&UI.R.dp.plan.length===q.length)?UI.R.dp:undefined};shown=false;done=false}}}
 let uiT=0;window.addEventListener('scroll',()=>{clearTimeout(uiT);uiT=setTimeout(uiSave,150)},{passive:true});
 window.addEventListener('pagehide',uiSave);document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a');if(a){uiSave();if(/^daily\.html#vocab=/.test(a.getAttribute('href')||''))try{sessionStorage.setItem('vocabFromV1','practice.html')}catch(err){}}},true);
 function updDbg(){const n=Object.keys(S.pron||{}).length,hit=POOL.filter(x=>x.sp.done).length;
   document.getElementById('dbg').textContent=n?`語音紀錄：讀到 ${n} 筆（toeicCoachV2 的 pron），其中 ${hit} 個題庫單字有練習紀錄。文章原句是依入庫標註或文稿推算，少數字的項目數可能與單字卡差一項。`:'語音紀錄：沒有讀到。請確認是在同一個瀏覽器、同一個網址開啟，而且已用單字卡的 🎤 練習過。'}
-function refresh(){loadS();try{P=JSON.parse(localStorage.getItem(PK)||'{}')}catch(e){}const y=window.scrollY;POOL.forEach(x=>{x.items=itemKeys(x.e,x.it);x.sp=spOf(x)});updDbg();if(!(tab==='quiz'&&R&&R.i<R.q.length)){paint();scrollTo(0,y)}}
+function refresh(){loadS();dpLoad();try{P=JSON.parse(localStorage.getItem(PK)||'{}')}catch(e){}const y=window.scrollY;POOL.forEach(x=>{x.items=itemKeys(x.e,x.it);x.sp=spOf(x)});updDbg();if(!((tab==='quiz'||tab==='today')&&R&&R.i<R.q.length)){paint();scrollTo(0,y)}}
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&POOL.length)refresh()});
 window.addEventListener('pageshow',e=>{if(e.persisted&&POOL.length)refresh()});
-window.addEventListener('storage',e=>{if((e.key===KEY||e.key===PK)&&POOL.length)refresh()});
+window.addEventListener('storage',e=>{if((e.key===KEY||e.key===PK||e.key===DPK)&&POOL.length)refresh()});
 async function boot(){let j=null;try{j=await(await fetch('daily.json',{cache:'no-store'})).json()}catch(e){}
   if(!j){document.getElementById('sum').textContent='讀不到 daily.json，請從網站網址開啟（不要直接雙擊檔案）。';return}
   ALLIT=(j.items||j).filter(it=>!it.library);VM=new Map();(j.items||j).forEach(it=>(it.vocab||[]).forEach(v=>{const k=v&&dnKey(v.word);if(k&&!VM.has(k))VM.set(k,{it,v})}));
@@ -127,18 +127,18 @@ async function boot(){let j=null;try{j=await(await fetch('daily.json',{cache:'no
     const x={k,w:e.text,zh:e.zh,en:e.en||'',ipa:e.ipa||'',pos:e.pos||'',ex:(e.examples||[]).map((z,i)=>Object.assign({},typeof z==='string'?{en:z}:z,{suf:'_e'+(i+1)})).filter(z=>z.en),forms,wrong:[...(e.confusable||[]).map(c=>c.word),...(e.similar||[]).map(c=>c.phrase)].filter(Boolean),
       tsl:TS.has(k)||forms.some(f=>TS.has(norm(f))),nw:!!(e.nw_done&&e.nw_done.length)||NW.has(k)||forms.some(f=>NW.has(norm(f))),from:'W'+it.week+'D'+it.day};
     x.e=e;x.it=it;x.items=itemKeys(e,it);x.cl=cloze(x);x.sp=spOf(x);x.froms=new Set([x.from]);seen.set(k,x);POOL.push(x)}));
-  updDbg();uiLoad();paint();if(UI&&UI.q){const wi=document.getElementById('wsq');if(wi&&!(tab==='quiz'&&R&&R.i<R.q.length)){wi.value=UI.q;wsSearch()}}if(UI&&UI.y)requestAnimationFrame(()=>{scrollTo(0,UI.y);uiOn=true});else uiOn=true}
+  updDbg();dpLoad();uiLoad();paint();if(UI&&UI.q){const wi=document.getElementById('wsq');if(wi&&!(tab==='quiz'&&R&&R.i<R.q.length)){wi.value=UI.q;wsSearch()}}if(UI&&UI.y)requestAnimationFrame(()=>{scrollTo(0,UI.y);uiOn=true});else uiOn=true}
 const seg=(arr,on,k)=>arr.map(([v,t])=>`<button data-${k}="${v}" class="px-3 py-1.5 ${on===v?'bg-indigo-600 text-white':'hover:bg-slate-100 dark:hover:bg-slate-800'}">${t}</button>`).join('');
 const sel=(id,o,on)=>`<select id="${id}" class="rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5">${o.map(([v,t])=>`<option value="${v}"${String(on)===String(v)?' selected':''}>${t}</option>`).join('')}</select>`;
 const bd='rounded-lg border border-slate-300 dark:border-slate-700';
 function paint(){
   const L=POOL.filter(match),cnts={all:POOL.length,tsl:POOL.filter(x=>x.tsl).length,bank:POOL.filter(x=>!x.tsl).length,nw:POOL.filter(x=>x.nw).length};
   document.getElementById('sum').textContent=`題庫 ${POOL.length} 字（只含已有詳解的字）・目前範圍 ${L.length} 字・語音還沒練 ${L.filter(STF.nosp[1]).length}・還沒考過 ${L.filter(STF.nt[1]).length}`;
-  document.getElementById('ftab').innerHTML=seg([['table','📋 練習狀態總表'],['quiz','📝 測驗']],tab,'t').replace(/px-3 py-1.5/g,'flex-1 py-2');
+  document.getElementById('ftab').innerHTML=seg([['today','🎯 今日 5+5'],['table','📋 總表'],['quiz','📝 測驗']],tab,'t').replace(/px-3 py-1.5/g,'flex-1 py-2');
   document.getElementById('fsrc').innerHTML=SRC.map(([v,t])=>`<button data-s="${v}" class="${bd} px-3 py-1.5 ${src===v?'bg-indigo-600 border-indigo-600 text-white':'hover:bg-slate-100 dark:hover:bg-slate-800'}">${t} ${cnts[v]}</button>`).join('')+sel('fart',[['all','全部文章'],...[...new Set(POOL.flatMap(x=>[...x.froms]))].sort((a,b)=>{const f=s=>s.match(/\d+/g).map(Number);return f(a)[0]-f(b)[0]||f(a)[1]-f(b)[1]}).map(v=>[v,v+' 這一篇'])],art);
-  document.getElementById('view').innerHTML=tab==='table'?table(L):quiz(L);
-  {const sb=document.getElementById('sbox');if(sb)sb.style.display=(tab==='quiz'&&R&&R.i<R.q.length)?'none':''}
-  if(tab==='quiz'&&R&&R.i<R.q.length)card();uiSave()}
+  document.getElementById('fsrc').style.display=tab==='today'?'none':'';document.getElementById('view').innerHTML=tab==='table'?table(L):tab==='today'?todayView():quiz(L);
+  {const sb=document.getElementById('sbox');if(sb)sb.style.display=((tab==='quiz'||tab==='today')&&R&&R.i<R.q.length)?'none':''}
+  if((tab==='quiz'||tab==='today')&&R&&R.i<R.q.length)card();uiSave()}
 function table(L){
   const rows=L.filter(STF[st][1]).sort(SORT[sort][1]),row=x=>{const p=P[x.k]||{},s=x.sp;
     return `<a href="daily.html#vocab=${encodeURIComponent(x.k)}" class="flex flex-wrap items-center gap-x-3 gap-y-0.5 ${bd} bg-white dark:bg-slate-900 px-3 py-2 text-sm hover:border-indigo-400"><b>${esc(x.w)}</b><span class="text-slate-400 truncate">${esc(x.zh)}</span><span class="text-[0.7rem] text-slate-400">${x.tsl?'TSL':'入庫'}${x.nw?'·新':''}</span>
@@ -166,7 +166,7 @@ function quiz(L){
   <p class="text-slate-400">範圍內可出題 ${n} 字${mode==='say'?'（需有例句；念完要手動按「念完了」；第一次會跳出麥克風權限）':mode!=='flash'?'（需例句裡出現該字）':''}。建議的順序＝沒考過的先，其中語音練得最多的排最前面；考過的放後面。「正確率低的先」專攻弱點。</p>
   <button data-go="1" ${n?'':'disabled'} class="w-full rounded-lg bg-indigo-600 text-white py-2 disabled:opacity-40">開始測驗</button></div>`}
 function card(){
-  const c=document.getElementById('card');if(!c||!R)return;const x=R.q[R.i],head=`<div class="mb-3"><div class="flex justify-between text-xs text-slate-400 mb-1"><span>${R.i+1} / ${R.q.length}・${x.tsl?'TSL':'入庫'}${x.nw?'・新單字':''}・${x.from}</span><span>答對 ${R.ok}</span></div><div class="h-1.5 rounded bg-slate-200 dark:bg-slate-800 overflow-hidden"><div class="h-full bg-indigo-500" style="width:${Math.round(R.i/R.q.length*100)}%"></div></div></div>`;
+  const c=document.getElementById('card');if(!c||!R)return;if(R.dp&&R.dp.plan[R.i])mode=R.dp.plan[R.i];const x=R.q[R.i],head=`<div class="mb-3"><div class="flex justify-between text-xs text-slate-400 mb-1"><span>${R.i+1} / ${R.q.length}・${dpTag()}${x.tsl?'TSL':'入庫'}${x.nw?'・新單字':''}・${x.from}</span><span>答對 ${R.ok}</span></div><div class="h-1.5 rounded bg-slate-200 dark:bg-slate-800 overflow-hidden"><div class="h-full bg-indigo-500" style="width:${Math.round(R.i/R.q.length*100)}%"></div></div></div>`;
   if(mode==='flash'){const en=fdir==='en',zh=`<div class="text-xl font-bold">${esc(x.zh)} <span class="text-sm font-normal text-slate-400">${esc(x.pos)}</span></div>`,w=`<div class="text-2xl font-bold">${esc(x.w)} <button data-sw="${esc(x.w)}" class="text-base">🔊</button></div><div class="text-sm text-slate-400">${esc(x.ipa)}</div>`;
     c.innerHTML=head+(en?w:zh)+(shown?`<div class="mt-4">${en?zh:w}</div><p class="mt-2 text-sm italic text-slate-500">${esc(x.en)}</p>${x.ex[0]?`<p class="mt-3">${esc(x.ex[0].en)} <button data-sf="1" class="text-base align-middle" title="播放例句">🔊</button><br><span class="text-sm text-slate-400">${esc(x.ex[0].zh||'')}</span></p>`:''}<div class="grid grid-cols-3 gap-2 mt-4">${[['忘了',0,'border-rose-400 text-rose-600'],['模糊',1,'border-amber-400 text-amber-600'],['記得',2,'border-emerald-400 text-emerald-600']].map(([t,g,cl])=>`<button data-r="${g}" class="rounded-lg border py-2 ${cl}">${t}<span class="ml-1 text-xs opacity-50">${g+1}</span></button>`).join('')}</div>`:`<p class="mt-4 text-slate-400 text-sm">${en?'先想想中文意思，再翻面。':'先在心裡想出英文，再翻面。'}（空白鍵翻面）</p><button data-show="1" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-2">顯示答案</button>`);return}
   if(mode==='say'){const q=x.q={en:x.ex[0].en,zh:x.ex[0].zh,suf:x.ex[0].suf};
@@ -209,10 +209,10 @@ function judge(heard){const x=R.q[R.i],T=tk(x.q.en),H=tk(heard),fb=document.getE
   done=true;rec(x.k,ok);const q=P[x.k];q.say=q.say||{};{const kk=pk(x.q.en);q.say[kk]=Math.max(q.say[kk]||0,sc)}save();x.sp=spOf(x);ok?R.ok++:R.bad.push(x);
   document.getElementById('tgt').classList.remove('blur-sm');document.getElementById('tgt').innerHTML=html;
   fb.innerHTML=`<p class="${ok?'text-emerald-600':'text-rose-600'} font-semibold">${sc} 分${ok?'・通過':'・再練一次（紅字是沒念到的）'}</p><p class="text-slate-400">聽到：${esc(heard)}</p><button data-next="1" class="mt-3 w-full rounded-lg bg-indigo-600 text-white py-2">下一題</button>`}
-const adv=()=>{stopL();stopQ();if(R.q[R.i])R.q[R.i]._fix=false;R.i++;shown=false;done=false;paint()};
+const adv=()=>{stopL();stopQ();if(R.dp&&R.dp.last[R.i]&&R.q[R.i])dpMark(R.q[R.i].k);if(R.q[R.i])R.q[R.i]._fix=false;R.i++;shown=false;done=false;paint()};
 document.addEventListener('change',e=>{const i=e.target.id;if(i==='fst')st=e.target.value;else if(i==='fso')sort=e.target.value;else if(i==='ford')ord=e.target.value;else if(i==='fcnt')cnt=+e.target.value;else if(i==='fdir'){fdir=e.target.value==='en'?'en':'zh';try{localStorage.setItem('practiceFdirV1',fdir)}catch(err){}}else if(i==='fart'){art=e.target.value;R=null}else return;paint()});
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;
-  if(d.t){tab=d.t;R=null;paint()}else if(d.s){src=d.s;R=null;paint()}else if(d.m){mode=d.m;paint()}else if(d.go)go();else if(d.new){R=null;paint()}
+  if(d.t){leaveDp();tab=d.t;R=null;paint()}else if(d.s){src=d.s;R=null;paint()}else if(d.m){mode=d.m;paint()}else if(d.go)go();else if(d.new){R=null;paint()}else if(d.dpgo)dpStart();else if(d.dpmore)dpMore();else if(d.dpback){leaveDp();R=null;paint()}
   else if(d.az!==undefined){AZO.has(d.az)?AZO.delete(d.az):AZO.add(d.az);azSave();azRepaint()}
   else if(d.azj!==undefined){AZO.add(d.azj);azSave();azRepaint(d.azj)}
   else if(d.azall!==undefined){AZO=d.azall==='1'?new Set(AZL):new Set();azSave();azRepaint()}
@@ -234,7 +234,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
   else if(d.ssave!==undefined)wsSave(d.ssave)
   else if(d.next)adv()});
 /* 鍵盤快捷鍵（測驗進行中）：閃卡 空白鍵翻面、1／2／3 忘了／模糊／記得；克漏字 1–4 選答案；聽寫 Enter 檢查／下一題；Enter 或空白鍵＝下一題 */
-document.addEventListener('keydown',e=>{if(tab!=='quiz'||!R||R.i>=R.q.length||e.ctrlKey||e.metaKey||e.altKey)return;
+document.addEventListener('keydown',e=>{if((tab!=='quiz'&&tab!=='today')||!R||R.i>=R.q.length||e.ctrlKey||e.metaKey||e.altKey)return;
   const t=e.target,typing=t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName),click=q=>{const el=document.querySelector(q);if(el&&!el.disabled){e.preventDefault();el.click();return true}return false};
   if(typing){if(e.key==='Enter'&&t.tagName==='INPUT'){if(!click('[data-next]'))click('[data-chk]')}return}
   if(mode==='flash'){if(e.key===' '||e.key==='Enter'){if(!click('[data-show]'))click('[data-next]')}else if(/^[1-3]$/.test(e.key))click('[data-r="'+(+e.key-1)+'"]')}
@@ -290,6 +290,71 @@ function wsSave(text){const t=nwNormText(text),box=document.getElementById('wsr'
   box.innerHTML=`<p class="${bd} bg-emerald-50 dark:bg-emerald-950 border-emerald-400 px-3 py-2 text-emerald-700 dark:text-emerald-300">✔ 已存入新單字：<b>${esc(t)}</b>。之後到 daily 的「新單字」頁可以加備註，並請 AI 補詳解。</p>`}
 document.getElementById('wsq').addEventListener('input',()=>{clearTimeout(wsT);wsT=setTimeout(()=>{wsSearch();uiSave()},180)});
 document.getElementById('wsq').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();wsSearch()}else if(e.key==='Escape'){e.target.value='';wsSearch()}});
+
+/* ===== 今日推薦：5 個新字 + 5 個複習字 =====
+   存檔：toeicDailyPickV1 ＝ {date, rounds:[{nw:[字],rv:[字]}], done:[字]}（鍵名 toeic 開頭，會被 cloud-sync 同步）。
+   當天第一次打開時決定名單並存起來，重新整理不會換字；「再來 5+5」會新增一輪。
+   複習字：沿用 P[k]={b 熟練度,due 到期日,n,c} 的間隔重複。先挑已到期（逾期越久、越弱越優先），不夠用「答錯過」補，再不夠才提前複習。
+   新字：還沒考過的字，分數 ＝ 新單字(+3) + TSL 核心(+2) + 出現在多篇(+1) + 文章越新越高(0~2) + 當天固定的小亂數；同詞性最多 3 個、拼字太像的不同批。
+   流程：新字閃卡 → 複習字（克漏字） → 新字克漏字。新字當天第二次練習只在答錯時降級，不會一天內連升兩級。 */
+const dayStr=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const dayStart=()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()};
+const hs=s=>{let h=2166136261;for(let i=0;i<s.length;i++)h=Math.imul(h^s.charCodeAt(i),16777619);return(h>>>0)/4294967296};
+let DP={date:'',rounds:[],done:[]};
+function dpLoad(){let d=null;try{d=JSON.parse(localStorage.getItem(DPK)||'null')}catch(e){}DP=d&&d.date===dayStr()&&Array.isArray(d.rounds)&&Array.isArray(d.done)?d:{date:dayStr(),rounds:[],done:[]}}
+const dpSave=()=>{try{localStorage.setItem(DPK,JSON.stringify(DP))}catch(e){}};
+const dpMark=k=>{if(!DP.done.includes(k)){DP.done.push(k);dpSave()}};
+const dpTag=()=>R&&R.dp&&R.dp.kind?(R.dp.kind[R.i]==='n'?'🆕 新字・':'🔁 複習・'):'';
+function leaveDp(){if(R&&R.dp&&R.dp.pm)mode=R.dp.pm}
+const pitem=k=>POOL.find(x=>x.k===k);
+const weakOf=x=>{const p=P[x.k]||{};return(p.n?1-p.c/p.n:0)*2+(p.b<=1?.5:0)+(x.sp.done&&x.sp.pct<60?1:0)};
+function diversify(sorted,n){const out=[],posN={};
+  const near=(a,b)=>{if(/\s/.test(a)||/\s/.test(b))return false;const t=a.length<=4?0:a.length<=6?1:2;return lev(a,b,t)<=t};
+  for(const x of sorted){if(out.length>=n)break;const ps=x.pos||'?';if((posN[ps]||0)>=3)continue;if(out.some(y=>near(x.k,y.k)))continue;out.push(x);posN[ps]=(posN[ps]||0)+1}
+  for(const x of sorted){if(out.length>=n)break;if(!out.includes(x))out.push(x)}
+  return out}
+function pickReview(n,ex,relax){const now=Date.now(),t0=dayStart();
+  const fresh=POOL.filter(x=>!ex.has(x.k)&&(P[x.k]||{}).n>0&&(P[x.k].last||0)<t0);
+  const sc=x=>weakOf(x)+Math.min(1.5,Math.max(0,(now-(P[x.k].due||0))/DAY)/14),due=fresh.filter(x=>(P[x.k].due||0)<=now);
+  if(due.length>=n)return due.sort((a,b)=>sc(b)-sc(a)).slice(0,n);
+  let out=due.sort((a,b)=>P[a.k].due-P[b.k].due);
+  out=out.concat(fresh.filter(x=>!out.includes(x)&&P[x.k].c<P[x.k].n).sort((a,b)=>weakOf(b)-weakOf(a)||P[a.k].due-P[b.k].due)).slice(0,n);
+  if(relax&&out.length<n)out=out.concat(fresh.filter(x=>!out.includes(x)).sort((a,b)=>P[a.k].due-P[b.k].due)).slice(0,n);
+  return out}
+function pickNew(n,ex){const pool=POOL.filter(x=>!ex.has(x.k)&&!(P[x.k]||{}).n),ord=x=>(+x.it.week||0)*100+(+x.it.day||0),mx=Math.max(1,...pool.map(ord)),day=dayStr();
+  const sc=new Map(pool.map(x=>[x,(x.nw?3:0)+(x.tsl?2:0)+(x.froms.size>1?1:0)+ord(x)/mx*2+hs(day+x.k)*.3]));
+  return diversify(pool.sort((a,b)=>sc.get(b)-sc.get(a)),n)}
+function dpBuild(ex){let rv=pickReview(5,ex,false),nw=pickNew(5,ex);
+  if(rv.length<5)nw=pickNew(10-rv.length,ex);
+  if(nw.length<5)rv=pickReview(10-nw.length,ex,true);
+  return{nw:nw.map(x=>x.k),rv:rv.map(x=>x.k)}}
+const nwWhy=x=>[x.nw?'新單字':'',x.tsl?'TSL 核心':'',x.froms.size>1?'出現在 '+x.froms.size+' 篇':'',x.from].filter(Boolean).join('・');
+const rvWhy=x=>{const p=P[x.k]||{},now=Date.now(),t=[];if(p.due&&p.due<=now){const d=Math.floor((now-p.due)/DAY);t.push(d>0?'逾期 '+d+' 天':'今天到期')}else t.push('提前複習');
+  if(p.n&&p.c/p.n<.6)t.push('正確率 '+Math.round(p.c/p.n*100)+'%');if(x.sp.done&&x.sp.pct<60)t.push('語音 '+x.sp.pct+'%');return t.join('・')};
+function todayView(){
+  if(R&&R.dp)return R.i>=R.q.length?dpDone():`<div id="card" class="${bd} bg-white dark:bg-slate-900 p-4 md:p-6 min-h-[16rem]"></div>`;
+  if(DP.date!==dayStr())dpLoad();
+  if(!DP.rounds.length&&POOL.length){DP.rounds.push(dpBuild(new Set()));dpSave()}
+  const rd=DP.rounds[DP.rounds.length-1]||{nw:[],rv:[]},nw=rd.nw.map(pitem).filter(Boolean),rv=rd.rv.map(pitem).filter(Boolean),dn=k=>DP.done.includes(k),
+    tot=nw.length+rv.length,left=nw.concat(rv).filter(x=>!dn(x.k)).length,fin=tot-left;
+  const row=(x,why)=>`<a href="daily.html#vocab=${encodeURIComponent(x.k)}" class="flex flex-wrap items-center gap-x-3 gap-y-0.5 ${bd} bg-white dark:bg-slate-900 px-3 py-2 text-sm hover:border-indigo-400">${dn(x.k)?'<span class="text-emerald-600">✔</span>':'<span class="text-slate-300">○</span>'}<b>${esc(x.w)}</b><span class="text-slate-400 truncate">${esc(x.zh)}</span><span class="ml-auto text-xs text-slate-400">${dn(x.k)?'已完成':esc(why)}</span></a>`;
+  const sect=(t,l,f)=>l.length?`<h3 class="mt-4 mb-1.5 text-sm font-semibold">${t}（${l.length}）</h3><div class="space-y-1.5">${l.map(x=>row(x,f(x))).join('')}</div>`:'';
+  if(!tot)return `<p class="text-slate-500 text-sm">${POOL.length?'目前沒有可推薦的字。':'題庫載入中…'}</p>`;
+  return `<div class="${bd} bg-white dark:bg-slate-900 p-4"><div class="flex items-baseline justify-between"><p class="text-lg font-bold">今日推薦 ${esc(DP.date)}${DP.rounds.length>1?`・第 ${DP.rounds.length} 輪`:''}</p><span class="text-sm ${left?'text-slate-500':'text-emerald-600'}">${fin} / ${tot}</span></div>
+    <div class="h-1.5 rounded bg-slate-200 dark:bg-slate-800 overflow-hidden mt-2"><div class="h-full bg-indigo-500" style="width:${Math.round(fin/tot*100)}%"></div></div>
+    ${sect('🆕 新字',nw,nwWhy)}${sect('🔁 複習',rv,rvWhy)}
+    <p class="mt-4 text-xs text-slate-400">流程：新字閃卡 → 複習字克漏字 → 新字克漏字。名單今天固定，重新整理不會換；今天已做完的字不會再出現。</p>
+    ${left?`<button data-dpgo="1" class="mt-3 w-full rounded-lg bg-indigo-600 text-white py-2">${fin?'繼續':'開始'}（還剩 ${left} 字）</button>`:`<p class="mt-3 text-emerald-600 font-semibold">🎉 今日完成！</p><button data-dpmore="1" class="mt-2 w-full rounded-lg bg-indigo-600 text-white py-2">再來 5 新 + 5 複習</button>`}</div>`}
+function dpStart(){const rd=DP.rounds[DP.rounds.length-1];if(!rd)return;const todo=a=>a.map(pitem).filter(x=>x&&!DP.done.includes(x.k)),nw=todo(rd.nw),rv=todo(rd.rv),
+    q=[],plan=[],sec=[],last=[],kind=[],add=(x,m,s,l,kd)=>{q.push(x);plan.push(m);sec.push(s);last.push(l);kind.push(kd)};
+  nw.forEach(x=>add(x,'flash',false,!x.cl.length,'n'));
+  rv.forEach(x=>add(x,x.cl.length?'cloze':'flash',false,true,'r'));
+  nw.filter(x=>x.cl.length).forEach(x=>add(x,'cloze',true,true,'n'));
+  if(!q.length)return;
+  R={q,i:0,ok:0,bad:[],dp:{plan,sec,last,kind,pm:mode}};R.q.forEach(x=>{x._fix=false});shown=false;done=false;paint()}
+function dpMore(){leaveDp();R=null;const ex=new Set(DP.rounds.flatMap(r=>[...r.nw,...r.rv]));DP.rounds.push(dpBuild(ex));dpSave();paint()}
+function dpDone(){const bad=[...new Map(R.bad.map(x=>[x.k,x])).values()];
+  return `<div class="${bd} bg-white dark:bg-slate-900 p-4"><p class="text-xl font-bold">🎉 今日完成 ${DP.done.length} 字</p><p class="mt-1 text-sm text-slate-500">這一輪答對 ${R.ok} / ${R.q.length} 題</p>${bad.length?`<p class="mt-3 text-sm text-slate-500">答錯或忘記的字（明天會再出現）：</p><div class="mt-1 space-y-1">${bad.map(x=>`<a class="block text-sm underline" href="daily.html#vocab=${encodeURIComponent(x.k)}">${esc(x.w)} <span class="text-slate-400">${esc(x.zh)}</span></a>`).join('')}</div>`:'<p class="mt-2 text-emerald-600">全部答對</p>'}<button data-dpmore="1" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-2">再來 5 新 + 5 複習</button><button data-dpback="1" class="mt-2 w-full rounded-lg border border-slate-300 dark:border-slate-700 py-2">回到今日清單</button></div>`}
 boot();
 </script>
 </body>

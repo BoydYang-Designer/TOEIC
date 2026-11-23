@@ -1,0 +1,142 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "tenant",
+      "type": "word",
+      "ipa": "/ˈtenənt/",
+      "pos": "n.",
+      "zh": "房客、承租人",
+      "en": "a person who pays rent to use a house, office, or building",
+      "note": "多益常見於租賃、辦公大樓公告與物業管理情境，常和 landlord（房東）成對出現。可以是租住宅的人，也可以是租辦公室或店面的公司。",
+      "forms": [
+        {
+          "w": "tenants",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "房客（複數）",
+          "ipa": "/ˈtenənts/",
+          "example": {
+            "en": "All tenants must pay the rent by the fifth of the month.",
+            "zh": "所有房客都必須在每月五日前繳租金。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "new tenant",
+          "zh": "新房客、新承租戶",
+          "example": {
+            "en": "The new tenant will move into the office next Monday.",
+            "zh": "新承租戶下週一會搬進辦公室。"
+          }
+        },
+        {
+          "phrase": "commercial tenant",
+          "zh": "商業承租戶",
+          "example": {
+            "en": "A commercial tenant must follow the building's safety rules.",
+            "zh": "商業承租戶必須遵守大樓的安全規定。"
+          }
+        },
+        {
+          "phrase": "notify the tenants",
+          "zh": "通知房客",
+          "example": {
+            "en": "Management will notify the tenants about the water shutdown.",
+            "zh": "管理單位會通知房客停水的事。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "Tenants are asked to keep the hallway clear at all times.",
+          "zh": "請房客隨時保持走廊暢通。"
+        },
+        {
+          "tag": "租賃",
+          "en": "The tenant signed a one-year lease for the small office.",
+          "zh": "這位承租人簽了這間小辦公室的一年租約。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please ask the tenant to send us the repair request.",
+          "zh": "請請房客把維修申請寄給我們。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "landlord",
+          "diff": "landlord 是出租房子的房東；tenant 是付租金的承租人，兩者角色相反。",
+          "example": {
+            "en": "The landlord promised to repair the roof before winter.",
+            "zh": "房東答應在冬天之前修好屋頂。"
+          }
+        },
+        {
+          "word": "resident",
+          "diff": "resident 只表示住在那裡的人，不一定付租金；tenant 一定是租的人。",
+          "example": {
+            "en": "Each resident of the building received a new key card.",
+            "zh": "大樓的每位住戶都拿到新的感應卡。"
+          }
+        },
+        {
+          "word": "tennis",
+          "diff": "tennis 是「網球」，發音（第一音節與重音）和拼法都像 tenant，但意思完全不同。",
+          "kind": [
+            "spell",
+            "sound"
+          ],
+          "example": {
+            "en": "The tenant asked if the building has a tennis court.",
+            "zh": "房客問這棟大樓有沒有網球場。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "renter",
+          "diff": "renter 比較口語，也可指租車或租設備的人；tenant 較正式，專指租房子或辦公室的人。",
+          "example": {
+            "en": "The renter called the office about a broken light.",
+            "zh": "這位租客打電話到辦公室反映燈壞了。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "lease",
+          "pos": "n.",
+          "zh": "租約",
+          "ipa": "/liːs/",
+          "example": {
+            "en": "We signed a two-year lease for the new office.",
+            "zh": "我們簽了新辦公室的兩年租約。"
+          }
+        },
+        {
+          "w": "rent",
+          "pos": "n.",
+          "zh": "租金",
+          "ipa": "/rent/",
+          "example": {
+            "en": "The monthly rent includes water, electricity, and Internet service.",
+            "zh": "每月租金包含水費、電費和網路費。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [],
+      "senses": [],
+      "nw_done": [
+        {
+          "id": "nmwt19ezowe0o",
+          "result": "added"
+        }
+      ]
+    }
+  ]
+}
