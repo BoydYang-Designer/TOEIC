@@ -881,6 +881,21 @@ class Daily(Profile):
             sm = v.get('similar')
             if v.get('type') != 'sentence' and isinstance(sm, list) and any(not (isinstance(c, dict) and isinstance(c.get('example'), dict) and str(c['example'].get('en') or '').strip()) for c in sm):
                 wa.append('「%s」similar 有項目缺例句（similar[].example.en）' % t)
+            # 單字音標：多詞性、衍生字、多義、易混淆、近義、搭配裡「單字」（沒有空格）的項目都要有 ipa；片語不用（缺的會列入網頁的「未完整詳解」）
+            if v['type'] in ('word', 'phrase'):
+                def _noipa(o):
+                    return isinstance(o, dict) and not str(o.get('ipa') or '').strip()
+                def _oneword(s):
+                    return bool(s) and not re.search(r'\s', str(s).strip())
+                _ipa_chk = [('confusable', lambda o: o.get('word') or o.get('phrase')), ('similar', lambda o: o.get('phrase') or o.get('word')), ('collocations', lambda o: o.get('phrase') or o.get('p'))]
+                if v['type'] == 'word':
+                    _ipa_chk += [('pos_uses', lambda o: 'x'), ('derived', lambda o: o.get('w')), ('senses', lambda o: 'x')]
+                for _k, _kf in _ipa_chk:
+                    _lst = v.get(_k)
+                    if isinstance(_lst, list):
+                        _bad = [o for o in _lst if isinstance(o, dict) and _oneword(_kf(o)) and _noipa(o)]
+                        if _bad:
+                            wa.append('「%s」%s 有 %d 筆單字缺 ipa（美式音標；片語不用）' % (t, _k, len(_bad)))
             nd = v.get('nw_done')   # 新單字備註的處理結果（網頁靠它把新單字標成「已更新」）
             if nd is not None and not (isinstance(nd, list) and nd and all(isinstance(o, dict) and str(o.get('id') or '').strip() and o.get('result') in ('added', 'covered', 'unclear') for o in nd)):
                 er.append('「%s」nw_done 必須是非空陣列，每一項需含 id 與 result（added／covered／unclear）' % t)

@@ -236,7 +236,7 @@ function cfOpen() {
 }
 function cfNote(own, ws, remark, kinds) {
   return `請在「${own}」的易混淆（confusable）新增：${ws.map(w => `「${w}」`).join('、')}。` +
-    `每個字先確認它是否真的容易和「${own}」搞混（拼法、發音或意思相近）：是的話，各加一筆 { word, diff, example }，diff 一句話說明和「${own}」的差異，example（en + zh）8–15 字、必須真的用到該易混淆字、並讓人看得出差異；差異在詞性或文法用法時才加 usage。` +
+    `每個字先確認它是否真的容易和「${own}」搞混（拼法、發音或意思相近）：是的話，各加一筆 { word, ipa, diff, example }，ipa 是 word 的美式音標（含斜線，如 /rɪˈsiːt/；word 若是片語就不用 ipa），diff 一句話說明和「${own}」的差異，example（en + zh）8–15 字、必須真的用到該易混淆字、並讓人看得出差異；差異在詞性或文法用法時才加 usage。` +
     `每一筆都要加 kind（分類，陣列，值見提示詞的 kind 說明）。` + (kinds.length ? `我認為它們和「${own}」的關係是：${kinds.map(k => DN_KIND[k] + '（' + k + '）').join('、')}，請確認；不對就照你的判斷。` : '') +
     `若它其實是「意思相近、可互換」的說法，改放近義片語（similar）並說明；若不適合放進任何一欄，就不要硬加。原有的易混淆項目一律保留。` +
     (remark ? `我的說明：${remark}` : '');
@@ -248,7 +248,7 @@ function cfNoteAI(own, ws, remark, kinds) { // 請 AI 依 5 類（或我勾選�
     `請依這幾類逐一思考：${use.map(k => DN_KIND[k] + '（' + k + '）').join('、')}。` +
     `每一類都要實際比對，不要只憑印象：sound（音似）請拿雙方的音標（IPA）比，開頭或結尾音節相同、重音位置相同、音節數相近都算音似；spell（形似）看字形；meaning（義近）看語氣、用法或搭配；root（同字根）看字根；zhsame（中文同義）看中文翻譯。` +
     `只要有明顯相似、而且是多益程度的常見字就列入，不必等到考試真的考過；只有完全看不出相似、或太冷僻的字才跳過，不要為了湊數硬加。都沒有就不要新增任何項目，nw_done 的 result 填 covered。` +
-    `要加的字，每個各加一筆 { word, diff, kind, example }：diff 一句話說明和「${own}」的差異，kind 填它屬於哪幾類（陣列），example（en + zh）8–15 字、必須真的用到該字、並讓人看得出差異；差異在詞性或文法用法時才加 usage。` +
+    `要加的字，每個各加一筆 { word, ipa, diff, kind, example }：ipa 是 word 的美式音標（含斜線；word 若是片語就不用 ipa），diff 一句話說明和「${own}」的差異，kind 填它屬於哪幾類（陣列），example（en + zh）8–15 字、必須真的用到該字、並讓人看得出差異；差異在詞性或文法用法時才加 usage。` +
     `若它其實是意思相近、可互換的說法，改放近義片語（similar）。原有的易混淆項目一律保留，不要重複。` +
     (remark ? `我的說明：${remark}` : '');
 }
@@ -286,13 +286,13 @@ const SP_BLK = [
   { k: 'grammar_note', t: ['word', 'phrase'], lab: '文法說明 grammar_note', has: spStr('grammar_note'), ins: 'grammar_note（文法說明）：我明確想要這個區塊，請寫出這個字最實用、最容易用錯的文法點（一到兩句繁體中文，具體、可直接套用，例如詞性與用法、可數或不可數、後面接的介系詞或句型）；只有真的完全沒有可說的，才不寫並在 nw_done 填 covered' },
   { k: 'pattern', t: ['phrase', 'sentence'], lab: '句型模板 pattern', has: spStr('pattern'), ins: 'pattern（句型模板）：抽成可重複使用的模板，可替換的部分用 V、N、時間、人物 等標示' },
   { k: 'pos_uses', t: ['word'], lab: '多詞性 pos_uses', has: spArr('pos_uses'), ins: 'pos_uses（多詞性）：每個常見詞性一筆，含 pos、ipa、zh、example；只有單一詞性就輸出 []' },
-  { k: 'senses', t: ['word'], lab: '多義 senses', has: spArr('senses'), ins: 'senses（多義）：同詞性內不同意思，每筆含 pos、zh、en、example；只有單一意思就輸出 []' },
+  { k: 'senses', t: ['word'], lab: '多義 senses', has: spArr('senses'), ins: 'senses（多義）：同詞性內不同意思，每筆含 pos、ipa（該詞性的美式音標）、zh、en、example；只有單一意思就輸出 []' },
   { k: 'forms', t: ['word'], lab: '屈折變化 forms', has: spArr('forms'), ins: 'forms（屈折變化）：每筆含 w、label、pos、zh、ipa、example；沒有屈折變化就輸出 []' },
   { k: 'derived', t: ['word'], lab: '同字族 derived', has: spArr('derived'), ins: 'derived（衍生字）：每筆含 w、ipa、pos、zh、link（記憶連結）；沒有常見衍生字就輸出 []' },
-  { k: 'collocations', t: ['word'], lab: '常用搭配 collocations', has: spArr('collocations'), ins: 'collocations（常用搭配）：2–5 個，每個都要有 phrase、zh 與自己的 example' },
+  { k: 'collocations', t: ['word'], lab: '常用搭配 collocations', has: spArr('collocations'), ins: 'collocations（常用搭配）：2–5 個，每個都要有 phrase、zh 與自己的 example；搭配若只是單字（沒有空格）要加 ipa（美式音標）' },
   { k: 'examples', t: ['word', 'phrase', 'sentence'], lab: '例句 examples', has: spArr('examples'), ins: 'examples（例句）：每句 8–15 字、商務情境，加 tag 標示情境；不要與原有例句重複' },
-  { k: 'confusable', t: ['word', 'phrase'], lab: '易混淆 confusable', has: spArr('confusable'), ins: 'confusable（易混淆）：依 spell／sound／meaning／root／zhsame 5 類逐一比對，每筆含 word（片語用 phrase）、diff、kind、example；沒有合適的字就不加，不要硬湊' },
-  { k: 'similar', t: ['word', 'phrase'], lab: '近義片語 similar', has: spArr('similar'), ins: 'similar（近義片語）：每筆含 phrase（單字用 word）、diff、example；真的沒有就不加' },
+  { k: 'confusable', t: ['word', 'phrase'], lab: '易混淆 confusable', has: spArr('confusable'), ins: 'confusable（易混淆）：依 spell／sound／meaning／root／zhsame 5 類逐一比對，每筆含 word（片語用 phrase；是單字時要有 ipa，美式音標）、diff、kind、example；沒有合適的字就不加，不要硬湊' },
+  { k: 'similar', t: ['word', 'phrase'], lab: '近義片語 similar', has: spArr('similar'), ins: 'similar（近義片語）：每筆含 phrase（單字用 word；是單字時要有 ipa，美式音標）、diff、example；真的沒有就不加' },
   { k: 'family', t: ['word'], lab: '相關字 family', has: spArr('family'), ins: 'family（相關字）：最多 4 個，每個含 w、ipa、pos、zh、example' },
   { k: 'chunks', t: ['sentence'], lab: '意群斷句 chunks', has: spArr('chunks'), ins: 'chunks（意群斷句）：3–8 個意群，每筆 en＋zh；所有 en 依序接起來必須剛好等於整句' },
   { k: 'structure', t: ['sentence'], lab: '句型結構 structure', has: spStr('structure'), ins: 'structure（句型結構）：用一行拆解句型' },

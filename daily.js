@@ -984,7 +984,7 @@ function dfPromptText(x) {
     '1. 對照新文稿，逐項判斷哪些欄位需要改；沒有問題的欄位不要動。',
     '・zh：與新文稿逐句對應；有改才回傳「整篇」新翻譯，沒改請留空字串。',
     '・vocab：每個字必須實際出現在新文稿（原形或僅加 -s/-es/-d/-ed/-ing；片語須與文稿寫法完全一致）；每筆含 word、ipa、pos、col、zh；調整後總數維持 3–6 個。要換字：把舊字放 remove、新字放 upsert。',
-    '・extra_vocab：upsert 要給「完整的一筆」（欄位與完整度同目前該字的詳解；新字則同先前的 _extra 詳解格式，word 需 ipa／pos／en／至少 2 個例句／collocations／forms／derived／pos_uses／senses 等）；remove 放要移除的 text。',
+    '・extra_vocab：upsert 要給「完整的一筆」（欄位與完整度同目前該字的詳解；新字則同先前的 _extra 詳解格式，word 需 ipa／pos／en／至少 2 個例句／collocations／forms／derived／pos_uses／senses 等；詳解內每個單字（含 senses、confusable、similar 裡的單字）都要有美式 ipa，片語不用）；remove 放要移除的 text。',
     '・questions：只要有任何一題需要改，就回傳「整組」題目（含沒改的題）；格式同目前：kind（context／part5）、q、opts（剛好 4 個）、ans（0–3）、why（剛好 4 句，正解那句以「正解：」開頭）；沒有要改請回傳空陣列 []。context 題要符合新文稿，part5 題不看文稿也能作答。',
     '・presentation_phrases：有要改才回傳「整組」（每筆 phrase、meaning、usage）；沒改請回傳 []。',
     '2. 不要為了改而改。全部都沒問題時，所有欄位維持空值，changes 寫「檢查後都沒有問題」。', '',
