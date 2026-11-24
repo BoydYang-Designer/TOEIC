@@ -58,6 +58,80 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 ID_RE = re.compile(r'^d([1-7])-(\d{3})-([emh])$')
 
 
+# ---------- 詳解音檔位置檢查（與 auto-speech.py 的 plan_daily／網頁 notes.js 的檔名規則一致）----------
+# 例句 mp3 的檔名是「{單字slug}_{後綴}{第幾筆}.mp3」，不含句子內容。所以 AI 回傳的整筆詳解只要在
+# examples／collocations／forms／family／confusable／similar／pos_uses／senses／paraphrase 中間插入、刪除、
+# 重新排序或改寫了句子，後面的編號就會位移，網頁會用舊 mp3 念錯的句子（而且不會有任何錯誤訊息）。
+def _slot_norm(s):
+    return re.sub(r'\s+', ' ', str(s or '').strip().lower())
+
+
+def _slot_fnv6(s):
+    h = 0x811C9DC5
+    for b in s.encode('utf-8'):
+        h ^= b
+        h = (h * 0x01000193) & 0xFFFFFFFF
+    return ('%08x' % h)[:6]
+
+
+def _slot_slug(text):
+    k = _slot_norm(text)
+    s = re.sub(r'[^a-z0-9]+', '-', k).strip('-')
+    if s and len(s) <= 40:
+        return s
+    return s[:40].rstrip('-') + ('-' if s else '') + _slot_fnv6(k)
+
+
+def audio_slots(v):
+    """一筆詳解 → {mp3 後綴: 句子}（只含「檔名依位置編號」的例句類；單字本身走共用庫 words/，不會位移）。"""
+    out = {}
+    if not isinstance(v, dict):
+        return out
+
+    def en_of(o):
+        ex = o.get('example') if isinstance(o, dict) else None
+        t = ex.get('en') if isinstance(ex, dict) else None
+        return t.strip() if isinstance(t, str) and t.strip() else None
+
+    for k, ex in enumerate(v.get('examples') or [], 1):
+        t = ex if isinstance(ex, str) else (ex or {}).get('en')
+        if isinstance(t, str) and t.strip():
+            out['_e%d' % k] = t.strip()
+    for key, suf in (('collocations', '_c'), ('forms', '_fx'), ('family', '_mx'), ('confusable', '_cf'),
+                     ('similar', '_sx'), ('pos_uses', '_p'), ('senses', '_s')):
+        for k, o in enumerate(v.get(key) or [], 1):
+            t = en_of(o)
+            if t:
+                out['%s%d' % (suf, k)] = t
+    for k, o in enumerate(v.get('paraphrase') or [], 1):
+        t = o.get('en') if isinstance(o, dict) else (o if isinstance(o, str) else None)
+        if isinstance(t, str) and t.strip():
+            out['_pr%d' % k] = t.strip()
+    for key, suf in (('en', '_en'), ('en2', '_en2')):
+        if isinstance(v.get(key), str) and v[key].strip():
+            out[suf] = v[key].strip()
+    return out
+
+
+def audio_slot_report(old_v, new_v):
+    """比對同一個字的新舊詳解 → (說明行, 要刪掉重錄的 mp3 檔名)。只列「會讓現有 mp3 對不上」的位置。"""
+    a, b = audio_slots(old_v), audio_slots(new_v)
+    base = _slot_slug(old_v.get('text') or new_v.get('text'))
+    changed = [s for s in a if s in b and _slot_norm(a[s]) != _slot_norm(b[s])]
+    gone = [s for s in a if s not in b]
+    fresh = [s for s in b if s not in a]
+    key = lambda s: (re.sub(r'\d+$', '', s), int(re.search(r'(\d+)$', s).group(1)) if re.search(r'\d+$', s) else 0)
+    lines = []
+    for s in sorted(changed, key=key):
+        lines.append('     ✖ %s_%s.mp3：舊「%s」→ 新「%s」（舊 mp3 會念錯句）' % (base, s.lstrip('_'), a[s][:40], b[s][:40]))
+    for s in sorted(gone, key=key):
+        lines.append('     ✖ %s_%s.mp3：新版已沒有這一筆（舊「%s」），mp3 變孤兒' % (base, s.lstrip('_'), a[s][:40]))
+    for s in sorted(fresh, key=key):
+        lines.append('     ＋ %s_%s.mp3：新增「%s」（要錄音）' % (base, s.lstrip('_'), b[s][:40]))
+    stale = ['%s_%s.mp3' % (base, s.lstrip('_')) for s in changed + gone]
+    return lines, stale
+
+
 def did(week, day):
     """文章 id：D8 是專案，day 8、9、10… ＝ 專案內第 1、2、3 篇 → w1d8-1、w1d8-2…；其他天照舊 w1d3。"""
     return 'w%dd8-%d' % (week, day - 7) if day >= 8 else 'w%dd%d' % (week, day)
@@ -708,7 +782,23 @@ class Daily(Profile):
             if not old:
                 continue
             lab = self.fmt_key(k)
-            if self.is_text_patch(e) and self.norm_passage(e['passage']) == old.get('passage'):
+            if self.is_patch(e):   # 詳解補丁：檢查新舊詳解的例句位置，避免 mp3 編號位移後念錯句
+                olds = {self.xkey(o): o for o in (old.get('extra_vocab') or []) if isinstance(o, dict)}
+                blk, stale_all = [], []
+                for nv in e.get('extra_vocab') or []:
+                    ov = olds.get(self.xkey(nv))
+                    if not ov:
+                        continue
+                    ls, stale = audio_slot_report(ov, nv)
+                    if ls:
+                        blk += ['   「%s」：' % nv.get('text')] + ls
+                        stale_all += stale
+                if blk:
+                    out += ['', '【詳解補丁 %s：例句音檔位置有變動】' % lab] + blk
+                    if stale_all:
+                        out += ['  ⚠ 上面標 ✖ 的 mp3 內容和新句子不符。合併後請先刪掉這些檔（或用網頁 🔧 音檔修復），再執行自動語音重錄；',
+                                '    不刪的話，網頁會照舊檔播出舊句子，且不會有錯誤訊息。若不是你要的改動，請取消合併，要 AI 把新增項目接在陣列最後面。']
+            elif self.is_text_patch(e) and self.norm_passage(e['passage']) == old.get('passage'):
                 out += ['', '【文稿補丁 %s】' % lab, '  • 文稿本身沒變，只換簡報句型（%d → %d 句）；timing 與 mp3 都不動。' % (
                     len(old.get('presentation_phrases') or []), len(e.get('presentation_phrases') or []))]
             elif self.is_text_patch(e):
@@ -741,7 +831,7 @@ class Daily(Profile):
                     out += question_diff(old.get('questions') or [], f['questions'])
                 if old.get('review_pending'):
                     out.append('  • 合併後清除 review_pending。')
-        return out[:70] + (['…（說明太長，其餘略）'] if len(out) > 70 else [])
+        return out[:120] + (['…（說明太長，其餘略）'] if len(out) > 120 else [])
 
     def before_write(self, main_path, new_by_key, old_by_key):
         """寫主檔之前：文稿補丁要把舊版（整筆資料＋舊 mp3）複製到 _trash 當「版本備份」。回傳要交給 after_write 的狀態。"""
