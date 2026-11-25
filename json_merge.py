@@ -35,6 +35,10 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / par
      questions, presentation_phrases, changes}}。空字串／空陣列／省略＝不改；questions、presentation_phrases 有內容就整組取代；
      vocab、extra_vocab 依 word／text 做 upsert、remove；changes 只給人看。合併前把補丁套到舊文章上，用整篇驗證檢查結果；
      成功後清除 review_pending（欄位全空的 fix 也一樣，只清旗標）。確認視窗會逐題顯示 questions 新舊對照。
+  3d. 只追加補丁（「＋新增易混淆字」專用，放在 w1d3_extra.json 的 extra_vocab 裡）：
+     {"text":"overlook","confusable_add":[{word,ipa,diff,kind,example}],"similar_add":[…],"nw_done":[{id,result}]}
+     不是完整詳解：程式把新項目接到該字既有 confusable／similar 陣列的最後面（重複的略過），其他欄位原樣不動；
+     既有項目順序不變，所以 mp3 位置編號（_cf1、_cf2…）不會位移。week／day 必須是那個字現有詳解所在的那一篇。
   5. 文稿比對（每日文章）：錄完音後又改了文稿（例如刪掉 "The man :" 才錄），按底部「文稿比對修改…」（或錄音視窗的「文稿比對（依音檔）」）：
      用 whisper 聽 mp3，把「音檔真的有唸的字」當標準，與 daily.json 的 passage 逐字比對；每一處差異預設都不勾，
      人工勾選要採用的 →「套用並重新對時」（自動備份；只改該篇的 passage 與 timing）→ 可接著執行 Scan總表與音檔.py。辨識結果會快取在 backup/asr_cache/。
@@ -130,6 +134,68 @@ def audio_slot_report(old_v, new_v):
         lines.append('     ＋ %s_%s.mp3：新增「%s」（要錄音）' % (base, s.lstrip('_'), b[s][:40]))
     stale = ['%s_%s.mp3' % (base, s.lstrip('_')) for s in changed + gone]
     return lines, stale
+
+
+# ---------- 只追加補丁（confusable_add／similar_add）----------
+# 「＋新增易混淆字」的 AI 回傳不再整筆重寫詳解，只回要新增的項目：
+#   {"text":"overlook","confusable_add":[{word,ipa,diff,kind,example}],"similar_add":[…],"nw_done":[{id,result}]}
+# 合併時由程式接到既有 confusable／similar 陣列「最後面」：既有項目的順序與內容完全不動，
+# 所以 mp3 的位置編號（_cf1、_cf2…）不會位移；AI 根本碰不到既有項目。
+ADD_FIELDS = (('confusable_add', 'confusable'), ('similar_add', 'similar'))
+ADD_ALLOWED = {'text', 'type', 'confusable_add', 'similar_add', 'nw_done'}
+CF_KINDS = ('spell', 'sound', 'meaning', 'root', 'zhsame')
+
+
+def is_add_entry(v):
+    """只追加格式：有 confusable_add／similar_add；或只有 text（＋type）＋nw_done（AI 找不到合適的字，只回報處理結果）。"""
+    if not isinstance(v, dict):
+        return False
+    return any(k in v for k, _ in ADD_FIELDS) or ('nw_done' in v and set(v) <= {'text', 'type', 'nw_done'})
+
+
+def _add_key(o):
+    if isinstance(o, str):
+        t = o
+    elif isinstance(o, dict):
+        t = o.get('word') or o.get('phrase') or ''
+    else:
+        t = ''
+    return re.sub(r'\s+', ' ', str(t).strip().lower())
+
+
+def apply_add_entry(old_v, nv):
+    """把只追加的 nv 併進既有詳解 old_v：新項目一律接在陣列最後面，重複（含本字自己）略過，其餘欄位原樣。"""
+    m = copy.deepcopy(old_v)
+    own = Daily.xkey(m)
+    for ak, fld in ADD_FIELDS:
+        add = nv.get(ak)
+        if not isinstance(add, list) or not add:
+            continue
+        cur = m.get(fld) if isinstance(m.get(fld), list) else []
+        have = {_add_key(o) for o in cur}
+        for o in add:
+            k = _add_key(o)
+            if not k or k == own or k in have:
+                continue
+            cur.append(copy.deepcopy(o))
+            have.add(k)
+        m[fld] = cur
+    nd = nv.get('nw_done')
+    if isinstance(nd, list) and nd:
+        old_nd = [o for o in (m.get('nw_done') or []) if isinstance(o, dict)]
+        new_ids = {o.get('id') for o in nd if isinstance(o, dict)}
+        m['nw_done'] = [o for o in old_nd if o.get('id') not in new_ids] + copy.deepcopy([o for o in nd if isinstance(o, dict)])
+    return m
+
+
+def add_applied(old_v, nv):
+    """這個只追加是不是已經合併過了（重複合併同一個檔案時，視為相同）。"""
+    for ak, fld in ADD_FIELDS:
+        have = {_add_key(o) for o in (old_v.get(fld) or [])}
+        if any(_add_key(o) not in have for o in (nv.get(ak) or []) if _add_key(o) and _add_key(o) != Daily.xkey(old_v)):
+            return False
+    ids = {o.get('id') for o in (old_v.get('nw_done') or []) if isinstance(o, dict)}
+    return all(isinstance(o, dict) and o.get('id') in ids for o in (nv.get('nw_done') or []))
 
 
 def did(week, day):
@@ -596,7 +662,7 @@ class Daily(Profile):
             return isinstance(a, dict) and self.apply_fix(a, b) == a
         if self.is_patch(b):
             old = {self.xkey(v): v for v in (a.get('extra_vocab') or []) if isinstance(v, dict)}
-            return isinstance(a, dict) and all(self.xkey(v) in old and old[self.xkey(v)] == v for v in b['extra_vocab'])
+            return isinstance(a, dict) and all(self.xkey(v) in old and (add_applied(old[self.xkey(v)], v) if is_add_entry(v) else old[self.xkey(v)] == v) for v in b['extra_vocab'])
         strip = lambda e: {k: v for k, v in e.items() if k != 'timing'}
         return isinstance(a, dict) and isinstance(b, dict) and strip(a) == strip(b)
 
@@ -612,6 +678,10 @@ class Daily(Profile):
             for nv in e['extra_vocab']:
                 k = self.xkey(nv)
                 i = next((j for j, o in enumerate(cur) if self.xkey(o) == k), None)
+                if is_add_entry(nv):   # 只追加：接在既有陣列最後面，其他欄位原樣（驗證已確認那一筆存在）
+                    if i is not None:
+                        cur[i] = apply_add_entry(cur[i], nv)
+                    continue
                 if i is None:
                     cur.append(nv)
                 else:
@@ -660,7 +730,8 @@ class Daily(Profile):
             return ['     ' + self.describe(e)]
         if self.is_patch(e):
             xs = e.get('extra_vocab')
-            return ['     補丁：extra_vocab %d 筆' % (len(xs) if isinstance(xs, list) else 0)]
+            na = sum(1 for v in xs if is_add_entry(v)) if isinstance(xs, list) else 0
+            return ['     補丁：extra_vocab %d 筆%s' % (len(xs) if isinstance(xs, list) else 0, '（其中 %d 筆只追加）' % na if na else '')]
         if isinstance(e, dict) and isinstance(e.get('questions'), list):
             return ['     題數 %d、單字 %d、type %s' % (len(e['questions']), len(e.get('vocab') or []), e.get('type'))]
         return []
@@ -789,12 +860,21 @@ class Daily(Profile):
                     ov = olds.get(self.xkey(nv))
                     if not ov:
                         continue
+                    if is_add_entry(nv):   # 只追加：一定接在最後面，既有的 mp3 編號不會位移
+                        for ak, fld in ADD_FIELDS:
+                            have = {_add_key(o) for o in (ov.get(fld) or [])}
+                            ws = [(o.get('word') or o.get('phrase')) for o in (nv.get(ak) or []) if isinstance(o, dict) and _add_key(o) and _add_key(o) not in have and _add_key(o) != self.xkey(nv)]
+                            if ws:
+                                n0 = len(ov.get(fld) or [])
+                                blk += ['   「%s」：只追加 %s %d 筆，接在第 %d 筆之後：%s' % (nv.get('text'), fld, len(ws), n0, '、'.join(str(w) for w in ws)),
+                                        '     ＋ 新增的例句音檔（第 %s 筆）要錄音；既有的 %d 筆 mp3 編號不變' % (('%d' % (n0 + 1)) if len(ws) == 1 else ('%d–%d' % (n0 + 1, n0 + len(ws))), n0)]
+                        continue
                     ls, stale = audio_slot_report(ov, nv)
                     if ls:
                         blk += ['   「%s」：' % nv.get('text')] + ls
                         stale_all += stale
                 if blk:
-                    out += ['', '【詳解補丁 %s：例句音檔位置有變動】' % lab] + blk
+                    out += ['', '【詳解補丁 %s：例句音檔】' % lab] + blk
                     if stale_all:
                         out += ['  ⚠ 上面標 ✖ 的 mp3 內容和新句子不符。合併後請先刪掉這些檔（或用網頁 🔧 音檔修復），再執行自動語音重錄；',
                                 '    不刪的話，網頁會照舊檔播出舊句子，且不會有錯誤訊息。若不是你要的改動，請取消合併，要 AI 把新增項目接在陣列最後面。']
@@ -869,6 +949,70 @@ class Daily(Profile):
         for j in state['jobs']:
             shutil.rmtree(os.path.join(state['root'], '_trash', j['folder']), ignore_errors=True)
 
+    def validate_add(self, v, t, key, ctx, er, wa):
+        """只追加格式（confusable_add／similar_add）：不是完整詳解，只檢查要追加的項目，以及它要接的那筆現有詳解在不在。"""
+        extra = [k for k in v if k not in ADD_ALLOWED]
+        if extra:
+            er.append('「%s」是「只追加」格式，只能有 text、confusable_add、similar_add、nw_done（type 可省略），多了：%s。要改其他欄位請用整筆詳解的格式，不要混用' % (t, '、'.join(extra)))
+        k = self.xkey(v)
+        owner = (ctx.get('extras') or {}).get(k)
+        ov = None
+        if owner and owner != key:
+            er.append('「%s」的詳解在 W%dD%d，不在 W%dD%d：請把檔案的 week／day 改成 %d、%d（只追加要對著現有詳解那一篇）' % (t, owner[0], owner[1], key[0], key[1], owner[0], owner[1]))
+        else:
+            art = (ctx.get('olds') or {}).get(key) or {}
+            ov = next((o for o in (art.get('extra_vocab') or []) if isinstance(o, dict) and self.xkey(o) == k), None)
+            if not ov:
+                er.append('「%s」在 W%dD%d 還沒有詳解，無法只追加；請改用完整詳解的格式' % (t, key[0], key[1]))
+        n_add = 0
+        for ak, fld in ADD_FIELDS:
+            if ak not in v:
+                continue
+            lst = v[ak]
+            if not isinstance(lst, list):
+                er.append('「%s」%s 必須是陣列' % (t, ak))
+                continue
+            have = {_add_key(o) for o in ((ov or {}).get(fld) or [])}
+            seen = set()
+            for j, o in enumerate(lst, 1):
+                p = '「%s」%s 第 %d 筆' % (t, ak, j)
+                if not isinstance(o, dict):
+                    er.append(p + '不是物件')
+                    continue
+                w = _add_key(o)
+                if not w:
+                    er.append(p + '缺少 %s' % ('word（片語用 phrase）' if fld == 'confusable' else 'phrase（單字用 word）'))
+                    continue
+                if w == k:
+                    wa.append(p + '「%s」就是它自己，合併時會略過' % w)
+                    continue
+                if w in have or w in seen:
+                    wa.append(p + '「%s」已經在 %s 裡，合併時會略過' % (w, fld))
+                    continue
+                seen.add(w)
+                n_add += 1
+                if not str(o.get('diff') or '').strip():
+                    er.append(p + '（%s）缺少 diff' % w)
+                ex = o.get('example')
+                if not (isinstance(ex, dict) and str(ex.get('en') or '').strip()):
+                    er.append(p + '（%s）缺少 example.en' % w)
+                else:
+                    if not str(ex.get('zh') or '').strip():
+                        wa.append(p + '（%s）example 缺少 zh' % w)
+                    if w not in ex['en'].lower():
+                        wa.append(p + '（%s）的例句沒有出現這個字（變化形可忽略）' % w)
+                if fld == 'confusable':
+                    kd = o.get('kind')
+                    if not (isinstance(kd, list) and kd and all(x in CF_KINDS for x in kd)):
+                        wa.append(p + '（%s）kind 缺少或不合法（值：%s）' % (w, '／'.join(CF_KINDS)))
+                if ' ' not in w and not str(o.get('ipa') or '').strip():
+                    wa.append(p + '（%s）是單字但缺 ipa' % w)
+        nd = v.get('nw_done')
+        if nd is not None and not (isinstance(nd, list) and nd and all(isinstance(o, dict) and str(o.get('id') or '').strip() and o.get('result') in ('added', 'covered', 'unclear') for o in nd)):
+            er.append('「%s」nw_done 必須是非空陣列，每一項需含 id 與 result（added／covered／unclear）' % t)
+        if not n_add and nd is None and not extra:
+            er.append('「%s」沒有任何可追加的新項目，也沒有 nw_done；這個檔案合併了也不會有任何變化' % t)
+
     def validate_patch(self, e, ctx):
         er, wa = [], []
         for k in ('week', 'day'):
@@ -891,6 +1035,12 @@ class Daily(Profile):
             t = str(v.get('text') or '').strip()
             if not t:
                 er.append('extra_vocab 第 %d 項缺少 text' % i)
+                continue
+            if is_add_entry(v):   # 只追加格式：不是完整詳解，另外驗證
+                if self.xkey(v) in seen:
+                    er.append('「%s」在這個檔案裡重複' % t)
+                seen.add(self.xkey(v))
+                self.validate_add(v, t, key, ctx, er, wa)
                 continue
             if v.get('type') not in self.XTYPES:
                 er.append("「%s」type 必須是 word／phrase／sentence" % t)

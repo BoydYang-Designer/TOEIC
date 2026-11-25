@@ -183,6 +183,7 @@ function nwNotesFor(m) { // 這筆入庫項目還沒被 AI 處理的新單字備
   const ks = new Set([dnKey(m.text)].concat(m.keys || [])), ids = new Set(Array.isArray(m.nw) ? m.nw : (m.nw ? [m.nw] : []));
   return nwList().filter(n => nwHasNote(n) && (ids.has(n.id) || ks.has(dnKey(n.text))) && !nwIsDone(n));
 }
+const nwCfOnly = m => { const ns = nwNotesFor(m); return ns.length > 0 && ns.every(n => n.cf); }; // 這筆待處理的備註全都來自「＋新增易混淆字」→ 提示詞走「只追加」模式（AI 只回新增的易混淆字，由 json_merge.py 接在最後面，不整筆重寫）
 function nwNoteTxt(m) { // 提示詞「要寫的項目」每一行後面接的備註
   let t = m.note ? `｜我的備註：${m.note}` : '';
   nwNotesFor(m).forEach(n => { t += `｜新單字備註[id=${n.id}]：${String(n.note).trim().replace(/\s+/g, ' ')}`; });

@@ -775,21 +775,66 @@ function dnPromptItems(qid, only, fillAll) { // fillAll＝true：連已寫回但
 }
 function dnPrompt(qid, only, fillAll, extraIts, rng) { // extraIts：額外的項目（新單字補充區用的 [{ m, fill }]）
   const x = dnArt(qid); if (!x) return '';
-  const its0 = dnPromptItems(qid, only, fillAll).concat(extraIts || []), its = rng ? its0.slice(rng[0], rng[1]) : its0, lv = x.level || {}, sc = lv.score || 600, hasFill = its.some(o => o.fill), hasNw = typeof nwNotesFor === 'function' && its.some(o => nwNotesFor(o.m).length);
+  const its0 = dnPromptItems(qid, only, fillAll).concat(extraIts || []), its = rng ? its0.slice(rng[0], rng[1]) : its0, lv = x.level || {}, sc = lv.score || 600, isAdd = o => !!(o.fill && o.fill.includes('nwnote') && typeof nwCfOnly === 'function' && nwCfOnly(o.m)), hasAdd = its.some(isAdd), hasFill = its.some(o => o.fill && !isAdd(o)), hasNw = typeof nwNotesFor === 'function' && its.some(o => nwNotesFor(o.m).length);
   const items = its.map(({ m, fill }, i) => {
-    let t = `${i + 1}. ` + (fill ? '【補齊】' : '') + `type=${m.type}｜text="${m.text}"` + (m.type === 'sentence' || !m.ctx ? '' : `｜所在句："${m.ctx}"`) + (typeof nwNoteTxt === 'function' ? nwNoteTxt(m) : (m.note ? `｜我的備註：${m.note}` : ''));
-    if (fill) t += `\n   要補：${fill.map(k => DNF[k]).join('；')}\n   現有詳解（既有內容保留，只補缺的）：${JSON.stringify(dnFindExtraAny(x, m.text))}`;
+    let t = `${i + 1}. ` + (isAdd({ m, fill }) ? '【只追加】' : fill ? '【補齊】' : '') + `type=${m.type}｜text="${m.text}"` + (m.type === 'sentence' || !m.ctx ? '' : `｜所在句："${m.ctx}"`) + (typeof nwNoteTxt === 'function' ? nwNoteTxt(m) : (m.note ? `｜我的備註：${m.note}` : ''));
+    if (isAdd({ m, fill })) { // 「＋新增易混淆字」：不附整筆現有詳解，只附現有項目的字（避免重複），AI 只回新增的
+      const e0 = dnFindExtraAny(x, m.text) || {}, ws = a => dnArr(a).map(o => typeof o === 'string' ? o : (o && (o.word || o.phrase))).filter(Boolean).join('、') || '（無）';
+      t += `\n   本字：${[e0.ipa, e0.pos, e0.zh].filter(Boolean).join(' ')}\n   現有易混淆（不要重複，也不要改動）：${ws(e0.confusable)}\n   現有近義片語（不要重複）：${ws(e0.similar)}`;
+    } else if (fill) t += `\n   要補：${fill.map(k => DNF[k]).join('；')}\n   現有詳解（既有內容保留，只補缺的）：${JSON.stringify(dnFindExtraAny(x, m.text))}`;
     return t;
   }).join('\n');
+  const R_LV = `- 說明、例句、搭配、相關字都要控制在多益約 ${sc} 分的程度：用字與句型不要超過這個程度；例句 8–15 字、商務情境、不要用罕見字。`;
+  const R_IPA = '- 【音標總則】詳解裡出現的每一個「單字」（沒有空格）都要附 ipa：主字、forms、family、derived、pos_uses、senses、confusable、similar、collocations、key_words 皆然；片語（有空格）不用。不可省略，也不可用空字串或「…」代替。格式：美式、斜線包住、不加音節點；母音用 ɑː ɔː iː uː oʊ eɪ aɪ ɔɪ aʊ，字尾 r 寫 ər，g 用 ɡ（U+0261）；單音節字不標重音，多音節字標 ˈ（主重音）與 ˌ（次重音）；同一個拼法不同詞性念法不同時（如 record、present）要分開寫。';
+  const R_CONF = '- 易混淆 confusable（單字、片語）：容易和本字／本片語搞混的字（拼法、發音或意思相近），通常 1–3 個、同程度。每一筆都要有 word（片語用 phrase；word 是單字時還要有 ipa）、diff（一句話說明和本字的差異）、kind（分類，陣列），以及 example（en + zh）：例句 8–15 字、商務情境、必須真的用到「該易混淆字」，並讓讀者從句意看出它和本字的差異；不要只寫 diff 沒有例句。產生前請依這 5 類逐一想一遍：spell 形似（拼法接近）、sound 音似（發音接近）、meaning 義近（意思接近，但語氣、用法或搭配不同）、root 同字根（字根相同、字首或字尾不同、意思不同）、zhsame 中文同義（英文意思差很多，只是中文翻譯相同）。每一類都要實際比對，不要只憑印象：sound 音似請拿雙方的音標（IPA）比，開頭或結尾音節相同、重音位置相同、音節數相近都算音似；spell 形似看字形；meaning 義近看語氣、用法或搭配；root 同字根看字根；zhsame 中文同義看中文翻譯。只要有明顯相似、而且是多益程度的常見字就列入，不必等到考試真的考過；只有完全看不出相似、或太冷僻的字才跳過，不要為了湊數硬加。5 類都沒有，就省略整個 confusable 欄位。若兩者的差異不只是意思（例如詞性不同、及物與不及物、可數與不可數、後面接的句型不同），才在該筆加選填的 usage（一到兩句繁體中文，具體說明用法或文法差異，如「affect 是動詞、effect 是名詞」）；只是意思不同就不要寫 usage。kind 的值只能是這五種，可複選（通常 1–2 個）：spell＝形似（拼法接近，如 principal／principle）；sound＝音似（發音接近，如 accept／except）；meaning＝義近（英文意思也很接近，但語氣、用法或搭配不同，如 economic／economical）；root＝同字根（字根相同、字首或字尾不同、意思不同，如 considerable／considerate）；zhsame＝中文同義（英文意思差很多，只是中文翻譯相同，如 borrow／lend 都翻成「借」）。純粹可以互相替換的同義說法請放 similar，不要放 confusable。';
+  const R_SIM = '- 近義片語 similar（單字、片語）：意思相近、可以互相替換（或常被拿來比較）的字或片語，通常 1–3 個、同程度。每一筆都要有 phrase（單字用 word；是單字時還要有 ipa）、diff（一句話說明和本項目在語氣、用法或後面接的詞上的差異），以及 example（en + zh）：例句 8–15 字、商務情境、必須真的用到「該近義片語」。不要與 confusable 重複（confusable 是拼法、發音容易搞混的字；similar 是意思相近的說法）。真的沒有就省略這個欄位。';
+  const addRules = [
+    '【只追加模式（標示【只追加】的項目）】',
+    '- 這些字已經有詳解，這次只要「新增易混淆項目」，所以不要輸出整筆詳解。現有項目由程式保留、新項目由程式接在陣列最後面，你不必也不可以抄回、改寫或重新排序現有項目。',
+    '- 這一筆只輸出：{ "text": "（與項目完全相同）", "confusable_add": [ { "word": "…", "ipa": "/…/", "diff": "…", "kind": ["…"], "example": { "en": "…", "zh": "…" } } ], "nw_done": [ { "id": "（備註的 id）", "result": "added" } ] }。kind 的值只能是 spell／sound／meaning／root／zhsame，可複選（依實際關係填，不要照抄範例）；word 若是片語改用 phrase（片語不用 ipa）；usage 只在差異是詞性或文法用法時才加；每筆的內容規則同「易混淆 confusable」。',
+    '- 若要加的其實是「意思相近、可互換」的說法，放進 "similar_add"（每筆含 phrase（單字用 word）、ipa（單字才要）、diff、example），不要放進 confusable_add。',
+    '- 不要重複「現有易混淆」或「現有近義片語」已經有的字；每個字先確認它真的容易和本字搞混，沒有合適的就不要硬加：這時 confusable_add 輸出 []，nw_done 的 result 填 covered。',
+    '- nw_done 的 result：added＝已追加新項目；covered＝現有項目已涵蓋、或找不到合適的字，沒有新增；unclear＝備註看不懂或無關，沒有處理。備註的 id 要照抄，每一條備註各一筆。',
+    '- 這種項目的 nw_done 只寫這次處理的備註；既有的 nw_done 由程式保留，不用抄回（這條優先於「新單字備註」規則的最後一條）。',
+    '- 這一筆除了 text、confusable_add、similar_add、nw_done，不要出現任何其他欄位（zh、ipa、examples、collocations…），出現了合併時會被擋下。'
+  ];
+  if (hasAdd && its.every(isAdd)) { // 全部都是「＋新增易混淆字」：精簡提示詞，不附文章全文、其他欄位的規則與整筆詳解範本，避免 AI 寫成整筆
+    return [
+      '你是 TOEIC 英語教材編輯。下面的單字／片語「已經有詳解」，我想替它們「新增易混淆字」。這次不要重寫詳解，只輸出要新增的項目；程式會把它們接在現有項目的最後面。',
+      '',
+      `【程度】多益約 ${sc} 分${lv.cefr ? `（CEFR ${lv.cefr}）` : ''}`,
+      '',
+      '【規則】',
+      R_LV,
+      '- 中文一律繁體；音標用美式 IPA（含斜線，如 /kənˈfɜːrm/）。',
+      R_IPA,
+      R_CONF.replace('5 類都沒有，就省略整個 confusable 欄位。', '5 類都沒有，就不要新增（confusable_add 輸出 []，nw_done 填 covered）。').replace('請放 similar，不要放 confusable。', '請放 similar_add，不要放 confusable_add。'),
+      R_SIM,
+      '',
+      '【新單字備註】',
+      '- 標有「新單字備註[id=…]」的項目，備註是使用者自己記下的想法，可能是語音輸入，會有錯字、同音字或中英夾雜；請先判斷真正想加的是哪個字；看不懂、或明顯與該單字無關，就不要硬猜。備註原文不要貼進詳解。',
+      '',
+      '【要寫的項目】（每項的 text 必須與下面完全相同，不可改寫或加減字）',
+      items,
+      '',
+      ...addRules,
+      '',
+      '【輸出格式】',
+      `請直接產生一個「可下載的 JSON 檔案」，檔名 w${x.week}d${x.day}_extra.json（UTF-8、純 JSON，不要包 markdown 程式碼框）。聊天裡只需一句話說明檔案已產生，不要貼出全文。若你無法產生檔案，才改成只輸出一個 json 程式碼區塊（${FENCE}json … ${FENCE}），區塊外不加任何文字。內容是單一物件，extra_vocab 依上面項目順序、每項一筆；不要輸出文章的其他欄位。檔案內容格式：`,
+      FENCE + 'json',
+      `{ "week": ${x.week}, "day": ${x.day}, "extra_vocab": [ { "text": "（與項目完全相同）", "confusable_add": [ { "word": "…", "ipa": "/…/", "diff": "…", "kind": ["…"], "example": { "en": "…", "zh": "…" } } ], "nw_done": [ { "id": "（備註的 id）", "result": "added" } ] } ] }`,
+      FENCE
+    ].join('\n');
+  }
   return [
     '你是 TOEIC 英語教材編輯。請替下面「我不懂的單字／片語／句子」各寫一筆詳解。結果會寫回 daily.json 的 extra_vocab，網頁會用來顯示詳解頁。',
     '',
     isLib(x) ? `【性質】TSL 字庫（這些字還沒有文章，請寫「通用詳解」）｜多益約 ${sc} 分` : `【這篇文章】W${x.week} D${x.day}｜${x.tag || ''}｜多益約 ${sc} 分${lv.cefr ? `（CEFR ${lv.cefr}` + (lv.range ? `，範圍 ${lv.range}` : '') + '）' : ''}`,
     '',
     '【程度規則（很重要）】',
-    `- 說明、例句、搭配、相關字都要控制在多益約 ${sc} 分的程度：用字與句型不要超過這個程度；例句 8–15 字、商務情境、不要用罕見字。`,
+    R_LV,
     '- 中文一律繁體；音標用美式 IPA（含斜線，如 /kənˈfɜːrm/）。',
-    '- 【音標總則】詳解裡出現的每一個「單字」（沒有空格）都要附 ipa：主字、forms、family、derived、pos_uses、senses、confusable、similar、collocations、key_words 皆然；片語（有空格）不用。不可省略，也不可用空字串或「…」代替。格式：美式、斜線包住、不加音節點；母音用 ɑː ɔː iː uː oʊ eɪ aɪ ɔɪ aʊ，字尾 r 寫 ər，g 用 ɡ（U+0261）；單音節字不標重音，多音節字標 ˈ（主重音）與 ˌ（次重音）；同一個拼法不同詞性念法不同時（如 record、present）要分開寫。',
+    R_IPA,
     isLib(x) ? '- note 寫這個字在多益商務情境最常見的用法與語感，1–3 句，不要寫成字典式長篇；沒有文章，不要提「這篇文章」。' : '- note 要說明「在這篇文章裡」的用法與語感，1–3 句，不要寫成字典式長篇。',
     '- 沒有內容的欄位直接省略，不要寫空字串或 null；選填欄位（grammar_note、confusable 的 usage）沒有必要就不要寫。',
     '',
@@ -798,8 +843,8 @@ function dnPrompt(qid, only, fillAll, extraIts, rng) { // extraIts：額外的�
     '- 例句 examples 數量不限：依這個字或片語實際常見的用法與情境判斷。只有一種常見用法就 2–3 句；有多個詞義、詞性或情境（會議、電子郵件、採購、出差…）就每個情境各 1–2 句，通常 3–6 句、最多 8 句。每句加 tag 標示情境（如「會議」「電子郵件」）；不要為了湊數寫重複的句型。',
     '- 常用搭配 collocations（單字）：列出多益常見的搭配（通常 2–5 個；搭配本身若只是單字，要加 ipa），每個搭配都要有自己的例句 example，例句必須真的用到該搭配，且不要與 examples 重複（網頁會把這些例句放進「例句」區並標上「常用搭配」）。',
     '- 屈折變化 forms（單字，Inflections）：只列同一個字「拼法變化」的屈折形（例：work → works、worked、working）——名詞的單數／複數、動詞的第三人稱單數／過去式／過去分詞／現在分詞、形容詞的比較級與副詞形式等；不規則變化一定要列。每一筆都要有 label（如「複數」「過去式」）、pos、zh、ipa，以及 example（en + zh）：例句 8–15 字、商務情境、同程度，必須真的用到「這個屈折形本身」（複數就要真的寫 invoices、過去式就要真的寫 invoiced），讓人從句子看出這個形態怎麼用，且不要與 examples、collocations 的例句重複；同一個拼法有多個 label（如 submitted 的過去式與形容詞）時，每一筆各寫一句不同用法的例句。加字尾或字首長出來的新字（worker、workable）不是屈折變化，一律放 derived，不要放 forms。若這個字沒有屈折變化（如介系詞、連接詞、多數副詞），輸出 "forms": []（空陣列，網頁會視為已確認、不再列入未完整）。',
-    '- 易混淆 confusable（單字、片語）：容易和本字／本片語搞混的字（拼法、發音或意思相近），通常 1–3 個、同程度。每一筆都要有 word（片語用 phrase；word 是單字時還要有 ipa）、diff（一句話說明和本字的差異）、kind（分類，陣列），以及 example（en + zh）：例句 8–15 字、商務情境、必須真的用到「該易混淆字」，並讓讀者從句意看出它和本字的差異；不要只寫 diff 沒有例句。產生前請依這 5 類逐一想一遍：spell 形似（拼法接近）、sound 音似（發音接近）、meaning 義近（意思接近，但語氣、用法或搭配不同）、root 同字根（字根相同、字首或字尾不同、意思不同）、zhsame 中文同義（英文意思差很多，只是中文翻譯相同）。每一類都要實際比對，不要只憑印象：sound 音似請拿雙方的音標（IPA）比，開頭或結尾音節相同、重音位置相同、音節數相近都算音似；spell 形似看字形；meaning 義近看語氣、用法或搭配；root 同字根看字根；zhsame 中文同義看中文翻譯。只要有明顯相似、而且是多益程度的常見字就列入，不必等到考試真的考過；只有完全看不出相似、或太冷僻的字才跳過，不要為了湊數硬加。5 類都沒有，就省略整個 confusable 欄位。若兩者的差異不只是意思（例如詞性不同、及物與不及物、可數與不可數、後面接的句型不同），才在該筆加選填的 usage（一到兩句繁體中文，具體說明用法或文法差異，如「affect 是動詞、effect 是名詞」）；只是意思不同就不要寫 usage。kind 的值只能是這五種，可複選（通常 1–2 個）：spell＝形似（拼法接近，如 principal／principle）；sound＝音似（發音接近，如 accept／except）；meaning＝義近（英文意思也很接近，但語氣、用法或搭配不同，如 economic／economical）；root＝同字根（字根相同、字首或字尾不同、意思不同，如 considerable／considerate）；zhsame＝中文同義（英文意思差很多，只是中文翻譯相同，如 borrow／lend 都翻成「借」）。純粹可以互相替換的同義說法請放 similar，不要放 confusable。',
-    '- 近義片語 similar（單字、片語）：意思相近、可以互相替換（或常被拿來比較）的字或片語，通常 1–3 個、同程度。每一筆都要有 phrase（單字用 word；是單字時還要有 ipa）、diff（一句話說明和本項目在語氣、用法或後面接的詞上的差異），以及 example（en + zh）：例句 8–15 字、商務情境、必須真的用到「該近義片語」。不要與 confusable 重複（confusable 是拼法、發音容易搞混的字；similar 是意思相近的說法）。真的沒有就省略這個欄位。',
+    R_CONF,
+    R_SIM,
     '- 文法說明 grammar_note（單字、片語，選填）：只有當這個字或片語有學習者「真的容易用錯」的文法點時才寫，一到兩句繁體中文，要具體、可直接套用，例如「look forward to 的 to 是介系詞，後面接 V-ing，不接原形」「information 是不可數名詞，不加 s」。常見的固定搭配、被動或使役句型、後面接 to V 還是 V-ing、可數或不可數、介系詞選擇都算。沒有特別的文法點就整個省略這個欄位，不要為了湊數寫「這是個及物動詞」這類空話；也不要和 note、pattern、confusable 的 usage 重複同一件事。',
     '- 相關字 family（單字，語意相近或常一起考的字，例：invoice → bill、receipt；不是同詞幹的字，同詞幹的放 derived）最多 4 個、同程度；每個都要有 ipa、pos、zh，以及至少 1 句例句 example（en + zh）。超過這個程度的字不要列。',
     '- 衍生字 derived（單字，即「同字族 Word Family」，例：work → worker、workable）：列出與這個字「同一個詞幹」、直接衍生的常見單字，最多 6 個（通常 3–6 個；真正常見的只有 1–2 個就只列那幾個，不要為了湊數硬找，也不要列不相關的字）（例如 invent → invention、inventor、inventive、inventory），只放同詞幹加字首／字尾長出來的字，不要擴及只是字根相同但拼法差很多的字（如 event、convenient）。由最基礎的字開始排。每一筆要有 w、ipa、pos、zh，以及 link（記憶連結）：用簡單直覺的繁體中文，說明「詞幹加什麼字尾，變成什麼意思」，並盡量連到我已知的單字（例：「invent + -or，做事的人，像 actor、visitor」）。這個字本身不要放進 derived；如果項目的 text 是變化形（如 updates、submitted），以原形（update、submit）為詞幹，原形本身也不要放進 derived；程度同上，太難或罕見的字不要列；單純的屈折變化（複數、第三人稱單數、過去式、-ing 分詞、比較級）已在 forms，不要放進 derived。worker、workable、submission 這類加字尾長出的字一律放 derived（forms 只放屈折變化）。若這個字真的沒有常見的衍生字，輸出 "derived": []（空陣列，這是唯一允許的空欄位），網頁會視為已確認、不再列入未完整。',
@@ -832,6 +877,7 @@ function dnPrompt(qid, only, fillAll, extraIts, rng) { // extraIts：額外的�
       '- 「要補」沒有列出的欄位（zh、ipa、pos、en、note、forms、collocations、examples、confusable、family、derived、pos_uses、senses、grammar_note、confusable 的 usage 與 kind、chunks、structure、grammar、pattern、paraphrase、key_words、usages 等），必須逐字原樣抄回，不可改寫、刪減、重新排序或「順便優化」；只有「要補」列出的欄位可以新增或補齊。',
       ''
     ] : []),
+    ...(hasAdd ? addRules.concat(['- 下面「各 type 的欄位」的範例是給其他項目用的，【只追加】的項目不要照它寫。', '']) : []),
     '【輸出格式】',
     `請直接產生一個「可下載的 JSON 檔案」，檔名 w${x.week}d${x.day}_extra.json（UTF-8、純 JSON，不要包 markdown 程式碼框）。聊天裡只需一句話說明檔案已產生，不要貼出全文。若你無法產生檔案，才改成只輸出一個 json 程式碼區塊（${FENCE}json … ${FENCE}），區塊外不加任何文字。內容是單一物件，extra_vocab 依上面項目順序、每項一筆；不要輸出文章的其他欄位，不要修改既有資料。檔案內容格式：`,
     FENCE + 'json',
