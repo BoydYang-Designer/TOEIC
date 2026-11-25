@@ -1152,6 +1152,8 @@ class Daily(Profile):
                             continue
                         if not str(u.get('ctx') or '').strip() or not str(u.get('zh') or '').strip():
                             wa.append('「%s」usages 第 %d 項（%s）缺 ctx（所在句）或 zh（解說）' % (t, j, u.get('src')))
+                        if not str(u.get('ctx_zh') or '').strip():
+                            wa.append('「%s」usages 第 %d 項（%s）缺 ctx_zh（所在句的中文翻譯，發音練習視窗要用）' % (t, j, u.get('src')))
                         ks.append(usage_key(u))
                     if len(ks) != len(set(ks)):
                         wa.append('「%s」usages 有同一篇重複的項目，合併時會只留一筆' % t)

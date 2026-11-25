@@ -33,8 +33,9 @@ const prNorm = t => String(t == null ? '' : t).trim().toLowerCase().replace(/\s+
 const prWc = t => (String(t).match(/\S*[A-Za-z0-9]\S*/g) || []).length;
 /* ---------- 音標：從資料裡找這個字的 ipa（核心單字、詳解、屈折變化、相關字、衍生字、多詞性、重點字詞） ---------- */
 let PR_IPA = null, PR_IPA_N = -1;
+const prArts = () => ((typeof DATA !== 'undefined' && Array.isArray(DATA)) ? DATA : []).concat((typeof LIB !== 'undefined' && LIB) ? [LIB] : []); // 全部文章＋TSL 字庫（字庫不在 DATA 裡）
 function prIpaMap() { // 全部文章的 {單字(小寫): [音標…]}；資料筆數變了才重建
-  const D = (typeof DATA !== 'undefined' && Array.isArray(DATA)) ? DATA : [];
+  const D = prArts();
   if (PR_IPA && PR_IPA_N === D.length) return PR_IPA;
   const m = new Map(), add = (w, ipa) => {
     w = prNorm(w); ipa = String(ipa || '').trim(); if (!w || !ipa) return;
@@ -55,6 +56,45 @@ function prIpaOf(text) { // 找不到（片語、句子、還沒補音標的字�
   if (prWc(text) > 1) return '';
   try { return (prIpaMap().get(prNorm(text)) || []).slice(0, 3).join('　／　'); } catch (e) { return ''; }
 }
+/* ---------- 中文翻譯：練習視窗在英文下面顯示。資料裡有「英文＋中文」成對的地方都會收進來（核心單字、詳解的例句／搭配／屈折／近義／易混淆／多詞性／多義、句子詳解、別篇的用法 usages.ctx＋ctx_zh），用英文原文（小寫、空白合併）對照；找不到就不顯示。 */
+let PR_ZH = null, PR_ZH_N = -1;
+function prZhMap() {
+  const D = prArts();
+  const sig = D.length * 100000 + D.reduce((n, x) => n + ((x && x.extra_vocab) ? x.extra_vocab.length : 0) + ((x && x.vocab) ? x.vocab.length : 0), 0);
+  if (PR_ZH && PR_ZH_N === sig) return PR_ZH;
+  const m = new Map(), add = (en, zh) => {
+    en = prNorm(en); zh = String(zh == null ? '' : zh).trim();
+    if (!en || !zh || !/[\u4e00-\u9fff]/.test(zh) || m.has(en)) return;   // 先寫入的優先；中文一定要有漢字
+    m.set(en, zh);
+  };
+  const walk = (o, d) => {
+    if (!o || typeof o !== 'object' || d > 6) return;
+    if (Array.isArray(o)) { o.forEach(v => walk(v, d + 1)); return; }
+    if (typeof o.en === 'string' && o.zh) add(o.en, o.zh);
+    const w = o.w || o.word || o.phrase; if (typeof w === 'string' && o.zh) add(w, o.zh);
+    if (typeof o.ctx === 'string' && o.ctx_zh) add(o.ctx, o.ctx_zh);
+    for (const k in o) { const v = o[k]; if (v && typeof v === 'object') walk(v, d + 1); }
+  };
+  D.forEach(x => { // 第一輪：核心單字與詳解本身（單字／片語／句子的 text＋zh）優先
+    (x.vocab || []).forEach(v => v && add(v.word, v.zh));
+    (x.extra_vocab || []).forEach(e => e && typeof e === 'object' && add(e.text || e.word, e.zh));
+  });
+  D.forEach(x => (x.extra_vocab || []).forEach(e => walk(e, 0)));   // 第二輪：詳解裡面成對的例句、搭配、別篇的用法…
+  D.forEach(x => { // 第三輪：文章原文逐句對照整篇中文——英文句數＝中文句數才用（對不上整篇就不用，寧可不顯示也不顯示錯的）
+    if (!x || x.library || typeof x.passage !== 'string' || typeof x.zh !== 'string') return;
+    const AB = /\b(Mr|Mrs|Ms|Dr|Inc|Ltd|Co|St|No|U\.S|[AP]\.M)\./gi;
+    const es = x.passage.replace(AB, s => s.replace(/\./g, '\u0001')).split(/(?<=[.!?])\s+|\n+/).map(s => s.replace(/\u0001/g, '.').trim()).filter(Boolean);
+    const zs = x.zh.split(/(?<=[。！？][」”]?)\s*|\n+/).map(s => s.trim()).filter(Boolean);
+    if (es.length !== zs.length) return;
+    es.forEach((en, i) => {
+      add(en, zs[i]);
+      const en2 = en.replace(/^[A-Z][A-Za-z ]{0,20}:\s*/, ''), zh2 = zs[i].replace(/^[^：。]{1,6}：\s*/, '');   // 去掉 Man:／Woman:（男：／女：）的版本，所在句有沒有帶說話者都對得到
+      if (en2 !== en && zh2 !== zs[i]) add(en2, zh2);
+    });
+  });
+  PR_ZH = m; PR_ZH_N = sig; return m;
+}
+function prZhOf(text) { try { return prZhMap().get(prNorm(text)) || ''; } catch (e) { return ''; } }
 const prBest = k => ((S.pron || {})[k] || {}).b || 0;
 
 /* ---------- 紀錄 ---------- */
@@ -536,10 +576,10 @@ function prRender() {
       <div class="flex items-center justify-between gap-2 mb-3"><h3 class="font-bold">🎙 發音練習${nv ? ` <span class="text-xs font-normal text-slate-400">${nv.pos}/${nv.total}</span>` : ''}</h3>
         <span class="text-xs text-slate-500">${rc.b ? `🏆 最高 <b class="rounded px-1.5 py-0.5 ${skPctCls(rc.b)}">${rc.b}%</b> · 練習 ${rc.n} 次` : '還沒練習過'}</span>
         <button onclick="prClose()" class="text-slate-400 hover:text-slate-600 text-2xl leading-none px-1 cursor-pointer" aria-label="關閉">×</button></div>
-      <p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>${(() => { const ip = prIpaOf(PR.text); return ip ? `<p class="-mt-2 mb-3 text-base text-slate-500">${esc(ip)}</p>` : ''; })()}
+      <p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>${(() => { const ip = prIpaOf(PR.text); return ip ? `<p class="-mt-2 mb-3 text-base text-slate-500">${esc(ip)}</p>` : ''; })()}${(() => { const z = S.prZh ? prZhOf(PR.text) : ''; return z ? `<p class="${prWc(PR.text) > 3 ? '' : '-mt-1 '}mb-3 text-base leading-relaxed text-slate-600 dark:text-slate-300">${esc(z)}</p>` : ''; })()}
       ${warn.length ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 space-y-1">${warn.map(w => `<p>⚠ ${esc(w)}</p>`).join('')}</div>` : ''}
       <div class="flex flex-wrap items-center gap-2 mb-3"><button onclick="prListen()" ${PR.ex === 'settle' || PR.st !== 'idle' ? 'disabled' : ''} class="${skCtl} ${PR.ex === 'settle' || PR.st !== 'idle' ? 'opacity-50' : ''}">${PR.ex === 'settle' ? '⏳ 關閉中…' : PR.ex === 'play' ? '⏹ 停止' : '🔊 聽範例'}</button>
-        <span class="text-xs text-slate-500 ml-auto">評分</span><button onclick="prLevel('loose')" class="${skSeg(skLoose())} !py-1 text-xs">寬鬆</button><button onclick="prLevel('strict')" class="${skSeg(!skLoose())} !py-1 text-xs">嚴格</button></div>
+        ${(() => { const z = prZhOf(PR.text); return z ? `<button onclick="prZhToggle()" class="ml-auto ${skCtl}">${S.prZh ? '🙈 隱藏中文翻譯' : '👁 顯示中文翻譯'}</button>` : '<span class="ml-auto text-xs text-slate-400">沒有中文翻譯</span>'; })()}</div>
       <section class="sticky top-0 z-10 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-md px-3 py-2 mb-2"><div class="flex items-center gap-3">
         <button onclick="prToggle()" ${busy ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${micCls}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>
         <div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
@@ -550,6 +590,7 @@ function prRender() {
       <p class="mt-3 text-[0.6875rem] text-slate-400 text-center">快捷鍵：空白鍵＝錄音／停止，Enter＝聽範例，P＝聽我的錄音，←／→＝上一句／下一句，Esc＝關閉</p>
     </div></div>`;
 }
+function prZhToggle() { S.prZh = !S.prZh; save(); prRender(); }
 function prLevel(v) { S.spkLevel = v; save(); if (PR.cands) prScore(false); prRender(); }
 function prDbg() { PR.dbg = !PR.dbg; prRender(); }
 

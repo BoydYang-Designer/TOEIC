@@ -1,0 +1,353 @@
+{
+  "week": 3,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "refundable",
+      "type": "word",
+      "ipa": "/rɪˈfʌndəbəl/",
+      "pos": "adj.",
+      "zh": "可退款的、可退還的",
+      "en": "able to be paid back to you",
+      "note": "這篇談的是合約續約與取消條件，費用能不能退是議價時常出現的重點。refundable 用來說明錢在某些條件下可以拿回來，常和取消期限一起出現。",
+      "grammar_note": "「不可退款」要用 non-refundable（non- 加連字號），不要寫成 unrefundable。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "refundable deposit",
+          "zh": "可退還的訂金",
+          "example": {
+            "en": "We paid a refundable deposit when we signed the service agreement.",
+            "zh": "我們簽服務合約時付了一筆可退還的訂金。"
+          }
+        },
+        {
+          "phrase": "non-refundable fee",
+          "zh": "不可退還的費用",
+          "example": {
+            "en": "The booking includes a non-refundable fee for processing the request.",
+            "zh": "這筆預訂包含一筆處理申請用的不可退費用。"
+          }
+        },
+        {
+          "phrase": "fully refundable",
+          "zh": "可全額退款的",
+          "example": {
+            "en": "The ticket is fully refundable if you cancel before the trip.",
+            "zh": "如果你在行程前取消，這張票可以全額退款。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "合約",
+          "en": "The deposit is refundable if you cancel within seven days.",
+          "zh": "如果你在七天內取消，這筆訂金可以退還。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please note that the registration fee is not refundable after May 1.",
+          "zh": "請注意，五月一日之後報名費不予退還。"
+        },
+        {
+          "tag": "採購",
+          "en": "Is the advance payment refundable if the supplier delays delivery?",
+          "zh": "如果供應商延遲交貨，預付款可以退還嗎？"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "returnable",
+          "ipa": "/rɪˈtɜːrnəbəl/",
+          "diff": "returnable 指「商品」可以退回；refundable 指「錢」可以退還。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "These unopened boxes are returnable, and the store will refund the price.",
+            "zh": "這些未拆封的箱子可以退貨，商店會退還價款。"
+          }
+        },
+        {
+          "word": "reimbursable",
+          "ipa": "/ˌriːɪmˈbɜːrsəbəl/",
+          "diff": "reimbursable 指員工先墊付的費用可由公司補還；refundable 指付給對方的錢可以退回來。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "Travel costs are reimbursable if you attach receipts to the expense form.",
+            "zh": "如果你在費用表上附上收據，差旅費用可以報銷。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "deposit",
+          "pos": "n.",
+          "zh": "訂金、押金",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "example": {
+            "en": "We left a deposit to hold the meeting room for Friday.",
+            "zh": "我們付了訂金，保留星期五的會議室。"
+          }
+        },
+        {
+          "w": "reimburse",
+          "pos": "v.",
+          "zh": "補還（費用）、報銷",
+          "ipa": "/ˌriːɪmˈbɜːrs/",
+          "example": {
+            "en": "The company will reimburse you for hotel costs within two weeks.",
+            "zh": "公司會在兩週內補還你的飯店費用。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "refund",
+          "pos": "v.",
+          "zh": "退還（款項）",
+          "ipa": "/rɪˈfʌnd/",
+          "link": "re-（回）+ fund（資金），把錢退回去；refundable 就是 refund + -able，「可以被退款的」，像 readable、changeable"
+        },
+        {
+          "w": "refund",
+          "pos": "n.",
+          "zh": "退款",
+          "ipa": "/ˈriːfʌnd/",
+          "link": "同樣的拼法當名詞，重音移到前面，指「退回來的那筆錢」"
+        },
+        {
+          "w": "non-refundable",
+          "pos": "adj.",
+          "zh": "不可退款的",
+          "ipa": "/ˌnɑːnrɪˈfʌndəbəl/",
+          "link": "non-（不）+ refundable，加 non- 表示否定，像 non-stop"
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "security deposit",
+      "type": "phrase",
+      "zh": "保證金、押金",
+      "en": "money you pay at the start and may get back later",
+      "note": "在續約與維護合約的情境中，security deposit 是為了保障對方而先付的一筆錢，期滿且沒有損壞或違約時通常會退還。",
+      "pattern": "pay / return + a security deposit + for + N",
+      "grammar_note": "security deposit 是可數名詞，要說 a security deposit；退還用 return 或 refund the deposit。",
+      "examples": [
+        {
+          "tag": "租賃",
+          "en": "The landlord requires a security deposit equal to one month's rent.",
+          "zh": "房東要求一筆相當於一個月租金的押金。"
+        },
+        {
+          "tag": "合約",
+          "en": "The vendor will return the security deposit after the contract ends.",
+          "zh": "合約結束後，廠商會退還保證金。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please transfer the security deposit before we ship the equipment.",
+          "zh": "請在我們出貨設備之前匯出保證金。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "deposit",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "diff": "deposit 比較泛指訂金或存入的款項；security deposit 特別指為了保障對方而預先付的保證金。",
+          "example": {
+            "en": "The hotel asked for a deposit to confirm our booking.",
+            "zh": "飯店要求付訂金來確認我們的預訂。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "down payment",
+          "diff": "down payment 是購買價格的頭期款，不會退還；security deposit 是保證金，期滿沒問題才退還。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "The down payment counts toward the price, but the security deposit is returned.",
+            "zh": "頭期款會算進價格裡，但保證金會退還。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "installment",
+      "type": "word",
+      "ipa": "/ɪnˈstɔːlmənt/",
+      "pos": "n.",
+      "zh": "分期付款的一期款項、分期",
+      "en": "one of several payments that you make over time",
+      "note": "這篇在談續約價格與費用，installment 是議價時常見的付款方式，指把一筆費用拆成幾次付清。",
+      "grammar_note": "美式拼法是 installment，英式是 instalment；「分期付款」常說 pay in installments，in 後面接複數。",
+      "forms": [
+        {
+          "w": "installments",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "分期款項（複數）",
+          "ipa": "/ɪnˈstɔːlmənts/",
+          "example": {
+            "en": "We will pay the fee in three equal installments this year.",
+            "zh": "我們今年會分三期等額支付這筆費用。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "pay in installments",
+          "zh": "分期付款",
+          "example": {
+            "en": "Customers may pay in installments instead of paying the full amount.",
+            "zh": "客戶可以分期付款，不必一次付清全額。"
+          }
+        },
+        {
+          "phrase": "monthly installment",
+          "zh": "每月分期款",
+          "example": {
+            "en": "Each monthly installment includes the service fee and tax.",
+            "zh": "每個月的分期款都包含服務費和稅金。"
+          }
+        },
+        {
+          "phrase": "installment plan",
+          "zh": "分期付款方案",
+          "example": {
+            "en": "The vendor offers an installment plan for the maintenance contract.",
+            "zh": "廠商為維護合約提供分期付款方案。"
+          }
+        },
+        {
+          "phrase": "final installment",
+          "zh": "最後一期款項",
+          "example": {
+            "en": "We will send the final installment once the work is approved.",
+            "zh": "工作驗收通過後，我們會寄出最後一期款項。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "合約",
+          "en": "The first installment is due on the day we sign the contract.",
+          "zh": "第一期款項在我們簽約當天到期。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please confirm that you received the second installment of the payment.",
+          "zh": "請確認你已收到第二期款項。"
+        },
+        {
+          "tag": "會議",
+          "en": "Can we split the cost into four installments instead of two?",
+          "zh": "我們可以把費用分成四期，而不是兩期嗎？"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "install",
+          "ipa": "/ɪnˈstɔːl/",
+          "diff": "install 是動詞「安裝」；installment 是名詞「分期款項」，兩個字拼法相近但意思完全不同。",
+          "kind": ["spell", "root"],
+          "example": {
+            "en": "The vendor will install the system after the first installment arrives.",
+            "zh": "第一期款項到帳後，廠商會安裝這套系統。"
+          }
+        },
+        {
+          "word": "deposit",
+          "ipa": "/dɪˈpɑːzɪt/",
+          "diff": "deposit 是一次付的訂金；installment 是分次付款中的其中一期。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "We paid a deposit today and will pay the first installment in June.",
+            "zh": "我們今天付了訂金，並會在六月支付第一期款項。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "payment",
+          "pos": "n.",
+          "zh": "付款、款項",
+          "ipa": "/ˈpeɪmənt/",
+          "example": {
+            "en": "The payment was sent to your account on Monday.",
+            "zh": "款項已在星期一匯到你的帳戶。"
+          }
+        },
+        {
+          "w": "balance",
+          "pos": "n.",
+          "zh": "餘額、尾款",
+          "ipa": "/ˈbæləns/",
+          "example": {
+            "en": "Please pay the balance before the contract expires.",
+            "zh": "請在合約到期前付清尾款。"
+          }
+        },
+        {
+          "w": "interest",
+          "pos": "n.",
+          "zh": "利息",
+          "ipa": "/ˈɪntrəst/",
+          "example": {
+            "en": "The loan has a low interest rate and flexible terms.",
+            "zh": "這筆貸款利率低，條件也很有彈性。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "install",
+          "pos": "v.",
+          "zh": "安裝",
+          "ipa": "/ɪnˈstɔːl/",
+          "link": "installment 的詞幹；install + -ment，把動作變成名詞，像 payment、agreement"
+        },
+        {
+          "w": "installation",
+          "pos": "n.",
+          "zh": "安裝、裝設",
+          "ipa": "/ˌɪnstəˈleɪʃən/",
+          "link": "install + -ation，「安裝這件事」，像 information、organization"
+        },
+        {
+          "w": "installer",
+          "pos": "n.",
+          "zh": "安裝人員、安裝程式",
+          "ipa": "/ɪnˈstɔːlər/",
+          "link": "install + -er，做安裝的人，像 worker、manager"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/ɪnˈstɔːlmənt/",
+          "zh": "分期付款的一期款項",
+          "en": "one of several payments that you make over time",
+          "in_passage": true,
+          "example": {
+            "en": "Each installment is due on the first day of the month.",
+            "zh": "每一期款項都在當月第一天到期。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ɪnˈstɔːlmənt/",
+          "zh": "（連載的）一集、一期",
+          "en": "one part of a story or series that is published over time",
+          "distinguish": "看到 story、series、magazine 等字就是連載的一期；看到 payment、fee、plan 就是分期款。",
+          "example": {
+            "en": "The magazine will print the next installment of the story in May.",
+            "zh": "雜誌會在五月刊登這個故事的下一期。"
+          }
+        }
+      ]
+    }
+  ]
+}

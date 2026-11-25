@@ -1,0 +1,68 @@
+{
+  "week": 3,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "honest mistakes",
+      "type": "phrase",
+      "zh": "無心之過、非故意的錯誤",
+      "en": "mistakes that a person makes without meaning to do anything wrong",
+      "note": "常出現在公司規定或政策裡，表示員工因疏忽或誤會而犯的錯不會被處罰，用來和故意違規、欺騙區分開來。語氣善意、偏正式，常與 will not be penalized 搭配。",
+      "pattern": "not be penalized for + honest mistakes (in + N)",
+      "grammar_note": "honest mistake 的 honest 是「非故意、沒有惡意」，不是「誠實」；penalize 要用 be penalized for + 名詞或 V-ing。",
+      "examples": [
+        {
+          "tag": "公司政策",
+          "en": "Everyone makes honest mistakes, so please report errors as early as possible.",
+          "zh": "每個人都會犯無心之過，所以請盡早回報錯誤。"
+        },
+        {
+          "tag": "人事",
+          "en": "The manager explained that honest mistakes will not affect your performance review.",
+          "zh": "經理說明，無心之過不會影響你的績效考核。"
+        },
+        {
+          "tag": "客服",
+          "en": "We understand that honest mistakes happen, and we will correct your bill today.",
+          "zh": "我們了解無心之過難免，今天就會更正您的帳單。"
+        },
+        {
+          "tag": "稽核",
+          "en": "The auditor found only honest mistakes, not any attempt to hide money.",
+          "zh": "稽核員只發現無心的錯誤，沒有發現隱藏金錢的企圖。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "innocent mistake",
+          "diff": "innocent mistake 意思幾乎相同，更強調當事人無辜、不知情，法律或賠償情境常見。",
+          "example": {
+            "en": "The overcharge was an innocent mistake, and we have refunded it.",
+            "zh": "多收費用是無心的錯誤，我們已經退款了。"
+          }
+        },
+        {
+          "phrase": "human error",
+          "diff": "human error 是不可數的說法，用來說明原因是人為失誤，不特別強調有沒有惡意。",
+          "example": {
+            "en": "The delay was caused by human error in the data entry.",
+            "zh": "這次延誤是資料輸入的人為失誤造成的。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "careless mistakes",
+          "diff": "careless mistakes 是因為粗心大意造成，當事人可能要負責；honest mistakes 強調沒有惡意，通常可以被原諒。",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "Careless mistakes in the report may damage our reputation with clients.",
+            "zh": "報告中的粗心錯誤可能會損害我們在客戶心中的信譽。"
+          }
+        }
+      ]
+    }
+  ]
+}
