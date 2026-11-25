@@ -1215,7 +1215,7 @@ function dnRevisePrompt(note) {
     '- 上面的規則一律照用；但這次不是從零開始，而是「修正下面的現有詳解」。',
     '- 我發現的問題：' + (String(note || '').trim() || '（沒有特別指出；請依上面所有規則逐欄位檢查，找出錯誤、缺漏、程度不符或與規則不一致的地方並修正）'),
     '- 有問題的地方請修正或重寫；沒有問題的欄位請逐字原樣抄回，不要順便潤飾、改順序或改寫。',
-    '- 輸出「完整的一筆」（會用 text 整筆取代舊的，所以不能只寫改過的欄位）；text 必須與現有詳解的 text 完全相同。現有詳解裡的 nw_done 一併保留。',
+    '- 輸出「完整的一筆」（會用 text 整筆取代舊的，所以不能只寫改過的欄位）；text 必須與現有詳解的 text 完全相同。現有詳解裡的 nw_done 與 usages（別篇的用法，每一筆）一併原樣保留，不可刪除或改寫。',
     '- 聊天裡用 2–5 行說明你改了哪些欄位、為什麼；檔案裡不要放說明文字。',
     '',
     '【現有詳解（JSON）】',
@@ -1277,7 +1277,7 @@ function dnRenderDetail() {
     const us = T === 'sentence' ? [] : dnArr(e.usages).filter(u => u && typeof u === 'object' && (u.zh || u.ctx));
     const done = new Set(us.map(u => uk(u.src))), owner = idOf(xs), kk = dnKey(e.text);
     const pend = T === 'sentence' ? [] : dnMarks().filter(q => q.type !== 'sentence' && dnKey(q.text) === kk && dnArt(q.qid) && !isLib(dnArt(q.qid)) && q.qid !== owner && !done.has(uk(dnLabel(dnArt(q.qid)))));
-    const row = (lab, a, ctx, zh, wait) => `<li class="border-l-2 border-indigo-300 dark:border-indigo-700 pl-3"><div class="flex flex-wrap items-center gap-1.5 mb-0.5">${a ? `<button onclick="dnGoArt('${idOf(a)}')" class="${dnChip} underline cursor-pointer">${esc(lab)}</button>` : `<span class="${dnChip}">${esc(lab)}</span>`}${a && idOf(a) === idOf(x) ? '<span class="text-[0.6875rem] text-slate-400">（本篇）</span>' : ''}${wait ? '<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">待 AI 補解說</span>' : ''}</div>${ctx ? `<p class="text-sm leading-relaxed">${dnHiCtx(ctx, e.text)}</p>` : ''}${zh ? `<p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed whitespace-pre-line">${esc(zh)}</p>` : ''}</li>`;
+    const row = (lab, a, ctx, zh, wait) => `<li class="border-l-2 border-indigo-300 dark:border-indigo-700 pl-3"><div class="flex flex-wrap items-center gap-1.5 mb-0.5">${a ? `<button onclick="dnGoArt('${idOf(a)}')" class="${dnChip} underline cursor-pointer">${esc(lab)}</button>` : `<span class="${dnChip}">${esc(lab)}</span>`}${a && idOf(a) === idOf(x) ? '<span class="text-[0.6875rem] text-slate-400">（本篇）</span>' : ''}${wait ? '<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">待 AI 補解說</span>' : ''}</div>${ctx ? `<div class="flex items-start gap-2"><p class="text-sm leading-relaxed flex-1">${dnHiCtx(ctx, e.text)}</p><button onclick="vplay('${idOf(x)}', this.dataset.t, '_ctx', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(ctx)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button></div>` : ''}${zh ? `<p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed whitespace-pre-line">${esc(zh)}</p>` : ''}</li>`;
     const rows = us.map(u => { const mm = /W(\d+)\D+(\d+)/i.exec(String(u.src || '')), a = mm ? find(+mm[1], +mm[2]) : null; return row(a ? dnLabel(a) : String(u.src || '另一篇'), a, u.ctx, u.zh, false); })
       .concat(pend.map(q => row(dnLabel(dnArt(q.qid)), dnArt(q.qid), q.ctx, '', true)));
     h += sec('其他文章的用法', rows.length ? `<ul class="space-y-3">${rows.join('')}</ul>` : '');

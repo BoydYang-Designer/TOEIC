@@ -9022,6 +9022,9 @@
               "word": "venue",
               "ipa": "/ˈvenjuː/",
               "diff": "venue 是舉辦會議或活動的場地，不是賣東西的人或公司，拼法和 vendor 有點像。",
+              "kind": [
+                "spell"
+              ],
               "example": {
                 "en": "The venue for the conference is a hotel near the airport.",
                 "zh": "會議的場地是機場附近的一間飯店。"
@@ -9062,7 +9065,20 @@
           ],
           "derived": [],
           "pos_uses": [],
-          "senses": []
+          "senses": [],
+          "usages": [
+            {
+              "src": "W3·D6",
+              "ctx": "Man: The vendor is asking for a five percent increase, but I suspect they would accept a lower rate if we agreed to a longer term.",
+              "zh": "vendor 在這裡是價格談判的對方：ask for a five percent increase 是供應商要求漲價 5%。用法已涵蓋在現有詳解的「採購、合約」情境，只是新增這一篇的句子作為對照。"
+            }
+          ],
+          "nw_done": [
+            {
+              "id": "nmwvl76cjz38c",
+              "result": "added"
+            }
+          ]
         },
         {
           "text": "budget set",
@@ -120483,7 +120499,20 @@
             }
           ],
           "pos_uses": [],
-          "senses": []
+          "senses": [],
+          "usages": [
+            {
+              "src": "W3·D6",
+              "ctx": "Woman: Our maintenance contract expires at the end of this month, so we should decide whether to renew it.",
+              "zh": "已涵蓋在現有詳解的搭配 maintenance contract（維護合約）：這句的 maintenance 同樣是不可數名詞，修飾 contract，指維護服務的合約。"
+            }
+          ],
+          "nw_done": [
+            {
+              "id": "nmwvo8kkxwbht",
+              "result": "covered"
+            }
+          ]
         },
         {
           "text": "exit plan",
@@ -172077,6 +172106,268 @@
               "example": {
                 "en": "Safety implementation will start in the factory next month.",
                 "zh": "安全措施將在下個月於工廠開始實施。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "subject",
+          "type": "word",
+          "ipa": "/ˈsʌbdʒɪkt/",
+          "pos": "adj.",
+          "zh": "取決於…的、須經…（批准）的",
+          "en": "depending on something, or needing something to happen first",
+          "note": "在這篇裡是 subject to review by our patent team，表示這個做法「還要經過專利團隊審查才算數」。語氣客氣、有保留，是商務上常用的正式說法。",
+          "grammar_note": "be subject to 的 to 是介系詞，後面接名詞或 V-ing，不接原形動詞；當動詞時重音在後面，念 /səbˈdʒekt/，後面也要接 to。",
+          "forms": [
+            {
+              "w": "subjects",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "主題、科目（複數）",
+              "ipa": "/ˈsʌbdʒɪkts/",
+              "example": {
+                "en": "We covered three subjects in this morning's training session.",
+                "zh": "我們在今天早上的訓練中討論了三個主題。"
+              }
+            },
+            {
+              "w": "subjects",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "使遭受、使經歷",
+              "ipa": "/səbˈdʒekts/",
+              "example": {
+                "en": "The new rule subjects every supplier to a quality check.",
+                "zh": "新規定要求每家供應商都要接受品質檢查。"
+              }
+            },
+            {
+              "w": "subjected",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "使遭受、使經歷",
+              "ipa": "/səbˈdʒektɪd/",
+              "example": {
+                "en": "The products were subjected to strict safety tests.",
+                "zh": "這些產品接受了嚴格的安全測試。"
+              }
+            },
+            {
+              "w": "subjecting",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "使遭受、使經歷",
+              "ipa": "/səbˈdʒektɪŋ/",
+              "example": {
+                "en": "Subjecting staff to long hours can lower their motivation.",
+                "zh": "讓員工長時間工作可能會降低他們的幹勁。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "subject to approval",
+              "zh": "須經核准",
+              "example": {
+                "en": "The plan is subject to approval from our legal department.",
+                "zh": "這項計畫須經法務部門核准。"
+              }
+            },
+            {
+              "phrase": "subject to change",
+              "zh": "可能會變動",
+              "example": {
+                "en": "The meeting time is subject to change, so please check again.",
+                "zh": "會議時間可能會變動，請再確認一次。"
+              }
+            },
+            {
+              "phrase": "subject to availability",
+              "zh": "視供應情況而定",
+              "example": {
+                "en": "Hotel rooms are offered subject to availability during the conference.",
+                "zh": "會議期間的飯店房間視供應情況提供。"
+              }
+            },
+            {
+              "phrase": "subject matter",
+              "zh": "主題內容",
+              "example": {
+                "en": "Our trainer is an expert in the subject matter.",
+                "zh": "我們的講師是這個主題領域的專家。"
+              }
+            },
+            {
+              "phrase": "change the subject",
+              "zh": "轉換話題",
+              "example": {
+                "en": "Let's change the subject and talk about the schedule.",
+                "zh": "我們換個話題，來談談時程吧。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "The final schedule is subject to approval by the board.",
+              "zh": "最後的時程須經董事會核准。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "All prices in this quote are subject to change without notice.",
+              "zh": "這份報價單的所有價格可能不另行通知就變動。"
+            },
+            {
+              "tag": "客服",
+              "en": "Flights are subject to delay because of the bad weather.",
+              "zh": "航班可能因為天氣不佳而延誤。"
+            },
+            {
+              "tag": "會議",
+              "en": "The main subject of today's meeting is the new budget.",
+              "zh": "今天會議的主要主題是新預算。"
+            },
+            {
+              "tag": "人事",
+              "en": "All new employees are subject to a three-month trial period.",
+              "zh": "所有新進員工都要經過三個月的試用期。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "object",
+              "ipa": "/ˈɑːbdʒekt/",
+              "diff": "object 當名詞是「物體、目標」，subject 是「主題、主詞」；兩者字根都是 -ject，拼法也很像。",
+              "kind": [
+                "spell",
+                "root"
+              ],
+              "usage": "object 當動詞時念 /əbˈdʒekt/，表示「反對」，後面接 to；subject to 則是「須經…」，意思不同。",
+              "example": {
+                "en": "The object of this meeting is to approve the budget.",
+                "zh": "這場會議的目的是核准預算。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "conditional on",
+              "diff": "conditional on 強調「必須先滿足條件才成立」，語氣比 subject to 更明確、更嚴格。",
+              "example": {
+                "en": "The offer is conditional on a successful background check.",
+                "zh": "這個錄用條件是要通過背景調查。"
+              }
+            },
+            {
+              "phrase": "depend on",
+              "diff": "depend on 是動詞片語，口語自然；subject to 是形容詞片語，多用在合約和正式文件。",
+              "example": {
+                "en": "The final price depends on the number of users.",
+                "zh": "最後的價格取決於使用者人數。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "approval",
+              "pos": "n.",
+              "zh": "核准、批准",
+              "ipa": "/əˈpruːvl/",
+              "example": {
+                "en": "We need approval from the manager before we order.",
+                "zh": "訂購之前，我們需要經理的核准。"
+              }
+            },
+            {
+              "w": "condition",
+              "pos": "n.",
+              "zh": "條件",
+              "ipa": "/kənˈdɪʃn/",
+              "example": {
+                "en": "Please read the conditions of the contract carefully.",
+                "zh": "請仔細閱讀合約的條件。"
+              }
+            },
+            {
+              "w": "topic",
+              "pos": "n.",
+              "zh": "話題、主題",
+              "ipa": "/ˈtɑːpɪk/",
+              "example": {
+                "en": "The topic of the next seminar is customer service.",
+                "zh": "下一場研討會的主題是客戶服務。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "subjective",
+              "ipa": "/səbˈdʒektɪv/",
+              "pos": "adj.",
+              "zh": "主觀的",
+              "link": "subject + -ive，變成形容詞，指「從個人角度看的」，像 active、creative"
+            },
+            {
+              "w": "subjectively",
+              "ipa": "/səbˈdʒektɪvli/",
+              "pos": "adv.",
+              "zh": "主觀地",
+              "link": "subjective + -ly，形容詞變副詞，像 quickly、carefully"
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "adj.",
+              "ipa": "/ˈsʌbdʒɪkt/",
+              "zh": "須經…的、易受…影響的",
+              "in_passage": true,
+              "example": {
+                "en": "Our offer is subject to review by the finance team.",
+                "zh": "我們的報價須經財務團隊審查。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˈsʌbdʒɪkt/",
+              "zh": "主題、科目",
+              "example": {
+                "en": "The subject of the email is the new office rules.",
+                "zh": "這封電子郵件的主旨是新的辦公室規定。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/səbˈdʒekt/",
+              "zh": "使遭受、使經歷",
+              "example": {
+                "en": "The auditors will subject the report to a careful review.",
+                "zh": "稽核人員會對這份報告進行仔細審查。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "adj.",
+              "ipa": "/ˈsʌbdʒɪkt/",
+              "zh": "須經…才成立",
+              "en": "needing approval or another step before it is final",
+              "in_passage": true,
+              "distinguish": "後面通常接 approval、review、signature 等「還要完成的步驟」。",
+              "example": {
+                "en": "The deal is subject to the manager's final signature.",
+                "zh": "這筆交易須經經理最後簽核才成立。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "ipa": "/ˈsʌbdʒɪkt/",
+              "zh": "容易受…影響",
+              "en": "likely to be affected by something, often something bad",
+              "distinguish": "後面通常接 change、delay、risk 等「可能發生的事」。",
+              "example": {
+                "en": "Our region is subject to heavy rain every summer.",
+                "zh": "我們這個地區每年夏天都會下大雨。"
               }
             }
           ]

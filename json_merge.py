@@ -685,6 +685,10 @@ class Daily(Profile):
                 if i is None:
                     cur.append(nv)
                 else:
+                    ou = cur[i].get('usages') if isinstance(cur[i], dict) else None
+                    if ou:   # 整筆取代時，舊的 usages（別篇的用法）一定保留，只追加／更新新的
+                        nv = dict(nv)
+                        nv['usages'] = merge_usages(ou, nv.get('usages'))
                     cur[i] = nv
             merged['extra_vocab'] = cur
             e.clear()
@@ -1136,10 +1140,25 @@ class Daily(Profile):
                         _bad = [o for o in _lst if isinstance(o, dict) and _oneword(_kf(o)) and _noipa(o)]
                         if _bad:
                             wa.append('「%s」%s 有 %d 筆單字缺 ipa（美式音標；片語不用）' % (t, _k, len(_bad)))
+            us = v.get('usages')   # 別篇的用法：[{src, ctx, zh}]，一篇一筆
+            if us is not None:
+                if not isinstance(us, list):
+                    er.append('「%s」usages 必須是陣列（每一項 { src, ctx, zh }）' % t)
+                else:
+                    ks = []
+                    for j, u in enumerate(us, 1):
+                        if not isinstance(u, dict) or not str(u.get('src') or '').strip():
+                            er.append('「%s」usages 第 %d 項必須是物件並有 src（篇名，如 W3·D6）' % (t, j))
+                            continue
+                        if not str(u.get('ctx') or '').strip() or not str(u.get('zh') or '').strip():
+                            wa.append('「%s」usages 第 %d 項（%s）缺 ctx（所在句）或 zh（解說）' % (t, j, u.get('src')))
+                        ks.append(usage_key(u))
+                    if len(ks) != len(set(ks)):
+                        wa.append('「%s」usages 有同一篇重複的項目，合併時會只留一筆' % t)
             nd = v.get('nw_done')   # 新單字備註的處理結果（網頁靠它把新單字標成「已更新」）
             if nd is not None and not (isinstance(nd, list) and nd and all(isinstance(o, dict) and str(o.get('id') or '').strip() and o.get('result') in ('added', 'covered', 'unclear') for o in nd)):
                 er.append('「%s」nw_done 必須是非空陣列，每一項需含 id 與 result（added／covered／unclear）' % t)
-            for lk in ('forms', 'family', 'derived', 'pos_uses', 'senses', 'confusable', 'similar', 'grammar', 'key_words', 'chunks', 'paraphrase', 'nw_done'):
+            for lk in ('forms', 'family', 'derived', 'pos_uses', 'senses', 'confusable', 'similar', 'grammar', 'key_words', 'chunks', 'paraphrase', 'nw_done', 'usages'):
                 if lk in v and not isinstance(v[lk], list):
                     er.append('「%s」%s 必須是陣列' % (t, lk))
         return er, wa
@@ -2707,6 +2726,32 @@ class Part7(IdProfile):
 # ───────────────────────── 詳解（extra_vocab）全題庫同一個字只留一筆 ─────────────────────────
 # 規則：同一個字（text 忽略大小寫與多餘空白）不管在哪幾篇入庫，全題庫只有一筆詳解，放在「最早（週、天）有這個字」的那一篇。
 # 網頁端本來就是這樣找（本篇沒有就找最早有的那篇）；這裡讓資料也維持同樣的唯一性。
+def usage_key(u):
+    """usages（別篇的用法）的身分＝篇名：W3·D6、W3 D6、w3d6 都算同一篇。"""
+    s = str((u or {}).get('src') or '') if isinstance(u, dict) else str(u or '')
+    m = re.search(r'W(\d+)\D*?D(\d+)', s, re.I) or re.search(r'W(\d+)\D+(\d+)', s, re.I)
+    return '%s-%s' % (m.group(1), m.group(2)) if m else re.sub(r'\s+', ' ', s.strip().lower())
+
+
+def merge_usages(old_list, new_list):
+    """整筆取代詳解時保護別篇的用法：舊的每一篇都留著（同一篇以新的為準），新的篇接在後面；絕不因為 AI 漏抄而刪掉。"""
+    new_by = {usage_key(o): o for o in (new_list or []) if isinstance(o, dict) and usage_key(o)}
+    out, seen = [], set()
+    for o in old_list or []:
+        if not isinstance(o, dict):
+            continue
+        k = usage_key(o)
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(copy.deepcopy(new_by.get(k, o)))
+    for o in new_list or []:
+        if isinstance(o, dict) and usage_key(o) not in seen:
+            seen.add(usage_key(o))
+            out.append(copy.deepcopy(o))
+    return out
+
+
 _XID_FIELDS = {'examples': ('en',), 'collocations': ('phrase', 'p'), 'forms': ('w',), 'family': ('w',), 'derived': ('w',),
                'confusable': ('word', 'phrase'), 'similar': ('phrase', 'word'), 'grammar': ('point',), 'key_words': ('w',), 'nw_done': ('id',)}
 
@@ -2716,6 +2761,8 @@ def _xid(field, o):
     if isinstance(o, dict):
         keys = _XID_FIELDS.get(field, ('w', 'word', 'phrase', 'en'))
         parts = [re.sub(r'\s+', ' ', str(next((o[k] for k in keys if o.get(k)), '')).strip().lower())]
+        if field == 'usages':     # 別篇的用法：同一篇算同一項
+            parts = [usage_key(o)]
         if field == 'forms':
             parts.append(str(o.get('label') or '').strip())
         if field == 'pos_uses':   # 多詞性：同一個詞性（＋該筆的拼法 w）算同一項
