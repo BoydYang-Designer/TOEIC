@@ -332806,6 +332806,134 @@
               }
             }
           ]
+        },
+        {
+          "text": "at the register",
+          "type": "phrase",
+          "zh": "在收銀台、結帳時",
+          "en": "at the place in a store where you pay",
+          "note": "零售與客服情境常見，指在收銀台結帳的當下，常和優惠券、折扣、付款方式一起出現。這是美式說法，英式常用 at the till。",
+          "pattern": "V + N + at the register",
+          "grammar_note": "「在收銀台」的介系詞用 at，不用 in 或 on；register 前面要加 the。",
+          "examples": [
+            {
+              "tag": "零售",
+              "en": "We cannot accept the expired coupon at the register.",
+              "zh": "我們無法在收銀台接受這張過期的優待券。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please show your membership card at the register to get the discount.",
+              "zh": "請在收銀台出示會員卡以享有折扣。"
+            },
+            {
+              "tag": "會議",
+              "en": "Customers often ask about delivery options at the register.",
+              "zh": "顧客常在收銀台詢問配送方式。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "at the checkout",
+              "diff": "checkout 也指結帳處，英式用法較常見，網購時也可指結帳流程；at the register 專指實體收銀機旁。",
+              "example": {
+                "en": "There is a long line at the checkout during lunch hour.",
+                "zh": "午餐時間結帳處排了很長的隊伍。"
+              }
+            },
+            {
+              "phrase": "at the counter",
+              "diff": "counter 是比較泛指的櫃檯，不一定是收銀的地方；at the register 明確指付款處。",
+              "example": {
+                "en": "You can pay for your order at the counter.",
+                "zh": "你可以在櫃檯為你的訂單付款。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "cashier",
+              "ipa": "/kæˈʃɪr/",
+              "diff": "cashier 是「收銀員」這個人；register 是「收銀機、收銀台」這個地方或設備。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "The cashier will scan the coupon at the register before payment.",
+                "zh": "收銀員會在付款前於收銀台掃描優待券。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "due to expire",
+          "type": "phrase",
+          "zh": "即將到期、預定到期",
+          "en": "will end on a set date or very soon",
+          "note": "用在合約、優惠、會員資格、證件等「快要到期」的提醒，語氣客氣中性，常搭配 on 加日期或 in 加時間。",
+          "pattern": "N + is / are due to expire + on / in + 時間",
+          "grammar_note": "這裡的 due to 是 be due to + V 原形，表示「預定要…」；和 due to + 名詞（因為）不同，後面接動詞時前面一定有 be。",
+          "examples": [
+            {
+              "tag": "合約",
+              "en": "The maintenance contract is due to expire at the end of this month.",
+              "zh": "這份維護合約將在本月底到期。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Your membership is due to expire on June 30, so please renew soon.",
+              "zh": "你的會員資格將在六月三十日到期，請盡快續約。"
+            },
+            {
+              "tag": "採購",
+              "en": "The supplier's discount offer is due to expire on Friday.",
+              "zh": "供應商的折扣優惠將在星期五到期。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "set to expire",
+              "diff": "set to 強調日期已經排定，語氣和 due to 很接近，在新聞與公告中也常見。",
+              "example": {
+                "en": "The special price is set to expire at midnight tonight.",
+                "zh": "特價將在今晚午夜到期。"
+              }
+            },
+            {
+              "phrase": "about to expire",
+              "diff": "about to 表示「就快要」，通常只剩幾天或幾小時，比 due to expire 更緊迫。",
+              "example": {
+                "en": "Your passport is about to expire, so renew it soon.",
+                "zh": "你的護照快到期了，請盡快換發。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "overdue",
+              "ipa": "/ˌoʊvərˈduː/",
+              "diff": "overdue 是已經超過期限（例如付款逾期）；due to expire 是還沒到、但快到期。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "The invoice is overdue, but the contract is only due to expire next month.",
+                "zh": "這張發票已逾期，但合約要到下個月才到期。"
+              }
+            },
+            {
+              "word": "expired",
+              "ipa": "/ɪkˈspaɪərd/",
+              "diff": "expired 表示已經過期、失效；due to expire 表示還沒過期，只是快到期。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "The expired coupon was rejected, but the new one is due to expire in June.",
+                "zh": "過期的優待券被拒絕了，但新的那張要到六月才到期。"
+              }
+            }
+          ]
         }
       ],
       "prosody": {
