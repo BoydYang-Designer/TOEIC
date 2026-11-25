@@ -1,0 +1,220 @@
+{
+  "week": 3,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "wave",
+      "type": "word",
+      "ipa": "/weɪv/",
+      "pos": "v.",
+      "zh": "揮手、揮動",
+      "en": "to move your hand to say hello or goodbye",
+      "note": "對話裡出現的是 waive（免除安裝費），wave 和它發音完全相同，但意思是揮手或浪潮。聽力測驗中要靠前後文分辨：談費用、權利用 waive，談打招呼、波浪或一波趨勢用 wave。",
+      "grammar_note": "對某人揮手用 wave at 或 wave to + 人；wave goodbye 後面再接 to + 人。",
+      "forms": [
+        {
+          "w": "waves",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "揮手",
+          "ipa": "/weɪvz/",
+          "example": {
+            "en": "He waves to the guards each morning before entering the office.",
+            "zh": "他每天早上進辦公室前都會向警衛揮手。"
+          }
+        },
+        {
+          "w": "waves",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "波浪、浪潮（複數）",
+          "ipa": "/weɪvz/",
+          "example": {
+            "en": "Customer complaints came in waves after the system went down.",
+            "zh": "系統當機後，客訴一波接一波地湧進來。"
+          }
+        },
+        {
+          "w": "waved",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "揮手、揮手示意",
+          "ipa": "/weɪvd/",
+          "example": {
+            "en": "The manager waved the clients into the meeting room.",
+            "zh": "經理揮手示意客戶進入會議室。"
+          }
+        },
+        {
+          "w": "waving",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "揮手",
+          "ipa": "/ˈweɪvɪŋ/",
+          "example": {
+            "en": "The host is waving at us from across the hall.",
+            "zh": "主持人正從大廳另一頭向我們揮手。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "wave goodbye",
+          "zh": "揮手道別",
+          "example": {
+            "en": "She stood at the door to wave goodbye to the clients.",
+            "zh": "她站在門口向客戶揮手道別。"
+          }
+        },
+        {
+          "phrase": "wave at",
+          "zh": "對…揮手",
+          "example": {
+            "en": "Please wave at the camera so everyone online can see you.",
+            "zh": "請對著鏡頭揮手，讓線上的每個人都看到你。"
+          }
+        },
+        {
+          "phrase": "a wave of",
+          "zh": "一波…、一陣…",
+          "example": {
+            "en": "A wave of complaints arrived after the price change.",
+            "zh": "調整價格後，湧入了一波客訴。"
+          }
+        },
+        {
+          "phrase": "heat wave",
+          "zh": "熱浪",
+          "example": {
+            "en": "A heat wave may delay deliveries to the northern region.",
+            "zh": "熱浪可能會延誤送往北部地區的貨物。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "接待",
+          "en": "Please wave to the visitors as they enter the lobby.",
+          "zh": "訪客走進大廳時，請向他們揮手致意。"
+        },
+        {
+          "tag": "行銷",
+          "en": "Staff at the booth wave to passing customers to attract attention.",
+          "zh": "攤位上的員工向路過的顧客揮手以吸引注意。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please reply by noon, since a new wave of requests is coming.",
+          "zh": "請在中午前回覆，因為新一波的需求即將湧入。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "waive",
+          "ipa": "/weɪv/",
+          "diff": "waive 與 wave 發音完全相同（同音字），但 waive 是「免除（費用或權利）」，wave 是「揮手」或「波浪」。",
+          "kind": ["sound", "spell"],
+          "example": {
+            "en": "The clerk will wave goodbye, but only the manager can waive the fee.",
+            "zh": "店員會揮手道別，但只有經理能免除這筆費用。"
+          }
+        },
+        {
+          "word": "wage",
+          "ipa": "/weɪdʒ/",
+          "diff": "wage 是「工資、時薪」，只差字尾 -ge 與 -ve，母音相同，容易看錯或聽混。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "The hourly wage will rise next year for all part-time staff.",
+            "zh": "明年所有兼職員工的時薪都會調漲。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "gesture",
+          "pos": "n.",
+          "zh": "手勢、姿態",
+          "ipa": "/ˈdʒestʃər/",
+          "example": {
+            "en": "A friendly gesture can help build trust with new clients.",
+            "zh": "友善的舉動有助於與新客戶建立信任。"
+          }
+        },
+        {
+          "w": "signal",
+          "pos": "n.",
+          "zh": "信號、暗號",
+          "ipa": "/ˈsɪɡnəl/",
+          "example": {
+            "en": "The chairman gave a signal, and the meeting began.",
+            "zh": "主席做了個手勢，會議便開始了。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "wavy",
+          "pos": "adj.",
+          "zh": "起伏的、波浪狀的",
+          "ipa": "/ˈweɪvi/",
+          "link": "wave + -y，像波浪的，像 rainy、sunny"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "v.",
+          "ipa": "/weɪv/",
+          "zh": "揮手、揮動",
+          "example": {
+            "en": "The driver will wave you through the gate if you show your pass.",
+            "zh": "如果你出示通行證，司機會揮手讓你通過大門。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/weɪv/",
+          "zh": "波浪、浪潮",
+          "example": {
+            "en": "A big wave hit the pier and damaged two boats.",
+            "zh": "一個大浪打到碼頭，損壞了兩艘船。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/weɪv/",
+          "zh": "波浪",
+          "en": "a moving line of water on the sea",
+          "example": {
+            "en": "The wave was so high that the ferry stopped running.",
+            "zh": "浪太高了，渡輪因此停駛。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/weɪv/",
+          "zh": "一波、一陣（突然增加的事物）",
+          "en": "a sudden increase of something",
+          "distinguish": "後面接 of 加複數名詞（a wave of orders / complaints）時，指一波一波湧來的事物。",
+          "example": {
+            "en": "We saw a wave of new users after the advertisement.",
+            "zh": "廣告播出後，我們迎來一波新用戶。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/weɪv/",
+          "zh": "揮手（的動作）",
+          "en": "a movement of the hand to say hello or goodbye",
+          "distinguish": "常和 give a wave 一起用，是一次揮手的動作。",
+          "example": {
+            "en": "He gave a quick wave and left the meeting room.",
+            "zh": "他快速揮了揮手，然後離開會議室。"
+          }
+        }
+      ]
+    }
+  ]
+}

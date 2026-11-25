@@ -1,0 +1,940 @@
+{
+  "week": 3,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "submissions",
+      "type": "word",
+      "lemma": "submission",
+      "ipa": "/səbˈmɪʃənz/",
+      "pos": "n.",
+      "zh": "提交的文件、繳交",
+      "en": "the act of giving something to someone for review, or the thing that is given",
+      "note": "在政策或公告中，submissions 指員工或廠商繳交的報告、表單或提案；late submissions 就是逾期繳交的文件，是會被處罰的對象。",
+      "grammar_note": "submission 表示「提交這件事」時不可數；指「一份提交的文件」時可數（a submission / submissions）。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "late submission",
+          "zh": "逾期繳交",
+          "example": {
+            "en": "A late submission will not be reviewed by the committee.",
+            "zh": "逾期繳交的文件不會由委員會審查。"
+          }
+        },
+        {
+          "phrase": "submission deadline",
+          "zh": "提交截止日",
+          "example": {
+            "en": "The submission deadline for the proposal is next Friday at noon.",
+            "zh": "提案的提交截止時間是下週五中午。"
+          }
+        },
+        {
+          "phrase": "online submission",
+          "zh": "線上提交",
+          "example": {
+            "en": "Online submission saves time because no paper forms are needed.",
+            "zh": "線上提交可以節省時間，因為不需要紙本表單。"
+          }
+        },
+        {
+          "phrase": "submission form",
+          "zh": "提交表單",
+          "example": {
+            "en": "Please fill out the submission form before uploading your files.",
+            "zh": "請在上傳檔案前先填寫提交表單。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "政策",
+          "en": "As noted in my email, the policy penalizes late submissions.",
+          "zh": "如我在電子郵件中所說，這項政策會處罰逾期繳交。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "We received three submissions before the closing date.",
+          "zh": "截止日之前我們收到了三份提交的文件。"
+        },
+        {
+          "tag": "會議",
+          "en": "Reviewing all the submissions will take our team two full days.",
+          "zh": "審查所有提交的文件會花我們團隊整整兩天。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "admission",
+          "ipa": "/ədˈmɪʃən/",
+          "diff": "admission 是「入場、入場費」或「承認」；submission 是「提交」，兩者字尾都是 -mission，容易看錯。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "Admission is free, but proposal submission closes on Friday.",
+            "zh": "入場免費，但提案的提交會在星期五截止。"
+          }
+        },
+        {
+          "word": "permission",
+          "ipa": "/pərˈmɪʃən/",
+          "diff": "permission 是「許可」；submission 是「提交」，字尾相同，意思無關。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "You need written permission before making your submission to the board.",
+            "zh": "向董事會提交文件之前，你需要取得書面許可。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "deadline",
+          "pos": "n.",
+          "zh": "截止期限",
+          "ipa": "/ˈdedlaɪn/",
+          "example": {
+            "en": "The deadline for the budget report was moved to Monday.",
+            "zh": "預算報告的截止期限改到星期一。"
+          }
+        },
+        {
+          "w": "application",
+          "pos": "n.",
+          "zh": "申請（書）",
+          "ipa": "/ˌæplɪˈkeɪʃən/",
+          "example": {
+            "en": "Your application will be reviewed within five working days.",
+            "zh": "你的申請會在五個工作天內審查。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "submit",
+          "pos": "v.",
+          "zh": "提交、繳交",
+          "ipa": "/səbˈmɪt/",
+          "link": "submission 的詞幹；sub-（在下）+ mit（送），把東西送上去，像 permit、commit"
+        },
+        {
+          "w": "resubmit",
+          "pos": "v.",
+          "zh": "重新提交",
+          "ipa": "/ˌriːsəbˈmɪt/",
+          "link": "re-（再）+ submit，重新提交，像 rewrite、rebuild"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/səbˈmɪʃən/",
+          "zh": "提交（的行為）",
+          "en": "the act of giving a document to someone for review",
+          "distinguish": "前面常加 the，後面接 of 加文件名稱，指「提交這件事」。",
+          "example": {
+            "en": "The submission of expense reports is due on the fifth.",
+            "zh": "費用報告的提交期限是五號。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/səbˈmɪʃən/",
+          "zh": "提交的文件、稿件",
+          "en": "a document or a plan that someone gives to others for review",
+          "distinguish": "可數，常用 each / every submission，指一份份被繳交的東西。",
+          "example": {
+            "en": "Each submission must include a cover page and a budget.",
+            "zh": "每一份提交的文件都必須附上封面和預算。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "honest",
+      "type": "word",
+      "ipa": "/ˈɑːnɪst/",
+      "pos": "adj.",
+      "zh": "誠實的、坦白的",
+      "en": "telling the truth and not trying to cheat",
+      "note": "在 honest mistake 裡，honest 指「出於無心、沒有惡意」，不是「誠實的錯誤」；公司常用它說明無心之過不會被處罰。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "honest mistake",
+          "zh": "無心之過",
+          "example": {
+            "en": "The manager said an honest mistake would not be punished.",
+            "zh": "經理說，無心之過不會受到處罰。"
+          }
+        },
+        {
+          "phrase": "honest opinion",
+          "zh": "坦白的意見",
+          "example": {
+            "en": "Please give me your honest opinion of the new design.",
+            "zh": "請坦白告訴我你對新設計的看法。"
+          }
+        },
+        {
+          "phrase": "be honest with",
+          "zh": "對…坦白、誠實",
+          "example": {
+            "en": "It is better to be honest with clients about delays.",
+            "zh": "對客戶坦白說明延誤比較好。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "團隊",
+          "en": "We appreciate honest feedback from every member of the team.",
+          "zh": "我們很感謝團隊每位成員提出坦白的意見回饋。"
+        },
+        {
+          "tag": "客服",
+          "en": "To be honest, the delivery will probably take another week.",
+          "zh": "老實說，交貨可能還要再一週。"
+        },
+        {
+          "tag": "會議",
+          "en": "She gave an honest answer about the problems with the schedule.",
+          "zh": "她坦白回答了關於時程的問題。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "truthful",
+          "ipa": "/ˈtruːθfəl/",
+          "diff": "truthful 強調說的話符合事實；honest 則形容一個人的品格，也能指沒有惡意。",
+          "example": {
+            "en": "Her truthful report helped the team fix the problem quickly.",
+            "zh": "她據實的報告幫助團隊很快解決了問題。"
+          }
+        },
+        {
+          "word": "frank",
+          "ipa": "/fræŋk/",
+          "diff": "frank 是坦率直說，有時不太客氣；honest 比較中性，著重不說謊。",
+          "example": {
+            "en": "He was frank about the risks during the budget meeting.",
+            "zh": "他在預算會議上坦率說出了風險。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "honorable",
+          "ipa": "/ˈɑːnərəbəl/",
+          "diff": "honorable 是「光榮的、值得尊敬的」；honest 是「誠實的」，兩字同字根 honor，但意思不同。",
+          "kind": ["spell", "root"],
+          "example": {
+            "en": "The honest clerk returned the money, which was an honorable thing to do.",
+            "zh": "這位誠實的店員把錢還了回去，這是很值得敬重的舉動。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "reliable",
+          "pos": "adj.",
+          "zh": "可靠的",
+          "ipa": "/rɪˈlaɪəbəl/",
+          "example": {
+            "en": "We need a reliable supplier who delivers on time.",
+            "zh": "我們需要一家準時交貨、值得信賴的供應商。"
+          }
+        },
+        {
+          "w": "trustworthy",
+          "pos": "adj.",
+          "zh": "值得信賴的",
+          "ipa": "/ˈtrʌstwɜːrði/",
+          "example": {
+            "en": "The firm is known as a trustworthy partner in the industry.",
+            "zh": "這家公司在業界以值得信賴的夥伴聞名。"
+          }
+        },
+        {
+          "w": "fair",
+          "pos": "adj.",
+          "zh": "公平的、合理的",
+          "ipa": "/fer/",
+          "example": {
+            "en": "The contract offers a fair price for both sides.",
+            "zh": "這份合約對雙方都提供了合理的價格。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "honesty",
+          "pos": "n.",
+          "zh": "誠實",
+          "ipa": "/ˈɑːnɪsti/",
+          "link": "honest + -y，名詞字尾（誠實的特質），像 difficult → difficulty"
+        },
+        {
+          "w": "honestly",
+          "pos": "adv.",
+          "zh": "老實說、誠實地",
+          "ipa": "/ˈɑːnɪstli/",
+          "link": "honest + -ly，副詞字尾，像 quick → quickly"
+        },
+        {
+          "w": "dishonest",
+          "pos": "adj.",
+          "zh": "不誠實的",
+          "ipa": "/dɪsˈɑːnɪst/",
+          "link": "dis-（不）+ honest，加 dis- 表示相反，像 disagree、dislike"
+        },
+        {
+          "w": "dishonesty",
+          "pos": "n.",
+          "zh": "不誠實、欺騙",
+          "ipa": "/dɪsˈɑːnɪsti/",
+          "link": "dishonest + -y 的名詞形，指不誠實的行為"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ˈɑːnɪst/",
+          "zh": "誠實的",
+          "en": "telling the truth and not cheating",
+          "example": {
+            "en": "The vendor is honest and always shows the real costs.",
+            "zh": "這家廠商很誠實，總是列出真正的成本。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ˈɑːnɪst/",
+          "zh": "坦白的、直率的",
+          "en": "saying what you really think",
+          "distinguish": "和 opinion、answer、feedback 連用時，指「坦白說出真實想法」。",
+          "example": {
+            "en": "I would like your honest opinion before we sign the deal.",
+            "zh": "簽約前我想聽聽你坦白的看法。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ˈɑːnɪst/",
+          "zh": "無心的、非故意的",
+          "en": "done without wanting to cause harm",
+          "distinguish": "只和 mistake、error 這類字連用，表示「出於無心、沒有惡意」。",
+          "example": {
+            "en": "It was an honest mistake, and the bank corrected the amount.",
+            "zh": "這是無心之過，銀行已更正金額。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "performance review",
+      "type": "phrase",
+      "zh": "績效評估、考績面談",
+      "en": "a meeting or report where a manager judges how well an employee works",
+      "note": "公司定期由主管評估員工工作表現的面談或報告，常和加薪、升遷有關；句中說明無心之過不會影響考績。",
+      "pattern": "have / conduct a performance review + (of / for) + 人",
+      "grammar_note": "review 在這裡是可數名詞（a performance review）；主管「進行考績」用 conduct 或 do，員工「接受考績」用 have 或 get。",
+      "examples": [
+        {
+          "tag": "公告",
+          "en": "The manager explained that honest mistakes will not affect your performance review.",
+          "zh": "經理說明，無心之過不會影響你的考績。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Your annual performance review is scheduled for Tuesday at ten o'clock.",
+          "zh": "你的年度考績面談安排在星期二十點。"
+        },
+        {
+          "tag": "人資",
+          "en": "Good attendance and teamwork will help you get a strong performance review.",
+          "zh": "良好的出勤和團隊合作會幫助你拿到不錯的考績。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "performance evaluation",
+          "diff": "evaluation 更強調依標準打分數或下評語；performance review 則可以只是一次談話與回顧。",
+          "example": {
+            "en": "Each employee receives a performance evaluation every six months.",
+            "zh": "每位員工每六個月會接受一次績效評估。"
+          }
+        },
+        {
+          "phrase": "performance appraisal",
+          "diff": "appraisal 語氣較正式，常見於人資制度與書面表格。",
+          "example": {
+            "en": "The performance appraisal form must be signed by both sides.",
+            "zh": "績效考核表必須由雙方簽名。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "peer review",
+          "diff": "peer review 是同事或同行互相審查；performance review 是由主管評估員工。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "A peer review gives colleagues a chance to comment on your work.",
+            "zh": "同儕審查讓同事有機會對你的工作提出意見。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "attempt",
+      "type": "word",
+      "ipa": "/əˈtempt/",
+      "pos": "n.",
+      "zh": "嘗試、企圖",
+      "en": "an effort to do something, often something difficult",
+      "note": "在這句稽核結果裡，attempt to hide money 指「隱瞞款項的企圖」，帶有負面語氣；名詞 attempt 後面通常接 to + 動詞。",
+      "grammar_note": "attempt 當動詞後面接 to + 原形（attempt to fix），不接 V-ing；名詞用 an attempt to + 原形，或 an attempt at + 名詞。",
+      "forms": [
+        {
+          "w": "attempts",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "嘗試（複數）",
+          "ipa": "/əˈtempts/",
+          "example": {
+            "en": "Several attempts to reach the supplier by phone failed.",
+            "zh": "好幾次打電話聯絡供應商都失敗了。"
+          }
+        },
+        {
+          "w": "attempts",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "試圖",
+          "ipa": "/əˈtempts/",
+          "example": {
+            "en": "He attempts to answer every customer email within an hour.",
+            "zh": "他試著在一小時內回覆每一封客戶來信。"
+          }
+        },
+        {
+          "w": "attempted",
+          "label": "過去式／過去分詞",
+          "pos": "v.",
+          "zh": "試圖",
+          "ipa": "/əˈtemptɪd/",
+          "example": {
+            "en": "The team attempted to fix the error before the demonstration.",
+            "zh": "團隊試著在展示前修正這個錯誤。"
+          }
+        },
+        {
+          "w": "attempting",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "試圖",
+          "ipa": "/əˈtemptɪŋ/",
+          "example": {
+            "en": "She is attempting to reduce costs without cutting staff.",
+            "zh": "她正試著在不裁員的情況下降低成本。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "make an attempt",
+          "zh": "嘗試、試圖",
+          "example": {
+            "en": "We will make an attempt to contact the client again today.",
+            "zh": "我們今天會再試著聯絡客戶一次。"
+          }
+        },
+        {
+          "phrase": "in an attempt to",
+          "zh": "為了試圖…",
+          "example": {
+            "en": "The firm cut prices in an attempt to win new customers.",
+            "zh": "公司降價，試圖爭取新客戶。"
+          }
+        },
+        {
+          "phrase": "first attempt",
+          "zh": "第一次嘗試",
+          "example": {
+            "en": "Our first attempt to log in to the system failed.",
+            "zh": "我們第一次嘗試登入系統時失敗了。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "稽核",
+          "en": "The auditor found only honest mistakes, not any attempt to hide money.",
+          "zh": "稽核員只發現無心的錯誤，沒有任何隱瞞款項的企圖。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "This is our last attempt to settle the matter without a lawyer.",
+          "zh": "這是我們不透過律師解決此事的最後一次嘗試。"
+        },
+        {
+          "tag": "資訊安全",
+          "en": "The system blocked an attempt to enter the account with a wrong password.",
+          "zh": "系統擋下了一次用錯誤密碼進入帳戶的企圖。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "try",
+          "ipa": "/traɪ/",
+          "diff": "try 是最口語、最常用的說法；attempt 語氣較正式，常用於書面或報告。",
+          "example": {
+            "en": "We will try to finish the report before the meeting.",
+            "zh": "我們會試著在會議前完成報告。"
+          }
+        },
+        {
+          "word": "effort",
+          "ipa": "/ˈefərt/",
+          "diff": "effort 強調花了多少力氣；attempt 強調「試了一次」這個動作，結果可能失敗。",
+          "example": {
+            "en": "Their effort to cut costs saved the company thousands of dollars.",
+            "zh": "他們降低成本的努力為公司省下數千美元。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "tempt",
+          "ipa": "/tempt/",
+          "diff": "tempt 是「誘惑、吸引」，字形包含在 attempt 裡面，發音也很像，但意思不同。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "A generous bonus might tempt staff to attempt harder tasks.",
+            "zh": "豐厚的獎金可能吸引員工去嘗試更困難的任務。"
+          }
+        },
+        {
+          "word": "attend",
+          "ipa": "/əˈtend/",
+          "diff": "attend 是「出席、參加」；attempt 是「嘗試」，兩字都以 at- 開頭且重音相同。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "Please attend the training session and attempt every practice question.",
+            "zh": "請參加培訓課程，並嘗試每一道練習題。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "trial",
+          "pos": "n.",
+          "zh": "試用、試驗",
+          "ipa": "/ˈtraɪəl/",
+          "example": {
+            "en": "The software is free during a thirty-day trial.",
+            "zh": "這套軟體在三十天試用期間是免費的。"
+          }
+        }
+      ],
+      "derived": [],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/əˈtempt/",
+          "zh": "嘗試、企圖",
+          "example": {
+            "en": "Their first attempt at selling online brought in few orders.",
+            "zh": "他們第一次嘗試線上銷售，訂單很少。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/əˈtempt/",
+          "zh": "試圖",
+          "example": {
+            "en": "Do not attempt to repair the machine without training.",
+            "zh": "沒有受過訓練，請不要試圖自行修理這台機器。"
+          }
+        }
+      ],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/əˈtempt/",
+          "zh": "嘗試",
+          "en": "an effort to do something",
+          "example": {
+            "en": "The second attempt succeeded after the engineers fixed the settings.",
+            "zh": "工程師修正設定後，第二次嘗試成功了。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/əˈtempt/",
+          "zh": "企圖（常指不好的行為）",
+          "en": "an effort to do something wrong or against the rules",
+          "distinguish": "後面接 steal、hide、cheat 等負面動詞時，指「企圖」，語氣是負面的。",
+          "example": {
+            "en": "The bank reported an attempt to steal customer data last night.",
+            "zh": "銀行通報昨晚有人企圖竊取客戶資料。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "careless mistakes",
+      "type": "phrase",
+      "zh": "粗心的錯誤、疏忽造成的錯誤",
+      "en": "mistakes caused by not paying enough attention",
+      "note": "和 honest mistakes 不同，careless mistakes 指因為不夠小心而犯的錯，在稽核或考績情境中可能被要求改善。",
+      "pattern": "make + careless mistakes + in + N",
+      "grammar_note": "「犯錯」用 make a mistake，不用 do；careless 是形容詞，修飾名詞 mistakes，不要寫成 carelessly mistakes。",
+      "examples": [
+        {
+          "tag": "財務",
+          "en": "Careless mistakes in the invoice caused a two-week payment delay.",
+          "zh": "發票上的粗心錯誤造成了兩週的付款延遲。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please check your figures twice to avoid careless mistakes.",
+          "zh": "請把數字檢查兩次，避免粗心的錯誤。"
+        },
+        {
+          "tag": "會議",
+          "en": "Most careless mistakes happen when staff work too quickly.",
+          "zh": "大多數粗心的錯誤都發生在員工工作太快的時候。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "silly mistakes",
+          "diff": "silly mistakes 比較口語，帶有「本來不該犯」的語氣。",
+          "example": {
+            "en": "We made a few silly mistakes in the first draft.",
+            "zh": "我們在初稿中犯了幾個不該犯的小錯。"
+          }
+        },
+        {
+          "phrase": "avoidable errors",
+          "diff": "avoidable errors 較正式，強調這些錯誤本來可以避免，常用於報告。",
+          "example": {
+            "en": "Most of the avoidable errors came from missing data entry checks.",
+            "zh": "大部分可避免的錯誤來自缺少資料輸入的檢查。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "honest mistake",
+          "diff": "honest mistake 是無心、沒有惡意的錯；careless mistakes 是因為不夠注意而犯的錯，責任較重。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "An honest mistake is forgiven, but careless mistakes need extra training.",
+            "zh": "無心之過可以被原諒，但粗心的錯誤需要額外訓練。"
+          }
+        },
+        {
+          "word": "carefree",
+          "ipa": "/ˈkerfriː/",
+          "diff": "carefree 是「無憂無慮的」，與 careless 同字根 care，但不是「粗心」。",
+          "kind": ["spell", "root"],
+          "example": {
+            "en": "A carefree attitude toward deadlines can lead to careless mistakes.",
+            "zh": "對截止日期漫不在乎的態度可能導致粗心的錯誤。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "innocent mistake",
+      "type": "phrase",
+      "zh": "無心之過、非故意的錯誤",
+      "en": "a mistake made without wanting to cause trouble",
+      "note": "在客服、財務或法務情境中，用來強調錯誤不是故意的，常用來請對方諒解。",
+      "pattern": "N + was an innocent mistake",
+      "grammar_note": "innocent 以母音開頭，冠詞要用 an（an innocent mistake），不是 a。",
+      "examples": [
+        {
+          "tag": "客服",
+          "en": "The extra charge was an innocent mistake, and we will refund it.",
+          "zh": "多收的費用是無心之過，我們會退款。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "I hope you can see that this was only an innocent mistake.",
+          "zh": "希望你能理解這只是一個無心的錯誤。"
+        },
+        {
+          "tag": "會議",
+          "en": "The accountant said the wrong figure was an innocent mistake.",
+          "zh": "會計師說，那個錯誤的數字是無心之過。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "honest mistake",
+          "diff": "意思幾乎相同，honest mistake 在職場公告和規定中更常見。",
+          "example": {
+            "en": "The audit showed it was an honest mistake, not a plan to cheat.",
+            "zh": "稽核顯示這是無心之過，不是蓄意欺騙。"
+          }
+        },
+        {
+          "phrase": "unintentional error",
+          "diff": "unintentional error 語氣較正式，常見於書面報告。",
+          "example": {
+            "en": "The unintentional error in the report was corrected the same day.",
+            "zh": "報告中的無心錯誤在當天就更正了。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "human error",
+      "type": "phrase",
+      "zh": "人為疏失、人為錯誤",
+      "en": "a mistake made by a person, not by a machine",
+      "note": "事故報告與客服信常見，用來說明問題是人的操作失誤，而不是系統或機器故障；語氣客觀，有時也用來淡化責任。",
+      "pattern": "N + was caused by + human error",
+      "grammar_note": "human error 通常是不可數名詞，不加 a 或 s，例如 due to human error。",
+      "examples": [
+        {
+          "tag": "報告",
+          "en": "The delay was caused by human error, not by a system failure.",
+          "zh": "這次延誤是人為疏失造成的，不是系統故障。"
+        },
+        {
+          "tag": "會議",
+          "en": "Training can reduce human error in the packing department.",
+          "zh": "訓練可以減少包裝部門的人為疏失。"
+        },
+        {
+          "tag": "客服",
+          "en": "Most data entry problems are due to human error.",
+          "zh": "大多數資料輸入的問題都是人為疏失造成的。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "operator error",
+          "diff": "operator error 指操作機器或系統的人員失誤，比 human error 更具體。",
+          "example": {
+            "en": "The report named operator error as the cause of the shutdown.",
+            "zh": "報告指出操作人員的失誤是停機的原因。"
+          }
+        },
+        {
+          "phrase": "user error",
+          "diff": "user error 指使用者（客戶）的操作錯誤，客服情境很常見。",
+          "example": {
+            "en": "The technician said the problem was user error, not a defect.",
+            "zh": "技術人員說問題出在使用者操作錯誤，不是產品瑕疵。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "system error",
+          "diff": "system error 是軟體或機器本身的錯誤；human error 是人造成的錯誤。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "A system error, not human error, caused the double billing.",
+            "zh": "重複收費是系統錯誤造成的，不是人為疏失。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "error",
+      "type": "word",
+      "ipa": "/ˈerər/",
+      "pos": "n.",
+      "zh": "錯誤、疏失",
+      "en": "something that is wrong in a document, a number, or a system",
+      "note": "比 mistake 正式，常指帳目、資料或系統中的錯誤；在報告、客服信和技術訊息中很常見。",
+      "grammar_note": "error 是可數名詞（an error / errors）；in error 表示「錯誤地、誤」，前面不加 an。",
+      "forms": [
+        {
+          "w": "errors",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "錯誤（複數）",
+          "ipa": "/ˈerərz/",
+          "example": {
+            "en": "The audit found several errors in the monthly sales figures.",
+            "zh": "稽核在每月銷售數字中發現了幾處錯誤。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "make an error",
+          "zh": "犯錯",
+          "example": {
+            "en": "It is easy to make an error when you enter data late.",
+            "zh": "很晚才輸入資料時很容易出錯。"
+          }
+        },
+        {
+          "phrase": "error message",
+          "zh": "錯誤訊息",
+          "example": {
+            "en": "An error message appeared as soon as I tried to log in.",
+            "zh": "我一試著登入，就跳出錯誤訊息。"
+          }
+        },
+        {
+          "phrase": "margin of error",
+          "zh": "誤差範圍",
+          "example": {
+            "en": "The survey has a margin of error of three percent.",
+            "zh": "這項調查的誤差範圍是百分之三。"
+          }
+        },
+        {
+          "phrase": "correct an error",
+          "zh": "更正錯誤",
+          "example": {
+            "en": "We must correct an error in the delivery address today.",
+            "zh": "我們今天必須更正送貨地址上的一個錯誤。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "會計",
+          "en": "The accountant found an error in the total on the second page.",
+          "zh": "會計師在第二頁的總額中發現了一個錯誤。"
+        },
+        {
+          "tag": "客服",
+          "en": "We apologize for the billing error and have fixed your account.",
+          "zh": "我們為帳單錯誤致歉，並已修正您的帳戶。"
+        },
+        {
+          "tag": "技術",
+          "en": "The software showed an error after the latest update was installed.",
+          "zh": "安裝最新更新後，軟體出現了錯誤。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "mistake",
+          "ipa": "/mɪˈsteɪk/",
+          "diff": "mistake 較口語，多指人犯的錯；error 較正式，也能指機器、資料或系統的錯。",
+          "example": {
+            "en": "I made a mistake on the order form, so I will resubmit it.",
+            "zh": "我在訂購單上填錯了，所以我會重新提交。"
+          }
+        },
+        {
+          "word": "inaccuracy",
+          "ipa": "/ɪnˈækjərəsi/",
+          "diff": "inaccuracy 強調內容不準確、和事實有出入；error 是更廣泛的錯誤。",
+          "example": {
+            "en": "The inaccuracy in the report was caused by old data.",
+            "zh": "報告中的不準確是舊資料造成的。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "terror",
+          "ipa": "/ˈterər/",
+          "diff": "terror 是「恐懼」，字尾 -rror 與 error 相同，發音也只差第一個音，容易看錯或聽混。",
+          "kind": ["spell", "sound"],
+          "example": {
+            "en": "Fear of making an error is not the same as real terror.",
+            "zh": "害怕犯錯和真正的恐懼是不同的。"
+          }
+        },
+        {
+          "word": "mirror",
+          "ipa": "/ˈmɪrər/",
+          "diff": "mirror 是「鏡子、鏡像」，字尾 -rror 與 error 相同，但意思不同。",
+          "kind": ["spell"],
+          "example": {
+            "en": "The same error appears on the main site and the mirror site.",
+            "zh": "同樣的錯誤出現在主網站和鏡像網站上。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "bug",
+          "pos": "n.",
+          "zh": "程式錯誤",
+          "ipa": "/bʌɡ/",
+          "example": {
+            "en": "Engineers fixed the bug that caused the system to crash.",
+            "zh": "工程師修正了造成系統當機的程式錯誤。"
+          }
+        },
+        {
+          "w": "defect",
+          "pos": "n.",
+          "zh": "缺陷、瑕疵",
+          "ipa": "/ˈdiːfekt/",
+          "example": {
+            "en": "Each product is checked carefully for any defect before shipping.",
+            "zh": "每件產品出貨前都會仔細檢查有沒有瑕疵。"
+          }
+        },
+        {
+          "w": "fault",
+          "pos": "n.",
+          "zh": "故障、過失",
+          "ipa": "/fɔːlt/",
+          "example": {
+            "en": "The report says the fault lies with the old equipment.",
+            "zh": "報告指出問題出在舊設備上。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "erroneous",
+          "pos": "adj.",
+          "zh": "錯誤的",
+          "ipa": "/ɪˈroʊniəs/",
+          "link": "與 error 同字根 err（犯錯）；-ous 是形容詞字尾，像 serious、famous"
+        },
+        {
+          "w": "erroneously",
+          "pos": "adv.",
+          "zh": "錯誤地",
+          "ipa": "/ɪˈroʊniəsli/",
+          "link": "erroneous + -ly，副詞字尾，像 quickly"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈerər/",
+          "zh": "錯誤、疏失",
+          "en": "something that is wrong in a document, a number, or a system",
+          "example": {
+            "en": "A small error in the address sent the package to the wrong city.",
+            "zh": "地址上的一個小錯誤讓包裹被送到錯的城市。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈerər/",
+          "zh": "誤差",
+          "en": "the small difference between a measured number and the real number",
+          "distinguish": "和 measurement、margin、rate 等字連用時，指數字上的誤差。",
+          "example": {
+            "en": "The measurement error was less than one millimeter.",
+            "zh": "測量誤差小於一公釐。"
+          }
+        }
+      ]
+    }
+  ]
+}

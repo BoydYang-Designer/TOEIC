@@ -1,0 +1,535 @@
+{
+  "week": 3,
+  "day": 6,
+  "extra_vocab": [
+    {
+      "text": "innocent",
+      "type": "word",
+      "ipa": "/ˈɪnəsənt/",
+      "pos": "adj.",
+      "zh": "非故意的、無辜的",
+      "en": "not meant to cause harm; not guilty of doing something wrong",
+      "note": "在這篇裡，innocent 修飾 mistake，表示錯誤不是故意的、沒有惡意。常用在向客戶解釋失誤、請對方不要誤會的場合，語氣客氣但帶一點辯解。",
+      "grammar_note": "innocent 表示「無罪」時，後面用 of 接過失或罪名（innocent of fraud），不接 for；修飾 mistake、error 時則是「非故意的」。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "innocent mistake",
+          "zh": "無心之過",
+          "example": {
+            "en": "The late shipment was an innocent mistake, not a sign of poor service.",
+            "zh": "延遲出貨是無心之過，並不代表服務品質差。"
+          }
+        },
+        {
+          "phrase": "innocent victim",
+          "zh": "無辜的受害者",
+          "example": {
+            "en": "Customers are innocent victims of the system failure.",
+            "zh": "客戶是這次系統故障的無辜受害者。"
+          }
+        },
+        {
+          "phrase": "innocent of",
+          "zh": "沒有…的過失或罪名",
+          "example": {
+            "en": "The staff were innocent of any wrongdoing in the audit.",
+            "zh": "員工在這次稽核中沒有任何不當行為。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "We believe the error was innocent, and we will fix it today.",
+          "zh": "我們相信這個錯誤是無心的，今天就會修正。"
+        },
+        {
+          "tag": "稽核",
+          "en": "The audit showed that the new employee was innocent.",
+          "zh": "稽核結果顯示這位新進員工是清白的。"
+        },
+        {
+          "tag": "客服",
+          "en": "The customer asked an innocent question about the extra fee.",
+          "zh": "客戶問了一個關於額外費用、沒有惡意的問題。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "incident",
+          "ipa": "/ˈɪnsɪdənt/",
+          "diff": "incident 是「事件、突發狀況」，innocent 是「無辜的、非故意的」，兩個字拼法與發音都很像。",
+          "kind": ["spell", "sound"],
+          "usage": "incident 是名詞，innocent 是形容詞。",
+          "example": {
+            "en": "The incident was reported to the manager right away.",
+            "zh": "這起事件立刻通報給經理了。"
+          }
+        },
+        {
+          "word": "naive",
+          "ipa": "/naɪˈiːv/",
+          "diff": "naive 指缺乏經驗、容易被騙，帶一點負面；innocent 強調沒有過錯或惡意。中文都可翻成「天真」。",
+          "kind": ["meaning", "zhsame"],
+          "example": {
+            "en": "Trusting every offer from the vendor would be naive.",
+            "zh": "相信供應商的每一個報價是很天真的。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "unintentional",
+          "ipa": "/ˌʌnɪnˈtenʃənəl/",
+          "diff": "比較正式，直接說「非有意的」，沒有「無罪」的意思。",
+          "example": {
+            "en": "The unintentional delay was caused by a system failure.",
+            "zh": "這次非有意的延誤是系統故障造成的。"
+          }
+        },
+        {
+          "phrase": "honest",
+          "ipa": "/ˈɑːnɪst/",
+          "diff": "常說 honest mistake，語氣較口語，強調沒有欺騙或隱瞞的意思。",
+          "example": {
+            "en": "Everyone makes an honest mistake from time to time.",
+            "zh": "每個人偶爾都會犯下無心的錯誤。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "guilty",
+          "pos": "adj.",
+          "zh": "有罪的、有過失的",
+          "ipa": "/ˈɡɪlti/",
+          "example": {
+            "en": "The company was not found guilty of any billing fraud.",
+            "zh": "這家公司未被認定犯有任何帳單詐欺。"
+          }
+        },
+        {
+          "w": "careless",
+          "pos": "adj.",
+          "zh": "粗心的",
+          "ipa": "/ˈkerləs/",
+          "example": {
+            "en": "A careless mistake on the form delayed the payment.",
+            "zh": "表格上的粗心錯誤延誤了付款。"
+          }
+        },
+        {
+          "w": "responsible",
+          "pos": "adj.",
+          "zh": "負責的",
+          "ipa": "/rɪˈspɑːnsəbəl/",
+          "example": {
+            "en": "Who is responsible for checking the invoices each month?",
+            "zh": "誰負責每個月檢查發票？"
+          }
+        },
+        {
+          "w": "fault",
+          "pos": "n.",
+          "zh": "過錯",
+          "ipa": "/fɔːlt/",
+          "example": {
+            "en": "The delay was not our fault; the shipper was late.",
+            "zh": "延誤不是我們的錯，是貨運公司晚到。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "innocence",
+          "ipa": "/ˈɪnəsəns/",
+          "pos": "n.",
+          "zh": "清白、無辜",
+          "link": "innocent 去掉 -t 加 -ce，變成名詞，像 patient → patience、absent → absence"
+        },
+        {
+          "w": "innocently",
+          "ipa": "/ˈɪnəsəntli/",
+          "pos": "adv.",
+          "zh": "無惡意地",
+          "link": "innocent + -ly，變成副詞，像 quick → quickly"
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "adj.",
+          "ipa": "/ˈɪnəsənt/",
+          "zh": "非故意的、無惡意的",
+          "en": "done by accident and not meant to cause harm",
+          "in_passage": true,
+          "distinguish": "常修飾 mistake、error，表示不是故意造成的。",
+          "example": {
+            "en": "The wrong date on the form was an innocent error.",
+            "zh": "表格上的日期寫錯只是無心的失誤。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ˈɪnəsənt/",
+          "zh": "無罪的、無辜的",
+          "en": "not guilty of a crime or of doing something wrong",
+          "distinguish": "修飾人，或和 of + 罪名一起用。",
+          "example": {
+            "en": "The company proved that its manager was innocent of fraud.",
+            "zh": "公司證明了其經理沒有詐欺行為。"
+          }
+        },
+        {
+          "pos": "adj.",
+          "ipa": "/ˈɪnəsənt/",
+          "zh": "天真的、涉世未深的",
+          "en": "simple and without much experience of the world",
+          "distinguish": "描述人的個性或經驗，不是在談過錯。",
+          "example": {
+            "en": "The young trainee was too innocent to doubt the vendor.",
+            "zh": "這位年輕的實習生太天真，沒有懷疑供應商。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "overcharge",
+      "type": "word",
+      "ipa": "/ˈoʊvərtʃɑːrdʒ/",
+      "pos": "n.",
+      "zh": "多收的費用",
+      "en": "money that a seller charges that is more than the correct price",
+      "note": "在這篇裡，overcharge 是名詞，指「多收的款項」。這句是向客戶說明錯誤已處理（已退款），語氣是誠懇解釋並補救。",
+      "grammar_note": "當動詞時，先接人再用 for 接項目（overcharge a customer for a service）；當名詞時是可數名詞，前面要有 an 或 the，也可用複數。",
+      "forms": [
+        {
+          "w": "overcharges",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "多收的費用（複數）",
+          "ipa": "/ˈoʊvərtʃɑːrdʒɪz/",
+          "example": {
+            "en": "Please check the statement for any overcharges before you pay.",
+            "zh": "付款前請檢查對帳單上有沒有多收的費用。"
+          }
+        },
+        {
+          "w": "overcharges",
+          "label": "第三人稱單數",
+          "pos": "v.",
+          "zh": "多收…的錢",
+          "ipa": "/ˌoʊvərˈtʃɑːrdʒɪz/",
+          "example": {
+            "en": "The vendor overcharges us whenever we order small amounts.",
+            "zh": "每次我們訂購少量時，供應商都會多收費。"
+          }
+        },
+        {
+          "w": "overcharged",
+          "label": "過去式",
+          "pos": "v.",
+          "zh": "多收了…的錢",
+          "ipa": "/ˌoʊvərˈtʃɑːrdʒd/",
+          "example": {
+            "en": "The hotel overcharged us by twenty dollars last night.",
+            "zh": "飯店昨晚多收了我們二十元。"
+          }
+        },
+        {
+          "w": "overcharged",
+          "label": "過去分詞",
+          "pos": "v.",
+          "zh": "被多收費",
+          "ipa": "/ˌoʊvərˈtʃɑːrdʒd/",
+          "example": {
+            "en": "We were overcharged for parking during the conference.",
+            "zh": "會議期間我們被多收了停車費。"
+          }
+        },
+        {
+          "w": "overcharging",
+          "label": "現在分詞",
+          "pos": "v.",
+          "zh": "多收費中",
+          "ipa": "/ˌoʊvərˈtʃɑːrdʒɪŋ/",
+          "example": {
+            "en": "They denied overcharging us and promised to review the bill.",
+            "zh": "他們否認多收我們的錢，並承諾會檢查帳單。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "refund the overcharge",
+          "zh": "退還多收的費用",
+          "example": {
+            "en": "The bank will refund the overcharge within five working days.",
+            "zh": "銀行會在五個工作天內退還多收的費用。"
+          }
+        },
+        {
+          "phrase": "dispute an overcharge",
+          "zh": "對多收費用提出異議",
+          "example": {
+            "en": "We plan to dispute an overcharge on this month's invoice.",
+            "zh": "我們打算對本月發票上多收的費用提出異議。"
+          }
+        },
+        {
+          "phrase": "overcharge a customer",
+          "zh": "對客戶多收費",
+          "example": {
+            "en": "Never overcharge a customer, even by a small amount.",
+            "zh": "絕對不要對客戶多收費，即使只是一點點。"
+          }
+        },
+        {
+          "phrase": "overcharge for",
+          "zh": "就…多收費",
+          "example": {
+            "en": "They tried to overcharge for repairs we never requested.",
+            "zh": "他們想就我們從未要求的維修多收費用。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "電子郵件",
+          "en": "We found an overcharge on your account and will correct it.",
+          "zh": "我們發現您的帳戶有多收費用，會立即更正。"
+        },
+        {
+          "tag": "帳單",
+          "en": "The overcharge on the statement came to forty dollars.",
+          "zh": "對帳單上多收的費用共四十元。"
+        },
+        {
+          "tag": "會議",
+          "en": "Our rivals overcharge for rush delivery, but we do not.",
+          "zh": "我們的對手趕件運送會多收費，但我們不會。"
+        },
+        {
+          "tag": "採購",
+          "en": "If a supplier overcharges you, send a written complaint right away.",
+          "zh": "如果供應商對你多收費，請立刻寄出書面客訴。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "surcharge",
+          "ipa": "/ˈsɜːrtʃɑːrdʒ/",
+          "diff": "surcharge 是事先說明的額外附加費；overcharge 是收了超過正確金額的錢。",
+          "kind": ["meaning", "root"],
+          "example": {
+            "en": "A fuel surcharge was added to the freight cost this month.",
+            "zh": "本月運費中加上了燃料附加費。"
+          }
+        },
+        {
+          "word": "overpay",
+          "ipa": "/ˌoʊvərˈpeɪ/",
+          "diff": "overcharge 是收錢的人多收，overpay 是付錢的人多付。",
+          "kind": ["meaning"],
+          "usage": "overcharge 的主詞是收款方（overcharge a customer），overpay 的主詞是付款方（overpay a supplier）。",
+          "example": {
+            "en": "We overpay for printer ink because we buy small packs.",
+            "zh": "因為我們買小包裝，所以印表機墨水付得比較多。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "overbill",
+          "ipa": "/ˌoʊvərˈbɪl/",
+          "diff": "偏重帳單或請款金額開得太高，常用在工時、服務費；overcharge 範圍更廣。",
+          "example": {
+            "en": "We were overbilled for three hours of repair work.",
+            "zh": "我們被多開了三小時的維修費用。"
+          }
+        },
+        {
+          "phrase": "charge too much",
+          "diff": "較口語，只是說價格太高；overcharge 強調超過正確或約定的金額。",
+          "example": {
+            "en": "Some hotels charge too much for a late checkout.",
+            "zh": "有些飯店延遲退房收費太高。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "refund",
+          "pos": "n.",
+          "zh": "退款",
+          "ipa": "/ˈriːfʌnd/",
+          "example": {
+            "en": "The customer asked for a full refund after the mistake.",
+            "zh": "出錯之後，客戶要求全額退款。"
+          }
+        },
+        {
+          "w": "fee",
+          "pos": "n.",
+          "zh": "費用",
+          "ipa": "/fiː/",
+          "example": {
+            "en": "There is no extra fee for changing the delivery date.",
+            "zh": "更改送貨日期不需額外費用。"
+          }
+        },
+        {
+          "w": "bill",
+          "pos": "n.",
+          "zh": "帳單",
+          "ipa": "/bɪl/",
+          "example": {
+            "en": "The bill arrived late, so we paid it on Monday.",
+            "zh": "帳單很晚才到，所以我們星期一才付款。"
+          }
+        },
+        {
+          "w": "receipt",
+          "pos": "n.",
+          "zh": "收據",
+          "ipa": "/rɪˈsiːt/",
+          "example": {
+            "en": "Please keep the receipt in case you need a refund.",
+            "zh": "請保留收據，以免需要退款。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "charge",
+          "ipa": "/tʃɑːrdʒ/",
+          "pos": "n./v.",
+          "zh": "收費；費用",
+          "link": "overcharge = over（過多）+ charge（收費），收太多錢"
+        },
+        {
+          "w": "undercharge",
+          "ipa": "/ˌʌndərˈtʃɑːrdʒ/",
+          "pos": "v.",
+          "zh": "少收費",
+          "link": "under（不足）+ charge，和 overcharge 剛好相反"
+        },
+        {
+          "w": "surcharge",
+          "ipa": "/ˈsɜːrtʃɑːrdʒ/",
+          "pos": "n.",
+          "zh": "附加費",
+          "link": "sur-（額外）+ charge，另外加收的費用"
+        },
+        {
+          "w": "recharge",
+          "ipa": "/ˌriːˈtʃɑːrdʒ/",
+          "pos": "v.",
+          "zh": "充電",
+          "link": "re-（再次）+ charge，像 restart、review 的 re-"
+        },
+        {
+          "w": "charger",
+          "ipa": "/ˈtʃɑːrdʒər/",
+          "pos": "n.",
+          "zh": "充電器",
+          "link": "charge + -er，做某件事的工具，像 printer、computer"
+        }
+      ],
+      "pos_uses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈoʊvərtʃɑːrdʒ/",
+          "zh": "多收的費用",
+          "in_passage": true,
+          "example": {
+            "en": "We apologize for the overcharge and have issued a credit.",
+            "zh": "我們為多收費用致歉，並已開立退款額度。"
+          }
+        },
+        {
+          "pos": "v.",
+          "ipa": "/ˌoʊvərˈtʃɑːrdʒ/",
+          "zh": "多收…的錢",
+          "example": {
+            "en": "Some airlines overcharge passengers for extra bags at the airport.",
+            "zh": "有些航空公司在機場對旅客的額外行李多收費。"
+          }
+        }
+      ],
+      "senses": []
+    },
+    {
+      "text": "data entry",
+      "type": "phrase",
+      "zh": "資料輸入、資料登錄",
+      "en": "the work of typing information into a computer",
+      "note": "在這篇裡指「輸入資料」這個作業環節，和 human error 一起出現，說明延誤的原因是人工輸入出錯。",
+      "pattern": "data entry + 名詞（clerk／error／software）",
+      "grammar_note": "data entry 是不可數的名詞片語，不加 s；放在名詞前面當形容詞用，如 data entry clerk（資料輸入員）。",
+      "examples": [
+        {
+          "tag": "招聘",
+          "en": "We are hiring a part-time clerk for data entry work.",
+          "zh": "我們正在徵求一名兼職的資料輸入人員。"
+        },
+        {
+          "tag": "會議",
+          "en": "Most mistakes in the report came from data entry, not the software.",
+          "zh": "報告中的大部分錯誤來自資料輸入，而不是軟體。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "Please double-check the data entry before you send the file.",
+          "zh": "寄出檔案之前，請再次檢查輸入的資料。"
+        },
+        {
+          "tag": "履歷",
+          "en": "She has two years of experience in data entry and filing.",
+          "zh": "她有兩年資料輸入與歸檔的經驗。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "data input",
+          "diff": "較偏技術用語，也可指「輸入的資料」；data entry 偏指人工輸入資料的工作。",
+          "example": {
+            "en": "Accurate data input saves time in the accounting department.",
+            "zh": "正確的資料輸入能替會計部門節省時間。"
+          }
+        },
+        {
+          "phrase": "keying in",
+          "diff": "是動詞片語，說的是「打字輸入」這個動作；data entry 是名詞片語，指這項工作。",
+          "example": {
+            "en": "Keying in the order numbers by hand takes too long.",
+            "zh": "用手工輸入訂單編號太花時間了。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "entrance",
+          "ipa": "/ˈentrəns/",
+          "diff": "entrance 指入口或進入，entry 則可指輸入的項目或加入；兩字拼法與意思都接近。",
+          "kind": ["spell", "meaning"],
+          "usage": "data entry 的 entry 是「輸入」，不能換成 entrance（入口）。",
+          "example": {
+            "en": "Please wait at the main entrance of the office building.",
+            "zh": "請在辦公大樓的正門入口等候。"
+          }
+        },
+        {
+          "phrase": "data processing",
+          "diff": "data processing 是對資料做運算與整理；data entry 只是把資料輸入系統。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "Data processing takes longer when the files are very large.",
+            "zh": "檔案很大時，資料處理會花比較久的時間。"
+          }
+        }
+      ]
+    }
+  ]
+}
