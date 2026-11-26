@@ -43,8 +43,14 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
   ※ HD 每百萬字元價格約為標準的兩倍，估算費用已分開計算（PRICE_HD_USD_PER_M_CHARS）。
   ※ 換聲音後想把舊檔換成新聲音：加 --redo（聲音不同的檔）或 --redo-all（連沒有紀錄的舊檔）。edge-tts 不支援 HD 名稱。
 
-引擎切換：預設用 DEFAULT_ENGINE；命令列加 --azure 或 --edge 可臨時改；視窗模式的「引擎」下拉選單也能切換。
-  azure＝Azure Speech（動用 $200 點數）；edge-tts＝微軟 Edge 免費語音（2026-10-10 起因微軟改版常回 403，修好前請用 azure）。
+引擎切換：預設用 DEFAULT_ENGINE；命令列加 --azure／--edge／--kokoro 可臨時改；視窗模式的「引擎」下拉選單也能切換。
+  azure＝Azure Speech（動用 $200 點數）；edge-tts＝微軟 Edge 免費語音（2026-10-10 起因微軟改版常回 403，修好前請用 azure）；
+  kokoro＝本機離線免費語音（Kokoro-82M，不用網路、不用金鑰、沒有額度；音質接近 HD，但沒有澳式口音，澳式聲音改用英式聲音代替）。
+  Kokoro 試用：python auto-speech.py --check-kokoro   （安裝套件並把每個聲音念一句，存到 kokoro-test/ 試聽，不會動到正式音檔）
+  Kokoro 套用：python auto-speech.py part3 --kokoro　或　在視窗的「引擎」下拉選單選 Kokoro（只補缺檔；要把舊檔換成 Kokoro 才加 --redo）
+  Kokoro 選聲音：視窗模式切到 Kokoro 後會出現「🎙 Kokoro 聲音：試聽／選擇／輪流…」按鈕——可逐一試聽 28 個英文聲音，
+    勾「輪流」讓多個聲音交錯使用（女聲、男聲各自輪流），字母 A～E 和 Daily 詳解單字各自單選一個；選擇存在 kokoro-voices.json，
+    文字模式也會沿用。（設定區的 KOKORO_VOICE_MAP 只是「還沒選過」時的預設對應。）
   --usage 顯示 Azure 點數到期日與本腳本累計用量（記在 azure-usage.json，只是估算，實際以入口網站為準）。
 
 Azure 設定：金鑰與區域只從 Windows 環境變數讀取（絕不寫進程式或專案資料夾）：
@@ -61,6 +67,7 @@ Azure 設定：金鑰與區域只從 Windows 環境變數讀取（絕不寫進�
 import asyncio
 import importlib
 import json
+import math
 import os
 import queue
 import random
@@ -92,7 +99,7 @@ VOICES = [
 LETTER_VOICE = "en-US-Ava:DragonHDLatestNeural"
 LETTERS = "ABCDE"             # 選項字母檔：audio/A.mp3 ~ audio/E.mp3（缺才補；Part 1／2 共用）
 MAKE_LETTERS = True
-DEFAULT_ENGINE = "azure"      # 預設引擎："azure"（用點數）或 "edge-tts"（免費，目前常 403）
+DEFAULT_ENGINE = "azure"      # 預設引擎："azure"（用點數）、"edge-tts"（免費，目前常 403）或 "kokoro"（本機離線免費）
 AZURE_CREDIT_USD = 200.0      # 免費帳戶點數總額
 AZURE_CREDIT_END = "2026-11-09"   # 點數到期日 "YYYY-MM-DD"（入口網站：成本管理 + 帳單 → 點數 可查；通常是註冊日 + 30 天）
 USAGE_NAME = "azure-usage.json"   # 本腳本累計的 Azure 字元用量（放在題庫 json 同一層，不含金鑰）
@@ -106,6 +113,24 @@ HD_MARK = ":DragonHD"         # 聲音名稱含這串就視為 HD 聲音
 HD_FALLBACK = True         # HD 聲音被拒絕（例如這個區域沒有 HD）時，依序降級：Multilingual（中）→ 標準 Neural（低），不讓整批失敗。False＝不准降到比設定差
 TRY_OMNI = True            # 設定是 DragonHD 的聲音，先試更新的 Dragon HD Omni（預覽版）；這個區域不支援就自動退回 DragonHD（被拒絕 2 次且從未成功就不再試）
 HD_PARAMS = "temperature=0.7" # HD 聲音的隨機度（0～1，越低越穩定、每次念法越一致；預設 1.0）。設成 "" 就不加
+# --- Kokoro（本機離線免費）---
+KOKORO_REPO = "hexgrad/Kokoro-82M"
+KOKORO_SR = 24000             # Kokoro 固定輸出 24kHz
+KOKORO_BITRATE = 64           # mp3 位元率（kbps）；原本 Azure 是 48，Kokoro 預設給高一點
+KOKORO_USE_RATE = True        # True＝套用各題庫的語速（-5%／-10% 換成 speed 0.95／0.90）；Kokoro 沒有 HD 不支援語速的限制
+# Azure 聲音（只看人名）→ Kokoro 聲音。美式 af_／am_，英式 bf_／bm_；沒列到的聲音依 VOICES 奇偶用 _F／_M。
+KOKORO_VOICE_MAP = {
+    "en-US-Ava": "af_heart",       # 女（美）
+    "en-US-Andrew": "am_michael",  # 男（美）
+    "en-US-Emma": "af_bella",      # 女（美）
+    "en-US-Brian": "am_adam",      # 男（美）
+    "en-GB-Sonia": "bf_emma",      # 女（英）
+    "en-GB-Ryan": "bm_george",     # 男（英）
+    "en-AU-Natasha": "bf_isabella",  # 女（澳）← Kokoro 沒有澳式，借用英式
+    "en-AU-William": "bm_lewis",     # 男（澳）← 同上
+    "_F": "af_heart",
+    "_M": "am_michael",
+}
 LOG_NAME = "voices-log.json"  # 版本紀錄檔（和題庫 json 放同一層）：記每個 mp3 用過的聲音／語速／日期
 
 # 各題庫：file＝題庫 json；sub＝audio 底下的資料夾；rate＝語速（"-10%" 更慢、"+0%" 正常）；
@@ -1129,6 +1154,471 @@ async def synth_edge(job, spec, sem, st, log, edge_tts):
             pass
 
 
+# ------------------------------- Kokoro（本機離線、完全免費） -------------------------------
+# 把設定區的「Azure 聲音」依「人名」對應到 Kokoro 聲音（程式其他地方完全不用改）。
+# Kokoro 只有美式（a）和英式（b）；澳式沒有，借用英式裡另外兩個聲音，這樣八個聲音仍然各不相同。
+_KOKORO_LOCK = threading.Lock()     # 同一時間只讓一個檔案在做運算（PyTorch 本身已多執行緒，並行反而更慢）
+_KPIPES = {}
+
+
+def have_kokoro():
+    try:
+        importlib.invalidate_caches()
+        importlib.import_module("kokoro")
+        importlib.import_module("numpy")
+        return True
+    except ImportError:
+        return False
+
+
+def have_mp3_encoder():
+    try:
+        importlib.invalidate_caches()
+        importlib.import_module("lameenc")
+        return True
+    except ImportError:
+        return False
+
+
+def ensure_kokoro(log):
+    """缺套件就試著用 pip 安裝；成功回傳 True。第一次安裝會下載 PyTorch，可能要幾分鐘、數 GB。"""
+    if not have_kokoro() and not ((3, 10) <= sys.version_info[:2] <= (3, 12)):
+        v = f"{sys.version_info[0]}.{sys.version_info[1]}"
+        log(f"✗ 目前的 Python 是 {v}，Kokoro 只支援 Python 3.10～3.12，無法安裝。")
+        log("  請另外安裝 Python 3.12，建立專用環境後，用那個環境的 python 執行本程式：")
+        log("    winget install Python.Python.3.12")
+        log("    py -3.12 -m venv kokoro-env")
+        log("    kokoro-env\\Scripts\\python -m pip install \"kokoro>=0.9.4\" soundfile \"misaki[en]\" lameenc")
+        log("    kokoro-env\\Scripts\\python auto-speech.py --kokoro")
+        return False
+    if not have_kokoro():
+        log("正在安裝 Kokoro（含 PyTorch，第一次要下載較久，請耐心等）…")
+        r = subprocess.run([sys.executable, "-m", "pip", "install", "kokoro>=0.9.4", "soundfile", "misaki[en]"],
+                           capture_output=True, text=True)
+        if r.returncode != 0 or not have_kokoro():
+            log("✗ 安裝 Kokoro 失敗。請手動執行：pip install \"kokoro>=0.9.4\" soundfile \"misaki[en]\"")
+            log("  （Kokoro 需要 Python 3.10～3.12；若你的 Python 是 3.13 以上，請另裝 3.12 再執行。）")
+            tail = [x for x in (r.stderr or "").strip().splitlines() if x.startswith("ERROR")][-3:]
+            if tail:
+                log("  pip 訊息：" + " ／ ".join(tail))
+            return False
+    if not have_mp3_encoder():
+        log("正在安裝 MP3 編碼器 lameenc …")
+        subprocess.run([sys.executable, "-m", "pip", "install", "lameenc"], capture_output=True, text=True)
+        if not have_mp3_encoder():
+            log("  （lameenc 裝不起來，改用 soundfile 的 MP3 輸出；若之後出錯請執行 pip install lameenc）")
+    return True
+
+
+def kokoro_voice(v):
+    """設定區的聲音名稱 → (Kokoro 聲音, lang_code)。已經是 Kokoro 名稱（例如 af_heart）就直接用。"""
+    if re.fullmatch(r"[ab][fm]_\w+", v):
+        return v, v[0]
+    kv = KOKORO_VOICE_MAP.get(speaker_of(v))
+    if not kv:                                   # 沒列在對應表：用 VOICES 的奇偶（偶數＝女、奇數＝男）猜性別
+        try:
+            female = VOICES.index(v) % 2 == 0
+        except ValueError:
+            female = True
+        kv = KOKORO_VOICE_MAP["_F"] if female else KOKORO_VOICE_MAP["_M"]
+    return kv, kv[0]
+
+
+def rate_to_speed(rate):
+    """"-10%" → 0.90；"+0%"／None → 1.0。只在 KOKORO_USE_RATE 為 True 時才套用。"""
+    if not KOKORO_USE_RATE:
+        return 1.0
+    m = re.fullmatch(r"\s*([+-]?\d+(?:\.\d+)?)\s*%\s*", rate or "")
+    return max(0.5, min(1.5, 1 + float(m.group(1)) / 100)) if m else 1.0
+
+
+def plain_text(t):
+    """Kokoro 吃純文字（不能像 SSML 那樣做 XML 跳脫）。"""
+    t = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def _kpipe(lang_code):
+    p = _KPIPES.get(lang_code)
+    if p is None:
+        from kokoro import KPipeline
+        p = KPipeline(lang_code=lang_code, repo_id=KOKORO_REPO)
+        _KPIPES[lang_code] = p
+    return p
+
+
+def _to_mp3(samples):
+    """float32 單聲道 24kHz → mp3 bytes。"""
+    import numpy as np
+    samples = np.clip(samples, -1.0, 1.0)
+    if have_mp3_encoder():
+        import lameenc
+        enc = lameenc.Encoder()
+        enc.set_bit_rate(KOKORO_BITRATE)
+        enc.set_in_sample_rate(KOKORO_SR)
+        enc.set_channels(1)
+        enc.set_quality(2)
+        return bytes(enc.encode((samples * 32767).astype("<i2").tobytes())) + bytes(enc.flush())
+    import io
+    import soundfile as sf
+    buf = io.BytesIO()
+    sf.write(buf, samples, KOKORO_SR, format="MP3")
+    return buf.getvalue()
+
+
+def kokoro_samples(parts, rate):
+    """parts＝[(文字, 聲音), ...] → float32 單聲道 24kHz 波形。多段（Part 7 多人聊天）中間插入 PAUSE_MS 的靜音。"""
+    import numpy as np
+    speed = rate_to_speed(rate)
+    gap = np.zeros(int(KOKORO_SR * PAUSE_MS / 1000), dtype="float32")
+    chunks = []
+    with _KOKORO_LOCK:
+        for i, (text, voice) in enumerate(parts):
+            t = plain_text(text)
+            if not t:
+                raise ValueError("文字是空的")
+            kv, lc = kokoro_voice(voice)
+            got = False
+            for _g, _p, audio in _kpipe(lc)(t, voice=kv, speed=speed):
+                if audio is None:
+                    continue
+                a = audio.detach().cpu().numpy() if hasattr(audio, "detach") else np.asarray(audio)
+                chunks.append(a.astype("float32").reshape(-1))
+                got = True
+            if not got:
+                raise RuntimeError("Kokoro 沒有產生任何聲音")
+            if i < len(parts) - 1:
+                chunks.append(gap)
+    return np.concatenate(chunks)
+
+
+def kokoro_render(parts, rate):
+    """parts＝[(文字, 聲音), ...] → mp3 bytes。"""
+    return _to_mp3(kokoro_samples(parts, rate))
+
+
+async def synth_kokoro(job, spec, sem, st, log):
+    async with sem:
+        if st["stop"].is_set():
+            st["skipped"] += 1
+            return
+        job["path"].parent.mkdir(parents=True, exist_ok=True)
+        tmp = job["path"].with_suffix(".tmp")
+        parts = job.get("parts") or [(job["text"], job["voice"])]
+        rate = job.get("rate") or spec.cfg["rate"]
+        sig = "|".join(v for _, v in parts)          # 版本紀錄沿用「設定區的聲音名稱」，和 need() 一致
+        err = None
+        for _ in range(2):
+            try:
+                data = await asyncio.to_thread(kokoro_render, parts, rate)
+                if len(data) <= 1000:
+                    raise RuntimeError("產生的檔案太小")
+                tmp.write_bytes(data)
+                tmp.replace(job["path"])
+                st["ok"] += 1
+                record(job["path"], sig, rate)
+                if STATE["dirty"] >= 20:
+                    save_log()
+                kvs = "+".join(dict.fromkeys(kokoro_voice(v)[0] for _, v in parts))
+                log(f"{'↻' if job.get('redo') else '✓'} {job['name']}  {spec.log_text(job)}  〔Kokoro·{kvs}〕")
+                return
+            except ValueError as e:                  # 文字有問題，重試沒有用
+                err = f"{type(e).__name__} {e}".strip()
+                break
+            except Exception as e:
+                err = f"{type(e).__name__} {e}".strip()
+                await asyncio.sleep(1)
+            finally:
+                try:
+                    tmp.unlink()
+                except OSError:
+                    pass
+        st["bad"] += 1
+        log(f"✗ 失敗 {job['name']}  ({err})")
+
+
+def check_kokoro():
+    """--check-kokoro：確認 Kokoro 裝好了，並把每個聲音各念一句，存到 kokoro-test/ 讓你試聽（不會動到正式的音檔）。"""
+    if not ensure_kokoro(print):
+        return 1
+    root = find_root() or HERE
+    out = Path(root) / "kokoro-test"
+    out.mkdir(exist_ok=True)
+    text = "Good morning. The meeting has been rescheduled to Thursday afternoon at three o'clock."
+    print(f"試聽檔會存到：{out}\n（第一次執行會從 Hugging Face 下載模型與聲音，約 300MB，需要網路）")
+    bad = 0
+    for v in dict.fromkeys(VOICES + [LETTER_VOICE, VOCAB_VOICE]):
+        kv, _ = kokoro_voice(v)
+        try:
+            t0 = time.time()
+            data = kokoro_render([(text, v)], PASSAGE_RATE)
+            (out / f"{speaker_of(v)}_{kv}.mp3").write_bytes(data)
+            print(f"  ✓ {speaker_of(v):<14}→ {kv:<12} {len(data):>7,} bytes　{time.time() - t0:.1f} 秒")
+        except Exception as e:
+            bad += 1
+            print(f"  ✗ {speaker_of(v):<14}→ {kv:<12} {type(e).__name__} {e}")
+    print("\n全部可用，請到 kokoro-test 資料夾試聽。" if not bad else f"\n有 {bad} 個聲音失敗。")
+    return 1 if bad else 0
+
+
+# ------------------------------- Kokoro 聲音選擇（試聽、複選輪流） -------------------------------
+# 做法：切到 Kokoro 時，把全域的 VOICES（題庫用的聲音池）換成「你勾選的 Kokoro 聲音」，女聲／男聲各自輪流；
+#       LETTER_VOICE（字母 A～E）和 VOCAB_VOICE（詳解單字）各單選一個。其他地方的程式完全不用改。
+#       切回 Azure／edge-tts 時會還原成設定區原本的 VOICES。選擇存在題庫資料夾的 kokoro-voices.json。
+KSEL_NAME = "kokoro-voices.json"
+KOKORO_PREVIEW_TEXT = "Good morning. The meeting has been moved to Thursday at three o'clock, so please update your calendar."
+# (名稱, 性別, 口音)　Kokoro v1.0 的英文聲音
+KOKORO_ALL = (
+    [(n, "F", "美") for n in ("af_alloy", "af_aoede", "af_bella", "af_heart", "af_jessica", "af_kore",
+                              "af_nicole", "af_nova", "af_river", "af_sarah", "af_sky")]
+    + [(n, "M", "美") for n in ("am_adam", "am_echo", "am_eric", "am_fenrir", "am_liam", "am_michael",
+                                "am_onyx", "am_puck", "am_santa")]
+    + [(n, "F", "英") for n in ("bf_alice", "bf_emma", "bf_isabella", "bf_lily")]
+    + [(n, "M", "英") for n in ("bm_daniel", "bm_fable", "bm_george", "bm_lewis")]
+)
+KSEL = {}                                   # 目前的選擇：pool_f／pool_m／letter／vocab／text
+_AZ_VOICES = list(VOICES)                   # 設定區原本的（Azure）聲音，切回 Azure 時還原
+_AZ_LETTER, _AZ_VOCAB = LETTER_VOICE, VOCAB_VOICE
+_PREV_DIR = None
+
+
+def kokoro_defaults():
+    m = KOKORO_VOICE_MAP
+    return dict(pool_f=[m[k] for k in ("en-US-Ava", "en-US-Emma", "en-GB-Sonia", "en-AU-Natasha")],
+                pool_m=[m[k] for k in ("en-US-Andrew", "en-US-Brian", "en-GB-Ryan", "en-AU-William")],
+                letter=m["en-US-Ava"], vocab=m["en-US-Ava"], text=KOKORO_PREVIEW_TEXT)
+
+
+def load_ksel(root):
+    """讀 kokoro-voices.json（沒有或壞掉就用預設＝和先前八個聲音相同的對應）。"""
+    d = kokoro_defaults()
+    try:
+        j = json.loads((Path(root) / KSEL_NAME).read_text(encoding="utf-8-sig"))
+        valid = {n for n, _, _ in KOKORO_ALL}
+        f = [n for n in j.get("pool_f", []) if n in valid and n[1] == "f"]
+        m = [n for n in j.get("pool_m", []) if n in valid and n[1] == "m"]
+        if f:
+            d["pool_f"] = f
+        if m:
+            d["pool_m"] = m
+        for k in ("letter", "vocab"):
+            if j.get(k) in valid:
+                d[k] = j[k]
+        if isinstance(j.get("text"), str) and j["text"].strip():
+            d["text"] = j["text"]
+    except (OSError, ValueError, AttributeError, TypeError):
+        pass
+    KSEL.clear()
+    KSEL.update(d)
+    return KSEL
+
+
+def save_ksel(root):
+    (Path(root) / KSEL_NAME).write_text(json.dumps(KSEL, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+def build_voices(f, m):
+    """女聲 f、男聲 m 交錯成 VOICES（偶數位＝女、奇數位＝男）。兩邊數量不同時補到最小公倍數，每個聲音被挑到的機會才會一樣。"""
+    n = math.lcm(len(f), len(m))
+    out = []
+    for i in range(n):
+        out += [f[i % len(f)], m[i % len(m)]]
+    return out
+
+
+def sync_voices(root=None):
+    """依目前的 ENGINE 設定全域聲音：kokoro＝用 kokoro-voices.json 的選擇；其他＝還原設定區原本的聲音。"""
+    global LETTER_VOICE, VOCAB_VOICE
+    if ENGINE == "kokoro":
+        sel = load_ksel(root or find_root() or HERE)
+        VOICES[:] = build_voices(sel["pool_f"], sel["pool_m"])   # 就地修改：PASSAGE_VOICES 和 VOICES 是同一個 list
+        LETTER_VOICE, VOCAB_VOICE = sel["letter"], sel["vocab"]
+    else:
+        VOICES[:] = _AZ_VOICES
+        LETTER_VOICE, VOCAB_VOICE = _AZ_LETTER, _AZ_VOCAB
+
+
+def preview_wav(voice, text, rate):
+    """產生試聽用的 wav（存在暫存資料夾，同一個聲音＋句子只算一次）。"""
+    import hashlib
+    import tempfile
+    import wave
+    import numpy as np
+    global _PREV_DIR
+    if _PREV_DIR is None:
+        _PREV_DIR = Path(tempfile.mkdtemp(prefix="kokoro-prev-"))
+    key = hashlib.md5(f"{voice}|{rate}|{text}".encode("utf-8")).hexdigest()[:12]
+    p = _PREV_DIR / f"{voice}_{key}.wav"
+    if not p.exists():
+        a = kokoro_samples([(text, voice)], rate)
+        pcm = (np.clip(a, -1.0, 1.0) * 32767).astype("<i2")
+        with wave.open(str(p), "wb") as w:
+            w.setnchannels(1)
+            w.setsampwidth(2)
+            w.setframerate(KOKORO_SR)
+            w.writeframes(pcm.tobytes())
+    return p
+
+
+def play_wav(p):
+    try:
+        import winsound
+        winsound.PlaySound(str(p), winsound.SND_FILENAME | winsound.SND_ASYNC)
+    except ImportError:                          # 非 Windows：盡力而為
+        try:
+            subprocess.Popen(["afplay" if sys.platform == "darwin" else "aplay", str(p)],
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except OSError:
+            pass
+
+
+def stop_wav():
+    try:
+        import winsound
+        winsound.PlaySound(None, winsound.SND_PURGE)
+    except ImportError:
+        pass
+
+
+def open_kokoro_dialog(parent, root, on_done):
+    """Kokoro 聲音設定視窗：▶ 試聽每個聲音；「輪流」複選（女聲、男聲各自輪流）；字母／詳解各單選。按「套用」才生效並存檔。"""
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+
+    dlg = tk.Toplevel(parent)
+    dlg.title("Kokoro 聲音：試聽／選擇／輪流")
+    dlg.geometry("780x700")
+    dlg.transient(parent)
+    sel = load_ksel(root)
+    pq = queue.Queue()
+    busy = dict(v=False)
+
+    ttk.Label(dlg, justify="left", foreground="#555", wraplength=740,
+              text="▶ 試聽　｜　「輪流」＝勾選的聲音會輪流使用（女聲、男聲各自輪；同一題固定同一個聲音，每次重跑結果都一樣）。"
+                   "題庫（Part 1～7、文章）用「輪流」；選項字母 A～E 與 Daily 詳解單字各自單選一個。"
+                   "至少要各勾一個女聲和一個男聲。按「套用並儲存」才會生效。").pack(anchor="w", padx=10, pady=(8, 4))
+
+    top = ttk.Frame(dlg)
+    top.pack(fill="x", padx=10)
+    ttk.Label(top, text="試聽句子：").pack(side="left")
+    text_var = tk.StringVar(value=sel.get("text") or KOKORO_PREVIEW_TEXT)
+    ttk.Entry(top, textvariable=text_var).pack(side="left", fill="x", expand=True)
+    ttk.Button(top, text="■ 停止播放", command=stop_wav).pack(side="left", padx=(6, 0))
+
+    status = tk.StringVar(value="按 ▶ 試聽。每個聲音第一次聽要先下載（約 0.5MB），之後立刻播放。")
+    ttk.Label(dlg, textvariable=status, foreground="#0645ad").pack(anchor="w", padx=10, pady=4)
+
+    body = ttk.Frame(dlg)
+    body.pack(fill="both", expand=True, padx=10)
+    cv = tk.Canvas(body, highlightthickness=0)
+    sb = ttk.Scrollbar(body, orient="vertical", command=cv.yview)
+    inner = ttk.Frame(cv)
+    inner.bind("<Configure>", lambda e: cv.configure(scrollregion=cv.bbox("all")))
+    cv.create_window((0, 0), window=inner, anchor="nw")
+    cv.configure(yscrollcommand=sb.set)
+    cv.pack(side="left", fill="both", expand=True)
+    sb.pack(side="right", fill="y")
+    cv.bind("<Enter>", lambda e: cv.bind_all("<MouseWheel>", lambda ev: cv.yview_scroll(int(-ev.delta / 120), "units")))
+    cv.bind("<Leave>", lambda e: cv.unbind_all("<MouseWheel>"))
+
+    chosen = set(sel["pool_f"]) | set(sel["pool_m"])
+    pool = {n: tk.BooleanVar(value=n in chosen) for n, _, _ in KOKORO_ALL}
+    letter_var = tk.StringVar(value=sel["letter"])
+    vocab_var = tk.StringVar(value=sel["vocab"])
+    count = tk.StringVar()
+
+    def update_count(*_):
+        nf = sum(1 for n, g, _ in KOKORO_ALL if g == "F" and pool[n].get())
+        nm = sum(1 for n, g, _ in KOKORO_ALL if g == "M" and pool[n].get())
+        warn = ""
+        if not nf or not nm:
+            warn = "　⚠ 女聲、男聲各至少要選一個"
+        elif nf == 1 or nm == 1:
+            warn = "　（只選 1 個時，同性別的多位說話者會用同一個聲音）"
+        count.set(f"輪流：女聲 {nf} 個、男聲 {nm} 個{warn}")
+
+    for c, h in enumerate(("試聽", "聲音", "性別", "口音", "輪流", "字母 A～E", "詳解單字")):
+        ttk.Label(inner, text=h, font=("TkDefaultFont", 9, "bold")).grid(row=0, column=c, padx=8, pady=(2, 4), sticky="w")
+    for r, (n, g, acc) in enumerate(KOKORO_ALL, 1):
+        ttk.Button(inner, text="▶", width=3, command=lambda n=n: preview(n)).grid(row=r, column=0, padx=8, pady=1)
+        ttk.Label(inner, text=n).grid(row=r, column=1, padx=8, sticky="w")
+        ttk.Label(inner, text="女" if g == "F" else "男").grid(row=r, column=2, padx=8)
+        ttk.Label(inner, text=acc).grid(row=r, column=3, padx=8)
+        ttk.Checkbutton(inner, variable=pool[n]).grid(row=r, column=4, padx=8)
+        ttk.Radiobutton(inner, variable=letter_var, value=n).grid(row=r, column=5, padx=8)
+        ttk.Radiobutton(inner, variable=vocab_var, value=n).grid(row=r, column=6, padx=8)
+    for v in pool.values():
+        v.trace_add("write", update_count)
+    update_count()
+
+    ttk.Label(dlg, textvariable=count).pack(anchor="w", padx=10, pady=(6, 0))
+
+    def preview(name):
+        if busy["v"]:
+            return
+        if not have_kokoro():
+            messagebox.showerror("沒有安裝 Kokoro", "目前這個 Python 沒有安裝 Kokoro，無法試聽。\n"
+                                 "請改用 Kokoro 專用環境的 python 啟動本程式（例如 D:\\kokoro-env\\Scripts\\python auto-speech.py --kokoro）。",
+                                 parent=dlg)
+            return
+        busy["v"] = True
+        status.set(f"正在產生 {name} …（第一次要載入模型，請稍等）")
+        t = text_var.get().strip() or KOKORO_PREVIEW_TEXT
+
+        def work():
+            try:
+                pq.put(("ok", name, preview_wav(name, t, PASSAGE_RATE)))
+            except Exception as e:
+                pq.put(("err", name, f"{type(e).__name__} {e}"))
+
+        threading.Thread(target=work, daemon=True).start()
+
+    def poll():
+        try:
+            while True:
+                kind, name, val = pq.get_nowait()
+                busy["v"] = False
+                if kind == "ok":
+                    play_wav(val)
+                    status.set(f"▶ 播放：{name}")
+                else:
+                    status.set(f"✗ {name} 失敗：{val}")
+        except queue.Empty:
+            pass
+        dlg.after(150, poll)
+
+    def close():
+        stop_wav()
+        dlg.destroy()
+
+    def apply():
+        f = [n for n, g, _ in KOKORO_ALL if g == "F" and pool[n].get()]
+        m = [n for n, g, _ in KOKORO_ALL if g == "M" and pool[n].get()]
+        if not f or not m:
+            messagebox.showwarning("還不能套用", "女聲、男聲各至少要勾選一個「輪流」。", parent=dlg)
+            return
+        KSEL.update(pool_f=f, pool_m=m, letter=letter_var.get(), vocab=vocab_var.get(),
+                    text=text_var.get().strip() or KOKORO_PREVIEW_TEXT)
+        try:
+            save_ksel(root)
+        except OSError as e:
+            messagebox.showwarning("無法儲存", f"{KSEL_NAME} 寫入失敗：{e}\n（這次仍會套用，但下次開啟會恢復預設）", parent=dlg)
+        stop_wav()
+        dlg.destroy()
+        sync_voices(root)
+        on_done()
+
+    btns = ttk.Frame(dlg)
+    btns.pack(fill="x", padx=10, pady=8)
+    ttk.Button(btns, text="套用並儲存", command=apply).pack(side="right")
+    ttk.Button(btns, text="取消", command=close).pack(side="right", padx=6)
+    ttk.Button(btns, text="恢復預設", command=lambda: (
+        [pool[n].set(n in set(kokoro_defaults()["pool_f"] + kokoro_defaults()["pool_m"])) for n in pool],
+        letter_var.set(kokoro_defaults()["letter"]), vocab_var.set(kokoro_defaults()["vocab"]))).pack(side="left")
+    dlg.protocol("WM_DELETE_WINDOW", close)
+    poll()
+
+
 # ------------------------------- 語音產生（Azure Speech REST + SSML） -------------------------------
 class AzureFatal(Exception):
     """金鑰／區域／聲音設定錯誤：重試沒有用，整批停止。"""
@@ -1414,6 +1904,15 @@ def generate(jobs, spec, log, progress, stop, root=None):
         async def go():
             sem = asyncio.Semaphore(CONCURRENCY)
             await asyncio.gather(*(synth(j, spec, sem, st, lg, (key, region)) for j in jobs))
+    elif ENGINE == "kokoro":
+        if not ensure_kokoro(log):
+            return 0, len(jobs), 0
+        chars = sum(len(plain_text(t)) for j in jobs for t, _ in (j.get("parts") or [(j["text"], j["voice"])]))
+        log(f"引擎：Kokoro（本機離線、免費）。本次 {total} 個檔、約 {chars:,} 字元。第一次使用會先下載模型，之後不用網路。")
+
+        async def go():
+            sem = asyncio.Semaphore(CONCURRENCY)
+            await asyncio.gather(*(synth_kokoro(j, spec, sem, st, lg) for j in jobs))
     else:
         if not have_edge_tts():
             log("正在安裝 edge-tts …")
@@ -1833,23 +2332,54 @@ def run_gui(root: Path, spec: Spec):
 
     redo_cb.bind("<<ComboboxSelected>>", on_redo)
 
-    ENG_CHOICES = ["Azure Speech（動用點數）", "edge-tts（免費，目前常 403）"]
-    eng_var = tk.StringVar(value=ENG_CHOICES[0 if ENGINE == "azure" else 1])
+    # Kokoro 聲音設定列：只有引擎是 Kokoro 時才顯示
+    bar_k = ttk.Frame(win)
+    k_info = tk.StringVar()
+
+    def refresh_kbar():
+        if ENGINE == "kokoro":
+            if not KSEL:
+                load_ksel(root)
+            k_info.set(f"輪流：女聲 {len(KSEL['pool_f'])} 個、男聲 {len(KSEL['pool_m'])} 個　字母：{KSEL['letter']}　詳解：{KSEL['vocab']}")
+            bar_k.pack(fill="x", padx=10, pady=(0, 4), after=bar2)
+        else:
+            bar_k.pack_forget()
+
+    def kokoro_changed():
+        refresh_kbar()
+        log("Kokoro 聲音已更新：" + k_info.get() + "　（已存到 " + KSEL_NAME + "；要把已有的檔換成新聲音，請把「重錄範圍」改成第 2 或 3 項）")
+        reload_plan()
+
+    def open_k():
+        if S["running"]:
+            messagebox.showinfo("正在產生中", "產生中不能改聲音，請等這一批做完或先按停止。")
+            return
+        open_kokoro_dialog(win, root, kokoro_changed)
+
+    ttk.Button(bar_k, text="🎙 Kokoro 聲音：試聽／選擇／輪流…", command=open_k).pack(side="left")
+    ttk.Label(bar_k, textvariable=k_info, foreground="#555").pack(side="left", padx=8)
+
+    ENG_CHOICES = ["Azure Speech（動用點數）", "edge-tts（免費，目前常 403）", "Kokoro（本機離線免費）"]
+    ENG_KEYS = ["azure", "edge-tts", "kokoro"]
+    eng_var = tk.StringVar(value=ENG_CHOICES[ENG_KEYS.index(ENGINE)])
     ttk.Label(bar2, text="　引擎：").pack(side="left")
-    eng_cb = ttk.Combobox(bar2, textvariable=eng_var, values=ENG_CHOICES, state="readonly", width=26)
+    eng_cb = ttk.Combobox(bar2, textvariable=eng_var, values=ENG_CHOICES, state="readonly", width=30)
     eng_cb.pack(side="left")
 
     def on_eng(_e=None):
         global ENGINE
         if S["running"]:
-            eng_var.set(ENG_CHOICES[0 if ENGINE == "azure" else 1])
+            eng_var.set(ENG_CHOICES[ENG_KEYS.index(ENGINE)])
             return
-        ENGINE = "azure" if eng_var.get() == ENG_CHOICES[0] else "edge-tts"
+        ENGINE = ENG_KEYS[ENG_CHOICES.index(eng_var.get())]
+        sync_voices(root)
+        refresh_kbar()
         log(f"引擎改為：{ENGINE}" + ("　" + credit_line(root) if ENGINE == "azure" else ""))
         reload_plan()
 
     eng_cb.bind("<<ComboboxSelected>>", on_eng)
 
+    refresh_kbar()
     reload_plan()
     log(f"目前引擎：{ENGINE}" + ("　" + credit_line(root) if ENGINE == "azure" else ""))
     if not S["groups"]:
@@ -1948,7 +2478,10 @@ def run_cli(root: Path, spec: Spec, dry: bool):
         if spec.letters:
             print(f"字母存放   : {root / 'audio'}")
         print(f"語速 {spec.cfg['rate']}　缺 {total} 個檔")
-    print(f"字元估算   : 全部缺的檔共約 {all_chars:,} 字元（約 US${all_cost:.3f}，HD 聲音以 US${PRICE_HD_USD_PER_M_CHARS:.0f}/百萬字元估算，僅供參考）")
+    if ENGINE == "azure":
+        print(f"字元估算   : 全部缺的檔共約 {all_chars:,} 字元（約 US${all_cost:.3f}，HD 聲音以 US${PRICE_HD_USD_PER_M_CHARS:.0f}/百萬字元估算，僅供參考）")
+    else:
+        print(f"字元估算   : 全部缺的檔共約 {all_chars:,} 字元（{ENGINE} 免費，不計費）")
     print("=" * 78)
     for n, g in enumerate(groups, 1):
         if spec.daily:
@@ -2013,8 +2546,13 @@ def main():
         TRY_OMNI = True
     if "--edge" in flags:
         ENGINE = "edge-tts"
+    elif "--kokoro" in flags:
+        ENGINE = "kokoro"
     elif "--azure" in flags:
         ENGINE = "azure"
+    sync_voices()                        # Kokoro：套用 kokoro-voices.json 的聲音選擇；其他引擎：還原設定區的聲音
+    if "--check-kokoro" in flags:
+        sys.exit(check_kokoro())
     if "--check-azure" in flags:
         sys.exit(check_azure())
     if "--usage" in flags:
@@ -2029,7 +2567,7 @@ def main():
     if pos:
         key = resolve_part(pos[0])
         if not key:
-            print("用法：python auto-speech.py [part1|part2|part3|part4|part5|part6|part7|daily] [--cli] [--dry] [--manifest]")
+            print("用法：python auto-speech.py [part1|part2|part3|part4|part5|part6|part7|daily] [--cli] [--dry] [--manifest] [--azure|--edge|--kokoro]")
             return
         spec = SPECS[key]
     elif "--manifest" in flags:
