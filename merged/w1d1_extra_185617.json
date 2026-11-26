@@ -1,0 +1,175 @@
+{
+  "week": 1,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "confirm receipt of",
+      "type": "phrase",
+      "zh": "確認收到…",
+      "en": "to say that you have received something",
+      "note": "常見於電子郵件、訂單與客服通知，請對方或自己正式回報「已收到」。語氣客氣、偏正式，和這篇通知中的 confirm your attendance 同屬「請回覆確認」的用法。",
+      "pattern": "confirm receipt of + 收到的東西（N）",
+      "grammar_note": "receipt 後面一定要接 of，of 後面接收到的東西（名詞），不接子句；若要接子句，改用 confirm that you received ...。",
+      "examples": [
+        { "tag": "電子郵件", "en": "Please confirm receipt of this e-mail by replying to me.", "zh": "請回覆我以確認收到這封電子郵件。" },
+        { "tag": "採購", "en": "We will confirm receipt of your order within two days.", "zh": "我們會在兩天內確認收到您的訂單。" },
+        { "tag": "客服", "en": "Customers will get a message to confirm receipt of their payment.", "zh": "客戶會收到一則訊息，確認已收到他們的付款。" },
+        { "tag": "會議", "en": "Could you confirm receipt of the meeting notes I sent?", "zh": "可以請你確認收到我寄的會議紀錄嗎？" }
+      ],
+      "similar": [
+        {
+          "phrase": "acknowledge receipt of",
+          "diff": "語氣更正式，常用在公司寫給客戶的信；confirm 比較日常、直接。",
+          "example": { "en": "We acknowledge receipt of your application and will reply soon.", "zh": "我們確認收到您的申請，將盡快回覆。" }
+        },
+        {
+          "phrase": "let me know you got",
+          "diff": "口語、隨意，適合同事之間；後面接子句（you got it），不是名詞。",
+          "example": { "en": "Please let me know you got the file I sent.", "zh": "請讓我知道你有收到我寄的檔案。" }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "receive",
+          "ipa": "/rɪˈsiːv/",
+          "diff": "receive 是動詞「收到」；receipt 是名詞「收到、收據」，兩者同字根。",
+          "kind": ["root", "spell"],
+          "usage": "receipt 是名詞，所以說 confirm receipt of + N；receive 是動詞，要說 confirm that you received ...。",
+          "example": { "en": "Please confirm that you received the package yesterday.", "zh": "請確認你昨天有收到包裹。" }
+        },
+        {
+          "word": "conform",
+          "ipa": "/kənˈfɔːrm/",
+          "diff": "conform 是「遵守、符合」，和 confirm「確認」只差一個字母，意思完全不同。",
+          "kind": ["spell", "sound"],
+          "example": { "en": "All products must conform to our safety rules.", "zh": "所有產品都必須符合我們的安全規定。" }
+        }
+      ]
+    },
+    {
+      "text": "agent",
+      "type": "word",
+      "ipa": "/ˈeɪdʒənt/",
+      "pos": "n.",
+      "zh": "代理人、業務員、旅行社人員",
+      "en": "a person who does a job for a company or for another person",
+      "note": "在「The travel agent confirmed my flight to Singapore.」中，travel agent 指旅行社人員，幫客人訂機票與飯店。多益也常見 real estate agent、insurance agent、customer service agent 等職稱。",
+      "grammar_note": "agent 是可數名詞，單數前要加 a／the／my 等限定詞（a travel agent）；表示「公司、機構」要用 agency。",
+      "forms": [
+        {
+          "w": "agents",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "代理人（複數）",
+          "ipa": "/ˈeɪdʒənts/",
+          "example": { "en": "Our sales agents visit about ten clients every week.", "zh": "我們的業務員每週拜訪大約十位客戶。" }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "travel agent",
+          "zh": "旅行社人員",
+          "example": { "en": "A travel agent helped us book a hotel in Taipei.", "zh": "旅行社人員幫我們訂了台北的飯店。" }
+        },
+        {
+          "phrase": "real estate agent",
+          "zh": "房屋仲介",
+          "example": { "en": "The real estate agent showed us two offices downtown.", "zh": "房屋仲介帶我們看了市區的兩間辦公室。" }
+        },
+        {
+          "phrase": "insurance agent",
+          "zh": "保險業務員",
+          "example": { "en": "Our insurance agent will visit the office on Tuesday.", "zh": "我們的保險業務員星期二會來辦公室。" }
+        },
+        {
+          "phrase": "customer service agent",
+          "zh": "客服人員",
+          "example": { "en": "A customer service agent answered my call within a minute.", "zh": "客服人員在一分鐘內接起了我的電話。" }
+        }
+      ],
+      "examples": [
+        { "tag": "出差", "en": "The agent sent me the flight details by e-mail.", "zh": "旅行社人員用電子郵件寄給我班機資訊。" },
+        { "tag": "客服", "en": "Please wait while an agent checks your account.", "zh": "請稍候，客服人員正在查詢您的帳戶。" },
+        { "tag": "業務", "en": "Each sales agent has a list of regular clients.", "zh": "每位業務員都有一份固定客戶名單。" },
+        { "tag": "採購", "en": "We hired an agent to sell our products in Japan.", "zh": "我們請了一位代理商在日本銷售我們的產品。" }
+      ],
+      "confusable": [
+        {
+          "word": "agenda",
+          "ipa": "/əˈdʒendə/",
+          "diff": "agenda 是「會議議程」，拼法開頭 agen- 相同，重音位置與意思都不同。",
+          "kind": ["spell", "sound"],
+          "example": { "en": "Please read the meeting agenda before you come.", "zh": "來之前請先讀會議議程。" }
+        }
+      ],
+      "similar": [
+        {
+          "word": "representative",
+          "ipa": "/ˌreprɪˈzentətɪv/",
+          "diff": "representative 是代表公司的人，範圍更廣、更正式；agent 多指替客戶辦事的專業人員。",
+          "example": { "en": "A company representative will call you tomorrow morning.", "zh": "公司代表明天早上會打電話給您。" }
+        }
+      ],
+      "family": [
+        {
+          "w": "client",
+          "pos": "n.",
+          "zh": "客戶",
+          "ipa": "/ˈklaɪənt/",
+          "example": { "en": "The agent met a new client at the airport.", "zh": "業務員在機場見了一位新客戶。" }
+        },
+        {
+          "w": "customer",
+          "pos": "n.",
+          "zh": "顧客",
+          "ipa": "/ˈkʌstəmər/",
+          "example": { "en": "Every customer can speak to an agent by phone.", "zh": "每位顧客都可以用電話與客服人員通話。" }
+        },
+        {
+          "w": "assistant",
+          "pos": "n.",
+          "zh": "助理",
+          "ipa": "/əˈsɪstənt/",
+          "example": { "en": "My assistant called the agent to change the booking.", "zh": "我的助理打電話給旅行社人員更改訂位。" }
+        }
+      ],
+      "derived": [
+        {
+          "w": "agency",
+          "ipa": "/ˈeɪdʒənsi/",
+          "pos": "n.",
+          "zh": "代理機構、經銷公司",
+          "link": "agent + -cy，把「代理人」變成「代理機構」，像 emergency 的 -cy 字尾",
+          "example": { "en": "The agency sent us a list of hotels in Singapore.", "zh": "代理公司寄給我們一份新加坡的飯店清單。" }
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈeɪdʒənt/",
+          "zh": "旅行社人員、代理人",
+          "en": "a person who arranges things for other people as a job",
+          "in_passage": true,
+          "example": { "en": "The agent booked a hotel and a car for our trip.", "zh": "旅行社人員為我們的旅程訂了飯店和車子。" }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈeɪdʒənt/",
+          "zh": "客服人員、接線員",
+          "en": "a worker who answers customer calls or messages",
+          "distinguish": "常見於 customer service agent、support agent，出現在電話或線上客服情境。",
+          "example": { "en": "An agent will be with you in a few minutes.", "zh": "客服人員幾分鐘後會為您服務。" }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈeɪdʒənt/",
+          "zh": "經紀人、仲介",
+          "en": "a person who sells or rents houses for the owners",
+          "distinguish": "常和 real estate、insurance 連用，指買賣或租賃的專業仲介。",
+          "example": { "en": "The agent found a bigger office for our team.", "zh": "仲介為我們的團隊找到一間更大的辦公室。" }
+        }
+      ]
+    }
+  ]
+}
