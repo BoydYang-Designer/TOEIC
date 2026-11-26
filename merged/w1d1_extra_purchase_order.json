@@ -1,0 +1,77 @@
+{
+  "week": 1,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "purchase order",
+      "type": "phrase",
+      "zh": "採購單、訂購單",
+      "en": "a document a buyer sends to a seller to order goods",
+      "note": "買方正式向供應商訂貨的文件，上面通常寫明品名、數量、價格和交貨日期，常縮寫成 PO。公司之間的訂單若要更改交貨日或數量，就是修改 purchase order。",
+      "pattern": "send / issue / revise + a purchase order",
+      "grammar_note": "purchase order 是可數名詞，單數要加 a 或 the；縮寫 PO 念成 /piː oʊ/，所以要說 a PO，不是 an PO。",
+      "examples": [
+        {
+          "tag": "採購",
+          "en": "Please send the purchase order to the supplier by Friday.",
+          "zh": "請在星期五前把採購單寄給供應商。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "We cannot ship the goods until we receive your purchase order.",
+          "zh": "在收到你們的採購單之前，我們無法出貨。"
+        },
+        {
+          "tag": "會計",
+          "en": "The finance team checks every purchase order before payment.",
+          "zh": "財務團隊在付款前會檢查每一張採購單。"
+        },
+        {
+          "tag": "修改訂單",
+          "en": "I need to change the quantity on the purchase order.",
+          "zh": "我需要修改採購單上的數量。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "order form",
+          "diff": "order form 是顧客填寫的訂購表格，比較簡單；purchase order 是公司之間正式的訂購文件，有編號可追蹤。",
+          "example": {
+            "en": "Please fill out the order form and fax it to us.",
+            "zh": "請填寫訂購單並傳真給我們。"
+          }
+        },
+        {
+          "phrase": "purchase request",
+          "diff": "purchase request 是公司內部提出的購買申請，通常要主管核准；核准後才會開出 purchase order 給供應商。",
+          "example": {
+            "en": "Submit a purchase request to your manager before buying new chairs.",
+            "zh": "購買新椅子前，請先向主管提交採購申請。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "invoice",
+          "ipa": "/ˈɪnvɔɪs/",
+          "diff": "invoice 是賣方寄給買方的請款單；purchase order 是買方寄給賣方的訂購單，方向剛好相反。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "The supplier sent an invoice after we received the goods.",
+            "zh": "我們收到貨物之後，供應商寄來了請款單。"
+          }
+        },
+        {
+          "word": "receipt",
+          "ipa": "/rɪˈsiːt/",
+          "diff": "receipt 是付款之後拿到的收據，用來證明已經付錢；purchase order 是在訂貨之前發出的文件。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "Please keep the receipt in case you need to return the item.",
+            "zh": "請保留收據，以免你需要退貨。"
+          }
+        }
+      ]
+    }
+  ]
+}
