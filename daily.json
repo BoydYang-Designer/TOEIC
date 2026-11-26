@@ -101193,6 +101193,356 @@
               }
             }
           ]
+        },
+        {
+          "text": "inspection",
+          "type": "word",
+          "ipa": "/ɪnˈspekʃən/",
+          "pos": "n.",
+          "zh": "檢查、檢驗",
+          "en": "a careful check to see if something is correct or safe",
+          "note": "指對貨物、設備或場所所做的正式檢查，常見於供應商、工廠與出貨前的品質把關。語氣正式，比 check 更嚴謹。",
+          "grammar_note": "後面常用 of 接被檢查的東西（an inspection of the goods）；可數也可不可數，做一次檢查時用 an inspection。",
+          "forms": [
+            {
+              "w": "inspections",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "檢查（複數）",
+              "ipa": "/ɪnˈspekʃənz/",
+              "example": {
+                "en": "The company schedules regular inspections of all its factories.",
+                "zh": "公司定期安排對所有工廠進行檢查。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "quality inspection",
+              "zh": "品質檢驗",
+              "example": {
+                "en": "The quality inspection found two small problems with the packaging.",
+                "zh": "品質檢驗發現包裝有兩個小問題。"
+              }
+            },
+            {
+              "phrase": "safety inspection",
+              "zh": "安全檢查",
+              "example": {
+                "en": "A safety inspection is required every year for all equipment.",
+                "zh": "所有設備每年都必須做安全檢查。"
+              }
+            },
+            {
+              "phrase": "pass an inspection",
+              "zh": "通過檢查",
+              "example": {
+                "en": "The warehouse must pass an inspection before we sign the contract.",
+                "zh": "倉庫必須通過檢查，我們才會簽合約。"
+              }
+            },
+            {
+              "phrase": "inspection report",
+              "zh": "檢查報告",
+              "example": {
+                "en": "The inspection report shows that all goods meet our standards.",
+                "zh": "檢查報告顯示所有貨品都符合我們的標準。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "出貨",
+              "en": "Every shipment goes through an inspection before it leaves the factory.",
+              "zh": "每批貨在離開工廠前都會經過檢查。"
+            },
+            {
+              "tag": "出差",
+              "en": "The safety inspection will take place at the plant on Tuesday.",
+              "zh": "安全檢查將在星期二於工廠進行。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please send me the inspection results by the end of today.",
+              "zh": "請在今天下班前把檢查結果寄給我。"
+            },
+            {
+              "tag": "會議",
+              "en": "Our new machine passed the inspection without any problems.",
+              "zh": "我們的新機器順利通過了檢查，沒有任何問題。"
+            }
+          ],
+          "similar": [
+            {
+              "word": "check",
+              "ipa": "/tʃek/",
+              "diff": "check 比較口語、簡單，隨時都能用；inspection 更正式、更仔細，常有固定的檢查程序。",
+              "example": {
+                "en": "Please do a quick check of the stock before you leave.",
+                "zh": "離開前請快速檢查一下庫存。"
+              }
+            },
+            {
+              "word": "examination",
+              "ipa": "/ɪɡˌzæməˈneɪʃən/",
+              "diff": "examination 指更詳細的檢查，也常用於健康檢查與考試；inspection 多用在貨物、設備與場所。",
+              "example": {
+                "en": "A full examination of the machine will take two hours.",
+                "zh": "對這台機器做完整檢查要花兩個小時。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "inspiration",
+              "ipa": "/ˌɪnspəˈreɪʃən/",
+              "diff": "inspiration 是靈感、啟發；inspection 是檢查，兩個字開頭和字尾都很像。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "Her speech was an inspiration to the whole sales team.",
+                "zh": "她的演講帶給整個業務團隊很大的啟發。"
+              }
+            },
+            {
+              "word": "investigation",
+              "ipa": "/ɪnˌvestɪˈɡeɪʃən/",
+              "diff": "investigation 是針對問題或錯誤找原因的調查；inspection 是例行性的檢查。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "The company began an investigation into the late delivery.",
+                "zh": "公司開始調查這次延遲交貨的原因。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "quality",
+              "pos": "n.",
+              "zh": "品質",
+              "ipa": "/ˈkwɑːləti/",
+              "example": {
+                "en": "We never lower the quality of our products.",
+                "zh": "我們絕不降低產品的品質。"
+              }
+            },
+            {
+              "w": "safety",
+              "pos": "n.",
+              "zh": "安全",
+              "ipa": "/ˈseɪfti/",
+              "example": {
+                "en": "Worker safety is our first priority at the factory.",
+                "zh": "工廠裡員工的安全是我們的首要考量。"
+              }
+            },
+            {
+              "w": "standard",
+              "pos": "n.",
+              "zh": "標準",
+              "ipa": "/ˈstændərd/",
+              "example": {
+                "en": "All products must meet the standards of our industry.",
+                "zh": "所有產品都必須符合我們業界的標準。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "inspect",
+              "ipa": "/ɪnˈspekt/",
+              "pos": "v.",
+              "zh": "檢查、檢驗",
+              "link": "inspect + -ion，把「檢查」這個動作變成名詞，像 action、decision",
+              "example": {
+                "en": "The manager will inspect the goods when they arrive.",
+                "zh": "貨物到達時，經理會進行檢查。"
+              }
+            },
+            {
+              "w": "inspector",
+              "ipa": "/ɪnˈspektər/",
+              "pos": "n.",
+              "zh": "檢查員、督察",
+              "link": "inspect + -or，做事的人，像 actor、visitor",
+              "example": {
+                "en": "The safety inspector arrived at the factory this morning.",
+                "zh": "安全檢查員今天早上抵達工廠。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "personnel",
+          "type": "word",
+          "ipa": "/ˌpɜːrsəˈnel/",
+          "pos": "n.",
+          "zh": "全體員工；人事部門",
+          "en": "all the people who work for a company, or the department that takes care of them",
+          "note": "在公司通知裡，personnel department 就是人事部，申請書、合約與個人資料常交給它處理。也可以泛指全體員工，語氣較正式。",
+          "grammar_note": "personnel 指員工時當複數用，動詞用 are（Personnel are...），不加 s，也不能說 a personnel；指一位員工要說 an employee。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "personnel department",
+              "zh": "人事部門",
+              "example": {
+                "en": "Ask the personnel department about your vacation days.",
+                "zh": "請向人事部門詢問你的休假天數。"
+              }
+            },
+            {
+              "phrase": "personnel manager",
+              "zh": "人事經理",
+              "example": {
+                "en": "The personnel manager will interview three candidates tomorrow.",
+                "zh": "人事經理明天會面試三位應徵者。"
+              }
+            },
+            {
+              "phrase": "personnel file",
+              "zh": "人事檔案",
+              "example": {
+                "en": "Each personnel file is kept in a locked cabinet.",
+                "zh": "每份人事檔案都鎖在上鎖的櫃子裡。"
+              }
+            },
+            {
+              "phrase": "personnel changes",
+              "zh": "人事異動",
+              "example": {
+                "en": "We will announce the personnel changes at Monday's meeting.",
+                "zh": "我們會在星期一的會議上公布人事異動。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "人事",
+              "en": "Please return the signed form to personnel by Friday.",
+              "zh": "請在星期五前把簽好的表格交回人事部。"
+            },
+            {
+              "tag": "公告",
+              "en": "All personnel must wear a badge inside the building.",
+              "zh": "所有人員在大樓內都必須佩戴識別證。"
+            },
+            {
+              "tag": "招募",
+              "en": "The company plans to hire more personnel next quarter.",
+              "zh": "公司計畫下一季多僱用一些人員。"
+            }
+          ],
+          "similar": [
+            {
+              "word": "staff",
+              "ipa": "/stæf/",
+              "diff": "staff 較日常，指一個單位的全體員工；personnel 較正式，也能指人事部門。",
+              "example": {
+                "en": "Our staff will help you at the front desk.",
+                "zh": "我們的員工會在櫃檯協助你。"
+              }
+            },
+            {
+              "phrase": "human resources",
+              "diff": "現在公司多半說 human resources（簡稱 HR）；personnel 比較傳統、正式。",
+              "example": {
+                "en": "Please contact human resources about your health insurance.",
+                "zh": "關於你的健康保險，請聯絡人力資源部。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "personal",
+              "ipa": "/ˈpɜːrsənəl/",
+              "diff": "personal 是形容詞「個人的」；personnel 是名詞「員工、人事部門」，兩個字拼法與發音都很像。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "usage": "重音位置不同：personal 重音在第一音節，personnel 重音在最後一個音節（-nel）。",
+              "example": {
+                "en": "Please do not share your personal information with strangers.",
+                "zh": "請不要與陌生人分享你的個人資料。"
+              }
+            },
+            {
+              "word": "personality",
+              "ipa": "/ˌpɜːrsəˈnæləti/",
+              "diff": "personality 是個性；personnel 是員工，字頭都是 person-，但意思完全不同。",
+              "kind": [
+                "spell"
+              ],
+              "example": {
+                "en": "A friendly personality is important for a customer service job.",
+                "zh": "親切的個性對客服工作很重要。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "employee",
+              "pos": "n.",
+              "zh": "員工",
+              "ipa": "/ɪmˈplɔɪiː/",
+              "example": {
+                "en": "Each employee will receive a new ID card.",
+                "zh": "每位員工都會收到一張新的識別證。"
+              }
+            },
+            {
+              "w": "employer",
+              "pos": "n.",
+              "zh": "雇主",
+              "ipa": "/ɪmˈplɔɪər/",
+              "example": {
+                "en": "Our employer offers free training every year.",
+                "zh": "我們的雇主每年都提供免費的訓練。"
+              }
+            },
+            {
+              "w": "department",
+              "pos": "n.",
+              "zh": "部門",
+              "ipa": "/dɪˈpɑːrtmənt/",
+              "example": {
+                "en": "She has worked in the sales department for five years.",
+                "zh": "她已經在業務部工作了五年。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˌpɜːrsəˈnel/",
+              "zh": "全體員工、人員",
+              "en": "all the people who work for a company or organization",
+              "example": {
+                "en": "The new rules apply to all hotel personnel.",
+                "zh": "新規定適用於所有飯店人員。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˌpɜːrsəˈnel/",
+              "zh": "人事部門",
+              "en": "the department that takes care of the employees of a company",
+              "distinguish": "從句意判斷：指「人」就是全體員工，指「負責處理的單位」就是人事部門。",
+              "example": {
+                "en": "Personnel will contact you about your first day of work.",
+                "zh": "人事部會聯絡你有關第一天上班的事。"
+              }
+            }
+          ]
         }
       ],
       "prosody": {

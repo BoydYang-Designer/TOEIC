@@ -133,7 +133,7 @@ function prDetailKeys(x, v) {
   if (ctx && T !== 'sentence') add(ctx);
   if (e.lemma && String(e.lemma).trim().toLowerCase() !== String(e.text).trim().toLowerCase()) add(e.lemma);
   obj(e.pos_uses).forEach(o => { add(o.w || e.lemma || e.text); exEn(o); });
-  obj(e.senses).forEach(o => { add(e.lemma || e.text); exEn(o); });
+  obj(e.senses).forEach(o => { add(e.lemma || e.text); if (o.en) add(o.en); exEn(o); });
   obj(e.forms).forEach(o => { if (o.w) add(o.w); exEn(o); });
   obj(e.derived).forEach(o => { if (o.w) add(o.w); });
   const cols = arr(e.collocations);

@@ -25,7 +25,7 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
          詳解項目的檔名（不含文章 id，詳解搬到別篇或文章被刪都不會變孤兒；舊的 {文章id}-… 檔名請先用 migrate_vocab_names.py 轉換）：
           ‧ 跟著單字：{單字slug}{後綴}.mp3；‧ 跟著句子內容：入庫的整句與「所在句」＝{句子slug}.mp3（無後綴，同一句只錄一次）
           詳解項目的檔名後綴：（無）整句或所在句、_e 例句、_cp／_c 搭配與其例句、_f 屈折變化的字、_fx 屈折變化的例句、_m／_mx 相關字與例句、_cf 易混淆例句（易混淆的字本身走共用庫 words/）、
-          _sm／_sx 近義片語與例句、_en／_en2 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句
+          _sm／_sx 近義片語與例句、_en／_en2 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句、_se 多義每個意思的英文解說
          網頁「＋」追加的例句：用法底下的 extra_examples 檔名是「原例句後綴＋x＋第幾句」，例如 surcharge_p1x2.mp3（多詞性第 1 筆的第 2 句追加句）、
          _c{k}x{j} 搭配、_fx{k}x{j} 屈折變化、_mx{k}x{j} 相關字、_sx{k}x{j} 近義、_s{k}x{j} 多義；examples／paraphrase 直接接在陣列後面，沿用 _e{k}／_pr{k}
          ※ 單字類（單字本身、原形、屈折變化、同字族、相關字、搭配片語、多詞性／多義的單字）改放共用庫
@@ -139,7 +139,7 @@ MAKE_PARA = True              # 句子的同義改寫（paraphrase[].en）_pr{k}
 MAKE_KEYWORDS = True          # 句子詳解的「句中值得注意的字」（key_words[].w），走共用庫
 MAKE_POS = True               # 多詞性（pos_uses）：每個詞性的單字發音 _pw{k}.mp3 ＋ 例句 _p{k}.mp3
 MAKE_PHRASES = True           # 簡報常用句型（presentation_phrases[].phrase）整句 {句型slug}.mp3（放 vocab/，與網頁 speakPhrase 一致；省略號不念）
-MAKE_SENSE = True             # 多義（senses）：每個意思的單字發音 _sw{k}.mp3 ＋ 例句 _s{k}.mp3
+MAKE_SENSE = True             # 多義（senses）：每個意思的單字發音 _sw{k}.mp3 ＋ 例句 _s{k}.mp3 ＋ 英文解說 _se{k}.mp3
 MAKE_EXTRA_EX = True          # 網頁「＋」追加的例句（各用法底下的 extra_examples）：_p{k}x{j}／_s{k}x{j}／_c{k}x{j}／_fx{k}x{j}／_mx{k}x{j}／_sx{k}x{j}.mp3
 PASSAGE_RATE = "-5%"          # 文章語速
 VOCAB_RATE = "-10%"           # 單字／句子語速（單字慢一點比較聽得清楚）
@@ -288,6 +288,22 @@ def match_key(key, p):
     """前綴比對（d1 / d2-001）；以 - 開頭則比對結尾（-e / -m / -h 依難度）。"""
     key, p = key.lower(), p.lower()
     return key.endswith(p) if p.startswith("-") else key.startswith(p)
+
+
+def select_by_words(groups, text):
+    """依單字／片語勾選詳解：text 可用逗號、分號分隔多個。每個字先比「完全相同」（比 text 或原形 lemma，不分大小寫）；
+    完全相同找不到，才退一步找「包含」（例：輸入 submit 也會找到 submitted、submit to）。只看詳解項目，不含文章。"""
+    chosen = set()
+    for tok in re.split(r"[,，;；]+", str(text)):
+        q = re.sub(r"\s+", " ", tok).strip().lower()
+        if not q:
+            continue
+        pool = [(i, g) for i, g in enumerate(groups) if g.get("word")]
+        hit = [i for i, g in pool if q in (g["word"].lower(), g.get("lemma", "").lower())]
+        if not hit:
+            hit = [i for i, g in pool if q in g["word"].lower() or q in g.get("lemma", "").lower()]
+        chosen.update(hit)
+    return sorted(chosen)
 
 
 def load_items(root: Path, fname):
@@ -840,6 +856,8 @@ def plan_daily(root: Path):
                     en = (o.get("example") or {}).get("en") if isinstance(o.get("example"), dict) else None
                     if isinstance(en, str) and en.strip():
                         want.append((f"{base}_{esuf}{k}.mp3", en.strip()))
+                    if key == "senses" and isinstance(o.get("en"), str) and o["en"].strip():   # 多義每個意思的英文解說：檔名 _se{k}，與 notes.js 詳解頁標題區／多義區的 🔊 一致
+                        want.append((f"{base}_se{k}.mp3", o["en"].strip()))
             if MAKE_EXTRA_EX:   # 網頁「＋」追加的例句：每個用法底下的 extra_examples，檔名 {字}_{原例句後綴}{第幾筆}x{第幾句}.mp3（只會接在最後面，既有編號不位移）
                 for fld, esuf in (("collocations", "c"), ("forms", "fx"), ("family", "mx"), ("similar", "sx"), ("derived", "dx"), ("pos_uses", "p"), ("senses", "s")):
                     for k, o in enumerate(e.get(fld) or [], 1):
@@ -866,7 +884,8 @@ def plan_daily(root: Path):
                 jobs.append(dict(name=p.name, text=t, voice=VOCAB_VOICE, rate=VOCAB_RATE, path=p, redo=(r == "redo")))
             if jobs:
                 kind = {"word": "單字", "phrase": "片語", "sentence": "句子"}.get(e["type"], "單字")
-                groups.append(dict(key=f"{e['qid']}:{e['text']}", kind=kind, total=len(want), voice=VOCAB_VOICE, jobs=jobs))
+                groups.append(dict(key=f"{e['qid']}:{e['text']}", kind=kind, total=len(want), voice=VOCAB_VOICE, jobs=jobs,
+                                   word=str(e["text"]), lemma=str(e.get("lemma") or "")))   # word／lemma：給「依單字勾選」比對用
         if MAKE_CTX:   # 核心單字（vocab）在「該篇文章」裡的所在句：詳解沿用他篇時，網頁仍會播本篇那一句，所以要另外補錄
             for x in items:
                 p_ = str(x.get("passage") or "").strip()
@@ -1528,7 +1547,10 @@ def run_gui(root: Path, spec: Spec):
     bar.pack(fill="x", padx=10, pady=4)
     bar2 = ttk.Frame(win)
     bar2.pack(fill="x", padx=10, pady=(0, 4))
-    n_var, pre_var = tk.StringVar(value="10"), tk.StringVar()
+    bar3 = ttk.Frame(win)
+    if spec.daily:
+        bar3.pack(fill="x", padx=10, pady=(0, 4))
+    n_var, pre_var, word_var = tk.StringVar(value="10"), tk.StringVar(), tk.StringVar()
 
     tree_f = ttk.Frame(win)
     tree_f.pack(fill="both", expand=True, padx=10)
@@ -1655,6 +1677,20 @@ def run_gui(root: Path, spec: Spec):
         if p:
             set_checked(i for i, g in enumerate(S["groups"]) if match_key(g["key"], p))
 
+    def by_word(go=False):
+        w = word_var.get().strip()
+        if not w:
+            return
+        ids = select_by_words(S["groups"], w)
+        if not ids:
+            log(f"找不到「{w}」缺的詳解音檔（可能音檔都已齊全，或這個字還沒有詳解）。")
+            set_checked([])
+            return
+        set_checked(ids)
+        log(f"已勾選「{w}」：{len(ids)} 筆詳解、{sum(len(S['groups'][i]['jobs']) for i in ids)} 個缺檔。")
+        if go and not S["running"]:
+            start()
+
     def kind_ids(passage):
         return {str(i) for i, g in enumerate(S["groups"]) if (g["kind"] == "文章") == passage}
 
@@ -1698,6 +1734,14 @@ def run_gui(root: Path, spec: Spec):
     ttk.Label(bar, text=f"依前綴勾選（{spec.prefix_hint}）" if not spec.daily else f"依前綴（{spec.prefix_hint}）").pack(side="left")
     ttk.Entry(bar, textvariable=pre_var, width=10).pack(side="left", padx=4)
     ttk.Button(bar, text="勾選", command=by_prefix).pack(side="left")
+    if spec.daily:   # 只補某個單字的詳解：輸入字（可多個，用逗號分隔）→ 勾選；或直接「勾選並開始」
+        ttk.Label(bar3, text="只補單字詳解：").pack(side="left")
+        word_ent = ttk.Entry(bar3, textvariable=word_var, width=26)
+        word_ent.pack(side="left", padx=4)
+        word_ent.bind("<Return>", lambda _e: by_word(False))
+        ttk.Button(bar3, text="勾選", command=lambda: by_word(False)).pack(side="left")
+        ttk.Button(bar3, text="勾選並開始", command=lambda: by_word(True)).pack(side="left", padx=4)
+        ttk.Label(bar3, text="例：submit　或　submit, invoice（只會列出「缺檔」的詳解；完全相同優先，找不到才找包含）", foreground="#555").pack(side="left", padx=6)
 
     def start():
         jobs = [j for i in sorted(S["checked"], key=int) for j in S["groups"][int(i)]["jobs"]]
@@ -1873,6 +1917,8 @@ def parse_selection(ans, groups):
         elif tok.isdigit():
             if 0 <= int(tok) - 1 < len(groups):
                 chosen.append(int(tok) - 1)
+        elif tok.startswith(("w:", "字:")):   # w:submit　要含空格的片語用底線：w:no_later_than
+            chosen += select_by_words(groups, tok.split(":", 1)[1].replace("_", " "))
         else:
             chosen += [i for i, g in enumerate(groups) if match_key(g["key"], tok)]
     return sorted(set(chosen))
@@ -1915,6 +1961,8 @@ def run_cli(root: Path, spec: Spec, dry: bool):
         return
     print("\n請選擇這次要做哪些（可混用，用逗號分隔）：")
     print(f"  全部：all　　前 N {unit}：前10　　編號：1,3,5-8　　{spec.cli_prefix}　　直接 Enter：取消")
+    if spec.daily:
+        print("  只補某個單字的詳解：w:submit（可多個：w:submit,w:invoice；片語用底線：w:no_later_than）")
     sel = parse_selection(input("> "), groups)
     if not sel:
         print(f"沒有選任何{unit}，已取消。")

@@ -121,6 +121,10 @@ def audio_slots(v):
                 tx = x.get('en') if isinstance(x, dict) else (x if isinstance(x, str) else None)
                 if isinstance(tx, str) and tx.strip():
                     out['%s%dx%d' % (suf, k, j)] = tx.strip()
+    for k, o in enumerate(v.get('senses') or [], 1):   # 多義每個意思的英文解說：_se{k}
+        t = o.get('en') if isinstance(o, dict) else None
+        if isinstance(t, str) and t.strip():
+            out['_se%d' % k] = t.strip()
     for k, o in enumerate(v.get('paraphrase') or [], 1):
         t = o.get('en') if isinstance(o, dict) else (o if isinstance(o, str) else None)
         if isinstance(t, str) and t.strip():
