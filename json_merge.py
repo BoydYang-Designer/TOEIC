@@ -45,6 +45,10 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / par
      只追加、不改動既有內容：用法底下的句子接在該筆的 extra_examples 最後面（原本的 example 不動）；examples／paraphrase 直接接在陣列最後面（新項目帶 added:1）。
      英文句子重複（含與原本那句重複）會自動略過，沒有數量上限；每句都要有 en 與 zh。mp3 檔名 {字}_{後綴}{第幾筆}x{第幾句}.mp3（例如 surcharge_p1x2.mp3），既有編號不會位移。
      整筆取代詳解時，extra_examples、added 句子與 ex_done 會自動帶過去（對不上的會在確認視窗與完成訊息警告）。
+  3f. 新增搭配補丁（網頁「常用搭配」的「＋ 搭配」專用，同樣放在 extra_vocab 裡，可和 example_add、ex_done 並存）：
+     {"text":"against","collocation_add":[{"phrase":"race against time","zh":"與時間賽跑","example":{"en":"…","zh":"…"}}],"ex_done":[{"id":"x…","result":"added"}]}
+     每筆要有 phrase、zh、example.en（單字型搭配另要 ipa）；接在 collocations 最後面（重複的略過），既有 mp3 編號 _cp{n}／_c{n} 不位移；
+     新搭配的 phrase 與 example 音檔（{字}_cp{n}.mp3、{字}_c{n}.mp3）由自動語音產生。example_add 可以是空陣列（視為沒有）。
   5. 文稿比對（每日文章）：錄完音後又改了文稿（例如刪掉 "The man :" 才錄），按底部「文稿比對修改…」（或錄音視窗的「文稿比對（依音檔）」）：
      用 whisper 聽 mp3，把「音檔真的有唸的字」當標準，與 daily.json 的 passage 逐字比對；每一處差異預設都不勾，
      人工勾選要採用的 →「套用並重新對時」（自動備份；只改該篇的 passage 與 timing）→ 可接著執行 Scan總表與音檔.py。辨識結果會快取在 backup/asr_cache/。
@@ -151,8 +155,9 @@ def audio_slot_report(old_v, new_v):
 #   {"text":"overlook","confusable_add":[{word,ipa,diff,kind,example}],"similar_add":[…],"nw_done":[{id,result}]}
 # 合併時由程式接到既有 confusable／similar 陣列「最後面」：既有項目的順序與內容完全不動，
 # 所以 mp3 的位置編號（_cf1、_cf2…）不會位移；AI 根本碰不到既有項目。
-ADD_FIELDS = (('confusable_add', 'confusable'), ('similar_add', 'similar'))
-ADD_ALLOWED = {'text', 'type', 'confusable_add', 'similar_add', 'nw_done', 'example_add', 'ex_done'}
+# collocation_add（網頁常用搭配的「＋ 搭配」）：{phrase, ipa（單字才要）, zh, example:{en,zh}}，同樣接在 collocations 最後面
+ADD_FIELDS = (('confusable_add', 'confusable'), ('similar_add', 'similar'), ('collocation_add', 'collocations'))
+ADD_ALLOWED = {'text', 'type', 'confusable_add', 'similar_add', 'collocation_add', 'nw_done', 'example_add', 'ex_done'}
 CF_KINDS = ('spell', 'sound', 'meaning', 'root', 'zhsame', 'antonym')
 
 
@@ -1110,8 +1115,13 @@ class Daily(Profile):
                             ws = [(o.get('word') or o.get('phrase')) for o in (nv.get(ak) or []) if isinstance(o, dict) and _add_key(o) and _add_key(o) not in have and _add_key(o) != self.xkey(nv)]
                             if ws:
                                 n0 = len(ov.get(fld) or [])
-                                blk += ['   「%s」：只追加 %s %d 筆，接在第 %d 筆之後：%s' % (nv.get('text'), fld, len(ws), n0, '、'.join(str(w) for w in ws)),
-                                        '     ＋ 新增的例句音檔（第 %s 筆）要錄音；既有的 %d 筆 mp3 編號不變' % (('%d' % (n0 + 1)) if len(ws) == 1 else ('%d–%d' % (n0 + 1, n0 + len(ws))), n0)]
+                                blk += ['   「%s」：只追加 %s %d 筆，接在第 %d 筆之後：%s' % (nv.get('text'), fld, len(ws), n0, '、'.join(str(w) for w in ws))]
+                                if fld == 'collocations':
+                                    _b = _slot_slug(ov.get('text') or nv.get('text'))
+                                    _nm = [('%s_cp%d.mp3、%s_c%d.mp3' % (_b, n0 + j, _b, n0 + j)) for j in range(1, len(ws) + 1)]
+                                    blk += ['     ＋ 新搭配的音檔要錄音（搭配＋例句）：%s；既有的 %d 筆 mp3 編號不變' % ('；'.join(_nm[:4]) + ('…' if len(_nm) > 4 else ''), n0)]
+                                else:
+                                    blk += ['     ＋ 新增的例句音檔（第 %s 筆）要錄音；既有的 %d 筆 mp3 編號不變' % (('%d' % (n0 + 1)) if len(ws) == 1 else ('%d–%d' % (n0 + 1, n0 + len(ws))), n0)]
                         blk += example_add_lines(ov, nv)
                         continue
                     nv2, lost = carry_extras(ov, nv)   # 整筆取代：使用者追加的例句會自動帶過去，只有對不上的才會丟
@@ -1201,7 +1211,7 @@ class Daily(Profile):
         """只追加格式（confusable_add／similar_add）：不是完整詳解，只檢查要追加的項目，以及它要接的那筆現有詳解在不在。"""
         extra = [k for k in v if k not in ADD_ALLOWED]
         if extra:
-            er.append('「%s」是「只追加」格式，只能有 text、confusable_add、similar_add、example_add、nw_done、ex_done（type 可省略），多了：%s。要改其他欄位請用整筆詳解的格式，不要混用' % (t, '、'.join(extra)))
+            er.append('「%s」是「只追加」格式，只能有 text、confusable_add、similar_add、collocation_add、example_add、nw_done、ex_done（type 可省略），多了：%s。要改其他欄位請用整筆詳解的格式，不要混用' % (t, '、'.join(extra)))
         k = self.xkey(v)
         owner = (ctx.get('extras') or {}).get(k)
         ov = None
@@ -1229,7 +1239,7 @@ class Daily(Profile):
                     continue
                 w = _add_key(o)
                 if not w:
-                    er.append(p + '缺少 %s' % ('word（片語用 phrase）' if fld == 'confusable' else 'phrase（單字用 word）'))
+                    er.append(p + '缺少 %s' % ('word（片語用 phrase）' if fld == 'confusable' else ('phrase' if fld == 'collocations' else 'phrase（單字用 word）')))
                     continue
                 if w == k:
                     wa.append(p + '「%s」就是它自己，合併時會略過' % w)
@@ -1239,7 +1249,10 @@ class Daily(Profile):
                     continue
                 seen.add(w)
                 n_add += 1
-                if not str(o.get('diff') or '').strip():
+                if fld == 'collocations':
+                    if not str(o.get('zh') or '').strip():
+                        er.append(p + '（%s）缺少 zh（搭配的中文意思）' % w)
+                elif not str(o.get('diff') or '').strip():
                     er.append(p + '（%s）缺少 diff' % w)
                 ex = o.get('example')
                 if not (isinstance(ex, dict) and str(ex.get('en') or '').strip()):
@@ -1255,7 +1268,7 @@ class Daily(Profile):
                         wa.append(p + '（%s）kind 缺少或不合法（值：%s）' % (w, '／'.join(CF_KINDS)))
                 if ' ' not in w and not str(o.get('ipa') or '').strip():
                     wa.append(p + '（%s）是單字但缺 ipa' % w)
-        if 'example_add' in v:
+        if 'example_add' in v and v['example_add'] != []:   # 空陣列＝這次沒有要追加的例句（例如只新增搭配），不報錯
             n_add += self.validate_example_add(v, t, ov, er, wa)
         done_ok = lambda d: isinstance(d, list) and d and all(isinstance(o, dict) and str(o.get('id') or '').strip() and o.get('result') in ('added', 'covered', 'unclear') for o in d)
         nd = v.get('nw_done')

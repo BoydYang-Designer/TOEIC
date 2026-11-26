@@ -1,0 +1,77 @@
+{
+  "week": 1,
+  "day": 4,
+  "extra_vocab": [
+    {
+      "text": "race against time",
+      "type": "phrase",
+      "zh": "與時間賽跑、分秒必爭",
+      "en": "to work very fast because there is not much time left",
+      "note": "在交貨延誤、庫存不足的情境中，用來描述趕在期限（如 6 月 21 日）前完成工作的緊迫感。語氣生動，但在商務郵件與會議中很常見。",
+      "pattern": "N + be racing against time + to + V",
+      "grammar_note": "動詞用法要隨主詞與時態變化（is racing、raced）；名詞用法要加 a：a race against time。目的用 to + V 接在後面。",
+      "examples": [
+        {
+          "tag": "供應商交貨",
+          "en": "The supplier is racing against time to finish Order 4582.",
+          "zh": "供應商正在與時間賽跑，趕著完成 4582 號訂單。"
+        },
+        {
+          "tag": "生產",
+          "en": "Our team is in a race against time to avoid a delay.",
+          "zh": "我們的團隊正在與時間賽跑，以避免延誤。"
+        },
+        {
+          "tag": "會議",
+          "en": "With the deadline so close, it became a race against time.",
+          "zh": "期限這麼近，一切變成了與時間賽跑。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "We are racing against time to fix the stock problem before June 21.",
+          "zh": "我們正在與時間賽跑，要在 6 月 21 日前解決庫存問題。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "beat the clock",
+          "diff": "意思是在時限內完成，著重「成功趕上」；race against time 著重過程中的緊迫。",
+          "example": {
+            "en": "We managed to beat the clock and ship the order today.",
+            "zh": "我們成功趕在時限內，今天把訂單出貨了。"
+          }
+        },
+        {
+          "phrase": "under time pressure",
+          "diff": "指承受時間壓力，語氣較中性、正式；race against time 畫面感較強。",
+          "example": {
+            "en": "The staff worked under time pressure to inspect all the materials.",
+            "zh": "員工在時間壓力下工作，檢查所有的材料。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "run out of time",
+          "diff": "run out of time 是時間用完了，指結果；race against time 是趕時間的過程。",
+          "kind": ["meaning"],
+          "example": {
+            "en": "We ran out of time and could not finish the inspection.",
+            "zh": "我們的時間用完了，沒辦法完成檢查。"
+          }
+        },
+        {
+          "word": "rush",
+          "ipa": "/rʌʃ/",
+          "diff": "rush 是匆忙做事，不一定有明確的期限；race against time 一定有時間限制。",
+          "kind": ["meaning"],
+          "usage": "rush 可當動詞或名詞，常見 rush an order（趕單）；race against time 是固定片語，不能拆開換字。",
+          "example": {
+            "en": "Please do not rush the inspection, or we may miss problems.",
+            "zh": "請不要匆忙檢查，否則我們可能會漏掉問題。"
+          }
+        }
+      ]
+    }
+  ]
+}

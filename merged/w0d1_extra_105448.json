@@ -1,0 +1,82 @@
+{
+  "week": 0,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "name tag",
+      "type": "phrase",
+      "zh": "名牌、姓名貼",
+      "en": "a small card or sticker with your name on it that you wear",
+      "note": "在研討會、訓練課程或公司活動報到時，主辦單位常會發給與會者名牌。常見動詞是 wear、wear 或 pick up，語感中性、日常。",
+      "pattern": "wear / pick up + a name tag",
+      "grammar_note": "name tag 是可數名詞，單數要加 a；也常寫成 nametag 或 name badge。",
+      "examples": [
+        {
+          "tag": "活動報到",
+          "en": "Please pick up your name tag at the front desk.",
+          "zh": "請到櫃檯領取你的名牌。"
+        },
+        {
+          "tag": "會議",
+          "en": "All guests must wear a name tag during the conference.",
+          "zh": "會議期間所有來賓都必須佩戴名牌。"
+        },
+        {
+          "tag": "電子郵件",
+          "en": "We will give you a name tag when you arrive.",
+          "zh": "你到達時我們會給你一個名牌。"
+        },
+        {
+          "tag": "新進員工",
+          "en": "New employees should wear a name tag on their first day.",
+          "zh": "新進員工第一天應該佩戴名牌。"
+        },
+        {
+          "tag": "訓練課程",
+          "en": "I forgot my name tag, so I wrote my name on a sticker.",
+          "zh": "我忘了帶名牌，所以把名字寫在貼紙上。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "name badge",
+          "diff": "意思幾乎相同，badge 通常是塑膠或金屬材質、比較正式，常見於公司員工；name tag 也可以是貼紙。",
+          "example": {
+            "en": "Staff must wear a name badge while working at the event.",
+            "zh": "工作人員在活動期間必須佩戴名牌。"
+          }
+        },
+        {
+          "phrase": "ID badge",
+          "diff": "ID badge 是員工證，除了姓名還能用來進出大樓；name tag 只用來顯示姓名。",
+          "example": {
+            "en": "Please show your ID badge to the security guard.",
+            "zh": "請向警衛出示你的員工證。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "business card",
+          "diff": "business card 是名片，用來交換給別人留下聯絡方式；name tag 是別在身上的名牌。中文都和「名」有關，容易搞混。",
+          "kind": ["zhsame", "meaning"],
+          "example": {
+            "en": "I gave her my business card after the meeting.",
+            "zh": "會議結束後我給了她我的名片。"
+          }
+        },
+        {
+          "word": "nameplate",
+          "ipa": "/ˈneɪmpleɪt/",
+          "diff": "nameplate 是放在桌上或貼在門上的名牌，不是佩戴在身上的。",
+          "kind": ["meaning", "spell"],
+          "usage": "nameplate 通常是固定在辦公桌、門或機器上，name tag 是別在衣服上、可以帶走。",
+          "example": {
+            "en": "Her nameplate is on the door of the office.",
+            "zh": "她的名牌就在辦公室的門上。"
+          }
+        }
+      ]
+    }
+  ]
+}

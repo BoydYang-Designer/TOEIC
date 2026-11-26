@@ -1224,6 +1224,7 @@ function dnRevisePrompt(note) {
     '- 上面的規則一律照用；但這次不是從零開始，而是「修正下面的現有詳解」。',
     '- 我發現的問題：' + (String(note || '').trim() || '（沒有特別指出；請依上面所有規則逐欄位檢查，找出錯誤、缺漏、程度不符或與規則不一致的地方並修正）'),
     '- 有問題的地方請修正或重寫；沒有問題的欄位請逐字原樣抄回，不要順便潤飾、改順序或改寫。',
+    '- 【順序鎖定（很重要）】音檔是依「陣列的第幾筆」命名的（collocations 的 _c1、_c2…，senses 的 _s1、_s2…，pos_uses、forms、family、derived、confusable、similar、examples 也一樣）。所以現有陣列裡每一筆的「位置」一律不可變動：不可插入、刪除、換位置、合併或拆開；要新增的搭配、意思、用法、例句，一律接在該陣列「最後面」（即使依多益常見度應該排前面也一樣；上面「依常見度排序」的規則在重整時不適用於已有的項目）。只有「那一筆本身有錯」才在原位置修改內容。若必須刪除或改順序才能改對，請不要動，在聊天裡說明原因，讓我自己處理。',
     '- 輸出「完整的一筆」（會用 text 整筆取代舊的，所以不能只寫改過的欄位）；text 必須與現有詳解的 text 完全相同。現有詳解裡的 nw_done 與 usages（別篇的用法，每一筆）一併原樣保留，不可刪除或改寫。',
     '- 聊天裡用 2–5 行說明你改了哪些欄位、為什麼；檔案裡不要放說明文字。',
     '',
@@ -1307,7 +1308,7 @@ function dnRenderDetail() {
   h += sec('屈折變化（Inflections）', list(dnArr(e.forms), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${o.w ? dnSpk(xs, e, '_f' + (i + 1), o.w) : ''}<div><b>${esc(o.w || '')}</b>${o.label ? ` <span class="${dnChip}">${esc(o.label)}</span>` : ''} <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''} ${o.pos ? `<i>${esc(o.pos)}</i>` : ''}</span>${o.zh ? `　${esc(o.zh)}` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_fx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}${exTail(xs, e, 'forms', i, o)}</li>`));
   h += sec('同字族（Word Family）', list(dnArr(e.derived), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${o.w ? dnSpk(xs, e, '_d' + (i + 1), o.w) : ''}<div><b>${esc(o.w || '')}</b> <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''} ${o.pos ? `<i>${esc(o.pos)}</i>` : ''}</span>${o.zh ? `　${esc(o.zh)}` : ''}${o.link ? `<p class="text-xs text-slate-500 mt-0.5">${esc(o.link)}</p>` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_dx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}${exTail(xs, e, 'derived', i, o)}</li>`));
   const cols = dnArr(e.collocations);
-  h += sec('常用搭配', cols.length ? `<ul class="space-y-1.5 text-sm">${cols.map((c, i) => { const ph = typeof c === 'string' ? c : (c.phrase || c.p || ''); return `<li class="flex items-start gap-2">${ph ? dnSpk(xs, e, '_cp' + (i + 1), ph) : ''}<div><b>${esc(ph)}</b>${c && c.ipa ? ` <span class="text-slate-500">${esc(c.ipa)}</span>` : ''}${c && c.zh ? `　${esc(c.zh)}` : ''}</div></li>`; }).join('')}</ul>` : (dnArr(e.col).length ? `<p class="text-sm">${dnArr(e.col).map(esc).join('；')}</p>` : ''));
+  h += sec('常用搭配', (cols.length ? `<ul class="space-y-1.5 text-sm">${cols.map((c, i) => { const ph = typeof c === 'string' ? c : (c.phrase || c.p || ''); return `<li class="flex items-start gap-2">${ph ? dnSpk(xs, e, '_cp' + (i + 1), ph) : ''}<div><b>${esc(ph)}</b>${c && c.ipa ? ` <span class="text-slate-500">${esc(c.ipa)}</span>` : ''}${c && c.zh ? `　${esc(c.zh)}` : ''}</div></li>`; }).join('')}</ul>` : (dnArr(e.col).length ? `<p class="text-sm">${dnArr(e.col).map(esc).join('；')}</p>` : '')) + exColPlus());
   const exAll = ex2.map((o, i) => ({ o, suf: '_e' + (i + 1), tag: o.tag || (o.added ? '新增' : '') })).concat(cols.map((c, i) => ({ o: c && c.example, suf: '_c' + (i + 1), tag: '常用搭配', hi: c && (c.phrase || c.p), ci: i, c })).filter(r => r.o && r.o.en)); // 搭配的例句併入例句區，標「常用搭配」
   h += sec('同義改寫', (l => l ? l + exSecPlus('paraphrase') : '')(list(dnArr(e.paraphrase), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : (o && o.en ? `<li class="flex items-start gap-2">${dnSpk(xs, e, '_pr' + (i + 1), o.en)}<div>${dnExHtml(o)}</div></li>` : ''))));
   h += sec(T === 'sentence' ? '同句型例句' : '例句', list(exAll, r => `<li class="flex items-start gap-2">${dnSpk(xs, e, r.suf, r.o.en || '')}<div><p>${r.hi ? dnHiCtx(r.o.en, r.hi) : esc(r.o.en || '')}</p>${r.tag || r.o.zh ? `<p class="text-xs text-slate-500">${r.tag ? `<span class="${r.tag === '常用搭配' ? 'text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ' + DNTC.phrase : dnChip} mr-1.5 align-middle">${esc(r.tag)}</span>` : ''}${esc(r.o.zh || '')}</p>` : ''}${r.ci != null ? exRows(xs, e, 'collocations', r.ci, r.c) : ''}</div></li>`) + exSecPlus('examples'));
@@ -1582,6 +1583,7 @@ const EX_BLK = {
   family: { fld: 'family', suf: 'mx', name: '相關字', ml: 'ml-6' },
   similar: { fld: 'similar', suf: 'sx', name: '近義片語', ml: 'ml-6' },
   derived: { fld: 'derived', suf: 'dx', name: '同字族', ml: 'ml-6' },
+  newcol: { fld: 'collocations', suf: 'c', name: '新增搭配', ml: '', add: true },
   examples: { fld: 'examples', suf: 'e', name: '例句', direct: true },
   paraphrase: { fld: 'paraphrase', suf: 'pr', name: '同義改寫', direct: true }
 };
@@ -1614,6 +1616,7 @@ function exEntry(text) { // 這個字的詳解（全題庫只有一筆）：{ a:
 function exTarget(r) { // 待辦指到的位置：{ o, item, ens: 現有英文句子, have: 鍵集合 } 或 null（找不到詳解）
   const o = exEntry(r.text), cfg = EX_BLK[r.block]; if (!o || !cfg) return null;
   let item = null, ens;
+  if (cfg.add) { ens = dnArr(o.e[cfg.fld]).map(c => typeof c === 'string' ? c : c && (c.phrase || c.p)).filter(Boolean); return { o, item: null, ens, have: new Set(ens.map(exEnKey)), missing: false }; }
   if (cfg.direct) ens = dnArr(o.e[cfg.fld]).map(x => typeof x === 'string' ? x : x && x.en).filter(Boolean);
   else {
     item = dnArr(o.e[cfg.fld]).find(x => x && typeof x === 'object' && exSame(exKeyOf(r.block, x), r.key));
@@ -1629,7 +1632,7 @@ function exDone(r) {
 const exPending = (text, blk, key) => exList().filter(r => r.block === blk && dnKey(r.text) === dnKey(text) && exSame(r.key, key) && !exDone(r));
 
 /* ---------- 詳解頁：用法底下的追加句、待辦提示、「＋ 例句」 ---------- */
-const exRecTxt = r => r.mode === 'manual' ? `手動「${esc(String(r.en).slice(0, 40))}」` : `AI 新增 ${r.n} 句`;
+const exRecTxt = r => r.mode === 'manual' ? `手動「${esc(String(r.en).slice(0, 40))}」` : `AI 新增 ${r.n} ${r.block === 'newcol' ? '個搭配' : '句'}`;
 function exPendHtml(text, blk, key, ml) {
   const rs = exPending(text, blk, key); if (!rs.length) return '';
   return `<div class="mt-1 text-[0.6875rem] text-amber-700 dark:text-amber-300${ml ? ' ' + ml : ''}">⏳ 待處理（到維護區複製提示詞給 AI）：${rs.map(r => `${exRecTxt(r)}<button onclick="exDel('${r.id}')" class="ml-1 text-slate-400 hover:text-rose-600" title="取消這一筆">✕</button>`).join('、')}</div>`;
@@ -1646,6 +1649,7 @@ function exTail(xs, e, blk, i, o) { // 用法（第 i 筆）底下：追加的�
   const rows = dnArr(o.extra_examples).filter(x => x && x.en).map((x, j) => `<div class="flex items-start gap-2 mt-1${ml ? ' ' + ml : ''}">${dnSpk(xs, e, '_' + cfg.suf + (i + 1) + 'x' + (j + 1), x.en)}<div>${dnExHtml(x)}</div></div>`).join('');
   return rows + exPendHtml(EXC.text, blk, exKeyOf(blk, o), ml) + exPlusHtml(blk, i, ml);
 }
+const exColPlus = () => EXC ? exPendHtml(EXC.text, 'newcol', {}, '') + `<div class="mt-2"><button onclick="exOpen('newcol',null)" class="${dnSm} !px-2 !py-0.5" title="新增常用搭配：手動輸入一個，或請 AI 新增（AI 會連同例句一起補）">＋ 搭配</button></div>` : '';
 const exSecPlus = blk => EXC ? exPendHtml(EXC.text, blk, {}, '') + exPlusHtml(blk, null, '') : ''; // examples／paraphrase：整個區塊就是一串句子，「＋」放在區塊最後
 
 /* ---------- 按「＋ 例句」：手動輸入，或請 AI 新增 N 句（都只是先放進待辦） ---------- */
@@ -1653,17 +1657,18 @@ function exOpen(blk, i) {
   const D = dnDetailData(); if (!D || !D.ex) return;
   const cfg = EX_BLK[blk]; if (!cfg) return;
   let key = {}, lab = cfg.name;
-  if (!cfg.direct) { const o = dnArr(D.ex[cfg.fld])[i]; if (!o || typeof o !== 'object') return; key = exKeyOf(blk, o); lab = cfg.name + '：' + exLabel(blk, o); }
+  if (!cfg.direct && !cfg.add) { const o = dnArr(D.ex[cfg.fld])[i]; if (!o || typeof o !== 'object') return; key = exKeyOf(blk, o); lab = cfg.name + '：' + exLabel(blk, o); }
   DN.exDraft = { text: String(D.ex.text || D.ex.word), block: blk, key, lab };
+  const NC = !!cfg.add; // 新增搭配：手動輸入一個搭配，或請 AI 新增 N 個（AI 會連同中文、音標、例句一起補）
   dnModal(`<div class="${card} w-full max-w-md p-4 md:p-5 shadow-xl">
-    <div class="flex items-start justify-between gap-2"><h3 class="font-bold">＋ 新增例句</h3><button onclick="dnClose()" class="text-slate-400 hover:text-slate-700 text-lg leading-none" aria-label="關閉">✕</button></div>
+    <div class="flex items-start justify-between gap-2"><h3 class="font-bold">${NC ? '＋ 新增常用搭配' : '＋ 新增例句'}</h3><button onclick="dnClose()" class="text-slate-400 hover:text-slate-700 text-lg leading-none" aria-label="關閉">✕</button></div>
     <p class="text-xs text-slate-500 mt-1 break-words">${esc(DN.exDraft.text)} ›　${esc(lab)}</p>
-    <label class="block text-sm font-semibold mt-3" for="ex-in">手動輸入一句英文</label>
-    <textarea id="ex-in" rows="2" class="${dnInp} mt-1" placeholder="例如：The surcharge applies to all late orders."></textarea>
-    <button onclick="exAddManual()" class="${btn} ${dnPri} w-full mt-2">加入待辦（由 AI 檢查並補中文）</button>
+    <label class="block text-sm font-semibold mt-3" for="ex-in">${NC ? '手動輸入一個搭配（英文）' : '手動輸入一句英文'}</label>
+    <textarea id="ex-in" rows="${NC ? 1 : 2}" class="${dnInp} mt-1" placeholder="${NC ? '例如：apply a surcharge' : '例如：The surcharge applies to all late orders.'}"></textarea>
+    <button onclick="exAddManual()" class="${btn} ${dnPri} w-full mt-2">${NC ? '加入待辦（由 AI 檢查、補中文與例句）' : '加入待辦（由 AI 檢查並補中文）'}</button>
     <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800"><label class="block text-sm font-semibold" for="ex-n">或請 AI 新增</label>
-      <div class="flex items-center gap-2 mt-1"><select id="ex-n" class="${dnInp} !w-auto">${[1, 2, 3, 4, 5, 6, 8, 10].map(n => `<option value="${n}">${n} 句</option>`).join('')}</select><button onclick="exAddAI()" class="${btn} ${dnLine} flex-1">請 AI 新增 → 加入待辦</button></div></div>
-    <p class="text-[0.6875rem] text-slate-400 mt-3 leading-relaxed">這些只會先放進維護區（📌 入庫彙整／🆕 新單字）的「➕ 例句追加」待辦。複製提示詞給 AI、把回傳的 JSON 用 json_merge.py 合併後，句子才會顯示（含中文翻譯）。</p></div>`);
+      <div class="flex items-center gap-2 mt-1"><select id="ex-n" class="${dnInp} !w-auto">${[1, 2, 3, 4, 5, 6, 8, 10].map(n => `<option value="${n}">${n} ${NC ? '個' : '句'}</option>`).join('')}</select><button onclick="exAddAI()" class="${btn} ${dnLine} flex-1">請 AI 新增 → 加入待辦</button></div></div>
+    <p class="text-[0.6875rem] text-slate-400 mt-3 leading-relaxed">這些只會先放進維護區（📌 入庫彙整／🆕 新單字）的「➕ 例句追加」待辦。複製提示詞給 AI、把回傳的 JSON 用 json_merge.py 合併後，${NC ? '新搭配才會顯示（含中文與例句）。' : '句子才會顯示（含中文翻譯）。'}</p></div>`);
   setTimeout(() => { const t = document.getElementById('ex-in'); if (t) t.focus(); }, 60);
 }
 function exPush(extra) {
@@ -1674,17 +1679,18 @@ function exPush(extra) {
 function exAddManual() {
   const D = DN.exDraft; if (!D) return;
   const en = String((document.getElementById('ex-in') || {}).value || '').replace(/\s+/g, ' ').trim();
-  if (!en) { dnToast('請先輸入一句英文'); return; }
-  if (!/[A-Za-z]{2}/.test(en)) { dnToast('請輸入英文句子'); return; }
+  const NC = D.block === 'newcol';
+  if (!en) { dnToast(NC ? '請先輸入一個搭配' : '請先輸入一句英文'); return; }
+  if (!/[A-Za-z]{2}/.test(en)) { dnToast(NC ? '請輸入英文搭配' : '請輸入英文句子'); return; }
   const tg = exTarget({ text: D.text, block: D.block, key: D.key });
-  if (tg && tg.have.has(exEnKey(en))) { dnToast('這個用法已經有這一句了'); return; }
+  if (tg && tg.have.has(exEnKey(en))) { dnToast(NC ? '已經有這個搭配了' : '這個用法已經有這一句了'); return; }
   if (exPending(D.text, D.block, D.key).some(r => r.mode === 'manual' && exEnKey(r.en) === exEnKey(en))) { dnToast('待辦裡已經有這一句了'); return; }
-  exPush({ mode: 'manual', en }); dnToast('已加入待辦：手動輸入 1 句（到維護區請 AI 檢查）');
+  exPush({ mode: 'manual', en }); dnToast(NC ? '已加入待辦：手動輸入 1 個搭配（到維護區請 AI 檢查並補例句）' : '已加入待辦：手動輸入 1 句（到維護區請 AI 檢查）');
 }
 function exAddAI() {
   if (!DN.exDraft) return;
   const n = Math.max(1, Math.min(20, parseInt((document.getElementById('ex-n') || {}).value) || 1));
-  exPush({ mode: 'ai', n }); dnToast(`已加入待辦：請 AI 新增 ${n} 句`);
+  exPush({ mode: 'ai', n }); dnToast(`已加入待辦：請 AI 新增 ${n} ${DN.exDraft.block === 'newcol' ? '個搭配' : '句'}`);
 }
 function exDel(id) { EXL = exList().filter(r => r.id !== id); exSave(); render(); }
 function exClearDone() { const n = exList().filter(exDone).length; if (!n) return; EXL = exList().filter(r => !exDone(r)); exSave(); dnToast(`已移除 ${n} 筆已完成`); render(); }
@@ -1717,12 +1723,16 @@ function exPrompt(g, rng) {
     const e = it.e, head = [e.ipa, e.pos, e.zh].filter(Boolean).join(' ');
     return `${i + 1}. text="${it.text}"｜type=${e.type || (/\s/.test(it.text) ? 'phrase' : 'word')}${head ? `｜本字：${head}` : ''}\n` + it.us.map(u => {
       const cfg = EX_BLK[u.blk], kj = JSON.stringify(Object.assign({ block: u.blk }, u.key));
+      if (cfg.add) { // 新增搭配：AI 要補 phrase／zh／（單字才要）ipa／例句
+        const ml = u.recs.map(r => r.mode === 'manual' ? `      【手動輸入搭配】[id=${r.id}]："${r.en}"` : `      【請 AI 新增 ${r.n} 個搭配】[id=${r.id}]`), nA = u.recs.filter(r => r.mode === 'ai').reduce((s, r) => s + (r.n || 0), 0);
+        return `   ▸ 常用搭配（新增，block 固定為 "newcol"）\n      現有搭配（不要重複）：${u.ens.length ? u.ens.join(' ／ ') : '（無）'}\n${ml.join('\n')}${nA ? `\n      → AI 新增合計 ${nA} 個搭配` : ''}`;
+      }
       const lines = u.recs.map(r => r.mode === 'manual' ? `      【手動輸入】[id=${r.id}]："${r.en}"` : `      【請 AI 新增 ${r.n} 句】[id=${r.id}]`);
       const nAi = u.recs.filter(r => r.mode === 'ai').reduce((s, r) => s + (r.n || 0), 0);
       return `   ▸ ${cfg.name}${cfg.direct ? '區塊（新句子直接接在這個區塊最後面）' : '用法'}：${kj}\n      現有句子（不要重複）：${u.ens.length ? u.ens.join(' ／ ') : '（無）'}\n${lines.join('\n')}${nAi ? `\n      → AI 新增合計 ${nAi} 句` : ''}`;
     }).join('\n');
   }).join('\n');
-  const tmpl = `{ "week": ${x.week}, "day": ${x.day}, "extra_vocab": [ { "text": "（與項目完全相同）", "example_add": [ { "block": "pos_uses", "pos": "n.", "zh": "（照抄上面的用法）", "examples": [ { "en": "…", "zh": "…" } ] }, { "block": "collocations", "phrase": "（照抄）", "examples": [ { "en": "…", "zh": "…" } ] }, { "block": "examples", "examples": [ { "en": "…", "zh": "…" } ] } ], "ex_done": [ { "id": "（待辦的 id）", "result": "added" } ] } ] }`;
+  const tmpl = `{ "week": ${x.week}, "day": ${x.day}, "extra_vocab": [ { "text": "（與項目完全相同）", "example_add": [ { "block": "pos_uses", "pos": "n.", "zh": "（照抄上面的用法）", "examples": [ { "en": "…", "zh": "…" } ] }, { "block": "collocations", "phrase": "（照抄）", "examples": [ { "en": "…", "zh": "…" } ] }, { "block": "examples", "examples": [ { "en": "…", "zh": "…" } ] } ], "collocation_add": [ { "phrase": "…", "ipa": "（搭配只是單字才要）", "zh": "…", "example": { "en": "…", "zh": "…" } } ], "ex_done": [ { "id": "（待辦的 id）", "result": "added" } ] } ] }`;
   return [
     '你是 TOEIC 英語教材編輯。下面的單字／片語／句子「已經有詳解」，使用者想在某些用法底下「多加例句」。這次不要重寫詳解，只輸出要追加的例句；程式會把它們接在現有內容的最後面，不會改動既有句子。',
     '',
@@ -1735,12 +1745,14 @@ function exPrompt(g, rng) {
     '- 【請 AI 新增 N 句】：寫剛好 N 句新的例句，彼此情境不同（會議、郵件、出差、訂單…），不要和「現有句子」或這次其他句子重複。沒有數量上限，使用者要幾句就寫幾句。',
     '- 同一個用法同時有手動輸入與 AI 新增時，全部放進同一個 example_add 物件的 examples 陣列（手動輸入的在前）。',
     '- 英文句子重複的，程式合併時會自動略過；請盡量不要重複。',
+    '- 【手動輸入搭配】是使用者自己打的搭配（可能有錯字）：檢查拼字與是否是自然、多益常見的搭配；大致正確就保留原樣，有錯就改成正確的說法；完全不是搭配或不通，就不要放進 collocation_add，ex_done 填 unclear。【請 AI 新增 N 個搭配】：寫剛好 N 個多益常見、商務情境的新搭配，不要和「現有搭配」重複，也不要自己湊數（真的沒有合適的就少寫，ex_done 填 covered）。',
+    '- 每個新搭配都要有：phrase（英文）、zh（繁體中文意思）、example（en＋zh，8–15 字、商務情境，必須真的用到這個搭配，且不要和該字現有句子重複）；搭配本身若只是單字（沒有空格）要加美式 ipa，片語不用。新搭配放進 collocation_add（block 為 newcol 的項目不要放進 example_add）。',
     '',
     '【要處理的項目】（text 必須與下面完全相同；用法的 block、pos、zh、phrase、w、label 要「逐字照抄」下面標示的 JSON，程式靠它們找到要加在哪一筆）',
     items,
     '',
     '【輸出規則】',
-    '- 每個項目輸出一筆 { "text", "example_add", "ex_done" }；除了這三個欄位不要出現任何其他欄位（zh、ipa、examples、collocations… 出現了合併時會被擋下）。',
+    '- 每個項目輸出一筆 { "text", "example_add", "collocation_add", "ex_done" }；除了 text、example_add、collocation_add、ex_done 這四個欄位不要出現任何其他欄位（zh、ipa、examples、collocations… 出現了合併時會被擋下）；沒有新增搭配的項目不要輸出 collocation_add；沒有要追加例句的項目不要輸出 example_add（只新增搭配時，只要 text、collocation_add、ex_done）。',
     '- example_add 每個用法一筆：{ "block": "…", 照抄的 pos＋zh（或 phrase、或 w）, "examples": [ { "en": "…", "zh": "…" } ] }；block 是 examples 或 paraphrase 時只要 block 與 examples。',
     '- ex_done：每個待辦 id 各一筆 { "id": "（照抄）", "result": "added｜covered｜unclear" }。added＝已寫進 examples（手動句檢查後保留或改正，或 AI 已新增）；covered＝與現有句子重複或不需要新增，沒有放進 examples；unclear＝句子看不懂或與用法無關，沒有處理。',
     '',
@@ -1764,7 +1776,7 @@ function exDownload(qid) {
 function exSec() { // 掛在「入庫彙整」頁與「新單字」頁
   const gs = exGroups(), lost = exLost(), done = exList().filter(exDone), n = exList().length - done.length - lost.length;
   if (!gs.length && !lost.length && !done.length) return '';
-  const recHtml = r => `<div class="flex items-start gap-1.5 text-xs"><span class="shrink-0">${r.mode === 'manual' ? '✍' : '🤖'}</span><span class="break-words">${r.mode === 'manual' ? `手動輸入：${esc(r.en)}` : `請 AI 新增 ${r.n} 句`}</span><button onclick="exDel('${r.id}')" class="text-slate-400 hover:text-rose-600 shrink-0" title="取消這一筆">✕</button></div>`;
+  const recHtml = r => `<div class="flex items-start gap-1.5 text-xs"><span class="shrink-0">${r.mode === 'manual' ? '✍' : '🤖'}</span><span class="break-words">${r.mode === 'manual' ? `手動輸入：${esc(r.en)}` : `請 AI 新增 ${r.n} ${r.block === 'newcol' ? '個搭配' : '句'}`}</span><button onclick="exDel('${r.id}')" class="text-slate-400 hover:text-rose-600 shrink-0" title="取消這一筆">✕</button></div>`;
   let h = `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm">➕ 例句追加 <span class="text-xs font-normal text-slate-400">${n}</span></h3>
     <p class="text-xs text-slate-500 mt-1 leading-relaxed">在詳解頁各用法後面按「＋ 例句」加進來的待辦（手動輸入的句子與「請 AI 新增 N 句」）。複製或下載提示詞給 AI：手動輸入的句子由 AI 檢查並補中文翻譯，AI 回傳只追加的 JSON（存成 <code>w?d?_extra.json</code>），用 json_merge.py 合併後，句子就會顯示在該用法底下；英文重複的會自動略過。</p><div class="mt-2">${dnCapCtl()}</div>`;
   gs.forEach(g => {
