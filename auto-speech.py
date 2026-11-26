@@ -25,7 +25,9 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
          詳解項目的檔名（不含文章 id，詳解搬到別篇或文章被刪都不會變孤兒；舊的 {文章id}-… 檔名請先用 migrate_vocab_names.py 轉換）：
           ‧ 跟著單字：{單字slug}{後綴}.mp3；‧ 跟著句子內容：入庫的整句與「所在句」＝{句子slug}.mp3（無後綴，同一句只錄一次）
           詳解項目的檔名後綴：（無）整句或所在句、_e 例句、_cp／_c 搭配與其例句、_f 屈折變化的字、_fx 屈折變化的例句、_m／_mx 相關字與例句、_cf 易混淆例句（易混淆的字本身走共用庫 words/）、
-         _sm／_sx 近義片語與例句、_en／_en2 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句
+          _sm／_sx 近義片語與例句、_en／_en2 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句
+         網頁「＋」追加的例句：用法底下的 extra_examples 檔名是「原例句後綴＋x＋第幾句」，例如 surcharge_p1x2.mp3（多詞性第 1 筆的第 2 句追加句）、
+         _c{k}x{j} 搭配、_fx{k}x{j} 屈折變化、_mx{k}x{j} 相關字、_sx{k}x{j} 近義、_s{k}x{j} 多義；examples／paraphrase 直接接在陣列後面，沿用 _e{k}／_pr{k}
          ※ 單字類（單字本身、原形、屈折變化、同字族、相關字、搭配片語、多詞性／多義的單字）改放共用庫
            audio/daily/words/{單字}.mp3，同一個字只錄一次；例句與句子放 vocab/（檔名不含文章 id）
 
@@ -129,7 +131,7 @@ MAKE_EXAMPLES = True          # 詳解頁的例句
 MAKE_COLLOC = True            # 常用搭配的片語與例句（collocations[].phrase／example）
 MAKE_FORMS = True             # 屈折變化的字（forms[].w，共用庫）＋ 它的例句（forms[].example.en）_fx{k}.mp3（逐篇存放）
 MAKE_FAMILY = True            # 相關字（family[].w）與它的例句
-MAKE_DERIVED = True           # 衍生字（derived[].w）
+MAKE_DERIVED = True           # 衍生字（derived[].w）＋ 它的例句（derived[].example.en）_dx{k}.mp3
 MAKE_CONFUSABLE = True        # 易混淆的例句（confusable[].example.en）_cf{k}.mp3
 MAKE_SIMILAR = True           # 近義片語（similar）：片語／單字本身發音（共用庫）＋ 例句 _sx{k}.mp3
 MAKE_EN = True                # 英文解說（en）整句 _en.mp3（逐篇存放）
@@ -138,6 +140,7 @@ MAKE_KEYWORDS = True          # 句子詳解的「句中值得注意的字」（
 MAKE_POS = True               # 多詞性（pos_uses）：每個詞性的單字發音 _pw{k}.mp3 ＋ 例句 _p{k}.mp3
 MAKE_PHRASES = True           # 簡報常用句型（presentation_phrases[].phrase）整句 {句型slug}.mp3（放 vocab/，與網頁 speakPhrase 一致；省略號不念）
 MAKE_SENSE = True             # 多義（senses）：每個意思的單字發音 _sw{k}.mp3 ＋ 例句 _s{k}.mp3
+MAKE_EXTRA_EX = True          # 網頁「＋」追加的例句（各用法底下的 extra_examples）：_p{k}x{j}／_s{k}x{j}／_c{k}x{j}／_fx{k}x{j}／_mx{k}x{j}／_sx{k}x{j}.mp3
 PASSAGE_RATE = "-5%"          # 文章語速
 VOCAB_RATE = "-10%"           # 單字／句子語速（單字慢一點比較聽得清楚）
 PASSAGE_VOICES = VOICES       # 文章：依 id 固定挑一個聲音
@@ -733,7 +736,7 @@ def plan_daily(root: Path):
             if r:
                 groups.append(dict(key=qid, kind="文章", total=1, voice=voice, jobs=[
                     dict(name=path.name, text=p, voice=voice, rate=PASSAGE_RATE, path=path, redo=(r == "redo"))]))
-    if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED or MAKE_CONFUSABLE or MAKE_SIMILAR or MAKE_EN or MAKE_PARA or MAKE_KEYWORDS or MAKE_POS or MAKE_SENSE or MAKE_PHRASES:
+    if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED or MAKE_CONFUSABLE or MAKE_SIMILAR or MAKE_EN or MAKE_PARA or MAKE_KEYWORDS or MAKE_POS or MAKE_SENSE or MAKE_PHRASES or MAKE_EXTRA_EX:
         vdir = root / VOCAB_SUB
         wdir = root / WORDS_SUB
         seen = set()   # 這次已排進清單的檔（共用單字檔、vocab/ 檔），同一個檔不重複排
@@ -785,6 +788,11 @@ def plan_daily(root: Path):
                     w = d.get("w") if isinstance(d, dict) else None
                     if isinstance(w, str) and w.strip():
                         want.append((shared(w), speak_text(w)))
+            if MAKE_DERIVED:   # 同字族（derived）每個字的例句：檔名 _dx{k}，與 notes.js 詳解頁的 🔊 一致
+                for k, d in enumerate(e["derived"], 1):
+                    en = (d.get("example") or {}).get("en") if isinstance(d, dict) and isinstance(d.get("example"), dict) else None
+                    if isinstance(en, str) and en.strip():
+                        want.append((f"{base}_dx{k}.mp3", en.strip()))
             if MAKE_CONFUSABLE:
                 for k, c in enumerate(e.get("confusable") or [], 1):  # 易混淆：該字／片語本身發音（共用庫）＋ 例句 _cf{k}，與 notes.js 的 🔊 一致
                     cw = (c.get("word") or c.get("phrase")) if isinstance(c, dict) else None
@@ -828,6 +836,15 @@ def plan_daily(root: Path):
                     en = (o.get("example") or {}).get("en") if isinstance(o.get("example"), dict) else None
                     if isinstance(en, str) and en.strip():
                         want.append((f"{base}_{esuf}{k}.mp3", en.strip()))
+            if MAKE_EXTRA_EX:   # 網頁「＋」追加的例句：每個用法底下的 extra_examples，檔名 {字}_{原例句後綴}{第幾筆}x{第幾句}.mp3（只會接在最後面，既有編號不位移）
+                for fld, esuf in (("collocations", "c"), ("forms", "fx"), ("family", "mx"), ("similar", "sx"), ("derived", "dx"), ("pos_uses", "p"), ("senses", "s")):
+                    for k, o in enumerate(e.get(fld) or [], 1):
+                        if not isinstance(o, dict):
+                            continue
+                        for j, x in enumerate(o.get("extra_examples") or [], 1):
+                            en = x.get("en") if isinstance(x, dict) else (x if isinstance(x, str) else None)
+                            if isinstance(en, str) and en.strip():
+                                want.append((f"{base}_{esuf}{k}x{j}.mp3", en.strip()))
             jobs = []
             for n, t in want:
                 if n.startswith("@"):   # 單字類：共用庫；已存在、或這次已排進別的項目就不重複

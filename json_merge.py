@@ -39,6 +39,12 @@ TOEIC Coach ─ 題庫合併工具（daily / photo / part2 / part3 / part4 / par
      {"text":"overlook","confusable_add":[{word,ipa,diff,kind,example}],"similar_add":[…],"nw_done":[{id,result}]}
      不是完整詳解：程式把新項目接到該字既有 confusable／similar 陣列的最後面（重複的略過），其他欄位原樣不動；
      既有項目順序不變，所以 mp3 位置編號（_cf1、_cf2…）不會位移。week／day 必須是那個字現有詳解所在的那一篇。
+  3e. 例句追加補丁（網頁詳解頁每個用法後面的「＋」專用，放在 w1d3_extra.json 的 extra_vocab 裡）：
+     {"text":"surcharge","example_add":[{"block":"pos_uses","pos":"n.","zh":"額外費用、附加費","examples":[{"en":"…","zh":"…"}]}],"ex_done":[{"id":"x…","result":"added"}]}
+     block：pos_uses／senses／collocations／forms／family／similar／derived／examples／paraphrase（省略時只在 pos_uses、senses 裡找 pos＋zh，兩邊都有就要寫 block）。
+     只追加、不改動既有內容：用法底下的句子接在該筆的 extra_examples 最後面（原本的 example 不動）；examples／paraphrase 直接接在陣列最後面（新項目帶 added:1）。
+     英文句子重複（含與原本那句重複）會自動略過，沒有數量上限；每句都要有 en 與 zh。mp3 檔名 {字}_{後綴}{第幾筆}x{第幾句}.mp3（例如 surcharge_p1x2.mp3），既有編號不會位移。
+     整筆取代詳解時，extra_examples、added 句子與 ex_done 會自動帶過去（對不上的會在確認視窗與完成訊息警告）。
   5. 文稿比對（每日文章）：錄完音後又改了文稿（例如刪掉 "The man :" 才錄），按底部「文稿比對修改…」（或錄音視窗的「文稿比對（依音檔）」）：
      用 whisper 聽 mp3，把「音檔真的有唸的字」當標準，與 daily.json 的 passage 逐字比對；每一處差異預設都不勾，
      人工勾選要採用的 →「套用並重新對時」（自動備份；只改該篇的 passage 與 timing）→ 可接著執行 Scan總表與音檔.py。辨識結果會快取在 backup/asr_cache/。
@@ -102,11 +108,15 @@ def audio_slots(v):
         if isinstance(t, str) and t.strip():
             out['_e%d' % k] = t.strip()
     for key, suf in (('collocations', '_c'), ('forms', '_fx'), ('family', '_mx'), ('confusable', '_cf'),
-                     ('similar', '_sx'), ('pos_uses', '_p'), ('senses', '_s')):
+                     ('similar', '_sx'), ('pos_uses', '_p'), ('senses', '_s'), ('derived', '_dx')):
         for k, o in enumerate(v.get(key) or [], 1):
             t = en_of(o)
             if t:
                 out['%s%d' % (suf, k)] = t
+            for j, x in enumerate((o.get('extra_examples') if isinstance(o, dict) else None) or [], 1):   # 使用者追加的例句：{後綴}{第幾筆}x{第幾句}
+                tx = x.get('en') if isinstance(x, dict) else (x if isinstance(x, str) else None)
+                if isinstance(tx, str) and tx.strip():
+                    out['%s%dx%d' % (suf, k, j)] = tx.strip()
     for k, o in enumerate(v.get('paraphrase') or [], 1):
         t = o.get('en') if isinstance(o, dict) else (o if isinstance(o, str) else None)
         if isinstance(t, str) and t.strip():
@@ -142,15 +152,16 @@ def audio_slot_report(old_v, new_v):
 # 合併時由程式接到既有 confusable／similar 陣列「最後面」：既有項目的順序與內容完全不動，
 # 所以 mp3 的位置編號（_cf1、_cf2…）不會位移；AI 根本碰不到既有項目。
 ADD_FIELDS = (('confusable_add', 'confusable'), ('similar_add', 'similar'))
-ADD_ALLOWED = {'text', 'type', 'confusable_add', 'similar_add', 'nw_done'}
-CF_KINDS = ('spell', 'sound', 'meaning', 'root', 'zhsame')
+ADD_ALLOWED = {'text', 'type', 'confusable_add', 'similar_add', 'nw_done', 'example_add', 'ex_done'}
+CF_KINDS = ('spell', 'sound', 'meaning', 'root', 'zhsame', 'antonym')
 
 
 def is_add_entry(v):
     """只追加格式：有 confusable_add／similar_add；或只有 text（＋type）＋nw_done（AI 找不到合適的字，只回報處理結果）。"""
     if not isinstance(v, dict):
         return False
-    return any(k in v for k, _ in ADD_FIELDS) or ('nw_done' in v and set(v) <= {'text', 'type', 'nw_done'})
+    return any(k in v for k, _ in ADD_FIELDS) or 'example_add' in v \
+        or (('nw_done' in v or 'ex_done' in v) and set(v) <= {'text', 'type', 'nw_done', 'ex_done'})
 
 
 def _add_key(o):
@@ -180,11 +191,15 @@ def apply_add_entry(old_v, nv):
             cur.append(copy.deepcopy(o))
             have.add(k)
         m[fld] = cur
-    nd = nv.get('nw_done')
-    if isinstance(nd, list) and nd:
-        old_nd = [o for o in (m.get('nw_done') or []) if isinstance(o, dict)]
-        new_ids = {o.get('id') for o in nd if isinstance(o, dict)}
-        m['nw_done'] = [o for o in old_nd if o.get('id') not in new_ids] + copy.deepcopy([o for o in nd if isinstance(o, dict)])
+    ea = nv.get('example_add')
+    if isinstance(ea, list) and ea:
+        apply_example_add(m, ea)
+    for dk in ('nw_done', 'ex_done'):
+        nd = nv.get(dk)
+        if isinstance(nd, list) and nd:
+            old_nd = [o for o in (m.get(dk) or []) if isinstance(o, dict)]
+            new_ids = {o.get('id') for o in nd if isinstance(o, dict)}
+            m[dk] = [o for o in old_nd if o.get('id') not in new_ids] + copy.deepcopy([o for o in nd if isinstance(o, dict)])
     return m
 
 
@@ -194,8 +209,228 @@ def add_applied(old_v, nv):
         have = {_add_key(o) for o in (old_v.get(fld) or [])}
         if any(_add_key(o) not in have for o in (nv.get(ak) or []) if _add_key(o) and _add_key(o) != Daily.xkey(old_v)):
             return False
-    ids = {o.get('id') for o in (old_v.get('nw_done') or []) if isinstance(o, dict)}
-    return all(isinstance(o, dict) and o.get('id') in ids for o in (nv.get('nw_done') or []))
+    for a in nv.get('example_add') or []:
+        if not example_add_applied(old_v, a):
+            return False
+    for dk in ('nw_done', 'ex_done'):
+        ids = {o.get('id') for o in (old_v.get(dk) or []) if isinstance(o, dict)}
+        if not all(isinstance(o, dict) and o.get('id') in ids for o in (nv.get(dk) or [])):
+            return False
+    return True
+
+
+# ---------- 例句追加補丁（example_add）----------
+# 網頁詳解頁每個用法（詞性、多義、搭配、屈折變化、相關字、近義、例句、同義改寫）後面的「＋」：
+# 使用者手打一句，或請 AI 再多寫 N 句；手打的句子一定要經過 AI 檢查並補中文翻譯，才會合併進 daily.json。
+#   {"text":"surcharge","example_add":[{"block":"pos_uses","pos":"n.","zh":"額外費用、附加費","examples":[{"en":"…","zh":"…"}]}],
+#    "ex_done":[{"id":"x…","result":"added"}]}
+# 存放位置（都是「只追加」，既有內容與 mp3 編號不會位移）：
+#   pos_uses／senses／collocations／forms／family／similar 的每一筆 → 該筆底下 extra_examples:[{en,zh}]，接在最後面，原本的 example 不動
+#   examples／paraphrase（整個區塊就是一串句子）→ 直接接在該陣列最後面，新項目多一個 added:1 當記號
+# extra_examples 的 mp3 檔名：{字slug}_{後綴}{第幾筆}x{第幾句}.mp3，例如 surcharge_p1x2.mp3（網頁 notes.js、auto-speech.py 用同一套）。
+EX_BLOCKS = {   # block → (清單欄位, 用什麼比對是哪一筆, mp3 後綴)
+    'pos_uses': ('pos_uses', 'pos_zh', 'p'),
+    'senses': ('senses', 'pos_zh', 's'),
+    'collocations': ('collocations', 'phrase', 'c'),
+    'forms': ('forms', 'w', 'fx'),
+    'family': ('family', 'w', 'mx'),
+    'similar': ('similar', 'phrase', 'sx'),
+    'derived': ('derived', 'w', 'dx'),   # 同字族（Word Family）每個字的例句
+}
+EX_DIRECT = {'examples': ('examples', 'e'), 'paraphrase': ('paraphrase', 'pr')}   # block → (陣列欄位, mp3 後綴)
+EX_ADD_KEYS = {'block', 'pos', 'zh', 'phrase', 'p', 'word', 'w', 'label', 'examples'}
+
+
+def _nz(s):
+    return re.sub(r'\s+', ' ', str(s or '').strip().lower())
+
+
+def _en_key(s):
+    """英文句子的比對鍵：忽略大小寫、多餘空白、句尾標點與彎引號（用來判斷「重複的英文句子」）。"""
+    s = str(s or '').replace('\u2019', "'").replace('\u2018', "'").replace('\u201c', '"').replace('\u201d', '"')
+    s = re.sub(r'\s+', ' ', s.strip().lower())
+    return re.sub(r'[\s.!?"\']+$', '', s)
+
+
+def _ex_en(o):
+    if isinstance(o, str):
+        return o
+    return o.get('en') if isinstance(o, dict) else None
+
+
+def _ex_usage_key(blk, o):
+    kind = EX_BLOCKS[blk][1]
+    if kind == 'pos_zh':
+        return (_nz(o.get('pos')), _nz(o.get('zh')))
+    if kind == 'phrase':
+        return _nz(o.get('phrase') or o.get('p') or o.get('word'))
+    return _nz(o.get('w') or o.get('word'))
+
+
+def _ex_usage_label(blk, o):
+    kind = EX_BLOCKS[blk][1]
+    if kind == 'pos_zh':
+        return '%s %s' % (o.get('pos') or '', o.get('zh') or '')
+    return str(o.get('phrase') or o.get('p') or o.get('w') or o.get('word') or '')
+
+
+def resolve_ex_target(v, a):
+    """example_add 的一筆要加到詳解 v 的哪裡。回傳 (block, 第幾筆（0 起算；examples／paraphrase 是 None）, 錯誤訊息或 None)。"""
+    if not isinstance(a, dict):
+        return None, None, '不是物件'
+    blk = a.get('block')
+    if blk is not None and blk not in EX_BLOCKS and blk not in EX_DIRECT:
+        return None, None, 'block「%s」不認得（可用：%s）' % (blk, '／'.join(list(EX_BLOCKS) + list(EX_DIRECT)))
+    if blk in EX_DIRECT:
+        return blk, None, None
+    cand = [blk] if blk else ['pos_uses', 'senses']
+    hits = []
+    for b in cand:
+        key = _ex_usage_key(b, a)
+        if (not key) if isinstance(key, str) else not any(key):
+            continue
+        for i, o in enumerate(v.get(EX_BLOCKS[b][0]) or []):
+            if isinstance(o, dict) and _ex_usage_key(b, o) == key:
+                hits.append((b, i))
+    if blk == 'forms' and len(hits) > 1 and a.get('label'):
+        hits = [h for h in hits if _nz(v['forms'][h[1]].get('label')) == _nz(a['label'])]
+    if len(hits) == 1:
+        return hits[0][0], hits[0][1], None
+    if hits:
+        return None, None, '有 %d 筆一樣的用法（%s），無法判斷是哪一筆；請加上 block%s' % (
+            len(hits), '、'.join(sorted({h[0] for h in hits})), '（forms 同一個字有兩種 label 時再加 label）' if blk == 'forms' else '')
+    names = []
+    for b in cand:
+        names += ['%s：%s' % (b, _ex_usage_label(b, o).strip()) for o in (v.get(EX_BLOCKS[b][0]) or []) if isinstance(o, dict)]
+    return None, None, '找不到對應的用法（%s）；現有：%s' % (
+        '、'.join(str(a.get(k)) for k in ('pos', 'zh', 'phrase', 'w') if a.get(k)) or '沒有寫 pos／zh／phrase／w',
+        '、'.join(names[:8]) or '（這個詳解沒有這個區塊）')
+
+
+def _ex_have(v, blk, idx):
+    """這個位置目前已有的英文句子鍵集合，以及目前的筆數（用來算新檔名）。"""
+    if blk in EX_DIRECT:
+        arr = v.get(EX_DIRECT[blk][0]) or []
+        return {_en_key(_ex_en(o)) for o in arr if _ex_en(o)}, len(arr)
+    item = v[EX_BLOCKS[blk][0]][idx]
+    ex = item.get('extra_examples') if isinstance(item.get('extra_examples'), list) else []
+    have = {_en_key(_ex_en(item.get('example'))), *[_en_key(_ex_en(x)) for x in ex]}
+    have.discard('')
+    return have, len(ex)
+
+
+def _ex_clean(x):
+    return {'en': str(x.get('en')).strip(), 'zh': str(x.get('zh') or '').strip()}
+
+
+def apply_example_add(m, adds):
+    """把 example_add 就地併進詳解 m（呼叫端已 deepcopy）：只追加，重複的英文句子略過。回傳 (新增句數, 略過句數)。"""
+    n_new = n_skip = 0
+    for a in adds:
+        blk, idx, err = resolve_ex_target(m, a)
+        if err:
+            continue   # 驗證已擋下，這裡只是保險
+        have, _ = _ex_have(m, blk, idx)
+        for x in a.get('examples') or []:
+            if not isinstance(x, dict) or not str(x.get('en') or '').strip():
+                continue
+            k = _en_key(x['en'])
+            if k in have:
+                n_skip += 1
+                continue
+            have.add(k)
+            n_new += 1
+            if blk in EX_DIRECT:
+                fld = EX_DIRECT[blk][0]
+                if not isinstance(m.get(fld), list):
+                    m[fld] = []
+                o = _ex_clean(x)
+                o['added'] = 1
+                m[fld].append(o)
+            else:
+                item = m[EX_BLOCKS[blk][0]][idx]
+                if not isinstance(item.get('extra_examples'), list):
+                    item['extra_examples'] = []
+                item['extra_examples'].append(_ex_clean(x))
+    return n_new, n_skip
+
+
+def example_add_applied(v, a):
+    """這一筆 example_add 的句子是不是都已經在詳解裡了（重複合併同一個檔案時視為相同）。"""
+    blk, idx, err = resolve_ex_target(v, a)
+    if err:
+        return False
+    have, _ = _ex_have(v, blk, idx)
+    return all(_en_key(x.get('en')) in have for x in a.get('examples') or [] if isinstance(x, dict) and str(x.get('en') or '').strip())
+
+
+def example_add_lines(ov, nv):
+    """合併確認視窗：這個 example_add 會新增哪些句子、要錄哪些 mp3。"""
+    out = []
+    base = _slot_slug(ov.get('text') or nv.get('text'))
+    for a in nv.get('example_add') or []:
+        blk, idx, err = resolve_ex_target(ov, a)
+        if err:
+            continue
+        have, n0 = _ex_have(ov, blk, idx)
+        seen, new = set(have), []
+        for x in a.get('examples') or []:
+            if isinstance(x, dict) and str(x.get('en') or '').strip() and _en_key(x['en']) not in seen:
+                seen.add(_en_key(x['en']))
+                new.append(x)
+        skip = len([x for x in a.get('examples') or [] if isinstance(x, dict)]) - len(new)
+        if blk in EX_DIRECT:
+            where, names = blk, ['%s_%s%d.mp3' % (base, EX_DIRECT[blk][1], n0 + j) for j in range(1, len(new) + 1)]
+        else:
+            where = '%s「%s」' % (blk, _ex_usage_label(blk, ov[EX_BLOCKS[blk][0]][idx]).strip())
+            names = ['%s_%s%dx%d.mp3' % (base, EX_BLOCKS[blk][2], idx + 1, n0 + j) for j in range(1, len(new) + 1)]
+        if new or skip:
+            out.append('   「%s」：%s 追加 %d 句%s' % (ov.get('text'), where, len(new), '（另有 %d 句重複，略過）' % skip if skip else ''))
+        if names:
+            out.append('     ＋ 新增例句音檔要錄音：%s；既有的 mp3 編號不變' % '、'.join(names[:6]) + ('…' if len(names) > 6 else ''))
+    return out
+
+
+def carry_extras(old_v, new_v):
+    """整筆取代詳解時，把舊詳解裡「使用者追加的」東西帶到新的那一筆：extra_examples（依用法比對）、
+    examples／paraphrase 裡 added:1 的句子、ex_done。回傳 (帶過去之後的新詳解, 對不上而會丟掉的說明 list)。"""
+    new_v = copy.deepcopy(new_v)
+    lost = []
+    if not isinstance(old_v, dict) or not isinstance(new_v, dict):
+        return new_v, lost
+    for blk, (fld, _kind, _suf) in EX_BLOCKS.items():
+        for o in old_v.get(fld) or []:
+            ex = o.get('extra_examples') if isinstance(o, dict) else None
+            if not ex:
+                continue
+            key = _ex_usage_key(blk, o)
+            tgt = next((n for n in (new_v.get(fld) or []) if isinstance(n, dict) and _ex_usage_key(blk, n) == key), None)
+            if tgt is None:
+                lost.append('%s「%s」底下的 %d 句追加例句（新版已沒有這個用法）' % (blk, _ex_usage_label(blk, o).strip(), len(ex)))
+                continue
+            cur = tgt.get('extra_examples') if isinstance(tgt.get('extra_examples'), list) else []
+            have = {_en_key(_ex_en(tgt.get('example'))), *[_en_key(_ex_en(x)) for x in cur]}
+            for x in ex:
+                if _en_key(_ex_en(x)) not in have:
+                    cur.append(copy.deepcopy(x))
+                    have.add(_en_key(_ex_en(x)))
+            tgt['extra_examples'] = cur
+    for blk, (fld, _suf) in EX_DIRECT.items():
+        added = [o for o in (old_v.get(fld) or []) if isinstance(o, dict) and o.get('added')]
+        if not added:
+            continue
+        cur = new_v.get(fld) if isinstance(new_v.get(fld), list) else []
+        have = {_en_key(_ex_en(o)) for o in cur}
+        for o in added:
+            if _en_key(o.get('en')) not in have:
+                cur.append(copy.deepcopy(o))
+                have.add(_en_key(o.get('en')))
+        new_v[fld] = cur
+    old_ed = [o for o in (old_v.get('ex_done') or []) if isinstance(o, dict)]
+    if old_ed:
+        new_ids = {o.get('id') for o in (new_v.get('ex_done') or []) if isinstance(o, dict)}
+        new_v['ex_done'] = [o for o in old_ed if o.get('id') not in new_ids] + [o for o in (new_v.get('ex_done') or []) if isinstance(o, dict)]
+    return new_v, lost
 
 
 def did(week, day):
@@ -595,6 +830,8 @@ class Daily(Profile):
                 i = next((j for j, o in enumerate(cur) if kf(o) == kf(nv)), None)
                 if i is None:
                     cur.append(copy.deepcopy(nv))
+                elif fld == 'extra_vocab':
+                    cur[i] = carry_extras(cur[i], nv)[0]   # 使用者追加的例句一併帶過去
                 else:
                     cur[i] = copy.deepcopy(nv)
             if cur:
@@ -689,6 +926,9 @@ class Daily(Profile):
                     if ou:   # 整筆取代時，舊的 usages（別篇的用法）一定保留，只追加／更新新的
                         nv = dict(nv)
                         nv['usages'] = merge_usages(ou, nv.get('usages'))
+                    nv, lost = carry_extras(cur[i], nv)   # 使用者追加的例句（extra_examples／added／ex_done）一併帶過去
+                    for lx in lost:
+                        LAST_MERGE_INFO.append('⚠ 「%s」整筆取代後，%s對不上新版用法，已丟掉；請重新按「＋」補回。' % (nv.get('text'), lx))
                     cur[i] = nv
             merged['extra_vocab'] = cur
             e.clear()
@@ -872,8 +1112,12 @@ class Daily(Profile):
                                 n0 = len(ov.get(fld) or [])
                                 blk += ['   「%s」：只追加 %s %d 筆，接在第 %d 筆之後：%s' % (nv.get('text'), fld, len(ws), n0, '、'.join(str(w) for w in ws)),
                                         '     ＋ 新增的例句音檔（第 %s 筆）要錄音；既有的 %d 筆 mp3 編號不變' % (('%d' % (n0 + 1)) if len(ws) == 1 else ('%d–%d' % (n0 + 1, n0 + len(ws))), n0)]
+                        blk += example_add_lines(ov, nv)
                         continue
-                    ls, stale = audio_slot_report(ov, nv)
+                    nv2, lost = carry_extras(ov, nv)   # 整筆取代：使用者追加的例句會自動帶過去，只有對不上的才會丟
+                    if lost:
+                        blk += ['   「%s」：⚠ 整筆取代後，下面這些追加的例句對不上新版用法、會被丟掉（合併後要重新按「＋」）：' % nv.get('text')] + ['     ✖ ' + x for x in lost]
+                    ls, stale = audio_slot_report(ov, nv2)
                     if ls:
                         blk += ['   「%s」：' % nv.get('text')] + ls
                         stale_all += stale
@@ -957,7 +1201,7 @@ class Daily(Profile):
         """只追加格式（confusable_add／similar_add）：不是完整詳解，只檢查要追加的項目，以及它要接的那筆現有詳解在不在。"""
         extra = [k for k in v if k not in ADD_ALLOWED]
         if extra:
-            er.append('「%s」是「只追加」格式，只能有 text、confusable_add、similar_add、nw_done（type 可省略），多了：%s。要改其他欄位請用整筆詳解的格式，不要混用' % (t, '、'.join(extra)))
+            er.append('「%s」是「只追加」格式，只能有 text、confusable_add、similar_add、example_add、nw_done、ex_done（type 可省略），多了：%s。要改其他欄位請用整筆詳解的格式，不要混用' % (t, '、'.join(extra)))
         k = self.xkey(v)
         owner = (ctx.get('extras') or {}).get(k)
         ov = None
@@ -1011,11 +1255,75 @@ class Daily(Profile):
                         wa.append(p + '（%s）kind 缺少或不合法（值：%s）' % (w, '／'.join(CF_KINDS)))
                 if ' ' not in w and not str(o.get('ipa') or '').strip():
                     wa.append(p + '（%s）是單字但缺 ipa' % w)
+        if 'example_add' in v:
+            n_add += self.validate_example_add(v, t, ov, er, wa)
+        done_ok = lambda d: isinstance(d, list) and d and all(isinstance(o, dict) and str(o.get('id') or '').strip() and o.get('result') in ('added', 'covered', 'unclear') for o in d)
         nd = v.get('nw_done')
-        if nd is not None and not (isinstance(nd, list) and nd and all(isinstance(o, dict) and str(o.get('id') or '').strip() and o.get('result') in ('added', 'covered', 'unclear') for o in nd)):
+        if nd is not None and not done_ok(nd):
             er.append('「%s」nw_done 必須是非空陣列，每一項需含 id 與 result（added／covered／unclear）' % t)
-        if not n_add and nd is None and not extra:
-            er.append('「%s」沒有任何可追加的新項目，也沒有 nw_done；這個檔案合併了也不會有任何變化' % t)
+        xd = v.get('ex_done')
+        if xd is not None and not done_ok(xd):
+            er.append('「%s」ex_done 必須是非空陣列，每一項需含 id 與 result（added／covered／unclear）' % t)
+        if not n_add and nd is None and xd is None and not extra:
+            er.append('「%s」沒有任何可追加的新項目，也沒有 nw_done／ex_done；這個檔案合併了也不會有任何變化' % t)
+
+    def validate_example_add(self, v, t, ov, er, wa):
+        """example_add：每一筆指到現有詳解的某個用法，examples 每句都要有 en 與 zh。回傳會新增的句數。"""
+        ea = v.get('example_add')
+        if not isinstance(ea, list) or not ea:
+            er.append('「%s」example_add 必須是非空陣列' % t)
+            return 0
+        if not ov:
+            return 0   # 現有詳解不存在：validate_add 已報錯
+        n_new = 0
+        stem_of = lambda w: (w if re.search(r'\s', w) else re.sub(r'e$', '', w, flags=re.I))
+        for j, a in enumerate(ea, 1):
+            p = '「%s」example_add 第 %d 筆' % (t, j)
+            if not isinstance(a, dict):
+                er.append(p + '不是物件')
+                continue
+            bad = [k for k in a if k not in EX_ADD_KEYS]
+            if bad:
+                er.append(p + '有不認得的欄位：%s（可用：%s）' % ('、'.join(bad), '、'.join(sorted(EX_ADD_KEYS))))
+            blk, idx, err = resolve_ex_target(ov, a)
+            if err:
+                er.append(p + err)
+                continue
+            exs = a.get('examples')
+            if not isinstance(exs, list) or not exs:
+                er.append(p + ' examples 必須是非空陣列（每項 { en, zh }）')
+                continue
+            have, _ = _ex_have(ov, blk, idx)
+            item = ov[EX_BLOCKS[blk][0]][idx] if blk in EX_BLOCKS else None
+            target = ''
+            if blk in ('collocations', 'similar'):
+                target = str(item.get('phrase') or item.get('p') or item.get('word') or '').strip()
+            elif blk in ('forms', 'family', 'derived'):
+                target = str(item.get('w') or '').strip()
+            else:
+                target = str(ov.get('lemma') or ov.get('text') or '').strip()
+            for k, x in enumerate(exs, 1):
+                q = p + ' 第 %d 句' % k
+                en = x.get('en') if isinstance(x, dict) else None
+                if not isinstance(en, str) or not en.strip():
+                    er.append(q + '缺少 en')
+                    continue
+                if not str(x.get('zh') or '').strip():
+                    er.append(q + '缺少 zh（手動輸入的句子要由 AI 補中文翻譯）')
+                key = _en_key(en)
+                if key in have:
+                    wa.append(q + '與現有的句子重複，合併時會略過：%s' % en.strip()[:40])
+                    continue
+                have.add(key)
+                n_new += 1
+                nw = n_words(en)
+                if not 3 <= nw <= 30:
+                    wa.append(q + '有 %d 個字（建議 8–15 字）' % nw)
+                if not re.search(r'[.?!][\"”\')]?\s*$', en.strip()):
+                    wa.append(q + '句尾沒有標點')
+                if target and not re.search(r'\s', target) and not re.search(r'\b' + re.escape(stem_of(target)), en, re.I):
+                    wa.append(q + '沒有出現「%s」（變化形可忽略）' % target)
+        return n_new
 
     def validate_patch(self, e, ctx):
         er, wa = [], []
@@ -1108,6 +1416,8 @@ class Daily(Profile):
                     wa.append('「%s」沒有 derived（同字族；真的沒有請寫 []）' % t)
                 elif any(not (isinstance(f, dict) and f.get('w') and f.get('zh') and f.get('link')) for f in ds):
                     wa.append('「%s」derived 有項目缺 w／zh／link（記憶連結）' % t)
+                elif any(not (isinstance(f, dict) and isinstance(f.get('example'), dict) and str(f['example'].get('en') or '').strip()) for f in ds):
+                    wa.append('「%s」derived（同字族）有項目缺例句（derived[].example.en；舊資料可忽略，新詳解每個字都要有例句）' % t)
                 for fk, lab in (('pos_uses', '多詞性'), ('senses', '多義')):
                     pv = v.get(fk)
                     if not isinstance(pv, list):
@@ -2792,6 +3102,15 @@ def _union_record(base, other, other_label):
                 if _xid(k, o) not in seen:
                     cur.append(copy.deepcopy(o))
                     seen.add(_xid(k, o))
+                elif isinstance(o, dict) and o.get('extra_examples'):   # 同一筆用法：把追加的例句也併過來（英文重複的略過）
+                    b = next((c for c in cur if isinstance(c, dict) and _xid(k, c) == _xid(k, o)), None)
+                    if b is not None:
+                        bx = b.setdefault('extra_examples', [])
+                        have = {_en_key(_ex_en(c)) for c in bx} | {_en_key(_ex_en(b.get('example')))}
+                        for x in o['extra_examples']:
+                            if _en_key(_ex_en(x)) not in have:
+                                bx.append(copy.deepcopy(x))
+                                have.add(_en_key(_ex_en(x)))
         elif k not in out or out[k] in ('', None):
             out[k] = copy.deepcopy(v)
         elif k == 'note' and str(v).strip() and str(v).strip() != str(out[k]).strip():

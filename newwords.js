@@ -436,7 +436,7 @@ function nwListHtml() {
   const rows = nwList().slice().sort((a, b) => (b.created || 0) - (a.created || 0)).filter(n => { const o = nwStatus(n), s = o.st; return tab === 'all' || (tab === 'pending' ? s === 'pending' : tab === 'todo' ? nwNeedDetail(o) : s === 'removable' || s === 'updated'); });
   return `<div class="flex flex-wrap items-center gap-2 mb-3">${T.map(tb).join('')}${c.rem ? `<button onclick="nwRemoveDone()" class="${btn} !py-1.5 !px-3 text-xs ml-auto bg-emerald-600 text-white hover:bg-emerald-700">移除全部可移除（${c.rem}）</button>` : ''}</div>`
     + (nwLibEligible().length ? `<div class="${card} p-3 mb-3 flex flex-wrap items-center justify-between gap-2"><p class="text-xs text-slate-500 leading-relaxed flex-1 min-w-[12rem]"><b>通用詳解（不掛文章）</b>：和 TSL 單字一樣，不用等文章採用，直接請 AI 寫詳解（存成 w0d1_extra.json）。寫完這個字仍留在待採用，之後文章用到時會補「本篇用法」。</p><button onclick="nwLibCopy()" class="${btn} ${dnPri} !py-1 !px-2.5 text-xs">複製 AI 提示詞（${Math.min(nwLibEligible().length, NW_LIBCAP)}${nwLibEligible().length > NW_LIBCAP ? '／' + nwLibEligible().length : ''}）</button></div>` : '')
-    + (tab === 'todo' ? nwSupSec() : '')
+    + (tab === 'todo' ? nwSupSec() + (typeof exSec === 'function' ? exSec() : '') : '')
     + (rows.length ? `<div class="${card} px-4 divide-y divide-slate-100 dark:divide-slate-800">${rows.map(nwRow).join('')}</div>` : `<p class="text-sm text-slate-400 text-center py-8">${c.all ? '這個分類沒有項目。' : '還沒有新單字。在上面輸入或按 🎤 說出一個單字。'}</p>`);
 }
 function nwRefresh() { const el = document.getElementById('nw-list'); if (el) el.innerHTML = nwListHtml(); }

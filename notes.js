@@ -13,7 +13,7 @@ const dnPri = 'bg-indigo-600 text-white hover:bg-indigo-700';
 const dnInp = 'w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm';
 const dnChip = 'text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300';
 const dnSm = 'text-xs rounded-lg px-2.5 py-1 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer';
-const DN = { mgOpen: {}, sel: null, rp: null, mk: null, rf: null, rkf: null, mf: 'todo', chk: {}, fill: { en: true, col: true, forms: true, fam: true, deriv: true, pos: true, sense: true, conf: true, sim: true, schunk: true, spara: true, spat: true, skw: true, ckind: false, ipa: true } };
+const DN = { mgOpen: {}, sel: null, rp: null, mk: null, rf: null, rkf: null, mf: 'todo', chk: {}, fill: { en: true, col: true, forms: true, fam: true, deriv: true, pos: true, sense: true, conf: true, sim: true, schunk: true, spara: true, spat: true, skw: true, ckind: false, dex: false, ipa: true } };
 const DNT = { word: '單字', phrase: '片語', sentence: '句子' };
 const DNTC = { word: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300', phrase: 'bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-300', sentence: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' };
 const DRK = { passage: '英文文稿', zh: '中文翻譯', vocab: '核心單字／搭配', quiz: '題目／答案／解析', audio: '音檔／對時', other: '其他' };
@@ -387,13 +387,13 @@ function vplay(qid, text, suf, fallback) {
    並找出這個字名下「現在詳解已經用不到」的舊 mp3（孤兒），方便手動試聽、刪除後重錄。
    檔名規則直接共用 vplay 的 dnAuFiles（改一處就好，不會和實際播放不同步）。 */
 const DN_AUSUF = { '': '單字本身', _lm: '原形', _ctx: '所在句', _en: '英文解說', _e: '例句', _c: '搭配例句', _cp: '搭配片語', _f: '屈折變化的字', _fx: '屈折變化例句',
-  _m: '相關字', _mx: '相關字例句', _d: '衍生字', _p: '詞性例句', _pw: '詞性單字', _s: '多義例句', _sw: '多義單字', _cf: '易混淆例句', _cw: '易混淆單字',
+  _m: '相關字', _mx: '相關字例句', _d: '衍生字', _p: '詞性例句', _pw: '詞性單字', _dx: '同字族例句', _s: '多義例句', _sw: '多義單字', _cf: '易混淆例句', _cw: '易混淆單字',
   _sm: '近義片語', _sx: '近義片語例句', _kw: '值得注意的字', _pr: '同義改寫' };
 function dnAuFiles(text, suf, fallback) { // vplay 與修復面板共用：回傳 { wf: words/ 的檔名（單字類才有）, nf: vocab/ 的檔名 }
   suf = suf || '';
   return { wf: fallback && DN_WORD_SUF.test(suf) ? `${dnSlug(fallback)}.mp3` : '', nf: suf === '_ctx' ? dnSlug(fallback) + '.mp3' : dnSlug(text) + suf + '.mp3' };
 }
-const dnAuLabel = suf => { const m = /^(_[a-z]+)(\d*)$/.exec(suf || ''); return m ? (DN_AUSUF[m[1]] || m[1]) + (m[2] ? ' #' + m[2] : '') : '單字本身'; };
+const dnAuLabel = suf => { const m = /^(_[a-z]+)(\d*)(?:x(\d+))?$/.exec(suf || ''); return m ? (DN_AUSUF[m[1]] || m[1]) + (m[2] ? ' #' + m[2] : '') + (m[3] ? '＋追加第 ' + m[3] + ' 句' : '') : '單字本身'; };
 DN.au = null; DN.auLog = undefined; DN.auPlay = 0;
 function dnAuSlots() { // 從目前畫面上的 🔊 讀出每一格：和使用者實際按到的完全一致
   const root = document.getElementById('detail-text'); if (!root) return [];
@@ -439,9 +439,9 @@ function dnAuRender() {
     <td class="p-1.5 whitespace-nowrap"><span class="${dnChip}">${esc(r.label)}</span>${r.odd ? ' <span title="同一組的錄音時間差很多，可能只補錄了一部分，請聽聽看" class="text-amber-600">⚠</span>' : ''}</td>
     <td class="p-1.5 min-w-[12rem]">${esc(r.text)}</td>
     <td class="p-1.5"><button onclick="dnAuPlayOne(${i})" class="${dnSm}" ${r.has ? '' : 'disabled'}>▶</button></td>
-    <td class="p-1.5 text-xs break-all"><span class="${r.has ? 'text-slate-500' : 'text-rose-500 font-semibold'}">${esc(r.tag)}</span><br><code>${esc(r.dir + r.name)}</code></td>
+    <td class="p-1.5 text-xs break-all"><span class="${r.has ? 'text-slate-500' : 'text-rose-500 font-semibold'}">${esc(r.tag)}</span><br><code>${esc(r.dir + r.name)}</code>${dnAuCpBtn(r.name)}</td>
     <td class="p-1.5 text-xs whitespace-nowrap text-slate-500">${r.has ? `${r.rec ? '錄 ' + esc(r.rec) : '改 ' + fm(r.mtime)}<br>${kb(r.size)}${r.voice ? '<br>' + esc(r.voice.replace('en-US-', '').replace(':DragonHDLatestNeural', ' HD').replace('MultilingualNeural', ' Multi')) : ''}` : '—'}</td></tr>`).join('');
-  const orows = A.orph.map(r => `<li class="flex flex-wrap items-center gap-2"><input type="checkbox" class="dn-au-ok" data-n="${esc(r.name)}"><code class="text-xs">${esc(r.dir + r.name)}</code><span class="text-xs text-slate-500">${r.rec ? '錄 ' + esc(r.rec) : r.mtime ? '改 ' + fm(r.mtime) : ''} ${kb(r.size)}</span><button onclick="dnAuPlayFile('${esc(r.dir + r.name)}')" class="${dnSm}">▶</button></li>`).join('');
+  const orows = A.orph.map(r => `<li class="flex flex-wrap items-center gap-2"><input type="checkbox" class="dn-au-ok" data-n="${esc(r.name)}"><code class="text-xs">${esc(r.dir + r.name)}</code>${dnAuCpBtn(r.name)}<span class="text-xs text-slate-500">${r.rec ? '錄 ' + esc(r.rec) : r.mtime ? '改 ' + fm(r.mtime) : ''} ${kb(r.size)}</span><button onclick="dnAuPlayFile('${esc(r.dir + r.name)}')" class="${dnSm}">▶</button></li>`).join('');
   dnModal(`<div class="${card} w-full max-w-4xl p-4 md:p-5"><div class="flex items-center justify-between mb-2"><h2 class="font-bold">🔧 音檔修復 · ${esc(A.e)}</h2><button onclick="dnAuStop();dnClose()" class="text-slate-400 hover:text-slate-600 text-xl leading-none cursor-pointer" aria-label="關閉">×</button></div>
     <p class="text-xs text-slate-500 mb-2 leading-relaxed">▶ 只播 mp3 本身（不會退回語音合成），聽到的內容和左邊文字不同＝這個檔過期了。${A.hasLog ? '' : '（讀不到 voices-log.json，錄音時間改用檔案修改時間；用 file:// 開啟則兩者都沒有。）'}</p>
     <div class="flex flex-wrap items-center gap-2 mb-2"><button onclick="dnAuPlayAll()" class="${dnSm}">▶ 依序播放全部</button><button onclick="dnAuStop()" class="${dnSm}">■ 停止</button>
@@ -465,6 +465,12 @@ async function dnAuPlayAll() {
   }
 }
 function dnAuCk(odd) { const A = DN.au; if (!A) return; document.querySelectorAll('.dn-au-ck').forEach(c => { const r = A.slots[+c.dataset.i]; c.checked = !!(r && r.odd); }); document.querySelectorAll('.dn-au-ok').forEach(c => c.checked = true); }
+/* 一鍵複製單一音檔的檔名（不含資料夾）；這次開啟網頁期間複製過的，按鈕換成 ✓（關掉視窗再打開也還在，重新整理網頁才清掉） */
+const dnAuCpBtn = n => DN.auCopied && DN.auCopied.has(n) ? '<span class="text-emerald-600 font-bold ml-1" title="已複製過">✓</span>' : `<button onclick="dnAuName(this)" data-n="${esc(n)}" class="${dnSm} !px-1.5 !py-0 ml-1" title="複製檔名">📋</button>`;
+function dnAuName(b) {
+  const n = b.dataset.n;
+  (navigator.clipboard ? navigator.clipboard.writeText(n) : Promise.reject()).then(() => { (DN.auCopied = DN.auCopied || new Set()).add(n); b.outerHTML = dnAuCpBtn(n); dnToast('已複製 ' + n); }, () => dnToast('無法複製（請用 https 或 localhost 開啟）'));
+}
 function dnAuCopy(mode) {
   const A = DN.au; if (!A) return;
   const ps = [...document.querySelectorAll('.dn-au-ck:checked')].map(c => A.slots[+c.dataset.i]).map(r => r.dir + r.name)
@@ -610,9 +616,9 @@ function dnOpenMark(id) { const m = dnMarks().find(q => q.id === id); if (!m) re
 /* ======================= 入庫彙整頁（含 AI 提示詞） ======================= */
 const dnChecked = m => DN.chk[m.id] !== undefined ? DN.chk[m.id] : (!dnMerged(m) || DN.mf === 'gap');
 /* ---------- 已寫回的詳解還缺什麼（可在提示詞區選擇補上）---------- */
-const dnFillKeys = { en: '英文解說', col: '搭配例句', forms: '屈折變化＋發音＋例句', fam: '相關字音標＋例句', deriv: '衍生字＋記憶連結', pos: '多詞性用法', sense: '多義', conf: '易混淆例句', sim: '近義片語例句', schunk: '句子：意群斷句', spara: '句子：同義改寫', spat: '句子：句型模板', skw: '句子：重點字詞', ckind: '易混淆分類', ipa: '單字音標（多義／易混淆／近義／搭配）' };
-/* 易混淆分類 kind（confusable 每一筆的選填欄位，陣列、可複選）：spell 形似／sound 音似／meaning 義近／root 同字根／zhsame 中文同義。純粹可互換的同義說法放 similar，不放這裡 */
-const DN_KIND = { spell: '形似', sound: '音似', meaning: '義近', root: '同字根', zhsame: '中文同義' };
+const dnFillKeys = { en: '英文解說', col: '搭配例句', forms: '屈折變化＋發音＋例句', fam: '相關字音標＋例句', deriv: '衍生字＋記憶連結', pos: '多詞性用法', sense: '多義', conf: '易混淆例句', sim: '近義片語例句', schunk: '句子：意群斷句', spara: '句子：同義改寫', spat: '句子：句型模板', skw: '句子：重點字詞', ckind: '易混淆分類', dex: '同字族例句', ipa: '單字音標（多義／易混淆／近義／搭配）' };
+/* 易混淆分類 kind（confusable 每一筆的選填欄位，陣列、可複選）：spell 形似／sound 音似／meaning 義近／root 同字根／zhsame 中文同義／antonym 反義（意思相反，如 deposit／withdraw）。純粹可互換的同義說法放 similar，不放這裡 */
+const DN_KIND = { spell: '形似', sound: '音似', meaning: '義近', root: '同字根', zhsame: '中文同義', antonym: '反義' };
 const dnKindOk = c => !!c && typeof c === 'object' && dnArr(c.kind).length > 0 && dnArr(c.kind).every(k => DN_KIND[k]);
 /* 單字音標：多義 senses（每一筆）、易混淆 confusable、近義 similar、常用搭配 collocations 裡「單字」（沒有空格）的項目都要有 ipa；片語不用 */
 const dnOneWord = s => !!s && !/\s/.test(String(s).trim());
@@ -634,6 +640,7 @@ function dnGapsOf(m) {
     const fs = e.forms; if (!Array.isArray(fs) || !fs.every(f => f && typeof f === 'object' && f.ipa && f.example && f.example.en)) g.push('forms'); // 每個屈折變化都要有音標與例句；forms 是空陣列＝AI 已確認沒有屈折變化，視為完整；沒有這個欄位＝缺
     const ms = dnArr(e.family); if (ms.length && !ms.every(f => f && typeof f === 'object' && f.ipa && f.example && f.example.en)) g.push('fam');
     const ds = e.derived; if (!Array.isArray(ds) || !ds.every(f => f && typeof f === 'object' && f.w && f.ipa && f.zh && f.link)) g.push('deriv'); // derived 是空陣列＝AI 已確認沒有常見衍生字，視為完整
+    if (DN.fill.dex && dnArr(e.derived).length && !dnArr(e.derived).every(f => f && typeof f === 'object' && f.example && f.example.en)) g.push('dex'); // 同字族例句：預設不勾選（舊資料很多），在「補齊內容」勾選後才列入未完整
     const pu = e.pos_uses; if (!Array.isArray(pu) || !pu.every(f => f && typeof f === 'object' && f.pos && f.ipa && f.zh && f.example && f.example.en)) g.push('pos'); // pos_uses／senses 空陣列＝AI 已確認只有單一詞性／單一意思，視為完整；舊詳解沒這兩欄＝缺
     const sn = e.senses; if (!Array.isArray(sn) || !sn.every(f => f && typeof f === 'object' && f.pos && f.zh && f.example && f.example.en)) g.push('sense');
   }
@@ -750,7 +757,8 @@ const DNF = {
   col: '補上 collocations（常用搭配＋每個搭配的例句；搭配若只是單字，要加 ipa）；若現有詳解有舊的 col 字串，把裡面的搭配轉成 collocations 後刪掉 col',
   forms: '補齊 forms（只放屈折變化：單複數、第三人稱單數、過去式、過去分詞、現在分詞、比較級等；每一筆都要有 label、pos、zh、ipa，以及一句 example { en, zh }：例句 8–15 字、商務情境、必須真的用到該屈折形、同程度，且不要與 examples、collocations 的例句重複；缺的筆數與缺的例句都要補；既有的 w、label、pos、zh、ipa 原樣保留；衍生字不要放這裡；若這個字沒有屈折變化，輸出 "forms": []）',
   fam: '補齊 family（每一個都要有 ipa、pos、zh，以及至少 1 句 example）',
-  deriv: '新增或補齊 derived（衍生字：同詞幹、由這個字加字首／字尾長出來的常見單字；每一筆都要有 w、ipa、pos、zh、link）；其他欄位一律原樣保留',
+  deriv: '新增或補齊 derived（衍生字：同詞幹、由這個字加字首／字尾長出來的常見單字；每一筆都要有 w、ipa、pos、zh、link、example（en + zh））；其他欄位一律原樣保留',
+  dex: '補齊 derived（同字族）每一筆的 example（en + zh，例句 8–15 字、商務情境、同程度，必須真的用到該衍生字本身）；每一筆原有的 w、ipa、pos、zh、link 一律逐字原樣保留，已有 example 的筆數也原樣保留；其他欄位一律原樣保留',
   pos: '新增或補齊 pos_uses（多詞性：同一拼法的各種詞性用法，每一筆都要有 pos、ipa、zh、example；只有單一詞性就輸出空陣列 []）；其他欄位一律原樣保留',
   sense: '新增或補齊 senses（多義：同一詞性內的不同意思，每一筆都要有 pos、ipa（該詞性的美式音標）、zh、en、example；只有單一意思就輸出空陣列 []）；其他欄位一律原樣保留',
   conf: '補齊 confusable（易混淆）：每一筆都保留原有的 word（片語用 phrase）、diff 與 kind（沒有 kind 的請一併補上，值見下方 kind 說明），word 是單字（沒有空格）的要有 ipa（美式音標，片語不用），並各加一句 example { en, zh }：例句必須真的用到該易混淆字、8–15 字、商務情境、同程度，且要讓人看得出它和本字的差異；缺的筆數也要補；其他欄位一律原樣保留',
@@ -759,7 +767,7 @@ const DNF = {
   spat: '補齊 pattern（句型模板）：把這句抽成可重複使用的模板，可替換的部分用 V、N、時間、人物 等標示；其他欄位一律原樣保留',
   skw: '補齊 key_words（重點字詞）：每一筆都要有 w、zh；w 是單字時還要有 ipa（美式）與 pos；w 是片語時不用 ipa、pos；既有的項目保留並補齊缺的；真的沒有值得註記的字就輸出空陣列 []；其他欄位一律原樣保留',
   sim: '補齊 similar（近義片語）：每一筆都保留原有的 phrase（單字用 word）與 diff，phrase 或 word 是單字的要有 ipa（美式音標，片語不用），並各加一句 example { en, zh }：例句必須真的用到該近義片語、8–15 字、商務情境、同程度，且要讓人看得出它和本片語的差異；缺的筆數也要補；其他欄位一律原樣保留',
-  ckind: '補上 confusable 每一筆的 kind（易混淆分類，陣列、可複選，值只能是 spell／sound／meaning／root／zhsame；定義見下方「內容規則」的 kind 說明）；只加 kind，每一筆原有的 word（phrase）、diff、usage、example 一律逐字原樣保留，不要改寫；已有合法 kind 的筆數也原樣保留',
+  ckind: '補上 confusable 每一筆的 kind（易混淆分類，陣列、可複選，值只能是 spell／sound／meaning／root／zhsame／antonym；定義見下方「內容規則」的 kind 說明）；只加 kind，每一筆原有的 word（phrase）、diff、usage、example 一律逐字原樣保留，不要改寫；已有合法 kind 的筆數也原樣保留',
   ipa: '補上單字音標 ipa（美式、斜線包住，如 "/ˈɪnvɔɪs/"；單音節字不標重音；詳見「音標總則」）：senses 每一筆都加 ipa（該詞性的讀音，詞性不同讀音不同時分開寫）；confusable 與 similar 每一筆，若 word／phrase 是「單字」（沒有空格）就加 ipa，片語不用；collocations 的 phrase 若只是單字也加 ipa；只加 ipa，其他內容一律逐字原樣保留；已有 ipa 的原樣保留',
   nwnote: '依「新單字備註」補充：先判斷備註有沒有打錯字、真正想問什麼；若現有詳解已涵蓋就不要硬加新的；需要時才在最合適的欄位新增或微調內容（例如 note、grammar_note、examples、collocations、confusable、similar、pos_uses、senses…），其餘欄位原樣保留；若備註是「另一篇又出現」，要加／更新 usages（見「另一篇的用法」規則）；並依「新單字備註」規則加上 nw_done'
 };
@@ -786,12 +794,12 @@ function dnPrompt(qid, only, fillAll, extraIts, rng) { // extraIts：額外的�
   }).join('\n');
   const R_LV = `- 說明、例句、搭配、相關字都要控制在多益約 ${sc} 分的程度：用字與句型不要超過這個程度；例句 8–15 字、商務情境、不要用罕見字。`;
   const R_IPA = '- 【音標總則】詳解裡出現的每一個「單字」（沒有空格）都要附 ipa：主字、forms、family、derived、pos_uses、senses、confusable、similar、collocations、key_words 皆然；片語（有空格）不用。不可省略，也不可用空字串或「…」代替。格式：美式、斜線包住、不加音節點；母音用 ɑː ɔː iː uː oʊ eɪ aɪ ɔɪ aʊ，字尾 r 寫 ər，g 用 ɡ（U+0261）；單音節字不標重音，多音節字標 ˈ（主重音）與 ˌ（次重音）；同一個拼法不同詞性念法不同時（如 record、present）要分開寫。';
-  const R_CONF = '- 易混淆 confusable（單字、片語）：容易和本字／本片語搞混的字（拼法、發音或意思相近），通常 1–3 個、同程度。每一筆都要有 word（片語用 phrase；word 是單字時還要有 ipa）、diff（一句話說明和本字的差異）、kind（分類，陣列），以及 example（en + zh）：例句 8–15 字、商務情境、必須真的用到「該易混淆字」，並讓讀者從句意看出它和本字的差異；不要只寫 diff 沒有例句。產生前請依這 5 類逐一想一遍：spell 形似（拼法接近）、sound 音似（發音接近）、meaning 義近（意思接近，但語氣、用法或搭配不同）、root 同字根（字根相同、字首或字尾不同、意思不同）、zhsame 中文同義（英文意思差很多，只是中文翻譯相同）。每一類都要實際比對，不要只憑印象：sound 音似請拿雙方的音標（IPA）比，開頭或結尾音節相同、重音位置相同、音節數相近都算音似；spell 形似看字形；meaning 義近看語氣、用法或搭配；root 同字根看字根；zhsame 中文同義看中文翻譯。只要有明顯相似、而且是多益程度的常見字就列入，不必等到考試真的考過；只有完全看不出相似、或太冷僻的字才跳過，不要為了湊數硬加。5 類都沒有，就省略整個 confusable 欄位。若兩者的差異不只是意思（例如詞性不同、及物與不及物、可數與不可數、後面接的句型不同），才在該筆加選填的 usage（一到兩句繁體中文，具體說明用法或文法差異，如「affect 是動詞、effect 是名詞」）；只是意思不同就不要寫 usage。kind 的值只能是這五種，可複選（通常 1–2 個）：spell＝形似（拼法接近，如 principal／principle）；sound＝音似（發音接近，如 accept／except）；meaning＝義近（英文意思也很接近，但語氣、用法或搭配不同，如 economic／economical）；root＝同字根（字根相同、字首或字尾不同、意思不同，如 considerable／considerate）；zhsame＝中文同義（英文意思差很多，只是中文翻譯相同，如 borrow／lend 都翻成「借」）。純粹可以互相替換的同義說法請放 similar，不要放 confusable。';
+  const R_CONF = '- 易混淆 confusable（單字、片語）：容易和本字／本片語搞混的字（拼法、發音、意思相近，或意思相反），通常 1–3 個、同程度。每一筆都要有 word（片語用 phrase；word 是單字時還要有 ipa）、diff（一句話說明和本字的差異）、kind（分類，陣列），以及 example（en + zh）：例句 8–15 字、商務情境、必須真的用到「該易混淆字」，並讓讀者從句意看出它和本字的差異；不要只寫 diff 沒有例句。產生前請依這 6 類逐一想一遍：spell 形似（拼法接近）、sound 音似（發音接近）、meaning 義近（意思接近，但語氣、用法或搭配不同）、root 同字根（字根相同、字首或字尾不同、意思不同）、zhsame 中文同義（英文意思差很多，只是中文翻譯相同）、antonym 反義（意思相反，常成對出現、也容易用反，如 deposit／withdraw、increase／decrease）。每一類都要實際比對，不要只憑印象：sound 音似請拿雙方的音標（IPA）比，開頭或結尾音節相同、重音位置相同、音節數相近都算音似；spell 形似看字形；meaning 義近看語氣、用法或搭配；root 同字根看字根；zhsame 中文同義看中文翻譯；antonym 反義看是不是正好相反的意思（這個字有常見的反義字就要列）。只要有明顯相似、而且是多益程度的常見字就列入，不必等到考試真的考過；只有完全看不出相似、或太冷僻的字才跳過，不要為了湊數硬加。6 類都沒有，就省略整個 confusable 欄位。若兩者的差異不只是意思（例如詞性不同、及物與不及物、可數與不可數、後面接的句型不同），才在該筆加選填的 usage（一到兩句繁體中文，具體說明用法或文法差異，如「affect 是動詞、effect 是名詞」）；只是意思不同就不要寫 usage。kind 的值只能是這六種，可複選（通常 1–2 個）：spell＝形似（拼法接近，如 principal／principle）；sound＝音似（發音接近，如 accept／except）；meaning＝義近（英文意思也很接近，但語氣、用法或搭配不同，如 economic／economical）；root＝同字根（字根相同、字首或字尾不同、意思不同，如 considerable／considerate）；zhsame＝中文同義（英文意思差很多，只是中文翻譯相同，如 borrow／lend 都翻成「借」）；antonym＝反義（意思相反，常成對出現、也容易用反，如 deposit／withdraw、increase／decrease）。純粹可以互相替換的同義說法請放 similar，不要放 confusable。';
   const R_SIM = '- 近義片語 similar（單字、片語）：意思相近、可以互相替換（或常被拿來比較）的字或片語，通常 1–3 個、同程度。每一筆都要有 phrase（單字用 word；是單字時還要有 ipa）、diff（一句話說明和本項目在語氣、用法或後面接的詞上的差異），以及 example（en + zh）：例句 8–15 字、商務情境、必須真的用到「該近義片語」。不要與 confusable 重複（confusable 是拼法、發音容易搞混的字；similar 是意思相近的說法）。真的沒有就省略這個欄位。';
   const addRules = [
     '【只追加模式（標示【只追加】的項目）】',
     '- 這些字已經有詳解，這次只要「新增易混淆項目」，所以不要輸出整筆詳解。現有項目由程式保留、新項目由程式接在陣列最後面，你不必也不可以抄回、改寫或重新排序現有項目。',
-    '- 這一筆只輸出：{ "text": "（與項目完全相同）", "confusable_add": [ { "word": "…", "ipa": "/…/", "diff": "…", "kind": ["…"], "example": { "en": "…", "zh": "…" } } ], "nw_done": [ { "id": "（備註的 id）", "result": "added" } ] }。kind 的值只能是 spell／sound／meaning／root／zhsame，可複選（依實際關係填，不要照抄範例）；word 若是片語改用 phrase（片語不用 ipa）；usage 只在差異是詞性或文法用法時才加；每筆的內容規則同「易混淆 confusable」。',
+    '- 這一筆只輸出：{ "text": "（與項目完全相同）", "confusable_add": [ { "word": "…", "ipa": "/…/", "diff": "…", "kind": ["…"], "example": { "en": "…", "zh": "…" } } ], "nw_done": [ { "id": "（備註的 id）", "result": "added" } ] }。kind 的值只能是 spell／sound／meaning／root／zhsame／antonym，可複選（依實際關係填，不要照抄範例）；word 若是片語改用 phrase（片語不用 ipa）；usage 只在差異是詞性或文法用法時才加；每筆的內容規則同「易混淆 confusable」。',
     '- 若要加的其實是「意思相近、可互換」的說法，放進 "similar_add"（每筆含 phrase（單字用 word）、ipa（單字才要）、diff、example），不要放進 confusable_add。',
     '- 不要重複「現有易混淆」或「現有近義片語」已經有的字；每個字先確認它真的容易和本字搞混，沒有合適的就不要硬加：這時 confusable_add 輸出 []，nw_done 的 result 填 covered。',
     '- nw_done 的 result：added＝已追加新項目；covered＝現有項目已涵蓋、或找不到合適的字，沒有新增；unclear＝備註看不懂或無關，沒有處理。備註的 id 要照抄，每一條備註各一筆。',
@@ -808,7 +816,7 @@ function dnPrompt(qid, only, fillAll, extraIts, rng) { // extraIts：額外的�
       R_LV,
       '- 中文一律繁體；音標用美式 IPA（含斜線，如 /kənˈfɜːrm/）。',
       R_IPA,
-      R_CONF.replace('5 類都沒有，就省略整個 confusable 欄位。', '5 類都沒有，就不要新增（confusable_add 輸出 []，nw_done 填 covered）。').replace('請放 similar，不要放 confusable。', '請放 similar_add，不要放 confusable_add。'),
+      R_CONF.replace('6 類都沒有，就省略整個 confusable 欄位。', '6 類都沒有，就不要新增（confusable_add 輸出 []，nw_done 填 covered）。').replace('請放 similar，不要放 confusable。', '請放 similar_add，不要放 confusable_add。'),
       R_SIM,
       '',
       '【新單字備註】',
@@ -847,7 +855,7 @@ function dnPrompt(qid, only, fillAll, extraIts, rng) { // extraIts：額外的�
     R_SIM,
     '- 文法說明 grammar_note（單字、片語，選填）：只有當這個字或片語有學習者「真的容易用錯」的文法點時才寫，一到兩句繁體中文，要具體、可直接套用，例如「look forward to 的 to 是介系詞，後面接 V-ing，不接原形」「information 是不可數名詞，不加 s」。常見的固定搭配、被動或使役句型、後面接 to V 還是 V-ing、可數或不可數、介系詞選擇都算。沒有特別的文法點就整個省略這個欄位，不要為了湊數寫「這是個及物動詞」這類空話；也不要和 note、pattern、confusable 的 usage 重複同一件事。',
     '- 相關字 family（單字，語意相近或常一起考的字，例：invoice → bill、receipt；不是同詞幹的字，同詞幹的放 derived）最多 4 個、同程度；每個都要有 ipa、pos、zh，以及至少 1 句例句 example（en + zh）。超過這個程度的字不要列。',
-    '- 衍生字 derived（單字，即「同字族 Word Family」，例：work → worker、workable）：列出與這個字「同一個詞幹」、直接衍生的常見單字，最多 6 個（通常 3–6 個；真正常見的只有 1–2 個就只列那幾個，不要為了湊數硬找，也不要列不相關的字）（例如 invent → invention、inventor、inventive、inventory），只放同詞幹加字首／字尾長出來的字，不要擴及只是字根相同但拼法差很多的字（如 event、convenient）。由最基礎的字開始排。每一筆要有 w、ipa、pos、zh，以及 link（記憶連結）：用簡單直覺的繁體中文，說明「詞幹加什麼字尾，變成什麼意思」，並盡量連到我已知的單字（例：「invent + -or，做事的人，像 actor、visitor」）。這個字本身不要放進 derived；如果項目的 text 是變化形（如 updates、submitted），以原形（update、submit）為詞幹，原形本身也不要放進 derived；程度同上，太難或罕見的字不要列；單純的屈折變化（複數、第三人稱單數、過去式、-ing 分詞、比較級）已在 forms，不要放進 derived。worker、workable、submission 這類加字尾長出的字一律放 derived（forms 只放屈折變化）。若這個字真的沒有常見的衍生字，輸出 "derived": []（空陣列，這是唯一允許的空欄位），網頁會視為已確認、不再列入未完整。',
+    '- 衍生字 derived（單字，即「同字族 Word Family」，例：work → worker、workable）：列出與這個字「同一個詞幹」、直接衍生的常見單字，最多 6 個（通常 3–6 個；真正常見的只有 1–2 個就只列那幾個，不要為了湊數硬找，也不要列不相關的字）（例如 invent → invention、inventor、inventive、inventory），只放同詞幹加字首／字尾長出來的字，不要擴及只是字根相同但拼法差很多的字（如 event、convenient）。由最基礎的字開始排。每一筆要有 w、ipa、pos、zh，以及 link（記憶連結）與 example（en + zh：例句 8–15 字、商務情境、同程度，必須真的用到這個衍生字本身）。link 用簡單直覺的繁體中文，說明「詞幹加什麼字尾，變成什麼意思」，並盡量連到我已知的單字（例：「invent + -or，做事的人，像 actor、visitor」）。這個字本身不要放進 derived；如果項目的 text 是變化形（如 updates、submitted），以原形（update、submit）為詞幹，原形本身也不要放進 derived；程度同上，太難或罕見的字不要列；單純的屈折變化（複數、第三人稱單數、過去式、-ing 分詞、比較級）已在 forms，不要放進 derived。worker、workable、submission 這類加字尾長出的字一律放 derived（forms 只放屈折變化）。若這個字真的沒有常見的衍生字，輸出 "derived": []（空陣列，這是唯一允許的空欄位），網頁會視為已確認、不再列入未完整。',
     '- 多詞性 pos_uses（單字）：同一個拼法在多益常見的「不同詞性」用法（例：bill 是 n. 帳單、v. 開帳單；present 是 n.／v.／adj.；record、increase、order、issue 都是）。每個詞性一筆，包含這個字在本篇的詞性本身。每一筆要有 pos、ipa（不同詞性發音或重音不同時要分開寫，如 record n. /ˈrekɚd/、v. /rɪˈkɔːrd/）、zh（該詞性最常用的意思）、example（en + zh，8–15 字、商務情境、必須真的用該詞性）；本篇用到的那一筆加 "in_passage": true，並排在第一個，其餘依多益常見度排序。只列多益真的常見的詞性（通常 2–3 個）。不要與 forms 重複（複數、過去式等屈折變化放 forms，不是不同詞性）。如果這個字在多益只當一種詞性用，輸出 "pos_uses": []（空陣列，與 derived 相同，是允許的空欄位，網頁會視為已確認）。',
     '- 多義 senses（單字）：同一個詞性裡「不同的意思」（例：bill 當 n. 時有「帳單」「法案」「紙鈔」；issue 當 n. 時有「議題」「發行期數」）。不同詞性的差異放 pos_uses，這裡只放「同詞性、不同意思」，兩邊不要重複列同一件事。最多 4 個，只列多益常見的；本篇用到的那個意思加 "in_passage": true 並排第一，其餘依多益常見度排序。每一筆要有 pos、ipa（該詞性的美式音標）、zh、en（同程度的簡單英文一句話）、example（en + zh，8–15 字、商務情境、必須真的用該意思），可加 distinguish 一句話說明和其他意思如何從情境分辨。如果這個字在多益只有一個常見意思，輸出 "senses": []（空陣列，網頁會視為已確認）。',
     '- 原形 lemma（單字）：如果項目的 text 是變化形（如 billed、updates、submitted、working），要多寫 "lemma": "原形"（bill、update、submit、work）；這時 pos_uses、senses、forms、derived 都以「原形」為準來寫（例：text 是 billed，就要寫 bill 當 n. 與 v. 的各種詞性、bill 的各個意思）；本篇文章實際用到的詞性或意思標 "in_passage": true（billed 在文章裡是動詞 → bill 的 v. 那一筆）。pos_uses 每一筆可選加 "w"（該筆的拼法，預設就是原形）：只有變化形本身另有常見的獨立詞性時才寫（例：interested 當形容詞 → "w": "interested"）。forms 列原形的屈折形，不含 text 本身與原形。text 本身就是原形時不要寫 lemma。',
@@ -887,7 +895,7 @@ function dnPrompt(qid, only, fillAll, extraIts, rng) { // extraIts：額外的�
     '各 type 的欄位（範例只示範格式，內容請依實際項目寫）：',
     '▸ word（單字）',
     FENCE + 'json',
-    '{ "text": "invoice", "type": "word", "ipa": "/ˈɪnvɔɪs/", "pos": "n.", "zh": "發票、請款單", "en": "a document that lists what was sold and how much to pay", "note": "…在這篇的用法…", "grammar_note": "（選填）容易用錯的文法點", "forms": [ { "w": "invoices", "label": "複數", "pos": "n.", "zh": "發票（複數）", "ipa": "/ˈɪnvɔɪsɪz/", "example": { "en": "…", "zh": "…" } }, { "w": "invoiced", "label": "過去式／過去分詞", "pos": "v.", "zh": "開立發票", "ipa": "/ˈɪnvɔɪst/", "example": { "en": "…", "zh": "…" } } ], "collocations": [ { "phrase": "send an invoice", "zh": "寄發票", "example": { "en": "…", "zh": "…" } }, { "phrase": "pay an invoice", "zh": "付發票款項", "example": { "en": "…", "zh": "…" } } ], "examples": [ { "tag": "情境", "en": "…", "zh": "…" } ], "confusable": [ { "word": "receipt", "ipa": "/rɪˈsiːt/", "diff": "…差異…", "kind": ["spell", "sound"], "usage": "（選填）用法／文法上的差異", "example": { "en": "…", "zh": "…" } } ], "family": [ { "w": "bill", "pos": "n.", "zh": "帳單", "ipa": "/bɪl/", "example": { "en": "…", "zh": "…" } } ], "derived": [ { "w": "invoicing", "pos": "n.", "zh": "開立發票作業", "ipa": "/ˈɪnvɔɪsɪŋ/", "link": "invoice + -ing，把「開發票」這件事變成名詞" } ], "pos_uses": [ { "pos": "n.", "ipa": "/ˈɪnvɔɪs/", "zh": "發票", "in_passage": true, "example": { "en": "…", "zh": "…" } }, { "pos": "v.", "ipa": "/ˈɪnvɔɪs/", "zh": "開發票給（某人）", "example": { "en": "…", "zh": "…" } } ], "senses": [ { "pos": "n.", "ipa": "/ˈɪnvɔɪs/", "zh": "發票", "en": "…", "in_passage": true, "example": { "en": "…", "zh": "…" } }, { "pos": "n.", "ipa": "/ˈɪnvɔɪs/", "zh": "（一筆）請款", "en": "…", "distinguish": "…", "example": { "en": "…", "zh": "…" } } ] }',
+    '{ "text": "invoice", "type": "word", "ipa": "/ˈɪnvɔɪs/", "pos": "n.", "zh": "發票、請款單", "en": "a document that lists what was sold and how much to pay", "note": "…在這篇的用法…", "grammar_note": "（選填）容易用錯的文法點", "forms": [ { "w": "invoices", "label": "複數", "pos": "n.", "zh": "發票（複數）", "ipa": "/ˈɪnvɔɪsɪz/", "example": { "en": "…", "zh": "…" } }, { "w": "invoiced", "label": "過去式／過去分詞", "pos": "v.", "zh": "開立發票", "ipa": "/ˈɪnvɔɪst/", "example": { "en": "…", "zh": "…" } } ], "collocations": [ { "phrase": "send an invoice", "zh": "寄發票", "example": { "en": "…", "zh": "…" } }, { "phrase": "pay an invoice", "zh": "付發票款項", "example": { "en": "…", "zh": "…" } } ], "examples": [ { "tag": "情境", "en": "…", "zh": "…" } ], "confusable": [ { "word": "receipt", "ipa": "/rɪˈsiːt/", "diff": "…差異…", "kind": ["spell", "sound"], "usage": "（選填）用法／文法上的差異", "example": { "en": "…", "zh": "…" } } ], "family": [ { "w": "bill", "pos": "n.", "zh": "帳單", "ipa": "/bɪl/", "example": { "en": "…", "zh": "…" } } ], "derived": [ { "w": "invoicing", "pos": "n.", "zh": "開立發票作業", "ipa": "/ˈɪnvɔɪsɪŋ/", "link": "invoice + -ing，把「開發票」這件事變成名詞", "example": { "en": "…", "zh": "…" } } ], "pos_uses": [ { "pos": "n.", "ipa": "/ˈɪnvɔɪs/", "zh": "發票", "in_passage": true, "example": { "en": "…", "zh": "…" } }, { "pos": "v.", "ipa": "/ˈɪnvɔɪs/", "zh": "開發票給（某人）", "example": { "en": "…", "zh": "…" } } ], "senses": [ { "pos": "n.", "ipa": "/ˈɪnvɔɪs/", "zh": "發票", "en": "…", "in_passage": true, "example": { "en": "…", "zh": "…" } }, { "pos": "n.", "ipa": "/ˈɪnvɔɪs/", "zh": "（一筆）請款", "en": "…", "distinguish": "…", "example": { "en": "…", "zh": "…" } } ] }',
     FENCE,
     '▸ phrase（片語／搭配）',
     FENCE + 'json',
@@ -1012,6 +1020,7 @@ function dnRenderMarks() {
     <p class="text-xs text-slate-500 mt-3 leading-relaxed"><b>流程：</b>① 在文稿選字入庫 → ② 這裡按「複製 AI 提示詞」貼給 AI → ③ AI 回傳的 JSON 存成 <code>w{週}d{天}_extra.json</code>，放在 daily.json 同資料夾 → ④ 執行 json_merge.py（選「每日文章」）合併 → ⑤ 重新整理網頁，該項目就會顯示「詳解已寫回」，點進去看詳解。<br><b>未完整詳解：</b>已寫回、但缺英文解說／搭配例句／詞性變化發音／相關字音標例句／衍生字／易混淆例句的項目。勾選後，在該區「補齊內容」選擇要補哪些，提示詞會連同現有詳解交給 AI，合併時會整筆取代舊的。<br>入庫只存在這個瀏覽器；在手機入庫、電腦合併時，用上面的「匯出／匯入」搬過去。</p></div>`;
   const coreSec = f === 'todo' ? dnCoreSec('none') : f === 'gap' ? dnCoreSec('gap') : ''; h += coreSec;
   if (f !== 'done' && typeof nwSupSec === 'function') h += nwSupSec(); // 🆕 新單字補充區
+  if (f !== 'done' && typeof exSec === 'function') h += exSec(); // ➕ 例句追加待辦（exadd.js）
   const tslSec = f === 'todo' ? dnTslSec() : ''; h += tslSec;
   if (!ids.length && !coreSec && !tslSec) h += `<p class="text-sm text-slate-400 text-center py-10">${all.length ? '這個分類沒有項目。' : '還沒有入庫。到文章頁選取不懂的字、片語或句子，按「＋ 入庫」。'}</p>`;
   if (DN.mg === 'abc') { // 全域 A–Z：不分週次，來源只用小字標示
@@ -1260,6 +1269,7 @@ function dnRenderDetail() {
   const { x, e, ex, m, src } = D, xs = src || x, T = e.type, sec = (t, body) => body ? `<section class="${card} p-4 md:p-5 mb-3"><h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">${t}</h3>${body}</section>` : '';
   const ctx = dnFullCtx(x, e.text, m, T);
   const list = (arr, fn) => arr.length ? `<ul class="space-y-1.5 text-sm">${arr.map(fn).join('')}</ul>` : '';
+  if (typeof exCtx === 'function') exCtx(ex); // 「＋ 例句」只在有真正詳解（extra_vocab）時顯示
   const ex2 = dnArr(e.examples).map(o => typeof o === 'string' ? { en: o } : o);
   let h = `<header class="mb-4 flex items-start justify-between gap-2"><div class="min-w-0"><div class="flex flex-wrap items-center gap-2"><span class="${dnChip} ${DNTC[T]}">${DNT[T]}</span><span class="text-xs text-slate-500">${isLib(x) ? 'TSL 字庫（通用詳解）' : `W${x.week} · D${x.day} ${esc(x.tag || '')}`}</span>${lvBadge(x)}</div>
     <h2 class="${T === 'sentence' ? 'text-lg leading-relaxed' : 'text-2xl'} font-bold mt-2 break-words">${esc(e.text)} <button onclick="vplay('${idOf(xs)}', this.dataset.w, '', this.dataset.w)" data-w="${esc(e.text)}" data-vq="${idOf(x)}" data-vw="${esc(e.text)}" class="text-slate-400 hover:text-indigo-600 text-xl align-middle" aria-label="發音">🔊</button>${ex && typeof spBtn === 'function' ? spBtn(e) : ''}</h2>
@@ -1292,20 +1302,20 @@ function dnRenderDetail() {
   const inP = o => o.in_passage ? ` <span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">本篇用法</span>` : '';
   const lem = e.lemma && String(e.lemma).trim().toLowerCase() !== String(e.text).trim().toLowerCase() ? String(e.lemma).trim() : '';
   h += sec('原形', lem ? `<p class="text-sm flex items-center gap-2">${dnSpk(xs, e, '_lm', lem)}<b>${esc(lem)}</b><span class="text-slate-500">　${esc(e.text)} 是 ${esc(lem)} 的變化形；下面的詞性、多義、同字族都以 ${esc(lem)} 為準</span></p>` : '');
-  h += sec('詞性（Parts of Speech）', list(dnArr(e.pos_uses), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${dnSpk(xs, e, '_pw' + (i + 1), o.w || e.lemma || e.text)}<div><div class="flex flex-wrap items-center gap-x-1.5"><b>${esc(o.w || e.lemma || e.text)}</b><span class="${dnChip}">${esc(o.pos || '')}</span> <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''}</span>　<b>${esc(o.zh || '')}</b>${inP(o)}</div></div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1">${dnSpk(xs, e, '_p' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}</li>`));
-  h += sec('多義（Multiple Meanings）', list(dnArr(e.senses), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${dnSpk(xs, e, '_sw' + (i + 1), e.lemma || e.text)}<div><div class="flex flex-wrap items-center gap-x-1.5"><b>${esc(e.lemma || e.text)}</b>${o.ipa ? ` <span class="text-slate-500">${esc(o.ipa)}</span>` : ''}<span class="${dnChip}">${esc(o.pos || '')}</span>　<b>${esc(o.zh || '')}</b>${inP(o)}</div>${o.en ? `<p class="text-xs text-slate-500 italic mt-0.5">${esc(o.en)}</p>` : ''}${o.distinguish ? `<p class="text-xs text-slate-500 mt-0.5">${esc(o.distinguish)}</p>` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1">${dnSpk(xs, e, '_s' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}</li>`));
-  h += sec('屈折變化（Inflections）', list(dnArr(e.forms), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${o.w ? dnSpk(xs, e, '_f' + (i + 1), o.w) : ''}<div><b>${esc(o.w || '')}</b>${o.label ? ` <span class="${dnChip}">${esc(o.label)}</span>` : ''} <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''} ${o.pos ? `<i>${esc(o.pos)}</i>` : ''}</span>${o.zh ? `　${esc(o.zh)}` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_fx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}</li>`));
-  h += sec('同字族（Word Family）', list(dnArr(e.derived), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${o.w ? dnSpk(xs, e, '_d' + (i + 1), o.w) : ''}<div><b>${esc(o.w || '')}</b> <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''} ${o.pos ? `<i>${esc(o.pos)}</i>` : ''}</span>${o.zh ? `　${esc(o.zh)}` : ''}${o.link ? `<p class="text-xs text-slate-500 mt-0.5">${esc(o.link)}</p>` : ''}</div></div></li>`));
+  h += sec('詞性（Parts of Speech）', list(dnArr(e.pos_uses), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${dnSpk(xs, e, '_pw' + (i + 1), o.w || e.lemma || e.text)}<div><div class="flex flex-wrap items-center gap-x-1.5"><b>${esc(o.w || e.lemma || e.text)}</b><span class="${dnChip}">${esc(o.pos || '')}</span> <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''}</span>　<b>${esc(o.zh || '')}</b>${inP(o)}</div></div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1">${dnSpk(xs, e, '_p' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}${exTail(xs, e, 'pos_uses', i, o)}</li>`));
+  h += sec('多義（Multiple Meanings）', list(dnArr(e.senses), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${dnSpk(xs, e, '_sw' + (i + 1), e.lemma || e.text)}<div><div class="flex flex-wrap items-center gap-x-1.5"><b>${esc(e.lemma || e.text)}</b>${o.ipa ? ` <span class="text-slate-500">${esc(o.ipa)}</span>` : ''}<span class="${dnChip}">${esc(o.pos || '')}</span>　<b>${esc(o.zh || '')}</b>${inP(o)}</div>${o.en ? `<p class="text-xs text-slate-500 italic mt-0.5">${esc(o.en)}</p>` : ''}${o.distinguish ? `<p class="text-xs text-slate-500 mt-0.5">${esc(o.distinguish)}</p>` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1">${dnSpk(xs, e, '_s' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}${exTail(xs, e, 'senses', i, o)}</li>`));
+  h += sec('屈折變化（Inflections）', list(dnArr(e.forms), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${o.w ? dnSpk(xs, e, '_f' + (i + 1), o.w) : ''}<div><b>${esc(o.w || '')}</b>${o.label ? ` <span class="${dnChip}">${esc(o.label)}</span>` : ''} <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''} ${o.pos ? `<i>${esc(o.pos)}</i>` : ''}</span>${o.zh ? `　${esc(o.zh)}` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_fx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}${exTail(xs, e, 'forms', i, o)}</li>`));
+  h += sec('同字族（Word Family）', list(dnArr(e.derived), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${o.w ? dnSpk(xs, e, '_d' + (i + 1), o.w) : ''}<div><b>${esc(o.w || '')}</b> <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''} ${o.pos ? `<i>${esc(o.pos)}</i>` : ''}</span>${o.zh ? `　${esc(o.zh)}` : ''}${o.link ? `<p class="text-xs text-slate-500 mt-0.5">${esc(o.link)}</p>` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_dx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}${exTail(xs, e, 'derived', i, o)}</li>`));
   const cols = dnArr(e.collocations);
   h += sec('常用搭配', cols.length ? `<ul class="space-y-1.5 text-sm">${cols.map((c, i) => { const ph = typeof c === 'string' ? c : (c.phrase || c.p || ''); return `<li class="flex items-start gap-2">${ph ? dnSpk(xs, e, '_cp' + (i + 1), ph) : ''}<div><b>${esc(ph)}</b>${c && c.ipa ? ` <span class="text-slate-500">${esc(c.ipa)}</span>` : ''}${c && c.zh ? `　${esc(c.zh)}` : ''}</div></li>`; }).join('')}</ul>` : (dnArr(e.col).length ? `<p class="text-sm">${dnArr(e.col).map(esc).join('；')}</p>` : ''));
-  const exAll = ex2.map((o, i) => ({ o, suf: '_e' + (i + 1), tag: o.tag })).concat(cols.map((c, i) => ({ o: c && c.example, suf: '_c' + (i + 1), tag: '常用搭配', hi: c && (c.phrase || c.p) })).filter(r => r.o && r.o.en)); // 搭配的例句併入例句區，標「常用搭配」
-  h += sec('同義改寫', list(dnArr(e.paraphrase), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : (o && o.en ? `<li class="flex items-start gap-2">${dnSpk(xs, e, '_pr' + (i + 1), o.en)}<div>${dnExHtml(o)}</div></li>` : '')));
-  h += sec(T === 'sentence' ? '同句型例句' : '例句', list(exAll, r => `<li class="flex items-start gap-2">${dnSpk(xs, e, r.suf, r.o.en || '')}<div><p>${r.hi ? dnHiCtx(r.o.en, r.hi) : esc(r.o.en || '')}</p>${r.tag || r.o.zh ? `<p class="text-xs text-slate-500">${r.tag ? `<span class="${r.tag === '常用搭配' ? 'text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ' + DNTC.phrase : dnChip} mr-1.5 align-middle">${esc(r.tag)}</span>` : ''}${esc(r.o.zh || '')}</p>` : ''}</div></li>`));
+  const exAll = ex2.map((o, i) => ({ o, suf: '_e' + (i + 1), tag: o.tag || (o.added ? '新增' : '') })).concat(cols.map((c, i) => ({ o: c && c.example, suf: '_c' + (i + 1), tag: '常用搭配', hi: c && (c.phrase || c.p), ci: i, c })).filter(r => r.o && r.o.en)); // 搭配的例句併入例句區，標「常用搭配」
+  h += sec('同義改寫', (l => l ? l + exSecPlus('paraphrase') : '')(list(dnArr(e.paraphrase), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : (o && o.en ? `<li class="flex items-start gap-2">${dnSpk(xs, e, '_pr' + (i + 1), o.en)}<div>${dnExHtml(o)}</div></li>` : ''))));
+  h += sec(T === 'sentence' ? '同句型例句' : '例句', list(exAll, r => `<li class="flex items-start gap-2">${dnSpk(xs, e, r.suf, r.o.en || '')}<div><p>${r.hi ? dnHiCtx(r.o.en, r.hi) : esc(r.o.en || '')}</p>${r.tag || r.o.zh ? `<p class="text-xs text-slate-500">${r.tag ? `<span class="${r.tag === '常用搭配' ? 'text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 ' + DNTC.phrase : dnChip} mr-1.5 align-middle">${esc(r.tag)}</span>` : ''}${esc(r.o.zh || '')}</p>` : ''}${r.ci != null ? exRows(xs, e, 'collocations', r.ci, r.c) : ''}</div></li>`) + exSecPlus('examples'));
   h += sec('句中值得注意的字', list(dnArr(e.key_words), (o, i) => dnKwHtml(x, xs, e, o, i)));
   h += sec(typeof cfTitle === 'function' ? cfTitle(e) : '易混淆', (typeof cfEmpty === 'function' ? cfEmpty(e) : '') + dnCfWrap(dnCfSelfRow(xs, e, ex2, cols), list(dnArr(e.confusable), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${(o.word || o.phrase) ? dnSpk(xs, e, '_cw' + (i + 1), o.word || o.phrase) : ''}<div><b>${esc(o.word || o.phrase || '')}</b>${o.ipa ? ` <span class="text-slate-500">${esc(o.ipa)}</span>` : ''}${dnKindChips(o)}${o.diff ? `　${esc(o.diff)}` : ''}</div></div>${o.usage ? `<details class="mt-1 ml-6 text-xs text-slate-600 dark:text-slate-300"><summary class="cursor-pointer select-none text-indigo-600 dark:text-indigo-400">用法／文法差異</summary><p class="mt-1 leading-relaxed whitespace-pre-line">${esc(o.usage)}</p></details>` : ''}${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_cf' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}</li>`)));
   h += typeof gpBar === 'function' ? gpBar(e) : '';
-  h += sec('近義片語', list(dnArr(e.similar), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${(o.phrase || o.word) ? dnSpk(xs, e, '_sm' + (i + 1), o.phrase || o.word) : ''}<div><b>${esc(o.phrase || o.word || '')}</b>${o.ipa ? ` <span class="text-slate-500">${esc(o.ipa)}</span>` : ''}${o.diff ? `　${esc(o.diff)}` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_sx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}</li>`));
-  h += sec('相關字（語意相近）', list(dnArr(e.family), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${o.w ? dnSpk(xs, e, '_m' + (i + 1), o.w) : ''}<div><b>${esc(o.w || '')}</b> <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''} ${o.pos ? `<i>${esc(o.pos)}</i>` : ''}</span>${o.zh ? `　${esc(o.zh)}` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_mx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}</li>`));
+  h += sec('近義片語', list(dnArr(e.similar), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${(o.phrase || o.word) ? dnSpk(xs, e, '_sm' + (i + 1), o.phrase || o.word) : ''}<div><b>${esc(o.phrase || o.word || '')}</b>${o.ipa ? ` <span class="text-slate-500">${esc(o.ipa)}</span>` : ''}${o.diff ? `　${esc(o.diff)}` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_sx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}${exTail(xs, e, 'similar', i, o)}</li>`));
+  h += sec('相關字（語意相近）', list(dnArr(e.family), (o, i) => typeof o === 'string' ? `<li>${esc(o)}</li>` : `<li><div class="flex items-start gap-2">${o.w ? dnSpk(xs, e, '_m' + (i + 1), o.w) : ''}<div><b>${esc(o.w || '')}</b> <span class="text-slate-500">${o.ipa ? esc(o.ipa) : ''} ${o.pos ? `<i>${esc(o.pos)}</i>` : ''}</span>${o.zh ? `　${esc(o.zh)}` : ''}</div></div>${o.example && o.example.en ? `<div class="flex items-start gap-2 mt-1 ml-6">${dnSpk(xs, e, '_mx' + (i + 1), o.example.en)}<div>${dnExHtml(o.example)}</div></div>` : ''}${exTail(xs, e, 'family', i, o)}</li>`));
   h += `<div class="flex flex-wrap gap-2 mt-4"><button onclick="up()" class="${btn} ${dnLine}">← 返回</button>${dnRpBtn(idOf(x), '', 'vocab')}${ex ? `<button onclick="dnOpenAudioFix()" class="${dnSm}">🔧 音檔修復</button>` : ''}</div>`;
   main.innerHTML = `<div id="detail-text">${h}</div><p class="mt-3 text-[0.6875rem] text-slate-400">💡 選取例句或說明裡的英文字、片語或句子，下方會跳出「＋ 入庫」；入庫的字不分週次，全域共用。</p>`;
 }
@@ -1545,4 +1555,224 @@ function dnStudyGo(text) {
   if (D && dnKey(D.e.text) === dnKey(text)) { dnToast('你正在這個字的學習頁'); return; }
   const go2 = dnStudyTarget(text); if (!go2) { dnToast('找不到這個字的學習頁'); return; }
   dnTrailPush(); go2();
+}
+
+/* ======================= ＋ 例句：詳解頁每個用法後面追加例句 =======================
+
+   流程：
+   ① 詳解頁每個用法（詞性、多義、搭配、屈折變化、相關字、近義、例句、同義改寫；易混淆另有自己的「＋」）後面有「＋ 例句」：
+      手動輸入一句英文，或選「請 AI 新增 N 句」。這兩種都只是先放進待辦（不會直接顯示，因為要先經過 AI 檢查並補中文翻譯）。
+   ② 維護區（📌 入庫彙整／🆕 新單字「待補充詳解」）的「➕ 例句追加」：複製或下載提示詞給 AI。
+   ③ AI 回傳只追加的 JSON（w?d?_extra.json）：{"text":"surcharge","example_add":[{"block":"pos_uses","pos":"n.","zh":"額外費用、附加費","examples":[{en,zh}]}],"ex_done":[{id,result}]}
+      → json_merge.py 合併（英文句子重複自動略過，沒有數量上限）。
+   ④ 合併後：該用法底下依序顯示「原本那句＋新增的句子」，每句都有 🔊🎙 與中文翻譯。
+
+   資料：localStorage 鍵 toeicExAddV1（以 toeic 開頭 → cloud-sync.js 會自動同步；每筆都有 id）
+     { id:'x…', text:詳解的 text, block, key:{pos,zh｜phrase｜w[,label]}, lab, mode:'manual|ai', en?（manual）, n?（ai）, created, updated, t }
+   寫回主檔（daily.json）：用法底下 extra_examples:[{en,zh}]；examples／paraphrase 直接接在陣列後面（帶 added:1）；extra_vocab 每筆可有 ex_done:[{id,result}]
+   mp3：{字}_{後綴}{第幾筆}x{第幾句}.mp3，例如 surcharge_p1x2.mp3（auto-speech.py 的 MAKE_EXTRA_EX 負責）
+   待辦完成的判斷：ex_done 有這個 id；或手動輸入的那句英文已經在該用法裡。 */
+
+const EX_KEY = 'toeicExAddV1';
+const EX_BLK = {
+  pos_uses: { fld: 'pos_uses', suf: 'p', name: '詞性', ml: '' },
+  senses: { fld: 'senses', suf: 's', name: '多義', ml: '' },
+  collocations: { fld: 'collocations', suf: 'c', name: '常用搭配', ml: '' },
+  forms: { fld: 'forms', suf: 'fx', name: '屈折變化', ml: 'ml-6' },
+  family: { fld: 'family', suf: 'mx', name: '相關字', ml: 'ml-6' },
+  similar: { fld: 'similar', suf: 'sx', name: '近義片語', ml: 'ml-6' },
+  derived: { fld: 'derived', suf: 'dx', name: '同字族', ml: 'ml-6' },
+  examples: { fld: 'examples', suf: 'e', name: '例句', direct: true },
+  paraphrase: { fld: 'paraphrase', suf: 'pr', name: '同義改寫', direct: true }
+};
+let EXL = null, EXC = null;
+const exList = () => { if (EXL) return EXL; try { EXL = JSON.parse(localStorage.getItem(EX_KEY) || '[]'); } catch (e) { EXL = []; } if (!Array.isArray(EXL)) EXL = []; return EXL; };
+const exSave = () => { try { localStorage.setItem(EX_KEY, JSON.stringify(exList())); } catch (e) {} };
+const exNz = s => String(s == null ? '' : s).trim().toLowerCase().replace(/\s+/g, ' ');
+const exEnKey = s => exNz(String(s == null ? '' : s).replace(/[’‘]/g, "'").replace(/[“”]/g, '"')).replace(/[\s.!?"']+$/, '');
+const exCtx = ex => { EXC = ex ? { text: String(ex.text || ex.word || '') } : null; }; // 詳解頁每次繪製前設定：沒有真正的詳解（只有核心單字資料）就不顯示「＋」
+
+function exKeyOf(blk, o) { // 用法的比對鍵（與 json_merge.py 的 _ex_usage_key 一致）
+  if (!o || typeof o !== 'object') return {};
+  if (blk === 'pos_uses' || blk === 'senses') return { pos: String(o.pos || '').trim(), zh: String(o.zh || '').trim() };
+  if (blk === 'collocations' || blk === 'similar') return { phrase: String(o.phrase || o.p || o.word || '').trim() };
+  if (blk === 'forms') return Object.assign({ w: String(o.w || o.word || '').trim() }, o.label ? { label: String(o.label).trim() } : {});
+  if (blk === 'family' || blk === 'derived') return { w: String(o.w || o.word || '').trim() };
+  return {};
+}
+function exSame(a, b) { const ks = new Set(Object.keys(a || {}).concat(Object.keys(b || {}))); return Array.from(ks).every(k => exNz(a && a[k]) === exNz(b && b[k])); }
+function exLabel(blk, o) {
+  const k = exKeyOf(blk, o);
+  if (blk === 'pos_uses' || blk === 'senses') return `${k.pos} ${k.zh}`.trim();
+  return String(k.phrase || k.w || '') + (k.label ? `（${k.label}）` : '');
+}
+function exEntry(text) { // 這個字的詳解（全題庫只有一筆）：{ a: 所在那一篇, e: extra_vocab 那一筆 }
+  const k = dnKey(text);
+  for (const a of dnArts()) for (const e of dnExtraOf(a)) if (e && dnKey(e.text || e.word) === k) return { a, e };
+  return null;
+}
+function exTarget(r) { // 待辦指到的位置：{ o, item, ens: 現有英文句子, have: 鍵集合 } 或 null（找不到詳解）
+  const o = exEntry(r.text), cfg = EX_BLK[r.block]; if (!o || !cfg) return null;
+  let item = null, ens;
+  if (cfg.direct) ens = dnArr(o.e[cfg.fld]).map(x => typeof x === 'string' ? x : x && x.en).filter(Boolean);
+  else {
+    item = dnArr(o.e[cfg.fld]).find(x => x && typeof x === 'object' && exSame(exKeyOf(r.block, x), r.key));
+    ens = item ? [item.example && item.example.en].concat(dnArr(item.extra_examples).map(x => x && x.en)).filter(Boolean) : [];
+  }
+  return { o, item, ens, have: new Set(ens.map(exEnKey)), missing: !cfg.direct && !item };
+}
+function exDone(r) {
+  const t = exTarget(r); if (!t) return false;
+  if (dnArr(t.o.e.ex_done).some(q => q && q.id === r.id)) return true;
+  return r.mode === 'manual' && t.have.has(exEnKey(r.en));
+}
+const exPending = (text, blk, key) => exList().filter(r => r.block === blk && dnKey(r.text) === dnKey(text) && exSame(r.key, key) && !exDone(r));
+
+/* ---------- 詳解頁：用法底下的追加句、待辦提示、「＋ 例句」 ---------- */
+const exRecTxt = r => r.mode === 'manual' ? `手動「${esc(String(r.en).slice(0, 40))}」` : `AI 新增 ${r.n} 句`;
+function exPendHtml(text, blk, key, ml) {
+  const rs = exPending(text, blk, key); if (!rs.length) return '';
+  return `<div class="mt-1 text-[0.6875rem] text-amber-700 dark:text-amber-300${ml ? ' ' + ml : ''}">⏳ 待處理（到維護區複製提示詞給 AI）：${rs.map(r => `${exRecTxt(r)}<button onclick="exDel('${r.id}')" class="ml-1 text-slate-400 hover:text-rose-600" title="取消這一筆">✕</button>`).join('、')}</div>`;
+}
+const exPlusHtml = (blk, i, ml) => `<div class="mt-1${ml ? ' ' + ml : ''}"><button onclick="exOpen('${blk}',${i == null ? 'null' : i})" class="${dnSm} !px-2 !py-0.5" title="新增例句：手動輸入一句，或請 AI 新增">＋ 例句</button></div>`;
+function exRows(xs, e, blk, i, o) { // 只顯示用法底下已追加的句子（沒有「＋」）：常用搭配的「＋」統一放在例句區塊最後面
+  if (!EXC || !o || typeof o !== 'object') return '';
+  const cfg = EX_BLK[blk], ml = cfg.ml;
+  return dnArr(o.extra_examples).filter(x => x && x.en).map((x, j) => `<div class="flex items-start gap-2 mt-1${ml ? ' ' + ml : ''}">${dnSpk(xs, e, '_' + cfg.suf + (i + 1) + 'x' + (j + 1), x.en)}<div>${dnExHtml(x)}</div></div>`).join('');
+}
+function exTail(xs, e, blk, i, o) { // 用法（第 i 筆）底下：追加的句子（🔊＋中文）→ 待處理 → ＋
+  if (!EXC || !o || typeof o !== 'object') return '';
+  const cfg = EX_BLK[blk], ml = cfg.ml;
+  const rows = dnArr(o.extra_examples).filter(x => x && x.en).map((x, j) => `<div class="flex items-start gap-2 mt-1${ml ? ' ' + ml : ''}">${dnSpk(xs, e, '_' + cfg.suf + (i + 1) + 'x' + (j + 1), x.en)}<div>${dnExHtml(x)}</div></div>`).join('');
+  return rows + exPendHtml(EXC.text, blk, exKeyOf(blk, o), ml) + exPlusHtml(blk, i, ml);
+}
+const exSecPlus = blk => EXC ? exPendHtml(EXC.text, blk, {}, '') + exPlusHtml(blk, null, '') : ''; // examples／paraphrase：整個區塊就是一串句子，「＋」放在區塊最後
+
+/* ---------- 按「＋ 例句」：手動輸入，或請 AI 新增 N 句（都只是先放進待辦） ---------- */
+function exOpen(blk, i) {
+  const D = dnDetailData(); if (!D || !D.ex) return;
+  const cfg = EX_BLK[blk]; if (!cfg) return;
+  let key = {}, lab = cfg.name;
+  if (!cfg.direct) { const o = dnArr(D.ex[cfg.fld])[i]; if (!o || typeof o !== 'object') return; key = exKeyOf(blk, o); lab = cfg.name + '：' + exLabel(blk, o); }
+  DN.exDraft = { text: String(D.ex.text || D.ex.word), block: blk, key, lab };
+  dnModal(`<div class="${card} w-full max-w-md p-4 md:p-5 shadow-xl">
+    <div class="flex items-start justify-between gap-2"><h3 class="font-bold">＋ 新增例句</h3><button onclick="dnClose()" class="text-slate-400 hover:text-slate-700 text-lg leading-none" aria-label="關閉">✕</button></div>
+    <p class="text-xs text-slate-500 mt-1 break-words">${esc(DN.exDraft.text)} ›　${esc(lab)}</p>
+    <label class="block text-sm font-semibold mt-3" for="ex-in">手動輸入一句英文</label>
+    <textarea id="ex-in" rows="2" class="${dnInp} mt-1" placeholder="例如：The surcharge applies to all late orders."></textarea>
+    <button onclick="exAddManual()" class="${btn} ${dnPri} w-full mt-2">加入待辦（由 AI 檢查並補中文）</button>
+    <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800"><label class="block text-sm font-semibold" for="ex-n">或請 AI 新增</label>
+      <div class="flex items-center gap-2 mt-1"><select id="ex-n" class="${dnInp} !w-auto">${[1, 2, 3, 4, 5, 6, 8, 10].map(n => `<option value="${n}">${n} 句</option>`).join('')}</select><button onclick="exAddAI()" class="${btn} ${dnLine} flex-1">請 AI 新增 → 加入待辦</button></div></div>
+    <p class="text-[0.6875rem] text-slate-400 mt-3 leading-relaxed">這些只會先放進維護區（📌 入庫彙整／🆕 新單字）的「➕ 例句追加」待辦。複製提示詞給 AI、把回傳的 JSON 用 json_merge.py 合併後，句子才會顯示（含中文翻譯）。</p></div>`);
+  setTimeout(() => { const t = document.getElementById('ex-in'); if (t) t.focus(); }, 60);
+}
+function exPush(extra) {
+  const D = DN.exDraft, now = Date.now();
+  exList().push(Object.assign({ id: dnId('x'), text: D.text, block: D.block, key: D.key, lab: D.lab, created: now, updated: now, t: now }, extra));
+  exSave(); dnClose(); render();
+}
+function exAddManual() {
+  const D = DN.exDraft; if (!D) return;
+  const en = String((document.getElementById('ex-in') || {}).value || '').replace(/\s+/g, ' ').trim();
+  if (!en) { dnToast('請先輸入一句英文'); return; }
+  if (!/[A-Za-z]{2}/.test(en)) { dnToast('請輸入英文句子'); return; }
+  const tg = exTarget({ text: D.text, block: D.block, key: D.key });
+  if (tg && tg.have.has(exEnKey(en))) { dnToast('這個用法已經有這一句了'); return; }
+  if (exPending(D.text, D.block, D.key).some(r => r.mode === 'manual' && exEnKey(r.en) === exEnKey(en))) { dnToast('待辦裡已經有這一句了'); return; }
+  exPush({ mode: 'manual', en }); dnToast('已加入待辦：手動輸入 1 句（到維護區請 AI 檢查）');
+}
+function exAddAI() {
+  if (!DN.exDraft) return;
+  const n = Math.max(1, Math.min(20, parseInt((document.getElementById('ex-n') || {}).value) || 1));
+  exPush({ mode: 'ai', n }); dnToast(`已加入待辦：請 AI 新增 ${n} 句`);
+}
+function exDel(id) { EXL = exList().filter(r => r.id !== id); exSave(); render(); }
+function exClearDone() { const n = exList().filter(exDone).length; if (!n) return; EXL = exList().filter(r => !exDone(r)); exSave(); dnToast(`已移除 ${n} 筆已完成`); render(); }
+
+/* ---------- 維護區：待辦分組（依詳解所在那一篇）與提示詞 ---------- */
+function exGroups() {
+  const by = new Map();
+  exList().forEach(r => {
+    if (exDone(r)) return; const o = exEntry(r.text); if (!o) return;
+    const qid = idOf(o.a), g = by.get(qid) || { qid, a: o.a, ents: new Map() }; by.set(qid, g);
+    const k = dnKey(o.e.text || o.e.word), it = g.ents.get(k) || { e: o.e, recs: [] }; g.ents.set(k, it); it.recs.push(r);
+  });
+  return Array.from(by.values()).sort((p, q) => p.a.week - q.a.week || p.a.day - q.a.day);
+}
+const exLost = () => exList().filter(r => !exEntry(r.text));
+function exItems(g) { // [{ e, text, us:[{ blk, key, lab, recs, ens }] }]
+  return Array.from(g.ents.values()).map(it => {
+    const us = [];
+    it.recs.forEach(r => {
+      let u = us.find(q => q.blk === r.block && exSame(q.key, r.key));
+      if (!u) { const tg = exTarget(r); u = { blk: r.block, key: r.key, lab: r.lab, recs: [], ens: tg ? tg.ens : [] }; us.push(u); }
+      u.recs.push(r);
+    });
+    return { e: it.e, text: String(it.e.text || it.e.word), us };
+  });
+}
+function exPrompt(g, rng) {
+  const x = g.a, lv = x.level || {}, sc = lv.score || 600, all = exItems(g), its = rng ? all.slice(rng[0], rng[1]) : all;
+  const items = its.map((it, i) => {
+    const e = it.e, head = [e.ipa, e.pos, e.zh].filter(Boolean).join(' ');
+    return `${i + 1}. text="${it.text}"｜type=${e.type || (/\s/.test(it.text) ? 'phrase' : 'word')}${head ? `｜本字：${head}` : ''}\n` + it.us.map(u => {
+      const cfg = EX_BLK[u.blk], kj = JSON.stringify(Object.assign({ block: u.blk }, u.key));
+      const lines = u.recs.map(r => r.mode === 'manual' ? `      【手動輸入】[id=${r.id}]："${r.en}"` : `      【請 AI 新增 ${r.n} 句】[id=${r.id}]`);
+      const nAi = u.recs.filter(r => r.mode === 'ai').reduce((s, r) => s + (r.n || 0), 0);
+      return `   ▸ ${cfg.name}${cfg.direct ? '區塊（新句子直接接在這個區塊最後面）' : '用法'}：${kj}\n      現有句子（不要重複）：${u.ens.length ? u.ens.join(' ／ ') : '（無）'}\n${lines.join('\n')}${nAi ? `\n      → AI 新增合計 ${nAi} 句` : ''}`;
+    }).join('\n');
+  }).join('\n');
+  const tmpl = `{ "week": ${x.week}, "day": ${x.day}, "extra_vocab": [ { "text": "（與項目完全相同）", "example_add": [ { "block": "pos_uses", "pos": "n.", "zh": "（照抄上面的用法）", "examples": [ { "en": "…", "zh": "…" } ] }, { "block": "collocations", "phrase": "（照抄）", "examples": [ { "en": "…", "zh": "…" } ] }, { "block": "examples", "examples": [ { "en": "…", "zh": "…" } ] } ], "ex_done": [ { "id": "（待辦的 id）", "result": "added" } ] } ] }`;
+  return [
+    '你是 TOEIC 英語教材編輯。下面的單字／片語／句子「已經有詳解」，使用者想在某些用法底下「多加例句」。這次不要重寫詳解，只輸出要追加的例句；程式會把它們接在現有內容的最後面，不會改動既有句子。',
+    '',
+    `【程度】多益約 ${sc} 分${lv.cefr ? `（CEFR ${lv.cefr}）` : ''}`,
+    '',
+    '【規則】',
+    `- 例句 8–15 字、商務情境、多益約 ${sc} 分的程度：用字與句型不要超過這個程度，不要用罕見字；中文一律繁體。`,
+    '- 每句例句必須「真的用到那個用法」：詞性例句要用該詞性、多義例句要用該意思、搭配例句要用該搭配、屈折變化／相關字／近義片語的例句要用該字或片語本身。',
+    '- 【手動輸入】是使用者自己打的句子（可能是語音輸入，會有錯字）。請檢查英文：拼字、文法、自然度、是否真的用到該用法。大致正確就保留原句（不要為了風格改寫）；有錯就改成正確的一句放進 examples；完全不通或與該用法無關，就不要放進 examples，ex_done 填 unclear。每一句都要補上繁體中文翻譯 zh。',
+    '- 【請 AI 新增 N 句】：寫剛好 N 句新的例句，彼此情境不同（會議、郵件、出差、訂單…），不要和「現有句子」或這次其他句子重複。沒有數量上限，使用者要幾句就寫幾句。',
+    '- 同一個用法同時有手動輸入與 AI 新增時，全部放進同一個 example_add 物件的 examples 陣列（手動輸入的在前）。',
+    '- 英文句子重複的，程式合併時會自動略過；請盡量不要重複。',
+    '',
+    '【要處理的項目】（text 必須與下面完全相同；用法的 block、pos、zh、phrase、w、label 要「逐字照抄」下面標示的 JSON，程式靠它們找到要加在哪一筆）',
+    items,
+    '',
+    '【輸出規則】',
+    '- 每個項目輸出一筆 { "text", "example_add", "ex_done" }；除了這三個欄位不要出現任何其他欄位（zh、ipa、examples、collocations… 出現了合併時會被擋下）。',
+    '- example_add 每個用法一筆：{ "block": "…", 照抄的 pos＋zh（或 phrase、或 w）, "examples": [ { "en": "…", "zh": "…" } ] }；block 是 examples 或 paraphrase 時只要 block 與 examples。',
+    '- ex_done：每個待辦 id 各一筆 { "id": "（照抄）", "result": "added｜covered｜unclear" }。added＝已寫進 examples（手動句檢查後保留或改正，或 AI 已新增）；covered＝與現有句子重複或不需要新增，沒有放進 examples；unclear＝句子看不懂或與用法無關，沒有處理。',
+    '',
+    '【輸出格式】',
+    `請直接產生一個「可下載的 JSON 檔案」，檔名 w${x.week}d${x.day}_extra.json（UTF-8、純 JSON，不要包 markdown 程式碼框）。聊天裡只需一句話說明檔案已產生，不要貼出全文。若你無法產生檔案，才改成只輸出一個 json 程式碼區塊（${FENCE}json … ${FENCE}），區塊外不加任何文字。內容是單一物件，extra_vocab 依上面項目順序、每項一筆；不要輸出文章的其他欄位。檔案內容格式：`,
+    FENCE + 'json', tmpl, FENCE
+  ].join('\n');
+}
+function exPromptFor(qid, mode) { // mode：copy＝依「每批最多」分批；download＝整篇全部
+  const g = exGroups().find(q => q.qid === qid); if (!g) return null;
+  const its = exItems(g);
+  if (mode === 'download') return { text: exPrompt(g, null), msg: '' };
+  const b = dnBatchPick('ex:' + qid, its.map(o => o.text + o.us.map(u => u.recs.map(r => r.id).join('+')).join(',')).join('|'), its.length);
+  return { text: exPrompt(g, b.nb > 1 ? [b.lo, b.hi] : null), msg: b.nb > 1 ? dnBatchMsg(b, b.hi - b.lo) : '已複製例句追加提示詞，貼給 AI' };
+}
+function exCopy(qid) { const p = exPromptFor(qid, 'copy'); if (!p) return; auCopy(p.text); dnToast(p.msg); }
+function exDownload(qid) {
+  const p = exPromptFor(qid, 'download'), g = exGroups().find(q => q.qid === qid); if (!p) return;
+  dnDownload(`w${g.a.week}d${g.a.day}_example_add_prompt.txt`, p.text, 'text/plain;charset=utf-8'); dnToast('已下載提示詞（整篇全部，不分批）');
+}
+function exSec() { // 掛在「入庫彙整」頁與「新單字」頁
+  const gs = exGroups(), lost = exLost(), done = exList().filter(exDone), n = exList().length - done.length - lost.length;
+  if (!gs.length && !lost.length && !done.length) return '';
+  const recHtml = r => `<div class="flex items-start gap-1.5 text-xs"><span class="shrink-0">${r.mode === 'manual' ? '✍' : '🤖'}</span><span class="break-words">${r.mode === 'manual' ? `手動輸入：${esc(r.en)}` : `請 AI 新增 ${r.n} 句`}</span><button onclick="exDel('${r.id}')" class="text-slate-400 hover:text-rose-600 shrink-0" title="取消這一筆">✕</button></div>`;
+  let h = `<section class="${card} p-4 mb-4"><h3 class="font-bold text-sm">➕ 例句追加 <span class="text-xs font-normal text-slate-400">${n}</span></h3>
+    <p class="text-xs text-slate-500 mt-1 leading-relaxed">在詳解頁各用法後面按「＋ 例句」加進來的待辦（手動輸入的句子與「請 AI 新增 N 句」）。複製或下載提示詞給 AI：手動輸入的句子由 AI 檢查並補中文翻譯，AI 回傳只追加的 JSON（存成 <code>w?d?_extra.json</code>），用 json_merge.py 合併後，句子就會顯示在該用法底下；英文重複的會自動略過。</p><div class="mt-2">${dnCapCtl()}</div>`;
+  gs.forEach(g => {
+    const its = exItems(g);
+    h += `<div class="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800"><div class="flex flex-wrap items-center justify-between gap-2"><button onclick="dnGoArt('${g.qid}')" class="font-bold text-sm text-indigo-600 dark:text-indigo-400 underline cursor-pointer">${esc(dnArtLabel(g.qid))}</button><div class="flex gap-1.5"><button onclick="exCopy('${g.qid}')" class="${btn} ${dnPri} !py-1 !px-2.5 text-xs">複製 AI 提示詞（${its.length}${dnCapTag(its.length)}）</button><button onclick="exDownload('${g.qid}')" class="${btn} ${dnLine} !py-1 !px-2.5 text-xs">下載提示詞</button></div></div>
+      <div class="mt-2 space-y-2">${its.map(it => `<div><button onclick="dnOpenExtra('${g.qid}',this.dataset.t)" data-t="${esc(it.text)}" class="font-bold text-xs underline decoration-dotted cursor-pointer">${esc(it.text)}</button>${it.us.map(u => `<div class="ml-2 mt-1"><div class="text-[0.6875rem] text-slate-500">${esc(EX_BLK[u.blk].name)}${u.lab && !EX_BLK[u.blk].direct ? '：' + esc(u.lab.replace(/^[^：]*：/, '')) : ''}</div>${u.recs.map(recHtml).join('')}</div>`).join('')}</div>`).join('')}</div></div>`;
+  });
+  if (lost.length) h += `<div class="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800"><p class="text-xs text-rose-600">找不到這些字的詳解（可能已被刪除），可以取消：</p>${lost.map(r => `<div class="flex items-center gap-1.5 text-xs mt-1"><b>${esc(r.text)}</b> ${esc(r.lab || '')}<button onclick="exDel('${r.id}')" class="text-slate-400 hover:text-rose-600" title="取消">✕</button></div>`).join('')}</div>`;
+  if (done.length) h += `<div class="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2"><p class="text-xs text-emerald-700 dark:text-emerald-400">✔ 已完成（已合併進 daily.json）${done.length} 筆</p><button onclick="exClearDone()" class="${btn} !py-1 !px-2.5 text-xs bg-emerald-600 text-white hover:bg-emerald-700">移除已完成</button></div>`;
+  return h + '</section>';
 }
