@@ -100509,14 +100509,26 @@
               "ipa": "/ˌriːkənˈfɜːrm/",
               "pos": "v.",
               "zh": "再確認",
-              "link": "re-（再次）+ confirm，像 redo、rewrite，再確認一次"
+              "link": "re-（再次）+ confirm，像 redo、rewrite，再確認一次",
+              "extra_examples": [
+                {
+                  "en": "Please reconfirm your flight 24 hours before you leave.",
+                  "zh": "請在出發前 24 小時再次確認你的班機。"
+                }
+              ]
             },
             {
               "w": "unconfirmed",
               "ipa": "/ˌʌnkənˈfɜːrmd/",
               "pos": "adj.",
               "zh": "未經確認的",
-              "link": "un-（不）+ confirmed，像 unhappy、unable，還沒確認的"
+              "link": "un-（不）+ confirmed，像 unhappy、unable，還沒確認的",
+              "extra_examples": [
+                {
+                  "en": "The unconfirmed reservation may be canceled without notice.",
+                  "zh": "未經確認的訂位可能會在沒有通知的情況下被取消。"
+                }
+              ]
             }
           ],
           "pos_uses": [],
@@ -100542,6 +100554,16 @@
                 "en": "The test results confirmed that the new design is safe.",
                 "zh": "測試結果證實新設計是安全的。"
               }
+            }
+          ],
+          "ex_done": [
+            {
+              "id": "xmwx09k1a1juz",
+              "result": "added"
+            },
+            {
+              "id": "xmwx09llqynb2",
+              "result": "added"
             }
           ]
         },
@@ -101017,6 +101039,86 @@
               "example": {
                 "en": "Attendance at the trade show reached five thousand visitors this year.",
                 "zh": "今年商展的到場人數達到五千位訪客。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "confirmation number",
+          "type": "phrase",
+          "zh": "確認編號、確認碼",
+          "en": "a number that shows your booking or payment is accepted",
+          "note": "預訂、報名或付款完成後，系統會給一組確認編號，之後查詢或更改時要用。它和文章中的 confirm（確認出席）是同一個字根，意思是「已確認」的證明號碼。",
+          "pattern": "keep / provide / enter + your confirmation number",
+          "grammar_note": "confirmation 是名詞，這裡當修飾語放在 number 前面，所以不加 s（不寫 confirmations number）；有指定哪一組時用 the 或 your。",
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "You will receive a confirmation number by e-mail after you register.",
+              "zh": "你註冊後會收到一封含確認編號的電子郵件。"
+            },
+            {
+              "tag": "飯店",
+              "en": "The hotel asked for my confirmation number at check-in.",
+              "zh": "飯店在辦理入住時請我提供確認編號。"
+            },
+            {
+              "tag": "客服電話",
+              "en": "I need your confirmation number to check the booking.",
+              "zh": "我需要你的確認編號才能查詢這筆預訂。"
+            },
+            {
+              "tag": "線上付款",
+              "en": "Please write down the confirmation number on the screen.",
+              "zh": "請把螢幕上的確認編號記下來。"
+            },
+            {
+              "tag": "出差",
+              "en": "Bring your confirmation number to the airport counter for faster service.",
+              "zh": "帶著確認編號到機場櫃檯，可以更快辦理。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "booking number",
+              "diff": "常用在飯店、機票、餐廳訂位；confirmation number 範圍更廣，付款或報名也能用。",
+              "example": {
+                "en": "Please give me your booking number for the flight.",
+                "zh": "請給我你這班航班的訂位編號。"
+              }
+            },
+            {
+              "phrase": "reference number",
+              "diff": "用來查詢客服案件、申請或文件，不一定代表已經確認；語氣較正式。",
+              "example": {
+                "en": "Please quote this reference number when you call our office.",
+                "zh": "打電話到我們辦公室時，請告知這個參考編號。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "tracking number",
+              "diff": "tracking number 是包裹的追蹤號碼，用來查貨物到哪裡；confirmation number 是證明預訂或付款成功。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "Use the tracking number to see where your package is.",
+                "zh": "用追蹤編號可以查看你的包裹在哪裡。"
+              }
+            },
+            {
+              "word": "confirm",
+              "ipa": "/kənˈfɜːrm/",
+              "diff": "confirm 是動詞「確認」；confirmation 是名詞「確認、確認書」，要接 number 才是號碼。",
+              "kind": [
+                "root"
+              ],
+              "usage": "confirm 是動詞，後面接受詞；confirmation number 裡的 confirmation 是名詞，當修飾語用。",
+              "example": {
+                "en": "Please confirm your booking by replying to this e-mail.",
+                "zh": "請回覆這封電子郵件以確認你的預訂。"
               }
             }
           ]

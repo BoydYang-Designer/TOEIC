@@ -694,7 +694,8 @@ def collect_entries(root, items):
                                             confusable=v.get("confusable") or [], similar=v.get("similar") or [],
                                             en=str(v.get("en") or "").strip(), en2=str(v.get("en2") or "").strip(), key_words=v.get("key_words") or [], paraphrase=v.get("paraphrase") or [],
                                             pos_uses=v.get("pos_uses") or [], senses=v.get("senses") or [],
-                                            lemma=str(v.get("lemma") or "").strip())
+                                            lemma=str(v.get("lemma") or "").strip(),
+                                            usage_ctx=[str(u.get("ctx") or "").strip() for u in (v.get("usages") or []) if isinstance(u, dict) and str(u.get("ctx") or "").strip()])
     for f in sorted(root.glob("daily-marks*.json")):
         try:
             j = json.loads(f.read_text(encoding="utf-8-sig"))
@@ -753,6 +754,9 @@ def plan_daily(root: Path):
                 want.append((shared(e["lemma"]), speak_text(e["lemma"])))  # 原形的發音
             if MAKE_CTX and e["type"] != "sentence" and e["ctx"]:
                 want.append((f"{slug(e['ctx'])}.mp3", e["ctx"]))   # 所在句：依句子內容命名（與入庫的整句共用同一檔）
+            if MAKE_CTX and e["type"] != "sentence":
+                for uc in e.get("usage_ctx") or []:   # 別篇的所在句（usages[].ctx）：詳解頁「在文章裡」接續顯示，🔊 播的是同一種檔名
+                    want.append((f"{slug(uc)}.mp3", uc))
             if MAKE_EXAMPLES:
                 for k, ex in enumerate(e["examples"], 1):
                     en = ex if isinstance(ex, str) else (ex or {}).get("en")

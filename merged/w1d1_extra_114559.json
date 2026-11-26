@@ -1,0 +1,41 @@
+{
+  "week": 1,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "confirm",
+      "example_add": [
+        {
+          "block": "derived",
+          "w": "reconfirm",
+          "examples": [
+            {
+              "en": "Please reconfirm your flight 24 hours before you leave.",
+              "zh": "請在出發前 24 小時再次確認你的班機。"
+            }
+          ]
+        },
+        {
+          "block": "derived",
+          "w": "unconfirmed",
+          "examples": [
+            {
+              "en": "The unconfirmed reservation may be canceled without notice.",
+              "zh": "未經確認的訂位可能會在沒有通知的情況下被取消。"
+            }
+          ]
+        }
+      ],
+      "ex_done": [
+        {
+          "id": "xmwx09k1a1juz",
+          "result": "added"
+        },
+        {
+          "id": "xmwx09llqynb2",
+          "result": "added"
+        }
+      ]
+    }
+  ]
+}

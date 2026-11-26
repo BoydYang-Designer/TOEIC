@@ -630,8 +630,8 @@ const dnIpaGap = (e, withSenses) => {
 const dnCkindGap = e => { const cf = dnArr(e && e.confusable); return cf.length > 0 && !cf.every(dnKindOk); }; // 有易混淆、但有任何一筆沒有合法的 kind
 const dnCkindOfMark = m => { const x = dnArt(m.qid), e = x && dnFindExtraAny(x, m.text); return !!(e && (m.type === 'word' || m.type === 'phrase') && dnIsPrimary(m) && dnCkindGap(e)); };
 const dnKindChips = o => dnArr(o && o.kind).filter(k => DN_KIND[k]).map(k => ` <span class="${dnChip} !bg-sky-100 !text-sky-800 dark:!bg-sky-950 dark:!text-sky-300">${DN_KIND[k]}</span>`).join('');
-function dnGapsOf(m) {
-  const x = dnArt(m.qid), e = x && dnFindExtraAny(x, m.text); if (!e || !dnIsPrimary(m)) return [];
+function dnGapsOf(m, force) { // force＝true：詳解頁單一字的維護用，不檢查是不是「主入庫」
+  const x = dnArt(m.qid), e = x && dnFindExtraAny(x, m.text); if (!e || (!force && !dnIsPrimary(m))) return [];
   if (m.type === 'sentence') return dnSentGaps(e);
   const g = [];
   if (!(e.en && String(e.en).trim())) g.push('en');
@@ -1235,17 +1235,50 @@ function dnRevisePrompt(note) {
   ].join('\n');
   return base.replace('【輸出格式】', () => block + '\n\n【輸出格式】');
 }
+/* ---------- 這個字的其他維護（同一個回報視窗）：補齊缺漏、例句／搭配追加待辦 ---------- */
+function dnWordMark(C) { const now = Date.now(); return { id: '~rv', qid: idOf(C.s), text: C.text, type: C.type, ctx: C.ctx, from: 0, to: 0, note: '', created: now, updated: now }; }
+function dnWordGaps(C) { // 這個字目前缺哪些內容（連預設不勾選的「同字族例句」「易混淆分類」也算）
+  const f = DN.fill, keep = { dex: f.dex, ckind: f.ckind };
+  try { f.dex = true; f.ckind = true; return dnGapsOf(dnWordMark(C), true); } finally { f.dex = keep.dex; f.ckind = keep.ckind; }
+}
+function dnWordGapCopy() {
+  const C = dnReviseCtx(); if (!C) return;
+  const g = dnWordGaps(C); if (!g.length) { dnToast('這個字沒有缺漏的內容'); return; }
+  const t = dnPrompt(idOf(C.s), new Set(), false, [{ m: dnWordMark(C), fill: g }]); if (!t) return;
+  auCopy(t); dnToast('已複製補齊提示詞（' + g.length + ' 項），貼給 AI');
+}
+function dnWordExGroup(C) { // 例句／搭配追加待辦裡，屬於這個字的那一份（沒有 → null）
+  const k = dnKey(C.text), g = exGroups().find(q => idOf(q.a) === idOf(C.s) && q.ents.has(k)) || exGroups().find(q => q.ents.has(k));
+  return g ? Object.assign({}, g, { ents: new Map([[k, g.ents.get(k)]]) }) : null;
+}
+function dnWordExCopy() {
+  const C = dnReviseCtx(); if (!C) return;
+  const g = dnWordExGroup(C); if (!g) { dnToast('這個字沒有例句／搭配追加的待辦'); return; }
+  auCopy(exPrompt(g, null)); dnToast('已複製這個字的例句／搭配追加提示詞，貼給 AI');
+}
 function dnReviseCopy() {
   const t = dnRevisePrompt((document.getElementById('dn-n') || {}).value); if (!t) return; // dn-n＝回報視窗的「描述問題」
   auCopy(t); dnToast('已複製重整提示詞（含現有詳解），貼給 AI');
 }
+function dnWordMaintRows(C, b) { // ② 補齊缺漏　③ 例句／搭配追加（只複製這個字的）
+  const gaps = dnWordGaps(C), g = dnWordExGroup(C), nEx = g ? g.ents.get(dnKey(C.text)).recs.length : 0;
+  const row = (t, body) => `<div class="mt-3 pt-3 border-t border-indigo-200 dark:border-indigo-900"><p class="text-xs font-semibold text-slate-600 dark:text-slate-300">${t}</p>${body}</div>`;
+  return row('② 補齊缺漏（只補沒有的欄位，其他原樣）', gaps.length
+      ? `<p class="mt-1 text-xs text-slate-500 leading-relaxed">缺：${gaps.map(k => esc(dnFillKeys[k] || k)).join('、')}</p><div class="mt-2"><button onclick="dnWordGapCopy()" class="${b} ${dnPri} cursor-pointer">複製補齊提示詞（${gaps.length} 項）</button></div>`
+      : `<p class="mt-1 text-xs text-emerald-700 dark:text-emerald-400">✔ 這個字沒有缺漏的內容</p>`)
+    + row('③ 例句／搭配追加（詳解頁「＋ 例句」「＋ 搭配」的待辦）', nEx
+      ? `<p class="mt-1 text-xs text-slate-500 leading-relaxed">待處理 ${nEx} 筆，提示詞只包含這個字。</p><div class="mt-2"><button onclick="dnWordExCopy()" class="${b} ${dnPri} cursor-pointer">複製追加提示詞（${nEx} 筆）</button></div>`
+      : `<p class="mt-1 text-xs text-slate-500 leading-relaxed">目前沒有待辦。在詳解頁各用法後面按「＋ 例句」、常用搭配按「＋ 搭配」加入後，這裡就能複製。</p>`);
+}
 function dnReviseBox() { // 放在「⚑ 回報問題」視窗裡（從詳解頁按回報、而且這個字已有詳解時才有）；上面「描述問題」的內容會一起寫進提示詞
   const C = dnReviseCtx(); if (!C) return '';
   const b = 'text-xs rounded-lg px-2.5 py-1';
-  return `<details open class="rounded-lg border border-indigo-200 dark:border-indigo-900 bg-indigo-50/50 dark:bg-indigo-950/20 p-3 mb-3"><summary class="cursor-pointer select-none text-sm font-semibold text-indigo-700 dark:text-indigo-300">🔧 重整「${esc(C.text)}」的詳解（請 AI 修正後重新合併）</summary>
-    <p class="mt-2 text-xs text-slate-500 leading-relaxed">上面「描述問題」寫的內容會一起放進提示詞；不寫＝請 AI 全面檢查。這個視窗不用關，也可以同時送出回報。</p>
+  return `<details open class="rounded-lg border border-indigo-200 dark:border-indigo-900 bg-indigo-50/50 dark:bg-indigo-950/20 p-3 mb-3"><summary class="cursor-pointer select-none text-sm font-semibold text-indigo-700 dark:text-indigo-300">🔧 維護「${esc(C.text)}」的詳解（複製這個字的 AI 提示詞）</summary>
+    <p class="mt-2 text-xs font-semibold text-slate-600 dark:text-slate-300">① 重整（修正錯誤）</p>
+    <p class="mt-1 text-xs text-slate-500 leading-relaxed">上面「描述問題」寫的內容會一起放進提示詞；不寫＝請 AI 全面檢查。這個視窗不用關，也可以同時送出回報。</p>
     <div class="flex flex-wrap gap-2 mt-2"><button onclick="dnReviseCopy()" class="${b} ${dnPri} cursor-pointer">複製重整提示詞（含現有詳解）</button><button onclick="dnReviseDl()" class="${dnSm}">⬇ 下載現有詳解 JSON</button><button onclick="dnReviseCopyJson()" class="${dnSm}">複製現有詳解 JSON</button></div>
-    <p class="mt-2 text-[0.6875rem] text-slate-400 leading-relaxed">流程：複製提示詞 → 貼給 AI → AI 回傳 w${C.s.week}d${C.s.day}_extra.json → 放進 json_merge.py 所在資料夾合併（同一個字整筆取代舊的）。「下載」是把現在這筆存成同格式的檔案，可當附件給 AI 或備份。</p></details>`;
+    <p class="mt-2 text-[0.6875rem] text-slate-400 leading-relaxed">流程：複製提示詞 → 貼給 AI → AI 回傳 w${C.s.week}d${C.s.day}_extra.json → 放進 json_merge.py 所在資料夾合併（同一個字整筆取代舊的）。「下載」是把現在這筆存成同格式的檔案，可當附件給 AI 或備份。</p>
+    ${dnWordMaintRows(C, b)}</details>`;
 }
 /* 詳解頁「在文章裡」要顯示的所在句：入庫時存的 ctx 若沒有、或只是文章裡那一句的片段（例如只存「caught up」），改用文章裡這個字所在的完整一句。
    詳解頁（dnRenderDetail）與語音練習計分（pron.js 的 prDetailKeys）共用這一份，顯示的句子、🔊 的 mp3、評分的項目才會是同一句。 */
@@ -1282,16 +1315,24 @@ function dnRenderDetail() {
       <div class="mt-2 flex flex-wrap gap-2">${(m || D.base || isLib(x)) ? `<button onclick="dnCopyOne()" class="text-xs rounded-lg px-2.5 py-1 ${dnPri} cursor-pointer">複製 AI 提示詞（這個字）</button>` : ''}${m ? `<button onclick="dnNav('marks')" class="${dnSm}">前往 📌 入庫彙整</button>` : D.base ? `<button onclick="${D.kind === 'pp' ? 'dnAddFromPP' : 'dnAddFromVocab'}(${D.i})" class="${dnSm}">＋ 入庫（請 AI 補詳解）</button>` : ''}</div></div>`;
   }
   if (ex && src && src !== x) h += `<p class="rounded-lg bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 text-xs px-3 py-2 mb-3">${isLib(src) ? '這個字的詳解來自「TSL 字庫」（通用說明），這裡沿用同一份。' : `這個字已在 ${dnLabel(src)} 入庫並寫好詳解，這裡沿用同一份。「說明」寫的是當時那篇的用法。`}</p>`;
-  h += sec('在文章裡', ctx ? `<div class="flex items-start gap-2"><p class="text-sm leading-relaxed flex-1">${dnHiCtx(ctx, e.text, T === 'sentence' ? null : x)}</p>${T === 'sentence' ? '' : `<button onclick="vplay('${idOf(x)}', this.dataset.t, '_ctx', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(ctx)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button>`}</div>${T !== 'sentence' && dnCtxPhrases(ctx, e.text, x).length ? '<p class="mt-1.5 text-[0.6875rem] text-slate-400">紫色底線＝這一句裡本篇已入庫的片語，點一下看詳解</p>' : ''}` : '');
+  const primaryHtml = ctx ? `<div class="flex items-start gap-2"><p class="text-sm leading-relaxed flex-1">${dnHiCtx(ctx, e.text, T === 'sentence' ? null : x)}</p>${T === 'sentence' ? '' : `<button onclick="vplay('${idOf(x)}', this.dataset.t, '_ctx', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(ctx)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button>`}</div>${T !== 'sentence' && dnCtxPhrases(ctx, e.text, x).length ? '<p class="mt-1.5 text-[0.6875rem] text-slate-400">紫色底線＝這一句裡本篇已入庫的片語，點一下看詳解</p>' : ''}` : '';
   { // 其他文章的用法：usages＝AI 依「新單字備註」寫回的各篇所在句＋解說；別篇已入庫、AI 還沒寫回的，先列所在句並標「待 AI 補解說」
     const uk = t => { const mm = /W(\d+)\D+(\d+)/i.exec(String(t || '')); return mm ? mm[1] + '-' + mm[2] : String(t || '').trim(); };
     const us = T === 'sentence' ? [] : dnArr(e.usages).filter(u => u && typeof u === 'object' && (u.zh || u.ctx));
     const done = new Set(us.map(u => uk(u.src))), owner = idOf(xs), kk = dnKey(e.text);
     const pend = T === 'sentence' ? [] : dnMarks().filter(q => q.type !== 'sentence' && dnKey(q.text) === kk && dnArt(q.qid) && !isLib(dnArt(q.qid)) && q.qid !== owner && !done.has(uk(dnLabel(dnArt(q.qid)))));
-    const row = (lab, a, ctx, zh, wait) => `<li class="border-l-2 border-indigo-300 dark:border-indigo-700 pl-3"><div class="flex flex-wrap items-center gap-1.5 mb-0.5">${a ? `<button onclick="dnGoArt('${idOf(a)}')" class="${dnChip} underline cursor-pointer">${esc(lab)}</button>` : `<span class="${dnChip}">${esc(lab)}</span>`}${a && idOf(a) === idOf(x) ? '<span class="text-[0.6875rem] text-slate-400">（本篇）</span>' : ''}${wait ? '<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">待 AI 補解說</span>' : ''}</div>${ctx ? `<div class="flex items-start gap-2"><p class="text-sm leading-relaxed flex-1">${dnHiCtx(ctx, e.text)}</p><button onclick="vplay('${idOf(x)}', this.dataset.t, '_ctx', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(ctx)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button></div>` : ''}${zh ? `<p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed whitespace-pre-line">${esc(zh)}</p>` : ''}</li>`;
-    const rows = us.map(u => { const mm = /W(\d+)\D+(\d+)/i.exec(String(u.src || '')), a = mm ? find(+mm[1], +mm[2]) : null; return row(a ? dnLabel(a) : String(u.src || '另一篇'), a, u.ctx, u.zh, false); })
-      .concat(pend.map(q => row(dnLabel(dnArt(q.qid)), dnArt(q.qid), q.ctx, '', true)));
-    h += sec('其他文章的用法', rows.length ? `<ul class="space-y-3">${rows.join('')}</ul>` : (T !== 'sentence' && isLib(xs) ? '<p class="text-xs text-slate-400">還沒有文章用到這個字；之後有文章入庫，句子會出現在這裡。</p>' : ''));
+    const row = (lab, a, ctx, zh, wait, px) => `<li class="border-l-2 border-indigo-300 dark:border-indigo-700 pl-3"><div class="flex flex-wrap items-center gap-1.5 mb-0.5">${a ? `<button onclick="dnGoArt('${idOf(a)}')" class="${dnChip} underline cursor-pointer">${esc(lab)}</button>` : `<span class="${dnChip}">${esc(lab)}</span>`}${a && idOf(a) === idOf(x) ? '<span class="text-[0.6875rem] text-slate-400">（本篇）</span>' : ''}${wait ? '<span class="text-[0.6875rem] font-semibold rounded px-1.5 py-0.5 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">待 AI 補解說</span>' : ''}</div>${ctx ? `<div class="flex items-start gap-2"><p class="text-sm leading-relaxed flex-1">${dnHiCtx(ctx, e.text, px)}</p><button onclick="vplay('${idOf(x)}', this.dataset.t, '_ctx', this.dataset.w)" data-t="${esc(e.text)}" data-w="${esc(ctx)}" class="text-slate-400 hover:text-indigo-600 shrink-0" aria-label="發音">🔊</button></div>` : ''}${zh ? `<p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed whitespace-pre-line">${esc(zh)}</p>` : ''}</li>`;
+    // 「在文章裡」＝本篇那一句，接續其他文章的句子（同一區塊，不再另開「其他文章的用法」）：別篇入庫就自動接在後面；AI 補好的解說（usages）會顯示在該句下面
+    const ck = s => String(s || '').toLowerCase().replace(/\s+/g, ' ').trim(), seenC = new Set(ctx ? [ck(ctx)] : []);
+    const ord = a => a ? a.week * 100 + a.day : 1e6;
+    const others = us.map(u => { const mm = /W(\d+)\D+(\d+)/i.exec(String(u.src || '')), a = mm ? find(+mm[1], +mm[2]) : null; return { lab: a ? dnLabel(a) : String(u.src || '另一篇'), a, ctx: u.ctx, zh: u.zh, wait: false }; })
+      .concat(pend.map(q => ({ lab: dnLabel(dnArt(q.qid)), a: dnArt(q.qid), ctx: q.ctx, zh: '', wait: true })))
+      .filter(o => { const k = ck(o.ctx); if (k && seenC.has(k)) return false; if (k) seenC.add(k); return true; }) // 與前面重複的句子只留一次
+      .sort((p, q) => ord(p.a) - ord(q.a));
+    const rows = (ctx && others.length ? [row(dnLabel(x), x, ctx, '', false, x)] : []).concat(others.map(o => row(o.lab, o.a, o.ctx, o.zh, o.wait)));
+    h += sec('在文章裡', others.length
+      ? `<ul class="space-y-3">${rows.join('')}</ul>${T !== 'sentence' && ctx && dnCtxPhrases(ctx, e.text, x).length ? '<p class="mt-2 text-[0.6875rem] text-slate-400">紫色底線＝這一句裡本篇已入庫的片語，點一下看詳解</p>' : ''}`
+      : (primaryHtml || (T !== 'sentence' && isLib(xs) ? '<p class="text-xs text-slate-400">還沒有文章用到這個字；之後有文章入庫，句子會接在這裡。</p>' : '')));
   }
   h += sec(T === 'sentence' ? '語氣與用途' : '說明', e.note ? `<p class="text-sm leading-relaxed whitespace-pre-line">${esc(e.note)}</p>` : '');
   const chs = dnArr(e.chunks).filter(c => c && typeof c === 'object' && c.en);
