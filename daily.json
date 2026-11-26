@@ -100056,6 +100056,30 @@
                 "en": "Our team will submit a proposal to the client next week.",
                 "zh": "我們的團隊下週會向客戶提交一份企劃書。"
               }
+            },
+            {
+              "phrase": "submit to a decision",
+              "zh": "接受一項決定",
+              "example": {
+                "en": "Both companies agreed to submit to a decision made by the committee.",
+                "zh": "兩家公司同意接受委員會做出的決定。"
+              }
+            },
+            {
+              "phrase": "submit to authority",
+              "zh": "服從權威、聽從上級",
+              "example": {
+                "en": "Staff must submit to authority when safety rules are not clear.",
+                "zh": "當安全規定不明確時，員工必須聽從上級的指示。"
+              }
+            },
+            {
+              "phrase": "submit to the rules",
+              "zh": "遵守規定",
+              "example": {
+                "en": "All visitors must submit to the rules of the building.",
+                "zh": "所有訪客都必須遵守大樓的規定。"
+              }
             }
           ],
           "examples": [
@@ -100100,6 +100124,7 @@
             },
             {
               "word": "hand in",
+              "ipa": "/send/",
               "diff": "hand in 是口語說法，意思接近，但 submit 更適合公文與書面通知。",
               "kind": [
                 "meaning"
@@ -100148,7 +100173,17 @@
               "ipa": "/ˌriːsəbˈmɪt/",
               "pos": "v.",
               "zh": "重新提交",
-              "link": "re-（再次）+ submit，像 redo、rewrite，重新提交一次"
+              "link": "re-（再次）+ submit，像 redo、rewrite，重新提交一次",
+              "example": {
+                "en": "Please resubmit the form after you correct the missing information.",
+                "zh": "請在補上缺漏的資料後重新提交表格。"
+              },
+              "extra_examples": [
+                {
+                  "en": "You may resubmit your proposal if the client asks for changes.",
+                  "zh": "如果客戶要求修改，你可以重新提交你的企劃書。"
+                }
+              ]
             }
           ],
           "pos_uses": [],
@@ -100173,7 +100208,43 @@
               "example": {
                 "en": "All visitors must submit to a security check at the gate.",
                 "zh": "所有訪客都必須在大門接受安全檢查。"
-              }
+              },
+              "extra_examples": [
+                {
+                  "en": "Every supplier must submit to our quality inspection before shipping.",
+                  "zh": "每家供應商在出貨前都必須接受我們的品質檢驗。"
+                },
+                {
+                  "en": "He is submitting to the new company policies without any complaints.",
+                  "zh": "他毫無怨言地接受公司的新規定。"
+                }
+              ]
+            }
+          ],
+          "ex_done": [
+            {
+              "id": "xmwx4gm88zsac",
+              "result": "added"
+            },
+            {
+              "id": "xmwx4h0tknrz5",
+              "result": "added"
+            },
+            {
+              "id": "xmwx4r3m26dac",
+              "result": "added"
+            },
+            {
+              "id": "xmwx4rdos3k22",
+              "result": "added"
+            },
+            {
+              "id": "xmwx4rmi3ec1j",
+              "result": "added"
+            },
+            {
+              "id": "xmwx4v9o8afur",
+              "result": "added"
             }
           ]
         },
