@@ -100398,6 +100398,32 @@
                 "en": "Construction of the new office building will take about a year.",
                 "zh": "新辦公大樓的興建大約要花一年。"
               }
+            },
+            {
+              "word": "revolution",
+              "ipa": "/ˌrevəˈluːʃən/",
+              "diff": "revolution 是革命、重大變革；renovation 是把建築或場所整修翻新，兩個字拼法與發音都很像。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "Mobile payments caused a revolution in the retail industry.",
+                "zh": "行動支付為零售業帶來了一場重大變革。"
+              }
+            },
+            {
+              "word": "evolution",
+              "ipa": "/ˌevəˈluːʃən/",
+              "diff": "evolution 是長時間慢慢演變、發展；renovation 是把建築或場所整修翻新，兩個字都是四音節、重音在第三音節，字尾也相同。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The evolution of our company has been slow but steady.",
+                "zh": "我們公司的演進雖然緩慢，卻很穩健。"
+              }
             }
           ],
           "family": [
@@ -100434,7 +100460,17 @@
           ],
           "derived": [],
           "pos_uses": [],
-          "senses": []
+          "senses": [],
+          "nw_done": [
+            {
+              "id": "nmwx9a5yfzwz0",
+              "result": "added"
+            },
+            {
+              "id": "nmwx9o0opb93t",
+              "result": "added"
+            }
+          ]
         },
         {
           "text": "confirm",
@@ -101540,6 +101576,1221 @@
               "example": {
                 "en": "Personnel will contact you about your first day of work.",
                 "zh": "人事部會聯絡你有關第一天上班的事。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "revolution",
+          "type": "word",
+          "ipa": "/ˌrevəˈluːʃən/",
+          "pos": "n.",
+          "zh": "革命；重大變革",
+          "en": "a very big change in the way people do or think about something",
+          "note": "在商務情境多半指科技或產業的重大變革，如 digital revolution。拼法和發音都很像文章裡的 renovations（整修），要特別分清楚：revolution 是變革，renovation 是翻新整修。",
+          "grammar_note": "「某領域的重大變革」要用 a revolution in + 名詞，介系詞用 in，不用 of。",
+          "forms": [
+            {
+              "w": "revolutions",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "變革（複數）",
+              "ipa": "/ˌrevəˈluːʃənz/",
+              "example": {
+                "en": "Several revolutions in technology have changed how we shop.",
+                "zh": "科技上的幾次重大變革改變了我們購物的方式。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "industrial revolution",
+              "zh": "工業革命",
+              "example": {
+                "en": "The industrial revolution changed the way factories make products.",
+                "zh": "工業革命改變了工廠製造產品的方式。"
+              }
+            },
+            {
+              "phrase": "digital revolution",
+              "zh": "數位革命",
+              "example": {
+                "en": "The digital revolution has made online shopping part of daily life.",
+                "zh": "數位革命讓網路購物成為日常生活的一部分。"
+              }
+            },
+            {
+              "phrase": "start a revolution",
+              "zh": "引發一場變革",
+              "example": {
+                "en": "This small device could start a revolution in the printing business.",
+                "zh": "這個小裝置可能在印刷業引發一場變革。"
+              }
+            },
+            {
+              "phrase": "technological revolution",
+              "zh": "科技革命",
+              "example": {
+                "en": "Every company must adapt to the technological revolution to stay competitive.",
+                "zh": "每家公司都必須適應科技革命，才能保持競爭力。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "Our new system is causing a revolution in how we handle orders.",
+              "zh": "我們的新系統正在徹底改變處理訂單的方式。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Online shopping brought a revolution to the retail industry.",
+              "zh": "網路購物為零售業帶來了重大變革。"
+            },
+            {
+              "tag": "新聞",
+              "en": "Experts say electric cars will lead to a revolution in transportation.",
+              "zh": "專家說電動車將帶來交通運輸的重大變革。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "major change",
+              "diff": "major change 語氣中性，只說變化很大；revolution 強調徹底、劇烈地改變。",
+              "example": {
+                "en": "The new policy is a major change for all our branches.",
+                "zh": "這項新政策對我們所有分公司都是一大改變。"
+              }
+            },
+            {
+              "word": "breakthrough",
+              "ipa": "/ˈbreɪkθruː/",
+              "diff": "breakthrough 指重大突破或新發現；revolution 指整個做法或產業被徹底改變。",
+              "example": {
+                "en": "The new battery was a breakthrough for the electric car industry.",
+                "zh": "這款新電池是電動車產業的重大突破。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "renovation",
+              "ipa": "/ˌrɛnəˈveɪʃən/",
+              "diff": "renovation 是把建築或房間整修翻新；revolution 是革命或重大變革，兩個字拼法與發音都很像。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The hotel closed for a three-month renovation of all its rooms.",
+                "zh": "這家飯店為了全面整修客房而休業三個月。"
+              }
+            },
+            {
+              "word": "evolution",
+              "ipa": "/ˌevəˈluːʃən/",
+              "diff": "evolution 是慢慢的演變、逐步發展；revolution 是突然而徹底的重大變革。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The evolution of our product took ten years of small improvements.",
+                "zh": "我們產品的演進經歷了十年一點一滴的改良。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "change",
+              "pos": "n.",
+              "zh": "改變",
+              "ipa": "/tʃeɪndʒ/",
+              "example": {
+                "en": "The company announced a big change in its schedule.",
+                "zh": "公司宣布了時程上的一項重大改變。"
+              }
+            },
+            {
+              "w": "innovation",
+              "pos": "n.",
+              "zh": "創新",
+              "ipa": "/ˌɪnəˈveɪʃən/",
+              "example": {
+                "en": "Innovation helps our company stay ahead of its competitors.",
+                "zh": "創新讓我們公司能領先競爭對手。"
+              }
+            },
+            {
+              "w": "trend",
+              "pos": "n.",
+              "zh": "趨勢",
+              "ipa": "/trend/",
+              "example": {
+                "en": "Online sales are a growing trend in our industry.",
+                "zh": "網路銷售是我們產業中日益成長的趨勢。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "revolutionary",
+              "ipa": "/ˌrevəˈluːʃəneri/",
+              "pos": "adj.",
+              "zh": "革命性的、創新的",
+              "link": "revolution + -ary，變成形容詞「有革命性的」，像 necessary、customary",
+              "example": {
+                "en": "This revolutionary software saves us hours of work every week.",
+                "zh": "這套革命性的軟體每週為我們省下好幾個小時的工作。"
+              }
+            },
+            {
+              "w": "revolutionize",
+              "ipa": "/ˌrevəˈluːʃənaɪz/",
+              "pos": "v.",
+              "zh": "徹底改革",
+              "link": "revolution + -ize，變成動詞「使徹底改變」，像 organize、finalize",
+              "example": {
+                "en": "The internet has revolutionized the way we do business.",
+                "zh": "網際網路徹底改變了我們做生意的方式。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˌrevəˈluːʃən/",
+              "zh": "重大變革、徹底改變",
+              "en": "a very big change in the way people do or think about something",
+              "example": {
+                "en": "Cloud storage created a revolution in how offices keep their files.",
+                "zh": "雲端儲存徹底改變了辦公室保存檔案的方式。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˌrevəˈluːʃən/",
+              "zh": "革命",
+              "en": "an attempt by many people to change a government by force",
+              "distinguish": "談政治或歷史時是「革命」；談產品、科技、產業時是「重大變革」。",
+              "example": {
+                "en": "The factory was closed during the revolution many years ago.",
+                "zh": "這間工廠在多年前的革命期間關閉了。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "evolution",
+          "type": "word",
+          "ipa": "/ˌevəˈluːʃən/",
+          "pos": "n.",
+          "zh": "演變、逐步發展；進化",
+          "en": "slow change and development over a long time",
+          "note": "在商務情境常指產品、公司或市場一步一步慢慢演變，語氣中性、偏正式。拼法和發音很像文章裡的 renovations（整修），但意思完全不同。",
+          "grammar_note": "evolution 通常不可數；說明「什麼的演變」時用 the evolution of + 名詞，介系詞用 of。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "gradual evolution",
+              "zh": "漸進的演變",
+              "example": {
+                "en": "The company's gradual evolution made it a leader in online sales.",
+                "zh": "公司漸進的演變讓它成為網路銷售的龍頭。"
+              }
+            },
+            {
+              "phrase": "rapid evolution",
+              "zh": "快速的演變",
+              "example": {
+                "en": "The rapid evolution of mobile phones surprised many manufacturers.",
+                "zh": "手機的快速演進讓許多製造商感到意外。"
+              }
+            },
+            {
+              "phrase": "the evolution of technology",
+              "zh": "科技的演進",
+              "example": {
+                "en": "We study the evolution of technology to plan our future products.",
+                "zh": "我們研究科技的演進，來規劃未來的產品。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "The report describes the evolution of our customer service over five years.",
+              "zh": "報告說明了我們的客戶服務這五年來的演變。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "I would like to discuss the evolution of our marketing plan.",
+              "zh": "我想討論一下我們行銷計畫的演變。"
+            },
+            {
+              "tag": "簡報",
+              "en": "The evolution from paper files to cloud storage saved us time.",
+              "zh": "從紙本檔案演進到雲端儲存，為我們省下了時間。"
+            }
+          ],
+          "similar": [
+            {
+              "word": "development",
+              "ipa": "/dɪˈveləpmənt/",
+              "diff": "development 是較廣的「發展、開發」，不一定很慢；evolution 強調長時間一步一步的演變。",
+              "example": {
+                "en": "The development of the new product took two years.",
+                "zh": "這項新產品的開發花了兩年。"
+              }
+            },
+            {
+              "phrase": "gradual change",
+              "diff": "gradual change 是白話的說法，只說慢慢改變；evolution 較正式，也帶有「演進」的整體過程。",
+              "example": {
+                "en": "A gradual change in customer habits affected our sales.",
+                "zh": "顧客習慣的逐漸改變影響了我們的銷售。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "revolution",
+              "ipa": "/ˌrevəˈluːʃən/",
+              "diff": "revolution 是突然而徹底的重大變革；evolution 是慢慢的演變，兩個字只差一個字母。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The revolution in online shopping happened almost overnight.",
+                "zh": "網路購物的重大變革幾乎在一夜之間發生。"
+              }
+            },
+            {
+              "word": "renovation",
+              "ipa": "/ˌrɛnəˈveɪʃən/",
+              "diff": "renovation 是把建築或房間整修翻新；evolution 是慢慢的演變，不是修理東西。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The renovation of the lobby will finish by the end of May.",
+                "zh": "大廳的整修會在五月底前完成。"
+              }
+            },
+            {
+              "word": "evaluation",
+              "ipa": "/ɪˌvæljuˈeɪʃən/",
+              "diff": "evaluation 是評估、考核；evolution 是演變，兩個字開頭和字尾都很像。",
+              "kind": [
+                "spell"
+              ],
+              "example": {
+                "en": "Your performance evaluation is scheduled for next Monday morning.",
+                "zh": "你的績效評估安排在下週一早上。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "change",
+              "pos": "n.",
+              "zh": "改變",
+              "ipa": "/tʃeɪndʒ/",
+              "example": {
+                "en": "We made several changes to the schedule this week.",
+                "zh": "這週我們對時程做了幾項改變。"
+              }
+            },
+            {
+              "w": "growth",
+              "pos": "n.",
+              "zh": "成長",
+              "ipa": "/ɡroʊθ/",
+              "example": {
+                "en": "The company reported strong growth in the last quarter.",
+                "zh": "公司報告上一季有強勁的成長。"
+              }
+            },
+            {
+              "w": "progress",
+              "pos": "n.",
+              "zh": "進展",
+              "ipa": "/ˈprɑːɡres/",
+              "example": {
+                "en": "We are making good progress on the new project.",
+                "zh": "我們在新專案上進展順利。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "evolve",
+              "ipa": "/ɪˈvɑːlv/",
+              "pos": "v.",
+              "zh": "逐漸演變、發展",
+              "link": "evolve 是動詞，evolution 是把 -ve 換成 -ution 的名詞，像 solve → solution",
+              "example": {
+                "en": "Our business model must evolve as the market changes.",
+                "zh": "隨著市場改變，我們的商業模式必須逐步演進。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˌevəˈluːʃən/",
+              "zh": "演變、逐步發展",
+              "en": "slow change and development of something over time",
+              "example": {
+                "en": "The evolution of the market forced us to change our prices.",
+                "zh": "市場的演變迫使我們調整價格。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˌevəˈluːʃən/",
+              "zh": "（生物的）進化",
+              "en": "the way living things slowly change over millions of years",
+              "distinguish": "談動物、植物或科學時是「進化」；談公司、產品、市場時是「演變」。",
+              "example": {
+                "en": "Scientists study the evolution of animals over millions of years.",
+                "zh": "科學家研究動物數百萬年來的進化。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "cloud storage",
+          "type": "phrase",
+          "zh": "雲端儲存",
+          "en": "a service that keeps your files on the internet instead of on your own computer",
+          "note": "辦公室常用的科技說法，指把檔案存在網路上，隨時能從不同地方打開。在談論工作方式如何改變時很常見，語氣中性。",
+          "pattern": "save / upload + N + to cloud storage",
+          "grammar_note": "cloud storage 是不可數名詞，前面不加 a，後面也不加 s；要數的時候說 a cloud storage service。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "We moved all our project files to cloud storage last month.",
+              "zh": "我們上個月把所有專案檔案都搬到雲端儲存了。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please upload the signed contract to cloud storage by noon.",
+              "zh": "請在中午前把簽好的合約上傳到雲端儲存。"
+            },
+            {
+              "tag": "遠距工作",
+              "en": "Cloud storage lets employees open documents from any office.",
+              "zh": "雲端儲存讓員工可以在任何辦公室打開文件。"
+            },
+            {
+              "tag": "採購",
+              "en": "The company pays a monthly fee for extra cloud storage.",
+              "zh": "公司每個月為額外的雲端儲存空間付費。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "online storage",
+              "diff": "意思幾乎相同，online storage 比較口語；cloud storage 是比較常見的正式說法。",
+              "example": {
+                "en": "Our team keeps old reports in online storage for easy access.",
+                "zh": "我們團隊把舊報告放在線上儲存空間，方便取用。"
+              }
+            },
+            {
+              "phrase": "data storage",
+              "diff": "data storage 範圍較廣，包含硬碟、伺服器等各種存放資料的方式，不一定在網路上。",
+              "example": {
+                "en": "Our data storage costs rise every year as we add files.",
+                "zh": "隨著檔案增加，我們的資料儲存成本每年都在上升。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "storage",
+              "ipa": "/ˈstɔːrɪdʒ/",
+              "diff": "storage 是一般的「存放、儲存空間」，也可以指實體倉庫；cloud storage 專指網路上的空間。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "Our storage room is full of old boxes and files.",
+                "zh": "我們的儲藏室堆滿了舊箱子和檔案。"
+              }
+            },
+            {
+              "word": "backup",
+              "ipa": "/ˈbækʌp/",
+              "diff": "backup 是多存一份以防遺失的備份；cloud storage 是存放檔案的地方，兩者常一起使用。",
+              "kind": [
+                "meaning"
+              ],
+              "usage": "backup 當名詞時是一個字，當動詞時要分開寫成 back up。",
+              "example": {
+                "en": "Please make a backup of the file before you edit it.",
+                "zh": "編輯檔案之前，請先做一份備份。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "revolutionary",
+          "type": "word",
+          "ipa": "/ˌrevəˈluːʃəneri/",
+          "pos": "adj.",
+          "zh": "革命性的、徹底創新的",
+          "en": "completely new and very different from what came before",
+          "note": "常用來形容產品、技術或方法帶來徹底的改變，語氣偏廣告、行銷，帶有稱讚的意思。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "revolutionary idea",
+              "zh": "革命性的想法",
+              "example": {
+                "en": "Her revolutionary idea saved the company thousands of dollars.",
+                "zh": "她革命性的想法替公司省下了數千美元。"
+              }
+            },
+            {
+              "phrase": "revolutionary technology",
+              "zh": "革命性的技術",
+              "example": {
+                "en": "Revolutionary technology helped the factory cut its energy costs.",
+                "zh": "革命性的技術幫助工廠降低了能源成本。"
+              }
+            },
+            {
+              "phrase": "revolutionary design",
+              "zh": "革命性的設計",
+              "example": {
+                "en": "The phone's revolutionary design attracted many young customers.",
+                "zh": "這支手機革命性的設計吸引了許多年輕顧客。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "行銷",
+              "en": "Our revolutionary new vacuum cleaner will be on sale in March.",
+              "zh": "我們革命性的新吸塵器三月開始販售。"
+            },
+            {
+              "tag": "簡報",
+              "en": "This revolutionary software saves us hours of work every week.",
+              "zh": "這套革命性的軟體每週為我們省下好幾個小時的工作。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We would like to show you a revolutionary way to cut costs.",
+              "zh": "我們想向您介紹一種降低成本的革命性方法。"
+            }
+          ],
+          "similar": [
+            {
+              "word": "innovative",
+              "ipa": "/ˈɪnəveɪtɪv/",
+              "diff": "innovative 是有創意、有新想法，語氣較溫和；revolutionary 強調徹底改變整個做法。",
+              "example": {
+                "en": "The company is known for its innovative approach to marketing.",
+                "zh": "這家公司以創新的行銷方式聞名。"
+              }
+            },
+            {
+              "word": "groundbreaking",
+              "ipa": "/ˈɡraʊndbreɪkɪŋ/",
+              "diff": "groundbreaking 是開創性的，常用於研究與產品；意思和 revolutionary 很接近，語氣更像稱讚成果。",
+              "example": {
+                "en": "The team published a groundbreaking study on customer behavior.",
+                "zh": "這個團隊發表了一份關於顧客行為的開創性研究。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "revolution",
+              "ipa": "/ˌrevəˈluːʃən/",
+              "diff": "revolution 是名詞「革命、重大變革」；revolutionary 是形容詞「革命性的」。",
+              "kind": [
+                "root"
+              ],
+              "usage": "revolution 是名詞，前面可加 a；revolutionary 是形容詞，放在名詞前面（a revolutionary idea）。",
+              "example": {
+                "en": "Online banking started a revolution in the finance industry.",
+                "zh": "網路銀行在金融業掀起了一場重大變革。"
+              }
+            },
+            {
+              "word": "evolutionary",
+              "ipa": "/ˌevəˈluːʃəneri/",
+              "diff": "evolutionary 是逐步演變的；revolutionary 是突然而徹底改變的，兩個字只差一個字母。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "We prefer an evolutionary approach, with small changes each month.",
+                "zh": "我們偏好循序漸進的做法，每個月只做小幅改變。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "advanced",
+              "pos": "adj.",
+              "zh": "先進的",
+              "ipa": "/ədˈvænst/",
+              "example": {
+                "en": "The factory uses advanced machines to speed up production.",
+                "zh": "這間工廠使用先進的機器來加快生產。"
+              }
+            },
+            {
+              "w": "modern",
+              "pos": "adj.",
+              "zh": "現代的",
+              "ipa": "/ˈmɑːdərn/",
+              "example": {
+                "en": "We moved into a modern office near the station.",
+                "zh": "我們搬進了車站附近一間現代化的辦公室。"
+              }
+            },
+            {
+              "w": "original",
+              "pos": "adj.",
+              "zh": "原創的、最初的",
+              "ipa": "/əˈrɪdʒənəl/",
+              "example": {
+                "en": "The designer presented an original plan for the new store.",
+                "zh": "設計師為新店提出了一份原創的計畫。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "revolution",
+              "ipa": "/ˌrevəˈluːʃən/",
+              "pos": "n.",
+              "zh": "革命、重大變革",
+              "link": "revolutionary 去掉 -ary 就是名詞 revolution，意思是變革本身",
+              "example": {
+                "en": "The new engine caused a revolution in the car industry.",
+                "zh": "這種新引擎在汽車業引發了一場重大變革。"
+              }
+            },
+            {
+              "w": "revolutionize",
+              "ipa": "/ˌrevəˈluːʃənaɪz/",
+              "pos": "v.",
+              "zh": "徹底改革",
+              "link": "revolution + -ize，變成動詞「徹底改變」，像 organize、finalize",
+              "example": {
+                "en": "This tool may revolutionize the way we train new staff.",
+                "zh": "這個工具可能徹底改變我們訓練新進員工的方式。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "adj.",
+              "ipa": "/ˌrevəˈluːʃəneri/",
+              "zh": "革命性的、徹底創新的",
+              "en": "completely new and very different from what came before",
+              "example": {
+                "en": "The company introduced a revolutionary payment system last year.",
+                "zh": "這家公司去年推出了革命性的付款系統。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "ipa": "/ˌrevəˈluːʃəneri/",
+              "zh": "革命的（政治上）",
+              "en": "connected with a political change made by force",
+              "distinguish": "談歷史或政治時是「革命的」；談產品、技術、方法時是「革命性的」。",
+              "example": {
+                "en": "The museum has an exhibit about the revolutionary period of the country.",
+                "zh": "博物館有一個關於這個國家革命時期的展覽。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "revolutionize",
+          "type": "word",
+          "ipa": "/ˌrevəˈluːʃənaɪz/",
+          "pos": "v.",
+          "zh": "徹底改革、使發生重大變革",
+          "en": "to change something completely and in a very important way",
+          "note": "多用在新技術、新產品把整個產業或做事方式徹底改變的場合，語氣積極、帶稱讚。後面直接接要被改變的對象。",
+          "grammar_note": "revolutionize 是及物動詞，後面直接接受詞，不加 in 或 to（revolutionize the industry）；英式拼法是 revolutionise。",
+          "forms": [
+            {
+              "w": "revolutionizes",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "徹底改革",
+              "ipa": "/ˌrevəˈluːʃənaɪzɪz/",
+              "example": {
+                "en": "This tool revolutionizes how our team shares large files.",
+                "zh": "這個工具徹底改變了我們團隊分享大型檔案的方式。"
+              }
+            },
+            {
+              "w": "revolutionized",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "徹底改革了",
+              "ipa": "/ˌrevəˈluːʃənaɪzd/",
+              "example": {
+                "en": "E-mail revolutionized office communication in the late 1990s.",
+                "zh": "電子郵件在 1990 年代後期徹底改變了辦公室的溝通方式。"
+              }
+            },
+            {
+              "w": "revolutionizing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在徹底改革",
+              "ipa": "/ˌrevəˈluːʃənaɪzɪŋ/",
+              "example": {
+                "en": "The company is revolutionizing the way people order food online.",
+                "zh": "這家公司正在徹底改變人們線上訂餐的方式。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "revolutionize the industry",
+              "zh": "徹底改變產業",
+              "example": {
+                "en": "Electric cars may revolutionize the industry within ten years.",
+                "zh": "電動車可能在十年內徹底改變這個產業。"
+              }
+            },
+            {
+              "phrase": "revolutionize the way we work",
+              "zh": "徹底改變我們的工作方式",
+              "example": {
+                "en": "Video conferencing has revolutionized the way we work with overseas offices.",
+                "zh": "視訊會議徹底改變了我們與海外辦公室合作的方式。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "簡報",
+              "en": "Our new software will revolutionize how we manage customer data.",
+              "zh": "我們的新軟體將徹底改變我們管理客戶資料的方式。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We hope this update will revolutionize our order system.",
+              "zh": "我們希望這次更新能徹底改善我們的訂單系統。"
+            },
+            {
+              "tag": "新聞",
+              "en": "Smartphones helped revolutionize shopping in countries around the world.",
+              "zh": "智慧型手機幫助全世界許多國家的購物方式發生了重大變革。"
+            }
+          ],
+          "similar": [
+            {
+              "word": "transform",
+              "ipa": "/trænsˈfɔːrm/",
+              "diff": "transform 是把外型或性質改變，語氣中性；revolutionize 強調徹底改變整個領域或做法。",
+              "example": {
+                "en": "The new manager hopes to transform our sales team.",
+                "zh": "新任經理希望改造我們的業務團隊。"
+              }
+            },
+            {
+              "word": "overhaul",
+              "ipa": "/ˌoʊvərˈhɔːl/",
+              "diff": "overhaul 是全面檢修或重整制度、系統；revolutionize 比較像用新技術帶來重大改變。",
+              "example": {
+                "en": "We plan to overhaul our old inventory system this year.",
+                "zh": "我們計畫今年全面整頓舊的庫存系統。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "evolve",
+              "ipa": "/ɪˈvɑːlv/",
+              "diff": "evolve 是慢慢自然演變；revolutionize 是徹底改變，常有人或新技術主動推動。",
+              "kind": [
+                "spell",
+                "sound",
+                "meaning"
+              ],
+              "usage": "evolve 是不及物動詞，不接受詞；revolutionize 是及物動詞，後面要接受詞。",
+              "example": {
+                "en": "Our company continues to evolve with the market.",
+                "zh": "我們公司持續隨著市場演變。"
+              }
+            },
+            {
+              "word": "revolve",
+              "ipa": "/rɪˈvɑːlv/",
+              "diff": "revolve 是繞著轉、以…為中心；和 revolutionize 開頭一樣，但意思不是改變。",
+              "kind": [
+                "spell",
+                "root"
+              ],
+              "example": {
+                "en": "Most of the discussion revolved around the new budget.",
+                "zh": "大部分的討論都圍繞著新預算進行。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "improve",
+              "pos": "v.",
+              "zh": "改善",
+              "ipa": "/ɪmˈpruːv/",
+              "example": {
+                "en": "We need to improve our delivery times this quarter.",
+                "zh": "我們這一季需要改善交貨時間。"
+              }
+            },
+            {
+              "w": "upgrade",
+              "pos": "v.",
+              "zh": "升級",
+              "ipa": "/ʌpˈɡreɪd/",
+              "example": {
+                "en": "The IT team will upgrade all office computers next week.",
+                "zh": "資訊部門下週會替所有辦公室電腦升級。"
+              }
+            },
+            {
+              "w": "modernize",
+              "pos": "v.",
+              "zh": "使現代化",
+              "ipa": "/ˈmɑːdərnaɪz/",
+              "example": {
+                "en": "The bank plans to modernize its online services.",
+                "zh": "這家銀行計畫讓它的線上服務現代化。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "revolution",
+              "ipa": "/ˌrevəˈluːʃən/",
+              "pos": "n.",
+              "zh": "革命、重大變革",
+              "link": "revolutionize 去掉 -ize 就是名詞 revolution，意思是變革本身",
+              "example": {
+                "en": "Cloud storage created a revolution in how offices keep their files.",
+                "zh": "雲端儲存徹底改變了辦公室保存檔案的方式。"
+              }
+            },
+            {
+              "w": "revolutionary",
+              "ipa": "/ˌrevəˈluːʃəneri/",
+              "pos": "adj.",
+              "zh": "革命性的",
+              "link": "revolution + -ary，變成形容詞「有革命性的」，像 necessary、customary",
+              "example": {
+                "en": "The revolutionary machine can pack five hundred boxes an hour.",
+                "zh": "這台革命性的機器一小時能包裝五百個箱子。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "breakthrough",
+          "type": "word",
+          "ipa": "/ˈbreɪkθruː/",
+          "pos": "n.",
+          "zh": "重大突破",
+          "en": "an important discovery or success after a lot of work",
+          "note": "指研究、技術或談判上出現的重大進展，常用在新聞、簡報和公司公告，語氣正面。",
+          "forms": [
+            {
+              "w": "breakthroughs",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "重大突破（複數）",
+              "ipa": "/ˈbreɪkθruːz/",
+              "example": {
+                "en": "Our lab has made three breakthroughs in battery research this year.",
+                "zh": "我們的實驗室今年在電池研究上有三項重大突破。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "major breakthrough",
+              "zh": "重大突破",
+              "example": {
+                "en": "The new drug is a major breakthrough for the medical industry.",
+                "zh": "這種新藥是醫療業的一項重大突破。"
+              }
+            },
+            {
+              "phrase": "technological breakthrough",
+              "zh": "科技突破",
+              "example": {
+                "en": "A technological breakthrough made the new phone much cheaper to produce.",
+                "zh": "一項科技突破讓這款新手機的生產成本大幅降低。"
+              }
+            },
+            {
+              "phrase": "make a breakthrough",
+              "zh": "取得突破",
+              "example": {
+                "en": "Engineers finally made a breakthrough after two years of testing.",
+                "zh": "工程師經過兩年的測試後終於取得了突破。"
+              }
+            },
+            {
+              "phrase": "a breakthrough in",
+              "zh": "在…方面的突破",
+              "example": {
+                "en": "The company announced a breakthrough in solar energy storage.",
+                "zh": "公司宣布在太陽能儲存方面取得突破。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "簡報",
+              "en": "The research team announced a breakthrough in battery technology.",
+              "zh": "研究團隊宣布了電池技術上的重大突破。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "We reached a breakthrough in the talks with our supplier.",
+              "zh": "我們和供應商的談判出現了突破。"
+            },
+            {
+              "tag": "會議",
+              "en": "This new design could be a breakthrough for our company.",
+              "zh": "這個新設計可能是我們公司的一大突破。"
+            }
+          ],
+          "similar": [
+            {
+              "word": "discovery",
+              "ipa": "/dɪˈskʌvəri/",
+              "diff": "discovery 是發現新事物，不一定重要；breakthrough 強調重大、能帶來改變的進展。",
+              "example": {
+                "en": "The discovery of a new supplier helped us lower costs.",
+                "zh": "發現新的供應商幫助我們降低了成本。"
+              }
+            },
+            {
+              "phrase": "major step forward",
+              "diff": "major step forward 是白話說法，指有明顯進步；breakthrough 更正式，指決定性的突破。",
+              "example": {
+                "en": "The new contract is a major step forward for our company.",
+                "zh": "這份新合約是我們公司向前邁進的一大步。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "break through",
+              "diff": "break through 是兩個字的動詞片語，意思是突破、衝破；breakthrough 是一個字的名詞。",
+              "kind": [
+                "spell"
+              ],
+              "usage": "breakthrough 是名詞，可以加 a 或 the；break through 是動詞片語，要隨主詞和時態變化（broke through）。",
+              "example": {
+                "en": "Our sales team must break through the old way of working.",
+                "zh": "我們的業務團隊必須突破舊有的工作方式。"
+              }
+            },
+            {
+              "word": "setback",
+              "ipa": "/ˈsetbæk/",
+              "diff": "setback 是挫折、倒退，剛好和 breakthrough 的「重大進展」相反。",
+              "kind": [
+                "antonym"
+              ],
+              "example": {
+                "en": "The late delivery was a setback for the whole project.",
+                "zh": "延遲交貨對整個專案來說是一次挫折。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "progress",
+              "pos": "n.",
+              "zh": "進展",
+              "ipa": "/ˈprɑːɡres/",
+              "example": {
+                "en": "We are making steady progress on the new website.",
+                "zh": "我們在新網站上持續穩定地進展。"
+              }
+            },
+            {
+              "w": "improvement",
+              "pos": "n.",
+              "zh": "改善",
+              "ipa": "/ɪmˈpruːvmənt/",
+              "example": {
+                "en": "There has been a clear improvement in our customer service.",
+                "zh": "我們的客戶服務已有明顯的改善。"
+              }
+            },
+            {
+              "w": "success",
+              "pos": "n.",
+              "zh": "成功",
+              "ipa": "/səkˈses/",
+              "example": {
+                "en": "The success of the new product surprised the whole team.",
+                "zh": "新產品的成功讓整個團隊都很驚喜。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˈbreɪkθruː/",
+              "zh": "重大突破、重大發現",
+              "en": "an important discovery or success in research or technology",
+              "example": {
+                "en": "The scientists announced a breakthrough in cancer treatment last week.",
+                "zh": "科學家上週宣布了癌症治療上的重大突破。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˈbreɪkθruː/",
+              "zh": "（談判、僵局的）突破",
+              "en": "a sudden success after a long time without progress",
+              "distinguish": "談研究、技術時是「重大發現」；談談判、僵局時是「終於有了進展」。",
+              "example": {
+                "en": "After weeks of talks, the two sides finally had a breakthrough.",
+                "zh": "經過數週的談判，雙方終於有了突破。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "innovation",
+          "type": "word",
+          "ipa": "/ˌɪnəˈveɪʃən/",
+          "pos": "n.",
+          "zh": "創新、革新",
+          "en": "a new idea, method, or product that makes things better",
+          "note": "商務情境中很常用，可指新的點子、做法或產品，也可指創新這件事本身。公司介紹、行銷文案和年報都很常出現。",
+          "grammar_note": "指「創新這件事」時是不可數名詞（Innovation is important.）；指「一項新發明或新做法」時是可數名詞（an innovation）。",
+          "forms": [
+            {
+              "w": "innovations",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "創新（複數）",
+              "ipa": "/ˌɪnəˈveɪʃənz/",
+              "example": {
+                "en": "The company is famous for its innovations in medical equipment.",
+                "zh": "這家公司以醫療設備方面的創新聞名。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "technological innovation",
+              "zh": "科技創新",
+              "example": {
+                "en": "Technological innovation helps small companies compete with larger ones.",
+                "zh": "科技創新幫助小公司和大公司競爭。"
+              }
+            },
+            {
+              "phrase": "product innovation",
+              "zh": "產品創新",
+              "example": {
+                "en": "Product innovation is the key to our growth.",
+                "zh": "產品創新是我們成長的關鍵。"
+              }
+            },
+            {
+              "phrase": "drive innovation",
+              "zh": "推動創新",
+              "example": {
+                "en": "Strong competition can drive innovation in the whole industry.",
+                "zh": "激烈的競爭可以推動整個產業的創新。"
+              }
+            },
+            {
+              "phrase": "encourage innovation",
+              "zh": "鼓勵創新",
+              "example": {
+                "en": "Our manager encourages innovation by listening to every new idea.",
+                "zh": "我們的經理傾聽每一個新點子，以此鼓勵創新。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "Innovation helps our company stay ahead of its competitors.",
+              "zh": "創新幫助我們公司領先競爭對手。"
+            },
+            {
+              "tag": "公司介紹",
+              "en": "Our company has a long history of innovation in packaging.",
+              "zh": "我們公司在包裝方面有悠久的創新歷史。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please share any ideas for innovation at tomorrow's workshop.",
+              "zh": "請在明天的工作坊上分享任何創新的想法。"
+            }
+          ],
+          "similar": [
+            {
+              "word": "creativity",
+              "ipa": "/ˌkriːeɪˈtɪvəti/",
+              "diff": "creativity 是想出新點子的能力；innovation 是把新點子真的做成新產品或新做法。",
+              "example": {
+                "en": "The job requires creativity and strong writing skills.",
+                "zh": "這份工作需要創意與優秀的寫作能力。"
+              }
+            },
+            {
+              "phrase": "new idea",
+              "diff": "new idea 是白話說法，只說新的想法；innovation 更正式，強調可行且有價值的新做法。",
+              "example": {
+                "en": "Please send me any new idea for reducing our costs.",
+                "zh": "請把任何能降低成本的新想法寄給我。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "renovation",
+              "ipa": "/ˌrɛnəˈveɪʃən/",
+              "diff": "renovation 是整修翻新；innovation 是創新，兩個字發音和拼法都很像，只差開頭。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The renovation of the conference room will take two weeks.",
+                "zh": "會議室的整修需要兩週的時間。"
+              }
+            },
+            {
+              "word": "invention",
+              "ipa": "/ɪnˈvenʃən/",
+              "diff": "invention 是第一次做出的新東西；innovation 是把已有的東西改良成新做法或新產品。",
+              "kind": [
+                "meaning",
+                "spell"
+              ],
+              "example": {
+                "en": "The invention of the telephone changed business communication forever.",
+                "zh": "電話的發明永遠改變了商業溝通。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "technology",
+              "pos": "n.",
+              "zh": "科技",
+              "ipa": "/tekˈnɑːlədʒi/",
+              "example": {
+                "en": "We invest in new technology every year.",
+                "zh": "我們每年都投資新科技。"
+              }
+            },
+            {
+              "w": "improvement",
+              "pos": "n.",
+              "zh": "改善",
+              "ipa": "/ɪmˈpruːvmənt/",
+              "example": {
+                "en": "Customers noticed a big improvement in our delivery service.",
+                "zh": "顧客注意到我們的配送服務有很大的改善。"
+              }
+            },
+            {
+              "w": "research",
+              "pos": "n.",
+              "zh": "研究",
+              "ipa": "/ˈriːsɜːrtʃ/",
+              "example": {
+                "en": "Our research team is testing a new packaging method.",
+                "zh": "我們的研究團隊正在測試一種新的包裝方法。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "innovate",
+              "ipa": "/ˈɪnəveɪt/",
+              "pos": "v.",
+              "zh": "創新、革新",
+              "link": "innovate 是動詞，innovation 是加 -ion 的名詞，像 create → creation",
+              "example": {
+                "en": "Companies must innovate to survive in a fast-changing market.",
+                "zh": "公司必須創新，才能在快速變化的市場中生存。"
+              }
+            },
+            {
+              "w": "innovative",
+              "ipa": "/ˈɪnəveɪtɪv/",
+              "pos": "adj.",
+              "zh": "創新的",
+              "link": "innovate + -ive，變成形容詞「有創新性的」，像 creative、active",
+              "example": {
+                "en": "The team came up with an innovative way to save energy.",
+                "zh": "這個團隊想出了一個創新的節能方法。"
+              }
+            },
+            {
+              "w": "innovator",
+              "ipa": "/ˈɪnəveɪtər/",
+              "pos": "n.",
+              "zh": "創新者",
+              "link": "innovate + -or，做事的人，像 actor、visitor",
+              "example": {
+                "en": "She is known as an innovator in the fashion industry.",
+                "zh": "她是時尚產業中知名的創新者。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˌɪnəˈveɪʃən/",
+              "zh": "創新（這件事）",
+              "en": "the act of creating new ideas, methods, or products",
+              "example": {
+                "en": "Our company spends a lot of money on innovation every year.",
+                "zh": "我們公司每年在創新上花很多錢。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˌɪnəˈveɪʃən/",
+              "zh": "新發明、新做法",
+              "en": "a new idea, method, or product that people can use",
+              "distinguish": "前面有 an 或後面用複數 innovations 時，指的是「一項新發明或新做法」。",
+              "example": {
+                "en": "Touch screens were an important innovation in mobile phones.",
+                "zh": "觸控螢幕是手機上一項重要的創新。"
               }
             }
           ]
