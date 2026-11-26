@@ -220,7 +220,7 @@ function prOpen(text, src, seg) {
   prCancel(); prMineDrop();
   if (PR.ex === 'play') prExFinish(true);
   try { spStop(); } catch (e) {} try { skStopAll(); } catch (e) {}
-  Object.assign(PR, { text, key: prNorm(text), src: src || null, seg: seg || null, st: 'idle', final: '', interim: '', alts: [], cands: null, err: '', res: null, nb: false, fail: 0, dead: false });
+  Object.assign(PR, { text, key: prNorm(text), zh: (src && src.dataset && src.dataset.zh) || '', src: src || null, seg: seg || null, st: 'idle', final: '', interim: '', alts: [], cands: null, err: '', res: null, nb: false, fail: 0, dead: false });
   let ov = document.getElementById('pron-ov');
   if (!ov) { ov = document.createElement('div'); ov.id = 'pron-ov'; document.body.appendChild(ov); }
   prRender();
@@ -576,10 +576,10 @@ function prRender() {
       <div class="flex items-center justify-between gap-2 mb-3"><h3 class="font-bold">🎙 發音練習${nv ? ` <span class="text-xs font-normal text-slate-400">${nv.pos}/${nv.total}</span>` : ''}</h3>
         <span class="text-xs text-slate-500">${rc.b ? `🏆 最高 <b class="rounded px-1.5 py-0.5 ${skPctCls(rc.b)}">${rc.b}%</b> · 練習 ${rc.n} 次` : '還沒練習過'}</span>
         <button onclick="prClose()" class="text-slate-400 hover:text-slate-600 text-2xl leading-none px-1 cursor-pointer" aria-label="關閉">×</button></div>
-      <p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>${(() => { const ip = prIpaOf(PR.text); return ip ? `<p class="-mt-2 mb-3 text-base text-slate-500">${esc(ip)}</p>` : ''; })()}${(() => { const z = S.prZh ? prZhOf(PR.text) : ''; return z ? `<p class="${prWc(PR.text) > 3 ? '' : '-mt-1 '}mb-3 text-base leading-relaxed text-slate-600 dark:text-slate-300">${esc(z)}</p>` : ''; })()}
+      <p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>${(() => { const ip = prIpaOf(PR.text); return ip ? `<p class="-mt-2 mb-3 text-base text-slate-500">${esc(ip)}</p>` : ''; })()}${(() => { const z = S.prZh ? (PR.zh || prZhOf(PR.text)) : ''; return z ? `<p class="${prWc(PR.text) > 3 ? '' : '-mt-1 '}mb-3 text-base leading-relaxed text-slate-600 dark:text-slate-300">${esc(z)}</p>` : ''; })()}
       ${warn.length ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 space-y-1">${warn.map(w => `<p>⚠ ${esc(w)}</p>`).join('')}</div>` : ''}
       <div class="flex flex-wrap items-center gap-2 mb-3"><button onclick="prListen()" ${PR.ex === 'settle' || PR.st !== 'idle' ? 'disabled' : ''} class="${skCtl} ${PR.ex === 'settle' || PR.st !== 'idle' ? 'opacity-50' : ''}">${PR.ex === 'settle' ? '⏳ 關閉中…' : PR.ex === 'play' ? '⏹ 停止' : '🔊 聽範例'}</button>
-        ${(() => { const z = prZhOf(PR.text); return z ? `<button onclick="prZhToggle()" class="ml-auto ${skCtl}">${S.prZh ? '🙈 隱藏中文翻譯' : '👁 顯示中文翻譯'}</button>` : '<span class="ml-auto text-xs text-slate-400">沒有中文翻譯</span>'; })()}</div>
+        ${(() => { const z = PR.zh || prZhOf(PR.text); return z ? `<button onclick="prZhToggle()" class="ml-auto ${skCtl}">${S.prZh ? '🙈 隱藏中文翻譯' : '👁 顯示中文翻譯'}</button>` : '<span class="ml-auto text-xs text-slate-400">沒有中文翻譯</span>'; })()}</div>
       <section class="sticky top-0 z-10 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-md px-3 py-2 mb-2"><div class="flex items-center gap-3">
         <button onclick="prToggle()" ${busy ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${micCls}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>
         <div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
