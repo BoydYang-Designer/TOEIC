@@ -381,35 +381,64 @@ function qzSetup() {
     <button onclick="qzStart()" ${avail ? '' : 'disabled'} class="${btn} ${dnPri} w-full mt-4 disabled:opacity-40">開始（${n} 題）</button></div>`;
 }
 /* ===== 資料頁：之後要請 AI 增修綜合測驗時，需要提供哪些檔案＋可一鍵複製的說明 ===== */
+/* 注意：修改綜合測驗後，要同步檢查這份說明（QZ_AI_TEXT）和下面的 QZ_FILES 是否需要更新，才不會誤導下一位 AI */
 const QZ_AI_TEXT = [
   '【TOEIC Daily Coach — 綜合測驗（quiz.js）修改說明】',
   '我會一併提供：quiz.js、daily.js、notes.js、daily.html，以及 daily.json 的一小段（某一篇有 extra_vocab 的文章）和「單字詳解 AI 提示檔」（說明每個詳解欄位的意思）。',
   '',
-  '■ 範圍：只考「單字」與「聽力」（聽力＝只用單字詳解內容出題，每題都有現成 mp3）。閱讀／文法／文章內容的出題已移除；口說、聽力B（用文章內容）、practice.html 的「英文解釋選單字」模式尚未做。',
+  '■ 範圍：只考「單字」與「聽力」（聽力＝只用單字詳解內容出題，每題都有現成 mp3）。閱讀／文法／文章內容的出題已移除。',
   '■ 題庫：每次開測驗時，從該篇「當下」的資料（核心單字 + extra_vocab 詳解）即時產生；新增單字只要有詳解就自動進題庫。',
   '■ 選題：各項目依 70% 沒考過 / 25% 答錯過 / 5% 答對過；不足時依 沒考過→答錯→答對（最久沒考的先）補。每個字每回隨機 1–3 題再換字，相鄰題避免同字、同題型。題數可選 10/15/20（約 10 分鐘）。',
   '■ 記錄：localStorage「toeicQuizV1」（跨裝置雲端同步，key 以 toeic 開頭）；題目 key＝「文章id|單字|題型|hash」；偏好在「qzPrefV1」（僅本機）。通過門檻 80%，通過後入口卡顯示「✓ 已通過」。',
   '■ 音檔：用 notes.js 的 vplay(qid, text, suf, fallback)；檔案 audio/daily/vocab/<slug(text)><suf>.mp3。suf：_en 英文解釋；_e{i} 例句；_c{i} 搭配例句；_fx{i} 詞形例句；_s{i} 多義例句；_cf{i} 易混淆例句；_sx{i} 近義例句；_mx{i} 相關字例句；_dx{i} 衍生字例句；空字串＝單字本身。',
   '■ 接點：daily.js 的 qzEntry(x)（入口卡，位於「語音練習」下方）、render 的 V map 的 quiz、離開頁面時呼叫 qzStopAudio()；notes.js 的 dnUp 把 quiz 視為子頁（返回鍵）。',
-  '■ 改檔注意：原檔是 CRLF 換行（notes.js 有 12 行是 LF），請保留原換行，不要整檔轉換；請直接回傳「完整檔案」供我覆蓋。介面為繁體中文、Tailwind、純前端靜態網站。'
+  '■ 改檔注意：原檔是 CRLF 換行（notes.js 有 12 行是 LF），請保留原換行，不要整檔轉換；請直接回傳「完整檔案」供我覆蓋。介面為繁體中文、Tailwind、純前端靜態網站。',
+  '■ 維護提醒（給接手的 AI）：每次更新綜合測驗後，請一併檢查本頁「資料（給 AI）」的內容是否還正確——這份說明（QZ_AI_TEXT）和「需要提供的檔案」清單（QZ_FILES）——有變動就在同一次修改裡更新，並在回覆中告訴我改了哪些，這樣下一位 AI 拿到的資料才不會過時。'
 ].join('\n');
 const QZ_FILES = [
-  ['quiz.js', '綜合測驗全部的出題、選題、記錄和畫面邏輯都在這裡，大部分修改只動這個檔。', 1],
-  ['daily.js', '綜合測驗有三個地方接在這裡：入口卡片（qzEntry）、頁面登記（quiz）、離開頁面時停止播放。', 1],
-  ['notes.js', '裡面有 quiz.js 用到的 vplay（播 mp3）、dnKey、dnExtraOf 等函式，還有返回鍵對 quiz 頁的處理。', 1],
-  ['daily.html', '要看 quiz.js 的載入順序。', 1],
-  ['daily.json 的一小段', '只貼一篇有 extra_vocab 的文章（例如 W1D1）即可，整個檔案太大不需要。', 1],
-  ['單字詳解 AI 提示檔', '（例如 b095f548-attachment.txt）說明每個詳解欄位的意思，AI 才知道能出哪些題型。', 1],
-  ['speak.js、pron.js', '只有要做口說測驗時才需要。', 0],
-  ['audio.js、timing.js', '只有要改音檔命名或時間軸時才需要。', 0]
+  ['quiz.js', '綜合測驗全部的出題、選題、記錄和畫面邏輯都在這裡，大部分修改只動這個檔。', 1, ['quiz.js']],
+  ['daily.js', '綜合測驗有三個地方接在這裡：入口卡片（qzEntry）、頁面登記（quiz）、離開頁面時停止播放。', 1, ['daily.js']],
+  ['notes.js', '裡面有 quiz.js 用到的 vplay（播 mp3）、dnKey、dnExtraOf 等函式，還有返回鍵對 quiz 頁的處理。', 1, ['notes.js']],
+  ['daily.html', '要看 quiz.js 的載入順序。', 1, ['daily.html']],
+  ['daily.json 的一小段', '只貼一篇有 extra_vocab 的文章（例如 W1D1）即可，整個檔案太大不需要。複製的是目前這一篇（extra_vocab 只取前 5 筆）。', 1, 'json'],
+  ['單字詳解 AI 提示檔', '說明每個詳解欄位的意思，AI 才知道能出哪些題型。複製的是目前這一篇第 1 個核心單字的提示詞（含完整欄位規則）。', 1, 'prompt'],
+  ['speak.js、pron.js', '只有要做口說測驗時才需要。', 0, ['speak.js', 'pron.js']],
+  ['audio.js、timing.js', '只有要改音檔命名或時間軸時才需要。', 0, ['audio.js', 'timing.js']]
 ];
 function qzShowInfo() { QZ.st = 'info'; qzInfo(); window.scrollTo({ top: 0 }); }
 function qzInfoBack() { QZ.st = 'setup'; qzSetup(); }
 function qzInfo() {
   const back = `<button onclick="qzInfoBack()" class="${btn}">← 返回</button>`;
   main.innerHTML = qzHead('要請 AI 增修綜合測驗時，請提供這些資料', back)
-    + `<div class="${card} p-4 mb-4"><p class="text-sm font-bold mb-2">① 需要提供的檔案</p><ul class="space-y-2 text-sm">${QZ_FILES.map(f => `<li class="flex gap-2"><span class="shrink-0">${f[2] ? '✅' : '➕'}</span><span><b>${esc(f[0])}</b>${f[2] ? '' : ' <span class="text-xs text-slate-400">（視需求）</span>'}<br><span class="text-xs text-slate-500">${esc(f[1])}</span></span></li>`).join('')}</ul></div>`
+    + `<div class="${card} p-4 mb-4"><p class="text-sm font-bold mb-2">① 需要提供的檔案</p><ul class="space-y-2 text-sm">${QZ_FILES.map((f, i) => `<li class="flex items-start gap-2"><span class="shrink-0">${f[2] ? '✅' : '➕'}</span><span class="flex-1 min-w-0"><b>${esc(f[0])}</b>${f[2] ? '' : ' <span class="text-xs text-slate-400">（視需求）</span>'}<br><span class="text-xs text-slate-500">${esc(f[1])}</span></span><button onclick="qzCopyFile(this,${i})" class="${btn} ${dnLine} !py-1 !px-2 text-xs shrink-0">📋 複製</button></li>`).join('')}</ul></div>`
     + `<div class="${card} p-4 mb-4"><div class="flex items-center justify-between gap-2 mb-2"><p class="text-sm font-bold">② 一鍵複製：貼給 AI 的說明</p><button onclick="qzCopyInfo(this)" class="${btn} ${dnPri}">📋 複製</button></div><textarea id="qzAiText" readonly rows="14" class="w-full text-xs leading-relaxed rounded-lg border border-slate-200 dark:border-slate-800 bg-transparent p-2" onclick="this.select()">${esc(QZ_AI_TEXT)}</textarea><p class="text-xs text-slate-500 mt-2">貼上說明後，再把①的檔案一起附上即可。</p></div>`;
+}
+async function qzClip(t) { // 先用 clipboard API；不行（例如非 https）就用暫時的 textarea＋execCommand
+  if (navigator.clipboard && navigator.clipboard.writeText) { try { await navigator.clipboard.writeText(t); return true; } catch (e) {} }
+  const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;left:-9999px;top:0'; document.body.appendChild(ta); ta.select();
+  let ok = false; try { ok = document.execCommand('copy'); } catch (e) {} ta.remove(); return ok;
+}
+function qzJsonSample() { // daily.json 的一小段：目前這一篇，extra_vocab 只留前 5 筆
+  const x = QZ.x; if (!x) return '';
+  const o = {}; Object.keys(x).forEach(k => { if (k[0] !== '_') o[k] = x[k]; });
+  const ev = Array.isArray(o.extra_vocab) ? o.extra_vocab : [], n = ev.length; o.extra_vocab = ev.slice(0, 5);
+  return `【daily.json 的一小段：${idOf(x)}（extra_vocab 共 ${n} 筆，這裡只附前 ${o.extra_vocab.length} 筆）】\n` + JSON.stringify(o, null, 2);
+}
+async function qzFileText(f) {
+  if (f === 'json') return qzJsonSample();
+  if (f === 'prompt') { const x = QZ.x, v = x && (x.vocab || [])[0]; return v ? dnTempPrompt(idOf(x), [v]) : ''; }
+  const out = [];
+  for (const name of f) { const r = await fetch(name, { cache: 'no-store' }); if (!r.ok) throw new Error(name); out.push(`【檔案：${name}】\n` + await r.text()); }
+  return out.join('\n\n');
+}
+async function qzCopyFile(b, i) {
+  const f = QZ_FILES[i][3], o = b.dataset.o || b.textContent; b.dataset.o = o;
+  const say = s => { b.textContent = s; clearTimeout(b._t); b._t = setTimeout(() => { b.textContent = o; }, 1500); };
+  try {
+    const t = await qzFileText(f);
+    if (!t) { dnToast('這一篇沒有可複製的內容'); return; }
+    if (await qzClip(t)) say('✓ 已複製'); else dnToast('無法複製（請用 https 或 localhost 開啟）');
+  } catch (e) { dnToast('讀不到檔案：' + (e && e.message || e) + '（請用 https 或 localhost 開啟，不要直接開檔案）'); }
 }
 function qzCopyInfo(b) {
   const t = QZ_AI_TEXT, ok = () => { const o = b.textContent; b.textContent = '✓ 已複製'; setTimeout(() => { b.textContent = o; }, 1500); };

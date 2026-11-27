@@ -86382,6 +86382,38 @@
                 "en": "Please confirm receipt of this email by tomorrow morning.",
                 "zh": "請在明天早上前回信確認收到這封郵件。"
               }
+            },
+            {
+              "phrase": "acknowledge receipt of",
+              "zh": "確認收到",
+              "example": {
+                "en": "Please acknowledge receipt of this e-mail by replying before noon today.",
+                "zh": "請在今天中午前回覆，確認收到這封電子郵件。"
+              }
+            },
+            {
+              "phrase": "issue a receipt",
+              "zh": "開立收據",
+              "example": {
+                "en": "The cashier will issue a receipt after you complete the payment.",
+                "zh": "你完成付款後，收銀員會開立收據。"
+              }
+            },
+            {
+              "phrase": "receipt of payment",
+              "zh": "收到款項",
+              "example": {
+                "en": "Receipt of payment is required before we can ship the goods.",
+                "zh": "我們必須先收到款項才能出貨。"
+              }
+            },
+            {
+              "phrase": "receipt for payment",
+              "zh": "付款收據",
+              "example": {
+                "en": "Please send me a receipt for payment of the hotel bill.",
+                "zh": "請寄給我飯店帳單的付款收據。"
+              }
             }
           ],
           "examples": [
@@ -86486,6 +86518,24 @@
                 "en": "Receipt of the shipment was delayed by bad weather.",
                 "zh": "貨物的收取因壞天氣而延遲。"
               }
+            }
+          ],
+          "ex_done": [
+            {
+              "id": "xmwxg15u5fe4y",
+              "result": "added"
+            },
+            {
+              "id": "xmwxg1gt860i4",
+              "result": "added"
+            },
+            {
+              "id": "xmwxg21qgdsqh",
+              "result": "added"
+            },
+            {
+              "id": "xmwxg2ld5b0mv",
+              "result": "added"
             }
           ]
         },
@@ -100847,6 +100897,11 @@
               "tag": "採購",
               "en": "The supplier will confirm the order by tomorrow.",
               "zh": "供應商明天前會確認這筆訂單。"
+            },
+            {
+              "en": "Please call the airline on Friday to confirm your flight reservation for Saturday.",
+              "zh": "請在星期五打電話給航空公司，確認你星期六的機位預訂。",
+              "added": 1
             }
           ],
           "confusable": [
@@ -100945,6 +101000,10 @@
             },
             {
               "id": "xmwx09llqynb2",
+              "result": "added"
+            },
+            {
+              "id": "xmwxfdqjrgvpy",
               "result": "added"
             }
           ]
@@ -103405,6 +103464,1551 @@
               "example": {
                 "en": "The agent found a bigger office for our team.",
                 "zh": "仲介為我們的團隊找到一間更大的辦公室。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "security check",
+          "type": "phrase",
+          "zh": "安全檢查、安檢",
+          "en": "a check to make sure a person or place is safe",
+          "note": "在這句裡，submit to a security check 是「接受安檢」，語氣正式，常見於公告與規定。",
+          "pattern": "N + must submit to + a security check",
+          "grammar_note": "submit to 的 to 是介系詞，後面接名詞（a security check），不接原形動詞。",
+          "examples": [
+            {
+              "tag": "機場",
+              "en": "Passengers must pass through a security check before boarding the plane.",
+              "zh": "乘客登機前必須通過安全檢查。"
+            },
+            {
+              "tag": "辦公室",
+              "en": "The security check at the main entrance takes about two minutes.",
+              "zh": "大門口的安檢大約需要兩分鐘。"
+            },
+            {
+              "tag": "出差",
+              "en": "Please arrive early because the security check may take a long time.",
+              "zh": "請提早抵達，因為安檢可能要花很久。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "security screening",
+              "diff": "意思幾乎相同，screening 更常指用機器檢查行李或人員。",
+              "example": {
+                "en": "All bags go through security screening before entering the building.",
+                "zh": "所有包包進入大樓前都要經過安檢。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "safety check",
+              "diff": "safety 指避免意外與危險，security 指防止犯罪與闖入。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "The factory does a safety check on every machine each week.",
+                "zh": "工廠每週對每一台機器做安全檢查。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "quality inspection",
+          "type": "phrase",
+          "zh": "品質檢驗",
+          "en": "a careful check to see if products are good enough",
+          "note": "在這句裡，submit to our quality inspection 是「接受我們的品質檢驗」，用在採購與出貨的規定中。",
+          "pattern": "N + must submit to + a quality inspection",
+          "grammar_note": "submit to 後面接名詞，to 是介系詞，所以 submit to inspecting 或 submit to inspect 都是錯的。",
+          "examples": [
+            {
+              "tag": "採購",
+              "en": "Our team will carry out a quality inspection on the new shipment.",
+              "zh": "我們的團隊會對這批新貨進行品質檢驗。"
+            },
+            {
+              "tag": "生產",
+              "en": "The product failed the quality inspection and was sent back to the factory.",
+              "zh": "這項產品沒通過品質檢驗，被退回工廠。"
+            },
+            {
+              "tag": "出口",
+              "en": "A quality inspection report must be attached to every export order.",
+              "zh": "每一張出口訂單都必須附上品質檢驗報告。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "quality control",
+              "diff": "quality control 指整個品管制度，quality inspection 指實際檢驗的動作。",
+              "example": {
+                "en": "Our quality control department checks each product before it leaves the factory.",
+                "zh": "我們的品管部門在產品出廠前檢查每一件。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "quality assurance",
+              "diff": "quality assurance 是品質保證，重點在事先預防問題；inspection 是事後檢查。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "The quality assurance team created new rules for every production line.",
+                "zh": "品質保證團隊為每條生產線訂了新規定。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "authority",
+          "type": "word",
+          "ipa": "/əˈθɔːrəti/",
+          "pos": "n.",
+          "zh": "權力、權限；官方機構；權威人士",
+          "en": "the right to make decisions or give orders",
+          "note": "多益常見「權限」與「政府機關」兩個意思，要靠上下文分辨。",
+          "grammar_note": "authority 當「權限」時不可數，後面接 to V（authority to approve）；當「當局」時常用複數 authorities。",
+          "forms": [
+            {
+              "w": "authorities",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "當局、官方機構",
+              "ipa": "/əˈθɔːrətiz/",
+              "example": {
+                "en": "Customs authorities inspect all goods that enter the country.",
+                "zh": "海關當局會檢查所有入境的貨物。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "have the authority to",
+              "zh": "有權做…",
+              "example": {
+                "en": "Only the manager has the authority to approve this budget.",
+                "zh": "只有經理有權核准這筆預算。"
+              }
+            },
+            {
+              "phrase": "local authorities",
+              "zh": "地方當局",
+              "example": {
+                "en": "The local authorities approved our request to build a parking lot.",
+                "zh": "地方當局核准了我們興建停車場的申請。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "公司",
+              "en": "Ms. Chen gave her assistant authority to approve small orders.",
+              "zh": "陳小姐授權她的助理核准小額訂單。"
+            },
+            {
+              "tag": "政府",
+              "en": "The city authority will announce the new parking rules next week.",
+              "zh": "市政單位下週會公布新的停車規定。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "author",
+              "ipa": "/ˈɔːθər/",
+              "diff": "author 是作者，authority 是權力或官方機構，拼法與發音都很像。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The author of this book teaches business writing at a university.",
+                "zh": "這本書的作者在大學教商業寫作。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "power",
+              "pos": "n.",
+              "zh": "權力、能力",
+              "ipa": "/ˈpaʊər/",
+              "example": {
+                "en": "The board has the power to remove the company president.",
+                "zh": "董事會有權罷免公司總裁。"
+              }
+            },
+            {
+              "w": "control",
+              "pos": "n.",
+              "zh": "控制、管理",
+              "ipa": "/kənˈtroʊl/",
+              "example": {
+                "en": "The manager has full control of the project budget.",
+                "zh": "經理完全掌控專案預算。"
+              }
+            },
+            {
+              "w": "permission",
+              "pos": "n.",
+              "zh": "許可",
+              "ipa": "/pərˈmɪʃən/",
+              "example": {
+                "en": "You need written permission to enter the laboratory.",
+                "zh": "進入實驗室需要書面許可。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "authorize",
+              "pos": "v.",
+              "zh": "授權、批准",
+              "ipa": "/ˈɔːθəraɪz/",
+              "link": "authority 的字根 + -ize，使成為有權，像 organize",
+              "example": {
+                "en": "The director will authorize the purchase of new computers today.",
+                "zh": "主任今天會批准購買新電腦。"
+              }
+            },
+            {
+              "w": "authorized",
+              "pos": "adj.",
+              "zh": "經授權的",
+              "ipa": "/ˈɔːθəraɪzd/",
+              "link": "authorize + -d，變成形容詞，像 limited",
+              "example": {
+                "en": "Only authorized staff may enter the server room.",
+                "zh": "只有經授權的員工可以進入機房。"
+              }
+            },
+            {
+              "w": "authorization",
+              "pos": "n.",
+              "zh": "授權、許可",
+              "ipa": "/ˌɔːθərəˈzeɪʃən/",
+              "link": "authorize + -ation，把動作變名詞，像 organization",
+              "example": {
+                "en": "You need written authorization before you can order new equipment.",
+                "zh": "訂購新設備之前，你需要書面授權。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/əˈθɔːrəti/",
+              "zh": "權力、權限",
+              "en": "the right to make decisions or give orders",
+              "in_passage": true,
+              "example": {
+                "en": "Ms. Chen has no authority to change the meeting time.",
+                "zh": "陳小姐無權更改會議時間。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/əˈθɔːrəti/",
+              "zh": "官方機構、當局",
+              "en": "a government office that controls something",
+              "distinguish": "指機構或單位時通常有 the、tax、local 等字，常用複數。",
+              "example": {
+                "en": "The tax authority sent us a notice about late payment.",
+                "zh": "稅務機關寄給我們一份逾期繳款通知。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/əˈθɔːrəti/",
+              "zh": "權威人士",
+              "en": "a person who knows a lot about a subject",
+              "distinguish": "後面常接 on + 主題。",
+              "example": {
+                "en": "Dr. Wu is an authority on global supply chain management.",
+                "zh": "吳博士是全球供應鏈管理的權威。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "director",
+          "type": "word",
+          "ipa": "/dəˈrektər/",
+          "pos": "n.",
+          "zh": "主管、董事、導演",
+          "en": "a person who manages a department or a company",
+          "note": "在這句裡 director 是上級主管，經理要每月把報告交給他。",
+          "forms": [
+            {
+              "w": "directors",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "董事們、主管們",
+              "ipa": "/dəˈrektərz/",
+              "example": {
+                "en": "The directors will meet on Monday to discuss next year's budget.",
+                "zh": "董事們星期一會開會討論明年的預算。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "managing director",
+              "zh": "常務董事、總經理",
+              "example": {
+                "en": "The managing director will visit our Singapore office next month.",
+                "zh": "常務董事下個月會來訪我們的新加坡辦公室。"
+              }
+            },
+            {
+              "phrase": "board of directors",
+              "zh": "董事會",
+              "example": {
+                "en": "The board of directors approved the new marketing plan yesterday.",
+                "zh": "董事會昨天核准了新的行銷計畫。"
+              }
+            },
+            {
+              "phrase": "sales director",
+              "zh": "業務主管",
+              "example": {
+                "en": "Our sales director is traveling to Taipei this week.",
+                "zh": "我們的業務主管本週要去台北出差。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "公司",
+              "en": "Please send the budget report to the director by noon.",
+              "zh": "請在中午前把預算報告送給主管。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "I have forwarded your request to the finance director.",
+              "zh": "我已經把你的請求轉給財務主管了。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "direct",
+              "ipa": "/dəˈrekt/",
+              "diff": "direct 是形容詞「直接的」或動詞「指導」，director 是名詞，指人。",
+              "kind": [
+                "root",
+                "spell"
+              ],
+              "usage": "direct 可以當形容詞或動詞；director 只能當名詞。",
+              "example": {
+                "en": "You can call the sales office on this direct line.",
+                "zh": "你可以打這支直撥專線給業務辦公室。"
+              }
+            },
+            {
+              "word": "directory",
+              "ipa": "/dəˈrektəri/",
+              "diff": "directory 是名錄、通訊錄，不是人。",
+              "kind": [
+                "spell"
+              ],
+              "example": {
+                "en": "The company directory lists every employee's phone number.",
+                "zh": "公司通訊錄列出每位員工的電話號碼。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "manager",
+              "pos": "n.",
+              "zh": "經理",
+              "ipa": "/ˈmænɪdʒər/",
+              "example": {
+                "en": "The manager will review all reports on Friday afternoon.",
+                "zh": "經理星期五下午會審閱所有報告。"
+              }
+            },
+            {
+              "w": "executive",
+              "pos": "n.",
+              "zh": "高階主管",
+              "ipa": "/ɪɡˈzekjətɪv/",
+              "example": {
+                "en": "Several executives will attend the meeting in Singapore.",
+                "zh": "幾位高階主管會出席新加坡的會議。"
+              }
+            },
+            {
+              "w": "supervisor",
+              "pos": "n.",
+              "zh": "主任、督導",
+              "ipa": "/ˈsuːpərvaɪzər/",
+              "example": {
+                "en": "My supervisor asked me to update the schedule today.",
+                "zh": "我的主任要我今天更新時程表。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "direct",
+              "pos": "v.",
+              "zh": "指導、指引",
+              "ipa": "/dəˈrekt/",
+              "link": "director 去掉 -or，是動詞；director 就是 direct 的人，像 actor",
+              "example": {
+                "en": "Please direct all questions to the customer service desk.",
+                "zh": "請把所有問題交給客服櫃台。"
+              }
+            },
+            {
+              "w": "direction",
+              "pos": "n.",
+              "zh": "方向、指示",
+              "ipa": "/dəˈrekʃən/",
+              "link": "direct + -ion，把動作變名詞，像 connection",
+              "example": {
+                "en": "Follow the direction on the sign to find the meeting room.",
+                "zh": "依照標示的方向就能找到會議室。"
+              }
+            },
+            {
+              "w": "directory",
+              "pos": "n.",
+              "zh": "名錄、通訊錄",
+              "ipa": "/dəˈrektəri/",
+              "link": "direct + -ory，指引人的地方，像 factory",
+              "example": {
+                "en": "Look up her extension in the staff directory.",
+                "zh": "請在員工通訊錄查她的分機。"
+              }
+            },
+            {
+              "w": "directly",
+              "pos": "adv.",
+              "zh": "直接地",
+              "ipa": "/dəˈrektli/",
+              "link": "direct + -ly，變成副詞，像 quickly",
+              "example": {
+                "en": "Please contact the supplier directly about the delay.",
+                "zh": "關於延遲，請直接聯絡供應商。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/dəˈrektər/",
+              "zh": "主管",
+              "en": "a person at a high level who runs a department",
+              "in_passage": true,
+              "example": {
+                "en": "The marketing director approved the new advertising plan today.",
+                "zh": "行銷主管今天核准了新的廣告計畫。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/dəˈrektər/",
+              "zh": "董事",
+              "en": "a member of the group that leads a company",
+              "distinguish": "常以複數出現，或與 board 連用。",
+              "example": {
+                "en": "Two new directors joined the board last month.",
+                "zh": "兩位新董事上個月加入董事會。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/dəˈrektər/",
+              "zh": "導演",
+              "en": "a person who guides actors in a film or play",
+              "distinguish": "句中常出現 film、movie、commercial 等字。",
+              "example": {
+                "en": "The director of the commercial chose a beach in Taiwan.",
+                "zh": "這支廣告的導演選了台灣的一處海灘。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "newly",
+          "type": "word",
+          "ipa": "/ˈnuːli/",
+          "pos": "adv.",
+          "zh": "最近、新近",
+          "en": "very recently",
+          "note": "在這句裡 newly renovated 是「最近剛翻新的」，newly 修飾後面的過去分詞。",
+          "grammar_note": "newly 通常放在過去分詞前（newly hired、newly built），不修飾名詞；修飾名詞要用 new。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "newly hired",
+              "zh": "新聘的",
+              "example": {
+                "en": "The newly hired employees will attend training on Monday morning.",
+                "zh": "新進員工星期一早上要參加訓練。"
+              }
+            },
+            {
+              "phrase": "newly opened",
+              "zh": "新開幕的",
+              "example": {
+                "en": "The newly opened restaurant near our office is always crowded.",
+                "zh": "我們公司附近新開的餐廳總是很擠。"
+              }
+            },
+            {
+              "phrase": "newly appointed",
+              "zh": "新任命的",
+              "example": {
+                "en": "The newly appointed manager will introduce herself tomorrow.",
+                "zh": "新上任的經理明天會自我介紹。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "公告",
+              "en": "We are proud to announce our newly designed website.",
+              "zh": "我們很榮幸宣布全新設計的網站上線。"
+            },
+            {
+              "tag": "人事",
+              "en": "The newly promoted director will lead the sales team.",
+              "zh": "剛升任的主管將帶領業務團隊。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "new",
+              "ipa": "/nuː/",
+              "diff": "new 是形容詞，直接修飾名詞；newly 是副詞，修飾過去分詞。",
+              "kind": [
+                "root",
+                "spell"
+              ],
+              "usage": "new office 正確，newly office 錯誤；newly built office 正確。",
+              "example": {
+                "en": "The new office has a large meeting room.",
+                "zh": "新辦公室有一間大會議室。"
+              }
+            },
+            {
+              "word": "recently",
+              "ipa": "/ˈriːsntli/",
+              "diff": "recently 可以修飾各種動詞與時態，newly 主要放在過去分詞前。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "We recently moved our office to a larger building.",
+                "zh": "我們最近把辦公室搬到比較大的大樓。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "freshly",
+              "ipa": "/ˈfreʃli/",
+              "diff": "freshly 強調剛剛才完成、很新鮮，常用於 freshly painted、freshly baked。",
+              "example": {
+                "en": "The freshly painted walls make the office look much brighter.",
+                "zh": "剛粉刷好的牆讓辦公室看起來亮多了。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "latest",
+              "pos": "adj.",
+              "zh": "最新的",
+              "ipa": "/ˈleɪtɪst/",
+              "example": {
+                "en": "Please send me the latest version of the contract.",
+                "zh": "請把合約的最新版本寄給我。"
+              }
+            },
+            {
+              "w": "recent",
+              "pos": "adj.",
+              "zh": "最近的",
+              "ipa": "/ˈriːsnt/",
+              "example": {
+                "en": "The recent price increase surprised many of our customers.",
+                "zh": "最近的漲價讓許多客戶很驚訝。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "renew",
+              "pos": "v.",
+              "zh": "更新、續約",
+              "ipa": "/rɪˈnuː/",
+              "link": "re- 再一次 + new，再變新一次，像 return、repeat",
+              "example": {
+                "en": "Please renew your membership before the end of this month.",
+                "zh": "請在本月底前續辦你的會員資格。"
+              }
+            },
+            {
+              "w": "news",
+              "pos": "n.",
+              "zh": "消息、新聞",
+              "ipa": "/nuːz/",
+              "link": "new + -s，新的事情就是消息",
+              "example": {
+                "en": "We have good news about the contract with Singapore.",
+                "zh": "關於新加坡的合約，我們有好消息。"
+              }
+            },
+            {
+              "w": "newcomer",
+              "pos": "n.",
+              "zh": "新來的人",
+              "ipa": "/ˈnuːkʌmər/",
+              "link": "new + comer，新來的人，像 comer 是 come 的人",
+              "example": {
+                "en": "Newcomers should register at the front desk on arrival.",
+                "zh": "新來的人抵達時應在櫃台登記。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "seat",
+          "type": "word",
+          "ipa": "/siːt/",
+          "pos": "v.",
+          "zh": "可容納（…人）坐",
+          "en": "to have enough chairs for a number of people",
+          "note": "在這句裡 seat 是及物動詞，can seat forty people 表示「可以容納四十人」。",
+          "grammar_note": "seat 當「容納」時是及物動詞，後面直接接人數，不加 for，也不用被動：The room seats 40。",
+          "forms": [
+            {
+              "w": "seats",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "可容納",
+              "ipa": "/siːts/",
+              "example": {
+                "en": "This hall seats about two hundred guests during conferences.",
+                "zh": "這個大廳在會議期間可容納約兩百位賓客。"
+              }
+            },
+            {
+              "w": "seats",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "座位",
+              "ipa": "/siːts/",
+              "example": {
+                "en": "All the seats in the front row are reserved.",
+                "zh": "前排所有座位都已被預訂。"
+              }
+            },
+            {
+              "w": "seated",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "使就座",
+              "ipa": "/ˈsiːtɪd/",
+              "example": {
+                "en": "The guests were seated at tables near the stage.",
+                "zh": "賓客被安排坐在舞台附近的桌位。"
+              }
+            },
+            {
+              "w": "seating",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "安排就座",
+              "ipa": "/ˈsiːtɪŋ/",
+              "example": {
+                "en": "The restaurant is seating guests at the window tables now.",
+                "zh": "餐廳現在正在安排客人坐靠窗的桌位。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "take a seat",
+              "zh": "就坐、請坐",
+              "example": {
+                "en": "Please take a seat while Ms. Chen finishes her call.",
+                "zh": "陳小姐講完電話前，請先坐一下。"
+              }
+            },
+            {
+              "phrase": "reserve a seat",
+              "zh": "預訂座位",
+              "example": {
+                "en": "I would like to reserve two seats on the morning flight.",
+                "zh": "我想預訂早班飛機的兩個座位。"
+              }
+            },
+            {
+              "phrase": "window seat",
+              "zh": "靠窗座位",
+              "example": {
+                "en": "I asked for a window seat on the flight to Singapore.",
+                "zh": "我要求飛往新加坡的班機坐靠窗座位。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "Room A can seat about thirty people for the weekly meeting.",
+              "zh": "A 會議室可容納約三十人參加每週會議。"
+            },
+            {
+              "tag": "餐廳",
+              "en": "The new restaurant seats fifty guests and offers a private room.",
+              "zh": "這家新餐廳可容納五十位客人，並有一間包廂。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "sit",
+              "ipa": "/sɪt/",
+              "diff": "sit 是「坐」，不及物；seat 是「使就座」或「可容納」，及物。",
+              "kind": [
+                "spell",
+                "sound",
+                "meaning"
+              ],
+              "usage": "sit 不接受詞（sit down）；seat 後面要接人或人數。",
+              "example": {
+                "en": "Please sit down and wait for the manager.",
+                "zh": "請坐下等經理。"
+              }
+            },
+            {
+              "word": "set",
+              "ipa": "/set/",
+              "diff": "set 是「擺放、設定」，和 seat 拼法接近，意思不同。",
+              "kind": [
+                "spell"
+              ],
+              "example": {
+                "en": "Please set the chairs in rows before the meeting starts.",
+                "zh": "會議開始前，請把椅子排成幾排。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "hold",
+              "ipa": "/hoʊld/",
+              "diff": "hold 也能表示容納，但不限座位，也可指容納物品或數量。",
+              "example": {
+                "en": "This conference room holds up to forty people at once.",
+                "zh": "這間會議室一次最多可容納四十人。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "chair",
+              "pos": "n.",
+              "zh": "椅子",
+              "ipa": "/tʃer/",
+              "example": {
+                "en": "Please bring two more chairs into the meeting room.",
+                "zh": "請再搬兩張椅子到會議室。"
+              }
+            },
+            {
+              "w": "capacity",
+              "pos": "n.",
+              "zh": "容量、容納量",
+              "ipa": "/kəˈpæsəti/",
+              "example": {
+                "en": "The hall has a capacity of five hundred people.",
+                "zh": "這個大廳的容納量是五百人。"
+              }
+            },
+            {
+              "w": "accommodate",
+              "pos": "v.",
+              "zh": "容納、提供住宿",
+              "ipa": "/əˈkɑːməˌdeɪt/",
+              "example": {
+                "en": "The hotel can accommodate up to three hundred guests.",
+                "zh": "這家飯店最多可容納三百位賓客。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "seating",
+              "pos": "n.",
+              "zh": "座位安排",
+              "ipa": "/ˈsiːtɪŋ/",
+              "link": "seat + -ing，座位的安排，像 parking",
+              "example": {
+                "en": "Please check the seating chart before the dinner begins.",
+                "zh": "晚宴開始前，請先確認座位表。"
+              }
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "v.",
+              "ipa": "/siːt/",
+              "zh": "使就座；可容納",
+              "in_passage": true,
+              "example": {
+                "en": "The usher will seat guests before the speech begins.",
+                "zh": "演講開始前，接待員會引導賓客入座。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/siːt/",
+              "zh": "座位",
+              "example": {
+                "en": "Please keep your seat until the plane stops moving.",
+                "zh": "飛機完全停妥前，請留在座位上。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "v.",
+              "ipa": "/siːt/",
+              "zh": "可容納（…人）",
+              "en": "to have enough chairs for a number of people",
+              "in_passage": true,
+              "example": {
+                "en": "The new auditorium seats about eight hundred visitors.",
+                "zh": "新的禮堂可容納約八百位訪客。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/siːt/",
+              "zh": "帶…入座",
+              "en": "to show someone where to sit",
+              "distinguish": "主詞是人（服務生、接待員），受詞也是人。",
+              "example": {
+                "en": "The waiter will seat you as soon as a table opens.",
+                "zh": "一有空桌，服務生就會帶你入座。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/siːt/",
+              "zh": "席位、職位",
+              "en": "a position as a member of a group",
+              "distinguish": "常見於 board seat、a seat on the committee。",
+              "example": {
+                "en": "She won a seat on the board of directors.",
+                "zh": "她取得了董事會的一個席位。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "in total",
+          "type": "phrase",
+          "zh": "總共、合計",
+          "en": "when everything is added together",
+          "note": "在這句裡放在句尾，說明裝修費用加總起來約五萬美元。",
+          "pattern": "數量／金額 + in total",
+          "grammar_note": "in total 放在數量或句尾，或放句首加逗號；不要寫成 in totally 或 at total。",
+          "examples": [
+            {
+              "tag": "出差",
+              "en": "The trip will cost about two thousand dollars in total.",
+              "zh": "這趟出差總共約需兩千美元。"
+            },
+            {
+              "tag": "訂單",
+              "en": "In total, we received three hundred orders this week.",
+              "zh": "本週我們總共收到三百張訂單。"
+            },
+            {
+              "tag": "會議",
+              "en": "In total, twenty-five employees joined the video conference from Singapore.",
+              "zh": "總共有二十五位員工從新加坡參加視訊會議。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "altogether",
+              "ipa": "/ˌɔːltəˈɡeðər/",
+              "diff": "altogether 意思相同，語氣稍口語，常放在數字後面。",
+              "example": {
+                "en": "The three projects cost about ninety thousand dollars altogether.",
+                "zh": "這三個專案總共約花了九萬美元。"
+              }
+            },
+            {
+              "phrase": "in all",
+              "diff": "in all 也是「總共」，通常放在數字後面，句子比較短。",
+              "example": {
+                "en": "There were eighty visitors in all at the trade fair.",
+                "zh": "貿易展總共有八十位訪客。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "totally",
+              "ipa": "/ˈtoʊtəli/",
+              "diff": "totally 是「完全地」，修飾形容詞或動詞，不是「總共」。",
+              "kind": [
+                "spell",
+                "meaning"
+              ],
+              "usage": "totally 是副詞，放在被修飾的字前面；in total 後面不接形容詞。",
+              "example": {
+                "en": "I totally agree with your plan for next quarter.",
+                "zh": "我完全同意你下一季的計畫。"
+              }
+            },
+            {
+              "phrase": "in short",
+              "diff": "in short 是「簡言之」，用來做結論，不用來算總數。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "In short, we need more time to finish the report.",
+                "zh": "簡言之，我們需要更多時間完成報告。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "lot",
+          "type": "word",
+          "ipa": "/lɑːt/",
+          "pos": "n.",
+          "zh": "停車場；一批；一塊地；很多",
+          "en": "an area of land where cars are parked",
+          "note": "在這句裡 back lot 是「後方的停車場」，因為前面的區域施工，所以請大家停在後面。",
+          "grammar_note": "a lot of 後面可接可數或不可數名詞；a lot 單獨放句尾當副詞，如 helps a lot。",
+          "forms": [
+            {
+              "w": "lots",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "停車場（複數）",
+              "ipa": "/lɑːts/",
+              "example": {
+                "en": "All three lots near the office are full this morning.",
+                "zh": "辦公室附近的三個停車場今天早上都滿了。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "parking lot",
+              "zh": "停車場",
+              "example": {
+                "en": "Please leave your car in the parking lot behind the building.",
+                "zh": "請把車停在大樓後方的停車場。"
+              }
+            },
+            {
+              "phrase": "a lot of",
+              "zh": "許多",
+              "example": {
+                "en": "We received a lot of calls about the delay.",
+                "zh": "我們接到很多關於延遲的來電。"
+              }
+            },
+            {
+              "phrase": "lot number",
+              "zh": "批號",
+              "example": {
+                "en": "Please write the lot number on the order form.",
+                "zh": "請把批號寫在訂購單上。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "辦公室",
+              "en": "The company lot has space for about eighty cars.",
+              "zh": "公司的停車場可停約八十輛車。"
+            },
+            {
+              "tag": "採購",
+              "en": "This lot of laptops was shipped from the factory yesterday.",
+              "zh": "這一批筆電昨天從工廠出貨了。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "slot",
+              "ipa": "/slɑːt/",
+              "diff": "slot 是時段或投幣口，和 lot 只差一個字母。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "Please choose a time slot for your interview.",
+                "zh": "請為你的面試選一個時段。"
+              }
+            },
+            {
+              "word": "plot",
+              "ipa": "/plɑːt/",
+              "diff": "plot 指一小塊地或故事情節；lot 的「一塊地」多指已劃分的土地。",
+              "kind": [
+                "spell",
+                "sound",
+                "meaning"
+              ],
+              "example": {
+                "en": "The company bought a large plot of land for the new factory.",
+                "zh": "公司買了一大塊地要蓋新工廠。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "space",
+              "pos": "n.",
+              "zh": "空間、空位",
+              "ipa": "/speɪs/",
+              "example": {
+                "en": "We need more space for the new office desks.",
+                "zh": "我們需要更多空間放新辦公桌。"
+              }
+            },
+            {
+              "w": "batch",
+              "pos": "n.",
+              "zh": "一批",
+              "ipa": "/bætʃ/",
+              "example": {
+                "en": "The first batch of products will arrive next Monday.",
+                "zh": "第一批產品下星期一會到。"
+              }
+            },
+            {
+              "w": "garage",
+              "pos": "n.",
+              "zh": "車庫",
+              "ipa": "/ɡəˈrɑːʒ/",
+              "example": {
+                "en": "Employees may park in the garage under the building.",
+                "zh": "員工可以把車停在大樓地下的車庫。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [
+            {
+              "pos": "n.",
+              "ipa": "/lɑːt/",
+              "zh": "停車場",
+              "in_passage": true,
+              "example": {
+                "en": "Please park in the lot behind the main building.",
+                "zh": "請把車停在主建築後方的停車場。"
+              }
+            },
+            {
+              "pos": "adv.",
+              "ipa": "/lɑːt/",
+              "zh": "很多（a lot）",
+              "example": {
+                "en": "Sales have improved a lot since last quarter.",
+                "zh": "自從上一季以來，業績進步了很多。"
+              }
+            }
+          ],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/lɑːt/",
+              "zh": "停車場",
+              "en": "an area of land where cars are parked",
+              "in_passage": true,
+              "example": {
+                "en": "The visitor lot is next to the main entrance.",
+                "zh": "訪客停車場在正門旁邊。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/lɑːt/",
+              "zh": "一批貨",
+              "en": "a group of goods made or sold together",
+              "distinguish": "後面常接 of + 貨品，或與 number 連用。",
+              "example": {
+                "en": "The buyer ordered a lot of five hundred chairs.",
+                "zh": "買家訂了一批五百張椅子。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/lɑːt/",
+              "zh": "一塊地",
+              "en": "a piece of land",
+              "distinguish": "句中常出現 buy、build、land。",
+              "example": {
+                "en": "The company bought a lot near the airport for a warehouse.",
+                "zh": "公司在機場附近買了一塊地蓋倉庫。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/lɑːt/",
+              "zh": "大量（lots of）",
+              "en": "a large amount",
+              "distinguish": "常用 lots of 或 a lot of，口語。",
+              "example": {
+                "en": "We have lots of time before the meeting starts.",
+                "zh": "離會議開始還有很多時間。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "retail",
+          "type": "word",
+          "ipa": "/ˈriːteɪl/",
+          "pos": "adj.",
+          "zh": "零售的",
+          "en": "related to selling goods to customers in stores or online",
+          "note": "在這句裡 retail 修飾 industry，指「零售業」，是商業新聞常見的產業名稱。",
+          "grammar_note": "retail 修飾名詞時不加 s（retail industry）；要表示「零售商」要用 retailer。",
+          "forms": [
+            {
+              "w": "retails",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "零售價為",
+              "ipa": "/ˈriːteɪlz/",
+              "example": {
+                "en": "This model retails for about two hundred dollars in most stores.",
+                "zh": "這個型號在大多數店裡零售價約兩百美元。"
+              }
+            },
+            {
+              "w": "retailed",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "零售價為（過去）",
+              "ipa": "/ˈriːteɪld/",
+              "example": {
+                "en": "The jacket retailed for eighty dollars last year.",
+                "zh": "這件外套去年的零售價是八十美元。"
+              }
+            },
+            {
+              "w": "retailing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "零售",
+              "ipa": "/ˈriːteɪlɪŋ/",
+              "example": {
+                "en": "Our company is retailing its products through online stores.",
+                "zh": "我們公司正透過網路商店零售產品。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "retail price",
+              "zh": "零售價",
+              "example": {
+                "en": "The retail price is higher than the wholesale price.",
+                "zh": "零售價比批發價高。"
+              }
+            },
+            {
+              "phrase": "retail store",
+              "zh": "零售店",
+              "example": {
+                "en": "The retail store opens at ten o'clock every morning.",
+                "zh": "這家零售店每天早上十點開門。"
+              }
+            },
+            {
+              "phrase": "retail sales",
+              "zh": "零售額",
+              "example": {
+                "en": "Retail sales rose by five percent in the last quarter.",
+                "zh": "上一季零售額成長了百分之五。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "求職",
+              "en": "She has ten years of experience in retail management.",
+              "zh": "她有十年零售管理的經驗。"
+            },
+            {
+              "tag": "市場",
+              "en": "Retail shops are adding mobile payment to attract more customers.",
+              "zh": "零售店正加入行動支付以吸引更多顧客。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "retain",
+              "ipa": "/rɪˈteɪn/",
+              "diff": "retain 是「保留、留住」，拼法與發音都和 retail 很像。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "We want to retain our best employees this year.",
+                "zh": "我們今年想留住最優秀的員工。"
+              }
+            },
+            {
+              "word": "wholesale",
+              "ipa": "/ˈhoʊlseɪl/",
+              "diff": "wholesale 是批發，和 retail 零售正好相反。",
+              "kind": [
+                "antonym"
+              ],
+              "example": {
+                "en": "The store buys goods at wholesale prices from the factory.",
+                "zh": "這家店以批發價向工廠進貨。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "customer",
+              "pos": "n.",
+              "zh": "顧客",
+              "ipa": "/ˈkʌstəmər/",
+              "example": {
+                "en": "Every customer received a coupon at the register.",
+                "zh": "每位顧客在結帳時都拿到一張優惠券。"
+              }
+            },
+            {
+              "w": "store",
+              "pos": "n.",
+              "zh": "商店",
+              "ipa": "/stɔːr/",
+              "example": {
+                "en": "The store will close early on Friday evening.",
+                "zh": "這家店星期五晚上會提早打烊。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "retailer",
+              "pos": "n.",
+              "zh": "零售商",
+              "ipa": "/ˈriːteɪlər/",
+              "link": "retail + -er，做事的人，像 worker",
+              "example": {
+                "en": "The retailer offered a discount on all winter coats.",
+                "zh": "這家零售商提供所有冬季外套折扣。"
+              }
+            },
+            {
+              "w": "retailing",
+              "pos": "n.",
+              "zh": "零售業",
+              "ipa": "/ˈriːteɪlɪŋ/",
+              "link": "retail + -ing，把這件事變成名詞，像 marketing",
+              "example": {
+                "en": "Online retailing has grown quickly in the past five years.",
+                "zh": "網路零售在過去五年快速成長。"
+              }
+            }
+          ],
+          "pos_uses": [
+            {
+              "pos": "adj.",
+              "ipa": "/ˈriːteɪl/",
+              "zh": "零售的",
+              "in_passage": true,
+              "example": {
+                "en": "The retail sector hired many extra workers for the holidays.",
+                "zh": "零售業為了假期僱用了許多額外的員工。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˈriːteɪl/",
+              "zh": "零售",
+              "example": {
+                "en": "The company sells its products at retail rather than wholesale.",
+                "zh": "這家公司以零售而非批發的方式銷售產品。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/ˈriːteɪl/",
+              "zh": "零售價為",
+              "example": {
+                "en": "The new tablet will retail for four hundred dollars.",
+                "zh": "這款新平板的零售價會是四百美元。"
+              }
+            }
+          ],
+          "senses": []
+        },
+        {
+          "text": "caused",
+          "type": "word",
+          "lemma": "cause",
+          "ipa": "/kɑːzd/",
+          "pos": "v.",
+          "zh": "造成、引起",
+          "en": "to make something happen",
+          "note": "在這句裡 caused a revolution 是「引起一場變革」，cause 後面直接接結果當受詞。",
+          "grammar_note": "cause + 受詞 + to V（caused him to leave），不能寫 cause him leave；cause 後面的結果通常是不好的事，好結果常用 bring about 或 lead to。",
+          "forms": [
+            {
+              "w": "causes",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "造成",
+              "ipa": "/ˈkɑːzɪz/",
+              "example": {
+                "en": "Heavy traffic often causes delays for our delivery trucks.",
+                "zh": "嚴重的車流常讓我們的送貨卡車延誤。"
+              }
+            },
+            {
+              "w": "causes",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "原因",
+              "ipa": "/ˈkɑːzɪz/",
+              "example": {
+                "en": "We are studying the causes of the drop in sales.",
+                "zh": "我們正在研究業績下滑的原因。"
+              }
+            },
+            {
+              "w": "causing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "造成",
+              "ipa": "/ˈkɑːzɪŋ/",
+              "example": {
+                "en": "The software error is causing problems for many customers.",
+                "zh": "這個軟體錯誤正給許多客戶帶來問題。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "cause a delay",
+              "zh": "造成延誤",
+              "example": {
+                "en": "Bad weather may cause a delay in the shipment.",
+                "zh": "壞天氣可能造成貨運延誤。"
+              }
+            },
+            {
+              "phrase": "cause damage",
+              "zh": "造成損害",
+              "example": {
+                "en": "The heavy rain caused damage to the warehouse.",
+                "zh": "大雨對倉庫造成了損害。"
+              }
+            },
+            {
+              "phrase": "cause confusion",
+              "zh": "造成混亂",
+              "example": {
+                "en": "The schedule change caused confusion among team members.",
+                "zh": "時間表的變動讓團隊成員感到混亂。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "客服",
+              "en": "The error caused several customers to receive the wrong invoice.",
+              "zh": "這個錯誤使幾位客戶收到錯的發票。"
+            },
+            {
+              "tag": "公司",
+              "en": "Rising costs caused the company to raise its prices.",
+              "zh": "成本上升使公司調高價格。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "because",
+              "ipa": "/bɪˈkɔːz/",
+              "diff": "because 是連接詞，後面接子句；cause 是動詞或名詞，兩者字形相近。",
+              "kind": [
+                "spell",
+                "root"
+              ],
+              "usage": "because 後面接完整子句，cause 當動詞要接受詞。",
+              "example": {
+                "en": "We postponed the meeting because the manager was sick.",
+                "zh": "因為經理生病，我們延後了會議。"
+              }
+            },
+            {
+              "word": "effect",
+              "ipa": "/ɪˈfekt/",
+              "diff": "cause 是原因，effect 是結果，常成對出現。",
+              "kind": [
+                "antonym"
+              ],
+              "example": {
+                "en": "The new policy had a positive effect on sales.",
+                "zh": "新政策對銷售有正面的影響。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "lead to",
+              "diff": "lead to 語氣中性，可以接好或壞的結果；cause 通常接不好的結果。",
+              "example": {
+                "en": "Poor planning can lead to serious delays in production.",
+                "zh": "規劃不良可能導致生產嚴重延誤。"
+              }
+            },
+            {
+              "phrase": "result in",
+              "diff": "result in 較正式，常用在報告與書信，後面接結果。",
+              "example": {
+                "en": "The change will result in lower costs for customers.",
+                "zh": "這項改變會讓客戶的成本降低。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "reason",
+              "pos": "n.",
+              "zh": "理由",
+              "ipa": "/ˈriːzn/",
+              "example": {
+                "en": "Please explain the reason for the late delivery.",
+                "zh": "請說明延遲交貨的理由。"
+              }
+            },
+            {
+              "w": "result",
+              "pos": "n.",
+              "zh": "結果",
+              "ipa": "/rɪˈzʌlt/",
+              "example": {
+                "en": "The test result will arrive by e-mail tomorrow.",
+                "zh": "測試結果明天會用電子郵件寄到。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [
+            {
+              "pos": "v.",
+              "ipa": "/kɑːz/",
+              "zh": "造成、引起",
+              "in_passage": true,
+              "example": {
+                "en": "Please do not let small errors cause big problems.",
+                "zh": "請不要讓小錯誤造成大問題。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/kɑːz/",
+              "zh": "原因",
+              "example": {
+                "en": "We are still looking for the cause of the system error.",
+                "zh": "我們仍在尋找系統錯誤的原因。"
+              }
+            }
+          ],
+          "senses": []
+        },
+        {
+          "text": "hear back",
+          "type": "phrase",
+          "zh": "得到回覆、收到回音",
+          "en": "to get an answer after you asked or sent something",
+          "note": "在這句裡 as soon as I hear back 是「一收到對方回覆」，是電子郵件與工作聯絡中常見的口氣，專業又自然。",
+          "pattern": "I will + V + as soon as I hear back (from 人)",
+          "grammar_note": "as soon as 引導的時間子句用現在式代替未來式，要寫 as soon as I hear back，不寫 will hear back；回覆的對象常用 from + 人。",
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "Please let me know when you hear back from the supplier.",
+              "zh": "你收到供應商的回覆時，請通知我。"
+            },
+            {
+              "tag": "求職",
+              "en": "I have not heard back from the company about my interview.",
+              "zh": "關於我的面試，我還沒收到那家公司的回覆。"
+            },
+            {
+              "tag": "出差",
+              "en": "We will book the flights once we hear back from Singapore.",
+              "zh": "我們一收到新加坡那邊的回覆，就會訂機票。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "get a reply",
+              "diff": "get a reply 意思相同，語氣稍正式，後面可接 from + 人。",
+              "example": {
+                "en": "I hope to get a reply from the client by Friday.",
+                "zh": "我希望星期五前能收到客戶的回覆。"
+              }
+            },
+            {
+              "phrase": "get back to",
+              "diff": "get back to 的主詞是「回覆的人」；hear back 的主詞是「等回覆的人」。",
+              "example": {
+                "en": "I will get back to you with the price tomorrow morning.",
+                "zh": "我明天早上會回覆你價格。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "hear from",
+              "diff": "hear from 是「收到某人的消息」，不一定是回覆；hear back 一定是對你先前的詢問的回覆。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "It was nice to hear from you after so many months.",
+                "zh": "隔了這麼多個月再收到你的消息真好。"
+              }
+            },
+            {
+              "phrase": "hear about",
+              "diff": "hear about 是「聽說某件事」，後面接事情，不接回覆的人。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "Did you hear about the new office in Singapore?",
+                "zh": "你有聽說新加坡新辦公室的事嗎？"
               }
             }
           ]
