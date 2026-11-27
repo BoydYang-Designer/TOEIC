@@ -99546,6 +99546,83 @@
               }
             }
           ]
+        },
+        {
+          "text": "be processed",
+          "type": "phrase",
+          "zh": "被處理、被辦理",
+          "en": "to be dealt with step by step until the work is done",
+          "note": "多益商務情境常用於訂單、付款、退款、申請等，表示「正在或將會被處理」，語氣客氣專業，常搭配 within + 時間。",
+          "pattern": "N（訂單／付款）+ will be processed + within + 時間",
+          "grammar_note": "be processed 是被動語態，主詞是事物（order、payment、refund），不能寫成 be processing；處理的人用 by，時間用 within。",
+          "examples": [
+            {
+              "tag": "訂單",
+              "en": "Your order will be processed within two business days.",
+              "zh": "您的訂單會在兩個工作天內處理。"
+            },
+            {
+              "tag": "退款",
+              "en": "Refunds usually take five days to be processed by the bank.",
+              "zh": "退款通常要五天才會由銀行處理完成。"
+            },
+            {
+              "tag": "付款",
+              "en": "Your payment has been processed, and a receipt is attached.",
+              "zh": "您的款項已處理完成，收據附在信中。"
+            },
+            {
+              "tag": "申請",
+              "en": "All applications must be processed before the end of the month.",
+              "zh": "所有申請必須在月底前處理完畢。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "be handled",
+              "diff": "be handled 比較口語、範圍廣，可指處理任何事；be processed 強調依流程辦理。",
+              "example": {
+                "en": "All complaints will be handled by our customer service team.",
+                "zh": "所有客訴都會由我們的客服團隊處理。"
+              }
+            },
+            {
+              "phrase": "be dealt with",
+              "diff": "be dealt with 常指處理問題或要求，語氣較口語。",
+              "example": {
+                "en": "Every request will be dealt with as quickly as possible.",
+                "zh": "每項要求都會盡快處理。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "proceed",
+              "ipa": "/proʊˈsiːd/",
+              "diff": "proceed 是「繼續進行、前往」，不及物；process 是「處理」，和 proceed 字形與字根相近。",
+              "kind": [
+                "spell",
+                "root"
+              ],
+              "usage": "proceed 是不及物動詞，不能用被動；be processed 是 process 的被動。",
+              "example": {
+                "en": "Please proceed to the front desk to pick up your badge.",
+                "zh": "請前往櫃台領取你的識別證。"
+              }
+            },
+            {
+              "phrase": "be produced",
+              "diff": "be produced 是「被生產、被製造」，拼法接近，意思不同。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The new model will be produced at our Taiwan factory.",
+                "zh": "新型號將在我們的台灣工廠生產。"
+              }
+            }
+          ]
         }
       ]
     },
