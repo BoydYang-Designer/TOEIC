@@ -109,9 +109,25 @@ const prBadge = (key, extra) => { // 小徽章：最高分；沒練習過就不�
   const b = prBest(key);
   return `<span class="pr-badge ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ${b ? skPctCls(b) : 'hidden'}" data-k="${esc(key)}" title="最高分${extra || ''}">${b ? b : ''}</span>`;
 };
-function prMicMark(m, k) { // 詳解頁：練習過的字，麥克風位置改顯示最高分（CSS 依 data-sc／data-lv 呈現）
+function prMicMark(m, k) { // 詳解頁：🎙 圖示保留，底色依最高分填「綠／紅」比例（CSS 讀 --p；沒練習過＝原本的底色）
   const b = prBest(k);
-  if (b) { m.dataset.sc = b; m.dataset.lv = b >= 85 ? 'g' : b >= 60 ? 'y' : 'r'; } else { delete m.dataset.sc; delete m.dataset.lv; }
+  if (b) { m.dataset.sc = b; m.style.setProperty('--p', Math.min(100, b) + '%'); m.title = '最高分 ' + b + '%（綠色＝分數比例）'; }
+  else { delete m.dataset.sc; m.style.removeProperty('--p'); m.title = '練習發音（評分並記錄最高分）'; }
+}
+/* 聽力次數：S.pron[文字].pl＝在詳解頁按 🔊 播放的次數（存在同一筆紀錄裡，跟著最高分一起同步）；10 次＝滿格 */
+const PR_PL_FULL = 10;
+const prPlays = k => ((S.pron || {})[k] || {}).pl || 0;
+function prPlayCount(k) { // 記一次播放
+  if (!k) return;
+  S.pron = S.pron || {};
+  const o = S.pron[k] || { b: 0, n: 0 };
+  o.pl = (o.pl || 0) + 1; S.pron[k] = o; save();
+  try { prRefreshBadges(); } catch (e) {}
+}
+function prSpkMark(b, k) { // 🔊：圖示保留，底色依播放次數填綠／紅（10 次滿格）
+  const n = prPlays(k);
+  if (n) { b.dataset.pl = n; b.style.setProperty('--p', Math.min(100, n / PR_PL_FULL * 100) + '%'); b.title = '已播放 ' + n + ' 次（' + PR_PL_FULL + ' 次滿格）'; }
+  else { delete b.dataset.pl; b.style.removeProperty('--p'); b.removeAttribute('title'); }
 }
 /* ---------- 單字卡百分比：這個字「詳解頁」所有語音練習項目的總分 ----------
    項目＝詳解頁每個 🎙（單字、原形、詞性、多義、屈折、同字族、搭配、同義改寫、例句、重點字詞、易混淆、近義、相關字…，
@@ -163,7 +179,7 @@ const prCardBadge = (qid, i, w) => { // 單字卡／入庫卡：詳解語音練�
   return `<span class="pr-badge pr-total ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ${prTotCls(r)}" data-vq="${esc(qid)}"${w != null && w !== '' ? ` data-vw="${esc(w)}"` : ` data-vi="${i}"`} title="${prTotTitle(r)}">${r ? r.pct : ''}</span>`;
 };
 function prRefreshBadges() {
-  document.querySelectorAll('button.pr-mic').forEach(m => prMicMark(m, prNorm(m.dataset.pt)));
+  document.querySelectorAll('button.pr-mic').forEach(m => { const k = prNorm(m.dataset.pt); prMicMark(m, k); const sp = m.previousElementSibling; if (sp && sp.matches && sp.matches('button[onclick^="vplay("],button[onclick^="speakPhrase("]')) prSpkMark(sp, k); });
   document.querySelectorAll('.pr-badge').forEach(el => {
     if (el.dataset.vq != null) { // 單字卡：詳解總分
       const r = prDetailPct(el.dataset.vq, +el.dataset.vi, el.dataset.vw);
@@ -199,13 +215,85 @@ function prInject(root) {
     m.dataset.pt = text;
     m.addEventListener('click', ev => { ev.stopPropagation(); prOpen(text, b); });
     b.after(m);
-    prMicMark(m, k);
+    prMicMark(m, k); prSpkMark(b, k);
     m.insertAdjacentHTML('afterend', b.dataset.vq != null ? prCardBadge(b.dataset.vq, +b.dataset.vi, b.dataset.vw) : prBadge(k)); // 🔊 帶 data-vq（＋data-vi 或 data-vw）：徽章顯示詳解總分
   });
 }
+/* ---------- 詳解頁底部的「📦 資料」：列出「要修改這個詳解時，該給 AI 哪些檔案」，每一項有「複製」鍵 ----------
+   程式檔：從網站讀同資料夾的檔案（fetch），把全文複製到剪貼簿（每份前面加一行「===== 檔名 =====」，貼給 AI 時分得出來）。
+   daily.json 太大，不整份給：改複製「這個字的資料」（所在文章＋這個字的詳解）或「同字的所有資料」（處理同字不同發音／詞性用）。
+   雙擊開啟（file://）時瀏覽器讀不到檔案，程式檔那幾項會提示改用 GitHub Pages／本機伺服器。 */
+const prFKey = s => (typeof dnKey === 'function' ? dnKey(s) : prNorm(s));
+const prFItem = a => ({ week: a.week, day: a.day, tag: a.tag });
+const prFHead = (name, t) => '===== ' + name + ' =====\n' + t;
+function prFWord() { // 這個詳解：所在文章（文稿、核心單字）＋詳解資料（extra_vocab 的那一筆）
+  const D = dnDetailData(); if (!D) throw new Error('找不到這個項目');
+  const x = D.x, s = D.src || D.x, a = Object.assign(prFItem(x), { passage: x.passage });
+  if (D.kind === 'vocab' && D.base) a.vocab = [D.base];
+  if (D.kind === 'pp' && x.presentation_phrases) a.presentation_phrases = [x.presentation_phrases[D.i]];
+  const items = [a];
+  if (D.ex) { if (s === x) a.extra_vocab = [D.ex]; else items.push(Object.assign(prFItem(s), { extra_vocab: [D.ex] })); }
+  return prFHead('daily.json 摘錄：' + D.e.text, JSON.stringify({ _說明: '從 daily.json 摘出的片段（格式同 items）：所在文章的文稿／核心單字，加上這個字的詳解（extra_vocab）。' + (D.ex ? '' : '這個字目前還沒有詳解資料。'), items }, null, 1));
+}
+function prFSame() { // 同一個字在所有文章裡的條目（核心單字、詳解，含詞形變化裡出現的）
+  const D = dnDetailData(); if (!D) throw new Error('找不到這個項目');
+  const k = prFKey(D.e.text), out = [];
+  DATA.concat(typeof LIB !== 'undefined' && LIB ? [LIB] : []).forEach(a => {
+    const v = (a.vocab || []).filter(q => prFKey(q.word) === k);
+    const ev = (a.extra_vocab || []).filter(q => prFKey(q.text || q.word) === k || (q.forms || []).some(f => prFKey(f.w) === k));
+    if (v.length || ev.length) { const o = prFItem(a); if (v.length) o.vocab = v; if (ev.length) o.extra_vocab = ev; out.push(o); }
+  });
+  return prFHead('daily.json 摘錄：全部「' + D.e.text + '」', JSON.stringify({ _說明: '所有文章裡出現「' + D.e.text + '」的條目（核心單字 vocab、詳解 extra_vocab；含詞形變化裡有它的）。共 ' + out.length + ' 篇。', items: out }, null, 1));
+}
+async function prFFetch(name) { const r = await fetch(name, { cache: 'no-store' }); if (!r.ok) throw new Error(name + ' 讀不到（HTTP ' + r.status + '）'); return prFHead(name, await r.text()); }
+async function prFSpec() { const r = await fetch('daily.json', { cache: 'no-store' }); if (!r.ok) throw new Error('daily.json 讀不到（HTTP ' + r.status + '）'); const j = await r.json(); if (!j || !j._spec) throw new Error('daily.json 裡沒有 _spec'); return prFHead('daily.json 的 _spec（生成規則與欄位格式）', JSON.stringify(j._spec, null, 1)); }
+const PR_FILES = [
+  { g: '資料（改這個字的內容）', id: 'word', nm: () => '📝 這個字的資料', ds: '所在文章的文稿／核心單字＋這個字的詳解。改單字詳解、音標、例句時必給。', get: async () => prFWord() },
+  { id: 'same', nm: () => '🔁 同字的所有資料', ds: '所有文章裡同一個字的條目（含詞形變化）。處理「同字不同發音／詞性／詞義」時給，AI 才看得到全部用法。', get: async () => prFSame() },
+  { id: 'spec', nm: () => '📐 daily.json 的 _spec', ds: '欄位格式與生成規則。要新增欄位、改格式、請 AI 產生新詳解時給。', get: prFSpec },
+  { g: '程式（改詳解畫面／功能）', id: 'notes', nm: () => 'notes.js', ds: '詳解頁的畫面與資料處理（顯示哪些區塊、🔊 播放 vplay、入庫）。', get: () => prFFetch('notes.js') },
+  { id: 'pron', nm: () => 'pron.js', ds: '🎙 發音練習視窗、分數與播放次數的顏色、快捷鍵。', get: () => prFFetch('pron.js') },
+  { id: 'css', nm: () => 'style.css', ds: '詳解頁樣式（按鈕大小、顏色條、行距）。', get: () => prFFetch('style.css') },
+  { id: 'daily', nm: () => 'daily.js', ds: '主程式（存檔 S、頁面切換、讀取 daily.json）。改到頁面流程或資料結構時給。', get: () => prFFetch('daily.js') },
+];
+async function prFilesCopy(id, btn) {
+  const F = PR_FILES.find(f => f.id === id); if (!F) return;
+  const old = btn.textContent; btn.disabled = true; btn.textContent = '⏳ 讀取中…';
+  let text = '';
+  try {
+    if (navigator.clipboard && window.ClipboardItem && window.isSecureContext) { // 用 Promise 交給剪貼簿：fetch 等待期間不會失去「使用者點擊」的授權（iOS Safari 需要）
+      await navigator.clipboard.write([new ClipboardItem({ 'text/plain': F.get().then(t => { text = t; return new Blob([t], { type: 'text/plain' }); }) })]);
+    } else {
+      text = await F.get();
+      if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+      else { const ta = document.createElement('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); const ok = document.execCommand('copy'); ta.remove(); if (!ok) throw new Error('瀏覽器不允許複製'); }
+    }
+    btn.textContent = '✓ 已複製'; try { dnToast('已複製 ' + F.nm() + '（' + (text.length >= 1024 ? Math.round(text.length / 1024) + ' KB' : text.length + ' 字') + '）'); } catch (e) {}
+  } catch (e) {
+    btn.textContent = old;
+    const fileProto = location.protocol === 'file:';
+    try { dnToast(fileProto ? '直接雙擊開啟（file://）讀不到檔案，請用 GitHub Pages 或本機伺服器開啟' : '複製失敗：' + (e && e.message || e)); } catch (x) {}
+  }
+  setTimeout(() => { btn.disabled = false; btn.textContent = old; }, 1500);
+}
+function prFilesPanel() { // 詳解頁底部補上「📦 資料」面板（整頁重畫後會自動補回）
+  const main = document.getElementById('main'), old = document.getElementById('pr-files');
+  const on = typeof cur !== 'undefined' && cur.view === 'detail' && main && document.getElementById('detail-text');
+  if (!on) { if (old) old.remove(); return; }
+  if (old && old.parentNode === main) return;
+  let D = null; try { D = dnDetailData(); } catch (e) {}
+  if (!D) return;
+  const el = document.createElement('div'); el.id = 'pr-files'; el.className = 'mt-6';
+  const rows = PR_FILES.map(f => `${f.g ? `<p class="text-xs font-bold text-slate-400 mt-3 mb-1">${f.g}</p>` : ''}<div class="flex items-center gap-2 py-1.5 border-t border-slate-100 dark:border-slate-800"><div class="min-w-0 flex-1"><p class="text-sm font-semibold break-words">${esc(f.nm())}</p><p class="text-xs text-slate-500 leading-snug">${esc(f.ds)}</p></div><button type="button" onclick="prFilesCopy('${f.id}',this)" class="${skCtl} shrink-0 !py-1.5">複製</button></div>`).join('');
+  el.innerHTML = `<details class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"><summary class="cursor-pointer select-none list-none px-4 py-3 text-sm font-bold">📦 資料 <span class="font-normal text-slate-500">· 要修改「${esc(D.e.text)}」的詳解，要給 AI 哪些檔案</span></summary><div class="px-4 pb-4">
+    <p class="text-xs text-slate-500 leading-relaxed">依要改的東西挑著給，按「複製」貼給 AI（多份一起貼，每份前面有檔名標題）。<b>完整的 daily.json 太大，不用整份給</b>，用上面的「這個字的資料」；字有多種發音／詞性時加上「同字的所有資料」。</p>
+    ${rows}
+    <p class="text-xs text-slate-400 leading-relaxed mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">AI 回傳的 JSON 存成 w{週}d{天}_extra.json，用電腦上的 json_merge.py 合併進 daily.json，再執行 Scan總表與音檔.py 並重新上傳（這兩支在電腦資料夾裡，網頁讀不到，需要時自己從資料夾給）。</p></div></details>`;
+  main.appendChild(el);
+}
 (function () {
   let q = 0;
-  const run = () => { q = 0; try { prInject(document.getElementById('main')); } catch (e) {} };
+  const run = () => { q = 0; try { prInject(document.getElementById('main')); } catch (e) {} try { prFilesPanel(); } catch (e) {} };
   const start = () => {
     const m = document.getElementById('main'); if (!m) return;
     new MutationObserver(() => { if (!q) q = requestAnimationFrame(run); }).observe(m, { childList: true, subtree: true });
@@ -437,6 +525,7 @@ function prListen() { // 視窗裡的「🔊 聽範例」
     if (PR.src && PR.src.isConnected) { PR.gateSkip = true; try { PR.src.click(); } finally { PR.gateSkip = false; } } else { try { speak(PR.text); } catch (e) {} }
     return;
   }
+  prPlayCount(PR.key); // 視窗裡的「聽範例」也算一次
   prExBegin(true);
 }
 document.addEventListener('click', e => { // capture：在 vplay／speakPhrase 的 onclick 之前先處理頁面上的 🔊
@@ -456,6 +545,7 @@ document.addEventListener('click', e => { // capture：在 vplay／speakPhrase �
     return;
   }
   PR.exBtn = b; PR.pendBtn = null;
+  prPlayCount(prNorm(prTextOf(b)));
   prExBegin(false);
 }, true);
 
@@ -555,7 +645,7 @@ function prRender() {
   if (!skSR()) warn.push('此瀏覽器不支援語音辨識（建議用 Chrome／Edge／Safari）。');
   const busy = prep || proc || SK.mineRel || prPlaying() || PR.ex !== ''; // 回放中（含關閉中）不能錄音：和 speak.js 的 skMineBusy 一樣，要先按「停止回放」
   const micCls = rec ? 'bg-rose-600 text-white animate-pulse' : busy ? 'bg-slate-300 dark:bg-slate-700 text-slate-500' : 'bg-indigo-600 hover:bg-indigo-700 text-white';
-  const lbl = rec ? (long ? '🔴 錄音中…念完再點一次停止' : '🔴 請念出來…') : prep ? '⏳ 準備麥克風…' : (SK.mineRel || PR.ex === 'settle') ? '⏳ 正在關閉播放音檔…完成後即可錄音' : PR.ex === 'play' ? '🔊 範例播放中…請先按「⏹ 停止」，音檔關閉後才能錄音' : prPlaying() ? '🔊 播放錄音中…請先按「⏹ 停止回放」，音檔關閉後才能錄音' : proc ? '⏳ 辨識中…' : PR.dead ? '⚠ 麥克風被系統卡住了，請看下方說明' : '點麥克風開始（或按空白鍵）';
+  const lbl = rec ? (long ? '🔴 錄音中…念完再點一次停止' : '🔴 請念出來…') : prep ? '⏳ 準備麥克風…' : (SK.mineRel || PR.ex === 'settle') ? '⏳ 正在關閉播放音檔…完成後即可錄音' : PR.ex === 'play' ? '🔊 範例播放中…請先按「⏹ 停止」，音檔關閉後才能錄音' : prPlaying() ? '🔊 播放錄音中…請先按「⏹ 停止回放」，音檔關閉後才能錄音' : proc ? '⏳ 辨識中…' : PR.dead ? '⚠ 麥克風被系統卡住了，請看下方說明' : '點麥克風開始（或按 P 鍵）';
   let res = '';
   if (r) {
     if (r.none) res = '<p class="text-sm text-rose-600 dark:text-rose-400">沒有辨識到聲音，靠近麥克風再試一次。</p>';
@@ -574,12 +664,12 @@ function prRender() {
   ov.innerHTML = `<div class="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/50" onclick="if(event.target===this)prClose()">
     <div class="w-full md:max-w-xl max-h-[92vh] overflow-y-auto rounded-t-2xl md:rounded-2xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 p-5 shadow-xl" style="padding-bottom:max(1.25rem,env(safe-area-inset-bottom))">
       <div class="flex items-center justify-between gap-2 mb-3"><h3 class="font-bold">🎙 發音練習${nv ? ` <span class="text-xs font-normal text-slate-400">${nv.pos}/${nv.total}</span>` : ''}</h3>
-        <span class="text-xs text-slate-500">${rc.b ? `🏆 最高 <b class="rounded px-1.5 py-0.5 ${skPctCls(rc.b)}">${rc.b}%</b> · 練習 ${rc.n} 次` : '還沒練習過'}</span>
+        <span class="text-xs text-slate-500">${rc.b ? `🏆 最高 <b class="rounded px-1.5 py-0.5 ${skPctCls(rc.b)}">${rc.b}%</b> · 練習 ${rc.n} 次` : '還沒練習過'}${rc.pl ? ` · 聽 ${rc.pl} 次` : ''}</span>
         <button onclick="prClose()" class="text-slate-400 hover:text-slate-600 text-2xl leading-none px-1 cursor-pointer" aria-label="關閉">×</button></div>
-      <p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>${(() => { const ip = prIpaOf(PR.text); return ip ? `<p class="-mt-2 mb-3 text-base text-slate-500">${esc(ip)}</p>` : ''; })()}${(() => { const z = S.prZh ? (PR.zh || prZhOf(PR.text)) : ''; return z ? `<p class="${prWc(PR.text) > 3 ? '' : '-mt-1 '}mb-3 text-base leading-relaxed text-slate-600 dark:text-slate-300">${esc(z)}</p>` : ''; })()}
+      ${S.prEn ? '<p class="text-lg text-slate-400 leading-relaxed mb-3">（英文已隱藏：先聽範例，再憑耳朵念出來）</p>' : `<p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>${(() => { const ip = prIpaOf(PR.text); return ip ? `<p class="-mt-2 mb-3 text-base text-slate-500">${esc(ip)}</p>` : ''; })()}`}${(() => { const z = S.prZh ? (PR.zh || prZhOf(PR.text)) : ''; return z ? `<p class="${prWc(PR.text) > 3 ? '' : '-mt-1 '}mb-3 text-base leading-relaxed text-slate-600 dark:text-slate-300">${esc(z)}</p>` : ''; })()}
       ${warn.length ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 space-y-1">${warn.map(w => `<p>⚠ ${esc(w)}</p>`).join('')}</div>` : ''}
       <div class="flex flex-wrap items-center gap-2 mb-3"><button onclick="prListen()" ${PR.ex === 'settle' || PR.st !== 'idle' ? 'disabled' : ''} class="${skCtl} ${PR.ex === 'settle' || PR.st !== 'idle' ? 'opacity-50' : ''}">${PR.ex === 'settle' ? '⏳ 關閉中…' : PR.ex === 'play' ? '⏹ 停止' : '🔊 聽範例'}</button>
-        ${(() => { const z = PR.zh || prZhOf(PR.text); return z ? `<button onclick="prZhToggle()" class="ml-auto ${skCtl}">${S.prZh ? '🙈 隱藏中文翻譯' : '👁 顯示中文翻譯'}</button>` : '<span class="ml-auto text-xs text-slate-400">沒有中文翻譯</span>'; })()}</div>
+        <span class="ml-auto flex flex-wrap items-center justify-end gap-2"><button onclick="prEnToggle()" aria-pressed="${!!S.prEn}" class="${skCtl}">${S.prEn ? '👁 顯示英文' : '🙈 隱藏英文'}</button>${(() => { const z = PR.zh || prZhOf(PR.text); return z ? `<button onclick="prZhToggle()" class="${skCtl}">${S.prZh ? '🙈 隱藏中文翻譯' : '👁 顯示中文翻譯'}</button>` : '<span class="text-xs text-slate-400">沒有中文翻譯</span>'; })()}</span></div>
       <section class="sticky top-0 z-10 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-md px-3 py-2 mb-2"><div class="flex items-center gap-3">
         <button onclick="prToggle()" ${busy ? 'disabled' : ''} class="h-12 w-12 shrink-0 rounded-full text-xl shadow ${micCls}" aria-label="錄音">${rec ? '⏹' : '🎙'}</button>
         <div class="min-w-0 flex-1"><p class="text-xs text-slate-500 leading-snug">${lbl}</p>
@@ -587,10 +677,11 @@ function prRender() {
       <div class="mb-3 flex flex-col items-center gap-2">${PR.err ? `<p class="text-xs text-rose-600 dark:text-rose-400 text-center">${esc(PR.err)}</p>` : ''}${reset}${mrRow}</div>
       ${res ? `<div class="mt-3 pt-4 border-t border-slate-200 dark:border-slate-800 text-left">${res}</div>` : ''}
       ${dbg}
-      <p class="mt-3 text-[0.6875rem] text-slate-400 text-center">快捷鍵：空白鍵＝錄音／停止，Enter＝聽範例，P＝聽我的錄音，←／→＝上一句／下一句，Esc＝關閉</p>
+      <p class="mt-3 text-[0.6875rem] text-slate-400 text-center">快捷鍵：P＝錄音／停止，空白鍵＝聽我的錄音，Enter＝聽範例，←／→＝上一句／下一句，Esc＝關閉</p>
     </div></div>`;
 }
 function prZhToggle() { S.prZh = !S.prZh; save(); prRender(); }
+function prEnToggle() { S.prEn = S.prEn ? 0 : 1; save(); prRender(); } // 手動隱藏英文（含音標），只靠聽來練習；存在 S.prEn
 function prLevel(v) { S.spkLevel = v; save(); if (PR.cands) prScore(false); prRender(); }
 function prDbg() { PR.dbg = !PR.dbg; prRender(); }
 
@@ -813,10 +904,10 @@ document.addEventListener('keydown', e => {
   if (!document.getElementById('pron-ov') || e.ctrlKey || e.metaKey || e.altKey) return;
   const t = e.target; if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
   if (e.key === 'Escape') { e.preventDefault(); prClose(); }
-  else if (e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); prToggle(); }
+  else if (e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); if (e.repeat) return; if (PR.blob) prPlayMine(); else { try { dnToast('還沒有錄音，先按 P 錄一次再聽'); } catch (x) {} } } // 空白＝聽我的錄音（再按一次停止）
   else if (e.key === 'Enter') { e.preventDefault(); prListen(); }
   else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); prNav(e.key === 'ArrowLeft' ? -1 : 1); } // ← 上一句／→ 下一句
-  else if (e.key === 'p' || e.key === 'P') { e.preventDefault(); if (PR.blob) prPlayMine(); else { try { dnToast('還沒有錄音，先錄一次再聽'); } catch (x) {} } } // P＝聽我的錄音（再按一次停止）
+  else if (e.key === 'p' || e.key === 'P') { e.preventDefault(); if (e.repeat) return; prToggle(); } // P＝錄音／停止
 }, true);
 document.addEventListener('keyup', e => { if (document.getElementById('pron-ov') && (e.key === ' ' || e.key === 'Spacebar')) e.preventDefault(); }, true);
 document.addEventListener('visibilitychange', () => { if (document.hidden) { if (PR.ex === 'play') prExFinish(true); if (document.getElementById('pron-ov')) { prCancel(); prRender(); } } });
