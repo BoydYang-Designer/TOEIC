@@ -1,4 +1,4 @@
-/* quiz.js — TOEIC Daily Coach 的「🧪 綜合測驗」（每一篇一個）
+/* quiz.js — TOEIC Daily Coach 的「🧪 綜合測驗」（每一篇一個）：🔤 單字測驗（單字＋聽力，本檔）＋ 📖 文章測驗（quizart.js，需在本檔之後載入）
    載入順序：…→ newwords.js → quiz.js → tsl.js → daily.js（函式都是執行時才用到，放前放後都可以）
    依賴（執行時才用到）：daily.js／notes.js 的全域 S／cur／DATA／main／find／idOf／esc／card／btn／render／up／isLib／setVoice／spStop／skStopAll／
    dnNav／dnToast／dnKey／dnExtraOf／dnLine／dnPri／dnSm／dnChip／dnBackBtn／vplay（單字、英文解釋、例句的 mp3 走詳解頁同一套，沒有檔案就機器發音）
@@ -19,9 +19,9 @@ const QZ_KEY = 'toeicQuizV1', QZ_PREF = 'qzPrefV1', QZ_PASS = 0.8;
 const QZ_SECS = [['vocab', '🔤', '單字', 2], ['listen', '🎧', '聽力', 1]]; // 最後一欄＝分配題數的權重（15 題＝單字 10＋聽力 5）
 const QZ_MIX = [['never', 0.70], ['wrong', 0.25], ['right', 0.05]];
 const QZ_WORD_CAP = 2;
-const QZ = { st: 'setup', a: null, x: null, pool: null, sec: { vocab: 1, listen: 1 }, n: 15, qs: [], i: 0, picked: null, res: [], t0: 0 };
-try { const p = JSON.parse(localStorage.getItem(QZ_PREF) || '{}'); if (p.sec) Object.keys(QZ.sec).forEach(k => { if (k in p.sec) QZ.sec[k] = p.sec[k] ? 1 : 0; }); if ([10, 15, 20].includes(p.n)) QZ.n = p.n; } catch (e) {}
-const qzPrefSave = () => { try { localStorage.setItem(QZ_PREF, JSON.stringify({ sec: QZ.sec, n: QZ.n })); } catch (e) {} };
+const QZ = { st: 'setup', part: 'word', a: null, x: null, pool: null, sec: { vocab: 1, listen: 1 }, n: 15, qs: [], i: 0, picked: null, res: [], t0: 0 };
+try { const p = JSON.parse(localStorage.getItem(QZ_PREF) || '{}'); if (p.sec) Object.keys(QZ.sec).forEach(k => { if (k in p.sec) QZ.sec[k] = p.sec[k] ? 1 : 0; }); if ([10, 15, 20].includes(p.n)) QZ.n = p.n; if (p.part === 'art') QZ.part = 'art'; } catch (e) {}
+const qzPrefSave = () => { try { localStorage.setItem(QZ_PREF, JSON.stringify({ sec: QZ.sec, n: QZ.n, part: QZ.part, den: typeof QA !== 'undefined' ? QA.den : 1 })); } catch (e) {} };
 
 /* ---------- 小工具 ---------- */
 const qzShuf = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -355,26 +355,31 @@ const qzSpk = (arg, cls, ri) => `<button type="button" onclick="event.stopPropag
 
 /* ===== 畫面 ===== */
 const qzSecInfo = k => QZ_SECS.find(s => s[0] === k);
-function qzOpen(w, d) { const x = find(w, d); if (!x) return; QZ.x = x; QZ.a = idOf(x); QZ.st = 'setup'; QZ.pool = null; cur.w = w; cur.d = d; dnNav('quiz'); }
+function qzOpen(w, d) { const x = find(w, d); if (!x) return; QZ.x = x; QZ.a = idOf(x); QZ.st = 'setup'; QZ.pool = null; if (typeof qaReset === 'function') qaReset(); cur.w = w; cur.d = d; dnNav('quiz'); }
 function qzEntry(x) { // 放在文章頁（隨堂測驗上方）
   if (!x || !x.passage || isLib(x)) return '';
   const l = qzLast(idOf(x)), pc = l ? Math.round(l.ok / l.n * 100) : 0, pass = l && l.ok / l.n >= QZ_PASS;
-  return `<section class="${card} p-4 mb-4 flex flex-wrap items-center justify-between gap-2"><div><div class="font-bold">🧪 綜合測驗${pass ? ' <span class="text-emerald-600 dark:text-emerald-400 text-sm">✓ 已通過</span>' : ''}</div><div class="text-xs text-slate-500 mt-0.5">${l ? `最近一次 ${pc}%（${l.ok}/${l.n}）· ${new Date(l.t).toLocaleDateString('zh-TW')}` : '單字・聽力 · 約 10 分鐘'}</div></div><button onclick="qzOpen(${x.week},${x.day})" class="${btn} ${dnPri}">開始測驗</button></section>`;
+  return `<section class="${card} p-4 mb-4 flex flex-wrap items-center justify-between gap-2"><div><div class="font-bold">🧪 綜合測驗${pass ? ' <span class="text-emerald-600 dark:text-emerald-400 text-sm">✓ 已通過</span>' : ''}</div><div class="text-xs text-slate-500 mt-0.5">${l ? `最近一次 ${pc}%（${l.ok}/${l.n}）· ${new Date(l.t).toLocaleDateString('zh-TW')}` : '單字・聽力・文章克漏字 · 約 10 分鐘'}</div></div><button onclick="qzOpen(${x.week},${x.day})" class="${btn} ${dnPri}">開始測驗</button></section>`;
 }
 function qzRender() {
-  if (!QZ.x || idOf(QZ.x) !== idOf(find(cur.w, cur.d) || QZ.x)) { const x = find(cur.w, cur.d); if (x) { QZ.x = x; QZ.a = idOf(x); QZ.st = 'setup'; QZ.pool = null; } }
+  if (!QZ.x || idOf(QZ.x) !== idOf(find(cur.w, cur.d) || QZ.x)) { const x = find(cur.w, cur.d); if (x) { QZ.x = x; QZ.a = idOf(x); QZ.st = 'setup'; QZ.pool = null; if (typeof qaReset === 'function') qaReset(); } }
   if (!QZ.x) { main.innerHTML = '<p class="text-sm text-slate-500">找不到這一篇。</p>'; return; }
-  if (QZ.st === 'run') return qzRun(); if (QZ.st === 'result') return qzResult(); if (QZ.st === 'info') return qzInfo(); qzSetup();
+  if (QZ.st === 'info') return qzInfo();
+  if (QZ.part === 'art' && typeof qaRender === 'function') return qaRender();
+  if (QZ.st === 'run') return qzRun(); if (QZ.st === 'result') return qzResult(); qzSetup();
 }
 const qzHead = (t, back) => `<header class="mb-4 flex items-center justify-between gap-2"><div><h2 class="text-xl md:text-2xl font-bold">🧪 綜合測驗</h2><p class="text-xs text-slate-500 mt-0.5">${esc(t)}</p></div>${back || dnBackBtn()}</header>`;
+const qzTabs = () => `<div class="flex gap-2 mb-4">${[['word', '🔤 單字測驗'], ['art', '📖 文章測驗']].map(([k, t]) => `<button onclick="qzPart('${k}')" class="${btn} flex-1 ${QZ.part === k ? dnPri : dnLine}">${t}</button>`).join('')}</div>`;
+function qzPart(k) { if (QZ.part === k) return; qzStopAudio(); QZ.part = k; qzPrefSave(); if (typeof qaReset === 'function') qaReset(); QZ.st = 'setup'; qzRender(); window.scrollTo({ top: 0 }); }
 function qzSetup() {
+  if (QZ.part === 'art' && typeof qaRender === 'function') return qaRender();
   const x = QZ.x; qzReload();
   if (!QZ.pool) QZ.pool = qzBuild(x);
   const rm = qzRecMap(), st = {}; QZ_SECS.forEach(([k]) => { st[k] = { never: 0, wrong: 0, right: 0 }; });
   QZ.pool.forEach(q => { st[q.sec][qzBucketOf(rm, q)]++; });
   const tot = k => st[k].never + st[k].wrong + st[k].right, on = QZ_SECS.filter(s => QZ.sec[s[0]]), avail = on.reduce((a, s) => a + tot(s[0]), 0), n = avail ? qzSelect(QZ.pool, QZ.sec, QZ.n).length : 0; // 試抽一次，算出實際會出幾題（有些題共用同一句，會互斥）
   const l = qzLast(QZ.a);
-  main.innerHTML = qzHead(`W${x.week}·D${x.day} ${x.tag || ''}`) + `<div class="${card} p-4 mb-4"><p class="text-sm font-bold mb-2">測驗項目</p><div class="space-y-2">${QZ_SECS.map(([k, ic, nm]) => `<label class="flex items-start gap-3 rounded-lg border ${QZ.sec[k] ? 'border-indigo-400 bg-indigo-50/50 dark:bg-indigo-950/30' : 'border-slate-200 dark:border-slate-800'} p-3 cursor-pointer"><input type="checkbox" ${QZ.sec[k] ? 'checked' : ''} ${tot(k) ? '' : 'disabled'} onchange="qzToggle('${k}')" class="mt-1"><span class="flex-1"><b>${ic} ${nm}</b> <span class="text-xs text-slate-500">${tot(k) ? `題庫 ${tot(k)} 題：沒考過 ${st[k].never}・答錯過 ${st[k].wrong}・答對過 ${st[k].right}` : '這篇沒有可出的題'}</span><span class="block text-xs text-slate-400">${{ listen: '聽例句選中文、聽詞形、聽音辨字、聽英文解釋選字、聽搭配（題幹只能聽，答完才顯示文字）', vocab: '英文解釋、中文、例句克漏字、詞形、搭配、多義、易混淆、近義、衍生字' }[k]}</span></span></label>`).join('')}</div>
+  main.innerHTML = qzHead(`W${x.week}·D${x.day} ${x.tag || ''}`) + qzTabs() + `<div class="${card} p-4 mb-4"><p class="text-sm font-bold mb-2">測驗項目</p><div class="space-y-2">${QZ_SECS.map(([k, ic, nm]) => `<label class="flex items-start gap-3 rounded-lg border ${QZ.sec[k] ? 'border-indigo-400 bg-indigo-50/50 dark:bg-indigo-950/30' : 'border-slate-200 dark:border-slate-800'} p-3 cursor-pointer"><input type="checkbox" ${QZ.sec[k] ? 'checked' : ''} ${tot(k) ? '' : 'disabled'} onchange="qzToggle('${k}')" class="mt-1"><span class="flex-1"><b>${ic} ${nm}</b> <span class="text-xs text-slate-500">${tot(k) ? `題庫 ${tot(k)} 題：沒考過 ${st[k].never}・答錯過 ${st[k].wrong}・答對過 ${st[k].right}` : '這篇沒有可出的題'}</span><span class="block text-xs text-slate-400">${{ listen: '聽例句選中文、聽詞形、聽音辨字、聽英文解釋選字、聽搭配（題幹只能聽，答完才顯示文字）', vocab: '英文解釋、中文、例句克漏字、詞形、搭配、多義、易混淆、近義、衍生字' }[k]}</span></span></label>`).join('')}</div>
     <div class="flex flex-wrap gap-2 mt-3"><button onclick="qzPreset('all')" class="${dnSm}">全部</button><button onclick="qzPreset('vocab')" class="${dnSm}">只考單字</button><button onclick="qzPreset('listen')" class="${dnSm}">只考聽力</button><button onclick="qzShowInfo()" class="${dnSm} ml-auto">📋 資料（給 AI）</button></div>
     <div class="flex flex-wrap items-center gap-2 mt-4 text-sm"><span>題數</span>${[10, 15, 20].map(v => `<button onclick="qzSetN(${v})" class="${dnSm} ${QZ.n === v ? '!bg-indigo-600 !text-white !border-indigo-600' : ''}">${v}</button>`).join('')}<span class="text-xs text-slate-500">約 ${Math.max(1, Math.round(n * 0.7))} 分鐘</span></div>
     <p class="text-xs text-slate-500 mt-3 leading-relaxed">每個項目的題目：約 70% 沒考過的、25% 答錯過的、5% 答對過的；某一類不夠就依序補（沒考過 → 答錯過 → 最久沒考的答對題）。每個字這一回隨機問 1–3 題，再跳到別的字，相鄰題盡量不重複同一個字或題型。${l ? `<br>最近一次：${Math.round(l.ok / l.n * 100)}%（${l.ok}/${l.n}），${new Date(l.t).toLocaleString('zh-TW', { hour12: false })}` : ''}</p>
@@ -384,10 +389,11 @@ function qzSetup() {
 /* 注意：修改綜合測驗後，要同步檢查這份說明（QZ_AI_TEXT）和下面的 QZ_FILES 是否需要更新，才不會誤導下一位 AI */
 const QZ_AI_TEXT = [
   '【TOEIC Daily Coach — 綜合測驗（quiz.js）修改說明】',
-  '我會一併提供：quiz.js、daily.js、notes.js、daily.html，以及 daily.json 的一小段（某一篇有 extra_vocab 的文章）和「單字詳解 AI 提示檔」（說明每個詳解欄位的意思）。',
+  '我會一併提供：quiz.js、quizart.js、daily.js、notes.js、daily.html，以及 daily.json 的一小段（某一篇有 extra_vocab 的文章）和「單字詳解 AI 提示檔」（說明每個詳解欄位的意思）。',
   '',
   '■ 範圍：只考「單字」與「聽力」（聽力＝只用單字詳解內容出題，每題都有現成 mp3）。閱讀／文法／文章內容的出題已移除。',
-  '■ 題庫：每次開測驗時，從該篇「當下」的資料（核心單字 + extra_vocab 詳解）即時產生；新增單字只要有詳解就自動進題庫。',
+  '■ 文章測驗（quizart.js，狀態物件 QA）：綜合測驗分「單字測驗」（quiz.js）與「文章測驗」（quizart.js）兩個分頁（QZ.part：word／art），目前文章測驗只有 A 文章克漏字。整篇文章（超過約 170 字依段落／句子分頁）隨機挖空單字／片語／詞形，來源是該篇 vocab＋extra_vocab，不足時補「別篇詳解的字剛好出現在這篇」；下方球標池＝答案＋約 50% 干擾字（取易混淆、詞形、同詞性，近義字不當干擾）。操作：點空格→點球標填入，點已填的空格球標回池，交卷後逐空顯示對錯與詳解。選空格依 沒考過 70／答錯 25／答對 5。紀錄與單字測驗同存 toeicQuizV1：空格鍵＝文章id|字|az|雜湊；一回總成績鍵＝A|文章id|時間（不影響「✓ 已通過」）。借用 quiz.js 的 qzRecord／qzDistract／qzWhyWord／qzHead／qzTabs 等，所以 quizart.js 要在 quiz.js 之後載入。',
+  '■ 單字測驗題庫：每次開測驗時，從該篇「當下」的資料（核心單字 + extra_vocab 詳解）即時產生；新增單字只要有詳解就自動進題庫。',
   '■ 選題：各項目依 70% 沒考過 / 25% 答錯過 / 5% 答對過；不足時依 沒考過→答錯→答對（最久沒考的先）補。每個字每回隨機 1–3 題再換字，相鄰題避免同字、同題型。題數可選 10/15/20（約 10 分鐘）。',
   '■ 記錄：localStorage「toeicQuizV1」（跨裝置雲端同步，key 以 toeic 開頭）；題目 key＝「文章id|單字|題型|hash」；偏好在「qzPrefV1」（僅本機）。通過門檻 80%，通過後入口卡顯示「✓ 已通過」。',
   '■ 音檔：用 notes.js 的 vplay(qid, text, suf, fallback)；檔案 audio/daily/vocab/<slug(text)><suf>.mp3。suf：_en 英文解釋；_e{i} 例句；_c{i} 搭配例句；_fx{i} 詞形例句；_s{i} 多義例句；_cf{i} 易混淆例句；_sx{i} 近義例句；_mx{i} 相關字例句；_dx{i} 衍生字例句；空字串＝單字本身。',
@@ -397,6 +403,7 @@ const QZ_AI_TEXT = [
 ].join('\n');
 const QZ_FILES = [
   ['quiz.js', '綜合測驗全部的出題、選題、記錄和畫面邏輯都在這裡，大部分修改只動這個檔。', 1, ['quiz.js']],
+  ['quizart.js', '綜合測驗「文章測驗」（目前是 A 文章克漏字）的挖空、球標、畫面、記錄都在這裡；會借用 quiz.js 的函式。', 1, ['quizart.js']],
   ['daily.js', '綜合測驗有三個地方接在這裡：入口卡片（qzEntry）、頁面登記（quiz）、離開頁面時停止播放。', 1, ['daily.js']],
   ['notes.js', '裡面有 quiz.js 用到的 vplay（播 mp3）、dnKey、dnExtraOf 等函式，還有返回鍵對 quiz 頁的處理。', 1, ['notes.js']],
   ['daily.html', '要看 quiz.js 的載入順序。', 1, ['daily.html']],
