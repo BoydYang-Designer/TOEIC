@@ -53,7 +53,7 @@ function dnNav(view, prevDet) { // 往下一層：記住目前頁面與捲動位
 const dnSideBtns = () => `<button onclick="dnNav('marks')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'marks' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">📌 入庫彙整（${dnMarks().length}）</button><button onclick="dnNav('reports')" class="${btn} w-full mt-2 ${dnLine} ${cur.view === 'reports' ? 'bg-indigo-50 dark:bg-indigo-950 ring-1 ring-indigo-400' : ''}">⚑ 回報彙整（待處理 ${dnOpenRpN()}）</button>${typeof nwBtn === 'function' ? nwBtn() : ''}`;
 function dnFromLaunch(view) { SEC = 'learn'; cur.stk = [{ v: 'launch', y: 0 }]; cur.view = view; push(); render(); window.scrollTo({ top: 0 }); }
 function dnUp() { // 供 daily.js 的 up() 呼叫；回傳 true 表示已處理
-  const v = cur.view; if (v !== 'marks' && v !== 'reports' && v !== 'detail' && v !== 'bank' && v !== 'nw' && v !== 'groups') return false;
+  const v = cur.view; if (v !== 'marks' && v !== 'reports' && v !== 'detail' && v !== 'bank' && v !== 'nw' && v !== 'groups' && v !== 'quiz') return false;
   const p = cur.stk && cur.stk.pop();
   if (p && p.det) cur.det = p.det; // 返回到上一筆詳解（例如句子詳解 → arrange 詳解 → 返回＝回到句子）
   if (p && p.w != null && find(p.w, p.d)) { cur.w = p.w; cur.d = p.d; } // 返回時連「是哪一篇」一起還原（從別篇的詳解返回才不會跑到別篇）

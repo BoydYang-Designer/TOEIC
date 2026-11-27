@@ -1444,6 +1444,7 @@ function renderDay() {
   h += `</div>`;
   }
   h += skEntryHtml(x);
+  h += typeof qzEntry === 'function' ? qzEntry(x) : ''; // 🧪 綜合測驗入口（quiz.js）：放在語音練習下方
   main.innerHTML = h + `<button onclick="backHome()" class="${btn} md:hidden w-full mt-6 border border-slate-300 dark:border-slate-700">← 返回 W${x.week} 選擇其他天</button>`;
   dnAfterDay();
 }
@@ -1926,7 +1927,7 @@ function render() {
   render.m = isMobile();
   if (!SEC && cur.view !== 'launch') cur.view = 'launch';
   const key = cur.view + cur.w + cur.d;
-  if (render.k !== undefined && render.k !== key) { spStop(); skStopAll(); } // 切換頁面即停止語音／錄音
+  if (render.k !== undefined && render.k !== key) { spStop(); skStopAll(); if (typeof qzStopAudio === 'function') qzStopAudio(); } // 切換頁面即停止語音／錄音
   render.k = key;
   render.wd = { w: cur.w, d: cur.d }; // 這次畫面顯示的是哪一篇（供 dnNav 記錄返回位置）
   if (!['day', 'mitem', 'speak', 'detail', 'topics'].includes(cur.view)) TBACK = null;
@@ -1934,7 +1935,7 @@ function render() {
   document.documentElement.classList.toggle('dark', S.dark);
   document.body.dataset.view = cur.view; // 供 CSS 依頁面調整（例如詳解頁的 🔊／🎙 加大）
   renderSide();
-  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, trash: renderTrash, recs: skRecsRender, drafts: renderDrafts, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail, nw: nwRender, groups: gpRender };
+  const V = { launch: renderLaunch, home: renderMatrix, day: renderDay, speak: skRender, book: renderBook, gen: renderGen, audio: renderAudioAdmin, maint: renderMatrix, topics: renderMatrix, mitem: renderMaintItem, trash: renderTrash, recs: skRecsRender, drafts: renderDrafts, marks: dnRenderMarks, bank: dnRenderBank, reports: dnRenderReports, detail: dnRenderDetail, nw: nwRender, groups: gpRender, quiz: typeof qzRender === 'function' ? qzRender : renderDay };
   (V[cur.view] || renderDay)();
   if (Sp.mode === 'audio' && Sp.au && Sp.id) spHl(Sp.id, Sp.au.currentTime);
   dnSyncBar();
