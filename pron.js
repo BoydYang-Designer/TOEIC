@@ -114,8 +114,8 @@ function prMicMark(m, k) { // 詳解頁：🎙 圖示保留，底色依最高分
   if (b) { m.dataset.sc = b; m.style.setProperty('--p', Math.min(100, b) + '%'); m.title = '最高分 ' + b + '%（綠色＝分數比例）'; }
   else { delete m.dataset.sc; m.style.removeProperty('--p'); m.title = '練習發音（評分並記錄最高分）'; }
 }
-/* 聽力次數：S.pron[文字].pl＝在詳解頁按 🔊 播放的次數（存在同一筆紀錄裡，跟著最高分一起同步）；10 次＝滿格 */
-const PR_PL_FULL = 10;
+/* 聽力次數：S.pron[文字].pl＝在詳解頁按 🔊 播放的次數（存在同一筆紀錄裡，跟著最高分一起同步）；5 次＝滿格 */
+const PR_PL_FULL = 5;
 const prPlays = k => ((S.pron || {})[k] || {}).pl || 0;
 function prPlayCount(k) { // 記一次播放
   if (!k) return;
@@ -124,15 +124,16 @@ function prPlayCount(k) { // 記一次播放
   o.pl = (o.pl || 0) + 1; S.pron[k] = o; save();
   try { prRefreshBadges(); } catch (e) {}
 }
-function prSpkMark(b, k) { // 🔊：圖示保留，底色依播放次數填綠／紅（10 次滿格）
+function prSpkMark(b, k) { // 🔊：圖示保留，底色依播放次數填綠／紅（PR_PL_FULL 次滿格）
   const n = prPlays(k);
   if (n) { b.dataset.pl = n; b.style.setProperty('--p', Math.min(100, n / PR_PL_FULL * 100) + '%'); b.title = '已播放 ' + n + ' 次（' + PR_PL_FULL + ' 次滿格）'; }
   else { delete b.dataset.pl; b.style.removeProperty('--p'); b.removeAttribute('title'); }
 }
 /* ---------- 單字卡百分比：這個字「詳解頁」所有語音練習項目的總分 ----------
    項目＝詳解頁每個 🎙（單字、原形、詞性、多義、屈折、同字族、搭配、同義改寫、例句、重點字詞、易混淆、近義、相關字…，
-   寫法與 notes.js 的 dnRenderDetail 一致；相同文字只算一項）。總分＝各項最高分加總 ÷ 全部項目數，沒練習的算 0；
-   一項都沒練習過＝0（照樣顯示 0，不隱藏）。核心單字卡、我的入庫卡、入庫總覽列、詳解頁標題的 🔊 旁邊都是這個總分（卡片的 🔊 帶 data-vq＝文章 id，再加 data-vi＝核心單字序號 或 data-vw＝單字文字）。 */
+   寫法與 notes.js 的 dnRenderDetail 一致；相同文字只算一項）。
+   🎙 總分＝各項最高分加總 ÷ 全部項目數，沒練習的算 0；🔊 總進度＝各項 min(聽的次數, PR_PL_FULL)/PR_PL_FULL 加總 ÷ 全部項目數。
+   核心單字卡、我的入庫卡、入庫總覽列、詳解頁標題的 🔊🎙 旁邊都是這個總分（卡片的 🔊 帶 data-vq＝文章 id，再加 data-vi＝核心單字序號 或 data-vw＝單字文字）。 */
 function prDetailKeys(x, v) {
   const ex = dnFindExtraAny(x, v.word), e = Object.assign({}, v, ex || {});
   e.text = v.word;
@@ -164,13 +165,17 @@ function prDetailKeys(x, v) {
   obj(e.family).forEach(o => { if (o.w) add(o.w); exEn(o); });
   return [...out.keys()];
 }
-function prDetailPct(qid, i, w) { // → { pct, done, total }；沒練習過＝pct 0。只有找不到這個項目時回傳 null。w＝單字文字（入庫卡／總覽用）；否則用核心單字序號 i
+function prDetailPct(qid, i, w) { // → { pct（🎙 總分）, pl（🔊 總進度 0–100）, done, heard, total }；沒練習過＝0。只有找不到這個項目時回傳 null。w＝單字文字（入庫卡／總覽用）；否則用核心單字序號 i
   try {
     const x = dnArt(qid); if (!x) return null;
     const v = (w != null && w !== '') ? { word: w } : (x.vocab && x.vocab[i]); if (!v) return null;
     const ks = prDetailKeys(x, v), total = ks.length; if (!total) return null;
-    let sum = 0, done = 0; ks.forEach(k => { const b = prBest(k); if (b) { sum += b; done++; } });
-    return { pct: Math.round(sum / total), done, total };
+    let sum = 0, done = 0, pl = 0, heard = 0;
+    ks.forEach(k => {
+      const b = prBest(k); if (b) { sum += b; done++; }
+      const n = prPlays(k); if (n) { heard++; pl += Math.min(n, PR_PL_FULL) / PR_PL_FULL; }
+    });
+    return { pct: Math.round(sum / total), pl: Math.round(pl / total * 100), done, heard, total };
   } catch (e) { return null; }
 }
 const prTotCls = r => r ? (r.pct > 0 ? skPctCls(r.pct) : 'bg-slate-200 text-slate-500 dark:bg-slate-800 dark:text-slate-400') : 'hidden'; // 0 分用灰色
@@ -179,8 +184,26 @@ const prCardBadge = (qid, i, w) => { // 單字卡／入庫卡：詳解語音練�
   const r = prDetailPct(qid, i, w);
   return `<span class="pr-badge pr-total ml-0.5 align-middle text-[10px] font-bold rounded px-1 py-0.5 ${prTotCls(r)}" data-vq="${esc(qid)}"${w != null && w !== '' ? ` data-vw="${esc(w)}"` : ` data-vi="${i}"`} title="${prTotTitle(r)}">${r ? r.pct : ''}</span>`;
 };
+/* 卡片／詳解標題上的 🔊🎙：底色比例＝整份詳解的總和（🎙＝語音練習總分、🔊＝聽力總進度） */
+function prMicMarkTot(m, r) {
+  if (r && r.pct > 0) { m.dataset.sc = r.pct; m.style.setProperty('--p', Math.min(100, r.pct) + '%'); m.title = `詳解語音練習總分 ${r.pct}%（已練習 ${r.done}／${r.total} 項）`; }
+  else { delete m.dataset.sc; m.style.removeProperty('--p'); m.title = '練習發音（詳解總分 0%）'; }
+}
+function prSpkMarkTot(b, r) {
+  if (r && r.pl > 0) { b.dataset.pl = r.pl; b.style.setProperty('--p', Math.min(100, r.pl) + '%'); b.title = `詳解聽力總進度 ${r.pl}%（已聽 ${r.heard}／${r.total} 項，每項 ${PR_PL_FULL} 次滿格）`; }
+  else { delete b.dataset.pl; b.style.removeProperty('--p'); b.title = `詳解聽力總進度 0%（每項 ${PR_PL_FULL} 次滿格）`; }
+}
+function prMarkPair(m, b) { // b＝🔊、m＝它後面的 🎙
+  if (b.dataset.vq != null) { // 核心單字卡／入庫卡／詳解標題：顯示整個詳解的總分
+    const r = prDetailPct(b.dataset.vq, +b.dataset.vi, b.dataset.vw);
+    prMicMarkTot(m, r); prSpkMarkTot(b, r);
+  } else { const k = prNorm(m.dataset.pt); prMicMark(m, k); prSpkMark(b, k); } // 其他：各自單獨
+}
 function prRefreshBadges() {
-  document.querySelectorAll('button.pr-mic').forEach(m => { const k = prNorm(m.dataset.pt); prMicMark(m, k); const sp = m.previousElementSibling; if (sp && sp.matches && sp.matches('button[onclick^="vplay("],button[onclick^="speakPhrase("]')) prSpkMark(sp, k); });
+  document.querySelectorAll('button.pr-mic').forEach(m => {
+    const sp = m.previousElementSibling;
+    if (sp && sp.matches && sp.matches('button[onclick^="vplay("],button[onclick^="speakPhrase("]')) prMarkPair(m, sp);
+  });
   document.querySelectorAll('.pr-badge').forEach(el => {
     if (el.dataset.vq != null) { // 單字卡：詳解總分
       const r = prDetailPct(el.dataset.vq, +el.dataset.vi, el.dataset.vw);
@@ -216,7 +239,7 @@ function prInject(root) {
     m.dataset.pt = text;
     m.addEventListener('click', ev => { ev.stopPropagation(); prOpen(text, b); });
     b.after(m);
-    prMicMark(m, k); prSpkMark(b, k);
+    prMarkPair(m, b); // 卡片／詳解標題（🔊 帶 data-vq）＝整份詳解的總和；其他＝各自單獨
     m.insertAdjacentHTML('afterend', b.dataset.vq != null ? prCardBadge(b.dataset.vq, +b.dataset.vi, b.dataset.vw) : prBadge(k)); // 🔊 帶 data-vq（＋data-vi 或 data-vw）：徽章顯示詳解總分
   });
 }

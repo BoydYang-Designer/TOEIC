@@ -93,7 +93,7 @@ body[data-view="detail"] #main li .flex.items-start{gap:.3rem}
 body[data-view="detail"] #main li .flex.items-start{align-items:flex-start}
 body[data-view="detail"] #main li .flex.items-start>:is(button.pr-mic,.pr-badge)+div{padding-top:.48rem}
 /* 詳解頁：🎙／🔊 圖示保留，底色由下往上填「綠色」、其餘是紅色，像電量條。
-   🎙：綠色高度＝最高分（100＝滿）；🔊：綠色高度＝播放次數（10 次＝滿）。--p 由 pron.js 設定；沒練習／沒播過＝維持原本淡色底。小徽章隱藏 */
+   🎙：綠色高度＝最高分（100＝滿）；🔊：綠色高度＝播放次數（5 次＝滿）。--p 由 pron.js 設定；沒練習／沒播過＝維持原本淡色底。小徽章隱藏 */
 body[data-view="detail"] #main .pr-badge{display:none}
 body[data-view="detail"] #main button.pr-mic[data-sc],body[data-view="detail"] #main button[onclick^="vplay("][data-pl],body[data-view="detail"] #main button[onclick^="speakPhrase("][data-pl]{background:linear-gradient(to top,#6ee7b7 0 var(--p),#fda4af var(--p) 100%);color:#1e293b;box-shadow:inset 0 0 0 1px rgba(15,23,42,.15)}
 .dark body[data-view="detail"] #main button.pr-mic[data-sc],.dark body[data-view="detail"] #main button[onclick^="vplay("][data-pl],.dark body[data-view="detail"] #main button[onclick^="speakPhrase("][data-pl]{background:linear-gradient(to top,#047857 0 var(--p),#9f1239 var(--p) 100%);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
@@ -129,3 +129,23 @@ body[data-view="detail"] #main li>.flex.items-start~.flex.items-start{margin-top
 /* 同字不同音（hetero.js）：這個念法還沒有專屬音檔（audio/daily/vocab/{字}_hp1.mp3）→ 🔊 右上角顯示 ⚠，先用機器念「帶詞性的小片語」 */
 body[data-view="detail"] #main button[data-nomp3]{position:relative}
 body[data-view="detail"] #main button[data-nomp3]::after{content:"⚠";position:absolute;top:-.3rem;right:-.3rem;font-size:.8rem;line-height:1;color:#d97706;font-weight:400}
+
+/* ===== 卡片上的 🔊／🎙（核心單字卡、入庫卡、生詞本、入庫總覽）：和詳解頁同樣的線條圖示＋綠／紅填色 =====
+   🔊 綠色高度＝詳解聽力總進度（每項 5 次滿格的平均）；🎙 綠色高度＝詳解語音練習總分。比例由 pron.js 寫入 --p。 */
+body:not([data-view="detail"]) #main button[data-vq],
+body:not([data-view="detail"]) #main button[data-vq]+button.pr-mic{display:inline-flex;align-items:center;justify-content:center;flex:none;width:2.25rem;height:2.25rem;min-width:2.25rem;padding:0;font-size:0!important;line-height:0;border-radius:.625rem;vertical-align:middle;margin-left:.25rem;transition:background .15s,color .15s}
+body:not([data-view="detail"]) #main button[data-vq]{color:#4f46e5;background:rgba(79,70,229,.10);--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 5 6 9H3v6h3l5 4z' fill='black'/%3E%3Cpath d='M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13'/%3E%3C/svg%3E")}
+body:not([data-view="detail"]) #main button[data-vq]+button.pr-mic{color:#e11d48;background:rgba(225,29,72,.10);--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='3' width='6' height='11' rx='3' fill='black'/%3E%3Cpath d='M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6'/%3E%3C/svg%3E")}
+body:not([data-view="detail"]) #main button[data-vq]::before,
+body:not([data-view="detail"]) #main button[data-vq]+button.pr-mic::before{content:"";width:1.15rem;height:1.15rem;background:currentColor;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
+/* 有比例才填色（0＝維持淡色底） */
+body:not([data-view="detail"]) #main button[data-vq][data-pl],
+body:not([data-view="detail"]) #main button[data-vq]+button.pr-mic[data-sc]{background:linear-gradient(to top,#6ee7b7 0 var(--p),#fda4af var(--p) 100%);color:#1e293b;box-shadow:inset 0 0 0 1px rgba(15,23,42,.15)}
+.dark body:not([data-view="detail"]) #main button[data-vq][data-pl],
+.dark body:not([data-view="detail"]) #main button[data-vq]+button.pr-mic[data-sc]{background:linear-gradient(to top,#047857 0 var(--p),#9f1239 var(--p) 100%);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.dark body:not([data-view="detail"]) #main button[data-vq]:not([data-pl]){color:#a5b4fc;background:rgba(129,140,248,.18)}
+.dark body:not([data-view="detail"]) #main button[data-vq]+button.pr-mic:not([data-sc]){color:#fda4af;background:rgba(251,113,133,.18)}
+/* 播放中 */
+body:not([data-view="detail"]) #main button[data-vq].spk-on{background:#4f46e5!important;color:#fff!important}
+/* 單字卡標題列：🔊🎙 和分數徽章靠右併在一起，不被 justify-between 拆開 */
+body:not([data-view="detail"]) #main .justify-between>button[data-vq]{margin-left:auto}
