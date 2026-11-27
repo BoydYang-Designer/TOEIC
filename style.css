@@ -125,3 +125,7 @@ body[data-view="detail"] #main li>.flex.items-start~.flex.items-start{margin-top
 #sp-bar #sp-ctl button:not([onclick^="sp"]){min-height:2rem}
 /* 手機：播放列第三列（語速／單句／字級）要擠在同一列，A−／A＋ 縮小內距 */
 @media (max-width:767px){#sp-ctl button:not([onclick^="sp"]){padding-left:.5rem;padding-right:.5rem;min-width:0;white-space:nowrap}}
+
+/* 同字不同音（hetero.js）：這個念法還沒有專屬音檔（audio/daily/vocab/{字}_hp1.mp3）→ 🔊 右上角顯示 ⚠，先用機器念「帶詞性的小片語」 */
+body[data-view="detail"] #main button[data-nomp3]{position:relative}
+body[data-view="detail"] #main button[data-nomp3]::after{content:"⚠";position:absolute;top:-.3rem;right:-.3rem;font-size:.8rem;line-height:1;color:#d97706;font-weight:400}

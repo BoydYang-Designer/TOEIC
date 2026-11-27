@@ -148,8 +148,9 @@ function prDetailKeys(x, v) {
   if (!ctx && T !== 'sentence') { const p = String(x.passage || ''), i = p.toLowerCase().indexOf(String(e.text).toLowerCase()); if (i >= 0) ctx = dnCtxOf(p, i, i + e.text.length, e.text); }
   if (ctx && T !== 'sentence') add(ctx);
   if (e.lemma && String(e.lemma).trim().toLowerCase() !== String(e.text).trim().toLowerCase()) add(e.lemma);
-  obj(e.pos_uses).forEach(o => { add(o.w || e.lemma || e.text); exEn(o); });
-  obj(e.senses).forEach(o => { add(e.lemma || e.text); if (o.en) add(o.en); exEn(o); });
+  const het = typeof htHet === 'function' ? htHet(e) : new Map(); // 同字不同音：念的是 the record／to record 這種片語（hetero.js），各自記分
+  arr(e.pos_uses).forEach((o, i) => { if (!o || typeof o !== 'object') return; const h = het.get('pos_uses:' + i); add(h ? h.say : (o.w || e.lemma || e.text)); exEn(o); });
+  arr(e.senses).forEach((o, i) => { if (!o || typeof o !== 'object') return; const h = het.get('senses:' + i); add(h ? h.say : (e.lemma || e.text)); if (o.en) add(o.en); exEn(o); });
   obj(e.forms).forEach(o => { if (o.w) add(o.w); exEn(o); });
   obj(e.derived).forEach(o => { if (o.w) add(o.w); });
   const cols = arr(e.collocations);
@@ -252,8 +253,10 @@ const PR_FILES = [
   { id: 'same', nm: () => '🔁 同字的所有資料', ds: '所有文章裡同一個字的條目（含詞形變化）。處理「同字不同發音／詞性／詞義」時給，AI 才看得到全部用法。', get: async () => prFSame() },
   { id: 'spec', nm: () => '📐 daily.json 的 _spec', ds: '欄位格式與生成規則。要新增欄位、改格式、請 AI 產生新詳解時給。', get: prFSpec },
   { g: '程式（改詳解畫面／功能）', id: 'notes', nm: () => 'notes.js', ds: '詳解頁的畫面與資料處理（顯示哪些區塊、🔊 播放 vplay、入庫）。', get: () => prFFetch('notes.js') },
+  { id: 'hetero', nm: () => 'hetero.js', ds: '同字不同音（名詞／動詞念法不同）：偵測、🔊 專屬音檔、標題下的念法一覽。', get: () => prFFetch('hetero.js') },
   { id: 'pron', nm: () => 'pron.js', ds: '🎙 發音練習視窗、分數與播放次數的顏色、快捷鍵。', get: () => prFFetch('pron.js') },
   { id: 'css', nm: () => 'style.css', ds: '詳解頁樣式（按鈕大小、顏色條、行距）。', get: () => prFFetch('style.css') },
+  { id: 'aspeech', nm: () => 'auto-speech.py', ds: '產生詳解／例句 mp3 的程式（檔名規則、哪些項目要錄音）。改音檔相關時給。', get: () => prFFetch('auto-speech.py') },
   { id: 'daily', nm: () => 'daily.js', ds: '主程式（存檔 S、頁面切換、讀取 daily.json）。改到頁面流程或資料結構時給。', get: () => prFFetch('daily.js') },
 ];
 async function prFilesCopy(id, btn) {
@@ -666,7 +669,7 @@ function prRender() {
       <div class="flex items-center justify-between gap-2 mb-3"><h3 class="font-bold">🎙 發音練習${nv ? ` <span class="text-xs font-normal text-slate-400">${nv.pos}/${nv.total}</span>` : ''}</h3>
         <span class="text-xs text-slate-500">${rc.b ? `🏆 最高 <b class="rounded px-1.5 py-0.5 ${skPctCls(rc.b)}">${rc.b}%</b> · 練習 ${rc.n} 次` : '還沒練習過'}${rc.pl ? ` · 聽 ${rc.pl} 次` : ''}</span>
         <button onclick="prClose()" class="text-slate-400 hover:text-slate-600 text-2xl leading-none px-1 cursor-pointer" aria-label="關閉">×</button></div>
-      ${S.prEn ? '<p class="text-lg text-slate-400 leading-relaxed mb-3">（英文已隱藏：先聽範例，再憑耳朵念出來）</p>' : `<p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>${(() => { const ip = prIpaOf(PR.text); return ip ? `<p class="-mt-2 mb-3 text-base text-slate-500">${esc(ip)}</p>` : ''; })()}`}${(() => { const z = S.prZh ? (PR.zh || prZhOf(PR.text)) : ''; return z ? `<p class="${prWc(PR.text) > 3 ? '' : '-mt-1 '}mb-3 text-base leading-relaxed text-slate-600 dark:text-slate-300">${esc(z)}</p>` : ''; })()}
+      ${S.prEn ? '<p class="text-lg text-slate-400 leading-relaxed mb-3">（英文已隱藏：先聽範例，再憑耳朵念出來）</p>' : `<p class="${long ? 'text-lg' : 'text-3xl'} font-bold leading-relaxed break-words mb-3">${esc(PR.text)}</p>${(() => { const ds = PR.src && PR.src.dataset, ip = (ds && ds.ipa) || prIpaOf(PR.text); return (ip ? `<p class="-mt-2 mb-3 text-base text-slate-500">${esc(ip)}</p>` : '') + (ds && ds.het ? '<p class="-mt-1 mb-3 text-xs text-amber-700 dark:text-amber-300 leading-relaxed">📢 同字不同音：請連同前面的小字一起念（用來分辨詞性）。語音辨識只比對「有沒有念到這些字」，聽不出重音位置，所以請先按「聽範例」，聽清楚重音再念；每個念法的分數各自記錄。</p>' : ''); })()}`}${(() => { const z = S.prZh ? (PR.zh || prZhOf(PR.text)) : ''; return z ? `<p class="${prWc(PR.text) > 3 ? '' : '-mt-1 '}mb-3 text-base leading-relaxed text-slate-600 dark:text-slate-300">${esc(z)}</p>` : ''; })()}
       ${warn.length ? `<div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3 mb-3 text-xs text-amber-800 dark:text-amber-300 space-y-1">${warn.map(w => `<p>⚠ ${esc(w)}</p>`).join('')}</div>` : ''}
       <div class="flex flex-wrap items-center gap-2 mb-3"><button onclick="prListen()" ${PR.ex === 'settle' || PR.st !== 'idle' ? 'disabled' : ''} class="${skCtl} ${PR.ex === 'settle' || PR.st !== 'idle' ? 'opacity-50' : ''}">${PR.ex === 'settle' ? '⏳ 關閉中…' : PR.ex === 'play' ? '⏹ 停止' : '🔊 聽範例'}</button>
         <span class="ml-auto flex flex-wrap items-center justify-end gap-2"><button onclick="prEnToggle()" aria-pressed="${!!S.prEn}" class="${skCtl}">${S.prEn ? '👁 顯示英文' : '🙈 隱藏英文'}</button>${(() => { const z = PR.zh || prZhOf(PR.text); return z ? `<button onclick="prZhToggle()" class="${skCtl}">${S.prZh ? '🙈 隱藏中文翻譯' : '👁 顯示中文翻譯'}</button>` : '<span class="text-xs text-slate-400">沒有中文翻譯</span>'; })()}</span></div>

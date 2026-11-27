@@ -25,7 +25,7 @@ auto-speech.py  ——  補錄音檔（Part 1～Part 7、Daily 共用）：勾�
          詳解項目的檔名（不含文章 id，詳解搬到別篇或文章被刪都不會變孤兒；舊的 {文章id}-… 檔名請先用 migrate_vocab_names.py 轉換）：
           ‧ 跟著單字：{單字slug}{後綴}.mp3；‧ 跟著句子內容：入庫的整句與「所在句」＝{句子slug}.mp3（無後綴，同一句只錄一次）
           詳解項目的檔名後綴：（無）整句或所在句、_e 例句、_cp／_c 搭配與其例句、_f 屈折變化的字、_fx 屈折變化的例句、_m／_mx 相關字與例句、_cf 易混淆例句（易混淆的字本身走共用庫 words/）、
-          _sm／_sx 近義片語與例句、_en／_en2 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_sw／_s 多義的單字與例句、_se 多義每個意思的英文解說
+          _sm／_sx 近義片語與例句、_en／_en2 英文解說、_pr 句子的同義改寫、_kw 句中值得注意的字、_d 衍生字、_pw／_p 多詞性的單字與例句、_hp／_hs 同字不同音（名詞／動詞念法不同）的專屬發音、_sw／_s 多義的單字與例句、_se 多義每個意思的英文解說
          網頁「＋」追加的例句：用法底下的 extra_examples 檔名是「原例句後綴＋x＋第幾句」，例如 surcharge_p1x2.mp3（多詞性第 1 筆的第 2 句追加句）、
          _c{k}x{j} 搭配、_fx{k}x{j} 屈折變化、_mx{k}x{j} 相關字、_sx{k}x{j} 近義、_s{k}x{j} 多義；examples／paraphrase 直接接在陣列後面，沿用 _e{k}／_pr{k}
          ※ 單字類（單字本身、原形、屈折變化、同字族、相關字、搭配片語、多詞性／多義的單字）改放共用庫
@@ -165,6 +165,7 @@ MAKE_KEYWORDS = True          # 句子詳解的「句中值得注意的字」（
 MAKE_POS = True               # 多詞性（pos_uses）：每個詞性的單字發音 _pw{k}.mp3 ＋ 例句 _p{k}.mp3
 MAKE_PHRASES = True           # 簡報常用句型（presentation_phrases[].phrase）整句 {句型slug}.mp3（放 vocab/，與網頁 speakPhrase 一致；省略號不念）
 MAKE_SENSE = True             # 多義（senses）：每個意思的單字發音 _sw{k}.mp3 ＋ 例句 _s{k}.mp3 ＋ 英文解說 _se{k}.mp3
+MAKE_HET = True               # 同字不同音（record 名詞／動詞念法不同）：pos_uses／senses 裡同一個字有 2 種以上不同音標時，每個項目另錄專屬音檔 _hp{k}／_hs{k}.mp3（念「帶詞性的小片語」：the record／to record／very alternate）；規則與網頁 hetero.js 一致
 MAKE_EXTRA_EX = True          # 網頁「＋」追加的例句（各用法底下的 extra_examples）：_p{k}x{j}／_s{k}x{j}／_c{k}x{j}／_fx{k}x{j}／_mx{k}x{j}／_sx{k}x{j}.mp3
 PASSAGE_RATE = "-5%"          # 文章語速
 VOCAB_RATE = "-10%"           # 單字／句子語速（單字慢一點比較聽得清楚）
@@ -702,6 +703,43 @@ def sentence_of(passage, text):
     return None
 
 
+# ---- 同字不同音（heteronym）：與網頁 hetero.js 的 htHet／htSay 規則完全一致，不要單獨改 ----
+HET_CARRIER = {"n": "the ", "v": "to ", "adj": "very "}   # 詞性 → 念的小片語前綴（讓 TTS 依上下文念出正確的那一種；其他詞性只念單字）
+
+
+def ipa_norm(s):
+    s = re.sub(r"[/\s]", "", str(s or "").lower())
+    s = re.sub(r"[ːˌ]", "", s)
+    return re.sub(r"[ɪəɚʌᵻ]", "ə", s)   # 弱母音視為同一個：/ˈestəmət/ 與 /ˈestɪmət/ 是同一種念法
+
+
+def het_say(w, pos):
+    m = re.search(r"[a-z]+", str(pos or "").lower())
+    return HET_CARRIER.get(m.group(0) if m else "", "") + w
+
+
+def het_items(e):
+    """→ {("pos_uses"|"senses", 0起算的序號): 要念的小片語}；沒有同字不同音 → {}"""
+    out, grp = {}, {}
+    if e.get("type") not in (None, "", "word"):
+        return out
+    base = str(e.get("lemma") or e.get("text") or "").strip()
+    for blk in ("pos_uses", "senses"):
+        for i, o in enumerate(e.get(blk) or []):
+            if not isinstance(o, dict) or not o.get("ipa"):
+                continue
+            w = str(o.get("w") or base).strip()
+            if w:
+                grp.setdefault(w.lower(), []).append((blk, i, w, o))
+    for lst in grp.values():
+        if len({ipa_norm(o["ipa"]) for _, _, _, o in lst}) < 2:
+            continue
+        for blk, i, w, o in lst:
+            out[(blk, i)] = het_say(w, o.get("pos"))
+    return out
+
+
+
 def speak_text(t):
     return re.sub(r"\.{2,}|…", " ", str(t)).strip()
 
@@ -778,7 +816,7 @@ def plan_daily(root: Path):
             if r:
                 groups.append(dict(key=qid, kind="文章", total=1, voice=voice, jobs=[
                     dict(name=path.name, text=p, voice=voice, rate=PASSAGE_RATE, path=path, redo=(r == "redo"))]))
-    if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED or MAKE_CONFUSABLE or MAKE_SIMILAR or MAKE_EN or MAKE_PARA or MAKE_KEYWORDS or MAKE_POS or MAKE_SENSE or MAKE_PHRASES or MAKE_EXTRA_EX:
+    if MAKE_VOCAB or MAKE_CTX or MAKE_EXAMPLES or MAKE_COLLOC or MAKE_FORMS or MAKE_FAMILY or MAKE_DERIVED or MAKE_CONFUSABLE or MAKE_SIMILAR or MAKE_EN or MAKE_PARA or MAKE_KEYWORDS or MAKE_POS or MAKE_SENSE or MAKE_PHRASES or MAKE_EXTRA_EX or MAKE_HET:
         vdir = root / VOCAB_SUB
         wdir = root / WORDS_SUB
         seen = set()   # 這次已排進清單的檔（共用單字檔、vocab/ 檔），同一個檔不重複排
@@ -883,6 +921,9 @@ def plan_daily(root: Path):
                         want.append((f"{base}_{esuf}{k}.mp3", en.strip()))
                     if key == "senses" and isinstance(o.get("en"), str) and o["en"].strip():   # 多義每個意思的英文解說：檔名 _se{k}，與 notes.js 詳解頁標題區／多義區的 🔊 一致
                         want.append((f"{base}_se{k}.mp3", o["en"].strip()))
+            if MAKE_HET and e["type"] == "word":   # 同字不同音：每個詞性／意思各錄一個「帶詞性的小片語」，檔名 {字}_hp{k}（pos_uses 第 k 筆）／{字}_hs{k}（senses 第 k 筆），與網頁 hetero.js 的 🔊 一致
+                for (hk, hi), say in het_items(e).items():
+                    want.append((f"{base}_{'hp' if hk == 'pos_uses' else 'hs'}{hi + 1}.mp3", say))
             if MAKE_EXTRA_EX:   # 網頁「＋」追加的例句：每個用法底下的 extra_examples，檔名 {字}_{原例句後綴}{第幾筆}x{第幾句}.mp3（只會接在最後面，既有編號不位移）
                 for fld, esuf in (("collocations", "c"), ("forms", "fx"), ("family", "mx"), ("similar", "sx"), ("derived", "dx"), ("pos_uses", "p"), ("senses", "s")):
                     for k, o in enumerate(e.get(fld) or [], 1):
