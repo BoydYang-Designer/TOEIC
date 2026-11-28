@@ -27047,6 +27047,14 @@
                 "en": "Please bring your certificate of completion to the front desk.",
                 "zh": "請把你的結業證書帶到櫃台。"
               }
+            },
+            {
+              "phrase": "training certificate",
+              "zh": "訓練證書、結訓證明",
+              "example": {
+                "en": "Employees receive a training certificate after finishing the safety course.",
+                "zh": "員工完成安全課程後會拿到結訓證書。"
+              }
             }
           ],
           "examples": [
@@ -27170,6 +27178,12 @@
                 "en": "You must show your birth certificate when you apply for a passport.",
                 "zh": "申請護照時，你必須出示出生證明。"
               }
+            }
+          ],
+          "ex_done": [
+            {
+              "id": "xmwz6f7rk3bcb",
+              "result": "added"
             }
           ]
         },
@@ -105086,6 +105100,913 @@
               "example": {
                 "en": "Did you hear about the new office in Singapore?",
                 "zh": "你有聽說新加坡新辦公室的事嗎？"
+              }
+            }
+          ]
+        },
+        {
+          "text": "attendance record",
+          "type": "phrase",
+          "zh": "出勤紀錄、出席紀錄",
+          "en": "a list that shows who came to work or a class and when",
+          "note": "文章要求員工回覆確認出席，這類出席資料最後會被整理成出席紀錄。常用於公司人資、課程與會議的管理。",
+          "pattern": "keep / check / update + the attendance record",
+          "examples": [
+            {
+              "tag": "人資",
+              "en": "Ms. Lin checks the attendance record at the end of each month.",
+              "zh": "林小姐每個月底都會檢查出勤紀錄。"
+            },
+            {
+              "tag": "培訓",
+              "en": "Please keep an accurate attendance record for every training session.",
+              "zh": "請為每一場訓練課程保留正確的出席紀錄。"
+            },
+            {
+              "tag": "會議",
+              "en": "Her attendance record shows she missed only one meeting this year.",
+              "zh": "她的出席紀錄顯示今年只缺席過一場會議。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "attendance sheet",
+              "diff": "attendance sheet 是當場簽名的表單；attendance record 是整理後的完整紀錄。",
+              "example": {
+                "en": "Please sign the attendance sheet before you enter the meeting room.",
+                "zh": "進入會議室前請先在出席表上簽名。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "attendance rate",
+              "diff": "attendance rate 指出席的比率；attendance record 指出席的紀錄內容。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "The attendance rate for the workshop was above ninety percent.",
+                "zh": "工作坊的出席率超過百分之九十。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "in attendance",
+          "type": "phrase",
+          "zh": "出席的、在場的",
+          "en": "present at an event or meeting",
+          "note": "文章是要求大家確認出席，in attendance 常用在正式報導或通知，說明誰有到場，語氣比 present 更正式。",
+          "pattern": "N + be in attendance / those in attendance",
+          "grammar_note": "in attendance 前面不加 the，也不說 in the attendance；放在 be 動詞後，或放在名詞後面修飾。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "All department heads were in attendance at the quarterly meeting.",
+              "zh": "所有部門主管都出席了季會。"
+            },
+            {
+              "tag": "活動",
+              "en": "Over two hundred guests were in attendance at the opening dinner.",
+              "zh": "兩百多位賓客出席了開幕晚宴。"
+            },
+            {
+              "tag": "通知",
+              "en": "The names of those in attendance will be listed in the minutes.",
+              "zh": "出席者的姓名會列在會議紀錄中。"
+            }
+          ],
+          "similar": [
+            {
+              "word": "present",
+              "ipa": "/ˈprɛzənt/",
+              "diff": "present 較口語，常放 be 後；in attendance 較正式。",
+              "example": {
+                "en": "Only five members were present when the meeting started.",
+                "zh": "會議開始時只有五位成員在場。"
+              }
+            },
+            {
+              "word": "attend",
+              "ipa": "/əˈtɛnd/",
+              "diff": "attend 是及物動詞，後面直接接活動，不加介系詞。",
+              "example": {
+                "en": "Please attend the safety training on Thursday afternoon.",
+                "zh": "請在星期四下午參加安全訓練。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "absent",
+              "ipa": "/ˈæbsənt/",
+              "diff": "absent 是「缺席的」，和 in attendance 意思相反。",
+              "kind": [
+                "antonym"
+              ],
+              "example": {
+                "en": "Two staff members were absent because of the heavy rain.",
+                "zh": "兩位員工因為大雨而缺席。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "take attendance",
+          "type": "phrase",
+          "zh": "點名、記錄出席",
+          "en": "to check who is present at a meeting or class",
+          "note": "文章要求大家事先確認出席，主辦方會藉此掌握人數；現場則常用 take attendance 來點名，多用於課程、訓練與會議。",
+          "pattern": "take attendance + at / before + 時間或場合",
+          "grammar_note": "attendance 是不可數名詞，不加 a 也不加 s，所以說 take attendance，不說 take an attendance。",
+          "examples": [
+            {
+              "tag": "訓練",
+              "en": "The trainer will take attendance at the start of each class.",
+              "zh": "講師會在每堂課開始時點名。"
+            },
+            {
+              "tag": "會議",
+              "en": "Please take attendance before the manager begins the presentation.",
+              "zh": "請在經理開始簡報前記錄出席名單。"
+            },
+            {
+              "tag": "人資",
+              "en": "We take attendance every morning to check who is working today.",
+              "zh": "我們每天早上點名，確認今天誰上班。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "check attendance",
+              "diff": "check attendance 也能用，語氣更一般，強調確認人數。",
+              "example": {
+                "en": "The assistant will check attendance when the guests arrive.",
+                "zh": "賓客抵達時，助理會確認出席人數。"
+              }
+            },
+            {
+              "phrase": "call the roll",
+              "diff": "call the roll 是逐一唱名，較傳統，多用於學校。",
+              "example": {
+                "en": "The teacher began to call the roll at nine o’clock.",
+                "zh": "老師九點開始點名。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "take part in",
+              "diff": "take part in 是「參加」某活動；take attendance 是「點名」。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "All employees are welcome to take part in the safety workshop.",
+                "zh": "歡迎所有員工參加安全工作坊。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "presence",
+          "type": "word",
+          "ipa": "/ˈprɛzəns/",
+          "pos": "n.",
+          "zh": "出席、在場；存在",
+          "en": "the fact of being in a place at a certain time",
+          "note": "在出席相關的語境中，presence 指人「有到場」；比 attendance 更強調「人在現場」這件事，也常用在邀請函中的 your presence。",
+          "grammar_note": "presence 通常不可數；常說 in the presence of + 人，表示「在…面前」。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "in the presence of",
+              "zh": "在…面前、有…在場",
+              "example": {
+                "en": "The contract was signed in the presence of two witnesses.",
+                "zh": "合約是在兩位見證人面前簽署的。"
+              }
+            },
+            {
+              "phrase": "your presence",
+              "zh": "您的出席",
+              "example": {
+                "en": "Your presence at the meeting on Monday is required.",
+                "zh": "您必須出席星期一的會議。"
+              }
+            },
+            {
+              "phrase": "presence at the meeting",
+              "zh": "出席會議",
+              "example": {
+                "en": "Her presence at the meeting helped the team make a decision.",
+                "zh": "她出席會議幫助團隊做出決定。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "邀請",
+              "en": "We would be pleased to have your presence at our annual dinner.",
+              "zh": "我們很榮幸邀請您出席年度晚宴。"
+            },
+            {
+              "tag": "安全",
+              "en": "The presence of a guard at the gate makes visitors feel safe.",
+              "zh": "大門有警衛在場，讓訪客覺得安心。"
+            },
+            {
+              "tag": "市場",
+              "en": "The company has a strong presence in the Asian market.",
+              "zh": "這家公司在亞洲市場很有影響力。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "present",
+              "ipa": "/ˈprɛzənt/",
+              "diff": "present 是形容詞（在場的）或名詞（禮物），presence 是「在場」這件事。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "usage": "present 當動詞「簡報、呈現」時重音在後 /prɪˈzɛnt/；presence 只當名詞。",
+              "example": {
+                "en": "Every member must be present when the manager makes the announcement.",
+                "zh": "經理發布公告時，每位成員都必須在場。"
+              }
+            },
+            {
+              "word": "absence",
+              "ipa": "/ˈæbsəns/",
+              "diff": "absence 是「缺席」，和 presence 意思相反。",
+              "kind": [
+                "antonym"
+              ],
+              "example": {
+                "en": "His absence from the meeting was noticed by the whole team.",
+                "zh": "他沒出席會議，整個團隊都注意到了。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "attendance",
+              "ipa": "/əˈtɛndəns/",
+              "diff": "attendance 指出席的行為或人數；presence 強調人在現場。",
+              "example": {
+                "en": "Attendance at the training session is required for all new staff.",
+                "zh": "所有新進員工都必須參加訓練課程。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "attendance",
+              "pos": "n.",
+              "zh": "出席、出席人數",
+              "ipa": "/əˈtɛndəns/",
+              "example": {
+                "en": "Attendance at the weekly meeting has increased this month.",
+                "zh": "本月每週會議的出席人數增加了。"
+              }
+            },
+            {
+              "w": "appearance",
+              "pos": "n.",
+              "zh": "出現、外表",
+              "ipa": "/əˈpɪrəns/",
+              "example": {
+                "en": "The manager made a brief appearance at the staff party.",
+                "zh": "經理在員工派對上短暫露了面。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "present",
+              "ipa": "/ˈprɛzənt/",
+              "pos": "adj.",
+              "zh": "在場的、目前的",
+              "link": "presence 的名詞字尾 -ence，來自 present + -ence，像 independent → independence",
+              "example": {
+                "en": "All present members voted to approve the new budget.",
+                "zh": "所有在場成員都投票通過新預算。"
+              }
+            },
+            {
+              "w": "presently",
+              "ipa": "/ˈprɛzəntli/",
+              "pos": "adv.",
+              "zh": "目前、不久",
+              "link": "present + -ly，變成副詞，像 recently",
+              "example": {
+                "en": "The team is presently working on the new sales plan.",
+                "zh": "團隊目前正在處理新的業務計畫。"
+              }
+            },
+            {
+              "w": "presentation",
+              "ipa": "/ˌprɛzənˈteɪʃən/",
+              "pos": "n.",
+              "zh": "簡報、展示",
+              "link": "present（呈現）+ -ation，變成名詞，像 information",
+              "example": {
+                "en": "Her presentation on the new product impressed the board.",
+                "zh": "她的新產品簡報讓董事會留下深刻印象。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˈprɛzəns/",
+              "zh": "出席、在場",
+              "en": "being at a place or event",
+              "in_passage": true,
+              "example": {
+                "en": "Your presence at the opening ceremony would mean a lot to us.",
+                "zh": "您出席開幕典禮對我們意義重大。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˈprɛzəns/",
+              "zh": "（市場上的）據點、影響力",
+              "en": "the position a company has in a market or place",
+              "distinguish": "常搭配 strong、market、in Asia 等，指企業的存在感。",
+              "example": {
+                "en": "The firm plans to build a stronger presence in Europe.",
+                "zh": "這家公司計畫在歐洲建立更強的據點。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "absence",
+          "type": "word",
+          "ipa": "/ˈæbsəns/",
+          "pos": "n.",
+          "zh": "缺席、不在",
+          "en": "the fact of not being at a place where you should be",
+          "note": "文章提到無法出席的員工要事先提交進度，也就是為了處理「缺席」造成的資訊落差。absence 常用在公司請假與會議紀錄中。",
+          "grammar_note": "absence from + 地點／工作（缺席）；absence of + 事物（缺少某物），兩個介系詞意思不同。",
+          "forms": [
+            {
+              "w": "absences",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "缺席（複數）",
+              "ipa": "/ˈæbsənsɪz/",
+              "example": {
+                "en": "Too many absences may affect the employee’s yearly performance review.",
+                "zh": "太多次缺席可能影響員工的年度考核。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "absence from work",
+              "zh": "缺勤、沒上班",
+              "example": {
+                "en": "Please report any absence from work to your supervisor early.",
+                "zh": "任何缺勤請儘早向主管報告。"
+              }
+            },
+            {
+              "phrase": "in the absence of",
+              "zh": "在沒有…的情況下",
+              "example": {
+                "en": "In the absence of the manager, Ms. Wu will lead the meeting.",
+                "zh": "經理不在時，吳小姐會主持會議。"
+              }
+            },
+            {
+              "phrase": "leave of absence",
+              "zh": "請長假、留職停薪",
+              "example": {
+                "en": "He asked for a leave of absence to finish his studies.",
+                "zh": "他申請留職停薪以完成學業。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "人資",
+              "en": "Frequent absence from the training sessions may lead to a warning.",
+              "zh": "常缺席訓練課程可能會收到警告。"
+            },
+            {
+              "tag": "會議",
+              "en": "The director’s absence caused the meeting to be moved to Friday.",
+              "zh": "主任缺席，導致會議改到星期五。"
+            },
+            {
+              "tag": "報告",
+              "en": "The report noted an absence of clear safety rules in the office.",
+              "zh": "報告指出辦公室缺乏明確的安全規定。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "presence",
+              "ipa": "/ˈprɛzəns/",
+              "diff": "presence 是「在場」，和 absence 意思相反。",
+              "kind": [
+                "antonym"
+              ],
+              "example": {
+                "en": "The manager’s presence at the event made the guests feel welcome.",
+                "zh": "經理出席活動，讓賓客覺得受到歡迎。"
+              }
+            },
+            {
+              "word": "absent",
+              "ipa": "/ˈæbsənt/",
+              "diff": "absent 是形容詞（缺席的），absence 是名詞（缺席這件事）。",
+              "kind": [
+                "root"
+              ],
+              "usage": "be absent from + 地點或活動；名詞 absence 後面也可接 from。",
+              "example": {
+                "en": "Mr. Hall was absent from work because of a high fever.",
+                "zh": "霍爾先生因為高燒沒來上班。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "time off",
+              "diff": "time off 指請假休息，語氣較口語；absence 重點在「人不在」。",
+              "example": {
+                "en": "She asked for time off to attend her sister’s wedding.",
+                "zh": "她請假去參加姊姊的婚禮。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "leave",
+              "pos": "n.",
+              "zh": "休假",
+              "ipa": "/liːv/",
+              "example": {
+                "en": "Employees may take sick leave with a doctor’s note.",
+                "zh": "員工憑醫師證明可以請病假。"
+              }
+            },
+            {
+              "w": "vacation",
+              "pos": "n.",
+              "zh": "假期",
+              "ipa": "/veɪˈkeɪʃən/",
+              "example": {
+                "en": "Mr. Lee is on vacation until the end of the month.",
+                "zh": "李先生休假到月底。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "absent",
+              "ipa": "/ˈæbsənt/",
+              "pos": "adj.",
+              "zh": "缺席的",
+              "link": "absence 的 -ence 改成 -ent，變成形容詞，像 present",
+              "example": {
+                "en": "Three team members were absent from the morning briefing.",
+                "zh": "有三位組員缺席早上的說明會。"
+              }
+            },
+            {
+              "w": "absentee",
+              "ipa": "/ˌæbsənˈtiː/",
+              "pos": "n.",
+              "zh": "缺席者",
+              "link": "absent + -ee，被點到缺席的人，像 employee",
+              "example": {
+                "en": "The manager sent a summary to every absentee after the meeting.",
+                "zh": "會後經理寄了摘要給每位缺席者。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˈæbsəns/",
+              "zh": "缺席、不在",
+              "en": "not being at a place or event",
+              "in_passage": true,
+              "example": {
+                "en": "Her absence from the conference was announced this morning.",
+                "zh": "她缺席研討會一事在今早宣布。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˈæbsəns/",
+              "zh": "缺少、沒有",
+              "en": "the lack of something",
+              "distinguish": "後面接 of + 事物，不是人。",
+              "example": {
+                "en": "The absence of clear instructions confused the new employees.",
+                "zh": "缺少明確的指示讓新進員工很困惑。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "participant",
+          "type": "word",
+          "ipa": "/pɑːrˈtɪsəpənt/",
+          "pos": "n.",
+          "zh": "參加者、與會者",
+          "en": "a person who takes part in an event or activity",
+          "note": "指參與會議、課程或活動的人，比 attendee 稍強調「有參與」。常見於報名資料、活動通知與調查報告。",
+          "forms": [
+            {
+              "w": "participants",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "參加者（複數）",
+              "ipa": "/pɑːrˈtɪsəpənts/",
+              "example": {
+                "en": "All participants will receive a free lunch at the workshop.",
+                "zh": "所有參加者都能在工作坊中領到免費午餐。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "workshop participants",
+              "zh": "工作坊參加者",
+              "example": {
+                "en": "Workshop participants should bring a laptop and a notebook.",
+                "zh": "工作坊參加者請攜帶筆電與筆記本。"
+              }
+            },
+            {
+              "phrase": "participant list",
+              "zh": "參加者名單",
+              "example": {
+                "en": "Please check your name on the participant list at the desk.",
+                "zh": "請在櫃台的參加者名單上確認你的名字。"
+              }
+            },
+            {
+              "phrase": "active participant",
+              "zh": "積極參與者",
+              "example": {
+                "en": "Ms. Jones is an active participant in every team discussion.",
+                "zh": "瓊斯小姐積極參與每一次團隊討論。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "活動",
+              "en": "Each participant must sign in at the front desk before the event.",
+              "zh": "每位參加者必須在活動前於櫃台簽到。"
+            },
+            {
+              "tag": "調查",
+              "en": "Participants in the survey will receive a ten dollar gift card.",
+              "zh": "參與調查的人將獲得一張十美元禮卡。"
+            },
+            {
+              "tag": "培訓",
+              "en": "The trainer asked each participant to introduce a new idea.",
+              "zh": "講師請每位參加者介紹一個新想法。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "participate",
+              "ipa": "/pɑːrˈtɪsəˌpeɪt/",
+              "diff": "participate 是動詞（參加），participant 是名詞（參加的人）。",
+              "kind": [
+                "root"
+              ],
+              "usage": "participate 後面接 in + 活動；participant 是人，可以數。",
+              "example": {
+                "en": "Please participate in the survey before the end of this week.",
+                "zh": "請在本週結束前參與這項調查。"
+              }
+            },
+            {
+              "word": "partner",
+              "ipa": "/ˈpɑːrtnər/",
+              "diff": "partner 指合作夥伴，participant 指活動的參加者。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "Our business partner will visit the office next Tuesday.",
+                "zh": "我們的商業夥伴下星期二會來辦公室拜訪。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "attendee",
+              "ipa": "/əˌtɛnˈdiː/",
+              "diff": "attendee 指到場的人；participant 強調有參與活動。",
+              "example": {
+                "en": "Every attendee received a name tag at the registration desk.",
+                "zh": "每位出席者都在報名櫃台領到名牌。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "attendee",
+              "pos": "n.",
+              "zh": "出席者",
+              "ipa": "/əˌtɛnˈdiː/",
+              "example": {
+                "en": "The attendees were asked to fill in a short form.",
+                "zh": "出席者被要求填寫一份簡短的表格。"
+              }
+            },
+            {
+              "w": "applicant",
+              "pos": "n.",
+              "zh": "申請人、應徵者",
+              "ipa": "/ˈæplɪkənt/",
+              "example": {
+                "en": "Each applicant must send a résumé before the deadline.",
+                "zh": "每位應徵者都必須在截止前寄出履歷。"
+              }
+            },
+            {
+              "w": "member",
+              "pos": "n.",
+              "zh": "成員",
+              "ipa": "/ˈmɛmbər/",
+              "example": {
+                "en": "Every team member should read the new safety rules.",
+                "zh": "每位團隊成員都應閱讀新的安全規定。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "participate",
+              "ipa": "/pɑːrˈtɪsəˌpeɪt/",
+              "pos": "v.",
+              "zh": "參加、參與",
+              "link": "participant 的 -ant 改成 -ate，變成動詞，像 operate",
+              "example": {
+                "en": "Over fifty employees participated in the charity run last month.",
+                "zh": "上個月有五十多位員工參加了慈善路跑。"
+              }
+            },
+            {
+              "w": "participation",
+              "ipa": "/pɑːrˌtɪsəˈpeɪʃən/",
+              "pos": "n.",
+              "zh": "參與",
+              "link": "participate + -ion，動作變名詞，像 information",
+              "example": {
+                "en": "Your participation in the survey will help us improve our service.",
+                "zh": "您參與調查將有助於我們改善服務。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "sign in",
+          "type": "phrase",
+          "zh": "簽到、登入",
+          "en": "to write your name when you arrive, or to enter your account on a computer",
+          "note": "在所在句裡指到前台寫下名字、辦理簽到，也是大型會議與公司訪客的常見要求。同一片語也能指登入電腦系統。",
+          "pattern": "sign in + at + 地點 / sign in to + 系統",
+          "grammar_note": "sign in 是不接受詞的片語動詞，說「簽到」直接用 sign in；登入系統要加 to，如 sign in to the system。",
+          "examples": [
+            {
+              "tag": "訪客",
+              "en": "All visitors must sign in at the security desk when they arrive.",
+              "zh": "所有訪客抵達時都必須在警衛處簽到。"
+            },
+            {
+              "tag": "系統",
+              "en": "Please sign in to the system with your employee number.",
+              "zh": "請用你的員工編號登入系統。"
+            },
+            {
+              "tag": "活動",
+              "en": "Guests can sign in at the registration table after nine o’clock.",
+              "zh": "賓客九點後可以在報名桌簽到。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "check in",
+              "diff": "check in 常用在飯店與機場辦理手續；sign in 重點在寫下名字或登入。",
+              "example": {
+                "en": "Guests can check in at the hotel desk after two o’clock.",
+                "zh": "房客兩點後可以在飯店櫃台辦理入住。"
+              }
+            },
+            {
+              "phrase": "log in",
+              "diff": "log in 專指登入電腦或網站，語氣更偏電腦用語。",
+              "example": {
+                "en": "You need to log in to see the latest schedule.",
+                "zh": "你必須登入才能看到最新的行程表。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "phrase": "sign up",
+              "diff": "sign up 是「報名、註冊」；sign in 是「簽到、登入」。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "Employees can sign up for the training course on the intranet.",
+                "zh": "員工可以在內部網站報名這門訓練課程。"
+              }
+            },
+            {
+              "phrase": "sign out",
+              "diff": "sign out 是「簽退、登出」，和 sign in 意思相反。",
+              "kind": [
+                "antonym"
+              ],
+              "example": {
+                "en": "Please sign out at the front desk when you leave the building.",
+                "zh": "離開大樓時請在櫃台簽退。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "registration",
+          "type": "word",
+          "ipa": "/ˌrɛdʒɪˈstreɪʃən/",
+          "pos": "n.",
+          "zh": "註冊、報名、登記",
+          "en": "the act of putting your name on an official list",
+          "note": "在會議與活動通知中，registration 指報名手續，也常指現場的報到櫃台。參加者通常需先完成報名才能入場。",
+          "forms": [
+            {
+              "w": "registrations",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "報名（複數）",
+              "ipa": "/ˌrɛdʒɪˈstreɪʃənz/",
+              "example": {
+                "en": "We have received over three hundred registrations for the seminar.",
+                "zh": "我們已收到三百多份研討會的報名。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "registration form",
+              "zh": "報名表",
+              "example": {
+                "en": "Please complete the registration form and send it back by Friday.",
+                "zh": "請填妥報名表並在星期五前寄回。"
+              }
+            },
+            {
+              "phrase": "registration fee",
+              "zh": "報名費",
+              "example": {
+                "en": "The registration fee includes lunch and all training materials.",
+                "zh": "報名費包含午餐與所有訓練教材。"
+              }
+            },
+            {
+              "phrase": "online registration",
+              "zh": "線上報名",
+              "example": {
+                "en": "Online registration for the conference opens next Monday morning.",
+                "zh": "研討會的線上報名下星期一早上開放。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "活動",
+              "en": "Registration begins at eight, and the first session starts at nine.",
+              "zh": "報到八點開始，第一場課程九點開始。"
+            },
+            {
+              "tag": "車輛",
+              "en": "Please bring your car registration when you visit the service center.",
+              "zh": "到服務中心時請攜帶你的車輛登記證。"
+            },
+            {
+              "tag": "通知",
+              "en": "The deadline for registration has been extended until the end of May.",
+              "zh": "報名截止日已延長到五月底。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "reservation",
+              "ipa": "/ˌrɛzərˈveɪʃən/",
+              "diff": "reservation 是預訂座位或房間；registration 是報名或登記名字。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "We made a reservation for twelve people at the restaurant.",
+                "zh": "我們在餐廳預訂了十二人的座位。"
+              }
+            },
+            {
+              "word": "resignation",
+              "ipa": "/ˌrɛzɪɡˈneɪʃən/",
+              "diff": "resignation 是辭職，拼法和 registration 有點像，意思完全不同。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The manager handed in his resignation letter on Monday morning.",
+                "zh": "經理在星期一早上提出辭呈。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "enrollment",
+              "ipa": "/ɪnˈroʊlmənt/",
+              "diff": "enrollment 多用於學校與課程的註冊；registration 用途更廣。",
+              "example": {
+                "en": "Enrollment in the language course closes at the end of June.",
+                "zh": "語言課程的註冊在六月底截止。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "application",
+              "pos": "n.",
+              "zh": "申請",
+              "ipa": "/ˌæplɪˈkeɪʃən/",
+              "example": {
+                "en": "Please submit your application form by the end of this week.",
+                "zh": "請在本週結束前提交申請表。"
+              }
+            },
+            {
+              "w": "membership",
+              "pos": "n.",
+              "zh": "會員資格",
+              "ipa": "/ˈmɛmbərˌʃɪp/",
+              "example": {
+                "en": "Her gym membership will expire at the end of next month.",
+                "zh": "她的健身房會員資格下個月底到期。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "register",
+              "ipa": "/ˈrɛdʒɪstər/",
+              "pos": "v.",
+              "zh": "註冊、報名",
+              "link": "register + -ation，動作變名詞，像 information、organization",
+              "example": {
+                "en": "Please register for the seminar on our website before Friday.",
+                "zh": "請在星期五前到我們網站報名研討會。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/ˌrɛdʒɪˈstreɪʃən/",
+              "zh": "報名、註冊",
+              "en": "the act of putting your name on a list for an event or class",
+              "in_passage": true,
+              "example": {
+                "en": "Early registration for the workshop saves participants twenty dollars.",
+                "zh": "提早報名工作坊可為參加者省下二十美元。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ˌrɛdʒɪˈstreɪʃən/",
+              "zh": "（官方）登記、登錄",
+              "en": "an official record that lists a person, a car, or a company",
+              "distinguish": "後面常接 car、vehicle、company 等，指向政府或機關登記。",
+              "example": {
+                "en": "The company completed its business registration last week.",
+                "zh": "公司上週完成了商業登記。"
               }
             }
           ]
@@ -231844,6 +232765,7 @@
         {
           "text": "revised",
           "type": "word",
+          "lemma": "revise",
           "ipa": "/rɪˈvaɪzd/",
           "pos": "adj.",
           "zh": "修訂過的、修改後的",
@@ -231962,6 +232884,9 @@
               "word": "updated",
               "ipa": "/ʌpˈdeɪtɪd/",
               "diff": "updated 是「更新為最新的」；revised 是「經過修改、訂正的」，不一定是最新資訊。",
+              "kind": [
+                "meaning"
+              ],
               "example": {
                 "en": "Please use the updated price list that was sent this morning.",
                 "zh": "請使用今天早上寄出的最新價目表。"
@@ -231969,11 +232894,40 @@
             },
             {
               "word": "corrected",
-              "ipa": "/kərˈektəd/",
+              "ipa": "/kəˈrektɪd/",
               "diff": "corrected 只指改正錯誤；revised 可能是因為需求改變而調整內容。",
+              "kind": [
+                "meaning"
+              ],
               "example": {
                 "en": "The corrected invoice fixes the wrong address on the first one.",
                 "zh": "更正後的請款單修正了第一張上的錯誤地址。"
+              }
+            },
+            {
+              "word": "reviewed",
+              "ipa": "/rɪˈvjuːd/",
+              "diff": "reviewed 是「檢查過、審閱過」，不一定有修改；revised 是「已經改過」。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The reviewed contract was approved without any changes.",
+                "zh": "審閱過的合約沒有任何更動就獲得核准。"
+              }
+            },
+            {
+              "word": "reversed",
+              "ipa": "/rɪˈvɜːrst/",
+              "diff": "reversed 是「顛倒、撤銷的」；revised 是「修改過的」，兩者拼法與發音很像。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The reversed decision means we must cancel the order.",
+                "zh": "這項被撤銷的決定表示我們必須取消訂單。"
               }
             }
           ],
@@ -232015,7 +232969,11 @@
               "ipa": "/rɪˈvɪʒən/",
               "pos": "n.",
               "zh": "修訂、修改",
-              "link": "revise + -ion，把「修訂」變成名詞，像 decide → decision"
+              "link": "revise + -ion，把「修訂」變成名詞，像 decide → decision",
+              "example": {
+                "en": "The revision of the contract took two days.",
+                "zh": "合約的修訂花了兩天。"
+              }
             }
           ],
           "pos_uses": [
@@ -677581,6 +678539,4955 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "w8d8-1",
+      "week": 8,
+      "day": 8,
+      "tag": "Am I an Otrovert?",
+      "project": "Small talk practice",
+      "type": "Listening",
+      "level": {
+        "score": 600,
+        "range": "550-650",
+        "cefr": "B1",
+        "why": "句型多為簡短的第一人稱陳述句，口語自然、容易朗讀，字彙偏日常；但 approachable、outgoing、initiate、contribute 等字與 comfortable with 等表達略需理解。"
+      },
+      "passage": "Have you ever heard of the word “otrovert”?\n\nI came across it recently, and it actually describes me pretty well.\n\nI’m approachable, but I’m not particularly outgoing. I enjoy connecting with people, but I don’t need to be the center of attention or belong to a particular group.\n\nWhen I’m with others, I’m happy to listen and share my thoughts when I have something to contribute. But I’m also perfectly fine just staying quiet. I don’t feel the need to fill every silence.\n\nI’m also very comfortable being alone. I can sit in a café by myself, people-watch, or just read a book. I don’t need company to feel comfortable.\n\nI enjoy socializing, but I don’t usually initiate conversations. I can be friendly and open without being particularly outgoing.\n\nThat’s why I relate to being an otrovert. I’m independent, comfortable in my own space, and happy connecting with people without feeling the need to fit in.\n\nIn the end, I enjoy people’s company, but I’m just as comfortable on my own.",
+      "zh": "你聽過「otrovert」這個詞嗎？\n\n我最近剛好看到這個詞，它其實把我形容得相當貼切。\n\n我很容易親近，但並不特別外向。我喜歡與人交流，但不需要成為眾人的焦點，也不需要隸屬於某個特定的圈子。\n\n和別人在一起時，我樂於傾聽，有想法可以貢獻時也會分享自己的看法。但我也完全可以只是安靜地待著。我不覺得非得填滿每一段沉默不可。\n\n我也非常自在地享受獨處。我可以自己坐在咖啡館裡，看看來來往往的路人，或只是讀一本書。我不需要有人陪伴才會覺得自在。\n\n我喜歡社交，但通常不會主動開啟對話。我可以友善而開放，卻不必特別外向。\n\n這就是為什麼我認同自己是個 otrovert。我很獨立，在自己的空間裡感到自在，也樂於與人交流，而不覺得需要刻意融入群體。\n\n總之，我喜歡有人相伴，但自己一個人時也同樣自在。",
+      "vocab": [
+        {
+          "word": "approachable",
+          "ipa": "/əˈproʊtʃəbəl/",
+          "pos": "adj.",
+          "col": "friendly and approachable / approachable manager",
+          "zh": "平易近人的、容易親近的"
+        },
+        {
+          "word": "outgoing",
+          "ipa": "/ˈaʊtˌɡoʊɪŋ/",
+          "pos": "adj.",
+          "col": "outgoing personality / outgoing and friendly",
+          "zh": "外向的、善於交際的"
+        },
+        {
+          "word": "initiate",
+          "ipa": "/ɪˈnɪʃiˌeɪt/",
+          "pos": "v.",
+          "col": "initiate a conversation / initiate a project",
+          "zh": "開始、發起、主動展開"
+        },
+        {
+          "word": "contribute",
+          "ipa": "/kənˈtrɪbjut/",
+          "pos": "v.",
+          "col": "contribute ideas / contribute to a discussion",
+          "zh": "貢獻、提供（意見等）"
+        },
+        {
+          "word": "independent",
+          "ipa": "/ˌɪndɪˈpendənt/",
+          "pos": "adj.",
+          "col": "independent thinker / financially independent",
+          "zh": "獨立的、不依賴他人的"
+        }
+      ],
+      "questions": [
+        {
+          "kind": "context",
+          "q": "What is the speaker mainly doing in the talk?",
+          "opts": [
+            "Recommending places where people can make new friends.",
+            "Describing a personality type and explaining why it fits the speaker.",
+            "Giving advice on how to become more outgoing.",
+            "Comparing different kinds of social groups."
+          ],
+          "ans": 1,
+          "why": [
+            "講者並未推薦交友場所，只提到自己可以坐在咖啡館獨處。",
+            "正解：講者介紹「otrovert」這個詞，並說明自己為什麼覺得這個詞很貼切地形容了自己。",
+            "講者並不想變得更外向，反而說自己不特別外向也很自在。",
+            "講者沒有比較不同的社交團體，只說自己不需要隸屬於特定團體。"
+          ]
+        },
+        {
+          "kind": "context",
+          "q": "According to the speaker, which statement is true?",
+          "opts": [
+            "The speaker always starts conversations with strangers.",
+            "The speaker feels the need to fill every silence.",
+            "The speaker prefers to be the center of attention.",
+            "The speaker is comfortable staying quiet around other people."
+          ],
+          "ans": 3,
+          "why": [
+            "講者說自己通常不會主動開啟對話，所以並非總是主動找陌生人說話。",
+            "講者明確表示不覺得需要填滿每一段沉默。",
+            "講者說自己不需要成為眾人的焦點。",
+            "正解：講者說和別人在一起時，自己完全可以只是安靜地待著。"
+          ]
+        },
+        {
+          "kind": "context",
+          "q": "Why does the speaker mention sitting in a café alone?",
+          "opts": [
+            "To show that being by oneself feels comfortable.",
+            "To explain why the speaker dislikes crowded places.",
+            "To suggest a good place to meet new people.",
+            "To complain about feeling lonely."
+          ],
+          "ans": 0,
+          "why": [
+            "正解：講者以獨自坐在咖啡館、看人或讀書為例，說明自己不需要有人陪伴也覺得自在。",
+            "講者並未說討厭擁擠的地方。",
+            "講者沒有建議在咖啡館認識新朋友。",
+            "講者說的是享受獨處，並沒有抱怨孤單。"
+          ]
+        },
+        {
+          "kind": "part5",
+          "q": "Our new manager is highly ______, so employees feel free to ask her questions at any time.",
+          "opts": [
+            "approach",
+            "approaching",
+            "approachable",
+            "approachably"
+          ],
+          "ans": 2,
+          "why": [
+            "approach 是原形動詞或名詞，不能放在 highly 之後作補語。",
+            "approaching 是現在分詞，意思是「正在接近的」，語意不符。",
+            "正解：空格需要形容詞作 is 的補語，approachable 表示「平易近人的」。",
+            "approachably 是副詞，不能作 is 的補語。"
+          ]
+        },
+        {
+          "kind": "part5",
+          "q": "Participants are asked to speak only ______ they have something useful to add to the discussion.",
+          "opts": [
+            "unless",
+            "when",
+            "although",
+            "during"
+          ],
+          "ans": 1,
+          "why": [
+            "only unless 搭配不合文法，且語意會變成相反。",
+            "正解：only when 表示「只有在……的時候」，引導完整子句，語意正確。",
+            "although 表示「雖然」，語意不通順。",
+            "during 後面須接名詞，不能接完整子句。"
+          ]
+        },
+        {
+          "kind": "part5",
+          "q": "Mr. Park prefers to work ______, without needing close supervision from his supervisor.",
+          "opts": [
+            "independence",
+            "independent",
+            "independents",
+            "independently"
+          ],
+          "ans": 3,
+          "why": [
+            "independence 是名詞，不能修飾動詞 work。",
+            "independent 是形容詞，不能修飾動詞 work。",
+            "independents 是名詞複數，詞性不符。",
+            "正解：空格需要副詞修飾動詞 work，independently 表示「獨立地」。"
+          ]
+        }
+      ],
+      "presentation_phrases": [
+        {
+          "phrase": "Have you ever heard of the word “...”?",
+          "meaning": "你聽過「……」這個詞嗎？",
+          "usage": "以提問開場，引起聽眾對新詞或新概念的好奇"
+        },
+        {
+          "phrase": "I came across it recently, and it describes me pretty well.",
+          "meaning": "我最近剛好看到它，而且它把我形容得很貼切。",
+          "usage": "說明自己如何接觸到某個概念，並連結到個人經驗"
+        },
+        {
+          "phrase": "I enjoy connecting with people, but I don’t need to ...",
+          "meaning": "我喜歡與人交流，但我不需要……",
+          "usage": "用「喜歡……但不需要……」的對比句說明自己的個性"
+        },
+        {
+          "phrase": "I’m happy to listen and share my thoughts when I have something to contribute.",
+          "meaning": "我樂於傾聽，有可以貢獻的想法時也會分享。",
+          "usage": "說明自己在討論或交談中的參與方式"
+        },
+        {
+          "phrase": "I don’t feel the need to fill every silence.",
+          "meaning": "我不覺得需要填滿每一段沉默。",
+          "usage": "小型交談中表達自己對安靜與冷場的態度"
+        },
+        {
+          "phrase": "I don’t usually initiate conversations.",
+          "meaning": "我通常不會主動開啟對話。",
+          "usage": "描述自己在社交場合的習慣，語氣平實不失禮"
+        },
+        {
+          "phrase": "That’s why I relate to ...",
+          "meaning": "這就是為什麼我認同……",
+          "usage": "說明自己與某個概念或觀點產生共鳴的原因"
+        },
+        {
+          "phrase": "In the end, I enjoy ..., but I’m just as comfortable ...",
+          "meaning": "總之，我喜歡……，但也同樣自在於……",
+          "usage": "用於結尾，以前後對照的句型總結全篇重點"
+        }
+      ],
+      "timing": [
+        {
+          "start": 0.0,
+          "end": 2.18,
+          "from": 0,
+          "to": 43,
+          "words": [
+            [
+              0,
+              4,
+              0.0,
+              0.26
+            ],
+            [
+              5,
+              8,
+              0.26,
+              0.4
+            ],
+            [
+              9,
+              13,
+              0.4,
+              0.54
+            ],
+            [
+              14,
+              19,
+              0.54,
+              0.84
+            ],
+            [
+              20,
+              22,
+              0.84,
+              0.92
+            ],
+            [
+              23,
+              26,
+              0.92,
+              1.04
+            ],
+            [
+              27,
+              31,
+              1.04,
+              1.28
+            ],
+            [
+              32,
+              43,
+              1.28,
+              2.18
+            ]
+          ],
+          "stress": [
+            14,
+            27
+          ],
+          "acc": [
+            9,
+            0
+          ]
+        },
+        {
+          "start": 2.92,
+          "end": 6.44,
+          "from": 45,
+          "to": 113,
+          "words": [
+            [
+              45,
+              46,
+              2.92,
+              3.12
+            ],
+            [
+              47,
+              51,
+              3.12,
+              3.28
+            ],
+            [
+              52,
+              58,
+              3.28,
+              3.6
+            ],
+            [
+              59,
+              61,
+              3.6,
+              3.78
+            ],
+            [
+              62,
+              71,
+              3.78,
+              4.0
+            ],
+            [
+              72,
+              75,
+              4.0,
+              4.62
+            ],
+            [
+              76,
+              78,
+              4.62,
+              4.96
+            ],
+            [
+              79,
+              87,
+              4.96,
+              5.22
+            ],
+            [
+              88,
+              97,
+              5.22,
+              5.62
+            ],
+            [
+              98,
+              100,
+              5.62,
+              5.94
+            ],
+            [
+              101,
+              107,
+              5.94,
+              6.14
+            ],
+            [
+              108,
+              113,
+              6.14,
+              6.44
+            ]
+          ],
+          "stress": [
+            47,
+            52,
+            108
+          ],
+          "acc": [
+            52,
+            3,
+            62,
+            1,
+            79,
+            0,
+            88,
+            5,
+            101,
+            2
+          ]
+        },
+        {
+          "start": 7.04,
+          "end": 9.78,
+          "from": 115,
+          "to": 167,
+          "words": [
+            [
+              115,
+              118,
+              7.04,
+              7.16
+            ],
+            [
+              119,
+              132,
+              7.16,
+              7.78
+            ],
+            [
+              133,
+              136,
+              8.1,
+              8.32
+            ],
+            [
+              137,
+              140,
+              8.32,
+              8.62
+            ],
+            [
+              141,
+              144,
+              8.62,
+              8.74
+            ],
+            [
+              145,
+              157,
+              8.74,
+              9.16
+            ],
+            [
+              158,
+              167,
+              9.16,
+              9.78
+            ]
+          ],
+          "stress": [
+            119
+          ],
+          "acc": [
+            119,
+            4,
+            145,
+            4
+          ]
+        },
+        {
+          "start": 10.76,
+          "end": 16.54,
+          "from": 168,
+          "to": 279,
+          "words": [
+            [
+              168,
+              169,
+              10.76,
+              11.28
+            ],
+            [
+              170,
+              175,
+              11.28,
+              11.44
+            ],
+            [
+              176,
+              186,
+              11.44,
+              11.9
+            ],
+            [
+              187,
+              191,
+              11.9,
+              12.12
+            ],
+            [
+              192,
+              199,
+              12.12,
+              12.42
+            ],
+            [
+              200,
+              203,
+              12.42,
+              12.92
+            ],
+            [
+              204,
+              205,
+              12.92,
+              13.2
+            ],
+            [
+              206,
+              211,
+              13.2,
+              13.4
+            ],
+            [
+              212,
+              216,
+              13.4,
+              13.58
+            ],
+            [
+              217,
+              219,
+              13.58,
+              13.7
+            ],
+            [
+              220,
+              222,
+              13.7,
+              13.84
+            ],
+            [
+              223,
+              226,
+              13.84,
+              13.92
+            ],
+            [
+              227,
+              233,
+              13.92,
+              14.2
+            ],
+            [
+              234,
+              236,
+              14.2,
+              14.36
+            ],
+            [
+              237,
+              246,
+              14.36,
+              14.66
+            ],
+            [
+              247,
+              249,
+              14.66,
+              15.14
+            ],
+            [
+              250,
+              256,
+              15.14,
+              15.44
+            ],
+            [
+              257,
+              259,
+              15.44,
+              15.7
+            ],
+            [
+              260,
+              261,
+              15.7,
+              15.78
+            ],
+            [
+              262,
+              272,
+              15.78,
+              16.0
+            ],
+            [
+              273,
+              279,
+              16.0,
+              16.54
+            ]
+          ],
+          "stress": [
+            176,
+            206,
+            212,
+            273
+          ],
+          "acc": [
+            170,
+            3,
+            176,
+            4,
+            192,
+            1,
+            227,
+            1,
+            237,
+            3,
+            250,
+            3,
+            262,
+            4
+          ]
+        },
+        {
+          "start": 17.06,
+          "end": 21.2,
+          "from": 281,
+          "to": 381,
+          "words": [
+            [
+              281,
+              285,
+              17.06,
+              17.18
+            ],
+            [
+              286,
+              289,
+              17.18,
+              17.34
+            ],
+            [
+              290,
+              294,
+              17.34,
+              17.46
+            ],
+            [
+              295,
+              302,
+              17.46,
+              17.76
+            ],
+            [
+              303,
+              306,
+              18.06,
+              18.26
+            ],
+            [
+              307,
+              312,
+              18.26,
+              18.46
+            ],
+            [
+              313,
+              315,
+              18.46,
+              18.66
+            ],
+            [
+              316,
+              322,
+              18.66,
+              18.98
+            ],
+            [
+              323,
+              326,
+              18.98,
+              19.24
+            ],
+            [
+              327,
+              332,
+              19.24,
+              19.5
+            ],
+            [
+              333,
+              335,
+              19.5,
+              19.66
+            ],
+            [
+              336,
+              344,
+              19.66,
+              19.96
+            ],
+            [
+              345,
+              349,
+              19.96,
+              20.18
+            ],
+            [
+              350,
+              351,
+              20.18,
+              20.28
+            ],
+            [
+              352,
+              356,
+              20.28,
+              20.4
+            ],
+            [
+              357,
+              366,
+              20.4,
+              20.6
+            ],
+            [
+              367,
+              369,
+              20.6,
+              20.82
+            ],
+            [
+              370,
+              381,
+              20.82,
+              21.2
+            ]
+          ],
+          "stress": [
+            281,
+            295,
+            327,
+            336
+          ],
+          "acc": [
+            295,
+            0,
+            307,
+            1,
+            316,
+            1,
+            357,
+            1,
+            370,
+            5
+          ]
+        },
+        {
+          "start": 21.62,
+          "end": 24.14,
+          "from": 382,
+          "to": 429,
+          "words": [
+            [
+              382,
+              385,
+              21.62,
+              21.9
+            ],
+            [
+              386,
+              389,
+              21.9,
+              22.26
+            ],
+            [
+              390,
+              394,
+              22.26,
+              22.48
+            ],
+            [
+              395,
+              404,
+              22.48,
+              22.76
+            ],
+            [
+              405,
+              409,
+              22.76,
+              23.28
+            ],
+            [
+              410,
+              414,
+              23.28,
+              23.5
+            ],
+            [
+              415,
+              422,
+              23.5,
+              23.8
+            ],
+            [
+              423,
+              429,
+              23.8,
+              24.14
+            ]
+          ],
+          "stress": [
+            395,
+            405
+          ],
+          "acc": [
+            390,
+            0,
+            395,
+            1,
+            405,
+            1
+          ]
+        },
+        {
+          "start": 24.66,
+          "end": 26.4,
+          "from": 430,
+          "to": 474,
+          "words": [
+            [
+              430,
+              431,
+              24.66,
+              24.78
+            ],
+            [
+              432,
+              437,
+              24.78,
+              24.9
+            ],
+            [
+              438,
+              442,
+              24.9,
+              25.06
+            ],
+            [
+              443,
+              446,
+              25.06,
+              25.22
+            ],
+            [
+              447,
+              451,
+              25.22,
+              25.38
+            ],
+            [
+              452,
+              454,
+              25.38,
+              25.54
+            ],
+            [
+              455,
+              459,
+              25.54,
+              25.72
+            ],
+            [
+              460,
+              465,
+              25.72,
+              26.14
+            ],
+            [
+              466,
+              474,
+              26.14,
+              26.4
+            ]
+          ],
+          "stress": [
+            438,
+            447
+          ],
+          "acc": [
+            460,
+            0,
+            466,
+            1
+          ]
+        },
+        {
+          "start": 27.1,
+          "end": 28.84,
+          "from": 476,
+          "to": 514,
+          "words": [
+            [
+              476,
+              479,
+              27.1,
+              27.34
+            ],
+            [
+              480,
+              484,
+              27.34,
+              27.54
+            ],
+            [
+              485,
+              489,
+              27.54,
+              27.8
+            ],
+            [
+              490,
+              501,
+              27.8,
+              28.22
+            ],
+            [
+              502,
+              507,
+              28.22,
+              28.56
+            ],
+            [
+              508,
+              514,
+              28.56,
+              28.84
+            ]
+          ],
+          "stress": [
+            502,
+            508
+          ],
+          "acc": [
+            480,
+            0,
+            485,
+            1,
+            490,
+            1,
+            508,
+            2
+          ]
+        },
+        {
+          "start": 29.44,
+          "end": 33.3,
+          "from": 515,
+          "to": 580,
+          "words": [
+            [
+              515,
+              516,
+              29.44,
+              29.6
+            ],
+            [
+              517,
+              520,
+              29.6,
+              29.72
+            ],
+            [
+              521,
+              524,
+              29.72,
+              29.92
+            ],
+            [
+              525,
+              527,
+              29.92,
+              30.04
+            ],
+            [
+              528,
+              529,
+              30.04,
+              30.1
+            ],
+            [
+              530,
+              534,
+              30.1,
+              30.4
+            ],
+            [
+              535,
+              537,
+              30.4,
+              30.68
+            ],
+            [
+              538,
+              545,
+              30.68,
+              31.16
+            ],
+            [
+              546,
+              559,
+              31.16,
+              32.44
+            ],
+            [
+              560,
+              562,
+              32.44,
+              32.49
+            ],
+            [
+              563,
+              567,
+              32.46,
+              32.78
+            ],
+            [
+              568,
+              572,
+              32.78,
+              33.0
+            ],
+            [
+              573,
+              574,
+              33.0,
+              33.1
+            ],
+            [
+              575,
+              580,
+              33.1,
+              33.3
+            ]
+          ],
+          "stress": [
+            538,
+            546,
+            575
+          ],
+          "acc": [
+            538,
+            3
+          ]
+        },
+        {
+          "start": 33.8,
+          "end": 35.3,
+          "from": 581,
+          "to": 622,
+          "words": [
+            [
+              581,
+              582,
+              33.8,
+              33.92
+            ],
+            [
+              583,
+              588,
+              33.92,
+              34.1
+            ],
+            [
+              589,
+              593,
+              34.1,
+              34.28
+            ],
+            [
+              594,
+              601,
+              34.28,
+              34.58
+            ],
+            [
+              602,
+              604,
+              34.58,
+              34.9
+            ],
+            [
+              605,
+              609,
+              34.9,
+              35.04
+            ],
+            [
+              610,
+              622,
+              35.04,
+              35.3
+            ]
+          ],
+          "stress": [
+            583,
+            589
+          ],
+          "acc": [
+            594,
+            1,
+            610,
+            1
+          ]
+        },
+        {
+          "start": 35.92,
+          "end": 39.3,
+          "from": 624,
+          "to": 688,
+          "words": [
+            [
+              624,
+              625,
+              35.92,
+              36.1
+            ],
+            [
+              626,
+              631,
+              36.1,
+              36.32
+            ],
+            [
+              632,
+              644,
+              36.32,
+              37.1
+            ],
+            [
+              645,
+              648,
+              37.32,
+              37.56
+            ],
+            [
+              649,
+              650,
+              37.56,
+              37.8
+            ],
+            [
+              651,
+              656,
+              37.8,
+              38.02
+            ],
+            [
+              657,
+              664,
+              38.02,
+              38.34
+            ],
+            [
+              665,
+              673,
+              38.34,
+              38.84
+            ],
+            [
+              674,
+              688,
+              38.84,
+              39.3
+            ]
+          ],
+          "stress": [
+            626,
+            632
+          ],
+          "acc": [
+            626,
+            3,
+            632,
+            1,
+            657,
+            0,
+            665,
+            2,
+            674,
+            7
+          ]
+        },
+        {
+          "start": 40.18,
+          "end": 43.24,
+          "from": 689,
+          "to": 752,
+          "words": [
+            [
+              689,
+              690,
+              40.18,
+              40.34
+            ],
+            [
+              691,
+              694,
+              40.34,
+              40.46
+            ],
+            [
+              695,
+              697,
+              40.46,
+              40.56
+            ],
+            [
+              698,
+              706,
+              40.56,
+              40.8
+            ],
+            [
+              707,
+              710,
+              40.8,
+              41.16
+            ],
+            [
+              711,
+              715,
+              41.16,
+              41.48
+            ],
+            [
+              716,
+              723,
+              41.48,
+              41.84
+            ],
+            [
+              724,
+              729,
+              41.84,
+              42.18
+            ],
+            [
+              730,
+              742,
+              42.18,
+              42.66
+            ],
+            [
+              743,
+              752,
+              42.66,
+              43.24
+            ]
+          ],
+          "stress": [
+            698,
+            711
+          ],
+          "acc": [
+            698,
+            2,
+            711,
+            0,
+            716,
+            4,
+            730,
+            4
+          ]
+        },
+        {
+          "start": 43.9,
+          "end": 45.44,
+          "from": 754,
+          "to": 795,
+          "words": [
+            [
+              754,
+              760,
+              43.9,
+              44.12
+            ],
+            [
+              761,
+              764,
+              44.12,
+              44.24
+            ],
+            [
+              765,
+              766,
+              44.24,
+              44.38
+            ],
+            [
+              767,
+              773,
+              44.38,
+              44.56
+            ],
+            [
+              774,
+              776,
+              44.56,
+              44.76
+            ],
+            [
+              777,
+              782,
+              44.76,
+              44.92
+            ],
+            [
+              783,
+              785,
+              44.92,
+              45.06
+            ],
+            [
+              786,
+              795,
+              45.06,
+              45.44
+            ]
+          ],
+          "stress": [
+            761,
+            767
+          ],
+          "acc": [
+            767,
+            3
+          ]
+        },
+        {
+          "start": 45.9,
+          "end": 51.6,
+          "from": 796,
+          "to": 910,
+          "words": [
+            [
+              796,
+              799,
+              45.9,
+              46.1
+            ],
+            [
+              800,
+              812,
+              46.1,
+              46.42
+            ],
+            [
+              813,
+              824,
+              47.0,
+              47.28
+            ],
+            [
+              825,
+              827,
+              47.28,
+              47.62
+            ],
+            [
+              828,
+              830,
+              47.62,
+              47.74
+            ],
+            [
+              831,
+              834,
+              47.74,
+              47.9
+            ],
+            [
+              835,
+              841,
+              47.9,
+              48.2
+            ],
+            [
+              842,
+              845,
+              48.58,
+              48.68
+            ],
+            [
+              846,
+              851,
+              48.68,
+              49.02
+            ],
+            [
+              852,
+              862,
+              49.02,
+              49.32
+            ],
+            [
+              863,
+              867,
+              49.32,
+              49.62
+            ],
+            [
+              868,
+              874,
+              49.62,
+              49.94
+            ],
+            [
+              875,
+              882,
+              49.94,
+              50.2
+            ],
+            [
+              883,
+              890,
+              50.2,
+              50.66
+            ],
+            [
+              891,
+              894,
+              50.66,
+              50.88
+            ],
+            [
+              895,
+              899,
+              50.88,
+              51.04
+            ],
+            [
+              900,
+              902,
+              51.04,
+              51.22
+            ],
+            [
+              903,
+              906,
+              51.22,
+              51.4
+            ],
+            [
+              907,
+              910,
+              51.4,
+              51.6
+            ]
+          ],
+          "stress": [
+            800,
+            835,
+            846,
+            883
+          ],
+          "acc": [
+            800,
+            5,
+            813,
+            1,
+            846,
+            1,
+            852,
+            4,
+            868,
+            1,
+            875,
+            4,
+            883,
+            1
+          ]
+        },
+        {
+          "start": 51.6,
+          "end": 56.36,
+          "from": 912,
+          "to": 988,
+          "words": [
+            [
+              912,
+              914,
+              51.6,
+              52.2
+            ],
+            [
+              915,
+              918,
+              52.2,
+              52.32
+            ],
+            [
+              919,
+              923,
+              52.32,
+              52.54
+            ],
+            [
+              924,
+              925,
+              52.92,
+              53.08
+            ],
+            [
+              926,
+              931,
+              53.08,
+              53.34
+            ],
+            [
+              932,
+              940,
+              53.34,
+              53.8
+            ],
+            [
+              941,
+              949,
+              53.8,
+              54.08
+            ],
+            [
+              950,
+              953,
+              54.58,
+              54.78
+            ],
+            [
+              954,
+              957,
+              54.78,
+              55.1
+            ],
+            [
+              958,
+              962,
+              55.1,
+              55.3
+            ],
+            [
+              963,
+              965,
+              55.3,
+              55.48
+            ],
+            [
+              966,
+              977,
+              55.48,
+              55.72
+            ],
+            [
+              978,
+              980,
+              55.72,
+              56.06
+            ],
+            [
+              981,
+              983,
+              56.06,
+              56.18
+            ],
+            [
+              984,
+              988,
+              56.18,
+              56.36
+            ]
+          ],
+          "stress": [
+            919,
+            926,
+            932
+          ],
+          "acc": [
+            926,
+            3,
+            932,
+            1,
+            941,
+            1,
+            966,
+            1
+          ]
+        }
+      ],
+      "prosody": {
+        "v": 1,
+        "hop": 0.05,
+        "src": 923908,
+        "f0": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          274,
+          261,
+          274,
+          301,
+          249,
+          314,
+          314,
+          268,
+          210,
+          0,
+          212,
+          203,
+          194,
+          191,
+          170,
+          158,
+          148,
+          132,
+          131,
+          128,
+          128,
+          126,
+          123,
+          120,
+          120,
+          113,
+          107,
+          0,
+          0,
+          0,
+          113,
+          113,
+          113,
+          0,
+          0,
+          0,
+          140,
+          163,
+          140,
+          153,
+          169,
+          153,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          198,
+          198,
+          198,
+          0,
+          355,
+          317,
+          317,
+          355,
+          0,
+          206,
+          202,
+          202,
+          197,
+          0,
+          0,
+          0,
+          113,
+          113,
+          113,
+          0,
+          0,
+          0,
+          0,
+          112,
+          112,
+          112,
+          112,
+          0,
+          0,
+          124,
+          125,
+          124,
+          125,
+          126,
+          0,
+          0,
+          0,
+          0,
+          112,
+          118,
+          118,
+          124,
+          0,
+          0,
+          338,
+          297,
+          297,
+          256,
+          0,
+          0,
+          0,
+          154,
+          168,
+          168,
+          182,
+          0,
+          176,
+          169,
+          169,
+          161,
+          0,
+          0,
+          171,
+          157,
+          144,
+          144,
+          137,
+          137,
+          146,
+          146,
+          136,
+          139,
+          133,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          340,
+          304,
+          268,
+          267,
+          264,
+          261,
+          0,
+          233,
+          233,
+          233,
+          233,
+          0,
+          115,
+          111,
+          110,
+          110,
+          115,
+          128,
+          163,
+          169,
+          175,
+          0,
+          0,
+          157,
+          155,
+          154,
+          152,
+          147,
+          0,
+          172,
+          180,
+          189,
+          189,
+          220,
+          225,
+          230,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          130,
+          128,
+          127,
+          120,
+          116,
+          114,
+          112,
+          102,
+          101,
+          101,
+          0,
+          97,
+          104,
+          111,
+          116,
+          135,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          164,
+          159,
+          164,
+          164,
+          176,
+          184,
+          217,
+          0,
+          168,
+          170,
+          171,
+          188,
+          208,
+          0,
+          117,
+          117,
+          117,
+          0,
+          108,
+          106,
+          104,
+          106,
+          104,
+          0,
+          136,
+          147,
+          149,
+          158,
+          158,
+          149,
+          148,
+          146,
+          144,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          219,
+          209,
+          199,
+          156,
+          156,
+          156,
+          156,
+          159,
+          159,
+          147,
+          143,
+          138,
+          126,
+          132,
+          126,
+          0,
+          0,
+          124,
+          123,
+          122,
+          121,
+          114,
+          107,
+          105,
+          102,
+          0,
+          0,
+          123,
+          123,
+          123,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          118,
+          116,
+          116,
+          116,
+          115,
+          115,
+          116,
+          118,
+          116,
+          117,
+          116,
+          0,
+          110,
+          110,
+          110,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          80,
+          106,
+          115,
+          123,
+          131,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          192,
+          205,
+          217,
+          225,
+          233,
+          242,
+          0,
+          136,
+          138,
+          140,
+          151,
+          162,
+          164,
+          165,
+          0,
+          0,
+          0,
+          0,
+          162,
+          164,
+          162,
+          164,
+          162,
+          0,
+          187,
+          193,
+          199,
+          199,
+          199,
+          190,
+          161,
+          137,
+          135,
+          133,
+          0,
+          0,
+          138,
+          139,
+          140,
+          138,
+          137,
+          128,
+          117,
+          0,
+          0,
+          0,
+          150,
+          149,
+          148,
+          148,
+          142,
+          136,
+          0,
+          107,
+          114,
+          114,
+          107,
+          0,
+          0,
+          117,
+          115,
+          117,
+          117,
+          115,
+          117,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          216,
+          211,
+          205,
+          188,
+          170,
+          0,
+          0,
+          0,
+          116,
+          118,
+          118,
+          121,
+          0,
+          0,
+          209,
+          209,
+          209,
+          208,
+          0,
+          176,
+          177,
+          176,
+          176,
+          168,
+          158,
+          156,
+          158,
+          0,
+          125,
+          127,
+          126,
+          125,
+          126,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          107,
+          105,
+          103,
+          100,
+          97,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          172,
+          186,
+          194,
+          186,
+          190,
+          194,
+          0,
+          167,
+          155,
+          143,
+          141,
+          127,
+          124,
+          123,
+          122,
+          123,
+          0,
+          0,
+          0,
+          0,
+          110,
+          110,
+          110,
+          0,
+          0,
+          0,
+          104,
+          104,
+          104,
+          102,
+          105,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          162,
+          164,
+          164,
+          165,
+          0,
+          145,
+          134,
+          137,
+          137,
+          137,
+          137,
+          139,
+          142,
+          139,
+          0,
+          148,
+          148,
+          148,
+          0,
+          129,
+          127,
+          125,
+          125,
+          129,
+          128,
+          128,
+          128,
+          126,
+          118,
+          116,
+          114,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          123,
+          121,
+          121,
+          118,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          143,
+          139,
+          143,
+          145,
+          148,
+          148,
+          148,
+          147,
+          148,
+          0,
+          0,
+          0,
+          141,
+          141,
+          142,
+          142,
+          142,
+          143,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          135,
+          138,
+          140,
+          139,
+          140,
+          141,
+          141,
+          142,
+          145,
+          148,
+          152,
+          0,
+          0,
+          0,
+          154,
+          150,
+          154,
+          154,
+          147,
+          153,
+          160,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          155,
+          151,
+          155,
+          157,
+          155,
+          156,
+          163,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          206,
+          192,
+          178,
+          143,
+          143,
+          143,
+          143,
+          137,
+          140,
+          137,
+          0,
+          0,
+          0,
+          0,
+          0,
+          104,
+          102,
+          101,
+          100,
+          100,
+          0,
+          104,
+          104,
+          104,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          253,
+          245,
+          245,
+          245,
+          245,
+          245,
+          252,
+          260,
+          0,
+          177,
+          177,
+          177,
+          0,
+          0,
+          109,
+          107,
+          105,
+          105,
+          105,
+          0,
+          130,
+          143,
+          156,
+          165,
+          168,
+          168,
+          165,
+          162,
+          162,
+          161,
+          162,
+          0,
+          0,
+          0,
+          0,
+          215,
+          200,
+          200,
+          215,
+          0,
+          154,
+          155,
+          154,
+          154,
+          151,
+          145,
+          140,
+          137,
+          128,
+          115,
+          115,
+          115,
+          114,
+          115,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          98,
+          98,
+          98,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          246,
+          237,
+          237,
+          229,
+          0,
+          0,
+          150,
+          151,
+          153,
+          153,
+          161,
+          165,
+          165,
+          165,
+          134,
+          134,
+          134,
+          138,
+          179,
+          179,
+          179,
+          125,
+          125,
+          125,
+          125,
+          127,
+          128,
+          127,
+          0,
+          116,
+          118,
+          118,
+          116,
+          0,
+          185,
+          183,
+          183,
+          180,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          130,
+          127,
+          125,
+          118,
+          115,
+          110,
+          105,
+          102,
+          100,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          212,
+          211,
+          209,
+          206,
+          197,
+          188,
+          183,
+          183,
+          179,
+          183,
+          0,
+          167,
+          166,
+          167,
+          167,
+          167,
+          165,
+          168,
+          170,
+          176,
+          192,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          112,
+          125,
+          138,
+          176,
+          191,
+          205,
+          219,
+          0,
+          156,
+          157,
+          157,
+          158,
+          163,
+          166,
+          169,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          168,
+          169,
+          168,
+          162,
+          162,
+          158,
+          155,
+          148,
+          138,
+          137,
+          136,
+          135,
+          0,
+          0,
+          0,
+          109,
+          111,
+          111,
+          109,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          126,
+          124,
+          124,
+          122,
+          0,
+          162,
+          166,
+          171,
+          176,
+          176,
+          176,
+          164,
+          135,
+          128,
+          127,
+          125,
+          0,
+          123,
+          122,
+          123,
+          122,
+          122,
+          0,
+          121,
+          122,
+          121,
+          118,
+          121,
+          117,
+          117,
+          116,
+          0,
+          0,
+          142,
+          138,
+          138,
+          134,
+          0,
+          0,
+          126,
+          122,
+          119,
+          118,
+          112,
+          105,
+          104,
+          104,
+          102,
+          102,
+          102,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          184,
+          200,
+          187,
+          187,
+          187,
+          159,
+          153,
+          153,
+          150,
+          152,
+          153,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          200,
+          184,
+          184,
+          200,
+          0,
+          160,
+          157,
+          157,
+          154,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          103,
+          103,
+          103,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          150,
+          150,
+          150,
+          0,
+          0,
+          0,
+          0,
+          139,
+          142,
+          142,
+          144,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          147,
+          145,
+          142,
+          142,
+          142,
+          140,
+          139,
+          139,
+          139,
+          137,
+          137,
+          141,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vol": [
+          0,
+          0,
+          55,
+          80,
+          89,
+          98,
+          92,
+          98,
+          96,
+          94,
+          84,
+          90,
+          93,
+          72,
+          75,
+          96,
+          97,
+          94,
+          95,
+          81,
+          92,
+          99,
+          89,
+          93,
+          99,
+          97,
+          97,
+          97,
+          97,
+          87,
+          86,
+          59,
+          0,
+          0,
+          0,
+          71,
+          81,
+          92,
+          92,
+          65,
+          92,
+          97,
+          85,
+          93,
+          93,
+          84,
+          64,
+          68,
+          73,
+          48,
+          35,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          69,
+          87,
+          84,
+          71,
+          94,
+          97,
+          98,
+          88,
+          78,
+          98,
+          100,
+          100,
+          94,
+          95,
+          94,
+          81,
+          90,
+          93,
+          92,
+          92,
+          90,
+          85,
+          82,
+          91,
+          93,
+          92,
+          94,
+          86,
+          81,
+          95,
+          96,
+          93,
+          92,
+          87,
+          77,
+          54,
+          56,
+          84,
+          85,
+          92,
+          87,
+          83,
+          68,
+          83,
+          92,
+          95,
+          77,
+          92,
+          92,
+          90,
+          46,
+          94,
+          95,
+          98,
+          90,
+          77,
+          89,
+          99,
+          95,
+          72,
+          78,
+          96,
+          94,
+          95,
+          93,
+          93,
+          97,
+          95,
+          93,
+          90,
+          72,
+          70,
+          62,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          54,
+          93,
+          96,
+          98,
+          93,
+          28,
+          89,
+          100,
+          100,
+          98,
+          84,
+          92,
+          97,
+          89,
+          92,
+          92,
+          94,
+          96,
+          94,
+          92,
+          80,
+          19,
+          0,
+          94,
+          99,
+          98,
+          89,
+          59,
+          1,
+          49,
+          86,
+          90,
+          89,
+          90,
+          90,
+          78,
+          6,
+          82,
+          95,
+          66,
+          52,
+          91,
+          76,
+          96,
+          88,
+          58,
+          93,
+          91,
+          95,
+          94,
+          94,
+          94,
+          94,
+          91,
+          85,
+          66,
+          72,
+          90,
+          88,
+          82,
+          72,
+          62,
+          58,
+          51,
+          33,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          95,
+          89,
+          72,
+          51,
+          19,
+          32,
+          61,
+          64,
+          64,
+          59,
+          63,
+          69,
+          57,
+          95,
+          100,
+          100,
+          100,
+          93,
+          100,
+          100,
+          93,
+          69,
+          98,
+          96,
+          100,
+          97,
+          69,
+          95,
+          98,
+          96,
+          93,
+          67,
+          42,
+          93,
+          94,
+          83,
+          22,
+          92,
+          95,
+          94,
+          92,
+          84,
+          62,
+          30,
+          98,
+          100,
+          97,
+          79,
+          48,
+          0,
+          50,
+          81,
+          95,
+          92,
+          97,
+          94,
+          86,
+          93,
+          99,
+          99,
+          95,
+          79,
+          95,
+          89,
+          97,
+          93,
+          90,
+          94,
+          91,
+          91,
+          97,
+          97,
+          96,
+          97,
+          96,
+          85,
+          91,
+          82,
+          83,
+          85,
+          100,
+          97,
+          89,
+          92,
+          85,
+          77,
+          70,
+          65,
+          70,
+          84,
+          94,
+          97,
+          96,
+          83,
+          83,
+          95,
+          92,
+          97,
+          97,
+          96,
+          88,
+          74,
+          89,
+          94,
+          77,
+          89,
+          93,
+          82,
+          92,
+          88,
+          45,
+          85,
+          75,
+          75,
+          65,
+          45,
+          86,
+          93,
+          78,
+          53,
+          9,
+          65,
+          70,
+          34,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          61,
+          97,
+          100,
+          100,
+          99,
+          97,
+          98,
+          90,
+          84,
+          100,
+          98,
+          92,
+          99,
+          97,
+          96,
+          90,
+          91,
+          91,
+          86,
+          60,
+          55,
+          91,
+          95,
+          94,
+          89,
+          91,
+          92,
+          94,
+          86,
+          90,
+          90,
+          94,
+          95,
+          93,
+          97,
+          94,
+          91,
+          89,
+          92,
+          93,
+          91,
+          90,
+          88,
+          93,
+          88,
+          91,
+          91,
+          92,
+          97,
+          94,
+          94,
+          96,
+          95,
+          78,
+          42,
+          96,
+          92,
+          92,
+          91,
+          82,
+          82,
+          86,
+          93,
+          93,
+          89,
+          92,
+          90,
+          81,
+          87,
+          92,
+          77,
+          83,
+          92,
+          78,
+          84,
+          88,
+          83,
+          91,
+          82,
+          79,
+          96,
+          86,
+          82,
+          81,
+          68,
+          52,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          92,
+          100,
+          99,
+          84,
+          44,
+          64,
+          89,
+          97,
+          94,
+          96,
+          97,
+          97,
+          87,
+          89,
+          98,
+          93,
+          64,
+          79,
+          91,
+          99,
+          97,
+          79,
+          96,
+          84,
+          92,
+          97,
+          89,
+          59,
+          92,
+          99,
+          98,
+          96,
+          92,
+          82,
+          92,
+          89,
+          90,
+          87,
+          78,
+          92,
+          90,
+          88,
+          78,
+          64,
+          66,
+          87,
+          85,
+          78,
+          71,
+          67,
+          45,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          42,
+          76,
+          87,
+          90,
+          90,
+          77,
+          64,
+          98,
+          97,
+          90,
+          95,
+          97,
+          98,
+          98,
+          97,
+          82,
+          86,
+          90,
+          63,
+          60,
+          91,
+          96,
+          92,
+          81,
+          42,
+          88,
+          89,
+          81,
+          68,
+          75,
+          73,
+          85,
+          90,
+          82,
+          79,
+          76,
+          68,
+          62,
+          51,
+          42,
+          84,
+          88,
+          76,
+          43,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          80,
+          89,
+          95,
+          95,
+          90,
+          86,
+          94,
+          94,
+          94,
+          85,
+          97,
+          97,
+          96,
+          96,
+          82,
+          77,
+          90,
+          97,
+          88,
+          64,
+          87,
+          91,
+          93,
+          93,
+          80,
+          95,
+          98,
+          94,
+          93,
+          94,
+          91,
+          94,
+          96,
+          94,
+          88,
+          75,
+          56,
+          54,
+          46,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          39,
+          77,
+          91,
+          72,
+          95,
+          91,
+          85,
+          91,
+          96,
+          91,
+          84,
+          91,
+          85,
+          62,
+          82,
+          93,
+          83,
+          57,
+          37,
+          97,
+          97,
+          97,
+          87,
+          98,
+          97,
+          94,
+          97,
+          94,
+          88,
+          90,
+          93,
+          98,
+          98,
+          97,
+          94,
+          88,
+          71,
+          55,
+          51,
+          39,
+          6,
+          0,
+          66,
+          92,
+          94,
+          66,
+          96,
+          94,
+          94,
+          98,
+          98,
+          98,
+          92,
+          59,
+          80,
+          83,
+          76,
+          79,
+          88,
+          92,
+          91,
+          89,
+          82,
+          63,
+          68,
+          86,
+          84,
+          79,
+          50,
+          85,
+          94,
+          93,
+          94,
+          79,
+          94,
+          96,
+          92,
+          70,
+          61,
+          71,
+          55,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          23,
+          85,
+          90,
+          94,
+          90,
+          82,
+          93,
+          94,
+          96,
+          96,
+          87,
+          58,
+          68,
+          86,
+          98,
+          91,
+          76,
+          93,
+          88,
+          88,
+          80,
+          83,
+          59,
+          85,
+          91,
+          79,
+          72,
+          85,
+          91,
+          74,
+          54,
+          67,
+          51,
+          62,
+          61,
+          43,
+          34,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          86,
+          97,
+          96,
+          96,
+          91,
+          99,
+          100,
+          97,
+          94,
+          92,
+          98,
+          100,
+          99,
+          95,
+          96,
+          96,
+          94,
+          92,
+          94,
+          89,
+          91,
+          97,
+          94,
+          92,
+          91,
+          83,
+          33,
+          77,
+          97,
+          97,
+          93,
+          65,
+          9,
+          32,
+          72,
+          89,
+          88,
+          93,
+          92,
+          87,
+          79,
+          88,
+          93,
+          95,
+          93,
+          88,
+          91,
+          92,
+          93,
+          93,
+          94,
+          93,
+          93,
+          95,
+          92,
+          93,
+          88,
+          88,
+          85,
+          79,
+          49,
+          67,
+          86,
+          89,
+          74,
+          69,
+          79,
+          87,
+          83,
+          82,
+          73,
+          85,
+          79,
+          63,
+          52,
+          53,
+          82,
+          80,
+          22,
+          0,
+          0,
+          0,
+          0,
+          0,
+          53,
+          91,
+          97,
+          81,
+          96,
+          94,
+          96,
+          90,
+          69,
+          84,
+          100,
+          100,
+          94,
+          93,
+          93,
+          94,
+          96,
+          96,
+          96,
+          93,
+          84,
+          97,
+          100,
+          92,
+          49,
+          95,
+          94,
+          93,
+          90,
+          85,
+          88,
+          88,
+          49,
+          95,
+          92,
+          85,
+          25,
+          86,
+          95,
+          96,
+          93,
+          69,
+          71,
+          94,
+          77,
+          86,
+          86,
+          94,
+          89,
+          56,
+          90,
+          90,
+          93,
+          92,
+          93,
+          93,
+          92,
+          87,
+          78,
+          40,
+          91,
+          95,
+          88,
+          74,
+          63,
+          53,
+          40,
+          21,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          78,
+          95,
+          91,
+          81,
+          82,
+          98,
+          98,
+          100,
+          99,
+          94,
+          96,
+          96,
+          98,
+          97,
+          90,
+          78,
+          95,
+          83,
+          98,
+          99,
+          95,
+          96,
+          95,
+          96,
+          95,
+          85,
+          77,
+          91,
+          78,
+          72,
+          74,
+          64,
+          21,
+          68,
+          41,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          83,
+          94,
+          88,
+          95,
+          99,
+          97,
+          95,
+          70,
+          97,
+          100,
+          98,
+          96,
+          97,
+          96,
+          94,
+          77,
+          85,
+          80,
+          66,
+          37,
+          0,
+          0,
+          67,
+          75,
+          97,
+          94,
+          80,
+          80,
+          94,
+          91,
+          97,
+          96,
+          96,
+          94,
+          96,
+          96,
+          96,
+          95,
+          92,
+          87,
+          90,
+          78,
+          82,
+          96,
+          92,
+          92,
+          89,
+          87,
+          90,
+          87,
+          77,
+          31,
+          0,
+          88,
+          89,
+          76,
+          78,
+          82,
+          89,
+          94,
+          83,
+          89,
+          93,
+          63,
+          87,
+          94,
+          94,
+          95,
+          74,
+          77,
+          91,
+          90,
+          91,
+          76,
+          28,
+          64,
+          91,
+          89,
+          42,
+          91,
+          91,
+          85,
+          79,
+          90,
+          58,
+          20,
+          90,
+          93,
+          91,
+          77,
+          47,
+          47,
+          90,
+          94,
+          94,
+          94,
+          89,
+          86,
+          92,
+          90,
+          89,
+          88,
+          78,
+          76,
+          82,
+          66,
+          50,
+          79,
+          84,
+          72,
+          75,
+          70,
+          55,
+          41,
+          17,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          76,
+          95,
+          96,
+          98,
+          100,
+          100,
+          100,
+          99,
+          97,
+          94,
+          87,
+          83,
+          68,
+          50,
+          18,
+          0,
+          0,
+          41,
+          78,
+          89,
+          91,
+          94,
+          91,
+          92,
+          99,
+          100,
+          98,
+          86,
+          74,
+          94,
+          72,
+          88,
+          89,
+          85,
+          68,
+          85,
+          89,
+          73,
+          70,
+          75,
+          70,
+          63,
+          61,
+          57,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          86,
+          93,
+          91,
+          75,
+          30,
+          0,
+          15,
+          73,
+          83,
+          83,
+          70,
+          76,
+          86,
+          86,
+          78,
+          69,
+          88,
+          87,
+          82,
+          64,
+          93,
+          85,
+          60,
+          83,
+          86,
+          88,
+          90,
+          91,
+          90,
+          88,
+          90,
+          90,
+          89,
+          89,
+          84,
+          73,
+          61,
+          47,
+          12,
+          0,
+          0
+        ]
+      },
+      "extra_vocab": [
+        {
+          "text": "approachable",
+          "type": "word",
+          "ipa": "/əˈproʊtʃəbəl/",
+          "pos": "adj.",
+          "zh": "平易近人的、容易親近的",
+          "en": "easy to talk to and friendly to other people",
+          "note": "文中說話者用它形容自己友善、別人容易來搭話。後面接 but，表示「容易親近」不等於「外向」。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "approachable manager",
+              "zh": "平易近人的主管",
+              "example": {
+                "en": "Everyone likes Ms. Chen because she is an approachable manager.",
+                "zh": "大家都喜歡陳小姐，因為她是個平易近人的主管。"
+              }
+            },
+            {
+              "phrase": "friendly and approachable",
+              "zh": "友善又容易親近",
+              "example": {
+                "en": "The new staff members are friendly and approachable during training.",
+                "zh": "新進員工在訓練期間友善又容易親近。"
+              }
+            },
+            {
+              "phrase": "remain approachable",
+              "zh": "保持平易近人",
+              "example": {
+                "en": "Good leaders remain approachable even when the schedule is very busy.",
+                "zh": "好的領導者即使行程很滿，也保持平易近人。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "辦公室",
+              "en": "Our manager is very approachable, so staff often ask her for advice.",
+              "zh": "我們的經理非常平易近人，所以員工常向她請教。"
+            },
+            {
+              "tag": "客服",
+              "en": "Customers like the approachable service team at our front desk.",
+              "zh": "客人喜歡我們櫃台那個容易親近的服務團隊。"
+            },
+            {
+              "tag": "面試",
+              "en": "The company wants an approachable leader who listens to the team.",
+              "zh": "公司想找一位願意傾聽團隊、容易親近的領導者。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "reachable",
+              "ipa": "/ˈriːtʃəbəl/",
+              "diff": "reachable 指「能被聯絡到」；approachable 指個性好相處、容易接近。",
+              "kind": [
+                "spell",
+                "meaning"
+              ],
+              "example": {
+                "en": "Please stay reachable by phone while you travel this week.",
+                "zh": "本週你出差時，請保持電話能聯絡得到。"
+              }
+            },
+            {
+              "word": "available",
+              "ipa": "/əˈveɪləbəl/",
+              "diff": "available 指「有空、可取得」；approachable 指人的個性。",
+              "kind": [
+                "spell",
+                "meaning"
+              ],
+              "example": {
+                "en": "Mr. Lin is available for a short meeting at three.",
+                "zh": "林先生三點有空開一個短會。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "friendly",
+              "ipa": "/ˈfrɛndli/",
+              "diff": "friendly 是一般的友善；approachable 強調別人敢主動來找他說話。",
+              "example": {
+                "en": "The friendly receptionist welcomed every guest at the door.",
+                "zh": "友善的櫃台人員在門口歡迎每一位賓客。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "friendly",
+              "pos": "adj.",
+              "zh": "友善的",
+              "ipa": "/ˈfrɛndli/",
+              "example": {
+                "en": "Our sales team is friendly with every new customer.",
+                "zh": "我們的業務團隊對每位新客戶都很友善。"
+              }
+            },
+            {
+              "w": "helpful",
+              "pos": "adj.",
+              "zh": "樂於幫忙的",
+              "ipa": "/ˈhɛlpfəl/",
+              "example": {
+                "en": "The helpful clerk showed us where the printers are.",
+                "zh": "那位樂於幫忙的店員告訴我們印表機在哪裡。"
+              }
+            },
+            {
+              "w": "polite",
+              "pos": "adj.",
+              "zh": "有禮貌的",
+              "ipa": "/pəˈlaɪt/",
+              "example": {
+                "en": "Please be polite when you answer calls from customers.",
+                "zh": "接聽客戶來電時請保持禮貌。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "approach",
+              "ipa": "/əˈproʊtʃ/",
+              "pos": "v.",
+              "zh": "接近、向…搭話",
+              "link": "approach + -able，可以被接近的，像 reachable、available",
+              "example": {
+                "en": "We should approach the client with a clear offer.",
+                "zh": "我們應該帶著明確的提案去找客戶。"
+              }
+            },
+            {
+              "w": "approachability",
+              "ipa": "/əˌproʊtʃəˈbɪləti/",
+              "pos": "n.",
+              "zh": "平易近人",
+              "link": "approachable 去掉 -able 加 -ability，變成名詞，像 availability",
+              "example": {
+                "en": "A leader’s approachability helps staff share problems early.",
+                "zh": "領導者的平易近人讓員工能及早說出問題。"
+              }
+            },
+            {
+              "w": "unapproachable",
+              "ipa": "/ˌʌnəˈproʊtʃəbəl/",
+              "pos": "adj.",
+              "zh": "難以親近的",
+              "link": "un- 表示「不」，加在 approachable 前，意思相反，像 unhappy",
+              "example": {
+                "en": "Some employees find the director unapproachable and rarely ask questions.",
+                "zh": "有些員工覺得主任難以親近，很少發問。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "outgoing",
+          "type": "word",
+          "ipa": "/ˈaʊtˌɡoʊɪŋ/",
+          "pos": "adj.",
+          "zh": "外向的、善於交際的",
+          "en": "friendly and enjoying meeting other people",
+          "note": "文中用來描述愛社交、主動與人互動的個性。說話者否定自己「特別外向」，表示自己喜歡與人相處，但不愛當焦點。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "outgoing personality",
+              "zh": "外向的個性",
+              "example": {
+                "en": "Her outgoing personality helps her work well with customers.",
+                "zh": "她外向的個性讓她和客戶合作得很好。"
+              }
+            },
+            {
+              "phrase": "outgoing and friendly",
+              "zh": "外向又友善",
+              "example": {
+                "en": "Our receptionist is outgoing and friendly with every visitor.",
+                "zh": "我們的接待人員對每位訪客都外向又友善。"
+              }
+            },
+            {
+              "phrase": "outgoing calls",
+              "zh": "撥出的電話",
+              "example": {
+                "en": "Outgoing calls from this phone are recorded for quality control.",
+                "zh": "這支電話撥出的通話會被錄音以控管品質。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "活動",
+              "en": "Maria is outgoing, so she easily makes friends at company events.",
+              "zh": "瑪莉亞很外向，所以在公司活動中很容易交到朋友。"
+            },
+            {
+              "tag": "面試",
+              "en": "We need an outgoing sales rep who enjoys meeting new clients.",
+              "zh": "我們需要一位喜歡認識新客戶的外向業務代表。"
+            },
+            {
+              "tag": "辦公室",
+              "en": "Please put the outgoing mail in the box by noon.",
+              "zh": "請在中午前把要寄出的郵件放進箱子。"
+            },
+            {
+              "tag": "人事",
+              "en": "The outgoing manager will train her replacement next week.",
+              "zh": "即將離任的經理下週會訓練接任者。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "ongoing",
+              "ipa": "/ˈɑːnˌɡoʊɪŋ/",
+              "diff": "ongoing 指「持續進行中的」；outgoing 指個性外向，或「離開、發出的」。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The ongoing project will continue until the end of June.",
+                "zh": "這個進行中的專案會持續到六月底。"
+              }
+            },
+            {
+              "word": "incoming",
+              "ipa": "/ˈɪnˌkʌmɪŋ/",
+              "diff": "incoming 是「進來的」，和 outgoing 的「發出的」意思相反。",
+              "kind": [
+                "antonym"
+              ],
+              "example": {
+                "en": "The incoming manager will start work on Monday morning.",
+                "zh": "即將上任的經理星期一早上開始上班。"
+              }
+            },
+            {
+              "word": "shy",
+              "ipa": "/ʃaɪ/",
+              "diff": "shy 指「害羞」，是 outgoing 在個性上的反義字。",
+              "kind": [
+                "antonym"
+              ],
+              "example": {
+                "en": "The shy intern rarely speaks during the weekly meeting.",
+                "zh": "那位害羞的實習生在每週會議中很少發言。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "sociable",
+              "ipa": "/ˈsoʊʃəbəl/",
+              "diff": "sociable 強調喜歡和人往來；outgoing 更強調主動、有活力。",
+              "example": {
+                "en": "He is sociable and often joins the team for lunch.",
+                "zh": "他很善於交際，常和團隊一起吃午餐。"
+              }
+            },
+            {
+              "word": "talkative",
+              "ipa": "/ˈtɔːkətɪv/",
+              "diff": "talkative 只是「話多」；outgoing 是整體個性外向。",
+              "example": {
+                "en": "The talkative guest kept asking questions about the schedule.",
+                "zh": "那位話很多的賓客一直詢問行程的問題。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "friendly",
+              "pos": "adj.",
+              "zh": "友善的",
+              "ipa": "/ˈfrɛndli/",
+              "example": {
+                "en": "The friendly guide answered all questions about the hotel.",
+                "zh": "那位友善的導遊回答了所有關於飯店的問題。"
+              }
+            },
+            {
+              "w": "confident",
+              "pos": "adj.",
+              "zh": "有自信的",
+              "ipa": "/ˈkɑːnfɪdənt/",
+              "example": {
+                "en": "She felt confident when she gave the sales report.",
+                "zh": "她做業績報告時覺得很有自信。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "adj.",
+              "ipa": "/ˈaʊtˌɡoʊɪŋ/",
+              "zh": "外向的",
+              "en": "friendly and enjoying meeting other people",
+              "in_passage": true,
+              "example": {
+                "en": "He is outgoing and speaks easily with strangers at trade shows.",
+                "zh": "他個性外向，在商展上很容易和陌生人交談。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "ipa": "/ˈaʊtˌɡoʊɪŋ/",
+              "zh": "即將卸任的",
+              "en": "leaving a job or position soon",
+              "distinguish": "後面接 manager、director 等職稱，指即將離職的人。",
+              "example": {
+                "en": "The outgoing director introduced her successor at the meeting.",
+                "zh": "即將卸任的主任在會議上介紹了她的接任者。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "ipa": "/ˈaʊtˌɡoʊɪŋ/",
+              "zh": "發出的、外寄的",
+              "en": "sent out of a place",
+              "distinguish": "搭配 mail、calls、emails 等物品，指往外發出。",
+              "example": {
+                "en": "All outgoing emails must include the company logo.",
+                "zh": "所有寄出的電子郵件都必須附上公司標誌。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "initiate",
+          "type": "word",
+          "ipa": "/ɪˈnɪʃiˌeɪt/",
+          "pos": "v.",
+          "zh": "開始、發起、主動展開",
+          "en": "to start something or make it begin",
+          "note": "文中指「主動開啟對話」。說話者喜歡社交，但通常等別人先開口，所以不太會主動發起交談。",
+          "grammar_note": "initiate 是及物動詞，後面直接接受詞，如 initiate a conversation，不要寫成 initiate to。",
+          "forms": [
+            {
+              "w": "initiates",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "發起",
+              "ipa": "/ɪˈnɪʃiˌeɪts/",
+              "example": {
+                "en": "Mr. Wong initiates most of the discussions in our weekly meeting.",
+                "zh": "王先生在我們的週會中發起大部分的討論。"
+              }
+            },
+            {
+              "w": "initiated",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "發起了",
+              "ipa": "/ɪˈnɪʃiˌeɪtɪd/",
+              "example": {
+                "en": "The bank initiated the transfer on Monday morning.",
+                "zh": "銀行在星期一早上啟動了這筆轉帳。"
+              }
+            },
+            {
+              "w": "initiating",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在發起",
+              "ipa": "/ɪˈnɪʃiˌeɪtɪŋ/",
+              "example": {
+                "en": "She is initiating a new training plan for the sales team.",
+                "zh": "她正在為業務團隊發起一項新的訓練計畫。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "initiate a conversation",
+              "zh": "主動開啟對話",
+              "example": {
+                "en": "It takes courage to initiate a conversation with a senior manager.",
+                "zh": "要和資深經理主動攀談需要勇氣。"
+              }
+            },
+            {
+              "phrase": "initiate contact",
+              "zh": "主動聯絡",
+              "example": {
+                "en": "Please initiate contact with the supplier before Friday.",
+                "zh": "請在星期五前主動聯絡供應商。"
+              }
+            },
+            {
+              "phrase": "initiate a project",
+              "zh": "啟動專案",
+              "example": {
+                "en": "Our department plans to initiate a project to reduce waste.",
+                "zh": "我們部門計畫啟動一個減少浪費的專案。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "專案",
+              "en": "The committee will initiate the changes after the budget is approved.",
+              "zh": "預算通過後，委員會將開始推動這些改變。"
+            },
+            {
+              "tag": "客服",
+              "en": "Customers can initiate a refund request on our website.",
+              "zh": "客戶可以在我們的網站上發起退款申請。"
+            },
+            {
+              "tag": "人資",
+              "en": "HR will initiate the hiring process next Monday.",
+              "zh": "人資部門下星期一將啟動招聘流程。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "imitate",
+              "ipa": "/ˈɪməˌteɪt/",
+              "diff": "imitate 是「模仿」；initiate 是「發起、開始」。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "Interns often imitate the way senior staff talk to clients.",
+                "zh": "實習生常模仿資深員工和客戶說話的方式。"
+              }
+            },
+            {
+              "word": "terminate",
+              "ipa": "/ˈtɜːrməˌneɪt/",
+              "diff": "terminate 是「終止」，和 initiate 的「開始」意思相反。",
+              "kind": [
+                "antonym"
+              ],
+              "example": {
+                "en": "The company may terminate the contract with thirty days’ notice.",
+                "zh": "公司可在三十天前通知後終止合約。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "start",
+              "ipa": "/stɑːrt/",
+              "diff": "start 最常用、語氣一般；initiate 較正式，強調是由某人發起。",
+              "example": {
+                "en": "Let’s start the meeting now because everyone has arrived.",
+                "zh": "大家都到了，我們現在開會吧。"
+              }
+            },
+            {
+              "phrase": "kick off",
+              "diff": "kick off 較口語，常用於活動、專案或會議的開場。",
+              "example": {
+                "en": "We will kick off the campaign with a short meeting.",
+                "zh": "我們會以一場簡短的會議來開始這次活動。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "begin",
+              "pos": "v.",
+              "zh": "開始",
+              "ipa": "/bɪˈɡɪn/",
+              "example": {
+                "en": "The training session will begin at nine o’clock tomorrow.",
+                "zh": "訓練課程明天九點開始。"
+              }
+            },
+            {
+              "w": "launch",
+              "pos": "v.",
+              "zh": "推出、啟動",
+              "ipa": "/lɔːntʃ/",
+              "example": {
+                "en": "The company will launch a new app next month.",
+                "zh": "公司下個月將推出一款新的應用程式。"
+              }
+            },
+            {
+              "w": "propose",
+              "pos": "v.",
+              "zh": "提議",
+              "ipa": "/prəˈpoʊz/",
+              "example": {
+                "en": "I would like to propose a change to the schedule.",
+                "zh": "我想提議更改時程。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "initial",
+              "ipa": "/ɪˈnɪʃəl/",
+              "pos": "adj.",
+              "zh": "最初的",
+              "link": "initiate 的詞幹加 -al，變成形容詞，「一開始的」",
+              "example": {
+                "en": "The initial cost of the system was higher than expected.",
+                "zh": "這套系統的初期費用比預期高。"
+              }
+            },
+            {
+              "w": "initially",
+              "ipa": "/ɪˈnɪʃəli/",
+              "pos": "adv.",
+              "zh": "起初",
+              "link": "initial + -ly，變成副詞，像 quickly、recently",
+              "example": {
+                "en": "Initially, the plan looked simple, but it became complicated.",
+                "zh": "起初這個計畫看起來很簡單，後來變複雜了。"
+              }
+            },
+            {
+              "w": "initiative",
+              "ipa": "/ɪˈnɪʃətɪv/",
+              "pos": "n.",
+              "zh": "主動性、新計畫",
+              "link": "initiate 的詞幹加 -ive，指主動開始做事的能力",
+              "example": {
+                "en": "Thank you for taking the initiative to organize the event.",
+                "zh": "謝謝你主動籌辦這場活動。"
+              }
+            },
+            {
+              "w": "initiation",
+              "ipa": "/ɪˌnɪʃiˈeɪʃən/",
+              "pos": "n.",
+              "zh": "開始、啟動",
+              "link": "initiate + -ion，動作變名詞，像 creation、information",
+              "example": {
+                "en": "The initiation of the project was delayed by a month.",
+                "zh": "專案的啟動延後了一個月。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "contribute",
+          "type": "word",
+          "ipa": "/kənˈtrɪbjut/",
+          "pos": "v.",
+          "zh": "貢獻、提供（意見、力量）",
+          "en": "to give something, such as ideas or help, to a group",
+          "note": "文中指「有想法可以提供時才開口分享」，說話者不會為了說話而說話。這裡的受詞是 something，也就是有價值的意見。",
+          "grammar_note": "contribute to 的 to 是介系詞，後面接名詞或 V-ing，不接原形動詞；也可直接接受詞，如 contribute ideas。",
+          "forms": [
+            {
+              "w": "contributes",
+              "label": "第三人稱單數",
+              "pos": "v.",
+              "zh": "貢獻",
+              "ipa": "/kənˈtrɪbjuts/",
+              "example": {
+                "en": "Good teamwork contributes to the success of every project.",
+                "zh": "良好的團隊合作對每個專案的成功都有貢獻。"
+              }
+            },
+            {
+              "w": "contributed",
+              "label": "過去式／過去分詞",
+              "pos": "v.",
+              "zh": "貢獻了",
+              "ipa": "/kənˈtrɪbjutɪd/",
+              "example": {
+                "en": "Mr. Lee contributed several useful ideas to the proposal.",
+                "zh": "李先生為這份提案提供了幾個有用的想法。"
+              }
+            },
+            {
+              "w": "contributing",
+              "label": "現在分詞",
+              "pos": "v.",
+              "zh": "正在貢獻",
+              "ipa": "/kənˈtrɪbjutɪŋ/",
+              "example": {
+                "en": "Ms. Park is contributing a short article to the newsletter.",
+                "zh": "朴小姐正為通訊刊物撰寫一篇短文。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "contribute ideas",
+              "zh": "提供想法",
+              "example": {
+                "en": "Please contribute ideas for the new product before Friday.",
+                "zh": "請在星期五前為新產品提供想法。"
+              }
+            },
+            {
+              "phrase": "contribute to a discussion",
+              "zh": "參與討論並貢獻意見",
+              "example": {
+                "en": "New staff should feel free to contribute to a discussion.",
+                "zh": "新進員工可以放心參與討論並發表意見。"
+              }
+            },
+            {
+              "phrase": "contribute to the project",
+              "zh": "對專案有貢獻",
+              "example": {
+                "en": "Each member must contribute to the project every week.",
+                "zh": "每位成員每週都必須為專案出一份力。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "Everyone is welcome to contribute ideas during the planning meeting.",
+              "zh": "歡迎大家在規劃會議中提供想法。"
+            },
+            {
+              "tag": "公益",
+              "en": "Our staff contribute part of their salary to the charity fund.",
+              "zh": "我們的員工把部分薪水捐給慈善基金。"
+            },
+            {
+              "tag": "物流",
+              "en": "Heavy traffic contributed to the delay in our delivery.",
+              "zh": "塞車是我們送貨延誤的原因之一。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "distribute",
+              "ipa": "/dɪˈstrɪbjut/",
+              "diff": "distribute 是「分發、配送」；contribute 是「貢獻、捐出」。",
+              "kind": [
+                "sound",
+                "root"
+              ],
+              "example": {
+                "en": "We will distribute the new brochures at the trade show.",
+                "zh": "我們會在商展上發放新的簡介手冊。"
+              }
+            },
+            {
+              "word": "attribute",
+              "ipa": "/əˈtrɪbjut/",
+              "diff": "attribute 當動詞是「把…歸因於」，常寫成 attribute A to B。",
+              "kind": [
+                "root"
+              ],
+              "usage": "attribute 當名詞時重音在前（/ˈætrəbjut/），意思是「特質」；當動詞時重音在後。",
+              "example": {
+                "en": "Experts attribute the sales drop to higher prices.",
+                "zh": "專家把銷售下滑歸因於價格變高。"
+              }
+            },
+            {
+              "word": "donate",
+              "ipa": "/ˈdoʊneɪt/",
+              "diff": "donate 專指無償捐出錢或物品；contribute 範圍更廣，也可指意見與努力。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "Several companies donated computers to the local school.",
+                "zh": "幾家公司把電腦捐給當地學校。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "chip in",
+              "diff": "chip in 較口語，常指大家一起出錢或出力。",
+              "example": {
+                "en": "Everyone can chip in a few dollars for the gift.",
+                "zh": "大家可以各出幾塊錢買禮物。"
+              }
+            },
+            {
+              "word": "offer",
+              "ipa": "/ˈɔːfər/",
+              "diff": "offer 是「提供」，強調主動表示願意給；contribute 強調成為整體的一部分。",
+              "example": {
+                "en": "Feel free to offer suggestions at any time.",
+                "zh": "隨時歡迎提出建議。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "donate",
+              "pos": "v.",
+              "zh": "捐贈",
+              "ipa": "/ˈdoʊneɪt/",
+              "example": {
+                "en": "Our company will donate books to the community library.",
+                "zh": "我們公司將捐書給社區圖書館。"
+              }
+            },
+            {
+              "w": "provide",
+              "pos": "v.",
+              "zh": "提供",
+              "ipa": "/prəˈvaɪd/",
+              "example": {
+                "en": "The hotel provides free breakfast for all guests.",
+                "zh": "飯店為所有房客提供免費早餐。"
+              }
+            },
+            {
+              "w": "share",
+              "pos": "v.",
+              "zh": "分享",
+              "ipa": "/ʃɛr/",
+              "example": {
+                "en": "Please share the report with the whole team today.",
+                "zh": "請今天把報告分享給整個團隊。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "contribution",
+              "ipa": "/ˌkɑːntrɪˈbjuːʃən/",
+              "pos": "n.",
+              "zh": "貢獻、捐款",
+              "link": "contribute + -ion，動作變名詞，像 donation、information",
+              "example": {
+                "en": "Her contribution to the team was recognized at the annual dinner.",
+                "zh": "她對團隊的貢獻在年度晚宴上受到肯定。"
+              }
+            },
+            {
+              "w": "contributor",
+              "ipa": "/kənˈtrɪbjətər/",
+              "pos": "n.",
+              "zh": "貢獻者、投稿者",
+              "link": "contribute + -or，做事的人，像 actor、visitor",
+              "example": {
+                "en": "He is a regular contributor to the company newsletter.",
+                "zh": "他是公司通訊刊物的固定投稿人。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "v.",
+              "ipa": "/kənˈtrɪbjut/",
+              "zh": "貢獻、提供（意見）",
+              "en": "to give ideas or help to a group",
+              "in_passage": true,
+              "example": {
+                "en": "Anyone who wants to contribute can speak after the presentation.",
+                "zh": "想發表意見的人可以在簡報後發言。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/kənˈtrɪbjut/",
+              "zh": "捐（款）",
+              "en": "to give money to help a person or group",
+              "distinguish": "後面接金額或 money，常和 to + 機構一起出現。",
+              "example": {
+                "en": "The firm will contribute 5,000 dollars to the school.",
+                "zh": "這家公司將捐五千美元給學校。"
+              }
+            },
+            {
+              "pos": "v.",
+              "ipa": "/kənˈtrɪbjut/",
+              "zh": "促成、導致（contribute to）",
+              "en": "to be one reason why something happens",
+              "distinguish": "固定用 contribute to + 結果，主詞常是原因或事件。",
+              "example": {
+                "en": "Poor planning contributed to the late delivery of the order.",
+                "zh": "規劃不佳是訂單延遲送達的原因之一。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "independent",
+          "type": "word",
+          "ipa": "/ˌɪndɪˈpɛndənt/",
+          "pos": "adj.",
+          "zh": "獨立的、不依賴他人的",
+          "en": "able to do things without help from other people",
+          "note": "文中指說話者能自己做決定、自己享受獨處，不需要靠別人或團體。語氣是正面的，帶有自在、自主的意思。",
+          "grammar_note": "independent 後面常接介系詞 of，例如 independent of the company；名詞是 independence，不要寫成 independency。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "independent contractor",
+              "zh": "獨立承包商",
+              "example": {
+                "en": "The company hired an independent contractor to design the website.",
+                "zh": "公司聘請了一位獨立承包商來設計網站。"
+              }
+            },
+            {
+              "phrase": "independent of",
+              "zh": "不受…影響、獨立於…",
+              "example": {
+                "en": "The review team works independent of the sales department.",
+                "zh": "審查小組獨立於業務部門運作。"
+              }
+            },
+            {
+              "phrase": "independent thinker",
+              "zh": "有獨立思考能力的人",
+              "example": {
+                "en": "We value independent thinkers who can solve problems alone.",
+                "zh": "我們重視能獨立解決問題的獨立思考者。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "人資",
+              "en": "We are looking for an independent worker who needs little supervision.",
+              "zh": "我們正在找不需要太多監督的獨立工作者。"
+            },
+            {
+              "tag": "財務",
+              "en": "An independent auditor will review our financial report.",
+              "zh": "獨立的稽核人員將審查我們的財務報告。"
+            },
+            {
+              "tag": "職涯",
+              "en": "She became financially independent after getting a better job.",
+              "zh": "她換到更好的工作後，在經濟上獨立了。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "dependent",
+              "ipa": "/dɪˈpɛndənt/",
+              "diff": "dependent 指「依賴的」，和 independent 意思相反，後面接 on。",
+              "kind": [
+                "spell",
+                "antonym"
+              ],
+              "usage": "dependent on 要用 on，independent 則常接 of。",
+              "example": {
+                "en": "The small shop is dependent on a few large customers.",
+                "zh": "這家小店依賴幾位大客戶。"
+              }
+            },
+            {
+              "word": "individual",
+              "ipa": "/ˌɪndəˈvɪdʒuəl/",
+              "diff": "individual 指「個別的、單一的」；independent 指「不依賴他人的」。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "Each individual employee must sign the safety form.",
+                "zh": "每位員工都必須簽署安全表格。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "self-reliant",
+              "ipa": "/ˌsɛlf rɪˈlaɪənt/",
+              "diff": "self-reliant 強調「靠自己」；independent 還可指不受他人控制。",
+              "example": {
+                "en": "Self-reliant staff can solve small problems without asking for help.",
+                "zh": "能靠自己的員工不需要求助就能解決小問題。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "free",
+              "pos": "adj.",
+              "zh": "自由的",
+              "ipa": "/friː/",
+              "example": {
+                "en": "You are free to choose your own working hours.",
+                "zh": "你可以自由選擇自己的工作時間。"
+              }
+            },
+            {
+              "w": "confident",
+              "pos": "adj.",
+              "zh": "有自信的",
+              "ipa": "/ˈkɑːnfɪdənt/",
+              "example": {
+                "en": "He is confident that he can finish the task alone.",
+                "zh": "他有自信可以獨自完成這項工作。"
+              }
+            },
+            {
+              "w": "responsible",
+              "pos": "adj.",
+              "zh": "負責任的",
+              "ipa": "/rɪˈspɑːnsəbəl/",
+              "example": {
+                "en": "Mr. Kim is responsible for the monthly sales report.",
+                "zh": "金先生負責每月的業績報告。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "depend",
+              "ipa": "/dɪˈpɛnd/",
+              "pos": "v.",
+              "zh": "依賴、取決於",
+              "link": "independent 去掉 in- 和 -ent，剩下詞幹 depend，意思是「依靠」",
+              "example": {
+                "en": "Our success will depend on good teamwork and clear goals.",
+                "zh": "我們的成功將取決於良好的團隊合作和明確的目標。"
+              }
+            },
+            {
+              "w": "dependable",
+              "ipa": "/dɪˈpɛndəbəl/",
+              "pos": "adj.",
+              "zh": "可靠的",
+              "link": "depend + -able，可以依靠的，像 reliable、comfortable",
+              "example": {
+                "en": "We need a dependable supplier who delivers on time.",
+                "zh": "我們需要一個準時交貨、可靠的供應商。"
+              }
+            },
+            {
+              "w": "independence",
+              "ipa": "/ˌɪndɪˈpɛndəns/",
+              "pos": "n.",
+              "zh": "獨立、自主",
+              "link": "independent 的 -ent 改成 -ence，變成名詞，像 difference",
+              "example": {
+                "en": "Financial independence gives her more freedom to change jobs.",
+                "zh": "財務獨立讓她更自由地轉換工作。"
+              }
+            },
+            {
+              "w": "independently",
+              "ipa": "/ˌɪndɪˈpɛndəntli/",
+              "pos": "adv.",
+              "zh": "獨立地",
+              "link": "independent + -ly，變成副詞，像 quickly、recently",
+              "example": {
+                "en": "The two teams worked independently and shared results on Friday.",
+                "zh": "兩個團隊各自獨立作業，並在星期五分享成果。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "adj.",
+              "ipa": "/ˌɪndɪˈpɛndənt/",
+              "zh": "獨立的、能自己做事的",
+              "en": "able to do things without help from others",
+              "in_passage": true,
+              "example": {
+                "en": "Tom is independent and rarely asks for help with tasks.",
+                "zh": "湯姆很獨立，很少請人幫忙處理工作。"
+              }
+            },
+            {
+              "pos": "adj.",
+              "ipa": "/ˌɪndɪˈpɛndənt/",
+              "zh": "獨立的、不受控制的",
+              "en": "not controlled by another company or group",
+              "distinguish": "常修飾公司、機構、報告，如 independent audit，指不受他方影響。",
+              "example": {
+                "en": "The study was done by an independent research firm.",
+                "zh": "這項研究是由一家獨立的研究公司進行的。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "otrovert",
+          "type": "word",
+          "ipa": "/ˈoʊtroʊˌvɜːrt/",
+          "pos": "n.",
+          "zh": "otrovert（不屬於任何群體、獨立自在的人）",
+          "en": "a person who is friendly but does not need to belong to a group",
+          "note": "這是近年才流行的新造詞，不是多益考點。據說由西班牙文 otro（其他）加上 introvert、extrovert 的 -vert 組成，文中說話者用它形容自己：喜歡與人相處，但不需要融入群體。",
+          "grammar_note": "otrovert 是可數名詞，以母音開頭，所以單數要說 an otrovert，複數是 otroverts。",
+          "forms": [
+            {
+              "w": "otroverts",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "otrovert（複數）",
+              "ipa": "/ˈoʊtroʊˌvɜːrts/",
+              "example": {
+                "en": "Otroverts often work well in teams without needing to lead.",
+                "zh": "otrovert 常能在團隊中表現良好，而不需要當領導者。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "be an otrovert",
+              "zh": "是個 otrovert",
+              "example": {
+                "en": "It is fine to be an otrovert and still enjoy team projects.",
+                "zh": "當個 otrovert 也沒關係，一樣可以享受團隊專案。"
+              }
+            },
+            {
+              "phrase": "otrovert personality",
+              "zh": "otrovert 型的個性",
+              "example": {
+                "en": "An otrovert personality can help staff work well with different groups.",
+                "zh": "otrovert 型的個性能幫助員工與不同團體合作順利。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "團隊",
+              "en": "Our new designer is an otrovert who works well with everyone.",
+              "zh": "我們的新設計師是個 otrovert，和每個人都合作愉快。"
+            },
+            {
+              "tag": "會議",
+              "en": "As an otrovert, she shares ideas but never needs to lead.",
+              "zh": "身為 otrovert，她會分享想法，但不需要當領導者。"
+            },
+            {
+              "tag": "簡報",
+              "en": "The speaker explained that an otrovert does not need to join a group.",
+              "zh": "講者說明 otrovert 不需要加入任何群體。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "introvert",
+              "ipa": "/ˈɪntrəˌvɜːrt/",
+              "diff": "introvert 是內向的人，獨處才有精力；otrovert 不排斥與人相處，只是不需要融入群體。",
+              "kind": [
+                "spell",
+                "root"
+              ],
+              "example": {
+                "en": "The introvert prefers to prepare alone before every sales meeting.",
+                "zh": "那位內向的人偏好在每場業務會議前獨自準備。"
+              }
+            },
+            {
+              "word": "extrovert",
+              "ipa": "/ˈɛkstrəˌvɜːrt/",
+              "diff": "extrovert 是外向的人，愛與人互動；otrovert 與人相處自在但不特別外向。",
+              "kind": [
+                "spell",
+                "root"
+              ],
+              "example": {
+                "en": "The extrovert on our team enjoys leading every client presentation.",
+                "zh": "我們團隊中的外向者喜歡主導每場客戶簡報。"
+              }
+            },
+            {
+              "word": "loner",
+              "ipa": "/ˈloʊnər/",
+              "diff": "loner 指習慣獨來獨往、常不想與人往來的人；otrovert 仍樂於與人交流。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "The loner rarely joins company parties or team lunches.",
+                "zh": "那位獨來獨往的人很少參加公司派對或團隊午餐。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "sociable",
+              "pos": "adj.",
+              "zh": "善於交際的",
+              "ipa": "/ˈsoʊʃəbəl/",
+              "example": {
+                "en": "Our sociable receptionist remembers every visitor’s name and greets guests warmly.",
+                "zh": "我們善於交際的接待人員記得每位訪客的名字，並熱情招呼。"
+              }
+            },
+            {
+              "w": "independent",
+              "pos": "adj.",
+              "zh": "獨立的",
+              "ipa": "/ˌɪndɪˈpɛndənt/",
+              "example": {
+                "en": "She is independent and rarely needs help with her tasks.",
+                "zh": "她很獨立，工作上很少需要別人幫忙。"
+              }
+            },
+            {
+              "w": "comfortable",
+              "pos": "adj.",
+              "zh": "自在的、舒適的",
+              "ipa": "/ˈkʌmftərbəl/",
+              "example": {
+                "en": "New staff should feel comfortable asking questions during training.",
+                "zh": "新進員工在訓練中應該能自在地提問。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": []
         }
       ]
     },

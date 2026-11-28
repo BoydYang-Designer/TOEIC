@@ -1,0 +1,913 @@
+{
+  "week": 1,
+  "day": 1,
+  "extra_vocab": [
+    {
+      "text": "attendance record",
+      "type": "phrase",
+      "zh": "出勤紀錄、出席紀錄",
+      "en": "a list that shows who came to work or a class and when",
+      "note": "文章要求員工回覆確認出席，這類出席資料最後會被整理成出席紀錄。常用於公司人資、課程與會議的管理。",
+      "pattern": "keep / check / update + the attendance record",
+      "examples": [
+        {
+          "tag": "人資",
+          "en": "Ms. Lin checks the attendance record at the end of each month.",
+          "zh": "林小姐每個月底都會檢查出勤紀錄。"
+        },
+        {
+          "tag": "培訓",
+          "en": "Please keep an accurate attendance record for every training session.",
+          "zh": "請為每一場訓練課程保留正確的出席紀錄。"
+        },
+        {
+          "tag": "會議",
+          "en": "Her attendance record shows she missed only one meeting this year.",
+          "zh": "她的出席紀錄顯示今年只缺席過一場會議。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "attendance sheet",
+          "diff": "attendance sheet 是當場簽名的表單；attendance record 是整理後的完整紀錄。",
+          "example": {
+            "en": "Please sign the attendance sheet before you enter the meeting room.",
+            "zh": "進入會議室前請先在出席表上簽名。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "attendance rate",
+          "diff": "attendance rate 指出席的比率；attendance record 指出席的紀錄內容。",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "The attendance rate for the workshop was above ninety percent.",
+            "zh": "工作坊的出席率超過百分之九十。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "in attendance",
+      "type": "phrase",
+      "zh": "出席的、在場的",
+      "en": "present at an event or meeting",
+      "note": "文章是要求大家確認出席，in attendance 常用在正式報導或通知，說明誰有到場，語氣比 present 更正式。",
+      "pattern": "N + be in attendance / those in attendance",
+      "grammar_note": "in attendance 前面不加 the，也不說 in the attendance；放在 be 動詞後，或放在名詞後面修飾。",
+      "examples": [
+        {
+          "tag": "會議",
+          "en": "All department heads were in attendance at the quarterly meeting.",
+          "zh": "所有部門主管都出席了季會。"
+        },
+        {
+          "tag": "活動",
+          "en": "Over two hundred guests were in attendance at the opening dinner.",
+          "zh": "兩百多位賓客出席了開幕晚宴。"
+        },
+        {
+          "tag": "通知",
+          "en": "The names of those in attendance will be listed in the minutes.",
+          "zh": "出席者的姓名會列在會議紀錄中。"
+        }
+      ],
+      "similar": [
+        {
+          "word": "present",
+          "ipa": "/ˈprɛzənt/",
+          "diff": "present 較口語，常放 be 後；in attendance 較正式。",
+          "example": {
+            "en": "Only five members were present when the meeting started.",
+            "zh": "會議開始時只有五位成員在場。"
+          }
+        },
+        {
+          "word": "attend",
+          "ipa": "/əˈtɛnd/",
+          "diff": "attend 是及物動詞，後面直接接活動，不加介系詞。",
+          "example": {
+            "en": "Please attend the safety training on Thursday afternoon.",
+            "zh": "請在星期四下午參加安全訓練。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "word": "absent",
+          "ipa": "/ˈæbsənt/",
+          "diff": "absent 是「缺席的」，和 in attendance 意思相反。",
+          "kind": [
+            "antonym"
+          ],
+          "example": {
+            "en": "Two staff members were absent because of the heavy rain.",
+            "zh": "兩位員工因為大雨而缺席。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "take attendance",
+      "type": "phrase",
+      "zh": "點名、記錄出席",
+      "en": "to check who is present at a meeting or class",
+      "note": "文章要求大家事先確認出席，主辦方會藉此掌握人數；現場則常用 take attendance 來點名，多用於課程、訓練與會議。",
+      "pattern": "take attendance + at / before + 時間或場合",
+      "grammar_note": "attendance 是不可數名詞，不加 a 也不加 s，所以說 take attendance，不說 take an attendance。",
+      "examples": [
+        {
+          "tag": "訓練",
+          "en": "The trainer will take attendance at the start of each class.",
+          "zh": "講師會在每堂課開始時點名。"
+        },
+        {
+          "tag": "會議",
+          "en": "Please take attendance before the manager begins the presentation.",
+          "zh": "請在經理開始簡報前記錄出席名單。"
+        },
+        {
+          "tag": "人資",
+          "en": "We take attendance every morning to check who is working today.",
+          "zh": "我們每天早上點名，確認今天誰上班。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "check attendance",
+          "diff": "check attendance 也能用，語氣更一般，強調確認人數。",
+          "example": {
+            "en": "The assistant will check attendance when the guests arrive.",
+            "zh": "賓客抵達時，助理會確認出席人數。"
+          }
+        },
+        {
+          "phrase": "call the roll",
+          "diff": "call the roll 是逐一唱名，較傳統，多用於學校。",
+          "example": {
+            "en": "The teacher began to call the roll at nine o’clock.",
+            "zh": "老師九點開始點名。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "take part in",
+          "diff": "take part in 是「參加」某活動；take attendance 是「點名」。",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "All employees are welcome to take part in the safety workshop.",
+            "zh": "歡迎所有員工參加安全工作坊。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "presence",
+      "type": "word",
+      "ipa": "/ˈprɛzəns/",
+      "pos": "n.",
+      "zh": "出席、在場；存在",
+      "en": "the fact of being in a place at a certain time",
+      "note": "在出席相關的語境中，presence 指人「有到場」；比 attendance 更強調「人在現場」這件事，也常用在邀請函中的 your presence。",
+      "grammar_note": "presence 通常不可數；常說 in the presence of + 人，表示「在…面前」。",
+      "forms": [],
+      "collocations": [
+        {
+          "phrase": "in the presence of",
+          "zh": "在…面前、有…在場",
+          "example": {
+            "en": "The contract was signed in the presence of two witnesses.",
+            "zh": "合約是在兩位見證人面前簽署的。"
+          }
+        },
+        {
+          "phrase": "your presence",
+          "zh": "您的出席",
+          "example": {
+            "en": "Your presence at the meeting on Monday is required.",
+            "zh": "您必須出席星期一的會議。"
+          }
+        },
+        {
+          "phrase": "presence at the meeting",
+          "zh": "出席會議",
+          "example": {
+            "en": "Her presence at the meeting helped the team make a decision.",
+            "zh": "她出席會議幫助團隊做出決定。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "邀請",
+          "en": "We would be pleased to have your presence at our annual dinner.",
+          "zh": "我們很榮幸邀請您出席年度晚宴。"
+        },
+        {
+          "tag": "安全",
+          "en": "The presence of a guard at the gate makes visitors feel safe.",
+          "zh": "大門有警衛在場，讓訪客覺得安心。"
+        },
+        {
+          "tag": "市場",
+          "en": "The company has a strong presence in the Asian market.",
+          "zh": "這家公司在亞洲市場很有影響力。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "present",
+          "ipa": "/ˈprɛzənt/",
+          "diff": "present 是形容詞（在場的）或名詞（禮物），presence 是「在場」這件事。",
+          "kind": [
+            "spell",
+            "sound"
+          ],
+          "usage": "present 當動詞「簡報、呈現」時重音在後 /prɪˈzɛnt/；presence 只當名詞。",
+          "example": {
+            "en": "Every member must be present when the manager makes the announcement.",
+            "zh": "經理發布公告時，每位成員都必須在場。"
+          }
+        },
+        {
+          "word": "absence",
+          "ipa": "/ˈæbsəns/",
+          "diff": "absence 是「缺席」，和 presence 意思相反。",
+          "kind": [
+            "antonym"
+          ],
+          "example": {
+            "en": "His absence from the meeting was noticed by the whole team.",
+            "zh": "他沒出席會議，整個團隊都注意到了。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "attendance",
+          "ipa": "/əˈtɛndəns/",
+          "diff": "attendance 指出席的行為或人數；presence 強調人在現場。",
+          "example": {
+            "en": "Attendance at the training session is required for all new staff.",
+            "zh": "所有新進員工都必須參加訓練課程。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "attendance",
+          "pos": "n.",
+          "zh": "出席、出席人數",
+          "ipa": "/əˈtɛndəns/",
+          "example": {
+            "en": "Attendance at the weekly meeting has increased this month.",
+            "zh": "本月每週會議的出席人數增加了。"
+          }
+        },
+        {
+          "w": "appearance",
+          "pos": "n.",
+          "zh": "出現、外表",
+          "ipa": "/əˈpɪrəns/",
+          "example": {
+            "en": "The manager made a brief appearance at the staff party.",
+            "zh": "經理在員工派對上短暫露了面。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "present",
+          "ipa": "/ˈprɛzənt/",
+          "pos": "adj.",
+          "zh": "在場的、目前的",
+          "link": "presence 的名詞字尾 -ence，來自 present + -ence，像 independent → independence",
+          "example": {
+            "en": "All present members voted to approve the new budget.",
+            "zh": "所有在場成員都投票通過新預算。"
+          }
+        },
+        {
+          "w": "presently",
+          "ipa": "/ˈprɛzəntli/",
+          "pos": "adv.",
+          "zh": "目前、不久",
+          "link": "present + -ly，變成副詞，像 recently",
+          "example": {
+            "en": "The team is presently working on the new sales plan.",
+            "zh": "團隊目前正在處理新的業務計畫。"
+          }
+        },
+        {
+          "w": "presentation",
+          "ipa": "/ˌprɛzənˈteɪʃən/",
+          "pos": "n.",
+          "zh": "簡報、展示",
+          "link": "present（呈現）+ -ation，變成名詞，像 information",
+          "example": {
+            "en": "Her presentation on the new product impressed the board.",
+            "zh": "她的新產品簡報讓董事會留下深刻印象。"
+          }
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈprɛzəns/",
+          "zh": "出席、在場",
+          "en": "being at a place or event",
+          "in_passage": true,
+          "example": {
+            "en": "Your presence at the opening ceremony would mean a lot to us.",
+            "zh": "您出席開幕典禮對我們意義重大。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈprɛzəns/",
+          "zh": "（市場上的）據點、影響力",
+          "en": "the position a company has in a market or place",
+          "distinguish": "常搭配 strong、market、in Asia 等，指企業的存在感。",
+          "example": {
+            "en": "The firm plans to build a stronger presence in Europe.",
+            "zh": "這家公司計畫在歐洲建立更強的據點。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "absence",
+      "type": "word",
+      "ipa": "/ˈæbsəns/",
+      "pos": "n.",
+      "zh": "缺席、不在",
+      "en": "the fact of not being at a place where you should be",
+      "note": "文章提到無法出席的員工要事先提交進度，也就是為了處理「缺席」造成的資訊落差。absence 常用在公司請假與會議紀錄中。",
+      "grammar_note": "absence from + 地點／工作（缺席）；absence of + 事物（缺少某物），兩個介系詞意思不同。",
+      "forms": [
+        {
+          "w": "absences",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "缺席（複數）",
+          "ipa": "/ˈæbsənsɪz/",
+          "example": {
+            "en": "Too many absences may affect the employee’s yearly performance review.",
+            "zh": "太多次缺席可能影響員工的年度考核。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "absence from work",
+          "zh": "缺勤、沒上班",
+          "example": {
+            "en": "Please report any absence from work to your supervisor early.",
+            "zh": "任何缺勤請儘早向主管報告。"
+          }
+        },
+        {
+          "phrase": "in the absence of",
+          "zh": "在沒有…的情況下",
+          "example": {
+            "en": "In the absence of the manager, Ms. Wu will lead the meeting.",
+            "zh": "經理不在時，吳小姐會主持會議。"
+          }
+        },
+        {
+          "phrase": "leave of absence",
+          "zh": "請長假、留職停薪",
+          "example": {
+            "en": "He asked for a leave of absence to finish his studies.",
+            "zh": "他申請留職停薪以完成學業。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "人資",
+          "en": "Frequent absence from the training sessions may lead to a warning.",
+          "zh": "常缺席訓練課程可能會收到警告。"
+        },
+        {
+          "tag": "會議",
+          "en": "The director’s absence caused the meeting to be moved to Friday.",
+          "zh": "主任缺席，導致會議改到星期五。"
+        },
+        {
+          "tag": "報告",
+          "en": "The report noted an absence of clear safety rules in the office.",
+          "zh": "報告指出辦公室缺乏明確的安全規定。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "presence",
+          "ipa": "/ˈprɛzəns/",
+          "diff": "presence 是「在場」，和 absence 意思相反。",
+          "kind": [
+            "antonym"
+          ],
+          "example": {
+            "en": "The manager’s presence at the event made the guests feel welcome.",
+            "zh": "經理出席活動，讓賓客覺得受到歡迎。"
+          }
+        },
+        {
+          "word": "absent",
+          "ipa": "/ˈæbsənt/",
+          "diff": "absent 是形容詞（缺席的），absence 是名詞（缺席這件事）。",
+          "kind": [
+            "root"
+          ],
+          "usage": "be absent from + 地點或活動；名詞 absence 後面也可接 from。",
+          "example": {
+            "en": "Mr. Hall was absent from work because of a high fever.",
+            "zh": "霍爾先生因為高燒沒來上班。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "time off",
+          "diff": "time off 指請假休息，語氣較口語；absence 重點在「人不在」。",
+          "example": {
+            "en": "She asked for time off to attend her sister’s wedding.",
+            "zh": "她請假去參加姊姊的婚禮。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "leave",
+          "pos": "n.",
+          "zh": "休假",
+          "ipa": "/liːv/",
+          "example": {
+            "en": "Employees may take sick leave with a doctor’s note.",
+            "zh": "員工憑醫師證明可以請病假。"
+          }
+        },
+        {
+          "w": "vacation",
+          "pos": "n.",
+          "zh": "假期",
+          "ipa": "/veɪˈkeɪʃən/",
+          "example": {
+            "en": "Mr. Lee is on vacation until the end of the month.",
+            "zh": "李先生休假到月底。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "absent",
+          "ipa": "/ˈæbsənt/",
+          "pos": "adj.",
+          "zh": "缺席的",
+          "link": "absence 的 -ence 改成 -ent，變成形容詞，像 present",
+          "example": {
+            "en": "Three team members were absent from the morning briefing.",
+            "zh": "有三位組員缺席早上的說明會。"
+          }
+        },
+        {
+          "w": "absentee",
+          "ipa": "/ˌæbsənˈtiː/",
+          "pos": "n.",
+          "zh": "缺席者",
+          "link": "absent + -ee，被點到缺席的人，像 employee",
+          "example": {
+            "en": "The manager sent a summary to every absentee after the meeting.",
+            "zh": "會後經理寄了摘要給每位缺席者。"
+          }
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˈæbsəns/",
+          "zh": "缺席、不在",
+          "en": "not being at a place or event",
+          "in_passage": true,
+          "example": {
+            "en": "Her absence from the conference was announced this morning.",
+            "zh": "她缺席研討會一事在今早宣布。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˈæbsəns/",
+          "zh": "缺少、沒有",
+          "en": "the lack of something",
+          "distinguish": "後面接 of + 事物，不是人。",
+          "example": {
+            "en": "The absence of clear instructions confused the new employees.",
+            "zh": "缺少明確的指示讓新進員工很困惑。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "participant",
+      "type": "word",
+      "ipa": "/pɑːrˈtɪsəpənt/",
+      "pos": "n.",
+      "zh": "參加者、與會者",
+      "en": "a person who takes part in an event or activity",
+      "note": "指參與會議、課程或活動的人，比 attendee 稍強調「有參與」。常見於報名資料、活動通知與調查報告。",
+      "forms": [
+        {
+          "w": "participants",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "參加者（複數）",
+          "ipa": "/pɑːrˈtɪsəpənts/",
+          "example": {
+            "en": "All participants will receive a free lunch at the workshop.",
+            "zh": "所有參加者都能在工作坊中領到免費午餐。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "workshop participants",
+          "zh": "工作坊參加者",
+          "example": {
+            "en": "Workshop participants should bring a laptop and a notebook.",
+            "zh": "工作坊參加者請攜帶筆電與筆記本。"
+          }
+        },
+        {
+          "phrase": "participant list",
+          "zh": "參加者名單",
+          "example": {
+            "en": "Please check your name on the participant list at the desk.",
+            "zh": "請在櫃台的參加者名單上確認你的名字。"
+          }
+        },
+        {
+          "phrase": "active participant",
+          "zh": "積極參與者",
+          "example": {
+            "en": "Ms. Jones is an active participant in every team discussion.",
+            "zh": "瓊斯小姐積極參與每一次團隊討論。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "活動",
+          "en": "Each participant must sign in at the front desk before the event.",
+          "zh": "每位參加者必須在活動前於櫃台簽到。"
+        },
+        {
+          "tag": "調查",
+          "en": "Participants in the survey will receive a ten dollar gift card.",
+          "zh": "參與調查的人將獲得一張十美元禮卡。"
+        },
+        {
+          "tag": "培訓",
+          "en": "The trainer asked each participant to introduce a new idea.",
+          "zh": "講師請每位參加者介紹一個新想法。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "participate",
+          "ipa": "/pɑːrˈtɪsəˌpeɪt/",
+          "diff": "participate 是動詞（參加），participant 是名詞（參加的人）。",
+          "kind": [
+            "root"
+          ],
+          "usage": "participate 後面接 in + 活動；participant 是人，可以數。",
+          "example": {
+            "en": "Please participate in the survey before the end of this week.",
+            "zh": "請在本週結束前參與這項調查。"
+          }
+        },
+        {
+          "word": "partner",
+          "ipa": "/ˈpɑːrtnər/",
+          "diff": "partner 指合作夥伴，participant 指活動的參加者。",
+          "kind": [
+            "spell",
+            "sound"
+          ],
+          "example": {
+            "en": "Our business partner will visit the office next Tuesday.",
+            "zh": "我們的商業夥伴下星期二會來辦公室拜訪。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "attendee",
+          "ipa": "/əˌtɛnˈdiː/",
+          "diff": "attendee 指到場的人；participant 強調有參與活動。",
+          "example": {
+            "en": "Every attendee received a name tag at the registration desk.",
+            "zh": "每位出席者都在報名櫃台領到名牌。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "attendee",
+          "pos": "n.",
+          "zh": "出席者",
+          "ipa": "/əˌtɛnˈdiː/",
+          "example": {
+            "en": "The attendees were asked to fill in a short form.",
+            "zh": "出席者被要求填寫一份簡短的表格。"
+          }
+        },
+        {
+          "w": "applicant",
+          "pos": "n.",
+          "zh": "申請人、應徵者",
+          "ipa": "/ˈæplɪkənt/",
+          "example": {
+            "en": "Each applicant must send a résumé before the deadline.",
+            "zh": "每位應徵者都必須在截止前寄出履歷。"
+          }
+        },
+        {
+          "w": "member",
+          "pos": "n.",
+          "zh": "成員",
+          "ipa": "/ˈmɛmbər/",
+          "example": {
+            "en": "Every team member should read the new safety rules.",
+            "zh": "每位團隊成員都應閱讀新的安全規定。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "participate",
+          "ipa": "/pɑːrˈtɪsəˌpeɪt/",
+          "pos": "v.",
+          "zh": "參加、參與",
+          "link": "participant 的 -ant 改成 -ate，變成動詞，像 operate",
+          "example": {
+            "en": "Over fifty employees participated in the charity run last month.",
+            "zh": "上個月有五十多位員工參加了慈善路跑。"
+          }
+        },
+        {
+          "w": "participation",
+          "ipa": "/pɑːrˌtɪsəˈpeɪʃən/",
+          "pos": "n.",
+          "zh": "參與",
+          "link": "participate + -ion，動作變名詞，像 information",
+          "example": {
+            "en": "Your participation in the survey will help us improve our service.",
+            "zh": "您參與調查將有助於我們改善服務。"
+          }
+        }
+      ],
+      "pos_uses": [],
+      "senses": []
+    },
+    {
+      "text": "sign in",
+      "type": "phrase",
+      "zh": "簽到、登入",
+      "en": "to write your name when you arrive, or to enter your account on a computer",
+      "note": "在所在句裡指到前台寫下名字、辦理簽到，也是大型會議與公司訪客的常見要求。同一片語也能指登入電腦系統。",
+      "pattern": "sign in + at + 地點 / sign in to + 系統",
+      "grammar_note": "sign in 是不接受詞的片語動詞，說「簽到」直接用 sign in；登入系統要加 to，如 sign in to the system。",
+      "examples": [
+        {
+          "tag": "訪客",
+          "en": "All visitors must sign in at the security desk when they arrive.",
+          "zh": "所有訪客抵達時都必須在警衛處簽到。"
+        },
+        {
+          "tag": "系統",
+          "en": "Please sign in to the system with your employee number.",
+          "zh": "請用你的員工編號登入系統。"
+        },
+        {
+          "tag": "活動",
+          "en": "Guests can sign in at the registration table after nine o’clock.",
+          "zh": "賓客九點後可以在報名桌簽到。"
+        }
+      ],
+      "similar": [
+        {
+          "phrase": "check in",
+          "diff": "check in 常用在飯店與機場辦理手續；sign in 重點在寫下名字或登入。",
+          "example": {
+            "en": "Guests can check in at the hotel desk after two o’clock.",
+            "zh": "房客兩點後可以在飯店櫃台辦理入住。"
+          }
+        },
+        {
+          "phrase": "log in",
+          "diff": "log in 專指登入電腦或網站，語氣更偏電腦用語。",
+          "example": {
+            "en": "You need to log in to see the latest schedule.",
+            "zh": "你必須登入才能看到最新的行程表。"
+          }
+        }
+      ],
+      "confusable": [
+        {
+          "phrase": "sign up",
+          "diff": "sign up 是「報名、註冊」；sign in 是「簽到、登入」。",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "Employees can sign up for the training course on the intranet.",
+            "zh": "員工可以在內部網站報名這門訓練課程。"
+          }
+        },
+        {
+          "phrase": "sign out",
+          "diff": "sign out 是「簽退、登出」，和 sign in 意思相反。",
+          "kind": [
+            "antonym"
+          ],
+          "example": {
+            "en": "Please sign out at the front desk when you leave the building.",
+            "zh": "離開大樓時請在櫃台簽退。"
+          }
+        }
+      ]
+    },
+    {
+      "text": "registration",
+      "type": "word",
+      "ipa": "/ˌrɛdʒɪˈstreɪʃən/",
+      "pos": "n.",
+      "zh": "註冊、報名、登記",
+      "en": "the act of putting your name on an official list",
+      "note": "在會議與活動通知中，registration 指報名手續，也常指現場的報到櫃台。參加者通常需先完成報名才能入場。",
+      "forms": [
+        {
+          "w": "registrations",
+          "label": "複數",
+          "pos": "n.",
+          "zh": "報名（複數）",
+          "ipa": "/ˌrɛdʒɪˈstreɪʃənz/",
+          "example": {
+            "en": "We have received over three hundred registrations for the seminar.",
+            "zh": "我們已收到三百多份研討會的報名。"
+          }
+        }
+      ],
+      "collocations": [
+        {
+          "phrase": "registration form",
+          "zh": "報名表",
+          "example": {
+            "en": "Please complete the registration form and send it back by Friday.",
+            "zh": "請填妥報名表並在星期五前寄回。"
+          }
+        },
+        {
+          "phrase": "registration fee",
+          "zh": "報名費",
+          "example": {
+            "en": "The registration fee includes lunch and all training materials.",
+            "zh": "報名費包含午餐與所有訓練教材。"
+          }
+        },
+        {
+          "phrase": "online registration",
+          "zh": "線上報名",
+          "example": {
+            "en": "Online registration for the conference opens next Monday morning.",
+            "zh": "研討會的線上報名下星期一早上開放。"
+          }
+        }
+      ],
+      "examples": [
+        {
+          "tag": "活動",
+          "en": "Registration begins at eight, and the first session starts at nine.",
+          "zh": "報到八點開始，第一場課程九點開始。"
+        },
+        {
+          "tag": "車輛",
+          "en": "Please bring your car registration when you visit the service center.",
+          "zh": "到服務中心時請攜帶你的車輛登記證。"
+        },
+        {
+          "tag": "通知",
+          "en": "The deadline for registration has been extended until the end of May.",
+          "zh": "報名截止日已延長到五月底。"
+        }
+      ],
+      "confusable": [
+        {
+          "word": "reservation",
+          "ipa": "/ˌrɛzərˈveɪʃən/",
+          "diff": "reservation 是預訂座位或房間；registration 是報名或登記名字。",
+          "kind": [
+            "meaning"
+          ],
+          "example": {
+            "en": "We made a reservation for twelve people at the restaurant.",
+            "zh": "我們在餐廳預訂了十二人的座位。"
+          }
+        },
+        {
+          "word": "resignation",
+          "ipa": "/ˌrɛzɪɡˈneɪʃən/",
+          "diff": "resignation 是辭職，拼法和 registration 有點像，意思完全不同。",
+          "kind": [
+            "spell",
+            "sound"
+          ],
+          "example": {
+            "en": "The manager handed in his resignation letter on Monday morning.",
+            "zh": "經理在星期一早上提出辭呈。"
+          }
+        }
+      ],
+      "similar": [
+        {
+          "word": "enrollment",
+          "ipa": "/ɪnˈroʊlmənt/",
+          "diff": "enrollment 多用於學校與課程的註冊；registration 用途更廣。",
+          "example": {
+            "en": "Enrollment in the language course closes at the end of June.",
+            "zh": "語言課程的註冊在六月底截止。"
+          }
+        }
+      ],
+      "family": [
+        {
+          "w": "application",
+          "pos": "n.",
+          "zh": "申請",
+          "ipa": "/ˌæplɪˈkeɪʃən/",
+          "example": {
+            "en": "Please submit your application form by the end of this week.",
+            "zh": "請在本週結束前提交申請表。"
+          }
+        },
+        {
+          "w": "membership",
+          "pos": "n.",
+          "zh": "會員資格",
+          "ipa": "/ˈmɛmbərˌʃɪp/",
+          "example": {
+            "en": "Her gym membership will expire at the end of next month.",
+            "zh": "她的健身房會員資格下個月底到期。"
+          }
+        }
+      ],
+      "derived": [
+        {
+          "w": "register",
+          "ipa": "/ˈrɛdʒɪstər/",
+          "pos": "v.",
+          "zh": "註冊、報名",
+          "link": "register + -ation，動作變名詞，像 information、organization",
+          "example": {
+            "en": "Please register for the seminar on our website before Friday.",
+            "zh": "請在星期五前到我們網站報名研討會。"
+          }
+        }
+      ],
+      "pos_uses": [],
+      "senses": [
+        {
+          "pos": "n.",
+          "ipa": "/ˌrɛdʒɪˈstreɪʃən/",
+          "zh": "報名、註冊",
+          "en": "the act of putting your name on a list for an event or class",
+          "in_passage": true,
+          "example": {
+            "en": "Early registration for the workshop saves participants twenty dollars.",
+            "zh": "提早報名工作坊可為參加者省下二十美元。"
+          }
+        },
+        {
+          "pos": "n.",
+          "ipa": "/ˌrɛdʒɪˈstreɪʃən/",
+          "zh": "（官方）登記、登錄",
+          "en": "an official record that lists a person, a car, or a company",
+          "distinguish": "後面常接 car、vehicle、company 等，指向政府或機關登記。",
+          "example": {
+            "en": "The company completed its business registration last week.",
+            "zh": "公司上週完成了商業登記。"
+          }
+        }
+      ]
+    }
+  ]
+}
