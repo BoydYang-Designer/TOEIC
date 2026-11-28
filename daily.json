@@ -106010,6 +106010,688 @@
               }
             }
           ]
+        },
+        {
+          "text": "whenever",
+          "type": "word",
+          "ipa": "/wenˈevər/",
+          "pos": "conj.",
+          "zh": "每當、無論何時",
+          "en": "at any time that something happens",
+          "note": "在 She revises the schedule whenever the supplier changes the deadline. 這句中，whenever 引導時間子句，表示「只要供應商一更改期限，她就會修改時程」，強調每一次都會發生。",
+          "grammar_note": "whenever 後面接完整子句；說未來的事時，子句用現在式，不用 will，例如 whenever he calls（不寫 whenever he will call）。",
+          "forms": [],
+          "collocations": [
+            {
+              "phrase": "whenever possible",
+              "zh": "只要可能的話",
+              "example": {
+                "en": "Please submit your expense reports early whenever possible.",
+                "zh": "只要可能，請提早提交你的費用報告。"
+              }
+            },
+            {
+              "phrase": "whenever necessary",
+              "zh": "必要的時候",
+              "example": {
+                "en": "Staff may work from home whenever necessary during the renovation.",
+                "zh": "裝修期間，員工在必要時可以在家工作。"
+              }
+            },
+            {
+              "phrase": "whenever you are ready",
+              "zh": "等你準備好的時候",
+              "example": {
+                "en": "You can start the presentation whenever you are ready.",
+                "zh": "你準備好了就可以開始簡報。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "Please call me whenever you have questions about the schedule.",
+              "zh": "只要你對時程有疑問，隨時打電話給我。"
+            },
+            {
+              "tag": "會議",
+              "en": "We update the team whenever the project plan changes.",
+              "zh": "每當專案計畫有變動，我們就會通知團隊。"
+            },
+            {
+              "tag": "出差",
+              "en": "He checks the flight status whenever the weather looks bad.",
+              "zh": "只要天氣看起來不好，他就會查看班機狀態。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "whatever",
+              "ipa": "/wʌtˈevər/",
+              "diff": "whatever 是「無論什麼」，whenever 是「無論何時」。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "Please order whatever you need for the meeting room.",
+                "zh": "請訂購會議室需要的任何東西。"
+              }
+            },
+            {
+              "word": "wherever",
+              "ipa": "/werˈevər/",
+              "diff": "wherever 是「無論何處」，whenever 是「無論何時」。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "Keep all receipts wherever you travel on company business.",
+                "zh": "無論到哪裡出公差，都要保留所有收據。"
+              }
+            },
+            {
+              "word": "when",
+              "ipa": "/wen/",
+              "diff": "when 指特定的某一次；whenever 指每一次或任何時候。",
+              "kind": [
+                "spell",
+                "meaning"
+              ],
+              "example": {
+                "en": "Call me when the supplier confirms the new deadline.",
+                "zh": "供應商確認新期限時，請打電話給我。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "every time",
+              "diff": "every time 較口語，強調「每一次都」；whenever 也可表示「任何時候」。",
+              "example": {
+                "en": "We send a notice every time the schedule changes.",
+                "zh": "每次時程變更，我們都會寄出通知。"
+              }
+            },
+            {
+              "phrase": "each time",
+              "diff": "each time 把每一次分開來看，常用於說明重複發生的結果。",
+              "example": {
+                "en": "Each time a payment is late, the system sends an alert.",
+                "zh": "每次付款逾期，系統都會發出警示。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "once",
+              "pos": "conj.",
+              "zh": "一旦",
+              "ipa": "/wʌns/",
+              "example": {
+                "en": "Once the supplier confirms, we will place the order.",
+                "zh": "一旦供應商確認，我們就會下訂單。"
+              }
+            },
+            {
+              "w": "anytime",
+              "pos": "adv.",
+              "zh": "隨時",
+              "ipa": "/ˈenitaɪm/",
+              "example": {
+                "en": "You can call the help desk anytime during business hours.",
+                "zh": "營業時間內你可以隨時打電話給服務台。"
+              }
+            }
+          ],
+          "derived": [],
+          "pos_uses": [],
+          "senses": []
+        },
+        {
+          "text": "revision",
+          "type": "word",
+          "ipa": "/rɪˈvɪʒən/",
+          "pos": "n.",
+          "zh": "修訂、修改；修訂版",
+          "en": "a change made to improve or correct something",
+          "note": "文章標題 Revised Meeting Schedule 的 Revised 來自動詞 revise；revision 是同一字族的名詞，指「修改」這個動作，或「修訂過的版本」。",
+          "grammar_note": "revision 是可數名詞，常接 to 或 of，例如 a revision to the contract。",
+          "forms": [
+            {
+              "w": "revisions",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "修訂（複數）",
+              "ipa": "/rɪˈvɪʒənz/",
+              "example": {
+                "en": "Please send all revisions to the legal team by Friday.",
+                "zh": "請在週五前把所有修改寄給法務團隊。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "make a revision",
+              "zh": "做修改",
+              "example": {
+                "en": "We need to make a revision before the contract is signed.",
+                "zh": "合約簽署前，我們需要做一次修改。"
+              }
+            },
+            {
+              "phrase": "latest revision",
+              "zh": "最新修訂版",
+              "example": {
+                "en": "Please use the latest revision of the price list.",
+                "zh": "請使用價目表的最新修訂版。"
+              }
+            },
+            {
+              "phrase": "subject to revision",
+              "zh": "可能會修訂",
+              "example": {
+                "en": "The schedule is subject to revision without notice.",
+                "zh": "時程可能不另行通知而修訂。"
+              }
+            },
+            {
+              "phrase": "revision history",
+              "zh": "修訂紀錄",
+              "example": {
+                "en": "Check the revision history to see who changed the file.",
+                "zh": "查看修訂紀錄，就能知道是誰改了檔案。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "The final revision of the report is attached for your review.",
+              "zh": "報告的最終修訂版已附上，請您審閱。"
+            },
+            {
+              "tag": "合約",
+              "en": "The client asked for one more revision to the agreement.",
+              "zh": "客戶要求再對協議做一次修改。"
+            },
+            {
+              "tag": "會議",
+              "en": "The revision to the meeting time was sent to all staff.",
+              "zh": "會議時間的變更已寄給全體員工。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "review",
+              "ipa": "/rɪˈvjuː/",
+              "diff": "review 是檢視、審查，不一定要改；revision 是真的修改。",
+              "kind": [
+                "spell",
+                "meaning"
+              ],
+              "example": {
+                "en": "Please review the draft before we make any revision.",
+                "zh": "在做任何修改之前，請先審閱草稿。"
+              }
+            },
+            {
+              "word": "version",
+              "ipa": "/ˈvɜːrʒən/",
+              "diff": "version 泛指任何版本；revision 是修改的動作或改過之後的新版。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "This version of the manual is older than the latest revision.",
+                "zh": "這個版本的手冊比最新修訂版舊。"
+              }
+            },
+            {
+              "word": "decision",
+              "ipa": "/dɪˈsɪʒən/",
+              "diff": "兩個字都以 -ision /ɪʒən/ 結尾，念起來很像，但 decision 是決定。",
+              "kind": [
+                "sound"
+              ],
+              "example": {
+                "en": "The final decision was delayed until after the revision.",
+                "zh": "最後的決定被延到修訂完成之後。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "amendment",
+              "ipa": "/əˈmendmənt/",
+              "diff": "amendment 更正式，多用於合約或法規；revision 範圍較廣。",
+              "example": {
+                "en": "The amendment to the contract must be signed by both parties.",
+                "zh": "合約的修正條款必須由雙方簽署。"
+              }
+            },
+            {
+              "word": "update",
+              "ipa": "/ˈʌpdeɪt/",
+              "diff": "update 強調更新成最新的資訊；revision 強調修改內容。",
+              "example": {
+                "en": "Send me an update on the schedule revision by noon.",
+                "zh": "請在中午前把時程修訂的最新進度回報給我。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "change",
+              "pos": "n.",
+              "zh": "變更",
+              "ipa": "/tʃeɪndʒ/",
+              "example": {
+                "en": "We made a small change to the delivery date.",
+                "zh": "我們對交貨日期做了一個小變更。"
+              }
+            },
+            {
+              "w": "correction",
+              "pos": "n.",
+              "zh": "更正",
+              "ipa": "/kəˈrekʃən/",
+              "example": {
+                "en": "The correction fixed the wrong price in the first report.",
+                "zh": "這次更正修掉了第一份報告裡的錯誤價格。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "revise",
+              "ipa": "/rɪˈvaɪz/",
+              "pos": "v.",
+              "zh": "修訂、修改",
+              "link": "詞幹，動詞「修改」；revise + -ion 變成名詞 revision，像 decide → decision",
+              "example": {
+                "en": "Please revise the budget before the meeting starts.",
+                "zh": "請在會議開始前修改預算。"
+              }
+            },
+            {
+              "w": "revised",
+              "ipa": "/rɪˈvaɪzd/",
+              "pos": "adj.",
+              "zh": "修訂過的",
+              "link": "revise + -d，變成形容詞「改過的」，像標題 Revised Meeting Schedule",
+              "example": {
+                "en": "The revised schedule will start on Monday at ten.",
+                "zh": "修訂後的時程將在週一十點開始。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/rɪˈvɪʒən/",
+              "zh": "修改、修訂（動作）",
+              "en": "the act of changing something to make it better",
+              "example": {
+                "en": "The revision of the contract took about two days.",
+                "zh": "合約的修訂花了大約兩天。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/rɪˈvɪʒən/",
+              "zh": "修訂版",
+              "en": "a new form of a document after changes",
+              "distinguish": "前面有 latest、final 等字，或以 a／the 指一份文件時，通常是「修訂版」。",
+              "example": {
+                "en": "The latest revision of the manual is on our website.",
+                "zh": "手冊的最新修訂版已放在我們的網站上。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "edition",
+          "type": "word",
+          "ipa": "/ɪˈdɪʃən/",
+          "pos": "n.",
+          "zh": "版本、版次（書報、產品）",
+          "en": "one form of a book, newspaper, or product that is published at one time",
+          "note": "在 The revised edition of the manual will come out in May. 這句中，revised edition 指手冊的修訂版（新版），will come out 表示預計五月出版。",
+          "forms": [
+            {
+              "w": "editions",
+              "label": "複數",
+              "pos": "n.",
+              "zh": "版本（複數）",
+              "ipa": "/ɪˈdɪʃənz/",
+              "example": {
+                "en": "Both editions of the catalog list the same prices.",
+                "zh": "這兩個版本的型錄列出的價格相同。"
+              }
+            }
+          ],
+          "collocations": [
+            {
+              "phrase": "latest edition",
+              "zh": "最新版",
+              "example": {
+                "en": "Please download the latest edition of the user guide.",
+                "zh": "請下載使用手冊的最新版。"
+              }
+            },
+            {
+              "phrase": "limited edition",
+              "zh": "限量版",
+              "example": {
+                "en": "The company will release a limited edition of the smartphone.",
+                "zh": "公司將推出這款智慧型手機的限量版。"
+              }
+            },
+            {
+              "phrase": "special edition",
+              "zh": "特別版",
+              "example": {
+                "en": "A special edition magazine will be sent to all members.",
+                "zh": "特別版雜誌將寄給所有會員。"
+              }
+            },
+            {
+              "phrase": "revised edition",
+              "zh": "修訂版",
+              "example": {
+                "en": "A revised edition of the catalog lists the new prices.",
+                "zh": "型錄的修訂版列出了新的價格。"
+              }
+            }
+          ],
+          "examples": [
+            {
+              "tag": "出版",
+              "en": "The second edition of the guide has two new chapters.",
+              "zh": "這本指南的第二版新增了兩個章節。"
+            },
+            {
+              "tag": "行銷",
+              "en": "Customers can pre-order the holiday edition online this week.",
+              "zh": "顧客本週可以在線上預購節慶版。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Attached is the digital edition of this month's newsletter.",
+              "zh": "附件是本月電子報的數位版。"
+            }
+          ],
+          "confusable": [
+            {
+              "word": "addition",
+              "ipa": "/əˈdɪʃən/",
+              "diff": "addition 是「增加、新增的東西」；edition 是「版本」。",
+              "kind": [
+                "spell",
+                "sound"
+              ],
+              "example": {
+                "en": "The new printer is a useful addition to our office.",
+                "zh": "這台新印表機是我們辦公室一項實用的新增設備。"
+              }
+            },
+            {
+              "word": "edit",
+              "ipa": "/ˈedɪt/",
+              "diff": "edit 是「編輯」；edition 是編輯出版後的「版本」。",
+              "kind": [
+                "root",
+                "spell"
+              ],
+              "usage": "edit 是動詞（編輯），edition 是名詞（版本），不能互換。",
+              "example": {
+                "en": "Please edit the draft before it goes to the printer.",
+                "zh": "請在草稿送去印刷前先編輯。"
+              }
+            }
+          ],
+          "similar": [
+            {
+              "word": "version",
+              "ipa": "/ˈvɜːrʒən/",
+              "diff": "version 可指任何版本（軟體、文件）；edition 多指出版品的版次。",
+              "example": {
+                "en": "The online version of the guide is free to download.",
+                "zh": "這本指南的線上版可以免費下載。"
+              }
+            },
+            {
+              "word": "issue",
+              "ipa": "/ˈɪʃuː/",
+              "diff": "issue 指期刊的「某一期」；edition 指同一本書的「某一版」。",
+              "example": {
+                "en": "The June issue of the magazine features our new product.",
+                "zh": "雜誌六月號介紹了我們的新產品。"
+              }
+            }
+          ],
+          "family": [
+            {
+              "w": "publication",
+              "pos": "n.",
+              "zh": "出版、出版品",
+              "ipa": "/ˌpʌblɪˈkeɪʃən/",
+              "example": {
+                "en": "The publication of the new guide was delayed by a week.",
+                "zh": "新指南的出版延後了一週。"
+              }
+            },
+            {
+              "w": "copy",
+              "pos": "n.",
+              "zh": "一本、一份",
+              "ipa": "/ˈkɑːpi/",
+              "example": {
+                "en": "Each employee will receive a copy of the safety manual.",
+                "zh": "每位員工都會收到一本安全手冊。"
+              }
+            }
+          ],
+          "derived": [
+            {
+              "w": "edit",
+              "ipa": "/ˈedɪt/",
+              "pos": "v.",
+              "zh": "編輯",
+              "link": "詞幹，動詞「編輯」；edit + -ion 變成名詞 edition，像 act → action",
+              "example": {
+                "en": "I will edit the report and send it back today.",
+                "zh": "我會編輯這份報告，今天寄回給你。"
+              }
+            },
+            {
+              "w": "editor",
+              "ipa": "/ˈedɪtər/",
+              "pos": "n.",
+              "zh": "編輯",
+              "link": "edit + -or，做事的人，像 actor、visitor",
+              "example": {
+                "en": "The editor approved the final version of the article.",
+                "zh": "編輯核准了這篇文章的最終版本。"
+              }
+            }
+          ],
+          "pos_uses": [],
+          "senses": [
+            {
+              "pos": "n.",
+              "ipa": "/ɪˈdɪʃən/",
+              "zh": "版本、版次",
+              "en": "one form of a book or product published at one time",
+              "example": {
+                "en": "The latest edition of the guide includes new safety rules.",
+                "zh": "這本指南的最新版包含了新的安全規定。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ɪˈdɪʃən/",
+              "zh": "（活動的）屆",
+              "en": "one time that a regular event is held",
+              "distinguish": "後面接 of the trade fair 這類固定舉辦的活動時，指「第幾屆」。",
+              "example": {
+                "en": "This year's edition of the trade show drew record crowds.",
+                "zh": "今年這一屆的展覽吸引了創紀錄的人潮。"
+              }
+            },
+            {
+              "pos": "n.",
+              "ipa": "/ɪˈdɪʃən/",
+              "zh": "（報紙的）版次",
+              "en": "a newspaper printed for a certain time of day",
+              "distinguish": "前面有 morning、evening 等時段時，指當天的某一版報紙。",
+              "example": {
+                "en": "The morning edition of the paper reported the merger.",
+                "zh": "報紙的早報版報導了這次合併。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "come out",
+          "type": "phrase",
+          "zh": "出版、發行；上市；（結果、消息）公布",
+          "en": "to be published or made available to the public",
+          "note": "在 The revised edition of the manual will come out in May. 這句中，come out 指手冊修訂版「問世、出版」，語氣中性，常用於書籍、產品、報告或結果。",
+          "pattern": "N + will come out + in／on + 時間",
+          "grammar_note": "come out 是不及物片語動詞，後面不接受詞，也不用被動；要用被動就改成 be released 或 be published。",
+          "examples": [
+            {
+              "tag": "出版",
+              "en": "The new edition of the guide will come out next month.",
+              "zh": "這本指南的新版將在下個月出版。"
+            },
+            {
+              "tag": "產品",
+              "en": "Our latest tablet comes out in stores this Friday.",
+              "zh": "我們最新的平板電腦本週五在店裡上市。"
+            },
+            {
+              "tag": "結果",
+              "en": "The survey results will come out before the board meeting.",
+              "zh": "調查結果會在董事會議之前公布。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "be released",
+              "diff": "較正式，可用被動，強調對外發布。",
+              "example": {
+                "en": "The new software will be released at the end of June.",
+                "zh": "新軟體將在六月底發布。"
+              }
+            },
+            {
+              "phrase": "be published",
+              "diff": "專指出版或刊登，用於書、文章、報告。",
+              "example": {
+                "en": "The annual report will be published in early March.",
+                "zh": "年度報告將在三月初出版。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "come up",
+              "diff": "come up 指（話題、問題）出現，或即將到來，不是出版。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "A scheduling problem came up during the meeting this morning.",
+                "zh": "今天早上開會時出現了一個排程問題。"
+              }
+            },
+            {
+              "word": "go out",
+              "diff": "go out 指外出，或（郵件、通知）被寄出；不是出版。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "The invitations will go out to all clients on Monday.",
+                "zh": "邀請函將在週一寄給所有客戶。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "price list",
+          "type": "phrase",
+          "zh": "價目表、價格表",
+          "en": "a document that shows the prices of products or services",
+          "note": "在 We update the price list every month. 這句中，price list 是每月例行更新的價目表。",
+          "pattern": "update／send／check + the price list",
+          "grammar_note": "price list 是複合名詞，前面的 price 用單數，不寫成 prices list；想強調多個價格時可說 a list of prices。",
+          "examples": [
+            {
+              "tag": "電子郵件",
+              "en": "Please find the updated price list attached to this e-mail.",
+              "zh": "請見本郵件附上的最新價目表。"
+            },
+            {
+              "tag": "採購",
+              "en": "The supplier sent a new price list for the next quarter.",
+              "zh": "供應商寄來了下一季的新價目表。"
+            },
+            {
+              "tag": "客服",
+              "en": "Our staff can send you the full price list on request.",
+              "zh": "我們的人員可依您的要求寄出完整的價目表。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "price sheet",
+              "diff": "較口語，通常是單頁的簡易價格表。",
+              "example": {
+                "en": "Please print the price sheet for tomorrow's client visit.",
+                "zh": "請把價格表印出來，供明天的客戶來訪使用。"
+              }
+            },
+            {
+              "phrase": "rate card",
+              "diff": "多用於廣告、服務、運費的收費表。",
+              "example": {
+                "en": "The magazine sent us its advertising rate card this morning.",
+                "zh": "雜誌社今天早上寄來了他們的廣告費率表。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "quotation",
+              "ipa": "/kwoʊˈteɪʃən/",
+              "diff": "price list 是固定的公開價格；quotation 是針對某一筆交易的報價單。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "We requested a quotation for two hundred printer cartridges.",
+                "zh": "我們請對方為兩百個印表機墨水匣報價。"
+              }
+            },
+            {
+              "word": "invoice",
+              "ipa": "/ˈɪnvɔɪs/",
+              "diff": "invoice 是交易後的請款單；price list 是交易前的價格表。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "Please pay the invoice within thirty days of delivery.",
+                "zh": "請在交貨後三十天內支付請款單上的款項。"
+              }
+            }
+          ]
         }
       ],
       "prosody": {
@@ -151964,6 +152646,14 @@
                 "en": "Please sign the reverse side of the form before you return it.",
                 "zh": "交回表格前，請在背面簽名。"
               }
+            },
+            {
+              "phrase": "reverse a decision",
+              "zh": "撤銷決定、推翻決定",
+              "example": {
+                "en": "The board decided to reverse its decision after reviewing the new data.",
+                "zh": "董事會在檢視新數據後決定撤銷原先的決定。"
+              }
             }
           ],
           "examples": [
@@ -152116,6 +152806,12 @@
                 "en": "Sign your name on the reverse of the check.",
                 "zh": "請在支票背面簽名。"
               }
+            }
+          ],
+          "ex_done": [
+            {
+              "id": "xmx0lqwwearsz",
+              "result": "added"
             }
           ]
         },
@@ -240987,6 +241683,74 @@
               "example": {
                 "en": "Please choose a payment method before completing your order.",
                 "zh": "完成訂單前，請選擇付款方式。"
+              }
+            }
+          ]
+        },
+        {
+          "text": "sales forecast",
+          "type": "phrase",
+          "zh": "銷售預測",
+          "en": "an estimate of how much a company will sell in the future",
+          "note": "這篇文章談的是 cash flow forecast（現金流預測）；sales forecast 是同類的「預測」搭配，指對未來銷售量或銷售額的估計，常在財務與會議情境中被檢視、上修或下修。",
+          "pattern": "review／revise + the sales forecast + for + 期間",
+          "grammar_note": "sales 當形容詞用時固定加 s，如 sales forecast、sales team，不寫成 sale forecast。",
+          "examples": [
+            {
+              "tag": "會議",
+              "en": "The team reviewed the sales forecast for the next quarter.",
+              "zh": "團隊檢視了下一季的銷售預測。"
+            },
+            {
+              "tag": "電子郵件",
+              "en": "Please send me the revised sales forecast by Friday noon.",
+              "zh": "請在週五中午前把修訂後的銷售預測寄給我。"
+            },
+            {
+              "tag": "財務",
+              "en": "A weak sales forecast may lead us to reduce our orders.",
+              "zh": "疲弱的銷售預測可能會讓我們減少訂購量。"
+            }
+          ],
+          "similar": [
+            {
+              "phrase": "sales projection",
+              "diff": "projection 多指依數據推算的估計，常用於較長期的計畫；forecast 較通用。",
+              "example": {
+                "en": "The sales projection for next year shows steady growth.",
+                "zh": "明年的銷售推估顯示會穩定成長。"
+              }
+            },
+            {
+              "phrase": "revenue forecast",
+              "diff": "預測的是營收金額；sales forecast 可指銷售量或銷售額。",
+              "example": {
+                "en": "The finance team updated the revenue forecast this week.",
+                "zh": "財務團隊本週更新了營收預測。"
+              }
+            }
+          ],
+          "confusable": [
+            {
+              "word": "sales target",
+              "diff": "sales target 是「想達成的目標」；sales forecast 是「預期會發生的結果」。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "Our sales target for June is two hundred new orders.",
+                "zh": "我們六月的銷售目標是兩百筆新訂單。"
+              }
+            },
+            {
+              "word": "sales figures",
+              "diff": "sales figures 是「實際的銷售數字」；sales forecast 是對未來的預測。",
+              "kind": [
+                "meaning"
+              ],
+              "example": {
+                "en": "The sales figures for May were higher than expected.",
+                "zh": "五月的銷售數字比預期的高。"
               }
             }
           ]

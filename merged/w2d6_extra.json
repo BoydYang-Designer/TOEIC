@@ -1,0 +1,74 @@
+{
+ "week": 2,
+ "day": 6,
+ "extra_vocab": [
+  {
+   "text": "sales forecast",
+   "type": "phrase",
+   "zh": "銷售預測",
+   "en": "an estimate of how much a company will sell in the future",
+   "note": "這篇文章談的是 cash flow forecast（現金流預測）；sales forecast 是同類的「預測」搭配，指對未來銷售量或銷售額的估計，常在財務與會議情境中被檢視、上修或下修。",
+   "pattern": "review／revise + the sales forecast + for + 期間",
+   "grammar_note": "sales 當形容詞用時固定加 s，如 sales forecast、sales team，不寫成 sale forecast。",
+   "examples": [
+    {
+     "tag": "會議",
+     "en": "The team reviewed the sales forecast for the next quarter.",
+     "zh": "團隊檢視了下一季的銷售預測。"
+    },
+    {
+     "tag": "電子郵件",
+     "en": "Please send me the revised sales forecast by Friday noon.",
+     "zh": "請在週五中午前把修訂後的銷售預測寄給我。"
+    },
+    {
+     "tag": "財務",
+     "en": "A weak sales forecast may lead us to reduce our orders.",
+     "zh": "疲弱的銷售預測可能會讓我們減少訂購量。"
+    }
+   ],
+   "similar": [
+    {
+     "phrase": "sales projection",
+     "diff": "projection 多指依數據推算的估計，常用於較長期的計畫；forecast 較通用。",
+     "example": {
+      "en": "The sales projection for next year shows steady growth.",
+      "zh": "明年的銷售推估顯示會穩定成長。"
+     }
+    },
+    {
+     "phrase": "revenue forecast",
+     "diff": "預測的是營收金額；sales forecast 可指銷售量或銷售額。",
+     "example": {
+      "en": "The finance team updated the revenue forecast this week.",
+      "zh": "財務團隊本週更新了營收預測。"
+     }
+    }
+   ],
+   "confusable": [
+    {
+     "word": "sales target",
+     "diff": "sales target 是「想達成的目標」；sales forecast 是「預期會發生的結果」。",
+     "kind": [
+      "meaning"
+     ],
+     "example": {
+      "en": "Our sales target for June is two hundred new orders.",
+      "zh": "我們六月的銷售目標是兩百筆新訂單。"
+     }
+    },
+    {
+     "word": "sales figures",
+     "diff": "sales figures 是「實際的銷售數字」；sales forecast 是對未來的預測。",
+     "kind": [
+      "meaning"
+     ],
+     "example": {
+      "en": "The sales figures for May were higher than expected.",
+      "zh": "五月的銷售數字比預期的高。"
+     }
+    }
+   ]
+  }
+ ]
+}
